@@ -96,7 +96,7 @@ const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumb
 };
 
 const StoryDefault = (args: CalendarProps) => {
-    const { isRange, isDouble, min, max, date, includeEdgeDates, size, locale } = args;
+    const { isRange, isDouble, min, max, date, includeEdgeDates, size, locale, ...rest } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
     const [valueRange, setValueRange] = useState<[Date, Date?]>([new Date(2023, 10, 16), new Date(2023, 10, 23)]);
 
@@ -109,18 +109,23 @@ const StoryDefault = (args: CalendarProps) => {
     }, []);
 
     return (
-        <Calendar
-            size={size}
-            isRange={isRange}
-            isDouble={isDouble}
-            date={date}
-            value={(isRange ? valueRange : value) as Date & [Date, Date?]}
-            min={min}
-            max={max}
-            includeEdgeDates={includeEdgeDates}
-            locale={locale}
-            onChangeValue={(isRange ? handleOnRangeChange : handleOnChange) as (value: Date | [Date, Date?]) => void}
-        />
+        <div style={{ height: '100vh' }}>
+            <Calendar
+                size={size}
+                isRange={isRange}
+                isDouble={isDouble}
+                date={date}
+                includeEdgeDates={includeEdgeDates}
+                locale={locale}
+                min={min}
+                max={max}
+                {...rest}
+                value={(isRange ? valueRange : value) as Date & [Date, Date?]}
+                onChangeValue={
+                    (isRange ? handleOnRangeChange : handleOnChange) as (value: Date | [Date, Date?]) => void
+                }
+            />
+        </div>
     );
 };
 
@@ -133,12 +138,13 @@ export const Default: StoryObj<CalendarProps> = {
         includeEdgeDates: false,
         size: 'm',
         locale: 'ru',
+        stretched: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
 
 const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
-    const { min, max, includeEdgeDates, size, displayDouble, locale } = args;
+    const { min, max, includeEdgeDates, size, displayDouble, locale, ...rest } = args;
     const [value, setValue] = useState(new Date(2023, 6, 7));
     const [currentState, setCurrentState] = useState('Days');
 
@@ -161,34 +167,34 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
             <CalendarDouble
                 size={size}
                 value={value}
-                min={min}
-                max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
-                onChangeValue={handleOnChange}
                 locale={locale}
+                onChangeValue={handleOnChange}
+                min={min}
+                max={max}
                 {...rest}
             />
         ) : (
             <CalendarBase
                 size={size}
                 value={value}
-                min={min}
-                max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
-                onChangeValue={handleOnChange}
                 locale={locale}
+                onChangeValue={handleOnChange}
+                min={min}
+                max={max}
                 {...rest}
             />
         );
     };
 
     const calendarMap = {
-        Days: getCalendarComponent({ type: 'Days', eventList: eventList.current, disabledList: disabledDays }),
-        Months: getCalendarComponent({ type: 'Months', eventMonthList: eventMonthList.current }),
-        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: eventQuarterList.current }),
-        Years: getCalendarComponent({ type: 'Years', eventYearList: eventYearList.current }),
+        Days: getCalendarComponent({ type: 'Days', eventList: eventList.current, disabledList: disabledDays, ...rest }),
+        Months: getCalendarComponent({ type: 'Months', eventMonthList: eventMonthList.current, ...rest }),
+        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: eventQuarterList.current, ...rest }),
+        Years: getCalendarComponent({ type: 'Years', eventYearList: eventYearList.current, ...rest }),
     };
 
     return (
@@ -207,7 +213,7 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
                     </TabItem>
                 ))}
             </Tabs>
-            <div style={{ marginTop: '1rem' }}>{calendarMap[currentState]}</div>
+            <div style={{ marginTop: '1rem', height: '100vh' }}>{calendarMap[currentState]}</div>
         </>
     );
 };
@@ -223,12 +229,13 @@ export const Base: StoryObj<CalendarBaseProps & { displayDouble: boolean }> = {
         includeEdgeDates: false,
         displayDouble: false,
         locale: 'ru',
+        stretched: false,
     },
     render: (args) => <StoryBase {...args} />,
 };
 
 const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) => {
-    const { min, max, includeEdgeDates, size, displayDouble, locale } = args;
+    const { min, max, includeEdgeDates, size, displayDouble, locale, ...rest } = args;
     const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 6, 1), new Date(2023, 6, 16)]);
     const [currentState, setCurrentState] = useState('Days');
 
@@ -250,35 +257,35 @@ const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) =
         return displayDouble ? (
             <CalendarBaseRange
                 size={size}
-                value={values}
-                min={min}
-                max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
-                onChangeValue={handleOnChange}
                 locale={locale}
+                min={min}
+                max={max}
                 {...rest}
+                value={values}
+                onChangeValue={handleOnChange}
             />
         ) : (
             <CalendarDoubleRange
                 size={size}
-                value={values}
-                min={min}
-                max={max}
                 includeEdgeDates={includeEdgeDates}
                 type={type}
-                onChangeValue={handleOnChange}
                 locale={locale}
+                min={min}
+                max={max}
                 {...rest}
+                value={values}
+                onChangeValue={handleOnChange}
             />
         );
     };
 
     const calendarMap = {
-        Days: getCalendarComponent({ type: 'Days', eventList: eventList.current, disabledList: disabledDays }),
-        Months: getCalendarComponent({ type: 'Months', eventMonthList: eventMonthList.current }),
-        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: eventQuarterList.current }),
-        Years: getCalendarComponent({ type: 'Years', eventYearList: eventYearList.current }),
+        Days: getCalendarComponent({ type: 'Days', eventList: eventList.current, disabledList: disabledDays, ...rest }),
+        Months: getCalendarComponent({ type: 'Months', eventMonthList: eventMonthList.current, ...rest }),
+        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: eventQuarterList.current, ...rest }),
+        Years: getCalendarComponent({ type: 'Years', eventYearList: eventYearList.current, ...rest }),
     };
 
     return (
@@ -297,7 +304,7 @@ const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) =
                     </TabItem>
                 ))}
             </Tabs>
-            <div style={{ marginTop: '1rem' }}>{calendarMap[currentState]}</div>
+            <div style={{ marginTop: '1rem', height: '100vh' }}>{calendarMap[currentState]}</div>
         </>
     );
 };
@@ -313,6 +320,7 @@ export const Range: StoryObj<CalendarBaseRangeProps & { displayDouble: boolean }
         includeEdgeDates: false,
         displayDouble: false,
         locale: 'ru',
+        stretched: false,
     },
     render: (args) => <StoryRange {...args} />,
 };

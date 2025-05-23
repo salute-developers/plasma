@@ -60,7 +60,15 @@ export const isSelectedDay = (date: DateObject, currentDay: number, value: DateT
 
 export const isCurrentMonth = (date: DateObject, monthIndex: number) => {
     const { monthIndex: currentMonthIndex, year: currentYear } = getDateFromNow();
+
     return monthIndex === currentMonthIndex && date.year === currentYear;
+};
+
+export const isCurrentQuarter = (date: DateObject, monthIndex: number) => {
+    const { monthIndex: currentMonthIndex, year: currentYear } = getDateFromNow();
+    const currentQuarterCondition = currentMonthIndex - monthIndex <= 3 && currentMonthIndex - monthIndex > 0;
+
+    return currentQuarterCondition && date.year === currentYear;
 };
 
 export const isSelectedMonth = (date: DateObject, currentMonth: number, value?: DateType) => {

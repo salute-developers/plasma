@@ -67,11 +67,29 @@ export type DatePickerCalendarProps = {
      * Тип отображения календаря: дни, месяца, года.
      */
     type?: CalendarStateType;
-
     /**
      * Язык в маске ввода
      */
     lang?: Langs;
+    /**
+     * Ширина календаря
+     * @description
+     * Значение может принимать строку с единицой измерения CSS (px, rem и тд.).
+     * Если передано число без единицы измерения - рассчитывается в rem.
+     */
+    calendarContainerWidth?: number | string;
+    /**
+     * Высота календаря
+     * @description
+     * Значение может принимать строку с единицой измерения CSS (px, rem и тд.).
+     * Если передано число без единицы измерения - рассчитывается в rem.
+     */
+    calendarContainerHeight?: number | string;
+    /**
+     * Растянуть поле ввода на всю доступную ширину,
+     * а календарь на всю доступную ширину и высоту
+     */
+    stretched?: boolean;
 };
 
 export type DatePickerVariationProps = {

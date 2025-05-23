@@ -1,9 +1,10 @@
 import React, { forwardRef, SyntheticEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import type { KeyboardEvent, FocusEvent } from 'react';
+import cls from 'classnames';
+import type { KeyboardEvent, FocusEvent, MouseEvent } from 'react';
 import type { DateType } from 'src/components/Calendar/Calendar.types';
+import type { RootProps } from 'src/engines';
+import { getPlacements, getSizeValueFromProp, noop } from 'src/utils';
 
-import type { RootProps } from '../../../engines';
-import { cx, getPlacements, noop } from '../../../utils';
 import { getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
@@ -73,6 +74,10 @@ export const datePickerRoot = (
                 closeOnEsc = true,
                 offset,
 
+                calendarContainerWidth,
+                calendarContainerHeight,
+                stretched,
+
                 onChangeValue,
                 onCommitDate,
                 onToggle,
@@ -91,6 +96,7 @@ export const datePickerRoot = (
 
             const inputRef = useRef<HTMLInputElement | null>(null);
             const innerRef = useRef<HTMLInputElement | null>(null);
+            const calendarRootRef = useRef<HTMLDivElement | null>(null);
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
             const dateFormatDelimiter = getDateFormatDelimiter(format);
@@ -111,6 +117,13 @@ export const datePickerRoot = (
             });
             const [calendarValue, setCalendarValue] = useState<DateType>(correctDates.calendar);
             const [inputValue, setInputValue] = useState(correctDates.input);
+
+            const calendarContainerWidthValue = calendarContainerWidth
+                ? getSizeValueFromProp(calendarContainerWidth, 'rem')
+                : undefined;
+            const calendarContainerHeightValue = calendarContainerHeight
+                ? getSizeValueFromProp(calendarContainerHeight, 'rem')
+                : undefined;
 
             const {
                 datePickerErrorClass,
@@ -166,6 +179,20 @@ export const datePickerRoot = (
                 setIsInnerOpen(isCalendarOpen);
             };
 
+            const handleCalendarRootClick = (event: MouseEvent<HTMLDivElement>) => {
+                if (disabled || readOnly) {
+                    return;
+                }
+
+                if (isInnerOpen && stretched && event.target === calendarRootRef?.current) {
+                    setIsInnerOpen(false);
+
+                    if (onToggle) {
+                        onToggle(false, event);
+                    }
+                }
+            };
+
             const { onKeyDown } = useKeyNavigation({
                 isCalendarOpen: isInnerOpen,
                 format,
@@ -189,7 +216,7 @@ export const datePickerRoot = (
             const DatePickerInput = (
                 <StyledInput
                     ref={inputRef}
-                    className={cx(datePickerErrorClass, datePickerSuccessClass)}
+                    className={cls(datePickerErrorClass, datePickerSuccessClass)}
                     value={inputValue}
                     size={size}
                     readOnly={readOnly}
@@ -230,7 +257,7 @@ export const datePickerRoot = (
                 <Root
                     view={view}
                     size={size}
-                    className={cx(classes.datePickerRoot, className)}
+                    className={cls(classes.datePickerRoot, className, { [classes.datePickerstretched]: stretched })}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
                     ref={ref}
@@ -250,13 +277,20 @@ export const datePickerRoot = (
                         preventOverflow={false}
                     >
                         <Root
+                            ref={calendarRootRef}
                             view={view}
                             size={size}
-                            className={cx(classes.datePickerRoot, className)}
+                            className={cls(classes.datePickerRoot, className, {
+                                [classes.datePickerstretched]: stretched,
+                            })}
                             disabled={disabled}
                             readOnly={!disabled && readOnly}
+                            onClick={handleCalendarRootClick}
                         >
                             <StyledCalendar
+                                className={cls({ [classes.datePickerCalendarstretched]: stretched })}
+                                innerWidth={calendarContainerWidthValue}
+                                innerHeight={calendarContainerHeightValue}
                                 size={size}
                                 value={calendarValue}
                                 type={type}
@@ -279,7 +313,7 @@ export const datePickerRoot = (
                         </Root>
                     </StyledPopover>
                     {leftHelper && (
-                        <LeftHelper className={cx(datePickerErrorClass, datePickerSuccessClass)}>
+                        <LeftHelper className={cls(datePickerErrorClass, datePickerSuccessClass)}>
                             {leftHelper}
                         </LeftHelper>
                     )}

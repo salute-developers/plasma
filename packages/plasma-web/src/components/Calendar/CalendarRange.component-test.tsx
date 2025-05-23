@@ -141,7 +141,7 @@ describe('plasma-web: CalendarRange', () => {
     it('range in progress', () => {
         mount(<Demo baseValue={[new Date(1999, 5, 6)]} />);
 
-        cy.get('div:nth-of-type(5) > div:nth-of-type(5)').first().trigger('mouseover');
+        cy.get('[data-day="25"]').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });
@@ -149,8 +149,8 @@ describe('plasma-web: CalendarRange', () => {
     it('range in progress with disabled', () => {
         mount(<Demo baseValue={[new Date(1999, 6, 16)]} />);
 
-        cy.get('div:nth-of-type(5) > div:nth-of-type(4)').first().trigger('mouseover');
-        cy.get('div:nth-of-type(6) > div:nth-of-type(3)').first().trigger('mouseover');
+        cy.get('[data-month-index="6"][data-day="22"]').first().trigger('mouseover');
+        cy.get('[data-month-index="6"][data-day="28"]').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });

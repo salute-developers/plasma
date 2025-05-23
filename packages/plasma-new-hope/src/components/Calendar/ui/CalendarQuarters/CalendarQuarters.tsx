@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { Fragment, useCallback, useEffect, useRef } from 'react';
 
 import { useQuarters } from '../../hooks';
 import { innerTokens, tokens } from '../../Calendar.tokens';
@@ -6,7 +6,7 @@ import { ROW_QUARTER_STEP, canSelectDate, getInRange, getSideInRange, isSameDay,
 import { DateStructureItem } from '../DateStructureItem/DateStructureItem';
 
 import type { CalendarQuartersProps } from './CalendarQuarters.types';
-import { StyledCalendarQuarters, StyledFlex } from './CalendarQuarters.styles';
+import { StyledCalendarQuarters } from './CalendarQuarters.styles';
 
 /**
  * Компонент кварталов в календаре.
@@ -52,8 +52,6 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
         [`${innerTokens.dateStructureFontLetterSpacing}`]: `var(${tokens.calendarQuarterFontLetterSpacing})`,
         [`${innerTokens.dateStructureFontStyle}`]: `var(${tokens.calendarQuarterFontStyle})`,
         [`${innerTokens.dateStructureSelectedFontWeight}`]: `var(${tokens.calendarQuarterSelectedFontWeight})`,
-        [`${innerTokens.dateStructureWidth}`]: `var(${tokens.calendarQuarterItemWidth})`,
-        [`${innerTokens.dateStructureHeight}`]: `var(${tokens.calendarQuarterItemHeight})`,
         [`${innerTokens.dateStructureBorderRadius}`]: `var(${tokens.calendarQuarterItemBorderRadius})`,
     };
 
@@ -137,7 +135,7 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
             onMouseLeave={handleMouseOutGrid}
         >
             {quarters.map((quarter, i) => (
-                <StyledFlex role="row" key={i}>
+                <Fragment key={i}>
                     {quarter.map(
                         (
                             {
@@ -188,7 +186,7 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
                             );
                         },
                     )}
-                </StyledFlex>
+                </Fragment>
             ))}
         </StyledCalendarQuarters>
     );
