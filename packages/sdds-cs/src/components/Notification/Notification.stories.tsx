@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { IconSber } from '@salutejs/plasma-icons';
+import { IconDisclosureRight, IconSber } from '@salutejs/plasma-icons';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { action } from '@storybook/addon-actions';
 
@@ -139,7 +139,14 @@ type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
 const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
-        addNotification({ icon: <IconSber />, ...rest, ...getNotificationProps(count.current) }, timeout);
+        addNotification(
+            {
+                icon: <IconDisclosureRight color="inherit" />,
+                ...rest,
+                ...getNotificationProps(count.current),
+            },
+            timeout,
+        );
         count.current++;
     }, [count, rest]);
 
@@ -170,6 +177,8 @@ export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
         role: 'alert',
         layout: 'vertical',
         placement: 'bottom-right',
+        width: '',
+        maxWidth: '',
     },
     render: (args) => <StoryLiveDemo {...args} />,
 };
