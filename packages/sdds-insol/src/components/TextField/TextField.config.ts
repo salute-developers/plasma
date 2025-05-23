@@ -161,7 +161,6 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.labelOffset}: 0.75rem;
-                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -220,13 +219,15 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
-                ${tokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.25rem auto auto;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintInnerLabelPlacementOffset}: 0.751rem -2.938rem auto auto;
+
+                ${tokens.clearLabelOffset}: 0.25rem;
+                ${tokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
+                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.25rem auto auto;
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.751rem -2.188rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
             `,
@@ -677,7 +678,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m);
+                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
                 ${tokens.tooltipColor}: var(--text-primary);
                 ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
             `,
