@@ -48,7 +48,12 @@ const normalizeDate = (date: Date, type: CalendarStateType) => {
     }
 };
 
-const isDisabledNextDate = ({ year, monthIndex, day }: DateObject, type: CalendarStateType, max?: Date) => {
+const isDisabledNextDate = (
+    { year, monthIndex, day }: DateObject,
+    type: CalendarStateType,
+    max?: Date,
+    includeEdgeDates?: boolean,
+) => {
     if (!max) {
         return false;
     }
@@ -62,8 +67,8 @@ const isDisabledNextDate = ({ year, monthIndex, day }: DateObject, type: Calenda
 
     let isOut = true;
 
-    while (isOut && currentDate <= maxDate) {
-        isOut = maxDate <= currentDate;
+    while (isOut && includeEdgeDates ? currentDate < maxDate : currentDate <= maxDate) {
+        isOut = includeEdgeDates ? maxDate < currentDate : maxDate <= currentDate;
 
         dateOperationHandler[type].add(currentDate);
     }
@@ -71,7 +76,12 @@ const isDisabledNextDate = ({ year, monthIndex, day }: DateObject, type: Calenda
     return isOut;
 };
 
-const isDisabledPreviousDate = ({ year, monthIndex, day }: DateObject, type: CalendarStateType, min?: Date) => {
+const isDisabledPreviousDate = (
+    { year, monthIndex, day }: DateObject,
+    type: CalendarStateType,
+    min?: Date,
+    includeEdgeDates?: boolean,
+) => {
     if (!min) {
         return false;
     }
@@ -85,8 +95,8 @@ const isDisabledPreviousDate = ({ year, monthIndex, day }: DateObject, type: Cal
 
     let isOut = true;
 
-    while (isOut && currentDate >= minDate) {
-        isOut = minDate >= currentDate;
+    while (isOut && includeEdgeDates ? currentDate > minDate : currentDate >= minDate) {
+        isOut = includeEdgeDates ? minDate > currentDate : minDate >= currentDate;
 
         dateOperationHandler[type].subtract(currentDate);
     }
@@ -94,68 +104,82 @@ const isDisabledPreviousDate = ({ year, monthIndex, day }: DateObject, type: Cal
     return isOut;
 };
 
-const getDisabledDates = (list: DateObject[], type: CalendarStateType, min?: Date, max?: Date) => {
+const getDisabledDates = (
+    list: DateObject[],
+    type: CalendarStateType,
+    min?: Date,
+    max?: Date,
+    includeEdgeDates?: boolean,
+) => {
     const disabledDate: string[] = [];
 
-    if (isDisabledPreviousDate(list[0], type, min)) {
+    if (isDisabledPreviousDate(list[0], type, min, includeEdgeDates)) {
         disabledDate.push('previous');
     }
 
-    if (isDisabledNextDate(list[list.length - 1], type, max)) {
+    if (isDisabledNextDate(list[list.length - 1], type, max, includeEdgeDates)) {
         disabledDate.push('next');
     }
 
     return disabledDate.join(',');
 };
 
-const isDisabledArrowLeft = (date: Date, min?: Date) => {
+const isDisabledArrowLeft = (date: Date, min?: Date, includeEdgeDates?: boolean) => {
     const currentDate = new Date(date);
 
     currentDate.setDate(currentDate.getDate() - 1);
 
-    return (min && min >= currentDate) || (min && min >= date);
+    const disableCondition = min && (includeEdgeDates ? min > currentDate : min >= currentDate);
+
+    return disableCondition;
 };
 
-const isDisabledArrowRight = (date: Date, max?: Date) => {
+const isDisabledArrowRight = (date: Date, max?: Date, includeEdgeDates?: boolean) => {
     const currentDate = new Date(date);
 
     currentDate.setDate(currentDate.getDate() + 1);
 
-    return (max && max <= currentDate) || (max && max <= date);
+    const disableCondition = max && (includeEdgeDates ? max < currentDate : max <= currentDate);
+
+    return disableCondition;
 };
 
-const isDisabledArrowUp = (date: Date, min?: Date) => {
+const isDisabledArrowUp = (date: Date, min?: Date, includeEdgeDates?: boolean) => {
     const currentDate = new Date(date);
 
     currentDate.setDate(date.getDate() - 7);
 
-    return min && min >= currentDate;
+    const disableCondition = min && (includeEdgeDates ? min > currentDate : min >= currentDate);
+
+    return disableCondition;
 };
 
-const isDisabledArrowDown = (date: Date, max?: Date) => {
+const isDisabledArrowDown = (date: Date, max?: Date, includeEdgeDates?: boolean) => {
     const currentDate = new Date(date);
 
     currentDate.setDate(date.getDate() + 7);
 
-    return max && max <= currentDate;
+    const disableCondition = max && (includeEdgeDates ? max < currentDate : max <= currentDate);
+
+    return disableCondition;
 };
 
-const getDisabledArrowKey = (currentDate: Date, min?: Date, max?: Date) => {
+const getDisabledArrowKey = (currentDate: Date, min?: Date, max?: Date, includeEdgeDates?: boolean) => {
     const disabledArrowKey: string[] = [];
 
-    if (isDisabledArrowLeft(currentDate, min)) {
+    if (isDisabledArrowLeft(currentDate, min, includeEdgeDates)) {
         disabledArrowKey.push('left');
     }
 
-    if (isDisabledArrowRight(currentDate, max)) {
+    if (isDisabledArrowRight(currentDate, max, includeEdgeDates)) {
         disabledArrowKey.push('right');
     }
 
-    if (isDisabledArrowDown(currentDate, max)) {
+    if (isDisabledArrowDown(currentDate, max, includeEdgeDates)) {
         disabledArrowKey.push('down');
     }
 
-    if (isDisabledArrowUp(currentDate, min)) {
+    if (isDisabledArrowUp(currentDate, min, includeEdgeDates)) {
         disabledArrowKey.push('up');
     }
 
@@ -181,7 +205,7 @@ export const getDatesWithModifications = ({
         type === CalendarState.Days ? dates.filter(({ isDayInCurrentMonth }) => isDayInCurrentMonth) : dates;
     const datesList = filteredDates.map(({ date }) => date);
 
-    const disabledDates = getDisabledDates(datesList, type, min, max);
+    const disabledDates = getDisabledDates(datesList, type, min, max, includeEdgeDates);
 
     return dates.map((dateItem) => {
         const { date } = dateItem;
@@ -213,7 +237,7 @@ export const getDatesWithModifications = ({
         dateItem.disabled = disabledDatesMap.has(keyDate) || isOutOfMinMaxRange;
 
         dateItem.isOutOfMinMaxRange = isOutOfMinMaxRange;
-        dateItem.disabledArrowKey = getDisabledArrowKey(currentDate, min, max);
+        dateItem.disabledArrowKey = getDisabledArrowKey(currentDate, min, max, includeEdgeDates);
         dateItem.disabledDates = disabledDates;
 
         return dateItem;
