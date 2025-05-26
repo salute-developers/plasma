@@ -808,6 +808,8 @@ export const iconSectionsSet = {
         securityCameraOutline: 'SecurityCameraOutline',
         wrenchFill: 'WrenchFill',
         wrenchOutline: 'WrenchOutline',
+        sensorFill: 'SensorFill',
+        sensorOutline: 'SensorOutline',
     },
     Time: {
         alarmAddFill: 'AlarmAddFill',
