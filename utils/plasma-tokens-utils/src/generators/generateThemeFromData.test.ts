@@ -9,6 +9,7 @@ describe('generateThemeFromData', () => {
     });
 
     it('Theme file should export of object with ":root" key', () => {
+        // @ts-ignore
         expect(generated.content).toEqual(expect.stringMatching(/export const button .+:root/gs));
     });
 });

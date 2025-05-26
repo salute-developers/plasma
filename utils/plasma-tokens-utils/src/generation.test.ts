@@ -26,7 +26,9 @@ describe('generateToken', () => {
     });
 
     it('Should return value token with type', () => {
+        // @ts-ignore
         expect(value).toMatch(/type H1 = .+;/gs);
+        // @ts-ignore
         expect(value).toMatch(/export const h1: H1 = .+'fontSize': '1rem'/gs);
     });
 
