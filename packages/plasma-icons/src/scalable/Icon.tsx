@@ -628,6 +628,8 @@ export const iconSectionsSet = {
         warningTriangleOutline: 'WarningTriangleOutline',
         shower: 'Shower',
         towTruckOutline: 'TowTruckOutline',
+        floorTypeFill: 'FloorTypeFill',
+        floorTypeOutline: 'FloorTypeOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
