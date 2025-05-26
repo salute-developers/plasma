@@ -1,9 +1,9 @@
-import type { Dispatch, ReactNode, SetStateAction } from 'react';
+import type { Dispatch, HTMLAttributes, InputHTMLAttributes, ReactNode, SetStateAction } from 'react';
 
 export type ItemErrorBehavior = 'remove-symbol' | 'keep' | 'remove-code' | 'forbid-enter';
 export type CodeErrorBehavior = 'remove-code' | 'keep';
 
-export type CodeFieldProps = {
+export type CodeInputProps = {
     /**
      * Значение поля ввода
      */
@@ -44,6 +44,10 @@ export type CodeFieldProps = {
      */
     size?: string;
     /**
+     * Размер экрана
+     */
+    screen?: 'large' | 'medium' | 'small';
+    /**
      * Компонент не активен
      */
     disabled?: boolean;
@@ -51,6 +55,13 @@ export type CodeFieldProps = {
      * Флаг ошибки кода
      */
     isError?: boolean;
+    /**
+     * Ширина компонента
+     * @description
+     * Значение может принимать строку с единицой измерения CSS (px, rem и тд.).
+     * Если передано число без единицы измерения - рассчитывается в rem.
+     */
+    width?: string | number;
     /**
      * Колбек для установки флага ошибки
      */
@@ -83,4 +94,5 @@ export type CodeFieldProps = {
      * Коллбек, вызываемый при вводе полного значения в поле
      */
     onFullCodeEnter?: (code: string) => void;
-};
+} & Pick<InputHTMLAttributes<HTMLInputElement>, 'aria-label' | 'autoComplete'> &
+    Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
