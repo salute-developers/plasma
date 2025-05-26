@@ -810,6 +810,7 @@ export const iconSectionsSet = {
         wrenchOutline: 'WrenchOutline',
         sensorFill: 'SensorFill',
         sensorOutline: 'SensorOutline',
+        flashlightOutline: 'FlashlightOutline',
     },
     Time: {
         alarmAddFill: 'AlarmAddFill',
