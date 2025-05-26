@@ -283,6 +283,7 @@ export const iconSectionsSet = {
         swapVertOff: 'SwapVertOff',
         arrowDiagLeftUp: 'ArrowDiagLeftUp',
         arrowDiagRightDown: 'ArrowDiagRightDown',
+        arrowBack: 'ArrowBack',
     },
     Data: {
         chartDistributionFill: 'ChartDistributionFill',
