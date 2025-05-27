@@ -28,8 +28,12 @@ const ColorB2CStyle = createGlobalStyle(dark);
 
 /* stylelint-disable selector-max-universal */
 const GlobalCSS = createGlobalStyle`
-    *, *::before, *::after {
+    html {
         box-sizing: border-box;
+    }
+
+    *, *::before, *::after {
+        box-sizing: inherit;
     }
 `;
 /* stylelint-enable selector-max-universal */
