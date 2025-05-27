@@ -50,6 +50,9 @@ var ThemeStyle = styled_components_1.createGlobalStyle(themes_2.darkSber);
 var StandardTypoStyle = styled_components_1.createGlobalStyle(plasma_typo_1.standard);
 var CompatibleTypoStyle = styled_components_1.createGlobalStyle(plasma_typo_1.compatible);
 var ColorB2CStyle = styled_components_1.createGlobalStyle(themes_4.dark);
+/* stylelint-disable selector-max-universal */
+var GlobalCSS = styled_components_1.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    *, *::before, *::after {\n        box-sizing: border-box;\n        color: #f00 !important;\n    }\n"], ["\n    *, *::before, *::after {\n        box-sizing: border-box;\n        color: #f00 !important;\n    }\n"])));
+/* stylelint-enable selector-max-universal */
 exports.getComponent = function (componentName) {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     var pkgName = Cypress.env('package');
@@ -103,6 +106,7 @@ exports.CypressTestDecorator = function (_a) {
         return (react_1.default.createElement(DeviceThemeProvider, null,
             react_1.default.createElement(SSR, { noSSR: noSSR },
                 react_1.default.createElement(ThemeStyle, null),
+                react_1.default.createElement(GlobalCSS, null),
                 children)));
     }
     // B2B
@@ -111,12 +115,14 @@ exports.CypressTestDecorator = function (_a) {
             react_1.default.createElement(StandardTypoStyle, null),
             react_1.default.createElement(CompatibleTypoStyle, null),
             react_1.default.createElement(B2BLightThemeStyle, null),
+            react_1.default.createElement(GlobalCSS, null),
             children));
     }
     if (pkgName === 'plasma-web') {
         return (react_1.default.createElement(SSR, { noSSR: noSSR },
             react_1.default.createElement(TypoThemeStyle, null),
             react_1.default.createElement(WebLightThemeStyle, null),
+            react_1.default.createElement(GlobalCSS, null),
             children));
     }
     if (pkgName === 'plasma-b2c') {
@@ -124,14 +130,15 @@ exports.CypressTestDecorator = function (_a) {
             react_1.default.createElement(StandardTypoStyle, null),
             react_1.default.createElement(CompatibleTypoStyle, null),
             react_1.default.createElement(ColorB2CStyle, null),
+            react_1.default.createElement(GlobalCSS, null),
             children));
     }
     return react_1.default.createElement(react_1.default.Fragment, null, children);
 };
-exports.PadMe = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding: 5px;\n"], ["\n    padding: 5px;\n"])));
-exports.SpaceMe = styled_components_1.default.span(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    padding: 5px;\n"], ["\n    padding: 5px;\n"])));
+exports.PadMe = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    padding: 5px;\n"], ["\n    padding: 5px;\n"])));
+exports.SpaceMe = styled_components_1.default.span(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    padding: 5px;\n"], ["\n    padding: 5px;\n"])));
 exports.withNoAnimation = function (Comp) {
-    return styled_components_1.default(Comp)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n        animation: none !important;\n        /* stylelint-disable-next-line selector-max-universal */\n        & * {\n            animation: none !important;\n        }\n    "], ["\n        animation: none !important;\n        /* stylelint-disable-next-line selector-max-universal */\n        & * {\n            animation: none !important;\n        }\n    "])));
+    return styled_components_1.default(Comp)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n        animation: none !important;\n        /* stylelint-disable-next-line selector-max-universal */\n        & * {\n            animation: none !important;\n        }\n    "], ["\n        animation: none !important;\n        /* stylelint-disable-next-line selector-max-universal */\n        & * {\n            animation: none !important;\n        }\n    "])));
 };
 exports.mount = function () {
     var args = [];
@@ -167,5 +174,5 @@ exports.Portal = function (_a) {
     }, [el, id]);
     return react_dom_1.createPortal(children, el);
 };
-var templateObject_1, templateObject_2, templateObject_3;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 //# sourceMappingURL=CypressHelpers.js.map

@@ -26,6 +26,15 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
 const ColorB2CStyle = createGlobalStyle(dark);
 
+/* stylelint-disable selector-max-universal */
+const GlobalCSS = createGlobalStyle`
+    *, *::before, *::after {
+        box-sizing: border-box;
+        color: #f00 !important;
+    }
+`;
+/* stylelint-enable selector-max-universal */
+
 export const getComponent = function <T = PropsWithChildren<{}>>(componentName: string): React.FC<T> {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const pkgName = Cypress.env('package') as string | undefined;
@@ -99,6 +108,7 @@ export const CypressTestDecorator: React.FC<PropsWithChildren<CYTDec>> = ({ noSS
             <DeviceThemeProvider>
                 <SSR noSSR={noSSR}>
                     <ThemeStyle />
+                    <GlobalCSS />
                     {children}
                 </SSR>
             </DeviceThemeProvider>
@@ -112,6 +122,7 @@ export const CypressTestDecorator: React.FC<PropsWithChildren<CYTDec>> = ({ noSS
                 <StandardTypoStyle />
                 <CompatibleTypoStyle />
                 <B2BLightThemeStyle />
+                <GlobalCSS />
                 {children}
             </SSR>
         );
@@ -122,6 +133,7 @@ export const CypressTestDecorator: React.FC<PropsWithChildren<CYTDec>> = ({ noSS
             <SSR noSSR={noSSR}>
                 <TypoThemeStyle />
                 <WebLightThemeStyle />
+                <GlobalCSS />
                 {children}
             </SSR>
         );
@@ -133,6 +145,7 @@ export const CypressTestDecorator: React.FC<PropsWithChildren<CYTDec>> = ({ noSS
                 <StandardTypoStyle />
                 <CompatibleTypoStyle />
                 <ColorB2CStyle />
+                <GlobalCSS />
                 {children}
             </SSR>
         );
