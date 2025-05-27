@@ -30,7 +30,6 @@ const ColorB2CStyle = createGlobalStyle(dark);
 const GlobalCSS = createGlobalStyle`
     *, *::before, *::after {
         box-sizing: border-box;
-        color: #f00 !important;
     }
 `;
 /* stylelint-enable selector-max-universal */

@@ -51,7 +51,7 @@ var StandardTypoStyle = styled_components_1.createGlobalStyle(plasma_typo_1.stan
 var CompatibleTypoStyle = styled_components_1.createGlobalStyle(plasma_typo_1.compatible);
 var ColorB2CStyle = styled_components_1.createGlobalStyle(themes_4.dark);
 /* stylelint-disable selector-max-universal */
-var GlobalCSS = styled_components_1.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    *, *::before, *::after {\n        box-sizing: border-box;\n        color: #f00 !important;\n    }\n"], ["\n    *, *::before, *::after {\n        box-sizing: border-box;\n        color: #f00 !important;\n    }\n"])));
+var GlobalCSS = styled_components_1.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    *, *::before, *::after {\n        box-sizing: border-box;\n    }\n"], ["\n    *, *::before, *::after {\n        box-sizing: border-box;\n    }\n"])));
 /* stylelint-enable selector-max-universal */
 exports.getComponent = function (componentName) {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
