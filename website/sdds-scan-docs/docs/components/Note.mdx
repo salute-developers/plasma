@@ -1,0 +1,159 @@
+---
+id: note
+title: Note
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Note
+Компонент для отображения текста в виде информационных, предупреждающих, обычных подсказок.
+
+<Description name="Note" />
+<PropsTable name="Note" />
+
+## Примеры
+
+### Вид компонента
+Вид компонента задается с помощью свойства `view`:
+
+```tsx live
+import React from 'react';
+import { Note } from '@salutejs/sdds-scan';
+import { IconSaluteOutline } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Note 
+                title="Title"
+                text="Text"
+                view="default" 
+                size="s" 
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
+            />
+            <Note 
+                title="Title"
+                text="Text"
+                view="positive" 
+                size="s" 
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
+            />
+            <Note 
+                title="Title"
+                text="Text"
+                view="warning" 
+                size="s" 
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
+            />
+            <Note 
+                title="Title"
+                text="Text"
+                view="negative" 
+                size="s" 
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
+            />
+            <Note 
+                title="Title"
+                text="Text"
+                view="info" 
+                size="s" 
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
+            />
+        </div>
+    );
+}
+```
+
+### Размер компонента
+Размер компонента задается с помощью свойства `size`. 
+Так же можно указать собственную ширину и высоту с помощью `width` и `height` соответственно. 
+Или же задать `stretch` чтобы `Note` занял всю доступную ширину и высоту.
+
+```tsx live
+import React from 'react';
+import { Note } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div style={{ flexDirection: "column" }}>
+            <div style={{ display: "flex", gap: "1rem" }}>
+                <Note 
+                    title="Title"
+                    text="Text"
+                    view="default" 
+                    size="l"
+                />
+                <Note 
+                    title="Title"
+                    text="Text"
+                    view="default" 
+                    size="m" 
+                />
+                <Note 
+                    title="Title"
+                    text="Text"
+                    view="default" 
+                    size="s"
+                />
+                <Note 
+                    title="Title"
+                    text="Text"
+                    view="default" 
+                    size="xs"
+                />
+            </div>
+
+            <Note 
+                title="Title"
+                text="Text"
+                view="default" 
+                size="l"
+                width="400"
+                height="116"
+            />
+            
+            <div style={{ width: "300px", height: "300px" }}>
+                <Note 
+                    title="Title"
+                    text="Text"
+                    view="default" 
+                    size="l"
+                    stretch
+                />
+            </div>
+        </div>
+    );
+}
+```
+
+### Размерность и положение `contentBefore`
+Размерность и положение `contentBefore` задается с помощью свойства `contentBeforeSizing`:
+
+```tsx live
+import React from 'react';
+import { Note } from '@salutejs/sdds-scan';
+import { IconSaluteOutline } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Note 
+                title="Title"
+                text="Text"
+                view="default" 
+                size="s" 
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
+                contentBeforeSizing="fixed"
+            />
+            <Note 
+                title="Title"
+                text="Text"
+                view="positive" 
+                size="s" 
+                contentBefore={<IconSaluteOutline size="m" color="inherit" />} 
+                contentBeforeSizing="scalable"
+            />
+        </div>
+    );
+}
+```

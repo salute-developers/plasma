@@ -1,0 +1,38 @@
+import TipProcessingStyle from '../_utils/_tip-processing-styles.mdx';
+
+<TipProcessingStyle isSass />
+
+```jsx
+import React, { useLayoutEffect, useState } from 'react';
+import { Switch } from '@salutejs/sdds-scan';
+
+import './index.sass';
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    useLayoutEffect(() => {
+        document.documentElement.className = theme;
+    }, [theme]);
+
+    return (
+        <div className="wrapper">
+            <Switch
+                label={`app theme: ${theme}`}
+                onChange={() => {
+                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                }}
+            />
+        </div>
+    );
+};
+
+export default App;
+```
+
+В файле, где происходит подключение всех стилей, например `index.sass`
+
+```sass
+@use '@salutejs/sdds-themes/css/sdds_scan__dark.css'
+// остальные стили
+```
