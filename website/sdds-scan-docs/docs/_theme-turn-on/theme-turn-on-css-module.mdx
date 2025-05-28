@@ -1,0 +1,21 @@
+import TipCssModules from '../_utils/_tip-css-modules.mdx';
+
+<TipCssModules />
+
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/sdds-scan';
+
+import styles from '@salutejs/plasma-themes/css/sdds_scan.module.css';
+
+const App = () => {
+    return (
+        <div className={styles.dark}>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </div>
+    );
+};
+
+export default App;
+```
