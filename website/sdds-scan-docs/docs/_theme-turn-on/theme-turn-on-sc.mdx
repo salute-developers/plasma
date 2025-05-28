@@ -1,0 +1,20 @@
+```jsx
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { Button, BodyL } from '@salutejs/sdds-scan/styled-components';
+import { sdds_scan__light } from '@salutejs/sdss-themes';
+
+const Theme = createGlobalStyle(sdds_scan__light);
+
+const App = () => {
+    return (
+        <>
+            <Theme />
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```

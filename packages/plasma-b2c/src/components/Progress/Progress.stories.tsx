@@ -1,10 +1,12 @@
 import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, getConfigVariations, disableProps } from '@salutejs/plasma-sb-utils';
+
+import { config } from './Progress.config';
 
 import { Progress } from '.';
 import type { ProgressProps } from '.';
 
-const views = ['default', 'secondary', 'primary', 'accent', 'success', 'warning', 'error'];
+const { views } = getConfigVariations(config);
 
 const meta: Meta<typeof Progress> = {
     title: 'Overlay/Progress',

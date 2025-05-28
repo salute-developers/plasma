@@ -1,5 +1,7 @@
 import { css } from '@linaria/core';
 
+import { tokens } from '../Link.tokens';
+
 export const base = css`
     :focus {
         outline: none;
@@ -11,7 +13,7 @@ export const base = css`
         opacity: 1;
 
         border-radius: 0.375rem;
-        box-shadow: 0 0 0 0.0625rem var(--plasma-link-focus-color);
+        box-shadow: 0 0 0 0.0625rem var(${tokens.linkColorFocus});
 
         border-bottom: none;
     }

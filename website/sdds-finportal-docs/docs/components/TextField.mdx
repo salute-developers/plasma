@@ -37,7 +37,7 @@ export function App() {
 ```
 
 ### Размер поля
-Размер поля задаётся с помощью свойства `size`. Свойство принимает значения `"l" | "m" | "s" | "xs"`:
+Размер поля задаётся с помощью свойства `size`:
 
 ```tsx live
 import React from 'react';
@@ -48,13 +48,28 @@ export function App() {
         <div>
             <TextField
                 placeholder="Размер"
+                size="xl"
+                defaultValue="XL64"
+            />
+            <TextField
+                placeholder="Размер"
                 size="l"
                 defaultValue="L56"
             />
             <TextField
                 placeholder="Размер"
+                size="m"
+                defaultValue="M48"
+            />
+            <TextField
+                placeholder="Размер"
                 size="s"
-                defaultValue="S40"
+                defaultValue="S32"
+            />
+            <TextField
+                placeholder="Размер"
+                size="xs"
+                defaultValue="XS24"
             />
         </div>
     );

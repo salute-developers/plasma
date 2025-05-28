@@ -2,19 +2,19 @@ import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconPlasma, IconLockOutline } from '@salutejs/plasma-icons';
+import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
-import { TextField } from '.';
+import { TextField } from './TextField';
+import { config } from './TextField.config';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 
-const sizes = ['s'];
-const views = ['default', 'negative'];
+const { views, sizes } = getConfigVariations(config);
 const labelPlacements = ['outer'];
 
 const StyledIconLockOutline = styled(IconLockOutline)`
@@ -40,6 +40,10 @@ const meta: Meta<typeof TextField> = {
             options: ['left', 'right'],
             control: {
                 type: 'select',
+            },
+            if: {
+                arg: 'optional',
+                truthy: false,
             },
         },
         required: {
@@ -102,12 +106,6 @@ const meta: Meta<typeof TextField> = {
             if: {
                 arg: 'labelPlacement',
                 eq: 'inner',
-            },
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
             },
         },
         titleCaption: {
@@ -233,7 +231,6 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, readOnly, ...r
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         id: 'example-text-field',
-        size: 's',
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
@@ -256,7 +253,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     },
     parameters: {
         controls: {
-            exclude: ['chipType'],
+            exclude: ['chipType', 'size'],
         },
     },
     render: (args) => <StoryDemo {...args} />,

@@ -1,0 +1,646 @@
+---
+id: combobox
+title: Combobox
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Combobox
+
+<Description name="Combobox" />
+<PropsTable name="Combobox" exclude="negativeResultContent, enumerationType, onBlur, onFocus, usePortal, opened, frame, filterFunction, valueType" />
+
+## Использование
+Обязательным параметром является только `items`. Внутри items может быть такой же вложенный массив items. Формат следующий:
+
+```tsx
+type Items = Array<{
+        /**
+         *  Значение у item
+         */
+        value: string;
+        /**
+         * Метка-подпись к item
+         */
+        label: string;
+        /**
+        * Сторона открытия вложенного dropdown относительно текущего элемента;
+        * @default right
+        */
+        placement?: Placement;
+        /**
+         * Список дочерних items.
+         */
+        items?: Array<ItemOption>;
+        /**
+         * Item не активен
+         */
+        disabled?: boolean;
+        /**
+         * Слот для контента слева
+         */
+        contentLeft?: ReactNode;
+        /**
+         * Слот для контента справа
+         */
+        contentRight?: ReactNode;
+    }>;
+```
+
+Тип выбора Combobox - одиночный или множественный зависит от типа `value` и `onChange`. В одиночном value - `string`, в множественном - `Array<string>`.\
+
+
+## Примеры
+
+<Tabs>
+    <TabItem value="single" label="Single" default>
+        ```tsx live
+        import React from 'react';
+        import { Combobox } from '@salutejs/sdds-netology';
+
+        export function App() {
+           const [value, setValue] = useState<string>('');
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <div style={{ width: "300px" }}>
+                        <Combobox
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="multiple" label="Multiple">
+        ```tsx live
+        import React from 'react';
+        import { Combobox } from '@salutejs/sdds-netology';
+
+        export function App() {
+           const [value, setValue] = useState<string[]>([]);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <div style={{ width: "300px" }}>
+                        <Combobox
+                            multiple
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="predefined" label="Predefined">
+        Есть возможность задать значения по дефолту (главное, чтобы они находились в `items`). Также можно управлять состоянием снаружи селекта.
+
+        ```tsx live
+        import React from 'react';
+        import { Combobox, Button } from '@salutejs/sdds-netology';
+
+        export function App() {
+            const [multipleValue, setMultipleValue] = useState<string[]>(['brazil', 'north_america']);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <div style={{ width: "300px" }}>
+                        <Combobox
+                            multiple
+                            items={items}
+                            value={multipleValue}
+                            onChange={setMultipleValue}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                        />
+                    </div>
+
+                    <Button onClick={() => setMultipleValue([])}>Очистить</Button>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="portal" label="Portal">
+        Иногда возникает необходимость вынесения выпадающего списка на уровни выше в DOM. К примеру, когда у родительского блока имеется scroll, и список будет обрезаться, чего хотелось бы избежать.\
+        Для такой реализации имеется пропс `portal`, который принимает либо `ref` либо `id` html-тега.\
+        Также нужно прокинуть свойство `listWidth`, чтобы явно задать ширину списку. Если этого не сделать, то будет взята ширина 100% от блока, на который ведет ссылка портала.
+
+        ```tsx live
+        import React, { useRef } from 'react';
+        import { Combobox } from '@salutejs/sdds-netology';
+
+        export function App() {
+           const [value, setValue] = useState<string>('');
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            const ref = useRef(null);
+
+            return (
+                <div style={{ position: "relative", height: "300px" }} ref={ref}>
+                    <div style={{ width: "300px" }}>
+                        <Combobox
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                            portal={ref}
+                            listWidth="300px"
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="uncontrolled" label="Uncontrolled">
+        `value` и `onChange` - опциональные параметры. Если вы хотите `uncontrolled` вариант компонента - их пробрасывать необязательно.
+
+       ```tsx live
+        import React from 'react';
+        import { Combobox } from '@salutejs/sdds-netology';
+
+        export function App() {
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ height: "300px" }}>
+                    <div style={{ width: "300px" }}>
+                        <Combobox
+                            items={items}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="alwaysOpened" label="Always opened">
+        Свойство alwaysOpened позволяет отображать Combobox всегда открытым. При этом closeAfterSelect игнорируется.
+
+       ```tsx live
+        import React, { useState } from 'react';
+        import { Combobox, Button } from '@salutejs/sdds-netology';
+
+        export function App() {
+            const [alwaysOpened, setAlwaysOpened] = useState(false);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ height: "300px" }}>
+                    <div style={{width: "300px" }}>
+                        <Button text={ alwaysOpened ? 'По умолчанию' : 'Всегда открыт' } onClick={() => setAlwaysOpened(!alwaysOpened)} style={{ marginBottom: '1rem' }} />
+                        <Combobox
+                            items={items}
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                            alwaysOpened={alwaysOpened}
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="virtual" label="Virtual">
+        :::caution
+            Работает только в одно-уровневых списках.
+        :::
+
+        Свойство `virtual` позволяет виртуализировать выпадающий список. Для настройки высоты списка можно использовать свойство `listMaxHeight`.
+       ```tsx live
+        import React, { useState } from 'react';
+        import { Combobox } from '@salutejs/sdds-netology';
+
+        export function App() {
+            const items = Array(5000).fill(1).map((_, i) => ({ value: i.toString(), label: i.toString() }));
+
+            return (
+                <div style={{ height: "300px" }}>
+                    <div style={{width: "300px" }}>
+                        <Combobox
+                            items={items}
+                            virtual
+                            listMaxHeight="200px"
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                        />
+                    </div>
+                </div>
+            );
+        }
+    ```
+    </TabItem>
+    <TabItem value="infinite" label="Infinite Loading">
+        Пример с бесконечной загрузкой элементов в списке.
+
+       ```tsx live
+        import React, { useState } from 'react';
+        import { Combobox } from '@salutejs/sdds-netology';
+
+        export function App() {
+            function getRandomData() {
+                return Array(10)
+                    .fill(1)
+                    .map(() => {
+                        const n = Math.floor(Math.random() * 90000000) + 10000000;
+                        return { value: n.toString(), label: n.toString() };
+                    });
+            };
+
+            const [items, setItems] = useState(getRandomData());
+            const [isInfiniteLoading, setIsInfiniteLoading] = useState(false);
+
+            const getData = async () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(getRandomData());
+                    }, 1500);
+                });
+            };
+
+            const handleScroll = async (e) => {
+                if (isInfiniteLoading) return;
+
+                if (e.target.scrollTop + e.target.offsetHeight + 10 > e.target.scrollHeight) {
+                    setIsInfiniteLoading(true);
+
+                    const res = await getData();
+
+                    setItems([...items, ...res]);
+
+                    setIsInfiniteLoading(false);
+                }
+            };
+
+            return (
+                <div style={{ height: "300px" }}>
+                    <div style={{ width: "300px" }}>
+                        <Combobox
+                            items={items}
+                            listMaxHeight="200px"
+                            listOverflow="scroll"
+                            placeholder="Placeholder"
+                            label="Label"
+                            helperText="Helper text"
+                            onScroll={handleScroll}
+                            afterList={isInfiniteLoading ? <center>Загружаю...</center> : undefined}
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Использование с React Hook Form и нативной формой
+
+:::caution Использование атрибута `name`
+Используйте свойство `name` только когда это необходимо. Оно влияет на выходной тип в `onChange`.
+:::
+
+<Tabs>
+    <TabItem value="default" label="Default" default>
+        Работа с `react-hook-form` через `register`.
+
+        ```tsx live
+        import React from 'react';
+        import { useForm, SubmitHandler } from 'react-hook-form';
+        import { Combobox, Button } from '@salutejs/sdds-netology';
+
+        export function App() {
+            type Inputs = {
+                combobox: string,
+                comboboxMulti: string[]
+            }
+
+            const { register, handleSubmit } = useForm<Inputs>({
+                defaultValues: {
+                    combobox: 'north_america',
+                    comboboxMulti: ['brazil']
+                }
+            });
+
+            const onSubmit: SubmitHandler<Inputs> = (data) => {
+                console.log(data);
+            };
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <Combobox
+                            items={items}
+                            {...register('combobox')}
+                        />
+                        <Combobox
+                            items={items}
+                            {...register('comboboxMulti')}
+                            multiple
+                        />
+                        <Button type="submit">Отправить</Button>
+                    </form>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="controller" label="Controller">
+        Работа с `react-hook-form` через `controller`.
+
+        ```tsx live
+        import React from 'react';
+        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+        import { Combobox, Button } from '@salutejs/sdds-netology';
+
+        export function App() {
+            type Inputs = {
+                combobox: string,
+                comboboxMulti: string[]
+            }
+            const { control, handleSubmit } = useForm<Inputs>({
+                defaultValues: {
+                    combobox: 'north_america',
+                    comboboxMulti: ['brazil']
+                }
+            });
+            const onSubmit: SubmitHandler<Inputs> = (data) => {
+                console.log(data);
+            };
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <Controller
+                            control={control}
+                            name="combobox"
+                            render={({ field: { onChange, value, ref } }) => (
+                            <Combobox
+                                items={items}
+                                ref={ref}
+                                value={value}
+                                onChange={onChange}
+                            />
+                            )}
+                        />
+                        <Controller
+                            control={control}
+                            name="comboboxMulti"
+                            render={({ field: { onChange, value, ref } }) => (
+                            <Combobox
+                                items={items}
+                                ref={ref}
+                                value={value}
+                                onChange={onChange}
+                                multiple
+                            />
+                            )}
+                        />
+                        <Button type="submit">Отправить</Button>
+                    </form>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="native" label="Native Form">
+        Работа с нативной формой.
+
+        ```tsx live
+        import React from 'react';
+        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+        import { Combobox, Button } from '@salutejs/sdds-netology';
+
+        export function App() {
+            const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault();
+                const formData = new FormData(event.currentTarget);
+                for (const [name, value] of formData) {
+                    console.log(name, value);
+                }
+            };
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                    <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <Combobox label="Combobox" name="combobox" defaultValue={"brazil"} items={items} />
+                        <Combobox label="Combobox" name="comboboxMulti" defaultValue={["brazil"]} items={items} multiple />
+                        <Button type="submit">Отправить</Button>
+                    </form>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Клавиатурная навигация
+
+Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).

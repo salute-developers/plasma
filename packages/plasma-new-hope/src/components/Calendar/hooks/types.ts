@@ -38,10 +38,15 @@ export type UseDaysArgs = {
     includeEdgeDates?: boolean;
 } & UseDateStructureArgs;
 
-export type UseMonthsArgs = UseDateStructureArgs;
+export type UseMonthsArgs = {
+    includeEdgeDates?: boolean;
+} & UseDateStructureArgs;
 
-export type UseQuartersArgs = UseDateStructureArgs;
+export type UseQuartersArgs = {
+    includeEdgeDates?: boolean;
+} & UseDateStructureArgs;
 
 export type UseYearsArgs = {
     startYear: number;
+    includeEdgeDates?: boolean;
 } & UseDateStructureArgs;

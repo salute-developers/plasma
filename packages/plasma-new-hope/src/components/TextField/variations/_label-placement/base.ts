@@ -18,7 +18,7 @@ export const base = css`
         }
 
         /* поднимает label вверх при фокусе, наличии значения */
-        ${Input}:focus ~ ${Label}, ${Input}.${classes.hasValue} ~ ${Label}, ${Input}.${classes.keepPlaceholder} ~ ${Label} {
+        ${Input}:not(.${classes.readOnlyInput}):focus ~ ${Label}, ${Input}.${classes.hasValue} ~ ${Label}, ${Input}.${classes.keepPlaceholder} ~ ${Label} {
             color: var(${tokens.placeholderColor});
             align-items: flex-start;
             padding: var(${tokens.labelInnerPadding});

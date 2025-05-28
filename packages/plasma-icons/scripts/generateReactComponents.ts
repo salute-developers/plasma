@@ -52,13 +52,41 @@ files.forEach((file) => {
 
     const componentName = path.parse(file).name;
 
+    let replacedName = path.parse(file).name;
+    const hasKeyWord = /sber/i.test(componentName);
+
+    // INFO: После того как устаревшие иконки будут удалены, часть дублирования уйдет.
+    if (hasKeyWord) {
+        // INFO: Заменяем ключевое слово и приводим к формату аля SbBoomCast, вместо SbboomCast
+        replacedName = componentName
+            .replace(/sber/i, 'Sb')
+            .replace(/(Sb)(.)/, (_, sb, char) => sb + char.toUpperCase());
+
+        const componentContent = getIconComponent(replacedName);
+
+        names.push(replacedName);
+
+        const assetContent16 = getIconAsset(svg16, replacedName);
+        const assetContent24 = getIconAsset(svg24, replacedName);
+        const assetContent36 = getIconAsset(svg36, replacedName);
+
+        fs.writeFileSync(getPath(AssetDirectory16, replacedName), assetContent16, 'utf8');
+        fs.writeFileSync(getPath(AssetDirectory24, replacedName), assetContent24, 'utf8');
+        fs.writeFileSync(getPath(AssetDirectory36, replacedName), assetContent36, 'utf8');
+
+        fs.writeFileSync(getPath(IconsDirectory, `Icon${replacedName}`), componentContent, 'utf8');
+    }
+
     names.push(componentName);
 
     const assetContent16 = getIconAsset(svg16, componentName);
     const assetContent24 = getIconAsset(svg24, componentName);
     const assetContent36 = getIconAsset(svg36, componentName);
 
-    const componentContent = getIconComponent(componentName);
+    const componentContent = getIconComponent(componentName, {
+        deprecated: hasKeyWord,
+        replacement: `Icon${replacedName}`,
+    });
 
     // генерируем файлы-assets
     fs.writeFileSync(getPath(AssetDirectory16, componentName), assetContent16, 'utf8');

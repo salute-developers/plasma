@@ -18,8 +18,6 @@ export const Ul = styled.ul<{
     listWidth?: ComboboxProps['listWidth'];
     isInnerUl?: boolean;
 }>`
-    box-sizing: border-box;
-
     background: var(${constants.background});
     box-shadow: ${constants.boxShadow};
 

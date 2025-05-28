@@ -40,13 +40,11 @@ export const config = {
         },
         size: {
             s: css`
-                ${calendarBaseTokens.calendarWidth}: 17.5rem;
-                ${calendarBaseTokens.calendarHeight}: 17rem;
+                ${calendarBaseTokens.calendarContainerWidth}: 17.5rem;
+                ${calendarBaseTokens.calendarContainerHeight}: 17rem;
 
                 ${calendarBaseTokens.calendarYearsPadding}: 0.5rem 0.5rem 0 0.5rem;
                 ${calendarBaseTokens.calendarYearItemBorderRadius}: 0.5rem;
-                ${calendarBaseTokens.calendarYearItemWidth}: 5.5rem;
-                ${calendarBaseTokens.calendarYearItemHeight}: 3.5rem;
 
                 ${calendarBaseTokens.calendarYearFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${calendarBaseTokens.calendarYearFontSize}: var(--plasma-typo-body-s-font-size);
@@ -58,8 +56,6 @@ export const config = {
 
                 ${calendarBaseTokens.calendarQuartersPadding}: 0.5rem 0.5rem 0 0.5rem;
                 ${calendarBaseTokens.calendarQuarterItemBorderRadius}: 0.5rem;
-                ${calendarBaseTokens.calendarQuarterItemWidth}: 8.25rem;
-                ${calendarBaseTokens.calendarQuarterItemHeight}: 7rem;
 
                 ${calendarBaseTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${calendarBaseTokens.calendarQuarterFontSize}: var(--plasma-typo-body-s-font-size);
@@ -71,8 +67,6 @@ export const config = {
 
                 ${calendarBaseTokens.calendarMonthsPadding}: 0.5rem 0.5rem 0 0.5rem;
                 ${calendarBaseTokens.calendarMonthItemBorderRadius}: 0.5rem;
-                ${calendarBaseTokens.calendarMonthItemWidth}: 5.5rem;
-                ${calendarBaseTokens.calendarMonthItemHeight}: 3.5rem;
 
                 ${calendarBaseTokens.calendarMonthFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${calendarBaseTokens.calendarMonthFontSize}: var(--plasma-typo-body-s-font-size);
@@ -84,8 +78,6 @@ export const config = {
 
                 ${calendarBaseTokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${calendarBaseTokens.calendarDayItemBorderRadius}: 0.5rem;
-                ${calendarBaseTokens.calendarDayItemWidth}: 2.5rem;
-                ${calendarBaseTokens.calendarDayItemHeight}: 2rem;
 
                 ${calendarBaseTokens.calendarDayFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${calendarBaseTokens.calendarDayFontSize}: var(--plasma-typo-body-s-font-size);

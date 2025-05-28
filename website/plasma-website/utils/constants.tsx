@@ -60,6 +60,17 @@ export const verticalsMap = [
         ],
     },
     {
+        title: 'SDDS NETOLOGY',
+        package: '@salutejs/sdds-netology',
+        group: 'Плазма',
+        href: '/sdds-netology-storybook/',
+        items: [
+            { text: 'Сторибук', href: '/sdds-netology-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Документация', href: '/sdds-netology/', contentRight: <ArrowTopRight /> },
+            { text: PACKAGES_INFO['@salutejs/sdds-netology'][0], contentLeft: <CardstackOutline />, isMeta: true },
+        ],
+    },
+    {
         title: 'SDDS Service',
         package: '@salutejs/sdds-serv',
         group: 'SDDS Masterbrand',
@@ -101,6 +112,17 @@ export const verticalsMap = [
             { text: 'Сторибук', href: '/sdds-cs-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-cs/', contentRight: <ArrowTopRight /> },
             { text: PACKAGES_INFO['@salutejs/sdds-cs'][0], contentLeft: <CardstackOutline />, isMeta: true },
+        ],
+    },
+    {
+        title: 'SDDS CRM',
+        package: '@salutejs/sdds-crm',
+        group: 'SDDS Masterbrand',
+        href: '/sdds-crm-storybook/',
+        items: [
+            { text: 'Сторибук', href: '/sdds-crm-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Документация', href: '/sdds-crm/', contentRight: <ArrowTopRight /> },
+            { text: PACKAGES_INFO['@salutejs/sdds-crm'][0], contentLeft: <CardstackOutline />, isMeta: true },
         ],
     },
     {

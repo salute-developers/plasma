@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
-import { tokens } from '../Calendar.tokens';
+import { classes, tokens } from '../Calendar.tokens';
 
 export const StyledCalendar = css`
     position: relative;
@@ -11,8 +11,13 @@ export const StyledCalendar = css`
     display: flex;
     flex-direction: column;
 
-    width: var(${tokens.calendarWidth});
-    height: var(${tokens.calendarHeight});
+    width: var(${tokens.calendarContainerWidth});
+    height: var(${tokens.calendarContainerHeight});
+
+    &.${classes.stretched} {
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 export const StyledSeparator = styled.div`
@@ -23,4 +28,5 @@ export const StyledSeparator = styled.div`
 
 export const StyledWrapper = styled.div`
     display: flex;
+    height: 100%;
 `;

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { Fragment, useCallback, useEffect, useRef } from 'react';
 
 import { useMonths } from '../../hooks';
 import { innerTokens, tokens } from '../../Calendar.tokens';
@@ -6,7 +6,7 @@ import { ROW_MONTH_STEP, canSelectDate, getInRange, getSideInRange, isSameDay, i
 import { DateStructureItem } from '../DateStructureItem/DateStructureItem';
 
 import type { CalendarMonthsProps } from './CalendarMonths.types';
-import { StyledCalendarMonths, StyledFlex } from './CalendarMonths.styles';
+import { StyledCalendarMonths } from './CalendarMonths.styles';
 
 /**
  * Компонент месяцев в календаре.
@@ -54,8 +54,6 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
         [`${innerTokens.dateStructureFontLetterSpacing}`]: `var(${tokens.calendarMonthFontLetterSpacing})`,
         [`${innerTokens.dateStructureFontStyle}`]: `var(${tokens.calendarMonthFontStyle})`,
         [`${innerTokens.dateStructureSelectedFontWeight}`]: `var(${tokens.calendarMonthSelectedFontWeight})`,
-        [`${innerTokens.dateStructureWidth}`]: `var(${tokens.calendarMonthItemWidth})`,
-        [`${innerTokens.dateStructureHeight}`]: `var(${tokens.calendarMonthItemHeight})`,
         [`${innerTokens.dateStructureBorderRadius}`]: `var(${tokens.calendarMonthItemBorderRadius})`,
     };
 
@@ -139,7 +137,7 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
             onMouseLeave={handleMouseOutGrid}
         >
             {months.map((month, i) => (
-                <StyledFlex role="row" key={i}>
+                <Fragment key={i}>
                     {month.map(
                         (
                             {
@@ -192,7 +190,7 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
                             );
                         },
                     )}
-                </StyledFlex>
+                </Fragment>
             ))}
         </StyledCalendarMonths>
     );

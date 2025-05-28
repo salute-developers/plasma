@@ -1,34 +1,30 @@
-import type { FC, PropsWithChildren, ReactNode } from 'react';
+import type { Dispatch, FC, PropsWithChildren, ReactNode, SetStateAction, MouseEventHandler } from 'react';
 
 import type { DatePickerPopoverProps } from '../../SingleDate/SingleDate.types';
 import type { DateInfo, DateType } from '../../../Calendar/Calendar.types';
 import type { DatePickerCalendarProps } from '../../DatePickerBase.types';
 
+export type RootWrapperProps = FC<
+    PropsWithChildren &
+        React.RefAttributes<HTMLDivElement> & {
+            className?: string;
+            onClick?: MouseEventHandler<HTMLDivElement> | undefined;
+        }
+>;
+
 export type RangeDatePopoverProps = DatePickerCalendarProps &
     DatePickerPopoverProps & {
-        rootWrapper: FC<PropsWithChildren>;
-        /**
-         * Обработчик изменения значения.
-         */
+        rootWrapper: RootWrapperProps;
         onChangeValue: (values: [DateType, DateType], dateInfo?: DateInfo) => void;
-        /**
-         * Выбранное значение.
-         */
+        setIsInnerOpen: Dispatch<SetStateAction<boolean>>;
         calendarValue: [DateType, DateType];
-        /**
-         * Отобразить двойной календарь
-         */
         isDoubleCalendar?: boolean;
-        /**
-         * Компонент для отображения диапазона.
-         */
         target?: ReactNode;
-        /**
-         * Обработчик для выбора стартового значения в диапазоне.
-         */
         onChangeStartOfRange?: (value: Date, dateInfo?: DateInfo) => void;
-        /**
-         * Размер контрола.
-         */
         size?: string;
+        calendarContainerWidth?: number | string;
+        calendarContainerHeight?: number | string;
+        stretched?: boolean;
+        readOnly?: boolean;
+        disabled?: boolean;
     };

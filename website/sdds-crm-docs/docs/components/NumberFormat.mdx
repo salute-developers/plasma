@@ -1,0 +1,168 @@
+---
+id: number-format
+title: NumberFormat
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# NumberFormat
+<Description name="NumberFormat" />
+<PropsTable name="NumberFormat" exclude={['css']} />
+
+## Использование
+Компонент `NumberFormat` представляет собой поле ввода числовых значений.
+Он реализован на компоненте [TextField](https://plasma.sberdevices.ru//components/textfield/)
+и наследует практически все его свойства (`size`, `view`, `disabled`, `label` и тд.)
+
+### Разделитель тысяч и десятичных знаков
+Разделитель тысяч задается с помощью свойства `thousandSeparator`, 
+а разделитель десятичных знаков с помощью `decimalSeparator`:
+
+```tsx live
+import React from 'react';
+import { NumberFormat } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <NumberFormat
+                size="l"
+                thousandSeparator=" "
+                decimalSeparator="."
+                defaultValue="123456.789"
+            />
+            <NumberFormat
+                size="l"
+                thousandSeparator="/"
+                decimalSeparator=","
+                defaultValue="123456,789"
+            />
+            <NumberFormat
+                size="l"
+                thousandSeparator=","
+                decimalSeparator="$"
+                defaultValue="123456$789"
+            />
+        </div>
+    );
+}
+```
+
+### Стиль группировки тысяч
+Поддерживается четыре вида группировок:
+- 'thousand' (123 456 789)
+- 'lakh' (индийский стиль, 12 34 56 789)
+- 'wan' (китайский стиль, 1 2345 6789)
+- 'none' (без группировки)
+
+```tsx live
+import React from 'react';
+import { NumberFormat } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <NumberFormat
+                size="l"
+                thousandSeparator=" "
+                defaultValue="123456789"
+                thousandsGroupStyle="thousand"
+            />
+            <NumberFormat
+                size="l"
+                thousandSeparator=" "
+                defaultValue="123456789"
+                thousandsGroupStyle="lakh"
+            />
+            <NumberFormat
+                size="l"
+                thousandSeparator=" "
+                defaultValue="123456789"
+                thousandsGroupStyle="wan"
+            />
+            <NumberFormat
+                size="l"
+                thousandSeparator=" "
+                defaultValue="123456789"
+                thousandsGroupStyle="none"
+            />
+        </div>
+    );
+}
+```
+
+### Количество знаков после запятой
+Количество знаков после запятой задается с помощью свойства `decimalScale`.
+Если же необходимо, чтобы число имело определенное количество знаков после запятой, то нужно задать `fixedDecimalScale`:
+
+```tsx live
+import React from 'react';
+import { NumberFormat } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <NumberFormat
+                size="l"
+                defaultValue="123"
+                thousandSeparator=" "
+                decimalSeparator="."
+                decimalScale={4}
+                fixedDecimalScale
+            />
+            <NumberFormat
+                size="l"
+                defaultValue="123.1"
+                thousandSeparator=" "
+                decimalSeparator="."
+                decimalScale={4}
+                fixedDecimalScale
+            />
+        </div>
+    );
+}
+```
+
+### Отрицательные числа
+Свойство ` allowNegative` позволяет вводить отрицательные числа:
+
+```tsx live
+import React from 'react';
+import { NumberFormat } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <NumberFormat
+                size="l"
+                defaultValue="-123"
+                thousandSeparator=" "
+                decimalSeparator="."
+                allowNegative
+            />
+        </div>
+    );
+}
+```
+
+### Ведущие нули
+Чтобы разрешить в числе ведущие нули, нужно указать свойство `allowLeadingZeros`:
+
+```tsx live
+import React from 'react';
+import { NumberFormat } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <NumberFormat
+                size="l"
+                defaultValue="000123.456"
+                thousandSeparator=" "
+                decimalSeparator="."
+                allowLeadingZeros
+            />
+        </div>
+    );
+}
+```

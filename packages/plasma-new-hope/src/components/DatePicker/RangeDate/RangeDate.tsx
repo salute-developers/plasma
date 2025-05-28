@@ -1,16 +1,9 @@
 import React, { createRef, forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import type {
-    KeyboardEvent,
-    FocusEvent,
-    FocusEventHandler,
-    MutableRefObject,
-    SyntheticEvent,
-    PropsWithChildren,
-    FC,
-} from 'react';
+import cls from 'classnames';
+import type { KeyboardEvent, FocusEvent, FocusEventHandler, MutableRefObject, SyntheticEvent } from 'react';
+import type { RootProps } from 'src/engines';
+import { noop } from 'src/utils';
 
-import type { RootProps } from '../../../engines';
-import { cx, noop } from '../../../utils';
 import { getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import type { RangeInputRefs } from '../../Range/Range.types';
@@ -28,6 +21,7 @@ import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
 import { LeftHelper, StyledRange, base } from './RangeDate.styles';
 import { RangeDatePopover } from './RangeDatePopover/RangeDatePopover';
+import { RootWrapperProps } from './RangeDatePopover/RangeDatePopover.types';
 
 export const datePickerRangeRoot = (
     Root: RootProps<HTMLDivElement, Omit<DatePickerRangeProps, 'opened' | 'defaultValue' | 'onChangeValue'>>,
@@ -100,6 +94,10 @@ export const datePickerRangeRoot = (
                 closeOnEsc = true,
                 closeAfterDateSelect = true,
                 offset,
+
+                calendarContainerWidth,
+                calendarContainerHeight,
+                stretched,
 
                 onToggle,
 
@@ -503,18 +501,20 @@ export const datePickerRangeRoot = (
                 updateExternalSecondDate(defaultSecondDate);
             }, [defaultSecondDate, format, lang]);
 
-            const RootWrapper = useCallback<FC<PropsWithChildren>>(
-                ({ children }) => (
+            const RootWrapper = useCallback<RootWrapperProps>(
+                forwardRef(({ children, className: rootWrapperClassName, onClick }, rootWrapperRef) => (
                     <Root
+                        ref={rootWrapperRef}
                         view={view}
                         size={size}
-                        className={cx(classes.datePickerRoot, className)}
+                        className={rootWrapperClassName}
                         disabled={disabled}
                         readOnly={!disabled && readOnly}
+                        onClick={onClick}
                     >
                         {children}
                     </Root>
-                ),
+                )),
                 [view, size, disabled, readOnly],
             );
 
@@ -523,7 +523,7 @@ export const datePickerRangeRoot = (
                     ref={rootRef}
                     view={view}
                     size={size}
-                    className={cx(classes.datePickerRoot, className)}
+                    className={cls(classes.datePickerRoot, className, { [classes.datePickerstretched]: stretched })}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
                     {...rest}
@@ -550,6 +550,9 @@ export const datePickerRangeRoot = (
                         closeOnOverlayClick={closeOnOverlayClick}
                         closeOnEsc={closeOnEsc}
                         offset={offset}
+                        stretched={stretched}
+                        calendarContainerWidth={calendarContainerWidth}
+                        calendarContainerHeight={calendarContainerHeight}
                         type={type}
                         onToggle={handleToggle}
                         lang={lang}
@@ -557,9 +560,10 @@ export const datePickerRangeRoot = (
                         rootWrapper={RootWrapper}
                         onChangeStartOfRange={handleChangeStartOfRange}
                         onChangeValue={handleChangeCalendarValue}
+                        setIsInnerOpen={setIsInnerOpen}
                     />
                     {leftHelper && (
-                        <LeftHelper className={cx(rangeErrorClass, rangeSuccessClass)}>{leftHelper}</LeftHelper>
+                        <LeftHelper className={cls(rangeErrorClass, rangeSuccessClass)}>{leftHelper}</LeftHelper>
                     )}
                     <InputHidden
                         name={name}
