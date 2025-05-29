@@ -526,40 +526,78 @@ Select может выглядеть как Button и как Textfield. За э�
         import { Select } from '@salutejs/plasma-giga';
 
         export function App() {
-            const [checked, setChecked] = useState(false);
-
-            const items = [
+            const flatItems = [
                 {
                     value: 'north_america',
                     label: 'Северная Америка',
                 },
                 {
-                    value: 'south_america',
-                    label: 'Южная Америка',
-                    items: [
-                        {
-                            value: 'brazil',
-                            label: 'Бразилия',
-                        },
-                        {
-                            value: 'argentina',
-                            label: 'Аргентина',
-                        },
-                    ],
+                    value: 'rio_de_janeiro',
+                    label: 'Рио-де-Жанейро',
+                },
+                {
+                    value: 'sao_paulo',
+                    label: 'Сан-Паулу',
+                },
+                {
+                    value: 'buenos_aires',
+                    label: 'Буэнос-Айрес',
+                },
+                {
+                    value: 'cordoba',
+                    label: 'Кордова',
+                },
+                {
+                    value: 'bogota',
+                    label: 'Богота',
+                },
+                {
+                    value: 'medellin',
+                    label: 'Медельин',
                 },
             ];
 
+            const [value, setValue] = useState([]);
+            const [checked, setChecked] = useState(false);
+            const [indeterminate, setIndeterminate] = useState(false);
+
+            const handleClick = () => {
+                if (checked && !indeterminate) {
+                    setValue([]);
+                } else {
+                    setValue(flatItems.map((item) => item.value));
+                }
+            };
+
+            React.useEffect(() => {
+                if (value.length === 0) {
+                    setChecked(false);
+                    setIndeterminate(false);
+                } else if (value.length === flatItems.length) {
+                    setChecked(true);
+                    setIndeterminate(false);
+                } else {
+                    setChecked(true);
+                    setIndeterminate(true);
+                }
+            }, [value]);
+
             return (
-                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                <div style={{ display: "block", width: "300px", height: "300px" }}>
                     <Select
+                        value={value}
+                        onChange={setValue}
                         label="Label"
                         placeholder="Placeholder"
-                        items={items}
+                        items={flatItems}
                         multiselect
                         selectAllOptions={{
                             checked,
-                            onClick: () => setChecked(prev => !prev)
+                            indeterminate,
+                            onClick: handleClick,
                         }}
+                        listOverflow="auto"
+                        listMaxHeight="200px"
                     />
                 </div>
             );
