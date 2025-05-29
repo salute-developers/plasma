@@ -12,8 +12,11 @@ import { safeUseId } from '@salutejs/plasma-core';
 
 import { FloatingPopoverProps } from './Dropdown.types';
 
+// TODO: #2003
+const LIST_PADDING = 2;
+
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, offset = [0, 0], isInner, trigger, zIndex }, ref) => {
+    ({ target, children, opened, onToggle, placement, portal, offset, isInner, trigger, zIndex }, ref) => {
         const { refs, floatingStyles } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -26,7 +29,10 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
             open: opened,
             middleware: [
                 placement === 'auto' && autoPlacement(),
-                offsetMiddleware({ mainAxis: offset[1], crossAxis: offset[0] }),
+                offsetMiddleware({
+                    mainAxis: offset?.[1] || (isInner ? 4 : 0),
+                    crossAxis: offset?.[0] || (isInner ? -LIST_PADDING : 0),
+                }),
                 flip({ fallbackAxisSideDirection: 'end' }),
                 shift(),
             ],

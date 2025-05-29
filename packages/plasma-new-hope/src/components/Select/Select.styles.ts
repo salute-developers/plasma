@@ -21,7 +21,6 @@ export const Ul = styled.ul<{
     virtual: SelectProps['virtual'];
     listOverflow?: SelectProps['listOverflow'];
     listMaxHeight?: SelectProps['listMaxHeight'];
-    isInnerUl?: boolean;
 }>`
     max-height: ${({ virtual, listMaxHeight }) =>
         // eslint-disable-next-line no-nested-ternary

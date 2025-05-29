@@ -27,7 +27,6 @@ export const Ul = styled.ul<{
     virtual: ComboboxProps['virtual'];
     listOverflow?: ComboboxProps['listOverflow'];
     listMaxHeight?: ComboboxProps['listMaxHeight'];
-    isInnerUl?: boolean;
 }>`
     max-height: ${({ virtual, listMaxHeight }) => (virtual ? 'auto' : listMaxHeight || 'auto')};
     overflow-y: ${({ virtual, listOverflow }) => (virtual ? 'visible' : listOverflow || 'visible')};
