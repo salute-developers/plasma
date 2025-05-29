@@ -1,0 +1,37 @@
+import TipCssModules from '../_utils/_tip-css-modules.mdx';
+
+<TipCssModules isSass/>
+
+```jsx
+import React, { useLayoutEffect, useState } from 'react';
+import { Switch } from '@salutejs/sdds-crm';
+
+import './style.sass';
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    useLayoutEffect(() => {
+        document.documentElement.className = theme;
+    }, [theme]);
+
+    return (
+        <div className="wrapper">
+            <Switch
+                label={`app theme: ${theme}`}
+                onChange={() => {
+                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                }}
+            />
+        </div>
+    );
+};
+
+export default App;
+```
+
+В файле, где происходит подключение всех стилей, например `index.sass`
+
+```sass
+@use '@salutejs/sdds-themes/css/sdds_serv.module.css'
+```

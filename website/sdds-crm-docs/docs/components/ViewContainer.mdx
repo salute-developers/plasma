@@ -1,0 +1,82 @@
+---
+id: viewContainer
+title: ViewContainer
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# ViewContainer
+<Description name="ViewContainer" />
+<PropsTable name="ViewContainer" exclude={['css']} />
+
+# Описание
+
+Данный компонент представляет собой обёртку, которая инвертирует токены компонент, которые в неё помещены, в зависимости от выбранного значения свойства view - `onDark` или `onLight`.
+
+При этом, независимо от режима темы (тёмный или светлый) для всего приложения, токены внутри не будут меняться. 
+
+Этот механизм необходим для случаев, когда требуется отобразить компонент на специфичном бэкграунде, чтобы избежать наложение цветов.
+
+# Пример использования
+
+```tsx live
+import React from 'react';
+import { ViewContainer, Button, Checkbox, TextField } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div>
+            <ViewContainer
+                style={{
+                    padding: '1rem',
+                    borderRadius: '1rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1rem',
+                }}
+            >
+                <h3 style={{ margin: 0 }}>Inside default ViewContainer</h3>
+                <Button text="default Button" />
+                <Checkbox checked label="Label" />
+                <TextField value="Example Value" label="Label" labelPlacement="inner" />
+            </ViewContainer>
+            <br />
+            <ViewContainer
+                view="onDark"
+                style={{
+                    background: '#1a1a1a',
+                    color: 'white',
+                    padding: '1rem',
+                    borderRadius: '1rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1rem',
+                }}
+            >
+                <h3 style={{ margin: 0 }}>Inside onDark ViewContainer</h3>
+                <Button text="default Button" />
+                <Checkbox checked label="Label" />
+                <TextField value="Example Value" label="Label" labelPlacement="inner" />
+            </ViewContainer>
+            <br />
+            <ViewContainer
+                view="onLight"
+                style={{
+                    background: '#ededed',
+                    color: 'black',
+                    padding: '1rem',
+                    borderRadius: '1rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1rem',
+                }}
+            >
+                <h3 style={{ margin: 0 }}>Inside onLight ViewContainer</h3>
+                <Button text="default Button" />
+                <Checkbox checked label="Label" />
+                <TextField value="Example Value" label="Label" labelPlacement="inner" />
+            </ViewContainer>
+        </div>
+    );
+}
+```

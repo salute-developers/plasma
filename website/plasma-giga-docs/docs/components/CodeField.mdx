@@ -1,0 +1,150 @@
+---
+id: codefield
+title: CodeField
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# CodeField
+Компонент `CodeField` используется для ввода OTP-кодов.
+
+<Description name="CodeField" />
+<PropsTable name="CodeField" />
+
+## Примеры
+
+### Размер
+Размер задается с помощью свойства `size`. 
+Ширина компонента так же может регулироваться при помощи свойства `width`:
+
+```tsx live
+import React from 'react';
+import { CodeField } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div style={{ flexDirection: 'column', gap: '2rem' }}>
+            <CodeField
+                size="l"
+                caption="Осталось попыток: 4"
+                captionAlign="center"
+            />
+            <CodeField
+                size="m"
+                caption="Чтобы выслать вам код повторно подождите: 20 секунд"
+                captionAlign="left"
+            />
+            <CodeField 
+                width="25"
+                caption="Не передавайте никому код из СМС. Иначе ваш аккаунт могут взломать"
+                captionAlign="center"
+            />
+        </div>
+    );
+}
+```
+
+### Форма компонента и длина кода
+Форма компонента задается с помощью свойства `shape`, а длина кода с помощью `codeLength`:
+
+```tsx live
+import React from 'react';
+import { CodeField } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div style={{ flexDirection: 'column', gap: '2rem' }}>
+            <div style={{ display: 'flex', gap: '2rem' }}>
+                <CodeField shape="default" codeLength={4} />
+                <CodeField shape="segmented"  codeLength={4} />
+            </div>
+            <div style={{ display: 'flex', gap: '2rem' }}>
+                <CodeField shape="default" codeLength={5} />
+                <CodeField shape="segmented"  codeLength={5} />
+            </div>
+            <div style={{ display: 'flex', gap: '2rem' }}>
+                <CodeField shape="default" codeLength={6} />
+                <CodeField shape="segmented"  codeLength={6} />
+            </div>
+        </div>
+    );
+}
+```
+
+### Допустимые символы и поведение ячейки при вводе некорректного символа
+За допустимые символы для ввода отвечает свойство `allowedSymbols`. Задается строкой или регулярным выражением.
+Библиотека экспортирует наиболее используемые вариации допустимых символов:
+`import { ONLY_DIGITS_PATTERN, ONLY_CHARS_PATTERN, ONLY_DIGITS_AND_CHARS_PATTERN } from '@salutejs/plasma-giga';`
+
+Поведение ячейки при вводе некорректного символа регулируется свойством `itemErrorBehavior`:
+
+```tsx live
+import React from 'react';
+import { CodeField } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div>
+            <CodeField value="123" itemErrorBehavior="remove-symbol" />
+            <CodeField value="123" itemErrorBehavior="keep" />
+            <CodeField value="123" itemErrorBehavior="forbid-enter" />
+        </div>
+    );
+}
+```
+
+### Поведение компонента при вводе некорректного кода и индикация ошибки
+При заполнении всех полей ввода срабатывает колбэк `onFullCodeEnter`. 
+При неверном вводе кода, поведние компонента управляется с помощью свойства `codeErrorBehavior`. 
+Индикация ошибки происходит с помощью флага `isError` и колбека `setIsError`:
+
+```tsx live
+import React, { useState, useRef, Dispatch, SetStateAction } from 'react';
+import { CodeField } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [disabledFirst, setDisabledFirst] = useState(false);
+    const [isErrorFirst, setIsErrorFirst] = useState(false);
+    
+    const [disabledSecond, setDisabledSecond] = useState(false);
+    const [isErrorSecond, setIsErrorSecond] = useState(false);
+
+    const onFullCodeEnter = (
+        code: string,
+        errorSetter: Dispatch<SetStateAction<boolean>>,
+        disableSetter: Dispatch<SetStateAction<boolean>>
+    ) => {
+        disableSetter(true);
+
+        // имитация запроса на сервер
+        setTimeout(() => {
+            disableSetter(false);
+
+            if (code !== '123456') {
+                errorSetter(true);
+            }
+        }, 3000)
+    }
+
+    return (
+        <div style={{ flexDirection: 'column', gap: '2rem' }}>
+            <CodeField
+                itemErrorBehavior="remove-symbol"
+                codeErrorBehavior="remove-code"
+                disabled={disabledFirst}
+                isError={isErrorFirst}
+                setIsError={setIsErrorFirst}
+                onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorFirst, setDisabledFirst)}
+            />
+            <CodeField
+                itemErrorBehavior="remove-symbol"
+                codeErrorBehavior="keep"
+                disabled={disabledSecond}
+                isError={isErrorSecond}
+                setIsError={setIsErrorSecond}
+                onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorSecond, setDisabledSecond)}
+            />
+        </div>
+    );
+}
+```

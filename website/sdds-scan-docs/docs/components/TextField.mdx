@@ -1,0 +1,300 @@
+---
+id: textfield
+title: TextField
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# TextField
+<Description name="TextField" />
+<PropsTable name="TextField" exclude={['$isFocused']} />
+
+## Использование
+Компонент `TextField` может содержать иконку (или кнопку) слева и справа.
+Для этого используйте свойства `contentLeft` и `contentRight`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-scan';
+import { IconDownload } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Положение иконки"
+                defaultValue="Слева"
+                contentLeft={<IconDownload color="inherit" />}
+            />
+            <TextField
+                placeholder="Положение иконки"
+                defaultValue="Справа"
+                contentRight={<IconDownload color="inherit" />}
+            />
+        </div>
+    );
+}
+```
+
+### Размер поля
+Размер поля задаётся с помощью свойства `size`. Свойство принимает значения `"l" | "m" | "s" | "xs"`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Размер"
+                size="l"
+                defaultValue="L56"
+            />
+            <TextField
+                placeholder="Размер"
+                size="s"
+                defaultValue="S40"
+            />
+        </div>
+    );
+}
+```
+
+### Статус поля
+Статус поля задается с помощью свойства `view`.
+
+Возможные значения свойства: `"positive" | "warning" | "negative"`
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+                <TextField
+                    placeholder="Статус positive"
+                    view="positive"
+                    size="m"
+                    defaultValue="Positive"
+                />
+                <TextField
+                    placeholder="Статус warning"
+                    view="warning"
+                    size="m"
+                    defaultValue="Warning"
+                />
+                <TextField
+                    placeholder="Статус Ошибка"
+                    view="negative"
+                    size="m"
+                    defaultValue="Negative"
+                />
+            </div>
+        </div>
+    );
+}
+```
+
+### Вариация Clear
+На отображение компонента так же влияют свойства `clear` и `hasDivider`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+                <TextField
+                    placeholder="Статус positive"
+                    view="positive"
+                    size="m"
+                    defaultValue="Positive"
+                    clear
+                    hasDivider
+                />
+                <TextField
+                    placeholder="Статус warning"
+                    view="warning"
+                    size="m"
+                    defaultValue="Warning"
+                    clear
+                    hasDivider
+                />
+                <TextField
+                    placeholder="Статус negative"
+                    view="negative"
+                    size="m"
+                    defaultValue="Negative"
+                    clear
+                    hasDivider
+                />
+            </div>
+        </div>
+    );
+}
+```
+
+### Подсказка
+Для вывода подсказок:
+
+- `leftHelper` внизу слева под компонентом
+- `titleCaption` сверху справа над компонентом
+- `hintText` для подсказки в виде `Tooltip`
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                leftHelper="Подсказка снизу"
+                titleCaption="Подсказка сверху"
+                hintText="Подсказка в виде Tooltip"
+                hintView="default"
+                hintSize="m"
+            />
+        </div>
+    );
+}
+```
+
+### Режим ввода
+С помощью свойства `enumerationType` можно вводить элементы как теги. Свойство `chipType` изменяет внешний вид чипа.
+
+С помощью `chipView` можно задать общий вид `Chip`. Валидация `Chip` происходит с помощью функции `chipValidator`.
+
+По нажатию Enter, после ввода нужного текста, он преобразуется в Chip.
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-scan';
+
+export function App() {
+    const validateChip = (value) => (value === 'Значение 1' ? { view: 'negative' } : {});
+
+    return (
+        <div>
+            <TextField
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                size="l"
+                enumerationType="chip"
+                leftHelper="Подсказка снизу"
+                chips={["Значение 1", "Значение 2"]}
+                chipView="positive"
+                chipValidator={validateChip}
+            />
+
+            <TextField
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                size="l"
+                enumerationType="chip"
+                leftHelper="Подсказка снизу"
+                chips={["Значение 1"]}
+                chipType="text"
+            />
+        </div>
+    );
+}
+```
+
+### Обязательность поля
+
+:::tip
+Наличие индикатора регулируется свойством `hasRequiredIndicator`.
+:::
+
+Обязательность поля задаётся с помощью свойств `required` и `requiredPlacement`.
+
+Где `requiredPlacement` отвечает за выравнивание и принимает значения `"left"` и `"right"`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Введите значение"
+                required
+            />
+            <TextField
+                placeholder="Введите значение"
+                label="Заголовок"
+                required
+                requiredPlacement="right"
+            />
+            <TextField
+                placeholder="Введите значение"
+                label="Поле обязательное, но не имеет визуального индикатора"
+                required
+                requiredPlacement="right"
+                hasRequiredIndicator={false}
+            />
+        </div>
+    );
+}
+```
+
+## Примеры
+
+### TextField + очистка поля
+
+```tsx live
+import React, { useState } from "react";
+import { TextField } from "@salutejs/sdds-scan";
+import { IconClose } from "@salutejs/plasma-icons";
+
+export function App() {
+  const [value, setValue] = useState("");
+
+  const ControlClear = (props: { onClick: () => void }) => {
+      return (
+        <div {...props}>
+          <IconClose size="xs" color="inherit" />
+        </div>
+      );
+  };
+
+  return (
+    <div>
+      <TextField
+        placeholder="Положение иконки"
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        contentRight={
+          <ControlClear
+            onClick={() => {
+              setValue("");
+            }}
+          />
+        }
+      />
+    </div>
+  );
+}
+```
+
+## Клавиатурная навигация
+
+Данный компонент может полностью управляться с помощью клавиатуры, используя следующие клавиши:
+-  по нажатию `Tab` фокусируемся на input
+-  если enumeratinType=`chip` после ввода текста, по нажатию `Enter`, input очистится и появится Chip
+-  если введен текст в input по нажатию `ArrowLeft` или `ArrowRight` каретка передвигается по тексту
+-  при достижении левой границы текста или отсутствии текста в input, при нажатии `Backspace` удаляем последний Chip, если он есть
+-  при достижении левой границы текста или отсутствии текста в input, при нажатии `ArrowLeft` переключаемся на последний Chip, если он есть
+-  при фокусе на Chip работает переключение фокуса на другие Chip по нажатию `ArrowLeft`, `ArrowRight`; если же Chip крайний правый, при нажатии `ArrowRight` фокус переходит на input
+

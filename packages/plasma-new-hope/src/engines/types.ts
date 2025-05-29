@@ -75,4 +75,5 @@ export interface ComponentConfig<
     variations: VariantList;
     defaults: Partial<Record<string, string>>;
     intersections?: Intersection[];
+    invariants?: PolymorphicClassName;
 }

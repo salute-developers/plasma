@@ -146,4 +146,14 @@ describe('plasma-web: Mask', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('mask is not passed', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Mask size="m" label="Маска телефона" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });

@@ -284,6 +284,7 @@ export const fallbackThemeDark = getFormattedTokensForFallbackTheme({
     '--outline-transparent-primary-active': '#FFFFFF0F',
     '--text-info': '#528EFF',
     '--surface-transparent-info': '#3F81FD33',
+    '--surface-info': '#3F81FD',
 });
 
 export const fallbackThemeLight = getFormattedTokensForFallbackTheme({
@@ -569,4 +570,5 @@ export const fallbackThemeLight = getFormattedTokensForFallbackTheme({
     '--outline-transparent-primary-active': '#0808083D',
     '--text-info': '#2A72F8',
     '--surface-transparent-info': '#2A72F81F',
+    '--surface-info': '#2A72F8',
 });

@@ -96,7 +96,12 @@ describe('plasma-web: Checkbox', () => {
             <CypressTestDecoratorWithTypo>
                 <List>
                     {items.map((item) => (
-                        <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
+                        <ListItem
+                            key={item.value}
+                            style={{
+                                marginLeft: item.parent ? '24px' : undefined,
+                            }}
+                        >
                             <Checkbox size="s" {...item} />
                         </ListItem>
                     ))}
@@ -113,7 +118,12 @@ describe('plasma-web: Checkbox', () => {
             <CypressTestDecoratorWithTypo>
                 <List>
                     {items.map((item) => (
-                        <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
+                        <ListItem
+                            key={item.value}
+                            style={{
+                                marginLeft: item.parent ? '32px' : undefined,
+                            }}
+                        >
                             <Checkbox size="m" {...item} />
                         </ListItem>
                     ))}
@@ -130,7 +140,12 @@ describe('plasma-web: Checkbox', () => {
             <CypressTestDecoratorWithTypo>
                 <List>
                     {items.map((item) => (
-                        <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
+                        <ListItem
+                            key={item.value}
+                            style={{
+                                marginLeft: item.parent ? '36px' : undefined,
+                            }}
+                        >
                             <Checkbox size="l" {...item} />
                         </ListItem>
                     ))}

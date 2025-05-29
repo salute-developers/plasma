@@ -8,7 +8,8 @@ import { ComponentConfig, HTMLAnyAttributes } from './types';
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
-    const { tag, base, name, intersections } = componentConfig;
+    const { tag, base, name, intersections, invariants } = componentConfig;
+
     const staticVariants = getStaticVariants(componentConfig);
     const dynamicVariants = getDynamicVariants(componentConfig);
 
@@ -17,7 +18,14 @@ export const _component = (componentConfig: ComponentConfig) => {
         const variants = dynamicVariants(rest);
         const intersectionStyles = getIntersectionStyles(rest, intersections) as string[];
 
-        const cls = cx(className, base as string, ...(staticVariants as string[]), ...variants, ...intersectionStyles);
+        const cls = cx(
+            className,
+            base as string,
+            ...(staticVariants as string[]),
+            ...variants,
+            ...intersectionStyles,
+            invariants as string,
+        );
 
         // styled-components do it inside
         // filter props

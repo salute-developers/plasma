@@ -1,7 +1,9 @@
 import { css } from '@linaria/core';
 
+import { tokens } from '../Link.tokens';
+
 const getColor = (cssVar: string) => `
-    color: var(${cssVar}, var(--plasma-link-color));
+    color: var(${cssVar}, var(${tokens.linkColor}));
 
     ::before {
         opacity: 1;
@@ -9,31 +11,31 @@ const getColor = (cssVar: string) => `
 `;
 
 export const base = css`
-    font-family: var(--plasma-link-font-family);
+    font-family: var(${tokens.linkFontFamily});
 
-    color: var(--plasma-link-color);
+    color: var(${tokens.linkColor});
 
     ::before {
-        border-bottom: var(--plasma-link-underline-border) solid currentColor;
+        border-bottom: var(${tokens.linkUnderlineBorder}) solid currentColor;
     }
 
     &:hover {
-        ${getColor('--plasma-link-color-hover')};
+        ${getColor(tokens.linkColorHover)};
     }
 
     &:active {
-        ${getColor('--plasma-link-color-active')};
+        ${getColor(tokens.linkColorActive)};
     }
 
     &:visited {
-        ${getColor('--plasma-link-color-visited')};
+        ${getColor(tokens.linkColorVisited)};
     }
 
     &:visited:hover {
-        ${getColor('--plasma-link-color-visited-hover')};
+        ${getColor(tokens.linkColorVisitedHover)};
     }
 
     &:visited:active {
-        ${getColor('--plasma-link-color-visited-active')};
+        ${getColor(tokens.linkColorVisitedActive)};
     }
 `;

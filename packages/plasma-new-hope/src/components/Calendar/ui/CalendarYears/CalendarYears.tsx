@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { Fragment, useCallback, useEffect, useRef } from 'react';
 
 import { useYears } from '../../hooks';
 import { innerTokens, tokens } from '../../Calendar.tokens';
@@ -6,7 +6,7 @@ import { ROW_YEAR_STEP, canSelectDate, getInRange, getSideInRange, isSameDay, is
 import { DateStructureItem } from '../DateStructureItem/DateStructureItem';
 
 import type { CalendarYearsProps } from './CalendarYears.types';
-import { StyledCalendarYears, StyledFlex } from './CalendarYears.styles';
+import { StyledCalendarYears } from './CalendarYears.styles';
 
 /**
  * Компонент годов в календаре.
@@ -54,8 +54,6 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
         [`${innerTokens.dateStructureFontLetterSpacing}`]: `var(${tokens.calendarYearFontLetterSpacing})`,
         [`${innerTokens.dateStructureFontStyle}`]: `var(${tokens.calendarYearFontStyle})`,
         [`${innerTokens.dateStructureSelectedFontWeight}`]: `var(${tokens.calendarYearSelectedFontWeight})`,
-        [`${innerTokens.dateStructureWidth}`]: `var(${tokens.calendarYearItemWidth})`,
-        [`${innerTokens.dateStructureHeight}`]: `var(${tokens.calendarYearItemHeight})`,
         [`${innerTokens.dateStructureBorderRadius}`]: `var(${tokens.calendarYearItemBorderRadius})`,
     };
 
@@ -139,7 +137,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
             onMouseLeave={handleMouseOutGrid}
         >
             {years.map((year, i) => (
-                <StyledFlex role="row" key={i}>
+                <Fragment key={i}>
                     {year.map(
                         (
                             {
@@ -193,7 +191,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
                             );
                         },
                     )}
-                </StyledFlex>
+                </Fragment>
             ))}
         </StyledCalendarYears>
     );

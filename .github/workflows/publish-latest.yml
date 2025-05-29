@@ -24,7 +24,6 @@ jobs:
   changelog:
     runs-on: ubuntu-latest
     needs: [publish]
-    if: ${{ always() && contains(needs.publish.result, 'success') }}
     env:
       GITHUB_TOKEN: ${{ secrets.gh_token }}
     steps:
@@ -74,3 +73,93 @@ jobs:
           branch: ${{ steps.branch.outputs.BRANCH }}
           author_name: Salute Frontend Team
           author_email: salute.developers@gmail.com
+          
+  add_comment:
+    name: 'Add comments to merged pull requests'
+    runs-on: ubuntu-latest
+    needs: [ publish ]
+    env:
+      GITHUB_TOKEN: ${{ secrets.gh_token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          fetch-depth: 10
+          ref: master
+          
+      - name: Extract commit message
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          COMMIT_WITH_VERSION=$(git log --all --format="%H %P %s" | grep "${{ env.COMMIT_SHA }}" | grep "Bump independent versions \[skip ci\]" | awk '{print $1}')
+          COMMIT_MESSAGE=$(git show -s --format=%B "$COMMIT_WITH_VERSION")
+          echo "COMMIT_MESSAGE<<EOF" >> $GITHUB_ENV
+          echo "$COMMIT_MESSAGE" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+      
+      - name: Create comment with version
+        id: comment
+        uses: actions/github-script@v7
+        env:
+          DATA: "${{ env.COMMIT_MESSAGE }}"
+        with:
+          result-encoding: string
+          script: |
+            if (!process.env.DATA || !process.env.DATA.length) {
+              console.log('Empty DATA')
+            }
+            
+            const DATA = process.env.DATA
+                .replace(/.*Bump independent versions.*\n?/g, '')
+                .replace(/.*docs.*\n?/g, '')
+                .replace(/.*website.*\n?/g, '')
+                .replace(/.*sdds-clfd-auto.*\n?/g, '')
+                .replace(/^\s*[\r\n]/gm, '')
+                .trim()
+                .split('\n')
+                .map(line => line.trim());
+            
+            const comment = `
+              This PR is included in version:
+            
+              ${DATA.join('\n')}
+            `
+            
+            return comment;
+      
+      - name: Get pull requests id's
+        id: ids
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                commit_sha: context.sha,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+            });
+            
+            const data = res?.data[0].body || '';
+            
+            const prRegex = /\[PR\]\(https:\/\/github\.com\/[^\/]+\/[^\/]+\/pull\/(\d+)\)/g;
+            
+            const matches = Array.from(data.matchAll(prRegex));
+            
+            const ids = matches.map(match => parseInt(match[1], 10));
+            
+            return ids;
+      
+      - name: Add comments to pull request by ID
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const listID = ${{ steps.ids.outputs.result }};
+            
+            for (const id of listID) {
+              await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: id,
+                  body: `${{ steps.comment.outputs.result }}`,
+              });
+            }

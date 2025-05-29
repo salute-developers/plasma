@@ -1,13 +1,15 @@
 import { styled } from '@linaria/react';
 
 import { tokens } from '../../Calendar.tokens';
-import { flexCenter } from '../../mixins';
 
 export const StyledCalendarQuarters = styled.div`
     padding: var(${tokens.calendarQuartersPadding});
     box-sizing: border-box;
-`;
 
-export const StyledFlex = styled.div`
-    ${String(flexCenter)};
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    width: 100%;
+    height: 100%;
 `;

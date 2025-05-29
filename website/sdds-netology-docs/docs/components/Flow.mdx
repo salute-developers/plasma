@@ -1,0 +1,127 @@
+---
+id: flow
+title: Flow
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Flow
+Универсальный контейнер для упорядоченного размещения вложенных компонентов (например, медиафайлы, карточки или блоки текста).
+
+
+## Flow
+<Description name="Flow" />
+<PropsTable name="Flow" exclude={['css', 'focused', 'minColWidth']} />
+
+## Использование
+По умолчанию компонент `Flow` отображается на основе `display: flex; flex-wrap: wrap`,
+при указании `itemsPerLine` компонент переходит на `display: flex; flex-wrap: nowrap` с превентивным разбиением на колонки/столбцы.
+
+
+## Примеры
+
+### Горизонтальное отображение с переполнением
+
+```tsx live
+import React from 'react';
+import { Flow } from '@salutejs/sdds-netology';
+
+export function App() {
+    const numbers = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+    const style = (index) => ({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: `${2 + numbers[index].length}ch`,
+        height: '25px',
+        backgroundColor: '#999',
+        borderRadius: '10px',
+    });
+
+    return (
+        <div>
+            <Flow mainAxisGap="0.5ch" crossAxisGap="1ch" style={{ width: '15ch' }} >
+                {Array(6)
+                    .fill(0)
+                    .map((_, i) => (<div key={i} style={style(i)}>{numbers[i]}</div>))}
+            </Flow>
+        </div>
+    );
+}
+```
+
+### Вертикальное отображение с переполнением
+
+```tsx live
+import React from 'react';
+import { Flow } from '@salutejs/sdds-netology';
+
+export function App() {
+    const numbers = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+    const style = (index) => ({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: `${2 + numbers[index].length}ch`,
+        height: '25px',
+        backgroundColor: '#999',
+        borderRadius: '10px',
+    });
+
+    return (
+        <div>
+            <Flow
+                alignment="center"
+                orientation="vertical"
+                mainAxisGap="0.5ch"
+                crossAxisGap="1ch"
+                style={{ height: '90px' }}
+            >
+                {Array(6)
+                    .fill(0)
+                    .map((_, i) => (<div key={i} style={style(i)}>{numbers[i]}</div>))}
+            </Flow>
+        </div>
+    );
+}
+```
+
+### Отображение с разбиением на строки
+С ограничением количества элементов в строке.
+
+```tsx live
+import React from 'react';
+import { Flow } from '@salutejs/sdds-netology';
+
+export function App() {
+    const numbers = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+    const style = (index) => ({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: `${2 + numbers[index].length}ch`,
+        height: '25px',
+        backgroundColor: '#999',
+        borderRadius: '10px',
+    });
+
+    return (
+        <div>
+            <Flow
+                arrangement="end"
+                itemsPerLine={2}
+                mainAxisGap="0.5ch"
+                crossAxisGap="1ch"
+            >
+                {Array(6)
+                    .fill(0)
+                    .map((_, i) => (<div key={i} style={style(i)}>{numbers[i]}</div>))}
+            </Flow>
+        </div>
+    );
+}
+```
+

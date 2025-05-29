@@ -124,7 +124,7 @@ export const Item: FC<ItemProps> = ({
             {renderItem ? (
                 <StyledText>{renderItem(item)}</StyledText>
             ) : (
-                <StyledWrapper>
+                <StyledWrapper disabled={itemDisabled}>
                     <StyledCell
                         contentLeft={contentLeft}
                         contentRight={contentRight}

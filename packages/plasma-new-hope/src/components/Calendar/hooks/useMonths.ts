@@ -17,7 +17,16 @@ import { UseMonthsArgs } from './types';
 /**
  * Хук для получения списка месяцев.
  */
-export const useMonths = ({ date, value, eventList, disabledList, min, max, locale = 'ru' }: UseMonthsArgs) =>
+export const useMonths = ({
+    date,
+    value,
+    eventList,
+    disabledList,
+    min,
+    max,
+    locale = 'ru',
+    includeEdgeDates,
+}: UseMonthsArgs) =>
     useMemo(() => {
         const months = SHORT_MONTH_NAME[locale].map((monthName, monthIndex) => {
             return {
@@ -39,6 +48,7 @@ export const useMonths = ({ date, value, eventList, disabledList, min, max, loca
                 type: CalendarState.Months,
                 min,
                 max,
+                includeEdgeDates,
                 eventList,
                 disabledList,
             });

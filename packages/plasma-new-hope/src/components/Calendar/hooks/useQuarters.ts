@@ -8,7 +8,7 @@ import {
     getDatesWithModifications,
     quarterDates,
     isSelectedMonth as isSelectedQuarter,
-    isCurrentMonth as isCurrentQuarter,
+    isCurrentQuarter,
 } from '../utils';
 import { CalendarState } from '../store/types';
 
@@ -17,7 +17,7 @@ import type { UseQuartersArgs } from './types';
 /**
  * Хук для получения списка месяцев.
  */
-export const useQuarters = ({ date, value, eventList, disabledList, min, max }: UseQuartersArgs) =>
+export const useQuarters = ({ date, value, eventList, disabledList, min, max, includeEdgeDates }: UseQuartersArgs) =>
     useMemo(() => {
         const quarters = QUARTER_NAMES.map((quarterName: string) => {
             const { monthIndex, day } = quarterDates[quarterName];
@@ -39,6 +39,7 @@ export const useQuarters = ({ date, value, eventList, disabledList, min, max }: 
                 type: CalendarState.Quarters,
                 min,
                 max,
+                includeEdgeDates,
                 eventList,
                 disabledList,
             });

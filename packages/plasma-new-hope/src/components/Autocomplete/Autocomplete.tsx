@@ -10,10 +10,6 @@ import { Ul, InfiniteLoaderWrapper, base, StyledLeftHelper } from './Autocomplet
 import type { AutocompleteProps, SuggestionItemType } from './Autocomplete.types';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 
-// Пороговое значение количества результирующих элементов в списке,
-// при котором возможна виртуализация (при virtual=true);
-const VIRTUAL_ITEM_AMOUNT_THRESHOLD = 10;
-
 /**
  * Компонент Autocomplete. Поле ввода с подсказками в выпадающем списке.
  */
@@ -38,7 +34,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 textBefore,
                 textAfter,
                 onScroll,
-                listMaxHeight,
+                listMaxHeight = '25rem',
                 listWidth,
                 portal,
                 filter,
@@ -113,8 +109,6 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
             };
 
             const finalResults = suggestions?.filter(filter || defaultFilterCallback) || [];
-
-            virtual = virtual && finalResults.length > VIRTUAL_ITEM_AMOUNT_THRESHOLD;
 
             const { onKeyDown } = useKeyNavigation({
                 isOpen,

@@ -1,0 +1,27 @@
+import TipCssModules from '../_utils/_tip-css-modules.mdx';
+
+<TipCssModules isSass/>
+
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/sdds-netology';
+
+import styles from './index.module.sass';
+
+const App = () => {
+    return (
+        <div className={styles.dark}>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </div>
+    );
+};
+
+export default App;
+```
+
+В файле, где происходит подключение всех стилей, например `index.module.sass`
+
+```sass
+@use '@salutejs/plasma-themes/css/plasma_b2c.module.css'
+```

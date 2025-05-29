@@ -1,0 +1,33 @@
+import TipCssModules from '../_utils/_tip-css-modules.mdx';
+
+<TipCssModules />
+
+```jsx
+import React, { useLayoutEffect, useState } from 'react';
+
+import { Switch } from '@salutejs/sdds-netology';
+import webThemes from '@salutejs/plasma-themes/css/plasma_b2c.module.css';
+
+import './style.css';
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    useLayoutEffect(() => {
+        document.documentElement.className = webThemes[theme];
+    }, [theme]);
+
+    return (
+        <div className="wrapper">
+            <Switch
+                label={`app theme: ${theme}`}
+                onChange={() => {
+                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                }}
+            />
+        </div>
+    );
+};
+
+export default App;
+```

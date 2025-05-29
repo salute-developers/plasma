@@ -144,15 +144,12 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
                 return;
             }
 
-            console.log('here');
             const isValid = numberSchema.test(cleanValue);
 
             if (!isValid) {
-                console.log('not valid', cleanValue);
                 setValues(event, lastValidValue);
                 return;
             }
-            console.log('valid!', cleanValue);
 
             if (
                 textWrapperRef?.current &&
