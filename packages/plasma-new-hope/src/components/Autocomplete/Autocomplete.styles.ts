@@ -6,22 +6,27 @@ import { tokens } from './Autocomplete.tokens';
 
 export const base = css``;
 
+export const ListWrapper = styled.div`
+    margin: var(${tokens.margin}) 0 0 0;
+    padding: calc(var(${tokens.padding}) + var(${tokens.dropdownBorderWidth}, 0rem));
+    border-radius: var(${tokens.borderRadius});
+    box-sizing: border-box;
+    background: var(${tokens.background});
+    box-shadow: var(${tokens.boxShadow}),
+        inset 0 0 0 var(${tokens.dropdownBorderWidth}, 0rem) var(${tokens.dropdownBorderColor}, transparent);
+`;
+
 export const Ul = styled.ul<{
     listMaxHeight: AutocompleteProps['listMaxHeight'];
     virtual: AutocompleteProps['virtual'];
 }>`
-    background: var(${tokens.background});
-    box-shadow: var(${tokens.boxShadow});
-
-    border-radius: var(${tokens.borderRadius});
+    border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
     height: auto;
     max-height: ${({ virtual, listMaxHeight }) => (virtual ? 'auto' : listMaxHeight || 'auto')};
     overflow: auto;
 
-    border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
-
-    margin: var(${tokens.margin}) 0 0 0;
-    padding: var(${tokens.padding});
+    margin: 0;
+    padding: 0;
 `;
 
 export const InfiniteLoaderWrapper = styled.li`
