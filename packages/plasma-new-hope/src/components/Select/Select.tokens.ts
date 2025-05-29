@@ -277,7 +277,7 @@ export const constants = {
     focusSize: '0.0625rem',
     background: '--surface-solid-card',
     boxShadow: '0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04)',
-    itemBackground: '--plasma-colors-transparent',
+    itemBackground: '--surface-clear',
     textfieldTargetColor: '--text-primary',
     textfieldOuterLabelColor: '--text-primary',
     textfieldInnerLabelColor: '--text-secondary',
@@ -290,5 +290,5 @@ export const constants = {
     fontLetterSpacing: '--plasma-typo-body-xs-letter-spacing',
     fontLineHeight: '--plasma-typo-body-xs-line-height',
     cellTitleColor: '--text-primary',
-    cellBackgroundColor: '--plasma-colors-transparent',
+    cellBackgroundColor: '--surface-clear',
 };

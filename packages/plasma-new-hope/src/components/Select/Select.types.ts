@@ -444,8 +444,8 @@ export type FloatingPopoverProps = {
     opened: boolean;
     onToggle: (opened: boolean) => void;
     placement: NonNullable<MergedSelectProps['placement']>;
+    isInner: boolean;
     portal?: MergedSelectProps['portal'];
     listWidth?: MergedSelectProps['listWidth'];
-    offset?: number;
     zIndex?: DropdownProps['zIndex'];
 };

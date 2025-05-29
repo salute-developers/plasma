@@ -121,7 +121,7 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
     display: flex;
     align-items: center;
     min-height: var(${tokens.itemHeight});
-    margin: 0 calc(0.125rem + var(${tokens.dropdownBorderWidth}, 0rem));
+    margin: 0;
     box-sizing: content-box;
     padding: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemPaddingTight : tokens.itemPadding})`};
     font-family: var(${tokens.fontFamily});
@@ -156,7 +156,7 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
     }
 
     ${addFocus({
-        outlineSize: '0.0625rem',
+        outlineSize: '0',
         outlineOffset: '0',
         outlineColor: `var(${constants.focusColor})`,
         outlineRadius: `calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem))`,
@@ -164,7 +164,7 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
         customFocusRules: `
             &.${classes.dropdownItemIsFocused}:before {
                 outline: none;
-                box-shadow: 0 0 0 0.0625rem var(${constants.focusColor});
+                box-shadow: inset 0 0 0 0.0625rem var(${constants.focusColor});
             }
         `,
     })};
