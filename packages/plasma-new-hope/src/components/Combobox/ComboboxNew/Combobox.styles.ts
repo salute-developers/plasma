@@ -11,24 +11,29 @@ import { tokens, constants, classes } from './Combobox.tokens';
 const mergedConfig = mergeConfig(emptyStateConfig);
 const EmptyState = component(mergedConfig);
 
+export const ListWrapper = styled.div<{
+    listWidth?: ComboboxProps['listWidth'];
+}>`
+    width: ${({ listWidth }) => listWidth || '100%'};
+    padding: calc(var(${tokens.padding}) + var(${tokens.dropdownBorderWidth}, 0rem));
+    border-radius: var(${tokens.borderRadius});
+    box-sizing: border-box;
+    background: var(${constants.background});
+    box-shadow: ${constants.boxShadow},
+        inset 0 0 0 var(${tokens.dropdownBorderWidth}, 0rem) var(${tokens.dropdownBorderColor}, transparent);
+`;
+
 export const Ul = styled.ul<{
     virtual: ComboboxProps['virtual'];
     listOverflow?: ComboboxProps['listOverflow'];
     listMaxHeight?: ComboboxProps['listMaxHeight'];
-    listWidth?: ComboboxProps['listWidth'];
     isInnerUl?: boolean;
 }>`
-    background: var(${constants.background});
-    box-shadow: ${constants.boxShadow};
-
-    border-radius: var(${tokens.borderRadius});
-    width: ${({ listWidth }) => listWidth || '100%'};
     max-height: ${({ virtual, listMaxHeight }) => (virtual ? 'auto' : listMaxHeight || 'auto')};
     overflow-y: ${({ virtual, listOverflow }) => (virtual ? 'visible' : listOverflow || 'visible')};
-    border: var(${tokens.dropdownBorderWidth}) solid var(${tokens.dropdownBorderColor});
-    margin: ${({ isInnerUl }) =>
-        isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : `var(${tokens.margin}) 0 0 0`};
-    padding: var(${tokens.padding}) 0;
+    border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
+    margin: 0;
+    padding: 0;
 
     .${classes.emptyStateWrapper} {
         box-shadow: none;

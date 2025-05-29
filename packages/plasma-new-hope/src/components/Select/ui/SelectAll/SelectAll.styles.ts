@@ -17,7 +17,6 @@ export const Wrapper = styled.div<{ variant: SelectProps['variant']; sticky?: bo
 `;
 
 export const DividerWrapper = styled.div`
-    margin: 0 calc(0.125rem + var(${tokens.dropdownBorderWidth}, 0rem));
     background: var(${constants.background});
 `;
 
@@ -26,7 +25,6 @@ export const Divider = styled.div<{ variant: SelectProps['variant'] }>`
     margin-top: ${({ variant }) =>
         `var(${variant === 'tight' ? tokens.dividerMarginTopTight : tokens.dividerMarginTop})`};
     margin-right: var(${tokens.dividerMarginRight});
-
     margin-left: var(${tokens.dividerMarginLeft});
     background: var(${tokens.dividerColor});
 `;

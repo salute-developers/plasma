@@ -4,7 +4,7 @@ import { safeUseId } from '@salutejs/plasma-core';
 
 import { FloatingPopover } from '../../FloatingPopover';
 import { isEmpty } from '../../../../../utils';
-import { Ul } from '../../Combobox.styles';
+import { Ul, ListWrapper } from '../../Combobox.styles';
 
 import type { ItemOptionTransformed } from './ui/Item/Item.types';
 import { Item } from './ui';
@@ -31,7 +31,6 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                 placement={item?.placement || 'right-start'}
                 opened={isCurrentListOpen}
                 onToggle={handleToggle}
-                offset={2}
                 target={
                     <Item
                         item={item}
@@ -44,20 +43,23 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                         ariaLabel={item.label}
                     />
                 }
+                isInner
             >
-                <Ul role="group" id={listId} isInnerUl listWidth={listWidth} virtual={false}>
-                    {item.items?.map((innerItem: ItemOptionTransformed, innerIndex: number) => (
-                        <Inner
-                            key={`${innerIndex}/${currentLevel}`}
-                            item={innerItem}
-                            currentLevel={nextLevel}
-                            path={path}
-                            dispatchPath={dispatchPath}
-                            index={innerIndex}
-                            listWidth={listWidth}
-                        />
-                    ))}
-                </Ul>
+                <ListWrapper listWidth={listWidth}>
+                    <Ul role="group" id={listId} isInnerUl virtual={false}>
+                        {item.items?.map((innerItem: ItemOptionTransformed, innerIndex: number) => (
+                            <Inner
+                                key={`${innerIndex}/${currentLevel}`}
+                                item={innerItem}
+                                currentLevel={nextLevel}
+                                path={path}
+                                dispatchPath={dispatchPath}
+                                index={innerIndex}
+                                listWidth={listWidth}
+                            />
+                        ))}
+                    </Ul>
+                </ListWrapper>
             </FloatingPopover>
         );
     }

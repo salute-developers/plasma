@@ -17,7 +17,6 @@ export const Wrapper = styled.div<{ variant: ComboboxProps['variant']; sticky?: 
 `;
 
 export const DividerWrapper = styled.div`
-    margin: 0 calc(0.125rem + var(${tokens.dropdownBorderWidth}, 0rem));
     background: var(${constants.background});
 `;
 
