@@ -29,7 +29,10 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
             placement: getPlacement(placement),
             open: opened,
             middleware: [
-                offsetMiddleware({ mainAxis: isInner ? 4 : 0, alignmentAxis: isInner ? -LIST_PADDING : 0 }),
+                offsetMiddleware({
+                    mainAxis: isInner ? LIST_PADDING * 2 : 0,
+                    alignmentAxis: isInner ? -LIST_PADDING : 0,
+                }),
                 flip({ fallbackPlacements: getFallbackPlacements(placement) }),
                 shift(),
                 size({
