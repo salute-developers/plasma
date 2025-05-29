@@ -30,7 +30,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
             middleware: [
                 placement === 'auto' && autoPlacement(),
                 offsetMiddleware({
-                    mainAxis: offset?.[1] || (isInner ? 4 : 0),
+                    mainAxis: offset?.[1] || (isInner ? LIST_PADDING * 2 : 0),
                     crossAxis: offset?.[0] || (isInner ? -LIST_PADDING : 0),
                 }),
                 flip({ fallbackAxisSideDirection: 'end' }),
