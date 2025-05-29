@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 import { isEmpty } from 'src/utils';
 
-import { Ul } from '../../Select.styles';
+import { Ul, ListWrapper } from '../../Select.styles';
 import { FloatingPopover } from '../../FloatingPopover';
 
 import type { MergedDropdownNodeTransformed } from './ui/Item/Item.types';
@@ -31,7 +31,6 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                 placement={item?.placement || 'right'}
                 opened={isCurrentListOpen}
                 onToggle={handleToggle}
-                offset={2}
                 target={
                     <Item
                         item={item}
@@ -44,20 +43,23 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                         ariaLabel={item.label}
                     />
                 }
+                isInner
             >
-                <Ul role="group" id={listId} isInnerUl listWidth={listWidth} virtual={false}>
-                    {item.items?.map((innerItem: MergedDropdownNodeTransformed, innerIndex: number) => (
-                        <Inner
-                            key={`${innerIndex}/${currentLevel}`}
-                            item={innerItem}
-                            currentLevel={nextLevel}
-                            path={path}
-                            dispatchPath={dispatchPath}
-                            index={innerIndex}
-                            listWidth={listWidth}
-                        />
-                    ))}
-                </Ul>
+                <ListWrapper listWidth={listWidth}>
+                    <Ul role="group" id={listId} isInnerUl virtual={false}>
+                        {item.items?.map((innerItem: MergedDropdownNodeTransformed, innerIndex: number) => (
+                            <Inner
+                                key={`${innerIndex}/${currentLevel}`}
+                                item={innerItem}
+                                currentLevel={nextLevel}
+                                path={path}
+                                dispatchPath={dispatchPath}
+                                index={innerIndex}
+                                listWidth={listWidth}
+                            />
+                        ))}
+                    </Ul>
+                </ListWrapper>
             </FloatingPopover>
         );
     }

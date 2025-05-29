@@ -10,16 +10,10 @@ export const Wrapper = styled.div<{ variant: SelectProps['variant']; sticky?: bo
     display: flex;
     flex-direction: column;
     background: var(${constants.background});
-    margin-right: var(${tokens.dropdownBorderWidth}, 0rem);
     margin-bottom: ${({ variant }) =>
         `var(${variant === 'tight' ? tokens.dividerMarginBottomTight : tokens.dividerMarginBottom})`};
-    margin-left: var(${tokens.dropdownBorderWidth}, 0rem);
     border-top-left-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
     border-top-right-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
-
-    & > li {
-        margin: 0 0.125rem;
-    }
 `;
 
 export const DividerWrapper = styled.div`
