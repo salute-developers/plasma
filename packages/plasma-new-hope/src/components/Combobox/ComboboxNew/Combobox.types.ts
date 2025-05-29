@@ -269,9 +269,9 @@ export type FloatingPopoverProps = {
     opened: boolean;
     onToggle: (opened: boolean) => void;
     placement: Placement;
+    isInner: boolean;
     portal?: ComboboxProps['portal'];
     listWidth?: ComboboxProps['listWidth'];
-    offset?: number;
     zIndex?: DropdownProps['zIndex'];
 };
 
