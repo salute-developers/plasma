@@ -10,7 +10,7 @@ import { focusedPathReducer } from './reducers/focusedPathReducer';
 import { DropdownInner } from './ui';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { Ul, base } from './Dropdown.styles';
+import { Ul, base, ListWrapper } from './Dropdown.styles';
 import { childrenWithProps, getItemByFocused, getItemId, getPlacement } from './utils';
 import type { DropdownProps, HandleGlobalToggleType } from './Dropdown.types';
 import { classes } from './Dropdown.tokens';
@@ -160,6 +160,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                             onContextMenu: openByRightClick ? onContextMenu : undefined,
                         })}
                         zIndex={zIndex}
+                        isInner={false}
                     >
                         <Root
                             className={cx(className, classes.dropdownRoot)}
@@ -169,33 +170,34 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                             style={{ display: 'inline-block' }}
                             {...rest}
                         >
-                            <Ul
-                                ref={targetRef}
-                                id={`${treeId}_tree_level_1`}
-                                role="tree"
-                                listOverflow={listOverflow}
-                                listMaxHeight={listMaxHeight || listHeight}
-                                listWidth={listWidth}
-                            >
-                                {beforeList}
+                            <ListWrapper listWidth={listWidth}>
+                                <Ul
+                                    ref={targetRef}
+                                    id={`${treeId}_tree_level_1`}
+                                    role="tree"
+                                    listOverflow={listOverflow}
+                                    listMaxHeight={listMaxHeight || listHeight}
+                                >
+                                    {beforeList}
 
-                                {items.map((item, index) => (
-                                    <DropdownInner
-                                        key={`${index}/0`}
-                                        item={item}
-                                        currentLevel={0}
-                                        trigger={trigger}
-                                        path={path}
-                                        dispatchPath={dispatchPath}
-                                        index={index}
-                                        listOverflow={listOverflow}
-                                        listMaxHeight={listMaxHeight || listHeight}
-                                        listWidth={listWidth}
-                                    />
-                                ))}
+                                    {items.map((item, index) => (
+                                        <DropdownInner
+                                            key={`${index}/0`}
+                                            item={item}
+                                            currentLevel={0}
+                                            trigger={trigger}
+                                            path={path}
+                                            dispatchPath={dispatchPath}
+                                            index={index}
+                                            listOverflow={listOverflow}
+                                            listMaxHeight={listMaxHeight || listHeight}
+                                            listWidth={listWidth}
+                                        />
+                                    ))}
 
-                                {afterList}
-                            </Ul>
+                                    {afterList}
+                                </Ul>
+                            </ListWrapper>
                         </Root>
                     </FloatingPopover>
                 </Context.Provider>

@@ -46,7 +46,7 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                 isInner
             >
                 <ListWrapper listWidth={listWidth}>
-                    <Ul role="group" id={listId} isInnerUl virtual={false}>
+                    <Ul role="group" id={listId} virtual={false}>
                         {item.items?.map((innerItem: MergedDropdownNodeTransformed, innerIndex: number) => (
                             <Inner
                                 key={`${innerIndex}/${currentLevel}`}
