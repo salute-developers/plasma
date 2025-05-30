@@ -157,3 +157,41 @@ export function App() {
     );
 }
 ```
+
+### hasClose и contolled вариант
+Свойство `hasClose` добавляет крестик в правом верхнем углу. При нажатии сработает функция `onCloseButtonClick`
+
+```tsx live
+import React from 'react';
+import { Note, Button } from '@salutejs/sdds-insol';
+import { IconSaluteOutline } from '@salutejs/plasma-icons';
+
+export function App() {
+  const [state, setState] = useState(true);
+
+  return (
+    <div style={{height: '8rem', display: 'block'}}>
+      <Button
+        size="s"
+        style={{ marginBottom: "0.5rem" }}
+        onClick={() => setState(!state)}
+      >
+        Открыть
+      </Button>
+      {state && (
+        <Note
+          title="Ваш заголовок"
+          text="Пример с возможностью закрыть по control"
+          view="default"
+          size="s"
+          hasClose
+          onCloseButtonClick={() => {
+            setState(false);
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+```
