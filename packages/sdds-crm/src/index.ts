@@ -66,6 +66,7 @@ export * from './components/LinkButton';
 export * from './components/NumberFormat';
 export * from './components/Table';
 export * from './components/CodeField';
+export * from './components/CodeInput';
 export * from './components/List';
 export * from './components/Carousel';
 
