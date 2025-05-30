@@ -7,6 +7,11 @@ export const tokens = {
     linkColorVisitedHover: '--plasma-link-color-visited-hover',
     linkColorVisitedActive: '--plasma-link-color-visited-active',
     linkFontFamily: '--plasma-link-font-family',
+    linkFontSize: '--plasma-link-font-size',
+    linkFontStyle: '--plasma-link-font-style',
+    linkFontWeight: '--plasma-link-font-weight',
+    linkLetterSpacing: '--plasma-link-letter-spacing',
+    linkLineHeight: '--plasma-link-line-height',
     linkDisabledOpacity: '--plasma-link-disabled-opacity',
     linkUnderlineBorder: '--plasma-link-underline-border',
 };
