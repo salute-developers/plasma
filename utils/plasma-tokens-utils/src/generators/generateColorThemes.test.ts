@@ -17,6 +17,7 @@ describe('generateColorThemes', () => {
 
     it('Theme file should export of object with ":root" key', () => {
         expect(themeFile?.content).toEqual(
+            // @ts-ignore
             expect.stringMatching(/export const light .+:root.+--plasma-colors-border/gs),
         );
     });
