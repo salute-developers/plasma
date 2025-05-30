@@ -32,6 +32,5 @@ jobs:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
       with-react-17: true
-      with-artifacts: true
     secrets: inherit
 
