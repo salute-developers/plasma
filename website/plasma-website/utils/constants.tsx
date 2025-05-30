@@ -60,17 +60,6 @@ export const verticalsMap = [
         ],
     },
     {
-        title: 'SDDS NETOLOGY',
-        package: '@salutejs/sdds-netology',
-        group: 'Плазма',
-        href: '/sdds-netology-storybook/',
-        items: [
-            { text: 'Сторибук', href: '/sdds-netology-storybook/', contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: '/sdds-netology/', contentRight: <ArrowTopRight /> },
-            { text: PACKAGES_INFO['@salutejs/sdds-netology'][0], contentLeft: <CardstackOutline />, isMeta: true },
-        ],
-    },
-    {
         title: 'SDDS Service',
         package: '@salutejs/sdds-serv',
         group: 'SDDS Masterbrand',
@@ -126,6 +115,17 @@ export const verticalsMap = [
         ],
     },
     {
+        title: 'SDDS Scan',
+        package: '@salutejs/sdds-scan',
+        group: 'SDDS Masterbrand',
+        href: '/sdds-scan-storybook/',
+        items: [
+            { text: 'Сторибук', href: '/sdds-scan-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Документация', href: '/sdds-scan/', contentRight: <ArrowTopRight /> },
+            { text: PACKAGES_INFO['@salutejs/sdds-scan'][0], contentLeft: <CardstackOutline />, isMeta: true },
+        ],
+    },
+    {
         title: 'SDDS Insol',
         package: '@salutejs/sdds-insol',
         group: 'Отдельные сборки',
@@ -134,6 +134,17 @@ export const verticalsMap = [
             { text: 'Сторибук', href: '/sdds-insol-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-insol/', contentRight: <ArrowTopRight /> },
             { text: PACKAGES_INFO['@salutejs/sdds-insol'][0], contentLeft: <CardstackOutline />, isMeta: true },
+        ],
+    },
+    {
+        title: 'SDDS Netology',
+        package: '@salutejs/sdds-netology',
+        group: 'Отдельные сборки',
+        href: '/sdds-netology-storybook/',
+        items: [
+            { text: 'Сторибук', href: '/sdds-netology-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Документация', href: '/sdds-netology/', contentRight: <ArrowTopRight /> },
+            { text: PACKAGES_INFO['@salutejs/sdds-netology'][0], contentLeft: <CardstackOutline />, isMeta: true },
         ],
     },
 ];

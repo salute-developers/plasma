@@ -39,4 +39,5 @@ module.exports = {
     '@salutejs/sdds-insol': getLatestReleaseVersion('sdds-insol'),
     '@salutejs/sdds-serv': getLatestReleaseVersion('sdds-serv'),
     '@salutejs/sdds-crm': getLatestReleaseVersion('sdds-crm'),
+    '@salutejs/sdds-scan': getLatestReleaseVersion('sdds-scan'),
 };
