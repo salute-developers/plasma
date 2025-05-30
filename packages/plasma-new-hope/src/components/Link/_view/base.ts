@@ -7,7 +7,7 @@ const getColor = (cssVar: string) => `
 `;
 
 export const base = css`
-    font-family: var(${tokens.linkFontFamily});
+    font-family: var(${tokens.linkFontFamily}); // TODO: Удалить после обновления конфигов во всех дс
 
     color: var(${tokens.linkColor});
 
