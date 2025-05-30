@@ -11,8 +11,7 @@ describe('plasma-b2c: Accordion', () => {
     const AccordionItem = getComponent('AccordionItem');
 
     const title = 'Как оплатить заправку бонусами СберСпасибо?';
-    const body =
-        'После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топливa';
+    const body = 'После указания детале';
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
