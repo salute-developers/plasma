@@ -12,7 +12,7 @@ const Root = styled.div<{
     staticVariants: PolymorphicClassName[];
     dynamicVariants: (props: HTMLAnyAttributes) => any[];
     intersectionStyles: PolymorphicClassName[];
-    invariants?: string | SerializedStyles;
+    invariants?: PolymorphicClassName;
 }>`
     ${({ base }) => base};
     ${({ staticVariants }) => staticVariants};
