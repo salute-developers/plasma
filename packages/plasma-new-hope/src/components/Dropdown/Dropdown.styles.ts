@@ -5,22 +5,27 @@ import { getCorrectHeight } from './utils';
 import { DropdownProps } from './Dropdown.types';
 import { tokens, constants } from './Dropdown.tokens';
 
+export const ListWrapper = styled.div<{
+    listWidth?: DropdownProps['listWidth'];
+}>`
+    width: ${({ listWidth }) => listWidth || `var(${tokens.width})`};
+    padding: calc(var(${tokens.padding}) + var(${tokens.borderWidth}, 0rem));
+    border-radius: var(${tokens.borderRadius});
+    box-sizing: border-box;
+    background: var(${constants.background});
+    box-shadow: ${constants.boxShadow},
+        inset 0 0 0 var(${tokens.borderWidth}, 0) var(${tokens.borderColor}, transparent);
+`;
+
 export const Ul = styled.ul<{
     listMaxHeight: DropdownProps['listHeight'];
     listOverflow: DropdownProps['listOverflow'];
-    listWidth?: DropdownProps['listWidth'];
-    isInnerUl?: boolean;
 }>`
-    box-sizing: border-box;
-    width: ${({ listWidth }) => listWidth || `var(${tokens.width})`};
     max-height: ${({ listMaxHeight }) => (listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto')};
-    margin: ${({ isInnerUl }) => (isInnerUl ? `calc(var(${tokens.padding}) * -1) 0.125rem 0` : 0)};
-    padding: var(${tokens.padding}) 0;
     overflow-y: ${({ listOverflow }) => listOverflow || 'visible'};
-    background: var(${constants.background});
-    box-shadow: ${constants.boxShadow};
-    border-radius: var(${tokens.borderRadius});
-    border: var(${tokens.borderWidth}) solid var(${tokens.borderColor});
+    border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.borderWidth}, 0rem));
+    margin: 0;
+    padding: 0;
 `;
 
 export const base = css``;

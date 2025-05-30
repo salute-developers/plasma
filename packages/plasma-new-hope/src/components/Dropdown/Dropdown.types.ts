@@ -145,7 +145,7 @@ export type FloatingPopoverProps = {
     onToggle: (opened: boolean, event: SyntheticEvent | Event) => void;
     placement: PlacementType;
     trigger: DropdownProps['trigger'];
-    isInner?: boolean;
+    isInner: boolean;
     portal?: DropdownProps['portal'];
     offset?: [number, number];
     zIndex?: DropdownProps['zIndex'];

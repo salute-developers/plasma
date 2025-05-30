@@ -12,8 +12,11 @@ import { safeUseId } from '@salutejs/plasma-core';
 
 import type { FloatingPopoverProps } from './Combobox.types';
 
+// TODO: #2003
+const LIST_PADDING = 2;
+
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, listWidth, offset = 0, zIndex }, ref) => {
+    ({ target, children, opened, onToggle, placement, portal, listWidth, zIndex, isInner }, ref) => {
         const { refs, floatingStyles } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -25,13 +28,15 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
             placement,
             open: opened,
             middleware: [
-                offsetMiddleware(offset),
+                offsetMiddleware({ mainAxis: isInner ? 4 : 0, alignmentAxis: isInner ? -LIST_PADDING : 0 }),
                 flip({ fallbackAxisSideDirection: 'end' }),
                 shift(),
                 size({
                     apply({ rects, elements }) {
                         Object.assign(elements.floating.style, {
-                            width: listWidth || `${rects.reference.width}px`,
+                            width:
+                                listWidth ||
+                                `${isInner ? rects.reference.width + LIST_PADDING * 2 : rects.reference.width}px`,
                         });
                     },
                 }),

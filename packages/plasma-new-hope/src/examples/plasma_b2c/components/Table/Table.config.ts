@@ -47,7 +47,7 @@ export const config = {
                 ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
 
                 ${tokens.filterCheckboxPadding}: 0.75rem 0;
-                ${tokens.filterDividerMargin}: 0.375rem 1rem;
+                ${tokens.filterDividerMargin}: 0.375rem 0.75rem;
 
                 ${tokens.buttonHeight}: 2.5rem;
                 ${tokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -60,7 +60,7 @@ export const config = {
                 ${tokens.selectPadding}: 0.125rem;
                 ${tokens.selectBorderRadius}: 0.875rem;
                 ${tokens.selectItemHeight}: 1.5rem;
-                ${tokens.selectItemPadding}: 0.75rem 0.875rem;
+                ${tokens.selectItemPadding}: 0.75rem 0.75rem 0.75rem 0.875rem;
                 ${tokens.selectItemBorderRadius}: 0.75rem;
                 ${tokens.selectItemIconMargin}: 0 0.375rem 0 0;
                 ${tokens.selectItemIconSize}: 1.5rem;
@@ -75,7 +75,7 @@ export const config = {
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.selectCheckboxTriggerBorderWidth}: 0.125rem;
                 ${tokens.selectCheckboxTriggerBorderCheckedColor}: transparent;
-                ${tokens.selectControlPanelPadding}: 0.5rem 1rem;
+                ${tokens.selectControlPanelPadding}: 0.5rem 0.875rem;
                 ${tokens.selectControlPanelGap}: 0.5rem;
 
                 ${tokens.linkButtonFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -115,7 +115,7 @@ export const config = {
                 ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
 
                 ${tokens.filterCheckboxPadding}: 0.5rem 0;
-                ${tokens.filterDividerMargin}: 0.375rem 0.875rem;
+                ${tokens.filterDividerMargin}: 0.375rem 0.75rem;
 
                 ${tokens.buttonHeight}: 2rem;
                 ${tokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -128,7 +128,7 @@ export const config = {
                 ${tokens.selectPadding}: 0.125rem;
                 ${tokens.selectBorderRadius}: 0.75rem;
                 ${tokens.selectItemHeight}: 1.5rem;
-                ${tokens.selectItemPadding}: 0.5rem 0.625rem;
+                ${tokens.selectItemPadding}: 0.5rem 0.75rem 0.5rem 0.625rem;
                 ${tokens.selectItemBorderRadius}: 0.625rem;
                 ${tokens.selectItemIconMargin}: 0 0.375rem 0 0;
                 ${tokens.selectItemIconSize}: 1.5rem;
@@ -143,7 +143,7 @@ export const config = {
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.selectCheckboxTriggerBorderWidth}: 0.125rem;
                 ${tokens.selectCheckboxTriggerBorderCheckedColor}: transparent;
-                ${tokens.selectControlPanelPadding}: 0.25rem 0.875rem;
+                ${tokens.selectControlPanelPadding}: 0.25rem 0.75rem;
                 ${tokens.selectControlPanelGap}: 0.625rem;
 
                 ${tokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -183,7 +183,7 @@ export const config = {
                 ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
 
                 ${tokens.filterCheckboxPadding}: 0.5rem 0;
-                ${tokens.filterDividerMargin}: 0.25rem 0.625rem;
+                ${tokens.filterDividerMargin}: 0.25rem 0.5rem;
 
                 ${tokens.buttonHeight}: 1.5rem;
                 ${tokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -196,7 +196,7 @@ export const config = {
                 ${tokens.selectPadding}: 0.125rem;
                 ${tokens.selectBorderRadius}: 0.625rem;
                 ${tokens.selectItemHeight}: 1rem;
-                ${tokens.selectItemPadding}: 0.5rem;
+                ${tokens.selectItemPadding}: 0.5rem 0.5rem 0.5rem 0.375rem;
                 ${tokens.selectItemBorderRadius}: 0.5rem;
                 ${tokens.selectItemIconMargin}: 0 0.25rem 0 0;
                 ${tokens.selectItemIconSize}: 1rem;
@@ -211,7 +211,7 @@ export const config = {
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.25rem;
                 ${tokens.selectCheckboxTriggerBorderWidth}: 0.125rem;
                 ${tokens.selectCheckboxTriggerBorderCheckedColor}: transparent;
-                ${tokens.selectControlPanelPadding}: 0.25rem 0.625rem;
+                ${tokens.selectControlPanelPadding}: 0.25rem 0.5rem;
                 ${tokens.selectControlPanelGap}: 0.25rem;
 
                 ${tokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);

@@ -149,7 +149,7 @@ export const useKeyNavigation = ({
                     break;
                 }
 
-                if (!currentItem || currentItem?.disabled) {
+                if (!currentItem || currentItem?.disabled || currentItem?.isDisabled) {
                     break;
                 }
 
@@ -163,7 +163,7 @@ export const useKeyNavigation = ({
 
                 const currentItem = getItemByFocused(focusedPath, focusedToValueMap)!;
 
-                if (currentItem?.disabled) {
+                if (currentItem?.disabled || currentItem?.isDisabled) {
                     break;
                 }
 

@@ -17,6 +17,14 @@ export type SelectPlacement = 'top' | 'bottom' | 'right' | 'left' | 'auto';
 
 export type { RequiredProps };
 
+export type SelectAllProps = {
+    checked?: boolean;
+    indeterminate?: boolean;
+    label?: string;
+    onClick?: () => void;
+    sticky?: boolean;
+};
+
 type Target = LabelProps &
     (
         | (RequiredProps &
@@ -79,6 +87,7 @@ type IsMultiselect<K extends ItemOption> =
                  * Callback для кастомной настройки значения в селекте.
                  */
                 renderTarget?: (value: K, opened?: boolean) => React.ReactNode;
+                selectAllOptions?: never;
             }
           | {
                 multiselect: true;
@@ -86,6 +95,7 @@ type IsMultiselect<K extends ItemOption> =
                 onChange?: (value: string[], item: K | null) => void;
                 isTargetAmount?: true;
                 renderTarget?: (value: K[], opened?: boolean) => React.ReactNode;
+                selectAllOptions?: SelectAllProps;
             }
       ))
     | ({ name: string; onChange?: ChangeEventHandler } & (
@@ -95,6 +105,7 @@ type IsMultiselect<K extends ItemOption> =
                 value?: never;
                 isTargetAmount?: never | false;
                 renderTarget?: (value: K, opened?: boolean) => React.ReactNode;
+                selectAllOptions?: never;
             }
           | {
                 multiselect: true;
@@ -102,6 +113,7 @@ type IsMultiselect<K extends ItemOption> =
                 value?: never;
                 isTargetAmount?: true;
                 renderTarget?: (value: K[], opened?: boolean) => React.ReactNode;
+                selectAllOptions?: SelectAllProps;
             }
       ));
 
@@ -282,6 +294,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
         | {
               multiselect?: true;
               separator?: string;
+              selectAllOptions?: SelectAllProps;
           }
     ) & {
         value?: T;
@@ -431,8 +444,8 @@ export type FloatingPopoverProps = {
     opened: boolean;
     onToggle: (opened: boolean) => void;
     placement: NonNullable<MergedSelectProps['placement']>;
+    isInner: boolean;
     portal?: MergedSelectProps['portal'];
     listWidth?: MergedSelectProps['listWidth'];
-    offset?: number;
     zIndex?: DropdownProps['zIndex'];
 };

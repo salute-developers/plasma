@@ -1325,6 +1325,33 @@ describe('plasma-b2c: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: selectAll button', () => {
+        cy.viewport(400, 300);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="combobox"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        multiple
+                        selectAllOptions={{
+                            label: 'Выбрать не совсем все',
+                        }}
+                        listOverflow="scroll"
+                        listHeight="150px"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('disabled item behavior', () => {
         const items = [
             {

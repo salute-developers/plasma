@@ -43,6 +43,8 @@ export const config = {
 
                 ${selectTokens.dropdownBorderColor}: var(--outline-solid-primary);
                 ${selectTokens.checkboxIconColor}: var(--text-primary);
+
+                ${tokens.dividerColor}: var(--surface-solid-primary);
             `,
             negative: css`
                 ${selectTokens.textFieldColor}: var(--text-primary);
@@ -77,6 +79,8 @@ export const config = {
 
                 ${selectTokens.dropdownBorderColor}: var(--outline-solid-primary);
                 ${selectTokens.checkboxIconColor}: var(--text-accent);
+
+                ${tokens.dividerColor}: var(--surface-solid-primary);
             `,
         },
         size: {
@@ -192,6 +196,13 @@ export const config = {
                 ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
 
                 ${tokens.indicatorSize}: 0.375rem;
+
+                ${tokens.dividerMarginTop}: 0.375rem;
+                ${tokens.dividerMarginRight}: 0.75rem;
+                ${tokens.dividerMarginBottom}: 0.375rem;
+                ${tokens.dividerMarginLeft}: 0.75rem;
+                ${tokens.dividerMarginTopTight}: 0.25rem;
+                ${tokens.dividerMarginBottomTight}: 0.25rem;
             `,
         },
         labelPlacement: {

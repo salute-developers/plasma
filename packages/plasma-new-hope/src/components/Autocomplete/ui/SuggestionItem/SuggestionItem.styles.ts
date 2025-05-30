@@ -35,15 +35,15 @@ export const Wrapper = styled.li`
     }
 
     ${addFocus({
-        outlineSize: '0.0625rem',
+        outlineSize: '0',
         outlineOffset: '0',
         outlineColor: `var(${tokens.focusColor})`,
-        outlineRadius: `var(${tokens.itemBorderRadius})`,
+        outlineRadius: `calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem))`,
         hasTransition: false,
         customFocusRules: `
             &.${classes.suggestionItemIsFocused}:before {
                 outline: none;
-                box-shadow: 0 0 0 0.0625rem var(${tokens.focusColor});
+                box-shadow: inset 0 0 0 0.0625rem var(${tokens.focusColor});
             }
         `,
     })};

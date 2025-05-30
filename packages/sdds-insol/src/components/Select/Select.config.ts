@@ -52,6 +52,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
 
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             positive: css`
                 ${tokens.textFieldColor}: color-mix(in oklab, var(--text-positive) 70%, transparent);
@@ -95,6 +97,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
 
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             warning: css`
                 ${tokens.textFieldColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
@@ -138,6 +142,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
 
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             negative: css`
                 ${tokens.textFieldColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
@@ -181,6 +187,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
 
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             accent: css`
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
@@ -198,6 +206,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: var(--text-primary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             secondary: css`
                 ${tokens.buttonColor}: var(--text-primary);
@@ -215,6 +225,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: var(--text-primary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             clear: css`
                 ${tokens.buttonColor}: var(--text-primary);
@@ -232,6 +244,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: var(--text-primary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             dark: css`
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
@@ -249,6 +263,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: var(--text-primary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             black: css`
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
@@ -266,6 +282,8 @@ export const config = {
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: var(--text-primary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             white: css`
                 ${tokens.buttonColor}: var(--on-light-text-primary);
@@ -283,6 +301,8 @@ export const config = {
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: var(--text-primary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
         },
         size: {
@@ -413,6 +433,13 @@ export const config = {
 
                 ${tokens.disclosureIconSize}: 1.5rem;
                 ${tokens.disclosureIconMargin}: 0 0 0 0.625rem;
+
+                ${tokens.dividerMarginTop}: 0.5rem;
+                ${tokens.dividerMarginRight}: 1rem;
+                ${tokens.dividerMarginBottom}: 0.5rem;
+                ${tokens.dividerMarginLeft}: 1rem;
+                ${tokens.dividerMarginTopTight}: 0.375rem;
+                ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
             m: css`
                 ${tokens.textFieldHeight}: 3rem;
@@ -541,6 +568,13 @@ export const config = {
 
                 ${tokens.disclosureIconSize}: 1.25rem;
                 ${tokens.disclosureIconMargin}: 0 0 0 0.625rem;
+
+                ${tokens.dividerMarginTop}: 0.375rem;
+                ${tokens.dividerMarginRight}: 0.875rem;
+                ${tokens.dividerMarginBottom}: 0.375rem;
+                ${tokens.dividerMarginLeft}: 0.875rem;
+                ${tokens.dividerMarginTopTight}: 0.375rem;
+                ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
             s: css`
                 ${tokens.textFieldHeight}: 2.5rem;
@@ -672,6 +706,13 @@ export const config = {
                 ${tokens.disclosureIconSize}: 1rem;
                 ${tokens.disclosureIconMargin}: 0 0 0 0.625rem;
                 ${tokens.disclosureIconMargin}: 0 0 0 0.5rem;
+
+                ${tokens.dividerMarginTop}: 0.375rem;
+                ${tokens.dividerMarginRight}: 0.75rem;
+                ${tokens.dividerMarginBottom}: 0.375rem;
+                ${tokens.dividerMarginLeft}: 0.75rem;
+                ${tokens.dividerMarginTopTight}: 0.25rem;
+                ${tokens.dividerMarginBottomTight}: 0.25rem;
             `,
             xs: css`
                 ${tokens.textFieldHeight}: 2rem;
@@ -800,6 +841,13 @@ export const config = {
 
                 ${tokens.disclosureIconSize}: 1rem;
                 ${tokens.disclosureIconMargin}: 0 0 0 0.375rem;
+
+                ${tokens.dividerMarginTop}: 0.25rem;
+                ${tokens.dividerMarginRight}: 0.5rem;
+                ${tokens.dividerMarginBottom}: 0.225rem;
+                ${tokens.dividerMarginLeft}: 0.5rem;
+                ${tokens.dividerMarginTopTight}: 0.125rem;
+                ${tokens.dividerMarginBottomTight}: 0.125rem;
             `,
         },
         labelPlacement: {

@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import { DropdownItem } from '../DropdownItem/DropdownItem';
-import { Ul } from '../../Dropdown.styles';
+import { Ul, ListWrapper } from '../../Dropdown.styles';
 import { FloatingPopover } from '../../FloatingPopover';
 import { getPlacement } from '../../utils';
 
@@ -55,29 +55,24 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                 }
                 isInner
             >
-                <Ul
-                    id={listId}
-                    role="group"
-                    isInnerUl
-                    listMaxHeight={listMaxHeight}
-                    listOverflow={listOverflow}
-                    listWidth={listWidth}
-                >
-                    {item.items.map((innerItem, innerIndex) => (
-                        <DropdownInner
-                            key={`${innerIndex}/${currentLevel}`}
-                            item={innerItem}
-                            currentLevel={nextLevel}
-                            path={path}
-                            dispatchPath={dispatchPath}
-                            index={innerIndex}
-                            trigger={trigger}
-                            listMaxHeight={listMaxHeight}
-                            listOverflow={listOverflow}
-                            listWidth={listWidth}
-                        />
-                    ))}
-                </Ul>
+                <ListWrapper listWidth={listWidth}>
+                    <Ul id={listId} role="group" listMaxHeight={listMaxHeight} listOverflow={listOverflow}>
+                        {item.items.map((innerItem, innerIndex) => (
+                            <DropdownInner
+                                key={`${innerIndex}/${currentLevel}`}
+                                item={innerItem}
+                                currentLevel={nextLevel}
+                                path={path}
+                                dispatchPath={dispatchPath}
+                                index={innerIndex}
+                                trigger={trigger}
+                                listMaxHeight={listMaxHeight}
+                                listOverflow={listOverflow}
+                                listWidth={listWidth}
+                            />
+                        ))}
+                    </Ul>
+                </ListWrapper>
             </FloatingPopover>
         );
     }

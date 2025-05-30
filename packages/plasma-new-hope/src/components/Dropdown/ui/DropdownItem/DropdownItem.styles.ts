@@ -63,7 +63,7 @@ export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
     align-items: center;
     gap: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemGapTight : tokens.itemGap})`};
     min-height: var(${tokens.itemHeight});
-    margin: var(${tokens.itemMargin}, 0 calc(0.125rem + var(${tokens.borderWidth}, 0rem)));
+    margin: var(${tokens.itemMargin}, 0);
     box-sizing: content-box;
     padding: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemPaddingTight : tokens.itemPadding})`};
     font-family: var(${tokens.itemFontFamily});
@@ -99,15 +99,15 @@ export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
     }
 
     ${addFocus({
-        outlineSize: '0.0625rem',
+        outlineSize: '0',
         outlineOffset: '0',
         outlineColor: `var(${constants.focusColor})`,
-        outlineRadius: `var(${tokens.itemBorderRadius})`,
+        outlineRadius: `calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.borderWidth}, 0rem))`,
         hasTransition: false,
         customFocusRules: `
             &.${classes.dropdownItemIsFocused}:before {
                 outline: none;
-                box-shadow: 0 0 0 0.0625rem var(${constants.focusColor});
+                box-shadow: inset 0 0 0 0.0625rem var(${constants.focusColor});
             }
         `,
     })};
