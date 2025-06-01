@@ -26,9 +26,9 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
   },
   "dependencies": {
-    "@docusaurus/core": "3.6.1",
-    "@docusaurus/preset-classic": "3.6.1",
-    "@docusaurus/theme-live-codeblock": "3.6.1",
+    "@docusaurus/core": "3.6.3",
+    "@docusaurus/preset-classic": "3.6.3",
+    "@docusaurus/theme-live-codeblock": "3.6.3",
     "@mdx-js/react": "3.0.0",
     "@salutejs/plasma-docs-ui": "file:../../utils/plasma-docs-ui",
     "@salutejs/plasma-icons": "1.217.0",
@@ -44,8 +44,8 @@
     "react-hook-form": "7.53.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.6.1",
-    "@docusaurus/types": "3.6.1",
+    "@docusaurus/module-type-aliases": "3.6.3",
+    "@docusaurus/types": "3.6.3",
     "@tsconfig/docusaurus": "2.0.2",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
