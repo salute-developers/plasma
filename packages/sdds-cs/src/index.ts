@@ -33,6 +33,7 @@ export * from './components/Progress';
 export * from './components/Pagination';
 export * from './components/Range';
 export * from './components/Radiobox';
+export * from './components/Rating';
 export * from './components/Segment';
 export * from './components/Sheet';
 export * from './components/Spinner';

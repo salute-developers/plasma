@@ -436,6 +436,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             {titleCaption && <TitleCaption data-root>{titleCaption}</TitleCaption>}
                         </OuterLabelWrapper>
                     )}
+
                     <InputWrapper
                         // Ref для внутреннего использования. Не отдается наружу.
                         ref={(rest as any).inputWrapperRef}
