@@ -21,6 +21,9 @@
   "dependencies": {
     "@salutejs/plasma-colors": "0.15.0",
     "@salutejs/plasma-core": "1.201.0",
+    "@salutejs/plasma-icons": "1.218.0",
+    "@storybook/addon-actions": "7.6.17",
+    "@storybook/react": "7.6.17",
     "param-case": "^3.0.4"
   },
   "peerDependencies": {
@@ -29,7 +32,6 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "@storybook/react": "7.6.17",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@types/styled-components": "^5.1.0",
