@@ -7,7 +7,14 @@ import { getSizeValueFromProp } from 'src/utils';
 
 import type { CodeInputProps } from './CodeInput.types';
 import { BACKSPACE_KEY, FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from './utils/constants';
-import { getCodeValue, getFieldPattern, getPlaceholderValue, handleCodeError, handleItemError } from './utils';
+import {
+    getCodeInputViewClass,
+    getCodeValue,
+    getFieldPattern,
+    getPlaceholderValue,
+    handleCodeError,
+    handleItemError,
+} from './utils';
 import { classes } from './CodeInput.tokens';
 import {
     base,
@@ -63,7 +70,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
             const placeholderValue = getPlaceholderValue(codeLength, placeholder);
             const parts = codeLength === 6 ? 2 : 1;
 
-            const screenClass = classes[`${screen}Screen`];
+            const viewClass = getCodeInputViewClass(view || 'default');
 
             const widthValue = width ? getSizeValueFromProp(width, 'rem') : undefined;
 
@@ -248,7 +255,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                     disabled={disabled}
                     screen={screen}
                     onClick={handleClick}
-                    className={cls(className, {
+                    className={cls(className, viewClass, {
                         [classes.captionAlignLeft]: captionAlign === 'left',
                     })}
                     {...rest}
@@ -261,7 +268,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                                         const inputCorrectIndex = i + (codeLength / parts) * partIndex;
 
                                         return (
-                                            <ItemWrapper key={partIndex + i + partIndex * i} className={screenClass}>
+                                            <ItemWrapper key={partIndex + i + partIndex * i}>
                                                 <ItemInput
                                                     ref={(element: HTMLInputElement) => {
                                                         inputRefs.current[inputCorrectIndex] = element;

@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { CaptionWrapper, CodeGroup, CodeWrapper, ItemInput } from '../../CodeInput.styles';
-import { tokens, classes } from '../../CodeInput.tokens';
+import { tokens, privateTokens } from '../../CodeInput.tokens';
 
 export const base = css`
     gap: var(${tokens.captionGap});
@@ -10,38 +10,15 @@ export const base = css`
         gap: var(${tokens.codeItemsGap});
     }
 
-    && .${classes.largeScreen} {
-        ${ItemInput} {
-            width: var(${tokens.codeItemLargeWidth});
-            height: var(${tokens.codeItemLargeHeight});
-            font-size: var(${tokens.largeScreenFontSize});
-            line-height: var(${tokens.largeScreenLineHeight});
-        }
-    }
-
-    && .${classes.mediumScreen} {
-        ${ItemInput} {
-            width: var(${tokens.codeItemMediumWidth});
-            height: var(${tokens.codeItemMediumHeight});
-            font-size: var(${tokens.mediumScreenFontSize});
-            line-height: var(${tokens.mediumScreenLineHeight});
-        }
-    }
-
-    && .${classes.smallScreen} {
-        ${ItemInput} {
-            width: var(${tokens.codeItemSmallWidth});
-            height: var(${tokens.codeItemSmallHeight});
-            font-size: var(${tokens.smallScreenFontSize});
-            line-height: var(${tokens.smallScreenLineHeight});
-        }
-    }
-
     ${ItemInput} {
+        font-size: var(${privateTokens.fontSize});
         font-family: var(${tokens.fontFamily});
         font-style: var(${tokens.fontStyle});
         font-weight: var(${tokens.fontWeight});
         letter-spacing: var(${tokens.letterSpacing});
+        line-height: var(${privateTokens.lineHeight});
+        width: var(${privateTokens.itemWidth});
+        height: var(${privateTokens.itemHeight});
     }
 
     ${CaptionWrapper} {

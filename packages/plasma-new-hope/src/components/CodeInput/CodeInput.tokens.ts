@@ -15,27 +15,48 @@ export const classes = {
     segmented: 'codeinput-shape-segmented',
     default: 'codeinput-shape-default',
 
-    largeScreen: 'codeinput-large-screen',
-    mediumScreen: 'codeinput-medium-screen',
-    smallScreen: 'codeinput-small-screen',
+    largeMScreen: 'codeinput-large-m-screen',
+    largeSScreen: 'codeinput-large-s-screen',
+    mediumMScreen: 'codeinput-medium-m-screen',
+    mediumSScreen: 'codeinput-medium-s-screen',
+    smallMScreen: 'codeinput-small-m-screen',
 
     disabled: 'codeinput-disabled',
+};
+
+export const privateTokens = {
+    itemWidth: '--private-codeinput-item-width',
+    itemHeight: '--private-codeinput-item-hieght',
+    fontSize: '--private-codeinput-font-size',
+    lineHeight: '--private-codeinput-line-height',
 };
 
 export const tokens = {
     captionGap: '--plasma-codeinput-caption-gap',
     codeItemsGap: '--plasma-codeinput-code-item-gap',
 
+    smallMMinWidth: '--plasma-codeinput-smallM-min-width',
+    mediumSMinWidth: '--plasma-codeinput-mediumS-min-width',
+    mediumMMinWidth: '--plasma-codeinput-mediumM-min-width',
+    largeSMinWidth: '--plasma-codeinput-largeS-min-width',
+    largeMMinWidth: '--plasma-codeinput-largeM-min-width',
+
     separatorWidth: '--plasma-codeinput-separator-width',
 
-    codeItemLargeWidth: '--plasma-codeinput-item-large-width',
-    codeItemLargeHeight: '--plasma-codeinput-item-large-height',
+    largeMCodeItemWidth: '--plasma-codeinput-item-large-m-width',
+    largeMCodeItemHeight: '--plasma-codeinput-item-large-m-height',
 
-    codeItemMediumWidth: '--plasma-codeinput-item-medium-width',
-    codeItemMediumHeight: '--plasma-codeinput-item-medium-height',
+    largeSCodeItemWidth: '--plasma-codeinput-item-large-s-width',
+    largeSCodeItemHeight: '--plasma-codeinput-item-large-s-height',
 
-    codeItemSmallWidth: '--plasma-codeinput-item-small-width',
-    codeItemSmallHeight: '--plasma-codeinput-item-small-height',
+    mediumMCodeItemWidth: '--plasma-codeinput-item-medium-m-width',
+    mediumMCodeItemHeight: '--plasma-codeinput-item-medium-m-height',
+
+    mediumSCodeItemWidth: '--plasma-codeinput-item-medium-s-width',
+    mediumSCodeItemHeight: '--plasma-codeinput-item-medium-s-height',
+
+    smallMCodeItemWidth: '--plasma-codeinput-item-small-m-width',
+    smallMCodeItemHeight: '--plasma-codeinput-item-small-m-height',
 
     codeItemCircleSize: '--plasma-codeinput-item-circle-size',
     codeItemCircleBorderWidth: '--plasma-codeinput-item-circle-border-width',
@@ -45,14 +66,20 @@ export const tokens = {
     fontWeight: '--plasma-codeinput-font-weight',
     letterSpacing: '--plasma-codeinput-letter-spacing',
 
-    largeScreenFontSize: '--plasma-codeinput-large-screen-font-size',
-    largeScreenLineHeight: '--plasma-codeinput-large-screen-line-height',
+    largeMFontSize: '--plasma-codeinput-large-m-font-size',
+    largeMLineHeight: '--plasma-codeinput-large-m-line-height',
 
-    mediumScreenFontSize: '--plasma-codeinput-medium-screen-font-size',
-    mediumScreenLineHeight: '--plasma-codeinput-medium-screen-line-height',
+    largeSFontSize: '--plasma-codeinput-large-s-font-size',
+    largeSLineHeight: '--plasma-codeinput-large-s-line-height',
 
-    smallScreenFontSize: '--plasma-codeinput-small-screen-font-size',
-    smallScreenLineHeight: '--plasma-codeinput-small-screen-line-height',
+    mediumMFontSize: '--plasma-codeinput-medium-m-font-size',
+    mediumMLineHeight: '--plasma-codeinput-medium-m-line-height',
+
+    mediumSFontSize: '--plasma-codeinput-medium-s-font-size',
+    mediumSLineHeight: '--plasma-codeinput-medium-s-line-height',
+
+    smallMFontSize: '--plasma-codeinput-small-m-font-size',
+    smallMLineHeight: '--plasma-codeinput-small-m-line-height',
 
     captionFontFamily: '--plasma-codeinput-caption-font-family',
     captionFontSize: '--plasma-codeinput-caption-font-style',
