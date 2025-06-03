@@ -10,7 +10,6 @@ export const CardContent = styled.div<{
     position: relative;
 
     display: flex;
-    flex: 1;
     border-radius: var(${tokens.contentBorderRadius});
     overflow: hidden;
 
