@@ -4,7 +4,7 @@ import { StoryContext } from '@storybook/react';
 import plasmaB2CTheme from '@salutejs/plasma-themes/css/plasma_b2c.module.css';
 import plasmaWebTheme from '@salutejs/plasma-themes/css/plasma_web.module.css';
 
-import { ViewContainer } from '../src/examples/plasma_b2c/components/ViewContainer/ViewContainer';
+import { ViewContainer } from '../src/examples/components/ViewContainer/ViewContainer';
 
 type ThemeType = {
     light: string;
@@ -53,7 +53,7 @@ const themeMap: Record<string, ThemeType> = {
 
 export const withViewContainer = (Story, context: StoryContext) => {
     const themeType = context.globals.theme as keyof ThemeType;
-    const themeName = context.title.split('/')[0];
+    const themeName = 'b2c';
     const viewContainerType = viewMap[context.globals.viewContainer];
 
     const storybookRoot = document.getElementsByTagName('html')[0];
