@@ -42,6 +42,7 @@ describe('plasma-web: DatePicker', () => {
         valueError,
         valueSuccess,
         size = 'xs',
+        stretched = false,
         onToggle,
         ...rest
     }: DatePickerProps) => {
@@ -55,6 +56,7 @@ describe('plasma-web: DatePicker', () => {
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
+                stretched={stretched}
                 contentLeft={enableContentLeft ? <IconSber size={iconSize} /> : undefined}
                 contentRight={enableContentRight ? <IconSber size={iconSize} /> : undefined}
                 onToggle={(is, e) => {
@@ -447,6 +449,7 @@ describe('plasma-web: DatePickerRange', () => {
         enableFirstTextfieldContentRight,
         enableSecondTextfieldContentRight,
         size = 'xs',
+        stretched = false,
         onToggle,
         ...rest
     }: DatePickerRangeProps) => {
@@ -466,6 +469,7 @@ describe('plasma-web: DatePickerRange', () => {
                 size={size}
                 contentLeft={enableContentLeft ? <IconSber size={iconSize} /> : undefined}
                 contentRight={enableContentRight ? <ActionButton /> : undefined}
+                stretched={stretched}
                 firstTextfieldContentLeft={enableFirstTextfieldContentLeft ? <IconSber size={iconSize} /> : undefined}
                 firstTextfieldContentRight={enableFirstTextfieldContentRight ? <IconSber size={iconSize} /> : undefined}
                 secondTextfieldContentLeft={enableSecondTextfieldContentLeft ? <IconSber size={iconSize} /> : undefined}
