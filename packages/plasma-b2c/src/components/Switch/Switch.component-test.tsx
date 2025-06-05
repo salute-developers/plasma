@@ -101,6 +101,8 @@ describe('plasma-b2c: Switch', () => {
 
         cy.matchImageSnapshot();
         cy.get('#switch').realMouseDown();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(400); // transition of focus ring
         cy.matchImageSnapshot('mouseDown_pressed');
     });
 });
