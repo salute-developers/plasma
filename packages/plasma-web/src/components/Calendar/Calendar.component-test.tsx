@@ -5,7 +5,7 @@ import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
-import { CalendarDouble as CalendarDoubleB2C, CalendarBase as CalendarBaseB2C } from './Calendar';
+import { CalendarDouble as CalendarDoubleWEB, CalendarBase as CalendarBaseWEB } from './Calendar';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
@@ -138,8 +138,8 @@ const checkFocusedDay = (day: string) => cy.focused().should('have.attr', 'data-
 const checkFocusedMonth = (monthIndex: string) => cy.focused().should('have.attr', 'data-month-index', monthIndex);
 
 describe('plasma-web: Calendar', () => {
-    const CalendarBase = getComponent('CalendarBase') as typeof CalendarBaseB2C;
-    const CalendarDouble = getComponent('CalendarDouble') as typeof CalendarDoubleB2C;
+    const CalendarBase = getComponent('CalendarBase') as typeof CalendarBaseWEB;
+    const CalendarDouble = getComponent('CalendarDouble') as typeof CalendarDoubleWEB;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
@@ -149,7 +149,17 @@ describe('plasma-web: Calendar', () => {
     );
 
     const Demo = (args) => {
-        const { min, max, includeEdgeDates, displayDouble, baseValue, size = 's', type = 'Days', locale = 'ru' } = args;
+        const {
+            min,
+            max,
+            includeEdgeDates,
+            displayDouble,
+            baseValue,
+            size = 's',
+            type = 'Days',
+            locale = 'ru',
+            stretched = false,
+        } = args;
         const [value, setValue] = useState(baseValue);
 
         const handleOnChange = useCallback((newValue: Date) => {
@@ -167,6 +177,7 @@ describe('plasma-web: Calendar', () => {
                     includeEdgeDates={includeEdgeDates}
                     type={type}
                     locale={locale}
+                    stretched={stretched}
                     onChangeValue={handleOnChange}
                 />
             ) : (
@@ -179,16 +190,17 @@ describe('plasma-web: Calendar', () => {
                     includeEdgeDates={includeEdgeDates}
                     type={type}
                     locale={locale}
+                    stretched={stretched}
                     onChangeValue={handleOnChange}
                 />
             );
         };
 
         const calendarMap = {
-            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDays }),
-            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents }),
-            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents }),
-            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents }),
+            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDays, stretched }),
+            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents, stretched }),
+            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents, stretched }),
+            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents, stretched }),
         };
 
         return <CypressTestDecoratorWithTypo>{calendarMap[type]}</CypressTestDecoratorWithTypo>;
@@ -400,8 +412,8 @@ describe('plasma-web: Calendar', () => {
 });
 
 describe('plasma-web: Calendar keyboard navigation', () => {
-    const CalendarBase = getComponent('CalendarBase') as typeof CalendarBaseB2C;
-    const CalendarDouble = getComponent('CalendarDouble') as typeof CalendarDoubleB2C;
+    const CalendarBase = getComponent('CalendarBase') as typeof CalendarBaseWEB;
+    const CalendarDouble = getComponent('CalendarDouble') as typeof CalendarDoubleWEB;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
@@ -411,7 +423,7 @@ describe('plasma-web: Calendar keyboard navigation', () => {
     );
 
     const Demo = (args) => {
-        const { min, max, baseValue, displayDouble, disabledList, size = 's', type = 'Days' } = args;
+        const { min, max, baseValue, displayDouble, disabledList, size = 's', type = 'Days', stretched = false } = args;
         const [value, setValue] = useState(baseValue);
 
         const disabledDates = disabledList?.length ? disabledList : disabledDays;
@@ -445,10 +457,10 @@ describe('plasma-web: Calendar keyboard navigation', () => {
         };
 
         const calendarMap = {
-            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDates }),
-            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents }),
-            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents }),
-            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents }),
+            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDates, stretched }),
+            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents, stretched }),
+            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents, stretched }),
+            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents, stretched }),
         };
 
         return <CypressTestDecoratorWithTypo>{calendarMap[type]}</CypressTestDecoratorWithTypo>;
