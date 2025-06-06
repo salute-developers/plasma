@@ -16,6 +16,5 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       with-react-17: true
-      with-artifacts: true
     secrets: inherit
 
