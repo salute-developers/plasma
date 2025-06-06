@@ -1,16 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const path = require('path');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const fs = require('fs-extra');
+import path from 'path';
+import fs from 'fs-extra';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const babelrc = require('../.babelrc');
+import babelrc from '../.babelrc';
 
 const resolveModule = (...fromPaths) => (...pathSegments) => path.resolve(...fromPaths, ...pathSegments);
 
 const rootPath = path.resolve(__dirname, '..');
 const packsPath = path.join(rootPath, 'packages');
-const resolveInsidePackage = resolveModule(process.env.PACKAGE_DIR, 'node_modules');
+const resolveInsidePackage = resolveModule('packages', process.env.PACKAGE_NAME, 'node_modules');
 
 const dummyModule = `
 "use strict";
@@ -27,7 +24,7 @@ Object.defineProperty(exports, "__esModule", {
     }
 });
 
-module.exports = function getWebpackConfig() {
+export const getWebpackConfig = () => {
     const babelOpts = { ...babelrc.env.cjs };
 
     return {

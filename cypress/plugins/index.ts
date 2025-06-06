@@ -1,10 +1,8 @@
 /* eslint-disable */
 /// <reference types="cypress" />
 
-const { addMatchImageSnapshotPlugin } = require('cypress-image-snapshot/plugin');
-const { startDevServer } = require('@cypress/webpack-dev-server');
-const getWebpackConfig = require('../webpack.config');
-const coverage = require('@cypress/code-coverage/task');
+import { addMatchImageSnapshotPlugin } from 'cypress-image-snapshot/plugin';
+import coverage from '@cypress/code-coverage/task';
 
 const windowSize = {
     sberportal: '1300,800',
@@ -12,17 +10,10 @@ const windowSize = {
     mobile: '2000,1080',
 };
 
-const overrideConfig: Cypress.PluginConfig = (on, config) => {
-    console.log('PLATFORM_TESTS', process.env.PLATFORM_TESTS);
+export const setupNodeEvents = (on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) => {
     addMatchImageSnapshotPlugin(on, config);
 
     coverage(on, config);
-
-    if (config.testingType === 'component') {
-        on('dev-server:start', (options) => {
-            return startDevServer({ options, webpackConfig: getWebpackConfig() });
-        });
-    }
 
     if (process.env.PLATFORM_TESTS != null) {
         on('before:browser:launch', (browser, launchOptions) => {
@@ -57,5 +48,3 @@ const overrideConfig: Cypress.PluginConfig = (on, config) => {
 
     return config;
 };
-
-module.exports = overrideConfig;

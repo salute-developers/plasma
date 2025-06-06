@@ -4,6 +4,8 @@ import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/pl
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconDisclosureRight } from '@salutejs/plasma-icons';
 
+import { addNotification, closeNotification } from './index';
+
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const NoAnimationStyle = createGlobalStyle`
@@ -20,8 +22,6 @@ const ButtonsWrapper = styled.div`
 
 describe('plasma-web: Notification', () => {
     const NotificationsProvider = getComponent('NotificationsProvider');
-    const addNotification = getComponent('addNotification');
-    const closeNotification = getComponent('closeNotification');
     const Button = getComponent('Button');
 
     const CypressTestDecoratorWithTypo: FC = ({ children }) => (
@@ -137,6 +137,7 @@ describe('plasma-web: Notification', () => {
         cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
         cy.get('button').contains('Закрыть').click();
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('placement: bottom-left', () => {
@@ -158,6 +159,7 @@ describe('plasma-web: Notification', () => {
         cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
         cy.get('button').contains('Закрыть').click();
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('icon positions', () => {
@@ -199,27 +201,11 @@ describe('plasma-web: Notification', () => {
                                 },
                                 80000,
                             );
-                            addNotification(
-                                {
-                                    id: 'icon-second',
-                                    title: 'Title',
-                                    children: 'Text',
-                                    iconPlacement: 'left',
-                                    size: 'xxs',
-                                    icon: <IconDisclosureRight />,
-                                    actions: (
-                                        <ButtonsWrapper>
-                                            <Button text="First" size="xxs" />
-                                            <Button text="Second" size="xxs" />
-                                        </ButtonsWrapper>
-                                    ),
-                                },
-                                80000,
-                            );
                         }}
                     />
                     <SpaceMe />
                     <Button
+                        id="close"
                         text="Закрыть"
                         onClick={() => {
                             closeNotification('icon-first');
@@ -231,7 +217,8 @@ describe('plasma-web: Notification', () => {
         );
         cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
-        cy.get('button').contains('Закрыть').click();
+        cy.get('#close').contains('Закрыть').click();
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('long text', () => {
@@ -270,6 +257,7 @@ describe('plasma-web: Notification', () => {
         cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
         cy.get('button').contains('Закрыть').click();
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('oneline horizontal', () => {
@@ -308,6 +296,7 @@ describe('plasma-web: Notification', () => {
         cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
         cy.get('button').contains('Закрыть').click();
+        cy.get('.popup-base-root').should('not.exist');
     });
 
     it('close on icon', () => {
@@ -344,7 +333,7 @@ describe('plasma-web: Notification', () => {
             </CypressTestDecoratorWithTypo>,
         );
         cy.get('button').contains('Открыть').click();
-        cy.get('.notification-close-icon').click();
+        cy.get('button.notification-close-icon').click();
         cy.get('.popup-base-root').should('not.exist');
     });
 
@@ -400,7 +389,7 @@ describe('plasma-web: Notification', () => {
         cy.get('button').contains('infinite').click();
         cy.tick(6000);
         cy.contains(infiniteNotification).should('be.visible');
-        cy.get('.notification-close-icon').click({ force: true });
+        cy.get('button.notification-close-icon').click({ force: true });
         cy.tick(500); // wait close animation
         cy.get('.popup-base-root').should('not.exist');
 

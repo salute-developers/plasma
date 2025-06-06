@@ -1,7 +1,9 @@
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import React from 'react';
 
-describe('plasma-web: AvatarGroup', () => {
+const AvatarImage = 'images/avatar.png';
+
+describe('plasma-b2c: AvatarGroup', () => {
     const Avatar = getComponent('Avatar');
     const AvatarGroup = getComponent('AvatarGroup');
 
@@ -12,12 +14,13 @@ describe('plasma-web: AvatarGroup', () => {
                     {Array(5)
                         .fill(true)
                         .map(() => (
-                            <Avatar size="xxl" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+                            <Avatar size="xxl" url={AvatarImage} />
                         ))}
                 </AvatarGroup>
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', AvatarImage);
         cy.matchImageSnapshot();
     });
 });
