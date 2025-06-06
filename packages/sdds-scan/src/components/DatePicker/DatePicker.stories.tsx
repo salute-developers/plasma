@@ -122,7 +122,10 @@ const StoryDefault = ({
             contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
-            onToggle={(is) => setIsOpen(is)}
+            onToggle={(is) => {
+                setIsOpen(is);
+                onToggle(is);
+            }}
             onChangeValue={onChangeValue}
             onCommitDate={onCommitDate}
             lang={lang}
@@ -162,6 +165,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        closeAfterDateSelect: true,
         maskWithFormat: false,
         required: false,
         requiredPlacement: 'right',
@@ -254,7 +258,10 @@ const StoryRange = ({
             secondTextfieldTextBefore={
                 showDefaultTextBefore ? secondTextfieldTextBefore || 'ПО' : secondTextfieldTextBefore
             }
-            onToggle={(is) => setIsOpen(is)}
+            onToggle={(is) => {
+                setIsOpen(is);
+                onToggle(is);
+            }}
             onChangeFirstValue={onChangeFirstValue}
             onChangeSecondValue={onChangeSecondValue}
             {...dividerIconProps}
@@ -284,11 +291,11 @@ export const Range: StoryObj<StoryPropsRange> = {
         size: 'l',
         view: 'default',
         isDoubleCalendar: false,
-        closeAfterDateSelect: true,
         dividerVariant: 'dash',
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        closeAfterDateSelect: true,
         renderFromDate: new Date(2024, 4, 14),
         lang: 'ru',
         format: 'DD.MM.YYYY',
@@ -380,6 +387,7 @@ export const Deferred: StoryObj<StoryPropsDefault> = {
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        closeAfterDateSelect: true,
         maskWithFormat: false,
         required: false,
         requiredPlacement: 'right',
