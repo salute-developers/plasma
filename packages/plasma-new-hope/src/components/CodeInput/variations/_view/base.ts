@@ -2,6 +2,7 @@ import { css } from '@linaria/core';
 
 import { CaptionWrapper, ItemInput, ItemCircle } from '../../CodeInput.styles';
 import { classes, tokens } from '../../CodeInput.tokens';
+import { addFocus } from '../../../../mixins';
 
 export const base = css`
     ${CaptionWrapper} {
@@ -18,6 +19,39 @@ export const base = css`
         box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColor});
     }
 
+    ${ItemCircle} {
+        border: var(${tokens.codeItemCircleBorderWidth}) solid var(${tokens.codeColor});
+        background-color: 'transparent';
+
+        &.${classes.itemCirlceFilled} {
+            background-color: var(${tokens.codeColor});
+        }
+
+        &.${classes.itemCircleErrorAnimation} {
+            animation: shakingError 0.3s forwards;
+        }
+
+        &.${classes.itemCircleError} {
+            background-color: var(${tokens.codeColorError});
+            border: var(${tokens.codeItemCircleBorderWidth}) solid var(${tokens.codeColorError});
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        &[data-focus-visible-added] {
+            ${addFocus({
+                outlineOffset: '-0.125rem',
+                outlineSize: '0.125rem',
+                outlineRadius: '1rem',
+                outlineColor: `var(${tokens.borderColorFocus})`,
+            })}
+            border: none;
+            position: absolute;
+        }
+    }
+
     &:hover {
         .${classes.hoverEnabled} {
             background-color: var(${tokens.backgroundColorHover});
@@ -27,7 +61,6 @@ export const base = css`
 
     &:focus-within {
         ${ItemInput}:focus-within {
-            background-color: var(${tokens.backgroundColorFocus});
             box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorFocus});
         }
     }

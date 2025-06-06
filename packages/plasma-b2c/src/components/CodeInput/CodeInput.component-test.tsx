@@ -75,26 +75,14 @@ describe('plasma-web: CodeInput', () => {
         cy.matchImageSnapshot();
     });
 
-    it(':size screen', () => {
+    it(':size', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <CodeInput size="l" screen="large" />
+                <CodeInput size="l" />
                 <PadMe />
-                <CodeInput size="l" screen="medium" />
+                <CodeInput size="m" />
                 <PadMe />
-                <CodeInput size="l" screen="small" />
-                <PadMe />
-                <CodeInput size="m" screen="large" />
-                <PadMe />
-                <CodeInput size="m" screen="medium" />
-                <PadMe />
-                <CodeInput size="m" screen="small" />
-                <PadMe />
-                <CodeInput size="s" screen="large" />
-                <PadMe />
-                <CodeInput size="s" screen="medium" />
-                <PadMe />
-                <CodeInput size="s" screen="small" />
+                <CodeInput size="s" />
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
