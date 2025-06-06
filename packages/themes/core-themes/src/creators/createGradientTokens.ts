@@ -20,10 +20,6 @@ const getGradient = (gradient: any, tokens: TokenType[], mode: ThemeMode, isJS =
             const tokenName = [subcategory === 'default' ? '-' : `--${subcategory}`, category, name].join('-');
             const value = gradient?.[token.name];
 
-            if (!value) {
-                return getJSVariable(tokenName, token.description);
-            }
-
             if (isJS) {
                 return getJSVariable(tokenName, token.description, value);
             }
