@@ -14,6 +14,7 @@ const onChangeValue = action('onChangeValue');
 const onCommitDate = action('onCommitDate');
 const onBlur = action('onBlur');
 const onFocus = action('onFocus');
+const onToggle = action('onToggle');
 
 const onChangeFirstValue = action('onChangeFirstValue');
 const onChangeSecondValue = action('onChangeSecondValue');
@@ -118,7 +119,10 @@ const StoryDefault = ({
             contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
-            onToggle={(is) => setIsOpen(is)}
+            onToggle={(is) => {
+                setIsOpen(is);
+                onToggle(is);
+            }}
             onChangeValue={onChangeValue}
             onCommitDate={onCommitDate}
             lang={lang}
@@ -162,6 +166,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        closeAfterDateSelect: true,
         maskWithFormat: true,
         required: false,
         requiredPlacement: 'right',
@@ -262,7 +267,10 @@ const StoryRange = ({
             secondTextfieldTextBefore={
                 showDefaultTextBefore ? secondTextfieldTextBefore || 'ПО' : secondTextfieldTextBefore
             }
-            onToggle={(is) => setIsOpen(is)}
+            onToggle={(is) => {
+                setIsOpen(is);
+                onToggle(is);
+            }}
             onChangeFirstValue={onChangeFirstValue}
             onChangeSecondValue={onChangeSecondValue}
             lang={lang}
@@ -304,11 +312,11 @@ export const Range: StoryObj<StoryPropsRange> = {
         calendarContainerHeight: 0,
         stretched: false,
         isDoubleCalendar: false,
-        closeAfterDateSelect: true,
         dividerVariant: 'dash',
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        closeAfterDateSelect: true,
         renderFromDate: new Date(2024, 4, 14),
         maskWithFormat: false,
         required: false,
@@ -410,6 +418,7 @@ export const Deferred: StoryObj<StoryPropsDefault> = {
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        closeAfterDateSelect: true,
         maskWithFormat: false,
         required: false,
         requiredPlacement: 'right',

@@ -1,7 +1,7 @@
 import React, { forwardRef, SyntheticEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import cls from 'classnames';
 import type { KeyboardEvent, FocusEvent, MouseEvent } from 'react';
-import type { DateType } from 'src/components/Calendar/Calendar.types';
+import type { DateInfo, DateType } from 'src/components/Calendar/Calendar.types';
 import type { RootProps } from 'src/engines';
 import { getPlacements, getSizeValueFromProp, noop } from 'src/utils';
 
@@ -72,6 +72,7 @@ export const datePickerRoot = (
                 placement = ['top', 'bottom'],
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
+                closeAfterDateSelect = true,
                 offset,
 
                 calendarContainerWidth,
@@ -129,7 +130,7 @@ export const datePickerRoot = (
                 datePickerErrorClass,
                 datePickerSuccessClass,
                 handleChangeValue,
-                handleCalendarPick,
+                handleCalendarPick: onCalendarPick,
                 handleSearch,
                 updateExternalDate,
             } = useDatePicker({
@@ -155,13 +156,13 @@ export const datePickerRoot = (
                 onChange,
             });
 
-            const handleToggle = (innerOpened: boolean, event: SyntheticEvent | Event) => {
+            const handleToggle = (innerOpened: boolean, event?: SyntheticEvent | Event) => {
                 if (disabled || readOnly) {
                     return;
                 }
 
                 const isCalendarOpen =
-                    event.target === inputRef?.current &&
+                    event?.target === inputRef?.current &&
                     (event as KeyboardEvent<HTMLInputElement>).code !== keys.Escape
                         ? true
                         : innerOpened;
@@ -210,6 +211,15 @@ export const datePickerRoot = (
 
                 if (onBlur) {
                     onBlur(event);
+                }
+            };
+
+            const handleCalendarPick = (date?: Date | null, dateInfo?: DateInfo) => {
+                onCalendarPick(date, dateInfo);
+
+                if (closeAfterDateSelect) {
+                    setIsInnerOpen(false);
+                    handleToggle(false);
                 }
             };
 

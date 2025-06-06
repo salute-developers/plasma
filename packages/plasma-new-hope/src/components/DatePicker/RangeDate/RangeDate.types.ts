@@ -99,10 +99,6 @@ export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placeme
      * Отобразить двойной календарь
      */
     isDoubleCalendar?: boolean;
-    /**
-     * Закрыть календарь после выбора дат
-     */
-    closeAfterDateSelect?: boolean;
 };
 
 export type DatePickerRangeProps = DatePickerVariationProps &
