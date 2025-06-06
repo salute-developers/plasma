@@ -150,6 +150,10 @@ export type DatePickerPopoverProps = {
      */
     usePortal?: boolean;
     /**
+     * Закрыть календарь после выбора дат
+     */
+    closeAfterDateSelect?: boolean;
+    /**
      * Событие сворачивания/разворачивания календаря.
      */
     onToggle?: (isOpen: boolean, event?: SyntheticEvent | Event) => void;
