@@ -16,6 +16,7 @@ export const config = {
 
                 ${tokens.codeColor}: var(--text-primary);
                 ${tokens.codeColorError}: var(--text-negative);
+                ${tokens.borderColorFocus}: var(--outline-accent);
 
                 ${tokens.backgroundColor}: var(--surface-transparent-primary);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-primary-hover);

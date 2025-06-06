@@ -168,6 +168,8 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             };
 
             const handlePaste = (event: ClipboardEvent<HTMLInputElement>) => {
+                const newCode = [...code];
+
                 if (disabled) {
                     return;
                 }
@@ -184,10 +186,14 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                     : rawData.split('')
                 ).slice(0, codeLength);
 
+                pastedData.forEach((element, index) => {
+                    newCode[index] = element;
+                });
+
                 const activeIndex = Math.min(pastedData.length, codeLength - 1);
                 inputRefs.current[activeIndex]?.focus();
 
-                codeSetter(pastedData);
+                codeSetter(newCode);
             };
 
             const handleFullCodeEnter = useCallback((fullCode: string) => {

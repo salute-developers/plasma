@@ -103,7 +103,6 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 const { key } = event;
                 if (FORBIDDEN_KEYS.includes(key)) {
                     event.preventDefault();
-
                     return;
                 }
 
@@ -130,6 +129,32 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
 
                 const rawSymbol = event.currentTarget.value;
                 const symbol = rawSymbol.charAt(rawSymbol.length - 1);
+                handleAddSymbol(symbol, index);
+            };
+
+            const handleOnKeyDownCircle = (event: KeyboardEvent<HTMLDivElement>, index: number) => {
+                if (disabled) {
+                    return;
+                }
+
+                const { key } = event;
+
+                if (FORBIDDEN_KEYS.includes(key)) {
+                    event.preventDefault();
+                    return;
+                }
+
+                if (key === BACKSPACE_KEY) {
+                    if (index > 0 && code[index] === '') {
+                        inputRefs.current[index - 1]?.focus();
+                    }
+                }
+
+                handleAddSymbol(key, index);
+                inputRefs.current[index]?.focus();
+            };
+
+            const handleAddSymbol = (symbol: string, index: number) => {
                 const newCode = [...code];
 
                 inputRefs.current[index]?.classList.remove(classes.itemError);
@@ -179,6 +204,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                         index,
                         newCode,
                         inputRefs,
+                        inputContainerRef,
                         setCode,
                         codeSetter,
                     });
@@ -186,6 +212,8 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
             };
 
             const handlePaste = (event: ClipboardEvent<HTMLInputElement>) => {
+                const newCode = [...code];
+
                 if (disabled) {
                     return;
                 }
@@ -202,10 +230,14 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                     : rawData.split('')
                 ).slice(0, codeLength);
 
+                pastedData.forEach((element, index) => {
+                    newCode[index] = element;
+                });
+
                 const activeIndex = Math.min(pastedData.length, codeLength - 1);
                 inputRefs.current[activeIndex]?.focus();
 
-                codeSetter(pastedData);
+                codeSetter(newCode);
             };
 
             const handleFullCodeEnter = useCallback((fullCode: string) => {
@@ -269,6 +301,22 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
 
                                         return (
                                             <ItemWrapper key={partIndex + i + partIndex * i}>
+                                                {(!code[inputCorrectIndex] ||
+                                                    (!!code[inputCorrectIndex] && hidden)) && (
+                                                    <ItemCircle
+                                                        role="tab"
+                                                        tabIndex={originalValue.length === inputCorrectIndex ? 0 : -1}
+                                                        onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => {
+                                                            handleOnKeyDownCircle(e, inputCorrectIndex);
+                                                        }}
+                                                        className={cls([
+                                                            !!code[inputCorrectIndex] && hidden
+                                                                ? classes.itemCirlceFilled
+                                                                : '',
+                                                            `${classes.itemCircle}-${inputCorrectIndex}`,
+                                                        ])}
+                                                    />
+                                                )}
                                                 <ItemInput
                                                     ref={(element: HTMLInputElement) => {
                                                         inputRefs.current[inputCorrectIndex] = element;
@@ -279,6 +327,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                                                     })}
                                                     hide={hidden}
                                                     value={code[inputCorrectIndex] || ''}
+                                                    tabIndex={originalValue.length === inputCorrectIndex ? 0 : -1}
                                                     autoComplete={autoComplete}
                                                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                                         handleChange(e, inputCorrectIndex);
@@ -287,21 +336,10 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                                                         handleOnKeyDown(e, inputCorrectIndex);
                                                     }}
                                                     onPaste={handlePaste}
-                                                    tabIndex={originalValue.length === inputCorrectIndex ? 0 : -1}
                                                     {...(placeholderValue && {
                                                         placeholder: placeholderValue[inputCorrectIndex],
                                                     })}
                                                 />
-                                                {(!code[inputCorrectIndex] ||
-                                                    (!!code[inputCorrectIndex] && hidden)) && (
-                                                    <ItemCircle
-                                                        className={
-                                                            !!code[inputCorrectIndex] && hidden
-                                                                ? classes.itemCirlceFilled
-                                                                : ''
-                                                        }
-                                                    />
-                                                )}
                                             </ItemWrapper>
                                         );
                                     })}

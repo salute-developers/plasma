@@ -34,12 +34,6 @@ const meta: Meta<typeof CodeInput> = {
                 type: 'inline-radio',
             },
         },
-        screen: {
-            options: ['large', 'medium', 'small'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
         captionAlign: {
             options: captionAlignVariants,
             control: {
@@ -95,7 +89,6 @@ export const Default: StoryObj<StoryPropsDefault> = {
         caption: 'Caption',
         captionAlign: 'center',
         width: '',
-        screen: 'medium',
         isError: false,
         itemErrorBehavior: 'remove-symbol',
         codeErrorBehavior: 'remove-code',

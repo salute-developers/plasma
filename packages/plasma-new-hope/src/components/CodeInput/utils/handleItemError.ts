@@ -11,6 +11,7 @@ type ValidateSymbolsArgs = {
     index: number;
     newCode: Array<string>;
     inputRefs: MutableRefObject<Array<HTMLInputElement | null>>;
+    inputContainerRef: MutableRefObject<HTMLDivElement | null>;
     setCode: Dispatch<SetStateAction<Array<string>>>;
     codeSetter: (newCode: Array<string>) => void;
 };
@@ -21,6 +22,7 @@ export const handleItemError = ({
     index,
     newCode,
     inputRefs,
+    inputContainerRef,
     setCode,
     codeSetter,
 }: ValidateSymbolsArgs) => {
@@ -28,10 +30,18 @@ export const handleItemError = ({
         return;
     }
 
+    const circleElement = inputContainerRef.current?.querySelector(`.${classes.itemCircle}-${index}`);
+
     switch (itemErrorBehavior) {
         case 'keep':
             setCode(newCode);
             inputRefs.current[index]?.classList.add(classes.itemError, classes.itemErrorAnimation);
+
+            if (circleElement) {
+                setTimeout(() => {
+                    circleElement.classList.add(classes.itemCircleError, classes.itemCircleErrorAnimation);
+                }, 0);
+            }
 
             setTimeout(() => {
                 inputRefs.current[index]?.classList.remove(classes.itemErrorAnimation);
@@ -54,17 +64,28 @@ export const handleItemError = ({
                 classes.itemErrorAnimation,
             );
 
+            if (circleElement) {
+                setTimeout(() => {
+                    circleElement.classList.add(classes.itemCircleError, classes.itemCircleErrorAnimation);
+                }, 0);
+            }
+
             setTimeout(() => {
                 const updatedCode = [...newCode];
                 updatedCode[index] = '';
 
                 codeSetter(updatedCode);
-
                 inputRefs.current[index]?.classList.remove(
                     classes.itemError,
                     classes.itemErrorFade,
                     classes.itemErrorAnimation,
                 );
+
+                if (circleElement) {
+                    setTimeout(() => {
+                        circleElement.classList.remove(classes.itemCircleError, classes.itemCircleErrorAnimation);
+                    }, 0);
+                }
             }, ANIMATION_TIMEOUT);
     }
 };
