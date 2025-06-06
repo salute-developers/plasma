@@ -19,10 +19,6 @@ const getShadow = (shadow: any, tokens: TokenType[], direction: 'down' | 'up', i
             const tokenName = token.name.split('.').join('-');
             const value = shadow?.[token.name];
 
-            if (!value) {
-                return getJSVariable(tokenName, token.description);
-            }
-
             if (isJS) {
                 return getJSVariable(tokenName, token.description, value);
             }

@@ -895,9 +895,7 @@
 .light {
   --inverse-text-promo-minor-gradient-hover: #3FABF3FF;
   --inverse-text-promo-minor-gradient-active: #0D84D3FF;
-/** Инвертированный минорный промо цвет с градиентом */
-export const inverseTextPromoMinorGradient = 'var(--inverse-text-promo-minor-gradient)';
-
+  --inverse-text-promo-minor-gradient: undefined;
   --surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --surface-skeleton-gradient-hover: #FFFFFFFF;
   --surface-skeleton-gradient-active: #FFFFFFFF;

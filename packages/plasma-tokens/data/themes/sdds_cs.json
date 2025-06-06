@@ -6751,9 +6751,9 @@
                     "enabled": true
                 },
                 "textPromoMinorGradient": {
-                    "value": "[general.blue.400]",
+                    "value": "#FFFFFF",
                     "comment": "Инвертированный минорный промо цвет с градиентом",
-                    "enabled": true
+                    "enabled": false
                 }
             }
         },

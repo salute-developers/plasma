@@ -113,7 +113,6 @@ export const sdds_cs__light = {
         '--inverse-text-accent-minor': '#055C05',
         '--inverse-text-tertiary': '#707C84',
         '--inverse-text-warning': '#F3A912',
-        '--inverse-text-promo-minor-gradient': '#199AF0',
         '--surface-solid-primary-hover': '#F5F8F9FF',
         '--surface-solid-primary-active': '#E2E9EEFF',
         '--surface-solid-secondary-hover': '#F8FAFBFF',
