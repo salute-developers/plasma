@@ -13,6 +13,7 @@ export const config = {
 
                 ${tokens.codeColor}: var(--text-primary);
                 ${tokens.codeColorError}: var(--text-negative);
+                ${tokens.borderColorFocus}: var(--outline-accent);
 
                 ${getCodeInputView(
                     {
@@ -31,7 +32,7 @@ export const config = {
                 ${tokens.captionGap}: 2.5rem;
                 ${tokens.codeItemsGap}: 0.75rem;
 
-                ${tokens.separatorWidth}: 1rem;
+                ${tokens.separatorWidth}: 0.75rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-dspl-l-font-family);
                 ${tokens.fontStyle}: var(--plasma-typo-dspl-l-font-style);
@@ -82,7 +83,7 @@ export const config = {
                 ${tokens.captionGap}: 1.75rem;
                 ${tokens.codeItemsGap}: 0.5rem;
 
-                ${tokens.separatorWidth}: 1rem;
+                ${tokens.separatorWidth}: 0.75rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-dspl-m-font-family);
                 ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);

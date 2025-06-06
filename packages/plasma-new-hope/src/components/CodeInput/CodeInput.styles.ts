@@ -53,13 +53,8 @@ export const ItemCircle = styled.div<{ filled?: boolean }>`
     width: var(${tokens.codeItemCircleSize});
     height: var(${tokens.codeItemCircleSize});
     box-sizing: border-box;
-    border: var(${tokens.codeItemCircleBorderWidth}) solid var(${tokens.codeColor});
     border-radius: 100%;
     background-color: 'transparent';
-
-    &.${classes.itemCirlceFilled} {
-        background-color: var(${tokens.codeColor});
-    }
 `;
 
 export const CaptionWrapper = styled.div<{ captionAlign: 'left' | 'center'; widthValue?: string }>`
