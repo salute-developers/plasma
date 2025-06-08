@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { styled } from '@linaria/react';
 
 import { linkConfig } from '../../../../components/Link';
 import { mergeConfig } from '../../../../engines';
@@ -19,6 +20,89 @@ const meta: Meta<typeof Tour> = {
 
 export default meta;
 
+export const Card = styled.div`
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+    border-radius: 0.75rem;
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+`;
+
+export const Title = styled.h4`
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+`;
+
+export const Description = styled.p`
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #666;
+`;
+
+export const Footer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+
+    > div {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    small {
+        color: #666;
+        white-space: nowrap;
+    }
+`;
+
+const TourCard: React.FC<{
+    title: string;
+    description: string;
+    index: number;
+    last: boolean;
+    total: number;
+    onPrev: () => void;
+    onNext: () => void;
+    onClose: () => void;
+}> = ({ title, description, index, last, total, onPrev, onNext, onClose }) => {
+    return (
+        <Card>
+            {title && <Title>{title}</Title>}
+            {description && <Description>{description}</Description>}
+            <Footer>
+                <div>
+                    {index > 0 && (
+                        <Button size="xs" type="button" onClick={onPrev}>
+                            Назад
+                        </Button>
+                    )}
+                    {!last && (
+                        <Button size="xs" type="button" onClick={onNext}>
+                            Далее
+                        </Button>
+                    )}
+                    {last && (
+                        <Button size="xs" type="button" onClick={onClose}>
+                            Закрыть
+                        </Button>
+                    )}
+                </div>
+                <small>
+                    Шаг {index + 1} / {total}
+                </small>
+            </Footer>
+        </Card>
+    );
+};
+
 const StoryDefault = () => {
     const ref1 = useRef<HTMLButtonElement>(null);
     const ref2 = useRef<HTMLButtonElement>(null);
@@ -27,26 +111,72 @@ const StoryDefault = () => {
     const [open, setOpen] = useState(false);
     const [current, setCurrent] = useState(0);
 
+    const onNext = () => setCurrent(current + 1);
+    const onPrev = () => setCurrent(current - 1);
+    const onClose = () => setOpen(false);
+
     const steps = [
         {
             target: ref1,
-            title: 'Первый шаг',
-            description: 'Нажмите кнопку, чтобы продолжить',
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={0}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
+            placement: 'right',
         },
         {
             target: ref2,
-            title: 'Второй шаг',
-            description: 'Нажмите кнопку, чтобы продолжить',
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={1}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
         },
         {
             target: ref3,
-            title: 'Третий шаг',
-            description: 'Нажмите кнопку, чтобы продолжить',
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={2}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
         },
         {
             target: ref4,
-            title: 'Последний шаг',
-            description: 'Описание последнего шага',
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={3}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
+            placement: 'left',
         },
     ];
 
@@ -85,34 +215,13 @@ const StoryDefault = () => {
             </div>
 
             <Tour
-                steps={steps}
                 open={open}
                 current={current}
                 onClose={() => {
                     setCurrent(0);
                     setOpen(false);
                 }}
-                nextButton={
-                    <Button size="xs" onClick={() => setCurrent(current + 1)}>
-                        Далее
-                    </Button>
-                }
-                prevButton={
-                    <Button size="xs" onClick={() => setCurrent(current - 1)}>
-                        Назад
-                    </Button>
-                }
-                closeButton={
-                    <Button
-                        size="xs"
-                        onClick={() => {
-                            setCurrent(0);
-                            setOpen(false);
-                        }}
-                    >
-                        Завершить
-                    </Button>
-                }
+                steps={steps}
             />
         </div>
     );
