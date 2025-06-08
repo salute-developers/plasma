@@ -65,6 +65,7 @@ export * from './components/Table';
 export * from './components/Notification';
 export * from './components/CodeField';
 export * from './components/List';
+export * from './components/Carousel';
 
 export * from './mixins';
 export * from './tokens';
