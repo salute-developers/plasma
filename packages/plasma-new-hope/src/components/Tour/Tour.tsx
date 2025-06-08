@@ -1,64 +1,19 @@
 // Tour.tsx
 import React, { forwardRef, useCallback, useEffect, useState, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { usePopper } from 'react-popper';
+import { useFloating, offset, flip, shift, autoUpdate } from '@floating-ui/react-dom';
 
 import { RootProps } from '../../engines';
 import { cx, canUseDOM } from '../../utils';
 
 import { getHTMLElement } from './utils';
-import type { TourProps, TourStep } from './Tour.types';
-import { Card, Title, Description, Footer, Mask, Highlight, TourPortal } from './Tour.styles';
+import type { TourProps } from './Tour.types';
+import { Mask, Highlight, TourPortal } from './Tour.styles';
 import { base as viewCSS } from './variatoins/_view/base';
 import { base as sizeCSS } from './variatoins/_size/base';
 import { classes } from './Tour.tokens';
 
 const TOUR_PORTAL_ID = 'plasma-tour-portal';
-
-const TourCard: React.FC<{
-    step: TourStep;
-    index: number;
-    last: boolean;
-    total: number;
-    onPrev: () => void;
-    onNext: () => void;
-    onClose: () => void;
-    nextButton?: React.ReactNode;
-    prevButton?: React.ReactNode;
-    closeButton?: React.ReactNode;
-}> = ({ step, index, last, total, onPrev, onNext, onClose, nextButton, prevButton, closeButton }) => {
-    return (
-        <Card>
-            {step.title && <Title>{step.title}</Title>}
-            {step.description && <Description>{step.description}</Description>}
-            <Footer>
-                <div>
-                    {index > 0 &&
-                        (prevButton || (
-                            <button type="button" onClick={onPrev}>
-                                Назад
-                            </button>
-                        ))}
-                    {!last &&
-                        (nextButton || (
-                            <button type="button" onClick={onNext}>
-                                Далее
-                            </button>
-                        ))}
-                    {last &&
-                        (closeButton || (
-                            <button type="button" onClick={onClose}>
-                                Закрыть
-                            </button>
-                        ))}
-                </div>
-                <small>
-                    Шаг {index + 1} / {total}
-                </small>
-            </Footer>
-        </Card>
-    );
-};
 
 export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
     forwardRef<HTMLDivElement, TourProps>(
@@ -71,9 +26,6 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 defaultOpen = false,
                 onChange,
                 onClose,
-                nextButton,
-                prevButton,
-                closeButton,
                 withMask = true,
                 zIndex = 9300,
                 view,
@@ -90,9 +42,9 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             const [innerOpen, setInnerOpen] = useState(defaultOpen);
             const [highlightRect, setHighlightRect] = useState<DOMRect | null>(null);
             const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
-            const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
 
             const portalRef = useRef<HTMLElement | null>(null);
+            const floatingRef = useRef<HTMLDivElement | null>(null);
 
             const active = controlled ? (current as number) : innerCurrent;
             const isOpen = controlledOpen ? (open as boolean) : innerOpen;
@@ -111,43 +63,26 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 return currentStep.placement || 'bottom';
             }, [currentStep]);
 
-            const { styles, attributes, update } = usePopper(targetElement, popperElement, {
-                placement: placement as any,
-                modifiers: [
-                    {
-                        name: 'offset',
-                        options: {
-                            offset: [0, 12],
-                        },
-                    },
-                    {
-                        name: 'preventOverflow',
-                        options: {
-                            padding: 12,
-                            boundary: 'viewport',
-                        },
-                    },
-                    {
-                        name: 'flip',
-                        enabled: true,
-                        options: {
-                            allowedAutoPlacements: Array.isArray(currentStep?.placement)
-                                ? currentStep.placement
-                                : undefined,
-                        },
-                    },
-                    ...(currentStep?.hasArrow !== false
-                        ? [
-                              {
-                                  name: 'arrow',
-                                  options: {
-                                      padding: 8,
-                                  },
-                              },
-                          ]
-                        : []),
+            const middleware = useMemo(
+                () => [
+                    offset(12),
+                    flip({
+                        fallbackPlacements: Array.isArray(currentStep?.placement) ? currentStep.placement : undefined,
+                    }),
+                    shift({ padding: 12 }),
                 ],
+                [currentStep?.placement],
+            );
+
+            const { refs, floatingStyles, placement: calculatedPlacement } = useFloating({
+                placement,
+                middleware,
+                whileElementsMounted: autoUpdate,
             });
+
+            useEffect(() => {
+                refs.setReference(targetElement);
+            }, [refs, targetElement]);
 
             const setCurrent = useCallback(
                 (val: number) => {
@@ -223,7 +158,6 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
 
                 const handleUpdate = () => {
                     updateHighlight();
-                    update?.();
                 };
 
                 window.addEventListener('resize', handleUpdate);
@@ -233,7 +167,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                     window.removeEventListener('resize', handleUpdate);
                     window.removeEventListener('scroll', handleUpdate, true);
                 };
-            }, [updateHighlight, update]);
+            }, [updateHighlight]);
 
             useEffect(() => {
                 if (!isOpen || !currentStep || !targetElement) return;
@@ -260,23 +194,10 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
 
             if (!currentStep || !canUseDOM || !portalRef.current) return null;
 
-            const maskClosable = currentStep.maskClosable ?? true;
-
-            const onMaskClick = (e: React.MouseEvent) => {
-                if (e.target === e.currentTarget && maskClosable) {
-                    handleClose();
-                }
-            };
-
             const tourContent = (
                 <Root steps={[]} ref={outerRef} className={cx(className)} view={view} size={size} {...rest}>
                     {isOpen && withMask && (
-                        <div
-                            className={classes.mask}
-                            style={{ zIndex: Number(zIndex) - 100 }}
-                            onClick={onMaskClick}
-                            data-plasma-tour-mask
-                        >
+                        <div className={classes.mask} style={{ zIndex: Number(zIndex) - 100 }} data-plasma-tour-mask>
                             <Mask />
                             {highlightRect && (
                                 <Highlight
@@ -293,25 +214,17 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
 
                     {isOpen && targetElement && (
                         <TourPortal
-                            ref={setPopperElement}
+                            ref={(node) => {
+                                refs.setFloating(node);
+                                floatingRef.current = node;
+                            }}
                             style={{
-                                ...styles.popper,
+                                ...floatingStyles,
                                 zIndex: Number(zIndex),
                             }}
-                            {...attributes.popper}
+                            data-placement={calculatedPlacement}
                         >
-                            <TourCard
-                                step={currentStep}
-                                index={active}
-                                total={total}
-                                last={last}
-                                nextButton={nextButton}
-                                prevButton={prevButton}
-                                closeButton={closeButton}
-                                onPrev={handlePrev}
-                                onNext={handleNext}
-                                onClose={handleClose}
-                            />
+                            {currentStep.renderItem()}
                         </TourPortal>
                     )}
                 </Root>
