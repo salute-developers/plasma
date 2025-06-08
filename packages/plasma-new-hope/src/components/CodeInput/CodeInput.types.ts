@@ -1,13 +1,17 @@
-import type { Dispatch, HTMLAttributes, InputHTMLAttributes, ReactNode, SetStateAction } from 'react';
+import type { CSSProperties, Dispatch, HTMLAttributes, InputHTMLAttributes, ReactNode, SetStateAction } from 'react';
 
-export type ItemErrorBehavior = 'remove-symbol' | 'keep' | 'remove-code' | 'forbid-enter';
+export type ItemErrorBehavior = 'remove-symbol' | 'forbid-enter';
 export type CodeErrorBehavior = 'remove-code' | 'keep';
 
 export type CodeInputProps = {
     /**
-     * Значение поля ввода
+     * Вид компонента
      */
-    value?: string;
+    view?: string;
+    /**
+     * Размер компонента
+     */
+    size?: string;
     /**
      * Строка равная, длине кода или же один символ,
      * для отображения в качестве placeholder
@@ -36,36 +40,16 @@ export type CodeInputProps = {
      */
     hidden?: boolean;
     /**
-     * Вид компонента
-     */
-    view?: string;
-    /**
-     * Размер компонента
-     */
-    size?: string;
-    /**
-     * Размер экрана
-     */
-    screen?: 'large' | 'medium' | 'small';
-    /**
      * Компонент не активен
      */
     disabled?: boolean;
-    /**
-     * Флаг ошибки кода
-     */
-    isError?: boolean;
     /**
      * Ширина компонента
      * @description
      * Значение может принимать строку с единицой измерения CSS (px, rem и тд.).
      * Если передано число без единицы измерения - рассчитывается в rem.
      */
-    width?: string | number;
-    /**
-     * Колбек для установки флага ошибки
-     */
-    setIsError?: Dispatch<SetStateAction<boolean>>;
+    width?: CSSProperties['width'];
     /**
      * Регулярное выражение или строка, по которой проверяется символ при вводе
      * @default '^\\d+$' - только цифры
@@ -75,7 +59,7 @@ export type CodeInputProps = {
      * Поведение элемента поля ввода, при вводе некорректного значения
      * - `remove-symbol` - проигрывается анимация ошибки, значение элемента очищается
      * - `keep` - проигрывается анимация ошибки, значение остается
-     * - `remove-code` - проигрывается анимация ошибки, значение всего поля очищается
+     * - `forbid-enter` - запрещается ввод некорректного значения
      * @default 'remove-symbol'
      */
     itemErrorBehavior?: ItemErrorBehavior;
@@ -86,6 +70,14 @@ export type CodeInputProps = {
      * @default 'remove-code'
      */
     codeErrorBehavior?: CodeErrorBehavior;
+    /**
+     * Флаг ошибки кода
+     */
+    isError?: boolean;
+    /**
+     * Колбек для установки флага ошибки
+     */
+    setIsError?: Dispatch<SetStateAction<boolean>>;
     /**
      * Коллбек, вызываемый при изменении значения кода
      */
