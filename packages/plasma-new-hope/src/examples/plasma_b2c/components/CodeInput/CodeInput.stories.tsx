@@ -14,7 +14,7 @@ const onFullCodeEnter = action('onFullCodeEnter');
 const { views, sizes } = getConfigVariations(config);
 const codeLengths = [4, 5, 6];
 const captionAlignVariants = ['left', 'center'];
-const itemErrorBehaviorVariants = ['remove-symbol', 'keep', 'forbid-enter'];
+const itemErrorBehaviorVariants = ['remove-symbol', 'forbid-enter'];
 const codeErrorBehaviorVariants = ['remove-code', 'keep'];
 
 const meta: Meta<typeof CodeInput> = {
@@ -71,14 +71,14 @@ export default meta;
 type StoryPropsDefault = ComponentProps<typeof CodeInput>;
 
 const StoryDefault = (args: StoryPropsDefault) => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState();
 
     const handleChange = (newValue: string) => {
         setValue(newValue);
         onChange(newValue);
     };
 
-    return <CodeInput {...args} value={value} onChange={handleChange} onFullCodeEnter={onFullCodeEnter} />;
+    return <CodeInput {...args} onChange={handleChange} onFullCodeEnter={onFullCodeEnter} />;
 };
 
 export const Default: StoryObj<StoryPropsDefault> = {

@@ -1,20 +1,15 @@
-import React, { forwardRef, Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, Fragment, useCallback, useRef, useState } from 'react';
 import cls from 'classnames';
 import type { ChangeEvent, KeyboardEvent, ClipboardEvent } from 'react';
 import type { RootProps } from 'src/engines';
 import { useDidMountEffect } from 'src/hooks';
 import { getSizeValueFromProp } from 'src/utils';
 
+import { BACKSPACE_KEY, FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from '../../utils/constants';
+import { useCodeHook } from '../../hooks';
+
 import type { CodeInputProps } from './CodeInput.types';
-import { BACKSPACE_KEY, FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from './utils/constants';
-import {
-    getCodeInputViewClass,
-    getCodeValue,
-    getFieldPattern,
-    getPlaceholderValue,
-    handleCodeError,
-    handleItemError,
-} from './utils';
+import { getCodeValue, getFieldPattern, getPlaceholderValue, handleCodeError, handleItemError } from './utils';
 import { classes } from './CodeInput.tokens';
 import {
     base,
@@ -35,7 +30,6 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
         (
             {
                 className,
-                value: outerValue,
                 placeholder,
                 autoFocus,
                 codeLength = 6,
@@ -44,7 +38,6 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 width,
                 view,
                 size,
-                screen = 'medium',
                 hidden,
                 disabled,
                 isError,
@@ -59,7 +52,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
             },
             ref,
         ) => {
-            const [code, setCode] = useState<Array<string>>(getCodeValue(codeLength, outerValue || ''));
+            const [code, setCode] = useState<Array<string>>(getCodeValue(codeLength, ''));
             const [originalValue, setOriginalValue] = useState<string>(code.join(''));
 
             const inputRefs = useRef<Array<HTMLInputElement>>([]);
@@ -69,8 +62,6 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
             const fieldPattern = getFieldPattern(allowedSymbols);
             const placeholderValue = getPlaceholderValue(codeLength, placeholder);
             const parts = codeLength === 6 ? 2 : 1;
-
-            const viewClass = getCodeInputViewClass(view || 'default');
 
             const widthValue = width ? getSizeValueFromProp(width, 'rem') : undefined;
 
@@ -95,7 +86,11 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 }
             };
 
-            const handleOnKeyDown = (event: KeyboardEvent<HTMLInputElement>, index: number) => {
+            const handleOnKeyDown = (
+                event: KeyboardEvent<HTMLInputElement | HTMLDivElement>,
+                index: number,
+                type?: 'circle',
+            ) => {
                 if (disabled) {
                     return;
                 }
@@ -110,6 +105,11 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                     if (index > 0 && code[index] === '') {
                         inputRefs.current[index - 1]?.focus();
                     }
+                }
+
+                if (type === 'circle') {
+                    handleAddSymbol(key, index);
+                    inputRefs.current[index]?.focus();
                 }
             };
 
@@ -130,28 +130,6 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 const rawSymbol = event.currentTarget.value;
                 const symbol = rawSymbol.charAt(rawSymbol.length - 1);
                 handleAddSymbol(symbol, index);
-            };
-
-            const handleOnKeyDownCircle = (event: KeyboardEvent<HTMLDivElement>, index: number) => {
-                if (disabled) {
-                    return;
-                }
-
-                const { key } = event;
-
-                if (FORBIDDEN_KEYS.includes(key)) {
-                    event.preventDefault();
-                    return;
-                }
-
-                if (key === BACKSPACE_KEY) {
-                    if (index > 0 && code[index] === '') {
-                        inputRefs.current[index - 1]?.focus();
-                    }
-                }
-
-                handleAddSymbol(key, index);
-                inputRefs.current[index]?.focus();
             };
 
             const handleAddSymbol = (symbol: string, index: number) => {
@@ -205,7 +183,6 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                         newCode,
                         inputRefs,
                         inputContainerRef,
-                        setCode,
                         codeSetter,
                     });
                 }
@@ -246,23 +223,15 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 }
             }, []);
 
-            useEffect(() => {
-                inputRefs.current = inputRefs.current.slice(0, codeLength);
-            }, [codeLength]);
-
-            useEffect(() => {
-                if (autoFocus && !disabled) {
-                    const lastActiveIndex = getLastActiveIndex();
-
-                    inputRefs.current[lastActiveIndex]?.focus();
-                }
-            }, [autoFocus]);
-
-            useDidMountEffect(() => {
-                if (handleFullCodeEnter && originalValue.length === codeLength) {
-                    handleFullCodeEnter(originalValue);
-                }
-            }, [originalValue, handleFullCodeEnter]);
+            useCodeHook({
+                inputRefs,
+                codeLength,
+                disabled,
+                autoFocus,
+                originalValue,
+                getLastActiveIndex,
+                handleFullCodeEnter,
+            });
 
             useDidMountEffect(() => {
                 if (isError) {
@@ -285,9 +254,8 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                     view={view}
                     size={size}
                     disabled={disabled}
-                    screen={screen}
                     onClick={handleClick}
-                    className={cls(className, viewClass, {
+                    className={cls(className, {
                         [classes.captionAlignLeft]: captionAlign === 'left',
                     })}
                     {...rest}
@@ -300,23 +268,24 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                                         const inputCorrectIndex = i + (codeLength / parts) * partIndex;
 
                                         return (
-                                            <ItemWrapper key={partIndex + i + partIndex * i}>
+                                            <ItemWrapper key={String(partIndex + i + partIndex * i)}>
                                                 {(!code[inputCorrectIndex] ||
-                                                    (!!code[inputCorrectIndex] && hidden)) && (
+                                                    (Boolean(code[inputCorrectIndex]) && hidden)) && (
                                                     <ItemCircle
                                                         role="tab"
                                                         tabIndex={originalValue.length === inputCorrectIndex ? 0 : -1}
                                                         onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => {
-                                                            handleOnKeyDownCircle(e, inputCorrectIndex);
+                                                            handleOnKeyDown(e, inputCorrectIndex, 'circle');
                                                         }}
                                                         className={cls([
-                                                            !!code[inputCorrectIndex] && hidden
+                                                            Boolean(code[inputCorrectIndex]) && hidden
                                                                 ? classes.itemCirlceFilled
                                                                 : '',
                                                             `${classes.itemCircle}-${inputCorrectIndex}`,
                                                         ])}
                                                     />
                                                 )}
+
                                                 <ItemInput
                                                     ref={(element: HTMLInputElement) => {
                                                         inputRefs.current[inputCorrectIndex] = element;
@@ -344,10 +313,12 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                                         );
                                     })}
                                 </CodeGroup>
+
                                 {partIndex !== parts - 1 && <Separator />}
                             </Fragment>
                         ))}
                     </CodeWrapper>
+
                     {caption && (
                         <CaptionWrapper ref={captionRef} captionAlign={captionAlign} widthValue={widthValue}>
                             {caption}

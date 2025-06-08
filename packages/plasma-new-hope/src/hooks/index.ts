@@ -6,4 +6,5 @@ export { useDidMountEffect } from './useDidMountEffect';
 export { useDidMountLayoutEffect } from './useDidMountLayoutEffect';
 export { useOutsideClick } from './useOutsideClick';
 export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
+export { useCodeHook } from './useCodeHook';
 export { useDisableScroll } from './useDisableScroll';

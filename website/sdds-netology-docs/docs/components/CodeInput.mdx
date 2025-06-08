@@ -19,7 +19,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { CodeInput } from '@salutejs/plasma-b2c';
+import { CodeInput } from '@salutejs/sdds-netology';
 
 export function App() {
     return (
@@ -47,13 +47,13 @@ export function App() {
 ### Допустимые символы и поведение ячейки при вводе некорректного символа
 За допустимые символы для ввода отвечает свойство `allowedSymbols`. Задается строкой или регулярным выражением.
 Библиотека экспортирует наиболее используемые вариации допустимых символов:
-`import { ONLY_DIGITS_PATTERN, ONLY_CHARS_PATTERN, ONLY_DIGITS_AND_CHARS_PATTERN } from '@salutejs/plasma-b2c';`
+`import { ONLY_DIGITS_PATTERN, ONLY_CHARS_PATTERN, ONLY_DIGITS_AND_CHARS_PATTERN } from '@salutejs/sdds-netology';`
 
 Поведение ячейки при вводе некорректного символа регулируется свойством `itemErrorBehavior`:
 
 ```tsx live
 import React from 'react';
-import { CodeInput } from '@salutejs/plasma-b2c';
+import { CodeInput } from '@salutejs/sdds-netology';
 
 export function App() {
     return (
@@ -73,7 +73,7 @@ export function App() {
 
 ```tsx live
 import React, { useState, useRef, Dispatch, SetStateAction } from 'react';
-import { CodeInput } from '@salutejs/plasma-b2c';
+import { CodeInput } from '@salutejs/sdds-netology';
 
 export function App() {
     const [disabledFirst, setDisabledFirst] = useState(false);

@@ -1,4 +1,3 @@
-export { getFieldPattern, getPlaceholderValue, getCodeValue } from '../../CodeField/utils';
+export { getFieldPattern, getPlaceholderValue, getCodeValue } from '../../../utils';
 export { handleItemError } from './handleItemError';
-export { handleCodeError } from '../../CodeField/utils';
-export * from './generateMediaQuery';
+export { handleCodeError } from './handleCodeError';

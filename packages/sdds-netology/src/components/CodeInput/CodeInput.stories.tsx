@@ -13,7 +13,7 @@ const onFullCodeEnter = action('onFullCodeEnter');
 const { views, sizes } = getConfigVariations(config);
 const codeLengths = [4, 5, 6];
 const captionAlignVariants = ['left', 'center'];
-const itemErrorBehaviorVariants = ['remove-symbol', 'keep', 'forbid-enter'];
+const itemErrorBehaviorVariants = ['remove-symbol', 'forbid-enter'];
 const codeErrorBehaviorVariants = ['remove-code', 'keep'];
 
 const meta: Meta<typeof CodeInput> = {
