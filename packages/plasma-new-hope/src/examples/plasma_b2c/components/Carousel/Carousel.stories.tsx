@@ -2,76 +2,134 @@ import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 
+import { config } from './Carousel.config';
 import { Carousel, CarouselItem } from './Carousel';
 
-type StoryCarouselProps = ComponentProps<typeof Carousel>;
+type StoryCarouselProps = ComponentProps<typeof Carousel> & {
+    slides: number;
+    visibleDots: number;
+    paginationDisabled: boolean;
+    paginationCentered: boolean;
+};
+
+const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<StoryCarouselProps> = {
     title: 'b2c/Navigation/Carousel',
     component: Carousel,
     decorators: [WithTheme],
     argTypes: {
-        align: {
-            options: ['center', 'start', 'end'],
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
             control: {
                 type: 'inline-radio',
             },
         },
-        isDragScrollDisabled: {
+        align: {
+            options: ['start', 'center', 'end', 'activeDirection'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        slides: {
+            control: 'number',
+        },
+        visibleDots: {
+            control: 'number',
+        },
+        controlArrowsDisabled: {
+            control: 'boolean',
+        },
+        paginationDisabled: {
+            control: 'boolean',
+        },
+        paginationCentered: {
             control: 'boolean',
         },
     },
     args: {
+        view: 'default',
+        size: 's',
         align: 'center',
-        isDragScrollDisabled: false,
+        slides: 10,
+        controlArrowsDisabled: false,
+        paginationDisabled: false,
+        paginationCentered: false,
     },
     parameters: {
         controls: {
-            include: ['align', 'isDragScrollDisabled'],
+            include: [
+                'align',
+                'visibleDots',
+                'slides',
+                'controlArrowsDisabled',
+                'paginationDisabled',
+                'paginationCentered',
+                'gap',
+            ],
         },
     },
 };
 
 export default meta;
 
-const items = Array(25)
-    .fill({
-        title: 'Заголовок',
-    })
-    .map(({ title }, i) => ({
-        id: i,
-        title: `${title} ${i}`,
-    }));
-
 const StyledCard = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     border-radius: 8px;
-    width: 350px;
-    height: 50px;
-    padding: 8px;
+    width: 400px;
+    height: 370px;
     background-color: #add8e6;
+    font-size: 30px;
 `;
 
-const StoryDefault = ({ align, isDragScrollDisabled }: StoryCarouselProps) => {
-    const [index, setIndex] = React.useState(0);
+const StoryDefault = ({
+    align,
+    visibleDots,
+    slides,
+    paginationDisabled,
+    paginationCentered,
+    ...rest
+}: StoryCarouselProps) => {
+    const items = Array(slides)
+        .fill(1)
+        .map((_, i) => ({
+            id: i,
+            title: i,
+        }));
 
     return (
-        <Carousel
-            index={index}
-            detectActive
-            onIndexChange={setIndex}
-            scrollAlign={align}
-            isDragScrollDisabled={isDragScrollDisabled}
-        >
-            {items.map((item, i) => (
-                <CarouselItem key={i} style={{ padding: '0 0.5rem' }} scrollSnapAlign={align}>
-                    <StyledCard>{item.title}</StyledCard>
-                </CarouselItem>
-            ))}
-        </Carousel>
+        <>
+            <div style={{ width: '600px' }}>
+                <Carousel
+                    scrollAlign={align}
+                    paginationOptions={{
+                        disabled: paginationDisabled,
+                        visibleDots,
+                        centered: paginationCentered,
+                    }}
+                    {...rest}
+                >
+                    {items.map((item, i) => (
+                        <CarouselItem key={i}>
+                            <StyledCard>{item.title}</StyledCard>
+                        </CarouselItem>
+                    ))}
+                </Carousel>
+            </div>
+        </>
     );
 };
 
