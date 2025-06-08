@@ -7,14 +7,7 @@ import { getSizeValueFromProp } from 'src/utils';
 
 import type { CodeInputProps } from './CodeInput.types';
 import { BACKSPACE_KEY, FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from './utils/constants';
-import {
-    getCodeInputViewClass,
-    getCodeValue,
-    getFieldPattern,
-    getPlaceholderValue,
-    handleCodeError,
-    handleItemError,
-} from './utils';
+import { getCodeValue, getFieldPattern, getPlaceholderValue, handleCodeError, handleItemError } from './utils';
 import { classes } from './CodeInput.tokens';
 import {
     base,
@@ -70,8 +63,6 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
             const placeholderValue = getPlaceholderValue(codeLength, placeholder);
             const parts = codeLength === 6 ? 2 : 1;
 
-            const viewClass = getCodeInputViewClass(view || 'default');
-
             const widthValue = width ? getSizeValueFromProp(width, 'rem') : undefined;
 
             const getLastActiveIndex = () => {
@@ -95,7 +86,11 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 }
             };
 
-            const handleOnKeyDown = (event: KeyboardEvent<HTMLInputElement>, index: number) => {
+            const handleOnKeyDown = (
+                event: KeyboardEvent<HTMLInputElement | HTMLDivElement>,
+                index: number,
+                type?: 'circle',
+            ) => {
                 if (disabled) {
                     return;
                 }
@@ -110,6 +105,11 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                     if (index > 0 && code[index] === '') {
                         inputRefs.current[index - 1]?.focus();
                     }
+                }
+
+                if (type === 'circle') {
+                    handleAddSymbol(key, index);
+                    inputRefs.current[index]?.focus();
                 }
             };
 
@@ -130,28 +130,6 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 const rawSymbol = event.currentTarget.value;
                 const symbol = rawSymbol.charAt(rawSymbol.length - 1);
                 handleAddSymbol(symbol, index);
-            };
-
-            const handleOnKeyDownCircle = (event: KeyboardEvent<HTMLDivElement>, index: number) => {
-                if (disabled) {
-                    return;
-                }
-
-                const { key } = event;
-
-                if (FORBIDDEN_KEYS.includes(key)) {
-                    event.preventDefault();
-                    return;
-                }
-
-                if (key === BACKSPACE_KEY) {
-                    if (index > 0 && code[index] === '') {
-                        inputRefs.current[index - 1]?.focus();
-                    }
-                }
-
-                handleAddSymbol(key, index);
-                inputRefs.current[index]?.focus();
             };
 
             const handleAddSymbol = (symbol: string, index: number) => {
@@ -287,7 +265,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                     disabled={disabled}
                     screen={screen}
                     onClick={handleClick}
-                    className={cls(className, viewClass, {
+                    className={cls(className, {
                         [classes.captionAlignLeft]: captionAlign === 'left',
                     })}
                     {...rest}
@@ -307,7 +285,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                                                         role="tab"
                                                         tabIndex={originalValue.length === inputCorrectIndex ? 0 : -1}
                                                         onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => {
-                                                            handleOnKeyDownCircle(e, inputCorrectIndex);
+                                                            handleOnKeyDown(e, inputCorrectIndex, 'circle');
                                                         }}
                                                         className={cls([
                                                             !!code[inputCorrectIndex] && hidden

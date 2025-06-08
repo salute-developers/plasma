@@ -2,8 +2,26 @@ import { css } from '@linaria/core';
 
 import { CaptionWrapper, CodeGroup, CodeWrapper, ItemInput } from '../../CodeInput.styles';
 import { tokens, privateTokens } from '../../CodeInput.tokens';
+import { screenGroupBreakpoints } from '../../../../utils/constants';
+import { TokensType } from '../../utils/types';
+
+const getIconMediaQueries = () => {
+    return Object.entries(screenGroupBreakpoints)
+        .map(([name, minWidth]) => {
+            return `
+                @media (min-width: ${minWidth}) {
+                    ${privateTokens.fontSize}: var(${tokens[`${name}FontSize` as TokensType]});
+                    ${privateTokens.lineHeight}: var(${tokens[`${name}CodeItemHeight` as TokensType]});
+                    ${privateTokens.itemWidth}: var(${tokens[`${name}CodeItemWidth` as TokensType]});
+                    ${privateTokens.itemHeight}: var(${tokens[`${name}LineHeight` as TokensType]});
+                }
+            `;
+        })
+        .join('\n');
+};
 
 export const base = css`
+    ${getIconMediaQueries()}
     gap: var(${tokens.captionGap});
 
     ${CodeWrapper}, ${CodeGroup} {
