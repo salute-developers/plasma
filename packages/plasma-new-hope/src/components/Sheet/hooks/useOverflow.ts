@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react';
+import { canUseDOM } from 'src/utils';
 
 import { SheetHookArgs } from '../Sheet.types';
 
 export const useOverflow = ({ opened }: SheetHookArgs) => {
-    const overflow = useRef<string>(document.body.style.overflowY);
+    const overflow = useRef<string>(canUseDOM ? document.body.style.overflowY : 'initial');
 
     // linaria не поддерживает динамический global
     useEffect(() => {
