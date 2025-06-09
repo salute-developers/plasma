@@ -81,3 +81,4 @@ export * from './components/PaginationDots';
 export * from './components/CodeInput';
 export * from './components/CodeField';
 export * from './components/List';
+export * from './components/Tour';
