@@ -228,7 +228,7 @@ describe('plasma-b2c: DatePicker', () => {
     it('[PLASMA-T1783] DatePicker: select day in popover', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Demo defaultDate={new Date(2023, 5, 14)} />
+                <Demo defaultDate={new Date(2023, 5, 14)} closeAfterDateSelect={false} />
             </CypressTestDecoratorWithTypo>,
         );
 
