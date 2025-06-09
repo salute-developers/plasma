@@ -18,4 +18,5 @@ export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
     zIndex?: string;
     view?: string;
     size?: string;
+    maskColor?: string;
 }
