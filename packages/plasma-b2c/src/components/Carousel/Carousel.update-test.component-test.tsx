@@ -50,11 +50,14 @@ describe('plasma-b2c: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <Demo />
+                <div style={{ width: '1800px', overflow: 'hidden' }}>
+                    <Demo />
+                </div>
             </CypressTestDecorator>,
         );
 
-        cy.get('div').first().trigger('mousedown').trigger('mousemove', 5, 5);
+        cy.get('div').first().trigger('mousedown').trigger('mousemove', 15, 5);
+        cy.get('body').click();
 
         cy.wait(300);
         cy.matchImageSnapshot();
@@ -65,13 +68,16 @@ describe('plasma-b2c: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <Demo align="start" />
+                <div style={{ width: '1800px', overflow: 'hidden' }}>
+                    <Demo align="start" />
+                </div>
             </CypressTestDecorator>,
         );
 
-        cy.get('div').first().trigger('mousedown').trigger('mousemove', 5, 5);
+        cy.get('div').first().trigger('mousedown').trigger('mousemove', 15, 5);
+        cy.get('body').click();
 
-        cy.wait(300);
+        cy.wait(500);
         cy.matchImageSnapshot();
     });
 
@@ -80,13 +86,16 @@ describe('plasma-b2c: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <Demo align="end" />
+                <div style={{ width: '1800px', overflow: 'hidden' }}>
+                    <Demo align="end" />
+                </div>
             </CypressTestDecorator>,
         );
 
-        cy.get('div').first().trigger('mousedown').trigger('mousemove', 5, 5);
+        cy.get('div').first().trigger('mousedown').trigger('mousemove', 15, 5);
+        cy.get('body').click();
 
-        cy.wait(300);
+        cy.wait(500);
         cy.matchImageSnapshot();
     });
 

@@ -283,7 +283,7 @@ describe('plasma-b2c: Calendar', () => {
     });
 
     it('days: prev month', () => {
-        mount(<Demo baseValue={baseDate} />);
+        mount(<Demo baseValue={baseDate} type="Days" size="l" />);
 
         cy.get('button').eq(1).click();
 
@@ -294,7 +294,7 @@ describe('plasma-b2c: Calendar', () => {
     });
 
     it('days: next month', () => {
-        mount(<Demo baseValue={baseDate} />);
+        mount(<Demo baseValue={baseDate} type="Days" size="l" />);
 
         cy.get('button').eq(2).click();
 
