@@ -11,7 +11,7 @@ import { config } from './Tour.config';
 import { Tour } from './Tour';
 
 const meta: Meta<typeof Tour> = {
-    title: 'b2c/Navigation/Tour',
+    title: 'web/Navigation/Tour',
     decorators: [WithTheme],
     component: Tour,
     argTypes: {

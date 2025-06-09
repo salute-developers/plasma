@@ -27,6 +27,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 onChange,
                 onClose,
                 withMask = true,
+                maskColor,
                 zIndex = 9300,
                 view,
                 size,
@@ -201,6 +202,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                             <Mask />
                             {highlightRect && (
                                 <Highlight
+                                    maskColor={maskColor}
                                     style={{
                                         left: highlightRect.left - 4,
                                         top: highlightRect.top - 4,
