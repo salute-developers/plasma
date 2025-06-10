@@ -14,7 +14,11 @@ const getSnapshotPath = () => {
         return `${baseSnapsDir}/components/${componentName}`;
     }
 
-    return Cypress.env('package') === 'plasma-ui' ? `${baseSnapsDir}/components` : baseSnapsDir;
+    if (['plasma-web', 'plasma-b2c'].includes(Cypress.env('package'))) {
+        return baseSnapsDir;
+    }
+
+    return `${baseSnapsDir}/components`;
 };
 
 addMatchImageSnapshotCommand({
