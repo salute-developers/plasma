@@ -6,7 +6,7 @@ import { setupNodeEvents } from './cypress/plugins';
 
 const supportFilePath = path.resolve(__dirname, 'cypress', 'support', 'index.ts');
 
-const { PACKAGE_NAME: packageName, COMPONENTS: components, RETRIES: retries = 5 } = process.env;
+const { PACKAGE_NAME: packageName, COMPONENTS: components, RETRIES: retries = 5, SPEC_GROUP: specGroup } = process.env;
 
 if (!packageName) {
     throw new Error('Provide PACKAGE env to cli command');
@@ -29,6 +29,10 @@ const getTestMatch = () => {
                   return componentDir;
               })
         : [];
+
+    if (specGroup) {
+        return `**/${packageName}/'**/${specGroup}*.component-test.{ts,tsx}`;
+    }
 
     if (!componentMatchingDirs.length) {
         return `**/${packageName}/${baseTestMatch}`;
@@ -57,6 +61,7 @@ export default defineConfig({
         a11yCheck: false,
         threshold: 0,
         hasComponents: !!components,
+        hasSpecGroup: !!specGroup,
     },
     retries: {
         runMode: retriesCount,
