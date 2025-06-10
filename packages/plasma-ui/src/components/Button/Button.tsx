@@ -25,8 +25,8 @@ export type ButtonProps = BaseProps &
 const StyledButtonRoot = styled(ButtonRoot).attrs(spatnavClassNameAttrs)<InteractionProps>`
     ${sizes}
 
-    ${applySizes}
     ${applyViews}
+    ${applySizes}
     ${applyInteraction}
     ${applyNoSelect}
 `;
