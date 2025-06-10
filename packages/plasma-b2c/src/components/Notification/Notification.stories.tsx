@@ -14,10 +14,10 @@ import {
     Notification,
     addNotification,
     NotificationsProvider,
-    NotificationPlacement,
     NotificationIconPlacement,
     NotificationProps,
     NotificationLayout,
+    NotificationPlacement,
 } from '.';
 
 const titles = ['Выполнено', 'Внимание', 'Ошибка'];
