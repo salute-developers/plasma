@@ -19,10 +19,6 @@ const getSpacing = (spacing: any, tokens: TokenType[], kind: 'spacing', isJS = f
             const [, size] = token.name.split('.');
             const value = spacing?.[token.name];
 
-            if (!value) {
-                return getJSVariable(size, token.description);
-            }
-
             if (isJS) {
                 return getJSVariable(size, token.description, value);
             }

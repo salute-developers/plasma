@@ -19,10 +19,6 @@ const getShape = (shape: any, tokens: TokenType[], kind: 'round', isJS = false) 
             const [, size] = token.name.split('.');
             const value = shape?.[token.name];
 
-            if (!value) {
-                return getJSVariable(size, token.description);
-            }
-
             if (isJS) {
                 return getJSVariable(size, token.description, value);
             }
