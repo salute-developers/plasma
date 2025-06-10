@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ComponentProps, ForwardRefExoticComponent, ReactNode } from 'react';
 import {
+    NotificationProps as NotificationPropsNewHope,
     NotificationPlacement,
     notificationConfig,
     NotificationsProvider as Provider,
@@ -13,7 +14,13 @@ export type { NotificationPlacement };
 
 const mergedConfig = mergeConfig(notificationConfig, config);
 
-export const Notification = component(mergedConfig);
+export const NotificationNewHope = component(mergedConfig);
+
+type ConfigProps = 'size' | 'view' | 'layout' | 'closeIconType';
+type NotificationProps = Pick<ComponentProps<typeof NotificationNewHope>, ConfigProps> &
+    Omit<NotificationPropsNewHope, ConfigProps>;
+
+export const Notification = NotificationNewHope as ForwardRefExoticComponent<NotificationProps>;
 
 export const NotificationsProvider: React.FC<{
     children: ReactNode;

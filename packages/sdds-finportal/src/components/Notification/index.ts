@@ -1,2 +1,8 @@
-export { NotificationsProvider, Notification, addNotification, closeNotification } from './Notification';
-export type { NotificationIconPlacement, NotificationLayout, NotificationProps } from './Notification';
+export { NotificationsProvider, Notification } from './Notification';
+export { addNotification, closeNotification } from '@salutejs/plasma-new-hope/styled-components';
+
+export type {
+    NotificationProps,
+    NotificationLayout,
+    NotificationIconPlacement,
+} from '@salutejs/plasma-new-hope/styled-components';
