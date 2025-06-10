@@ -6,12 +6,12 @@ import type { CustomInputProps, MaskProps } from './Mask.types';
 
 const defaultFormatChars = [
     {
-        str: '0',
-        regexp: /[0-9]/,
-    },
-    {
         str: '*',
         regexp: /./,
+    },
+    {
+        str: '0',
+        regexp: /[0-9]/,
     },
     {
         str: 'a',
