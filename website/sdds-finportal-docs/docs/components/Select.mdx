@@ -508,6 +508,102 @@ Select может выглядеть как Button и как Textfield. За э�
         }
         ```
     </TabItem>
+    <TabItem value="selectAll" label="Выбрать всё">
+        Работа с кнопкой "Выбрать всё" осуществляется через свойство `selectAllOptions` только в режиме `multiselect`:
+        ```tsx
+        type SelectAllProps = {
+            checked?: boolean;
+            indeterminate?: boolean;
+            label?: string;
+            onClick?: () => void;
+            sticky?: boolean;
+        };
+        ```
+        Вся логика выбора элементов и взаимодействия с компонентом лежит на стороне пользователя.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Select } from '@salutejs/sdds-finportal';
+
+        export function App() {
+            const flatItems = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'rio_de_janeiro',
+                    label: 'Рио-де-Жанейро',
+                },
+                {
+                    value: 'sao_paulo',
+                    label: 'Сан-Паулу',
+                },
+                {
+                    value: 'buenos_aires',
+                    label: 'Буэнос-Айрес',
+                },
+                {
+                    value: 'cordoba',
+                    label: 'Кордова',
+                },
+                {
+                    value: 'bogota',
+                    label: 'Богота',
+                },
+                {
+                    value: 'medellin',
+                    label: 'Медельин',
+                },
+            ];
+
+            const [value, setValue] = useState([]);
+            const [checked, setChecked] = useState(false);
+            const [indeterminate, setIndeterminate] = useState(false);
+
+            const handleClick = () => {
+                if (checked && !indeterminate) {
+                    setValue([]);
+                } else {
+                    setValue(flatItems.map((item) => item.value));
+                }
+            };
+
+            React.useEffect(() => {
+                if (value.length === 0) {
+                    setChecked(false);
+                    setIndeterminate(false);
+                } else if (value.length === flatItems.length) {
+                    setChecked(true);
+                    setIndeterminate(false);
+                } else {
+                    setChecked(true);
+                    setIndeterminate(true);
+                }
+            }, [value]);
+
+            return (
+                <div style={{ display: "block", width: "300px", height: "300px" }}>
+                    <Select
+                        value={value}
+                        onChange={setValue}
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={flatItems}
+                        multiselect
+                        selectAllOptions={{
+                            checked,
+                            indeterminate,
+                            onClick: handleClick,
+                        }}
+                        listOverflow="auto"
+                        listMaxHeight="200px"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 

@@ -856,6 +856,33 @@ describe('plasma-b2c: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: selectAll button', () => {
+        cy.viewport(400, 300);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="select"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        multiselect
+                        selectAllOptions={{
+                            label: 'Выбрать не совсем все',
+                        }}
+                        listOverflow="scroll"
+                        listHeight="150px"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 

@@ -5,28 +5,30 @@ import { getCorrectHeight } from './utils';
 import { SelectProps } from './Select.types';
 import { tokens, constants } from './Select.tokens';
 
+export const ListWrapper = styled.div<{
+    listWidth?: SelectProps['listWidth'];
+}>`
+    width: ${({ listWidth }) => listWidth || '100%'};
+    padding: calc(var(${tokens.padding}) + var(${tokens.dropdownBorderWidth}, 0rem));
+    border-radius: var(${tokens.borderRadius});
+    box-sizing: border-box;
+    background: var(${constants.background});
+    box-shadow: ${constants.boxShadow},
+        inset 0 0 0 var(${tokens.dropdownBorderWidth}, 0rem) var(${tokens.dropdownBorderColor}, transparent);
+`;
+
 export const Ul = styled.ul<{
     virtual: SelectProps['virtual'];
     listOverflow?: SelectProps['listOverflow'];
     listMaxHeight?: SelectProps['listMaxHeight'];
-    listWidth?: SelectProps['listWidth'];
-    isInnerUl?: boolean;
 }>`
-    background: var(${constants.background});
-    box-shadow: ${constants.boxShadow},
-        inset 0 0 0 var(${tokens.dropdownBorderWidth}, 0rem) var(${tokens.dropdownBorderColor}, transparent);
-
-    border-radius: var(${tokens.borderRadius});
-    width: ${({ listWidth }) => listWidth || '100%'};
-
     max-height: ${({ virtual, listMaxHeight }) =>
         // eslint-disable-next-line no-nested-ternary
         virtual ? 'auto' : listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto'};
     overflow-y: ${({ virtual, listOverflow }) => (virtual ? 'visible' : listOverflow || 'visible')};
-
-    margin: ${({ isInnerUl }) =>
-        isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 0` : `var(${tokens.margin}) 0 0 0`};
-    padding: calc(var(${tokens.padding}) + var(${tokens.dropdownBorderWidth}, 0rem)) 0;
+    border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
+    margin: 0;
+    padding: 0;
 `;
 
 export const base = css``;

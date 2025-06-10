@@ -4,19 +4,14 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { IconDisclosureRight } from '@salutejs/plasma-icons';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { action } from '@storybook/addon-actions';
+import { addNotification } from '@salutejs/plasma-new-hope';
+import type { NotificationIconPlacement, NotificationLayout } from '@salutejs/plasma-new-hope';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
 import { PopupProvider } from '../Popup';
 
-import {
-    Notification,
-    NotificationsProvider,
-    NotificationPlacement,
-    NotificationIconPlacement,
-    NotificationLayout,
-    addNotification,
-} from './Notification';
+import { Notification, NotificationsProvider, NotificationPlacement } from './Notification';
 
 const titles = ['Выполнено', 'Внимание', 'Ошибка'];
 const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];

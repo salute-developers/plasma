@@ -6,7 +6,7 @@ import { RootProps } from 'src/engines';
 import { FloatingPopover } from './FloatingPopover';
 import { focusedReducer } from './reducers/focusedReducer';
 import { SuggestionItem, StyledTextField, VirtualList } from './ui';
-import { Ul, InfiniteLoaderWrapper, base, StyledLeftHelper } from './Autocomplete.styles';
+import { Ul, InfiniteLoaderWrapper, base, StyledLeftHelper, ListWrapper } from './Autocomplete.styles';
 import type { AutocompleteProps, SuggestionItemType } from './Autocomplete.types';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 
@@ -191,47 +191,49 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                     disabled={disabled}
                                     readOnly={readOnly}
                                 >
-                                    <Ul
-                                        ref={targetRef}
-                                        id={listId}
-                                        role="listbox"
-                                        aria-label={label}
-                                        onScroll={virtual ? undefined : onScroll}
-                                        listMaxHeight={listMaxHeight}
-                                        virtual={virtual}
-                                    >
-                                        {virtual ? (
-                                            <VirtualList
-                                                items={finalResults}
-                                                onClick={handleItemClick}
-                                                listId={listId}
-                                                listMaxHeight={listMaxHeight}
-                                                onScroll={onScroll}
-                                                renderItem={renderItem}
-                                            />
-                                        ) : (
-                                            <>
-                                                {beforeList}
+                                    <ListWrapper>
+                                        <Ul
+                                            ref={targetRef}
+                                            id={listId}
+                                            role="listbox"
+                                            aria-label={label}
+                                            onScroll={virtual ? undefined : onScroll}
+                                            listMaxHeight={listMaxHeight}
+                                            virtual={virtual}
+                                        >
+                                            {virtual ? (
+                                                <VirtualList
+                                                    items={finalResults}
+                                                    onClick={handleItemClick}
+                                                    listId={listId}
+                                                    listMaxHeight={listMaxHeight}
+                                                    onScroll={onScroll}
+                                                    renderItem={renderItem}
+                                                />
+                                            ) : (
+                                                <>
+                                                    {beforeList}
 
-                                                {finalResults.map((suggestion, index) => (
-                                                    <SuggestionItem
-                                                        key={index}
-                                                        item={suggestion}
-                                                        onClick={handleItemClick}
-                                                        id={`${listId}/${index}`}
-                                                        focused={focused === index}
-                                                        renderItem={renderItem}
-                                                    />
-                                                ))}
+                                                    {finalResults.map((suggestion, index) => (
+                                                        <SuggestionItem
+                                                            key={index}
+                                                            item={suggestion}
+                                                            onClick={handleItemClick}
+                                                            id={`${listId}/${index}`}
+                                                            focused={focused === index}
+                                                            renderItem={renderItem}
+                                                        />
+                                                    ))}
 
-                                                {afterList}
-                                            </>
-                                        )}
+                                                    {afterList}
+                                                </>
+                                            )}
 
-                                        {renderListEnd && (
-                                            <InfiniteLoaderWrapper>{renderListEnd()}</InfiniteLoaderWrapper>
-                                        )}
-                                    </Ul>
+                                            {renderListEnd && (
+                                                <InfiniteLoaderWrapper>{renderListEnd()}</InfiniteLoaderWrapper>
+                                            )}
+                                        </Ul>
+                                    </ListWrapper>
                                 </Root>
                             ))}
                     </FloatingPopover>

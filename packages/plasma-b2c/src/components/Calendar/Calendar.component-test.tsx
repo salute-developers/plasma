@@ -158,7 +158,7 @@ describe('plasma-b2c: Calendar', () => {
             size = 's',
             type = 'Days',
             locale = 'ru',
-            stretched,
+            stretched = false,
         } = args;
         const [value, setValue] = useState(baseValue);
 
@@ -197,10 +197,10 @@ describe('plasma-b2c: Calendar', () => {
         };
 
         const calendarMap = {
-            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDays }),
-            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents }),
-            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents }),
-            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents }),
+            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDays, stretched }),
+            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents, stretched }),
+            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents, stretched }),
+            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents, stretched }),
         };
 
         return <CypressTestDecoratorWithTypo>{calendarMap[type]}</CypressTestDecoratorWithTypo>;
@@ -283,7 +283,7 @@ describe('plasma-b2c: Calendar', () => {
     });
 
     it('days: prev month', () => {
-        mount(<Demo baseValue={baseDate} />);
+        mount(<Demo baseValue={baseDate} type="Days" size="l" />);
 
         cy.get('button').eq(1).click();
 
@@ -294,7 +294,7 @@ describe('plasma-b2c: Calendar', () => {
     });
 
     it('days: next month', () => {
-        mount(<Demo baseValue={baseDate} />);
+        mount(<Demo baseValue={baseDate} type="Days" size="l" />);
 
         cy.get('button').eq(2).click();
 
@@ -423,7 +423,7 @@ describe('plasma-b2c: Calendar keyboard navigation', () => {
     );
 
     const Demo = (args) => {
-        const { min, max, baseValue, displayDouble, disabledList, size = 's', type = 'Days' } = args;
+        const { min, max, baseValue, displayDouble, disabledList, size = 's', type = 'Days', stretched = false } = args;
         const [value, setValue] = useState(baseValue);
 
         const disabledDates = disabledList?.length ? disabledList : disabledDays;
@@ -457,10 +457,10 @@ describe('plasma-b2c: Calendar keyboard navigation', () => {
         };
 
         const calendarMap = {
-            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDates }),
-            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents }),
-            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents }),
-            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents }),
+            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDates, stretched }),
+            Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents, stretched }),
+            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents, stretched }),
+            Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents, stretched }),
         };
 
         return <CypressTestDecoratorWithTypo>{calendarMap[type]}</CypressTestDecoratorWithTypo>;

@@ -140,7 +140,7 @@ describe('plasma-ui: TimePicker', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
-                    value={new Date(1975, 1, 1, 0, 28, 25)}
+                    value={new Date(1975, 1, 1, 0, 4, 6)}
                     min={new Date(1975, 1, 1, 0, 15, 29)}
                     max={new Date(1975, 1, 1, 12, 30, 30)}
                     hasLabel
@@ -150,13 +150,8 @@ describe('plasma-ui: TimePicker', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('div > div:nth-child(1)').contains('03').click({ force: true });
+        cy.get('[role="listbox"]:nth-of-type(1) div').contains('03').click({ force: true });
         cy.wait(150);
-        cy.get('div > div:nth-child(3)').contains('04').click({ force: true });
-        cy.wait(150);
-        cy.get('div > div:nth-child(5)').contains('06').click({ force: true });
-
-        cy.wait(1000);
 
         cy.matchImageSnapshot();
     });

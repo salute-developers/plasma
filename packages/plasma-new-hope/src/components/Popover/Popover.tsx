@@ -202,6 +202,10 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     portal = frame.current;
                 }
 
+                if (typeof frame === 'string' && frame) {
+                    portal = document.getElementById(frame);
+                }
+
                 if (!usePortal && isValidElement(target)) {
                     portal = rootRef.current;
                 }

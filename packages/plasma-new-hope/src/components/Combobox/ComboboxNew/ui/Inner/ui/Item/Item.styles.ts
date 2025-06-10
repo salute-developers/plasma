@@ -120,10 +120,8 @@ export const Wrapper = styled.li<{ variant: ComboboxProps['variant'] }>`
     line-height: var(${tokens.fontLineHeight});
     background-color: var(${constants.itemBackground});
     color: var(--text-primary);
-    border-radius: var(${tokens.borderRadius});
+    border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
     user-select: none;
-    border-right: 2px solid transparent;
-    border-left: 2px solid transparent;
     background-clip: padding-box;
 
     &:hover:not(.${classes.dropdownItemIsDisabled}) {
@@ -145,15 +143,15 @@ export const Wrapper = styled.li<{ variant: ComboboxProps['variant'] }>`
     }
 
     ${addFocus({
-        outlineSize: '0.0625rem',
+        outlineSize: '0',
         outlineOffset: '0',
         outlineColor: `var(${constants.focusColor})`,
-        outlineRadius: `var(${tokens.itemBorderRadius})`,
+        outlineRadius: `calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem))`,
         hasTransition: false,
         customFocusRules: `
             &.${classes.dropdownItemIsFocused}:before {
                 outline: none;
-                box-shadow: 0 0 0 0.0625rem var(${constants.focusColor});
+                box-shadow: inset 0 0 0 0.0625rem var(${constants.focusColor});
             }
         `,
     })};

@@ -17,10 +17,10 @@ import type { HintProps } from '../TextField/TextField.types';
 
 import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
-import { Inner, Target, VirtualList } from './ui';
+import { Inner, Target, VirtualList, SelectAll } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
-import { Ul, base } from './Select.styles';
+import { Ul, base, ListWrapper } from './Select.styles';
 import type { MergedSelectProps, RequiredProps } from './Select.types';
 import type { MergedDropdownNodeTransformed } from './ui/Inner/ui/Item/Item.types';
 import { FloatingPopover } from './FloatingPopover';
@@ -439,6 +439,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                             />
                         )}
                         zIndex={zIndex}
+                        isInner={false}
                     >
                         <Root
                             view={view}
@@ -449,41 +450,46 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                             readOnly={readOnly}
                             {...(rest as any)}
                         >
-                            <Ul
-                                role="tree"
-                                id={`${treeId}_tree_level_1`}
-                                aria-multiselectable={Boolean(props.multiselect)}
-                                listOverflow={listOverflow}
-                                listMaxHeight={listMaxHeight || listHeight}
-                                onScroll={virtual ? undefined : handleScroll}
-                                listWidth={listWidth}
-                                ref={targetRef}
-                                virtual={virtual}
-                            >
-                                {beforeList}
+                            <ListWrapper listWidth={listWidth}>
+                                <Ul
+                                    role="tree"
+                                    id={`${treeId}_tree_level_1`}
+                                    aria-multiselectable={Boolean(props.multiselect)}
+                                    listOverflow={listOverflow}
+                                    listMaxHeight={listMaxHeight || listHeight}
+                                    onScroll={virtual ? undefined : handleScroll}
+                                    ref={targetRef}
+                                    virtual={virtual}
+                                >
+                                    {beforeList}
 
-                                {virtual ? (
-                                    <VirtualList
-                                        items={transformedItems}
-                                        listMaxHeight={listMaxHeight || listHeight}
-                                        onScroll={onScroll}
-                                    />
-                                ) : (
-                                    transformedItems.map((item, index) => (
-                                        <Inner
-                                            key={`${index}/0`}
-                                            item={item}
-                                            currentLevel={0}
-                                            path={path}
-                                            dispatchPath={dispatchPath}
-                                            index={index}
-                                            listWidth={listWidth}
+                                    {props.multiselect && props.selectAllOptions && (
+                                        // TODO: #2004
+                                        <SelectAll selectAllOptions={props.selectAllOptions} variant={variant} />
+                                    )}
+
+                                    {virtual ? (
+                                        <VirtualList
+                                            items={transformedItems}
+                                            listMaxHeight={listMaxHeight || listHeight}
+                                            onScroll={onScroll}
                                         />
-                                    ))
-                                )}
-
-                                {afterList}
-                            </Ul>
+                                    ) : (
+                                        transformedItems.map((item, index) => (
+                                            <Inner
+                                                key={`${index}/0`}
+                                                item={item}
+                                                currentLevel={0}
+                                                path={path}
+                                                dispatchPath={dispatchPath}
+                                                index={index}
+                                                listWidth={listWidth}
+                                            />
+                                        ))
+                                    )}
+                                    {afterList}
+                                </Ul>
+                            </ListWrapper>
                         </Root>
                     </FloatingPopover>
                 </Context.Provider>

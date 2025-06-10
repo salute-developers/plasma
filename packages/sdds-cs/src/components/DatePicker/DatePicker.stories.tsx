@@ -107,7 +107,10 @@ const StoryDefault = ({
             contentRight={enableContentRight ? <IconCalendarOutline size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
-            onToggle={(is) => setIsOpen(is)}
+            onToggle={(is) => {
+                setIsOpen(is);
+                onToggle(is);
+            }}
             onChangeValue={onChangeValue}
             onCommitDate={onCommitDate}
             {...rest}
@@ -143,6 +146,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        closeAfterDateSelect: true,
         maskWithFormat: false,
         required: false,
         requiredPlacement: 'right',
@@ -238,7 +242,10 @@ const StoryRange = ({
             secondTextfieldTextBefore={
                 showDefaultTextBefore ? secondTextfieldTextBefore || 'ПО' : secondTextfieldTextBefore
             }
-            onToggle={(is) => setIsOpen(is)}
+            onToggle={(is) => {
+                setIsOpen(is);
+                onToggle(is);
+            }}
             onChangeFirstValue={onChangeFirstValue}
             onChangeSecondValue={onChangeSecondValue}
             {...dividerIconProps}
@@ -275,6 +282,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
         max: new Date(2024, 12, 29),
+        closeAfterDateSelect: true,
         renderFromDate: new Date(2024, 4, 14),
         maskWithFormat: false,
         required: false,

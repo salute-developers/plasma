@@ -26,6 +26,8 @@ describe('plasma-core: Image', () => {
                 <Image src={src} width="320px" height="320px" />
             </CypressTestDecorator>,
         );
+
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 
@@ -35,6 +37,7 @@ describe('plasma-core: Image', () => {
                 <Image base="div" src={src} width="320px" height="320px" />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
@@ -71,6 +74,7 @@ describe('plasma-core: Image', () => {
                 ))}
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
@@ -86,6 +90,7 @@ describe('plasma-core: Image', () => {
                 <PadMe />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 });
