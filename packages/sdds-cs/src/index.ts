@@ -62,7 +62,6 @@ export * from './components/Tree';
 export * from './components/NumberFormat';
 export * from './components/Table';
 export * from './components/ToastNew';
-export * from './components/Carousel';
 
 export * from './mixins';
 export * from './tokens';
