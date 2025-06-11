@@ -1,3 +1,52 @@
+## 0.309.0 (11 июня 2025)
+
+## Функциональные изменения в компонентах
+
+### Select, Combobox
+
+* добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;
+
+![Kapture 2025-06-11 at 11 52 38](https://github.com/user-attachments/assets/95108fe4-29ec-486d-a964-b5340748ad04)
+
+[PR](https://github.com/salute-developers/plasma/pull/1986)
+
+### Popover
+
+* добавлена обработка случая, когда frame передан как ID
+
+[PR](https://github.com/salute-developers/plasma/pull/2001)
+
+### Sheet
+
+* добавлена проверка `canUseDOM` перед использованием document
+
+[PR](https://github.com/salute-developers/plasma/pull/2014)
+
+### DatePicker
+
+* добавлено свойство `closeAfterDateSelect` в одиночный DatePicker
+
+![Kapture 2025-06-11 at 12 47 51](https://github.com/user-attachments/assets/f7751193-9316-4e5c-9111-2b8590fd42d9)
+
+[PR](https://github.com/salute-developers/plasma/pull/2012)
+
+### Notification
+
+* добавлен `type-cast` для корректной типизации
+
+<img width="977" alt="image" src="https://github.com/user-attachments/assets/99858965-49ff-4fc0-bec9-b3f79d2fa965" />
+
+[PR](https://github.com/salute-developers/plasma/pull/2015)
+
+### Carousel
+
+* добавлена элементы управления: пагинация, стрелочки
+
+![Kapture 2025-06-11 at 11 28 34](https://github.com/user-attachments/assets/5ace4ec0-3ed6-4556-bf94-ec8abb2d7798)
+
+[PR](https://github.com/salute-developers/plasma/pull/2013)
+
+
 ## 0.308.0 (29 мая 2025)
 
 ## Функциональные изменения в компонентах

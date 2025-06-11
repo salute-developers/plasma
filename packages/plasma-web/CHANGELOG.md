@@ -1,3 +1,133 @@
+## 1.584.0 (11 июня 2025)
+
+## Функциональные изменения в компонентах
+
+### Select, Combobox
+
+* добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;
+
+![Kapture 2025-06-11 at 11 52 38](https://github.com/user-attachments/assets/95108fe4-29ec-486d-a964-b5340748ad04)
+
+[PR](https://github.com/salute-developers/plasma/pull/1986)
+
+### Popover
+
+* добавлена обработка случая, когда frame передан как ID
+
+[PR](https://github.com/salute-developers/plasma/pull/2001)
+
+### Sheet
+
+* добавлена проверка `canUseDOM` перед использованием document
+
+[PR](https://github.com/salute-developers/plasma/pull/2014)
+
+### DatePicker
+
+* добавлено свойство `closeAfterDateSelect` в одиночный DatePicker
+
+![Kapture 2025-06-11 at 12 47 51](https://github.com/user-attachments/assets/f7751193-9316-4e5c-9111-2b8590fd42d9)
+
+[PR](https://github.com/salute-developers/plasma/pull/2012)
+
+### Notification
+
+* добавлен `type-cast` для корректной типизации
+
+<img width="977" alt="image" src="https://github.com/user-attachments/assets/99858965-49ff-4fc0-bec9-b3f79d2fa965" />
+
+[PR](https://github.com/salute-developers/plasma/pull/2015)
+
+### Carousel
+
+* добавлена элементы управления: пагинация, стрелочки
+
+![Kapture 2025-06-11 at 11 28 34](https://github.com/user-attachments/assets/5ace4ec0-3ed6-4556-bf94-ec8abb2d7798)
+
+[PR](https://github.com/salute-developers/plasma/pull/2013)
+
+## Изменения в библиотеки
+
+### TextArea
+
+* Добавлен `fallback` токенов для совместимости со старой схемой.
+
+Например token `inputFontFamily` в новой схеме представлен как `var(--plasma-typo-caption-font-family`, а для работы со старой уже нужен `var(--plasma-typo-body-xs-font-family)`.
+
+То конфигурация токена выглядит - `${textAreaTokens.inputFontFamily}: var(--plasma-typo-caption-font-family, var(--plasma-typo-body-xs-font-family));`
+
+[PR](https://github.com/salute-developers/plasma/pull/2005)
+
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+<details>
+  <summary>📦 Published PR as canary version: <code>Canary Versions</code></summary>
+  <br />
+
+:sparkles: Test out this PR locally via:
+
+```bash
+npm install @salutejs/plasma-asdk@0.341.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-b2c@1.583.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-core@1.199.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-giga@0.310.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-hope@1.344.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-new-hope@0.327.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-tokens-b2b@1.51.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-tokens-b2c@0.62.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-tokens-web@1.66.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-tokens@1.114.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-ui@1.320.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-web@1.585.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-clfd-auto@0.314.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-crm@0.314.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-cs@0.319.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-dfa@0.313.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-finportal@0.306.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-insol@0.310.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-netology@0.314.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-scan@0.313.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-serv@0.314.0-canary.2017.15583893358.0
+npm install @salutejs/core-themes@0.22.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-themes@0.35.0-canary.2017.15583893358.0
+npm install @salutejs/sdds-themes@0.39.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-cy-utils@0.130.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-sb-utils@0.200.0-canary.2017.15583893358.0
+npm install @salutejs/plasma-tokens-utils@0.49.0-canary.2017.15583893358.0
+# or 
+yarn add @salutejs/plasma-asdk@0.341.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-b2c@1.583.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-core@1.199.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-giga@0.310.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-hope@1.344.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-new-hope@0.327.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-tokens-b2b@1.51.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-tokens-b2c@0.62.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-tokens-web@1.66.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-tokens@1.114.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-ui@1.320.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-web@1.585.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-clfd-auto@0.314.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-crm@0.314.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-cs@0.319.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-dfa@0.313.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-finportal@0.306.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-insol@0.310.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-netology@0.314.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-scan@0.313.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-serv@0.314.0-canary.2017.15583893358.0
+yarn add @salutejs/core-themes@0.22.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-themes@0.35.0-canary.2017.15583893358.0
+yarn add @salutejs/sdds-themes@0.39.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-cy-utils@0.130.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-sb-utils@0.200.0-canary.2017.15583893358.0
+yarn add @salutejs/plasma-tokens-utils@0.49.0-canary.2017.15583893358.0
+```
+
+</details>
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+
 ## 1.583.0 (29 мая 2025)
 
 ## Функциональные изменения в компонентах
