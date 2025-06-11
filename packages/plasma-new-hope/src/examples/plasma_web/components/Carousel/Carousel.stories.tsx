@@ -70,7 +70,6 @@ const meta: Meta<StoryCarouselProps> = {
     parameters: {
         controls: {
             include: [
-                'align',
                 'visibleDots',
                 'slides',
                 'controlArrowsDisabled',
