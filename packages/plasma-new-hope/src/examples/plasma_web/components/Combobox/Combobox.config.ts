@@ -56,6 +56,8 @@ export const config = {
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             positive: css`
                 ${tokens.textFieldColor}: var(--text-primary);
@@ -103,6 +105,8 @@ export const config = {
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             warning: css`
                 ${tokens.textFieldColor}: var(--text-primary);
@@ -150,6 +154,8 @@ export const config = {
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
             negative: css`
                 ${tokens.textFieldColor}: var(--text-primary);
@@ -197,6 +203,8 @@ export const config = {
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,
         },
         size: {
@@ -316,6 +324,13 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
 
                 ${tokens.indicatorSize}: 0.375rem;
+
+                ${tokens.dividerMarginTop}: 0.5rem;
+                ${tokens.dividerMarginRight}: 1rem;
+                ${tokens.dividerMarginBottom}: 0.5rem;
+                ${tokens.dividerMarginLeft}: 1rem;
+                ${tokens.dividerMarginTopTight}: 0.375rem;
+                ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
             m: css`
                 ${tokens.textFieldHeight}: 3rem;
@@ -433,6 +448,13 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
 
                 ${tokens.indicatorSize}: 0.375rem;
+
+                ${tokens.dividerMarginTop}: 0.375rem;
+                ${tokens.dividerMarginRight}: 0.875rem;
+                ${tokens.dividerMarginBottom}: 0.375rem;
+                ${tokens.dividerMarginLeft}: 0.875rem;
+                ${tokens.dividerMarginTopTight}: 0.375rem;
+                ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
             s: css`
                 ${tokens.textFieldHeight}: 2.5rem;
@@ -550,6 +572,13 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
 
                 ${tokens.indicatorSize}: 0.375rem;
+
+                ${tokens.dividerMarginTop}: 0.375rem;
+                ${tokens.dividerMarginRight}: 0.75rem;
+                ${tokens.dividerMarginBottom}: 0.375rem;
+                ${tokens.dividerMarginLeft}: 0.75rem;
+                ${tokens.dividerMarginTopTight}: 0.25rem;
+                ${tokens.dividerMarginBottomTight}: 0.25rem;
             `,
             xs: css`
                 ${tokens.textFieldHeight}: 2rem;
@@ -667,6 +696,13 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
 
                 ${tokens.indicatorSize}: 0.375rem;
+
+                ${tokens.dividerMarginTop}: 0.25rem;
+                ${tokens.dividerMarginRight}: 0.5rem;
+                ${tokens.dividerMarginBottom}: 0.225rem;
+                ${tokens.dividerMarginLeft}: 0.5rem;
+                ${tokens.dividerMarginTopTight}: 0.125rem;
+                ${tokens.dividerMarginBottomTight}: 0.125rem;
             `,
         },
         labelPlacement: {

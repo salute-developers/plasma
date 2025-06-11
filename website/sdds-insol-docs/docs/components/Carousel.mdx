@@ -1,0 +1,80 @@
+---
+id: carousel
+title: Carousel
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Carousel
+
+<Description name="Carousel" />
+<PropsTable name="Carousel" exclude="scrollAlign" />
+
+## Использование
+Для управления пагинацией используется свойство `paginationOptions`. Формат следующий:
+
+```tsx
+    paginationOptions?: {
+        /**
+         * Включение/выключение пагинации.
+         * @default false
+         */
+        disabled?: boolean;
+        /**
+         * Количество видимых точек пагинации.
+         * @default 10
+         */
+        visibleDots?: number;
+        /**
+         * Центрирование активной точки.
+         * @default false
+         */
+        centered?: boolean;
+    };
+```
+## Примеры
+
+<Tabs>
+    <TabItem value="basic" label="Basic" default>
+        ```tsx live
+        import React from 'react';
+        import { Carousel, CarouselItem } from '@salutejs/sdds-insol';
+        import styled from 'styled-components';
+
+        export function App() {
+            const StyledCard = styled.div`
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                border-radius: 8px;
+                width: 400px;
+                height: 370px;
+                background-color: #add8e6;
+                font-size: 30px;
+            `;
+
+            const items = Array(10)
+                .fill(1)
+                .map((_, i) => ({
+                    id: i,
+                    title: i,
+                }));
+
+            return (
+                <div style={{ display: 'block', width: '600px' }}>
+                    <Carousel>
+                        {items.map((item, i) => (
+                            <CarouselItem key={i}>
+                                <StyledCard>{item.title}</StyledCard>
+                            </CarouselItem>
+                        ))}
+                    </Carousel>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>

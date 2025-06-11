@@ -1,8 +1,12 @@
 import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
 import 'cypress-file-upload';
 
+const { absolute } = Cypress.spec;
+const componentName = absolute.split('/').at(-2);
+const baseSnapsDir = `${Cypress.env('snapshotsDir')}`;
+
 addMatchImageSnapshotCommand({
-    customSnapshotsDir: Cypress.env('snapshotsDir'),
+    customSnapshotsDir: Cypress.env('hasComponents') ? `${baseSnapsDir}/components/${componentName}` : baseSnapsDir,
     failureThreshold: Cypress.env('threshold'),
     failureThresholdType: 'percent',
 });

@@ -17,7 +17,7 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 ### Carousel
 <Description name="Carousel" />
-<PropsTable name="Carousel" />
+<PropsTable name="Carousel" exclude="scrollAlign" />
 
 ### CarouselLite
 
@@ -109,7 +109,7 @@ export const MyGallery = () = (
 
 В момент прокрутки карусели (с помощью колесика мыши, стрелок пульта или касанием)
 с определенной периодичностью вызывается обработчик скролла,
-который на основании положения элемента относительно `viewport` 
+который на основании положения элемента относительно `viewport`
 (внутренние границы карусели) вызывает тот или иной коллбек:
 
 | Название               | Описание | Аргументы | Возвращаемое значение |
@@ -309,7 +309,7 @@ export function App() {
     const axis = 'x';
     const width = 300;
     const gap = 10;
-    
+
     const { visibleItems, totalSize, currentIndex } = useVirtual({
         itemCount: 100,
         parentRef,

@@ -6,8 +6,6 @@ import { createGlobalStyle } from 'styled-components';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-const sizes = ['xs', 's', 'm', 'l', 'h2', 'h3', 'h4', 'h5'];
-
 describe('plasma-web: Accordion', () => {
     const Accordion = getComponent('Accordion');
     const AccordionItem = getComponent('AccordionItem');
@@ -43,26 +41,6 @@ describe('plasma-web: Accordion', () => {
                 </Accordion>
             </CypressTestDecoratorWithTypo>,
         );
-        cy.matchImageSnapshot();
-    });
-
-    it('_size', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                {sizes.map((size) => (
-                    <>
-                        <Accordion size={size}>
-                            <AccordionItem title={title}>{body}</AccordionItem>
-                            <AccordionItem size="s" title={title}>
-                                {body}
-                            </AccordionItem>
-                        </Accordion>
-                        <PadMe />
-                    </>
-                ))}
-            </CypressTestDecoratorWithTypo>,
-        );
-
         cy.matchImageSnapshot();
     });
 

@@ -16,6 +16,7 @@ describe('generateTypoSystem', () => {
     });
 
     it('Typo file should export of object with ":root" key', () => {
+        // @ts-ignore
         expect(someDevice?.content).toEqual(expect.stringMatching(/export const someDevice .+:root/gs));
     });
 });

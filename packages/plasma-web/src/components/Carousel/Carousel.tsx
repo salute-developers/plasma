@@ -1,6 +1,33 @@
-import { carouselConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    carouselNewConfig,
+    component,
+    mergeConfig,
+    fixedForwardRef,
+} from '@salutejs/plasma-new-hope/styled-components';
+import type { ComponentProps } from 'react';
+import React from 'react';
 
-const mergedConfig = mergeConfig(carouselConfig);
-const CarouselComponent = component(mergedConfig);
+import { CarouselOld } from './Legacy/Carousel';
+import { config } from './Carousel.config';
 
-export const Carousel = CarouselComponent;
+const mergedConfig = mergeConfig(carouselNewConfig, config);
+const CarouselNew = component(mergedConfig);
+
+type PropsOld = ComponentProps<typeof CarouselOld>;
+
+type PropsNew = ComponentProps<typeof CarouselNew> & { index?: never };
+
+type CarouselProps = PropsOld | PropsNew;
+
+const CarouselComponent = (props: CarouselProps, ref: React.ForwardedRef<HTMLInputElement>) => {
+    if (typeof props.index === 'number' && !Number.isNaN(props.index)) {
+        return <CarouselOld ref={ref} {...props} />;
+    }
+
+    return <CarouselNew ref={ref} {...props} />;
+};
+
+const Carousel = fixedForwardRef(CarouselComponent);
+
+export { Carousel };
+export type { CarouselProps };
