@@ -176,7 +176,11 @@ export const Dots: React.FC<DotsProps> = memo(
 
                         const currentDomNode = dotWrapperRef.current.children?.[i] as HTMLElement;
 
-                        currentDomNode?.classList.add(classes.animateOut);
+                        if (!currentDomNode) {
+                            return;
+                        }
+
+                        currentDomNode.classList.add(classes.animateOut);
                         currentDomNode.style.animationDelay = `${delay}s`;
                         currentDomNode.style.animationDuration = `${duration}s`;
                     }
@@ -219,7 +223,11 @@ export const Dots: React.FC<DotsProps> = memo(
                             dotWrapperRef.current.children.length - 1 - i
                         ] as HTMLElement;
 
-                        currentDomNode?.classList.add(classes.animateOut);
+                        if (!currentDomNode) {
+                            return;
+                        }
+
+                        currentDomNode.classList.add(classes.animateOut);
                         currentDomNode.style.animationDelay = `${i * (ANIMATION_DURATION / dotsToAdd)}s`;
                         currentDomNode.style.animationDuration = `${duration}s`;
                     }
