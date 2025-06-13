@@ -17,7 +17,7 @@ const items = [
     { title: 'Фазан', subtitle: 'The pheasant', imageSrc: image },
 ];
 
-describe('plasma-b2c: Carousel', () => {
+describe('plasma-b2c: CarouselOld', () => {
     const Carousel = getComponent('Carousel');
     const CarouselItem = getComponent('CarouselItem');
 
