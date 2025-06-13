@@ -1,6 +1,7 @@
 import { RootProps } from 'src/engines';
 import React, { forwardRef, useState, Children } from 'react';
 import { IconDisclosureLeft, IconDisclosureRight } from 'src/components/_Icon';
+import { useDisableScroll } from 'src/hooks';
 
 import { classes } from './Carousel.tokens';
 import { base as sizeCSS } from './variations/_size/base';
@@ -22,10 +23,11 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
             {
                 view,
                 size,
-                scrollAlign = 'center',
+                scrollAlign = 'start',
                 children,
                 controlArrowsDisabled = false,
                 paginationOptions,
+                gap = '20px',
                 className,
                 style,
             },
@@ -46,28 +48,27 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
             const { scrollRef, trackRef } = useCarousel({
                 index,
                 scrollAlign,
-                onIndexChange: setIndex,
             });
+
+            useDisableScroll(scrollRef);
 
             return (
                 <Root className={className} style={style} size={size} view={view} ref={ref}>
                     <ControlsWrapper>
                         {index !== 0 && !controlArrowsDisabled && (
-                            <IconButton pin="circle-circle" onClick={handleClickLeft}>
+                            <IconButton className={classes.leftControlButton} onClick={handleClickLeft}>
                                 <IconDisclosureLeft size="m" color="inherit" />
                             </IconButton>
                         )}
 
                         <CarouselWrapper ref={scrollRef}>
-                            <CarouselTrack ref={trackRef}>{children}</CarouselTrack>
+                            <CarouselTrack ref={trackRef} gap={gap}>
+                                {children}
+                            </CarouselTrack>
                         </CarouselWrapper>
 
                         {index !== slidesAmount - 1 && !controlArrowsDisabled && (
-                            <IconButton
-                                className={classes.rightControlButton}
-                                pin="circle-circle"
-                                onClick={handleClickRight}
-                            >
+                            <IconButton className={classes.rightControlButton} onClick={handleClickRight}>
                                 <IconDisclosureRight size="m" color="inherit" />
                             </IconButton>
                         )}
