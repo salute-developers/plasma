@@ -1,11 +1,11 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, CSSProperties } from 'react';
 
-export type ScrollAlign = 'start' | 'center' | 'end' | 'activeDirection';
+export type ScrollAlign = 'start' | 'center' | 'end';
 
 export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Центрирование активного элемента при скролле.
-     * @default center
+     * @default start
      */
     scrollAlign?: ScrollAlign;
     /**
@@ -33,6 +33,11 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
      * @default false
      */
     controlArrowsDisabled?: boolean;
+    /**
+     * Отступ между слайдами.
+     * @default 20px
+     */
+    gap?: CSSProperties['gap'];
 
     /**
      * Размер контрола.

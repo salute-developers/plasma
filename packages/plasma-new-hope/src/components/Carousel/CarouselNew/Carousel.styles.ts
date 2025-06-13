@@ -3,7 +3,8 @@ import { css } from '@linaria/core';
 import { component, mergeConfig } from 'src/engines';
 import { iconButtonConfig, iconButtonTokens } from 'src/components/IconButton';
 
-import { classes } from './Carousel.tokens';
+import { CarouselNewProps as CarouselProps } from './Carousel.types';
+import { classes, tokens } from './Carousel.tokens';
 
 const mergedConfig = mergeConfig(iconButtonConfig);
 export const IconButtonComponent = component(mergedConfig);
@@ -14,8 +15,6 @@ export const base = css`
 
 export const CarouselWrapper = styled.div`
     position: relative;
-    margin-left: calc(var(--plasma_private-carousel-padding) * -1);
-    margin-right: calc(var(--plasma_private-carousel-padding) * -1);
     padding: 0;
     list-style: none;
 
@@ -33,13 +32,17 @@ export const CarouselWrapper = styled.div`
 
     user-select: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-    --plasma_private-carousel-padding: 0.625rem;
 `;
 
-export const CarouselTrack = styled.div`
+export const CarouselTrack = styled.div<{ gap: Exclude<CarouselProps['gap'], undefined> }>`
     display: inline-flex;
     flex-direction: row;
+    gap: ${({ gap }) => gap};
+
+    // TODO: станет неактуально после удаления CarouselOld.
+    & > div {
+        scroll-snap-align: none;
+    }
 `;
 
 export const IconButton = styled(IconButtonComponent)`
@@ -49,16 +52,17 @@ export const IconButton = styled(IconButtonComponent)`
     left: 0.75rem;
     z-index: 10;
 
-    ${iconButtonTokens.iconButtonColor}: var(--text-primary);
-    ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-secondary);
-    ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-    ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-    ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+    ${iconButtonTokens.iconButtonColor}: var(${tokens.controlIconButtonColor});
+    ${iconButtonTokens.iconButtonBackgroundColor}: var(${tokens.controlIconButtonBackgroundColor});
+    ${iconButtonTokens.iconButtonColorHover}: var(${tokens.controlIconButtonColorHover});
+    ${iconButtonTokens.iconButtonBackgroundColorHover}: var(${tokens.controlIconButtonBackgroundColorHover});
+    ${iconButtonTokens.iconButtonColorActive}: var(${tokens.controlIconButtonColorActive});
+    ${iconButtonTokens.iconButtonBackgroundColorActive}: var(${tokens.controlIconButtonBackgroundColorActive});
 
     ${iconButtonTokens.iconButtonHeight}: 2.5rem;
     ${iconButtonTokens.iconButtonWidth}: 2.5rem;
     ${iconButtonTokens.iconButtonPadding}: 1rem;
-    ${iconButtonTokens.iconButtonRadius}: 0.625rem;
+    ${iconButtonTokens.iconButtonRadius}: var(${tokens.controlIconButtonRadius});
 
     &.${classes.rightControlButton} {
         left: auto;
