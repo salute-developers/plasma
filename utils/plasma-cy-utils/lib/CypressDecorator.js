@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CypressTestDecorator = exports.getComponent = void 0;
 var react_1 = __importDefault(require("react"));
 var styled_components_1 = require("styled-components");
+var plasma_themes_1 = require("@salutejs/plasma-themes");
 // plasma-web
 var typo_1 = require("@salutejs/plasma-tokens-web/typo");
 var themes_1 = require("@salutejs/plasma-tokens-web/themes");
@@ -15,6 +16,8 @@ var themes_2 = require("@salutejs/plasma-tokens/themes");
 var themes_3 = require("@salutejs/plasma-tokens-b2c/themes");
 var plasma_typo_1 = require("@salutejs/plasma-typo");
 var SSRProvider_1 = require("./SSRProvider");
+// NOTE: new theme format
+var ThemeGIGA = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_giga__light);
 // TODO: better naming
 var TypoThemeStyle = (0, styled_components_1.createGlobalStyle)(typo_1.web);
 var WebLightThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_1.light);
@@ -22,39 +25,38 @@ var StandardTypoStyle = (0, styled_components_1.createGlobalStyle)(plasma_typo_1
 var CompatibleTypoStyle = (0, styled_components_1.createGlobalStyle)(plasma_typo_1.compatible);
 var ColorB2CStyle = (0, styled_components_1.createGlobalStyle)(themes_3.dark);
 var ThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_2.darkSber);
+var testPackagesThemes = {
+    'plasma-giga': react_1.default.createElement(ThemeGIGA, null),
+};
 var getComponent = function (componentName) {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     var pkgName = Cypress.env('package');
     if (!pkgName) {
         throw new Error('Add package env to your Cypress config');
     }
-    function check(component) {
-        if (!component) {
-            throw new Error("Library ".concat(pkgName, " has no ").concat(componentName));
-        }
+    var pkg;
+    /* eslint-disable */
+    switch (pkgName) {
+        case 'plasma-ui':
+            pkg = require('../../../packages/plasma-ui');
+            break;
+        case 'plasma-web':
+            pkg = require('../../../packages/plasma-web');
+            break;
+        case 'plasma-b2c':
+            pkg = require('../../../packages/plasma-b2c');
+            break;
+        case 'plasma-giga':
+            pkg = require('../../../packages/plasma-giga');
+            break;
+        default:
+            throw new Error("Library ".concat(pkgName, " is not required in plasma-core/CypressHelpers:getComponent"));
     }
-    if (pkgName === 'plasma-ui') {
-        // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
-        var pkg = require('../../../packages/plasma-ui');
-        var component = pkg[componentName];
-        check(component);
-        return component;
+    /* eslint-enable */
+    var component = pkg[componentName];
+    if (!component) {
+        throw new Error("Library ".concat(pkgName, " has no ").concat(componentName));
     }
-    if (pkgName === 'plasma-web') {
-        // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
-        var pkg = require('../../../packages/plasma-web');
-        var component = pkg[componentName];
-        check(component);
-        return component;
-    }
-    if (pkgName === 'plasma-b2c') {
-        // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
-        var pkg = require('../../../packages/plasma-b2c');
-        var component = pkg[componentName];
-        check(component);
-        return component;
-    }
-    throw new Error("Library ".concat(pkgName, " is not required in plasma-core/CypressHelpers:getComponent"));
+    return component;
 };
 exports.getComponent = getComponent;
 var CypressTestDecorator = function (_a) {
@@ -79,6 +81,11 @@ var CypressTestDecorator = function (_a) {
             react_1.default.createElement(StandardTypoStyle, null),
             react_1.default.createElement(CompatibleTypoStyle, null),
             react_1.default.createElement(ColorB2CStyle, null),
+            children));
+    }
+    if (pkgName === 'plasma-giga') {
+        return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
+            testPackagesThemes[pkgName],
             children));
     }
     return react_1.default.createElement(react_1.default.Fragment, null, children);
