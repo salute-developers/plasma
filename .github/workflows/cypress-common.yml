@@ -29,7 +29,7 @@ jobs:
       - uses: ./.github/actions/prepare-environment
 
       - name: Set default scope
-        run: echo "SCOPE={b2c,web,core,hope,new-hope,themes,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils,ui}" >> $GITHUB_ENV
+        run: echo "SCOPE={giga,b2c,web,core,hope,new-hope,themes,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils,ui}" >> $GITHUB_ENV
 
       - name: Install React 17
         if:  ${{ inputs.with-react-17 }}
