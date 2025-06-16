@@ -270,4 +270,6 @@ export const tokens = {
     tooltipArrowHeight: '--plasma-textarea__tooltip-arrow-height',
     tooltipArrowEdgeMargin: '--plasma-textarea__tooltip-arrow-edge-margin',
     tooltipArrowBackground: '--plasma-textarea__tooltip-arrow-background',
+
+    tourBorderRadius: '--plasma-tour__border-radius',
 };

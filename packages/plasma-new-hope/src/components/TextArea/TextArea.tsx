@@ -274,6 +274,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 style={{ width: helperWidth, ...style }}
                 className={cx(clearClass, hasDividerClass, hasHintClass, className)}
                 onClick={handleTextAreaFocus}
+                data-root
                 {...(hintText && {
                     hintView,
                     hintSize,
@@ -392,7 +393,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             {isInnerLeftHelperPlacement && (leftHelper || helperText) && (
                                 <StyledLeftHelper>{leftHelper || helperText}</StyledLeftHelper>
                             )}
-                            {rightHelper && <StyledRightHelper>{rightHelper}</StyledRightHelper>}
+                            {rightHelper && <StyledRightHelper data-root>{rightHelper}</StyledRightHelper>}
                         </StyledHelpers>
                     )}
                     {placeholderLabel && (
