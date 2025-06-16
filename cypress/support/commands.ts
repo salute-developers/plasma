@@ -5,8 +5,20 @@ const { absolute } = Cypress.spec;
 const componentName = absolute.split('/').at(-2);
 const baseSnapsDir = `${Cypress.env('snapshotsDir')}`;
 
+const getSnapshotPath = () => {
+    if (Cypress.env('hasSpecGroup')) {
+        return `${baseSnapsDir}/components`;
+    }
+
+    if (Cypress.env('hasComponents')) {
+        return `${baseSnapsDir}/components/${componentName}`;
+    }
+
+    return Cypress.env('package') === 'plasma-ui' ? `${baseSnapsDir}/components` : baseSnapsDir;
+};
+
 addMatchImageSnapshotCommand({
-    customSnapshotsDir: Cypress.env('hasComponents') ? `${baseSnapsDir}/components/${componentName}` : baseSnapsDir,
+    customSnapshotsDir: getSnapshotPath(),
     failureThreshold: Cypress.env('threshold'),
     failureThresholdType: 'percent',
 });
