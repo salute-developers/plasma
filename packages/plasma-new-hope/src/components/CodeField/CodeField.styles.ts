@@ -11,7 +11,7 @@ export const base = css`
     align-items: center;
 
     &.${classes.captionAlignLeft} {
-        align-items: start;
+        align-items: flex-start;
     }
 `;
 
