@@ -13,6 +13,10 @@ export interface TourStep {
      * Позиционирование карточки
      */
     placement?: string;
+    /**
+     * Скругление углов
+     */
+    borderRadius?: 'auto' | 'fixed';
 }
 
 export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -76,4 +80,8 @@ export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
      * Цвет фона у тура
      */
     overlayColor?: string;
+    /**
+     * Кастомный Overlay
+     */
+    overlay?: ReactNode;
 }

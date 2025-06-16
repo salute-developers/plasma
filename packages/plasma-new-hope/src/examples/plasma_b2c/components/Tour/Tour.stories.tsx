@@ -2,10 +2,12 @@ import React, { useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { styled } from '@linaria/react';
 
+import { IconArrowDown } from '../../../../components/_Icon';
 import { linkConfig } from '../../../../components/Link';
 import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 import { Button } from '../Button/Button';
+import { TextArea } from '../TextArea/TextArea';
 
 import { config } from './Tour.config';
 import { Tour } from './Tour';
@@ -113,10 +115,11 @@ const TourCard: React.FC<{
 };
 
 const StoryDefault = (args) => {
-    const ref1 = useRef<HTMLButtonElement>(null);
+    const ref1 = useRef<HTMLTextAreaElement>(null);
     const ref2 = useRef<HTMLButtonElement>(null);
-    const ref3 = useRef<HTMLButtonElement>(null);
-    const ref4 = useRef<HTMLButtonElement>(null);
+    const ref3 = useRef<HTMLDivElement>(null);
+    const ref4 = useRef<HTMLDivElement>(null);
+    const ref5 = useRef<HTMLDivElement>(null);
     const [open, setOpen] = useState(false);
     const [current, setCurrent] = useState(0);
 
@@ -139,7 +142,7 @@ const StoryDefault = (args) => {
                     onClose={onClose}
                 />
             ),
-            placement: 'right',
+            placement: 'bottom',
         },
         {
             target: ref2,
@@ -187,13 +190,30 @@ const StoryDefault = (args) => {
             ),
             placement: 'left',
         },
+        {
+            target: ref5,
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={4}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
+            placement: 'left',
+            borderRadius: 'fixed',
+        },
     ];
 
     return (
         <div
             style={{
                 width: '100%',
-                height: '110vh',
+                height: '100vh',
                 display: 'flex',
                 justifyContent: 'space-between',
                 flexDirection: 'column',
@@ -207,7 +227,16 @@ const StoryDefault = (args) => {
                     justifyContent: 'space-between',
                 }}
             >
-                <Button ref={ref1}>Блок 1</Button>
+                <TextArea
+                    ref={ref1}
+                    rightHelper={
+                        <div ref={ref5} style={{ cursor: 'pointer', transform: 'rotate(-90deg)' }}>
+                            <IconArrowDown />
+                        </div>
+                    }
+                    rows={10}
+                    cols={20}
+                />
                 <Button ref={ref2}>Блок 2</Button>
             </div>
             <Button onClick={() => setOpen(true)}>Запуск тура</Button>
@@ -219,8 +248,25 @@ const StoryDefault = (args) => {
                     justifyContent: 'space-between',
                 }}
             >
-                <Button ref={ref3}>Блок 3</Button>
-                <Button ref={ref4}>Блок 4</Button>
+                <div
+                    style={{
+                        background: 'black',
+                        width: '100px',
+                        height: '100px',
+                        borderRadius: '50%',
+                    }}
+                    ref={ref3}
+                />
+                <div
+                    style={{
+                        background: 'black',
+                        width: '100px',
+                        height: '100px',
+                    }}
+                    ref={ref4}
+                >
+                    Блок 4
+                </div>
             </div>
 
             <Tour

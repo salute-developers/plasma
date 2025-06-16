@@ -1,4 +1,3 @@
-// Tour.tsx
 import React, { forwardRef, useCallback, useEffect, useState, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { useFloating, offset, flip, shift, autoUpdate } from '@floating-ui/react-dom';
@@ -6,12 +5,12 @@ import { useFloating, offset, flip, shift, autoUpdate } from '@floating-ui/react
 import { RootProps } from '../../engines';
 import { canUseDOM } from '../../utils';
 
-import { getHTMLElement } from './utils';
+import { getHTMLElement, getIncreasedRadius, findRootElement } from './utils';
 import type { TourProps } from './Tour.types';
 import { MaskContainer, Mask, Highlight, TourPortal } from './Tour.styles';
 import { base as viewCSS } from './variatoins/_view/base';
 import { base as sizeCSS } from './variatoins/_size/base';
-import { classes } from './Tour.tokens';
+import { classes, tokens } from './Tour.tokens';
 
 const TOUR_PORTAL_ID = 'plasma-tour-portal';
 
@@ -44,6 +43,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             const [innerCurrent, setInnerCurrent] = useState(defaultCurrent);
             const [innerOpen, setInnerOpen] = useState(defaultOpen);
             const [highlightRect, setHighlightRect] = useState<DOMRect | null>(null);
+            const [highlightBorderRadius, setHighlightBorderRadius] = useState<string | null>(null);
             const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
 
             const portalRef = useRef<HTMLElement | null>(null);
@@ -104,12 +104,20 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
 
             const updateHighlight = useCallback(() => {
                 if (!isOpen || !currentStep) return;
+                const rootItem = findRootElement(currentStep.target as any) as any;
 
-                const element = getHTMLElement(currentStep.target as any);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
+                const highlightElement = getHTMLElement(rootItem);
+
+                const borderRadius =
+                    currentStep.borderRadius === 'fixed'
+                        ? `var(${tokens.highlightRadius})`
+                        : getIncreasedRadius(rootItem, highlightOffset);
+                setHighlightBorderRadius(borderRadius);
+
+                if (highlightElement) {
+                    const rect = highlightElement.getBoundingClientRect();
                     setHighlightRect(rect);
-                    setTargetElement(element);
+                    setTargetElement(highlightElement);
                 } else {
                     setHighlightRect(null);
                     setTargetElement(null);
@@ -117,7 +125,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             }, [isOpen, currentStep]);
 
             useEffect(() => {
-                if (!canUseDOM) return; // No setup needed
+                if (!canUseDOM) return;
 
                 let portal = document.getElementById(TOUR_PORTAL_ID);
 
@@ -188,6 +196,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                             {highlightRect && (
                                 <Highlight
                                     overlayColor={overlayColor}
+                                    borderRadius={highlightBorderRadius}
                                     style={{
                                         left: highlightRect.left - highlightOffset,
                                         top: highlightRect.top - highlightOffset,
