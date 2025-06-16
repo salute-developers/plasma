@@ -16,10 +16,10 @@ const meta: Meta<typeof Tour> = {
     component: Tour,
     argTypes: {
         ...argTypesFromConfig(mergeConfig(linkConfig, config)),
-        withMask: {
+        withOverlay: {
             type: 'boolean',
         },
-        maskColor: {
+        overlayColor: {
             control: {
                 type: 'color',
             },

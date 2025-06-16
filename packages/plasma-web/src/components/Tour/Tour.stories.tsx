@@ -1,27 +1,37 @@
 import React, { useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
-import { linkConfig } from '../../../../components/Link';
-import { mergeConfig } from '../../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 import { Button } from '../Button/Button';
 
 import { config } from './Tour.config';
 import { Tour } from './Tour';
 
+const { views, sizes } = getConfigVariations(config);
+
 const meta: Meta<typeof Tour> = {
-    title: 'b2c/Navigation/Tour',
-    decorators: [WithTheme],
+    title: 'Navigation/Tour',
     component: Tour,
     argTypes: {
-        ...argTypesFromConfig(mergeConfig(linkConfig, config)),
         withOverlay: {
             type: 'boolean',
         },
         overlayColor: {
             control: {
                 type: 'color',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
+        view: {
+            options: views,
+            control: {
+                type: 'select',
             },
         },
     },
@@ -122,7 +132,10 @@ const StoryDefault = (args) => {
 
     const onNext = () => setCurrent(current + 1);
     const onPrev = () => setCurrent(current - 1);
-    const onClose = () => setOpen(false);
+    const onClose = () => {
+        setOpen(false);
+        setCurrent(0);
+    };
 
     const steps = [
         {
@@ -194,7 +207,9 @@ const StoryDefault = (args) => {
             style={{
                 width: '100%',
                 height: '110vh',
+                padding: '12px',
                 display: 'flex',
+                boxSizing: 'border-box',
                 justifyContent: 'space-between',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -245,6 +260,7 @@ export const Default: StoryObj = {
         offset: 12,
         shift: 12,
         highlightOffset: 4,
+        overlayColor: 'rgba(0, 0, 0, 0.25)',
     },
     render: (args) => <StoryDefault {...args} />,
 };

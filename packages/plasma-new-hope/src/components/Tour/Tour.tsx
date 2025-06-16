@@ -4,11 +4,11 @@ import { createPortal } from 'react-dom';
 import { useFloating, offset, flip, shift, autoUpdate } from '@floating-ui/react-dom';
 
 import { RootProps } from '../../engines';
-import { cx, canUseDOM } from '../../utils';
+import { canUseDOM } from '../../utils';
 
 import { getHTMLElement } from './utils';
 import type { TourProps } from './Tour.types';
-import { Mask, Highlight, TourPortal } from './Tour.styles';
+import { MaskContainer, Mask, Highlight, TourPortal } from './Tour.styles';
 import { base as viewCSS } from './variatoins/_view/base';
 import { base as sizeCSS } from './variatoins/_size/base';
 import { classes } from './Tour.tokens';
@@ -24,13 +24,15 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 defaultCurrent = 0,
                 open,
                 defaultOpen = false,
-                onChange,
                 onClose,
-                withMask = true,
-                maskColor,
+                withOverlay = true,
+                overlayColor,
                 zIndex = 9300,
                 view,
                 size,
+                shift: shiftProp = 12,
+                offset: offsetProp = 12,
+                highlightOffset = 4,
                 className,
                 ...rest
             },
@@ -50,8 +52,6 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             const active = controlled ? (current as number) : innerCurrent;
             const isOpen = controlledOpen ? (open as boolean) : innerOpen;
 
-            const total = steps.length;
-            const last = active >= total - 1;
             const currentStep = steps[active];
 
             const placement = useMemo(() => {
@@ -66,11 +66,11 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
 
             const middleware = useMemo(
                 () => [
-                    offset(12),
+                    offset(offsetProp),
                     flip({
                         fallbackPlacements: Array.isArray(currentStep?.placement) ? currentStep.placement : undefined,
                     }),
-                    shift({ padding: 12 }),
+                    shift({ padding: shiftProp }),
                 ],
                 [currentStep?.placement],
             );
@@ -84,16 +84,6 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             useEffect(() => {
                 refs.setReference(targetElement);
             }, [refs, targetElement]);
-
-            const setCurrent = useCallback(
-                (val: number) => {
-                    if (!controlled) {
-                        setInnerCurrent(val);
-                    }
-                    onChange?.(val);
-                },
-                [controlled, onChange],
-            );
 
             const setOpen = useCallback(
                 (val: boolean) => {
@@ -110,14 +100,6 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 [controlledOpen, onClose],
             );
 
-            const handlePrev = () => setCurrent(Math.max(0, active - 1));
-            const handleNext = () => {
-                if (last) {
-                    setOpen(false);
-                } else {
-                    setCurrent(active + 1);
-                }
-            };
             const handleClose = () => setOpen(false);
 
             const updateHighlight = useCallback(() => {
@@ -135,7 +117,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             }, [isOpen, currentStep]);
 
             useEffect(() => {
-                if (!canUseDOM) return;
+                if (!canUseDOM) return; // No setup needed
 
                 let portal = document.getElementById(TOUR_PORTAL_ID);
 
@@ -189,29 +171,32 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
 
                 if (isOpen) {
                     window.addEventListener('keydown', handleKeyDown);
-                    return () => window.removeEventListener('keydown', handleKeyDown);
                 }
+
+                return () => {
+                    window.removeEventListener('keydown', handleKeyDown);
+                };
             }, [isOpen]);
 
             if (!currentStep || !canUseDOM || !portalRef.current) return null;
 
             const tourContent = (
-                <Root steps={[]} ref={outerRef} className={cx(className)} view={view} size={size} {...rest}>
-                    {isOpen && withMask && (
-                        <div className={classes.mask} style={{ zIndex: Number(zIndex) - 100 }} data-plasma-tour-mask>
+                <Root steps={steps} ref={outerRef} className={className} view={view} size={size} {...rest}>
+                    {isOpen && withOverlay && (
+                        <MaskContainer className={classes.mask} zIndex={zIndex} data-plasma-tour-mask>
                             <Mask />
                             {highlightRect && (
                                 <Highlight
-                                    maskColor={maskColor}
+                                    overlayColor={overlayColor}
                                     style={{
-                                        left: highlightRect.left - 4,
-                                        top: highlightRect.top - 4,
-                                        width: highlightRect.width + 8,
-                                        height: highlightRect.height + 8,
+                                        left: highlightRect.left - highlightOffset,
+                                        top: highlightRect.top - highlightOffset,
+                                        width: highlightRect.width + highlightOffset * 2,
+                                        height: highlightRect.height + highlightOffset * 2,
                                     }}
                                 />
                             )}
-                        </div>
+                        </MaskContainer>
                     )}
 
                     {isOpen && targetElement && (
