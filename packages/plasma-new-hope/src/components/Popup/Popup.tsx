@@ -1,8 +1,8 @@
 import React, { forwardRef, useRef } from 'react';
-import { useForkRef, safeUseId } from '@salutejs/plasma-core';
+import { useForkRef } from '@salutejs/plasma-core';
+import { canUseDOM, cx, safeUseId } from 'src/utils';
+import { RootProps } from 'src/engines/types';
 
-import { RootProps } from '../../engines/types';
-import { canUseDOM, cx } from '../../utils';
 import { Portal } from '../Portal';
 
 import type { PopupPlacementBasic, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
