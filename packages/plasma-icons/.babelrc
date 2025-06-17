@@ -28,14 +28,7 @@
     "plugins": [
         "@babel/plugin-proposal-class-properties",
         "babel-plugin-annotate-pure-calls",
-        "@babel/plugin-transform-react-constant-elements",
-        [
-            "babel-plugin-styled-components",
-            {
-                "displayName": false,
-                "namespace": "plasma"
-            }
-        ]
+        "@babel/plugin-transform-react-constant-elements"
     ],
     "ignore": ["**/*.d.ts"]
 }
