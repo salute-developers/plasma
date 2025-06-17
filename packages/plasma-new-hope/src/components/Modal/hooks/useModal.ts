@@ -15,7 +15,7 @@ export const useModal = ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc = tr
             if (!closeOnEsc) {
                 return;
             }
-            if (event.keyCode === ESCAPE_KEYCODE && getIdLastModal(popupController.items) === id) {
+            if (event.keyCode === ESCAPE_KEYCODE && getIdLastModal(Array.from(popupController.items.values())) === id) {
                 if (onEscKeyDown) {
                     onEscKeyDown(event);
                     return;

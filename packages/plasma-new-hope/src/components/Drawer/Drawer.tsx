@@ -1,11 +1,11 @@
 import React, { forwardRef, useMemo } from 'react';
-import { useForkRef, safeUseId } from '@salutejs/plasma-core';
+import { useForkRef } from '@salutejs/plasma-core';
+import { cx, getSizeValueFromProp, safeUseId } from 'src/utils';
+import type { RootProps } from 'src/engines';
 
-import type { RootProps } from '../../engines';
 import { usePopupContext } from '../Popup';
 import { Overlay } from '../Overlay';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
-import { cx, getSizeValueFromProp } from '../../utils';
 import { useFocusTrap } from '../../hooks';
 
 import { classes, tokens } from './Drawer.tokens';
@@ -79,7 +79,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 popupInfo,
                 disableScroll: asModal,
             });
-            const transparent = useMemo(() => getIdLastDrawer(popupController.items) !== innerId, [
+            const transparent = useMemo(() => getIdLastDrawer(Array.from(popupController.items.values())) !== innerId, [
                 innerId,
                 popupController.items,
             ]);
