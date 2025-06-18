@@ -58,10 +58,10 @@ jobs:
                     export NODE_OPTIONS=--openssl-legacy-provider
                     npm run build --prefix="./website/plasma-website"
                     cp -R ./website/plasma-website/build/. ./s3_build/${PR_NAME}
-            
+
             -   name: Install s3cmd
                 run: pip3 install s3cmd
-            
+
             -   name: s3 Upload
                 run: >
                     s3cmd
@@ -75,7 +75,7 @@ jobs:
                     sync
                     ./s3_build/${PR_NAME}/
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/
-    
+
     deploy-artifacts:
         name: Deploy artifacts
         needs: [ state, deploy-website ]
@@ -93,15 +93,15 @@ jobs:
                 with:
                     show-progress: false
                     ref: refs/pull/${{github.event.pull_request.number}}/merge
-            
+
             -   name: Prepare environment
                 uses: ./.github/actions/prepare-environment
-            
+
             -   name: Set job environment variables
                 run: |
                     echo "SHORT_NAME=$(echo ${{ matrix.package }} | sed -r 's/plasma-//g')" >> $GITHUB_ENV
                     echo "HAS_PACKAGE_DOCS=$([ -d "./website/${{ matrix.package }}-docs" ] && echo true || echo false)" >> $GITHUB_ENV
-            
+
             -   name: Get lerna scope
                 id: lerna-scope
                 uses: actions/github-script@v7
@@ -112,15 +112,15 @@ jobs:
                     result-encoding: string
                     script: |
                         const getLernaScope = require('./.github/get-lerna-scope.js');
-                        
+
                         return getLernaScope();
-            
+
             -   name: Lerna bootstrap
                 run: npx lerna bootstrap --scope="${{ steps.lerna-scope.outputs.result }}"
-            
+
             -   name: Prepare directory
                 run: mkdir -p s3_build/${PR_NAME}
-            
+
             -   name: Build documentation - "${{ matrix.package }}"
                 if: ${{ fromJSON(env.HAS_PACKAGE_DOCS) }}
                 env:
@@ -128,7 +128,7 @@ jobs:
                 run: |
                     npm run build --prefix="./website/${{ matrix.package }}-docs" -- --no-minify
                     cp -R ./website/${{ matrix.package }}-docs/build ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}
-            
+
             -   name: Build storybook - "${{ matrix.package }}"
                 run: |
                     npm run storybook:build --prefix="./packages/${{ matrix.package }}"
@@ -144,10 +144,10 @@ jobs:
                   else
                    echo "Package not have draft components"
                   fi
-            
+
             -   name: Install s3cmd
                 run: pip3 install s3cmd
-            
+
             -   name: s3 upload docs
                 if: ${{ fromJSON(env.HAS_PACKAGE_DOCS) }}
                 run: >
@@ -163,7 +163,7 @@ jobs:
                     sync
                     ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}/
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}/
-            
+
             -   name: s3 upload storybook by draft components
                 if: ${{ env.HAS_DRAFT_COMPONENTS == 'true' }}
                 run: >
@@ -179,7 +179,7 @@ jobs:
                     sync
                     ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-draft-storybook/
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}-draft-storybook/
-            
+
             -   name: s3 upload storybook
                 run: >
                     s3cmd
@@ -194,7 +194,29 @@ jobs:
                     sync
                     ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-storybook/
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}-storybook/
-    
+
+    run-scrapper:
+        name: Run scrapper
+        needs: [ state, deploy-website, deploy-artifacts ]
+        if: github.actor == 'shuga2704'
+        runs-on: ubuntu-22.04
+        steps:
+            -   uses: actions/checkout@v4
+                with:
+                    ref: refs/pull/${{github.event.pull_request.number}}/merge
+                    show-progress: false
+
+            -   name: Run Docker Scraper
+                run: |
+                    docker run -i \
+                      -e TYPESENSE_API_KEY=${{ secrets.TYPESENSE_KEY }} \
+                      -e TYPESENSE_HOST=${{ secrets.TYPESENSE_SERVICE_HOSTNAME }} \
+                      -e TYPESENSE_PORT=443 \
+                      -e TYPESENSE_PROTOCOL=https \
+                      -v ./website/plasma-b2c-docs/typesense-scrapper-config.json:config.json \
+                      typesense/docsearch-scraper:0.11.0 \
+                      config.json
+
     attache-comment:
         name: Attached comment
         needs: [ state, deploy-website, deploy-artifacts ]
@@ -205,7 +227,7 @@ jobs:
                 with:
                     ref: refs/pull/${{github.event.pull_request.number}}/merge
                     show-progress: false
-            
+
             -   name: Create comment
                 id: comment-link
                 uses: actions/github-script@v7
@@ -216,9 +238,9 @@ jobs:
                     result-encoding: string
                     script: |
                         const createLinks = require('./.github/create-links.js');
-                        
+
                         return createLinks();
-            
+
             -   name: Attach comment
                 uses: marocchino/sticky-pull-request-comment@v2
                 with:
