@@ -351,6 +351,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     readOnly={!disabled && readOnly}
                     labelPlacement={innerLabelPlacementValue}
                     onClick={handleInputFocus}
+                    data-root
                     className={cx(
                         labelPlacementClass,
                         clearClass,
@@ -401,7 +402,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     {optionalTextNode}
                                 </StyledIndicatorWrapper>
                             )}
-                            {titleCaption && <TitleCaption>{titleCaption}</TitleCaption>}
+                            {titleCaption && <TitleCaption data-root>{titleCaption}</TitleCaption>}
                         </OuterLabelWrapper>
                     )}
                     <InputWrapper
@@ -446,7 +447,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             </>
                         )}
                         {contentLeft && (
-                            <StyledContentLeft isClear={clear} isDefaultView={isDefaultView}>
+                            <StyledContentLeft data-root isClear={clear} isDefaultView={isDefaultView}>
                                 {contentLeft}
                             </StyledContentLeft>
                         )}
@@ -514,7 +515,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     {...rest}
                                 />
                                 {hasInnerLabel && (
-                                    <Label id={labelId} htmlFor={innerId}>
+                                    <Label data-root id={labelId} htmlFor={innerId}>
                                         {innerLabelValue}
                                         {optionalTextNode}
                                     </Label>
@@ -530,7 +531,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             </InputContainer>
                         </InputLabelWrapper>
                         <StyledContentRightWrapper className={cx(contentRightCompensationMargin)}>
-                            {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                            {contentRight && <StyledContentRight data-root>{contentRight}</StyledContentRight>}
 
                             {!hasOuterLabel && hintText && hintTargetPlacement === 'inner' && (
                                 <HintComponent
@@ -553,7 +554,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             )}
                         </StyledContentRightWrapper>
                     </InputWrapper>
-                    {leftHelper && <LeftHelper id={helperTextId}>{leftHelper}</LeftHelper>}
+                    {leftHelper && (
+                        <LeftHelper data-root id={helperTextId}>
+                            {leftHelper}
+                        </LeftHelper>
+                    )}
                 </Root>
             );
         },

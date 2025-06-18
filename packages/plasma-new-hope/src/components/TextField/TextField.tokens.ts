@@ -217,4 +217,6 @@ export const tokens = {
     clearIndicatorLabelPlacementInner: '--plasma-textfield__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
     clearIndicatorHintInnerRight: '--plasma-textfield__clear-indicator-hint-placement-inner-right',
+
+    tourBorderRadius: '--plasma-textfield-tour-border-radius',
 };
