@@ -118,6 +118,17 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
             }, [calendarState]);
 
             useEffect(() => {
+                if (prevType !== type) {
+                    dispatch({
+                        type: ActionType.UPDATE_CALENDAR_STATE,
+                        payload: { calendarState: type, size: sizeMap[type].single },
+                    });
+
+                    setPrevType(type);
+                }
+            }, [type]);
+
+            useEffect(() => {
                 if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
                     dispatch({
                         type: ActionType.UPDATE_DATE,
