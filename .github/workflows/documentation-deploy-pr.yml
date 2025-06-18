@@ -209,13 +209,13 @@ jobs:
             -   name: Run Docker Scraper
                 run: |
                     docker run -i \
-                      -e TYPESENSE_API_KEY=${{ secrets.TYPESENSE_KEY }} \
-                      -e TYPESENSE_HOST=${{ secrets.TYPESENSE_SERVICE_HOSTNAME }} \
-                      -e TYPESENSE_PORT=443 \
-                      -e TYPESENSE_PROTOCOL=https \
-                      -v ./website/plasma-${{ env.SHORT_NAME }}-docs/typesense-scrapper-config.json:/app/config.json \
-                      typesense/docsearch-scraper:0.11.0 \
-                      /app/config.json
+                        -e TYPESENSE_API_KEY=${{ secrets.TYPESENSE_KEY }} \
+                        -e TYPESENSE_HOST=${{ secrets.TYPESENSE_SERVICE_HOSTNAME }} \
+                        -e TYPESENSE_PORT=443 \
+                        -e TYPESENSE_PROTOCOL=https \
+                        -e CONFIG=/config.json \
+                        -v ./website/plasma-${{ env.SHORT_NAME }}-docs/typesense-scrapper-config.json:/config.json \
+                        typesense/docsearch-scraper:0.11.0
 
     attache-comment:
         name: Attached comment
