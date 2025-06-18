@@ -229,6 +229,9 @@ const StoryDefault = (args) => {
             >
                 <TextArea
                     ref={ref1}
+                    label="Textarea"
+                    placeholder="Напиши что нибудь"
+                    leftHelper="Helper Text"
                     rightHelper={
                         <div ref={ref5} style={{ cursor: 'pointer', transform: 'rotate(-90deg)' }}>
                             <IconArrowDown />
