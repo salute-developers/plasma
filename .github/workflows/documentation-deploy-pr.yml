@@ -213,9 +213,9 @@ jobs:
                       -e TYPESENSE_HOST=${{ secrets.TYPESENSE_SERVICE_HOSTNAME }} \
                       -e TYPESENSE_PORT=443 \
                       -e TYPESENSE_PROTOCOL=https \
-                      -v ./website/plasma-b2c-docs/typesense-scrapper-config.json:config.json \
+                      -v ./website/plasma-${{ env.SHORT_NAME }}-docs/typesense-scrapper-config.json:/app/config.json \
                       typesense/docsearch-scraper:0.11.0 \
-                      config.json
+                      /app/config.json
 
     attache-comment:
         name: Attached comment
