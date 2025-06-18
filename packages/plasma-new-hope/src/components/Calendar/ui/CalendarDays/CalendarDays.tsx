@@ -112,6 +112,10 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
 
     const getRefs = (element: HTMLDivElement, isDayInCurrentMonth: boolean, i: number, j: number) => {
         if (isDayInCurrentMonth) {
+            if (!outerRefs.current[i + offset]) {
+                outerRefs.current[i + offset] = [];
+            }
+
             outerRefs.current[i + offset][j] = element;
         }
     };

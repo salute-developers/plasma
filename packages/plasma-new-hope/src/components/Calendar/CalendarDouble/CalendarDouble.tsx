@@ -153,6 +153,17 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
             }, [calendarState]);
 
             useEffect(() => {
+                if (prevType !== type) {
+                    dispatch({
+                        type: ActionType.UPDATE_CALENDAR_STATE,
+                        payload: { calendarState: type, size: sizeMap[type].double },
+                    });
+
+                    setPrevType(type);
+                }
+            }, [type]);
+
+            useEffect(() => {
                 if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
                     const [minVisibleDate, maxVisibleDate] = getBoundaryDates();
 

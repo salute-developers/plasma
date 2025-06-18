@@ -118,6 +118,10 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
 
     const getRefs = useCallback(
         (element: HTMLDivElement, i: number, j: number) => {
+            if (!outerRefs.current[i + offset]) {
+                outerRefs.current[i + offset] = [];
+            }
+
             outerRefs.current[i + offset][j] = element;
         },
         [outerRefs],
