@@ -89,6 +89,8 @@ jobs:
         needs: [ state, deploy-website ]
         env:
             PREFIX: ${{ inputs.docusaurusURLPrefix }}
+            TYPESENSE_KEY: ${{ secrets.TYPESENSE_KEY }}
+            TYPESENSE_SERVICE_HOSTNAME: ${{ secrets.TYPESENSE_SERVICE_HOSTNAME }}
         runs-on: ubuntu-22.04
         strategy:
             fail-fast: false
@@ -107,7 +109,7 @@ jobs:
                 run: |
                     echo "SHORT_NAME=$(echo ${{ matrix.package }} | sed -r 's/plasma-//g')" >> $GITHUB_ENV
                     echo "HAS_PACKAGE_DOCS=$([ -d "./website/${{ matrix.package }}-docs" ] && echo true || echo false)" >> $GITHUB_ENV
-                    
+
             -  name: S3 Storybook path
                env:
                    PATH_TO_SUBDIR: ${{ secrets.AWS_S3_BUCKET_2 }}/${{ inputs.path }}/${{ env.SHORT_NAME }}-storybook/
@@ -181,3 +183,4 @@ jobs:
                     sync
                     ./s3_local_storybook_build/${{ env.SHORT_NAME }}-storybook/
                     s3://${{ env.S3_STORYBOOK_PATH }}
+
