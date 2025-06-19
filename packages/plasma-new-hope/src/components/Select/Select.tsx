@@ -8,9 +8,8 @@ import React, {
     ChangeEvent,
     ForwardedRef,
 } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
 import { RootProps } from 'src/engines';
-import { isEmpty } from 'src/utils';
+import { isEmpty, safeUseId } from 'src/utils';
 import { useOutsideClick } from 'src/hooks';
 
 import type { HintProps } from '../TextField/TextField.types';

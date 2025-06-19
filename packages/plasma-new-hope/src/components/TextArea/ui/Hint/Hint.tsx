@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
+import { safeUseId } from 'src/utils';
 
 import { Hint, HintIconWrapper, HintTargetWrapper } from '../../TextArea.styles';
 import { IconInfoCircleOutline } from '../../../_Icon';
-import { safeUseId } from '../../../../utils';
 import { tokens } from '../../TextArea.tokens';
 
 import type { TextAreaHintProps } from './Hint.types';

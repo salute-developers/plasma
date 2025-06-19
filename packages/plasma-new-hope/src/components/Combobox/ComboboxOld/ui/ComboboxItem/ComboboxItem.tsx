@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useMemo } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import { safeUseId } from 'src/utils';
 
 import type { RootProps } from '../../../../../engines';
 import { classes } from '../../Combobox.tokens';

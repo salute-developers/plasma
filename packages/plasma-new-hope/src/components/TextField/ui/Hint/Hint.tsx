@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
+import { safeUseId } from 'src/utils';
 
 import { Hint, HintTargetWrapper, HintIconWrapper } from '../../TextField.styles';
 import { IconInfoCircleOutline } from '../../../_Icon';
-import { safeUseId } from '../../../../utils';
 import { tokens } from '../../TextField.tokens';
 
 import type { TextFieldHintProps } from './Hint.types';
