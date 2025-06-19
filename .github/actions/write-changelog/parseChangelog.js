@@ -5,7 +5,7 @@
  * @param {string} date - дата релиза в формате 'YYYY-MM-DD'
  * @returns {Object} Сгруппированные данные по версиям
  */
-export function parseChangelog(tree, version, date) {
+export function parseChangelog(tree, version = '1.581.0', date = '2025-05-28') {
     const result = {
         [version]: {
             date: date,
@@ -16,7 +16,8 @@ export function parseChangelog(tree, version, date) {
 
     let currentSection = null;
     let currentComponent = null;
-    let pendingLinkInfo = null;
+    let collectingContent = false;
+    let contentBuffer = [];
 
     // Функция для определения секции: Core -> 'core', все остальное -> 'lib'
     function getSectionKey(headingText) {
@@ -27,20 +28,16 @@ export function parseChangelog(tree, version, date) {
         if (node.type === 'text') {
             return node.value;
         }
-
         if (node.type === 'inlineCode') {
             return `\`${node.value}\``;
         }
-
         if (node.type === 'strong') {
             const innerText = node.children.map(extractTextFromNode).join('');
             return `**${innerText}**`;
         }
-
         if (node.children) {
             return node.children.map(extractTextFromNode).join('');
         }
-
         return '';
     }
 
@@ -60,10 +57,10 @@ export function parseChangelog(tree, version, date) {
         return null;
     }
 
-    function addItemToCurrentComponent(text, linkInfo) {
+    function addItemToComponent(text, linkInfo) {
         if (!currentComponent || !text || !currentSection) return;
 
-        const item = { text };
+        const item = { text: text.trim() };
         if (linkInfo) {
             item.link = linkInfo.link;
             if (linkInfo.id) {
@@ -85,58 +82,63 @@ export function parseChangelog(tree, version, date) {
         componentObj.children.push(item);
     }
 
+    function finishCurrentItem(linkInfo = null) {
+        if (contentBuffer.length > 0) {
+            const fullText = contentBuffer.join('\n\n');
+            addItemToComponent(fullText, linkInfo);
+            contentBuffer = [];
+            collectingContent = false;
+        }
+    }
+
     // Проходим по всем узлам дерева
     for (let i = 0; i < tree.children.length; i++) {
         const node = tree.children[i];
 
         if (node.type === 'heading') {
+            // Завершаем текущий элемент при встрече нового заголовка
+            finishCurrentItem();
+
             const headingText = extractTextFromNode(node);
 
             if (node.depth === 2) {
                 // Заголовок раздела
                 currentSection = getSectionKey(headingText);
                 currentComponent = null;
-            } else if (node.depth === 3 && currentSection) {
+            } else if (node.depth === 3) {
                 // Заголовок компонента
                 currentComponent = headingText;
             }
-        } else if (node.type === 'list' && currentComponent && currentSection) {
-            // Обрабатываем список изменений
-            for (const listItem of node.children) {
-                if (listItem.type === 'listItem' && listItem.children[0]?.type === 'paragraph') {
-                    const text = extractTextFromNode(listItem.children[0]);
-
-                    // Ищем ссылку в следующих узлах после списка
-                    let linkInfo = pendingLinkInfo;
-                    pendingLinkInfo = null;
-
-                    addItemToCurrentComponent(text, linkInfo);
-                }
-            }
-        } else if (node.type === 'paragraph' && currentComponent && currentSection) {
-            // Проверяем, содержит ли параграф ссылку PR
-            const linkInfo = extractLinkFromParagraph(node);
-            if (linkInfo) {
-                pendingLinkInfo = linkInfo;
-
-                // Если у нас уже есть компонент, применяем ссылку к последнему элементу
-                const componentObj = result[version][currentSection].find(
-                    (comp) => comp.component === currentComponent,
-                );
-
-                if (componentObj && componentObj.children.length > 0) {
-                    const lastChild = componentObj.children[componentObj.children.length - 1];
-                    if (!lastChild.link) {
-                        lastChild.link = linkInfo.link;
-                        if (linkInfo.id) {
-                            lastChild.id = linkInfo.id;
-                        }
+        } else if (currentComponent && currentSection) {
+            if (node.type === 'list') {
+                // Обрабатываем список изменений
+                for (const listItem of node.children) {
+                    if (listItem.type === 'listItem' && listItem.children[0]?.type === 'paragraph') {
+                        const text = extractTextFromNode(listItem.children[0]);
+                        contentBuffer.push(text);
+                        collectingContent = true;
                     }
                 }
-                pendingLinkInfo = null;
+            } else if (node.type === 'paragraph') {
+                // Проверяем, содержит ли параграф ссылку PR
+                const linkInfo = extractLinkFromParagraph(node);
+                if (linkInfo) {
+                    // Это ссылка PR - завершаем текущий элемент
+                    finishCurrentItem(linkInfo);
+                } else if (collectingContent) {
+                    // Это обычный параграф - добавляем к контенту
+                    const text = extractTextFromNode(node);
+                    if (text.trim()) {
+                        contentBuffer.push(text);
+                    }
+                }
             }
+            // Игнорируем изображения и HTML, но продолжаем сбор контента
         }
     }
+
+    // Завершаем оставшийся контент в конце
+    finishCurrentItem();
 
     return result;
 }
