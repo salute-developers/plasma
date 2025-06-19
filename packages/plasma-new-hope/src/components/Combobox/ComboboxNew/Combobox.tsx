@@ -1,6 +1,7 @@
 import React, { forwardRef, useState, useReducer, useMemo, useLayoutEffect, useRef } from 'react';
 import type { ChangeEvent, ForwardedRef } from 'react';
-import { safeUseId, useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from '@salutejs/plasma-core';
+import { safeUseId } from 'src/utils';
 
 import { RootProps } from '../../../engines';
 import { isEmpty } from '../../../utils';

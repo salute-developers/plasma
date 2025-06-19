@@ -1,10 +1,9 @@
 import React, { forwardRef, useCallback, useMemo, useState, useLayoutEffect, useRef, KeyboardEvent } from 'react';
 import type { MutableRefObject } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import { cx, safeUseId } from 'src/utils';
+import type { RootProps } from 'src/engines/types';
 
-import type { RootProps } from '../../../../../engines/types';
 import { classes } from '../../../tokens';
-import { cx } from '../../../../../utils';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { VerticalTabsProps } from '../../../Tabs.types';
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../../_Icon';

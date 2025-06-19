@@ -8,7 +8,7 @@ import {
     autoUpdate,
 } from '@floating-ui/react';
 import React, { forwardRef } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import { safeUseId } from 'src/utils';
 
 import type { FloatingPopoverProps } from './Combobox.types';
 

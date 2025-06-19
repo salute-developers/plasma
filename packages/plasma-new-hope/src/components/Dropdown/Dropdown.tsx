@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useReducer, useRef } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import { safeUseId } from 'src/utils';
 
 import { RootProps } from '../../engines';
 import { cx } from '../../utils';

@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
-
-import type { RootProps } from '../../engines/types';
+import { safeUseId } from 'src/utils';
+import type { RootProps } from 'src/engines/types';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';

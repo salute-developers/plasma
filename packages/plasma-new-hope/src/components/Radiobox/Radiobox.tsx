@@ -1,8 +1,9 @@
 import React, { forwardRef, useMemo } from 'react';
-import { safeUseId, extractTextFrom } from '@salutejs/plasma-core';
+import { extractTextFrom } from '@salutejs/plasma-core';
+import { safeUseId, cx } from 'src/utils';
+import type { InputHTMLAttributes } from 'src/types';
+import type { Filter, RootProps } from 'src/engines/types';
 
-import type { InputHTMLAttributes } from '../../types';
-import type { Filter, RootProps } from '../../engines/types';
 import {
     StyledContentWrapper,
     StyledDescription,
@@ -13,7 +14,6 @@ import {
     StyledTriggerWrapper,
 } from '../Checkbox/Checkbox.styles';
 import { BaseboxProps } from '../Checkbox/Checkbox.types';
-import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
