@@ -84,6 +84,8 @@ jobs:
         env:
             PR_NAME: pr-${{ github.event.number }}
             PREFIX: pr/pr-${{ github.event.number }}
+            TYPESENSE_KEY: ${{ secrets.TYPESENSE_KEY }}
+            TYPESENSE_SERVICE_HOSTNAME: ${{ secrets.TYPESENSE_SERVICE_HOSTNAME }}
         strategy:
             fail-fast: false
             matrix:
