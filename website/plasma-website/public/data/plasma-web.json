@@ -1,0 +1,79 @@
+{
+    "1.584.0": {
+        "date": "2025-06-11",
+        "core": [
+            {
+                "component": "Select, Combobox",
+                "children": [
+                    {
+                        "text": "добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;",
+                        "link": "https://github.com/salute-developers/plasma/pull/1986",
+                        "id": 1986
+                    }
+                ]
+            },
+            {
+                "component": "Popover",
+                "children": [
+                    {
+                        "text": "добавлена обработка случая, когда frame передан как ID",
+                        "link": "https://github.com/salute-developers/plasma/pull/2001",
+                        "id": 2001
+                    }
+                ]
+            },
+            {
+                "component": "Sheet",
+                "children": [
+                    {
+                        "text": "добавлена проверка `canUseDOM` перед использованием document",
+                        "link": "https://github.com/salute-developers/plasma/pull/2014",
+                        "id": 2014
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker",
+                "children": [
+                    {
+                        "text": "добавлено свойство `closeAfterDateSelect` в одиночный DatePicker",
+                        "link": "https://github.com/salute-developers/plasma/pull/2012",
+                        "id": 2012
+                    }
+                ]
+            },
+            {
+                "component": "Notification",
+                "children": [
+                    {
+                        "text": "добавлен `type-cast` для корректной типизации",
+                        "link": "https://github.com/salute-developers/plasma/pull/2015",
+                        "id": 2015
+                    }
+                ]
+            },
+            {
+                "component": "Carousel",
+                "children": [
+                    {
+                        "text": "добавлена элементы управления: пагинация, стрелочки",
+                        "link": "https://github.com/salute-developers/plasma/pull/2013",
+                        "id": 2013
+                    }
+                ]
+            }
+        ],
+        "lib": [
+            {
+                "component": "TextArea",
+                "children": [
+                    {
+                        "text": "Добавлен `fallback` токенов для совместимости со старой схемой.\n\nНапример, token `inputFontFamily` в новой схеме представлен как `var(--plasma-typo-caption-font-family`, а для работы со старой уже нужен `var(--plasma-typo-body-xs-font-family)`.\n\nТо конфигурация токена выглядит - `${textAreaTokens.inputFontFamily}: var(--plasma-typo-caption-font-family, var(--plasma-typo-body-xs-font-family));`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2005",
+                        "id": 2005
+                    }
+                ]
+            }
+        ]
+    }
+}
