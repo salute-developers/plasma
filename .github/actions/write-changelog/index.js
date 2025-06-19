@@ -2,12 +2,18 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkStringify from 'remark-stringify';
 import { visit } from 'unist-util-visit';
+import { readFileSync, writeFileSync } from 'fs';
 
 import * as core from '@actions/core';
 
-import { writeChangelog } from './utils.js';
+import { writeChangelog, getJSONFilePath, getChangelogCreateDate, getPackageVersionSync } from './utils.js';
 import { processingHeadingByPackages } from './processingHeadingByPackages.js';
 import { rewriteHeadingValue } from './rewriteHeadingValue.js';
+import { parseChangelog } from './parseChangelog.js';
+
+// INFO: Для локального тестирования, использовать вместо `core.getInput('data');`
+// import { getMock } from './mock/getMock.js';
+// const rawData = await getMock();
 
 import * as META from '../../meta-prod.js';
 
@@ -51,6 +57,7 @@ async function run() {
 
         // INFO: В коллекции будут или все пакеты так как были изменения в core,
         // INFO: или только те библиотеки в которых были изменения
+        // INFO: Это часть логики останется как fallback на тот случай если новая генерация даст сбой
         for (const pkg of Array.from(headings)) {
             const blackList = [...packages.filter((item) => pkg !== item), 'bugs'];
 
@@ -64,6 +71,32 @@ async function run() {
                 .processSync(rawData);
 
             await writeChangelog(changelogMD.toString(), pkg);
+        }
+
+        // INFO: Новый блок генерации changelog as JSON на основе входящих данных
+        for (const pkg of Array.from(headings)) {
+            const blackList = [...packages.filter((item) => pkg !== item), 'bugs'];
+
+            const isPlasmaIcons = pkg === 'plasma-icons';
+
+            unified()
+                .use(remarkParse)
+                .use(() => processingHeadingByPackages(isPlasmaIcons ? [...blackList, 'core'] : blackList))
+                .use(() => (tree) => {
+                    const version = getPackageVersionSync(pkg);
+                    const changelogCreateDate = getChangelogCreateDate(new Date());
+                    const currentChangelogData = parseChangelog(tree, version, changelogCreateDate);
+
+                    const mdFilePAth = getJSONFilePath(pkg, 'changelog.json');
+
+                    const existingContent = readFileSync(mdFilePAth, 'utf8');
+
+                    const data = Object.assign(currentChangelogData, JSON.parse(existingContent));
+
+                    writeFileSync(mdFilePAth, JSON.stringify(data, null, 2), 'utf8');
+                })
+                .use(remarkStringify)
+                .processSync(rawData);
         }
     } catch (error) {
         core.setFailed(error.message);
