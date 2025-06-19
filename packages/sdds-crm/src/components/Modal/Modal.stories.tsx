@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
