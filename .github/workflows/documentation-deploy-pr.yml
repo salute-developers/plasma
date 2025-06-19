@@ -200,6 +200,10 @@ jobs:
         needs: [ state, deploy-website, deploy-artifacts ]
         if: github.actor == 'shuga2704'
         runs-on: ubuntu-22.04
+        strategy:
+            fail-fast: false
+            matrix:
+                package: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_DOCUMENTATIONS_RUN }}
         steps:
             -   uses: actions/checkout@v4
                 with:
@@ -214,7 +218,7 @@ jobs:
                         -e TYPESENSE_PORT=443 \
                         -e TYPESENSE_PROTOCOL=https \
                         -e CONFIG=/config.json \
-                        -v ./website/plasma-${{ env.SHORT_NAME }}-docs/typesense-scrapper-config.json:/config.json \
+                        -v ./website/${{ matrix.package }}-docs/typesense-scrapper-config.json:/config.json \
                         typesense/docsearch-scraper:0.11.0
 
     attache-comment:
