@@ -195,32 +195,6 @@ jobs:
                     ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}-storybook/
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/${{ env.SHORT_NAME }}-storybook/
 
-    run-scrapper:
-        name: Run scrapper
-        needs: [ state, deploy-website, deploy-artifacts ]
-        if: github.actor == 'shuga2704'
-        runs-on: ubuntu-22.04
-        strategy:
-            fail-fast: false
-            matrix:
-                package: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_DOCUMENTATIONS_RUN }}
-        steps:
-            -   uses: actions/checkout@v4
-                with:
-                    ref: refs/pull/${{github.event.pull_request.number}}/merge
-                    show-progress: false
-
-            -   name: Run Docker Scraper
-                run: |
-                    docker run -i \
-                        -e TYPESENSE_API_KEY=${{ secrets.TYPESENSE_KEY }} \
-                        -e TYPESENSE_HOST=${{ secrets.TYPESENSE_SERVICE_HOSTNAME }} \
-                        -e TYPESENSE_PORT=443 \
-                        -e TYPESENSE_PROTOCOL=https \
-                        -e CONFIG=/config.json \
-                        -v ./website/${{ matrix.package }}-docs/typesense-scrapper-config.json:/config.json \
-                        typesense/docsearch-scraper:0.11.0
-
     attache-comment:
         name: Attached comment
         needs: [ state, deploy-website, deploy-artifacts ]
