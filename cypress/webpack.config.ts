@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 `;
 
-['plasma-web', 'plasma-giga', 'plasma-b2c', 'plasma-ui'].forEach((pack) => {
+['plasma-web', 'plasma-giga', 'plasma-b2c', 'plasma-ui', 'sdds-cs'].forEach((pack) => {
     const packIndexPath = path.join(packsPath, pack, 'index.js');
     if (!fs.ensureFileSync(packIndexPath)) {
         fs.writeFileSync(packIndexPath, dummyModule);

@@ -29,7 +29,8 @@ module.exports = () => {
     if (!rawData || !rawData.length) {
         return {
             RAW_DATA: [],
-            PACKAGES_CYPRESS_RUN: [],
+            PACKAGES_CYPRESS_RUN_PLASMA: [],
+            PACKAGES_CYPRESS_RUN_SDDS: [],
             PACKAGES_DOCUMENTATIONS_RUN: [],
             PROCESSED_DATA: [],
             HAS_PACKAGES_CYPRESS_RUN: false,
@@ -46,13 +47,22 @@ module.exports = () => {
     const PROCESSED_DATA = rawData.map((item) => item.replace('@salutejs/', ''));
 
     /**
-     * List short packages name for run cypress test
+     * List short packages name for run cypress plasma test
      * @example
      * ["web", "ui", "b2c"]
      */
-    const PACKAGES_CYPRESS_RUN = PROCESSED_DATA.filter((item) => CONFIG.PACKAGES_CYPRESS.includes(item)).map((item) =>
-        item.replace('plasma-', ''),
-    );
+    const PACKAGES_CYPRESS_RUN_PLASMA = PROCESSED_DATA.filter(
+        (item) => CONFIG.PACKAGES_CYPRESS.includes(item) && item.includes('plasma'),
+    ).map((item) => item.replace('plasma-', ''));
+
+    /**
+     * List short packages name for run cypress sdds test
+     * @example
+     * ["insol", "cs"]
+     */
+    const PACKAGES_CYPRESS_RUN_SDDS = PROCESSED_DATA.filter(
+        (item) => CONFIG.PACKAGES_CYPRESS.includes(item) && item.includes('sdds'),
+    ).map((item) => item.replace('sdds-', ''));
 
     /**
      * List packages who has a documentations artifacts: storybook, docusaurus
@@ -81,9 +91,11 @@ module.exports = () => {
     return {
         RAW_DATA: JSON.stringify(rawData),
         PACKAGES_DOCUMENTATIONS_RUN: JSON.stringify(PACKAGES_DOCUMENTATIONS_RUN),
-        PACKAGES_CYPRESS_RUN: JSON.stringify(PACKAGES_CYPRESS_RUN),
+        PACKAGES_CYPRESS_RUN_PLASMA: JSON.stringify(PACKAGES_CYPRESS_RUN_PLASMA),
+        PACKAGES_CYPRESS_RUN_SDDS: JSON.stringify(PACKAGES_CYPRESS_RUN_SDDS),
         PROCESSED_DATA: JSON.stringify(PROCESSED_DATA),
-        HAS_PACKAGES_CYPRESS_RUN: Boolean(PACKAGES_CYPRESS_RUN.length),
+        HAS_PACKAGES_CYPRESS_RUN:
+            Boolean(PACKAGES_CYPRESS_RUN_PLASMA.length) || Boolean(PACKAGES_CYPRESS_RUN_SDDS.length),
         HAS_DEPLOY_WEBSITE,
         HAS_PACKAGES_DS_CHANGES,
     };
