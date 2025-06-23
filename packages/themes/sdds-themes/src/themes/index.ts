@@ -14,3 +14,5 @@ export { sdds_insol__dark } from './sdds_insol__dark';
 export { sdds_insol__light } from './sdds_insol__light';
 export { sdds_scan__dark } from './sdds_scan__dark';
 export { sdds_scan__light } from './sdds_scan__light';
+export { sdds_bizcom__dark } from './sdds_bizcom__dark';
+export { sdds_bizcom__light } from './sdds_bizcom__light';

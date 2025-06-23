@@ -29,4 +29,8 @@ generate([
         name: 'sdds_scan',
         version: 'latest',
     },
+    {
+        name: 'sdds_bizcom',
+        version: 'latest',
+    },
 ]);
