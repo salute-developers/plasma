@@ -1,5 +1,6 @@
 export * from './components/Avatar';
 export * from './components/AvatarGroup';
+export * from './components/Accordion';
 export * from './components/Badge';
 export * from './components/Button';
 export * from './components/Breadcrumbs';
