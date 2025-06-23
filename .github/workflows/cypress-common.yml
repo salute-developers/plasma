@@ -7,6 +7,10 @@ on:
         description: 'scope name'
         required: true
         type: string
+      prefix:
+        description: 'package prefix (plasma or sdds)'
+        required: true
+        type: string
       with-react-17:
         type: boolean
         default: false
@@ -29,14 +33,17 @@ jobs:
       - uses: ./.github/actions/prepare-environment
 
       - name: Set default scope
-        run: echo "SCOPE={giga,b2c,web,core,hope,new-hope,themes,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils,ui}" >> $GITHUB_ENV
+        run: |
+          if [ "${{ inputs.prefix }}" = "plasma" ]; then
+            echo "SCOPE={${{ inputs.scope }},core,hope,new-hope,themes,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils}" >> $GITHUB_ENV
+          else
+            echo "SCOPE={core,new-hope,typo,icons,cy-utils}" >> $GITHUB_ENV
+          fi
 
       - name: Install React 17
         if:  ${{ inputs.with-react-17 }}
         run: |
-          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-ui"
-          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-b2c"
-          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
+          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/${{ inputs.prefix }}-${{ inputs.scope }}"
 
       - name: Lerna bootstrap
         uses: nick-fields/retry@v3
@@ -44,7 +51,12 @@ jobs:
           timeout_minutes: 45
           max_attempts: 3
           retry_on: error
-          command: npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes"
+          command: |
+            if [ "${{ inputs.prefix }}" = "plasma" ]; then
+              npx lerna bootstrap --scope=@salutejs/${{ inputs.prefix }}-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes"
+            else
+              npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
+            fi
           
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
