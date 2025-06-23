@@ -24,11 +24,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # [Note]
-        # Важно что бы массив был со значениями, где `""` экранируются, например -> ["\"b2c\""]
-        # Можно для этого использовать JSON.stringify()
-        scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN }}
-
+        include:
+          - prefix: "plasma"
+            # [Note]
+            # Важно что бы массив был со значениями, где `""` экранируются, например -> ["\"b2c\""]
+            # Можно для этого использовать JSON.stringify()
+            scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_PLASMA_RUN }}
+          - prefix: "sdds"
+            scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_SDDS_RUN }}
+        
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
