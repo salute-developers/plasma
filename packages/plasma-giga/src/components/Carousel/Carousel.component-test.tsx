@@ -23,7 +23,7 @@ const items = Array(20)
         title: i,
     }));
 
-describe('plasma-b2c: Carousel', () => {
+describe('plasma-giga: Carousel', () => {
     const Carousel = getComponent('Carousel');
     const CarouselItem = getComponent('CarouselItem');
 
