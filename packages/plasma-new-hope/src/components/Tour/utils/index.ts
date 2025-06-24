@@ -102,6 +102,10 @@ export const findRootElement = (ref: React.RefObject<HTMLElement>): React.RefObj
 
     let currentElement = ref.current;
 
+    if (!currentElement?.hasAttribute('data-tour')) {
+        return { current: currentElement };
+    }
+
     while (currentElement !== null && currentElement !== document.documentElement) {
         if (currentElement.hasAttribute('data-root')) {
             return { current: currentElement };

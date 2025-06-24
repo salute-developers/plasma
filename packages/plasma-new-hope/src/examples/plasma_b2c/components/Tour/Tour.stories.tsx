@@ -8,6 +8,11 @@ import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 import { Button } from '../Button/Button';
 import { TextArea } from '../TextArea/TextArea';
+import { TextField } from '../TextField/TextField';
+import { Select } from '../Select/Select';
+import { Combobox } from '../Combobox/Combobox';
+import { Autocomplete } from '../Autocomplete/Autocomplete';
+import { RangeInputRefs } from '../../../../components/Range';
 
 import { config } from './Tour.config';
 import { Tour } from './Tour';
@@ -120,6 +125,10 @@ const StoryDefault = (args) => {
     const ref3 = useRef<HTMLDivElement>(null);
     const ref4 = useRef<HTMLDivElement>(null);
     const ref5 = useRef<HTMLDivElement>(null);
+    const ref6 = useRef<HTMLInputElement>(null);
+    const ref7 = useRef<HTMLButtonElement>(null);
+    const ref8 = useRef<HTMLInputElement>(null);
+    const ref9 = useRef<HTMLInputElement>(null);
     const [open, setOpen] = useState(false);
     const [current, setCurrent] = useState(0);
 
@@ -145,12 +154,93 @@ const StoryDefault = (args) => {
             placement: 'bottom',
         },
         {
-            target: ref2,
+            target: ref5,
             renderItem: () => (
                 <TourCard
                     title="Первый шаг"
                     description="Нажмите кнопку, чтобы продолжить"
                     index={1}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
+            placement: 'left',
+            borderRadius: '0.25rem',
+        },
+        {
+            target: ref6,
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={2}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
+            placement: 'bottom',
+        },
+        {
+            target: ref7,
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={3}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
+            placement: 'bottom',
+        },
+        {
+            target: ref8,
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={4}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
+            placement: 'bottom',
+        },
+        {
+            target: ref9,
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={5}
+                    last={current === steps.length - 1}
+                    total={steps.length}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onClose={onClose}
+                />
+            ),
+            placement: 'bottom',
+        },
+        {
+            target: ref2,
+            renderItem: () => (
+                <TourCard
+                    title="Первый шаг"
+                    description="Нажмите кнопку, чтобы продолжить"
+                    index={6}
                     last={current === steps.length - 1}
                     total={steps.length}
                     onNext={onNext}
@@ -165,7 +255,7 @@ const StoryDefault = (args) => {
                 <TourCard
                     title="Первый шаг"
                     description="Нажмите кнопку, чтобы продолжить"
-                    index={2}
+                    index={7}
                     last={current === steps.length - 1}
                     total={steps.length}
                     onNext={onNext}
@@ -180,7 +270,7 @@ const StoryDefault = (args) => {
                 <TourCard
                     title="Первый шаг"
                     description="Нажмите кнопку, чтобы продолжить"
-                    index={3}
+                    index={8}
                     last={current === steps.length - 1}
                     total={steps.length}
                     onNext={onNext}
@@ -189,23 +279,6 @@ const StoryDefault = (args) => {
                 />
             ),
             placement: 'left',
-        },
-        {
-            target: ref5,
-            renderItem: () => (
-                <TourCard
-                    title="Первый шаг"
-                    description="Нажмите кнопку, чтобы продолжить"
-                    index={4}
-                    last={current === steps.length - 1}
-                    total={steps.length}
-                    onNext={onNext}
-                    onPrev={onPrev}
-                    onClose={onClose}
-                />
-            ),
-            placement: 'left',
-            borderRadius: 'fixed',
         },
     ];
 
@@ -227,19 +300,49 @@ const StoryDefault = (args) => {
                     justifyContent: 'space-between',
                 }}
             >
-                <TextArea
-                    ref={ref1}
-                    label="Textarea"
-                    placeholder="Напиши что нибудь"
-                    leftHelper="Helper Text"
-                    rightHelper={
-                        <div ref={ref5} style={{ cursor: 'pointer', transform: 'rotate(-90deg)' }}>
-                            <IconArrowDown />
-                        </div>
-                    }
-                    rows={10}
-                    cols={20}
-                />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <TextArea
+                        ref={ref1}
+                        label="Textarea"
+                        placeholder="Напиши что нибудь"
+                        leftHelper="Helper Text"
+                        rightHelper={
+                            <div ref={ref5} style={{ cursor: 'pointer', transform: 'rotate(-90deg)' }}>
+                                <IconArrowDown />
+                            </div>
+                        }
+                        rows={10}
+                        cols={20}
+                    />
+                    <TextField
+                        size="s"
+                        ref={ref6}
+                        label="Textarea"
+                        placeholder="Напиши что нибудь"
+                        leftHelper="Helper Text"
+                    />
+                    <Select
+                        ref={ref7}
+                        items={[
+                            {
+                                value: 'north_america',
+                                label: 'Северная Америка',
+                            },
+                        ]}
+                        placeholder="Select"
+                    />
+                    <Combobox
+                        ref={ref8}
+                        items={[
+                            {
+                                value: 'north_america',
+                                label: 'Северная Америка',
+                            },
+                        ]}
+                        placeholder="Combobox"
+                    />
+                    <Autocomplete size="s" ref={ref9} items={[{ value: 'Test' }]} placeholder="Autocomplete" />
+                </div>
                 <Button ref={ref2}>Блок 2</Button>
             </div>
             <Button onClick={() => setOpen(true)}>Запуск тура</Button>
