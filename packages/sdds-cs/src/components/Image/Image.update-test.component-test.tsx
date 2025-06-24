@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
 const src = 'https://bit.ly/3xRatFGimages/320_320_0.jpg';
 
-describe('plasma-core: Image', () => {
+describe('sdds-cs: Image', () => {
     const Image = getComponent('Image');
 
     const Why = styled.div`
@@ -20,57 +20,51 @@ describe('plasma-core: Image', () => {
         });
     });
 
-    it('default', () => {
+    it.only('[PLASMA-T1734] Image: base=div, ratio=1/1', () => {
         mount(
             <CypressTestDecorator>
-                <Image src={src} width="320px" height="320px" />
+                <div style={{ maxWidth: '10rem' }}>
+                    <Image src={src} base="div" ratio="1/1" width="200px" height="200px" />
+                </div>
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
-    it('div', () => {
+    it.only('[PLASMA-T1735] Image: base=div, ratio=1/2, width=400, height=400', () => {
         mount(
             <CypressTestDecorator>
-                <Image base="div" src={src} width="320px" height="320px" />
+                <div style={{ maxWidth: '10rem' }}>
+                    <Image src={src} base="div" ratio="1/2" width="400px" height="400px" />
+                </div>
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
-    it('_ratio', () => {
-        const ratios = Object.keys({
-            '1 / 1': '100',
-            '1/1': '100',
-            '3 / 4': '133.3333',
-            '3/4': '133.3333',
-            '4 / 3': '75',
-            '4/3': '75',
-            '9 / 16': '177.7778',
-            '9/16': '177.7778',
-            '16 / 9': '56.25',
-            '16/9': '56.25',
-            '1 / 2': '200',
-            '1/2': '200',
-            '2 / 1': '50',
-            '2/1': '50',
-        });
-
+    it.only('[PLASMA-T1736] Image: base=img, ratio=3/4, width=350, height=250', () => {
         mount(
             <CypressTestDecorator>
-                {ratios.map((ratio) => (
-                    <Fragment key={ratio}>
-                        <Why key="_base_div">
-                            <Image base="div" ratio={ratio} src={src} />
-                        </Why>
-                        <Why key="_base_img">
-                            <Image ratio={ratio} src={src} />
-                        </Why>
-                        <PadMe />
-                    </Fragment>
-                ))}
+                <div style={{ maxWidth: '10rem' }}>
+                    <Image src={src} base="img" ratio="3/4" width="350px" height="250px" />
+                </div>
             </CypressTestDecorator>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it.only('[PLASMA-T1737] Image: base=img, ratio=16/9, width=200, height=200', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ maxWidth: '10rem' }}>
+                    <Image src={src} base="img" ratio="16/9" width="200px" height="200px" />
+                </div>
+            </CypressTestDecorator>,
+        );
+
         cy.matchImageSnapshot();
     });
 
