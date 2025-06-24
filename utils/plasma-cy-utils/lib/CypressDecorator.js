@@ -7,6 +7,7 @@ exports.CypressTestDecorator = exports.getComponent = void 0;
 var react_1 = __importDefault(require("react"));
 var styled_components_1 = require("styled-components");
 var plasma_themes_1 = require("@salutejs/plasma-themes");
+var sdds_themes_1 = require("@salutejs/sdds-themes");
 // plasma-web
 var typo_1 = require("@salutejs/plasma-tokens-web/typo");
 var themes_1 = require("@salutejs/plasma-tokens-web/themes");
@@ -18,6 +19,7 @@ var plasma_typo_1 = require("@salutejs/plasma-typo");
 var SSRProvider_1 = require("./SSRProvider");
 // NOTE: new theme format
 var ThemeGIGA = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_giga__light);
+var ThemeCS = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_cs__light);
 // TODO: better naming
 var TypoThemeStyle = (0, styled_components_1.createGlobalStyle)(typo_1.web);
 var WebLightThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_1.light);
@@ -27,6 +29,7 @@ var ColorB2CStyle = (0, styled_components_1.createGlobalStyle)(themes_3.dark);
 var ThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_2.darkSber);
 var testPackagesThemes = {
     'plasma-giga': react_1.default.createElement(ThemeGIGA, null),
+    'sdds-cs': react_1.default.createElement(ThemeCS, null),
 };
 var getComponent = function (componentName) {
     var pkgName = Cypress.env('package');
@@ -47,6 +50,9 @@ var getComponent = function (componentName) {
             break;
         case 'plasma-giga':
             pkg = require('../../../packages/plasma-giga');
+            break;
+        case 'sdds-cs':
+            pkg = require('../../../packages/sdds-cs');
             break;
         default:
             throw new Error("Library ".concat(pkgName, " is not required in plasma-core/CypressHelpers:getComponent"));
@@ -83,7 +89,7 @@ var CypressTestDecorator = function (_a) {
             react_1.default.createElement(ColorB2CStyle, null),
             children));
     }
-    if (pkgName === 'plasma-giga') {
+    if (['plasma-giga', 'sdds-cs'].includes(pkgName)) {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
             testPackagesThemes[pkgName],
             children));
