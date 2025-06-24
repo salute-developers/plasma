@@ -2001,4 +2001,79 @@ describe('plasma-giga: Combobox', () => {
         cy.get('.chips-wrapper').contains('minsk').click();
         cy.get('.chips-wrapper').should('not.exist');
     });
+
+    it('flow, single: update label after getting new items', () => {
+        cy.viewport(500, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('random_value');
+            const [data, setData] = React.useState(items);
+
+            const handleToggle = () => {
+                setData([...data, { value: 'random_value', label: 'Random value' }]);
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Combobox
+                                id="combobox"
+                                label="Label"
+                                placeholder="Placeholder"
+                                items={data}
+                                value={valueSingle}
+                                onChange={setValueSingle}
+                                onToggle={handleToggle}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('flow, multiple: update label after getting new items', () => {
+        cy.viewport(500, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState(['random_value']);
+            const [data, setData] = React.useState(items);
+
+            const handleToggle = () => {
+                setData([...data, { value: 'random_value', label: 'Random value' }]);
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Combobox
+                                multiple
+                                id="combobox"
+                                label="Label"
+                                placeholder="Placeholder"
+                                items={data}
+                                value={valueSingle}
+                                onChange={setValueSingle}
+                                onToggle={handleToggle}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
 });
