@@ -67,7 +67,7 @@ const isDisabledNextDate = (
 
     let isOut = true;
 
-    while (isOut && includeEdgeDates ? currentDate < maxDate : currentDate <= maxDate) {
+    while (isOut && (includeEdgeDates ? currentDate < maxDate : currentDate <= maxDate)) {
         isOut = includeEdgeDates ? maxDate < currentDate : maxDate <= currentDate;
 
         dateOperationHandler[type].add(currentDate);
@@ -95,7 +95,7 @@ const isDisabledPreviousDate = (
 
     let isOut = true;
 
-    while (isOut && includeEdgeDates ? currentDate > minDate : currentDate >= minDate) {
+    while (isOut && (includeEdgeDates ? currentDate > minDate : currentDate >= minDate)) {
         isOut = includeEdgeDates ? minDate > currentDate : minDate >= currentDate;
 
         dateOperationHandler[type].subtract(currentDate);
