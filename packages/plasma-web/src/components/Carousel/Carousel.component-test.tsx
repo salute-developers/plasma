@@ -69,7 +69,7 @@ describe('plasma-web: Carousel', () => {
         cy.get('.carousel-right-control-button').click();
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200);
+        cy.wait(250);
 
         cy.matchImageSnapshot();
     });
