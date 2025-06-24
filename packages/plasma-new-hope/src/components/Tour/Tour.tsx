@@ -10,7 +10,7 @@ import type { TourProps } from './Tour.types';
 import { MaskContainer, Mask, Highlight, TourPortal } from './Tour.styles';
 import { base as viewCSS } from './variatoins/_view/base';
 import { base as sizeCSS } from './variatoins/_size/base';
-import { classes, tokens } from './Tour.tokens';
+import { classes } from './Tour.tokens';
 
 const TOUR_PORTAL_ID = 'plasma-tour-portal';
 
@@ -37,8 +37,8 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             },
             outerRef,
         ) => {
-            const controlled = typeof current === 'number';
-            const controlledOpen = typeof open === 'boolean';
+            const isCurrentControlled = typeof current === 'number';
+            const isOpenControlled = typeof open === 'boolean';
 
             const [innerCurrent, setInnerCurrent] = useState(defaultCurrent);
             const [innerOpen, setInnerOpen] = useState(defaultOpen);
@@ -47,20 +47,20 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
 
             const portalRef = useRef<HTMLElement | null>(null);
-            const floatingRef = useRef<HTMLDivElement | null>(null);
 
-            const active = controlled ? (current as number) : innerCurrent;
-            const isOpen = controlledOpen ? (open as boolean) : innerOpen;
+            const active = isCurrentControlled ? (current as number) : innerCurrent;
+            const isOpen = isOpenControlled ? (open as boolean) : innerOpen;
 
             const currentStep = steps[active];
 
             const placement = useMemo(() => {
-                if (!currentStep) return 'bottom';
+                if (!currentStep) {
+                    return 'bottom';
+                }
 
                 if (Array.isArray(currentStep.placement)) {
                     return currentStep.placement[0] || 'bottom';
                 }
-
                 return currentStep.placement || 'bottom';
             }, [currentStep]);
 
@@ -72,7 +72,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                     }),
                     shift({ padding: shiftProp }),
                 ],
-                [currentStep?.placement],
+                [offsetProp, shiftProp, currentStep?.placement],
             );
 
             const { refs, floatingStyles, placement: calculatedPlacement } = useFloating({
@@ -81,60 +81,66 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 whileElementsMounted: autoUpdate,
             });
 
-            useEffect(() => {
-                refs.setReference(targetElement);
-            }, [refs, targetElement]);
-
-            const setOpen = useCallback(
-                (val: boolean) => {
-                    if (!controlledOpen) {
-                        setInnerOpen(val);
+            const handleSetOpen = useCallback(
+                (value: boolean) => {
+                    if (!isOpenControlled) {
+                        setInnerOpen(value);
                     }
-                    if (!val) {
+                    if (!value) {
                         onClose?.();
                         setInnerCurrent(0);
                         setHighlightRect(null);
                         setTargetElement(null);
                     }
                 },
-                [controlledOpen, onClose],
+                [isOpenControlled, onClose],
             );
 
-            const handleClose = () => setOpen(false);
+            const handleClose = () => {
+                handleSetOpen(false);
+            };
 
-            const updateHighlight = useCallback(() => {
-                if (!isOpen || !currentStep) return;
+            const updateHighlight = () => {
+                if (!isOpen || !currentStep) {
+                    return;
+                }
+
                 const rootItem = findRootElement(currentStep.target as any) as any;
-
                 const highlightElement = getHTMLElement(rootItem);
-
-                const borderRadius =
-                    currentStep.borderRadius === 'fixed'
-                        ? `var(${tokens.highlightRadius})`
-                        : getIncreasedRadius(rootItem, highlightOffset);
-                setHighlightBorderRadius(borderRadius);
 
                 if (highlightElement) {
                     const rect = highlightElement.getBoundingClientRect();
                     setHighlightRect(rect);
                     setTargetElement(highlightElement);
+
+                    const borderRadius =
+                        currentStep.borderRadius === 'auto' ||
+                        currentStep.borderRadius === undefined ||
+                        currentStep.borderRadius === null
+                            ? getIncreasedRadius(rootItem, highlightOffset)
+                            : currentStep?.borderRadius ?? '0px';
+                    setHighlightBorderRadius(borderRadius);
                 } else {
                     setHighlightRect(null);
                     setTargetElement(null);
                 }
-            }, [isOpen, currentStep]);
+            };
 
             useEffect(() => {
-                if (!canUseDOM) return;
+                refs.setReference(targetElement);
+            }, [refs, targetElement]);
+
+            useEffect(() => {
+                if (!canUseDOM) {
+                    return;
+                }
 
                 let portal = document.getElementById(TOUR_PORTAL_ID);
-
                 if (!portal) {
                     portal = document.createElement('div');
                     portal.setAttribute('id', TOUR_PORTAL_ID);
                     document.body.appendChild(portal);
                 }
-
                 portalRef.current = portal;
 
                 return () => {
@@ -147,28 +153,24 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             useEffect(() => {
                 updateHighlight();
 
-                const handleUpdate = () => {
-                    updateHighlight();
-                };
-
-                window.addEventListener('resize', handleUpdate);
-                window.addEventListener('scroll', handleUpdate, true);
+                window.addEventListener('resize', updateHighlight);
+                window.addEventListener('scroll', updateHighlight, true);
 
                 return () => {
-                    window.removeEventListener('resize', handleUpdate);
-                    window.removeEventListener('scroll', handleUpdate, true);
+                    window.removeEventListener('resize', updateHighlight);
+                    window.removeEventListener('scroll', updateHighlight, true);
                 };
             }, [updateHighlight]);
 
             useEffect(() => {
-                if (!isOpen || !currentStep || !targetElement) return;
-
-                targetElement.scrollIntoView({
-                    block: 'center',
-                    inline: 'center',
-                    behavior: 'smooth',
-                });
-            }, [isOpen, active, currentStep, targetElement]);
+                if (isOpen && targetElement) {
+                    targetElement.scrollIntoView({
+                        block: 'center',
+                        inline: 'center',
+                        behavior: 'smooth',
+                    });
+                }
+            }, [isOpen, active, targetElement]);
 
             useEffect(() => {
                 const handleKeyDown = (e: KeyboardEvent) => {
@@ -184,36 +186,36 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 return () => {
                     window.removeEventListener('keydown', handleKeyDown);
                 };
-            }, [isOpen]);
+            }, [isOpen, handleClose]);
 
-            if (!currentStep || !canUseDOM || !portalRef.current) return null;
+            if (!currentStep || !canUseDOM || !portalRef.current) {
+                return null;
+            }
 
             const tourContent = (
                 <Root steps={steps} ref={outerRef} className={className} view={view} size={size} {...rest}>
                     {isOpen && withOverlay && (
                         <MaskContainer className={classes.mask} zIndex={zIndex} data-plasma-tour-mask>
                             <Mask />
-                            {highlightRect && (
+
+                            {Boolean(highlightRect) && (
                                 <Highlight
                                     overlayColor={overlayColor}
                                     borderRadius={highlightBorderRadius}
                                     style={{
-                                        left: highlightRect.left - highlightOffset,
-                                        top: highlightRect.top - highlightOffset,
-                                        width: highlightRect.width + highlightOffset * 2,
-                                        height: highlightRect.height + highlightOffset * 2,
+                                        left: (highlightRect?.left ?? 0) - highlightOffset,
+                                        top: (highlightRect?.top ?? 0) - highlightOffset,
+                                        width: (highlightRect?.width ?? 0) + highlightOffset * 2,
+                                        height: (highlightRect?.height ?? 0) + highlightOffset * 2,
                                     }}
                                 />
                             )}
                         </MaskContainer>
                     )}
 
-                    {isOpen && targetElement && (
+                    {isOpen && Boolean(targetElement) && (
                         <TourPortal
-                            ref={(node) => {
-                                refs.setFloating(node);
-                                floatingRef.current = node;
-                            }}
+                            ref={refs.setFloating}
                             style={{
                                 ...floatingStyles,
                                 zIndex: Number(zIndex),

@@ -16,7 +16,7 @@ export interface TourStep {
     /**
      * Скругление углов
      */
-    borderRadius?: 'auto' | 'fixed';
+    borderRadius?: 'auto' | string;
 }
 
 export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {

@@ -512,6 +512,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     onKeyDown={handleOnKeyDown}
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
+                                    data-tour
                                     {...rest}
                                 />
                                 {hasInnerLabel && (

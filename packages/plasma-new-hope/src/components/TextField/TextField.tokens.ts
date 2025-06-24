@@ -218,5 +218,5 @@ export const tokens = {
     clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
     clearIndicatorHintInnerRight: '--plasma-textfield__clear-indicator-hint-placement-inner-right',
 
-    tourBorderRadius: '--plasma-textfield-tour-border-radius',
+    tourBorderRadius: '--plasma-tour__border-radius',
 };
