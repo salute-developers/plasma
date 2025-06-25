@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, CSSProperties } from 'react';
 
 export interface TourStep {
     /**
@@ -16,7 +16,7 @@ export interface TourStep {
     /**
      * Скругление углов
      */
-    borderRadius?: 'auto' | string;
+    borderRadius?: 'auto' | CSSProperties['borderRadius'];
 }
 
 export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -55,7 +55,7 @@ export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
     /**
      * Флаг на наличие фона у тура
      */
-    zIndex?: string;
+    zIndex?: CSSProperties['zIndex'];
     /**
      * Вид тура
      */
@@ -67,11 +67,7 @@ export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
     /**
      * Отступ окна относительно элемента, по основной оси
      */
-    offset?: number;
-    /**
-     * Отступ окна относительно элемента, по второстепенной оси
-     */
-    shift?: number;
+    offset?: [number, number];
     /**
      * Отступ высветленного блока
      */
@@ -79,7 +75,7 @@ export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
     /**
      * Цвет фона у тура
      */
-    overlayColor?: string;
+    overlayColor?: CSSProperties['color'];
     /**
      * Кастомный Overlay
      */

@@ -1,3 +1,5 @@
+import { TOUR_BORDER_RADIUS_TOKEN } from '../Tour/utils';
+
 export const classes = {
     hasChips: 'has-chips',
     chipsWrapper: 'chips-wrapper',
@@ -218,5 +220,5 @@ export const tokens = {
     clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
     clearIndicatorHintInnerRight: '--plasma-textfield__clear-indicator-hint-placement-inner-right',
 
-    tourBorderRadius: '--plasma-tour__border-radius',
+    tourBorderRadius: TOUR_BORDER_RADIUS_TOKEN,
 };

@@ -1,7 +1,8 @@
 import { styled } from '@linaria/react';
+import { CSSProperties } from 'react';
 
-export const MaskContainer = styled.div<{ zIndex: string | number }>`
-    z-index: ${({ zIndex }) => zIndex};
+export const MaskContainer = styled.div<{ zIndex: CSSProperties['zIndex'] }>`
+    z-index: ${({ zIndex }) => zIndex || 9000};
 `;
 
 export const Mask = styled.div`
@@ -10,7 +11,10 @@ export const Mask = styled.div`
     pointer-events: all;
 `;
 
-export const Highlight = styled.div<{ overlayColor?: string; borderRadius?: string | null }>`
+export const Highlight = styled.div<{
+    overlayColor?: CSSProperties['color'];
+    borderRadius?: CSSProperties['borderRadius'] | null;
+}>`
     --private-mask-color: ${({ overlayColor }) => `${overlayColor || 'rgba(0, 0, 0, 0.45)'}`};
     position: fixed;
     background: transparent;

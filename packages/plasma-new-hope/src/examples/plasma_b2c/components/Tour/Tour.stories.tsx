@@ -377,6 +377,7 @@ const StoryDefault = (args) => {
 
             <Tour
                 {...args}
+                offset={[args.offset, args.shift]}
                 open={open}
                 current={current}
                 onClose={() => {

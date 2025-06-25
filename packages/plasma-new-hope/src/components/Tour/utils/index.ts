@@ -8,6 +8,10 @@ type contextType = {
     height: number;
 };
 
+export const TOUR_FINDER_MARK = 'data-tour';
+export const ROOT_COMPONENT = 'data-root';
+export const TOUR_BORDER_RADIUS_TOKEN = '--plasma-tour__border-radius';
+
 export const getHTMLElement = (target: string | React.RefObject<HTMLElement> | HTMLElement): HTMLElement | null => {
     if (!target) {
         return null;
@@ -28,7 +32,7 @@ export const getIncreasedRadius = (ref: React.RefObject<HTMLElement>, offset: nu
 
     const element = ref.current;
     const computedStyle = getComputedStyle(element);
-    const borderRadiusComponent = computedStyle.getPropertyValue('--plasma-tour__border-radius');
+    const borderRadiusComponent = computedStyle.getPropertyValue(TOUR_BORDER_RADIUS_TOKEN);
     const currentRadius =
         computedStyle.borderRadius !== undefined &&
         computedStyle.borderRadius !== null &&
@@ -102,12 +106,12 @@ export const findRootElement = (ref: React.RefObject<HTMLElement>): React.RefObj
 
     let currentElement = ref.current;
 
-    if (!currentElement?.hasAttribute('data-tour')) {
+    if (!currentElement?.hasAttribute(TOUR_FINDER_MARK)) {
         return { current: currentElement };
     }
 
     while (currentElement !== null && currentElement !== document.documentElement) {
-        if (currentElement.hasAttribute('data-root')) {
+        if (currentElement.hasAttribute(ROOT_COMPONENT)) {
             return { current: currentElement };
         }
 
@@ -120,7 +124,7 @@ export const findRootElement = (ref: React.RefObject<HTMLElement>): React.RefObj
         currentElement = parent;
     }
 
-    if (currentElement?.hasAttribute('data-root')) {
+    if (currentElement?.hasAttribute(ROOT_COMPONENT)) {
         return { current: currentElement };
     }
 
