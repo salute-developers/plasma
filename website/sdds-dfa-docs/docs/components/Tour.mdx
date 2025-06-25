@@ -1,0 +1,218 @@
+---
+id: tour
+title: Tour
+---
+
+import { PropsTable } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Tour
+
+Компонент для проведения пошагового обучения пользователя (`onboarding`) по элементам интерфейса. Позволяет подсвечивать нужные элементы и показывать рядом с ними подсказки.
+
+<PropsTable name="Tour" />
+
+Компонент является полностью контролируемым. Для его работы необходимо управлять состоянием видимости (`open`) и текущим шагом (`current`) извне.
+
+Ключевым параметром является массив `steps`. Каждый элемент этого массива — это объект, описывающий один шаг тура.
+
+```tsx
+type TourStep = {
+    /**
+     * Ссылка (ref) на DOM-элемент, который необходимо подсветить.
+     */
+    target: React.RefObject<HTMLElement>;
+    /**
+     * Расположение подсказки относительно целевого элемента.
+     * @default 'bottom'
+     */
+    placement?:
+        | 'top'
+        | 'bottom'
+        | 'right'
+        | 'left'
+        | 'top-start'
+        | 'top-end'
+        | 'bottom-start'
+        | 'bottom-end'
+        | 'right-start'
+        | 'right-end'
+        | 'left-start'
+        | 'left-end';
+    /**
+     * Скругление углов для подсвечиваемой области.
+     */
+    borderRadius?: 'auto' | CSSProperties['color'];
+    /**
+     * Название карточки
+     */
+    title?: string;
+    /**
+     * Описание карточки
+     */
+    description?: string;
+};
+```
+
+## Пример
+
+В примере ниже показано, как создать тур по нескольким элементам на странице. Управление состоянием (текущий шаг, открыт/закрыт тур) осуществляется с помощью хуков `useState` и `useRef`.
+
+
+```tsx live
+import React, { useRef, useState } from 'react';
+import { Tour, Button, TextField } from '@salutejs/sdds-dfa';
+import styled from 'styled-components';
+
+export function App() {
+    const ref1 = useRef(null);
+    const ref2 = useRef(null);
+    const ref3 = useRef(null);
+
+    const [open, setOpen] = useState(false);
+    const [current, setCurrent] = useState(0);
+
+    const onNext = () => setCurrent(current + 1);
+    const onPrev = () => setCurrent(current - 1);
+    const onClose = () => {
+        setOpen(false);
+        setCurrent(0);
+    };
+
+
+    const Card = styled.div`
+        padding: 1rem;
+        background: #fff;
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+        border-radius: 0.75rem;
+        max-width: 20rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    `;
+
+    const Title = styled.h4`
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #000;
+    `;
+
+    const Description = styled.p`
+        margin: 0;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: #666;
+    `;
+
+    const Footer = styled.div`
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+
+        > div {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        small {
+            color: #666;
+            white-space: nowrap;
+        }
+    `;
+
+
+    const renderTourCard = (currentStep: number, length, last, step) => {
+        return (
+            <Card>
+                {step.title && <Title>{step.title}</Title>}
+                {step.description && <Description>{step.description}</Description>}
+                <Footer>
+                    <div>
+                        {currentStep > 0 && (
+                            <Button size="xs" type="button" onClick={onPrev}>
+                                Назад
+                            </Button>
+                        )}
+                        {!last && (
+                            <Button size="xs" type="button" onClick={onNext}>
+                                Далее
+                            </Button>
+                        )}
+                        {last && (
+                            <Button size="xs" type="button" onClick={onClose}>
+                                Закрыть
+                            </Button>
+                        )}
+                    </div>
+                    <small>
+                        Шаг {currentStep + 1} / {length}
+                    </small>
+                </Footer>
+            </Card>
+        );
+    };
+
+    const steps = [
+        {
+            target: ref1,
+            title: 'Title 1',
+            description: 'Description text for title 1',
+            placement: 'bottom',
+        },
+        {
+            target: ref2,
+            placement: 'top',
+            title: 'Title 2',
+            description: 'Description text for title 2',
+        },
+        {
+            target: ref3,
+            placement: 'left',
+            borderRadius: '50%',
+            title: 'Title 3',
+            description: 'Description text for title 3',
+        },
+    ];
+
+    return (
+        <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '8rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <TextField ref={ref1} label="Ваше имя" placeholder="Иван Иванов" />
+                <div
+                    ref={ref3}
+                    style={{
+                        background: 'grey',
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '50%',
+                    }}
+                />
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+                <Button view="primary" onClick={() => setOpen(true)}>
+                    Запустить тур
+                </Button>
+                <Button ref={ref2} view="secondary">
+                    Сохранить
+                </Button>
+            </div>
+
+            <Tour
+                open={open}
+                current={current}
+                onClose={onClose}
+                renderStep={renderTourCard}
+                steps={steps}
+                withOverlay
+                highlightOffset={4}
+                offset={[12, 12]}
+            />
+        </div>
+    );
+}
+```

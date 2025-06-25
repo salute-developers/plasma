@@ -6,10 +6,6 @@ export interface TourStep {
      */
     target: string | React.RefObject<HTMLElement> | HTMLElement | ReactNode;
     /**
-     * Карточка шага
-     */
-    renderItem: () => JSX.Element;
-    /**
      * Позиционирование карточки
      */
     placement?: string;
@@ -17,6 +13,14 @@ export interface TourStep {
      * Скругление углов
      */
     borderRadius?: 'auto' | CSSProperties['borderRadius'];
+    /**
+     * Название карточки
+     */
+    title?: string;
+    /**
+     * Описание карточки
+     */
+    description?: string;
 }
 
 export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -45,15 +49,19 @@ export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
      */
     onChange?: (current: number) => void;
     /**
+     * Callback для отображения карточки. Требуется вернуть ReactNide
+     */
+    renderStep: (current: number, length: number, last: boolean, step: TourStep) => ReactNode;
+    /**
      * Callback при закрытии тура
      */
     onClose?: () => void;
     /**
-     * Флаг на наличие фона у тура
+     * Наличие overlay у тура
      */
     withOverlay?: boolean;
     /**
-     * Флаг на наличие фона у тура
+     * Значение z-index
      */
     zIndex?: CSSProperties['zIndex'];
     /**
@@ -76,8 +84,4 @@ export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
      * Цвет фона у тура
      */
     overlayColor?: CSSProperties['color'];
-    /**
-     * Кастомный Overlay
-     */
-    overlay?: ReactNode;
 }

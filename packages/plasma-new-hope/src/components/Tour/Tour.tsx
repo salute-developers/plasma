@@ -1,6 +1,6 @@
-import React, { forwardRef, useEffect, useState, useRef, useMemo, CSSProperties } from 'react';
+import React, { forwardRef, useEffect, useState, useRef, CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
-import { useFloating, offset, flip, shift, autoUpdate } from '@floating-ui/react-dom';
+import { useFloating, offset, flip, shift, autoUpdate, Placement } from '@floating-ui/react-dom';
 
 import { RootProps } from '../../engines';
 import { canUseDOM } from '../../utils';
@@ -11,8 +11,6 @@ import { MaskContainer, Mask, Highlight, TourPortal } from './Tour.styles';
 import { base as viewCSS } from './variatoins/_view/base';
 import { base as sizeCSS } from './variatoins/_size/base';
 import { classes } from './Tour.tokens';
-
-const TOUR_PORTAL_ID = 'plasma-tour-portal';
 
 export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
     forwardRef<HTMLDivElement, TourProps>(
@@ -31,10 +29,12 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 size,
                 offset: offsetProp = [12, 12],
                 highlightOffset = 4,
+                renderStep,
                 ...rest
             },
             outerRef,
         ) => {
+            const TOUR_PORTAL_ID = `plasma-tour-portal-${Date.now()}`;
             const isCurrentControlled = typeof current === 'number';
             const isOpenControlled = typeof open === 'boolean';
 
@@ -53,16 +53,8 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
 
             const currentStep = steps[active];
 
-            const placement = useMemo(() => {
-                if (!currentStep) {
-                    return 'bottom';
-                }
-
-                if (Array.isArray(currentStep.placement)) {
-                    return currentStep.placement[0] || 'bottom';
-                }
-                return currentStep.placement || 'bottom';
-            }, [currentStep]);
+            const rawPlacement = currentStep?.placement;
+            const placement: Placement = (Array.isArray(rawPlacement) ? rawPlacement[0] : rawPlacement) || 'bottom';
 
             const middleware = [
                 offset(offsetProp[0]),
@@ -154,7 +146,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                     window.removeEventListener('resize', updateHighlight);
                     window.removeEventListener('scroll', updateHighlight, true);
                 };
-            }, [updateHighlight]);
+            }, [currentStep]);
 
             useEffect(() => {
                 if (isOpen && targetElement) {
@@ -187,7 +179,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             }
 
             const tourContent = (
-                <Root steps={steps} ref={outerRef} view={view} size={size} {...rest}>
+                <Root renderStep={renderStep} steps={steps} ref={outerRef} view={view} size={size} {...rest}>
                     {isOpen && withOverlay && (
                         <MaskContainer className={classes.mask} zIndex={zIndex}>
                             <Mask />
@@ -216,7 +208,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                             }}
                             data-placement={calculatedPlacement}
                         >
-                            {currentStep.renderItem()}
+                            {renderStep && renderStep(active, steps.length, active === steps.length - 1, steps[active])}
                         </TourPortal>
                     )}
                 </Root>
