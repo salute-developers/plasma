@@ -1,3 +1,5 @@
+import { canUseDOM } from 'src/utils';
+
 type parseRadiusType = {
     horizontal: number[];
     vertical: number[];
@@ -13,7 +15,7 @@ export const ROOT_COMPONENT = 'data-root';
 export const TOUR_BORDER_RADIUS_TOKEN = '--plasma-tour__border-radius';
 
 export const getHTMLElement = (target: string | React.RefObject<HTMLElement> | HTMLElement): HTMLElement | null => {
-    if (!target) {
+    if (!target || !canUseDOM) {
         return null;
     }
     if (typeof target === 'string') {
