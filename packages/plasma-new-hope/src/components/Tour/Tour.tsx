@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useState, useRef, useMemo } from 'react';
+import React, { forwardRef, useEffect, useState, useRef, useMemo, CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
 import { useFloating, offset, flip, shift, autoUpdate } from '@floating-ui/react-dom';
 
@@ -26,13 +26,11 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 onClose,
                 withOverlay = true,
                 overlayColor,
-                zIndex = 9300,
+                zIndex = 9000,
                 view,
                 size,
-                shift: shiftProp = 12,
-                offset: offsetProp = 12,
+                offset: offsetProp = [12, 12],
                 highlightOffset = 4,
-                className,
                 ...rest
             },
             outerRef,
@@ -43,7 +41,9 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             const [innerCurrent, setInnerCurrent] = useState(defaultCurrent);
             const [innerOpen, setInnerOpen] = useState(defaultOpen);
             const [highlightRect, setHighlightRect] = useState<DOMRect | null>(null);
-            const [highlightBorderRadius, setHighlightBorderRadius] = useState<string | null>(null);
+            const [highlightBorderRadius, setHighlightBorderRadius] = useState<
+                string | CSSProperties['borderRadius'] | null
+            >(null);
             const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
 
             const portalRef = useRef<HTMLElement | null>(null);
@@ -64,16 +64,13 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 return currentStep.placement || 'bottom';
             }, [currentStep]);
 
-            const middleware = useMemo(
-                () => [
-                    offset(offsetProp),
-                    flip({
-                        fallbackPlacements: Array.isArray(currentStep?.placement) ? currentStep.placement : undefined,
-                    }),
-                    shift({ padding: shiftProp }),
-                ],
-                [offsetProp, shiftProp, currentStep?.placement],
-            );
+            const middleware = [
+                offset(offsetProp[0]),
+                flip({
+                    fallbackPlacements: Array.isArray(currentStep?.placement) ? currentStep.placement : undefined,
+                }),
+                shift({ padding: offsetProp[1] }),
+            ];
 
             const { refs, floatingStyles, placement: calculatedPlacement } = useFloating({
                 placement,
@@ -81,20 +78,17 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 whileElementsMounted: autoUpdate,
             });
 
-            const handleSetOpen = useCallback(
-                (value: boolean) => {
-                    if (!isOpenControlled) {
-                        setInnerOpen(value);
-                    }
-                    if (!value) {
-                        onClose?.();
-                        setInnerCurrent(0);
-                        setHighlightRect(null);
-                        setTargetElement(null);
-                    }
-                },
-                [isOpenControlled, onClose],
-            );
+            const handleSetOpen = (value: boolean) => {
+                if (!isOpenControlled) {
+                    setInnerOpen(value);
+                }
+                if (!value) {
+                    onClose?.();
+                    setInnerCurrent(0);
+                    setHighlightRect(null);
+                    setTargetElement(null);
+                }
+            };
 
             const handleClose = () => {
                 handleSetOpen(false);
@@ -144,7 +138,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
                 portalRef.current = portal;
 
                 return () => {
-                    if (portal && portal.childNodes.length === 0) {
+                    if (portal) {
                         portal.remove();
                     }
                 };
@@ -193,9 +187,9 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, TourProps>) =>
             }
 
             const tourContent = (
-                <Root steps={steps} ref={outerRef} className={className} view={view} size={size} {...rest}>
+                <Root steps={steps} ref={outerRef} view={view} size={size} {...rest}>
                     {isOpen && withOverlay && (
-                        <MaskContainer className={classes.mask} zIndex={zIndex} data-plasma-tour-mask>
+                        <MaskContainer className={classes.mask} zIndex={zIndex}>
                             <Mask />
 
                             {Boolean(highlightRect) && (

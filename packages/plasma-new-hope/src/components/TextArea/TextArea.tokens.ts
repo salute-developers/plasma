@@ -1,3 +1,5 @@
+import { TOUR_BORDER_RADIUS_TOKEN } from '../Tour/utils';
+
 export const classes = {
     /** Класс отвечающий за поднятие и уменьшение плейсхолдера */
     innerPlaceholderUp: 'inner-placeholder-up',
@@ -271,5 +273,5 @@ export const tokens = {
     tooltipArrowEdgeMargin: '--plasma-textarea__tooltip-arrow-edge-margin',
     tooltipArrowBackground: '--plasma-textarea__tooltip-arrow-background',
 
-    tourBorderRadius: '--plasma-tour__border-radius',
+    tourBorderRadius: TOUR_BORDER_RADIUS_TOKEN,
 };

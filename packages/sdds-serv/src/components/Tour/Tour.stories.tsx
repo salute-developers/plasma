@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { getConfigVariations } from '@salutejs/plasma-sb-utils';
-import { IconArrowDown } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button/Button';
 

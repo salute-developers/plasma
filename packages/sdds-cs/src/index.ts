@@ -63,6 +63,7 @@ export * from './components/NumberFormat';
 export * from './components/Table';
 export * from './components/ToastNew';
 export * from './components/Carousel';
+export * from './components/Tour';
 
 export * from './mixins';
 export * from './tokens';
