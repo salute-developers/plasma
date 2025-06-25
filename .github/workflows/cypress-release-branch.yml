@@ -12,29 +12,60 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  cypress:
+  cypress_plasma:
     if: ${{ startsWith(github.head_ref, 'release') }}
     strategy:
       fail-fast: false
       matrix:
-        scope: [web,b2c,ui]
+        scope: [web,b2c,ui,giga]
     
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
+      prefix: "plasma"
       with-artifacts: true
     secrets: inherit
   
-  cypress-react-17:
+  cypress_plasma-react-17:
     if: ${{ startsWith(github.head_ref, 'release') }}
     strategy:
       fail-fast: false
       matrix:
-        scope: [web,b2c,ui]
+        scope: [web,b2c,ui,giga]
     
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
+      prefix: "plasma"
+      with-react-17: true
+      with-artifacts: true
+    secrets: inherit
+
+  cypress_sdds:
+    if: ${{ startsWith(github.head_ref, 'release') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [cs]
+    
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      prefix: "sdds"
+      with-artifacts: true
+    secrets: inherit
+  
+  cypress_sdds-react-17:
+    if: ${{ startsWith(github.head_ref, 'release') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [cs]
+    
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      prefix: "sdds"
       with-react-17: true
       with-artifacts: true
     secrets: inherit
