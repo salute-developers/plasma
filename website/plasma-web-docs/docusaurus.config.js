@@ -31,6 +31,9 @@ module.exports = {
     projectName: 'Plasma',
     trailingSlash: true,
     themes: ['@docusaurus/theme-live-codeblock', 'docusaurus-theme-search-typesense'],
+    future: {
+        experimental_faster: true,
+    },
     themeConfig: {
         navbar: {
             title: 'Plasma',
