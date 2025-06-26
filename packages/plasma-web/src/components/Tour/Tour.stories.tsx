@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
-import { getConfigVariations } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconArrowDown } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button/Button';
@@ -18,11 +18,6 @@ const meta: Meta<typeof Tour> = {
         withOverlay: {
             type: 'boolean',
         },
-        overlayColor: {
-            control: {
-                type: 'color',
-            },
-        },
         size: {
             options: sizes,
             control: {
@@ -35,6 +30,7 @@ const meta: Meta<typeof Tour> = {
                 type: 'select',
             },
         },
+        ...disableProps(['view', 'size']),
     },
 };
 
@@ -209,7 +205,6 @@ export const Default: StoryObj = {
         offset: 12,
         shift: 12,
         highlightOffset: 4,
-        overlayColor: 'rgba(255, 255, 255, 0.25)',
     },
     render: (args) => <StoryDefault {...args} />,
 };

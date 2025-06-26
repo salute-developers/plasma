@@ -25,11 +25,6 @@ const meta: Meta<typeof Tour> = {
         withOverlay: {
             type: 'boolean',
         },
-        overlayColor: {
-            control: {
-                type: 'color',
-            },
-        },
     },
 };
 

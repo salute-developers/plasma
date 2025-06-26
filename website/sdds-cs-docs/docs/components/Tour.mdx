@@ -133,17 +133,17 @@ export function App() {
                 <Footer>
                     <div>
                         {currentStep > 0 && (
-                            <Button size="xs" type="button" onClick={onPrev}>
+                            <Button size="s" type="button" onClick={onPrev}>
                                 Назад
                             </Button>
                         )}
                         {!last && (
-                            <Button size="xs" type="button" onClick={onNext}>
+                            <Button size="s" type="button" onClick={onNext}>
                                 Далее
                             </Button>
                         )}
                         {last && (
-                            <Button size="xs" type="button" onClick={onClose}>
+                            <Button size="s" type="button" onClick={onClose}>
                                 Закрыть
                             </Button>
                         )}
