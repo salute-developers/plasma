@@ -171,6 +171,21 @@ export const verticalsMap = [
         ],
     },
     {
+        title: 'SDDS Bizcom',
+        package: '@salutejs/sdds-bizcom',
+        group: 'СДДС',
+        href: '/sdds-bizcom-storybook/',
+        items: [
+            { text: 'Сторибук', href: '/sdds-bizcom-storybook/', contentRight: <ArrowTopRight /> },
+            {
+                text: PACKAGES_INFO['@salutejs/sdds-bizcom'][0],
+                href: `/changelog/?lib=sdds-bizcom&version=${PACKAGES_INFO['@salutejs/sdds-bizcom'][0]}`,
+                contentLeft: <History />,
+                isMeta: false,
+            },
+        ],
+    },
+    {
         title: 'SDDS Netology',
         package: '@salutejs/sdds-netology',
         group: 'ДЗО 1',
@@ -253,4 +268,5 @@ export const packageNameMap = {
     'sdds-scan': 'SDDS Scan',
     'sdds-netology': 'SDDS Netology',
     'sdds-insol': 'SDDS Insol',
+    'sdds-bizcom': 'SDDS Bizcom',
 };
