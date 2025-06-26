@@ -42,7 +42,7 @@ jobs:
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 45
-          max_attempts: 3
+          max_attempts: 2
           retry_on: error
           command: npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes"
           
@@ -51,14 +51,28 @@ jobs:
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 120
-          max_attempts: 3
+          max_attempts: 2
           retry_on: error
           command: npm run cy:${{ inputs.scope }}:run-ct
+          
+      - name: Reorganize diff artifacts
+        if: ${{ failure() || inputs.with-artifacts }}
+        run: |
+          mkdir -p /tmp/artifacts
+          find /home/runner/work/plasma/plasma/cypress/snapshots -name "__diff_output__" -type d | while read dir; do
+            package=$(echo "$dir" | sed 's|.*/snapshots/\([^/]*\)/.*|\1|')
+            component=$(echo "$dir" | sed 's|.*/components/\([^/]*\)/.*|\1|')
+          
+            target_dir="/tmp/artifacts/${package}/${component}"
+            mkdir -p "$target_dir"
+          
+            cp "$dir"/* "$target_dir"/ 2>/dev/null || true
+          done
 
       - name: Save artifacts
         if: ${{ failure() || inputs.with-artifacts }}
         uses: actions/upload-artifact@v4
         with:
-          name: Test_Artifacts_${{ inputs.scope }}_
-          path: /home/runner/work/plasma/plasma/cypress
+          name: Failures_Tests_Artifact_${{ inputs.scope }}_
+          path: /tmp/artifacts/
           overwrite: true
