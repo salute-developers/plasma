@@ -1,68 +1,134 @@
 {
-    "0.313.0": {
-        "date": "2025-06-11",
-        "core": [
-            {
-                "component": "Select, Combobox",
-                "children": [
-                    {
-                        "text": "добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;",
-                        "link": "https://github.com/salute-developers/plasma/pull/1986",
-                        "id": 1986
-                    }
-                ]
-            },
-            {
-                "component": "Popover",
-                "children": [
-                    {
-                        "text": "добавлена обработка случая, когда frame передан как ID",
-                        "link": "https://github.com/salute-developers/plasma/pull/2001",
-                        "id": 2001
-                    }
-                ]
-            },
-            {
-                "component": "Sheet",
-                "children": [
-                    {
-                        "text": "добавлена проверка `canUseDOM` перед использованием document",
-                        "link": "https://github.com/salute-developers/plasma/pull/2014",
-                        "id": 2014
-                    }
-                ]
-            },
-            {
-                "component": "DatePicker",
-                "children": [
-                    {
-                        "text": "добавлено свойство `closeAfterDateSelect` в одиночный DatePicker",
-                        "link": "https://github.com/salute-developers/plasma/pull/2012",
-                        "id": 2012
-                    }
-                ]
-            },
-            {
-                "component": "Notification",
-                "children": [
-                    {
-                        "text": "добавлен `type-cast` для корректной типизации",
-                        "link": "https://github.com/salute-developers/plasma/pull/2015",
-                        "id": 2015
-                    }
-                ]
-            },
-            {
-                "component": "Carousel",
-                "children": [
-                    {
-                        "text": "добавлена элементы управления: пагинация, стрелочки",
-                        "link": "https://github.com/salute-developers/plasma/pull/2013",
-                        "id": 2013
-                    }
-                ]
-            }
-        ],
-        "lib": []
-    }
+  "0.314.0": {
+    "date": "2025-06-26",
+    "core": [
+      {
+        "component": "Tree",
+        "children": [
+          {
+            "text": "исправлен баг, из-за которого в некоторых случаях не отображался цвет выделенного элемента;",
+            "link": "https://github.com/salute-developers/plasma/pull/2038",
+            "id": 2038
+          }
+        ]
+      },
+      {
+        "component": "Combobox",
+        "children": [
+          {
+            "text": "исправлен баг, из-за которого label в таргете не обновлялся при обновлении списка `items`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2043",
+            "id": 2043
+          }
+        ]
+      },
+      {
+        "component": "Calendar",
+        "children": [
+          {
+            "text": "исправлен функционал по формированию ref на элементы календарной сетки\n\nдобавлена возможность динамически менять `type`\n\n**Before**:\n\nhttps://github.com/user-attachments/assets/45c7c426-6d31-4fb9-bc5f-b20a2f8a4105\n\n**After**:\n\nhttps://github.com/user-attachments/assets/8a13d0ec-8d8a-4764-8305-7a3dc33887d2",
+            "link": "https://github.com/salute-developers/plasma/pull/2024",
+            "id": 2024
+          }
+        ]
+      },
+      {
+        "component": "Popup, Modal, Drawer",
+        "children": [
+          {
+            "text": "массив элементов контекста Popup заменен на Map\n\nисправлен импорт safeUseId",
+            "link": "https://github.com/salute-developers/plasma/pull/2022",
+            "id": 2022
+          }
+        ]
+      },
+      {
+        "component": "Carousel",
+        "children": [
+          {
+            "text": "появилась возможно настраивать отступ между слайдами через пропс `gap`;\n\nнезначительные исправления и улучшения;",
+            "link": "https://github.com/salute-developers/plasma/pull/2018",
+            "id": 2018
+          }
+        ]
+      },
+      {
+        "component": "CodeInput",
+        "children": [
+          {
+            "text": "добавлен новый компонент",
+            "link": "https://github.com/salute-developers/plasma/pull/1973",
+            "id": 1973
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
+  "0.313.0": {
+    "date": "2025-06-11",
+    "core": [
+      {
+        "component": "Select, Combobox",
+        "children": [
+          {
+            "text": "добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;",
+            "link": "https://github.com/salute-developers/plasma/pull/1986",
+            "id": 1986
+          }
+        ]
+      },
+      {
+        "component": "Popover",
+        "children": [
+          {
+            "text": "добавлена обработка случая, когда frame передан как ID",
+            "link": "https://github.com/salute-developers/plasma/pull/2001",
+            "id": 2001
+          }
+        ]
+      },
+      {
+        "component": "Sheet",
+        "children": [
+          {
+            "text": "добавлена проверка `canUseDOM` перед использованием document",
+            "link": "https://github.com/salute-developers/plasma/pull/2014",
+            "id": 2014
+          }
+        ]
+      },
+      {
+        "component": "DatePicker",
+        "children": [
+          {
+            "text": "добавлено свойство `closeAfterDateSelect` в одиночный DatePicker",
+            "link": "https://github.com/salute-developers/plasma/pull/2012",
+            "id": 2012
+          }
+        ]
+      },
+      {
+        "component": "Notification",
+        "children": [
+          {
+            "text": "добавлен `type-cast` для корректной типизации",
+            "link": "https://github.com/salute-developers/plasma/pull/2015",
+            "id": 2015
+          }
+        ]
+      },
+      {
+        "component": "Carousel",
+        "children": [
+          {
+            "text": "добавлена элементы управления: пагинация, стрелочки",
+            "link": "https://github.com/salute-developers/plasma/pull/2013",
+            "id": 2013
+          }
+        ]
+      }
+    ],
+    "lib": []
+  }
 }

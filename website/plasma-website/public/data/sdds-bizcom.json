@@ -1,5 +1,5 @@
 {
-  "0.310.0": {
+  "0.314.0": {
     "date": "2025-06-26",
     "core": [
       {
@@ -59,72 +59,6 @@
             "text": "добавлен новый компонент",
             "link": "https://github.com/salute-developers/plasma/pull/1973",
             "id": 1973
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.309.0": {
-    "date": "2025-06-11",
-    "core": [
-      {
-        "component": "Select, Combobox",
-        "children": [
-          {
-            "text": "добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;",
-            "link": "https://github.com/salute-developers/plasma/pull/1986",
-            "id": 1986
-          }
-        ]
-      },
-      {
-        "component": "Popover",
-        "children": [
-          {
-            "text": "добавлена обработка случая, когда frame передан как ID",
-            "link": "https://github.com/salute-developers/plasma/pull/2001",
-            "id": 2001
-          }
-        ]
-      },
-      {
-        "component": "Sheet",
-        "children": [
-          {
-            "text": "добавлена проверка `canUseDOM` перед использованием document",
-            "link": "https://github.com/salute-developers/plasma/pull/2014",
-            "id": 2014
-          }
-        ]
-      },
-      {
-        "component": "DatePicker",
-        "children": [
-          {
-            "text": "добавлено свойство `closeAfterDateSelect` в одиночный DatePicker",
-            "link": "https://github.com/salute-developers/plasma/pull/2012",
-            "id": 2012
-          }
-        ]
-      },
-      {
-        "component": "Notification",
-        "children": [
-          {
-            "text": "добавлен `type-cast` для корректной типизации",
-            "link": "https://github.com/salute-developers/plasma/pull/2015",
-            "id": 2015
-          }
-        ]
-      },
-      {
-        "component": "Carousel",
-        "children": [
-          {
-            "text": "добавлена элементы управления: пагинация, стрелочки",
-            "link": "https://github.com/salute-developers/plasma/pull/2013",
-            "id": 2013
           }
         ]
       }
