@@ -32,7 +32,7 @@ export const verticalsMap = [
         group: 'Плазма',
         href: '/b2c-storybook/',
         items: [
-            { text: 'Storybook', href: '/b2c-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/b2c-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/b2c/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/plasma-b2c'][0],
@@ -48,7 +48,7 @@ export const verticalsMap = [
         group: 'Плазма',
         href: '/web-storybook/',
         items: [
-            { text: 'Storybook', href: '/web-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/web-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/web/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/plasma-web'][0],
@@ -59,12 +59,12 @@ export const verticalsMap = [
         ],
     },
     {
-        title: 'Giga',
+        title: 'Plasma Giga',
         package: '@salutejs/plasma-giga',
         group: 'Плазма',
         href: '/giga-storybook/',
         items: [
-            { text: 'Storybook', href: '/giga-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/giga-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/giga/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/plasma-giga'][0],
@@ -80,7 +80,7 @@ export const verticalsMap = [
         group: 'СДДС',
         href: '/sdds-serv-storybook/',
         items: [
-            { text: 'Storybook', href: '/sdds-serv-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-serv-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-serv/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/sdds-serv'][0],
@@ -96,7 +96,7 @@ export const verticalsMap = [
         group: 'СДДС',
         href: '/sdds-finportal-storybook/',
         items: [
-            { text: 'Storybook', href: '/sdds-finportal-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-finportal-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-finportal/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/sdds-finportal'][0],
@@ -112,7 +112,7 @@ export const verticalsMap = [
         group: 'СДДС',
         href: '/sdds-dfa-storybook/',
         items: [
-            { text: 'Storybook', href: '/sdds-dfa-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-dfa-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-dfa/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/sdds-dfa'][0],
@@ -128,7 +128,7 @@ export const verticalsMap = [
         group: 'СДДС',
         href: '/sdds-cs/',
         items: [
-            { text: 'Storybook', href: '/sdds-cs-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-cs-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-cs/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/sdds-cs'][0],
@@ -144,7 +144,7 @@ export const verticalsMap = [
         group: 'СДДС',
         href: '/sdds-crm-storybook/',
         items: [
-            { text: 'Storybook', href: '/sdds-crm-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-crm-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-crm/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/sdds-crm'][0],
@@ -160,7 +160,7 @@ export const verticalsMap = [
         group: 'СДДС',
         href: '/sdds-scan-storybook/',
         items: [
-            { text: 'Storybook', href: '/sdds-scan-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-scan-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-scan/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/sdds-scan'][0],
@@ -176,7 +176,7 @@ export const verticalsMap = [
         group: 'ДЗО 1',
         href: '/sdds-netology-storybook/',
         items: [
-            { text: 'Storybook', href: '/sdds-netology-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-netology-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-netology/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/sdds-netology'][0],
@@ -192,7 +192,7 @@ export const verticalsMap = [
         group: 'ДЗО 1',
         href: '/sdds-insol-storybook/',
         items: [
-            { text: 'Storybook', href: '/sdds-insol-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-insol-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-insol/', contentRight: <ArrowTopRight /> },
             {
                 text: PACKAGES_INFO['@salutejs/sdds-insol'][0],
