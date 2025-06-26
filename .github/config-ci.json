@@ -1,5 +1,5 @@
 {
-    "PACKAGES_CYPRESS": ["plasma-web", "plasma-giga", "plasma-b2c", "plasma-ui", "sdds-cs"],
+    "PACKAGES_CYPRESS": ["plasma-web", "plasma-giga", "plasma-b2c", "plasma-ui", "sdds-cs", "sdds-insol"],
     "PACKAGES_DS": [
         "plasma-web",
         "plasma-b2c",
