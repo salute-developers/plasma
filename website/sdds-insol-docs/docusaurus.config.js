@@ -30,6 +30,9 @@ module.exports = {
     projectName: 'sdds-insol',
     trailingSlash: true,
     themes: ['@docusaurus/theme-live-codeblock'],
+    future: {
+        experimental_faster: true,
+    },
     themeConfig: {
         navbar: {
             title: 'SDDS INSOL',
