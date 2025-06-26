@@ -107,6 +107,10 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
             }, [text, contentBefore, contentBeforeSizing, stretch]);
 
             useEffect(() => {
+                setTruncatedText();
+            }, [text]);
+
+            useEffect(() => {
                 if (!contentBeforeRef?.current) {
                     return;
                 }
