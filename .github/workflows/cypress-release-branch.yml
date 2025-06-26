@@ -46,7 +46,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scope: [cs]
+        scope: [cs,insol]
     
     uses: ./.github/workflows/cypress-common.yml
     with:
@@ -60,7 +60,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scope: [cs]
+        scope: [cs,insol]
     
     uses: ./.github/workflows/cypress-common.yml
     with:
