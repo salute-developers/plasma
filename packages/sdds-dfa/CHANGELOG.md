@@ -4,20 +4,20 @@
 
 ### Tree
 
-* исправлен баг, из-за которого в некоторых случаях не отображался цвет выделенного элемента;
+-   исправлен баг, из-за которого в некоторых случаях не отображался цвет выделенного элемента;
 
 [PR](https://github.com/salute-developers/plasma/pull/2038)
 
 ### Combobox
 
-* исправлен баг, из-за которого label в таргете не обновлялся при обновлении списка `items`;
+-   исправлен баг, из-за которого label в таргете не обновлялся при обновлении списка `items`;
 
 [PR](https://github.com/salute-developers/plasma/pull/2043)
 
 ### Calendar
 
-* исправлен функционал по формированию ref на элементы календарной сетки
-* добавлена возможность динамически менять `type`
+-   исправлен функционал по формированию ref на элементы календарной сетки
+-   добавлена возможность динамически менять `type`
 
 **Before**:
 
@@ -31,23 +31,23 @@ https://github.com/user-attachments/assets/8a13d0ec-8d8a-4764-8305-7a3dc33887d2
 
 ### Popup, Modal, Drawer
 
-* массив элементов контекста Popup заменен на Map
+-   массив элементов контекста Popup заменен на Map
 
-* исправлен импорт safeUseId
+-   исправлен импорт safeUseId
 
 [PR](https://github.com/salute-developers/plasma/pull/2022)
 
 ### Carousel
 
-* появилась возможно настраивать отступ между слайдами через пропс `gap`;
+-   появилась возможно настраивать отступ между слайдами через пропс `gap`;
 
-* незначительные исправления и улучшения;
+-   незначительные исправления и улучшения;
 
 [PR](https://github.com/salute-developers/plasma/pull/2018)
 
 ### CodeInput
 
-* добавлен новый компонент
+-   добавлен новый компонент
 
 <img width="764" src="https://github.com/user-attachments/assets/aaf5c046-9229-475f-aa5d-312533d5d5f6" />
 
@@ -57,71 +57,9 @@ https://github.com/user-attachments/assets/8a13d0ec-8d8a-4764-8305-7a3dc33887d2
 
 ### Accordion
 
-* добавлен отсутствующий `import`
+-   добавлен отсутствующий `import`
 
 [PR](https://github.com/salute-developers/plasma/pull/2037)
-
-<!-- GITHUB_RELEASE PR BODY: canary-version -->
-
-<details>
-  <summary>📦 Published PR as canary version: <code>Canary Versions</code></summary>
-  <br />
-
-:sparkles: Test out this PR locally via:
-
-```bash
-npm install @salutejs/plasma-asdk@0.342.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-b2c@1.584.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-core@1.200.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-giga@0.311.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-hope@1.345.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-icons@1.220.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-new-hope@0.328.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-tokens@1.115.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-ui@1.321.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-web@1.586.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-bizcom@0.314.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-clfd-auto@0.315.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-crm@0.315.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-cs@0.320.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-dfa@0.314.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-finportal@0.307.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-insol@0.311.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-netology@0.315.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-scan@0.314.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-serv@0.315.0-canary.2046.15894017762.0
-npm install @salutejs/sdds-themes@0.40.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-cy-utils@0.131.0-canary.2046.15894017762.0
-npm install @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
-# or 
-yarn add @salutejs/plasma-asdk@0.342.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-b2c@1.584.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-core@1.200.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-giga@0.311.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-hope@1.345.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-icons@1.220.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-new-hope@0.328.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-tokens@1.115.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-ui@1.321.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-web@1.586.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-bizcom@0.314.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-clfd-auto@0.315.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-crm@0.315.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-cs@0.320.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-dfa@0.314.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-finportal@0.307.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-insol@0.311.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-netology@0.315.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-scan@0.314.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-serv@0.315.0-canary.2046.15894017762.0
-yarn add @salutejs/sdds-themes@0.40.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-cy-utils@0.131.0-canary.2046.15894017762.0
-yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
-```
-
-</details>
-<!-- GITHUB_RELEASE PR BODY: canary-version -->
-
 
 ## 0.312.0 (11 июня 2025)
 
@@ -129,7 +67,7 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Select, Combobox
 
-* добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;
+-   добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;
 
 ![Kapture 2025-06-11 at 11 52 38](https://github.com/user-attachments/assets/95108fe4-29ec-486d-a964-b5340748ad04)
 
@@ -137,19 +75,19 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Popover
 
-* добавлена обработка случая, когда frame передан как ID
+-   добавлена обработка случая, когда frame передан как ID
 
 [PR](https://github.com/salute-developers/plasma/pull/2001)
 
 ### Sheet
 
-* добавлена проверка `canUseDOM` перед использованием document
+-   добавлена проверка `canUseDOM` перед использованием document
 
 [PR](https://github.com/salute-developers/plasma/pull/2014)
 
 ### DatePicker
 
-* добавлено свойство `closeAfterDateSelect` в одиночный DatePicker
+-   добавлено свойство `closeAfterDateSelect` в одиночный DatePicker
 
 ![Kapture 2025-06-11 at 12 47 51](https://github.com/user-attachments/assets/f7751193-9316-4e5c-9111-2b8590fd42d9)
 
@@ -157,7 +95,7 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Notification
 
-* добавлен `type-cast` для корректной типизации
+-   добавлен `type-cast` для корректной типизации
 
 <img width="977" alt="image" src="https://github.com/user-attachments/assets/99858965-49ff-4fc0-bec9-b3f79d2fa965" />
 
@@ -165,12 +103,11 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Carousel
 
-* добавлена элементы управления: пагинация, стрелочки
+-   добавлена элементы управления: пагинация, стрелочки
 
 ![Kapture 2025-06-11 at 11 28 34](https://github.com/user-attachments/assets/5ace4ec0-3ed6-4556-bf94-ec8abb2d7798)
 
 [PR](https://github.com/salute-developers/plasma/pull/2013)
-
 
 ## 0.311.0 (29 мая 2025)
 
@@ -178,7 +115,7 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### TextField
 
-* добавлен **новый** размер `XL`
+-   добавлен **новый** размер `XL`
 
 <img width="1024" src="https://github.com/user-attachments/assets/4fc66785-2c3c-4352-bbb8-7b1dc23c6390" />
 
@@ -186,13 +123,13 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Mask
 
-* добавили обработку, если не задан параметр mask, то возвращается обычный `TextField`
+-   добавили обработку, если не задан параметр mask, то возвращается обычный `TextField`
 
 [PR](https://github.com/salute-developers/plasma/pull/1964)
 
 ### Slider
 
-* убрали наслоение контейнера для шкалы минимум/максимум с текущим значением бегунка
+-   убрали наслоение контейнера для шкалы минимум/максимум с текущим значением бегунка
 
 ![Kapture 2025-05-29 at 12 40 21](https://github.com/user-attachments/assets/db518bf3-d9c8-43a0-b718-dcd58e429cd6)
 
@@ -200,13 +137,13 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Link
 
-* изменена поставка компонента ( добавлены файлы `types`, `tokens` )
+-   изменена поставка компонента ( добавлены файлы `types`, `tokens` )
 
 [PR](https://github.com/salute-developers/plasma/pull/1966)
 
 ### Progress
 
-* добавлен новый `view` - `info`
+-   добавлен новый `view` - `info`
 
 <img width="1024" src="https://github.com/user-attachments/assets/1fcad509-3a21-4a78-8162-2c4e32ebe9f6" />
 
@@ -214,7 +151,7 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Autocomplete, Combobox
 
-* улучшено поведение виртуализированного списка при динамическом изменении высоты оного;
+-   улучшено поведение виртуализированного списка при динамическом изменении высоты оного;
 
 ![Kapture 2025-05-29 at 14 52 03](https://github.com/user-attachments/assets/0df860d6-f2e6-4c6e-a220-6b3496e83a0f)
 
@@ -222,7 +159,7 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Note
 
-* добавлен возможность закрыть компонент, через свойство `hasClose` и `onCloseButtonClick`
+-   добавлен возможность закрыть компонент, через свойство `hasClose` и `onCloseButtonClick`
 
 ![Kapture 2025-05-29 at 13 15 39](https://github.com/user-attachments/assets/babc7f1d-ba21-4868-a7f1-635055928dd5)
 
@@ -230,11 +167,11 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Calendar
 
-* исправлен метод получения модификации даты: учитывается свойство `includeEdgeDates`
+-   исправлен метод получения модификации даты: учитывается свойство `includeEdgeDates`
 
 [PR](https://github.com/salute-developers/plasma/pull/1984)
 
-* добавлена возможность растягивать на всю доступную ширину и высоту
+-   добавлена возможность растягивать на всю доступную ширину и высоту
 
 ![Kapture 2025-05-29 at 15 01 01](https://github.com/user-attachments/assets/188619f1-7bad-4e6a-812b-2a46c22439f0)
 
@@ -242,32 +179,32 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### DatePicker
 
-* добавлена возможность управлять размером выпадающего календаря
+-   добавлена возможность управлять размером выпадающего календаря
 
-* добавлена возможность растягивать поле ввода на всю доступную ширину
+-   добавлена возможность растягивать поле ввода на всю доступную ширину
 
 [PR](https://github.com/salute-developers/plasma/pull/1972)
 
 ### Icons
 
-* добавлены новые иконки:
-  * ArrowBack
-  * FloorTypeFill
-  * FloorTypeOutline
-  * SensorFill
-  * SensorOutline
-  * FlashlightOutline
-  * DocumentExportFill
-  * DocumentExportOutline
-  * DocumentImportFill
-  * DocumentImportOutline
-  * InternationalTradeOutline
-  * SensorTemperatureFill
-  * SensorTemperatureOutline
+-   добавлены новые иконки:
+    -   ArrowBack
+    -   FloorTypeFill
+    -   FloorTypeOutline
+    -   SensorFill
+    -   SensorOutline
+    -   FlashlightOutline
+    -   DocumentExportFill
+    -   DocumentExportOutline
+    -   DocumentImportFill
+    -   DocumentImportOutline
+    -   InternationalTradeOutline
+    -   SensorTemperatureFill
+    -   SensorTemperatureOutline
 
 [PR](https://github.com/salute-developers/plasma/pull/1992)
 
-* изменены название иконок с ключевым словом `sber` на `sb` для всех платформ
+-   изменены название иконок с ключевым словом `sber` на `sb` для всех платформ
 
 <img width="768" src="https://github.com/user-attachments/assets/7cd5e024-4586-48e4-bebc-9fa46b760927" />
 
@@ -275,7 +212,7 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### CodeField
 
-* добавлен **новый** компонент
+-   добавлен **новый** компонент
 
 ![Kapture 2025-05-29 at 13 28 14](https://github.com/user-attachments/assets/1bc20b57-0b4f-4976-adde-35e6ac082a1e)
 
@@ -283,7 +220,7 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### Notifications
 
-* добавлена возможность управлять шириной уведомления, через свойство `width` и `maxWidth`
+-   добавлена возможность управлять шириной уведомления, через свойство `width` и `maxWidth`
 
 ![Kapture 2025-05-29 at 13 43 54](https://github.com/user-attachments/assets/0eae5726-4b23-40ae-9025-2016da019de2)
 
@@ -291,12 +228,11 @@ yarn add @salutejs/plasma-sb-utils@0.201.0-canary.2046.15894017762.0
 
 ### List
 
-* переведен на новую архитектуру
+-   переведен на новую архитектуру
 
 <img width="768" src="https://github.com/user-attachments/assets/454586b5-ddc3-4574-b510-8830b65f1618" />
 
 [PR](https://github.com/salute-developers/plasma/pull/1954)
-
 
 ## 0.309.1 (20 мая 2025)
 
