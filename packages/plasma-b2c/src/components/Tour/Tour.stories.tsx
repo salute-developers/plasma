@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
-import { getConfigVariations } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';
 
@@ -17,11 +17,6 @@ const meta: Meta<typeof Tour> = {
         withOverlay: {
             type: 'boolean',
         },
-        overlayColor: {
-            control: {
-                type: 'color',
-            },
-        },
         size: {
             options: sizes,
             control: {
@@ -34,6 +29,7 @@ const meta: Meta<typeof Tour> = {
                 type: 'select',
             },
         },
+        ...disableProps(['view', 'size', 'overlayColor']),
     },
 };
 
