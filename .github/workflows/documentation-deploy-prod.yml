@@ -16,3 +16,28 @@ jobs:
             path: 'current'
             ref: 'master'
         secrets: inherit
+
+    run-scraper:
+        name: Run scraper
+        needs: [ run ]
+        runs-on: ubuntu-22.04
+        strategy:
+            fail-fast: false
+            matrix:
+                package: [ b2c, web ]
+        steps:
+            -   uses: actions/checkout@v4
+                with:
+                    ref: master
+                    show-progress: false
+
+            -   name: Run Docker Scraper
+                run: |
+                    docker run -i \
+                        -e TYPESENSE_API_KEY=${{ secrets.TYPESENSE_KEY }} \
+                        -e TYPESENSE_HOST=${{ secrets.TYPESENSE_SERVICE_HOSTNAME }} \
+                        -e TYPESENSE_PORT=443 \
+                        -e TYPESENSE_PROTOCOL=https \
+                        -e CONFIG=/config.json \
+                        -v ./website/plasma-${{ matrix.package }}-docs/typesense-scraper-config.json:/config.json \
+                        typesense/docsearch-scraper:0.11.0

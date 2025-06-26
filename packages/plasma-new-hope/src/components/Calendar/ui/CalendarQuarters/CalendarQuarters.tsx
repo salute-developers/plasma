@@ -116,6 +116,10 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
 
     const getRefs = useCallback(
         (element: HTMLDivElement, i: number, j: number) => {
+            if (!outerRefs.current[i + offset]) {
+                outerRefs.current[i + offset] = [];
+            }
+
             outerRefs.current[i + offset][j] = element;
         },
         [offset, outerRefs],

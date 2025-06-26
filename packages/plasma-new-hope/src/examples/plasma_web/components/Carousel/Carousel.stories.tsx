@@ -35,8 +35,8 @@ const meta: Meta<StoryCarouselProps> = {
                 type: 'inline-radio',
             },
         },
-        align: {
-            options: ['start', 'center', 'end', 'activeDirection'],
+        scrollAlign: {
+            options: ['start', 'center', 'end'],
             control: {
                 type: 'inline-radio',
             },
@@ -56,20 +56,24 @@ const meta: Meta<StoryCarouselProps> = {
         paginationCentered: {
             control: 'boolean',
         },
+        gap: {
+            control: 'text',
+        },
     },
     args: {
         view: 'default',
         size: 's',
-        align: 'center',
-        visibleDots: 6,
-        slides: 10,
+        scrollAlign: 'start',
+        slides: 20,
         controlArrowsDisabled: false,
         paginationDisabled: false,
         paginationCentered: false,
+        gap: '20px',
     },
     parameters: {
         controls: {
             include: [
+                'scrollAlign',
                 'visibleDots',
                 'slides',
                 'controlArrowsDisabled',
@@ -87,7 +91,6 @@ const StyledCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     border-radius: 8px;
     width: 400px;
     height: 370px;
@@ -95,14 +98,7 @@ const StyledCard = styled.div`
     font-size: 30px;
 `;
 
-const StoryDefault = ({
-    align,
-    visibleDots,
-    slides,
-    paginationDisabled,
-    paginationCentered,
-    ...rest
-}: StoryCarouselProps) => {
+const StoryDefault = ({ visibleDots, slides, paginationDisabled, paginationCentered, ...rest }: StoryCarouselProps) => {
     const items = Array(slides)
         .fill(1)
         .map((_, i) => ({
@@ -114,7 +110,6 @@ const StoryDefault = ({
         <>
             <div style={{ width: '600px' }}>
                 <Carousel
-                    scrollAlign={align}
                     paginationOptions={{
                         disabled: paginationDisabled,
                         visibleDots,

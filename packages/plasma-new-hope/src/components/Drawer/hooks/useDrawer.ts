@@ -25,7 +25,10 @@ export const useDrawer = ({
             if (!closeOnEsc) {
                 return;
             }
-            if (event.keyCode === ESCAPE_KEYCODE && getIdLastDrawer(popupController.items) === id) {
+            if (
+                event.keyCode === ESCAPE_KEYCODE &&
+                getIdLastDrawer(Array.from(popupController.items.values())) === id
+            ) {
                 if (onEscKeyDown) {
                     onEscKeyDown(event);
                     return;
@@ -64,7 +67,7 @@ export const useDrawer = ({
             return;
         }
 
-        if (!isOpen && !hasDrawers(popupController.items)) {
+        if (!isOpen && !hasDrawers(Array.from(popupController.items.values()))) {
             document.body.style.overflow = overflow.current;
         }
     }, [isOpen, popupController.items]);

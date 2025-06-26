@@ -1,9 +1,8 @@
 import React, { forwardRef, useCallback, useMemo } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import { safeUseId, cx } from 'src/utils';
+import type { RootProps } from 'src/engines';
 
-import { RootProps } from '../../../../engines';
 import { classes } from '../../Dropdown.tokens';
-import { cx } from '../../../../utils';
 import { getValidComponent } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';

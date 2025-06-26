@@ -81,4 +81,7 @@ module.exports = {
     'sdds-scan': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-scan-docs'],
     },
+    'sdds-bizcom': {
+        scope: [...commonScope, 'sdds-themes', 'plasma-core'],
+    },
 };

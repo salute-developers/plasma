@@ -1,9 +1,8 @@
 import React, { forwardRef, useMemo } from 'react';
 import type { MouseEvent } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import type { RootProps } from 'src/engines/types';
+import { cx, safeUseId, extractTextFrom } from 'src/utils';
 
-import type { RootProps } from '../../../../engines/types';
-import { cx, extractTextFrom } from '../../../../utils';
 import { classes } from '../../tokens';
 import { useSegmentInner } from '../../SegmentProvider/SegmentProvider';
 

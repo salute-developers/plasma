@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useMemo, useRef } from 'react';
-import { safeUseId, useForkRef, extractTextFrom } from '@salutejs/plasma-core';
+import { useForkRef, extractTextFrom } from '@salutejs/plasma-core';
+import { safeUseId } from 'src/utils';
 
 import type { RootProps } from '../../engines/types';
 import { cx } from '../../utils';

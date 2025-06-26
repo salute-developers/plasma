@@ -15,7 +15,7 @@ export const base = css`
 export const StyledContent = styled.div<{ hasDivider?: boolean }>`
     display: inline-flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 `;
 
 export const StyledContentWrapper = styled.div`

@@ -7,6 +7,7 @@ export interface DisabledProps {
     disabled?: boolean;
 }
 
+// TODO: #2033
 const disabledCss = css`
     opacity: 0.4;
     cursor: not-allowed;

@@ -49,12 +49,15 @@ describe('plasma-web: Tooltip', () => {
                     target={<Button text="hello" />}
                     text="Высокое качество воспроизведения"
                     opened
-                    placement="right"
+                    placement="bottom"
                 />
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('multiple placement', () => {

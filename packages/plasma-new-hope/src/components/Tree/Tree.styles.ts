@@ -262,6 +262,7 @@ export const base = css`
 
     .rc-tree .rc-tree-treenode {
         position: relative;
+        z-index: 0;
         display: flex;
         align-items: center;
         min-height: var(${tokens.itemHeight});

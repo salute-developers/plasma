@@ -1,9 +1,11 @@
-import React, { forwardRef, Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, Fragment, useCallback, useRef, useState } from 'react';
 import cls from 'classnames';
 import type { ChangeEvent, KeyboardEvent, ClipboardEvent } from 'react';
 import type { RootProps } from 'src/engines';
 import { useDidMountEffect } from 'src/hooks';
 import { getSizeValueFromProp } from 'src/utils';
+
+import { useCodeHook } from '../../hooks';
 
 import type { CodeFieldProps } from './CodeField.types';
 import { BACKSPACE_KEY, FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from './utils/constants';
@@ -168,6 +170,8 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             };
 
             const handlePaste = (event: ClipboardEvent<HTMLInputElement>) => {
+                const newCode = [...code];
+
                 if (disabled) {
                     return;
                 }
@@ -184,10 +188,14 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                     : rawData.split('')
                 ).slice(0, codeLength);
 
+                pastedData.forEach((element, index) => {
+                    newCode[index] = element;
+                });
+
                 const activeIndex = Math.min(pastedData.length, codeLength - 1);
                 inputRefs.current[activeIndex]?.focus();
 
-                codeSetter(pastedData);
+                codeSetter(newCode);
             };
 
             const handleFullCodeEnter = useCallback((fullCode: string) => {
@@ -196,23 +204,15 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 }
             }, []);
 
-            useEffect(() => {
-                inputRefs.current = inputRefs.current.slice(0, codeLength);
-            }, [codeLength]);
-
-            useEffect(() => {
-                if (autoFocus && !disabled) {
-                    const lastActiveIndex = getLastActiveIndex();
-
-                    inputRefs.current[lastActiveIndex]?.focus();
-                }
-            }, [autoFocus]);
-
-            useDidMountEffect(() => {
-                if (handleFullCodeEnter && originalValue.length === codeLength) {
-                    handleFullCodeEnter(originalValue);
-                }
-            }, [originalValue, handleFullCodeEnter]);
+            useCodeHook({
+                inputRefs,
+                codeLength,
+                disabled,
+                autoFocus,
+                originalValue,
+                getLastActiveIndex,
+                handleFullCodeEnter,
+            });
 
             useDidMountEffect(() => {
                 if (isError) {

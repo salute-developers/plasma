@@ -1,8 +1,8 @@
 import React, { createContext, useState, useContext, FC, PropsWithChildren, useRef } from 'react';
+import { canUseDOM, safeUseId } from 'src/utils';
 
 import { Portal } from '../Portal';
 import { hasModals } from '../Modal/ModalContext';
-import { canUseDOM, safeUseId } from '../../utils';
 
 import { ClientOnlyPortal } from './ClientOnlyPortal';
 import type { PopupContextType, PopupInfo } from './Popup.types';
@@ -10,10 +10,10 @@ import { StyledPortal } from './Popup.styles';
 
 export const POPUP_PORTAL_ID = 'plasma-popup-root';
 
-const items: PopupInfo[] = [];
+const initialItems = new Map<string, PopupInfo>();
 
 const PopupContext = createContext<PopupContextType>({
-    items,
+    items: initialItems,
     rootId: POPUP_PORTAL_ID,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     register(_info: PopupInfo): void {
@@ -37,7 +37,7 @@ export const PopupProvider: FC<
     }
 > = ({ children, UNSAFE_SSR_ENABLED }) => {
     const prevBodyOverflowY = useRef(canUseDOM ? document.body.style.overflowY : '');
-    const [items, setItems] = useState<PopupInfo[]>([]);
+    const [items, setItems] = useState(initialItems);
 
     const uuid = safeUseId();
     const rootId = `${POPUP_PORTAL_ID}-${uuid}`;
@@ -48,12 +48,15 @@ export const PopupProvider: FC<
         }
 
         setItems((prevItems) => {
-            if (info.info?.isModal && !hasModals(prevItems)) {
+            const newItems = new Map(prevItems);
+
+            if (info.info?.isModal && !hasModals(Array.from(prevItems.values()))) {
                 prevBodyOverflowY.current = document.body.style.overflowY;
                 document.body.style.overflowY = 'hidden';
             }
 
-            return [...prevItems, info];
+            newItems.set(info.id, info);
+            return newItems;
         });
     };
 
@@ -63,21 +66,20 @@ export const PopupProvider: FC<
         }
 
         setItems((prevItems) => {
-            const index = prevItems.findIndex((item: PopupInfo) => id === item.id);
-
-            if (index === -1) {
+            if (!prevItems.has(id)) {
                 return prevItems;
             }
 
-            const prevHasModals = hasModals(prevItems);
-            prevItems.splice(index, 1);
+            const newItems = new Map(prevItems);
+            const prevHasModals = hasModals(Array.from(newItems.values()));
 
-            if (prevHasModals && !hasModals(prevItems)) {
+            newItems.delete(id);
+
+            if (prevHasModals && !hasModals(Array.from(newItems.values()))) {
                 document.body.style.overflowY = prevBodyOverflowY.current;
             }
 
-            // при return prevItems не обновится контекст
-            return [...prevItems];
+            return newItems;
         });
     };
 

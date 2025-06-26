@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useReducer, useLayoutEffect, useRef } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import { safeUseId } from 'src/utils';
 import { useDidMountEffect, useOutsideClick } from 'src/hooks';
 import { RootProps } from 'src/engines';
 

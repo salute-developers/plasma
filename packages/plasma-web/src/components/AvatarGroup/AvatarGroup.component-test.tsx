@@ -3,7 +3,7 @@ import React from 'react';
 
 const AvatarImage = 'images/avatar.png';
 
-describe('plasma-b2c: AvatarGroup', () => {
+describe('plasma-web: AvatarGroup', () => {
     const Avatar = getComponent('Avatar');
     const AvatarGroup = getComponent('AvatarGroup');
 

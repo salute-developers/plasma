@@ -8,7 +8,7 @@ export interface PopupInfo {
 }
 
 export interface PopupContextType {
-    items: PopupInfo[];
+    items: Map<string, PopupInfo>;
     rootId: string;
     register: (info: PopupInfo) => void;
     unregister: (id: string) => void;

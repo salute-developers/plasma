@@ -6,7 +6,6 @@ import { SnapAlign, SnapStop, CarouselItemProps } from './Carousel.types';
 const StyledItem = styled.div<{ scrollSnapAlign: SnapAlign; scrollSnapStop: SnapStop }>`
     scroll-snap-align: ${({ scrollSnapAlign }) => scrollSnapAlign || 'none'};
     scroll-snap-stop: ${({ scrollSnapAlign, scrollSnapStop }) => (scrollSnapAlign ? scrollSnapStop : 'normal')};
-    padding: 0 var(--plasma_private-carousel-padding);
 `;
 
 export const CarouselItem: React.FC<CarouselItemProps> = ({

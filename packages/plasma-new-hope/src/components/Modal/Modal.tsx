@@ -1,11 +1,12 @@
 import React, { forwardRef, useCallback, useMemo } from 'react';
-import { useForkRef, safeUseId } from '@salutejs/plasma-core';
+import { useForkRef } from '@salutejs/plasma-core';
+import { safeUseId } from 'src/utils';
+import { RootProps, component } from 'src/engines';
+import { useFocusTrap } from 'src/hooks';
 
-import { RootProps, component } from '../../engines';
 import { popupConfig, usePopupContext } from '../Popup';
 import { Overlay } from '../Overlay';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
-import { useFocusTrap } from '../../hooks';
 import { IconClose } from '../_Icon/Icons/IconClose';
 
 import { classes, tokens } from './Modal.tokens';
@@ -70,7 +71,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 popupInfo,
             });
 
-            const transparent = useMemo(() => getIdLastModal(popupController.items) !== innerId, [
+            const transparent = useMemo(() => getIdLastModal(Array.from(popupController.items.values())) !== innerId, [
                 innerId,
                 popupController.items,
             ]);

@@ -20,7 +20,7 @@ type PropsNew = ComponentProps<typeof CarouselNew> & { index?: never };
 type CarouselProps = PropsOld | PropsNew;
 
 const CarouselComponent = (props: CarouselProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    if (typeof props.index === 'number' && !Number.isNaN(props.index)) {
+    if (typeof props.index === 'number') {
         return <CarouselOld ref={ref} {...props} />;
     }
 

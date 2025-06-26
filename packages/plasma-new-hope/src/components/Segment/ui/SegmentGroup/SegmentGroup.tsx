@@ -1,8 +1,8 @@
 import React, { forwardRef, useCallback, useMemo, useState, useEffect, useRef, KeyboardEvent } from 'react';
 import type { RefObject, MutableRefObject } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import { safeUseId, cx } from 'src/utils';
+import type { RootProps } from 'src/engines/types';
 
-import type { RootProps } from '../../../../engines/types';
 import {
     IconDisclosureLeftWithOffset,
     IconDisclosureRightWithOffset,
@@ -10,7 +10,6 @@ import {
     IconDisclosureUpWithOffset,
 } from '../../../_Icon';
 import { classes, tokens } from '../../tokens';
-import { cx } from '../../../../utils';
 import { useSegmentInner } from '../../SegmentProvider/SegmentProvider';
 
 import { base as sizeCSS } from './variations/_size/base';

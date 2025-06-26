@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
-
-import { RootProps } from '../../../../engines';
-import { safeUseId } from '../../../../utils';
+import { safeUseId } from 'src/utils';
+import type { RootProps } from 'src/engines';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';

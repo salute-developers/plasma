@@ -10,7 +10,7 @@ export const Score = styled.div``;
 
 export const Wrapper = styled.div`
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     flex-direction: column;
 `;
 

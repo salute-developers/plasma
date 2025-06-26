@@ -1,11 +1,10 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { FormEventHandler, ChangeEventHandler, KeyboardEvent, ChangeEvent, MouseEventHandler } from 'react';
-import { safeUseId, useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from '@salutejs/plasma-core';
 import { css } from '@linaria/core';
-
-import type { RootProps } from '../../engines';
-import { cx } from '../../utils';
-import { useOutsideClick } from '../../hooks';
+import { cx, safeUseId } from 'src/utils';
+import type { RootProps } from 'src/engines';
+import { useOutsideClick } from 'src/hooks';
 
 import type { ChipValues, TextFieldPrimitiveValue, TextFieldProps, TextFieldRootProps } from './TextField.types';
 import { base as sizeCSS } from './variations/_size/base';

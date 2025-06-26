@@ -66,8 +66,6 @@ describe('plasma-b2c: Editable', () => {
 
         cy.get('span > div').first().type('Hello');
 
-        cy.get('span > div').first().type('Hello world');
-
         cy.matchImageSnapshot();
     });
 

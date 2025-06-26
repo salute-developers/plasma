@@ -78,7 +78,7 @@ export default meta;
 type StoryPropsDefault = ComponentProps<typeof CodeField>;
 
 const StoryDefault = (args: StoryPropsDefault) => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState('12');
 
     const handleChange = (newValue: string) => {
         setValue(newValue);

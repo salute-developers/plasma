@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import type { HTMLAttributes } from 'react';
+import type { ChangeEvent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { Radiobox } from '@salutejs/plasma-b2c';
 
@@ -28,7 +28,7 @@ export const RadioGroup = memo<RadioGroupProps>(({ name, value, items, onChange,
                     value={item.value}
                     label={item.label}
                     checked={value === item.value}
-                    onChange={(e) => e.target.checked && onChange(item.value)}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => e.target.checked && onChange(item.value)}
                 />
             ))}
         </StyledGroup>

@@ -10,6 +10,7 @@ export { isEmpty } from './isEmpty';
 export { createEvent } from './createEvent';
 export * as constants from './constants';
 export * from './getPopoverPlacement';
+export * from './initialValuesHelper';
 export { noop } from './noop';
 export { getHeightAsNumber } from './getHeightAsNumber';
 export { createConditionalComponent } from './createConditionalComponent';
