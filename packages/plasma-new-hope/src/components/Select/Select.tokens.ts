@@ -36,6 +36,7 @@ export const tokens = {
     itemBackgroundHover: '--plasma-select-item-background-hover',
     itemDisabledOpacity: '--plasma-select-item-disabled-opacity',
     itemDisabledColor: '--plasma-select-item-disabled-color',
+    itemIconColor: '--plasma-select-item-icon-color',
 
     cellPadding: '--plasma-select-cell-padding',
     cellPaddingLeftContent: '--plasma-select-cell-padding-left-content',

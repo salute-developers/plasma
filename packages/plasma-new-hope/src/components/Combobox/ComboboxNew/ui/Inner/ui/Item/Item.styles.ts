@@ -50,7 +50,7 @@ const Indicator = component(mergedIndicatorConfig);
 
 export const StyledIndicator = styled(Indicator)`
     ${indicatorTokens.size}: var(${tokens.indicatorSize});
-    ${indicatorTokens.color}: var(${tokens.checkboxFillColor});
+    ${indicatorTokens.color}: var(${tokens.itemIconColor});
 `;
 
 // TODO: Удалить после поддержки JS переменных в конфиге компонент
@@ -97,7 +97,7 @@ export const IconWrapper = styled.div<{ variant: ComboboxProps['variant'] }>`
     height: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemIconSizeTight : tokens.itemIconSize})`};
     margin: var(${tokens.itemIconMargin});
     line-height: 0;
-    color: var(${tokens.checkboxFillColor});
+    color: var(${tokens.itemIconColor});
 `;
 
 export const StyledText = styled.div`
