@@ -52,21 +52,21 @@ export function App() {
             <PopupBaseProvider>
                 <div style={{height: "500px"}}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button 
+                        <Button
                             style={{
                                 marginTop: "1rem",
                                 width: "15rem"
-                            }} 
-                            text="Открыть в document" 
-                            onClick={() => setIsOpenB(true)} 
+                            }}
+                            text="Открыть в document"
+                            onClick={() => setIsOpenB(true)}
                         />
-                        <Button 
+                        <Button
                             style={{
                                 marginTop: "1rem",
                                 width: "15rem"
-                            }} 
-                            text="Открыть во Frame" 
-                            onClick={() => setIsOpenA(true)} 
+                            }}
+                            text="Открыть во Frame"
+                            onClick={() => setIsOpenA(true)}
                         />
                     </div>
                     <PopupBase
@@ -81,8 +81,8 @@ export function App() {
                             <>Content</>
                         </div>
                     </PopupBase>
-                    <div 
-                        ref={ref} 
+                    <div
+                        ref={ref}
                         style={{
                             marginTop: "1rem",
                             width: "400px",
@@ -184,13 +184,13 @@ const StyledPopupAnimation = styled(PopupBase)`
     return (
         <>
             <div>
-                <Button 
+                <Button
                     style={{
                         marginTop: "1rem",
                         width: "15rem"
-                    }} 
-                    text="Открыть" 
-                    onClick={() => setIsOpen(true)} 
+                    }}
+                    text="Открыть"
+                    onClick={() => setIsOpen(true)}
                 />
             </div>
             <StyledPopupAnimation
@@ -206,6 +206,108 @@ const StyledPopupAnimation = styled(PopupBase)`
                 </div>
             </StyledPopupAnimation>
         </>
+    );
+}
+```
+
+## Draggable
+
+Чтобы иметь возможность перетаскивать Popup по экрану нужно включить `draggable`.
+И также дополнительно указать селектор для таргета. Если этого не сделать, то весь Popup целиком станет таргетом.
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens-b2c';
+
+import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupBaseProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <PopupBase
+                        id="popup"
+                        isOpen={isOpen}
+                        placement="center"
+                        offset={[0, 0]}
+                        draggable
+                        handle=".handle"
+                    >
+                        <div style={{ display: "flex", flexDirection: "column", background: surfaceSolid02, padding: "1rem" }}>
+                            <div className="handle" style={{ cursor: "move", background: surfaceSolid03 }}>Draggable target</div>
+
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                            <>Content</>
+                        </div>
+                    </PopupBase>
+                </div>
+            </PopupBaseProvider>
+        </SSRProvider>
+    );
+}
+```
+
+## Resizable
+
+Чтобы иметь возможность растягивать Popup нужно включить `resizable`.
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { surfaceSolid02 } from '@salutejs/plasma-tokens-b2c';
+
+import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupBaseProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <PopupBase
+                        id="popup"
+                        isOpen={isOpen}
+                        placement="center"
+                        offset={[0, 0]}
+                        resizable
+                    >
+                        <div style={{ display: "flex", flexDirection: "column", background: surfaceSolid02, padding: "1rem", height: '100%', boxSizing: 'border-box' }}>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                            <>Content</>
+                        </div>
+                    </PopupBase>
+                </div>
+            </PopupBaseProvider>
+        </SSRProvider>
     );
 }
 ```
