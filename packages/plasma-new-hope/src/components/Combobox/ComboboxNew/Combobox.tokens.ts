@@ -36,6 +36,7 @@ export const tokens = {
     itemIconSizeTight: '--plasma-combobox-item-icon-size-tight',
     itemIconMargin: '--plasma-combobox-item-icon-margin',
     itemBackgroundHover: '--plasma-combobox-item-background-hover',
+    itemIconColor: '--plasma-combobox-item-icon-color',
 
     cellPadding: '--plasma-combobox-cell-padding',
     cellPaddingLeftContent: '--plasma-combobox-cell-padding-left-content',
