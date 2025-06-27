@@ -1,5 +1,12 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import type { FormEventHandler, ChangeEventHandler, KeyboardEvent, ChangeEvent, MouseEventHandler } from 'react';
+import type {
+    FormEventHandler,
+    ChangeEventHandler,
+    KeyboardEvent,
+    ChangeEvent,
+    MouseEventHandler,
+    ClipboardEventHandler,
+} from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 import { css } from '@linaria/core';
 import { cx, safeUseId } from 'src/utils';
@@ -112,6 +119,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 onKeyDown,
                 onFocus,
                 onBlur,
+                onPaste,
 
                 // Пропсы для внутреннего использования, не отдается наружу.
                 // @ts-ignore
@@ -256,6 +264,27 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 if (hasTextAfter) {
                     const textWidth = getInputWidth(event.currentTarget, inputContainerRef.current);
                     event.currentTarget.style.width = `${textWidth}px`;
+                }
+            };
+
+            const handlePaste: ClipboardEventHandler<HTMLInputElement> = (event) => {
+                if (disabled || readOnly) {
+                    return;
+                }
+
+                if (onPaste) {
+                    onPaste(event);
+                }
+
+                if (hasTextAfter) {
+                    setTimeout(() => {
+                        if (!inputRef.current) {
+                            return;
+                        }
+
+                        const textWidth = getInputWidth(inputRef.current, inputContainerRef.current);
+                        inputRef.current.style.width = `${textWidth}px`;
+                    });
                 }
             };
 
@@ -512,6 +541,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     onKeyDown={handleOnKeyDown}
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
+                                    onPaste={handlePaste}
                                     data-tour
                                     {...rest}
                                 />
