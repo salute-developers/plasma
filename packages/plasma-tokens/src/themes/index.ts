@@ -40,6 +40,8 @@ export { sdds_insol__dark, darkSdds_insol } from './sdds_insol__dark';
 export { sdds_insol__light, lightSdds_insol } from './sdds_insol__light';
 export { sdds_os__dark, darkSdds_os } from './sdds_os__dark';
 export { sdds_os__light, lightSdds_os } from './sdds_os__light';
+export { sdds_procom__dark, darkSdds_procom } from './sdds_procom__dark';
+export { sdds_procom__light, lightSdds_procom } from './sdds_procom__light';
 export { sdds_scan__dark, darkSdds_scan } from './sdds_scan__dark';
 export { sdds_scan__light, lightSdds_scan } from './sdds_scan__light';
 export { sdds_serv__dark, darkSdds_serv } from './sdds_serv__dark';
