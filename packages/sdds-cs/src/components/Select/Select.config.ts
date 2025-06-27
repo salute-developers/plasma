@@ -1,5 +1,4 @@
 import { css, selectTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { selectTokens as tokens } from '@salutejs/plasma-new-hope';
 
 export const config = {
     defaults: {
@@ -22,8 +21,8 @@ export const config = {
                 ${selectTokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
                 ${selectTokens.textFieldBorderColorFocus}: var(--outline-accent);
 
-                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
-                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+                ${selectTokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${selectTokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${selectTokens.buttonColor}: var(--text-accent);
                 ${selectTokens.buttonColorHover}: #1A9E32;
@@ -44,7 +43,14 @@ export const config = {
                 ${selectTokens.dropdownBorderColor}: var(--outline-solid-primary);
                 ${selectTokens.checkboxIconColor}: var(--text-primary);
 
-                ${tokens.dividerColor}: var(--surface-solid-primary);
+                ${selectTokens.dividerColor}: var(--surface-solid-primary);
+
+                ${selectTokens.itemIconColor}: var(--text-accent);
+
+                ${selectTokens.checkboxFillColor}: var(--text-accent);
+                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectTokens.checkboxTriggerBorderCheckedColor}: none;
+                ${selectTokens.checkboxTriggerBorderColor}: var(--outline-accent);
             `,
             negative: css`
                 ${selectTokens.textFieldColor}: var(--text-primary);
@@ -58,8 +64,8 @@ export const config = {
                 ${selectTokens.textFieldBorderColorHover}: var(--outline-negative-hover);
                 ${selectTokens.textFieldBorderColorFocus}: var(--outline-accent);
 
-                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
-                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+                ${selectTokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${selectTokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${selectTokens.buttonColor}: var(--text-accent);
                 ${selectTokens.buttonColorHover}: #1A9E32;
@@ -80,173 +86,176 @@ export const config = {
                 ${selectTokens.dropdownBorderColor}: var(--outline-solid-primary);
                 ${selectTokens.checkboxIconColor}: var(--text-accent);
 
-                ${tokens.dividerColor}: var(--surface-solid-primary);
+                ${selectTokens.dividerColor}: var(--surface-solid-primary);
+
+                ${selectTokens.itemIconColor}: var(--text-accent);
+
+                ${selectTokens.checkboxFillColor}: var(--text-accent);
+                ${selectTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectTokens.checkboxTriggerBorderCheckedColor}: none;
+                ${selectTokens.checkboxTriggerBorderColor}: var(--outline-accent);
             `,
         },
         size: {
             s: css`
-                ${tokens.textFieldHeight}: 2.5rem;
-                ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
-                ${tokens.textFieldPaddingWithChips}: 0.375rem;
-                ${tokens.textFieldBorderRadius}: 0.75rem;
-                ${tokens.textFieldBorderWidth}: 0.125rem;
+                ${selectTokens.textFieldHeight}: 2.5rem;
+                ${selectTokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
+                ${selectTokens.textFieldPaddingWithChips}: 0.375rem;
+                ${selectTokens.textFieldBorderRadius}: 0.75rem;
+                ${selectTokens.textFieldBorderWidth}: 0.125rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${selectTokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
+                ${selectTokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
 
-                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+                ${selectTokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${selectTokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${selectTokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${selectTokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
+                ${selectTokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${selectTokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${selectTokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${selectTokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.textFieldLabelOffset}: 0.5rem;
-                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${selectTokens.textFieldLabelOffset}: 0.5rem;
+                ${selectTokens.textFieldLabelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${selectTokens.textFieldLabelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${selectTokens.textFieldLabelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${selectTokens.textFieldLabelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${selectTokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${selectTokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${selectTokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${selectTokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${selectTokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-s-font-size);
+                ${selectTokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${selectTokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${selectTokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${selectTokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
-                ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${selectTokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
+                ${selectTokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
-                ${tokens.textFieldIndicatorSizeInner}: 0.375rem;
-                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
-                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
-                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
-                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
-                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
+                ${selectTokens.textFieldIndicatorSizeInner}: 0.375rem;
+                ${selectTokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${selectTokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${selectTokens.textFieldIndicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
+                ${selectTokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${selectTokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${selectTokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${selectTokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
+                ${selectTokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
 
-                ${tokens.textFieldChipGap}: 0.25rem;
-                ${tokens.textFieldChipBorderRadius}: 0.25rem;
-                ${tokens.textFieldChipWidth}: auto;
-                ${tokens.textFieldChipHeight}: 1.75rem;
-                ${tokens.textFieldChipPadding}: 0 0.5rem 0 0.75rem;
-                ${tokens.textFieldChipClearContentMarginLeft}: 0.375rem;
-                ${tokens.textFieldChipClearContentMarginRight}: 0rem;
-                ${tokens.textFieldChipCloseIconSize}: 1rem;
-                ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textFieldChipFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${selectTokens.textFieldChipGap}: 0.25rem;
+                ${selectTokens.textFieldChipBorderRadius}: 0.25rem;
+                ${selectTokens.textFieldChipWidth}: auto;
+                ${selectTokens.textFieldChipHeight}: 1.75rem;
+                ${selectTokens.textFieldChipPadding}: 0 0.5rem 0 0.75rem;
+                ${selectTokens.textFieldChipClearContentMarginLeft}: 0.375rem;
+                ${selectTokens.textFieldChipClearContentMarginRight}: 0rem;
+                ${selectTokens.textFieldChipCloseIconSize}: 1rem;
+                ${selectTokens.textFieldChipFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${selectTokens.textFieldChipFontSize}: var(--plasma-typo-body-s-font-size);
+                ${selectTokens.textFieldChipFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${selectTokens.textFieldChipFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${selectTokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${selectTokens.textFieldChipLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
-                ${tokens.targetHeight}: 2.5rem;
-                ${tokens.buttonPadding}: 1rem 0 1rem;
+                ${selectTokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
+                ${selectTokens.targetHeight}: 2.5rem;
+                ${selectTokens.buttonPadding}: 1rem 0 1rem;
 
-                ${tokens.padding}: 0.125rem;
-                ${tokens.borderRadius}: 0.75rem;
+                ${selectTokens.padding}: 0.125rem;
+                ${selectTokens.borderRadius}: 0.75rem;
 
-                ${tokens.dropdownBorderWidth}: 0.125rem;
+                ${selectTokens.dropdownBorderWidth}: 0.125rem;
 
-                ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.5rem 0.5rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
-                ${tokens.itemBorderRadius}: 0.5rem;
-                ${tokens.itemIconSize}: 1.5rem;
-                ${tokens.itemIconSizeTight}: 1rem;
-                ${tokens.itemIconMargin}: 0 0.5rem 0 0;
+                ${selectTokens.itemHeight}: 1.5rem;
+                ${selectTokens.itemPadding}: 0.5rem 0.5rem;
+                ${selectTokens.itemPaddingTight}: 0.25rem 0.5rem;
+                ${selectTokens.itemBorderRadius}: 0.5rem;
+                ${selectTokens.itemIconSize}: 1.5rem;
+                ${selectTokens.itemIconSizeTight}: 1rem;
+                ${selectTokens.itemIconMargin}: 0 0.5rem 0 0;
 
-                ${tokens.cellPadding}: 0rem;
-                ${tokens.cellPaddingLeftContent}: 0rem;
-                ${tokens.cellPaddingContent}: 0rem;
-                ${tokens.cellPaddingRightContent}: 0rem;
-                ${tokens.cellTextboxGap}: 0.125rem;
-                ${tokens.cellGap}: 0.375rem;
-                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${selectTokens.cellPadding}: 0rem;
+                ${selectTokens.cellPaddingLeftContent}: 0rem;
+                ${selectTokens.cellPaddingContent}: 0rem;
+                ${selectTokens.cellPaddingRightContent}: 0rem;
+                ${selectTokens.cellTextboxGap}: 0.125rem;
+                ${selectTokens.cellGap}: 0.375rem;
+                ${selectTokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${selectTokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
+                ${selectTokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${selectTokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${selectTokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${selectTokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${selectTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${selectTokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${selectTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${selectTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${selectTokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${selectTokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.checkboxTriggerSize}: 1.25rem;
-                ${tokens.checkboxTriggerSizeTight}: 0.875rem;
-                ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
-                ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
-                ${tokens.checkboxFillColor}: var(--text-primary);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderColor}: var(--outline-accent);
-                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
-                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
+                ${selectTokens.checkboxTriggerSize}: 1.25rem;
+                ${selectTokens.checkboxTriggerSizeTight}: 0.875rem;
+                ${selectTokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${selectTokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
+                ${selectTokens.checkboxTriggerBorderWidth}: 0.125rem;
 
-                ${tokens.indicatorSize}: 0.375rem;
+                ${selectTokens.indicatorSize}: 0.375rem;
 
-                ${tokens.dividerMarginTop}: 0.375rem;
-                ${tokens.dividerMarginRight}: 0.75rem;
-                ${tokens.dividerMarginBottom}: 0.375rem;
-                ${tokens.dividerMarginLeft}: 0.75rem;
-                ${tokens.dividerMarginTopTight}: 0.25rem;
-                ${tokens.dividerMarginBottomTight}: 0.25rem;
+                ${selectTokens.dividerMarginTop}: 0.375rem;
+                ${selectTokens.dividerMarginRight}: 0.75rem;
+                ${selectTokens.dividerMarginBottom}: 0.375rem;
+                ${selectTokens.dividerMarginLeft}: 0.75rem;
+                ${selectTokens.dividerMarginTopTight}: 0.25rem;
+                ${selectTokens.dividerMarginBottomTight}: 0.25rem;
             `,
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
-                ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${selectTokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${selectTokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectTokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectTokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectTokens.textFieldLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectTokens.textFieldLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectTokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             outer: css``,
         },
         chipView: {
             default: css`
-                ${tokens.textFieldChipColor}: var(--inverse-text-primary);
-                ${tokens.textFieldChipBackground}: var(--surface-solid-default);
-                ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
-                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-primary);
-                ${tokens.textFieldChipOpacityReadonly}: 1;
+                ${selectTokens.textFieldChipColor}: var(--inverse-text-primary);
+                ${selectTokens.textFieldChipBackground}: var(--surface-solid-default);
+                ${selectTokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
+                ${selectTokens.textFieldChipCloseIconColor}: var(--inverse-text-primary);
+                ${selectTokens.textFieldChipOpacityReadonly}: 1;
             `,
         },
         disabled: {
             true: css`
-                ${tokens.textFieldDisabledOpacity}: 1;
-                ${tokens.textFieldBackgroundColor}: var(--surface-solid-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-primary);
-                ${tokens.textFieldBorderColor}: var(--surface-solid-primary);
-                ${tokens.textFieldBorderColorHover}: var(--surface-solid-primary);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-solid-primary);
-                ${tokens.textFieldColor}: var(--text-secondary);
+                ${selectTokens.textFieldDisabledOpacity}: 1;
+                ${selectTokens.textFieldBackgroundColor}: var(--surface-solid-primary);
+                ${selectTokens.textFieldBackgroundColorFocus}: var(--surface-solid-primary);
+                ${selectTokens.textFieldBorderColor}: var(--surface-solid-primary);
+                ${selectTokens.textFieldBorderColorHover}: var(--surface-solid-primary);
+                ${selectTokens.textFieldBorderColorFocus}: var(--surface-solid-primary);
+                ${selectTokens.textFieldColor}: var(--text-secondary);
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.disclosureIconOpacityReadOnly}: 0.4;
-                ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldLabelColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
+                ${selectTokens.disclosureIconOpacityReadOnly}: 0.4;
+                ${selectTokens.textFieldColorReadOnly}: var(--text-primary);
+                ${selectTokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${selectTokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${selectTokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
+                ${selectTokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
+                ${selectTokens.textFieldLabelColorReadOnly}: var(--text-secondary);
+                ${selectTokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
     },
