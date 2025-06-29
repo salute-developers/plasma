@@ -29,7 +29,6 @@ export const tokens = {
     labelColor: '--plasma-checkbox-label-color',
 
     descriptionMarginTop: '--plasma-checkbox-description-margin-top',
-    descriptionOnlyMarginTop: '--plasma-checkbox-description-only-margin-top',
     descriptionFontFamily: '--plasma-checkbox-description-font-family',
     descriptionFontSize: '--plasma-checkbox-description-font-size',
     descriptionFontStyle: '--plasma-checkbox-description-font-style',

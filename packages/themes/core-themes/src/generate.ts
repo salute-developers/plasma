@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-import { ThemeRequest } from './types';
+import { ThemeRequest, ThemeSource } from './types';
 import {
     createColorTokens,
     createGradientTokens,
@@ -20,14 +20,14 @@ import {
 } from './generators';
 import { getMetaGrouped, readTheme, fallbackCreateColorTokensWrapper } from './utils';
 
-export const generate = async (themes: ThemeRequest[]) => {
-    const themeDir = 'src';
+export const generate = async (themes: ThemeRequest[], externalThemeSource?: ThemeSource, srcDir = 'src') => {
+    const themeDir = srcDir;
     fs.existsSync(themeDir) || fs.mkdirSync(themeDir);
     const isJS = true;
 
     for (const theme of themes) {
         // eslint-disable-next-line no-await-in-loop
-        const themeSource = await readTheme(theme.name, theme.version);
+        const themeSource = externalThemeSource || (await readTheme(theme.name, theme.version));
         const { meta, variations } = themeSource;
         const metaGrouped = getMetaGrouped(themeSource.meta);
 

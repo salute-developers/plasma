@@ -11,8 +11,6 @@ const getColor = (cssVar: string) => `
 `;
 
 export const base = css`
-    font-family: var(${tokens.linkFontFamily});
-
     color: var(${tokens.linkColor});
 
     ::before {
