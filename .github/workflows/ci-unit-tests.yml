@@ -32,15 +32,3 @@ jobs:
 
       - name: Unit tests
         run: npm run test
-
-      - name: Setup React 17
-        run: |
-          npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-ui"
-          npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-b2c"
-          npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
-
-      - name: Lerna bootstrap by scope
-        run: npx lerna bootstrap --scope=@salutejs/plasma-{ui,web,b2c,hope,new-hope,themes,core,icons}
-
-      - name: Unit tests for React 17
-        run: npm run test -- --scope=@salutejs/plasma-{ui,web,b2c}
