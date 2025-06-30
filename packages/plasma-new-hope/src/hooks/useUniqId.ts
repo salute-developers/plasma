@@ -4,6 +4,10 @@ import { SSRContext } from '../components/SSRProvider';
 
 let noSSRId = 0;
 
+/**
+ * @deprecated
+ * @see используете вместо этого safeUseId
+ */
 export function useUniqId(): string {
     const context = useContext(SSRContext);
     const [id] = useState(() => {
