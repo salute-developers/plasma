@@ -33,7 +33,7 @@
     "build:styled-components:esm": "rm -rf styled-components/es && swc ./src-sc -d ./styled-components/es --strip-leading-paths --config-file ./swc-sc.config.json -C module.type=es6",
     "postbuild:styled-components": "rm -rf src-sc",
     "postbuild:emotion": "rm -rf src-emotion",
-    "generate:typings": "tsc --outDir types --emitDeclarationOnly && tsc-alias",
+    "generate:typings": "rm -rf types && tsc && tsc-alias",
     "storybook": "storybook dev -p ${PORT:-7002} -c .storybook",
     "prestorybook:emotion": "npm run prebuild:emotion",
     "storybook:emotion": "USE_EMOTION_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
