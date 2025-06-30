@@ -486,19 +486,27 @@ export const datePickerRangeRoot = (
             }, [calendarFirstValue, calendarSecondValue]);
 
             useLayoutEffect(() => {
-                updateExternalFirstDate(startExternalValue || undefined);
+                if (!defaultFirstDate) {
+                    updateExternalFirstDate(startExternalValue || undefined);
+                }
             }, [startExternalValue, format, lang]);
 
             useLayoutEffect(() => {
-                updateExternalSecondDate(endExternalValue || undefined);
+                if (!defaultSecondDate) {
+                    updateExternalSecondDate(endExternalValue || undefined);
+                }
             }, [endExternalValue, format, lang]);
 
             useLayoutEffect(() => {
-                updateExternalFirstDate(defaultFirstDate);
+                if (!startExternalValue) {
+                    updateExternalFirstDate(defaultFirstDate);
+                }
             }, [defaultFirstDate, format, lang]);
 
             useLayoutEffect(() => {
-                updateExternalSecondDate(defaultSecondDate);
+                if (!endExternalValue) {
+                    updateExternalSecondDate(defaultSecondDate);
+                }
             }, [defaultSecondDate, format, lang]);
 
             const RootWrapper = useCallback<RootWrapperProps>(
