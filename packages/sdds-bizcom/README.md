@@ -134,6 +134,14 @@ export default function Home() {
     </li>
 </ul>
 
+**Примечание**:
+
+Пакет поддерживает работы с 3 темами:
+
+-   `sdds_bizcom__(dark/light)`
+-   `sdds_procom__(dark/light)`
+-   `sdds_bcp__(dark/light)`
+
 В файле, где происходит подключение всех стилей, например `index.css`
 
 ```css
