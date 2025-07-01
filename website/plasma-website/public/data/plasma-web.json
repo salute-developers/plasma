@@ -1,4 +1,20 @@
 {
+    "1.585.1": {
+        "date": "2025-05-30",
+        "core": [
+            {
+                "component": "Radiobox",
+                "children": [
+                    {
+                        "text": "Исправлен `tsconfig` для корректной сборки `types`. (Hotfix)",
+                        "link": "https://github.com/salute-developers/plasma/pull/2054",
+                        "id": 2054
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
     "1.585.0": {
         "date": "2025-06-26",
         "core": [
