@@ -1,7 +1,14 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react';
 import { createGlobalStyle } from 'styled-components';
-import { sdds_bizcom__light, sdds_bizcom__dark } from '@salutejs/sdds-themes';
+import {
+    sdds_bizcom__light,
+    sdds_bizcom__dark,
+    sdds_procom__light,
+    sdds_procom__dark,
+    sdds_bcp__light,
+    sdds_bcp__dark,
+} from '@salutejs/sdds-themes';
 
 import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
 
@@ -28,6 +35,10 @@ const DocumentStyle = createGlobalStyle`
 
 export const SDDS_BIZCOM_LIGHT_THEME = 'sdds-bizcom:light';
 export const SDDS_BIZCOM_DARK_THEME = 'sdds-bizcom:dark';
+export const SDDS_PROCOM_LIGHT_THEME = 'sdds-procom:light';
+export const SDDS_PROCOM_DARK_THEME = 'sdds-procom:dark';
+export const SDDS_BCP_LIGHT_THEME = 'sdds-bcp:light';
+export const SDDS_BCP_DARK_THEME = 'sdds-bcp:dark';
 export const DEFAULT_MODE = 'default';
 export const ON_DARK_MODE = 'onDark';
 export const ON_LIGHT_MODE = 'onLight';
@@ -35,6 +46,10 @@ export const ON_LIGHT_MODE = 'onLight';
 const themes = {
     [SDDS_BIZCOM_LIGHT_THEME]: createGlobalStyle(sdds_bizcom__light),
     [SDDS_BIZCOM_DARK_THEME]: createGlobalStyle(sdds_bizcom__dark),
+    [SDDS_PROCOM_LIGHT_THEME]: createGlobalStyle(sdds_procom__light),
+    [SDDS_PROCOM_DARK_THEME]: createGlobalStyle(sdds_procom__dark),
+    [SDDS_BCP_LIGHT_THEME]: createGlobalStyle(sdds_bcp__light),
+    [SDDS_BCP_DARK_THEME]: createGlobalStyle(sdds_bcp__dark),
 };
 
 type ViewType = {

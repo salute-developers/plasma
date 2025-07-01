@@ -1,7 +1,14 @@
 import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { sdds_bizcom__dark, sdds_bizcom__light } from '@salutejs/sdds-themes/es/themes';
-import { InSpacingDecorator, getGroupedCornerRadiusTokens } from '@salutejs/plasma-sb-utils';
+import {
+    sdds_bizcom__dark,
+    sdds_bizcom__light,
+    sdds_procom__light,
+    sdds_procom__dark,
+    sdds_bcp__light,
+    sdds_bcp__dark,
+} from '@salutejs/sdds-themes/es/themes';
+import { InSpacingDecorator, getGroupedCornerRadiusTokens, getGroupedSpacingTokens } from '@salutejs/plasma-sb-utils';
 import type { GroupedNumberTokens } from '@salutejs/plasma-sb-utils';
 
 import { ToastProvider, useToast } from '../../Toast/Toast';
@@ -26,6 +33,10 @@ export default meta;
 const themes: Record<string, GroupedNumberTokens> = {
     'sdds-bizcom:light': getGroupedCornerRadiusTokens(sdds_bizcom__light[0]),
     'sdds-bizcom:dark': getGroupedCornerRadiusTokens(sdds_bizcom__dark[0]),
+    'sdds-procom:light': getGroupedCornerRadiusTokens(sdds_procom__light[0]),
+    'sdds-procom:dark': getGroupedCornerRadiusTokens(sdds_procom__dark[0]),
+    'sdds-bcp:light': getGroupedCornerRadiusTokens(sdds_bcp__light[0]),
+    'sdds-bcp:dark': getGroupedCornerRadiusTokens(sdds_bcp__dark[0]),
 };
 
 const StoryDemo = ({ context }) => {
