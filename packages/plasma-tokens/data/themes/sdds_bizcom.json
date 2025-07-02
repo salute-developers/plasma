@@ -7583,52 +7583,36 @@
                     "comment": "Инвертированный минорный промо цвет с градиентом",
                     "enabled": false
                 },
-                "textPositive": {
-                    "value": "[general.green.300]",
-                    "comment": "Инвертированный цвет успеха"
-                },
                 "textPositiveHover": {
-                    "value": "#47DC62FF",
+                    "value": "#2BD44AFF",
                     "comment": "Инвертированный цвет успеха"
                 },
                 "textPositiveActive": {
-                    "value": "#21B03CFF",
+                    "value": "#1D9032FF",
                     "comment": "Инвертированный цвет успеха"
                 },
-                "textWarning": {
-                    "value": "[general.orange.300]",
-                    "comment": "Инвертированный цвет предупреждения"
-                },
                 "textWarningHover": {
-                    "value": "#FDB790FF",
+                    "value": "#FF8B4DFF",
                     "comment": "Инвертированный цвет предупреждения"
                 },
                 "textWarningActive": {
-                    "value": "#FC8240FF",
+                    "value": "#FA5700FF",
                     "comment": "Инвертированный цвет предупреждения"
                 },
-                "textNegative": {
-                    "value": "[general.red.300]",
-                    "comment": "Инвертированный цвет ошибки"
-                },
                 "textNegativeHover": {
-                    "value": "#FFB8BFFF",
-                    "comment": "Инвертированный цвет ошибки"
-                },
-                "textNegativeActive": {
                     "value": "#FF6675FF",
                     "comment": "Инвертированный цвет ошибки"
                 },
-                "textInfo": {
-                    "value": "[general.blue.300]",
-                    "comment": "Инвертированный цвет информации"
+                "textNegativeActive": {
+                    "value": "#FF142CFF",
+                    "comment": "Инвертированный цвет ошибки"
                 },
                 "textInfoHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#3FABF3FF",
                     "comment": "Инвертированный цвет информации"
                 },
                 "textInfoActive": {
-                    "value": "#29A9FFFF",
+                    "value": "#0D84D3FF",
                     "comment": "Инвертированный цвет информации"
                 },
                 "textPositiveMinor": {
@@ -7698,6 +7682,22 @@
                 "textAccent": {
                     "value": "[general.malachite.400]",
                     "comment": "Инвертированный акцентный цвет"
+                },
+                "textPositive": {
+                    "value": "[general.green.400]",
+                    "comment": "Инвертированный цвет успеха"
+                },
+                "textWarning": {
+                    "value": "[general.orange.400]",
+                    "comment": "Инвертированный цвет предупреждения"
+                },
+                "textNegative": {
+                    "value": "[general.red.400]",
+                    "comment": "Инвертированный цвет ошибки"
+                },
+                "textInfo": {
+                    "value": "[general.blue.400]",
+                    "comment": "Инвертированный цвет информации"
                 }
             }
         },
