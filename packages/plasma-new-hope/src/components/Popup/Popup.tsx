@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useLayoutEffect } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 // import Draggable from 'react-draggable';
 import { Resizable } from 're-resizable';
@@ -109,8 +109,6 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             },
             outerRootRef,
         ) => {
-            const resizableDimensions = useRef({ width: 0, height: 0 });
-
             const innerIsOpen = isOpen || opened;
 
             const uniqId = safeUseId();
@@ -133,27 +131,6 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 animationInfo?.endAnimation ? classes.endAnimation : '',
                 animationInfo?.endTransition ? classes.endTransition : '',
             );
-
-            // Хук для получения размеров попапа, которые задаются как минимальные габариты при ресайзе.
-            useLayoutEffect(() => {
-                if (!innerIsOpen) return;
-
-                const rect = contentRef.current?.getBoundingClientRect();
-
-                if (rect) {
-                    resizableDimensions.current = {
-                        width: rect.width,
-                        height: rect.height,
-                    };
-                }
-
-                return () => {
-                    resizableDimensions.current = {
-                        width: 0,
-                        height: 0,
-                    };
-                };
-            }, [innerIsOpen]);
 
             if (!isVisible && !innerIsOpen) {
                 return null;
@@ -178,8 +155,11 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                                 resizable && !resizable.disabled ? getResizeDirections(resizable.directions) : false
                             }
                             resizeRatio={getRatioBasedOnPlacement(placement)}
-                            minWidth={resizableDimensions.current.width}
-                            minHeight={resizableDimensions.current.height}
+                            defaultSize={resizable?.defaultSize}
+                            minWidth={resizable?.minWidth}
+                            minHeight={resizable?.minHeight}
+                            maxWidth={resizable?.maxWidth}
+                            maxHeight={resizable?.maxHeight}
                             handleComponent={
                                 resizable?.hiddenIcon
                                     ? {}
@@ -216,8 +196,6 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                             }
                             className={classes.resizableContainer}
                             handleStyles={getHandleStyles(resizable?.iconSize)}
-                            maxWidth={resizable?.maxWidth}
-                            maxHeight={resizable?.maxHeight}
                         >
                             {children}
                         </Resizable>

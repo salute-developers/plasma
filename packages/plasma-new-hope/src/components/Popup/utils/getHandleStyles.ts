@@ -42,7 +42,7 @@ const getBaseDimension = (iconSize?: 'xs' | 's' | 'm'): number => {
     }
 };
 
-export const getHandleStyles = (iconSize?: 'xs' | 's' | 'm'): ReturnData => {
+export const getHandleStyles = (iconSize: 'xs' | 's' | 'm' = 's'): ReturnData => {
     const size = getBaseDimension(iconSize);
     const offset = size / 2;
 

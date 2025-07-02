@@ -57,8 +57,17 @@ const meta: Meta<PopupBaseProps> = {
             control: 'check',
             options: ['top', 'top-right', 'right', 'bottom-right', 'bottom', 'bottom-left', 'left', 'top-left'],
         },
+        resizableDefaultSize: {
+            control: 'object',
+        },
         resizableHiddenIcon: {
             control: 'boolean',
+        },
+        resizableMinWidth: {
+            control: 'number',
+        },
+        resizableMinHeight: {
+            control: 'number',
         },
         resizableMaxWidth: {
             control: 'number',

@@ -87,6 +87,18 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
          */
         hiddenIcon?: boolean;
         /**
+         * Начальный размер окна ресайза.
+         */
+        defaultSize?: { width?: number; height?: number };
+        /**
+         * Минимальная ширина ресайза в px.
+         */
+        minWidth?: number;
+        /**
+         * Минимальная высота ресайза в px.
+         */
+        minHeight?: number;
+        /**
          * Максимальная ширина ресайза в px.
          */
         maxWidth?: number;

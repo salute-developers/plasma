@@ -59,7 +59,7 @@ const meta: Meta<PopupProps> = {
         resizableHiddenIcon: {
             control: 'boolean',
         },
-        resizableMaxWidth: {
+        aresizableMaxWidth: {
             control: 'number',
         },
         resizableMaxHeight: {
@@ -83,6 +83,9 @@ type StoryPopupProps = ComponentProps<typeof Popup> & {
     resizableDisabled: boolean;
     resizableDirections: string[];
     resizableHiddenIcon: boolean;
+    resizableDefaultSize: { width?: number; height?: number };
+    resizableMinWidth: number;
+    resizableMinHeight: number;
     resizableMaxWidth: number;
     resizableMaxHeight: number;
     resizableIconSize: 's' | 'xs' | 'm';
@@ -239,6 +242,9 @@ const StoryPopupResizable = ({
     resizableDirections,
     resizableDisabled,
     resizableHiddenIcon,
+    resizableDefaultSize,
+    resizableMinWidth,
+    resizableMinHeight,
     resizableMaxWidth,
     resizableMaxHeight,
     resizableIconSize,
@@ -262,6 +268,9 @@ const StoryPopupResizable = ({
                             disabled: resizableDisabled,
                             directions: resizableDirections,
                             hiddenIcon: resizableHiddenIcon,
+                            defaultSize: resizableDefaultSize,
+                            minWidth: resizableMinWidth,
+                            minHeight: resizableMinHeight,
                             maxWidth: resizableMaxWidth,
                             maxHeight: resizableMaxHeight,
                             iconSize: resizableIconSize,
@@ -290,6 +299,9 @@ export const Resizable: StoryObj<StoryPopupProps> = {
         resizableDirections: ['bottom-right'],
         resizableHiddenIcon: false,
         resizableIconSize: 's',
+        resizableDefaultSize: { width: 200, height: 100 },
+        resizableMinWidth: 200,
+        resizableMinHeight: 100,
     },
     parameters: {
         controls: {
@@ -300,6 +312,9 @@ export const Resizable: StoryObj<StoryPopupProps> = {
                 'resizableDisabled',
                 'resizableDirections',
                 'resizableHiddenIcon',
+                'resizableDefaultSize',
+                'resizableMinWidth',
+                'resizableMinHeight',
                 'resizableMaxWidth',
                 'resizableMaxHeight',
                 'resizableIconSize',
