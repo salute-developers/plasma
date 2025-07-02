@@ -93,6 +93,9 @@ type StoryPopupBaseProps = ComponentProps<typeof PopupBase> & {
     resizableDisabled: boolean;
     resizableDirections: string[];
     resizableHiddenIcon: boolean;
+    resizableDefaultSize: { width?: number; height?: number };
+    resizableMinWidth: number;
+    resizableMinHeight: number;
     resizableMaxWidth: number;
     resizableMaxHeight: number;
     resizableIconSize: 's' | 'xs' | 'm';
@@ -125,9 +128,6 @@ const OtherContent = styled.div`
 const Content = styled.div`
     background: var(--surface-solid-secondary);
     padding: 1rem;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
 `;
 
 const Block = styled.div`
@@ -135,8 +135,6 @@ const Block = styled.div`
     padding: 1rem;
     width: 100%;
     height: 100%;
-    min-width: 200px;
-    min-height: 120px;
     box-sizing: border-box;
     border-radius: 1rem;
 `;
@@ -248,6 +246,9 @@ const StoryPopupResizable = ({
     resizableDirections,
     resizableDisabled,
     resizableHiddenIcon,
+    resizableDefaultSize,
+    resizableMinWidth,
+    resizableMinHeight,
     resizableMaxWidth,
     resizableMaxHeight,
     resizableIconSize,
@@ -271,6 +272,9 @@ const StoryPopupResizable = ({
                             disabled: resizableDisabled,
                             directions: resizableDirections,
                             hiddenIcon: resizableHiddenIcon,
+                            defaultSize: resizableDefaultSize,
+                            minWidth: resizableMinWidth,
+                            minHeight: resizableMinHeight,
                             maxWidth: resizableMaxWidth,
                             maxHeight: resizableMaxHeight,
                             iconSize: resizableIconSize,
@@ -299,6 +303,9 @@ export const Resizable: StoryObj<StoryPopupBaseProps> = {
         resizableDirections: ['bottom-right'],
         resizableHiddenIcon: false,
         resizableIconSize: 's',
+        resizableDefaultSize: { width: 200, height: 100 },
+        resizableMinWidth: 200,
+        resizableMinHeight: 100,
     },
     parameters: {
         controls: {
@@ -309,6 +316,9 @@ export const Resizable: StoryObj<StoryPopupBaseProps> = {
                 'resizableDisabled',
                 'resizableDirections',
                 'resizableHiddenIcon',
+                'resizableDefaultSize',
+                'resizableMinWidth',
+                'resizableMinHeight',
                 'resizableMaxWidth',
                 'resizableMaxHeight',
                 'resizableIconSize',

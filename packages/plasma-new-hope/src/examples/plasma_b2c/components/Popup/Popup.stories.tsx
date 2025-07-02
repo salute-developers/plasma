@@ -126,9 +126,6 @@ const OtherContent = styled.div`
 const Content = styled.div`
     background: var(--surface-solid-secondary);
     padding: 1rem;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
 `;
 
 const Block = styled.div`
