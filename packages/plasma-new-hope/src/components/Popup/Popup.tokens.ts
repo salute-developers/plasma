@@ -5,5 +5,9 @@ export const classes = {
     root: 'popup-base-root',
     endAnimation: 'popup-end-animation',
     endTransition: 'popup-end-transition',
-    handleBottomRight: 'popup-handle-bottom-right',
+    resizableContainer: 'resizable-container',
+    resizableTopRightIcon: 'resizable-top-right-icon',
+    resizableBottomRightIcon: 'resizable-bottom-right-icon',
+    resizableBottomLeftIcon: 'resizable-bottom-left-icon',
+    resizableTopLeftIcon: 'resizable-top-left-icon',
 };

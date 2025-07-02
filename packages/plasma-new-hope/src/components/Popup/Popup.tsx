@@ -1,17 +1,18 @@
 import React, { forwardRef, useRef, useLayoutEffect } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
-import Draggable from 'react-draggable';
+// import Draggable from 'react-draggable';
 import { Resizable } from 're-resizable';
 import { RootProps } from 'src/engines/types';
 import { canUseDOM, cx, safeUseId } from 'src/utils';
 
 import { Portal } from '../Portal';
 
+import { getRatioBasedOnPlacement, getResizeDirections, getHandleStyles } from './utils';
 import type { PopupPlacementBasic, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
 import { PopupRoot } from './PopupRoot';
 import { usePopup } from './hooks';
 import { classes } from './Popup.tokens';
-import { StyledPortalContainer } from './Popup.styles';
+import { StyledPortalContainer, base, IconResizeDiagonalStyled } from './Popup.styles';
 
 export const handlePosition = (
     placement: PopupPlacement,
@@ -103,7 +104,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 className,
                 draggable = false,
                 handle,
-                resizable = false,
+                resizable,
                 ...rest
             },
             outerRootRef,
@@ -172,18 +173,52 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                         setVisible={setVisible}
                         {...rest}
                     >
-                        <Draggable handle={handle} disabled={!draggable}>
-                            <Resizable
-                                enable={resizable ? { bottomRight: true } : false}
-                                resizeRatio={2}
-                                minWidth={resizableDimensions.current.width}
-                                minHeight={resizableDimensions.current.height}
-                                handleComponent={{ bottomRight: <div>1</div> }}
-                                handleClasses={{ bottomRight: classes.handleBottomRight }}
-                            >
-                                {children}
-                            </Resizable>
-                        </Draggable>
+                        <Resizable
+                            enable={
+                                resizable && !resizable.disabled ? getResizeDirections(resizable.directions) : false
+                            }
+                            resizeRatio={getRatioBasedOnPlacement(placement)}
+                            minWidth={resizableDimensions.current.width}
+                            minHeight={resizableDimensions.current.height}
+                            handleComponent={
+                                !resizable?.hiddenIcon && {
+                                    topRight: (
+                                        <IconResizeDiagonalStyled
+                                            className={classes.resizableTopRightIcon}
+                                            color="inherit"
+                                            size={resizable?.iconSize}
+                                        />
+                                    ),
+                                    bottomRight: (
+                                        <IconResizeDiagonalStyled
+                                            className={classes.resizableBottomRightIcon}
+                                            color="inherit"
+                                            size={resizable?.iconSize}
+                                        />
+                                    ),
+                                    bottomLeft: (
+                                        <IconResizeDiagonalStyled
+                                            className={classes.resizableBottomLeftIcon}
+                                            color="inherit"
+                                            size={resizable?.iconSize}
+                                        />
+                                    ),
+                                    topLeft: (
+                                        <IconResizeDiagonalStyled
+                                            className={classes.resizableTopLeftIcon}
+                                            color="inherit"
+                                            size={resizable?.iconSize}
+                                        />
+                                    ),
+                                }
+                            }
+                            className={classes.resizableContainer}
+                            handleStyles={getHandleStyles(resizable?.iconSize)}
+                            maxWidth={resizable?.maxWidth}
+                            maxHeight={resizable?.maxHeight}
+                        >
+                            {children}
+                        </Resizable>
                     </PopupRoot>
                 </Root>
             );
@@ -215,7 +250,7 @@ export const popupConfig = {
     name: 'Popup',
     tag: 'div',
     layout: popupRoot,
-    base: '',
+    base,
     variations: {},
     defaults: {},
 };

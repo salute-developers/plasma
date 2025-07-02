@@ -1,6 +1,7 @@
 export type PopupPlacementBasic = 'center' | 'top' | 'bottom' | 'right' | 'left';
 export type PopupPlacementMixed = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
 export type PopupPlacement = PopupPlacementBasic | PopupPlacementMixed;
+export type ResizeDirections = Omit<PopupPlacement, 'center'>[];
 
 export interface PopupInfo {
     id: string;
@@ -68,10 +69,37 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     handle?: string;
     /**
-     * Включение resizable.
-     * @default false
+     * Настройка resizable-режима.
      */
-    resizable?: boolean;
+    resizable?: {
+        /**
+         * Включение/выключение ресайза.
+         * @default false
+         */
+        disabled?: boolean;
+        /**
+         * Направления для ресайза.
+         */
+        directions?: ResizeDirections;
+        /**
+         * Скрывать ли иконку для ресайза.
+         * @default false
+         */
+        hiddenIcon?: false;
+        /**
+         * Максимальная ширина ресайза в px.
+         */
+        maxWidth?: number;
+        /**
+         * Максимальная высота ресайза в px.
+         */
+        maxHeight?: number;
+        /**
+         * Размер иконки ресайза.
+         * @default s
+         */
+        iconSize?: 'xs' | 's' | 'm';
+    };
 }
 export interface PopupAnimationInfo {
     endAnimation: boolean;
