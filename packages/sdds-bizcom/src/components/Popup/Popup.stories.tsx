@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
@@ -15,6 +16,9 @@ const meta: Meta<PopupProps> = {
     decorators: [InSpacingDecorator],
     parameters: {
         docs: { story: { inline: false, iframeHeight: '30rem' } },
+        controls: {
+            include: ['placement', 'offsetX', 'offsetY'],
+        },
     },
     argTypes: {
         placement: {
@@ -33,12 +37,56 @@ const meta: Meta<PopupProps> = {
                 type: 'select',
             },
         },
+        offsetX: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        offsetY: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        resizableDisabled: {
+            control: 'boolean',
+        },
+        resizableDirections: {
+            control: 'check',
+            options: ['top', 'top-right', 'right', 'bottom-right', 'bottom', 'bottom-left', 'left', 'top-left'],
+        },
+        resizableHiddenIcon: {
+            control: 'boolean',
+        },
+        resizableMaxWidth: {
+            control: 'number',
+        },
+        resizableMaxHeight: {
+            control: 'number',
+        },
+        resizableIconSize: {
+            control: {
+                type: 'select',
+            },
+            options: ['xs', 's', 'm'],
+        },
     },
 };
 
 export default meta;
 
-type StoryPopupProps = { placement: string; offsetX: number; offsetY: number };
+type StoryPopupProps = ComponentProps<typeof Popup> & {
+    placement: string;
+    offsetX: number;
+    offsetY: number;
+    resizableDisabled: boolean;
+    resizableDirections: string[];
+    resizableHiddenIcon: boolean;
+    resizableMaxWidth: number;
+    resizableMaxHeight: number;
+    resizableIconSize: 's' | 'xs' | 'm';
+};
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -68,6 +116,20 @@ const OtherContent = styled.div`
 const Content = styled.div`
     background: var(--surface-solid-secondary);
     padding: 1rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+`;
+
+const Block = styled.div`
+    background: var(--surface-solid-secondary);
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    min-width: 200px;
+    min-height: 120px;
+    box-sizing: border-box;
+    border-radius: 1rem;
 `;
 
 const StyledPopupAnimation = styled(Popup)`
@@ -168,4 +230,81 @@ export const PopupDemo: StoryObj<StoryPopupProps> = {
         offsetY: 0,
     },
     render: (args) => <StoryPopup {...args} />,
+};
+
+const StoryPopupResizable = ({
+    placement,
+    offsetX,
+    offsetY,
+    resizableDirections,
+    resizableDisabled,
+    resizableHiddenIcon,
+    resizableMaxWidth,
+    resizableMaxHeight,
+    resizableIconSize,
+}: StoryPopupProps) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <SSRProvider>
+            <StyledWrapper>
+                <PopupProvider>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <StyledButton text="Открыть popup" onClick={() => setIsOpen(true)} />
+                    </div>
+
+                    <Popup
+                        id="popup"
+                        opened={isOpen}
+                        placement={placement}
+                        offset={[offsetX, offsetY]}
+                        resizable={{
+                            disabled: resizableDisabled,
+                            directions: resizableDirections,
+                            hiddenIcon: resizableHiddenIcon,
+                            maxWidth: resizableMaxWidth,
+                            maxHeight: resizableMaxHeight,
+                            iconSize: resizableIconSize,
+                        }}
+                    >
+                        <Block>
+                            <>Content</>
+                            <br />
+                            <Button stretching="filled" onClick={() => setIsOpen(false)}>
+                                Close
+                            </Button>
+                        </Block>
+                    </Popup>
+                </PopupProvider>
+            </StyledWrapper>
+        </SSRProvider>
+    );
+};
+
+export const Resizable: StoryObj<StoryPopupProps> = {
+    args: {
+        placement: 'center',
+        offsetX: 0,
+        offsetY: 0,
+        resizableDisabled: false,
+        resizableDirections: ['bottom-right'],
+        resizableHiddenIcon: false,
+        resizableIconSize: 's',
+    },
+    parameters: {
+        controls: {
+            include: [
+                'placement',
+                'offsetX',
+                'offsetY',
+                'resizableDisabled',
+                'resizableDirections',
+                'resizableHiddenIcon',
+                'resizableMaxWidth',
+                'resizableMaxHeight',
+                'resizableIconSize',
+            ],
+        },
+    },
+    render: (args) => <StoryPopupResizable {...args} />,
 };

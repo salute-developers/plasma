@@ -84,7 +84,7 @@ type StoryPopupProps = ComponentProps<typeof Popup> & {
     resizableHiddenIcon: boolean;
     resizableMaxWidth: number;
     resizableMaxHeight: number;
-    resizableIconSize: string;
+    resizableIconSize: 's' | 'xs' | 'm';
 };
 
 const StyledButton = styled(Button)`

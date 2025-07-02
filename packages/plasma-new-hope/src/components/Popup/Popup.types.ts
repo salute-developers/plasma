@@ -85,7 +85,7 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
          * Скрывать ли иконку для ресайза.
          * @default false
          */
-        hiddenIcon?: false;
+        hiddenIcon?: boolean;
         /**
          * Максимальная ширина ресайза в px.
          */
