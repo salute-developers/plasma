@@ -35,7 +35,8 @@ export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElemen
      */
     view?: TextFieldView | keyof typeof TextFieldView;
     /**
-     * Статус компонента: заполнен успешно / с ошибкой.
+     * Статус компонента: заполнен успешно / с предупреждением / с ошибкой.
+     * @deprecated использовать вместо этого свойство `view`
      */
     status?: 'success' | 'warning' | 'error';
     /**
