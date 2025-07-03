@@ -85,7 +85,7 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
          * Скрывать ли иконку для ресайза.
          * @default false
          */
-        hiddenIcon?: boolean;
+        hiddenIcons?: PopupPlacementMixed[];
         /**
          * Начальный размер окна ресайза.
          */

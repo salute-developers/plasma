@@ -160,40 +160,36 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                             minHeight={resizable?.minHeight}
                             maxWidth={resizable?.maxWidth}
                             maxHeight={resizable?.maxHeight}
-                            handleComponent={
-                                resizable?.hiddenIcon
-                                    ? {}
-                                    : {
-                                          topRight: (
-                                              <IconResizeDiagonalStyled
-                                                  className={classes.resizableTopRightIcon}
-                                                  color="inherit"
-                                                  size={resizable?.iconSize}
-                                              />
-                                          ),
-                                          bottomRight: (
-                                              <IconResizeDiagonalStyled
-                                                  className={classes.resizableBottomRightIcon}
-                                                  color="inherit"
-                                                  size={resizable?.iconSize}
-                                              />
-                                          ),
-                                          bottomLeft: (
-                                              <IconResizeDiagonalStyled
-                                                  className={classes.resizableBottomLeftIcon}
-                                                  color="inherit"
-                                                  size={resizable?.iconSize}
-                                              />
-                                          ),
-                                          topLeft: (
-                                              <IconResizeDiagonalStyled
-                                                  className={classes.resizableTopLeftIcon}
-                                                  color="inherit"
-                                                  size={resizable?.iconSize}
-                                              />
-                                          ),
-                                      }
-                            }
+                            handleComponent={{
+                                topRight: resizable?.hiddenIcons?.includes('top-right') ? undefined : (
+                                    <IconResizeDiagonalStyled
+                                        className={classes.resizableTopRightIcon}
+                                        color="inherit"
+                                        size={resizable?.iconSize}
+                                    />
+                                ),
+                                bottomRight: resizable?.hiddenIcons?.includes('bottom-right') ? undefined : (
+                                    <IconResizeDiagonalStyled
+                                        className={classes.resizableBottomRightIcon}
+                                        color="inherit"
+                                        size={resizable?.iconSize}
+                                    />
+                                ),
+                                bottomLeft: resizable?.hiddenIcons?.includes('bottom-left') ? undefined : (
+                                    <IconResizeDiagonalStyled
+                                        className={classes.resizableBottomLeftIcon}
+                                        color="inherit"
+                                        size={resizable?.iconSize}
+                                    />
+                                ),
+                                topLeft: resizable?.hiddenIcons?.includes('top-left') ? undefined : (
+                                    <IconResizeDiagonalStyled
+                                        className={classes.resizableTopLeftIcon}
+                                        color="inherit"
+                                        size={resizable?.iconSize}
+                                    />
+                                ),
+                            }}
                             className={classes.resizableContainer}
                             handleStyles={getHandleStyles(resizable?.iconSize)}
                         >

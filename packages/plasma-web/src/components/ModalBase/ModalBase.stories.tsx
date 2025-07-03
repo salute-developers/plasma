@@ -92,8 +92,9 @@ const meta: Meta<ModalBaseProps> = {
             control: 'check',
             options: ['top', 'top-right', 'right', 'bottom-right', 'bottom', 'bottom-left', 'left', 'top-left'],
         },
-        resizableHiddenIcon: {
-            control: 'boolean',
+        resizableHiddenIcons: {
+            control: 'check',
+            options: ['top-right', 'bottom-right', 'bottom-left', 'top-left'],
         },
         resizableDefaultSize: {
             control: 'object',
@@ -131,7 +132,7 @@ type StoryModalBaseProps = {
     hasClose?: boolean;
     resizableDisabled: boolean;
     resizableDirections: string[];
-    resizableHiddenIcon: boolean;
+    resizableHiddenIcons: string[];
     resizableDefaultSize: { width?: number; height?: number };
     resizableMinWidth: number;
     resizableMinHeight: number;
@@ -483,7 +484,7 @@ const StoryModalResizable = ({
     offsetY,
     resizableDirections,
     resizableDisabled,
-    resizableHiddenIcon,
+    resizableHiddenIcons,
     resizableDefaultSize,
     resizableMinWidth,
     resizableMinHeight,
@@ -511,7 +512,7 @@ const StoryModalResizable = ({
                         resizable={{
                             disabled: resizableDisabled,
                             directions: resizableDirections,
-                            hiddenIcon: resizableHiddenIcon,
+                            hiddenIcons: resizableHiddenIcons,
                             defaultSize: resizableDefaultSize,
                             minWidth: resizableMinWidth,
                             minHeight: resizableMinHeight,
@@ -544,7 +545,7 @@ export const Resizable: StoryObj<StoryModalBaseProps> = {
         hasClose: true,
         resizableDisabled: false,
         resizableDirections: ['bottom-right'],
-        resizableHiddenIcon: false,
+        resizableHiddenIcons: [],
         resizableIconSize: 's',
         resizableDefaultSize: { width: 300, height: 150 },
         resizableMinWidth: 300,
@@ -569,7 +570,7 @@ export const Resizable: StoryObj<StoryModalBaseProps> = {
                 'hasClose',
                 'resizableDisabled',
                 'resizableDirections',
-                'resizableHiddenIcon',
+                'resizableHiddenIcons',
                 'resizableDefaultSize',
                 'resizableMinWidth',
                 'resizableMinHeight',
