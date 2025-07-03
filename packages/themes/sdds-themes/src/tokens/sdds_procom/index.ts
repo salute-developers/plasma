@@ -2525,25 +2525,25 @@ export const shadowUpHardM = 'var(--shadow-up-hard-m, 0px -16px 32px -8px #00000
 export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px #00000066)';
 
 /** borderRadius xxs */
-export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
+export const borderRadiusXxs = 'var(--border-radius-xxs, 0.25rem)';
 
 /** borderRadius xs */
-export const borderRadiusXs = 'var(--border-radius-xs, 8px)';
+export const borderRadiusXs = 'var(--border-radius-xs, 0.375rem)';
 
 /** borderRadius s */
-export const borderRadiusS = 'var(--border-radius-s, 12px)';
+export const borderRadiusS = 'var(--border-radius-s, 0.5rem)';
 
 /** borderRadius m */
-export const borderRadiusM = 'var(--border-radius-m, 16px)';
+export const borderRadiusM = 'var(--border-radius-m, 0.75rem)';
 
 /** borderRadius l */
-export const borderRadiusL = 'var(--border-radius-l, 20px)';
+export const borderRadiusL = 'var(--border-radius-l, 1rem)';
 
 /** borderRadius xl */
-export const borderRadiusXl = 'var(--border-radius-xl, 24px)';
+export const borderRadiusXl = 'var(--border-radius-xl, 1.25rem)';
 
 /** borderRadius xxl */
-export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';
+export const borderRadiusXxl = 'var(--border-radius-xxl, 2rem)';
 
 /** spacing 0x */
 export const spacing0x = 'var(--spacing-0x, 0px)';

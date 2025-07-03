@@ -850,13 +850,13 @@ export const sdds_bcp__dark = ([
 }
 
 :root {
-  --border-radius-xxs: 4px;
-  --border-radius-xs: 8px;
-  --border-radius-s: 12px;
-  --border-radius-m: 16px;
-  --border-radius-l: 20px;
-  --border-radius-xl: 24px;
-  --border-radius-xxl: 32px;
+  --border-radius-xxs: 0.25rem;
+  --border-radius-xs: 0.375rem;
+  --border-radius-s: 0.5rem;
+  --border-radius-m: 0.75rem;
+  --border-radius-l: 1rem;
+  --border-radius-xl: 1.25rem;
+  --border-radius-xxl: 2rem;
 }
 
 :root {
