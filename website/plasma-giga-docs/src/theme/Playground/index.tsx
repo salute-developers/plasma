@@ -75,7 +75,7 @@ const ResultWithHeader: FC = () => {
     return (
         <>
             {colorMode === 'dark' ? <DarkTheme /> : <LightTheme />}
-            <BackgroundPrimaryTokenOverwrite />
+            {colorMode === 'light' && <BackgroundPrimaryTokenOverwrite />}
             <StandardTypo />
             <Header>
                 <Translate id="theme.Playground.result" description="The result label of the live codeblocks">
