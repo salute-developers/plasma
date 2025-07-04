@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
@@ -135,6 +135,26 @@ describe('plasma-b2c: NumberFormat', () => {
         cy.get('input').should('have.value', '00.123');
         cy.get('body').click();
         cy.get('input').should('have.value', '0.123');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('flow: async controlled', () => {
+        const Component = () => {
+            const [value, setValue] = useState('');
+
+            useEffect(() => {
+                setTimeout(() => setValue('12345.67'));
+            }, []);
+
+            return <NumberFormat value={value} size="l" label="Числовой формат" textAfter="₽" />;
+        };
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Component />
+            </CypressTestDecoratorWithTypo>,
+        );
 
         cy.matchImageSnapshot();
     });
