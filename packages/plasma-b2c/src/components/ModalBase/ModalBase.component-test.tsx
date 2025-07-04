@@ -10,6 +10,8 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 const Content = styled.div`
     background: ${surfaceSolid02};
     padding: 1rem;
+    height: 100%;
+    box-sizing: border-box;
 `;
 
 describe('plasma-web: ModalBase', () => {
@@ -268,5 +270,41 @@ describe('plasma-web: ModalBase', () => {
         cy.get('button').contains('Toggle Modal mount').click({ force: true });
         cy.get('Test modal').should('not.exist');
         cy.get('body').should('not.have.css', 'overflow-y', 'hidden');
+    });
+
+    it('resizable', () => {
+        function Resizable() {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            return (
+                <>
+                    <Button id="open-button" text="Открыть" onClick={() => setIsOpen(true)} />
+
+                    <ModalBase opened={isOpen} placement="center" resizable>
+                        <Content id="popup-content">
+                            Content
+                            <Button text="Close" onClick={() => setIsOpen(false)} />
+                        </Content>
+                    </ModalBase>
+                </>
+            );
+        }
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <PopupBaseProvider>
+                    <Resizable />
+                </PopupBaseProvider>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+
+        cy.get('.resizable-bottom-right-icon')
+            .trigger('mousedown')
+            .trigger('mousemove', { clientX: 400, clientY: 400 })
+            .trigger('mouseup');
+
+        cy.matchImageSnapshot();
     });
 });

@@ -1,6 +1,7 @@
 export type PopupPlacementBasic = 'center' | 'top' | 'bottom' | 'right' | 'left';
 export type PopupPlacementMixed = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
 export type PopupPlacement = PopupPlacementBasic | PopupPlacementMixed;
+export type ResizeDirections = Omit<PopupPlacement, 'center'>[];
 
 export interface PopupInfo {
     id: string;
@@ -57,6 +58,60 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
      * Использовать ли анимацию.
      */
     withAnimation?: boolean;
+    /**
+     * Включение draggable.
+     * @default false
+     */
+    draggable?: boolean;
+    /**
+     * Селектор для управления перетягиванием.
+     * Только при draggable = true.
+     */
+    handle?: string;
+    /**
+     * Настройка resizable-режима.
+     */
+    resizable?: {
+        /**
+         * Включение/выключение ресайза.
+         * @default false
+         */
+        disabled?: boolean;
+        /**
+         * Направления для ресайза.
+         */
+        directions?: ResizeDirections;
+        /**
+         * Скрывать ли иконку для ресайза.
+         * @default false
+         */
+        hiddenIcons?: PopupPlacementMixed[];
+        /**
+         * Начальный размер окна ресайза.
+         */
+        defaultSize?: { width?: number; height?: number };
+        /**
+         * Минимальная ширина ресайза в px.
+         */
+        minWidth?: number;
+        /**
+         * Минимальная высота ресайза в px.
+         */
+        minHeight?: number;
+        /**
+         * Максимальная ширина ресайза в px.
+         */
+        maxWidth?: number;
+        /**
+         * Максимальная высота ресайза в px.
+         */
+        maxHeight?: number;
+        /**
+         * Размер иконки ресайза.
+         * @default s
+         */
+        iconSize?: 'xs' | 's' | 'm';
+    };
 }
 export interface PopupAnimationInfo {
     endAnimation: boolean;

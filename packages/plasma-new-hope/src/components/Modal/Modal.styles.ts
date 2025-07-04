@@ -1,10 +1,18 @@
 import { styled } from '@linaria/react';
+import { css } from '@linaria/core';
 
 import { addFocus } from '../../mixins';
 
 import { tokens } from './Modal.tokens';
 
-export const ModalBody = styled.div`
+export const base = css`
+    height: 100%;
+`;
+
+export const ModalBody = styled.div<{ isResizableEnabled: boolean }>`
+    //height: ${({ isResizableEnabled }) => (isResizableEnabled ? '100%' : 'auto')};
+    height: 100%;
+    box-sizing: border-box;
     border-radius: var(${tokens.modalBodyBorderRadius});
     padding: var(${tokens.modalBodyPadding});
     background: var(${tokens.modalBodyBackground});

@@ -14,7 +14,7 @@ import { ModalProps } from './Modal.types';
 import { useModal } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
 import { getIdLastModal } from './ModalContext';
-import { CloseButton, ModalBody, ModalContent } from './Modal.styles';
+import { CloseButton, ModalBody, ModalContent, base } from './Modal.styles';
 
 // issue #823
 const Popup = component(popupConfig);
@@ -45,6 +45,9 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 isOpen,
                 hasBody,
                 hasClose,
+                draggable,
+                handle,
+                resizable,
                 ...rest
             },
             outerRootRef,
@@ -53,6 +56,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
             const innerHasClose = (hasClose === undefined && hasBody) || hasClose;
             const trapRef = useFocusTrap(true, initialFocusRef, focusAfterRef, true);
             const popupController = usePopupContext();
+            const isResizableEnabled = Boolean(resizable && !resizable.disabled);
 
             const innerRef = useForkRef<HTMLDivElement>(trapRef, outerRootRef);
 
@@ -111,11 +115,14 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                     withAnimation={withAnimation}
                     zIndex={zIndex}
                     overlay={hasBody ? overlayNode : <Root view={view}>{overlayNode}</Root>}
+                    draggable={draggable}
+                    handle={handle}
+                    resizable={resizable}
                     {...rest}
                 >
                     {hasBody ? (
                         <Root view={view}>
-                            <ModalBody>
+                            <ModalBody isResizableEnabled={isResizableEnabled}>
                                 <ModalContent>
                                     {innerHasClose && (
                                         <CloseButton onClick={onClose} data-test="modal-close">
@@ -138,7 +145,7 @@ export const modalConfig = {
     name: 'Modal',
     tag: 'div',
     layout: modalRoot,
-    base: '',
+    base,
     variations: {
         view: {
             css: viewCSS,
