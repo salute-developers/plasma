@@ -204,39 +204,39 @@ describe('plasma-web: PopupBase', () => {
         cy.get('.popup-base-root').should('have.attr', 'data-testid', 'test-data-id');
     });
 
-    it.skip('draggable', () => {
-        function Draggable() {
-            const [isOpen, setIsOpen] = React.useState(false);
-
-            return (
-                <>
-                    <Button id="open-button" text="Открыть" onClick={() => setIsOpen(true)} />
-
-                    <PopupBase opened={isOpen} placement="center" draggable handle=".handle">
-                        <Content>
-                            <Headline3 className="handle">Draggable target</Headline3>
-
-                            <Button text="Close" onClick={() => setIsOpen(false)} />
-                        </Content>
-                    </PopupBase>
-                </>
-            );
-        }
-
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <PopupBaseProvider>
-                    <Draggable />
-                </PopupBaseProvider>
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').click();
-
-        cy.get('.handle').trigger('mousedown').trigger('mousemove', { clientX: 200, clientY: 100 }).trigger('mouseup');
-
-        cy.matchImageSnapshot();
-    });
+    // it.skip('draggable', () => {
+    //     function Draggable() {
+    //         const [isOpen, setIsOpen] = React.useState(false);
+    //
+    //         return (
+    //             <>
+    //                 <Button id="open-button" text="Открыть" onClick={() => setIsOpen(true)} />
+    //
+    //                 <PopupBase opened={isOpen} placement="center" draggable handle=".handle">
+    //                     <Content>
+    //                         <Headline3 className="handle">Draggable target</Headline3>
+    //
+    //                         <Button text="Close" onClick={() => setIsOpen(false)} />
+    //                     </Content>
+    //                 </PopupBase>
+    //             </>
+    //         );
+    //     }
+    //
+    //     mount(
+    //         <CypressTestDecoratorWithTypo>
+    //             <PopupBaseProvider>
+    //                 <Draggable />
+    //             </PopupBaseProvider>
+    //         </CypressTestDecoratorWithTypo>,
+    //     );
+    //
+    //     cy.get('button').click();
+    //
+    // cy.get('.handle').trigger('mousedown').trigger('mousemove', { clientX: 200, clientY: 100 }).trigger('mouseup');
+    //
+    //     cy.matchImageSnapshot();
+    // });
 
     it('resizable', () => {
         function Resizable() {
@@ -248,8 +248,7 @@ describe('plasma-web: PopupBase', () => {
 
                     <PopupBase opened={isOpen} placement="center" resizable>
                         <Content>
-                            <Headline3>Content</Headline3>
-
+                            Content
                             <Button text="Close" onClick={() => setIsOpen(false)} />
                         </Content>
                     </PopupBase>
@@ -267,7 +266,7 @@ describe('plasma-web: PopupBase', () => {
 
         cy.get('button').click();
 
-        cy.get('.popup-handle-bottom-right')
+        cy.get('.resizable-bottom-right-icon')
             .trigger('mousedown')
             .trigger('mousemove', { clientX: 400, clientY: 400 })
             .trigger('mouseup');
