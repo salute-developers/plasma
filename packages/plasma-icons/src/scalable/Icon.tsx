@@ -789,6 +789,8 @@ export const iconSectionsSet = {
         documentExportOutline: 'DocumentExportOutline',
         documentImportFill: 'DocumentImportFill',
         documentImportOutline: 'DocumentImportOutline',
+        documentPasteFill: 'DocumentPasteFill',
+        documentPasteOutline: 'DocumentPasteOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
