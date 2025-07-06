@@ -526,6 +526,8 @@ export const iconSectionsSet = {
         currencyYuan: 'CurrencyYuan',
         deliveryOutline: 'DeliveryOutline',
         internationalTradeOutline: 'InternationalTradeOutline',
+        internationalTradeRubleOutline: 'InternationalTradeRubleOutline',
+        internationalTradeRupiahOutline: 'InternationalTradeRupiahOutline',
         buildingsAddFill: 'BuildingsAddFill',
         buildingsAddOutline: 'BuildingsAddOutline',
     },
