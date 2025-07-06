@@ -136,6 +136,12 @@ export const iconSectionsSet = {
         save: 'Save',
         sortAlphabetAsc: 'SortAlphabetAsc',
         sortAlphabetDesc: 'SortAlphabetDesc',
+        tableColumnAdd: 'TableColumnAdd',
+        tableColumnPin: 'TableColumnPin',
+        tableCornerPin: 'TableCornerPin',
+        tablePin: 'TablePin',
+        tableRowAdd: 'TableRowAdd',
+        tableRowPin: 'TableRowPin',
     },
     Animal: {
         animalFill: 'AnimalFill',
