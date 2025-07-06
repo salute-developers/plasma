@@ -1199,6 +1199,8 @@ export const iconSectionsSet = {
         pcMouseOutline: 'PcMouseOutline',
         printerFill: 'PrinterFill',
         printerOutline: 'PrinterOutline',
+        sbDotFill: 'SbDotFill',
+        sbDotOutline: 'SbDotOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',
