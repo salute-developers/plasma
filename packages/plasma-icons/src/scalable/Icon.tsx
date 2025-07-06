@@ -648,6 +648,8 @@ export const iconSectionsSet = {
         towTruckOutline: 'TowTruckOutline',
         floorTypeFill: 'FloorTypeFill',
         floorTypeOutline: 'FloorTypeOutline',
+        productExportOutline: 'ProductExportOutline',
+        productImportOutline: 'ProductImportOutline',
         scissorsFill: 'ScissorsFill',
     },
     Toggle: {
