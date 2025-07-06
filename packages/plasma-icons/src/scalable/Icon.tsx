@@ -523,6 +523,8 @@ export const iconSectionsSet = {
         currencyYuan: 'CurrencyYuan',
         deliveryOutline: 'DeliveryOutline',
         internationalTradeOutline: 'InternationalTradeOutline',
+        buildingsAddFill: 'BuildingsAddFill',
+        buildingsAddOutline: 'BuildingsAddOutline',
     },
     Other: {
         button2x1LFill: 'Button2x1LFill',
