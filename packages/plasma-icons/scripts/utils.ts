@@ -131,12 +131,14 @@ import { ${iconName} as Icon36 } from '../Icon.assets.36/${iconName}';
 import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 ${deprecationBlock}
-export const Icon${iconName}: React.FC<IconProps> = ({ size = 's', color, className }) => {
+export const Icon${iconName}: React.FC<IconProps> = ({ size = 's', color, className, ...rest }) => {
     const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    
     if (!IconComponent) {
         return null;
     }
-    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
+    
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} {...rest} />;
 };
 `;
 };

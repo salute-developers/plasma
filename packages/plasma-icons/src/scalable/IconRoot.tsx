@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import type { CSSProperties } from 'react';
 import styled from 'styled-components';
 
@@ -26,7 +26,7 @@ export interface IconProps {
     style?: CSSProperties;
 }
 
-interface IconRootProps extends IconProps {
+interface IconRootProps extends IconProps, HTMLAttributes<HTMLDivElement> {
     size: IconSize;
     icon: React.FC<IconProps>;
 }
@@ -59,12 +59,15 @@ export const getIconComponent = (
     return icon16 || icon24 || icon36;
 };
 
-export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className, style, ...rest }) => (
-    <IconsRoot
-        aria-hidden
-        style={{ '--icon-size': `${sizeMap[size].scale}rem`, ...style } as CSSProperties}
-        className={className || ''}
-    >
-        <Icon color={color || 'var(--plasma-colors-primary)'} size={size} {...rest} />
-    </IconsRoot>
-);
+export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className, style, ...rest }) => {
+    return (
+        <IconsRoot
+            aria-hidden
+            style={{ '--icon-size': `${sizeMap[size].scale}rem`, ...style } as CSSProperties}
+            className={className || ''}
+            {...rest}
+        >
+            <Icon color={color || 'var(--plasma-colors-primary)'} size={size} />
+        </IconsRoot>
+    );
+};
