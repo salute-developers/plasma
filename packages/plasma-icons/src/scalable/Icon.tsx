@@ -652,6 +652,7 @@ export const iconSectionsSet = {
         floorTypeOutline: 'FloorTypeOutline',
         productExportOutline: 'ProductExportOutline',
         productImportOutline: 'ProductImportOutline',
+        cookieOutline: 'CookieOutline',
         scissorsFill: 'ScissorsFill',
     },
     Toggle: {
