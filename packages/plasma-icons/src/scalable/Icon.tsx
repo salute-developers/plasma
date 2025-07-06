@@ -301,6 +301,8 @@ export const iconSectionsSet = {
         chartPieFill: 'ChartPieFill',
         chartPieOutline: 'ChartPieOutline',
         mindmap: 'Mindmap',
+        dataBaseFill: 'DataBaseFill',
+        dataBaseOutline: 'DataBaseOutline',
     },
     Travel: {
         busFill: 'BusFill',
