@@ -142,6 +142,10 @@ export const iconSectionsSet = {
         tablePin: 'TablePin',
         tableRowAdd: 'TableRowAdd',
         tableRowPin: 'TableRowPin',
+        flipHorizontalFill: 'FlipHorizontalFill',
+        flipHorizontalOutline: 'FlipHorizontalOutline',
+        flipVerticalFill: 'FlipVerticalFill',
+        flipVerticalOutline: 'FlipVerticalOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
