@@ -146,6 +146,8 @@ export const iconSectionsSet = {
         flipHorizontalOutline: 'FlipHorizontalOutline',
         flipVerticalFill: 'FlipVerticalFill',
         flipVerticalOutline: 'FlipVerticalOutline',
+        adjustHeight: 'AdjustHeight',
+        adjustWidth: 'AdjustWidth',
     },
     Animal: {
         animalFill: 'AnimalFill',
