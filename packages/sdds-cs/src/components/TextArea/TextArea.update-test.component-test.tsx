@@ -1,11 +1,13 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { IconEye } from '@salutejs/plasma-icons';
 
 import { TextArea as TextAreaCS } from '.';
 
 describe('sdds-cs: TextArea', () => {
     const TextArea = getComponent('TextArea') as typeof TextAreaCS;
+    const TextS = getComponent('TextS');
+
     const LONG_TEXT = 'TEXT FOR RESIZE TEST ';
     const Icon = <IconEye color="inherit" size="s" />;
 
@@ -556,6 +558,28 @@ describe('sdds-cs: TextArea', () => {
         );
 
         cy.get('svg').first().trigger('mouseover');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('headerSlot', () => {
+        const HeaderSlot = () => (
+            <div style={{ display: 'flex', gap: '1rem' }}>
+                <IconEye color="inherit" size="s" />
+                <TextS>Дополнительный контент</TextS>
+            </div>
+        );
+
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    headerSlot={<HeaderSlot />}
+                />
+            </CypressTestDecorator>,
+        );
 
         cy.matchImageSnapshot();
     });

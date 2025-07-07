@@ -26,6 +26,8 @@ import {
     TitleCaption,
     StyledOutsideHelpersWrapper,
     StyledHiddenTextArea,
+    StyledContentWrapper,
+    StyledHeaderSlot,
 } from './TextArea.styles';
 import { classes } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
@@ -47,6 +49,8 @@ const {
     styledTextAreaWrapper,
     styledPlaceholder,
     styledHelpers,
+    hasHeaderSlot,
+    styledContentWrapper,
 } = classes;
 
 const optionalText = 'optional';
@@ -104,6 +108,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             helperText,
             status,
             resize,
+            headerSlot,
             rightHelper,
             leftHelper,
             leftHelperPlacement = 'inner',
@@ -172,6 +177,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const hasOuterLabel = Boolean(label && labelPlacement === 'outer');
         const hasInnerLabel = Boolean(label && labelPlacement === 'inner' && size !== 'xs');
         const hasPlaceholderOptional = innerOptional && !hasOuterLabel;
+        const hasHeader = Boolean(headerSlot) && !clear;
 
         const overriddenView = status !== undefined ? fallbackStatusMap[status] : view;
         const textareaHelperId = id ? `${id}-helper` : undefined;
@@ -354,8 +360,30 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             )}
                         </>
                     )}
-                    {contentRight && <StyledContent>{contentRight}</StyledContent>}
-                    <StyledTextAreaWrapper className={cx(styledTextAreaWrapper)} hasHelper={hasHelper}>
+                    <StyledTextAreaWrapper
+                        className={cx(styledTextAreaWrapper, hasHeader && hasHeaderSlot)}
+                        hasHelper={hasHelper}
+                        hasHeader={hasHeader}
+                    >
+                        {headerSlot && !clear && <StyledHeaderSlot>{headerSlot}</StyledHeaderSlot>}
+
+                        {contentRight && !hasHeader && <StyledContent>{contentRight}</StyledContent>}
+
+                        {hasHeader && (
+                            <StyledContentWrapper className={styledContentWrapper} hasHeader={hasHeader}>
+                                {contentRight && <StyledContent hasHeader={hasHeader}>{contentRight}</StyledContent>}
+                                {headerSlot && placeholderLabel && (
+                                    <StyledPlaceholder
+                                        hasContentRight={Boolean(contentRight)}
+                                        className={styledPlaceholder}
+                                        htmlFor={id}
+                                    >
+                                        {placeholderLabel}
+                                        {!hasOuterLabel && optionalTextNode}
+                                    </StyledPlaceholder>
+                                )}
+                            </StyledContentWrapper>
+                        )}
                         <StyledTextArea
                             className={cx(styledTextArea, hasRightContentClass)}
                             id={id}
@@ -397,7 +425,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             {rightHelper && <StyledRightHelper data-root>{rightHelper}</StyledRightHelper>}
                         </StyledHelpers>
                     )}
-                    {placeholderLabel && (
+                    {!hasHeader && placeholderLabel && (
                         <StyledPlaceholder
                             hasContentRight={Boolean(contentRight)}
                             className={styledPlaceholder}
