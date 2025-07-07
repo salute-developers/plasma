@@ -181,6 +181,11 @@ export type TextAreaPropsBase = {
      */
     titleCaption?: ReactNode;
     /**
+     * Слот для контента над вводимым текстом
+     * @description не отображается, если включен `clear`
+     */
+    headerSlot?: ReactNode;
+    /**
      * Слот для контента справа.
      */
     contentRight?: React.ReactElement;
