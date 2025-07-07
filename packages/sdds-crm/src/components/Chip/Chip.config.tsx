@@ -176,7 +176,7 @@ export const config = {
                 ${chipTokens.scaleHover}: 1.02;
                 ${chipTokens.scaleActive}: 0.98;
 
-                ${chipTokens.closeIconSize}: 1rem;
+                ${chipTokens.closeIconSize}: 0.75rem;
             `,
         },
         disabled: {
