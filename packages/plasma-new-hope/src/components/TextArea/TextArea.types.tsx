@@ -181,6 +181,22 @@ export type TextAreaPropsBase = {
      */
     titleCaption?: ReactNode;
     /**
+     * Слот для контента над вводимым текстом
+     * @description не отображается, если включен `clear`
+     */
+    headerSlot?: ReactNode;
+    /**
+     * Свойство включает отображение разделителя для `headerSlot`
+     * @default true
+     */
+    enableHeaderDivider?: boolean;
+    /**
+     * Свойство применяет заданные по умолчанию боковые
+     * отступы для `headerSlot`
+     * @default true
+     */
+    applyHeaderDefaultPaddings?: boolean;
+    /**
      * Слот для контента справа.
      */
     contentRight?: React.ReactElement;

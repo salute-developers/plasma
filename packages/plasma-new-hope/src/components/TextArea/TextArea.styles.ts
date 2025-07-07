@@ -94,10 +94,13 @@ export const HintIconWrapper = styled.div``;
 
 export const StyledTextAreaWrapper = styled.div<{
     hasHelper: boolean;
+    hasHeader: boolean;
 }>`
+    display: flex;
+    flex-direction: column;
     background-color: var(${tokens.inputBackgroundColor});
 
-    padding-top: var(${tokens.inputPaddingTop});
+    padding-top: ${({ hasHeader }) => (hasHeader ? 'unset' : `var(${tokens.inputPaddingTop})`)};
     padding-bottom: ${({ hasHelper }) =>
         hasHelper ? `var(${tokens.inputPaddingBottomWithHelpers})` : `var(${tokens.inputPaddingBottom})`};
 
@@ -105,19 +108,43 @@ export const StyledTextAreaWrapper = styled.div<{
         hasHelper ? `var(${tokens.borderRadiusWithHelpers})` : `var(${tokens.borderRadius})`};
 `;
 
-export const StyledContent = styled.div`
+export const StyledContentWrapper = styled.div<{ hasHeader: boolean }>`
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: ${({ hasHeader }) => (hasHeader ? `var(${tokens.inputPaddingTop})` : 'unset')};
+`;
+
+export const StyledContent = styled.div<{ hasHeader?: boolean }>`
     position: absolute;
     display: flex;
     align-items: center;
-    bottom: 0;
     z-index: 1;
 
     color: var(${tokens.rightContentColor}, var(${tokens.inputColor}));
 
-    top: var(${tokens.rightContentTop});
+    top: ${({ hasHeader }) => (hasHeader ? `var(${tokens.inputPaddingTop})` : `var(${tokens.rightContentTop})`)};
     right: var(${tokens.rightContentRight});
 
     height: var(${tokens.rightContentHeight});
+`;
+
+export const StyledHeaderSlot = styled.div<{ applyHeaderDefaultPaddings?: boolean }>`
+    display: flex;
+    flex-direction: column;
+    margin-right: ${({ applyHeaderDefaultPaddings }) =>
+        applyHeaderDefaultPaddings ? 'var(--plasma-textarea-helpers-padding-right)' : 'unset'};
+    margin-left: ${({ applyHeaderDefaultPaddings }) =>
+        applyHeaderDefaultPaddings ? 'var(--plasma-textarea-helpers-padding-left)' : 'unset'};
+`;
+
+export const DividerWrapper = styled.div`
+    background: var(${tokens.backgroundColor});
+`;
+
+export const Divider = styled.div`
+    height: 0.0625rem;
+    background: var(${tokens.dividerColor});
 `;
 
 export const StyledContainer = styled.div<{ width: string }>`

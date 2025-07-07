@@ -25,6 +25,8 @@ export const classes = {
     hasRightContent: 'textarea-has-right-content',
     hasDivider: 'textarea-has-divider',
     requiredAlignRight: 'required-align-right',
+    hasHeaderSlot: 'textarea-has-header-slot',
+    styledContentWrapper: 'textarea-content-wrapper',
 };
 
 export const tokens = {
