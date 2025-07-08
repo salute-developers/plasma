@@ -54,7 +54,7 @@ export const StyledHeader = styled.header`
 const StyledHeadingAnchor = styled.a`
     display: grid;
     grid-template-columns: subgrid;
-    grid-column: 1/-1;
+    grid-column: 1/5;
 
     color: rgba(255, 255, 255, 1);
 
@@ -103,8 +103,10 @@ const ButtonToTop = ({ onClick }: { onClick: () => void }) => {
 };
 
 const StyledBodyS = styled(BodyS)`
-    font-weight: 600;
-    line-height: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    color: rgba(255, 255, 255, 0.96);
 
     grid-column: 2/-1;
 `;
