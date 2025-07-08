@@ -6,6 +6,7 @@ const StyledBodyM = styled(BodyM)`
     padding-bottom: 12px;
 
     color: rgba(255, 255, 255, 0.96);
+    line-height: 24px;
     opacity: 0.8;
 
     white-space: break-spaces;

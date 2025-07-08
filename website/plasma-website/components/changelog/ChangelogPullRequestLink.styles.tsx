@@ -37,6 +37,7 @@ const StyledLink = styled.a`
 
 const ChangelogPrID = styled(TextXS)`
     padding-right: 4px;
+    line-height: 14px;
     color: #fff;
 `;
 
