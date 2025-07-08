@@ -4,6 +4,7 @@ import { IconEye } from '@salutejs/plasma-icons';
 
 describe('plasma-b2c: TextArea', () => {
     const TextArea = getComponent('TextArea');
+    const TextS = getComponent('TextS');
 
     const propsDefault = {
         placeholder: 'Оставьте ваш комментарий [placeholder]',
@@ -221,6 +222,44 @@ describe('plasma-b2c: TextArea', () => {
                     leftHelper="Helper text left"
                     rightHelper="Helper text right"
                     contentRight={<IconEye color="inherit" size="s" />}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('headerSlot, enableHeaderDivider, applyHeaderDefaultPaddings', () => {
+        const HeaderSlot = () => (
+            <div style={{ display: 'flex', gap: '1rem' }}>
+                <IconEye color="inherit" size="s" />
+                <TextS>Дополнительный контент</TextS>
+            </div>
+        );
+
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    headerSlot={<HeaderSlot />}
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    headerSlot={<HeaderSlot />}
+                    enableHeaderDivider={false}
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    headerSlot={<HeaderSlot />}
+                    applyHeaderDefaultPaddings={false}
                 />
             </CypressTestDecorator>,
         );

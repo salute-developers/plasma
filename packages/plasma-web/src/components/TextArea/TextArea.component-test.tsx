@@ -9,6 +9,7 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-web: TextArea', () => {
     const TextArea = getComponent('TextArea');
+    const TextS = getComponent('TextS');
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
@@ -235,6 +236,44 @@ describe('plasma-web: TextArea', () => {
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
             </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('headerSlot, enableHeaderDivider, applyHeaderDefaultPaddings', () => {
+        const HeaderSlot = () => (
+            <div style={{ display: 'flex', gap: '1rem' }}>
+                <IconEye color="inherit" size="s" />
+                <TextS>Дополнительный контент</TextS>
+            </div>
+        );
+
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    headerSlot={<HeaderSlot />}
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    headerSlot={<HeaderSlot />}
+                    enableHeaderDivider={false}
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    headerSlot={<HeaderSlot />}
+                    applyHeaderDefaultPaddings={false}
+                />
+            </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
