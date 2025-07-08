@@ -158,3 +158,28 @@ export function App() {
     );
 }
 ```
+
+### Слот для контента над вводимым текстом
+Слот для контента над вводимым текстом задается с помощью свойства `headerSlot`. 
+По умолчанию включены боковые отступы. Их можно отключить с помощью свойства `applyHeaderDefaultPaddings`.
+Так же можно выключить отображение divider с помощью `enableHeaderDivider`:
+
+```tsx live
+import React from 'react';
+import { TextArea, TextS } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                headerSlot={<TextS>Дополнительный контент</TextS>}
+                enableHeaderDivider
+                applyHeaderDefaultPaddings
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                leftHelper="Подсказка снизу слева"
+            />
+        </div>
+    );
+}
+```
