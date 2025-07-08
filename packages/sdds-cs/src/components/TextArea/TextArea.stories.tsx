@@ -27,6 +27,7 @@ const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = fal
 type StoryTextAreaPropsCustom = {
     hasHint?: boolean;
     enableContentRight?: boolean;
+    enableHeader?: boolean;
 };
 
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
@@ -125,6 +126,33 @@ const meta: Meta<StoryTextAreaProps> = {
         rightHelper: {
             control: { type: 'text' },
         },
+        enableHeaderDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'clear',
+                truthy: false,
+            },
+        },
+        enableHeader: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'clear',
+                truthy: false,
+            },
+        },
+        applyHeaderDefaultPaddings: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'clear',
+                truthy: false,
+            },
+        },
         ...disableProps([
             'size',
             'helperBlock',
@@ -173,6 +201,9 @@ const meta: Meta<StoryTextAreaProps> = {
         view: 'default',
         size: 's',
         enableContentRight: true,
+        enableHeader: false,
+        enableHeaderDivider: true,
+        applyHeaderDefaultPaddings: true,
         label: 'Лейбл',
         labelPlacement: 'outer',
         placeholder: 'Заполните многострочное поле',
@@ -199,6 +230,16 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const StyledHeader = styled.div`
+    padding: 0.5rem 0;
+    font-family: var(--plasma-textarea-input-font-family);
+    font-size: var(--plasma-textarea-input-font-size);
+    font-style: var(--plasma-textarea-input-font-style);
+    font-weight: var(--plasma-textarea-input-font-weight);
+    letter-spacing: var(--plasma-textarea-input-letter-spacing);
+    line-height: var(--plasma-textarea-input-line-height);
+`;
+
 const StoryDefault = (props: StoryTextAreaProps) => {
     const [value, setValue] = useState('Значение поля');
 
@@ -208,6 +249,7 @@ const StoryDefault = (props: StoryTextAreaProps) => {
             contentRight={
                 props.enableContentRight || props.readOnly ? getIcon(IconBell, props.size, props.readOnly) : undefined
             }
+            headerSlot={props.enableHeader && <StyledHeader>Дополнительный контент</StyledHeader>}
             onChange={(e) => {
                 setValue(e.target.value);
                 onChange(e);

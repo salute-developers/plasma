@@ -4,14 +4,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
 import { IconBell, IconLockOutline } from '@salutejs/plasma-icons';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { TextArea } from './TextArea';
+import { config } from './TextArea.config';
+
+const { views, sizes } = getConfigVariations(config);
 
 const labelPlacements = ['inner', 'outer'];
-const sizes = ['xs', 's', 'm', 'l', 'xl'];
-const views = ['default', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -78,6 +79,7 @@ const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = fal
 type StoryTextAreaPropsCustom = {
     hasHint?: boolean;
     enableContentRight?: boolean;
+    enableHeader?: boolean;
 };
 
 type StoryTextAreaProps = ComponentProps<typeof TextArea> & StoryTextAreaPropsCustom;
@@ -248,6 +250,33 @@ const meta: Meta<StoryTextAreaProps> = {
         rightHelper: {
             control: { type: 'text' },
         },
+        enableHeaderDivider: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'clear',
+                truthy: false,
+            },
+        },
+        enableHeader: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'clear',
+                truthy: false,
+            },
+        },
+        applyHeaderDefaultPaddings: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'clear',
+                truthy: false,
+            },
+        },
         ...disableProps([
             'helperBlock',
             'helperText',
@@ -282,6 +311,9 @@ const meta: Meta<StoryTextAreaProps> = {
         view: 'default',
         size: 'm',
         enableContentRight: true,
+        enableHeader: false,
+        enableHeaderDivider: true,
+        applyHeaderDefaultPaddings: true,
         label: 'Лейбл',
         labelPlacement: 'outer',
         placeholder: 'Заполните многострочное поле',
@@ -316,6 +348,16 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const StyledHeader = styled.div`
+    padding: 0.5rem 0;
+    font-family: var(--plasma-textarea-input-font-family);
+    font-size: var(--plasma-textarea-input-font-size);
+    font-style: var(--plasma-textarea-input-font-style);
+    font-weight: var(--plasma-textarea-input-font-weight);
+    letter-spacing: var(--plasma-textarea-input-letter-spacing);
+    line-height: var(--plasma-textarea-input-line-height);
+`;
+
 const StoryDefault = (props: StoryTextAreaProps) => {
     const [value, setValue] = useState('Значение поля');
 
@@ -327,6 +369,7 @@ const StoryDefault = (props: StoryTextAreaProps) => {
                     ? getIcon(StyledIconBell, props.size, props.readOnly)
                     : undefined
             }
+            headerSlot={props.enableHeader && <StyledHeader>Дополнительный контент</StyledHeader>}
             onChange={(e) => {
                 setValue(e.target.value);
                 onChange(e);
