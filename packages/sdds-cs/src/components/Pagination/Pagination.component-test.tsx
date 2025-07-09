@@ -1,27 +1,16 @@
 /* eslint-disable */
 import React, { useState, useCallback } from 'react';
 import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
-import { createGlobalStyle } from 'styled-components';
-import { standard as standardTypo } from '@salutejs/plasma-typo';
-import type { FC } from 'react';
+
+import { Pagination as PaginationCS } from '.';
 
 const id = 'test-pagination';
 const slots = [7, 9, 13];
 const values = [1, 10, 20];
-const count = 20;
-const views = ['clear', 'secondary', 'default'];
+const count = 2000;
 
-const StandardTypoStyle = createGlobalStyle(standardTypo);
-
-describe('plasma-new-hope: Pagination Styled', () => {
-    const Pagination = getComponent('Pagination');
-
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
-        <CypressTestDecorator>
-            <StandardTypoStyle />
-            {children}
-        </CypressTestDecorator>
-    );
+describe('sdds-cs: Pagination Styled', () => {
+    const Pagination = getComponent('Pagination') as typeof PaginationCS;
 
     const ControlledPagination = () => {
         const [value, setValue] = useState(values[1]);
@@ -31,9 +20,9 @@ describe('plasma-new-hope: Pagination Styled', () => {
 
     it('default', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <ControlledPagination />
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
@@ -41,15 +30,9 @@ describe('plasma-new-hope: Pagination Styled', () => {
 
     it('_size', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
-                <Pagination size="xs" value={values[1]} slots={slots[1]} count={count} />
-                <SpaceMe />
+            <CypressTestDecorator>
                 <Pagination size="s" value={values[1]} slots={slots[1]} count={count} />
-                <SpaceMe />
-                <Pagination size="m" value={values[1]} slots={slots[1]} count={count} />
-                <SpaceMe />
-                <Pagination size="l" value={values[1]} slots={slots[1]} count={count} />
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
@@ -57,13 +40,9 @@ describe('plasma-new-hope: Pagination Styled', () => {
 
     it('_view', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
-                <Pagination view={views[0]} value={values[1]} slots={slots[1]} count={count} />
-                <SpaceMe />
-                <Pagination view={views[1]} value={values[1]} slots={slots[1]} count={count} />
-                <SpaceMe />
-                <Pagination view={views[2]} value={values[1]} slots={slots[1]} count={count} />
-            </CypressTestDecoratorWithTypo>,
+            <CypressTestDecorator>
+                <Pagination view="default" value={values[1]} slots={slots[1]} count={count} />
+            </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
@@ -71,13 +50,9 @@ describe('plasma-new-hope: Pagination Styled', () => {
 
     it('_viewCurrentPage', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
-                <Pagination viewCurrentPage={views[0]} value={values[1]} slots={slots[1]} count={count} />
-                <SpaceMe />
-                <Pagination viewCurrentPage={views[1]} value={values[1]} slots={slots[1]} count={count} />
-                <SpaceMe />
-                <Pagination viewCurrentPage={views[2]} value={values[1]} slots={slots[1]} count={count} />
-            </CypressTestDecoratorWithTypo>,
+            <CypressTestDecorator>
+                <Pagination viewCurrentPage="default" value={values[1]} slots={slots[1]} count={count} />
+            </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
@@ -85,7 +60,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
 
     it('type', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <Pagination type="default" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
                 <Pagination
@@ -143,74 +118,60 @@ describe('plasma-new-hope: Pagination Styled', () => {
                     slots={slots[1]}
                     count={count}
                 />
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 });
 
-describe('plasma-new-hope: Pagination Slots', () => {
+describe('sdds-cs: Pagination Slots', () => {
     const Pagination = getComponent('Pagination');
-
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
-        <CypressTestDecorator>
-            <StandardTypoStyle />
-            {children}
-        </CypressTestDecorator>
-    );
 
     it('minSlots', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <Pagination slots={slots[0]} value={values[0]} count={count} />
                 <SpaceMe />
                 <Pagination slots={slots[0]} value={values[1]} count={count} />
                 <SpaceMe />
                 <Pagination slots={slots[0]} value={values[2]} count={count} />
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
     it('avrSlots', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <Pagination slots={slots[1]} value={values[0]} count={count} />
                 <SpaceMe />
                 <Pagination slots={slots[1]} value={values[1]} count={count} />
                 <SpaceMe />
                 <Pagination slots={slots[1]} value={values[2]} count={count} />
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
     it('maxSlots', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <Pagination slots={slots[2]} value={values[0]} count={count} />
                 <SpaceMe />
                 <Pagination slots={slots[2]} value={values[1]} count={count} />
                 <SpaceMe />
                 <Pagination slots={slots[2]} value={values[2]} count={count} />
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 });
 
-describe('plasma-new-hope: Pagination Content', () => {
-    const Pagination = getComponent('Pagination');
+describe('sdds-cs: Pagination Content', () => {
+    const Pagination = getComponent('Pagination') as typeof PaginationCS;
     const Button = getComponent('Button');
-
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
-        <CypressTestDecorator>
-            <StandardTypoStyle />
-            {children}
-        </CypressTestDecorator>
-    );
 
     const PaginationContent = (args) => {
         const [pageValue, setPageValue] = useState(args.value);
@@ -234,8 +195,10 @@ describe('plasma-new-hope: Pagination Content', () => {
             <>
                 <Pagination
                     {...args}
+                    count={count}
                     value={pageValue}
                     perPage={perPageValue}
+                    count={count}
                     leftContent={
                         <Button
                             id="pagination-button-prev"
@@ -265,9 +228,9 @@ describe('plasma-new-hope: Pagination Content', () => {
 
     it('clickOnContent', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <PaginationContent value={values[0]} count={count} />
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.get('button[id="pagination-button-next"]').click();
@@ -278,19 +241,21 @@ describe('plasma-new-hope: Pagination Content', () => {
     });
     it('setInput', () => {
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <Pagination slots={slots[1]} value={values[0]} count={count} />
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
         cy.get('input:first').focus().type('10').type('{enter}');
 
         cy.matchImageSnapshot();
     });
     it('setSelect', () => {
+        cy.viewport(1000, 500);
+
         mount(
-            <CypressTestDecoratorWithTypo>
-                <Pagination slots={slots[2]} value={values[0]} count={count} />
-            </CypressTestDecoratorWithTypo>,
+            <CypressTestDecorator>
+                <Pagination slots={slots[2]} value={values[0]} count={count} listWidth="5rem" />
+            </CypressTestDecorator>,
         );
         cy.get('button').last().click();
 

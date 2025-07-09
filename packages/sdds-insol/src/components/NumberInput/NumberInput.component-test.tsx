@@ -13,7 +13,7 @@ const NoAnimationStyle = createGlobalStyle`
     }
 `;
 
-describe('plasma-b2c: NumberInput', () => {
+describe('sdds-insol: NumberInput', () => {
     const NumberInput = getComponent('NumberInput');
     const IconButton = getComponent('IconButton');
 
@@ -23,7 +23,10 @@ describe('plasma-b2c: NumberInput', () => {
                 <NumberInput value={5} />
             </CypressTestDecorator>,
         );
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it(':min,max', () => {
@@ -183,8 +186,6 @@ describe('plasma-b2c: NumberInput', () => {
         );
 
         cy.get('input').type('15{enter}');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(400);
         cy.get('input').should('have.value', '10');
 
         cy.matchImageSnapshot({
@@ -201,8 +202,6 @@ describe('plasma-b2c: NumberInput', () => {
         );
 
         cy.get('input').type('-15{enter}');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(400);
         cy.get('input').should('have.value', '0');
 
         cy.matchImageSnapshot({
@@ -219,13 +218,74 @@ describe('plasma-b2c: NumberInput', () => {
         );
 
         cy.get('input').type('{backspace}{enter}');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(400);
         cy.get('input').should('have.value', '5');
 
         cy.matchImageSnapshot({
             failureThreshold: 0.01,
             failureThresholdType: 'percent',
         });
+    });
+
+    it(':dot at the end gets removed', () => {
+        mount(
+            <CypressTestDecorator>
+                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('input').type('5.').blur();
+        cy.get('input').should('have.value', '5');
+    });
+
+    it(':dot at the end gets removed; value more than max', () => {
+        mount(
+            <CypressTestDecorator>
+                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('input').type('200.').blur();
+        cy.get('input').should('have.value', '10');
+    });
+
+    it(':dot at the end gets removed; value less than min', () => {
+        mount(
+            <CypressTestDecorator>
+                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('input').type('-200.').blur();
+        cy.get('input').should('have.value', '0');
+    });
+
+    it('precision', () => {
+        mount(
+            <CypressTestDecorator>
+                <NumberInput size="l" value={5} max={10} min={-10} precision={2} step={0.111} isManualInput />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('input').type('0').blur();
+        cy.get('input').should('have.value', '0');
+
+        cy.get('input').type('1.005').blur();
+        cy.get('input').should('have.value', '1.01');
+
+        cy.get('input').type('-1.005').blur();
+        cy.get('input').should('have.value', '-1.01');
+
+        cy.get('input').type('5.115').blur();
+        cy.get('input').should('have.value', '5.12');
+
+        cy.get('input').type('5.11111').blur();
+        cy.get('input').should('have.value', '5.11');
+
+        cy.get('button').first().click();
+        cy.get('input').should('have.value', '5');
+
+        cy.get('button').last().click();
+        cy.get('button').last().click();
+        cy.get('input').should('have.value', '5.22');
     });
 });

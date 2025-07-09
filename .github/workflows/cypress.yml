@@ -18,7 +18,7 @@ jobs:
     uses: ./.github/workflows/change-detection.yml
     secrets: inherit
 
-  cypress:
+  cypress_plasma:
     needs: state
     if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
     strategy:
@@ -27,9 +27,24 @@ jobs:
         # [Note]
         # Важно что бы массив был со значениями, где `""` экранируются, например -> ["\"b2c\""]
         # Можно для этого использовать JSON.stringify()
-        scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN }}
-
+        scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_PLASMA }}
+        
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
+      prefix: "plasma"
+    secrets: inherit
+
+  cypress_sdds:
+    needs: state
+    if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_SDDS }}
+        
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      prefix: "sdds"
     secrets: inherit

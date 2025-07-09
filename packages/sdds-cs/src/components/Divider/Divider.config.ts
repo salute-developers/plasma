@@ -9,17 +9,17 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${dividerTokens.background}: var(--surface-solid-primary);
+                ${dividerTokens.background}: var(--surface-solid-tertiary);
             `,
             dark: css`
-                ${dividerTokens.background}: var(--on-dark-surface-solid-primary);
+                ${dividerTokens.background}: var(--on-dark-surface-solid-default);
             `,
             light: css`
-                ${dividerTokens.background}: var(--on-light-surface-solid-primary);
+                ${dividerTokens.background}: var(--on-light-surface-solid-default);
             `,
             // TODO поменять на корректный токен --inverse-surface-transparent-tertiary когда он появится
             inverse: css`
-                ${dividerTokens.background}: var(--inverse-surface-solid-primary);
+                ${dividerTokens.background}: var(--inverse-surface-solid-default);
             `,
         },
         size: {

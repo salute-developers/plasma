@@ -29,6 +29,9 @@ module.exports = {
     projectName: 'Plasma',
     trailingSlash: true,
     themes: ['@docusaurus/theme-live-codeblock'],
+    future: {
+        experimental_faster: true,
+    },
     themeConfig: {
         navbar: {
             title: 'Plasma',

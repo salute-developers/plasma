@@ -18,6 +18,8 @@ import {
 } from '../../TextField.styles';
 
 export const base = css`
+    ${tokens.tourBorderRadius}: var(${tokens.borderRadius});
+
     ${Input} {
         width: 100%;
         font: inherit;

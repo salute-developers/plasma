@@ -1,5 +1,12 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import type { FormEventHandler, ChangeEventHandler, KeyboardEvent, ChangeEvent, MouseEventHandler } from 'react';
+import type {
+    FormEventHandler,
+    ChangeEventHandler,
+    KeyboardEvent,
+    ChangeEvent,
+    MouseEventHandler,
+    ClipboardEventHandler,
+} from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 import { css } from '@linaria/core';
 import { cx, safeUseId } from 'src/utils';
@@ -112,6 +119,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 onKeyDown,
                 onFocus,
                 onBlur,
+                onPaste,
 
                 // Пропсы для внутреннего использования, не отдается наружу.
                 // @ts-ignore
@@ -205,15 +213,6 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 setHasValue(Boolean(value));
             };
 
-            useEffect(() => {
-                if (hasTextAfter && inputRef.current) {
-                    const textWidth = getInputWidth(inputRef.current, inputContainerRef.current);
-                    inputRef.current.style.width = `${textWidth}px`;
-                } else {
-                    inputRef.current?.style.removeProperty('width');
-                }
-            }, [hasTextAfter]);
-
             const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
                 setHasFocus(true);
                 onFocus?.(event);
@@ -251,11 +250,34 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     return;
                 }
 
-                onChange?.(event);
+                if (onChange) {
+                    onChange(event);
+                }
 
                 if (hasTextAfter) {
                     const textWidth = getInputWidth(event.currentTarget, inputContainerRef.current);
                     event.currentTarget.style.width = `${textWidth}px`;
+                }
+            };
+
+            const handlePaste: ClipboardEventHandler<HTMLInputElement> = (event) => {
+                if (disabled || readOnly) {
+                    return;
+                }
+
+                if (onPaste) {
+                    onPaste(event);
+                }
+
+                if (hasTextAfter) {
+                    setTimeout(() => {
+                        if (!inputRef.current) {
+                            return;
+                        }
+
+                        const textWidth = getInputWidth(inputRef.current, inputContainerRef.current);
+                        inputRef.current.style.width = `${textWidth}px`;
+                    });
                 }
             };
 
@@ -307,6 +329,15 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             };
 
             useEffect(() => {
+                if (hasTextAfter && inputRef.current) {
+                    const textWidth = getInputWidth(inputRef.current, inputContainerRef.current);
+                    inputRef.current.style.width = `${textWidth}px`;
+                } else {
+                    inputRef.current?.style.removeProperty('width');
+                }
+            }, [hasTextAfter, outerValue]);
+
+            useEffect(() => {
                 if (!isChipEnumeration && !values?.length) {
                     return;
                 }
@@ -351,6 +382,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     readOnly={!disabled && readOnly}
                     labelPlacement={innerLabelPlacementValue}
                     onClick={handleInputFocus}
+                    data-root
                     className={cx(
                         labelPlacementClass,
                         clearClass,
@@ -401,7 +433,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     {optionalTextNode}
                                 </StyledIndicatorWrapper>
                             )}
-                            {titleCaption && <TitleCaption>{titleCaption}</TitleCaption>}
+                            {titleCaption && <TitleCaption data-root>{titleCaption}</TitleCaption>}
                         </OuterLabelWrapper>
                     )}
                     <InputWrapper
@@ -446,7 +478,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             </>
                         )}
                         {contentLeft && (
-                            <StyledContentLeft isClear={clear} isDefaultView={isDefaultView}>
+                            <StyledContentLeft data-root isClear={clear} isDefaultView={isDefaultView}>
                                 {contentLeft}
                             </StyledContentLeft>
                         )}
@@ -511,10 +543,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     onKeyDown={handleOnKeyDown}
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
+                                    onPaste={handlePaste}
+                                    data-tour
                                     {...rest}
                                 />
                                 {hasInnerLabel && (
-                                    <Label id={labelId} htmlFor={innerId}>
+                                    <Label data-root id={labelId} htmlFor={innerId}>
                                         {innerLabelValue}
                                         {optionalTextNode}
                                     </Label>
@@ -530,7 +564,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             </InputContainer>
                         </InputLabelWrapper>
                         <StyledContentRightWrapper className={cx(contentRightCompensationMargin)}>
-                            {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                            {contentRight && <StyledContentRight data-root>{contentRight}</StyledContentRight>}
 
                             {!hasOuterLabel && hintText && hintTargetPlacement === 'inner' && (
                                 <HintComponent
@@ -553,7 +587,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             )}
                         </StyledContentRightWrapper>
                     </InputWrapper>
-                    {leftHelper && <LeftHelper id={helperTextId}>{leftHelper}</LeftHelper>}
+                    {leftHelper && (
+                        <LeftHelper data-root id={helperTextId}>
+                            {leftHelper}
+                        </LeftHelper>
+                    )}
                 </Root>
             );
         },

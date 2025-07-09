@@ -2645,25 +2645,25 @@ export const shadowUpHardM = 'var(--shadow-up-hard-m, 0px -16px 32px -8px #00000
 export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px #00000066)';
 
 /** borderRadius xxs */
-export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
+export const borderRadiusXxs = 'var(--border-radius-xxs, 0.25rem)';
 
 /** borderRadius xs */
-export const borderRadiusXs = 'var(--border-radius-xs, 8px)';
+export const borderRadiusXs = 'var(--border-radius-xs, 0.375rem)';
 
 /** borderRadius s */
-export const borderRadiusS = 'var(--border-radius-s, 12px)';
+export const borderRadiusS = 'var(--border-radius-s, 0.5rem)';
 
 /** borderRadius m */
-export const borderRadiusM = 'var(--border-radius-m, 16px)';
+export const borderRadiusM = 'var(--border-radius-m, 0.75rem)';
 
 /** borderRadius l */
-export const borderRadiusL = 'var(--border-radius-l, 20px)';
+export const borderRadiusL = 'var(--border-radius-l, 1rem)';
 
 /** borderRadius xl */
-export const borderRadiusXl = 'var(--border-radius-xl, 24px)';
+export const borderRadiusXl = 'var(--border-radius-xl, 1.25rem)';
 
 /** borderRadius xxl */
-export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';
+export const borderRadiusXxl = 'var(--border-radius-xxl, 2rem)';
 
 /** spacing 0x */
 export const spacing0x = 'var(--spacing-0x, 0px)';
@@ -3711,16 +3711,12 @@ export const viewContainer = {
         --inverse-text-accent-minor: var(--on-dark-text-accent-minor);
         --inverse-text-accent-minor-hover: var(--on-dark-text-accent-minor-hover);
         --inverse-text-accent-minor-active: var(--on-dark-text-accent-minor-active);
-        --inverse-text-positive: var(--on-dark-text-positive);
         --inverse-text-positive-hover: var(--on-dark-text-positive-hover);
         --inverse-text-positive-active: var(--on-dark-text-positive-active);
-        --inverse-text-warning: var(--on-dark-text-warning);
         --inverse-text-warning-hover: var(--on-dark-text-warning-hover);
         --inverse-text-warning-active: var(--on-dark-text-warning-active);
-        --inverse-text-negative: var(--on-dark-text-negative);
         --inverse-text-negative-hover: var(--on-dark-text-negative-hover);
         --inverse-text-negative-active: var(--on-dark-text-negative-active);
-        --inverse-text-info: var(--on-dark-text-info);
         --inverse-text-info-hover: var(--on-dark-text-info-hover);
         --inverse-text-info-active: var(--on-dark-text-info-active);
         --inverse-text-positive-minor: var(--on-dark-text-positive-minor);
@@ -3740,6 +3736,10 @@ export const viewContainer = {
         --inverse-text-tertiary: var(--on-dark-text-tertiary);
         --inverse-text-paragraph: var(--on-dark-text-paragraph);
         --inverse-text-accent: var(--on-dark-text-accent);
+        --inverse-text-positive: var(--on-dark-text-positive);
+        --inverse-text-warning: var(--on-dark-text-warning);
+        --inverse-text-negative: var(--on-dark-text-negative);
+        --inverse-text-info: var(--on-dark-text-info);
         --surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --surface-solid-primary-brightness: var(--on-light-surface-solid-primary-brightness);

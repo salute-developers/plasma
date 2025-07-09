@@ -30,6 +30,9 @@ module.exports = {
     projectName: 'sdds-cs',
     trailingSlash: true,
     themes: ['@docusaurus/theme-live-codeblock'],
+    future: {
+        experimental_faster: true,
+    },
     themeConfig: {
         navbar: {
             title: 'SDDS CS',
@@ -71,7 +74,7 @@ module.exports = {
 
             // Hides the switch in the navbar
             // Useful if you want to support a single color mode
-            disableSwitch: true,
+            disableSwitch: false,
 
             // Whether to use the prefers-color-scheme media-query,
             // using user system preferences, instead of the hardcoded defaultMode.

@@ -7,6 +7,8 @@ const {
     styledTextArea,
     styledTextAreaWrapper,
     styledPlaceholder,
+    hasHeaderSlot,
+    styledContentWrapper,
 } = classes;
 
 export const applyDynamicLabel = `
@@ -17,6 +19,14 @@ export const applyDynamicLabel = `
 
         .${styledTextAreaWrapper} {
             padding-top: calc(calc(var(${tokens.labelInnerTop}) + var(${tokens.labelInnerFontSize})) + var(${tokens.labelInnerMarginBottom}));
+        }
+            
+        .${hasHeaderSlot} {
+            padding-top: unset;
+
+            .${styledContentWrapper} {
+                padding-top: calc(calc(var(${tokens.labelInnerTop}) + var(${tokens.labelInnerFontSize})) + var(${tokens.labelInnerMarginBottom}));
+            }
         }
 
         .${styledPlaceholder} {

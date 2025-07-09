@@ -33,4 +33,12 @@ generate([
         name: 'sdds_bizcom',
         version: 'latest',
     },
+    {
+        name: 'sdds_bcp',
+        version: 'latest',
+    },
+    {
+        name: 'sdds_procom',
+        version: 'latest',
+    },
 ]);

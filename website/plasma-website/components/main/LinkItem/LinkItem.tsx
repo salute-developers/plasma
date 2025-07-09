@@ -24,7 +24,14 @@ export const LinkItem: FC<LinkItemProps> = ({ isMeta, title, contentLeft, conten
     };
 
     return (
-        <LinkItemWrapper href={href} className={className} isMeta={isMeta} onClick={handleClick}>
+        <LinkItemWrapper
+            href={href}
+            className={className}
+            isMeta={isMeta}
+            onClick={handleClick}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             {contentLeft && <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>}
             <Title>{title}</Title>
             {contentRight && <ContentRightWrapper>{contentRight}</ContentRightWrapper>}

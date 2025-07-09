@@ -5,27 +5,56 @@ on:
     - cron: 0 0 * * SUN
 
 jobs:
-  cypress:
+  cypress_plasma:
     strategy:
       fail-fast: false
       matrix:
-        scope: [web,b2c,ui]
+        scope: [web,b2c,ui,giga]
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
+      prefix: "plasma"
       with-artifacts: true
     secrets: inherit
 
-  cypress-react-17:
+  cypress_plasma-react-17:
     strategy:
       fail-fast: false
       matrix:
-        scope: [web,b2c,ui]
+        scope: [web,b2c,ui,giga]
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
+      prefix: "plasma"
+      with-react-17: true
+      with-artifacts: true
+    secrets: inherit
+
+  cypress_sdds:
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [cs,insol]
+
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      prefix: "sdds"
+      with-artifacts: true
+    secrets: inherit
+
+  cypress_sdds-react-17:
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [cs]
+
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      prefix: "sdds"
       with-react-17: true
       with-artifacts: true
     secrets: inherit

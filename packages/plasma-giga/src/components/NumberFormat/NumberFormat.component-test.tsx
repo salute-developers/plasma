@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
 import { NumberFormat as NumberFormatGIGA } from '.';
@@ -123,6 +123,26 @@ describe('plasma-giga: NumberFormat', () => {
         cy.get('input').should('have.value', '00.123');
         cy.get('body').click();
         cy.get('input').should('have.value', '0.123');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('flow: async controlled', () => {
+        const Component = () => {
+            const [value, setValue] = useState('');
+
+            useEffect(() => {
+                setTimeout(() => setValue('12345.67'));
+            }, []);
+
+            return <NumberFormat value={value} size="l" label="Числовой формат" textAfter="₽" />;
+        };
+
+        mount(
+            <CypressTestDecorator>
+                <Component />
+            </CypressTestDecorator>,
+        );
 
         cy.matchImageSnapshot();
     });
