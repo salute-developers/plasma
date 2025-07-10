@@ -48,19 +48,6 @@ export const config = {
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1.375rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
-            sr: css`
-                ${iconButtonTokens.iconButtonHeight}: 2.5rem;
-                ${iconButtonTokens.iconButtonWidth}: 2.5rem;
-                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-s-font-size);
-                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-s-line-height);
-
-                ${iconButtonTokens.iconButtonSpinnerSize}: 1.375rem;
-                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
-            `,
         },
         disabled: {
             true: css`
