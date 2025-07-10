@@ -49,6 +49,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 closeOnEsc = true,
                 closeOnOverlayClick = true,
                 asModal = true,
+                draggable,
                 ...rest
             },
             outerRef,

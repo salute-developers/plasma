@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
-import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens-web';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { surfaceSolid03 } from '@salutejs/plasma-tokens-web';
 
 import { SSRProvider } from '../SSRProvider';
-import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 
 import { PopupBase, popupBaseClasses, PopupBaseProvider } from '.';
@@ -16,6 +17,9 @@ const meta: Meta<PopupBaseProps> = {
     decorators: [InSpacingDecorator],
     parameters: {
         docs: { story: { inline: false, iframeHeight: '30rem' } },
+        controls: {
+            include: ['placement', 'offsetX', 'offsetY'],
+        },
     },
     argTypes: {
         placement: {
@@ -34,12 +38,73 @@ const meta: Meta<PopupBaseProps> = {
                 type: 'select',
             },
         },
+        offsetX: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        offsetY: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        draggableDisabled: {
+            control: 'boolean',
+        },
+        resizableDisabled: {
+            control: 'boolean',
+        },
+        resizableDirections: {
+            control: 'check',
+            options: ['top', 'top-right', 'right', 'bottom-right', 'bottom', 'bottom-left', 'left', 'top-left'],
+        },
+        resizableDefaultSize: {
+            control: 'object',
+        },
+        resizableHiddenIcons: {
+            control: 'check',
+            options: ['top-right', 'bottom-right', 'bottom-left', 'top-left'],
+        },
+        resizableMinWidth: {
+            control: 'number',
+        },
+        resizableMinHeight: {
+            control: 'number',
+        },
+        resizableMaxWidth: {
+            control: 'number',
+        },
+        resizableMaxHeight: {
+            control: 'number',
+        },
+        resizableIconSize: {
+            control: {
+                type: 'select',
+            },
+            options: ['xs', 's', 'm'],
+        },
     },
 };
 
 export default meta;
 
-type StoryPopupBaseProps = { placement: string; offsetX: number; offsetY: number };
+type StoryPopupBaseProps = ComponentProps<typeof PopupBase> & {
+    placement: string;
+    offsetX: number;
+    offsetY: number;
+    draggableDisabled: boolean;
+    resizableDisabled: boolean;
+    resizableDirections: string[];
+    resizableHiddenIcons: string[];
+    resizableDefaultSize: { width?: number; height?: number };
+    resizableMinWidth: number;
+    resizableMinHeight: number;
+    resizableMaxWidth: number;
+    resizableMaxHeight: number;
+    resizableIconSize: 's' | 'xs' | 'm';
+};
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -66,8 +131,17 @@ const OtherContent = styled.div`
 `;
 
 const Content = styled.div`
-    background: ${surfaceSolid02};
+    background: var(--surface-solid-secondary);
     padding: 1rem;
+`;
+
+const Block = styled.div`
+    background: var(--surface-solid-secondary);
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 1rem;
 `;
 
 const StyledPopupAnimation = styled(PopupBase)`
@@ -112,11 +186,11 @@ const StyledPopupTransition = styled(PopupBase)`
     }
 `;
 
-const StoryPopupBaseDemo = ({ placement, offsetX, offsetY }: StoryPopupBaseProps) => {
-    const [isOpenA, setIsOpenA] = useState(false);
-    const [isOpenB, setIsOpenB] = useState(false);
+const StoryPopupBase = ({ placement, offsetX, offsetY }: StoryPopupBaseProps) => {
+    const [isOpenA, setIsOpenA] = React.useState(false);
+    const [isOpenB, setIsOpenB] = React.useState(false);
 
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = React.useRef<HTMLDivElement>(null);
 
     return (
         <SSRProvider>
@@ -167,5 +241,99 @@ export const PopupBaseDemo: StoryObj<StoryPopupBaseProps> = {
         offsetX: 0,
         offsetY: 0,
     },
-    render: (args) => <StoryPopupBaseDemo {...args} />,
+    render: (args) => <StoryPopupBase {...args} />,
+};
+
+const StoryPopupResizable = ({
+    placement,
+    offsetX,
+    offsetY,
+    resizableDirections,
+    draggableDisabled,
+    resizableDisabled,
+    resizableHiddenIcons,
+    resizableDefaultSize,
+    resizableMinWidth,
+    resizableMinHeight,
+    resizableMaxWidth,
+    resizableMaxHeight,
+    resizableIconSize,
+}: StoryPopupBaseProps) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <SSRProvider>
+            <StyledWrapper>
+                <PopupBaseProvider>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <StyledButton text="Открыть popup" onClick={() => setIsOpen(true)} />
+                    </div>
+
+                    <PopupBase
+                        id="popup"
+                        opened={isOpen}
+                        placement={placement}
+                        offset={[offsetX, offsetY]}
+                        draggable={!draggableDisabled}
+                        resizable={{
+                            disabled: resizableDisabled,
+                            directions: resizableDirections,
+                            hiddenIcons: resizableHiddenIcons,
+                            defaultSize: resizableDefaultSize,
+                            minWidth: resizableMinWidth,
+                            minHeight: resizableMinHeight,
+                            maxWidth: resizableMaxWidth,
+                            maxHeight: resizableMaxHeight,
+                            iconSize: resizableIconSize,
+                        }}
+                    >
+                        <Block>
+                            <>Content</>
+                            <br />
+                            <Button stretching="filled" onClick={() => setIsOpen(false)}>
+                                Close
+                            </Button>
+                        </Block>
+                    </PopupBase>
+                </PopupBaseProvider>
+            </StyledWrapper>
+        </SSRProvider>
+    );
+};
+
+export const Resizable: StoryObj<StoryPopupBaseProps> = {
+    name: 'Resizable/Draggable',
+    args: {
+        placement: 'center',
+        offsetX: 0,
+        offsetY: 0,
+        draggableDisabled: false,
+        resizableDisabled: false,
+        resizableDirections: ['bottom-right'],
+        resizableHiddenIcons: [],
+        resizableIconSize: 's',
+        resizableDefaultSize: { width: 200, height: 100 },
+        resizableMinWidth: 200,
+        resizableMinHeight: 100,
+    },
+    parameters: {
+        controls: {
+            include: [
+                'placement',
+                'offsetX',
+                'offsetY',
+                'draggableDisabled',
+                'resizableDisabled',
+                'resizableDirections',
+                'resizableHiddenIcons',
+                'resizableDefaultSize',
+                'resizableMinWidth',
+                'resizableMinHeight',
+                'resizableMaxWidth',
+                'resizableMaxHeight',
+                'resizableIconSize',
+            ],
+        },
+    },
+    render: (args) => <StoryPopupResizable {...args} />,
 };

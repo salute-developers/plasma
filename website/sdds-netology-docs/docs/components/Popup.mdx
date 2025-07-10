@@ -203,3 +203,144 @@ const StyledPopupAnimation = styled(Popup)`
     );
 }
 ```
+
+## Draggable
+
+Чтобы иметь возможность перетаскивать Popup по экрану нужно включить свойство `draggable`.
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { SSRProvider, Button, Popup, PopupProvider } from  '@salutejs/sdds-netology';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <Popup
+                        id="popup"
+                        isOpen={isOpen}
+                        placement="center"
+                        draggable
+                    >
+                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                            <>Content</>
+                        </div>
+                    </Popup>
+                </div>
+            </PopupProvider>
+        </SSRProvider>
+    );
+}
+```
+
+## Resizable
+
+Чтобы иметь возможность растягивать Popup нужно настроить свойство `resizable`. Формат следующий:
+
+```tsx
+/**
+ * Настройка resizable-режима.
+ */
+resizable?: {
+    /**
+     * Включение/выключение ресайза.
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * Направления для ресайза.
+     */
+    directions?: ResizeDirections;
+    /**
+     * Скрывать ли иконку для ресайза.
+     * @default false
+     */
+    hiddenIcons?: PopupPlacementMixed[];
+    /**
+     * Начальный размер окна ресайза.
+     */
+    defaultSize?: { width?: number; height?: number };
+    /**
+     * Минимальная ширина ресайза в px.
+     */
+    minWidth?: number;
+    /**
+     * Минимальная высота ресайза в px.
+     */
+    minHeight?: number;
+    /**
+     * Максимальная ширина ресайза в px.
+     */
+    maxWidth?: number;
+    /**
+     * Максимальная высота ресайза в px.
+     */
+    maxHeight?: number;
+    /**
+     * Размер иконки ресайза.
+     * @default s
+     */
+    iconSize?: 'xs' | 's' | 'm';
+};
+```
+
+Пример:
+
+```tsx live
+import React from 'react';
+import { SSRProvider, Button, Popup, PopupProvider } from  '@salutejs/sdds-netology';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <SSRProvider>
+            <PopupProvider>
+                <div style={{height: "200px"}}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }}
+                            text="Открыть"
+                            onClick={() => setIsOpen(true)}
+                        />
+                    </div>
+
+                    <Popup
+                        id="popup"
+                        isOpen={isOpen}
+                        placement="center"
+                        offset={[0, 0]}
+                        resizable
+                    >
+                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                            <>Content</>
+                        </div>
+                    </Popup>
+                </div>
+            </PopupProvider>
+        </SSRProvider>
+    );
+}
+```
+
