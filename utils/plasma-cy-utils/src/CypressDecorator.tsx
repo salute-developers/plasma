@@ -2,6 +2,7 @@ import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { plasma_giga__light } from '@salutejs/plasma-themes';
+import { sdds_cs__light, sdds_insol__light } from '@salutejs/sdds-themes';
 // plasma-web
 import { web } from '@salutejs/plasma-tokens-web/typo';
 import { light as webLight } from '@salutejs/plasma-tokens-web/themes';
@@ -15,6 +16,8 @@ import { SSRProvider } from './SSRProvider';
 
 // NOTE: new theme format
 const ThemeGIGA = createGlobalStyle(plasma_giga__light);
+const ThemeCS = createGlobalStyle(sdds_cs__light);
+const ThemeINSOL = createGlobalStyle(sdds_insol__light);
 
 // TODO: better naming
 const TypoThemeStyle = createGlobalStyle(web);
@@ -27,6 +30,8 @@ const ThemeStyle = createGlobalStyle(darkSber);
 
 const testPackagesThemes = {
     'plasma-giga': <ThemeGIGA />,
+    'sdds-cs': <ThemeCS />,
+    'sdds-insol': <ThemeINSOL />,
 };
 
 export const getComponent = function <T = PropsWithChildren<{}>>(componentName: string): React.FC<T> {
@@ -51,6 +56,12 @@ export const getComponent = function <T = PropsWithChildren<{}>>(componentName: 
             break;
         case 'plasma-giga':
             pkg = require('../../../packages/plasma-giga');
+            break;
+        case 'sdds-cs':
+            pkg = require('../../../packages/sdds-cs');
+            break;
+        case 'sdds-insol':
+            pkg = require('../../../packages/sdds-insol');
             break;
         default:
             throw new Error(`Library ${pkgName} is not required in plasma-core/CypressHelpers:getComponent`);
@@ -104,10 +115,10 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
         );
     }
 
-    if (pkgName === 'plasma-giga') {
+    if (['plasma-giga', 'sdds-cs', 'sdds-insol'].includes(pkgName)) {
         return (
             <SSRProvider noSSR={noSSR}>
-                {testPackagesThemes[pkgName]}
+                {testPackagesThemes[pkgName as keyof typeof testPackagesThemes]}
                 {children}
             </SSRProvider>
         );

@@ -256,11 +256,15 @@ export const datePickerRoot = (
             }, [opened]);
 
             useLayoutEffect(() => {
-                updateExternalDate(value);
+                if (!defaultDate) {
+                    updateExternalDate(value);
+                }
             }, [value, format, lang]);
 
             useLayoutEffect(() => {
-                updateExternalDate(defaultDate);
+                if (!value) {
+                    updateExternalDate(defaultDate);
+                }
             }, [defaultDate, format, lang]);
 
             return (

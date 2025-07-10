@@ -32,7 +32,7 @@ export function App() {
 ```
 
 ### Размеры компонента
-Высоту и ширину можно регулировать с помощью свойств `height` и `width`, 
+Высоту и ширину можно регулировать с помощью свойств `height` и `width`,
 указав значения в `rem` или соответствующие свойствам css значения.
 `height` и `width` отвечают за **всю** высоту и ширину компонента.
 
@@ -76,7 +76,7 @@ export function App() {
 
 ### Autoresize
 Также можно включить автоматическое регулирование высоты поля ввода по длине контента внутри (параметра `value`).
-Для этого необходимо использовать свойство `autoResize`. 
+Для этого необходимо использовать свойство `autoResize`.
 
 Свойства `minAuto`, `maxAuto` указываются в абсолютных единицах и отвечают за минимальное и максимальное количество строк.
 
@@ -153,6 +153,34 @@ export function App() {
                 hintText="Подсказка в виде Tooltip"
                 hintView="default"
                 hintSize="m"
+            />
+        </div>
+    );
+}
+```
+
+### Слот для контента над вводимым текстом
+Слот для контента над вводимым текстом задается с помощью свойства `headerSlot`:
+
+```tsx live
+import React from 'react';
+import { TextArea, TextS } from '@salutejs/plasma-b2c';
+import { surfaceSolid03 } from '@salutejs/plasma-tokens-b2c';
+
+export function App() {
+    const HeaderSlot = () => (
+       <div style={{ margin: "0 0.75rem", padding: "0.5rem 0", borderBottom: `0.063rem solid ${surfaceSolid03}` }}>
+           <TextS>Дополнительный контент</TextS>
+       </div>
+    )
+
+    return (
+        <div>
+            <TextArea
+                headerSlot={<HeaderSlot />}
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                leftHelper="Подсказка снизу слева"
             />
         </div>
     );

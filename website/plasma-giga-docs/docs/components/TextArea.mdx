@@ -191,3 +191,31 @@ export function App() {
     );
 }
 ```
+
+### Слот для контента над вводимым текстом
+Слот для контента над вводимым текстом задается с помощью свойства `headerSlot`:
+
+```tsx live
+import React from 'react';
+import { TextArea, TextS } from '@salutejs/plasma-giga';
+import { surfaceTransparentTertiary } from '@salutejs/plasma-themes/tokens';
+
+export function App() {
+    const HeaderSlot = () => (
+       <div style={{ margin: "0 0.75rem", padding: "0.5rem 0", borderBottom: `0.063rem solid ${surfaceTransparentTertiary}` }}>
+           <TextS>Дополнительный контент</TextS>
+       </div>
+    )
+
+    return (
+        <div>
+            <TextArea
+                headerSlot={<HeaderSlot />}
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                leftHelper="Подсказка снизу слева"
+            />
+        </div>
+    );
+}
+```

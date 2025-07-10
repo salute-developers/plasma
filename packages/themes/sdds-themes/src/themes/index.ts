@@ -16,3 +16,7 @@ export { sdds_scan__dark } from './sdds_scan__dark';
 export { sdds_scan__light } from './sdds_scan__light';
 export { sdds_bizcom__dark } from './sdds_bizcom__dark';
 export { sdds_bizcom__light } from './sdds_bizcom__light';
+export { sdds_bcp__dark } from './sdds_bcp__dark';
+export { sdds_bcp__light } from './sdds_bcp__light';
+export { sdds_procom__dark } from './sdds_procom__dark';
+export { sdds_procom__light } from './sdds_procom__light';

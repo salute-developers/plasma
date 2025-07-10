@@ -1,12 +1,20 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { sdds_bizcom__dark, sdds_bizcom__light } from '@salutejs/sdds-themes';
+import {
+    sdds_bizcom__dark,
+    sdds_bizcom__light,
+    sdds_procom__light,
+    sdds_procom__dark,
+    sdds_bcp__light,
+    sdds_bcp__dark,
+} from '@salutejs/sdds-themes';
 import {
     InSpacingDecorator,
     getGroupedTypographyTokens,
     typographyPangrams,
     upperFirstLetter,
     typographyToCssMap,
+    getGroupedTokens,
 } from '@salutejs/plasma-sb-utils';
 import type {
     TypographyStructure,
@@ -51,6 +59,10 @@ export default meta;
 const themes: Record<string, TypographyStructure> = {
     'sdds-bizcom:light': getGroupedTypographyTokens(sdds_bizcom__light[0]),
     'sdds-bizcom:dark': getGroupedTypographyTokens(sdds_bizcom__dark[0]),
+    'sdds-procom:light': getGroupedTypographyTokens(sdds_procom__light[0]),
+    'sdds-procom:dark': getGroupedTypographyTokens(sdds_procom__dark[0]),
+    'sdds-bcp:light': getGroupedTypographyTokens(sdds_bcp__light[0]),
+    'sdds-bcp:dark': getGroupedTypographyTokens(sdds_bcp__dark[0]),
 };
 
 type FontWeightControllerProps = {

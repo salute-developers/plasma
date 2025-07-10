@@ -6,6 +6,10 @@ import {
     withTheme,
     SDDS_BIZCOM_DARK_THEME,
     SDDS_BIZCOM_LIGHT_THEME,
+    SDDS_PROCOM_LIGHT_THEME,
+    SDDS_PROCOM_DARK_THEME,
+    SDDS_BCP_LIGHT_THEME,
+    SDDS_BCP_DARK_THEME,
     DEFAULT_MODE,
     ON_DARK_MODE,
     ON_LIGHT_MODE,
@@ -25,7 +29,14 @@ const preview: Preview = {
             defaultValue: SDDS_BIZCOM_LIGHT_THEME,
             toolbar: {
                 title: 'Theme',
-                items: [SDDS_BIZCOM_LIGHT_THEME, SDDS_BIZCOM_DARK_THEME],
+                items: [
+                    SDDS_BIZCOM_LIGHT_THEME,
+                    SDDS_BIZCOM_DARK_THEME,
+                    SDDS_PROCOM_LIGHT_THEME,
+                    SDDS_PROCOM_DARK_THEME,
+                    SDDS_BCP_LIGHT_THEME,
+                    SDDS_BCP_DARK_THEME,
+                ],
             },
         },
         viewContainer: {

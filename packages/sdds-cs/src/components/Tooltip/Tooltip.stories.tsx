@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { IconPlasma } from '@salutejs/plasma-icons';
 import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';
 
+import { config } from './Tooltip.config';
+
 import { Tooltip } from '.';
 import type { TooltipProps } from '.';
+
+const { views } = getConfigVariations(config);
 
 const placements: Array<string> = [
     'top',
@@ -38,7 +42,6 @@ const disabledProps = [
     'isVisible',
     'offset',
     'frame',
-    'view',
     'zIndex',
     'minWidth',
     'maxWidth',
@@ -89,6 +92,12 @@ const StoryDefault = (props: Pick<TooltipProps, 'hasArrow' | 'size' | 'usePortal
 
 export const Default: StoryObj<TooltipProps> = {
     argTypes: {
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
         ...disableProps([...disabledProps, 'placement']),
     },
     args: {
@@ -98,6 +107,7 @@ export const Default: StoryObj<TooltipProps> = {
         usePortal: false,
         animated: true,
         size: 's',
+        view: 'default',
     },
     render: (args) => <StoryDefault {...args} />,
 };
