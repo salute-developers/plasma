@@ -1,3 +1,87 @@
+## 0.317.0 (10 июля 2025)
+
+## Функциональные изменения в компонентах
+
+### Tour
+
+* Добавлен в поставку новый компонент
+
+![4539d0a6\_Kapture\_2025-06-30\_at\_13 45 01](https://github.com/user-attachments/assets/b6dac64b-0623-4308-a4b2-8a827c5d4d55)
+
+[PR](https://github.com/salute-developers/plasma/pull/2010)
+
+### DatePicker
+
+* Добавлена проверка при обновлении `value/defaultValue`, чтобы избежать коллизии при `mount/unmount`
+
+**Before**:
+
+![460583735-fea399b1-8225-4b39-889b-b332664a4bcc](https://github.com/user-attachments/assets/ae641e2c-1ab8-47b4-8855-4267bb26a7d4)
+
+**After**:
+![460583334-2e733867-15fb-4818-97f1-f0c024dc37cb](https://github.com/user-attachments/assets/971cc214-415f-4e53-9984-242e63ba084a)
+
+[PR](https://github.com/salute-developers/plasma/pull/2058)
+
+### useUniqId
+
+* Помечен как deprecated по причине устаревания и не актуальности. Рекомендуем использовать метод `safeUseId`
+
+[PR](https://github.com/salute-developers/plasma/pull/2053)
+
+### NumberFormat
+
+* Улучшен механизм копирование и вставки числа
+
+![459900391-30817797-7211-4d0e-8e4b-799d7fdab2c9](https://github.com/user-attachments/assets/11c52f11-b847-49c1-9a82-4df74bf64ff7)
+
+[PR](https://github.com/salute-developers/plasma/pull/2050)
+
+### Chip
+
+* изменен размер иконки `Close` для размера `XS`, стало `12x12`
+
+[PR](https://github.com/salute-developers/plasma/pull/2070)
+
+### Icons
+
+* добавлен `rest props` для IconRoot. Теперь есть возможность прокинуть `data-attrs` и другие атрибуты тега
+
+<img width="1024" src="https://github.com/user-attachments/assets/ff1831f3-98f9-46df-a874-3c4891ca47b4" />
+
+[PR](https://github.com/salute-developers/plasma/pull/2066)
+
+### Combobox
+
+* Добавлен токен для галочки и иконки в режиме `single`
+
+[PR](https://github.com/salute-developers/plasma/pull/2049)
+
+### Select
+
+* Добавлен токен для галочки и иконки в режиме `single`
+
+[PR](https://github.com/salute-developers/plasma/pull/2049)
+
+### TextArea
+
+* добавлено свойство `headerSlot`
+
+<img width="685" alt="image" src="https://github.com/user-attachments/assets/e092e789-b5ca-4b8e-a500-9f6594dc59ef" />
+
+[PR](https://github.com/salute-developers/plasma/pull/2075)
+
+## Изменения в библиотеки
+
+### Themes
+
+* добавлена поддержка темы `sdds-procom`
+
+* добавлена поддержка темы `sdds-bcp`
+
+[PR](https://github.com/salute-developers/plasma/pull/2060)
+
+
 ## 0.314.0 (26 июня 2025)
 
 ## Функциональные изменения в компонентах
