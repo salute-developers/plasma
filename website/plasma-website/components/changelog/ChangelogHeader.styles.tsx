@@ -54,7 +54,7 @@ export const StyledHeader = styled.header`
 const StyledHeadingAnchor = styled.a`
     display: grid;
     grid-template-columns: subgrid;
-    grid-column: 1/5;
+    grid-column: 1/6;
 
     color: rgba(255, 255, 255, 1);
 
