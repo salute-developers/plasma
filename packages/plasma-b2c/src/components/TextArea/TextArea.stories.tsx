@@ -357,7 +357,7 @@ const StoryLive = ({ status, ...rest }: StoryProps) => {
         <TextArea
             value={value}
             status={max <= l ? 'error' : ('' as 'success')}
-            headerSlot={props.enableHeader && <StyledHeader>Дополнительный контент</StyledHeader>}
+            headerSlot={rest.enableHeader && <StyledHeader>Дополнительный контент</StyledHeader>}
             onChange={(e) => {
                 setValue(e.target.value);
                 onChange(e);
