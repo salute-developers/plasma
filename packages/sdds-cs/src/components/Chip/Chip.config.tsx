@@ -47,6 +47,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--on-dark-text-primary);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
         },
         size: {

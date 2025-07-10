@@ -19,6 +19,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--inverse-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-default);
                 ${chipTokens.colorReadOnlyHover}: var(--inverse-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--inverse-text-secondary);
+                ${chipTokens.leftContentColor}: var(--inverse-text-primary);
             `,
             /**
              * @deprecated
@@ -47,6 +50,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
+
+                ${chipTokens.closeIconColor}: var(--text-secondary);
+                ${chipTokens.leftContentColor}: var(--text-primary);
             `,
             accent: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -59,6 +65,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             positive: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -71,6 +80,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-positive);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             warning: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -83,6 +95,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-warning);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             negative: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -95,6 +110,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-negative);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
         },
         size: {
