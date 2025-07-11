@@ -8,6 +8,7 @@ export const config = {
     variations: {
         size: {
             xl: css`
+                ${tokens.margin}: 0.5rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 17.5rem;
                 ${tokens.borderRadius}: 1rem;
@@ -47,6 +48,7 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             l: css`
+                ${tokens.margin}: 0.375rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 17.5rem;
                 ${tokens.borderRadius}: 0.875rem;
@@ -86,6 +88,7 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             m: css`
+                ${tokens.margin}: 0.25rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 15rem;
                 ${tokens.borderRadius}: 0.75rem;
@@ -125,6 +128,7 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
+                ${tokens.margin}: 0.25rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
@@ -164,6 +168,7 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             xs: css`
+                ${tokens.margin}: 0.125rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 10rem;
                 ${tokens.borderRadius}: 0.5rem;
