@@ -8,13 +8,17 @@ import { tokens, constants } from './Dropdown.tokens';
 export const ListWrapper = styled.div<{
     listWidth?: DropdownProps['listWidth'];
 }>`
-    width: ${({ listWidth }) => listWidth || `var(${tokens.width})`};
+    margin: var(${tokens.margin}) 0 0 0;
     padding: calc(var(${tokens.padding}) + var(${tokens.borderWidth}, 0rem));
+
+    width: ${({ listWidth }) => listWidth || `var(${tokens.width})`};
     border-radius: var(${tokens.borderRadius});
-    box-sizing: border-box;
+
     background: var(${constants.background});
     box-shadow: ${constants.boxShadow},
         inset 0 0 0 var(${tokens.borderWidth}, 0) var(${tokens.borderColor}, transparent);
+
+    box-sizing: border-box;
 `;
 
 export const Ul = styled.ul<{
