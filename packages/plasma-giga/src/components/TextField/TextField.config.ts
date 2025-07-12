@@ -610,7 +610,7 @@ export const config = {
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-accent);
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
-                ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColor}: var(--inverse-text-secondary);
                 ${tokens.chipOpacityReadonly}: 1;
             `,
             positive: css`
