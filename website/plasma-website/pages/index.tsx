@@ -382,6 +382,8 @@ export default function Home() {
                                     {...(items?.length && {
                                         additionalInfo: items.map(
                                             ({ text, href: itemHref, contentRight, contentLeft, isMeta }) => {
+                                                const external = ['Сторибук', 'Документация'].includes(text);
+
                                                 return (
                                                     <LinkItem
                                                         key={text + itemHref}
@@ -390,6 +392,7 @@ export default function Home() {
                                                         contentRight={contentRight}
                                                         contentLeft={contentLeft}
                                                         isMeta={isMeta}
+                                                        external={external}
                                                     />
                                                 );
                                             },
