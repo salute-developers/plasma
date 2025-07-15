@@ -8,13 +8,12 @@
         "actions/platform-test"
     ],
     "version": "independent",
-    "ignoreChanges": ["*.md", "*.component-test.tsx", "package-lock.json", "packages/sdds-clfd-auto/**"],
+    "ignoreChanges": ["*.md", "*.component-test.tsx", "package-lock.json"],
     "loglevel": "verbose",
     "exact": true,
     "command": {
         "bootstrap": {
-            "npmClientArgs": ["--no-audit", "--loglevel error", "--no-progress", "--unsafe-perm"],
-            "ignore": "@salutejs/sdds-clfd-auto"
+            "npmClientArgs": ["--no-audit", "--loglevel error", "--no-progress", "--unsafe-perm"]
         },
         "publish": {
             "verifyAccess": false
