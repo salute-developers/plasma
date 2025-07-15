@@ -1,4 +1,4 @@
-import { css, buttonGroupTokens, buttonGroupClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { css, buttonGroupTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -123,19 +123,6 @@ export const config = {
                 ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
-            xlr: css`
-                ${buttonGroupTokens.buttonDefaultRadius}: 1rem;
-                ${buttonGroupTokens.buttonSegmentedRadius}: 0.5rem;
-                ${buttonGroupTokens.buttonSideRadius}: 1rem;
-
-                ${buttonGroupTokens.buttonHeight}: 4rem;
-                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
-            `,
             l: css`
                 ${buttonGroupTokens.buttonDefaultRadius}: 0.875rem;
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.375rem;
@@ -143,19 +130,6 @@ export const config = {
 
                 ${buttonGroupTokens.buttonHeight}: 3.5rem;
                 ${buttonGroupTokens.buttonPadding}: 1.5rem;
-                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
-            `,
-            lr: css`
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.875rem;
-                ${buttonGroupTokens.buttonSegmentedRadius}: 0.375rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.875rem;
-
-                ${buttonGroupTokens.buttonHeight}: 3.5rem;
                 ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -178,20 +152,6 @@ export const config = {
                 ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
-            mr: css`
-                &.${buttonGroupClasses.segmented} {
-                ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.75rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.75rem;
-
-                ${buttonGroupTokens.buttonHeight}: 3rem;
-                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
-                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
-            `,
             s: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
                 ${buttonGroupTokens.buttonSideRadius}: 0.625rem;
@@ -206,19 +166,6 @@ export const config = {
                 ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
-            sr: css`
-                ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.625rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.625rem;
-
-                ${buttonGroupTokens.buttonHeight}: 2.5rem;
-                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
-                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
-            `,
             xs: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.125rem;
                 ${buttonGroupTokens.buttonDefaultRadius}: 0.5rem;
@@ -226,19 +173,6 @@ export const config = {
 
                 ${buttonGroupTokens.buttonHeight}: 2rem;
                 ${buttonGroupTokens.buttonPadding}: 0.75rem;
-                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
-            `,
-            xsr: css`
-                ${buttonGroupTokens.buttonSegmentedRadius}: 0.125rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.5rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.5rem;
-
-                ${buttonGroupTokens.buttonHeight}: 2rem;
                 ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);

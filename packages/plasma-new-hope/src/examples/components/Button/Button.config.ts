@@ -111,7 +111,6 @@ export const config = {
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.625rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
-
             l: css`
                 ${buttonTokens.buttonHeight}: 3.5rem;
                 ${buttonTokens.buttonWidth}: 12.5rem;
@@ -131,7 +130,6 @@ export const config = {
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.5rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
-
             m: css`
                 ${buttonTokens.buttonHeight}: 3rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
@@ -151,7 +149,6 @@ export const config = {
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
-
             s: css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
@@ -171,7 +168,6 @@ export const config = {
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
-
             xs: css`
                 ${buttonTokens.buttonHeight}: 2rem;
                 ${buttonTokens.buttonWidth}: 10rem;
@@ -191,7 +187,6 @@ export const config = {
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
-
             xxs: css`
                 ${buttonTokens.buttonHeight}: 1.5rem;
                 ${buttonTokens.buttonWidth}: 8.75rem;
