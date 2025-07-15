@@ -10,9 +10,19 @@ export type LinkItemProps = {
     contentRight?: ReactNode;
     className?: string;
     onClick?: () => void;
+    external?: boolean;
 };
 
-export const LinkItem: FC<LinkItemProps> = ({ isMeta, title, contentLeft, contentRight, href, onClick, className }) => {
+export const LinkItem: FC<LinkItemProps> = ({
+    isMeta,
+    title,
+    contentLeft,
+    contentRight,
+    href,
+    onClick,
+    className,
+    external = false,
+}) => {
     const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
         if (isMeta) {
             e.preventDefault();
@@ -24,14 +34,7 @@ export const LinkItem: FC<LinkItemProps> = ({ isMeta, title, contentLeft, conten
     };
 
     return (
-        <LinkItemWrapper
-            href={href}
-            className={className}
-            isMeta={isMeta}
-            onClick={handleClick}
-            target="_blank"
-            rel="noopener noreferrer"
-        >
+        <LinkItemWrapper href={href} className={className} isMeta={isMeta} onClick={handleClick} external={external}>
             {contentLeft && <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>}
             <Title>{title}</Title>
             {contentRight && <ContentRightWrapper>{contentRight}</ContentRightWrapper>}
