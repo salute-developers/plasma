@@ -7,7 +7,6 @@ import { tokens } from './Autocomplete.tokens';
 export const base = css``;
 
 export const ListWrapper = styled.div`
-    margin: var(${tokens.margin}) 0 0 0;
     padding: calc(var(${tokens.padding}) + var(${tokens.dropdownBorderWidth}, 0rem));
     border-radius: var(${tokens.borderRadius});
     box-sizing: border-box;

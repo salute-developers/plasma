@@ -448,4 +448,5 @@ export type FloatingPopoverProps = {
     portal?: MergedSelectProps['portal'];
     listWidth?: MergedSelectProps['listWidth'];
     zIndex?: DropdownProps['zIndex'];
+    offset?: [number, number];
 };

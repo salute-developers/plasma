@@ -68,7 +68,7 @@ const meta: Meta<StoryDropdownProps> = {
         placement: 'bottom-start',
         trigger: 'click',
         openByRightClick: false,
-        offset: [0, 0],
+        offset: [0, 8],
         listWidth: '300px',
         alwaysOpened: false,
         closeOnOverlayClick: true,

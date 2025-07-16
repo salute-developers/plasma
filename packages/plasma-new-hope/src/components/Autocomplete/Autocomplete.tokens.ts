@@ -154,7 +154,6 @@ export const tokens = {
     boxShadow: '--plasma-autocomplete-box-shadow',
     borderRadius: '--plasma-autocomplete-border-radius',
     padding: '--plasma-autocomplete-padding',
-    margin: '--plasma-autocomplete-margin',
 
     dropdownBorderColor: '--plasma-select-dropdown-border-color',
     dropdownBorderWidth: '--plasma-select-dropdown-border-width',

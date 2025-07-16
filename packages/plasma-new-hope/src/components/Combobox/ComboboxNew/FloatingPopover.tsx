@@ -16,7 +16,7 @@ import type { FloatingPopoverProps } from './Combobox.types';
 const LIST_PADDING = 2;
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, listWidth, zIndex, isInner }, ref) => {
+    ({ target, children, opened, onToggle, placement, portal, listWidth, zIndex, isInner, offset }, ref) => {
         const { refs, floatingStyles } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -29,8 +29,8 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
             open: opened,
             middleware: [
                 offsetMiddleware({
-                    mainAxis: isInner ? LIST_PADDING * 2 : 0,
-                    alignmentAxis: isInner ? -LIST_PADDING : 0,
+                    mainAxis: isInner ? LIST_PADDING * 2 : offset?.[1] || 0,
+                    alignmentAxis: isInner ? -LIST_PADDING : offset?.[0] || 0,
                 }),
                 flip({ fallbackAxisSideDirection: 'end' }),
                 shift(),

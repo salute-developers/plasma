@@ -51,7 +51,7 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     placement?: DropdownPlacement;
     /**
      * Отступ Dropdown относительно элемента, у которого оно вызвано.
-     * @default [0, 0]
+     * @default [0, 8]
      */
     offset?: [number, number];
     /**

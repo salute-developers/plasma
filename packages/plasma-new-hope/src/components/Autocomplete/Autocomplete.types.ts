@@ -121,5 +121,5 @@ export type FloatingPopoverProps = {
     opened: boolean;
     portal?: AutocompleteProps['portal'];
     listWidth?: AutocompleteProps['listWidth'];
-    offset?: number;
+    offset?: [number, number];
 };

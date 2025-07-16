@@ -73,6 +73,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             onToggle,
             chipType,
             multiselect,
+            // @ts-ignore
+            _offset,
 
             // Извлекаем пропсы для required и hint, чтобы они не попадали в DOM.
             // @ts-ignore
@@ -406,6 +408,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         placement={placement}
                         portal={portal}
                         listWidth={listWidth}
+                        offset={_offset}
                         target={(referenceRef) => (
                             <Target
                                 ref={name ? null : ref}

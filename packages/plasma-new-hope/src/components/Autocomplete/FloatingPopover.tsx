@@ -1,11 +1,19 @@
-import { flip, shift, size, useFloating, FloatingPortal, autoUpdate } from '@floating-ui/react';
+import {
+    flip,
+    shift,
+    size,
+    useFloating,
+    FloatingPortal,
+    autoUpdate,
+    offset as offsetMiddleware,
+} from '@floating-ui/react';
 import React, { forwardRef } from 'react';
 import { safeUseId } from 'src/utils';
 
 import type { FloatingPopoverProps } from './Autocomplete.types';
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, portal, listWidth }, ref) => {
+    ({ target, children, opened, portal, listWidth, offset }, ref) => {
         const { refs, floatingStyles } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -17,6 +25,10 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
             placement: 'bottom-start',
             open: opened,
             middleware: [
+                offsetMiddleware({
+                    mainAxis: offset?.[1] || 0,
+                    alignmentAxis: offset?.[0] || 0,
+                }),
                 flip({ fallbackAxisSideDirection: 'end' }),
                 shift(),
                 size({
