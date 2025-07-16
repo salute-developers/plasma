@@ -63,6 +63,10 @@ type ViewType = {
     view?: 'onDark' | 'onLight';
 };
 
+export const DEFAULT_MODE = 'default';
+export const ON_DARK_MODE = 'onDark';
+export const ON_LIGHT_MODE = 'onLight';
+
 const viewMap: Record<string, ViewType> = {
     default: {
         style: undefined,
