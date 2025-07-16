@@ -18,9 +18,8 @@ const StyledList = styled.ul`
     margin: 0;
 
     width: 168px;
-    max-height: 100vh;
+    max-height: 100%;
 
-    overflow-y: scroll;
     list-style: none;
 
     &::-webkit-scrollbar {
@@ -43,20 +42,17 @@ const StyledListItem = styled.li`
     align-items: center;
     gap: 12px;
 
-    padding-bottom: 24px;
+    &:not(:last-child) {
+        margin-bottom: 24px;
+    }
 
     cursor: pointer;
 
-    &.divider {
-        padding-bottom: 40px;
+    &.divider:not(:last-child) {
+        margin-bottom: 40px;
     }
 
-    &:hover {
-        ${StyledTextXS} {
-            color: rgba(255, 255, 255, 1);
-        }
-    }
-
+    &:hover,
     &.active {
         ${StyledTextXS} {
             color: rgba(255, 255, 255, 1);
