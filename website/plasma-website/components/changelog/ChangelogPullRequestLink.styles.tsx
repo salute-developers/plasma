@@ -10,7 +10,7 @@ const StyledIconArrowDiagRightUp = styled(IconArrowDiagRightUp)`
     height: 0.8rem;
     flex: 0 0 0.8rem;
 
-    color: rgba(255, 255, 255, 0.28);
+    color: rgba(255, 255, 255, 0.56);
 `;
 
 const StyledLink = styled.a`

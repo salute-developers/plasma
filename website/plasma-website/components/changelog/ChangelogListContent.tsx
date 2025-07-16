@@ -24,7 +24,7 @@ export const ChangelogListContent = ({
         <>
             <ChangelogH2>{heading}</ChangelogH2>
 
-            <ChangelogList key={heading}>
+            <ChangelogList>
                 {list.map(({ component, children }: any, index: number) => {
                     return (
                         <ChangelogItem key={`${releaseDate}_${component}_${index}`}>

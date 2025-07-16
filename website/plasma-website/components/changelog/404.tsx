@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Spinner } from '@salutejs/plasma-b2c';
 
 import { ChangelogH2 } from './index';
 
@@ -31,6 +32,14 @@ const StyledPage = styled.div`
         --margin-x: 16px;
     }
 `;
+
+export const PageLoading = () => {
+    return (
+        <StyledPage>
+            <Spinner size={32} />
+        </StyledPage>
+    );
+};
 
 export const Page404 = () => {
     return (

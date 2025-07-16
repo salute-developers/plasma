@@ -20,10 +20,23 @@ const StyledContainer = styled.div<{ type?: 'previous' | 'next' }>`
     display: grid;
     grid-template-columns: subgrid;
 
-    grid-column: ${({ type = 'previous' }) => (type === 'previous' ? '2/-1' : '2/3')};
+    grid-column: ${({ type = 'previous' }) => (type === 'previous' ? '2/-1' : '2/6')};
     height: 16px;
 
     color: rgba(255, 255, 255, 0.56);
+
+    &.margin-top {
+        margin-top: -36px;
+    }
+
+    &.mobile {
+        display: inline-block;
+        margin-left: -6px;
+
+        @media (min-width: 959px) {
+            display: none;
+        }
+    }
 `;
 
 const StyledNavigationControlItem = styled.button`
