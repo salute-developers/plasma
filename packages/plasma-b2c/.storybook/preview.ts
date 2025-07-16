@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withTheme } from './decoratorThemes';
+import { withTheme, DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE } from './decoratorThemes';
 import { withToast } from './decoratorToast';
 
 // Workaround: to make VoiceOver read russian text properly
@@ -33,6 +33,14 @@ const preview: Preview = {
             toolbar: {
                 title: 'Break word',
                 items: ['yes', 'no'],
+            },
+        },
+        viewContainer: {
+            description: 'ViewContainer mode for components',
+            defaultValue: DEFAULT_MODE,
+            toolbar: {
+                title: 'ViewContainer',
+                items: [DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE],
             },
         },
     },

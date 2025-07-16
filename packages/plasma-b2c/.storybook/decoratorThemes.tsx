@@ -38,6 +38,10 @@ const themes = {
     dark: createGlobalStyle(plasma_b2c__dark),
 };
 
+export const DEFAULT_MODE = 'default';
+export const ON_DARK_MODE = 'onDark';
+export const ON_LIGHT_MODE = 'onLight';
+
 type ViewType = {
     style?: object;
     view?: 'onDark' | 'onLight';
