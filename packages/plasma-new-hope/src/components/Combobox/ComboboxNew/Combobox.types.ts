@@ -273,6 +273,7 @@ export type FloatingPopoverProps = {
     portal?: ComboboxProps['portal'];
     listWidth?: ComboboxProps['listWidth'];
     zIndex?: DropdownProps['zIndex'];
+    offset?: [number, number];
 };
 
 export type ItemContext = {

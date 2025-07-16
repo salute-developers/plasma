@@ -88,6 +88,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             onChangeValue,
             onScroll,
             onToggle,
+            // @ts-ignore
+            _offset,
             ...rest
         } = props;
 
@@ -498,6 +500,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             placement={placement}
                             portal={portal}
                             listWidth={listWidth}
+                            offset={_offset}
                             target={(referenceRef) => (
                                 <StyledTextField
                                     ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
