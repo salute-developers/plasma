@@ -33,8 +33,6 @@ export const StyledChip = styled(Chip)`
     ${chipTokens.lineHeight}: var(${tokens.chipLineHeight});
     ${chipTokens.clearContentMarginLeft}: var(${tokens.chipClearContentMarginLeft});
     ${chipTokens.clearContentMarginRight}: var(${tokens.chipClearContentMarginRight});
-    ${chipTokens.scaleHover}: var(${tokens.chipScaleHover});
-    ${chipTokens.scaleActive}: var(${tokens.chipScaleActive});
     ${chipTokens.closeIconSize}: var(${tokens.chipCloseIconSize});
     ${chipTokens.closeIconColor}: var(${tokens.chipCloseIconColor});
     ${chipTokens.focusColor}: var(${tokens.focusColor});

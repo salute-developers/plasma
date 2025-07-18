@@ -85,8 +85,6 @@ export const tokens = {
     chipHeight: '--plasma-text-field-group-item__chip-height',
     chipBorderRadius: '--plasma-text-field-group-item__chip-border-radius',
     chipGap: '--plasma-text-field-group-item__chip-gap',
-    chipScaleHover: '--plasma-text-field-group-item__chip-scale-hover',
-    chipScaleActive: '--plasma-text-field-group-item__chip-scale-active',
     chipOutlineSize: '--plasma-text-field-group-item__chip-outline-size',
     chipWidth: '--plasma-text-field-group-item__chip-width',
     chipPadding: '--plasma-text-field-group-item__chip-padding',

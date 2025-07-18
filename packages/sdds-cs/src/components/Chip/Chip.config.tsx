@@ -71,10 +71,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.5rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 1.5rem;
             `,
             xs: css`
@@ -95,10 +91,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.clearContentMarginLeft}: 0.25rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 1rem;
             `,
         },

@@ -16,12 +16,4 @@ export const base = css`
     height: var(${tokens.height});
 
     padding: var(${tokens.padding});
-
-    :hover {
-        scale: var(${tokens.scaleHover});
-    }
-
-    :active {
-        scale: var(${tokens.scaleActive});
-    }
 `;
