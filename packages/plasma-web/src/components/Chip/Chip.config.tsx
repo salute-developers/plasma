@@ -134,10 +134,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.5rem;
                 ${chipTokens.clearContentMarginLeft}: 0.625rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 1.5rem;
             `,
             m: css`
@@ -158,10 +154,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.375rem;
                 ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 1.25rem;
             `,
             s: css`
@@ -182,10 +174,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.clearContentMarginLeft}: 0.375rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 1rem;
             `,
             xs: css`
@@ -206,10 +194,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.clearContentMarginLeft}: 0.25rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 0.75rem;
             `,
         },

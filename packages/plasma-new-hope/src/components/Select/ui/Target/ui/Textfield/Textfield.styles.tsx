@@ -141,11 +141,9 @@ export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: b
     ${textFieldTokens.chipGap}: var(${tokens.textFieldChipGap});
     ${textFieldTokens.chipColor}: var(${tokens.textFieldChipColor});
     ${textFieldTokens.chipColorHover}: var(${tokens.textFieldChipColorHover});
-    ${textFieldTokens.chipScaleHover}: var(${tokens.textFieldChipScaleHover});
     ${textFieldTokens.chipBackground}: var(${tokens.textFieldChipBackground});
     ${textFieldTokens.chipBackgroundActive}: var(${tokens.textFieldChipBackgroundActive});
     ${textFieldTokens.chipColorActive}: var(${tokens.textFieldChipColorActive});
-    ${textFieldTokens.chipScaleActive}: var(${tokens.textFieldChipScaleActive});
     ${textFieldTokens.chipCloseIconColor}: var(${tokens.textFieldChipCloseIconColor});
     ${textFieldTokens.chipOutlineSize}: var(${tokens.textFieldChipOutlineSize});
     ${textFieldTokens.chipWidth}: var(${tokens.textFieldChipWidth});

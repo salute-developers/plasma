@@ -50,10 +50,6 @@ export const config = {
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
                 ${tokens.chipClearContentMarginLeft}: 0.5rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
-
-                ${tokens.chipScaleHover}: 1.02;
-                ${tokens.chipScaleActive}: 0.98;
-
                 ${tokens.chipCloseIconSize}: 1.5rem;
             `,
         },
