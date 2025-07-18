@@ -861,7 +861,7 @@ export const config = {
                 ${tokens.textFieldChipColor}: var(--inverse-text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-solid-default);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
-                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-primary);
+                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
 
                 ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-default);
                 ${tokens.textFieldChipColorReadOnly}: var(--inverse-text-primary);
@@ -873,7 +873,7 @@ export const config = {
                 ${tokens.textFieldChipColor}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.textFieldChipCloseIconColor}: var(--text-primary);
+                ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
 
                 ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipColorReadOnly}: var(--text-primary);
@@ -882,10 +882,10 @@ export const config = {
                 ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
             accent: css`
-                ${tokens.textFieldChipColor}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipColor}: var(--inverse-text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-accent);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
-                ${tokens.textFieldChipCloseIconColor}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
 
                 ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-accent);
                 ${tokens.textFieldChipColorReadOnly}: var(--on-dark-text-primary);
