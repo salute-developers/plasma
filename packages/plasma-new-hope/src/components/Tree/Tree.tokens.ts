@@ -1,6 +1,8 @@
 export const classes = {
     treeInverted: 'tree-inverted',
     treeItemFilled: 'tree-item-filled',
+    parentHasSelectedChildren: 'tree-parent-has-selected-children',
+    closestParentHasSelectedChildren: 'tree-closest-parent-has-selected-children',
 };
 
 export const treeTokens = {
@@ -33,7 +35,10 @@ export const treeTokens = {
     checkboxMargin: '--plasma-tree-checkbox-margin',
     checkboxBorderColor: '--plasma-tree-checkbox-border-color',
     checkboxBackgroundColor: '--plasma-tree-checkbox-background-color',
-    itemBackgroundColor: '--plasma-tree-item-background-color',
+    itemBackgroundColorSelected: '--plasma-tree-item-background-color-selected',
+    itemBackgroundColorParentHasSelectedChildren: '--plasma-tree-item-background-color-parent-has-selected-children',
+    itemBackgroundColorClosestParentHasSelectedChildren:
+        '--plasma-tree-item-background-color-closest-parent-has-selected-children',
     itemBackgroundColorHover: '--plasma-tree-item-background-color-hover',
     itemBackgroundColorActive: '--plasma-tree-item-background-color-active',
     itemDisabledOpacity: '--plasma-tree-item-disabled-opacity',
