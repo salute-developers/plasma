@@ -14,7 +14,9 @@ export const config = {
                 ${tokens.arrowColorActive}: var(--text-secondary-active);
                 ${tokens.color}: var(--text-secondary);
                 ${tokens.colorSelected}: var(--text-primary);
-                ${tokens.itemBackgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.itemBackgroundColorSelected}: var(--surface-transparent-tertiary);
+                ${tokens.itemBackgroundColorParentHasSelectedChildren}: var(--surface-transparent-secondary);
+                ${tokens.itemBackgroundColorClosestParentHasSelectedChildren}: var(--surface-transparent-primary);
                 ${tokens.itemBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${tokens.itemBackgroundColorActive}: var(--surface-transparent-secondary-active);
                 ${tokens.checkboxBorderColor}: var(--text-secondary);

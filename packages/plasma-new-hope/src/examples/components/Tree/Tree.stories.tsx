@@ -85,14 +85,34 @@ const StoryDefault = (args: StoryTreeProps) => {
                             children: [
                                 {
                                     title: 'Проект Альфа',
-                                    key: '0-0-0-0-0',
+                                    key: '0-0-0-1-0',
                                     icon: (
                                         <IconBlankTxtOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />
                                     ),
                                 },
                                 {
                                     title: 'Проект Бета',
-                                    key: '0-0-0-0-1',
+                                    key: '0-0-0-1-1',
+                                    icon: (
+                                        <IconBlankTxtOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />
+                                    ),
+                                },
+                            ],
+                        },
+                        {
+                            title: 'Категории',
+                            key: '0-0-0-2',
+                            children: [
+                                {
+                                    title: 'Категория Гамма',
+                                    key: '0-0-0-2-0',
+                                    icon: (
+                                        <IconBlankTxtOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />
+                                    ),
+                                },
+                                {
+                                    title: 'Категория Дельта',
+                                    key: '0-0-0-2-1',
                                     icon: (
                                         <IconBlankTxtOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />
                                     ),

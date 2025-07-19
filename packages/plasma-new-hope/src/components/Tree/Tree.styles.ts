@@ -298,8 +298,16 @@ export const base = css`
         border-radius: 0;
     }
 
-    .rc-tree .rc-tree-treenode.rc-tree-treenode-selected::before {
-        background: var(${tokens.itemBackgroundColor}) !important;
+    .rc-tree .rc-tree-treenode.${classes.closestParentHasSelectedChildren}:not(.rc-tree-treenode-disabled)::before {
+        background: var(${tokens.itemBackgroundColorClosestParentHasSelectedChildren});
+    }
+
+    .rc-tree .rc-tree-treenode.${classes.parentHasSelectedChildren}:not(.rc-tree-treenode-disabled)::before {
+        background: var(${tokens.itemBackgroundColorParentHasSelectedChildren});
+    }
+
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-selected:not(.rc-tree-treenode-disabled)::before {
+        background: var(${tokens.itemBackgroundColorSelected});
     }
 
     .rc-tree .rc-tree-treenode:not(.rc-tree-treenode-disabled):hover::before {
@@ -395,11 +403,11 @@ export const base = css`
         line-height: var(${tokens.lineHeight});
     }
 
-    .rc-tree.tree-inverted .rc-tree-treenode span.rc-tree-switcher {
+    .rc-tree.${classes.treeInverted} .rc-tree-treenode span.rc-tree-switcher {
         order: 1;
     }
 
-    .rc-tree.tree-inverted .rc-tree-treenode::before {
+    .rc-tree.${classes.treeInverted} .rc-tree-treenode::before {
         left: 0;
     }
 

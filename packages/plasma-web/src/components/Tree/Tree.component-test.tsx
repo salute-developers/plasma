@@ -236,6 +236,18 @@ describe('plasma-web: Tree', () => {
         cy.matchImageSnapshot();
     });
 
+    it('flow: controlled', () => {
+        cy.viewport(1000, 1000);
+
+        mount(<ControlledTree />);
+
+        cy.get('.rc-tree-switcher').first().click();
+        cy.get('[title="Parent 1-0"]').click();
+        cy.get('[aria-label="Select Parent 1-1"]').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('flow: thin block', () => {
         cy.viewport(200, 500);
 
