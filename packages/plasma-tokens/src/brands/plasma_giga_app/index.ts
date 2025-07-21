@@ -1379,743 +1379,619 @@ export const inverseOverlayHard = 'var(--inverse-overlay-hard, rgba(249,249,249,
 
 export const inverseOverlayBlur = 'var(--inverse-overlay-blur, rgba(249,249,249,0.28))';
 
-export const outlineDefaultOutlinePrimaryHover = 'var(--outline-default-outline-primary-hover, #303030FF)';
+export const outlinePrimaryHover = 'var(--outline-primary-hover, #303030FF)';
 
-export const outlineDefaultOutlinePrimaryActive = 'var(--outline-default-outline-primary-active, #212121FF)';
+export const outlinePrimaryActive = 'var(--outline-primary-active, #212121FF)';
 
-export const outlineDefaultOutlineSecondaryHover = 'var(--outline-default-outline-secondary-hover, #595959FF)';
+export const outlineSecondaryHover = 'var(--outline-secondary-hover, #595959FF)';
 
-export const outlineDefaultOutlineSecondaryActive = 'var(--outline-default-outline-secondary-active, #4A4A4AFF)';
+export const outlineSecondaryActive = 'var(--outline-secondary-active, #4A4A4AFF)';
 
-export const outlineDefaultOutlineTertiaryHover = 'var(--outline-default-outline-tertiary-hover, #7A7A7AFF)';
+export const outlineTertiaryHover = 'var(--outline-tertiary-hover, #7A7A7AFF)';
 
-export const outlineDefaultOutlineTertiaryActive = 'var(--outline-default-outline-tertiary-active, #6B6B6BFF)';
+export const outlineTertiaryActive = 'var(--outline-tertiary-active, #6B6B6BFF)';
 
-export const outlineDefaultOutlineDefaultHover = 'var(--outline-default-outline-default-hover, #FFFFFFFF)';
+export const outlineDefaultHover = 'var(--outline-default-hover, #FFFFFFFF)';
 
-export const outlineDefaultOutlineDefaultActive = 'var(--outline-default-outline-default-active, #F5F5F5FF)';
+export const outlineDefaultActive = 'var(--outline-default-active, #F5F5F5FF)';
 
-export const outlineDefaultOutlineTransparentPrimary =
-    'var(--outline-default-outline-transparent-primary, rgba(255, 255, 255, 0.12))';
+export const outlineTransparentPrimary = 'var(--outline-transparent-primary, rgba(255, 255, 255, 0.12))';
 
-export const outlineDefaultOutlineTransparentPrimaryHover =
-    'var(--outline-default-outline-transparent-primary-hover, #FFFFFF3D)';
+export const outlineTransparentPrimaryHover = 'var(--outline-transparent-primary-hover, #FFFFFF3D)';
 
-export const outlineDefaultOutlineTransparentPrimaryActive =
-    'var(--outline-default-outline-transparent-primary-active, #FFFFFF0F)';
+export const outlineTransparentPrimaryActive = 'var(--outline-transparent-primary-active, #FFFFFF0F)';
 
-export const outlineDefaultOutlineTransparentSecondary =
-    'var(--outline-default-outline-transparent-secondary, rgba(255, 255, 255, 0.20))';
+export const outlineTransparentSecondary = 'var(--outline-transparent-secondary, rgba(255, 255, 255, 0.20))';
 
-export const outlineDefaultOutlineTransparentSecondaryHover =
-    'var(--outline-default-outline-transparent-secondary-hover, #FFFFFF52)';
+export const outlineTransparentSecondaryHover = 'var(--outline-transparent-secondary-hover, #FFFFFF52)';
 
-export const outlineDefaultOutlineTransparentSecondaryActive =
-    'var(--outline-default-outline-transparent-secondary-active, #FFFFFF24)';
+export const outlineTransparentSecondaryActive = 'var(--outline-transparent-secondary-active, #FFFFFF24)';
 
-export const outlineDefaultOutlineTransparentTertiary =
-    'var(--outline-default-outline-transparent-tertiary, rgba(255, 255, 255, 0.40))';
+export const outlineTransparentTertiary = 'var(--outline-transparent-tertiary, rgba(255, 255, 255, 0.40))';
 
-export const outlineDefaultOutlineTransparentTertiaryHover =
-    'var(--outline-default-outline-transparent-tertiary-hover, #FFFFFF85)';
+export const outlineTransparentTertiaryHover = 'var(--outline-transparent-tertiary-hover, #FFFFFF85)';
 
-export const outlineDefaultOutlineTransparentTertiaryActive =
-    'var(--outline-default-outline-transparent-tertiary-active, #FFFFFF57)';
+export const outlineTransparentTertiaryActive = 'var(--outline-transparent-tertiary-active, #FFFFFF57)';
 
-export const outlineDefaultOutlineTransparentClear =
-    'var(--outline-default-outline-transparent-clear, rgba(255, 255, 255, 0.00))';
+export const outlineTransparentClear = 'var(--outline-transparent-clear, rgba(255, 255, 255, 0.00))';
 
-export const outlineDefaultOutlineTransparentClearHover =
-    'var(--outline-default-outline-transparent-clear-hover, #FFFFFF00)';
+export const outlineTransparentClearHover = 'var(--outline-transparent-clear-hover, #FFFFFF00)';
 
-export const outlineDefaultOutlineTransparentClearActive =
-    'var(--outline-default-outline-transparent-clear-active, #FFFFFF00)';
+export const outlineTransparentClearActive = 'var(--outline-transparent-clear-active, #FFFFFF00)';
 
-export const outlineDefaultOutlineAccent = 'var(--outline-default-outline-accent, #3F81FD)';
+export const outlineAccent = 'var(--outline-accent, #3F81FD)';
 
-export const outlineDefaultOutlineAccentHover = 'var(--outline-default-outline-accent-hover, #5D95FDFF)';
+export const outlineAccentHover = 'var(--outline-accent-hover, #5D95FDFF)';
 
-export const outlineDefaultOutlineAccentActive = 'var(--outline-default-outline-accent-active, #357BFDFF)';
+export const outlineAccentActive = 'var(--outline-accent-active, #357BFDFF)';
 
-export const outlineDefaultOutlineAccentMinor = 'var(--outline-default-outline-accent-minor, #1549AB)';
+export const outlineAccentMinor = 'var(--outline-accent-minor, #1549AB)';
 
-export const outlineDefaultOutlineAccentMinorHover = 'var(--outline-default-outline-accent-minor-hover, #1852BFFF)';
+export const outlineAccentMinorHover = 'var(--outline-accent-minor-hover, #1852BFFF)';
 
-export const outlineDefaultOutlineAccentMinorActive = 'var(--outline-default-outline-accent-minor-active, #1446A3FF)';
+export const outlineAccentMinorActive = 'var(--outline-accent-minor-active, #1446A3FF)';
 
-export const outlineDefaultOutlineTransparentAccent =
-    'var(--outline-default-outline-transparent-accent, rgba(63, 129, 253, 0.28))';
+export const outlineTransparentAccent = 'var(--outline-transparent-accent, rgba(63, 129, 253, 0.28))';
 
-export const outlineDefaultOutlineTransparentAccentHover =
-    'var(--outline-default-outline-transparent-accent-hover, #3F82FD66)';
+export const outlineTransparentAccentHover = 'var(--outline-transparent-accent-hover, #3F82FD66)';
 
-export const outlineDefaultOutlineTransparentAccentActive =
-    'var(--outline-default-outline-transparent-accent-active, #3F82FD38)';
+export const outlineTransparentAccentActive = 'var(--outline-transparent-accent-active, #3F82FD38)';
 
-export const outlineDefaultOutlinePositive = 'var(--outline-default-outline-positive, #24B23E)';
+export const outlinePositive = 'var(--outline-positive, #24B23E)';
 
-export const outlineDefaultOutlinePositiveHover = 'var(--outline-default-outline-positive-hover, #28C344FF)';
+export const outlinePositiveHover = 'var(--outline-positive-hover, #28C344FF)';
 
-export const outlineDefaultOutlinePositiveActive = 'var(--outline-default-outline-positive-active, #23A93BFF)';
+export const outlinePositiveActive = 'var(--outline-positive-active, #23A93BFF)';
 
-export const outlineDefaultOutlineWarning = 'var(--outline-default-outline-warning, #FF7024)';
+export const outlineWarning = 'var(--outline-warning, #FF7024)';
 
-export const outlineDefaultOutlineWarningHover = 'var(--outline-default-outline-warning-hover, #FF8442FF)';
+export const outlineWarningHover = 'var(--outline-warning-hover, #FF8442FF)';
 
-export const outlineDefaultOutlineWarningActive = 'var(--outline-default-outline-warning-active, #FF6A1AFF)';
+export const outlineWarningActive = 'var(--outline-warning-active, #FF6A1AFF)';
 
-export const outlineDefaultOutlineNegative = 'var(--outline-default-outline-negative, #FF3D51)';
+export const outlineNegative = 'var(--outline-negative, #FF3D51)';
 
-export const outlineDefaultOutlineNegativeHover = 'var(--outline-default-outline-negative-hover, #FF5C6CFF)';
+export const outlineNegativeHover = 'var(--outline-negative-hover, #FF5C6CFF)';
 
-export const outlineDefaultOutlineNegativeActive = 'var(--outline-default-outline-negative-active, #FF3347FF)';
+export const outlineNegativeActive = 'var(--outline-negative-active, #FF3347FF)';
 
-export const outlineDefaultOutlineInfoHover = 'var(--outline-default-outline-info-hover, #70A2FFFF)';
+export const outlineInfoHover = 'var(--outline-info-hover, #70A2FFFF)';
 
-export const outlineDefaultOutlineInfoActive = 'var(--outline-default-outline-info-active, #4788FFFF)';
+export const outlineInfoActive = 'var(--outline-info-active, #4788FFFF)';
 
-export const outlineDefaultOutlinePositiveMinor = 'var(--outline-default-outline-positive-minor, #095C18)';
+export const outlinePositiveMinor = 'var(--outline-positive-minor, #095C18)';
 
-export const outlineDefaultOutlinePositiveMinorHover = 'var(--outline-default-outline-positive-minor-hover, #0B6F1DFF)';
+export const outlinePositiveMinorHover = 'var(--outline-positive-minor-hover, #0B6F1DFF)';
 
-export const outlineDefaultOutlinePositiveMinorActive =
-    'var(--outline-default-outline-positive-minor-active, #085416FF)';
+export const outlinePositiveMinorActive = 'var(--outline-positive-minor-active, #085416FF)';
 
-export const outlineDefaultOutlineWarningMinor = 'var(--outline-default-outline-warning-minor, #85380C)';
+export const outlineWarningMinor = 'var(--outline-warning-minor, #85380C)';
 
-export const outlineDefaultOutlineWarningMinorHover = 'var(--outline-default-outline-warning-minor-hover, #95400EFF)';
+export const outlineWarningMinorHover = 'var(--outline-warning-minor-hover, #95400EFF)';
 
-export const outlineDefaultOutlineWarningMinorActive = 'var(--outline-default-outline-warning-minor-active, #79340BFF)';
+export const outlineWarningMinorActive = 'var(--outline-warning-minor-active, #79340BFF)';
 
-export const outlineDefaultOutlineNegativeMinor = 'var(--outline-default-outline-negative-minor, #9C1422)';
+export const outlineNegativeMinor = 'var(--outline-negative-minor, #9C1422)';
 
-export const outlineDefaultOutlineNegativeMinorHover = 'var(--outline-default-outline-negative-minor-hover, #B01726FF)';
+export const outlineNegativeMinorHover = 'var(--outline-negative-minor-hover, #B01726FF)';
 
-export const outlineDefaultOutlineNegativeMinorActive =
-    'var(--outline-default-outline-negative-minor-active, #951320FF)';
+export const outlineNegativeMinorActive = 'var(--outline-negative-minor-active, #951320FF)';
 
-export const outlineDefaultOutlineInfoMinorHover = 'var(--outline-default-outline-info-minor-hover, #1852BFFF)';
+export const outlineInfoMinorHover = 'var(--outline-info-minor-hover, #1852BFFF)';
 
-export const outlineDefaultOutlineInfoMinorActive = 'var(--outline-default-outline-info-minor-active, #1446A3FF)';
+export const outlineInfoMinorActive = 'var(--outline-info-minor-active, #1446A3FF)';
 
-export const outlineDefaultOutlineTransparentPositiveHover =
-    'var(--outline-default-outline-transparent-positive-hover, #1A9E3266)';
+export const outlineTransparentPositiveHover = 'var(--outline-transparent-positive-hover, #1A9E3266)';
 
-export const outlineDefaultOutlineTransparentPositiveActive =
-    'var(--outline-default-outline-transparent-positive-active, #1A9E3238)';
+export const outlineTransparentPositiveActive = 'var(--outline-transparent-positive-active, #1A9E3238)';
 
-export const outlineDefaultOutlineTransparentWarningHover =
-    'var(--outline-default-outline-transparent-warning-hover, #FA5F0566)';
+export const outlineTransparentWarningHover = 'var(--outline-transparent-warning-hover, #FA5F0566)';
 
-export const outlineDefaultOutlineTransparentWarningActive =
-    'var(--outline-default-outline-transparent-warning-active, #FA5F0538)';
+export const outlineTransparentWarningActive = 'var(--outline-transparent-warning-active, #FA5F0538)';
 
-export const outlineDefaultOutlineNegativeTransparentHover =
-    'var(--outline-default-outline-negative-transparent-hover, #CCCCCCFF)';
+export const outlineNegativeTransparentHover = 'var(--outline-negative-transparent-hover, #CCCCCCFF)';
 
-export const outlineDefaultOutlineNegativeTransparentActive =
-    'var(--outline-default-outline-negative-transparent-active, #E6E6E6FF)';
+export const outlineNegativeTransparentActive = 'var(--outline-negative-transparent-active, #E6E6E6FF)';
 
-export const outlineDefaultOutlineTransparentInfoHover =
-    'var(--outline-default-outline-transparent-info-hover, #3F82FD66)';
+export const outlineTransparentInfoHover = 'var(--outline-transparent-info-hover, #3F82FD66)';
 
-export const outlineDefaultOutlineTransparentInfoActive =
-    'var(--outline-default-outline-transparent-info-active, #3F82FD38)';
+export const outlineTransparentInfoActive = 'var(--outline-transparent-info-active, #3F82FD38)';
 
-export const outlineDefaultOutlineTransparentPositive =
-    'var(--outline-default-outline-transparent-positive, rgba(26, 158, 50, 0.28))';
+export const outlineTransparentPositive = 'var(--outline-transparent-positive, rgba(26, 158, 50, 0.28))';
 
-export const outlineDefaultOutlineTransparentWarning =
-    'var(--outline-default-outline-transparent-warning, rgba(250, 95, 5, 0.28))';
+export const outlineTransparentWarning = 'var(--outline-transparent-warning, rgba(250, 95, 5, 0.28))';
 
-export const outlineDefaultOutlineTransparentNegative =
-    'var(--outline-default-outline-transparent-negative, rgba(243, 27, 49, 0.20))';
+export const outlineTransparentNegative = 'var(--outline-transparent-negative, rgba(243, 27, 49, 0.20))';
 
-export const outlineDefaultOutlineTransparentNegativeHover =
-    'var(--outline-default-outline-transparent-negative-hover, #F31B3152)';
+export const outlineTransparentNegativeHover = 'var(--outline-transparent-negative-hover, #F31B3152)';
 
-export const outlineDefaultOutlineTransparentNegativeActive =
-    'var(--outline-default-outline-transparent-negative-active, #F31B3124)';
+export const outlineTransparentNegativeActive = 'var(--outline-transparent-negative-active, #F31B3124)';
 
-export const outlineDefaultOutlineInfoMinor = 'var(--outline-default-outline-info-minor, #1549AB)';
+export const outlineInfoMinor = 'var(--outline-info-minor, #1549AB)';
 
-export const outlineDefaultOutlineTransparentInfo =
-    'var(--outline-default-outline-transparent-info, rgba(63, 129, 253, 0.28))';
+export const outlineTransparentInfo = 'var(--outline-transparent-info, rgba(63, 129, 253, 0.28))';
 
-export const outlineDefaultOutlineInfo = 'var(--outline-default-outline-info, #528EFF)';
+export const outlineInfo = 'var(--outline-info, #528EFF)';
 
-export const outlineDefaultOutlineSolidPrimary = 'var(--outline-default-outline-solid-primary, #262626)';
+export const outlineSolidPrimary = 'var(--outline-solid-primary, #262626)';
 
-export const outlineDefaultOutlineSolidPrimaryHover = 'var(--outline-default-outline-solid-primary-hover, #FFFFFFFF)';
+export const outlineSolidPrimaryHover = 'var(--outline-solid-primary-hover, #FFFFFFFF)';
 
-export const outlineDefaultOutlineSolidPrimaryActive = 'var(--outline-default-outline-solid-primary-active, #ADADADFF)';
+export const outlineSolidPrimaryActive = 'var(--outline-solid-primary-active, #ADADADFF)';
 
-export const outlineDefaultOutlineSolidSecondary = 'var(--outline-default-outline-solid-secondary, #4E4E4E)';
+export const outlineSolidSecondary = 'var(--outline-solid-secondary, #4E4E4E)';
 
-export const outlineDefaultOutlineSolidSecondaryHover =
-    'var(--outline-default-outline-solid-secondary-hover, #FFFFFFFF)';
+export const outlineSolidSecondaryHover = 'var(--outline-solid-secondary-hover, #FFFFFFFF)';
 
-export const outlineDefaultOutlineSolidSecondaryActive =
-    'var(--outline-default-outline-solid-secondary-active, #8C8C8CFF)';
+export const outlineSolidSecondaryActive = 'var(--outline-solid-secondary-active, #8C8C8CFF)';
 
-export const outlineDefaultOutlineSolidTertiary = 'var(--outline-default-outline-solid-tertiary, #707070)';
+export const outlineSolidTertiary = 'var(--outline-solid-tertiary, #707070)';
 
-export const outlineDefaultOutlineSolidTertiaryHover = 'var(--outline-default-outline-solid-tertiary-hover, #FFFFFFFF)';
+export const outlineSolidTertiaryHover = 'var(--outline-solid-tertiary-hover, #FFFFFFFF)';
 
-export const outlineDefaultOutlineSolidTertiaryActive =
-    'var(--outline-default-outline-solid-tertiary-active, #737373FF)';
+export const outlineSolidTertiaryActive = 'var(--outline-solid-tertiary-active, #737373FF)';
 
-export const outlineDefaultOutlineSolidDefault = 'var(--outline-default-outline-solid-default, #F9F9F9)';
+export const outlineSolidDefault = 'var(--outline-solid-default, #F9F9F9)';
 
-export const outlineDefaultOutlineSolidDefaultHover = 'var(--outline-default-outline-solid-default-hover, #C7C7C7FF)';
+export const outlineSolidDefaultHover = 'var(--outline-solid-default-hover, #C7C7C7FF)';
 
-export const outlineDefaultOutlineSolidDefaultActive = 'var(--outline-default-outline-solid-default-active, #E0E0E0FF)';
+export const outlineSolidDefaultActive = 'var(--outline-solid-default-active, #E0E0E0FF)';
 
-export const outlineOnDarkOutlinePrimaryHover = 'var(--outline-on-dark-outline-primary-hover, #303030FF)';
+export const onDarkOutlinePrimaryHover = 'var(--on-dark-outline-primary-hover, #303030FF)';
 
-export const outlineOnDarkOutlinePrimaryActive = 'var(--outline-on-dark-outline-primary-active, #212121FF)';
+export const onDarkOutlinePrimaryActive = 'var(--on-dark-outline-primary-active, #212121FF)';
 
-export const outlineOnDarkOutlineSecondaryHover = 'var(--outline-on-dark-outline-secondary-hover, #595959FF)';
+export const onDarkOutlineSecondaryHover = 'var(--on-dark-outline-secondary-hover, #595959FF)';
 
-export const outlineOnDarkOutlineSecondaryActive = 'var(--outline-on-dark-outline-secondary-active, #4A4A4AFF)';
+export const onDarkOutlineSecondaryActive = 'var(--on-dark-outline-secondary-active, #4A4A4AFF)';
 
-export const outlineOnDarkOutlineTertiaryHover = 'var(--outline-on-dark-outline-tertiary-hover, #7A7A7AFF)';
+export const onDarkOutlineTertiaryHover = 'var(--on-dark-outline-tertiary-hover, #7A7A7AFF)';
 
-export const outlineOnDarkOutlineTertiaryActive = 'var(--outline-on-dark-outline-tertiary-active, #6B6B6BFF)';
+export const onDarkOutlineTertiaryActive = 'var(--on-dark-outline-tertiary-active, #6B6B6BFF)';
 
-export const outlineOnDarkOutlineDefaultHover = 'var(--outline-on-dark-outline-default-hover, #FFFFFFFF)';
+export const onDarkOutlineDefaultHover = 'var(--on-dark-outline-default-hover, #FFFFFFFF)';
 
-export const outlineOnDarkOutlineDefaultActive = 'var(--outline-on-dark-outline-default-active, #F5F5F5FF)';
+export const onDarkOutlineDefaultActive = 'var(--on-dark-outline-default-active, #F5F5F5FF)';
 
-export const outlineOnDarkOutlineTransparentPrimaryHover =
-    'var(--outline-on-dark-outline-transparent-primary-hover, #FFFFFF3D)';
+export const onDarkOutlineTransparentPrimaryHover = 'var(--on-dark-outline-transparent-primary-hover, #FFFFFF3D)';
 
-export const outlineOnDarkOutlineTransparentPrimaryActive =
-    'var(--outline-on-dark-outline-transparent-primary-active, #FFFFFF0F)';
+export const onDarkOutlineTransparentPrimaryActive = 'var(--on-dark-outline-transparent-primary-active, #FFFFFF0F)';
 
-export const outlineOnDarkOutlineTransparentSecondaryHover =
-    'var(--outline-on-dark-outline-transparent-secondary-hover, #FFFFFF52)';
+export const onDarkOutlineTransparentSecondaryHover = 'var(--on-dark-outline-transparent-secondary-hover, #FFFFFF52)';
 
-export const outlineOnDarkOutlineTransparentSecondaryActive =
-    'var(--outline-on-dark-outline-transparent-secondary-active, #FFFFFF24)';
+export const onDarkOutlineTransparentSecondaryActive = 'var(--on-dark-outline-transparent-secondary-active, #FFFFFF24)';
 
-export const outlineOnDarkOutlineTransparentTertiaryHover =
-    'var(--outline-on-dark-outline-transparent-tertiary-hover, #FFFFFF85)';
+export const onDarkOutlineTransparentTertiaryHover = 'var(--on-dark-outline-transparent-tertiary-hover, #FFFFFF85)';
 
-export const outlineOnDarkOutlineTransparentTertiaryActive =
-    'var(--outline-on-dark-outline-transparent-tertiary-active, #FFFFFF57)';
+export const onDarkOutlineTransparentTertiaryActive = 'var(--on-dark-outline-transparent-tertiary-active, #FFFFFF57)';
 
-export const outlineOnDarkOutlineAccentHover = 'var(--outline-on-dark-outline-accent-hover, #5D95FDFF)';
+export const onDarkOutlineAccentHover = 'var(--on-dark-outline-accent-hover, #5D95FDFF)';
 
-export const outlineOnDarkOutlineAccentActive = 'var(--outline-on-dark-outline-accent-active, #357BFDFF)';
+export const onDarkOutlineAccentActive = 'var(--on-dark-outline-accent-active, #357BFDFF)';
 
-export const outlineOnDarkOutlineAccentMinorHover = 'var(--outline-on-dark-outline-accent-minor-hover, #1852BFFF)';
+export const onDarkOutlineAccentMinorHover = 'var(--on-dark-outline-accent-minor-hover, #1852BFFF)';
 
-export const outlineOnDarkOutlineAccentMinorActive = 'var(--outline-on-dark-outline-accent-minor-active, #1446A3FF)';
+export const onDarkOutlineAccentMinorActive = 'var(--on-dark-outline-accent-minor-active, #1446A3FF)';
 
-export const outlineOnDarkOutlineTransparentAccentHover =
-    'var(--outline-on-dark-outline-transparent-accent-hover, #3F82FD66)';
+export const onDarkOutlineTransparentAccentHover = 'var(--on-dark-outline-transparent-accent-hover, #3F82FD66)';
 
-export const outlineOnDarkOutlineTransparentAccentActive =
-    'var(--outline-on-dark-outline-transparent-accent-active, #3F82FD38)';
+export const onDarkOutlineTransparentAccentActive = 'var(--on-dark-outline-transparent-accent-active, #3F82FD38)';
 
-export const outlineOnDarkOutlinePositiveHover = 'var(--outline-on-dark-outline-positive-hover, #28C344FF)';
+export const onDarkOutlinePositiveHover = 'var(--on-dark-outline-positive-hover, #28C344FF)';
 
-export const outlineOnDarkOutlinePositiveActive = 'var(--outline-on-dark-outline-positive-active, #23A93BFF)';
+export const onDarkOutlinePositiveActive = 'var(--on-dark-outline-positive-active, #23A93BFF)';
 
-export const outlineOnDarkOutlineWarningHover = 'var(--outline-on-dark-outline-warning-hover, #FF8442FF)';
+export const onDarkOutlineWarningHover = 'var(--on-dark-outline-warning-hover, #FF8442FF)';
 
-export const outlineOnDarkOutlineWarningActive = 'var(--outline-on-dark-outline-warning-active, #FF6A1AFF)';
+export const onDarkOutlineWarningActive = 'var(--on-dark-outline-warning-active, #FF6A1AFF)';
 
-export const outlineOnDarkOutlineNegativeHover = 'var(--outline-on-dark-outline-negative-hover, #FF5C6CFF)';
+export const onDarkOutlineNegativeHover = 'var(--on-dark-outline-negative-hover, #FF5C6CFF)';
 
-export const outlineOnDarkOutlineNegativeActive = 'var(--outline-on-dark-outline-negative-active, #FF3347FF)';
+export const onDarkOutlineNegativeActive = 'var(--on-dark-outline-negative-active, #FF3347FF)';
 
-export const outlineOnDarkOutlineInfoHover = 'var(--outline-on-dark-outline-info-hover, #70A2FFFF)';
+export const onDarkOutlineInfoHover = 'var(--on-dark-outline-info-hover, #70A2FFFF)';
 
-export const outlineOnDarkOutlineInfoActive = 'var(--outline-on-dark-outline-info-active, #4788FFFF)';
+export const onDarkOutlineInfoActive = 'var(--on-dark-outline-info-active, #4788FFFF)';
 
-export const outlineOnDarkOutlinePositiveMinorHover = 'var(--outline-on-dark-outline-positive-minor-hover, #0B6F1DFF)';
+export const onDarkOutlinePositiveMinorHover = 'var(--on-dark-outline-positive-minor-hover, #0B6F1DFF)';
 
-export const outlineOnDarkOutlinePositiveMinorActive =
-    'var(--outline-on-dark-outline-positive-minor-active, #085416FF)';
+export const onDarkOutlinePositiveMinorActive = 'var(--on-dark-outline-positive-minor-active, #085416FF)';
 
-export const outlineOnDarkOutlineWarningMinorHover = 'var(--outline-on-dark-outline-warning-minor-hover, #95400EFF)';
+export const onDarkOutlineWarningMinorHover = 'var(--on-dark-outline-warning-minor-hover, #95400EFF)';
 
-export const outlineOnDarkOutlineWarningMinorActive = 'var(--outline-on-dark-outline-warning-minor-active, #79340BFF)';
+export const onDarkOutlineWarningMinorActive = 'var(--on-dark-outline-warning-minor-active, #79340BFF)';
 
-export const outlineOnDarkOutlineNegativeMinorHover = 'var(--outline-on-dark-outline-negative-minor-hover, #B01726FF)';
+export const onDarkOutlineNegativeMinorHover = 'var(--on-dark-outline-negative-minor-hover, #B01726FF)';
 
-export const outlineOnDarkOutlineNegativeMinorActive =
-    'var(--outline-on-dark-outline-negative-minor-active, #951320FF)';
+export const onDarkOutlineNegativeMinorActive = 'var(--on-dark-outline-negative-minor-active, #951320FF)';
 
-export const outlineOnDarkOutlineInfoMinorHover = 'var(--outline-on-dark-outline-info-minor-hover, #1852BFFF)';
+export const onDarkOutlineInfoMinorHover = 'var(--on-dark-outline-info-minor-hover, #1852BFFF)';
 
-export const outlineOnDarkOutlineInfoMinorActive = 'var(--outline-on-dark-outline-info-minor-active, #1446A3FF)';
+export const onDarkOutlineInfoMinorActive = 'var(--on-dark-outline-info-minor-active, #1446A3FF)';
 
-export const outlineOnDarkOutlineTransparentPositiveHover =
-    'var(--outline-on-dark-outline-transparent-positive-hover, #1A9E3266)';
+export const onDarkOutlineTransparentPositiveHover = 'var(--on-dark-outline-transparent-positive-hover, #1A9E3266)';
 
-export const outlineOnDarkOutlineTransparentPositiveActive =
-    'var(--outline-on-dark-outline-transparent-positive-active, #1A9E3238)';
+export const onDarkOutlineTransparentPositiveActive = 'var(--on-dark-outline-transparent-positive-active, #1A9E3238)';
 
-export const outlineOnDarkOutlineTransparentWarningHover =
-    'var(--outline-on-dark-outline-transparent-warning-hover, #FA5F0566)';
+export const onDarkOutlineTransparentWarningHover = 'var(--on-dark-outline-transparent-warning-hover, #FA5F0566)';
 
-export const outlineOnDarkOutlineTransparentWarningActive =
-    'var(--outline-on-dark-outline-transparent-warning-active, #FA5F0538)';
+export const onDarkOutlineTransparentWarningActive = 'var(--on-dark-outline-transparent-warning-active, #FA5F0538)';
 
-export const outlineOnDarkOutlineNegativeTransparentHover =
-    'var(--outline-on-dark-outline-negative-transparent-hover, #FF293E66)';
+export const onDarkOutlineNegativeTransparentHover = 'var(--on-dark-outline-negative-transparent-hover, #FF293E66)';
 
-export const outlineOnDarkOutlineNegativeTransparentActive =
-    'var(--outline-on-dark-outline-negative-transparent-active, #FF293E38)';
+export const onDarkOutlineNegativeTransparentActive = 'var(--on-dark-outline-negative-transparent-active, #FF293E38)';
 
-export const outlineOnDarkOutlineTransparentInfoHover =
-    'var(--outline-on-dark-outline-transparent-info-hover, #3F82FD66)';
+export const onDarkOutlineTransparentInfoHover = 'var(--on-dark-outline-transparent-info-hover, #3F82FD66)';
 
-export const outlineOnDarkOutlineTransparentInfoActive =
-    'var(--outline-on-dark-outline-transparent-info-active, #3F82FD38)';
+export const onDarkOutlineTransparentInfoActive = 'var(--on-dark-outline-transparent-info-active, #3F82FD38)';
 
-export const outlineOnDarkOutlineTransparentPrimary =
-    'var(--outline-on-dark-outline-transparent-primary, rgba(255, 255, 255, 0.12))';
+export const onDarkOutlineTransparentPrimary = 'var(--on-dark-outline-transparent-primary, rgba(255, 255, 255, 0.12))';
 
-export const outlineOnDarkOutlineTransparentSecondary =
-    'var(--outline-on-dark-outline-transparent-secondary, rgba(255, 255, 255, 0.20))';
+export const onDarkOutlineTransparentSecondary =
+    'var(--on-dark-outline-transparent-secondary, rgba(255, 255, 255, 0.20))';
 
-export const outlineOnDarkOutlineTransparentTertiary =
-    'var(--outline-on-dark-outline-transparent-tertiary, rgba(255, 255, 255, 0.40))';
+export const onDarkOutlineTransparentTertiary =
+    'var(--on-dark-outline-transparent-tertiary, rgba(255, 255, 255, 0.40))';
 
-export const outlineOnDarkOutlineAccent = 'var(--outline-on-dark-outline-accent, #3F81FD)';
+export const onDarkOutlineAccent = 'var(--on-dark-outline-accent, #3F81FD)';
 
-export const outlineOnDarkOutlineAccentMinor = 'var(--outline-on-dark-outline-accent-minor, #1549AB)';
+export const onDarkOutlineAccentMinor = 'var(--on-dark-outline-accent-minor, #1549AB)';
 
-export const outlineOnDarkOutlineTransparentAccent =
-    'var(--outline-on-dark-outline-transparent-accent, rgba(63, 129, 253, 0.28))';
+export const onDarkOutlineTransparentAccent = 'var(--on-dark-outline-transparent-accent, rgba(63, 129, 253, 0.28))';
 
-export const outlineOnDarkOutlinePositive = 'var(--outline-on-dark-outline-positive, #24B23E)';
+export const onDarkOutlinePositive = 'var(--on-dark-outline-positive, #24B23E)';
 
-export const outlineOnDarkOutlineWarning = 'var(--outline-on-dark-outline-warning, #FF7024)';
+export const onDarkOutlineWarning = 'var(--on-dark-outline-warning, #FF7024)';
 
-export const outlineOnDarkOutlineNegative = 'var(--outline-on-dark-outline-negative, #FF3D51)';
+export const onDarkOutlineNegative = 'var(--on-dark-outline-negative, #FF3D51)';
 
-export const outlineOnDarkOutlineWarningMinor = 'var(--outline-on-dark-outline-warning-minor, #85380C)';
+export const onDarkOutlineWarningMinor = 'var(--on-dark-outline-warning-minor, #85380C)';
 
-export const outlineOnDarkOutlineNegativeMinor = 'var(--outline-on-dark-outline-negative-minor, #9C1422)';
+export const onDarkOutlineNegativeMinor = 'var(--on-dark-outline-negative-minor, #9C1422)';
 
-export const outlineOnDarkOutlineTransparentPositive =
-    'var(--outline-on-dark-outline-transparent-positive, rgba(26, 158, 50, 0.28))';
+export const onDarkOutlineTransparentPositive = 'var(--on-dark-outline-transparent-positive, rgba(26, 158, 50, 0.28))';
 
-export const outlineOnDarkOutlineTransparentWarning =
-    'var(--outline-on-dark-outline-transparent-warning, rgba(250, 95, 5, 0.28))';
+export const onDarkOutlineTransparentWarning = 'var(--on-dark-outline-transparent-warning, rgba(250, 95, 5, 0.28))';
 
-export const outlineOnDarkOutlineNegativeTransparent =
-    'var(--outline-on-dark-outline-negative-transparent, rgba(255, 41, 62, 0.28))';
+export const onDarkOutlineNegativeTransparent = 'var(--on-dark-outline-negative-transparent, rgba(255, 41, 62, 0.28))';
 
-export const outlineOnDarkOutlinePositiveMinor = 'var(--outline-on-dark-outline-positive-minor, #095C18)';
+export const onDarkOutlinePositiveMinor = 'var(--on-dark-outline-positive-minor, #095C18)';
 
-export const outlineOnDarkOutlineInfoMinor = 'var(--outline-on-dark-outline-info-minor, #1549AB)';
+export const onDarkOutlineInfoMinor = 'var(--on-dark-outline-info-minor, #1549AB)';
 
-export const outlineOnDarkOutlineInfo = 'var(--outline-on-dark-outline-info, #528EFF)';
+export const onDarkOutlineInfo = 'var(--on-dark-outline-info, #528EFF)';
 
-export const outlineOnDarkOutlineTransparentInfo =
-    'var(--outline-on-dark-outline-transparent-info, rgba(63, 129, 253, 0.28))';
+export const onDarkOutlineTransparentInfo = 'var(--on-dark-outline-transparent-info, rgba(63, 129, 253, 0.28))';
 
-export const outlineOnDarkOutlineSolidPrimary = 'var(--outline-on-dark-outline-solid-primary, #262626)';
+export const onDarkOutlineSolidPrimary = 'var(--on-dark-outline-solid-primary, #262626)';
 
-export const outlineOnDarkOutlineSolidPrimaryHover = 'var(--outline-on-dark-outline-solid-primary-hover, #FFFFFFFF)';
+export const onDarkOutlineSolidPrimaryHover = 'var(--on-dark-outline-solid-primary-hover, #FFFFFFFF)';
 
-export const outlineOnDarkOutlineSolidPrimaryActive = 'var(--outline-on-dark-outline-solid-primary-active, #ADADADFF)';
+export const onDarkOutlineSolidPrimaryActive = 'var(--on-dark-outline-solid-primary-active, #ADADADFF)';
 
-export const outlineOnDarkOutlineSolidSecondary = 'var(--outline-on-dark-outline-solid-secondary, #4E4E4E)';
+export const onDarkOutlineSolidSecondary = 'var(--on-dark-outline-solid-secondary, #4E4E4E)';
 
-export const outlineOnDarkOutlineSolidSecondaryHover =
-    'var(--outline-on-dark-outline-solid-secondary-hover, #FFFFFFFF)';
+export const onDarkOutlineSolidSecondaryHover = 'var(--on-dark-outline-solid-secondary-hover, #FFFFFFFF)';
 
-export const outlineOnDarkOutlineSolidSecondaryActive =
-    'var(--outline-on-dark-outline-solid-secondary-active, #8C8C8CFF)';
+export const onDarkOutlineSolidSecondaryActive = 'var(--on-dark-outline-solid-secondary-active, #8C8C8CFF)';
 
-export const outlineOnDarkOutlineSolidTertiary = 'var(--outline-on-dark-outline-solid-tertiary, #707070)';
+export const onDarkOutlineSolidTertiary = 'var(--on-dark-outline-solid-tertiary, #707070)';
 
-export const outlineOnDarkOutlineSolidTertiaryHover = 'var(--outline-on-dark-outline-solid-tertiary-hover, #FFFFFFFF)';
+export const onDarkOutlineSolidTertiaryHover = 'var(--on-dark-outline-solid-tertiary-hover, #FFFFFFFF)';
 
-export const outlineOnDarkOutlineSolidTertiaryActive =
-    'var(--outline-on-dark-outline-solid-tertiary-active, #737373FF)';
+export const onDarkOutlineSolidTertiaryActive = 'var(--on-dark-outline-solid-tertiary-active, #737373FF)';
 
-export const outlineOnDarkOutlineSolidDefault = 'var(--outline-on-dark-outline-solid-default, #F9F9F9)';
+export const onDarkOutlineSolidDefault = 'var(--on-dark-outline-solid-default, #F9F9F9)';
 
-export const outlineOnDarkOutlineSolidDefaultHover = 'var(--outline-on-dark-outline-solid-default-hover, #C7C7C7FF)';
+export const onDarkOutlineSolidDefaultHover = 'var(--on-dark-outline-solid-default-hover, #C7C7C7FF)';
 
-export const outlineOnDarkOutlineSolidDefaultActive = 'var(--outline-on-dark-outline-solid-default-active, #E0E0E0FF)';
+export const onDarkOutlineSolidDefaultActive = 'var(--on-dark-outline-solid-default-active, #E0E0E0FF)';
 
-export const outlineOnLightOutlinePrimaryHover = 'var(--outline-on-light-outline-primary-hover, #E8E8E8FF)';
+export const onLightOutlinePrimaryHover = 'var(--on-light-outline-primary-hover, #E8E8E8FF)';
 
-export const outlineOnLightOutlinePrimaryActive = 'var(--outline-on-light-outline-primary-active, #D9D9D9FF)';
+export const onLightOutlinePrimaryActive = 'var(--on-light-outline-primary-active, #D9D9D9FF)';
 
-export const outlineOnLightOutlineSecondaryHover = 'var(--outline-on-light-outline-secondary-hover, #9E9E9EFF)';
+export const onLightOutlineSecondaryHover = 'var(--on-light-outline-secondary-hover, #9E9E9EFF)';
 
-export const outlineOnLightOutlineSecondaryActive = 'var(--outline-on-light-outline-secondary-active, #8F8F8FFF)';
+export const onLightOutlineSecondaryActive = 'var(--on-light-outline-secondary-active, #8F8F8FFF)';
 
-export const outlineOnLightOutlineTertiaryHover = 'var(--outline-on-light-outline-tertiary-hover, #7A7A7AFF)';
+export const onLightOutlineTertiaryHover = 'var(--on-light-outline-tertiary-hover, #7A7A7AFF)';
 
-export const outlineOnLightOutlineTertiaryActive = 'var(--outline-on-light-outline-tertiary-active, #6B6B6BFF)';
+export const onLightOutlineTertiaryActive = 'var(--on-light-outline-tertiary-active, #6B6B6BFF)';
 
-export const outlineOnLightOutlineDefaultHover = 'var(--outline-on-light-outline-default-hover, #0D0D0DFF)';
+export const onLightOutlineDefaultHover = 'var(--on-light-outline-default-hover, #0D0D0DFF)';
 
-export const outlineOnLightOutlineDefaultActive = 'var(--outline-on-light-outline-default-active, #030303FF)';
+export const onLightOutlineDefaultActive = 'var(--on-light-outline-default-active, #030303FF)';
 
-export const outlineOnLightOutlineTransparentPrimary =
-    'var(--outline-on-light-outline-transparent-primary, rgba(8, 8, 8, 0.20))';
+export const onLightOutlineTransparentPrimary = 'var(--on-light-outline-transparent-primary, rgba(8, 8, 8, 0.20))';
 
-export const outlineOnLightOutlineTransparentPrimaryHover =
-    'var(--outline-on-light-outline-transparent-primary-hover, #08080852)';
+export const onLightOutlineTransparentPrimaryHover = 'var(--on-light-outline-transparent-primary-hover, #08080852)';
 
-export const outlineOnLightOutlineTransparentPrimaryActive =
-    'var(--outline-on-light-outline-transparent-primary-active, #08080824)';
+export const onLightOutlineTransparentPrimaryActive = 'var(--on-light-outline-transparent-primary-active, #08080824)';
 
-export const outlineOnLightOutlineTransparentSecondary =
-    'var(--outline-on-light-outline-transparent-secondary, rgba(8, 8, 8, 0.40))';
+export const onLightOutlineTransparentSecondary = 'var(--on-light-outline-transparent-secondary, rgba(8, 8, 8, 0.40))';
 
-export const outlineOnLightOutlineTransparentSecondaryHover =
-    'var(--outline-on-light-outline-transparent-secondary-hover, #08080885)';
+export const onLightOutlineTransparentSecondaryHover = 'var(--on-light-outline-transparent-secondary-hover, #08080885)';
 
-export const outlineOnLightOutlineTransparentSecondaryActive =
-    'var(--outline-on-light-outline-transparent-secondary-active, #08080857)';
+export const onLightOutlineTransparentSecondaryActive =
+    'var(--on-light-outline-transparent-secondary-active, #08080857)';
 
-export const outlineOnLightOutlineTransparentTertiary =
-    'var(--outline-on-light-outline-transparent-tertiary, rgba(8, 8, 8, 0.56))';
+export const onLightOutlineTransparentTertiary = 'var(--on-light-outline-transparent-tertiary, rgba(8, 8, 8, 0.56))';
 
-export const outlineOnLightOutlineTransparentTertiaryHover =
-    'var(--outline-on-light-outline-transparent-tertiary-hover, #080808AD)';
+export const onLightOutlineTransparentTertiaryHover = 'var(--on-light-outline-transparent-tertiary-hover, #080808AD)';
 
-export const outlineOnLightOutlineTransparentTertiaryActive =
-    'var(--outline-on-light-outline-transparent-tertiary-active, #08080880)';
+export const onLightOutlineTransparentTertiaryActive = 'var(--on-light-outline-transparent-tertiary-active, #08080880)';
 
-export const outlineOnLightOutlineAccent = 'var(--outline-on-light-outline-accent, #2A72F8)';
+export const onLightOutlineAccent = 'var(--on-light-outline-accent, #2A72F8)';
 
-export const outlineOnLightOutlineAccentHover = 'var(--outline-on-light-outline-accent-hover, #4886F9FF)';
+export const onLightOutlineAccentHover = 'var(--on-light-outline-accent-hover, #4886F9FF)';
 
-export const outlineOnLightOutlineAccentActive = 'var(--outline-on-light-outline-accent-active, #206CF8FF)';
+export const onLightOutlineAccentActive = 'var(--on-light-outline-accent-active, #206CF8FF)';
 
-export const outlineOnLightOutlineAccentMinor = 'var(--outline-on-light-outline-accent-minor, #8BB2FC)';
+export const onLightOutlineAccentMinor = 'var(--on-light-outline-accent-minor, #8BB2FC)';
 
-export const outlineOnLightOutlineAccentMinorHover = 'var(--outline-on-light-outline-accent-minor-hover, #A1C1FDFF)';
+export const onLightOutlineAccentMinorHover = 'var(--on-light-outline-accent-minor-hover, #A1C1FDFF)';
 
-export const outlineOnLightOutlineAccentMinorActive = 'var(--outline-on-light-outline-accent-minor-active, #83ADFCFF)';
+export const onLightOutlineAccentMinorActive = 'var(--on-light-outline-accent-minor-active, #83ADFCFF)';
 
-export const outlineOnLightOutlineTransparentAccent =
-    'var(--outline-on-light-outline-transparent-accent, rgba(42, 114, 248, 0.20))';
+export const onLightOutlineTransparentAccent = 'var(--on-light-outline-transparent-accent, rgba(42, 114, 248, 0.20))';
 
-export const outlineOnLightOutlineTransparentAccentHover =
-    'var(--outline-on-light-outline-transparent-accent-hover, #2A72F852)';
+export const onLightOutlineTransparentAccentHover = 'var(--on-light-outline-transparent-accent-hover, #2A72F852)';
 
-export const outlineOnLightOutlineTransparentAccentActive =
-    'var(--outline-on-light-outline-transparent-accent-active, #2A72F824)';
+export const onLightOutlineTransparentAccentActive = 'var(--on-light-outline-transparent-accent-active, #2A72F824)';
 
-export const outlineOnLightOutlinePositive = 'var(--outline-on-light-outline-positive, #1A9E32)';
+export const onLightOutlinePositive = 'var(--on-light-outline-positive, #1A9E32)';
 
-export const outlineOnLightOutlinePositiveHover = 'var(--outline-on-light-outline-positive-hover, #1DAF37FF)';
+export const onLightOutlinePositiveHover = 'var(--on-light-outline-positive-hover, #1DAF37FF)';
 
-export const outlineOnLightOutlinePositiveActive = 'var(--outline-on-light-outline-positive-active, #18952FFF)';
+export const onLightOutlinePositiveActive = 'var(--on-light-outline-positive-active, #18952FFF)';
 
-export const outlineOnLightOutlineWarning = 'var(--outline-on-light-outline-warning, #FA5F05)';
+export const onLightOutlineWarning = 'var(--on-light-outline-warning, #FA5F05)';
 
-export const outlineOnLightOutlineWarningHover = 'var(--outline-on-light-outline-warning-hover, #FB7223FF)';
+export const onLightOutlineWarningHover = 'var(--on-light-outline-warning-hover, #FB7223FF)';
 
-export const outlineOnLightOutlineWarningActive = 'var(--outline-on-light-outline-warning-active, #F05B05FF)';
+export const onLightOutlineWarningActive = 'var(--on-light-outline-warning-active, #F05B05FF)';
 
-export const outlineOnLightOutlineNegative = 'var(--outline-on-light-outline-negative, #F31B31)';
+export const onLightOutlineNegative = 'var(--on-light-outline-negative, #F31B31)';
 
-export const outlineOnLightOutlineNegativeHover = 'var(--outline-on-light-outline-negative-hover, #F5384BFF)';
+export const onLightOutlineNegativeHover = 'var(--on-light-outline-negative-hover, #F5384BFF)';
 
-export const outlineOnLightOutlineNegativeActive = 'var(--outline-on-light-outline-negative-active, #F31228FF)';
+export const onLightOutlineNegativeActive = 'var(--on-light-outline-negative-active, #F31228FF)';
 
-export const outlineOnLightOutlineInfoHover = 'var(--outline-on-light-outline-info-hover, #5D95FDFF)';
+export const onLightOutlineInfoHover = 'var(--on-light-outline-info-hover, #5D95FDFF)';
 
-export const outlineOnLightOutlineInfoActive = 'var(--outline-on-light-outline-info-active, #357BFDFF)';
+export const onLightOutlineInfoActive = 'var(--on-light-outline-info-active, #357BFDFF)';
 
-export const outlineOnLightOutlinePositiveMinor = 'var(--outline-on-light-outline-positive-minor, #28D247)';
+export const onLightOutlinePositiveMinor = 'var(--on-light-outline-positive-minor, #28D247)';
 
-export const outlineOnLightOutlinePositiveMinorHover =
-    'var(--outline-on-light-outline-positive-minor-hover, #36D954FF)';
+export const onLightOutlinePositiveMinorHover = 'var(--on-light-outline-positive-minor-hover, #36D954FF)';
 
-export const outlineOnLightOutlinePositiveMinorActive =
-    'var(--outline-on-light-outline-positive-minor-active, #26C944FF)';
+export const onLightOutlinePositiveMinorActive = 'var(--on-light-outline-positive-minor-active, #26C944FF)';
 
-export const outlineOnLightOutlineWarningMinor = 'var(--outline-on-light-outline-warning-minor, #FD9C68)';
+export const onLightOutlineWarningMinor = 'var(--on-light-outline-warning-minor, #FD9C68)';
 
-export const outlineOnLightOutlineWarningMinorHover = 'var(--outline-on-light-outline-warning-minor-hover, #FDA97CFF)';
+export const onLightOutlineWarningMinorHover = 'var(--on-light-outline-warning-minor-hover, #FDA97CFF)';
 
-export const outlineOnLightOutlineWarningMinorActive =
-    'var(--outline-on-light-outline-warning-minor-active, #FD965EFF)';
+export const onLightOutlineWarningMinorActive = 'var(--on-light-outline-warning-minor-active, #FD965EFF)';
 
-export const outlineOnLightOutlineNegativeMinor = 'var(--outline-on-light-outline-negative-minor, #FF8F9A)';
+export const onLightOutlineNegativeMinor = 'var(--on-light-outline-negative-minor, #FF8F9A)';
 
-export const outlineOnLightOutlineNegativeMinorHover =
-    'var(--outline-on-light-outline-negative-minor-hover, #FFA3ACFF)';
+export const onLightOutlineNegativeMinorHover = 'var(--on-light-outline-negative-minor-hover, #FFA3ACFF)';
 
-export const outlineOnLightOutlineNegativeMinorActive =
-    'var(--outline-on-light-outline-negative-minor-active, #FF8591FF)';
+export const onLightOutlineNegativeMinorActive = 'var(--on-light-outline-negative-minor-active, #FF8591FF)';
 
-export const outlineOnLightOutlineInfoMinorHover = 'var(--outline-on-light-outline-info-minor-hover, #A1C1FDFF)';
+export const onLightOutlineInfoMinorHover = 'var(--on-light-outline-info-minor-hover, #A1C1FDFF)';
 
-export const outlineOnLightOutlineInfoMinorActive = 'var(--outline-on-light-outline-info-minor-active, #83ADFCFF)';
+export const onLightOutlineInfoMinorActive = 'var(--on-light-outline-info-minor-active, #83ADFCFF)';
 
-export const outlineOnLightOutlineTransparentPositive =
-    'var(--outline-on-light-outline-transparent-positive, rgba(26, 158, 50, 0.20))';
+export const onLightOutlineTransparentPositive =
+    'var(--on-light-outline-transparent-positive, rgba(26, 158, 50, 0.20))';
 
-export const outlineOnLightOutlineTransparentPositiveHover =
-    'var(--outline-on-light-outline-transparent-positive-hover, #1A9E3252)';
+export const onLightOutlineTransparentPositiveHover = 'var(--on-light-outline-transparent-positive-hover, #1A9E3252)';
 
-export const outlineOnLightOutlineTransparentPositiveActive =
-    'var(--outline-on-light-outline-transparent-positive-active, #1A9E3224)';
+export const onLightOutlineTransparentPositiveActive = 'var(--on-light-outline-transparent-positive-active, #1A9E3224)';
 
-export const outlineOnLightOutlineTransparentWarning =
-    'var(--outline-on-light-outline-transparent-warning, rgba(232, 87, 2, 0.20))';
+export const onLightOutlineTransparentWarning = 'var(--on-light-outline-transparent-warning, rgba(232, 87, 2, 0.20))';
 
-export const outlineOnLightOutlineTransparentWarningHover =
-    'var(--outline-on-light-outline-transparent-warning-hover, #E8570252)';
+export const onLightOutlineTransparentWarningHover = 'var(--on-light-outline-transparent-warning-hover, #E8570252)';
 
-export const outlineOnLightOutlineTransparentWarningActive =
-    'var(--outline-on-light-outline-transparent-warning-active, #E8570224)';
+export const onLightOutlineTransparentWarningActive = 'var(--on-light-outline-transparent-warning-active, #E8570224)';
 
-export const outlineOnLightOutlineNegativeTransparent =
-    'var(--outline-on-light-outline-negative-transparent, rgba(243, 27, 49, 0.20))';
+export const onLightOutlineNegativeTransparent =
+    'var(--on-light-outline-negative-transparent, rgba(243, 27, 49, 0.20))';
 
-export const outlineOnLightOutlineNegativeTransparentHover =
-    'var(--outline-on-light-outline-negative-transparent-hover, #F31B3152)';
+export const onLightOutlineNegativeTransparentHover = 'var(--on-light-outline-negative-transparent-hover, #F31B3152)';
 
-export const outlineOnLightOutlineNegativeTransparentActive =
-    'var(--outline-on-light-outline-negative-transparent-active, #F31B3124)';
+export const onLightOutlineNegativeTransparentActive = 'var(--on-light-outline-negative-transparent-active, #F31B3124)';
 
-export const outlineOnLightOutlineTransparentInfoHover =
-    'var(--outline-on-light-outline-transparent-info-hover, #2A72F852)';
+export const onLightOutlineTransparentInfoHover = 'var(--on-light-outline-transparent-info-hover, #2A72F852)';
 
-export const outlineOnLightOutlineTransparentInfoActive =
-    'var(--outline-on-light-outline-transparent-info-active, #2A72F824)';
+export const onLightOutlineTransparentInfoActive = 'var(--on-light-outline-transparent-info-active, #2A72F824)';
 
-export const outlineOnLightOutlineInfo = 'var(--outline-on-light-outline-info, #3F81FD)';
+export const onLightOutlineInfo = 'var(--on-light-outline-info, #3F81FD)';
 
-export const outlineOnLightOutlineInfoMinor = 'var(--outline-on-light-outline-info-minor, #8BB2FC)';
+export const onLightOutlineInfoMinor = 'var(--on-light-outline-info-minor, #8BB2FC)';
 
-export const outlineOnLightOutlineTransparentInfo =
-    'var(--outline-on-light-outline-transparent-info, rgba(42, 114, 248, 0.20))';
+export const onLightOutlineTransparentInfo = 'var(--on-light-outline-transparent-info, rgba(42, 114, 248, 0.20))';
 
-export const outlineOnLightOutlineSolidTertiary = 'var(--outline-on-light-outline-solid-tertiary, #707070)';
+export const onLightOutlineSolidTertiary = 'var(--on-light-outline-solid-tertiary, #707070)';
 
-export const outlineOnLightOutlineSolidTertiaryHover =
-    'var(--outline-on-light-outline-solid-tertiary-hover, #FFFFFFFF)';
+export const onLightOutlineSolidTertiaryHover = 'var(--on-light-outline-solid-tertiary-hover, #FFFFFFFF)';
 
-export const outlineOnLightOutlineSolidTertiaryActive =
-    'var(--outline-on-light-outline-solid-tertiary-active, #737373FF)';
+export const onLightOutlineSolidTertiaryActive = 'var(--on-light-outline-solid-tertiary-active, #737373FF)';
 
-export const outlineOnLightOutlineSolidDefault = 'var(--outline-on-light-outline-solid-default, #080808)';
+export const onLightOutlineSolidDefault = 'var(--on-light-outline-solid-default, #080808)';
 
-export const outlineOnLightOutlineSolidDefaultHover = 'var(--outline-on-light-outline-solid-default-hover, #FFFFFFFF)';
+export const onLightOutlineSolidDefaultHover = 'var(--on-light-outline-solid-default-hover, #FFFFFFFF)';
 
-export const outlineOnLightOutlineSolidDefaultActive =
-    'var(--outline-on-light-outline-solid-default-active, #C7C7C7FF)';
+export const onLightOutlineSolidDefaultActive = 'var(--on-light-outline-solid-default-active, #C7C7C7FF)';
 
-export const outlineOnLightOutlineSolidPrimary = 'var(--outline-on-light-outline-solid-primary, #DDDDDD)';
+export const onLightOutlineSolidPrimary = 'var(--on-light-outline-solid-primary, #DDDDDD)';
 
-export const outlineOnLightOutlineSolidPrimaryHover = 'var(--outline-on-light-outline-solid-primary-hover, #ABABABFF)';
+export const onLightOutlineSolidPrimaryHover = 'var(--on-light-outline-solid-primary-hover, #ABABABFF)';
 
-export const outlineOnLightOutlineSolidPrimaryActive =
-    'var(--outline-on-light-outline-solid-primary-active, #C4C4C4FF)';
+export const onLightOutlineSolidPrimaryActive = 'var(--on-light-outline-solid-primary-active, #C4C4C4FF)';
 
-export const outlineOnLightOutlineSolidSecondary = 'var(--outline-on-light-outline-solid-secondary, #949494)';
+export const onLightOutlineSolidSecondary = 'var(--on-light-outline-solid-secondary, #949494)';
 
-export const outlineOnLightOutlineSolidSecondaryHover =
-    'var(--outline-on-light-outline-solid-secondary-hover, #FFFFFFFF)';
+export const onLightOutlineSolidSecondaryHover = 'var(--on-light-outline-solid-secondary-hover, #FFFFFFFF)';
 
-export const outlineOnLightOutlineSolidSecondaryActive =
-    'var(--outline-on-light-outline-solid-secondary-active, #575757FF)';
+export const onLightOutlineSolidSecondaryActive = 'var(--on-light-outline-solid-secondary-active, #575757FF)';
 
-export const outlineInverseOutlinePrimaryHover = 'var(--outline-inverse-outline-primary-hover, #ABABABFF)';
+export const inverseOutlinePrimaryHover = 'var(--inverse-outline-primary-hover, #ABABABFF)';
 
-export const outlineInverseOutlinePrimaryActive = 'var(--outline-inverse-outline-primary-active, #C4C4C4FF)';
+export const inverseOutlinePrimaryActive = 'var(--inverse-outline-primary-active, #C4C4C4FF)';
 
-export const outlineInverseOutlineSecondaryHover = 'var(--outline-inverse-outline-secondary-hover, #FFFFFFFF)';
+export const inverseOutlineSecondaryHover = 'var(--inverse-outline-secondary-hover, #FFFFFFFF)';
 
-export const outlineInverseOutlineSecondaryActive = 'var(--outline-inverse-outline-secondary-active, #575757FF)';
+export const inverseOutlineSecondaryActive = 'var(--inverse-outline-secondary-active, #575757FF)';
 
-export const outlineInverseOutlineTertiaryHover = 'var(--outline-inverse-outline-tertiary-hover, #FFFFFFFF)';
+export const inverseOutlineTertiaryHover = 'var(--inverse-outline-tertiary-hover, #FFFFFFFF)';
 
-export const outlineInverseOutlineTertiaryActive = 'var(--outline-inverse-outline-tertiary-active, #737373FF)';
+export const inverseOutlineTertiaryActive = 'var(--inverse-outline-tertiary-active, #737373FF)';
 
-export const outlineInverseOutlineDefaultHover = 'var(--outline-inverse-outline-default-hover, #FFFFFFFF)';
+export const inverseOutlineDefaultHover = 'var(--inverse-outline-default-hover, #FFFFFFFF)';
 
-export const outlineInverseOutlineDefaultActive = 'var(--outline-inverse-outline-default-active, #C7C7C7FF)';
+export const inverseOutlineDefaultActive = 'var(--inverse-outline-default-active, #C7C7C7FF)';
 
-export const outlineInverseOutlineTransparentPrimary =
-    'var(--outline-inverse-outline-transparent-primary, rgba(8,8,8,0.20))';
+export const inverseOutlineTransparentPrimary = 'var(--inverse-outline-transparent-primary, rgba(8,8,8,0.20))';
 
-export const outlineInverseOutlineTransparentPrimaryHover =
-    'var(--outline-inverse-outline-transparent-primary-hover, #080808FF)';
+export const inverseOutlineTransparentPrimaryHover = 'var(--inverse-outline-transparent-primary-hover, #080808FF)';
 
-export const outlineInverseOutlineTransparentPrimaryActive =
-    'var(--outline-inverse-outline-transparent-primary-active, #0808083D)';
+export const inverseOutlineTransparentPrimaryActive = 'var(--inverse-outline-transparent-primary-active, #0808083D)';
 
-export const outlineInverseOutlineTransparentSecondary =
-    'var(--outline-inverse-outline-transparent-secondary, rgba(8,8,8,0.40))';
+export const inverseOutlineTransparentSecondary = 'var(--inverse-outline-transparent-secondary, rgba(8,8,8,0.40))';
 
-export const outlineInverseOutlineTransparentSecondaryHover =
-    'var(--outline-inverse-outline-transparent-secondary-hover, #080808FF)';
+export const inverseOutlineTransparentSecondaryHover = 'var(--inverse-outline-transparent-secondary-hover, #080808FF)';
 
-export const outlineInverseOutlineTransparentSecondaryActive =
-    'var(--outline-inverse-outline-transparent-secondary-active, #0808087A)';
+export const inverseOutlineTransparentSecondaryActive =
+    'var(--inverse-outline-transparent-secondary-active, #0808087A)';
 
-export const outlineInverseOutlineTransparentTertiary =
-    'var(--outline-inverse-outline-transparent-tertiary, rgba(8,8,8,0.56))';
+export const inverseOutlineTransparentTertiary = 'var(--inverse-outline-transparent-tertiary, rgba(8,8,8,0.56))';
 
-export const outlineInverseOutlineTransparentTertiaryHover =
-    'var(--outline-inverse-outline-transparent-tertiary-hover, #080808FF)';
+export const inverseOutlineTransparentTertiaryHover = 'var(--inverse-outline-transparent-tertiary-hover, #080808FF)';
 
-export const outlineInverseOutlineTransparentTertiaryActive =
-    'var(--outline-inverse-outline-transparent-tertiary-active, #080808AB)';
+export const inverseOutlineTransparentTertiaryActive = 'var(--inverse-outline-transparent-tertiary-active, #080808AB)';
 
-export const outlineInverseOutlineTransparentClear =
-    'var(--outline-inverse-outline-transparent-clear, rgba(255,255,255,0.00))';
+export const inverseOutlineTransparentClear = 'var(--inverse-outline-transparent-clear, rgba(255,255,255,0.00))';
 
-export const outlineInverseOutlineTransparentClearHover =
-    'var(--outline-inverse-outline-transparent-clear-hover, #FFFFFFFF)';
+export const inverseOutlineTransparentClearHover = 'var(--inverse-outline-transparent-clear-hover, #FFFFFFFF)';
 
-export const outlineInverseOutlineTransparentClearActive =
-    'var(--outline-inverse-outline-transparent-clear-active, #FFFFFFFF)';
+export const inverseOutlineTransparentClearActive = 'var(--inverse-outline-transparent-clear-active, #FFFFFFFF)';
 
-export const outlineInverseOutlineAccent = 'var(--outline-inverse-outline-accent, #2A72F8)';
+export const inverseOutlineAccent = 'var(--inverse-outline-accent, #2A72F8)';
 
-export const outlineInverseOutlineAccentHover = 'var(--outline-inverse-outline-accent-hover, #79A7FBFF)';
+export const inverseOutlineAccentHover = 'var(--inverse-outline-accent-hover, #79A7FBFF)';
 
-export const outlineInverseOutlineAccentActive = 'var(--outline-inverse-outline-accent-active, #0D5FF8FF)';
+export const inverseOutlineAccentActive = 'var(--inverse-outline-accent-active, #0D5FF8FF)';
 
-export const outlineInverseOutlineAccentMinor = 'var(--outline-inverse-outline-accent-minor, #8BB2FC)';
+export const inverseOutlineAccentMinor = 'var(--inverse-outline-accent-minor, #8BB2FC)';
 
-export const outlineInverseOutlineAccentMinorHover = 'var(--outline-inverse-outline-accent-minor-hover, #DCE8FEFF)';
+export const inverseOutlineAccentMinorHover = 'var(--inverse-outline-accent-minor-hover, #DCE8FEFF)';
 
-export const outlineInverseOutlineAccentMinorActive = 'var(--outline-inverse-outline-accent-minor-active, #6FA0FBFF)';
+export const inverseOutlineAccentMinorActive = 'var(--inverse-outline-accent-minor-active, #6FA0FBFF)';
 
-export const outlineInverseOutlineTransparentAccent =
-    'var(--outline-inverse-outline-transparent-accent, rgba(42,114,248,0.20))';
+export const inverseOutlineTransparentAccent = 'var(--inverse-outline-transparent-accent, rgba(42,114,248,0.20))';
 
-export const outlineInverseOutlineTransparentAccentHover =
-    'var(--outline-inverse-outline-transparent-accent-hover, #2A72F8FF)';
+export const inverseOutlineTransparentAccentHover = 'var(--inverse-outline-transparent-accent-hover, #2A72F8FF)';
 
-export const outlineInverseOutlineTransparentAccentActive =
-    'var(--outline-inverse-outline-transparent-accent-active, #2A72F83D)';
+export const inverseOutlineTransparentAccentActive = 'var(--inverse-outline-transparent-accent-active, #2A72F83D)';
 
-export const outlineInverseOutlinePositive = 'var(--outline-inverse-outline-positive, #1A9E32)';
+export const inverseOutlinePositive = 'var(--inverse-outline-positive, #1A9E32)';
 
-export const outlineInverseOutlinePositiveHover = 'var(--outline-inverse-outline-positive-hover, #1EB83AFF)';
+export const inverseOutlinePositiveHover = 'var(--inverse-outline-positive-hover, #1EB83AFF)';
 
-export const outlineInverseOutlinePositiveActive = 'var(--outline-inverse-outline-positive-active, #15842AFF)';
+export const inverseOutlinePositiveActive = 'var(--inverse-outline-positive-active, #15842AFF)';
 
-export const outlineInverseOutlineWarning = 'var(--outline-inverse-outline-warning, #FA5F05)';
+export const inverseOutlineWarning = 'var(--inverse-outline-warning, #FA5F05)';
 
-export const outlineInverseOutlineWarningHover = 'var(--outline-inverse-outline-warning-hover, #FB7223FF)';
+export const inverseOutlineWarningHover = 'var(--inverse-outline-warning-hover, #FB7223FF)';
 
-export const outlineInverseOutlineWarningActive = 'var(--outline-inverse-outline-warning-active, #DC5304FF)';
+export const inverseOutlineWarningActive = 'var(--inverse-outline-warning-active, #DC5304FF)';
 
-export const outlineInverseOutlineNegative = 'var(--outline-inverse-outline-negative, #F31B31)';
+export const inverseOutlineNegative = 'var(--inverse-outline-negative, #F31B31)';
 
-export const outlineInverseOutlineNegativeHover = 'var(--outline-inverse-outline-negative-hover, #F5384BFF)';
+export const inverseOutlineNegativeHover = 'var(--inverse-outline-negative-hover, #F5384BFF)';
 
-export const outlineInverseOutlineNegativeActive = 'var(--outline-inverse-outline-negative-active, #E40C22FF)';
+export const inverseOutlineNegativeActive = 'var(--inverse-outline-negative-active, #E40C22FF)';
 
-export const outlineInverseOutlineInfo = 'var(--outline-inverse-outline-info, #2A72F8)';
+export const inverseOutlineInfo = 'var(--inverse-outline-info, #2A72F8)';
 
-export const outlineInverseOutlineInfoHover = 'var(--outline-inverse-outline-info-hover, #79A7FBFF)';
+export const inverseOutlineInfoHover = 'var(--inverse-outline-info-hover, #79A7FBFF)';
 
-export const outlineInverseOutlineInfoActive = 'var(--outline-inverse-outline-info-active, #0D5FF8FF)';
+export const inverseOutlineInfoActive = 'var(--inverse-outline-info-active, #0D5FF8FF)';
 
-export const outlineInverseOutlinePositiveMinor = 'var(--outline-inverse-outline-positive-minor, #28D247)';
+export const inverseOutlinePositiveMinor = 'var(--inverse-outline-positive-minor, #28D247)';
 
-export const outlineInverseOutlinePositiveMinorHover = 'var(--outline-inverse-outline-positive-minor-hover, #3EDA5BFF)';
+export const inverseOutlinePositiveMinorHover = 'var(--inverse-outline-positive-minor-hover, #3EDA5BFF)';
 
-export const outlineInverseOutlinePositiveMinorActive =
-    'var(--outline-inverse-outline-positive-minor-active, #23B83EFF)';
+export const inverseOutlinePositiveMinorActive = 'var(--inverse-outline-positive-minor-active, #23B83EFF)';
 
-export const outlineInverseOutlineWarningMinor = 'var(--outline-inverse-outline-warning-minor, #FD9C68)';
+export const inverseOutlineWarningMinor = 'var(--inverse-outline-warning-minor, #FD9C68)';
 
-export const outlineInverseOutlineWarningMinorHover = 'var(--outline-inverse-outline-warning-minor-hover, #FDB086FF)';
+export const inverseOutlineWarningMinorHover = 'var(--inverse-outline-warning-minor-hover, #FDB086FF)';
 
-export const outlineInverseOutlineWarningMinorActive = 'var(--outline-inverse-outline-warning-minor-active, #FC884AFF)';
+export const inverseOutlineWarningMinorActive = 'var(--inverse-outline-warning-minor-active, #FC884AFF)';
 
-export const outlineInverseOutlineNegativeMinor = 'var(--outline-inverse-outline-negative-minor, #FF8F9A)';
+export const inverseOutlineNegativeMinor = 'var(--inverse-outline-negative-minor, #FF8F9A)';
 
-export const outlineInverseOutlineNegativeMinorHover = 'var(--outline-inverse-outline-negative-minor-hover, #FFADB6FF)';
+export const inverseOutlineNegativeMinorHover = 'var(--inverse-outline-negative-minor-hover, #FFADB6FF)';
 
-export const outlineInverseOutlineNegativeMinorActive =
-    'var(--outline-inverse-outline-negative-minor-active, #FF707EFF)';
+export const inverseOutlineNegativeMinorActive = 'var(--inverse-outline-negative-minor-active, #FF707EFF)';
 
-export const outlineInverseOutlineInfoMinor = 'var(--outline-inverse-outline-info-minor, #8BB2FC)';
+export const inverseOutlineInfoMinor = 'var(--inverse-outline-info-minor, #8BB2FC)';
 
-export const outlineInverseOutlineInfoMinorHover = 'var(--outline-inverse-outline-info-minor-hover, #DCE8FEFF)';
+export const inverseOutlineInfoMinorHover = 'var(--inverse-outline-info-minor-hover, #DCE8FEFF)';
 
-export const outlineInverseOutlineInfoMinorActive = 'var(--outline-inverse-outline-info-minor-active, #6FA0FBFF)';
+export const inverseOutlineInfoMinorActive = 'var(--inverse-outline-info-minor-active, #6FA0FBFF)';
 
-export const outlineInverseOutlineTransparentPositive =
-    'var(--outline-inverse-outline-transparent-positive, rgba(26,158,50,0.20))';
+export const inverseOutlineTransparentPositive = 'var(--inverse-outline-transparent-positive, rgba(26,158,50,0.20))';
 
-export const outlineInverseOutlineTransparentPositiveHover =
-    'var(--outline-inverse-outline-transparent-positive-hover, #1A9E32FF)';
+export const inverseOutlineTransparentPositiveHover = 'var(--inverse-outline-transparent-positive-hover, #1A9E32FF)';
 
-export const outlineInverseOutlineTransparentPositiveActive =
-    'var(--outline-inverse-outline-transparent-positive-active, #1A9E323D)';
+export const inverseOutlineTransparentPositiveActive = 'var(--inverse-outline-transparent-positive-active, #1A9E323D)';
 
-export const outlineInverseOutlineTransparentWarning =
-    'var(--outline-inverse-outline-transparent-warning, rgba(250,95,5,0.20))';
+export const inverseOutlineTransparentWarning = 'var(--inverse-outline-transparent-warning, rgba(250,95,5,0.20))';
 
-export const outlineInverseOutlineTransparentWarningHover =
-    'var(--outline-inverse-outline-transparent-warning-hover, #FA5F05FF)';
+export const inverseOutlineTransparentWarningHover = 'var(--inverse-outline-transparent-warning-hover, #FA5F05FF)';
 
-export const outlineInverseOutlineTransparentWarningActive =
-    'var(--outline-inverse-outline-transparent-warning-active, #FA5F053D)';
+export const inverseOutlineTransparentWarningActive = 'var(--inverse-outline-transparent-warning-active, #FA5F053D)';
 
-export const outlineInverseOutlineTransparentNegative =
-    'var(--outline-inverse-outline-transparent-negative, rgba(243,27,49,0.20))';
+export const inverseOutlineTransparentNegative = 'var(--inverse-outline-transparent-negative, rgba(243,27,49,0.20))';
 
-export const outlineInverseOutlineTransparentNegativeHover =
-    'var(--outline-inverse-outline-transparent-negative-hover, #F31B31FF)';
+export const inverseOutlineTransparentNegativeHover = 'var(--inverse-outline-transparent-negative-hover, #F31B31FF)';
 
-export const outlineInverseOutlineTransparentNegativeActive =
-    'var(--outline-inverse-outline-transparent-negative-active, #F31B313D)';
+export const inverseOutlineTransparentNegativeActive = 'var(--inverse-outline-transparent-negative-active, #F31B313D)';
 
-export const outlineInverseOutlineTransparentInfo =
-    'var(--outline-inverse-outline-transparent-info, rgba(42,114,248,0.20))';
+export const inverseOutlineTransparentInfo = 'var(--inverse-outline-transparent-info, rgba(42,114,248,0.20))';
 
-export const outlineInverseOutlineTransparentInfoHover =
-    'var(--outline-inverse-outline-transparent-info-hover, #2A72F8FF)';
+export const inverseOutlineTransparentInfoHover = 'var(--inverse-outline-transparent-info-hover, #2A72F8FF)';
 
-export const outlineInverseOutlineTransparentInfoActive =
-    'var(--outline-inverse-outline-transparent-info-active, #2A72F83D)';
+export const inverseOutlineTransparentInfoActive = 'var(--inverse-outline-transparent-info-active, #2A72F83D)';
 
-export const outlineInverseOutlineSolidPrimary = 'var(--outline-inverse-outline-solid-primary, #DDDDDD)';
+export const inverseOutlineSolidPrimary = 'var(--inverse-outline-solid-primary, #DDDDDD)';
 
-export const outlineInverseOutlineSolidPrimaryHover = 'var(--outline-inverse-outline-solid-primary-hover, #ABABABFF)';
+export const inverseOutlineSolidPrimaryHover = 'var(--inverse-outline-solid-primary-hover, #ABABABFF)';
 
-export const outlineInverseOutlineSolidPrimaryActive = 'var(--outline-inverse-outline-solid-primary-active, #C4C4C4FF)';
+export const inverseOutlineSolidPrimaryActive = 'var(--inverse-outline-solid-primary-active, #C4C4C4FF)';
 
-export const outlineInverseOutlineSolidSecondary = 'var(--outline-inverse-outline-solid-secondary, #949494)';
+export const inverseOutlineSolidSecondary = 'var(--inverse-outline-solid-secondary, #949494)';
 
-export const outlineInverseOutlineSolidSecondaryHover =
-    'var(--outline-inverse-outline-solid-secondary-hover, #FFFFFFFF)';
+export const inverseOutlineSolidSecondaryHover = 'var(--inverse-outline-solid-secondary-hover, #FFFFFFFF)';
 
-export const outlineInverseOutlineSolidSecondaryActive =
-    'var(--outline-inverse-outline-solid-secondary-active, #575757FF)';
+export const inverseOutlineSolidSecondaryActive = 'var(--inverse-outline-solid-secondary-active, #575757FF)';
 
-export const outlineInverseOutlineSolidTertiary = 'var(--outline-inverse-outline-solid-tertiary, #707070)';
+export const inverseOutlineSolidTertiary = 'var(--inverse-outline-solid-tertiary, #707070)';
 
-export const outlineInverseOutlineSolidTertiaryHover = 'var(--outline-inverse-outline-solid-tertiary-hover, #FFFFFFFF)';
+export const inverseOutlineSolidTertiaryHover = 'var(--inverse-outline-solid-tertiary-hover, #FFFFFFFF)';
 
-export const outlineInverseOutlineSolidTertiaryActive =
-    'var(--outline-inverse-outline-solid-tertiary-active, #737373FF)';
+export const inverseOutlineSolidTertiaryActive = 'var(--inverse-outline-solid-tertiary-active, #737373FF)';
 
-export const outlineInverseOutlineSolidDefault = 'var(--outline-inverse-outline-solid-default, #080808)';
+export const inverseOutlineSolidDefault = 'var(--inverse-outline-solid-default, #080808)';
 
-export const outlineInverseOutlineSolidDefaultHover = 'var(--outline-inverse-outline-solid-default-hover, #FFFFFFFF)';
+export const inverseOutlineSolidDefaultHover = 'var(--inverse-outline-solid-default-hover, #FFFFFFFF)';
 
-export const outlineInverseOutlineSolidDefaultActive = 'var(--outline-inverse-outline-solid-default-active, #C7C7C7FF)';
+export const inverseOutlineSolidDefaultActive = 'var(--inverse-outline-solid-default-active, #C7C7C7FF)';
 
 /** Желтый цвет для данных */
 export const dataDefaultDataYellow = 'var(--data-default-data-yellow, #F3A912)';
