@@ -679,3 +679,62 @@ export const SelectAll: StoryObj<StorySelectProps> = {
         },
     },
 };
+
+const shortListItems = [
+    {
+        value: 'north_america',
+        label: 'Северная Америка',
+    },
+    {
+        value: 'rio_de_janeiro',
+        label: 'Рио-де-Жанейро',
+    },
+    {
+        value: 'sao_paulo',
+        label: 'Сан-Паулу',
+    },
+];
+
+const AddItemStory = (args: StorySelectProps) => {
+    const [items, setItems] = useState(shortListItems);
+    const [value, setValue] = useState([]);
+    const [textValue, setTextValue] = useState('');
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            setItems([...items, { value: textValue, label: textValue }]);
+            setValue([...value, textValue]);
+            setTextValue('');
+        }
+    };
+
+    return (
+        <div style={{ width: '400px' }}>
+            <Combobox
+                multiple
+                label="Label"
+                placeholder="Placeholder"
+                items={items}
+                value={value}
+                onChange={setValue}
+                onChangeValue={setTextValue}
+                onKeyDown={handleKeyDown}
+                helperText={args.helperText}
+                emptyStateDescription={args.emptyStateDescription}
+            />
+        </div>
+    );
+};
+
+export const AddItem: StoryObj<StorySelectProps> = {
+    render: (args) => <AddItemStory {...args} />,
+    args: {
+        emptyStateDescription: 'Нажмите Enter, чтобы добавить значение в список.',
+        helperText: 'Введите новое слово',
+    },
+    parameters: {
+        controls: {
+            include: ['helperText', 'emptyStateDescription'],
+        },
+    },
+};

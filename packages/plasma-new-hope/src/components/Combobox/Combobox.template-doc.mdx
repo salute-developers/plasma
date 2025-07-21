@@ -26,7 +26,7 @@ type Items = Array<{
          */
         label: string;
         /**
-        * Сторона открытия вложенного dropdown относительно текущего элемента;
+        * Сторона открытия вложенного dropdown относительно текущего элемента
         * @default right
         */
         placement?: Placement;
@@ -61,7 +61,7 @@ type Items = Array<{
         import { Combobox } from '@salutejs/{{ package }}';
 
         export function App() {
-           const [value, setValue] = useState<string>('');
+            const [value, setValue] = useState('');
 
             const items = [
                 {
@@ -352,7 +352,7 @@ type Items = Array<{
 
         Свойство `virtual` позволяет виртуализировать выпадающий список. Для настройки высоты списка можно использовать свойство `listMaxHeight`.
        ```tsx live
-        import React, { useState } from 'react';
+        import React from 'react';
         import { Combobox } from '@salutejs/{{ package }}';
 
         export function App() {
@@ -450,44 +450,136 @@ type Items = Array<{
         Вся логика выбора элементов и взаимодействия с компонентом лежит на стороне пользователя.
 
         ```tsx live
-        import React, { useState } from 'react';
-        import { Select } from '@salutejs/{{ package }}';
+        import React, { useState, useEffect } from 'react';
+        import { Combobox } from '@salutejs/{{ package }}';
 
         export function App() {
-            const [checked, setChecked] = useState(false);
-
             const items = [
                 {
                     value: 'north_america',
                     label: 'Северная Америка',
                 },
                 {
-                    value: 'south_america',
-                    label: 'Южная Америка',
-                    items: [
-                        {
-                            value: 'brazil',
-                            label: 'Бразилия',
-                        },
-                        {
-                            value: 'argentina',
-                            label: 'Аргентина',
-                        },
-                    ],
+                    value: 'rio_de_janeiro',
+                    label: 'Рио-де-Жанейро',
+                },
+                {
+                    value: 'sao_paulo',
+                    label: 'Сан-Паулу',
+                },
+                {
+                    value: 'buenos_aires',
+                    label: 'Буэнос-Айрес',
+                },
+                {
+                    value: 'cordoba',
+                    label: 'Кордова',
+                },
+                {
+                    value: 'bogota',
+                    label: 'Богота',
+                },
+                {
+                    value: 'medellin',
+                    label: 'Медельин',
                 },
             ];
 
+            const [value, setValue] = useState([]);
+            const [checked, setChecked] = useState(false);
+            const [indeterminate, setIndeterminate] = useState(false);
+
+            const handleClick = () => {
+                if (checked && !indeterminate) {
+                    setValue([]);
+                } else {
+                    setValue(flatItems.map((item) => item.value));
+                }
+            };
+
+            useEffect(() => {
+                if (value.length === 0) {
+                    setChecked(false);
+                    setIndeterminate(false);
+                } else if (value.length === flatItems.length) {
+                    setChecked(true);
+                    setIndeterminate(false);
+                } else {
+                    setChecked(true);
+                    setIndeterminate(true);
+                }
+            }, [value]);
+
             return (
-                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                <div style=\{{ display: "flex", gap: "30px", height: "300px" }}>
                     <Combobox
+                        value={value}
+                        onChange={setValue}
                         label="Label"
                         placeholder="Placeholder"
-                        items={items}
+                        items={flatItems}
                         multiple
                         selectAllOptions={{
                             checked,
-                            onClick: () => setChecked(prev => !prev)
+                            indeterminate,
+                            onClick: handleClick,
                         }}
+                        listOverflow="auto"
+                        listMaxHeight="200px"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="addItem" label="Add item">
+        Пример с добавлением нового элемента в список.
+
+        ```tsx live
+        import React, { useState, useEffect } from 'react';
+        import { Combobox } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const shortListItems = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'rio_de_janeiro',
+                    label: 'Рио-де-Жанейро',
+                },
+                {
+                    value: 'sao_paulo',
+                    label: 'Сан-Паулу',
+                },
+            ];
+
+            const [items, setItems] = useState(shortListItems);
+            const [value, setValue] = useState([]);
+            const [textValue, setTextValue] = useState('');
+
+            const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+                if (event.key === 'Enter') {
+                    setItems([...items, { value: textValue, label: textValue }]);
+                    setValue([...value, textValue]);
+                    setTextValue('');
+                }
+            };
+
+            return (
+                <div style=\{{ display: "block", width: "300px", height: "300px" }}>
+                    <Combobox
+                        multiple
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                        onChangeValue={setTextValue}
+                        onKeyDown={handleKeyDown}
+                        helperText="Введите новое слово"
+                        emptyStateDescription="Нажмите Enter, чтобы добавить значение в список."
                     />
                 </div>
             );
