@@ -256,6 +256,7 @@ export enum TokenGroup {
     backgrounds = 'backgrounds',
     background = 'background',
     overlay = 'overlay',
+    outline = 'outline',
 }
 
 export enum TokenMode {
