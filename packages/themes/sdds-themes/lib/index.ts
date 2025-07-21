@@ -23,7 +23,7 @@ generate([
     },
     {
         name: 'sdds_insol',
-        version: 'latest',
+        version: '0.6.0-alpha',
     },
     {
         name: 'sdds_scan',

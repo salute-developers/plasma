@@ -2,12 +2,17 @@ import path from 'path';
 import { writeGeneratedToFS, generateFile } from '@salutejs/plasma-tokens-utils';
 import { generateCommonFile } from '@salutejs/plasma-tokens-utils/lib/generators/generateFile';
 
-import { ThemeContent, ThemeMode, webBreakpoints } from '../types';
+import { ThemeContent, ThemeMode, webBreakpoints, webBreakpoints_FOR_SDDS_INSOL } from '../types';
 import { getBreakpointSelector, getSelector } from '../utils';
 
 export const generateThemes = (srcDir: string, themeName: string, themeContent: ThemeContent) => {
     const themesDir = path.join(srcDir, 'themes');
-    const { screenS, screenM, screenL } = webBreakpoints;
+
+    // TODO: Удалить после добавление брейкпоинтов в токены
+    const breakpoints = themeName === 'sdds_insol' ? webBreakpoints_FOR_SDDS_INSOL : webBreakpoints;
+    const breakpointsSelectors = Object.entries(breakpoints).map(([key, value]) =>
+        getBreakpointSelector(themeContent.dark.typographyTokens[key], value.from, value.to),
+    );
 
     const indexFile = `export { ${themeName}__dark } from './${themeName}__dark';
 export { ${themeName}__light } from './${themeName}__light';\n`;
@@ -20,9 +25,7 @@ export { ${themeName}__light } from './${themeName}__light';\n`;
             getSelector(themeContent[themeMode].shapeTokens),
             getSelector(themeContent[themeMode].spacingTokens),
             getSelector(themeContent[themeMode].typographyTokens.root),
-            getBreakpointSelector(themeContent[themeMode].typographyTokens.screenS, screenS.from),
-            getBreakpointSelector(themeContent[themeMode].typographyTokens.screenM, screenM.from, screenM.to),
-            getBreakpointSelector(themeContent[themeMode].typographyTokens.screenL, screenL.from, screenL.to),
+            ...breakpointsSelectors,
         ].join('\n');
 
     writeGeneratedToFS(themesDir, [
