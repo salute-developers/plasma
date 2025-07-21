@@ -1,5 +1,5 @@
-import { TokenType } from '../types';
-import { kebabToCamel } from '../utils';
+import { TokenType, webBreakpoints, webBreakpoints_FOR_SDDS_INSOL } from '../types';
+import { camelToKebab, kebabToCamel } from '../utils';
 
 const fontMap: Record<string, string> = {
     display: 'var(--plasma-typo-display-font-family)',
@@ -102,12 +102,7 @@ const getCSSVariable = (tokenName: string, value: any) => {
   --plasma-typo-${tokenName}-line-height: ${value.lineHeight};`;
 };
 
-const getResponsiveTypography = (
-    typography: any,
-    tokens: TokenType[],
-    size: 'screen-s' | 'screen-m' | 'screen-l',
-    isJS = false,
-) =>
+const getResponsiveTypography = (typography: any, tokens: TokenType[], size: string, isJS = false) =>
     tokens
         .filter((token) => token.tags[0] === size)
         .map((token) => {
@@ -123,20 +118,32 @@ const getResponsiveTypography = (
         })
         .join('\n');
 
-export const createTypographyTokens = (typography: any, fontFamily: any, tokens?: Array<TokenType>, isJS = false) => {
+const getScreenList = (breakpoints: Record<string, any>) => {
+    return Object.keys(breakpoints).reduce((acc, key) => ({ ...acc, [key]: '' }), {});
+};
+
+export const createTypographyTokens = (
+    typography: any,
+    fontFamily: any,
+    tokens?: Array<TokenType>,
+    isJS = false,
+    themeName?: string,
+) => {
+    // TODO: Удалить после добавление брейкпоинтов в токены
+    const breakpoints = themeName === 'sdds_insol' ? webBreakpoints_FOR_SDDS_INSOL : webBreakpoints;
+    type ScreenList = Record<keyof typeof breakpoints, string>;
+
+    const screenList = getScreenList(breakpoints) as ScreenList;
+
     if (!tokens?.length) {
         return {
             dark: {
                 root: '',
-                screenS: '',
-                screenM: '',
-                screenL: '',
+                ...screenList,
             },
             light: {
                 root: '',
-                screenS: '',
-                screenM: '',
-                screenL: '',
+                ...screenList,
             },
         };
     }
@@ -147,15 +154,17 @@ export const createTypographyTokens = (typography: any, fontFamily: any, tokens?
         'screen-s',
     )}`;
 
-    const screenSTypography = getResponsiveTypography(typography, tokens, 'screen-s', isJS);
-    const screenMTypography = getResponsiveTypography(typography, tokens, 'screen-m', isJS);
-    const screenLTypography = getResponsiveTypography(typography, tokens, 'screen-l', isJS);
+    const screenTypography = Object.keys(screenList).reduce(
+        (acc, screen) => ({
+            ...acc,
+            [screen]: getResponsiveTypography(typography, tokens, camelToKebab(screen), isJS),
+        }),
+        {},
+    ) as ScreenList;
 
     const data = {
         root: rootTypography,
-        screenS: screenSTypography,
-        screenM: screenMTypography,
-        screenL: screenLTypography,
+        ...screenTypography,
     };
 
     return {

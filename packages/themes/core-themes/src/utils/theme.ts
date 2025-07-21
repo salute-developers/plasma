@@ -6,7 +6,7 @@ import { getMediaQuery } from '@salutejs/plasma-tokens-utils';
 import { ThemeMeta, Variation } from '../types';
 
 const deserializeZip = (content: string) => {
-    const buf = Buffer.from(content, 'base64');
+    const buf = Buffer.from(content, 'base64') as any;
 
     return JSZip.loadAsync(buf);
 };
