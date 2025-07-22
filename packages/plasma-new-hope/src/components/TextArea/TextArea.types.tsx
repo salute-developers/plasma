@@ -226,9 +226,17 @@ type TextAreaPropsExtends = TextAreaPropsBase & {
     view?: string;
 };
 
+type TextAreaAriaProps = {
+    /**
+     * aria-hidden свойство для label
+     */
+    labelAriaHidden: boolean;
+};
+
 export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows' | 'cols' | 'required'> &
     TextAreaPropsExtends &
-    TextAreaDimensionsProps;
+    TextAreaDimensionsProps &
+    TextAreaAriaProps;
 
 export type TextAreaRootProps = {
     size?: string;
