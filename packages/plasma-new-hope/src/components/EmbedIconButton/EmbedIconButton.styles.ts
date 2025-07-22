@@ -7,7 +7,7 @@ import { tokens } from './EmbedIconButton.tokens';
 
 // Переопределние токенов из Button
 export const mappingOverride = `
-    ${buttonTokens.buttonPadding}: 0;
+    ${buttonTokens.buttonPadding}: var(${tokens.embedIconButtonPadding});
 
     ${buttonTokens.buttonColor}: var(${tokens.embedIconButtonColor});
     ${buttonTokens.buttonBackgroundColor}: var(${tokens.embedIconButtonBackgroundColor});

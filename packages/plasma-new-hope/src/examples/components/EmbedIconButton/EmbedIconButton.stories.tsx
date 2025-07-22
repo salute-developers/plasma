@@ -67,7 +67,7 @@ export const Default: StoryObj<ComponentProps<typeof EmbedIconButton>> = {
     },
     argTypes: { ...disableProps(['children']) },
     render: (args) => (
-        <EmbedIconButton {...args}>
+        <EmbedIconButton {...args} style={{ padding: '1rem' }}>
             <IconChevronLeft color="inherit" size={getSizeForIcon(args.size)} />
         </EmbedIconButton>
     ),
