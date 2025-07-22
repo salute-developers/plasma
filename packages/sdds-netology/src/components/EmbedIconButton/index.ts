@@ -1,0 +1,1 @@
+export { EmbedIconButton } from './EmbedIconButton';
