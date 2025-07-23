@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@salutejs/plasma-colors": "0.15.0",
-    "@salutejs/plasma-core": "1.201.0",
+    "@salutejs/plasma-core": "1.202.0",
     "param-case": "^3.0.4"
   },
   "peerDependencies": {

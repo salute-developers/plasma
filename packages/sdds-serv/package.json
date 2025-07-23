@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-serv",
-  "version": "0.316.0",
+  "version": "0.317.0",
   "description": "Salute Design System / React UI kit for SDDS SERV web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -32,8 +32,8 @@
     "directory": "packages/sdds-serv"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.329.0",
-    "@salutejs/sdds-themes": "0.41.0"
+    "@salutejs/plasma-new-hope": "0.330.0",
+    "@salutejs/sdds-themes": "0.42.0"
   },
   "peerDependencies": {
     "@emotion/react": ">=11",
@@ -63,9 +63,9 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.15.0",
-    "@salutejs/plasma-core": "1.201.0",
+    "@salutejs/plasma-core": "1.202.0",
     "@salutejs/plasma-cy-utils": "0.132.0",
-    "@salutejs/plasma-icons": "1.220.0",
+    "@salutejs/plasma-icons": "1.221.0",
     "@salutejs/plasma-sb-utils": "0.202.0",
     "@storybook/addon-docs": "7.6.17",
     "@storybook/addon-essentials": "7.6.17",
