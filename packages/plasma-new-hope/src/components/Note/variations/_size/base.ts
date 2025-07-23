@@ -2,7 +2,6 @@ import { css } from '@linaria/core';
 
 import { classes, privateTokens, tokens } from '../../Note.tokens';
 import { ContentBefore, ContentWrapper, Text, TextHelper, Title, TitleHelper } from '../../Note.styles';
-import { applyEllipsis } from '../../../../mixins';
 
 export const base = css`
     padding: var(${tokens.padding});
@@ -50,8 +49,6 @@ export const base = css`
         font-weight: var(${tokens.titleFontWeight});
         letter-spacing: var(${tokens.titleLetterSpacing});
         line-height: var(${tokens.titleLineHeight});
-
-        ${applyEllipsis()}
     }
 
     ${Text}, ${TextHelper} {
