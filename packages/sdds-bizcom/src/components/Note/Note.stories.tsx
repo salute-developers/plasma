@@ -34,6 +34,20 @@ const meta: Meta<typeof Note> = {
             if: { arg: 'enableContentBefore', truthy: true },
             defaultValue: 'fixed',
         },
+        isHeight: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        height: {
+            control: {
+                type: 'number',
+            },
+            if: {
+                arg: 'isHeight',
+                truthy: true,
+            },
+        },
     },
 };
 
@@ -60,7 +74,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         size: 'l',
         width: 400,
-        height: 116,
+        isHeight: false,
         stretch: false,
         title: 'Title',
         text: 'Text',
