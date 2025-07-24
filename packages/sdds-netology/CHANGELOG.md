@@ -1,3 +1,58 @@
+## 0.318.0 (24 июля 2025)
+
+## Функциональные изменения в компонентах
+
+### Button
+
+* Удалены неактуальные размеры: `xlr, lr, mr, sr, xsr`
+
+[PR](https://github.com/salute-developers/plasma/pull/2079)
+
+### Dropdown
+
+* Добавлен отступ между выпадающим списком и таргетом;
+
+[PR](https://github.com/salute-developers/plasma/pull/2085)
+
+### Icons
+
+* Удален лишний атрибут style со значением `mix-blend-mode` в иконках: `DislikeFill`, `LikeFill`
+
+[PR](https://github.com/salute-developers/plasma/pull/2090)
+
+### Chip
+
+* Исправлен цвет токена для иконки закрытия
+
+[PR](https://github.com/salute-developers/plasma/pull/2082)
+
+* Убраны `scale` при `hover` и `active`
+
+[PR](https://github.com/salute-developers/plasma/pull/2089)
+
+### Heading
+
+* Добавлена поддержка a11y для aria role heading
+
+[PR](https://github.com/salute-developers/plasma/pull/2097)
+
+### Textarea
+
+* Добавлено новое свойство `labelAriaHidden` для управления `aria-hidden`
+
+[PR](https://github.com/salute-developers/plasma/pull/2097)
+
+### Note
+
+* Добавлена документация для свойства `hasClose`
+
+* Исправлен баг связанный со свойством `text`
+
+* Добавлена возможность многострочного текста
+
+[PR](https://github.com/salute-developers/plasma/pull/2098)
+
+
 ## 0.316.0 (10 июля 2025)
 
 ## Функциональные изменения в компонентах
