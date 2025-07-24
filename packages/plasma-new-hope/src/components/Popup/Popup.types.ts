@@ -1,6 +1,9 @@
+import type { ReactNode } from 'react';
+
 export type PopupPlacementBasic = 'center' | 'top' | 'bottom' | 'right' | 'left';
 export type PopupPlacementMixed = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
 export type PopupPlacement = PopupPlacementBasic | PopupPlacementMixed;
+export type ResizeDirections = Omit<PopupPlacement, 'center'>[];
 
 export interface PopupInfo {
     id: string;
@@ -40,11 +43,11 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
      * Содержимое Popup.
      */
-    children?: React.ReactNode;
+    children?: ReactNode;
     /**
      * Соседний элемент для окна в портале.
      */
-    overlay?: React.ReactNode;
+    overlay?: ReactNode;
     /**
      * Значение z-index для Popup.
      */
@@ -57,6 +60,65 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
      * Использовать ли анимацию.
      */
     withAnimation?: boolean;
+    /**
+     * Настройка draggable-режима.
+     */
+    draggable?: boolean;
+    /**
+     * Настройка resizable-режима.
+     */
+    resizable?:
+        | boolean
+        | {
+              /**
+               * Включение/выключение ресайза.
+               * @default false
+               */
+              disabled?: boolean;
+              /**
+               * Направления для ресайза.
+               */
+              directions?: ResizeDirections;
+              /**
+               * Начальный размер окна ресайза.
+               */
+              defaultSize?: { width?: number; height?: number };
+              /**
+               * Минимальная ширина ресайза в px.
+               */
+              minWidth?: number;
+              /**
+               * Минимальная высота ресайза в px.
+               */
+              minHeight?: number;
+              /**
+               * Максимальная ширина ресайза в px.
+               */
+              maxWidth?: number;
+              /**
+               * Максимальная высота ресайза в px.
+               */
+              maxHeight?: number;
+              /**
+               * Кастомные иконки ресайза.
+               */
+              icons?: {
+                  topRight?: ReactNode;
+                  bottomRight?: ReactNode;
+                  bottomLeft?: ReactNode;
+                  topLeft?: ReactNode;
+              };
+              /**
+               * Размер иконки ресайза.
+               * @default s
+               */
+              iconSize?: 'xs' | 's' | 'm';
+              /**
+               * Скрывать ли иконку для ресайза.
+               * @default false
+               */
+              hiddenIcons?: PopupPlacementMixed[];
+          };
 }
 export interface PopupAnimationInfo {
     endAnimation: boolean;

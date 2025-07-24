@@ -147,14 +147,12 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.chipColor}: var(${comboboxTokens.textFieldChipColor});
     ${textFieldTokens.chipBackgroundHover}: var(${comboboxTokens.textFieldChipBackgroundHover});
     ${textFieldTokens.chipColorHover}: var(${comboboxTokens.textFieldChipColorHover});
-    ${textFieldTokens.chipScaleHover}: var(${comboboxTokens.textFieldChipScaleHover});
     ${textFieldTokens.chipBackgroundReadOnly}: var(${comboboxTokens.textFieldChipBackgroundReadOnly});
     ${textFieldTokens.chipColorReadOnly}: var(${comboboxTokens.textFieldChipColorReadOnly});
     ${textFieldTokens.chipBackgroundReadOnlyHover}: var(${comboboxTokens.textFieldChipBackgroundReadOnlyHover});
     ${textFieldTokens.chipColorReadOnlyHover}: var(${comboboxTokens.textFieldChipColorReadOnlyHover});
     ${textFieldTokens.chipBackgroundActive}: var(${comboboxTokens.textFieldChipBackgroundActive});
     ${textFieldTokens.chipColorActive}: var(${comboboxTokens.textFieldChipColorActive});
-    ${textFieldTokens.chipScaleActive}: var(${comboboxTokens.textFieldChipScaleActive});
     ${textFieldTokens.chipCloseIconColor}: var(${comboboxTokens.textFieldChipCloseIconColor});
     ${textFieldTokens.chipOutlineSize}: var(${comboboxTokens.textFieldChipOutlineSize});
     ${textFieldTokens.chipWidth}: var(${comboboxTokens.textFieldChipWidth});

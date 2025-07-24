@@ -5,6 +5,8 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 const Content = styled.div`
     background: #f0f0f0;
     padding: 1rem;
+    height: 100%;
+    box-sizing: border-box;
 `;
 
 const OtherContent = styled.div`
@@ -188,5 +190,73 @@ describe('sdds-insol: Popup', () => {
         );
 
         cy.get('.popup-base-root').should('have.attr', 'data-testid', 'test-data-id');
+    });
+
+    it('draggable', () => {
+        function Draggable() {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            return (
+                <>
+                    <Button id="open-button" text="Открыть" onClick={() => setIsOpen(true)} />
+
+                    <Popup opened={isOpen} placement="center" draggable>
+                        <Content id="content">
+                            <Button text="Close" onClick={() => setIsOpen(false)} />
+                        </Content>
+                    </Popup>
+                </>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <PopupProvider>
+                    <Draggable />
+                </PopupProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.get('#content').trigger('mousedown').trigger('mousemove', { clientX: 200, clientY: 100 }).trigger('mouseup');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('resizable', () => {
+        function Resizable() {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            return (
+                <>
+                    <Button id="open-button" text="Открыть" onClick={() => setIsOpen(true)} />
+
+                    <Popup opened={isOpen} placement="center" resizable>
+                        <Content>
+                            Content
+                            <Button text="Close" onClick={() => setIsOpen(false)} />
+                        </Content>
+                    </Popup>
+                </>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <PopupProvider>
+                    <Resizable />
+                </PopupProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.get('.resizable-bottom-right-icon')
+            .trigger('mousedown')
+            .trigger('mousemove', { clientX: 400, clientY: 400 })
+            .trigger('mouseup');
+
+        cy.matchImageSnapshot();
     });
 });

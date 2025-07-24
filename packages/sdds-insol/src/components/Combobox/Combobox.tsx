@@ -7,6 +7,8 @@ import {
 import type { ComboboxItemOption, ComboboxProps, DistributiveOmit, DistributivePick } from '@salutejs/plasma-new-hope';
 import React, { ComponentProps } from 'react';
 
+import { mapSizesToOffset } from '../Autocomplete/Autocomplete';
+
 import { config } from './Combobox.config';
 
 const mergedConfig = mergeConfig(comboboxNewConfig, config);
@@ -24,7 +26,8 @@ const ComboboxComponent = <T extends ComboboxItemOption>(
     props: Props<T>,
     ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
-    return <ComboboxNew ref={ref} {...(props as any)} />;
+    // TODO: #2087
+    return <ComboboxNew ref={ref} {...(props as any)} _offset={[0, mapSizesToOffset(props.size)]} />;
 };
 
 const Combobox = fixedForwardRef(ComboboxComponent);

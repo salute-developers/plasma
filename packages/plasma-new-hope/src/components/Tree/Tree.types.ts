@@ -25,6 +25,20 @@ interface CheckInfo {
     halfCheckedKeys?: Key[];
 }
 
+export interface SelectInfo {
+    event: 'select';
+    selected: boolean;
+    node: EventDataNode;
+    selectedNodes: TreeItem[];
+    nativeEvent: MouseEvent;
+}
+
+interface ExpandInfo {
+    node: EventDataNode;
+    expanded: boolean;
+    nativeEvent: MouseEvent;
+}
+
 export type TreeItem = {
     /**
      * Уникальный идентификатор элемента.
@@ -115,16 +129,7 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
     /**
      * Callback при выборе элемента.
      */
-    onTreeSelect?: (
-        selectedKeys: Key[],
-        info: {
-            event: 'select';
-            selected: boolean;
-            node: EventDataNode;
-            selectedNodes: TreeItem[];
-            nativeEvent: MouseEvent;
-        },
-    ) => void;
+    onTreeSelect?: (selectedKeys: Key[], info: SelectInfo) => void;
     /**
      * Callback при выделении элемента.
      */
@@ -132,14 +137,7 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
     /**
      * Callback при раскрытии элемента.
      */
-    onTreeExpand?: (
-        expandedKeys: Key[],
-        info: {
-            node: EventDataNode;
-            expanded: boolean;
-            nativeEvent: MouseEvent;
-        },
-    ) => void;
+    onTreeExpand?: (expandedKeys: Key[], info: ExpandInfo) => void;
     /**
      * Сторона иконки раскрытия элемента.
      * @default left

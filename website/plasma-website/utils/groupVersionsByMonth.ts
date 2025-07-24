@@ -8,27 +8,39 @@ type Changelog = Record<
 >;
 
 export const groupVersionsByMonth = (data: Changelog) => {
-    const result = new Map();
+    const groups = new Map();
 
+    // INFO: Группируем по месяцам
     for (const [version, item] of Object.entries(data)) {
-        const [year, month] = item.date.split('-');
-        const formattedYear = `‘${year.slice(-2)}`;
-        const dateObj = new Date(item.date);
+        // INFO: "2025-07"
+        const key = item.date.slice(0, 7);
 
-        const monthShortName = dateObj.toLocaleDateString('ru-RU', {
-            month: 'short',
-        });
-
-        const key = `${year}-${month}`;
-
-        if (!result.has(key)) {
-            result.set(key, [{ label: `${monthShortName} ${formattedYear}`, version }]);
-        } else {
-            const data = result.get(key);
-            data.push({ version });
+        if (!groups.has(key)) {
+            groups.set(key, []);
         }
+
+        groups.get(key).push({ version, date: item.date });
     }
-    return Array.from(result.values())
-        .map((versions) => versions)
+
+    return Array.from(groups.values())
+        .map((versions) => {
+            const earliest = versions.reduce((a: any, b: any) => (a.date < b.date ? a : b));
+            const date = new Date(earliest.date);
+            const month = date.getMonth() + 1; // 1-12
+
+            let monthName = date.toLocaleDateString('ru-RU', { month: 'short' });
+            // INFO: Для всех месяцев кроме июня и июля обрезаем до 3 букв
+            if (month !== 6 && month !== 7) {
+                monthName = monthName.slice(0, 3);
+            }
+
+            const year = date.toLocaleDateString('ru-RU', { year: '2-digit' });
+            const label = `${monthName} '${year}`;
+
+            return versions.map((item: any) => ({
+                version: item.version,
+                ...(item === earliest && { label }),
+            }));
+        })
         .flat();
 };

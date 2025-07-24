@@ -52,6 +52,16 @@ export const ChangelogList = styled.ul`
 export const ChangelogItem = styled.li`
     padding: 0;
     margin: 0;
+
+    &:last-child {
+        & > article {
+            margin-bottom: 0;
+
+            @media (max-width: 959px) {
+                margin-bottom: 20px;
+            }
+        }
+    }
 `;
 
 export const ChangelogEntry = styled.article`
@@ -60,9 +70,11 @@ export const ChangelogEntry = styled.article`
 
 export const ChangelogH2 = styled(H1).attrs({ bold: false })`
     padding-bottom: 32px;
+    line-height: 52px;
 
     ${multipleMediaQuery(['S', 'M', 'L'])(css`
         padding-bottom: 24px;
+        line-height: 44px;
     `)}
 
     ${multipleMediaQuery(['S', 'M'])(css`

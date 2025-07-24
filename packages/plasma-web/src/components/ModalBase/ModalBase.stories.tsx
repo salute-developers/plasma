@@ -85,6 +85,41 @@ const meta: Meta<ModalBaseProps> = {
             },
             table: { defaultValue: { summary: false } },
         },
+        draggableDisabled: {
+            control: 'boolean',
+        },
+        resizableDisabled: {
+            control: 'boolean',
+        },
+        resizableDirections: {
+            control: 'check',
+            options: ['top', 'top-right', 'right', 'bottom-right', 'bottom', 'bottom-left', 'left', 'top-left'],
+        },
+        resizableHiddenIcons: {
+            control: 'check',
+            options: ['top-right', 'bottom-right', 'bottom-left', 'top-left'],
+        },
+        resizableDefaultSize: {
+            control: 'object',
+        },
+        resizableMinWidth: {
+            control: 'number',
+        },
+        resizableMinHeight: {
+            control: 'number',
+        },
+        resizableMaxWidth: {
+            control: 'number',
+        },
+        resizableMaxHeight: {
+            control: 'number',
+        },
+        resizableIconSize: {
+            control: {
+                type: 'select',
+            },
+            options: ['xs', 's', 'm'],
+        },
     },
 };
 
@@ -98,6 +133,16 @@ type StoryModalBaseProps = {
     closeOnOverlayClick: boolean;
     withBlur: boolean;
     hasClose?: boolean;
+    draggableDisabled: boolean;
+    resizableDisabled: boolean;
+    resizableDirections: string[];
+    resizableHiddenIcons: string[];
+    resizableDefaultSize: { width?: number; height?: number };
+    resizableMinWidth: number;
+    resizableMinHeight: number;
+    resizableMaxWidth: number;
+    resizableMaxHeight: number;
+    resizableIconSize: 's' | 'xs' | 'm';
 };
 
 const StyledButton = styled(Button)`
@@ -435,4 +480,113 @@ export const ModalBottomAnimation: StoryObj<StoryModalBaseProps> = {
         ...disableProps(['hasClose']),
     },
     render: (args) => <StoryModalAnimationDemo {...args} />,
+};
+
+const StoryModalResizable = ({
+    placement,
+    offsetX,
+    offsetY,
+    resizableDirections,
+    draggableDisabled,
+    resizableDisabled,
+    resizableHiddenIcons,
+    resizableDefaultSize,
+    resizableMinWidth,
+    resizableMinHeight,
+    resizableMaxWidth,
+    resizableMaxHeight,
+    resizableIconSize,
+    ...rest
+}: StoryModalBaseProps) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <SSRProvider>
+            <StyledWrapper>
+                <PopupBaseProvider>
+                    <Button text="Открыть" onClick={() => setIsOpen(true)} />
+
+                    <ModalBase
+                        frame="theme-root"
+                        onClose={() => setIsOpen(false)}
+                        opened={isOpen}
+                        placement={placement}
+                        offset={[offsetX, offsetY]}
+                        hasBody
+                        draggable={!draggableDisabled}
+                        resizable={{
+                            disabled: resizableDisabled,
+                            directions: resizableDirections,
+                            hiddenIcons: resizableHiddenIcons,
+                            defaultSize: resizableDefaultSize,
+                            minWidth: resizableMinWidth,
+                            minHeight: resizableMinHeight,
+                            maxWidth: resizableMaxWidth,
+                            maxHeight: resizableMaxHeight,
+                            iconSize: resizableIconSize,
+                        }}
+                        {...rest}
+                    >
+                        Content
+                        <br />
+                        <Button stretching="filled" onClick={() => setIsOpen(false)}>
+                            Close
+                        </Button>
+                    </ModalBase>
+                </PopupBaseProvider>
+            </StyledWrapper>
+        </SSRProvider>
+    );
+};
+
+export const Resizable: StoryObj<StoryModalBaseProps> = {
+    name: 'Resizable/Draggable',
+    args: {
+        placement: 'center',
+        withBlur: false,
+        closeOnEsc: true,
+        closeOnOverlayClick: true,
+        offsetX: 0,
+        offsetY: 0,
+        hasClose: true,
+        draggableDisabled: false,
+        resizableDisabled: false,
+        resizableDirections: ['bottom-right'],
+        resizableHiddenIcons: [],
+        resizableIconSize: 's',
+        resizableDefaultSize: { width: 300, height: 150 },
+        resizableMinWidth: 300,
+        resizableMinHeight: 150,
+    },
+    argTypes: {
+        hasClose: {
+            control: {
+                type: 'boolean',
+            },
+        },
+    },
+    parameters: {
+        controls: {
+            include: [
+                'placement',
+                'withBlur',
+                'closeOnEsc',
+                'closeOnOverlayClick',
+                'offsetX',
+                'offsetY',
+                'hasClose',
+                'draggableDisabled',
+                'resizableDisabled',
+                'resizableDirections',
+                'resizableHiddenIcons',
+                'resizableDefaultSize',
+                'resizableMinWidth',
+                'resizableMinHeight',
+                'resizableMaxWidth',
+                'resizableMaxHeight',
+                'resizableIconSize',
+            ],
+        },
+    },
+    render: (args) => <StoryModalResizable {...args} />,
 };

@@ -593,7 +593,7 @@ export const config = {
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-solid-default);
                 ${tokens.chipColorReadOnlyHover}: var(--inverse-text-primary);
 
-                ${tokens.chipCloseIconColor}: var(--inverse-text-secondary);
+                ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
                 ${tokens.chipOpacityReadonly}: 1;
             `,
             secondary: css`

@@ -55,9 +55,7 @@ export interface TokensContent {
     shadowTokens: string;
     typographyTokens: {
         root: string;
-        screenS: string;
-        screenM: string;
-        screenL: string;
+        [key: string]: string;
     };
     viewContainerTokens?: string;
 }

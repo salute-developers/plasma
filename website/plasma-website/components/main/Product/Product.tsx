@@ -35,7 +35,7 @@ export const Product: FC<ProductProps> = ({
 }) => {
     return (
         <ProductWrapper>
-            <Link href={href} target="_blank" rel="noopener noreferrer">
+            <Link href={href}>
                 <ProductMainInfo onClick={onClickTitle} alwaysShowIcon={alwaysShowIcon}>
                     <Title bold={false}>{title}</Title>
 

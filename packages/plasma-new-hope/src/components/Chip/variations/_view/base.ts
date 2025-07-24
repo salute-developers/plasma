@@ -9,14 +9,10 @@ export const base = css`
     :hover {
         color: var(${tokens.colorHover});
         background-color: var(${tokens.backgroundHover});
-
-        scale: var(${tokens.scaleHover});
     }
 
     :active {
         color: var(${tokens.colorActive});
         background-color: var(${tokens.backgroundActive});
-
-        scale: var(${tokens.scaleActive});
     }
 `;

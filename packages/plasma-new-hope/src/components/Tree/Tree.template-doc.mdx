@@ -63,47 +63,66 @@ type TreeItem = {
         export function App() {
             const treeData = [
                 {
-                    title: 'Parent 1',
+                    title: 'Основной каталог',
                     key: '0-0',
                     children: [
                         {
-                            title: 'Parent 1-0',
+                            title: 'Документы',
                             key: '0-0-0',
                             children: [
                                 {
-                                    title: 'Leaf',
+                                    title: 'Отчёты',
                                     key: '0-0-0-0',
                                     disabled: true,
                                 },
                                 {
-                                    title: 'Leaf',
+                                    title: 'Проекты',
                                     key: '0-0-0-1',
                                     children: [
                                         {
-                                            title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
-                                            key: '0-0-0-0-0',
+                                            title: 'Проект Альфа',
+                                            key: '0-0-0-1-0',
                                         },
                                         {
-                                            title: 'Leaf',
-                                            key: '0-0-0-0-1',
+                                            title: 'Проект Бета',
+                                            key: '0-0-0-1-1',
+                                        },
+                                    ],
+                                },
+                                {
+                                    title: 'Категории',
+                                    key: '0-0-0-2',
+                                    children: [
+                                        {
+                                            title: 'Категория Гамма',
+                                            key: '0-0-0-2-0',
+                                        },
+                                        {
+                                            title: 'Категория Дельта',
+                                            key: '0-0-0-2-1',
                                         },
                                     ],
                                 },
                             ],
                         },
                         {
-                            title: 'Parent 1-1',
+                            title: 'Медиа',
                             key: '0-0-1',
-                            children: [{ title: 'Leaf', key: '0-0-1-0' }],
+                            children: [
+                                {
+                                    title: 'Фотографии',
+                                    key: '0-0-1-0',
+                                },
+                            ],
                         },
                     ],
                 },
                 {
-                    title: 'Parent 2',
+                    title: 'Корзина',
                     key: '0-1',
                     children: [
                         {
-                            title: 'Parent 2-0',
+                            title: 'Удалённые файлы',
                             key: '0-1-0',
                         },
                     ],
@@ -111,7 +130,7 @@ type TreeItem = {
             ];
 
             return (
-                <div style=\{{ display: 'block' }}>
+                <div style={{ display: 'block' }}>
                     <Tree items={treeData} defaultExpandAll />
                 </div>
             );
@@ -126,56 +145,75 @@ type TreeItem = {
         export function App() {
             const treeData = [
                 {
-                    title: 'Parent 1',
+                    title: 'Основной каталог',
                     key: '0-0',
                     children: [
                         {
-                            title: 'Parent 1-0',
+                            title: 'Документы',
                             key: '0-0-0',
                             children: [
                                 {
-                                    title: 'Leaf',
+                                    title: 'Отчёты',
                                     key: '0-0-0-0',
                                     disabled: true,
                                 },
                                 {
-                                    title: 'Leaf',
+                                    title: 'Проекты',
                                     key: '0-0-0-1',
                                     children: [
                                         {
-                                            title: 'Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf Leaf',
-                                            key: '0-0-0-0-0',
+                                            title: 'Проект Альфа',
+                                            key: '0-0-0-1-0',
                                         },
                                         {
-                                            title: 'Leaf',
-                                            key: '0-0-0-0-1',
+                                            title: 'Проект Бета',
+                                            key: '0-0-0-1-1',
+                                        },
+                                    ],
+                                },
+                                {
+                                    title: 'Категории',
+                                    key: '0-0-0-2',
+                                    children: [
+                                        {
+                                            title: 'Категория Гамма',
+                                            key: '0-0-0-2-0',
+                                        },
+                                        {
+                                            title: 'Категория Дельта',
+                                            key: '0-0-0-2-1',
                                         },
                                     ],
                                 },
                             ],
                         },
                         {
-                            title: 'Parent 1-1',
+                            title: 'Медиа',
                             key: '0-0-1',
-                            children: [{ title: 'Leaf', key: '0-0-1-0' }],
+                            children: [
+                                {
+                                    title: 'Фотографии',
+                                    key: '0-0-1-0',
+                                },
+                            ],
                         },
                     ],
                 },
                 {
-                    title: 'Parent 2',
+                    title: 'Корзина',
                     key: '0-1',
                     children: [
                         {
-                            title: 'Parent 2-0',
+                            title: 'Удалённые файлы',
                             key: '0-1-0',
                         },
                     ],
                 },
             ];
 
-            const [expanded, setExpanded] = React.useState<React.Key>([]);
-            const [checked, setChecked] = React.useState<React.Key>([]);
-            const [selected, setSelected] = React.useState<React.Key>([]);
+            const [expanded, setExpanded] = React.useState<React.Key[]>([]);
+            const [checked, setChecked] = React.useState<React.Key[]>([]);
+            const [selected, setSelected] = React.useState<React.Key[]>([]);
 
             return (
                 <div style=\{{ display: 'block' }}>

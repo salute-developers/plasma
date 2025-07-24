@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 # Combobox
 
 <Description name="Combobox" />
-<PropsTable name="Combobox" exclude="negativeResultContent, enumerationType, onBlur, onFocus, usePortal, opened, frame, filterFunction, valueType" /> />
+<PropsTable name="Combobox" exclude="negativeResultContent, enumerationType, onBlur, onFocus, usePortal, opened, frame, filterFunction, valueType" />
 
 ## Использование
 Обязательным параметром является только `items`. Внутри items может быть такой же вложенный массив items. Формат следующий:
@@ -524,6 +524,60 @@ type Items = Array<{
                         }}
                         listOverflow="auto"
                         listMaxHeight="200px"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="addItem" label="Add item">
+        Пример с добавлением нового элемента в список.
+
+        ```tsx live
+        import React, { useState, useEffect } from 'react';
+        import { Combobox } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            const shortListItems = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'rio_de_janeiro',
+                    label: 'Рио-де-Жанейро',
+                },
+                {
+                    value: 'sao_paulo',
+                    label: 'Сан-Паулу',
+                },
+            ];
+
+            const [items, setItems] = useState(shortListItems);
+            const [value, setValue] = useState([]);
+            const [textValue, setTextValue] = useState('');
+
+            const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+                if (event.key === 'Enter') {
+                    setItems([...items, { value: textValue, label: textValue }]);
+                    setValue([...value, textValue]);
+                    setTextValue('');
+                }
+            };
+
+            return (
+                <div style={{ display: "block", width: "300px", height: "300px" }}>
+                    <Combobox
+                        multiple
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                        onChangeValue={setTextValue}
+                        onKeyDown={handleKeyDown}
+                        helperText="Введите новое слово"
+                        emptyStateDescription="Нажмите Enter, чтобы добавить значение в список."
                     />
                 </div>
             );

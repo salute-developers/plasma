@@ -599,7 +599,7 @@ export const config = {
                 ${tokens.chipOpacityReadonly}: 1;
             `,
             accent: css`
-                ${tokens.chipColor}: var(--on-dark-text-primary);
+                ${tokens.chipColor}: var(--inverse-text-primary);
                 ${tokens.chipBackground}: var(--surface-accent);
                 ${tokens.chipColorHover}: var(--on-dark-text-primary);
                 ${tokens.chipBackgroundHover}: var(--surface-accent-hover);
@@ -610,7 +610,7 @@ export const config = {
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-accent);
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
-                ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColor}: var(--inverse-text-secondary);
                 ${tokens.chipOpacityReadonly}: 1;
             `,
             positive: css`

@@ -5,7 +5,7 @@ import { typographyRootCompose } from '../Typography';
 
 export type HeadingProps = FontProps;
 
-export const headingRoot = typographyRootCompose({ defaultBold: true });
+export const headingRoot = typographyRootCompose({ defaultBold: true, type: 'heading' });
 
 export const headingConfig = {
     name: 'Heading',

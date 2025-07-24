@@ -1971,7 +1971,174 @@
   --plasma-typo-text-slim-medium-font-style: normal;
 }
 
-@media (max-width: 559px) {
+@media (max-width: 767px) {
+  .dark, .light {
+    --plasma-typo-dspl-l-font-size: 3.75rem;
+    --plasma-typo-dspl-l-font-weight: 300;
+    --plasma-typo-dspl-l-line-height: 4.125rem;
+    --plasma-typo-dspl-l-bold-font-size: 3.75rem;
+    --plasma-typo-dspl-l-bold-font-weight: 600;
+    --plasma-typo-dspl-l-bold-line-height: 4.125rem;
+    --plasma-typo-dspl-m-font-size: 3rem;
+    --plasma-typo-dspl-m-font-weight: 300;
+    --plasma-typo-dspl-m-line-height: 3.375rem;
+    --plasma-typo-dspl-m-bold-font-size: 3rem;
+    --plasma-typo-dspl-m-bold-font-weight: 600;
+    --plasma-typo-dspl-m-bold-line-height: 3.375rem;
+    --plasma-typo-dspl-s-font-size: 2rem;
+    --plasma-typo-dspl-s-font-weight: 300;
+    --plasma-typo-dspl-s-line-height: 2.5rem;
+    --plasma-typo-dspl-s-bold-font-size: 2rem;
+    --plasma-typo-dspl-s-bold-font-weight: 600;
+    --plasma-typo-dspl-s-bold-line-height: 2.5rem;
+    --plasma-typo-h1-font-size: 1.5rem;
+    --plasma-typo-h1-font-weight: 400;
+    --plasma-typo-h1-line-height: 2rem;
+    --plasma-typo-h1-bold-font-size: 1.5rem;
+    --plasma-typo-h1-bold-font-weight: 600;
+    --plasma-typo-h1-bold-line-height: 2rem;
+    --plasma-typo-h2-font-size: 1.5rem;
+    --plasma-typo-h2-font-weight: 400;
+    --plasma-typo-h2-line-height: 2rem;
+    --plasma-typo-h2-bold-font-size: 1.5rem;
+    --plasma-typo-h2-bold-font-weight: 600;
+    --plasma-typo-h2-bold-line-height: 2rem;
+    --plasma-typo-h3-font-size: 1.125rem;
+    --plasma-typo-h3-font-weight: 400;
+    --plasma-typo-h3-line-height: 1.625rem;
+    --plasma-typo-h3-bold-font-size: 1.125rem;
+    --plasma-typo-h3-bold-font-weight: 600;
+    --plasma-typo-h3-bold-line-height: 1.625rem;
+    --plasma-typo-h4-font-size: 1.125rem;
+    --plasma-typo-h4-font-weight: 400;
+    --plasma-typo-h4-line-height: 1.625rem;
+    --plasma-typo-h4-bold-font-size: 1.125rem;
+    --plasma-typo-h4-bold-font-weight: 600;
+    --plasma-typo-h4-bold-line-height: 1.625rem;
+    --plasma-typo-h5-font-size: 1rem;
+    --plasma-typo-h5-font-weight: 400;
+    --plasma-typo-h5-line-height: 1.25rem;
+    --plasma-typo-h5-bold-font-size: 1rem;
+    --plasma-typo-h5-bold-font-weight: 600;
+    --plasma-typo-h5-bold-line-height: 1.25rem;
+    --plasma-typo-body-l-font-size: 1rem;
+    --plasma-typo-body-l-font-weight: 400;
+    --plasma-typo-body-l-line-height: 1.25rem;
+    --plasma-typo-body-l-bold-font-size: 1rem;
+    --plasma-typo-body-l-bold-font-weight: 600;
+    --plasma-typo-body-l-bold-line-height: 1.25rem;
+    --plasma-typo-body-m-font-size: 0.875rem;
+    --plasma-typo-body-m-font-weight: 400;
+    --plasma-typo-body-m-line-height: 1.25rem;
+    --plasma-typo-body-m-bold-font-size: 0.875rem;
+    --plasma-typo-body-m-bold-font-weight: 600;
+    --plasma-typo-body-m-bold-line-height: 1.25rem;
+    --plasma-typo-body-s-font-size: 0.875rem;
+    --plasma-typo-body-s-font-weight: 400;
+    --plasma-typo-body-s-line-height: 1.125rem;
+    --plasma-typo-body-s-bold-font-size: 0.875rem;
+    --plasma-typo-body-s-bold-font-weight: 600;
+    --plasma-typo-body-s-bold-line-height: 1.125rem;
+    --plasma-typo-body-xs-font-size: 0.75rem;
+    --plasma-typo-body-xs-font-weight: 400;
+    --plasma-typo-body-xs-line-height: 0.875rem;
+    --plasma-typo-body-xs-bold-font-size: 0.75rem;
+    --plasma-typo-body-xs-bold-font-weight: 600;
+    --plasma-typo-body-xs-bold-line-height: 0.875rem;
+    --plasma-typo-body-xxs-font-size: 0.625rem;
+    --plasma-typo-body-xxs-font-weight: 400;
+    --plasma-typo-body-xxs-line-height: 0.75rem;
+    --plasma-typo-body-xxs-bold-font-size: 0.625rem;
+    --plasma-typo-body-xxs-bold-font-weight: 600;
+    --plasma-typo-body-xxs-bold-line-height: 0.75rem;
+    --plasma-typo-text-l-font-size: 1rem;
+    --plasma-typo-text-l-font-weight: 400;
+    --plasma-typo-text-l-line-height: 1.25rem;
+    --plasma-typo-text-l-bold-font-size: 1rem;
+    --plasma-typo-text-l-bold-font-weight: 600;
+    --plasma-typo-text-l-bold-line-height: 1.25rem;
+    --plasma-typo-text-m-font-size: 1rem;
+    --plasma-typo-text-m-font-weight: 400;
+    --plasma-typo-text-m-line-height: 1.25rem;
+    --plasma-typo-text-m-bold-font-size: 1rem;
+    --plasma-typo-text-m-bold-font-weight: 600;
+    --plasma-typo-text-m-bold-line-height: 1.25rem;
+    --plasma-typo-text-s-font-size: 0.875rem;
+    --plasma-typo-text-s-font-weight: 400;
+    --plasma-typo-text-s-line-height: 1.25rem;
+    --plasma-typo-text-s-bold-font-size: 0.875rem;
+    --plasma-typo-text-s-bold-font-weight: 600;
+    --plasma-typo-text-s-bold-line-height: 1.25rem;
+    --plasma-typo-text-xs-font-size: 0.75rem;
+    --plasma-typo-text-xs-font-weight: 400;
+    --plasma-typo-text-xs-line-height: 1rem;
+    --plasma-typo-text-xs-bold-font-size: 0.75rem;
+    --plasma-typo-text-xs-bold-font-weight: 600;
+    --plasma-typo-text-xs-bold-line-height: 1rem;
+    --plasma-typo-dspl-l-medium-font-size: 3.75rem;
+    --plasma-typo-dspl-l-medium-font-weight: 500;
+    --plasma-typo-dspl-l-medium-line-height: 4.125rem;
+    --plasma-typo-dspl-m-medium-font-size: 3rem;
+    --plasma-typo-dspl-m-medium-font-weight: 500;
+    --plasma-typo-dspl-m-medium-line-height: 3.375rem;
+    --plasma-typo-dspl-s-medium-font-size: 2rem;
+    --plasma-typo-dspl-s-medium-font-weight: 500;
+    --plasma-typo-dspl-s-medium-line-height: 2.5rem;
+    --plasma-typo-h1-medium-font-size: 1.5rem;
+    --plasma-typo-h1-medium-font-weight: 500;
+    --plasma-typo-h1-medium-line-height: 2rem;
+    --plasma-typo-h2-medium-font-size: 1.5rem;
+    --plasma-typo-h2-medium-font-weight: 500;
+    --plasma-typo-h2-medium-line-height: 2rem;
+    --plasma-typo-h3-medium-font-size: 1.125rem;
+    --plasma-typo-h3-medium-font-weight: 500;
+    --plasma-typo-h3-medium-line-height: 1.625rem;
+    --plasma-typo-h4-medium-font-size: 1.125rem;
+    --plasma-typo-h4-medium-font-weight: 500;
+    --plasma-typo-h4-medium-line-height: 1.625rem;
+    --plasma-typo-h5-medium-font-size: 1rem;
+    --plasma-typo-h5-medium-font-weight: 500;
+    --plasma-typo-h5-medium-line-height: 1.25rem;
+    --plasma-typo-body-l-medium-font-size: 1rem;
+    --plasma-typo-body-l-medium-font-weight: 500;
+    --plasma-typo-body-l-medium-line-height: 1.25rem;
+    --plasma-typo-body-m-medium-font-size: 0.875rem;
+    --plasma-typo-body-m-medium-font-weight: 500;
+    --plasma-typo-body-m-medium-line-height: 1.25rem;
+    --plasma-typo-body-s-medium-font-size: 0.875rem;
+    --plasma-typo-body-s-medium-font-weight: 500;
+    --plasma-typo-body-s-medium-line-height: 1.125rem;
+    --plasma-typo-body-xs-medium-font-size: 0.75rem;
+    --plasma-typo-body-xs-medium-font-weight: 500;
+    --plasma-typo-body-xs-medium-line-height: 0.875rem;
+    --plasma-typo-body-xxs-medium-font-size: 0.625rem;
+    --plasma-typo-body-xxs-medium-font-weight: 500;
+    --plasma-typo-body-xxs-medium-line-height: 0.75rem;
+    --plasma-typo-text-l-medium-font-size: 1rem;
+    --plasma-typo-text-l-medium-font-weight: 500;
+    --plasma-typo-text-l-medium-line-height: 1.25rem;
+    --plasma-typo-text-m-medium-font-size: 1rem;
+    --plasma-typo-text-m-medium-font-weight: 500;
+    --plasma-typo-text-m-medium-line-height: 1.25rem;
+    --plasma-typo-text-s-medium-font-size: 0.875rem;
+    --plasma-typo-text-s-medium-font-weight: 500;
+    --plasma-typo-text-s-medium-line-height: 1.25rem;
+    --plasma-typo-text-xs-medium-font-size: 0.75rem;
+    --plasma-typo-text-xs-medium-font-weight: 500;
+    --plasma-typo-text-xs-medium-line-height: 1rem;
+    --plasma-typo-text-slim-font-size: 0.875rem;
+    --plasma-typo-text-slim-font-weight: 400;
+    --plasma-typo-text-slim-line-height: 1.25rem;
+    --plasma-typo-text-slim-bold-font-size: 0.875rem;
+    --plasma-typo-text-slim-bold-font-weight: 600;
+    --plasma-typo-text-slim-bold-line-height: 1.25rem;
+    --plasma-typo-text-slim-medium-font-size: 0.875rem;
+    --plasma-typo-text-slim-medium-font-weight: 500;
+    --plasma-typo-text-slim-medium-line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
   .dark, .light {
     --plasma-typo-dspl-l-font-size: 5.5rem;
     --plasma-typo-dspl-l-font-weight: 300;
@@ -2138,7 +2305,7 @@
   }
 }
 
-@media (min-width: 560px) and (max-width: 959px) {
+@media (min-width: 1024px) and (max-width: 1199px) {
   .dark, .light {
     --plasma-typo-dspl-l-font-size: 7rem;
     --plasma-typo-dspl-l-font-weight: 300;
@@ -2305,7 +2472,7 @@
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1200px) {
   .dark, .light {
     --plasma-typo-dspl-l-font-size: 8rem;
     --plasma-typo-dspl-l-font-weight: 300;

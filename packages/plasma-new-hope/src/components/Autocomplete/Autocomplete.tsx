@@ -50,6 +50,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 beforeList,
                 afterList,
                 virtual = false,
+                // @ts-ignore
+                _offset,
                 ...rest
             },
             ref,
@@ -144,6 +146,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                         opened={isOpen}
                         portal={portal}
                         listWidth={listWidth}
+                        offset={_offset}
                         target={(referenceRef) => (
                             <StyledTextField
                                 ref={ref}

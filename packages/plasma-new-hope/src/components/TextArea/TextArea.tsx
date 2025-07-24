@@ -149,6 +149,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             hintOffset = HINT_DEFAULT_OFFSET,
             hintWidth,
             hintContentLeft,
+            labelAriaHidden = false,
             onChange,
             ...rest
         } = props;
@@ -260,6 +261,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 labelPlacement,
                 value: value || uncontrolledValue || defaultValue,
                 rows,
+                labelAriaHidden,
             },
             focused,
         );
@@ -290,7 +292,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                     <OuterLabelWrapper width={helperWidth} isInnerLabel={labelPlacement === 'inner'}>
                         {hasOuterLabel && (
                             <StyledIndicatorWrapper>
-                                <StyledLabel>{label}</StyledLabel>
+                                <StyledLabel aria-hidden={labelAriaHidden}>{label}</StyledLabel>
 
                                 {hintText && (
                                     <StyledHintWrapper>

@@ -11,7 +11,7 @@ export const drawerPlacements = {
 
 export type DrawerPlacement = keyof typeof drawerPlacements;
 
-export type DrawerProps = PopupProps &
+export type DrawerProps = Omit<PopupProps, 'draggable' | 'resizable'> &
     PanelProps & {
         /**
          * Расположение Drawer.

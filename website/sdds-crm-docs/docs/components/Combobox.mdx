@@ -532,6 +532,60 @@ type Items = Array<{
         }
         ```
     </TabItem>
+    <TabItem value="addItem" label="Add item">
+        Пример с добавлением нового элемента в список.
+
+        ```tsx live
+        import React, { useState, useEffect } from 'react';
+        import { Combobox } from '@salutejs/sdds-crm';
+
+        export function App() {
+            const shortListItems = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'rio_de_janeiro',
+                    label: 'Рио-де-Жанейро',
+                },
+                {
+                    value: 'sao_paulo',
+                    label: 'Сан-Паулу',
+                },
+            ];
+
+            const [items, setItems] = useState(shortListItems);
+            const [value, setValue] = useState([]);
+            const [textValue, setTextValue] = useState('');
+
+            const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+                if (event.key === 'Enter') {
+                    setItems([...items, { value: textValue, label: textValue }]);
+                    setValue([...value, textValue]);
+                    setTextValue('');
+                }
+            };
+
+            return (
+                <div style={{ display: "block", width: "300px", height: "300px" }}>
+                    <Combobox
+                        multiple
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                        onChangeValue={setTextValue}
+                        onKeyDown={handleKeyDown}
+                        helperText="Введите новое слово"
+                        emptyStateDescription="Нажмите Enter, чтобы добавить значение в список."
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Использование с React Hook Form и нативной формой

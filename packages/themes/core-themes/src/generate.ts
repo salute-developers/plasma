@@ -56,12 +56,15 @@ export const generate = async (themes: ThemeRequest[]) => {
             variations.typography,
             variations.fontFamily,
             metaGrouped.typography,
+            false,
+            meta.name,
         );
         const typographyJSVariables = createTypographyTokens(
             variations.typography,
             variations.fontFamily,
             metaGrouped.typography,
-            true,
+            isJS,
+            meta.name,
         );
 
         const viewContainerVariables = createViewContainerTokens(metaGrouped.color, metaGrouped.gradient);
@@ -114,7 +117,7 @@ export const generate = async (themes: ThemeRequest[]) => {
         undefined,
         undefined,
         metaGroupedDefault.typography,
-        true,
+        isJS,
     ).dark;
 
     generateDefaultTokens(themeDir, {

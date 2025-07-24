@@ -19,6 +19,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--inverse-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-default);
                 ${chipTokens.colorReadOnlyHover}: var(--inverse-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--inverse-text-secondary);
+                ${chipTokens.leftContentColor}: var(--inverse-text-primary);
             `,
             secondary: css`
                 ${chipTokens.color}: var(--text-primary);
@@ -31,6 +34,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
+
+                ${chipTokens.closeIconColor}: var(--text-secondary);
+                ${chipTokens.leftContentColor}: var(--text-primary);
             `,
             accent: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -43,6 +49,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             positive: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -55,6 +64,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-positive);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             warning: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -67,6 +79,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-warning);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             negative: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
@@ -79,6 +94,9 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-negative);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
         },
         size: {
@@ -100,10 +118,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.5rem;
                 ${chipTokens.clearContentMarginLeft}: 0.625rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 1.5rem;
             `,
             m: css`
@@ -124,10 +138,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.375rem;
                 ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 1.25rem;
             `,
             s: css`
@@ -148,10 +158,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.clearContentMarginLeft}: 0.375rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 1rem;
             `,
             xs: css`
@@ -172,10 +178,6 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.clearContentMarginLeft}: 0.25rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-
-                ${chipTokens.scaleHover}: 1.02;
-                ${chipTokens.scaleActive}: 0.98;
-
                 ${chipTokens.closeIconSize}: 0.75rem;
             `,
         },

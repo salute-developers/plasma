@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 
-import { withTheme, themesList } from './decoratorThemes';
+import { withTheme, themesList, DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE } from './decoratorThemes';
 import { withToast } from './decoratorToast';
 import { docsPage } from './docsPage';
 import storybookTheme from './theme';
@@ -27,6 +27,14 @@ const preview: Preview = {
             toolbar: {
                 title: 'Typography version',
                 items: ['standard', 'old'],
+            },
+        },
+        viewContainer: {
+            description: 'ViewContainer mode for components',
+            defaultValue: DEFAULT_MODE,
+            toolbar: {
+                title: 'ViewContainer',
+                items: [DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE],
             },
         },
     },
