@@ -1,5 +1,5 @@
 import { component, mergeConfig } from '../../../engines';
-import { selectConfig } from '../../../..';
+import { selectConfig } from '../../..';
 
 import { config } from './Select.config';
 
