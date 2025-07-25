@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
 
@@ -80,16 +80,25 @@ export type InformationWrapperProps = {
      * Флаг необязательности поля
      */
     optional?: boolean;
+    /**
+     * Подпись для указания необязательности поля
+     */
+    optionalText?: string;
 
     /**
      * Метка-подпись к элементу
      */
-    title?: string;
+    label?: string;
     /**
      * Задает выравнивание метке-подписи к элементу
      * @default top
      */
-    titlePlacement?: 'top' | 'left';
+    labelPlacement?: 'top' | 'left';
+    /**
+     * ID эелемента, к которому будет относиться подпись
+     * @default top
+     */
+    labelHtmlFor?: string | undefined;
     /**
      * Метка-подпись к элементу справа
      */
@@ -112,7 +121,17 @@ export type InformationWrapperProps = {
      */
     view?: string;
     /**
-     * Компонент неактивен
+     * Компонент не активен
      */
     disabled?: boolean;
-} & HintProps;
+} & HintProps &
+    HTMLAttributes<HTMLDivElement>;
+
+export type InformationWrapperRootProps = {
+    size?: string;
+    view?: string;
+    hintView?: string;
+    hintSize?: string;
+    labelPlacement?: string;
+    disabled?: boolean;
+} & Omit<HTMLAttributes<HTMLDivElement>, 'size'>;
