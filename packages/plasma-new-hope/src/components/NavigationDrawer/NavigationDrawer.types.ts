@@ -1,42 +1,20 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
-type WithIcon = {
-    /**
-     * Иконка меню. Отображается слева от текста.
-     */
-    icon: ReactNode;
-};
-
-type WithoutIcon = { icon?: never };
-
-type WithCounter = {
-    /**
-     * Счетчик у элемента меню.
-     */
-    counter?: number;
-    hasIndicator?: never;
-};
-
-type WithIndicator = {
-    counter?: never;
-    /**
-     * Флаг для отображения индикатора у элемента меню.
-     */
-    hasIndicator?: boolean;
-};
-
-type MenuItemBase = {
+/**
+ * Элемент меню в секции NavigationDrawer.
+ */
+type MenuItem<T extends boolean = false> = {
     /**
      * Текст элемента меню.
      */
-    label: ReactNode;
+    label: string;
     /**
      * Action при клике на элемент меню.
      * Получает либо URL в качестве строки, либо функцию, срабатывающую при клике.
      */
     action?: string | ((event: React.MouseEvent<HTMLDivElement>) => void);
     /**
-     * Признак того, что элемент меню неактивен.
+     * Элемент меню неактивен.
      * @default false
      */
     disabled?: boolean;
@@ -45,141 +23,50 @@ type MenuItemBase = {
      * @default false
      */
     selected?: boolean;
-};
-
-/**
- * Элемент меню в секции NavigationDrawer.
- */
-export type MenuItem<HasIcon extends boolean = true> = MenuItemBase &
-    (HasIcon extends true ? WithIcon : WithoutIcon) &
-    (WithCounter | WithIndicator);
-
-type SectionWithDivider = {
     /**
-     * Режим работы секции.
-     * @default withDivider
+     * Счетчик у элемента меню.
      */
-    mode?: 'withDivider';
-    collapsible?: never;
-    collapsedByDefault?: never;
-    onToggle?: never;
-};
-
-type SectionWithLabel = {
+    counter?: number;
     /**
-     * Режим работы секции.
-     * @default withDivider
+     * Флаг для отображения индикатора у элемента меню.
      */
-    mode: 'withLabel';
-    /**
-     * Возможность скрывать секцию.
-     * @default false
-     */
-    collapsible?: boolean;
-    /**
-     * Секция скрыта по умолчанию. Только при collapsible = true.
-     * @default false
-     */
-    collapsedByDefault?: boolean;
-    /**
-     * Хендлер сворачивания/разворачивания секции.
-     */
-    onToggle?: (opened: boolean) => void;
-};
+    hasIndicator?: boolean;
+} & T extends true
+    ? { icon: ReactNode }
+    : { icon?: never };
 
 /**
  * Секция меню в NavigationDrawer.
  */
-export type SectionItem<HasIcon extends boolean = true> = {
+type SectionItem<T extends boolean = false> = {
     /**
      * Список элементов в секции.
      */
-    items: MenuItem<HasIcon>[];
+    items: MenuItem<T>;
     /**
-     * Заголовок секции.
+     * Заголовок секции. При его отсутствии появится разделитель.
      */
     label?: ReactNode;
-} & (SectionWithDivider | SectionWithLabel);
+};
 
-type WithMenuIconBase = {
+export type NavigationDrawerProps = {
     /**
-     * Список секций меню.
+     * Режим отображения NavigationDrawer.
+     * - static: статичный контент справа.
+     * - drawer: открывается поверх контента. Контент справа доступен для взаимодействия, нет затемнения.
+     * - overlay: открывается поверх контента. Контент справа не доступен для взаимодействия, есть затемнение.
+     * @default static
      */
-    sections: SectionItem<true>[];
-    /**
-     * Показывать иконки в элементах меню.
-     * Влияет на режим отображения NavigationDrawer
-     * Если hasMenuIcon: false, то доступен только режим static
-     * и невозможно управлять открытием/закрытием NavigationDrawer.
-     * @default true
-     */
-    hasMenuIcon?: true;
+    mode?: 'static' | 'overlay' | 'drawer';
     /**
      * Флаг для открытия/закрытия NavigationDrawer. Если не указан, то NavigationDrawer открыт.
      * @default true
      */
     opened?: boolean;
-};
-
-type ModeStatic = {
     /**
-     * Режим отображения NavigationDrawer.
-     * - static: сдвигает контент справа.
-     * - overlay: открывается поверх контента. Контент справа не доступен для взаимодействия, есть затемнение.
-     * - drawer: открывается поверх контента. Контент справа доступен для взаимодействия, нет затемнения.
-     * @default static
+     * Callback, срабатывающий при закрытии меню. Только при mode="overlay".
      */
-    mode: 'static';
-    onCloseOverlay?: never;
-};
-
-type ModeOverlay = {
-    /**
-     * Режим отображения NavigationDrawer.
-     * - overlay: открывается поверх контента. Контент справа не доступен для взаимодействия, есть затемнение.
-     * @default static
-     */
-    mode: 'overlay';
-    /**
-     * Функция, которая вызывается при клике на затемнение.
-     */
-    onCloseOverlay?: () => void;
-};
-
-type ModeDrawer = {
-    /**
-     * Режим отображения NavigationDrawer.
-     * - drawer: открывается поверх контента. Контент справа доступен для взаимодействия, нет затемнения.
-     * @default static
-     */
-    mode: 'drawer';
-    onCloseOverlay?: never;
-};
-
-type WithMenuIcon = WithMenuIconBase & (ModeStatic | ModeOverlay | ModeDrawer);
-
-type WithoutMenuIcon = {
-    /**
-     * Показывать иконки в элементах меню.
-     * Доступен только режим static и невозможно управлять открытием/закрытием NavigationDrawer.
-     * @default true
-     */
-    hasMenuIcon: false;
-    /**
-     * Список секций меню.
-     */
-    sections: SectionItem<false>[];
-    /**
-     * Режим отображения NavigationDrawer.
-     * - static: NavigationDrawer сдвигает контент справа.
-     * @default static
-     */
-    mode: 'static';
-    onCloseOverlay?: never;
-    opened?: never;
-};
-
-export type NavigationDrawerProps = {
+    onHide?: () => void;
     /**
      * Ячейка для контента в начале меню.
      */
@@ -196,5 +83,17 @@ export type NavigationDrawerProps = {
      * Вид компонента.
      */
     view?: string;
-} & (WithMenuIcon | WithoutMenuIcon) &
+} & (
+    | {
+          /**
+           * Список секций меню.
+           */
+          sections: SectionItem<true>[];
+          withContentLeft: true;
+      }
+    | {
+          sections: SectionItem[];
+          withContentLeft?: never;
+      }
+) &
     HTMLAttributes<HTMLDivElement>;
