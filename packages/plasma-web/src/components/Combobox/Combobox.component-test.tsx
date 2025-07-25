@@ -217,6 +217,34 @@ const items = [
         disabled: true,
     },
 ];
+const flatItems = [
+    { value: 'rio_de_janeiro', label: 'Рио-де-Жанейро' },
+    { value: 'sao_paulo', label: 'Сан-Паулу' },
+    { value: 'buenos_aires', label: 'Буэнос-Айрес' },
+    { value: 'cordoba', label: 'Кордова' },
+    { value: 'bogota', label: 'Богота' },
+    { value: 'medellin', label: 'Медельин' },
+    { value: 'paris', label: 'Париж' },
+    { value: 'lyon', label: 'Лион' },
+    { value: 'berlin', label: 'Берлин' },
+    { value: 'munich', label: 'Мюнхен' },
+    { value: 'rome', label: 'Рим' },
+    { value: 'milan', label: 'Милан' },
+    { value: 'madrid', label: 'Мадрид' },
+    { value: 'barcelona', label: 'Барселона' },
+    { value: 'london', label: 'Лондон' },
+    { value: 'manchester', label: 'Манчестер' },
+    { value: 'beijing', label: 'Пекин' },
+    { value: 'shanghai', label: 'Шанхай' },
+    { value: 'tokyo', label: 'Токио' },
+    { value: 'osaka', label: 'Осака' },
+    { value: 'delhi', label: 'Дели' },
+    { value: 'mumbai', label: 'Мумбаи' },
+    { value: 'seoul', label: 'Сеул' },
+    { value: 'busan', label: 'Пусан' },
+    { value: 'bangkok', label: 'Бангкок' },
+    { value: 'phuket', label: 'Пхукет' },
+];
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
@@ -2075,5 +2103,46 @@ describe('plasma-web: Combobox', () => {
         cy.get('#combobox').click();
 
         cy.matchImageSnapshot();
+    });
+
+    it('flow: text input + custom filter', () => {
+        cy.viewport(500, 500);
+
+        const Component = () => {
+            const [data, setData] = React.useState(flatItems);
+
+            const handleChangeValue = (text: string) => {
+                const newItems = flatItems.filter(({ _, label }) => label.toLowerCase().includes(text.toLowerCase()));
+                setData(newItems);
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Combobox
+                                id="combobox"
+                                label="Label"
+                                placeholder="Placeholder"
+                                items={data}
+                                filter={() => true}
+                                onChangeValue={handleChangeValue}
+                                listMaxHeight="300px"
+                                listOverflow="auto"
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click();
+        cy.focused().type('ри');
+
+        cy.get('#combobox').should('have.value', 'ри');
+        cy.get('ul').should('be.visible');
+        cy.get('ul').find('li').should('have.length', 4);
     });
 });
