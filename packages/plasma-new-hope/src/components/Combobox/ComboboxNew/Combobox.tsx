@@ -440,12 +440,19 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             setChecked(checkedCopy);
 
-            setTextValue(multiple ? '' : valueToItemMap.get(value as string)?.label || value?.toString() || '');
+            if (!multiple && textValue === value && valueToItemMap.has(value)) {
+                setTextValue(valueToItemMap.get(value)?.label || '');
+            }
 
             // В deps мы кладем именно outerValue и internalValue, а не просто value.
             // Т.к. вначале нужно отфильтровать и провалидировать outerValue и результат положить в переменную.
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
         }, [outerValue, internalValue, items]);
+
+        // При изменении value нужно возвращать значение в инпуте к исходному.
+        useLayoutEffect(() => {
+            setTextValue(multiple ? '' : valueToItemMap.get(value as string)?.label || value?.toString() || '');
+        }, [outerValue, internalValue]);
 
         useLayoutEffect(() => {
             if (defaultValue) {
