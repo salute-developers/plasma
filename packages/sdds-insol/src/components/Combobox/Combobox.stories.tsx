@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconDone } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Combobox } from './Combobox';
+import { config } from './Combobox.config';
 
 type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
@@ -18,8 +19,8 @@ const getIconSize = (size?: string) => {
     return size === 'xs' || size === 's' ? 'xs' : 's';
 };
 
-const view = ['default', 'positive', 'warning', 'negative'];
-const size = ['xs', 's', 'm', 'l'];
+const { views, sizes } = getConfigVariations(config);
+
 const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 const hintViews = ['default'];
@@ -51,13 +52,13 @@ const meta: Meta<StorySelectProps> = {
     component: Combobox,
     argTypes: {
         size: {
-            options: size,
+            options: sizes,
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: view,
+            options: views,
             control: {
                 type: 'select',
             },
@@ -446,7 +447,7 @@ const items = [
     {
         value: 'africa',
         label: 'Африка',
-        isDisabled: true,
+        disabled: true,
     },
 ];
 

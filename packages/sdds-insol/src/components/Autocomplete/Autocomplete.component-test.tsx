@@ -92,7 +92,7 @@ describe('sdds-insol: Autocomplete', () => {
                         label="Label"
                         leftHelper="Helper Text"
                         suggestions={suggestions}
-                        size="l"
+                        size="xl"
                     />
                     <Autocomplete
                         value="Алексей"
@@ -118,6 +118,14 @@ describe('sdds-insol: Autocomplete', () => {
                 </div>
 
                 <div style={{ display: 'flex', gap: '50px' }}>
+                    <Autocomplete
+                        value="Алексей"
+                        label="Label"
+                        leftHelper="Helper Text"
+                        suggestions={suggestions}
+                        size="xl"
+                        labelPlacement="inner"
+                    />
                     <Autocomplete
                         value="Алексей"
                         label="Label"

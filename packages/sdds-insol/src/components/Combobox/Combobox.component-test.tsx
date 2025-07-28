@@ -617,6 +617,14 @@ describe('sdds-insol: Combobox', () => {
         );
     };
 
+    it('common: size xl', () => {
+        cy.viewport(1500, 1200);
+
+        mount(<ComboboxGroup size="xl" />);
+
+        cy.matchImageSnapshot();
+    });
+
     it('common: size l', () => {
         cy.viewport(1500, 1200);
 
