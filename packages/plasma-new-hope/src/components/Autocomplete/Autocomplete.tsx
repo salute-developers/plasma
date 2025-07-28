@@ -103,8 +103,6 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 }
             };
 
-            console.log('zIndex main', zIndex);
-
             const defaultFilterCallback = ({ label }: { label: string }) => {
                 return label.toLowerCase().includes(value.toString().toLowerCase());
             };

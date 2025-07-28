@@ -25,4 +25,8 @@ generate([
         name: 'plasma_homeds',
         version: 'latest',
     },
+    {
+        name: 'plasma_web_ACTUAL_TYPOGRAPHY',
+        version: 'latest',
+    },
 ]);

@@ -41,8 +41,6 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
             ],
         });
 
-        console.log('zIndex', zIndex);
-
         const wrappedId = safeUseId();
 
         // Проверка на target. Это может быть как ReactNode, так и функция, в которую пробрасывается ref.
