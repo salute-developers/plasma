@@ -536,6 +536,14 @@ describe('sdds-insol: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: size xl', () => {
+        cy.viewport(1000, 1200);
+
+        mount(<CommonComponent size="xl" />);
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: size l', () => {
         cy.viewport(1000, 1200);
 
