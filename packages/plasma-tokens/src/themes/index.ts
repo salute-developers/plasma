@@ -12,6 +12,14 @@ export { plasma_stards__dark, darkPlasma_stards } from './plasma_stards__dark';
 export { plasma_stards__light, lightPlasma_stards } from './plasma_stards__light';
 export { plasma_web__dark, darkPlasma_web } from './plasma_web__dark';
 export { plasma_web__light, lightPlasma_web } from './plasma_web__light';
+export {
+    plasma_web_ACTUAL_TYPOGRAPHY__dark,
+    darkPlasma_web_ACTUAL_TYPOGRAPHY,
+} from './plasma_web_ACTUAL_TYPOGRAPHY__dark';
+export {
+    plasma_web_ACTUAL_TYPOGRAPHY__light,
+    lightPlasma_web_ACTUAL_TYPOGRAPHY,
+} from './plasma_web_ACTUAL_TYPOGRAPHY__light';
 export { sberHealth__dark, darkSberHealth } from './sberHealth__dark';
 export { sberHealth__light, lightSberHealth } from './sberHealth__light';
 export { sbermarket__dark, darkSbermarket } from './sbermarket__dark';
