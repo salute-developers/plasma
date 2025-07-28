@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-asdk",
-  "version": "0.345.0",
+  "version": "0.345.1",
   "description": "Salute Design System / React UI kit for Assistant web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "directory": "packages/plasma-asdk"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.331.0",
+    "@salutejs/plasma-new-hope": "0.331.1",
     "@salutejs/plasma-tokens": "1.118.0",
     "@salutejs/plasma-tokens-b2b": "1.52.0",
     "@salutejs/plasma-typo": "0.42.0"
