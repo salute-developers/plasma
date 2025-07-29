@@ -230,7 +230,7 @@ type TextAreaAriaProps = {
     /**
      * aria-hidden свойство для label
      */
-    labelAriaHidden: boolean;
+    labelAriaHidden?: boolean;
 };
 
 export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows' | 'cols' | 'required'> &
