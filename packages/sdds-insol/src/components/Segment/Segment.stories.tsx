@@ -23,6 +23,7 @@ type CustomStoryProps = {
     itemQuantity: number;
     contentLeft: string;
     contentRight: string;
+    maxItemWidth: string;
     segmentItemView?: 'default' | 'secondary';
     singleSelectedRequired?: boolean;
 };
@@ -95,6 +96,12 @@ const meta: Meta<StorySegmentProps> = {
             },
             if: { arg: 'orientation', eq: 'horizontal' },
         },
+        maxItemWidth: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'stretch', truthy: false },
+        },
         orientation: {
             options: ['horizontal', 'vertical'],
             control: {
@@ -143,7 +150,7 @@ const StoryDefault = (props: StorySegmentProps) => {
         size,
         stretch,
         orientation,
-
+        maxItemWidth,
         segmentItemView,
         contentLeft: contentLeftOption,
         contentRight: contentRightOption,
@@ -169,6 +176,7 @@ const StoryDefault = (props: StorySegmentProps) => {
                     value={`label_${i}`}
                     size={size}
                     key={`label_${i}`}
+                    maxItemWidth={maxItemWidth}
                     contentLeft={getContentLeft(contentLeftOption, size)}
                     contentRight={getContentRight(
                         contentRightOption,
@@ -196,6 +204,7 @@ export const Default: StoryObj<StorySegmentProps> = {
         hasBackground: false,
         disabled: false,
         stretch: false,
+        maxItemWidth: '',
         singleSelectedRequired: false,
         orientation: 'horizontal',
         contentRight: 'none',
