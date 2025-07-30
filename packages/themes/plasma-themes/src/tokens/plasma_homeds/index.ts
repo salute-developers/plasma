@@ -2646,19 +2646,19 @@ export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px #0000
 export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
 
 /** borderRadius xs */
-export const borderRadiusXs = 'var(--border-radius-xs, 8px)';
+export const borderRadiusXs = 'var(--border-radius-xs, 6px)';
 
 /** borderRadius s */
-export const borderRadiusS = 'var(--border-radius-s, 12px)';
+export const borderRadiusS = 'var(--border-radius-s, 8px)';
 
 /** borderRadius m */
-export const borderRadiusM = 'var(--border-radius-m, 16px)';
+export const borderRadiusM = 'var(--border-radius-m, 12px)';
 
 /** borderRadius l */
-export const borderRadiusL = 'var(--border-radius-l, 20px)';
+export const borderRadiusL = 'var(--border-radius-l, 16px)';
 
 /** borderRadius xl */
-export const borderRadiusXl = 'var(--border-radius-xl, 24px)';
+export const borderRadiusXl = 'var(--border-radius-xl, 20px)';
 
 /** borderRadius xxl */
 export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';
