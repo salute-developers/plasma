@@ -50,6 +50,8 @@ export const config = {
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.5rem;
+                ${tokens.chipRightContentMarginLeft}: 0.5rem;
+                ${tokens.chipRightContentMarginRight}: -0.125rem;
                 ${tokens.chipClearContentMarginLeft}: 0.625rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
                 ${tokens.chipCloseIconSize}: 1.5rem;
@@ -69,6 +71,8 @@ export const config = {
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.375rem;
+                ${tokens.chipRightContentMarginLeft}: 0.375rem;
+                ${tokens.chipRightContentMarginRight}: -0.125rem;
                 ${tokens.chipClearContentMarginLeft}: 0.5rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
                 ${tokens.chipCloseIconSize}: 1rem;
@@ -88,6 +92,8 @@ export const config = {
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
+                ${tokens.chipRightContentMarginLeft}: 0.25rem;
+                ${tokens.chipRightContentMarginRight}: -0.125rem;
                 ${tokens.chipClearContentMarginLeft}: 0.375rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
                 ${tokens.chipCloseIconSize}: 1rem;
@@ -107,6 +113,8 @@ export const config = {
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
+                ${tokens.chipRightContentMarginLeft}: 0.25rem;
+                ${tokens.chipRightContentMarginRight}: -0.125rem;
                 ${tokens.chipClearContentMarginLeft}: 0.25rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
                 ${tokens.chipCloseIconSize}: 1rem;

@@ -48,6 +48,8 @@ export const config = {
 
                 ${tokens.chipLeftContentMarginLeft}: -0.25rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
+                ${tokens.chipRightContentMarginLeft}: 0.25rem;
+                ${tokens.chipRightContentMarginRight}: -0.25rem;
                 ${tokens.chipClearContentMarginLeft}: 0.5rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
                 ${tokens.chipCloseIconSize}: 1.5rem;
