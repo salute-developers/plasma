@@ -132,6 +132,8 @@ export const config = {
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.5rem;
+                ${chipTokens.rightContentMarginLeft}: 0.5rem;
+                ${chipTokens.rightContentMarginRight}: -0.125rem;
                 ${chipTokens.clearContentMarginLeft}: 0.625rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
                 ${chipTokens.closeIconSize}: 1.5rem;
@@ -152,9 +154,11 @@ export const config = {
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.375rem;
+                ${chipTokens.rightContentMarginLeft}: 0.375rem;
+                ${chipTokens.rightContentMarginRight}: -0.125rem;
                 ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
-                ${chipTokens.closeIconSize}: 1.25rem;
+                ${chipTokens.closeIconSize}: 1rem;
             `,
             s: css`
                 ${chipTokens.borderRadius}: 0.5rem;
@@ -172,6 +176,8 @@ export const config = {
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
+                ${chipTokens.rightContentMarginLeft}: 0.25rem;
+                ${chipTokens.rightContentMarginRight}: -0.125rem;
                 ${chipTokens.clearContentMarginLeft}: 0.375rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
                 ${chipTokens.closeIconSize}: 1rem;
@@ -192,6 +198,8 @@ export const config = {
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
+                ${chipTokens.rightContentMarginLeft}: 0.25rem;
+                ${chipTokens.rightContentMarginRight}: -0.125rem;
                 ${chipTokens.clearContentMarginLeft}: 0.25rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
                 ${chipTokens.closeIconSize}: 0.75rem;
