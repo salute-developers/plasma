@@ -1,4 +1,4 @@
-import type { MouseEvent, ButtonHTMLAttributes } from 'react';
+import type { MouseEvent, ButtonHTMLAttributes, CSSProperties } from 'react';
 
 type CustomSegmentItemProps = {
     /**
@@ -38,6 +38,11 @@ type CustomSegmentItemProps = {
      * Слот для контента справа.
      */
     contentRight?: React.ReactNode | string;
+    /**
+     * Обрезает контент по максимальной ширине и добавляет ...
+     * @default 'auto'
+     */
+    maxItemWidth?: CSSProperties['width'];
 };
 
 export type SegmentItemProps = ButtonHTMLAttributes<HTMLButtonElement> & CustomSegmentItemProps;
