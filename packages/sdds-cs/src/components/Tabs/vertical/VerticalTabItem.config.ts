@@ -35,6 +35,7 @@ export const config = {
                 ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
 
                 ${tabsTokens.itemCursor}: default;
+                ${tabsTokens.itemCursorOverNotSelected}: pointer;
             `,
         },
         size: {
