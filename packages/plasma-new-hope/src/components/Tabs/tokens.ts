@@ -77,6 +77,7 @@ export const tokens = {
     itemValueColorActive: '--plasma-tab-item-value-color-active',
     itemBackgroundColorHover: '--plasma-tab-item-background-color-hover',
     itemCursor: '--plasma-tab-item-cursor',
+    itemCursorOverNotSelected: '--plasma-tab-item-cursor-over-not-selected',
 
     itemSelectedColor: '--plasma-tab-item-selected-color',
     itemSelectedValueColor: '--plasma-tab-item-selected-value-color',
