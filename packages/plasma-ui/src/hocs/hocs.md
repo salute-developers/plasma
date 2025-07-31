@@ -31,7 +31,7 @@ import React from 'react';
 import { Button, ButtonProps } from '@salutejs/plasma-core';
 import { withSkeleton, WithSkeletonProps } from '@salutejs/plasma-core/hocs';
 
-const ButtonSkeleton = withSkeleton(Button);
+const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(Button);
 
 export const Default = () => (
     <>
