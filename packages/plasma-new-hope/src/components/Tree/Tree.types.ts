@@ -127,6 +127,12 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
      */
     defaultExpandAll?: boolean;
     /**
+     * Открывать ли автоматически вышестоящие уровни определенного элемента.
+     * Если есть необходимость открывать нужный уровень без проброса всей иерархии.
+     * @default false
+     */
+    autoExpandParent?: boolean;
+    /**
      * Callback при выборе элемента.
      */
     onTreeSelect?: (selectedKeys: Key[], info: SelectInfo) => void;
