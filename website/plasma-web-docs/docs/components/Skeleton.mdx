@@ -85,7 +85,7 @@ export function App() {
 import React, { useState } from 'react';
 import { Button } from '@salutejs/plasma-web';
 
-const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(BasicButton);
+const ButtonSkeleton = withSkeleton(BasicButton);
 
 export default function App () {
     const [skeleton, setSkeleton] = useState(false);
