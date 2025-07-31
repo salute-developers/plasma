@@ -1,0 +1,335 @@
+---
+id: informationWrapper
+title: InformationWrapper
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# InformationWrapper
+Компонент обертка для элементов формы.
+
+<Description name="InformationWrapper" />
+<PropsTable name="InformationWrapper" />
+
+## Примеры
+
+### Базовое использование
+
+```tsx live
+import React from 'react';
+import { InformationWrapper, TextField, TextArea } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const size = 'm';
+
+    const commonProps = {
+        label: 'Лейбл',
+        titleCaption: 'Подпись к полю',
+        leftHelper: 'Подсказка слева',
+        rightHelper: 'Подсказка справа',
+        hintText: 'Текст тултипа',
+    };
+
+    const SvgPlaceholder = () => {
+        return (
+            <div
+                style={{
+                    height: '3rem',
+                    background:
+                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '3rem 1rem',
+                }}
+            />
+        );
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>
+            <InformationWrapper
+                {...commonProps}
+                size={size}
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                size={size}
+                hasRequiredIndicator
+                labelHtmlFor="example-id-textfield-for-wrapper"
+            >
+                <TextField id="example-id-textfield-for-wrapper" size={size} />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                size={size}
+                hasRequiredIndicator
+                labelHtmlFor="example-id-textarea-for-wrapper"
+            >
+                <TextArea id="example-id-textarea-for-wrapper size={size} />
+            </InformationWrapper>
+        </div>
+    );
+}
+```
+
+### Вид компонента
+Вид компонента задается с помощью свойства `view`:
+
+```tsx live
+import React from 'react';
+import { InformationWrapper } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const commonProps = {
+        label: 'Лейбл',
+        titleCaption: 'Подпись к полю',
+        leftHelper: 'Подсказка слева',
+        rightHelper: 'Подсказка справа',
+        hintText: 'Текст тултипа',
+    };
+
+    const SvgPlaceholder = () => {
+        return (
+            <div
+                style={{
+                    height: '3rem',
+                    background:
+                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '3rem 1rem',
+                }}
+            />
+        );
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>
+            <InformationWrapper
+                {...commonProps}
+                view="default"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                view="positive"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                view="warning"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                view="negative"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+        </div>
+    );
+}
+```
+
+### Размер компонента
+Размер компонента задается с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { InformationWrapper } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const commonProps = {
+        label: 'Лейбл',
+        titleCaption: 'Подпись к полю',
+        leftHelper: 'Подсказка слева',
+        rightHelper: 'Подсказка справа',
+        hintText: 'Текст тултипа',
+    };
+
+    const SvgPlaceholder = () => {
+        return (
+            <div
+                style={{
+                    height: '3rem',
+                    background:
+                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '3rem 1rem',
+                }}
+            />
+        );
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>
+            <InformationWrapper
+                {...commonProps}
+                size="l"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                size="m"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                size="s"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                size="xs"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+        </div>
+    );
+}
+```
+
+### Положение label
+Положение label задается с помощью свойства `labelPlacement`:
+
+```tsx live
+import React from 'react';
+import { InformationWrapper } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const commonProps = {
+        label: 'Лейбл',
+        titleCaption: 'Подпись к полю',
+        leftHelper: 'Подсказка слева',
+        rightHelper: 'Подсказка справа',
+        hintText: 'Текст тултипа',
+    };
+
+    const SvgPlaceholder = () => {
+        return (
+            <div
+                style={{
+                    height: '3rem',
+                    background:
+                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '3rem 1rem',
+                }}
+            />
+        );
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>
+            <InformationWrapper
+                {...commonProps}
+                labelPlacement="top"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                labelPlacement="left"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+        </div>
+    );
+}
+```
+
+### Индикатор обязательности
+Отображение индикатора включается свойством `hasRequiredIndicator`,
+а его положение регулируется свойством `requiredIndicatorPlacement`:
+
+```tsx live
+import React from 'react';
+import { InformationWrapper } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const commonProps = {
+        titleCaption: 'Подпись к полю',
+        leftHelper: 'Подсказка слева',
+        rightHelper: 'Подсказка справа',
+        hintText: 'Текст тултипа',
+    };
+
+    const SvgPlaceholder = () => {
+        return (
+            <div
+                style={{
+                    height: '3rem',
+                    background:
+                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '3rem 1rem',
+                }}
+            />
+        );
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>
+            <InformationWrapper
+                {...commonProps}
+                label="Лейбл"
+                requiredIndicatorPlacement="right"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                label="Лейбл"
+                requiredIndicatorPlacement="left"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                requiredIndicatorPlacement="right"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+
+            <InformationWrapper
+                {...commonProps}
+                requiredIndicatorPlacement="left"
+                hasRequiredIndicator
+            >
+                <SvgPlaceholder />
+            </InformationWrapper>
+        </div>
+    );
+}
+```
