@@ -221,7 +221,7 @@ const StoryDemo = ({
                 margin: '0 auto',
             }}
         >
-            <InformationWrapper leftHelper={<LeftHelper />} {...rest}>
+            <InformationWrapper leftHelper={<LeftHelper />} size={size} {...rest}>
                 {content[componentContent]}
             </InformationWrapper>
         </div>
