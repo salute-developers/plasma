@@ -85,3 +85,4 @@ export * from './components/CodeField';
 export * from './components/CodeInput';
 export * from './components/Tour';
 export * from './components/ViewContainer';
+export * from './components/InformationWrapper';
