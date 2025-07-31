@@ -31,9 +31,7 @@ type MenuItem<T extends boolean = false> = {
      * Флаг для отображения индикатора у элемента меню.
      */
     hasIndicator?: boolean;
-} & T extends true
-    ? { icon: ReactNode }
-    : { icon?: never };
+} & (T extends true ? { icon: ReactNode } : { icon?: never });
 
 /**
  * Секция меню в NavigationDrawer.
@@ -42,7 +40,7 @@ type SectionItem<T extends boolean = false> = {
     /**
      * Список элементов в секции.
      */
-    items: MenuItem<T>;
+    items: MenuItem<T>[];
     /**
      * Заголовок секции. При его отсутствии появится разделитель.
      */
@@ -92,7 +90,7 @@ export type NavigationDrawerProps = {
           withContentLeft: true;
       }
     | {
-          sections: SectionItem[];
+          sections: SectionItem<false>[];
           withContentLeft?: never;
       }
 ) &
