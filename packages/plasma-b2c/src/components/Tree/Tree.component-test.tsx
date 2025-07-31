@@ -236,6 +236,18 @@ describe('plasma-b2c: Tree', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: autoExpandParent', () => {
+        cy.viewport(1000, 1000);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tree items={treeData} autoExpandParent expandedKeys={['0-0-0']} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('flow: controlled', () => {
         cy.viewport(1000, 1000);
 
