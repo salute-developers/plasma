@@ -83,7 +83,7 @@ export function App() {
 import React, { useState } from 'react';
 import { Button } from '@salutejs/sdds-netology';
 
-const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(Button);
+const ButtonSkeleton = withSkeleton(Button);
 
 export default function App () {
     const [skeleton, setSkeleton] = useState(false);

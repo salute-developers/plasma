@@ -27,7 +27,7 @@ const textSizes = Object.keys(typography) as TypographyTypes[];
 
 const roundnessKeys = Object.keys(radiuses).map((r) => Number(r));
 
-const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(Button);
+const ButtonSkeleton = withSkeleton(Button);
 
 const h1Style = { marginTop: '0.75rem' };
 

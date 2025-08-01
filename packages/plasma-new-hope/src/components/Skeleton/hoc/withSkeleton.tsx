@@ -21,7 +21,7 @@ export const withSkeleton = <P extends WithSkeletonProps>(Component: FC<P>) => (
     skeleton,
     className,
     ...props
-}: P) => {
+}: P & WithSkeletonProps) => {
     const skeletonClass = skeleton ? 'apply-skeleton-gradient' : undefined;
     const skeletonGradientColor = getSkeletonColor({ lighter: true });
     const Wrapper = styled.div`
