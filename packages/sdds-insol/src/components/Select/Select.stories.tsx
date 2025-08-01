@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import './style.css';
 
 import { Select } from './Select';
+import { config } from './Select.config';
 
 type StorySelectProps = ComponentProps<typeof Select> & {
     enableContentLeft?: boolean;
@@ -20,8 +21,8 @@ const getIconSize = (size?: string) => {
     return size === 'xs' || size === 's' ? 'xs' : 's';
 };
 
-const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
-const size = ['xs', 's', 'm', 'l'];
+const { views, sizes } = getConfigVariations(config);
+
 const labelPlacement = ['inner', 'outer'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
@@ -59,11 +60,11 @@ const meta: Meta<StorySelectProps> = {
         },
         size: {
             control: 'select',
-            options: size,
+            options: sizes,
         },
         view: {
             control: 'select',
-            options: view,
+            options: views,
         },
         labelPlacement: {
             control: 'select',
@@ -470,7 +471,7 @@ const items = [
     {
         value: 'africa',
         label: 'Африка',
-        isDisabled: true,
+        disabled: true,
     },
 ];
 
@@ -1022,7 +1023,7 @@ export const Common: StoryObj<StorySelectProps> = {
     },
     argTypes: {
         size: {
-            options: size,
+            options: sizes,
             control: 'select',
         },
     },
