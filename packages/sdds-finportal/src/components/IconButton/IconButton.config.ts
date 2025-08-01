@@ -155,6 +155,21 @@ export const config = {
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
+            xxs: css`
+                ${iconButtonTokens.iconButtonHeight}: 1.5rem;
+                ${iconButtonTokens.iconButtonWidth}: 1.5rem;
+                ${iconButtonTokens.iconButtonPadding}: 0.5rem;
+                ${iconButtonTokens.iconButtonRadius}: 0.375rem;
+                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${iconButtonTokens.iconButtonSpinnerSize}: 0.625rem;
+                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
+            `,
         },
         disabled: {
             true: css`
