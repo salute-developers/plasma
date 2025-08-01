@@ -37,10 +37,11 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
             view,
             size,
             iconPlacement,
-            showCloseIcon = true,
             layout = layouts.vertical as NotificationLayout,
             icon,
+            showCloseIcon = true,
             closeIconType,
+            customCloseIcon,
             textColor,
             titleColor,
             backgroundColor,
@@ -129,11 +130,12 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                             onClick={onCloseButtonClick}
                             className={cx(classes.closeIcon, getLayoutClass(layout))}
                         >
-                            {closeIconType === 'default' ? (
-                                <IconCross size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
-                            ) : (
-                                <IconCrossThin size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
-                            )}
+                            {customCloseIcon ||
+                                (closeIconType === 'default' ? (
+                                    <IconCross size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
+                                ) : (
+                                    <IconCrossThin size="s" sizeCustomProperty={tokens.closeIconSize} color="inherit" />
+                                ))}
                         </CloseIconWrapper>
                     )}
                 </Wrapper>

@@ -16,7 +16,7 @@ import {
 import { WithTheme } from '../../_helpers';
 import { PopupProvider } from '../Popup/Popup';
 import type { NotificationProps } from '../../../components/Notification';
-import { IconDisclosureRight } from '../../../components/_Icon';
+import { IconDisclosureRight, IconTrash } from '../../../components/_Icon';
 import {
     titles,
     size,
@@ -65,6 +65,7 @@ interface StoryDefaultProps {
     placement?: NotificationPlacement;
     view: 'default';
     iconColor?: string;
+    enableCustomCloseIcon?: boolean;
 }
 
 const StoryDefault = ({
@@ -76,6 +77,7 @@ const StoryDefault = ({
     showLeftIcon,
     iconColor,
     view,
+    enableCustomCloseIcon,
     ...rest
 }: StoryDefaultProps) => {
     return (
@@ -93,6 +95,7 @@ const StoryDefault = ({
             }
             size={size}
             layout={layout}
+            {...(enableCustomCloseIcon && { customCloseIcon: <IconTrash color={iconColor || 'inherit'} /> })}
             {...rest}
         >
             {children}
@@ -144,11 +147,21 @@ export const Default: StoryObj<StoryDefaultProps> = {
         backgroundColor: {
             control: 'color',
         },
+        enableCustomCloseIcon: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'showCloseIcon',
+                truthy: true,
+            },
+        },
     },
     args: {
         title: 'Title',
         children: longText,
         showCloseIcon: true,
+        enableCustomCloseIcon: false,
         showLeftIcon: true,
         iconPlacement: 'top',
         layout: 'vertical',
@@ -165,9 +178,10 @@ type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
     size: 'xs' | 'xxs';
     iconPlacement: NotificationIconPlacement;
     placement?: NotificationPlacement;
+    enableCustomCloseIcon?: boolean;
 };
 
-const StoryLiveDemo = ({ timeout, placement, width, maxWidth, ...rest }: StoryLiveDemoProps) => {
+const StoryLiveDemo = ({ timeout, placement, width, maxWidth, enableCustomCloseIcon, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
         addNotification(
@@ -175,6 +189,8 @@ const StoryLiveDemo = ({ timeout, placement, width, maxWidth, ...rest }: StoryLi
                 icon: <IconDisclosureRight color="inherit" />,
                 width,
                 maxWidth,
+                ...(enableCustomCloseIcon && { customCloseIcon: <IconTrash color="inherit" /> }),
+
                 ...rest,
                 ...getNotificationProps(count.current),
             },
@@ -206,6 +222,15 @@ export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
                 type: 'select',
             },
         },
+        enableCustomCloseIcon: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'showCloseIcon',
+                truthy: true,
+            },
+        },
     },
     args: {
         timeout: 3000,
@@ -214,6 +239,8 @@ export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
         placement: 'bottom-right',
         width: '',
         maxWidth: '',
+        enableCustomCloseIcon: false,
+        showCloseIcon: true,
     },
     render: (args) => <StoryLiveDemo {...args} />,
 };
