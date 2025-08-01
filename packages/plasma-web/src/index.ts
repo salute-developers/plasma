@@ -84,4 +84,5 @@ export * from './components/Table';
 export * from './components/CodeField';
 export * from './components/CodeInput';
 export * from './components/Tour';
+export * from './components/EmbedIconButton';
 export * from './components/ViewContainer';
