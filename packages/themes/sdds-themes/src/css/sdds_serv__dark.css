@@ -585,6 +585,9 @@
   --outline-transparent-primary: #FFFFFF1F;
   --outline-transparent-secondary: #FFFFFF47;
   --outline-transparent-tertiary: #FFFFFF8F;
+  --outline-solid-default-hover: #C7C7C7FF;
+  --outline-solid-default-active: #E0E0E0FF;
+  --outline-solid-default: #F9F9F9;
   --on-dark-outline-solid-primary-hover: #FFFFFFFF;
   --on-dark-outline-solid-primary-active: #ADADADFF;
   --on-dark-outline-solid-secondary-hover: #595959FF;
@@ -657,6 +660,9 @@
   --on-dark-outline-transparent-tertiary: #FFFFFF8F;
   --on-dark-outline-solid-secondary: #4E4E4E;
   --on-dark-outline-solid-tertiary: #858585;
+  --on-dark-outline-solid-default: #F9F9F9;
+  --on-dark-outline-solid-default-hover: #C7C7C7FF;
+  --on-dark-outline-solid-default-active: #E0E0E0FF;
   --on-light-outline-solid-primary-hover: #ABABABFF;
   --on-light-outline-solid-primary-active: #C4C4C4FF;
   --on-light-outline-solid-secondary-hover: #BDBDBDFF;
@@ -729,6 +735,9 @@
   --on-light-outline-transparent-primary: #0808081F;
   --on-light-outline-transparent-secondary: #08080847;
   --on-light-outline-transparent-tertiary: #0808088F;
+  --on-light-outline-solid-default: #080808;
+  --on-light-outline-solid-default-hover: #FFFFFFFF;
+  --on-light-outline-solid-default-active: #C7C7C7FF;
   --inverse-outline-solid-primary-hover: #ABABABFF;
   --inverse-outline-solid-primary-active: #C4C4C4FF;
   --inverse-outline-solid-secondary-hover: #BDBDBDFF;
@@ -799,6 +808,9 @@
   --inverse-outline-transparent-secondary: #08080847;
   --inverse-outline-transparent-tertiary: #0808088F;
   --inverse-outline-solid-secondary: #B3B3B3;
+  --inverse-outline-solid-default-hover: #FFFFFFFF;
+  --inverse-outline-solid-default-active: #C7C7C7FF;
+  --inverse-outline-solid-default: #080808;
   --data-yellow: #F3A912;
   --data-yellow-hover: #F4B22FFF;
   --data-yellow-active: #EDA20CFF;
