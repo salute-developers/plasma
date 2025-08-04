@@ -36,6 +36,10 @@ export type BaseAttachProps = {
      */
     helperTextView?: string;
     /**
+     * Вид кастомной иконки слева
+     */
+    customIcon?: React.ReactNode;
+    /**
      * Callback при удалении прикрепленного файла
      */
     onClear?: () => void;
