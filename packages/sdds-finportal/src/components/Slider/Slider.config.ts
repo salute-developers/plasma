@@ -12,7 +12,7 @@ export const config = {
 
                 ${sliderTokens.rangeValueColor}: var(--text-secondary);
 
-                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.thumbBorderColor}: var(--outline-solid-tertiary);
                 ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
                 ${sliderTokens.thumbFocusBorderColor}: var(--surface-solid-default);
 
@@ -34,7 +34,7 @@ export const config = {
 
                 ${sliderTokens.rangeValueColor}: var(--text-secondary);
 
-                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.thumbBorderColor}: var(--outline-solid-tertiary);
                 ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
                 ${sliderTokens.thumbFocusBorderColor}: var(--surface-accent);
 
