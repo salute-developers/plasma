@@ -5798,7 +5798,7 @@
         "surface": {
             "default": {
                 "surfaceSolidPrimaryHover": {
-                    "value": "#F8FAFBFF",
+                    "value": "#EEF2F6FF",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidPrimaryActive": {
@@ -5806,19 +5806,19 @@
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidSecondaryHover": {
-                    "value": "#F5F8F9FF",
+                    "value": "#E2E9EEFF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidSecondaryActive": {
-                    "value": "#E2E9EEFF",
+                    "value": "#DEE7EDFF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidTertiaryHover": {
-                    "value": "#E2E9EEFF",
+                    "value": "#CFDAE2FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidTertiaryActive": {
-                    "value": "#C9D5DEFF",
+                    "value": "#C9D6DFFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidCardHover": {
@@ -5838,35 +5838,35 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#070B0E00",
+                    "value": "#D5DFE652",
                     "comment": "Основной прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#070B0E0A",
+                    "value": "#D5DFE657",
                     "comment": "Основной прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#070B0E05",
+                    "value": "#ADB9C247",
                     "comment": "Вторичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#070B0E1A",
+                    "value": "#ADB9C24D",
                     "comment": "Вторичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentTertiaryHover": {
-                    "value": "#070B0E0A",
+                    "value": "#8A959D57",
                     "comment": "Третичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentTertiaryActive": {
-                    "value": "#070B0E29",
+                    "value": "#8A959D5C",
                     "comment": "Третичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentDeepHover": {
-                    "value": "#070B0E8F",
+                    "value": "#30373CAD",
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentDeepActive": {
-                    "value": "#070B0EAD",
+                    "value": "#30373CCC",
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCardHover": {
@@ -5909,11 +5909,11 @@
                     "enabled": false
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#E5F5FFFF",
+                    "value": "#C7E9FFFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#C2E7FFFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorGradient": {
@@ -5932,11 +5932,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#118CDF0A",
+                    "value": "#118CDF2E",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#118CDF29",
+                    "value": "#118CDF33",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -6077,7 +6077,7 @@
                     "comment": "Цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinorHover": {
-                    "value": "#B1FBBFFF",
+                    "value": "#94FAA7FF",
                     "comment": "Минорный цвет фона поверхности/контрола успех"
                 },
                 "surfacePositiveMinorActive": {
@@ -6085,7 +6085,7 @@
                     "comment": "Минорный цвет фона поверхности/контрола успех"
                 },
                 "surfaceWarningMinorHover": {
-                    "value": "#FEEFE6FF",
+                    "value": "#FEDCC8FF",
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceWarningMinorActive": {
@@ -6093,51 +6093,51 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegativeMinorHover": {
-                    "value": "#FFF5F6FF",
-                    "comment": "Минорный цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceNegativeMinorActive": {
                     "value": "#FFD6DAFF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка"
                 },
-                "surfaceInfoMinorHover": {
-                    "value": "#E5F5FFFF",
-                    "comment": "Минорный цвет фона поверхности/контрола информация"
+                "surfaceNegativeMinorActive": {
+                    "value": "#FFD1D6FF",
+                    "comment": "Минорный цвет фона поверхности/контрола ошибка"
                 },
-                "surfaceInfoMinorActive": {
+                "surfaceInfoMinorHover": {
                     "value": "#C7E9FFFF",
                     "comment": "Минорный цвет фона поверхности/контрола информация"
                 },
+                "surfaceInfoMinorActive": {
+                    "value": "#C2E7FFFF",
+                    "comment": "Минорный цвет фона поверхности/контрола информация"
+                },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#1A9E320A",
+                    "value": "#1A9E322E",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#1A9E3229",
+                    "value": "#1A9E3233",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FA5F050A",
+                    "value": "#FA5F052E",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FA5F0529",
+                    "value": "#FA5F0533",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FF293E0A",
+                    "value": "#FF293E2E",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FF293E29",
+                    "value": "#FF293E33",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceTransparentInfoHover": {
-                    "value": "#118CDF0A",
+                    "value": "#118CDF2E",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация"
                 },
                 "surfaceTransparentInfoActive": {
-                    "value": "#118CDF29",
+                    "value": "#118CDF33",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация"
                 },
                 "surfaceSolidCard": {
@@ -6720,7 +6720,7 @@
             },
             "onLight": {
                 "surfaceSolidPrimaryHover": {
-                    "value": "#F8FAFBFF",
+                    "value": "#EEF2F6FF",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidPrimaryActive": {
@@ -6728,19 +6728,19 @@
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidSecondaryHover": {
-                    "value": "#F5F8F9FF",
+                    "value": "#E2E9EEFF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidSecondaryActive": {
-                    "value": "#E2E9EEFF",
+                    "value": "#DEE7EDFF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidTertiaryHover": {
-                    "value": "#E2E9EEFF",
+                    "value": "#CFDAE2FF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidTertiaryActive": {
-                    "value": "#C9D5DEFF",
+                    "value": "#C9D6DFFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidCardHover": {
@@ -6760,35 +6760,35 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#070B0E00",
+                    "value": "#D5DFE652",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#070B0E0A",
+                    "value": "#D5DFE657",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#070B0E05",
+                    "value": "#ADB9C247",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#070B0E1A",
+                    "value": "#ADB9C24D",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentTertiaryHover": {
-                    "value": "#070B0E0A",
+                    "value": "#8A959D57",
                     "comment": "Третичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentTertiaryActive": {
-                    "value": "#070B0E29",
+                    "value": "#8A959D5C",
                     "comment": "Третичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentDeepHover": {
-                    "value": "#070B0E8F",
+                    "value": "#30373CAD",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentDeepActive": {
-                    "value": "#070B0EAD",
+                    "value": "#30373CCC",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentCardHover": {
@@ -6835,11 +6835,11 @@
                     "enabled": false
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#E5F5FFFF",
+                    "value": "#C7E9FFFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#C2E7FFFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorGradient": {
@@ -6858,11 +6858,11 @@
                     "enabled": false
                 },
                 "surfaceTransparentAccentHover": {
-                    "value": "#118CDF0A",
+                    "value": "#118CDF2E",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentAccentActive": {
-                    "value": "#118CDF29",
+                    "value": "#118CDF33",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentAccentGradient": {
@@ -7003,7 +7003,7 @@
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfacePositiveMinorHover": {
-                    "value": "#B1FBBFFF",
+                    "value": "#94FAA7FF",
                     "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfacePositiveMinorActive": {
@@ -7011,7 +7011,7 @@
                     "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfaceWarningMinorHover": {
-                    "value": "#FEEFE6FF",
+                    "value": "#FEDCC8FF",
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceWarningMinorActive": {
@@ -7019,51 +7019,51 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceNegativeMinorHover": {
-                    "value": "#FFF5F6FF",
-                    "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне"
-                },
-                "surfaceNegativeMinorActive": {
                     "value": "#FFD6DAFF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
-                "surfaceInfoMinorHover": {
-                    "value": "#E5F5FFFF",
-                    "comment": "Минорный цвет фона поверхности/контрола информация на светлом фоне"
+                "surfaceNegativeMinorActive": {
+                    "value": "#FFD1D6FF",
+                    "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
-                "surfaceInfoMinorActive": {
+                "surfaceInfoMinorHover": {
                     "value": "#C7E9FFFF",
                     "comment": "Минорный цвет фона поверхности/контрола информация на светлом фоне"
                 },
+                "surfaceInfoMinorActive": {
+                    "value": "#C2E7FFFF",
+                    "comment": "Минорный цвет фона поверхности/контрола информация на светлом фоне"
+                },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#1A9E320A",
+                    "value": "#1A9E322E",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#1A9E3229",
+                    "value": "#1A9E3233",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FA5F050A",
+                    "value": "#FA5F052E",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FA5F0529",
+                    "value": "#FA5F0533",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FF293E0A",
+                    "value": "#FF293E2E",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FF293E29",
+                    "value": "#FF293E33",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceTransparentInfoHover": {
-                    "value": "#118CDF0A",
+                    "value": "#118CDF2E",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfaceTransparentInfoActive": {
-                    "value": "#118CDF29",
+                    "value": "#118CDF33",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfaceSolidCard": {
@@ -9326,7 +9326,7 @@
                     "comment": "Минорный желтый цвет для данных"
                 },
                 "dataYellowMinorHover": {
-                    "value": "#FFDA8FFF",
+                    "value": "#FFD070FF",
                     "comment": "Минорный желтый цвет для данных"
                 },
                 "dataYellowMinorActive": {
@@ -9338,11 +9338,11 @@
                     "comment": "Прозрачный желтый цвет для данных"
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A8127A",
+                    "value": "#F3A9129E",
                     "comment": "Прозрачный желтый цвет для данных"
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A81299",
+                    "value": "#F3A912A3",
                     "comment": "Прозрачный желтый цвет для данных"
                 }
             },
@@ -9402,7 +9402,7 @@
                     "comment": "Минорный желтый цвет для данных на светлом фоне"
                 },
                 "dataYellowMinorHover": {
-                    "value": "#FFDA8FFF",
+                    "value": "#FFD070FF",
                     "comment": "Минорный желтый цвет для данных на светлом фоне"
                 },
                 "dataYellowMinorActive": {
@@ -9414,11 +9414,11 @@
                     "comment": "Прозрачный желтый цвет для данных на светлом фоне"
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A8127A",
+                    "value": "#F3A9129E",
                     "comment": "Прозрачный желтый цвет для данных на светлом фоне"
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A81299",
+                    "value": "#F3A912A3",
                     "comment": "Прозрачный желтый цвет для данных на светлом фоне"
                 }
             },
