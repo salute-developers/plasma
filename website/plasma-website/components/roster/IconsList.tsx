@@ -146,25 +146,55 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick, pageRe
 
     const items = useMemo(() => {
         if (!searchQuery) {
-            return iconsList;
+            const processedGroups = iconsList.map((group) => ({
+                ...group,
+                items: [...group.items].sort((a, b) => {
+                    if (!a.isDeprecated && b.isDeprecated) return -1;
+                    if (a.isDeprecated && !b.isDeprecated) return 1;
+                    return 0;
+                }),
+            }));
+
+            return processedGroups.sort((a, b) => {
+                const aAllDeprecated = a.items.every((item) => item.isDeprecated);
+                const bAllDeprecated = b.items.every((item) => item.isDeprecated);
+                if (!aAllDeprecated && bAllDeprecated) return -1;
+                if (aAllDeprecated && !bAllDeprecated) return 1;
+                return 0;
+            });
         }
 
         const regExp = new RegExp(searchQuery.toLocaleLowerCase().replace(/[^\w\u0400-\u04FF]/g, ''));
 
-        return iconsList
+        let filteredGroups = iconsList
             .map((group) => ({
                 ...group,
-                items: group.items.filter(({ name }) => {
-                    return name.toLocaleLowerCase().search(regExp) !== -1;
-                }),
+                items: group.items
+                    .filter(({ name }) => {
+                        return name.toLocaleLowerCase().search(regExp) !== -1;
+                    })
+                    .sort((a, b) => {
+                        if (!a.isDeprecated && b.isDeprecated) return -1;
+                        if (a.isDeprecated && !b.isDeprecated) return 1;
+                        return 0;
+                    }),
             }))
             .filter((group) => {
                 return group.items.length;
             });
+
+        filteredGroups = filteredGroups.sort((a, b) => {
+            const aAllDeprecated = a.items.every((item) => item.isDeprecated);
+            const bAllDeprecated = b.items.every((item) => item.isDeprecated);
+            if (!aAllDeprecated && bAllDeprecated) return -1;
+            if (aAllDeprecated && !bAllDeprecated) return 1;
+            return 0;
+        });
+
+        return filteredGroups;
     }, [searchQuery]);
 
     useEffect(() => {
-        // INFO: Определить смещение для grid cell после фильтра поиска
         items.forEach((group, gridIndex) => {
             const currentCellIndex = group.items.findIndex(({ name }) => name === state.wizardItemName);
 
