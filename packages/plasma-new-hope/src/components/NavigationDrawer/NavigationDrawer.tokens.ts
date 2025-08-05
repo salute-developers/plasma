@@ -4,6 +4,7 @@ export const classes = {
     navigationDrawerSection: 'navigation-drawer-section',
     navigationDrawerSectionHeader: 'navigation-drawer-section-header',
     navigationDrawerMenuItem: 'navigation-drawer-menu-item',
+    navigationDrawerMenuItemSelected: 'navigation-drawer-menu-item-selected',
     navigationDrawerMenuItemDisabled: 'navigation-drawer-menu-item-disabled',
     navigationDrawerMenuItemIcon: 'navigation-drawer-menu-item-icon',
     navigationDrawerContent: 'navigation-drawer-content',
@@ -18,4 +19,6 @@ export const tokens = {
     iconSize: '--plasma-navigation-drawer-icon-size',
     sectionColor: '--plasma-navigation-drawer-section-color',
     dividerColor: '--plasma-navigation-drawer-divider-color',
+    selectedColor: '--plasma-navigation-drawer-selected-color',
+    hoverColor: '--plasma-navigation-drawer-hover-color',
 };

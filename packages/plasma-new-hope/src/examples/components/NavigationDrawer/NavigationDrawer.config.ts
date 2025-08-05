@@ -13,6 +13,9 @@ export const config = {
                 ${navigationDrawerTokens.boxShadow}: var(--shadow-down-soft-s);
                 ${navigationDrawerTokens.sectionColor}: #08080856;
                 ${navigationDrawerTokens.dividerColor}: #08080812;
+                ${navigationDrawerTokens.selectedColor}: #08080806;
+                ${navigationDrawerTokens.hoverColor}: #08080803;
+                ${navigationDrawerTokens.borderRadius}: 4px;
             `,
         },
         size: {

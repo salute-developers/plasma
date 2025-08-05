@@ -38,6 +38,12 @@ const Divider = styled.div`
     height: 1px;
 `;
 
+const Link = styled.a`
+    text-decoration: none;
+    color: inherit;
+    padding: 12px;
+`;
+
 export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationDrawerProps>) => {
     return forwardRef<HTMLDivElement, NavigationDrawerProps>((props, ref) => {
         const { children, ...rest } = props;
@@ -49,8 +55,7 @@ export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationD
                 <Sidebar
                     className={cx(classes.navigationDrawerSidebar, !isOpened && classes.navigationDrawerSidebarClosed)}
                 >
-                    {/* TODO узнать что делать с header, когда меню скрыто */}
-                    {isOpened && header}
+                    {header}
 
                     {sections.map((section, index) => (
                         <Section className={classes.navigationDrawerSection} key={String(section.label) + index}>
@@ -62,24 +67,57 @@ export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationD
                                         </div>
                                     )}
                                     {isOpened && section.label}
+                                    {!withContentLeft && (
+                                        <div className={classes.navigationDrawerMenuItemIcon}>
+                                            <IconDisclosureDownCentered />
+                                        </div>
+                                    )}
                                 </SectionHeader>
                             ) : (
                                 <Divider className={classes.navigationDrawerDivider} />
                             )}
 
-                            {section.items.map((item, index) => (
-                                <MenuItem className={classes.navigationDrawerMenuItem} key={String(item.label) + index}>
-                                    {item.icon && (
-                                        <div className={classes.navigationDrawerMenuItemIcon}>{item.icon}</div>
-                                    )}
-                                    {isOpened && item.label}
-                                </MenuItem>
-                            ))}
+                            {section.items.map((item, index) => {
+                                const onClick =
+                                    item.action && typeof item.action !== 'string' && !item.disabled
+                                        ? item.action
+                                        : undefined;
+                                const menuClasses = cx(
+                                    classes.navigationDrawerMenuItem,
+                                    item.selected && classes.navigationDrawerMenuItemSelected,
+                                    item.disabled && classes.navigationDrawerMenuItemDisabled,
+                                );
+                                const menuItemContent = (
+                                    <>
+                                        {item.icon && withContentLeft && (
+                                            <div className={classes.navigationDrawerMenuItemIcon}>{item.icon}</div>
+                                        )}
+                                        {isOpened && item.label}
+                                    </>
+                                );
+                                return typeof item.action === 'string' ? (
+                                    <Link
+                                        className={menuClasses}
+                                        key={String(item.label) + index}
+                                        href={item.action}
+                                        rel="noopener noreferrer"
+                                    >
+                                        {menuItemContent}
+                                    </Link>
+                                ) : (
+                                    <MenuItem
+                                        className={menuClasses}
+                                        key={String(item.label) + index}
+                                        onClick={onClick}
+                                    >
+                                        {menuItemContent}
+                                    </MenuItem>
+                                );
+                            })}
                         </Section>
                     ))}
 
-                    {/* TODO узнать что делать с footer, когда меню скрыто */}
-                    {isOpened && <Footer>{footer}</Footer>}
+                    <Footer>{footer}</Footer>
                 </Sidebar>
                 <div className={classes.navigationDrawerContent}>{children}</div>
             </Root>
