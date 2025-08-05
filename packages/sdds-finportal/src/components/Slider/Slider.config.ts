@@ -51,28 +51,6 @@ export const config = {
                 ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
                 ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
             `,
-            gradient: css`
-                ${sliderTokens.labelColor}: var(--text-primary);
-
-                ${sliderTokens.rangeValueColor}: var(--text-secondary);
-
-                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
-                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
-                ${sliderTokens.thumbFocusBorderColor}: var(--surface-accent-gradient);
-
-                ${sliderTokens.railBackgroundColor}: var(--surface-solid-tertiary);
-
-                ${sliderTokens.fillColor}: var(--surface-accent-gradient);
-
-                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
-                ${sliderTokens.textFieldColor}: var(--text-primary);
-                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
-
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
-            `,
         },
         size: {
             l: css`
