@@ -314,6 +314,7 @@ export const Date_Picker: StoryObj<StoryDatePickerProps> = {
 };
 
 const StoryTimePicker = ({
+    step,
     initialValue,
     minDate,
     maxDate,
@@ -380,7 +381,6 @@ export const Time_Picker: StoryObj<StoryTimePickerProps> = {
         scrollSnapType: isSberbox ? 'none' : 'mandatory',
         size: 'l',
         visibleItems: 3,
-        step: 1,
         infiniteScroll: true,
         hoursLabel: '',
         minutesLabel: '',
