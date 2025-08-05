@@ -390,9 +390,11 @@ export const Picker = ({
         }
         switch (key) {
             case 'UP':
+            case 'LONG_UP':
                 toPrev();
                 break;
             case 'DOWN':
+            case 'LONG_DOWN':
                 toNext();
                 break;
             case 'PAGE_UP':
