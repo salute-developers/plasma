@@ -2289,7 +2289,7 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceWarningMinorActive": {
-                    "value": "#FEDCC8FF",
+                    "value": "#FED8C3FF",
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceNegativeMinorHover": {
@@ -4731,8 +4731,24 @@
                     "value": "[general.amber.900]",
                     "comment": "Светлый желтый цвет для данных"
                 },
+                "dataYellowLightHover": {
+                    "value": "#FFF4E0FF",
+                    "comment": "Светлый желтый цвет для данных"
+                },
+                "dataYellowLightActive": {
+                    "value": "#FFF3DBFF",
+                    "comment": "Светлый желтый цвет для данных"
+                },
                 "dataSkyBlueLight": {
                     "value": "[general.blue.900]",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataSkyBlueLightHover": {
+                    "value": "#E0F8FFFF",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataSkyBlueLightActive": {
+                    "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных"
                 }
             },
@@ -4777,9 +4793,25 @@
                     "value": "[general.amber.900]",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
+                "dataYellowLightHover": {
+                    "value": "#FFF4E0FF",
+                    "comment": "Светлый желтый цвет для данных на темном фоне"
+                },
+                "dataYellowLightActive": {
+                    "value": "#FFF3DBFF",
+                    "comment": "Светлый желтый цвет для данных на темном фоне"
+                },
                 "dataSkyBlueLight": {
                     "value": "[general.blue.900]",
                     "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataSkyBlueLightHover": {
+                    "value": "#E0F8FFFF",
+                    "comment": "Cветлый голубой цвет для данных на темном фоне"
+                },
+                "dataSkyBlueLightActive": {
+                    "value": "#DBF7FFFF",
+                    "comment": "Cветлый голубой цвет для данных на темном фоне"
                 }
             },
             "onLight": {
@@ -4823,8 +4855,24 @@
                     "value": "[general.amber.100]",
                     "comment": "Светлый желтый цвет для данных на светлом фоне"
                 },
+                "dataYellowLightHover": {
+                    "value": "#FFF4E0FF",
+                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowLightActive": {
+                    "value": "#FFF3DBFF",
+                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                },
                 "dataSkyBlueLight": {
                     "value": "[general.skyBlue.100]",
+                    "comment": "Светлый голубой цвет для данных на светлом фоне"
+                },
+                "dataSkyBlueLightHover": {
+                    "value": "#E0F8FFFF",
+                    "comment": "Светлый голубой цвет для данных на светлом фоне"
+                },
+                "dataSkyBlueLightActive": {
+                    "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных на светлом фоне"
                 }
             },
@@ -4869,8 +4917,24 @@
                     "value": "[general.amber.100]",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
+                "dataYellowLightHover": {
+                    "value": "#FFF4E0FF",
+                    "comment": "Инвертированный светлый желтый цвет для данных"
+                },
+                "dataYellowLightActive": {
+                    "value": "#FFF3DBFF",
+                    "comment": "Инвертированный светлый желтый цвет для данных"
+                },
                 "dataSkyBlueLight": {
                     "value": "[general.skyBlue.100]",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataSkyBlueLightHover": {
+                    "value": "#E0F8FFFF",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataSkyBlueLightActive": {
+                    "value": "#DBF7FFFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
                 }
             }
@@ -6229,7 +6293,7 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceWarningMinorActive": {
-                    "value": "#FEDCC8FF",
+                    "value": "#FED8C3FF",
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegativeMinorHover": {
@@ -6714,11 +6778,11 @@
                     "comment": "Минорный цвет фона поверхности/контрола информация на темном фоне"
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#10344CFF",
+                    "value": "#1A9E321F ",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#091D2AFF",
+                    "value": "#1A9E323D",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceTransparentWarningHover": {
@@ -6826,7 +6890,7 @@
                     "comment": "Минорный цвет фона поверхности/контрола информация на темном фоне"
                 },
                 "surfaceTransparentPositive": {
-                    "value": "[general.blue.900]",
+                    "value": "#1A9E3233",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceTransparentWarning": {
@@ -7155,7 +7219,7 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceWarningMinorActive": {
-                    "value": "#FEDCC8FF",
+                    "value": "#FED8C3FF",
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceNegativeMinorHover": {
@@ -9597,8 +9661,24 @@
                     "value": "[general.amber.100]",
                     "comment": "Светлый желтый цвет для данных"
                 },
+                "dataYellowLightHover": {
+                    "value": "#FFF4E0FF",
+                    "comment": "Светлый желтый цвет для данных"
+                },
+                "dataYellowLightActive": {
+                    "value": "#FFF3DBFF",
+                    "comment": "Светлый желтый цвет для данных"
+                },
                 "dataSkyBlueLight": {
                     "value": "[general.skyBlue.100]",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataSkyBlueLightHover": {
+                    "value": "#E0F8FFFF",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataSkyBlueLightActive": {
+                    "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных"
                 }
             },
@@ -9643,8 +9723,24 @@
                     "value": "[general.amber.900]",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
+                "dataYellowLightHover": {
+                    "value": "#FFF4E0FF",
+                    "comment": "Светлый желтый цвет для данных на темном фоне"
+                },
+                "dataYellowLightActive": {
+                    "value": "#FFF3DBFF",
+                    "comment": "Светлый желтый цвет для данных на темном фоне"
+                },
                 "dataSkyBlueLight": {
                     "value": "[general.blue.900]",
+                    "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataSkyBlueLightHover": {
+                    "value": "#E0F8FFFF",
+                    "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataSkyBlueLightActive": {
+                    "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных на темном фоне"
                 }
             },
@@ -9689,8 +9785,24 @@
                     "value": "[general.amber.100]",
                     "comment": "Светлый желтый цвет для данных на светлом фоне"
                 },
+                "dataYellowLightHover": {
+                    "value": "#FFF4E0FF",
+                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                },
+                "dataYellowLightActive": {
+                    "value": "#FFF3DBFF",
+                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                },
                 "dataSkyBlueLight": {
                     "value": "[general.skyBlue.100]",
+                    "comment": "Светлый голубой цвет для данных на светлом фоне"
+                },
+                "dataSkyBlueLightHover": {
+                    "value": "#E0F8FFFF",
+                    "comment": "Светлый голубой цвет для данных на светлом фоне"
+                },
+                "dataSkyBlueLightActive": {
+                    "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных на светлом фоне"
                 }
             },
@@ -9735,8 +9847,24 @@
                     "value": "[general.amber.900]",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
+                "dataYellowLightHover": {
+                    "value": "#FFF4E0FF",
+                    "comment": "Инвертированный светлый желтый цвет для данных"
+                },
+                "dataYellowLightActive": {
+                    "value": "#FFF3DBFF",
+                    "comment": "Инвертированный светлый желтый цвет для данных"
+                },
                 "dataSkyBlueLight": {
                     "value": "[general.blue.900]",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataSkyBlueLightHover": {
+                    "value": "#E0F8FFFF",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataSkyBlueLightActive": {
+                    "value": "#DBF7FFFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
                 }
             }
