@@ -17,7 +17,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { EmbedIconButton } from '@salutejs/{{ package }}';
+import { EmbedIconButton } from '@salutejs/sdds-scan';
 import { IconClose } from '@salutejs/plasma-icons';
 
 export function App() {
@@ -38,15 +38,12 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { EmbedIconButton } from '@salutejs/{{ package }}';
+import { EmbedIconButton } from '@salutejs/sdds-scan';
 import { IconClose } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
         <div>
-            <EmbedIconButton size="xl">
-                <IconClose color="inherit" />
-            </EmbedIconButton>
             <EmbedIconButton size="l">
                 <IconClose color="inherit" />
             </EmbedIconButton>
@@ -55,9 +52,6 @@ export function App() {
             </EmbedIconButton>
             <EmbedIconButton size="s">
                 <IconClose color="inherit" />
-            </EmbedIconButton>
-            <EmbedIconButton size="xs">
-                <IconClose color="inherit" size="xs" />
             </EmbedIconButton>
         </div>
     );
@@ -78,12 +72,12 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { EmbedIconButton } from '@salutejs/{{ package }}';
+import { EmbedIconButton } from '@salutejs/sdds-scan';
 import { IconClose } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div style=\{{ display: 'flex', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <EmbedIconButton size="s" view="default">
                 <IconClose color="inherit" />
             </EmbedIconButton>
