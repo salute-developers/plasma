@@ -46,6 +46,21 @@ export const base = css`
                 display: flex;
                 gap: 12px;
                 align-items: center;
+                cursor: pointer;
+                border-radius: var(${tokens.borderRadius});
+
+                &:hover {
+                    background: var(${tokens.hoverColor});
+                }
+
+                &.${classes.navigationDrawerMenuItemSelected} {
+                    background: var(${tokens.selectedColor});
+                }
+
+                &.${classes.navigationDrawerMenuItemDisabled} {
+                    cursor: not-allowed;
+                    opacity: 0.4;
+                }
             }
         }
 
