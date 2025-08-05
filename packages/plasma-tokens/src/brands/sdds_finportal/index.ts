@@ -1124,7 +1124,7 @@ export const onLightSurfacePositiveMinorActive = 'var(--on-light-surface-positiv
 export const onLightSurfaceWarningMinorHover = 'var(--on-light-surface-warning-minor-hover, #FEE9DCFF)';
 
 /** Минорный цвет фона поверхности/контрола предупреждение на светлом фоне */
-export const onLightSurfaceWarningMinorActive = 'var(--on-light-surface-warning-minor-active, #FEDCC8FF)';
+export const onLightSurfaceWarningMinorActive = 'var(--on-light-surface-warning-minor-active, #FED8C3FF)';
 
 /** Минорный цвет фона поверхности/контрола ошибка на светлом фоне */
 export const onLightSurfaceNegativeMinorHover = 'var(--on-light-surface-negative-minor-hover, #FFEBEDFF)';
@@ -2246,8 +2246,20 @@ export const dataDefaultDataYellowTransparentActive = 'var(--data-default-data-y
 /** Светлый желтый цвет для данных */
 export const dataDefaultDataYellowLight = 'var(--data-default-data-yellow-light, #332200)';
 
+/** Светлый желтый цвет для данных */
+export const dataDefaultDataYellowLightHover = 'var(--data-default-data-yellow-light-hover, #FFF4E0FF)';
+
+/** Светлый желтый цвет для данных */
+export const dataDefaultDataYellowLightActive = 'var(--data-default-data-yellow-light-active, #FFF3DBFF)';
+
 /** Светлый голубой цвет для данных */
 export const dataDefaultDataSkyBlueLight = 'var(--data-default-data-sky-blue-light, #0C283B)';
+
+/** Светлый голубой цвет для данных */
+export const dataDefaultDataSkyBlueLightHover = 'var(--data-default-data-sky-blue-light-hover, #E0F8FFFF)';
+
+/** Светлый голубой цвет для данных */
+export const dataDefaultDataSkyBlueLightActive = 'var(--data-default-data-sky-blue-light-active, #DBF7FFFF)';
 
 /** Желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellow = 'var(--data-on-dark-data-yellow, #F3A912)';
@@ -2279,8 +2291,20 @@ export const dataOnDarkDataYellowTransparentActive = 'var(--data-on-dark-data-ye
 /** Светлый желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellowLight = 'var(--data-on-dark-data-yellow-light, #332200)';
 
+/** Светлый желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowLightHover = 'var(--data-on-dark-data-yellow-light-hover, #FFF4E0FF)';
+
+/** Светлый желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowLightActive = 'var(--data-on-dark-data-yellow-light-active, #FFF3DBFF)';
+
 /** Светлый голубой цвет для данных на темном фоне */
 export const dataOnDarkDataSkyBlueLight = 'var(--data-on-dark-data-sky-blue-light, #0C283B)';
+
+/** Cветлый голубой цвет для данных на темном фоне */
+export const dataOnDarkDataSkyBlueLightHover = 'var(--data-on-dark-data-sky-blue-light-hover, #E0F8FFFF)';
+
+/** Cветлый голубой цвет для данных на темном фоне */
+export const dataOnDarkDataSkyBlueLightActive = 'var(--data-on-dark-data-sky-blue-light-active, #DBF7FFFF)';
 
 /** Желтый цвет для данных на светлом фоне */
 export const dataOnLightDataYellow = 'var(--data-on-light-data-yellow, #F3A912)';
@@ -2312,8 +2336,20 @@ export const dataOnLightDataYellowTransparentActive = 'var(--data-on-light-data-
 /** Светлый желтый цвет для данных на светлом фоне */
 export const dataOnLightDataYellowLight = 'var(--data-on-light-data-yellow-light, #FFF6E5)';
 
+/** Светлый желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowLightHover = 'var(--data-on-light-data-yellow-light-hover, #FFF4E0FF)';
+
+/** Светлый желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowLightActive = 'var(--data-on-light-data-yellow-light-active, #FFF3DBFF)';
+
 /** Светлый голубой цвет для данных на светлом фоне */
 export const dataOnLightDataSkyBlueLight = 'var(--data-on-light-data-sky-blue-light, #E8FAFF)';
+
+/** Светлый голубой цвет для данных на светлом фоне */
+export const dataOnLightDataSkyBlueLightHover = 'var(--data-on-light-data-sky-blue-light-hover, #E0F8FFFF)';
+
+/** Светлый голубой цвет для данных на светлом фоне */
+export const dataOnLightDataSkyBlueLightActive = 'var(--data-on-light-data-sky-blue-light-active, #DBF7FFFF)';
 
 /** Инвертированный желтый цвет для данных */
 export const dataInverseDataYellow = 'var(--data-inverse-data-yellow, #F3A912)';
@@ -2345,8 +2381,20 @@ export const dataInverseDataYellowTransparentActive = 'var(--data-inverse-data-y
 /** Инвертированный светлый желтый цвет для данных */
 export const dataInverseDataYellowLight = 'var(--data-inverse-data-yellow-light, #FFF6E5)';
 
+/** Инвертированный светлый желтый цвет для данных */
+export const dataInverseDataYellowLightHover = 'var(--data-inverse-data-yellow-light-hover, #FFF4E0FF)';
+
+/** Инвертированный светлый желтый цвет для данных */
+export const dataInverseDataYellowLightActive = 'var(--data-inverse-data-yellow-light-active, #FFF3DBFF)';
+
 /** Инвертированный светлый голубой цвет для данных */
 export const dataInverseDataSkyBlueLight = 'var(--data-inverse-data-sky-blue-light, #E8FAFF)';
+
+/** Инвертированный светлый голубой цвет для данных */
+export const dataInverseDataSkyBlueLightHover = 'var(--data-inverse-data-sky-blue-light-hover, #E0F8FFFF)';
+
+/** Инвертированный светлый голубой цвет для данных */
+export const dataInverseDataSkyBlueLightActive = 'var(--data-inverse-data-sky-blue-light-active, #DBF7FFFF)';
 
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';
