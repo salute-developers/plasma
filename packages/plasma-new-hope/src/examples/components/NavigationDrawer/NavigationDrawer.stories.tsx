@@ -18,28 +18,40 @@ const Container = styled.div`
     margin: -1rem;
 `;
 
+const SlotContainer = styled.div`
+    border: 1px solid #08080816;
+    padding: 2px;
+    min-height: 24px;
+    overflow: hidden;
+`;
+
 const NavigationDrawerDemo = (props: ComponentProps<typeof NavigationDrawer>) => {
     const [isOpen, setIsOpen] = useState(true);
 
     return (
         <Container>
+            {/* @ts-expect-error TODO: fix this */}
             <NavigationDrawer
                 {...props}
                 opened={isOpen}
-                header={<span>Header</span>}
-                footer={<span>Footer</span>}
-                withContentLeft
+                header={<SlotContainer>Header</SlotContainer>}
+                footer={<SlotContainer>Footer</SlotContainer>}
                 sections={[
                     {
                         label: 'Section 1',
                         items: [
                             {
-                                label: 'Item 1',
+                                label: 'Item 1 Selected',
                                 icon: <IconStarFill16 />,
                                 selected: true,
                                 action: action('Item 1 clicked'),
                             },
                             { label: 'Item 2', icon: <IconStarFill16 />, action: action('Item 2 clicked') },
+                            {
+                                label: 'Link to Google',
+                                icon: <IconStarFill16 />,
+                                action: 'https://google.com',
+                            },
                             {
                                 label: 'Item 4',
                                 icon: <IconStarFill16 />,
@@ -88,10 +100,16 @@ const meta: Meta<typeof NavigationDrawer> = {
                 type: 'select',
             },
         },
+        withContentLeft: {
+            control: {
+                type: 'boolean',
+            },
+        },
     },
     args: {
         size: 's',
         view: 'default',
+        withContentLeft: true,
     },
 };
 
@@ -103,5 +121,7 @@ export const Default: Story = {
     args: {
         size: 's',
         view: 'default',
+        // @ts-expect-error TODO: fix this
+        withContentLeft: false,
     },
 };
