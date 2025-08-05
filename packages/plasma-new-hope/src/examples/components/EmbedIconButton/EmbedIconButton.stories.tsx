@@ -17,22 +17,6 @@ const meta: Meta<typeof EmbedIconButton> = {
     argTypes: {
         ...argTypesFromConfig(mergeConfig(iconButtonConfig, config)),
         ...disableProps(['focused']),
-        pin: {
-            options: [
-                'square-square',
-                'square-clear',
-                'clear-square',
-                'clear-clear',
-                'clear-circle',
-                'circle-clear',
-                'circle-circle',
-                '',
-            ],
-            control: {
-                type: 'select',
-            },
-            table: { defaultValue: { summary: 'bottom' } },
-        },
     },
 };
 
