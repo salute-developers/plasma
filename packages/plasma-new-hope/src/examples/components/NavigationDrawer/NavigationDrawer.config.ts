@@ -11,11 +11,12 @@ export const config = {
         view: {
             default: css`
                 ${navigationDrawerTokens.sidebarBoxShadow}: var(--shadow-down-soft-s);
-                ${navigationDrawerTokens.sidebarHeight}: calc(100% - 34px);
+                ${navigationDrawerTokens.sidebarHeight}: calc(100% - 32px);
                 ${navigationDrawerTokens.sidebarPadding}: 20px 12px 12px 12px;
                 ${navigationDrawerTokens.sidebarGap}: 10px;
                 ${navigationDrawerTokens.sidebarWidth}: 250px;
                 ${navigationDrawerTokens.sidebarWidthClosed}: 40px;
+                ${navigationDrawerTokens.sidebarBackground}: #fff;
 
                 ${navigationDrawerTokens.sectionColor}: #08080856;
                 ${navigationDrawerTokens.sectionFontSize}: 14px;

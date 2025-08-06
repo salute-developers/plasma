@@ -25,6 +25,53 @@ const SlotContainer = styled.div`
     overflow: hidden;
 `;
 
+const sections = [
+    {
+        label: 'Section 1',
+        items: [
+            {
+                label: 'Item 1 Selected',
+                icon: <IconStarFill16 />,
+                selected: true,
+                action: action('Item 1 clicked'),
+            },
+            { label: 'Item 2', icon: <IconStarFill16 />, action: action('Item 2 clicked') },
+            {
+                label: 'Link to Google',
+                icon: <IconStarFill16 />,
+                action: 'https://google.com',
+            },
+            {
+                label: 'Item 4',
+                icon: <IconStarFill16 />,
+                action: action('Item 4 clicked'),
+                disabled: true,
+            },
+            { label: 'Item 5', icon: <IconStarFill16 />, action: action('Item 5 clicked') },
+            {
+                label: 'Item 6',
+                icon: <IconStarFill16 />,
+                action: action('Item 6 clicked'),
+                hasIndicator: true,
+            },
+            { label: 'Item 7', icon: <IconStarFill16 />, action: action('Item 7 clicked') },
+            {
+                label: 'Item 8',
+                icon: <IconStarFill16 />,
+                action: action('Item 8 clicked'),
+                counter: 10,
+            },
+        ],
+    },
+    {
+        label: 'Section 2',
+        items: [{ label: 'Item 9', icon: <IconBlankDocOutline />, action: action('Item 9 clicked') }],
+    },
+    {
+        items: [{ label: 'Item 10', icon: <IconBlankOutline />, action: action('Item 10 clicked') }],
+    },
+];
+
 const NavigationDrawerDemo = (props: ComponentProps<typeof NavigationDrawer>) => {
     const [isOpen, setIsOpen] = useState(true);
 
@@ -36,54 +83,32 @@ const NavigationDrawerDemo = (props: ComponentProps<typeof NavigationDrawer>) =>
                 opened={isOpen}
                 header={<SlotContainer>Header</SlotContainer>}
                 footer={<SlotContainer>Footer</SlotContainer>}
-                sections={[
-                    {
-                        label: 'Section 1',
-                        items: [
-                            {
-                                label: 'Item 1 Selected',
-                                icon: <IconStarFill16 />,
-                                selected: true,
-                                action: action('Item 1 clicked'),
-                            },
-                            { label: 'Item 2', icon: <IconStarFill16 />, action: action('Item 2 clicked') },
-                            {
-                                label: 'Link to Google',
-                                icon: <IconStarFill16 />,
-                                action: 'https://google.com',
-                            },
-                            {
-                                label: 'Item 4',
-                                icon: <IconStarFill16 />,
-                                action: action('Item 4 clicked'),
-                                disabled: true,
-                            },
-                            { label: 'Item 5', icon: <IconStarFill16 />, action: action('Item 5 clicked') },
-                            {
-                                label: 'Item 6',
-                                icon: <IconStarFill16 />,
-                                action: action('Item 6 clicked'),
-                                hasIndicator: true,
-                            },
-                            { label: 'Item 7', icon: <IconStarFill16 />, action: action('Item 7 clicked') },
-                            {
-                                label: 'Item 8',
-                                icon: <IconStarFill16 />,
-                                action: action('Item 8 clicked'),
-                                counter: 10,
-                            },
-                        ],
-                    },
-                    {
-                        label: 'Section 2',
-                        items: [{ label: 'Item 9', icon: <IconBlankDocOutline />, action: action('Item 9 clicked') }],
-                    },
-                    {
-                        items: [{ label: 'Item 10', icon: <IconBlankOutline />, action: action('Item 10 clicked') }],
-                    },
-                ]}
+                sections={sections}
             >
                 <Button onClick={() => setIsOpen(!isOpen)}>Toggle</Button>
+            </NavigationDrawer>
+        </Container>
+    );
+};
+
+const NavigationDrawerWithOverlay = (props: ComponentProps<typeof NavigationDrawer>) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <Container>
+            {/* @ts-expect-error TODO: fix this */}
+            <NavigationDrawer
+                {...props}
+                opened={isOpen}
+                mode="overlay"
+                footer={<SlotContainer>Footer</SlotContainer>}
+                sections={sections}
+                sidebarProps={{
+                    onMouseEnter: () => setIsOpen(true),
+                    onMouseLeave: () => setIsOpen(false),
+                }}
+            >
+                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</span>
             </NavigationDrawer>
         </Container>
     );
@@ -123,4 +148,11 @@ export const Default: Story = {
         view: 'default',
         withContentLeft: true,
     },
+};
+
+export const OverlayMode: StoryObj<ComponentProps<typeof NavigationDrawer>> = {
+    args: {
+        mode: 'overlay',
+    },
+    render: (args) => <NavigationDrawerWithOverlay {...args} />,
 };

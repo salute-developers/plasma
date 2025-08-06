@@ -2,8 +2,7 @@ import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../NavigationDrawer.tokens';
 
-export const sidebarStyles = css`
-    width: 100%;
+export const baseSidebarStyles = css`
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -14,14 +13,30 @@ export const sidebarStyles = css`
     min-width: var(${tokens.sidebarWidth});
     max-width: var(${tokens.sidebarWidth});
     box-shadow: var(${tokens.sidebarBoxShadow});
-
-    &.${classes.navigationDrawerSidebarClosed} {
-        min-width: var(${tokens.sidebarWidthClosed});
-        max-width: var(${tokens.sidebarWidthClosed});
-    }
+    background: var(${tokens.sidebarBackground});
 
     .${classes.navigationDrawerMenuItemIcon} {
         width: var(${tokens.menuItemIconSize});
         height: var(${tokens.menuItemIconSize});
     }
+`;
+
+export const sidebarStyles = css`
+    width: 100%;
+`;
+
+export const siderbarClosedStyles = css`
+    min-width: var(${tokens.sidebarWidthClosed});
+    max-width: var(${tokens.sidebarWidthClosed});
+`;
+
+export const sidebarOverlayStyles = css`
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+`;
+
+export const sidebarDrawerStyles = css`
+    position: fixed;
 `;
