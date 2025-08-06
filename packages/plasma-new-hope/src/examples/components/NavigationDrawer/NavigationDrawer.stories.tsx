@@ -121,7 +121,6 @@ export const Default: Story = {
     args: {
         size: 's',
         view: 'default',
-        // @ts-expect-error TODO: fix this
-        withContentLeft: false,
+        withContentLeft: true,
     },
 };

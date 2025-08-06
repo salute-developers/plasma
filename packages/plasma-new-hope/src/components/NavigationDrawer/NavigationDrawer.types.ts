@@ -3,7 +3,7 @@ import type { HTMLAttributes, ReactNode } from 'react';
 /**
  * Элемент меню в секции NavigationDrawer.
  */
-type MenuItem<T extends boolean = false> = {
+export type MenuItem<T extends boolean = false> = {
     /**
      * Текст элемента меню.
      */
