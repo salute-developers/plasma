@@ -1,0 +1,131 @@
+---
+id: navigationdrawer
+title: NavigationDrawer
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# NavigationDrawer
+
+<Description name="NavigationDrawer" />
+<PropsTable name="NavigationDrawer" exclude={['css']} />
+
+## Использование
+
+NavigationDrawer — это компонент навигационного меню, который может отображаться в трех режимах:
+- `static` — статичное меню слева от контента
+- `drawer` — выдвижное меню поверх контента без затемнения фона
+- `overlay` — модальное меню поверх контента с затемнением фона
+
+### Структура меню
+
+Меню состоит из секций, каждая из которых может содержать:
+- Заголовок секции (опционально)
+- Список элементов меню
+
+Если заголовок секции не указан, вместо него будет отображен разделитель.
+
+### Элементы меню
+
+Каждый элемент меню может содержать:
+- Текст
+- Иконку (при включенном `withContentLeft`)
+- Счетчик
+- Индикатор
+- Действие (функция обратного вызова или URL для перехода)
+
+### Подкомпоненты
+
+#### NavigationDrawerSection
+Компонент для отображения секции меню с заголовком и элементами.
+
+#### NavigationDrawerMenuItem  
+Компонент для отображения отдельного элемента меню.
+
+#### NavigationDrawerSectionHeader
+Компонент для отображения заголовка секции.
+
+#### NavigationDrawerDivider
+Компонент-разделитель между секциями.
+
+## Примеры
+
+### Базовое использование
+
+```tsx live
+import React, { useState } from 'react';
+import { NavigationDrawer } from '@salutejs/{{ package }}';
+import { IconBlankOutline } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(true);
+
+    return (
+        <NavigationDrawer
+            opened={isOpen}
+            withContentLeft={true}
+            sections={[
+                {
+                    label: 'Основная секция',
+                    items: [
+                        {
+                            label: 'Главная',
+                            icon: <IconBlankOutline />,
+                            selected: true,
+                            action: () => console.log('Главная')
+                        },
+                        {
+                            label: 'Настройки',
+                            icon: <IconBlankOutline />,
+                            action: () => console.log('Настройки')
+                        }
+                    ]
+                }
+            ]}
+        >
+            <div style={{ padding: '20px' }}>
+                <button onClick={() => setIsOpen(!isOpen)}>
+                    Переключить меню
+                </button>
+                <p>Основной контент приложения</p>
+            </div>
+        </NavigationDrawer>
+    );
+}
+```
+
+### Режим overlay
+
+```tsx live
+import React, { useState } from 'react';
+import { NavigationDrawer } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <NavigationDrawer
+            mode="overlay"
+            opened={isOpen}
+            onHide={() => setIsOpen(false)}
+            sections={[
+                {
+                    items: [
+                        {
+                            label: 'Пункт меню',
+                            action: () => console.log('Клик')
+                        }
+                    ]
+                }
+            ]}
+        >
+            <div style={{ padding: '20px' }}>
+                <button onClick={() => setIsOpen(true)}>
+                    Открыть меню
+                </button>
+                <p>Основной контент</p>
+            </div>
+        </NavigationDrawer>
+    );
+}
+```
