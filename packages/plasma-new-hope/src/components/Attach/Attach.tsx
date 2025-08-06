@@ -40,6 +40,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             disabled,
             id,
             name,
+            customIcon,
             onChange,
             onClear,
             ...rest
@@ -66,7 +67,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
 
         const accept = acceptedFileFormats?.join(',');
         const extension = extractExtension(filename);
-        const cellContentLeft = getFileicon(extension, size);
+        const cellContentLeft = customIcon || getFileicon(extension, size);
 
         useEffect(() => {
             emptyTextCellWidth.current = cellRef.current?.offsetWidth || 0;

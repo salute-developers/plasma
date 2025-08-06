@@ -37,6 +37,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 listMaxHeight = '25rem',
                 listWidth,
                 portal,
+                zIndex,
                 filter,
                 onSuggestionSelect,
                 threshold = 2,
@@ -145,6 +146,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                         ref={floatingPopoverRef}
                         opened={isOpen}
                         portal={portal}
+                        zIndex={zIndex}
                         listWidth={listWidth}
                         offset={_offset}
                         target={(referenceRef) => (

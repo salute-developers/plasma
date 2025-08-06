@@ -7,16 +7,16 @@ export const textPrimaryHover = 'var(--text-primary-hover, #F2F5F893)';
 export const textPrimaryActive = 'var(--text-primary-active, #F2F5F8C4)';
 
 /** Вторичный цвет текста */
-export const textSecondaryHover = 'var(--text-secondary-hover, #F2F5F8FF)';
+export const textSecondaryHover = 'var(--text-secondary-hover, #D6DFE6FF)';
 
 /** Вторичный цвет текста */
-export const textSecondaryActive = 'var(--text-secondary-active, #F2F5F8AB)';
+export const textSecondaryActive = 'var(--text-secondary-active, #D6DFE6BE)';
 
 /** Третичный цвет текста */
-export const textTertiaryHover = 'var(--text-tertiary-hover, #F2F5F8FF)';
+export const textTertiaryHover = 'var(--text-tertiary-hover, #D6DFE6FF)';
 
 /** Третичный цвет текста */
-export const textTertiaryActive = 'var(--text-tertiary-active, #F2F5F856)';
+export const textTertiaryActive = 'var(--text-tertiary-active, #D6DFE65C)';
 
 /** Сплошной наборный текст */
 export const textParagraphHover = 'var(--text-paragraph-hover, #F2F5F87A)';
@@ -90,12 +90,6 @@ export const textPrimary = 'var(--text-primary, #F2F5F8F5)';
 /** Основной цвет текста */
 export const textPrimaryBrightness = 'var(--text-primary-brightness, #F3F6F8FF)';
 
-/** Вторичный цвет текста */
-export const textSecondary = 'var(--text-secondary, #F2F5F88F)';
-
-/** Третичный цвет текста */
-export const textTertiary = 'var(--text-tertiary, #F2F5F847)';
-
 /** Сплошной наборный текст */
 export const textParagraph = 'var(--text-paragraph, #F2F5F8CC)';
 
@@ -129,6 +123,12 @@ export const textNegativeMinor = 'var(--text-negative-minor, #9C1422)';
 /** Минорный цвет информации */
 export const textInfoMinor = 'var(--text-info-minor, #0D5382)';
 
+/** Вторичный цвет текста */
+export const textSecondary = 'var(--text-secondary, #D5DFE69E)';
+
+/** Третичный цвет текста */
+export const textTertiary = 'var(--text-tertiary, #D5DFE64D)';
+
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimaryHover = 'var(--on-dark-text-primary-hover, #F2F5F893)';
 
@@ -136,16 +136,16 @@ export const onDarkTextPrimaryHover = 'var(--on-dark-text-primary-hover, #F2F5F8
 export const onDarkTextPrimaryActive = 'var(--on-dark-text-primary-active, #F2F5F8C4)';
 
 /** Вторичный цвет текста на темном фоне */
-export const onDarkTextSecondaryHover = 'var(--on-dark-text-secondary-hover, #F2F5F8FF)';
+export const onDarkTextSecondaryHover = 'var(--on-dark-text-secondary-hover, #D6DFE6FF)';
 
 /** Вторичный цвет текста на темном фоне */
-export const onDarkTextSecondaryActive = 'var(--on-dark-text-secondary-active, #F2F5F8AB)';
+export const onDarkTextSecondaryActive = 'var(--on-dark-text-secondary-active, #D6DFE6BE)';
 
 /** Третичный цвет текста на темном фоне */
-export const onDarkTextTertiaryHover = 'var(--on-dark-text-tertiary-hover, #F2F5F8FF)';
+export const onDarkTextTertiaryHover = 'var(--on-dark-text-tertiary-hover, #D6DFE6FF)';
 
 /** Третичный цвет текста на темном фоне */
-export const onDarkTextTertiaryActive = 'var(--on-dark-text-tertiary-active, #F2F5F856)';
+export const onDarkTextTertiaryActive = 'var(--on-dark-text-tertiary-active, #D6DFE65C)';
 
 /** Сплошной наборный текст на темном фоне */
 export const onDarkTextParagraphHover = 'var(--on-dark-text-paragraph-hover, #F2F5F87A)';
@@ -219,12 +219,6 @@ export const onDarkTextPrimary = 'var(--on-dark-text-primary, #F2F5F8F5)';
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimaryBrightness = 'var(--on-dark-text-primary-brightness, #F3F6F8FF)';
 
-/** Вторичный цвет текста на темном фоне */
-export const onDarkTextSecondary = 'var(--on-dark-text-secondary, #F2F5F88F)';
-
-/** Третичный цвет текста на темном фоне */
-export const onDarkTextTertiary = 'var(--on-dark-text-tertiary, #F2F5F847)';
-
 /** Сплошной наборный текст на темном фоне */
 export const onDarkTextParagraph = 'var(--on-dark-text-paragraph, #F2F5F8CC)';
 
@@ -258,6 +252,12 @@ export const onDarkTextNegativeMinor = 'var(--on-dark-text-negative-minor, #9C14
 /** Минорный цвет информации на темном фоне */
 export const onDarkTextInfoMinor = 'var(--on-dark-text-info-minor, #0D5382)';
 
+/** Вторичный цвет текста на темном фоне */
+export const onDarkTextSecondary = 'var(--on-dark-text-secondary, #D5DFE69E)';
+
+/** Третичный цвет текста на темном фоне */
+export const onDarkTextTertiary = 'var(--on-dark-text-tertiary, #D5DFE64D)';
+
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimaryHover = 'var(--on-light-text-primary-hover, #13181B93)';
 
@@ -265,16 +265,16 @@ export const onLightTextPrimaryHover = 'var(--on-light-text-primary-hover, #1318
 export const onLightTextPrimaryActive = 'var(--on-light-text-primary-active, #13181BC4)';
 
 /** Вторичный цвет текста на светлом фоне */
-export const onLightTextSecondaryHover = 'var(--on-light-text-secondary-hover, #13181BFF)';
+export const onLightTextSecondaryHover = 'var(--on-light-text-secondary-hover, #485056FF)';
 
 /** Вторичный цвет текста на светлом фоне */
-export const onLightTextSecondaryActive = 'var(--on-light-text-secondary-active, #13181BAB)';
+export const onLightTextSecondaryActive = 'var(--on-light-text-secondary-active, #485056D3)';
 
 /** Третичный цвет текста на светлом фоне */
-export const onLightTextTertiaryHover = 'var(--on-light-text-tertiary-hover, #13181BFF)';
+export const onLightTextTertiaryHover = 'var(--on-light-text-tertiary-hover, #717C84FF)';
 
 /** Третичный цвет текста на светлом фоне */
-export const onLightTextTertiaryActive = 'var(--on-light-text-tertiary-active, #13181B56)';
+export const onLightTextTertiaryActive = 'var(--on-light-text-tertiary-active, #717C8493)';
 
 /** Сплошной наборный текст на светлом фоне */
 export const onLightTextParagraphHover = 'var(--on-light-text-paragraph-hover, #13181B7A)';
@@ -301,16 +301,16 @@ export const onLightTextPositiveHover = 'var(--on-light-text-positive-hover, #13
 export const onLightTextPositiveActive = 'var(--on-light-text-positive-active, #0D731EFF)';
 
 /** Цвет предупреждения на светлом фоне */
-export const onLightTextWarningHover = 'var(--on-light-text-warning-hover, #FD650DFF)';
+export const onLightTextWarningHover = 'var(--on-light-text-warning-hover, #FB7223FF)';
 
 /** Цвет предупреждения на светлом фоне */
-export const onLightTextWarningActive = 'var(--on-light-text-warning-active, #CA4B02FF)';
+export const onLightTextWarningActive = 'var(--on-light-text-warning-active, #DC5304FF)';
 
 /** Цвет ошибки на светлом фоне */
-export const onLightTextNegativeHover = 'var(--on-light-text-negative-hover, #F5384BFF)';
+export const onLightTextNegativeHover = 'var(--on-light-text-negative-hover, #ED263AFF)';
 
 /** Цвет ошибки на светлом фоне */
-export const onLightTextNegativeActive = 'var(--on-light-text-negative-active, #E40C22FF)';
+export const onLightTextNegativeActive = 'var(--on-light-text-negative-active, #C61022FF)';
 
 /** Цвет информации на светлом фоне */
 export const onLightTextInfoHover = 'var(--on-light-text-info-hover, #34A7F4FF)';
@@ -348,12 +348,6 @@ export const onLightTextPrimary = 'var(--on-light-text-primary, #13181BF5)';
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimaryBrightness = 'var(--on-light-text-primary-brightness, #212629FF)';
 
-/** Вторичный цвет текста на светлом фоне */
-export const onLightTextSecondary = 'var(--on-light-text-secondary, #13181B8F)';
-
-/** Третичный цвет текста на светлом фоне */
-export const onLightTextTertiary = 'var(--on-light-text-tertiary, #13181B47)';
-
 /** Сплошной наборный текст на светлом фоне */
 export const onLightTextParagraph = 'var(--on-light-text-paragraph, #13181BCC)';
 
@@ -365,12 +359,6 @@ export const onLightTextAccentMinor = 'var(--on-light-text-accent-minor, #52BAFF
 
 /** Цвет успеха на светлом фоне */
 export const onLightTextPositive = 'var(--on-light-text-positive, #108E26)';
-
-/** Цвет предупреждения на светлом фоне */
-export const onLightTextWarning = 'var(--on-light-text-warning, #E85702)';
-
-/** Цвет ошибки на светлом фоне */
-export const onLightTextNegative = 'var(--on-light-text-negative, #F31B31)';
 
 /** Цвет информации на светлом фоне */
 export const onLightTextInfo = 'var(--on-light-text-info, #0B7ECB)';
@@ -387,6 +375,18 @@ export const onLightTextNegativeMinor = 'var(--on-light-text-negative-minor, #FF
 /** Минорный цвет информации на светлом фоне */
 export const onLightTextInfoMinor = 'var(--on-light-text-info-minor, #52BAFF)';
 
+/** Вторичный цвет текста на светлом фоне */
+export const onLightTextSecondary = 'var(--on-light-text-secondary, #485056B0)';
+
+/** Третичный цвет текста на светлом фоне */
+export const onLightTextTertiary = 'var(--on-light-text-tertiary, #707C847A)';
+
+/** Цвет предупреждения на светлом фоне */
+export const onLightTextWarning = 'var(--on-light-text-warning, #FA5F05)';
+
+/** Цвет ошибки на светлом фоне */
+export const onLightTextNegative = 'var(--on-light-text-negative, #E31227)';
+
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimaryHover = 'var(--inverse-text-primary-hover, #13181B93)';
 
@@ -394,16 +394,16 @@ export const inverseTextPrimaryHover = 'var(--inverse-text-primary-hover, #13181
 export const inverseTextPrimaryActive = 'var(--inverse-text-primary-active, #13181BC4)';
 
 /** Инвертированный вторичный цвет текста */
-export const inverseTextSecondaryHover = 'var(--inverse-text-secondary-hover, #13181BFF)';
+export const inverseTextSecondaryHover = 'var(--inverse-text-secondary-hover, #485056FF)';
 
 /** Инвертированный вторичный цвет текста */
-export const inverseTextSecondaryActive = 'var(--inverse-text-secondary-active, #13181BAB)';
+export const inverseTextSecondaryActive = 'var(--inverse-text-secondary-active, #485056D3)';
 
 /** Инвертированный третичный цвет текста */
-export const inverseTextTertiaryHover = 'var(--inverse-text-tertiary-hover, #13181BFF)';
+export const inverseTextTertiaryHover = 'var(--inverse-text-tertiary-hover, #717C84FF)';
 
 /** Инвертированный третичный цвет текста */
-export const inverseTextTertiaryActive = 'var(--inverse-text-tertiary-active, #13181B56)';
+export const inverseTextTertiaryActive = 'var(--inverse-text-tertiary-active, #717C8493)';
 
 /** Инвертированный сплошной наборный текст */
 export const inverseTextParagraphHover = 'var(--inverse-text-paragraph-hover, #13181B7A)';
@@ -430,16 +430,16 @@ export const inverseTextPositiveHover = 'var(--inverse-text-positive-hover, #13A
 export const inverseTextPositiveActive = 'var(--inverse-text-positive-active, #0D731EFF)';
 
 /** Инвертированный цвет предупреждения */
-export const inverseTextWarningHover = 'var(--inverse-text-warning-hover, #FD650DFF)';
+export const inverseTextWarningHover = 'var(--inverse-text-warning-hover, #FB7223FF)';
 
 /** Инвертированный цвет предупреждения */
-export const inverseTextWarningActive = 'var(--inverse-text-warning-active, #CA4B02FF)';
+export const inverseTextWarningActive = 'var(--inverse-text-warning-active, #DC5304FF)';
 
 /** Инвертированный цвет ошибки */
-export const inverseTextNegativeHover = 'var(--inverse-text-negative-hover, #F5384BFF)';
+export const inverseTextNegativeHover = 'var(--inverse-text-negative-hover, #ED263AFF)';
 
 /** Инвертированный цвет ошибки */
-export const inverseTextNegativeActive = 'var(--inverse-text-negative-active, #E40C22FF)';
+export const inverseTextNegativeActive = 'var(--inverse-text-negative-active, #C61022FF)';
 
 /** Инвертированный цвет информации */
 export const inverseTextInfoHover = 'var(--inverse-text-info-hover, #34A7F4FF)';
@@ -477,12 +477,6 @@ export const inverseTextPrimary = 'var(--inverse-text-primary, #13181BF5)';
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimaryBrightness = 'var(--inverse-text-primary-brightness, #212629FF)';
 
-/** Инвертированный вторичный цвет текста */
-export const inverseTextSecondary = 'var(--inverse-text-secondary, #13181B8F)';
-
-/** Инвертированный третичный цвет текста */
-export const inverseTextTertiary = 'var(--inverse-text-tertiary, #13181B47)';
-
 /** Инвертированный сплошной наборный текст */
 export const inverseTextParagraph = 'var(--inverse-text-paragraph, #13181BCC)';
 
@@ -494,12 +488,6 @@ export const inverseTextAccentMinor = 'var(--inverse-text-accent-minor, #52BAFF)
 
 /** Инвертированный цвет успеха */
 export const inverseTextPositive = 'var(--inverse-text-positive, #108E26)';
-
-/** Инвертированный цвет предупреждения */
-export const inverseTextWarning = 'var(--inverse-text-warning, #E85702)';
-
-/** Инвертированный цвет ошибки */
-export const inverseTextNegative = 'var(--inverse-text-negative, #F31B31)';
 
 /** Инвертированный цвет информации */
 export const inverseTextInfo = 'var(--inverse-text-info, #0B7ECB)';
@@ -515,6 +503,18 @@ export const inverseTextNegativeMinor = 'var(--inverse-text-negative-minor, #FF8
 
 /** Инвертированный минорный цвет информации */
 export const inverseTextInfoMinor = 'var(--inverse-text-info-minor, #52BAFF)';
+
+/** Инвертированный вторичный цвет текста */
+export const inverseTextSecondary = 'var(--inverse-text-secondary, #485056B0)';
+
+/** Инвертированный третичный цвет текста */
+export const inverseTextTertiary = 'var(--inverse-text-tertiary, #707C847A)';
+
+/** Инвертированный цвет предупреждения */
+export const inverseTextWarning = 'var(--inverse-text-warning, #FA5F05)';
+
+/** Инвертированный цвет ошибки */
+export const inverseTextNegative = 'var(--inverse-text-negative, #E31227)';
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimaryHover = 'var(--surface-solid-primary-hover, #171D21FF)';
@@ -535,10 +535,10 @@ export const surfaceSolidTertiaryHover = 'var(--surface-solid-tertiary-hover, #3
 export const surfaceSolidTertiaryActive = 'var(--surface-solid-tertiary-active, #2B3136FF)';
 
 /** Основной фон для карточек */
-export const surfaceSolidCardHover = 'var(--surface-solid-card-hover, #171D21FF)';
+export const surfaceSolidCardHover = 'var(--surface-solid-card-hover, #0A1114FF)';
 
 /** Основной фон для карточек */
-export const surfaceSolidCardActive = 'var(--surface-solid-card-active, #0F1315FF)';
+export const surfaceSolidCardActive = 'var(--surface-solid-card-active, #030607FF)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию */
 export const surfaceSolidDefaultHover = 'var(--surface-solid-default-hover, #FFFFFFFF)';
@@ -553,22 +553,22 @@ export const surfaceTransparentPrimaryHover = 'var(--surface-transparent-primary
 export const surfaceTransparentPrimaryActive = 'var(--surface-transparent-primary-active, #FFFFFF0A)';
 
 /** Вторичный прозрачный фон поверхности/контрола */
-export const surfaceTransparentSecondaryHover = 'var(--surface-transparent-secondary-hover, #FFFFFF3D)';
+export const surfaceTransparentSecondaryHover = 'var(--surface-transparent-secondary-hover, #D6DFE642)';
 
 /** Вторичный прозрачный фон поверхности/контрола */
-export const surfaceTransparentSecondaryActive = 'var(--surface-transparent-secondary-active, #FFFFFF0F)';
+export const surfaceTransparentSecondaryActive = 'var(--surface-transparent-secondary-active, #D6DFE614)';
 
 /** Третичный прозрачный фон поверхности/контрола */
-export const surfaceTransparentTertiaryHover = 'var(--surface-transparent-tertiary-hover, #FFFFFF52)';
+export const surfaceTransparentTertiaryHover = 'var(--surface-transparent-tertiary-hover, #D6DFE65C)';
 
 /** Третичный прозрачный фон поверхности/контрола */
-export const surfaceTransparentTertiaryActive = 'var(--surface-transparent-tertiary-active, #FFFFFF24)';
+export const surfaceTransparentTertiaryActive = 'var(--surface-transparent-tertiary-active, #D6DFE62E)';
 
 /** Глубокий прозрачный фон поверхности/контрола */
-export const surfaceTransparentDeepHover = 'var(--surface-transparent-deep-hover, #FFFFFFC2)';
+export const surfaceTransparentDeepHover = 'var(--surface-transparent-deep-hover, #D6DFE6DB)';
 
 /** Глубокий прозрачный фон поверхности/контрола */
-export const surfaceTransparentDeepActive = 'var(--surface-transparent-deep-active, #FFFFFF94)';
+export const surfaceTransparentDeepActive = 'var(--surface-transparent-deep-active, #D6DFE6AD)';
 
 /** Прозрачный фон для карточек */
 export const surfaceTransparentCardHover = 'var(--surface-transparent-card-hover, #FFFFFF1F)';
@@ -673,10 +673,7 @@ export const surfaceTransparentInfoHover = 'var(--surface-transparent-info-hover
 export const surfaceTransparentInfoActive = 'var(--surface-transparent-info-active, #118CDF24)';
 
 /** Основной фон для карточек */
-export const surfaceSolidCard = 'var(--surface-solid-card, #13181B)';
-
-/** Основной фон для карточек */
-export const surfaceSolidCardBrightness = 'var(--surface-solid-card-brightness, #212629FF)';
+export const surfaceSolidCardBrightness = 'var(--surface-solid-card-brightness, #111C22FF)';
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimary = 'var(--surface-solid-primary, #13181B)';
@@ -701,15 +698,6 @@ export const surfaceTransparentCardBrightness = 'var(--surface-transparent-card-
 
 /** Основной прозрачный фон поверхности/контрола */
 export const surfaceTransparentPrimary = 'var(--surface-transparent-primary, #FFFFFF0F)';
-
-/** Вторичный прозрачный фон поверхности/контрола */
-export const surfaceTransparentSecondary = 'var(--surface-transparent-secondary, #FFFFFF1F)';
-
-/** Третичный прозрачный фон поверхности/контрола */
-export const surfaceTransparentTertiary = 'var(--surface-transparent-tertiary, #FFFFFF33)';
-
-/** Глубокий прозрачный фон поверхности/контрола */
-export const surfaceTransparentDeep = 'var(--surface-transparent-deep, #FFFFFFA3)';
 
 /** Фон поверхности/контрола без заливки */
 export const surfaceClear = 'var(--surface-clear, #FFFFFF00)';
@@ -759,6 +747,18 @@ export const surfaceTransparentNegative = 'var(--surface-transparent-negative, #
 /** Прозрачный цвет фона поверхности/контрола информация */
 export const surfaceTransparentInfo = 'var(--surface-transparent-info, #118CDF33)';
 
+/** Основной фон для карточек */
+export const surfaceSolidCard = 'var(--surface-solid-card, #060A0C)';
+
+/** Вторичный прозрачный фон поверхности/контрола */
+export const surfaceTransparentSecondary = 'var(--surface-transparent-secondary, #D5DFE624)';
+
+/** Третичный прозрачный фон поверхности/контрола */
+export const surfaceTransparentTertiary = 'var(--surface-transparent-tertiary, #D5DFE63D)';
+
+/** Глубокий прозрачный фон поверхности/контрола */
+export const surfaceTransparentDeep = 'var(--surface-transparent-deep, #D5DFE6BD)';
+
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #171D21FF)';
 
@@ -778,10 +778,10 @@ export const onDarkSurfaceSolidTertiaryHover = 'var(--on-dark-surface-solid-tert
 export const onDarkSurfaceSolidTertiaryActive = 'var(--on-dark-surface-solid-tertiary-active, #2B3136FF)';
 
 /** Основной фон для карточек на темном фоне */
-export const onDarkSurfaceSolidCardHover = 'var(--on-dark-surface-solid-card-hover, #171D21FF)';
+export const onDarkSurfaceSolidCardHover = 'var(--on-dark-surface-solid-card-hover, #0A1114FF)';
 
 /** Основной фон для карточек на темном фоне */
-export const onDarkSurfaceSolidCardActive = 'var(--on-dark-surface-solid-card-active, #0F1315FF)';
+export const onDarkSurfaceSolidCardActive = 'var(--on-dark-surface-solid-card-active, #030607FF)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию на темном фоне */
 export const onDarkSurfaceSolidDefaultHover = 'var(--on-dark-surface-solid-default-hover, #FFFFFFFF)';
@@ -796,22 +796,22 @@ export const onDarkSurfaceTransparentPrimaryHover = 'var(--on-dark-surface-trans
 export const onDarkSurfaceTransparentPrimaryActive = 'var(--on-dark-surface-transparent-primary-active, #FFFFFF0A)';
 
 /** Вторичный прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentSecondaryHover = 'var(--on-dark-surface-transparent-secondary-hover, #FFFFFF3D)';
+export const onDarkSurfaceTransparentSecondaryHover = 'var(--on-dark-surface-transparent-secondary-hover, #D6DFE642)';
 
 /** Вторичный прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentSecondaryActive = 'var(--on-dark-surface-transparent-secondary-active, #FFFFFF0F)';
+export const onDarkSurfaceTransparentSecondaryActive = 'var(--on-dark-surface-transparent-secondary-active, #D6DFE614)';
 
 /** Третичный прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentTertiaryHover = 'var(--on-dark-surface-transparent-tertiary-hover, #FFFFFF52)';
+export const onDarkSurfaceTransparentTertiaryHover = 'var(--on-dark-surface-transparent-tertiary-hover, #D6DFE65C)';
 
 /** Третичный прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentTertiaryActive = 'var(--on-dark-surface-transparent-tertiary-active, #FFFFFF24)';
+export const onDarkSurfaceTransparentTertiaryActive = 'var(--on-dark-surface-transparent-tertiary-active, #D6DFE62E)';
 
 /** Глубокий прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentDeepHover = 'var(--on-dark-surface-transparent-deep-hover, #FFFFFFC2)';
+export const onDarkSurfaceTransparentDeepHover = 'var(--on-dark-surface-transparent-deep-hover, #D6DFE6DB)';
 
 /** Глубокий прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentDeepActive = 'var(--on-dark-surface-transparent-deep-active, #FFFFFF94)';
+export const onDarkSurfaceTransparentDeepActive = 'var(--on-dark-surface-transparent-deep-active, #D6DFE6AD)';
 
 /** Прозрачный фон для карточек на темном фоне */
 export const onDarkSurfaceTransparentCardHover = 'var(--on-dark-surface-transparent-card-hover, #FFFFFF1F)';
@@ -970,25 +970,13 @@ export const onDarkSurfaceSolidSecondary = 'var(--on-dark-surface-solid-secondar
 export const onDarkSurfaceSolidTertiary = 'var(--on-dark-surface-solid-tertiary, #30373C)';
 
 /** Основной фон для карточек на темном фоне */
-export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card, #13181B)';
-
-/** Основной фон для карточек на темном фоне */
-export const onDarkSurfaceSolidCardBrightness = 'var(--on-dark-surface-solid-card-brightness, #212629FF)';
+export const onDarkSurfaceSolidCardBrightness = 'var(--on-dark-surface-solid-card-brightness, #111C22FF)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию на темном фоне */
 export const onDarkSurfaceSolidDefault = 'var(--on-dark-surface-solid-default, #F7F9FB)';
 
 /** Основной прозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentPrimary = 'var(--on-dark-surface-transparent-primary, #FFFFFF0F)';
-
-/** Вторичный прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentSecondary = 'var(--on-dark-surface-transparent-secondary, #FFFFFF1F)';
-
-/** Третичный прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentTertiary = 'var(--on-dark-surface-transparent-tertiary, #FFFFFF33)';
-
-/** Глубокий прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentDeep = 'var(--on-dark-surface-transparent-deep, #FFFFFFA3)';
 
 /** Прозрачный фон для карточек на темном фоне */
 export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, #FFFFFF0F)';
@@ -1001,6 +989,18 @@ export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #118CDF)';
 
 /** Фон поверхности/контрола без заливки на темном фоне */
 export const onDarkSurfaceClear = 'var(--on-dark-surface-clear, #FFFFFF00)';
+
+/** Основной фон для карточек на темном фоне */
+export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card, #060A0C)';
+
+/** Вторичный прозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentSecondary = 'var(--on-dark-surface-transparent-secondary, #D5DFE624)';
+
+/** Третичный прозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentTertiary = 'var(--on-dark-surface-transparent-tertiary, #D5DFE63D)';
+
+/** Глубокий прозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentDeep = 'var(--on-dark-surface-transparent-deep, #D5DFE6BD)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F8FAFBFF)';
@@ -1033,29 +1033,29 @@ export const onLightSurfaceSolidDefaultHover = 'var(--on-light-surface-solid-def
 export const onLightSurfaceSolidDefaultActive = 'var(--on-light-surface-solid-default-active, #030607FF)';
 
 /** Основной прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentPrimaryHover = 'var(--on-light-surface-transparent-primary-hover, #070B0E0F)';
+export const onLightSurfaceTransparentPrimaryHover = 'var(--on-light-surface-transparent-primary-hover, #D6DFE661)';
 
 /** Основной прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentPrimaryActive = 'var(--on-light-surface-transparent-primary-active, #070B0E00)';
+export const onLightSurfaceTransparentPrimaryActive = 'var(--on-light-surface-transparent-primary-active, #D6DFE633)';
 
 /** Вторичный прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentSecondaryHover = 'var(--on-light-surface-transparent-secondary-hover, #070B0E1F)';
+export const onLightSurfaceTransparentSecondaryHover = 'var(--on-light-surface-transparent-secondary-hover, #ADB9C257)';
 
 /** Вторичный прозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentSecondaryActive =
-    'var(--on-light-surface-transparent-secondary-active, #070B0E0A)';
+    'var(--on-light-surface-transparent-secondary-active, #ADB9C229)';
 
 /** Третичный прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentTertiaryHover = 'var(--on-light-surface-transparent-tertiary-hover, #070B0E3D)';
+export const onLightSurfaceTransparentTertiaryHover = 'var(--on-light-surface-transparent-tertiary-hover, #8A969E66)';
 
 /** Третичный прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentTertiaryActive = 'var(--on-light-surface-transparent-tertiary-active, #070B0E0F)';
+export const onLightSurfaceTransparentTertiaryActive = 'var(--on-light-surface-transparent-tertiary-active, #8A969E38)';
 
 /** Глубокий прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentDeepHover = 'var(--on-light-surface-transparent-deep-hover, #070B0EC2)';
+export const onLightSurfaceTransparentDeepHover = 'var(--on-light-surface-transparent-deep-hover, #30373BE6)';
 
 /** Глубокий прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentDeepActive = 'var(--on-light-surface-transparent-deep-active, #070B0E94)';
+export const onLightSurfaceTransparentDeepActive = 'var(--on-light-surface-transparent-deep-active, #30373BB8)';
 
 /** Прозрачный фон для карточек на светлом фоне */
 export const onLightSurfaceTransparentCardHover = 'var(--on-light-surface-transparent-card-hover, #FFFFFFFF)';
@@ -1124,7 +1124,7 @@ export const onLightSurfacePositiveMinorActive = 'var(--on-light-surface-positiv
 export const onLightSurfaceWarningMinorHover = 'var(--on-light-surface-warning-minor-hover, #FEE9DCFF)';
 
 /** Минорный цвет фона поверхности/контрола предупреждение на светлом фоне */
-export const onLightSurfaceWarningMinorActive = 'var(--on-light-surface-warning-minor-active, #FEDCC8FF)';
+export const onLightSurfaceWarningMinorActive = 'var(--on-light-surface-warning-minor-active, #FED8C3FF)';
 
 /** Минорный цвет фона поверхности/контрола ошибка на светлом фоне */
 export const onLightSurfaceNegativeMinorHover = 'var(--on-light-surface-negative-minor-hover, #FFEBEDFF)';
@@ -1183,18 +1183,6 @@ export const onLightSurfaceSolidCardBrightness = 'var(--on-light-surface-solid-c
 /** Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне */
 export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #060A0C)';
 
-/** Основной прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentPrimary = 'var(--on-light-surface-transparent-primary, #060A0C05)';
-
-/** Вторичный прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentSecondary = 'var(--on-light-surface-transparent-secondary, #060A0C0F)';
-
-/** Третичный прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentTertiary = 'var(--on-light-surface-transparent-tertiary, #060A0C1F)';
-
-/** Глубокий прозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentDeep = 'var(--on-light-surface-transparent-deep, #060A0CA3)';
-
 /** Прозрачный фон для карточек на светлом фоне */
 export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card, #FFFFFFFF)';
 
@@ -1246,6 +1234,18 @@ export const onLightSurfaceTransparentNegative = 'var(--on-light-surface-transpa
 /** Прозрачный цвет фона поверхности/контрола информация на светлом фоне */
 export const onLightSurfaceTransparentInfo = 'var(--on-light-surface-transparent-info, #118CDF1F)';
 
+/** Основной прозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentPrimary = 'var(--on-light-surface-transparent-primary, #D5DFE642)';
+
+/** Вторичный прозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentSecondary = 'var(--on-light-surface-transparent-secondary, #ADB9C238)';
+
+/** Третичный прозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentTertiary = 'var(--on-light-surface-transparent-tertiary, #8A959D47)';
+
+/** Глубокий прозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentDeep = 'var(--on-light-surface-transparent-deep, #30373CC7)';
+
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F8FAFBFF)';
 
@@ -1277,29 +1277,29 @@ export const inverseSurfaceSolidDefaultHover = 'var(--inverse-surface-solid-defa
 export const inverseSurfaceSolidDefaultActive = 'var(--inverse-surface-solid-default-active, #030607FF)';
 
 /** Инвертированный основной прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentPrimaryHover = 'var(--inverse-surface-transparent-primary-hover, #070B0E0F)';
+export const inverseSurfaceTransparentPrimaryHover = 'var(--inverse-surface-transparent-primary-hover, #D6DFE661)';
 
 /** Инвертированный основной прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentPrimaryActive = 'var(--inverse-surface-transparent-primary-active, #070B0E00)';
+export const inverseSurfaceTransparentPrimaryActive = 'var(--inverse-surface-transparent-primary-active, #D6DFE633)';
 
 /** Инвертированный вторичный прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentSecondaryHover = 'var(--inverse-surface-transparent-secondary-hover, #070B0E1F)';
+export const inverseSurfaceTransparentSecondaryHover = 'var(--inverse-surface-transparent-secondary-hover, #ADB9C257)';
 
 /** Инвертированный вторичный прозрачный фон поверхности/контрола */
 export const inverseSurfaceTransparentSecondaryActive =
-    'var(--inverse-surface-transparent-secondary-active, #070B0E0A)';
+    'var(--inverse-surface-transparent-secondary-active, #ADB9C229)';
 
 /** Инвертированный третичный прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentTertiaryHover = 'var(--inverse-surface-transparent-tertiary-hover, #070B0E3D)';
+export const inverseSurfaceTransparentTertiaryHover = 'var(--inverse-surface-transparent-tertiary-hover, #8A969E66)';
 
 /** Инвертированный третичный прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentTertiaryActive = 'var(--inverse-surface-transparent-tertiary-active, #070B0E0F)';
+export const inverseSurfaceTransparentTertiaryActive = 'var(--inverse-surface-transparent-tertiary-active, #8A969E38)';
 
 /** Инвертированный глубокий прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentDeepHover = 'var(--inverse-surface-transparent-deep-hover, #070B0EC2)';
+export const inverseSurfaceTransparentDeepHover = 'var(--inverse-surface-transparent-deep-hover, #30373BE6)';
 
 /** Инвертированный глубокий прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentDeepActive = 'var(--inverse-surface-transparent-deep-active, #070B0E94)';
+export const inverseSurfaceTransparentDeepActive = 'var(--inverse-surface-transparent-deep-active, #30373BB8)';
 
 /** Инвертированный прозрачный фон для карточек */
 export const inverseSurfaceTransparentCardHover = 'var(--inverse-surface-transparent-card-hover, #FFFFFFFF)';
@@ -1433,18 +1433,6 @@ export const inverseSurfaceTransparentCard = 'var(--inverse-surface-transparent-
 /** Инвертированный прозрачный фон для карточек */
 export const inverseSurfaceTransparentCardBrightness = 'var(--inverse-surface-transparent-card-brightness, #FFFFFFFF)';
 
-/** Инвертированный основной прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentPrimary = 'var(--inverse-surface-transparent-primary, #060A0C05)';
-
-/** Инвертированный вторичный прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentSecondary = 'var(--inverse-surface-transparent-secondary, #060A0C0F)';
-
-/** Инвертированный третичный прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentTertiary = 'var(--inverse-surface-transparent-tertiary, #060A0C1F)';
-
-/** Инвертированный глубокий прозрачный фон поверхности/контрола */
-export const inverseSurfaceTransparentDeep = 'var(--inverse-surface-transparent-deep, #060A0CA3)';
-
 /** Инвертированный акцентный фон поверхности/контрола */
 export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #118CDF)';
 
@@ -1490,6 +1478,18 @@ export const inverseSurfaceTransparentNegative = 'var(--inverse-surface-transpar
 /** Прозрачный инвертированный цвет фона поверхности/контрола информация */
 export const inverseSurfaceTransparentInfo = 'var(--inverse-surface-transparent-info, #118CDF1F)';
 
+/** Инвертированный основной прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentPrimary = 'var(--inverse-surface-transparent-primary, #D5DFE642)';
+
+/** Инвертированный вторичный прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentSecondary = 'var(--inverse-surface-transparent-secondary, #ADB9C238)';
+
+/** Инвертированный третичный прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentTertiary = 'var(--inverse-surface-transparent-tertiary, #8A959D47)';
+
+/** Инвертированный глубокий прозрачный фон поверхности/контрола */
+export const inverseSurfaceTransparentDeep = 'var(--inverse-surface-transparent-deep, #30373CC7)';
+
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #060A0C)';
 
@@ -1515,7 +1515,7 @@ export const overlayHard = 'var(--overlay-hard, #060A0CF5)';
 export const overlaySoft = 'var(--overlay-soft, #060A0C8F)';
 
 /** Цвет фона паранжи размытый */
-export const overlayBlur = 'var(--overlay-blur, #F2F5F81F)';
+export const overlayBlur = 'var(--overlay-blur, #060A0C47)';
 
 /** Цвет фона паранжи темный на темном фоне */
 export const onDarkOverlayHard = 'var(--on-dark-overlay-hard, #060A0CF5)';
@@ -1561,48 +1561,6 @@ export const outlineSolidTertiaryHover = 'var(--outline-solid-tertiary-hover, #F
 
 /** Третичный непрозрачный цвет обводки */
 export const outlineSolidTertiaryActive = 'var(--outline-solid-tertiary-active, #68757DFF)';
-
-/** Прозрачный цвет обводки по умолчанию */
-export const outlineTransparentDefaultHover = 'var(--outline-transparent-default-hover, #C7C7C7FF)';
-
-/** Прозрачный цвет обводки по умолчанию */
-export const outlineTransparentDefaultActive = 'var(--outline-transparent-default-active, #E0E0E0FF)';
-
-/** Основной прозрачный цвет обводки */
-export const outlineTransparentPrimary = 'var(--outline-transparent-primary, #F7F9FB1F)';
-
-/** Основной прозрачный цвет обводки */
-export const outlineTransparentPrimaryHover = 'var(--outline-transparent-primary-hover, #F8FAFCFF)';
-
-/** Основной прозрачный цвет обводки */
-export const outlineTransparentPrimaryActive = 'var(--outline-transparent-primary-active, #F8FAFC25)';
-
-/** Вторичный прозрачный цвет обводки */
-export const outlineTransparentSecondary = 'var(--outline-transparent-secondary, #F7F9FB33)';
-
-/** Вторичный прозрачный цвет обводки */
-export const outlineTransparentSecondaryHover = 'var(--outline-transparent-secondary-hover, #F8FAFCFF)';
-
-/** Вторичный прозрачный цвет обводки */
-export const outlineTransparentSecondaryActive = 'var(--outline-transparent-secondary-active, #F8FAFC3D)';
-
-/** Третичный прозрачный цвет обводки */
-export const outlineTransparentTertiary = 'var(--outline-transparent-tertiary, #F7F9FB47)';
-
-/** Третичный прозрачный цвет обводки */
-export const outlineTransparentTertiaryHover = 'var(--outline-transparent-tertiary-hover, #F8FAFCFF)';
-
-/** Третичный прозрачный цвет обводки */
-export const outlineTransparentTertiaryActive = 'var(--outline-transparent-tertiary-active, #F8FAFC56)';
-
-/** Бесцветная обводка */
-export const outlineClear = 'var(--outline-clear, #FFFFFF00)';
-
-/** Бесцветная обводка */
-export const outlineClearHover = 'var(--outline-clear-hover, #FFFFFF00)';
-
-/** Бесцветная обводка */
-export const outlineClearActive = 'var(--outline-clear-active, #FFFFFF00)';
 
 /** Акцентный цвет обводки */
 export const outlineAccentHover = 'var(--outline-accent-hover, #66BCF5FF)';
@@ -1703,9 +1661,6 @@ export const outlineSolidSecondary = 'var(--outline-solid-secondary, #30373C)';
 /** Третичный непрозрачный цвет обводки */
 export const outlineSolidTertiary = 'var(--outline-solid-tertiary, #657179)';
 
-/** Прозрачный цвет обводки по умолчанию */
-export const outlineTransparentDefault = 'var(--outline-transparent-default, #F9F9F9)';
-
 /** Акцентный цвет обводки */
 export const outlineAccent = 'var(--outline-accent, #199AF0)';
 
@@ -1751,6 +1706,15 @@ export const outlineTransparentNegative = 'var(--outline-transparent-negative, #
 /** Прозрачный цвет обводки информация */
 export const outlineTransparentInfo = 'var(--outline-transparent-info, #199AF047)';
 
+/** dark outline default outlineSolidDefaultHover */
+export const outlineSolidDefaultHover = 'var(--outline-solid-default-hover, #D0DBE7FF)';
+
+/** dark outline default outlineSolidDefaultActive */
+export const outlineSolidDefaultActive = 'var(--outline-solid-default-active, #E4EBF1FF)';
+
+/** dark outline default outlineSolidDefault */
+export const outlineSolidDefault = 'var(--outline-solid-default, #F7F9FB)';
+
 /** Основной непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidPrimaryHover = 'var(--on-dark-outline-solid-primary-hover, #FFFFFFFF)';
 
@@ -1768,48 +1732,6 @@ export const onDarkOutlineSolidTertiaryHover = 'var(--on-dark-outline-solid-tert
 
 /** Третичный непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidTertiaryActive = 'var(--on-dark-outline-solid-tertiary-active, #68757DFF)';
-
-/** Прозрачный цвет обводки по умолчанию на темном фоне */
-export const onDarkOutlineTransparentDefaultHover = 'var(--on-dark-outline-transparent-default-hover, #C7C7C7FF)';
-
-/** Прозрачный цвет обводки по умолчанию на темном фоне */
-export const onDarkOutlineTransparentDefaultActive = 'var(--on-dark-outline-transparent-default-active, #E0E0E0FF)';
-
-/** Основной прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentPrimary = 'var(--on-dark-outline-transparent-primary, #F7F9FB1F)';
-
-/** Основной прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentPrimaryHover = 'var(--on-dark-outline-transparent-primary-hover, #F8FAFCFF)';
-
-/** Основной прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentPrimaryActive = 'var(--on-dark-outline-transparent-primary-active, #F8FAFC25)';
-
-/** Вторичный прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentSecondary = 'var(--on-dark-outline-transparent-secondary, #F7F9FB33)';
-
-/** Вторичный прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentSecondaryHover = 'var(--on-dark-outline-transparent-secondary-hover, #F8FAFCFF)';
-
-/** Вторичный прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentSecondaryActive = 'var(--on-dark-outline-transparent-secondary-active, #F8FAFC3D)';
-
-/** Третичный прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentTertiary = 'var(--on-dark-outline-transparent-tertiary, #F7F9FB47)';
-
-/** Третичный прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentTertiaryHover = 'var(--on-dark-outline-transparent-tertiary-hover, #F8FAFCFF)';
-
-/** Третичный прозрачный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentTertiaryActive = 'var(--on-dark-outline-transparent-tertiary-active, #F8FAFC56)';
-
-/** Бесцветная обводка на темном фоне */
-export const onDarkOutlineClear = 'var(--on-dark-outline-clear, #FFFFFF00)';
-
-/** Бесцветная обводка на темном фоне */
-export const onDarkOutlineClearHover = 'var(--on-dark-outline-clear-hover, #FFFFFF00)';
-
-/** Бесцветная обводка на темном фоне */
-export const onDarkOutlineClearActive = 'var(--on-dark-outline-clear-active, #FFFFFF00)';
 
 /** Акцентный цвет обводки на темном фоне */
 export const onDarkOutlineAccentHover = 'var(--on-dark-outline-accent-hover, #66BCF5FF)';
@@ -1910,9 +1832,6 @@ export const onDarkOutlineSolidSecondary = 'var(--on-dark-outline-solid-secondar
 /** Третичный непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidTertiary = 'var(--on-dark-outline-solid-tertiary, #657179)';
 
-/** Прозрачный цвет обводки по умолчанию на темном фоне */
-export const onDarkOutlineTransparentDefault = 'var(--on-dark-outline-transparent-default, #F9F9F9)';
-
 /** Акцентный цвет обводки на темном фоне */
 export const onDarkOutlineAccent = 'var(--on-dark-outline-accent, #199AF0)';
 
@@ -1958,6 +1877,15 @@ export const onDarkOutlineTransparentNegative = 'var(--on-dark-outline-transpare
 /** Прозрачный цвет обводки информация на темном фоне */
 export const onDarkOutlineTransparentInfo = 'var(--on-dark-outline-transparent-info, #199AF047)';
 
+/** dark outline onDark outlineSolidDefault */
+export const onDarkOutlineSolidDefault = 'var(--on-dark-outline-solid-default, #F7F9FB)';
+
+/** dark outline onDark outlineSolidDefaultHover */
+export const onDarkOutlineSolidDefaultHover = 'var(--on-dark-outline-solid-default-hover, #D0DBE7FF)';
+
+/** dark outline onDark outlineSolidDefaultActive */
+export const onDarkOutlineSolidDefaultActive = 'var(--on-dark-outline-solid-default-active, #E4EBF1FF)';
+
 /** Основной непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidPrimaryHover = 'var(--on-light-outline-solid-primary-hover, #AFC2CFFF)';
 
@@ -1975,49 +1903,6 @@ export const onLightOutlineSolidTertiaryHover = 'var(--on-light-outline-solid-te
 
 /** Третичный непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidTertiaryActive = 'var(--on-light-outline-solid-tertiary-active, #68757DFF)';
-
-/** Прозрачный цвет обводки по умолчанию на светлом фоне */
-export const onLightOutlineTransparentDefaultHover = 'var(--on-light-outline-transparent-default-hover, #FFFFFFFF)';
-
-/** Прозрачный цвет обводки по умолчанию на светлом фоне */
-export const onLightOutlineTransparentDefaultActive = 'var(--on-light-outline-transparent-default-active, #C7C7C7FF)';
-
-/** Основной прозрачный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentPrimary = 'var(--on-light-outline-transparent-primary, #060A0C1F)';
-
-/** Основной прозрачный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentPrimaryHover = 'var(--on-light-outline-transparent-primary-hover, #070B0EFF)';
-
-/** Основной прозрачный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentPrimaryActive = 'var(--on-light-outline-transparent-primary-active, #070B0E25)';
-
-/** Вторичный прозрачный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentSecondary = 'var(--on-light-outline-transparent-secondary, #060A0C47)';
-
-/** Вторичный прозрачный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentSecondaryHover = 'var(--on-light-outline-transparent-secondary-hover, #070B0EFF)';
-
-/** Вторичный прозрачный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentSecondaryActive =
-    'var(--on-light-outline-transparent-secondary-active, #070B0E56)';
-
-/** Третичный прозрачный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentTertiary = 'var(--on-light-outline-transparent-tertiary, #060A0C8F)';
-
-/** Третичный прозрачный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentTertiaryHover = 'var(--on-light-outline-transparent-tertiary-hover, #070B0EFF)';
-
-/** Третичный прозрачный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentTertiaryActive = 'var(--on-light-outline-transparent-tertiary-active, #070B0EAB)';
-
-/** Бесцветная обводка на светлом фоне */
-export const onLightOutlineClear = 'var(--on-light-outline-clear, #FFFFFF00)';
-
-/** Бесцветная обводка на светлом фоне */
-export const onLightOutlineClearHover = 'var(--on-light-outline-clear-hover, #FFFFFF00)';
-
-/** Бесцветная обводка на светлом фоне */
-export const onLightOutlineClearActive = 'var(--on-light-outline-clear-active, #FFFFFF00)';
 
 /** Акцентный цвет обводки на светлом фоне */
 export const onLightOutlineAccentHover = 'var(--on-light-outline-accent-hover, #34A7F4FF)';
@@ -2044,16 +1929,16 @@ export const onLightOutlinePositiveHover = 'var(--on-light-outline-positive-hove
 export const onLightOutlinePositiveActive = 'var(--on-light-outline-positive-active, #0D731EFF)';
 
 /** Цвет обводки предупреждение на светлом фоне */
-export const onLightOutlineWarningHover = 'var(--on-light-outline-warning-hover, #FD650DFF)';
+export const onLightOutlineWarningHover = 'var(--on-light-outline-warning-hover, #FB7223FF)';
 
 /** Цвет обводки предупреждение на светлом фоне */
-export const onLightOutlineWarningActive = 'var(--on-light-outline-warning-active, #CA4B02FF)';
+export const onLightOutlineWarningActive = 'var(--on-light-outline-warning-active, #DC5304FF)';
 
 /** Цвет обводки ошибка на светлом фоне */
-export const onLightOutlineNegativeHover = 'var(--on-light-outline-negative-hover, #F5384BFF)';
+export const onLightOutlineNegativeHover = 'var(--on-light-outline-negative-hover, #ED263AFF)';
 
 /** Цвет обводки ошибка на светлом фоне */
-export const onLightOutlineNegativeActive = 'var(--on-light-outline-negative-active, #E40C22FF)';
+export const onLightOutlineNegativeActive = 'var(--on-light-outline-negative-active, #C61022FF)';
 
 /** Цвет обводки информация на светлом фоне */
 export const onLightOutlineInfoHover = 'var(--on-light-outline-info-hover, #34A7F4FF)';
@@ -2118,9 +2003,6 @@ export const onLightOutlineSolidSecondary = 'var(--on-light-outline-solid-second
 /** Третичный непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidTertiary = 'var(--on-light-outline-solid-tertiary, #657179)';
 
-/** Прозрачный цвет обводки по умолчанию на светлом фоне */
-export const onLightOutlineTransparentDefault = 'var(--on-light-outline-transparent-default, #080808)';
-
 /** Акцентный цвет обводки на светлом фоне */
 export const onLightOutlineAccent = 'var(--on-light-outline-accent, #0B7ECB)';
 
@@ -2132,12 +2014,6 @@ export const onLightOutlineTransparentAccent = 'var(--on-light-outline-transpare
 
 /** Цвет обводки успех на светлом фоне */
 export const onLightOutlinePositive = 'var(--on-light-outline-positive, #108E26)';
-
-/** Цвет обводки предупреждение на светлом фоне */
-export const onLightOutlineWarning = 'var(--on-light-outline-warning, #E85702)';
-
-/** Цвет обводки ошибка на светлом фоне */
-export const onLightOutlineNegative = 'var(--on-light-outline-negative, #F31B31)';
 
 /** Цвет обводки информация на светлом фоне */
 export const onLightOutlineInfo = 'var(--on-light-outline-info, #0B7ECB)';
@@ -2166,6 +2042,21 @@ export const onLightOutlineTransparentNegative = 'var(--on-light-outline-transpa
 /** Прозрачный цвет обводки информация на светлом фоне */
 export const onLightOutlineTransparentInfo = 'var(--on-light-outline-transparent-info, #0B7ECB33)';
 
+/** dark outline onLight outlineSolidDefault */
+export const onLightOutlineSolidDefault = 'var(--on-light-outline-solid-default, #060A0C)';
+
+/** dark outline onLight outlineSolidDefaultHover */
+export const onLightOutlineSolidDefaultHover = 'var(--on-light-outline-solid-default-hover, #1B2D36FF)';
+
+/** dark outline onLight outlineSolidDefaultActive */
+export const onLightOutlineSolidDefaultActive = 'var(--on-light-outline-solid-default-active, #111C22FF)';
+
+/** Цвет обводки предупреждение на светлом фоне */
+export const onLightOutlineWarning = 'var(--on-light-outline-warning, #FA5F05)';
+
+/** Цвет обводки ошибка на светлом фоне */
+export const onLightOutlineNegative = 'var(--on-light-outline-negative, #E31227)';
+
 /** Инвертированный основной непрозрачный цвет обводки */
 export const inverseOutlineSolidPrimaryHover = 'var(--inverse-outline-solid-primary-hover, #AFC2CFFF)';
 
@@ -2182,50 +2073,7 @@ export const inverseOutlineSolidSecondaryActive = 'var(--inverse-outline-solid-s
 export const inverseOutlineSolidTertiaryHover = 'var(--inverse-outline-solid-tertiary-hover, #FFFFFFFF)';
 
 /** Инвертированный третичный непрозрачный цвет обводки */
-export const inverseOutlineSolidTertiaryActive = 'var(--inverse-outline-solid-tertiary-active, #737373FF)';
-
-/** Инвертированный прозрачный цвет обводки по умолчанию */
-export const inverseOutlineTransparentDefaultHover = 'var(--inverse-outline-transparent-default-hover, #FFFFFFFF)';
-
-/** Инвертированный прозрачный цвет обводки по умолчанию */
-export const inverseOutlineTransparentDefaultActive = 'var(--inverse-outline-transparent-default-active, #C7C7C7FF)';
-
-/** Инвертированный основной прозрачный цвет обводки */
-export const inverseOutlineTransparentPrimary = 'var(--inverse-outline-transparent-primary, #060A0C1F)';
-
-/** Инвертированный основной прозрачный цвет обводки */
-export const inverseOutlineTransparentPrimaryHover = 'var(--inverse-outline-transparent-primary-hover, #070B0EFF)';
-
-/** Инвертированный основной прозрачный цвет обводки */
-export const inverseOutlineTransparentPrimaryActive = 'var(--inverse-outline-transparent-primary-active, #070B0E25)';
-
-/** Инвертированный вторичный прозрачный цвет обводки */
-export const inverseOutlineTransparentSecondary = 'var(--inverse-outline-transparent-secondary, #060A0C47)';
-
-/** Инвертированный вторичный прозрачный цвет обводки */
-export const inverseOutlineTransparentSecondaryHover = 'var(--inverse-outline-transparent-secondary-hover, #070B0EFF)';
-
-/** Инвертированный вторичный прозрачный цвет обводки */
-export const inverseOutlineTransparentSecondaryActive =
-    'var(--inverse-outline-transparent-secondary-active, #070B0E56)';
-
-/** Инвертированный третичный прозрачный цвет обводки */
-export const inverseOutlineTransparentTertiary = 'var(--inverse-outline-transparent-tertiary, #060A0C8F)';
-
-/** Инвертированный третичный прозрачный цвет обводки */
-export const inverseOutlineTransparentTertiaryHover = 'var(--inverse-outline-transparent-tertiary-hover, #070B0EFF)';
-
-/** Инвертированный третичный прозрачный цвет обводки */
-export const inverseOutlineTransparentTertiaryActive = 'var(--inverse-outline-transparent-tertiary-active, #070B0EAB)';
-
-/** Инвертированная бесцветная обводка */
-export const inverseOutlineClear = 'var(--inverse-outline-clear, #FFFFFF00)';
-
-/** Инвертированная бесцветная обводка */
-export const inverseOutlineClearHover = 'var(--inverse-outline-clear-hover, #FFFFFF00)';
-
-/** Инвертированная бесцветная обводка */
-export const inverseOutlineClearActive = 'var(--inverse-outline-clear-active, #FFFFFF00)';
+export const inverseOutlineSolidTertiaryActive = 'var(--inverse-outline-solid-tertiary-active, #68757DFF)';
 
 /** Инвертированный акцентный цвет обводки */
 export const inverseOutlineAccentHover = 'var(--inverse-outline-accent-hover, #34A7F4FF)';
@@ -2252,16 +2100,16 @@ export const inverseOutlinePositiveHover = 'var(--inverse-outline-positive-hover
 export const inverseOutlinePositiveActive = 'var(--inverse-outline-positive-active, #0D731EFF)';
 
 /** Инвертированный цвет обводки предупреждение */
-export const inverseOutlineWarningHover = 'var(--inverse-outline-warning-hover, #FD650DFF)';
+export const inverseOutlineWarningHover = 'var(--inverse-outline-warning-hover, #FB7223FF)';
 
 /** Инвертированный цвет обводки предупреждение */
-export const inverseOutlineWarningActive = 'var(--inverse-outline-warning-active, #CA4B02FF)';
+export const inverseOutlineWarningActive = 'var(--inverse-outline-warning-active, #DC5304FF)';
 
 /** Инвертированный цвет обводки ошибка */
-export const inverseOutlineNegativeHover = 'var(--inverse-outline-negative-hover, #F5384BFF)';
+export const inverseOutlineNegativeHover = 'var(--inverse-outline-negative-hover, #ED263AFF)';
 
 /** Инвертированный цвет обводки ошибка */
-export const inverseOutlineNegativeActive = 'var(--inverse-outline-negative-active, #E40C22FF)';
+export const inverseOutlineNegativeActive = 'var(--inverse-outline-negative-active, #C61022FF)';
 
 /** Инвертированный цвет обводки информация */
 export const inverseOutlineInfoHover = 'var(--inverse-outline-info-hover, #34A7F4FF)';
@@ -2323,12 +2171,6 @@ export const inverseOutlineSolidPrimary = 'var(--inverse-outline-solid-primary, 
 /** Инвертированный вторичный непрозрачный цвет обводки */
 export const inverseOutlineSolidSecondary = 'var(--inverse-outline-solid-secondary, #8A959D)';
 
-/** Инвертированный третичный непрозрачный цвет обводки */
-export const inverseOutlineSolidTertiary = 'var(--inverse-outline-solid-tertiary, #707070)';
-
-/** Инвертированный прозрачный цвет обводки по умолчанию */
-export const inverseOutlineTransparentDefault = 'var(--inverse-outline-transparent-default, #080808)';
-
 /** Инвертированный акцентный цвет обводки */
 export const inverseOutlineAccent = 'var(--inverse-outline-accent, #0B7ECB)';
 
@@ -2340,12 +2182,6 @@ export const inverseOutlineTransparentAccent = 'var(--inverse-outline-transparen
 
 /** Инвертированный цвет обводки успех */
 export const inverseOutlinePositive = 'var(--inverse-outline-positive, #108E26)';
-
-/** Инвертированный цвет обводки предупреждение */
-export const inverseOutlineWarning = 'var(--inverse-outline-warning, #E85702)';
-
-/** Инвертированный цвет обводки ошибка */
-export const inverseOutlineNegative = 'var(--inverse-outline-negative, #F31B31)';
 
 /** Инвертированный цвет обводки информация */
 export const inverseOutlineInfo = 'var(--inverse-outline-info, #0B7ECB)';
@@ -2374,6 +2210,24 @@ export const inverseOutlineTransparentNegative = 'var(--inverse-outline-transpar
 /** Прозрачный инвертированный цвет обводки информация */
 export const inverseOutlineTransparentInfo = 'var(--inverse-outline-transparent-info, #0B7ECB33)';
 
+/** dark outline inverse outlineSolidDefault */
+export const inverseOutlineSolidDefault = 'var(--inverse-outline-solid-default, #060A0C)';
+
+/** dark outline inverse outlineSolidDefaultHover */
+export const inverseOutlineSolidDefaultHover = 'var(--inverse-outline-solid-default-hover, #1B2D36FF)';
+
+/** dark outline inverse outlineSolidDefaultActive */
+export const inverseOutlineSolidDefaultActive = 'var(--inverse-outline-solid-default-active, #111C22FF)';
+
+/** Инвертированный цвет обводки предупреждение */
+export const inverseOutlineWarning = 'var(--inverse-outline-warning, #FA5F05)';
+
+/** Инвертированный цвет обводки ошибка */
+export const inverseOutlineNegative = 'var(--inverse-outline-negative, #E31227)';
+
+/** Инвертированный третичный непрозрачный цвет обводки */
+export const inverseOutlineSolidTertiary = 'var(--inverse-outline-solid-tertiary, #657179)';
+
 /** Желтый цвет для данных */
 export const dataYellow = 'var(--data-yellow, #F3A912)';
 
@@ -2400,6 +2254,24 @@ export const dataYellowTransparentHover = 'var(--data-yellow-transparent-hover, 
 
 /** Прозрачный желтый цвет для данных */
 export const dataYellowTransparentActive = 'var(--data-yellow-transparent-active, #F3A81280)';
+
+/** Светлый желтый цвет для данных */
+export const dataYellowLight = 'var(--data-yellow-light, #332200)';
+
+/** Светлый желтый цвет для данных */
+export const dataYellowLightHover = 'var(--data-yellow-light-hover, #FFF4E0FF)';
+
+/** Светлый желтый цвет для данных */
+export const dataYellowLightActive = 'var(--data-yellow-light-active, #FFF3DBFF)';
+
+/** Светлый голубой цвет для данных */
+export const dataSkyBlueLight = 'var(--data-sky-blue-light, #0C283B)';
+
+/** Светлый голубой цвет для данных */
+export const dataSkyBlueLightHover = 'var(--data-sky-blue-light-hover, #E0F8FFFF)';
+
+/** Светлый голубой цвет для данных */
+export const dataSkyBlueLightActive = 'var(--data-sky-blue-light-active, #DBF7FFFF)';
 
 /** Желтый цвет для данных на темном фоне */
 export const onDarkDataYellow = 'var(--on-dark-data-yellow, #F3A912)';
@@ -2428,6 +2300,24 @@ export const onDarkDataYellowTransparentHover = 'var(--on-dark-data-yellow-trans
 /** Прозрачный желтый цвет для данных на темном фоне */
 export const onDarkDataYellowTransparentActive = 'var(--on-dark-data-yellow-transparent-active, #F3A81280)';
 
+/** Светлый желтый цвет для данных на темном фоне */
+export const onDarkDataYellowLight = 'var(--on-dark-data-yellow-light, #332200)';
+
+/** Светлый желтый цвет для данных на темном фоне */
+export const onDarkDataYellowLightHover = 'var(--on-dark-data-yellow-light-hover, #FFF4E0FF)';
+
+/** Светлый желтый цвет для данных на темном фоне */
+export const onDarkDataYellowLightActive = 'var(--on-dark-data-yellow-light-active, #FFF3DBFF)';
+
+/** Светлый голубой цвет для данных на темном фоне */
+export const onDarkDataSkyBlueLight = 'var(--on-dark-data-sky-blue-light, #0C283B)';
+
+/** Cветлый голубой цвет для данных на темном фоне */
+export const onDarkDataSkyBlueLightHover = 'var(--on-dark-data-sky-blue-light-hover, #E0F8FFFF)';
+
+/** Cветлый голубой цвет для данных на темном фоне */
+export const onDarkDataSkyBlueLightActive = 'var(--on-dark-data-sky-blue-light-active, #DBF7FFFF)';
+
 /** Желтый цвет для данных на светлом фоне */
 export const onLightDataYellow = 'var(--on-light-data-yellow, #F3A912)';
 
@@ -2455,6 +2345,24 @@ export const onLightDataYellowTransparentHover = 'var(--on-light-data-yellow-tra
 /** Прозрачный желтый цвет для данных на светлом фоне */
 export const onLightDataYellowTransparentActive = 'var(--on-light-data-yellow-transparent-active, #F3A81280)';
 
+/** Светлый желтый цвет для данных на светлом фоне */
+export const onLightDataYellowLight = 'var(--on-light-data-yellow-light, #FFF6E5)';
+
+/** Светлый желтый цвет для данных на светлом фоне */
+export const onLightDataYellowLightHover = 'var(--on-light-data-yellow-light-hover, #FFF4E0FF)';
+
+/** Светлый желтый цвет для данных на светлом фоне */
+export const onLightDataYellowLightActive = 'var(--on-light-data-yellow-light-active, #FFF3DBFF)';
+
+/** Светлый голубой цвет для данных на светлом фоне */
+export const onLightDataSkyBlueLight = 'var(--on-light-data-sky-blue-light, #E8FAFF)';
+
+/** Светлый голубой цвет для данных на светлом фоне */
+export const onLightDataSkyBlueLightHover = 'var(--on-light-data-sky-blue-light-hover, #E0F8FFFF)';
+
+/** Светлый голубой цвет для данных на светлом фоне */
+export const onLightDataSkyBlueLightActive = 'var(--on-light-data-sky-blue-light-active, #DBF7FFFF)';
+
 /** Инвертированный желтый цвет для данных */
 export const inverseDataYellow = 'var(--inverse-data-yellow, #F3A912)';
 
@@ -2481,6 +2389,24 @@ export const inverseDataYellowTransparentHover = 'var(--inverse-data-yellow-tran
 
 /** Инвертированный прозрачный желтый цвет для данных */
 export const inverseDataYellowTransparentActive = 'var(--inverse-data-yellow-transparent-active, #F3A81280)';
+
+/** Инвертированный светлый желтый цвет для данных */
+export const inverseDataYellowLight = 'var(--inverse-data-yellow-light, #FFF6E5)';
+
+/** Инвертированный светлый желтый цвет для данных */
+export const inverseDataYellowLightHover = 'var(--inverse-data-yellow-light-hover, #FFF4E0FF)';
+
+/** Инвертированный светлый желтый цвет для данных */
+export const inverseDataYellowLightActive = 'var(--inverse-data-yellow-light-active, #FFF3DBFF)';
+
+/** Инвертированный светлый голубой цвет для данных */
+export const inverseDataSkyBlueLight = 'var(--inverse-data-sky-blue-light, #E8FAFF)';
+
+/** Инвертированный светлый голубой цвет для данных */
+export const inverseDataSkyBlueLightHover = 'var(--inverse-data-sky-blue-light-hover, #E0F8FFFF)';
+
+/** Инвертированный светлый голубой цвет для данных */
+export const inverseDataSkyBlueLightActive = 'var(--inverse-data-sky-blue-light-active, #DBF7FFFF)';
 
 /** Фон для скелетона */
 export const surfaceSkeletonGradient =
@@ -3210,8 +3136,6 @@ export const viewContainer = {
         --text-info-minor-active: var(--on-dark-text-info-minor-active);
         --text-primary: var(--on-dark-text-primary);
         --text-primary-brightness: var(--on-dark-text-primary-brightness);
-        --text-secondary: var(--on-dark-text-secondary);
-        --text-tertiary: var(--on-dark-text-tertiary);
         --text-paragraph: var(--on-dark-text-paragraph);
         --text-accent: var(--on-dark-text-accent);
         --text-accent-minor: var(--on-dark-text-accent-minor);
@@ -3223,6 +3147,8 @@ export const viewContainer = {
         --text-warning-minor: var(--on-dark-text-warning-minor);
         --text-negative-minor: var(--on-dark-text-negative-minor);
         --text-info-minor: var(--on-dark-text-info-minor);
+        --text-secondary: var(--on-dark-text-secondary);
+        --text-tertiary: var(--on-dark-text-tertiary);
         --inverse-text-primary-hover: var(--on-light-text-primary-hover);
         --inverse-text-primary-active: var(--on-light-text-primary-active);
         --inverse-text-secondary-hover: var(--on-light-text-secondary-hover);
@@ -3253,19 +3179,19 @@ export const viewContainer = {
         --inverse-text-info-minor-active: var(--on-light-text-info-minor-active);
         --inverse-text-primary: var(--on-light-text-primary);
         --inverse-text-primary-brightness: var(--on-light-text-primary-brightness);
-        --inverse-text-secondary: var(--on-light-text-secondary);
-        --inverse-text-tertiary: var(--on-light-text-tertiary);
         --inverse-text-paragraph: var(--on-light-text-paragraph);
         --inverse-text-accent: var(--on-light-text-accent);
         --inverse-text-accent-minor: var(--on-light-text-accent-minor);
         --inverse-text-positive: var(--on-light-text-positive);
-        --inverse-text-warning: var(--on-light-text-warning);
-        --inverse-text-negative: var(--on-light-text-negative);
         --inverse-text-info: var(--on-light-text-info);
         --inverse-text-positive-minor: var(--on-light-text-positive-minor);
         --inverse-text-warning-minor: var(--on-light-text-warning-minor);
         --inverse-text-negative-minor: var(--on-light-text-negative-minor);
         --inverse-text-info-minor: var(--on-light-text-info-minor);
+        --inverse-text-secondary: var(--on-light-text-secondary);
+        --inverse-text-tertiary: var(--on-light-text-tertiary);
+        --inverse-text-warning: var(--on-light-text-warning);
+        --inverse-text-negative: var(--on-light-text-negative);
         --surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --surface-solid-secondary-hover: var(--on-dark-surface-solid-secondary-hover);
@@ -3318,7 +3244,6 @@ export const viewContainer = {
         --surface-transparent-negative-active: var(--on-dark-surface-transparent-negative-active);
         --surface-transparent-info-hover: var(--on-dark-surface-transparent-info-hover);
         --surface-transparent-info-active: var(--on-dark-surface-transparent-info-active);
-        --surface-solid-card: var(--on-dark-surface-solid-card);
         --surface-solid-card-brightness: var(--on-dark-surface-solid-card-brightness);
         --surface-solid-primary: var(--on-dark-surface-solid-primary);
         --surface-solid-primary-brightness: var(--on-dark-surface-solid-primary-brightness);
@@ -3328,9 +3253,6 @@ export const viewContainer = {
         --surface-transparent-card: var(--on-dark-surface-transparent-card);
         --surface-transparent-card-brightness: var(--on-dark-surface-transparent-card-brightness);
         --surface-transparent-primary: var(--on-dark-surface-transparent-primary);
-        --surface-transparent-secondary: var(--on-dark-surface-transparent-secondary);
-        --surface-transparent-tertiary: var(--on-dark-surface-transparent-tertiary);
-        --surface-transparent-deep: var(--on-dark-surface-transparent-deep);
         --surface-clear: var(--on-dark-surface-clear);
         --surface-accent: var(--on-dark-surface-accent);
         --surface-accent-minor: var(--on-dark-surface-accent-minor);
@@ -3347,6 +3269,10 @@ export const viewContainer = {
         --surface-transparent-warning: var(--on-dark-surface-transparent-warning);
         --surface-transparent-negative: var(--on-dark-surface-transparent-negative);
         --surface-transparent-info: var(--on-dark-surface-transparent-info);
+        --surface-solid-card: var(--on-dark-surface-solid-card);
+        --surface-transparent-secondary: var(--on-dark-surface-transparent-secondary);
+        --surface-transparent-tertiary: var(--on-dark-surface-transparent-tertiary);
+        --surface-transparent-deep: var(--on-dark-surface-transparent-deep);
         --inverse-surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --inverse-surface-solid-secondary-hover: var(--on-light-surface-solid-secondary-hover);
@@ -3409,10 +3335,6 @@ export const viewContainer = {
         --inverse-surface-solid-card-brightness: var(--on-light-surface-solid-card-brightness);
         --inverse-surface-transparent-card: var(--on-light-surface-transparent-card);
         --inverse-surface-transparent-card-brightness: var(--on-light-surface-transparent-card-brightness);
-        --inverse-surface-transparent-primary: var(--on-light-surface-transparent-primary);
-        --inverse-surface-transparent-secondary: var(--on-light-surface-transparent-secondary);
-        --inverse-surface-transparent-tertiary: var(--on-light-surface-transparent-tertiary);
-        --inverse-surface-transparent-deep: var(--on-light-surface-transparent-deep);
         --inverse-surface-accent: var(--on-light-surface-accent);
         --inverse-surface-accent-minor: var(--on-light-surface-accent-minor);
         --inverse-surface-transparent-accent: var(--on-light-surface-transparent-accent);
@@ -3428,6 +3350,10 @@ export const viewContainer = {
         --inverse-surface-transparent-warning: var(--on-light-surface-transparent-warning);
         --inverse-surface-transparent-negative: var(--on-light-surface-transparent-negative);
         --inverse-surface-transparent-info: var(--on-light-surface-transparent-info);
+        --inverse-surface-transparent-primary: var(--on-light-surface-transparent-primary);
+        --inverse-surface-transparent-secondary: var(--on-light-surface-transparent-secondary);
+        --inverse-surface-transparent-tertiary: var(--on-light-surface-transparent-tertiary);
+        --inverse-surface-transparent-deep: var(--on-light-surface-transparent-deep);
         --background-primary: var(--dark-background-primary);
         --background-primary-brightness: var(--dark-background-primary-brightness);
         --inverse-background-primary: var(--light-background-primary);
@@ -3444,20 +3370,6 @@ export const viewContainer = {
         --outline-solid-secondary-active: var(--on-dark-outline-solid-secondary-active);
         --outline-solid-tertiary-hover: var(--on-dark-outline-solid-tertiary-hover);
         --outline-solid-tertiary-active: var(--on-dark-outline-solid-tertiary-active);
-        --outline-transparent-default-hover: var(--on-dark-outline-transparent-default-hover);
-        --outline-transparent-default-active: var(--on-dark-outline-transparent-default-active);
-        --outline-transparent-primary: var(--on-dark-outline-transparent-primary);
-        --outline-transparent-primary-hover: var(--on-dark-outline-transparent-primary-hover);
-        --outline-transparent-primary-active: var(--on-dark-outline-transparent-primary-active);
-        --outline-transparent-secondary: var(--on-dark-outline-transparent-secondary);
-        --outline-transparent-secondary-hover: var(--on-dark-outline-transparent-secondary-hover);
-        --outline-transparent-secondary-active: var(--on-dark-outline-transparent-secondary-active);
-        --outline-transparent-tertiary: var(--on-dark-outline-transparent-tertiary);
-        --outline-transparent-tertiary-hover: var(--on-dark-outline-transparent-tertiary-hover);
-        --outline-transparent-tertiary-active: var(--on-dark-outline-transparent-tertiary-active);
-        --outline-clear: var(--on-dark-outline-clear);
-        --outline-clear-hover: var(--on-dark-outline-clear-hover);
-        --outline-clear-active: var(--on-dark-outline-clear-active);
         --outline-accent-hover: var(--on-dark-outline-accent-hover);
         --outline-accent-active: var(--on-dark-outline-accent-active);
         --outline-accent-minor-hover: var(--on-dark-outline-accent-minor-hover);
@@ -3491,7 +3403,6 @@ export const viewContainer = {
         --outline-solid-primary: var(--on-dark-outline-solid-primary);
         --outline-solid-secondary: var(--on-dark-outline-solid-secondary);
         --outline-solid-tertiary: var(--on-dark-outline-solid-tertiary);
-        --outline-transparent-default: var(--on-dark-outline-transparent-default);
         --outline-accent: var(--on-dark-outline-accent);
         --outline-accent-minor: var(--on-dark-outline-accent-minor);
         --outline-transparent-accent: var(--on-dark-outline-transparent-accent);
@@ -3507,26 +3418,15 @@ export const viewContainer = {
         --outline-transparent-warning: var(--on-dark-outline-transparent-warning);
         --outline-transparent-negative: var(--on-dark-outline-transparent-negative);
         --outline-transparent-info: var(--on-dark-outline-transparent-info);
+        --outline-solid-default-hover: var(--on-dark-outline-solid-default-hover);
+        --outline-solid-default-active: var(--on-dark-outline-solid-default-active);
+        --outline-solid-default: var(--on-dark-outline-solid-default);
         --inverse-outline-solid-primary-hover: var(--on-light-outline-solid-primary-hover);
         --inverse-outline-solid-primary-active: var(--on-light-outline-solid-primary-active);
         --inverse-outline-solid-secondary-hover: var(--on-light-outline-solid-secondary-hover);
         --inverse-outline-solid-secondary-active: var(--on-light-outline-solid-secondary-active);
         --inverse-outline-solid-tertiary-hover: var(--on-light-outline-solid-tertiary-hover);
         --inverse-outline-solid-tertiary-active: var(--on-light-outline-solid-tertiary-active);
-        --inverse-outline-transparent-default-hover: var(--on-light-outline-transparent-default-hover);
-        --inverse-outline-transparent-default-active: var(--on-light-outline-transparent-default-active);
-        --inverse-outline-transparent-primary: var(--on-light-outline-transparent-primary);
-        --inverse-outline-transparent-primary-hover: var(--on-light-outline-transparent-primary-hover);
-        --inverse-outline-transparent-primary-active: var(--on-light-outline-transparent-primary-active);
-        --inverse-outline-transparent-secondary: var(--on-light-outline-transparent-secondary);
-        --inverse-outline-transparent-secondary-hover: var(--on-light-outline-transparent-secondary-hover);
-        --inverse-outline-transparent-secondary-active: var(--on-light-outline-transparent-secondary-active);
-        --inverse-outline-transparent-tertiary: var(--on-light-outline-transparent-tertiary);
-        --inverse-outline-transparent-tertiary-hover: var(--on-light-outline-transparent-tertiary-hover);
-        --inverse-outline-transparent-tertiary-active: var(--on-light-outline-transparent-tertiary-active);
-        --inverse-outline-clear: var(--on-light-outline-clear);
-        --inverse-outline-clear-hover: var(--on-light-outline-clear-hover);
-        --inverse-outline-clear-active: var(--on-light-outline-clear-active);
         --inverse-outline-accent-hover: var(--on-light-outline-accent-hover);
         --inverse-outline-accent-active: var(--on-light-outline-accent-active);
         --inverse-outline-accent-minor-hover: var(--on-light-outline-accent-minor-hover);
@@ -3559,14 +3459,10 @@ export const viewContainer = {
         --inverse-outline-transparent-info-active: var(--on-light-outline-transparent-info-active);
         --inverse-outline-solid-primary: var(--on-light-outline-solid-primary);
         --inverse-outline-solid-secondary: var(--on-light-outline-solid-secondary);
-        --inverse-outline-solid-tertiary: var(--on-light-outline-solid-tertiary);
-        --inverse-outline-transparent-default: var(--on-light-outline-transparent-default);
         --inverse-outline-accent: var(--on-light-outline-accent);
         --inverse-outline-accent-minor: var(--on-light-outline-accent-minor);
         --inverse-outline-transparent-accent: var(--on-light-outline-transparent-accent);
         --inverse-outline-positive: var(--on-light-outline-positive);
-        --inverse-outline-warning: var(--on-light-outline-warning);
-        --inverse-outline-negative: var(--on-light-outline-negative);
         --inverse-outline-info: var(--on-light-outline-info);
         --inverse-outline-positive-minor: var(--on-light-outline-positive-minor);
         --inverse-outline-warning-minor: var(--on-light-outline-warning-minor);
@@ -3576,6 +3472,12 @@ export const viewContainer = {
         --inverse-outline-transparent-warning: var(--on-light-outline-transparent-warning);
         --inverse-outline-transparent-negative: var(--on-light-outline-transparent-negative);
         --inverse-outline-transparent-info: var(--on-light-outline-transparent-info);
+        --inverse-outline-solid-default: var(--on-light-outline-solid-default);
+        --inverse-outline-solid-default-hover: var(--on-light-outline-solid-default-hover);
+        --inverse-outline-solid-default-active: var(--on-light-outline-solid-default-active);
+        --inverse-outline-warning: var(--on-light-outline-warning);
+        --inverse-outline-negative: var(--on-light-outline-negative);
+        --inverse-outline-solid-tertiary: var(--on-light-outline-solid-tertiary);
         --data-yellow: var(--on-dark-data-yellow);
         --data-yellow-hover: var(--on-dark-data-yellow-hover);
         --data-yellow-active: var(--on-dark-data-yellow-active);
@@ -3585,6 +3487,12 @@ export const viewContainer = {
         --data-yellow-transparent: var(--on-dark-data-yellow-transparent);
         --data-yellow-transparent-hover: var(--on-dark-data-yellow-transparent-hover);
         --data-yellow-transparent-active: var(--on-dark-data-yellow-transparent-active);
+        --data-yellow-light: var(--on-dark-data-yellow-light);
+        --data-yellow-light-hover: var(--on-dark-data-yellow-light-hover);
+        --data-yellow-light-active: var(--on-dark-data-yellow-light-active);
+        --data-sky-blue-light: var(--on-dark-data-sky-blue-light);
+        --data-sky-blue-light-hover: var(--on-dark-data-sky-blue-light-hover);
+        --data-sky-blue-light-active: var(--on-dark-data-sky-blue-light-active);
         --inverse-data-yellow: var(--on-light-data-yellow);
         --inverse-data-yellow-hover: var(--on-light-data-yellow-hover);
         --inverse-data-yellow-active: var(--on-light-data-yellow-active);
@@ -3594,6 +3502,12 @@ export const viewContainer = {
         --inverse-data-yellow-transparent: var(--on-light-data-yellow-transparent);
         --inverse-data-yellow-transparent-hover: var(--on-light-data-yellow-transparent-hover);
         --inverse-data-yellow-transparent-active: var(--on-light-data-yellow-transparent-active);
+        --inverse-data-yellow-light: var(--on-light-data-yellow-light);
+        --inverse-data-yellow-light-hover: var(--on-light-data-yellow-light-hover);
+        --inverse-data-yellow-light-active: var(--on-light-data-yellow-light-active);
+        --inverse-data-sky-blue-light: var(--on-light-data-sky-blue-light);
+        --inverse-data-sky-blue-light-hover: var(--on-light-data-sky-blue-light-hover);
+        --inverse-data-sky-blue-light-active: var(--on-light-data-sky-blue-light-active);
         --surface-skeleton-gradient: var(--on-dark-surface-skeleton-gradient);
         --surface-skeleton-gradient-hover: var(--on-dark-surface-skeleton-gradient-hover);
         --surface-skeleton-gradient-active: var(--on-dark-surface-skeleton-gradient-active);
@@ -3638,19 +3552,19 @@ export const viewContainer = {
         --text-info-minor-active: var(--on-light-text-info-minor-active);
         --text-primary: var(--on-light-text-primary);
         --text-primary-brightness: var(--on-light-text-primary-brightness);
-        --text-secondary: var(--on-light-text-secondary);
-        --text-tertiary: var(--on-light-text-tertiary);
         --text-paragraph: var(--on-light-text-paragraph);
         --text-accent: var(--on-light-text-accent);
         --text-accent-minor: var(--on-light-text-accent-minor);
         --text-positive: var(--on-light-text-positive);
-        --text-warning: var(--on-light-text-warning);
-        --text-negative: var(--on-light-text-negative);
         --text-info: var(--on-light-text-info);
         --text-positive-minor: var(--on-light-text-positive-minor);
         --text-warning-minor: var(--on-light-text-warning-minor);
         --text-negative-minor: var(--on-light-text-negative-minor);
         --text-info-minor: var(--on-light-text-info-minor);
+        --text-secondary: var(--on-light-text-secondary);
+        --text-tertiary: var(--on-light-text-tertiary);
+        --text-warning: var(--on-light-text-warning);
+        --text-negative: var(--on-light-text-negative);
         --inverse-text-primary-hover: var(--on-dark-text-primary-hover);
         --inverse-text-primary-active: var(--on-dark-text-primary-active);
         --inverse-text-secondary-hover: var(--on-dark-text-secondary-hover);
@@ -3681,8 +3595,6 @@ export const viewContainer = {
         --inverse-text-info-minor-active: var(--on-dark-text-info-minor-active);
         --inverse-text-primary: var(--on-dark-text-primary);
         --inverse-text-primary-brightness: var(--on-dark-text-primary-brightness);
-        --inverse-text-secondary: var(--on-dark-text-secondary);
-        --inverse-text-tertiary: var(--on-dark-text-tertiary);
         --inverse-text-paragraph: var(--on-dark-text-paragraph);
         --inverse-text-accent: var(--on-dark-text-accent);
         --inverse-text-accent-minor: var(--on-dark-text-accent-minor);
@@ -3694,6 +3606,8 @@ export const viewContainer = {
         --inverse-text-warning-minor: var(--on-dark-text-warning-minor);
         --inverse-text-negative-minor: var(--on-dark-text-negative-minor);
         --inverse-text-info-minor: var(--on-dark-text-info-minor);
+        --inverse-text-secondary: var(--on-dark-text-secondary);
+        --inverse-text-tertiary: var(--on-dark-text-tertiary);
         --surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --surface-solid-secondary-hover: var(--on-light-surface-solid-secondary-hover);
@@ -3753,10 +3667,6 @@ export const viewContainer = {
         --surface-solid-secondary: var(--on-light-surface-solid-secondary);
         --surface-solid-tertiary: var(--on-light-surface-solid-tertiary);
         --surface-solid-default: var(--on-light-surface-solid-default);
-        --surface-transparent-primary: var(--on-light-surface-transparent-primary);
-        --surface-transparent-secondary: var(--on-light-surface-transparent-secondary);
-        --surface-transparent-tertiary: var(--on-light-surface-transparent-tertiary);
-        --surface-transparent-deep: var(--on-light-surface-transparent-deep);
         --surface-transparent-card: var(--on-light-surface-transparent-card);
         --surface-transparent-card-brightness: var(--on-light-surface-transparent-card-brightness);
         --surface-clear: var(--on-light-surface-clear);
@@ -3775,6 +3685,10 @@ export const viewContainer = {
         --surface-transparent-warning: var(--on-light-surface-transparent-warning);
         --surface-transparent-negative: var(--on-light-surface-transparent-negative);
         --surface-transparent-info: var(--on-light-surface-transparent-info);
+        --surface-transparent-primary: var(--on-light-surface-transparent-primary);
+        --surface-transparent-secondary: var(--on-light-surface-transparent-secondary);
+        --surface-transparent-tertiary: var(--on-light-surface-transparent-tertiary);
+        --surface-transparent-deep: var(--on-light-surface-transparent-deep);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --inverse-surface-solid-secondary-hover: var(--on-dark-surface-solid-secondary-hover);
@@ -3828,7 +3742,6 @@ export const viewContainer = {
         --inverse-surface-transparent-negative-active: var(--on-dark-surface-transparent-negative-active);
         --inverse-surface-transparent-info-hover: var(--on-dark-surface-transparent-info-hover);
         --inverse-surface-transparent-info-active: var(--on-dark-surface-transparent-info-active);
-        --inverse-surface-solid-card: var(--on-dark-surface-solid-card);
         --inverse-surface-solid-card-brightness: var(--on-dark-surface-solid-card-brightness);
         --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
         --inverse-surface-solid-primary-brightness: var(--on-dark-surface-solid-primary-brightness);
@@ -3836,9 +3749,6 @@ export const viewContainer = {
         --inverse-surface-solid-tertiary: var(--on-dark-surface-solid-tertiary);
         --inverse-surface-solid-default: var(--on-dark-surface-solid-default);
         --inverse-surface-transparent-primary: var(--on-dark-surface-transparent-primary);
-        --inverse-surface-transparent-secondary: var(--on-dark-surface-transparent-secondary);
-        --inverse-surface-transparent-tertiary: var(--on-dark-surface-transparent-tertiary);
-        --inverse-surface-transparent-deep: var(--on-dark-surface-transparent-deep);
         --inverse-surface-transparent-card: var(--on-dark-surface-transparent-card);
         --inverse-surface-transparent-card-brightness: var(--on-dark-surface-transparent-card-brightness);
         --inverse-surface-accent: var(--on-dark-surface-accent);
@@ -3856,10 +3766,14 @@ export const viewContainer = {
         --inverse-surface-transparent-warning: var(--on-dark-surface-transparent-warning);
         --inverse-surface-transparent-negative: var(--on-dark-surface-transparent-negative);
         --inverse-surface-transparent-info: var(--on-dark-surface-transparent-info);
+        --inverse-surface-solid-card: var(--on-dark-surface-solid-card);
+        --inverse-surface-transparent-secondary: var(--on-dark-surface-transparent-secondary);
+        --inverse-surface-transparent-tertiary: var(--on-dark-surface-transparent-tertiary);
+        --inverse-surface-transparent-deep: var(--on-dark-surface-transparent-deep);
         --background-primary: var(--light-background-primary);
         --background-primary-brightness: var(--light-background-primary-brightness);
-        --inverse-background-primary: var(--dark-background-primary);
         --inverse-background-primary-brightness: var(--dark-background-primary-brightness);
+        --inverse-background-primary: var(--dark-background-primary);
         --overlay-hard: var(--on-light-overlay-hard);
         --overlay-soft: var(--on-light-overlay-soft);
         --overlay-blur: var(--on-light-overlay-blur);
@@ -3872,21 +3786,6 @@ export const viewContainer = {
         --outline-solid-secondary-active: var(--on-light-outline-solid-secondary-active);
         --outline-solid-tertiary-hover: var(--on-light-outline-solid-tertiary-hover);
         --outline-solid-tertiary-active: var(--on-light-outline-solid-tertiary-active);
-        --outline-transparent-default: var(--on-light-outline-transparent-default);
-        --outline-transparent-default-hover: var(--on-light-outline-transparent-default-hover);
-        --outline-transparent-default-active: var(--on-light-outline-transparent-default-active);
-        --outline-transparent-primary: var(--on-light-outline-transparent-primary);
-        --outline-transparent-primary-hover: var(--on-light-outline-transparent-primary-hover);
-        --outline-transparent-primary-active: var(--on-light-outline-transparent-primary-active);
-        --outline-transparent-secondary: var(--on-light-outline-transparent-secondary);
-        --outline-transparent-secondary-hover: var(--on-light-outline-transparent-secondary-hover);
-        --outline-transparent-secondary-active: var(--on-light-outline-transparent-secondary-active);
-        --outline-transparent-tertiary: var(--on-light-outline-transparent-tertiary);
-        --outline-transparent-tertiary-hover: var(--on-light-outline-transparent-tertiary-hover);
-        --outline-transparent-tertiary-active: var(--on-light-outline-transparent-tertiary-active);
-        --outline-clear: var(--on-light-outline-clear);
-        --outline-clear-hover: var(--on-light-outline-clear-hover);
-        --outline-clear-active: var(--on-light-outline-clear-active);
         --outline-accent-hover: var(--on-light-outline-accent-hover);
         --outline-accent-active: var(--on-light-outline-accent-active);
         --outline-accent-minor-hover: var(--on-light-outline-accent-minor-hover);
@@ -3924,8 +3823,6 @@ export const viewContainer = {
         --outline-transparent-accent: var(--on-light-outline-transparent-accent);
         --outline-accent-minor: var(--on-light-outline-accent-minor);
         --outline-positive: var(--on-light-outline-positive);
-        --outline-warning: var(--on-light-outline-warning);
-        --outline-negative: var(--on-light-outline-negative);
         --outline-info: var(--on-light-outline-info);
         --outline-positive-minor: var(--on-light-outline-positive-minor);
         --outline-warning-minor: var(--on-light-outline-warning-minor);
@@ -3935,27 +3832,17 @@ export const viewContainer = {
         --outline-transparent-warning: var(--on-light-outline-transparent-warning);
         --outline-transparent-negative: var(--on-light-outline-transparent-negative);
         --outline-transparent-info: var(--on-light-outline-transparent-info);
+        --outline-warning: var(--on-light-outline-warning);
+        --outline-negative: var(--on-light-outline-negative);
+        --outline-solid-default: var(--on-light-outline-solid-default);
+        --outline-solid-default-hover: var(--on-light-outline-solid-default-hover);
+        --outline-solid-default-active: var(--on-light-outline-solid-default-active);
         --inverse-outline-solid-primary-hover: var(--on-dark-outline-solid-primary-hover);
         --inverse-outline-solid-primary-active: var(--on-dark-outline-solid-primary-active);
         --inverse-outline-solid-secondary-hover: var(--on-dark-outline-solid-secondary-hover);
         --inverse-outline-solid-secondary-active: var(--on-dark-outline-solid-secondary-active);
         --inverse-outline-solid-tertiary-hover: var(--on-dark-outline-solid-tertiary-hover);
         --inverse-outline-solid-tertiary-active: var(--on-dark-outline-solid-tertiary-active);
-        --inverse-outline-transparent-default: var(--on-dark-outline-transparent-default);
-        --inverse-outline-transparent-default-hover: var(--on-dark-outline-transparent-default-hover);
-        --inverse-outline-transparent-default-active: var(--on-dark-outline-transparent-default-active);
-        --inverse-outline-transparent-primary: var(--on-dark-outline-transparent-primary);
-        --inverse-outline-transparent-primary-hover: var(--on-dark-outline-transparent-primary-hover);
-        --inverse-outline-transparent-primary-active: var(--on-dark-outline-transparent-primary-active);
-        --inverse-outline-transparent-secondary: var(--on-dark-outline-transparent-secondary);
-        --inverse-outline-transparent-secondary-hover: var(--on-dark-outline-transparent-secondary-hover);
-        --inverse-outline-transparent-secondary-active: var(--on-dark-outline-transparent-secondary-active);
-        --inverse-outline-transparent-tertiary: var(--on-dark-outline-transparent-tertiary);
-        --inverse-outline-transparent-tertiary-hover: var(--on-dark-outline-transparent-tertiary-hover);
-        --inverse-outline-transparent-tertiary-active: var(--on-dark-outline-transparent-tertiary-active);
-        --inverse-outline-clear: var(--on-dark-outline-clear);
-        --inverse-outline-clear-hover: var(--on-dark-outline-clear-hover);
-        --inverse-outline-clear-active: var(--on-dark-outline-clear-active);
         --inverse-outline-accent-hover: var(--on-dark-outline-accent-hover);
         --inverse-outline-accent-active: var(--on-dark-outline-accent-active);
         --inverse-outline-accent-minor-hover: var(--on-dark-outline-accent-minor-hover);
@@ -4004,6 +3891,9 @@ export const viewContainer = {
         --inverse-outline-transparent-warning: var(--on-dark-outline-transparent-warning);
         --inverse-outline-transparent-negative: var(--on-dark-outline-transparent-negative);
         --inverse-outline-transparent-info: var(--on-dark-outline-transparent-info);
+        --inverse-outline-solid-default-hover: var(--on-dark-outline-solid-default-hover);
+        --inverse-outline-solid-default-active: var(--on-dark-outline-solid-default-active);
+        --inverse-outline-solid-default: var(--on-dark-outline-solid-default);
         --data-yellow: var(--on-light-data-yellow);
         --data-yellow-hover: var(--on-light-data-yellow-hover);
         --data-yellow-active: var(--on-light-data-yellow-active);
@@ -4013,6 +3903,12 @@ export const viewContainer = {
         --data-yellow-transparent: var(--on-light-data-yellow-transparent);
         --data-yellow-transparent-hover: var(--on-light-data-yellow-transparent-hover);
         --data-yellow-transparent-active: var(--on-light-data-yellow-transparent-active);
+        --data-yellow-light: var(--on-light-data-yellow-light);
+        --data-yellow-light-hover: var(--on-light-data-yellow-light-hover);
+        --data-yellow-light-active: var(--on-light-data-yellow-light-active);
+        --data-sky-blue-light: var(--on-light-data-sky-blue-light);
+        --data-sky-blue-light-hover: var(--on-light-data-sky-blue-light-hover);
+        --data-sky-blue-light-active: var(--on-light-data-sky-blue-light-active);
         --inverse-data-yellow: var(--on-dark-data-yellow);
         --inverse-data-yellow-hover: var(--on-dark-data-yellow-hover);
         --inverse-data-yellow-active: var(--on-dark-data-yellow-active);
@@ -4022,6 +3918,12 @@ export const viewContainer = {
         --inverse-data-yellow-transparent: var(--on-dark-data-yellow-transparent);
         --inverse-data-yellow-transparent-hover: var(--on-dark-data-yellow-transparent-hover);
         --inverse-data-yellow-transparent-active: var(--on-dark-data-yellow-transparent-active);
+        --inverse-data-yellow-light: var(--on-dark-data-yellow-light);
+        --inverse-data-yellow-light-hover: var(--on-dark-data-yellow-light-hover);
+        --inverse-data-yellow-light-active: var(--on-dark-data-yellow-light-active);
+        --inverse-data-sky-blue-light: var(--on-dark-data-sky-blue-light);
+        --inverse-data-sky-blue-light-hover: var(--on-dark-data-sky-blue-light-hover);
+        --inverse-data-sky-blue-light-active: var(--on-dark-data-sky-blue-light-active);
         --surface-skeleton-gradient: var(--on-light-surface-skeleton-gradient);
         --surface-skeleton-gradient-hover: var(--on-light-surface-skeleton-gradient-hover);
         --surface-skeleton-gradient-active: var(--on-light-surface-skeleton-gradient-active);

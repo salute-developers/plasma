@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, ReactNode } from 'react';
+import React, { InputHTMLAttributes, ReactNode, CSSProperties } from 'react';
 import { DistributiveOmit } from 'src/types';
 
 import { TextFieldPropsBase } from '../TextField/TextField.types';
@@ -46,6 +46,10 @@ export type AutocompleteProps = {
      * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
     portal?: string | React.RefObject<HTMLElement>;
+    /**
+     * CSS-свойство z-index для выпадающего списка.
+     */
+    zIndex?: CSSProperties['zIndex'];
     /**
      * Значение инпута.
      */
@@ -120,6 +124,7 @@ export type FloatingPopoverProps = {
     children: React.ReactNode;
     opened: boolean;
     portal?: AutocompleteProps['portal'];
+    zIndex?: AutocompleteProps['zIndex'];
     listWidth?: AutocompleteProps['listWidth'];
     offset?: [number, number];
 };

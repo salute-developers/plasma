@@ -197,4 +197,22 @@ describe('sdds-cs: Segment', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('_maxItemWidth', () => {
+        mount(
+            <CypressTestDecorator>
+                <SegmentProvider>
+                    <SegmentGroup view="filled" filledBackground>
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" maxItemWidth="3rem" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" maxItemWidth="3rem" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" maxItemWidth="3rem" />
+                    </SegmentGroup>
+                </SegmentProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').contains('Segment 1').click();
+
+        cy.matchImageSnapshot();
+    });
 });

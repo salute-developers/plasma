@@ -14,26 +14,23 @@ const contentLeftOptions = ['none', 'icon'];
 const contentRightOptions = ['none', 'text', 'counter', 'icon'];
 
 const segmentItemViews = ['default', 'secondary'];
-type Size = typeof sizes[number];
 
 type CustomStoryProps = {
     itemQuantity: number;
     contentLeft: string;
     contentRight: string;
+    maxItemWidth: string;
     segmentItemView?: 'default' | 'secondary';
     singleSelectedRequired?: boolean;
 };
 
 type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStoryProps;
 
-const sizes = ['xs'] as const;
-
-const getContentLeft = (contentLeftOption: string, size: Size) => {
-    const iconSize = size === 'xs' ? 'xs' : 's';
-    return contentLeftOption === 'icon' ? <IconMic size={iconSize} color="inherit" /> : undefined;
+const getContentLeft = (contentLeftOption: string) => {
+    return contentLeftOption === 'icon' ? <IconMic size="xs" color="inherit" /> : undefined;
 };
 
-const getContentRight = (contentRightOption: string, size: Size) => {
+const getContentRight = (contentRightOption: string) => {
     switch (contentRightOption) {
         case 'icon':
             return <IconMic size="xs" color="inherit" />;
@@ -57,6 +54,12 @@ const meta: Meta<StorySegmentProps> = {
                 type: 'boolean',
             },
             if: { arg: 'orientation', eq: 'horizontal' },
+        },
+        maxItemWidth: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'stretch', truthy: false },
         },
         orientation: {
             options: ['horizontal', 'vertical'],
@@ -101,7 +104,7 @@ const StoryDefault = (props: StorySegmentProps) => {
         size,
         stretch,
         orientation,
-
+        maxItemWidth,
         segmentItemView,
         contentLeft: contentLeftOption,
         contentRight: contentRightOption,
@@ -127,8 +130,9 @@ const StoryDefault = (props: StorySegmentProps) => {
                         value={`label_${i}`}
                         size={size}
                         key={`label_${i}`}
-                        contentLeft={getContentLeft(contentLeftOption, size)}
-                        contentRight={getContentRight(contentRightOption, size)}
+                        maxItemWidth={maxItemWidth}
+                        contentLeft={getContentLeft(contentLeftOption)}
+                        contentRight={getContentRight(contentRightOption)}
                         {...args}
                     >
                         {`Label${i + 1}`}
@@ -150,6 +154,7 @@ export const Default: StoryObj<StorySegmentProps> = {
         hasBackground: false,
         disabled: false,
         stretch: false,
+        maxItemWidth: '',
         singleSelectedRequired: false,
         orientation: 'horizontal',
         contentRight: 'none',

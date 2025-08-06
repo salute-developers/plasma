@@ -16,6 +16,7 @@ import { StyledContent, base, LeftContent, RightContent } from './SegmentItem.st
 export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemProps>) =>
     forwardRef<HTMLLabelElement, SegmentItemProps>((props, outerRef) => {
         const {
+            style,
             size,
             view = 'default',
             className,
@@ -25,6 +26,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
             pilled,
             contentLeft,
             contentRight,
+            maxItemWidth: maxWidth = 'auto',
             customHandleSelect,
             'aria-label': ariaLabelExternal,
             ...rest
@@ -37,6 +39,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
         const ariaLabelDefault = useMemo(() => extractTextFrom(label), [label]);
         const pilledClass = pilled ? classes.segmentPilled : undefined;
         const xsSize = size === 'xs' ? classes.segmentXsSize : undefined;
+        const truncateClass = maxWidth !== 'auto' ? classes.segmentTruncate : undefined;
 
         const isSelected = selectedSegmentItems?.includes(value || ariaLabelDefault);
         const selectedClass = isSelected ? classes.selectedSegmentItem : undefined;
@@ -59,10 +62,11 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
                 aria-label={ariaLabelExternal || ariaLabelDefault}
                 value={value}
                 pilled={pilled}
-                className={cx(selectedClass, pilledClass, xsSize, className)}
+                className={cx(selectedClass, pilledClass, xsSize, truncateClass, className)}
                 onClick={handleSelectSegment}
                 tabIndex={disabledGroup ? -1 : 0}
                 disabled={disabledGroup}
+                style={{ ...style, maxWidth }}
                 {...rest}
             >
                 {contentLeft && <LeftContent>{contentLeft}</LeftContent>}

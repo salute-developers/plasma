@@ -54,7 +54,7 @@ export const base = css`
     appearance: none;
     border: none;
     outline: none;
-    cursor: var(${tokens.itemCursor});
+    cursor: var(${tokens.itemCursorOverNotSelected}, var(${tokens.itemCursor}));
     white-space: nowrap;
     box-sizing: border-box;
 

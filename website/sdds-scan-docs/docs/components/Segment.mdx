@@ -130,7 +130,7 @@ export function App() {
             <>
                 <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>
                 <br />
-                <SegmentGroup hasBackground clip={false}>
+                <SegmentGroup orientation="vertical" hasBackground clip={false}>
                     {items.map((_, i) => (
                         <SegmentItem
                             label={`Label ${i}`}

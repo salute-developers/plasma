@@ -30,7 +30,7 @@ export type GroupedTokens = {
 const tokensExclude = ['border-radius', 'shadow', 'plasma-typo', 'plasma-colors', 'spacing'];
 const hexLength = 7;
 const hexWithAlphaLength = 9;
-const categoryPattern = /(on-dark|dark|on-light|light|inverse)-/g;
+const categoryPattern = /^(on-dark|dark|on-light|light|inverse)-/g;
 const stateSuffixPattern = (withHyphen = false) => new RegExp(`${withHyphen ? '-' : ''}(active|hover|brightness)`, 'g');
 
 const camelize = (source?: string) => source?.replace(/[_-]+(.)/g, (_, p1) => p1.toUpperCase()) || '';

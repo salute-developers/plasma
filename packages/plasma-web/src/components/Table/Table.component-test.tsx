@@ -108,6 +108,19 @@ const rows = [
     },
 ];
 
+const complexRows = [
+    {
+        id: '1',
+        array: [1, 2, 3],
+        object: {
+            a: 1,
+            b: 2,
+            c: 3,
+        },
+        function: (n: number) => `Число ${n}`,
+    },
+];
+
 const columnsBasic = [
     {
         id: 'country',
@@ -323,6 +336,34 @@ const columnsCustomNodes = [
     },
 ];
 
+const columnsComplexNodes = [
+    {
+        id: 'id',
+        label: 'ID',
+    },
+    {
+        id: 'array',
+        label: 'Массив',
+        renderCell: (arr) => {
+            return arr.join(' + ');
+        },
+    },
+    {
+        id: 'object',
+        label: 'Объект',
+        renderCell: (obj) => {
+            return JSON.stringify(obj);
+        },
+    },
+    {
+        id: 'function',
+        label: 'Функция',
+        renderCell: (func) => {
+            return func(1);
+        },
+    },
+];
+
 describe('plasma-web: Table', () => {
     const Table = getComponent('Table');
 
@@ -465,6 +506,19 @@ describe('plasma-web: Table', () => {
             <CypressTestDecorator>
                 <StandardTypoStyle />
                 <Table enableSelection data={rows} columns={columnsBasic} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: renderCell', () => {
+        cy.viewport(1500, 1000);
+
+        mount(
+            <CypressTestDecorator>
+                <StandardTypoStyle />
+                <Table data={complexRows} columns={columnsComplexNodes} />
             </CypressTestDecorator>,
         );
 

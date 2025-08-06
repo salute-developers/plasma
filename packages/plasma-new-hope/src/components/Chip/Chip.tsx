@@ -73,7 +73,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             >
                 {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                 {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
-                {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                {contentRight && <StyledContentRight hasClear={hasClear}>{contentRight}</StyledContentRight>}
                 {hasClear &&
                     (contentClearButton || (
                         <StyledContentClear onClick={handleClickClose}>

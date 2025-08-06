@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import styled from 'styled-components';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconMic } from '@salutejs/plasma-icons';
 
 import { Slider } from './Slider';
+import { config } from './Slider.config';
 
-const sizes = ['l', 'm', 's'];
+const { views, sizes } = getConfigVariations(config);
+
 const pointerSizes = ['small', 'large', 'none'];
-const views = ['default', 'accent', 'gradient'];
 const sliderAligns = ['center', 'left', 'right', 'none'];
 const labelPlacements = ['top', 'left'];
 const scaleAligns = ['side', 'bottom'];
@@ -30,13 +31,13 @@ const meta: Meta<typeof Slider> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         pointerSize: {
             options: pointerSizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         orientation: {

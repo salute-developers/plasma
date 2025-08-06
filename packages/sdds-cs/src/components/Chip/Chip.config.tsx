@@ -69,6 +69,8 @@ export const config = {
 
                 ${chipTokens.leftContentMarginLeft}: -0.25rem;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
+                ${chipTokens.rightContentMarginLeft}: 0.25rem;
+                ${chipTokens.rightContentMarginRight}: -0.25rem;
                 ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.5rem;
                 ${chipTokens.closeIconSize}: 1.5rem;
@@ -89,6 +91,8 @@ export const config = {
 
                 ${chipTokens.leftContentMarginLeft}: 0;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
+                ${chipTokens.rightContentMarginLeft}: 0.25rem;
+                ${chipTokens.rightContentMarginRight}: 0;
                 ${chipTokens.clearContentMarginLeft}: 0.25rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
                 ${chipTokens.closeIconSize}: 1rem;

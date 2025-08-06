@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { IconDisclosureRight } from '@salutejs/plasma-icons';
+import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 
 import { addNotification, closeNotification } from './index';
 
@@ -333,6 +333,46 @@ describe('plasma-web: Notification', () => {
             </CypressTestDecoratorWithTypo>,
         );
         cy.get('button').contains('Открыть').click();
+        cy.get('button.notification-close-icon').click();
+        cy.get('.popup-base-root').should('not.exist');
+    });
+
+    it('custom close icon', () => {
+        mount(
+            <CypressTestDecorator>
+                <NotificationsProvider>
+                    <Button
+                        text="Открыть"
+                        onClick={() => {
+                            addNotification(
+                                {
+                                    id: 'close-icon',
+                                    title: 'Title!',
+                                    layout: 'horizontal',
+                                    actions: (
+                                        <ButtonsWrapper>
+                                            <Button text="First" size="xxs" />
+                                            <Button text="Second" size="xxs" />
+                                        </ButtonsWrapper>
+                                    ),
+                                    customCloseIcon: <IconTrash color="inherit" />,
+                                },
+                                80000,
+                            );
+                        }}
+                    />
+                    <SpaceMe />
+                    <Button
+                        text="Закрыть"
+                        onClick={() => {
+                            closeNotification('close-icon');
+                        }}
+                    />
+                </NotificationsProvider>
+            </CypressTestDecorator>,
+        );
+        cy.get('button').contains('Открыть').click();
+        cy.matchImageSnapshot();
         cy.get('button.notification-close-icon').click();
         cy.get('.popup-base-root').should('not.exist');
     });
