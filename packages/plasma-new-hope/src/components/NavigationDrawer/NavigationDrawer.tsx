@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import { styled } from '@linaria/react';
 
 import { RootProps } from '../../engines';
@@ -7,10 +7,16 @@ import { cx } from '../../utils';
 import { NavigationDrawerProps } from './NavigationDrawer.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { base } from './NavigationDrawer.styles';
+import { base, contentOverlayStyles, contentStyles } from './NavigationDrawer.styles';
 import { classes } from './NavigationDrawer.tokens';
 import { Section } from './ui/Section';
-import { sidebarStyles } from './ui/Sidebar/Sidebar.styles';
+import {
+    baseSidebarStyles,
+    siderbarClosedStyles,
+    sidebarStyles,
+    sidebarOverlayStyles,
+    sidebarDrawerStyles,
+} from './ui/Sidebar/Sidebar.styles';
 
 const Footer = styled.div`
     margin-top: auto;
@@ -19,12 +25,27 @@ const Footer = styled.div`
 export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationDrawerProps>) => {
     return forwardRef<HTMLDivElement, NavigationDrawerProps>((props, ref) => {
         const { children, ...rest } = props;
-        const { opened, header, sections, footer, withContentLeft } = props;
+        const { opened, header, sections, footer, withContentLeft, mode, sidebarProps } = props;
         const isOpened = opened || !withContentLeft;
+
+        const classByMode = useMemo(() => {
+            if (mode === 'overlay') {
+                return sidebarOverlayStyles;
+            }
+
+            if (mode === 'drawer') {
+                return sidebarDrawerStyles;
+            }
+
+            return sidebarStyles;
+        }, [mode]);
 
         return (
             <Root ref={ref} {...rest}>
-                <div className={cx(sidebarStyles, !isOpened && classes.navigationDrawerSidebarClosed)}>
+                <div
+                    className={cx(baseSidebarStyles, classByMode, !isOpened && siderbarClosedStyles)}
+                    {...sidebarProps}
+                >
                     {header}
 
                     {sections.map((section, index) => (
@@ -39,7 +60,7 @@ export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationD
 
                     <Footer>{footer}</Footer>
                 </div>
-                <div className={classes.navigationDrawerContent}>{children}</div>
+                <div className={cx(contentStyles, mode === 'overlay' && contentOverlayStyles)}>{children}</div>
             </Root>
         );
     });
