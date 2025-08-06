@@ -1,24 +1,35 @@
 export const classes = {
     navigationDrawerSidebar: 'navigation-drawer-sidebar',
     navigationDrawerSidebarClosed: 'navigation-drawer-sidebar-closed',
-    navigationDrawerSection: 'navigation-drawer-section',
-    navigationDrawerSectionHeader: 'navigation-drawer-section-header',
-    navigationDrawerMenuItem: 'navigation-drawer-menu-item',
-    navigationDrawerMenuItemSelected: 'navigation-drawer-menu-item-selected',
-    navigationDrawerMenuItemDisabled: 'navigation-drawer-menu-item-disabled',
     navigationDrawerMenuItemIcon: 'navigation-drawer-menu-item-icon',
     navigationDrawerContent: 'navigation-drawer-content',
-    navigationDrawerDivider: 'navigation-drawer-divider',
 };
 
 export const tokens = {
-    size: '--plasma-navigation-drawer-size',
-    padding: '--plasma-navigation-drawer-padding',
-    boxShadow: '--plasma-navigation-drawer-box-shadow',
-    borderRadius: '--plasma-navigation-drawer-border-radius',
-    iconSize: '--plasma-navigation-drawer-icon-size',
+    // Sidebar
+    sidebarHeight: '--plasma-navigation-drawer-sidebar-height',
+    sidebarPadding: '--plasma-navigation-drawer-sidebar-padding',
+    sidebarGap: '--plasma-navigation-drawer-sidebar-gap',
+    sidebarWidth: '--plasma-navigation-drawer-sidebar-width',
+    sidebarWidthClosed: '--plasma-navigation-drawer-sidebar-width-closed',
+    sidebarBoxShadow: '--plasma-navigation-drawer-sidebar-box-shadow',
+
+    // Section
+    sectionFontSize: '--plasma-navigation-drawer-section-font-size',
     sectionColor: '--plasma-navigation-drawer-section-color',
+    sectionHeaderGap: '--plasma-navigation-drawer-section-header-gap',
+    sectionPadding: '--plasma-navigation-drawer-section-padding',
+
+    // Menu Item
+    menuItemIconSize: '--plasma-navigation-drawer-menu-item-icon-size',
+    menuItemGap: '--plasma-navigation-drawer-menu-item-gap',
+    menuItemPadding: '--plasma-navigation-drawer-menu-item-padding',
+    menuItemBorderRadius: '--plasma-navigation-drawer-menu-item-border-radius',
+    menuItemHoverColor: '--plasma-navigation-drawer-menu-item-hover-color',
+    menuItemSelectedColor: '--plasma-navigation-drawer-menu-item-selected-color',
+    menuItemDisabledOpacity: '--plasma-navigation-drawer-menu-item-disabled-opacity',
+
+    // Divider
     dividerColor: '--plasma-navigation-drawer-divider-color',
-    selectedColor: '--plasma-navigation-drawer-selected-color',
-    hoverColor: '--plasma-navigation-drawer-hover-color',
+    dividerHeight: '--plasma-navigation-drawer-divider-height',
 };
