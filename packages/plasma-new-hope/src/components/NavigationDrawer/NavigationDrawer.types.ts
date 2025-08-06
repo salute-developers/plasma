@@ -81,6 +81,10 @@ export type NavigationDrawerProps = {
      * Вид компонента.
      */
     view?: string;
+    /**
+     * HTML пропсы для бокового меню. Можно использовать для onMouseEnter и onMouseLeave
+     */
+    sidebarProps?: HTMLAttributes<HTMLDivElement>;
 } & (
     | {
           /**

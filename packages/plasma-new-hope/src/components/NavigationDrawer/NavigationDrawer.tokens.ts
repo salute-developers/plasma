@@ -1,8 +1,9 @@
 export const classes = {
     navigationDrawerSidebar: 'navigation-drawer-sidebar',
+    navigationDrawerSidebarOverlay: 'navigation-drawer-sidebar-overlay',
+    navigationDrawerSidebarDrawer: 'navigation-drawer-sidebar-drawer',
     navigationDrawerSidebarClosed: 'navigation-drawer-sidebar-closed',
     navigationDrawerMenuItemIcon: 'navigation-drawer-menu-item-icon',
-    navigationDrawerContent: 'navigation-drawer-content',
 };
 
 export const tokens = {
@@ -13,6 +14,7 @@ export const tokens = {
     sidebarWidth: '--plasma-navigation-drawer-sidebar-width',
     sidebarWidthClosed: '--plasma-navigation-drawer-sidebar-width-closed',
     sidebarBoxShadow: '--plasma-navigation-drawer-sidebar-box-shadow',
+    sidebarBackground: '--plasma-navigation-drawer-sidebar-background',
 
     // Section
     sectionFontSize: '--plasma-navigation-drawer-section-font-size',
