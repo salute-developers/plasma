@@ -1,4 +1,130 @@
 {
+  "1.588.0": {
+    "date": "2025-08-07",
+    "core": [
+      {
+        "component": "EmbedIconButton",
+        "children": [
+          {
+            "text": "добавлен новый компонент",
+            "link": "https://github.com/salute-developers/plasma/pull/2093",
+            "id": 2093
+          }
+        ]
+      },
+      {
+        "component": "Combobox",
+        "children": [
+          {
+            "text": "исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;",
+            "link": "https://github.com/salute-developers/plasma/pull/2101",
+            "id": 2101
+          }
+        ]
+      },
+      {
+        "component": "Segment",
+        "children": [
+          {
+            "text": "добавлена логика задания максимальной ширины `SegmentItem` и обрезанию текста троеточием",
+            "link": "https://github.com/salute-developers/plasma/pull/2110",
+            "id": 2110
+          }
+        ]
+      },
+      {
+        "component": "Autocomplete",
+        "children": [
+          {
+            "text": "добавлено свойство `zIndex`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2114",
+            "id": 2114
+          }
+        ]
+      },
+      {
+        "component": "Tree",
+        "children": [
+          {
+            "text": "добавлено свойство `autoExpandParent`, которое отвечает за автоматическое раскрытие всех родителей у элемента;",
+            "link": "https://github.com/salute-developers/plasma/pull/2115",
+            "id": 2115
+          }
+        ]
+      },
+      {
+        "component": "Table",
+        "children": [
+          {
+            "text": "стало возможным добавлять сложные типы данных (объекты, массивы, функции) во входных данных `data`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2111",
+            "id": 2111
+          }
+        ]
+      },
+      {
+        "component": "Chip",
+        "children": [
+          {
+            "text": "добавлены токены отступов для `contentRight`",
+            "link": "https://github.com/salute-developers/plasma/pull/2112",
+            "id": 2112
+          }
+        ]
+      },
+      {
+        "component": "Skeleton",
+        "children": [
+          {
+            "text": "исправлена типизация пропсов внутри `withSkeleton`",
+            "link": "https://github.com/salute-developers/plasma/pull/2116",
+            "id": 2116
+          }
+        ]
+      },
+      {
+        "component": "Notification",
+        "children": [
+          {
+            "text": "Добавлена возможность указать пользовательскую иконку закрытия компонента",
+            "link": "https://github.com/salute-developers/plasma/pull/2126",
+            "id": 2126
+          }
+        ]
+      },
+      {
+        "component": "Attach",
+        "children": [
+          {
+            "text": "Добавлен новый параметр `customIcon`\n\nРасширены типы файлов с вшитыми иконками `docx` , `xlsx`",
+            "link": "https://github.com/salute-developers/plasma/pull/2123",
+            "id": 2123
+          }
+        ]
+      },
+      {
+        "component": "Tokens",
+        "children": [
+          {
+            "text": "Добавлена новая палитра `warmGray` с \"тёплыми\" оттенками серого",
+            "link": "https://github.com/salute-developers/plasma/pull/2127",
+            "id": 2127
+          }
+        ]
+      },
+      {
+        "component": "Accordion",
+        "children": [
+          {
+            "text": "Исправлены отступы в соответсвии с макетами",
+            "link": "https://github.com/salute-developers/plasma/pull/2122",
+            "id": 2122
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "1.587.2": {
     "date": "2025-07-30",
     "core": [

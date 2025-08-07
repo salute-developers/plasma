@@ -1,3 +1,82 @@
+## 0.320.0 (7 августа 2025)
+
+## Функциональные изменения в компонентах
+
+### EmbedIconButton
+
+* добавлен новый компонент
+
+[PR](https://github.com/salute-developers/plasma/pull/2093)
+
+### Combobox
+
+* исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;
+
+[PR](https://github.com/salute-developers/plasma/pull/2101)
+
+### Segment
+
+* добавлена логика задания максимальной ширины `SegmentItem` и обрезанию текста троеточием
+
+[PR](https://github.com/salute-developers/plasma/pull/2110)
+
+### Autocomplete
+
+* добавлено свойство `zIndex`;
+
+[PR](https://github.com/salute-developers/plasma/pull/2114)
+
+### Tree
+
+* добавлено свойство `autoExpandParent`, которое отвечает за автоматическое раскрытие всех родителей у элемента;
+
+[PR](https://github.com/salute-developers/plasma/pull/2115)
+
+### Table
+
+* стало возможным добавлять сложные типы данных (объекты, массивы, функции) во входных данных `data`;
+
+[PR](https://github.com/salute-developers/plasma/pull/2111)
+
+### Chip
+
+* добавлены токены отступов для `contentRight`
+
+[PR](https://github.com/salute-developers/plasma/pull/2112)
+
+### Skeleton
+
+* исправлена типизация пропсов внутри `withSkeleton`
+
+[PR](https://github.com/salute-developers/plasma/pull/2116)
+
+### Notification
+
+* Добавлена возможность указать пользовательскую иконку закрытия компонента
+
+[PR](https://github.com/salute-developers/plasma/pull/2126)
+
+### Attach
+
+* Добавлен новый параметр `customIcon`
+
+* Расширены типы файлов с вшитыми иконками `docx` , `xlsx`
+
+[PR](https://github.com/salute-developers/plasma/pull/2123)
+
+### Tokens
+
+* Добавлена новая палитра `warmGray` с "тёплыми" оттенками серого
+
+[PR](https://github.com/salute-developers/plasma/pull/2127)
+
+### Accordion
+
+* Исправлены отступы в соответсвии с макетами
+
+[PR](https://github.com/salute-developers/plasma/pull/2122)
+
+
 ## 0.319.2 (30 июля 2025)
 
 ## Функциональные изменения в компонентах
