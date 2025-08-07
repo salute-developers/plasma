@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { classes, tokens } from '../../NavigationDrawer.tokens';
+import { tokens } from '../../NavigationDrawer.tokens';
 
 export const baseSidebarStyles = css`
     display: flex;
@@ -14,11 +14,6 @@ export const baseSidebarStyles = css`
     max-width: var(${tokens.sidebarWidth});
     box-shadow: var(${tokens.sidebarBoxShadow});
     background: var(${tokens.sidebarBackground});
-
-    .${classes.navigationDrawerMenuItemIcon} {
-        width: var(${tokens.menuItemIconSize});
-        height: var(${tokens.menuItemIconSize});
-    }
 `;
 
 export const sidebarStyles = css`

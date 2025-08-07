@@ -23,13 +23,14 @@ export const config = {
                 ${navigationDrawerTokens.sectionHeaderGap}: 12px;
                 ${navigationDrawerTokens.sectionPadding}: 12px;
 
-                ${navigationDrawerTokens.menuItemIconSize}: 1rem;
                 ${navigationDrawerTokens.menuItemGap}: 12px;
                 ${navigationDrawerTokens.menuItemPadding}: 12px;
                 ${navigationDrawerTokens.menuItemBorderRadius}: 10px;
                 ${navigationDrawerTokens.menuItemSelectedColor}: #08080806;
                 ${navigationDrawerTokens.menuItemHoverColor}: #08080803;
                 ${navigationDrawerTokens.menuItemDisabledOpacity}: 0.4;
+                ${navigationDrawerTokens.menuItemIndicatorSize}: 8px;
+                ${navigationDrawerTokens.menuItemIndicatorColor}: #080808;
 
                 ${navigationDrawerTokens.dividerColor}: #08080812;
                 ${navigationDrawerTokens.dividerHeight}: 1px;
@@ -39,10 +40,10 @@ export const config = {
         },
         size: {
             s: css`
-                ${navigationDrawerTokens.menuItemIconSize}: 1rem;
+                ${navigationDrawerTokens.menuItemIconSize}: 20px;
             `,
             m: css`
-                ${navigationDrawerTokens.menuItemIconSize}: 1.5rem;
+                ${navigationDrawerTokens.menuItemIconSize}: 24px;
             `,
         },
     },
