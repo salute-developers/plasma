@@ -33,6 +33,8 @@ export const config = {
 
                 ${navigationDrawerTokens.dividerColor}: #08080812;
                 ${navigationDrawerTokens.dividerHeight}: 1px;
+
+                ${navigationDrawerTokens.overlayBackground}: #08080806;
             `,
         },
         size: {
