@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { IconPlus, IconMinus, IconSber } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
@@ -17,9 +18,19 @@ const NoAnimationStyle = createGlobalStyle`
     }
 `;
 
-describe('sdds-cs: NumberInput', () => {
+describe('plasma-b2c: NumberInput', () => {
     const NumberInput = getComponent('NumberInput') as typeof NumberInputCS;
     const IconButton = getComponent('IconButton') as typeof IconButtonCS;
+
+    const InteractiveNumberInput = ({ value: outerValue, ...rest }: ComponentProps<typeof NumberInputCS>) => {
+        const [value, setValue] = useState<number | string | undefined>(outerValue);
+
+        const handleChange = (_: any, newValue: number | string | undefined) => {
+            setValue(newValue);
+        };
+
+        return <NumberInput value={value} onChange={handleChange} {...rest} />;
+    };
 
     it('simple', () => {
         mount(
@@ -150,7 +161,7 @@ describe('sdds-cs: NumberInput', () => {
         mount(
             <CypressTestDecorator>
                 <NoAnimationStyle />
-                <NumberInput size="s" value={5} step={2} />
+                <InteractiveNumberInput value={5} step={2} />
             </CypressTestDecorator>,
         );
 
@@ -167,7 +178,7 @@ describe('sdds-cs: NumberInput', () => {
     it(':invalidValue, more than max', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="s" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="s" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -183,7 +194,7 @@ describe('sdds-cs: NumberInput', () => {
     it(':invalidValue, less than min', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="s" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="s" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -199,12 +210,43 @@ describe('sdds-cs: NumberInput', () => {
     it(':empty input', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="s" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="s" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
         cy.get('input').type('{backspace}{enter}');
-        cy.get('input').should('have.value', '5');
+
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
+    });
+
+    it(':empty input, decrement', () => {
+        mount(
+            <CypressTestDecorator>
+                <InteractiveNumberInput size="s" max={10} min={0} />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').first().click();
+        cy.get('input').should('have.value', '9');
+
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
+    });
+
+    it(':empty input, increment', () => {
+        mount(
+            <CypressTestDecorator>
+                <InteractiveNumberInput size="s" max={10} min={0} />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').last().click();
+        cy.get('input').should('have.value', '1');
 
         cy.matchImageSnapshot({
             failureThreshold: 0.01,
@@ -215,7 +257,7 @@ describe('sdds-cs: NumberInput', () => {
     it(':dot at the end gets removed', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="s" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="s" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -226,7 +268,7 @@ describe('sdds-cs: NumberInput', () => {
     it(':dot at the end gets removed; value more than max', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="s" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="s" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -237,7 +279,7 @@ describe('sdds-cs: NumberInput', () => {
     it(':dot at the end gets removed; value less than min', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="s" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="s" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -248,7 +290,15 @@ describe('sdds-cs: NumberInput', () => {
     it('precision', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="s" value={5} max={10} min={-10} precision={2} step={0.111} isManualInput />
+                <InteractiveNumberInput
+                    size="s"
+                    value={5}
+                    max={10}
+                    min={-10}
+                    precision={2}
+                    step={0.111}
+                    isManualInput
+                />
             </CypressTestDecorator>,
         );
 

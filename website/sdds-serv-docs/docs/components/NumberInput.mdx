@@ -15,6 +15,26 @@ import { PropsTable, Description } from '@site/src/components';
 
 ## Примеры
 
+### Контролируемый NumberInput:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    const [value, setValue] = useState<number | string | undefined>(5);
+    
+    const handleChange = (_: any, newValue: number | string | undefined) => {
+        setValue(newValue);
+    };
+
+    return (
+        <div>
+            <NumberInput value={value} onChange={handleChange} width={188} />
+        </div>
+    );
+}
+
 ### Вид числового поля
 Вид числового поля задается с помощью свойства `view`:
 
@@ -25,10 +45,10 @@ import { NumberInput } from '@salutejs/sdds-serv';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} width={188} view="default" />
-            <NumberInput value={5} width={188} view="secondary" />
-            <NumberInput value={5} width={188} view="accent" />
-            <NumberInput value={5} width={188} view="clear" />
+            <NumberInput width={188} view="default" />
+            <NumberInput width={188} view="secondary" />
+            <NumberInput width={188} view="accent" />
+            <NumberInput width={188} view="clear" />
         </div>
     );
 }
@@ -44,9 +64,9 @@ import { NumberInput } from '@salutejs/sdds-serv';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} width={188} view="default" segmentation="default" />
-            <NumberInput value={5} width={188} view="default" segmentation="segmented" />
-            <NumberInput value={5} width={188} view="default" segmentation="solid" />
+            <NumberInput width={188} view="default" segmentation="default" />
+            <NumberInput width={188} view="default" segmentation="segmented" />
+            <NumberInput width={188} view="default" segmentation="solid" />
         </div>
     );
 }
@@ -62,10 +82,10 @@ import { NumberInput } from '@salutejs/sdds-serv';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} width={188} view="default" segmentation="default" shape="cornered" />
-            <NumberInput value={5} width={188} view="default" segmentation="solid" shape="cornered" />
-            <NumberInput value={5} width={188} view="default" segmentation="default" shape="pilled" />
-            <NumberInput value={5} width={188} view="default" segmentation="solid" shape="pilled" />
+            <NumberInput width={188} view="default" segmentation="default" shape="cornered" />
+            <NumberInput width={188} view="default" segmentation="solid" shape="cornered" />
+            <NumberInput width={188} view="default" segmentation="default" shape="pilled" />
+            <NumberInput width={188} view="default" segmentation="solid" shape="pilled" />
         </div>
     );
 }
@@ -81,10 +101,10 @@ import { NumberInput } from '@salutejs/sdds-serv';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} width={188} size="l" />
-            <NumberInput value={5} width={188} size="m" />
-            <NumberInput value={5} width={188} size="s" />
-            <NumberInput value={5} width={188} size="xs" />
+            <NumberInput width={188} size="l" />
+            <NumberInput width={188} size="m" />
+            <NumberInput width={188} size="s" />
+            <NumberInput width={188} size="xs" />
         </div>
     );
 }
@@ -100,7 +120,7 @@ import { NumberInput } from '@salutejs/sdds-serv';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} size="l" width={188} isLoading />
+            <NumberInput size="l" width={188} isLoading />
         </div>
     );
 }
@@ -116,7 +136,7 @@ import { NumberInput } from '@salutejs/sdds-serv';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} size="l" width={188} isManualInput />
+            <NumberInput size="l" width={188} isManualInput />
         </div>
     );
 }
@@ -135,7 +155,6 @@ export function App() {
     return (
         <div>
             <NumberInput 
-                value={5} 
                 size="l" 
                 incrementIcon={<IconVolumeLevel2Fill color="inherit"/>} 
                 decrementIcon={<IconVolumeLevel1Fill color="inherit"/>} 

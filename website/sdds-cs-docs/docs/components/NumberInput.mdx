@@ -15,6 +15,26 @@ import { PropsTable, Description } from '@site/src/components';
 
 ## Примеры
 
+### Контролируемый NumberInput:
+
+```tsx live
+import React from 'react';
+import { NumberInput } from '@salutejs/sdds-cs';
+
+export function App() {
+    const [value, setValue] = useState<number | string | undefined>(5);
+    
+    const handleChange = (_: any, newValue: number | string | undefined) => {
+        setValue(newValue);
+    };
+
+    return (
+        <div>
+            <NumberInput value={value} onChange={handleChange} width={188} />
+        </div>
+    );
+}
+
 ### Вид числового поля
 Вид числового поля задается с помощью свойства `view`:
 
@@ -25,7 +45,7 @@ import { NumberInput } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} width={140} view="default" />
+            <NumberInput width={140} view="default" />
         </div>
     );
 }
@@ -41,8 +61,8 @@ import { NumberInput } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} width={140} view="default" shape="cornered" />
-            <NumberInput value={5} width={140} view="default" shape="pilled" />
+            <NumberInput width={140} view="default" shape="cornered" />
+            <NumberInput width={140} view="default" shape="pilled" />
         </div>
     );
 }
@@ -58,7 +78,7 @@ import { NumberInput } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} width={140} size="s" />
+            <NumberInput width={140} size="s" />
         </div>
     );
 }
@@ -74,7 +94,7 @@ import { NumberInput } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} width={140} isLoading />
+            <NumberInput width={140} isLoading />
         </div>
     );
 }
@@ -90,7 +110,7 @@ import { NumberInput } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <div>
-            <NumberInput value={5} width={140} isManualInput />
+            <NumberInput width={140} isManualInput />
         </div>
     );
 }

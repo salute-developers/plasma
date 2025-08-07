@@ -20,7 +20,7 @@ export type NumberInputProps = {
     /**
      * Числовое значение.
      */
-    value?: number;
+    value?: string | number;
     /**
      * Минимальное значение.
      */
@@ -98,7 +98,7 @@ export type NumberInputProps = {
     /**
      * Вызывается при изменении значения.
      */
-    onChange?: (event: SyntheticEvent<HTMLInputElement> | null, value: number | string) => void;
+    onChange?: (event: SyntheticEvent<HTMLInputElement> | null, value: number | string | undefined) => void;
     /**
      * Вызывается при нажатии на кнопку увеличения значения.
      */
