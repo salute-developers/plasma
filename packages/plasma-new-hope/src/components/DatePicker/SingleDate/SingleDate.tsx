@@ -28,6 +28,7 @@ export const datePickerRoot = (
                 className,
                 opened = false,
                 value,
+                preserveInvalidOnBlur,
 
                 label,
                 labelPlacement = 'outer',
@@ -204,7 +205,7 @@ export const datePickerRoot = (
             });
 
             const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-                if (!calendarValue && correctDates.calendar) {
+                if (!preserveInvalidOnBlur && !calendarValue && correctDates.calendar) {
                     setCalendarValue(new Date(correctDates.calendar));
                     setInputValue(correctDates.input);
                 }
