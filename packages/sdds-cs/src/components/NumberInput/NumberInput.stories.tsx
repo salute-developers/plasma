@@ -42,9 +42,9 @@ export default meta;
 type StoryPropsDefault = ComponentProps<typeof NumberInput>;
 
 const StoryDefault = (args: StoryPropsDefault) => {
-    const [value, setValue] = useState(5);
+    const [value, setValue] = useState<number | string | undefined>(5);
 
-    const handleChange = (_: any, newValue: number) => {
+    const handleChange = (_: any, newValue: number | string | undefined) => {
         setValue(newValue);
         onChange(newValue);
     };
