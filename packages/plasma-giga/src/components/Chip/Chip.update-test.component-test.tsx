@@ -72,4 +72,14 @@ describe('plasma-giga: Chip', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('Chip: size=xs, with right Icon', () => {
+        mount(
+            <CypressTestDecorator>
+                <Chip text="Chip_size_xs_with_icon" size="xs" contentRight={<Icon />} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });

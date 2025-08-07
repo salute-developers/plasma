@@ -26,6 +26,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                 fullWidthItemSelection = false,
                 multiple = false,
                 defaultExpandAll = false,
+                autoExpandParent = false,
                 checkable = false,
                 selectedKeys: outerSelectedKeys,
                 checkedKeys,
@@ -72,6 +73,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                         checkable={checkable}
                         className={cx(className, invertedClass, itemFilledClass)}
                         defaultExpandAll={defaultExpandAll}
+                        autoExpandParent={autoExpandParent}
                         style={{ border: '1px solid #000' }}
                         treeData={items}
                         selectedKeys={selectedKeys}

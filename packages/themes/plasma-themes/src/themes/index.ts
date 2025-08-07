@@ -10,3 +10,7 @@ export { plasma_giga__dark } from './plasma_giga__dark';
 export { plasma_giga__light } from './plasma_giga__light';
 export { plasma_giga_app__dark } from './plasma_giga_app__dark';
 export { plasma_giga_app__light } from './plasma_giga_app__light';
+export { plasma_homeds__dark } from './plasma_homeds__dark';
+export { plasma_homeds__light } from './plasma_homeds__light';
+export { plasma_web_ACTUAL_TYPOGRAPHY__dark } from './plasma_web_ACTUAL_TYPOGRAPHY__dark';
+export { plasma_web_ACTUAL_TYPOGRAPHY__light } from './plasma_web_ACTUAL_TYPOGRAPHY__light';

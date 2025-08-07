@@ -1,7 +1,7 @@
 import type { ForwardedRef, ComponentProps, ReactElement } from 'react';
 
 import { component, mergeConfig } from '../../../engines';
-import { comboboxNewConfig } from '../../../..';
+import { comboboxNewConfig } from '../../..';
 import type { ComboboxProps, ItemOption } from '../../../components/Combobox';
 
 import { config } from './Combobox.config';

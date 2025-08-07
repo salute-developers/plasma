@@ -28,10 +28,10 @@ export const StyledContentMain = styled.div`
     ${applyEllipsis()};
 `;
 
-export const StyledContentRight = styled.div`
+export const StyledContentRight = styled.div<{ hasClear?: boolean }>`
     display: flex;
     margin-left: var(${tokens.rightContentMarginLeft});
-    margin-right: var(${tokens.rightContentMarginRight});
+    margin-right: ${(hasClear) => (hasClear ? '0' : `var(${tokens.rightContentMarginRight})`)};
 `;
 
 export const StyledContentClear = styled.div`

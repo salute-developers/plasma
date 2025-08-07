@@ -64,6 +64,14 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      */
     showCloseIcon?: boolean;
     /**
+     * Вид закрывающей иконки в Notification.
+     */
+    closeIconType?: 'default' | 'thin';
+    /**
+     * Пользовательская иконка закрытия.
+     */
+    customCloseIcon?: ReactNode;
+    /**
      * Вид Notification.
      */
     view?: string;
@@ -71,10 +79,6 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      * Размер Notification (необходимо связать с размером используемых Button).
      */
     size?: string;
-    /**
-     * Вид закрывающей иконки в Notification.
-     */
-    closeIconType?: 'default' | 'thin';
     /**
      * @description Только для применения в рамках SSR.
      */

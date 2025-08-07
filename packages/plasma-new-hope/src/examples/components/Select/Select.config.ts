@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { selectTokens as tokens } from '../../../..';
+import { selectTokens as tokens } from '../../..';
 
 export const config = {
     defaults: {

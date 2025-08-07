@@ -17,7 +17,11 @@ export const getFileicon = (extension?: string, size?: string) => {
             return <IconBlankPdfOutline size={iconSize} color="inherit" />;
         case 'doc':
             return <IconBlankDocOutline size={iconSize} color="inherit" />;
+        case 'docx':
+            return <IconBlankDocOutline size={iconSize} color="inherit" />;
         case 'xls':
+            return <IconBlankXlsOutline size={iconSize} color="inherit" />;
+        case 'xlsx':
             return <IconBlankXlsOutline size={iconSize} color="inherit" />;
         case 'txt':
             return <IconBlankTxtOutline size={iconSize} color="inherit" />;

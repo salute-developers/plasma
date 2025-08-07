@@ -14,7 +14,7 @@ declare module '@tanstack/react-table' {
 
 export type TableRowData = {
     id: string;
-    [key: string]: string | number;
+    [key: string]: string | number | object;
 };
 
 export type TableColumnData = {

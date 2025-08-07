@@ -82,11 +82,18 @@ describe('sdds-insol: Autocomplete', () => {
     });
 
     it('prop: size', () => {
-        cy.viewport(1000, 300);
+        cy.viewport(1500, 300);
 
         mount(
             <CypressTestDecorator>
                 <div style={{ display: 'flex', gap: '50px' }}>
+                    <Autocomplete
+                        value="Алексей"
+                        label="Label"
+                        leftHelper="Helper Text"
+                        suggestions={suggestions}
+                        size="xl"
+                    />
                     <Autocomplete
                         value="Алексей"
                         label="Label"
@@ -118,6 +125,14 @@ describe('sdds-insol: Autocomplete', () => {
                 </div>
 
                 <div style={{ display: 'flex', gap: '50px' }}>
+                    <Autocomplete
+                        value="Алексей"
+                        label="Label"
+                        leftHelper="Helper Text"
+                        suggestions={suggestions}
+                        size="xl"
+                        labelPlacement="inner"
+                    />
                     <Autocomplete
                         value="Алексей"
                         label="Label"

@@ -13,7 +13,7 @@ import { safeUseId } from 'src/utils';
 import type { FloatingPopoverProps } from './Autocomplete.types';
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, portal, listWidth, offset }, ref) => {
+    ({ target, children, opened, portal, zIndex, listWidth, offset }, ref) => {
         const { refs, floatingStyles } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -59,7 +59,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     // root - принимает ref контейнера портала.
                     // id - если есть портал - не используется, если портала нет - подставляется 'wrappedId'.
                     <FloatingPortal {...getFloatingPortalProps(portal, wrappedId)}>
-                        <div ref={refs.setFloating} style={{ ...floatingStyles, zIndex: 1000 }}>
+                        <div ref={refs.setFloating} style={{ ...floatingStyles, zIndex: zIndex || 1000 }}>
                             {children}
                         </div>
                     </FloatingPortal>

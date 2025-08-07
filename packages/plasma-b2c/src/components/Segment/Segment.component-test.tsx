@@ -185,6 +185,24 @@ describe('plasma-web: Segment', () => {
         cy.matchImageSnapshot();
     });
 
+    it('_maxItemWidth', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <SegmentProvider>
+                    <SegmentGroup view="filled" filledBackground clip>
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" maxItemWidth="3rem" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" maxItemWidth="3rem" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" maxItemWidth="3rem" />
+                    </SegmentGroup>
+                </SegmentProvider>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').contains('Segment 1').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('_size', () => {
         mount(
             <CypressTestDecoratorWithTypo>

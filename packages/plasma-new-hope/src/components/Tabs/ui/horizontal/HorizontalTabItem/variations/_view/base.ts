@@ -33,6 +33,7 @@ export const base = css`
     &.${classes.selectedTabsItem} {
         color: var(${tokens.itemSelectedColor});
         background-color: var(${tokens.itemSelectedBackgroundColor});
+        cursor: var(${tokens.itemCursor});
 
         &:hover {
             color: var(${tokens.itemSelectedColorHover});

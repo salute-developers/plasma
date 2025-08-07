@@ -39,7 +39,7 @@ export const config = {
             l: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1.0625rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.25rem;
-                ${accordionTokens.accordionItemGap}: 0.5rem;
+                ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-l-font-family);

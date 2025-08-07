@@ -1,11 +1,11 @@
 import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { IconDisclosureRight } from '@salutejs/plasma-icons';
+import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { action } from '@storybook/addon-actions';
 import { addNotification } from '@salutejs/plasma-new-hope';
-import type { NotificationIconPlacement, NotificationLayout } from '@salutejs/plasma-new-hope';
+import type { NotificationIconPlacement } from '@salutejs/plasma-new-hope';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
@@ -53,17 +53,11 @@ const meta: Meta<typeof Notification> = {
 
 export default meta;
 
-interface StoryDefaultProps {
-    title: string;
-    children: string;
-    iconColor?: string;
-    showCloseIcon: boolean;
+type StoryDefaultProps = {
     showLeftIcon: boolean;
-    layout: NotificationLayout;
-    size: 'xs' | 'xxs';
-    iconPlacement: NotificationIconPlacement;
-    placement?: NotificationPlacement;
-}
+    iconColor?: string;
+    enableCustomCloseIcon?: boolean;
+} & ComponentProps<typeof Notification>;
 
 const StoryDefault = ({
     title,
@@ -73,6 +67,7 @@ const StoryDefault = ({
     layout,
     showLeftIcon,
     iconColor,
+    enableCustomCloseIcon,
     ...rest
 }: StoryDefaultProps) => {
     return (
@@ -89,6 +84,7 @@ const StoryDefault = ({
             }
             size={size}
             layout={layout}
+            {...(enableCustomCloseIcon && { customCloseIcon: <IconTrash color={iconColor || 'inherit'} /> })}
             {...rest}
         >
             {children}
@@ -134,11 +130,21 @@ export const Default: StoryObj<StoryDefaultProps> = {
         backgroundColor: {
             control: 'color',
         },
+        enableCustomCloseIcon: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'showCloseIcon',
+                truthy: true,
+            },
+        },
     },
     args: {
         title: 'Title',
         children: longText,
         showCloseIcon: true,
+        enableCustomCloseIcon: false,
         showLeftIcon: true,
         iconPlacement: 'top',
         layout: 'vertical',
@@ -150,17 +156,21 @@ export const Default: StoryObj<StoryDefaultProps> = {
 
 type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
     timeout: number;
-    layout: NotificationLayout;
-    size: 'xs' | 'xxs';
-    iconPlacement: NotificationIconPlacement;
     placement?: NotificationPlacement;
+    enableCustomCloseIcon?: boolean;
 };
 
-const StoryLiveDemo = ({ timeout, placement, ...rest }: StoryLiveDemoProps) => {
+const StoryLiveDemo = ({ timeout, placement, enableCustomCloseIcon, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
         addNotification(
-            { icon: <IconDisclosureRight color="inherit" />, ...rest, ...getNotificationProps(count.current) },
+            {
+                icon: <IconDisclosureRight color="inherit" />,
+                ...(enableCustomCloseIcon && { customCloseIcon: <IconTrash color="inherit" /> }),
+
+                ...rest,
+                ...getNotificationProps(count.current),
+            },
             timeout,
         );
         count.current++;
@@ -187,12 +197,23 @@ export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
                 type: 'select',
             },
         },
+        enableCustomCloseIcon: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'showCloseIcon',
+                truthy: true,
+            },
+        },
     },
     args: {
         timeout: 3000,
         role: 'alert',
         layout: 'vertical',
         placement: 'bottom-right',
+        enableCustomCloseIcon: false,
+        showCloseIcon: true,
     },
     render: (args) => <StoryLiveDemo {...args} />,
 };

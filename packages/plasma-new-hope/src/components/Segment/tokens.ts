@@ -8,6 +8,7 @@ export const classes = {
     segmentGroupClipScroll: 'segment-group-clip-scroll',
     segmentXsSize: 'segment-xs-size',
     segmentAdditionalText: 'segment-additional-text',
+    segmentTruncate: 'segment-truncate',
 };
 
 export const tokens = {

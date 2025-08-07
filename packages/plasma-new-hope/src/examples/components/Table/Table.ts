@@ -1,5 +1,5 @@
 import { component, mergeConfig } from '../../../engines';
-import { tableConfig } from '../../../..';
+import { tableConfig } from '../../..';
 
 import { config } from './Table.config';
 
