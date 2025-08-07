@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { IconPlus, IconMinus, IconSber } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+
+import { NumberInput as NumberInputB2C } from '.';
 
 const PlusIcon = () => <IconPlus color="inherit" />;
 const MinusIcon = () => <IconMinus color="inherit" />;
@@ -14,8 +17,18 @@ const NoAnimationStyle = createGlobalStyle`
 `;
 
 describe('plasma-b2c: NumberInput', () => {
-    const NumberInput = getComponent('NumberInput');
+    const NumberInput = getComponent('NumberInput') as typeof NumberInputB2C;
     const IconButton = getComponent('IconButton');
+
+    const InteractiveNumberInput = ({ value: outerValue, ...rest }: ComponentProps<typeof NumberInputB2C>) => {
+        const [value, setValue] = useState<number | string | undefined>(outerValue);
+
+        const handleChange = (_: any, newValue: number | string | undefined) => {
+            setValue(newValue);
+        };
+
+        return <NumberInput value={value} onChange={handleChange} {...rest} />;
+    };
 
     it('simple', () => {
         mount(
@@ -164,7 +177,7 @@ describe('plasma-b2c: NumberInput', () => {
         mount(
             <CypressTestDecorator>
                 <NoAnimationStyle />
-                <NumberInput size="l" value={5} step={2} />
+                <InteractiveNumberInput value={5} step={2} />
             </CypressTestDecorator>,
         );
 
@@ -181,7 +194,7 @@ describe('plasma-b2c: NumberInput', () => {
     it(':invalidValue, more than max', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="l" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -197,7 +210,7 @@ describe('plasma-b2c: NumberInput', () => {
     it(':invalidValue, less than min', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="l" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -213,12 +226,43 @@ describe('plasma-b2c: NumberInput', () => {
     it(':empty input', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="l" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
         cy.get('input').type('{backspace}{enter}');
-        cy.get('input').should('have.value', '5');
+
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
+    });
+
+    it(':empty input, decrement', () => {
+        mount(
+            <CypressTestDecorator>
+                <InteractiveNumberInput size="l" max={10} min={0} />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').first().click();
+        cy.get('input').should('have.value', '9');
+
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
+    });
+
+    it(':empty input, increment', () => {
+        mount(
+            <CypressTestDecorator>
+                <InteractiveNumberInput size="l" max={10} min={0} />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').last().click();
+        cy.get('input').should('have.value', '1');
 
         cy.matchImageSnapshot({
             failureThreshold: 0.01,
@@ -229,7 +273,7 @@ describe('plasma-b2c: NumberInput', () => {
     it(':dot at the end gets removed', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="l" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -240,7 +284,7 @@ describe('plasma-b2c: NumberInput', () => {
     it(':dot at the end gets removed; value more than max', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="l" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -251,7 +295,7 @@ describe('plasma-b2c: NumberInput', () => {
     it(':dot at the end gets removed; value less than min', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="l" value={5} max={10} min={0} isManualInput />
+                <InteractiveNumberInput size="l" value={5} max={10} min={0} isManualInput />
             </CypressTestDecorator>,
         );
 
@@ -262,7 +306,15 @@ describe('plasma-b2c: NumberInput', () => {
     it('precision', () => {
         mount(
             <CypressTestDecorator>
-                <NumberInput size="l" value={5} max={10} min={-10} precision={2} step={0.111} isManualInput />
+                <InteractiveNumberInput
+                    size="l"
+                    value={5}
+                    max={10}
+                    min={-10}
+                    precision={2}
+                    step={0.111}
+                    isManualInput
+                />
             </CypressTestDecorator>,
         );
 
