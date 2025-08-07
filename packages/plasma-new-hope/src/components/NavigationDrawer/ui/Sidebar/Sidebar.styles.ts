@@ -36,7 +36,3 @@ export const sidebarOverlayStyles = css`
     left: 0;
     z-index: 1;
 `;
-
-export const sidebarDrawerStyles = css`
-    position: fixed;
-`;
