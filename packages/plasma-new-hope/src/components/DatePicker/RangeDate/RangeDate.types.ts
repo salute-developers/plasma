@@ -54,6 +54,10 @@ export type DatePickerRangeFieldProps = {
      */
     value?: [DateType | string, DateType | string];
     /**
+     * Сохранять невалидное значение после блюра полей ввода
+     */
+    preserveInvalidOnBlur?: boolean;
+    /**
      * Значение по умолчанию для первого поля.
      */
     defaultFirstDate?: Date;

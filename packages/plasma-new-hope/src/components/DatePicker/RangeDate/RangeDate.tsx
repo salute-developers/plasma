@@ -35,6 +35,7 @@ export const datePickerRangeRoot = (
                 isDoubleCalendar = false,
                 opened = false,
                 value: externalValue,
+                preserveInvalidOnBlur,
 
                 label,
                 leftHelper,
@@ -305,7 +306,7 @@ export const datePickerRangeRoot = (
                 event: FocusEvent<HTMLInputElement>,
                 outerHandler?: FocusEventHandler<HTMLInputElement>,
             ) => {
-                if (!inputFirstValue || !inputSecondValue) {
+                if (!inputFirstValue || !inputSecondValue || preserveInvalidOnBlur) {
                     outerHandler?.(event);
                     return;
                 }
