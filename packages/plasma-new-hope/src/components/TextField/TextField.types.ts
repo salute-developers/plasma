@@ -20,31 +20,38 @@ type TextFieldChipProps =
     | {
           /**
            * Выбранные значения.
+           * @deprecated
            */
           chips?: never;
           /**
            * Обработчик изменения выбранных значений.
+           * @deprecated
            */
           onChangeChips?: never;
           /**
            * Тип перечисления значений.
            * Варианты: plain, chip
+           * @deprecated
            */
           enumerationType?: 'plain';
           /**
            * Callback по нажатию Enter
+           * @deprecated
            */
           onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
           /**
            * Внешний вид chip.
+           * @deprecated
            */
           chipType?: never;
           /*
            * Внешний вид чипа в варианте `enumerationType="chip"`.
+           * @deprecated
            */
           chipView?: never;
           /**
            * Функция для валидации значений chip
+           * @deprecated
            */
           chipValidator?: never;
       }
@@ -52,30 +59,37 @@ type TextFieldChipProps =
           /**
            * Тип перечисления значений.
            * Варианты: plain, chip
+           * @deprecated
            */
           enumerationType: 'chip';
           /**
            * Callback по нажатию Enter
+           * @deprecated
            */
           onSearch?: never;
           /**
            * Выбранные значения.
+           * @deprecated
            */
           chips?: Array<TextFieldPrimitiveValue>;
           /**
            * Обработчик изменения выбранных значений.
+           * @deprecated
            */
           onChangeChips?: (value: Array<TextFieldPrimitiveValue>) => void;
           /**
            * Внешний вид chip.
+           * @deprecated
            */
           chipType?: 'default' | 'text';
           /*
            * Внешний вид чипа в варианте `enumerationType="chip"`.
+           * @deprecated
            */
           chipView?: string;
           /**
            * Функция для валидации значений chip
+           * @deprecated
            */
           chipValidator?: (value: string) => ChipValidatorReturn;
       };
