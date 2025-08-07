@@ -34,4 +34,7 @@ export const tokens = {
     // Divider
     dividerColor: '--plasma-navigation-drawer-divider-color',
     dividerHeight: '--plasma-navigation-drawer-divider-height',
+
+    // Overlay
+    overlayBackground: '--plasma-navigation-drawer-overlay-background',
 };
