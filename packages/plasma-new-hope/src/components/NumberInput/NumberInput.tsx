@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef, useEffect, useState } from 'react';
+import React, { CSSProperties, forwardRef, useState } from 'react';
 
 import type { RootProps } from '../../engines';
 import { cx, getSizeValueFromProp, isNumber } from '../../utils';
@@ -23,7 +23,7 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                 className,
                 style,
                 width,
-                value,
+                value: outerValue,
                 min,
                 max,
                 step = 1,
@@ -51,9 +51,21 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
             },
             ref,
         ) => {
-            const [innerValue, setInnerValue] = useState<number | string>(value ?? min ?? 0);
+            if (
+                outerValue &&
+                !isNumber(outerValue) &&
+                outerValue !== undefined &&
+                outerValue !== '-' &&
+                outerValue !== '.'
+            ) {
+                console.error('`value` должен быть undefined, числом или строкой с числом');
+            }
+
             const [isInputFocused, setIsInputFocused] = useState(false);
             const [isAnimationRun, setIsAnimationRun] = useState(false);
+            const [innerValue, setInnerValue] = useState<number | string | undefined>('');
+
+            const value = outerValue ?? innerValue;
 
             const innerWidth = width ? getSizeValueFromProp(width) : '100%';
 
@@ -69,11 +81,11 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
             const isMaxValue = (currentValue: number) => max !== undefined && currentValue >= max;
 
             const decrementButtonDisabled =
-                (isMinValue(Number(innerValue)) && !isAnimationRun) || isLoading
+                (isNumber(value) && value !== '' && isMinValue(Number(value)) && !isAnimationRun) || isLoading
                     ? classes.actionButtonDecrementDisabled
                     : undefined;
             const incrementButtonDisabled =
-                (isMaxValue(Number(innerValue)) && !isAnimationRun) || isLoading
+                (isNumber(value) && value !== '' && isMaxValue(Number(value)) && !isAnimationRun) || isLoading
                     ? classes.actionButtonIncrementDisabled
                     : undefined;
 
@@ -82,7 +94,8 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     return;
                 }
 
-                const preciseDiff = getPreciseValue(Number(innerValue) - step, precision);
+                const processedValue = isNumber(value) && value !== '' ? Number(value) : max ?? 0;
+                const preciseDiff = getPreciseValue(processedValue - step, precision);
                 const diffValue = Number(preciseDiff);
                 const resValue = min !== undefined && diffValue <= min ? min : diffValue;
 
@@ -102,7 +115,8 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     return;
                 }
 
-                const preciseDiff = getPreciseValue(Number(innerValue) + step, precision);
+                const processedValue = isNumber(value) && value !== '' ? Number(value) : min ?? 0;
+                const preciseDiff = getPreciseValue(processedValue + step, precision);
                 const diffValue = Number(preciseDiff);
                 const resValue = max !== undefined && diffValue >= max ? max : diffValue;
 
@@ -116,14 +130,6 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     onChange(null, resValue);
                 }
             };
-
-            useEffect(() => {
-                if (value === undefined || !isNumber(value)) {
-                    return;
-                }
-
-                setInnerValue((prevValue) => (prevValue !== value ? value : prevValue));
-            }, [value]);
 
             return (
                 <Root
@@ -166,7 +172,7 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     <NumberInput
                         ref={ref}
                         segmentation={segmentation}
-                        value={innerValue}
+                        value={value}
                         precision={precision}
                         min={min}
                         max={max}

@@ -46,7 +46,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
         ref,
     ) => {
         const [dynamicWidth, setDynamicWidth] = useState(value ? `${String(value).length}ch` : defaultCharacterWidth);
-        const [lastValidValue, setLastValidValue] = useState<number | string>(Number(value));
+        const [lastValidValue, setLastValidValue] = useState<number | string | undefined>(value);
         const [errorClass, setErrorClass] = useState<string | undefined>(undefined);
         const [errorValue, setErrorValue] = useState<number>();
 
@@ -71,7 +71,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
             return defaultCharacterWidth;
         };
 
-        const setValues = (event: ChangeEvent<HTMLInputElement> | null, newValue: number | string) => {
+        const setValues = (event: ChangeEvent<HTMLInputElement> | null, newValue: number | string | undefined) => {
             setLastValidValue(newValue);
             setInnerValue(newValue);
 
@@ -80,9 +80,9 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
             }
         };
 
-        const validateValue = (newValue: number | string) => {
+        const validateValue = (newValue: number | string | undefined) => {
             if (!newValue || !isNumber(newValue)) {
-                setValues(null, lastValidValue);
+                setValues(null, '');
                 setIsAnimationRun(false);
                 return;
             }
@@ -124,6 +124,10 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
             setIsAnimationRun(true);
 
             const { value: newValue } = event.target;
+
+            if (!isNumber(lastValidValue) && lastValidValue !== '' && !newValue) {
+                return;
+            }
 
             if (!newValue) {
                 setInnerValue('');
