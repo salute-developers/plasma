@@ -3,7 +3,6 @@ export const classes = {
     navigationDrawerSidebarOverlay: 'navigation-drawer-sidebar-overlay',
     navigationDrawerSidebarDrawer: 'navigation-drawer-sidebar-drawer',
     navigationDrawerSidebarClosed: 'navigation-drawer-sidebar-closed',
-    navigationDrawerMenuItemIcon: 'navigation-drawer-menu-item-icon',
 };
 
 export const tokens = {
@@ -30,6 +29,8 @@ export const tokens = {
     menuItemHoverColor: '--plasma-navigation-drawer-menu-item-hover-color',
     menuItemSelectedColor: '--plasma-navigation-drawer-menu-item-selected-color',
     menuItemDisabledOpacity: '--plasma-navigation-drawer-menu-item-disabled-opacity',
+    menuItemIndicatorSize: '--plasma-navigation-drawer-menu-item-indicator-size',
+    menuItemIndicatorColor: '--plasma-navigation-drawer-menu-item-indicator-color',
 
     // Divider
     dividerColor: '--plasma-navigation-drawer-divider-color',
