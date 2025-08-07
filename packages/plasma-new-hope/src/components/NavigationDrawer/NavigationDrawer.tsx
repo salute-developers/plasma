@@ -7,15 +7,13 @@ import { cx } from '../../utils';
 import { NavigationDrawerProps } from './NavigationDrawer.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { base, contentOverlayStyles, contentStyles } from './NavigationDrawer.styles';
-import { classes } from './NavigationDrawer.tokens';
+import { base, contentOverlayStyles, contentStyles, overlayStyles } from './NavigationDrawer.styles';
 import { Section } from './ui/Section';
 import {
     baseSidebarStyles,
     siderbarClosedStyles,
     sidebarStyles,
     sidebarOverlayStyles,
-    sidebarDrawerStyles,
 } from './ui/Sidebar/Sidebar.styles';
 
 const Footer = styled.div`
@@ -25,16 +23,12 @@ const Footer = styled.div`
 export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationDrawerProps>) => {
     return forwardRef<HTMLDivElement, NavigationDrawerProps>((props, ref) => {
         const { children, ...rest } = props;
-        const { opened, header, sections, footer, withContentLeft, mode, sidebarProps } = props;
+        const { opened, header, sections, footer, withContentLeft, mode, sidebarProps, onHide } = props;
         const isOpened = opened || !withContentLeft;
 
         const classByMode = useMemo(() => {
-            if (mode === 'overlay') {
+            if (mode === 'overlay' || mode === 'drawer') {
                 return sidebarOverlayStyles;
-            }
-
-            if (mode === 'drawer') {
-                return sidebarDrawerStyles;
             }
 
             return sidebarStyles;
@@ -60,7 +54,10 @@ export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationD
 
                     <Footer>{footer}</Footer>
                 </div>
-                <div className={cx(contentStyles, mode === 'overlay' && contentOverlayStyles)}>{children}</div>
+                {mode === 'overlay' && opened && <div className={overlayStyles} onClick={onHide} />}
+                <div className={cx(contentStyles, (mode === 'drawer' || mode === 'overlay') && contentOverlayStyles)}>
+                    {children}
+                </div>
             </Root>
         );
     });

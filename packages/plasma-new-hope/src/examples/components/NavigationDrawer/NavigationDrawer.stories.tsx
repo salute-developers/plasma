@@ -91,6 +91,29 @@ const NavigationDrawerDemo = (props: ComponentProps<typeof NavigationDrawer>) =>
     );
 };
 
+const NavigationDrawerWithDrawer = (props: ComponentProps<typeof NavigationDrawer>) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <Container>
+            {/* @ts-expect-error TODO: fix this */}
+            <NavigationDrawer
+                {...props}
+                opened={isOpen}
+                mode="drawer"
+                footer={<SlotContainer>Footer</SlotContainer>}
+                sections={sections}
+                sidebarProps={{
+                    onMouseEnter: () => setIsOpen(true),
+                    onMouseLeave: () => setIsOpen(false),
+                }}
+            >
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+            </NavigationDrawer>
+        </Container>
+    );
+};
+
 const NavigationDrawerWithOverlay = (props: ComponentProps<typeof NavigationDrawer>) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -103,12 +126,10 @@ const NavigationDrawerWithOverlay = (props: ComponentProps<typeof NavigationDraw
                 mode="overlay"
                 footer={<SlotContainer>Footer</SlotContainer>}
                 sections={sections}
-                sidebarProps={{
-                    onMouseEnter: () => setIsOpen(true),
-                    onMouseLeave: () => setIsOpen(false),
-                }}
+                onHide={() => setIsOpen(false)}
             >
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</span>
+                <Button onClick={() => setIsOpen(!isOpen)}>Toggle</Button>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
             </NavigationDrawer>
         </Container>
     );
@@ -148,6 +169,13 @@ export const Default: Story = {
         view: 'default',
         withContentLeft: true,
     },
+};
+
+export const DrawerMode: StoryObj<ComponentProps<typeof NavigationDrawer>> = {
+    args: {
+        mode: 'drawer',
+    },
+    render: (args) => <NavigationDrawerWithDrawer {...args} />,
 };
 
 export const OverlayMode: StoryObj<ComponentProps<typeof NavigationDrawer>> = {
