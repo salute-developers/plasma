@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { cx } from '../../../../utils';
-import { IconDisclosureDownCentered } from '../../../_Icon';
-import { classes } from '../../NavigationDrawer.tokens';
 import { MenuItem } from '../MenuItem/MenuItem';
 
 import { SectionProps } from './Section.types';
-import { sectionDividerStyles, sectionHeaderStyles, sectionStyles } from './Section.styles';
+import {
+    StyledSection,
+    SectionHeader,
+    SectionDivider,
+    SectionIcon,
+    StyledIconDisclosureDownCentered,
+    StyledIconDisclosureUpCentered,
+} from './Section.styles';
 
 export const Section = <T extends boolean = false>({
     items,
@@ -16,34 +20,30 @@ export const Section = <T extends boolean = false>({
     className,
     ...rest
 }: SectionProps<T>) => {
+    const [isCollapsed, setIsCollapsed] = useState(false);
+
+    const icon = (
+        <SectionIcon>
+            {isCollapsed ? <StyledIconDisclosureUpCentered /> : <StyledIconDisclosureDownCentered />}
+        </SectionIcon>
+    );
+
     return (
-        <div className={cx(sectionStyles, className)} {...rest}>
+        <StyledSection className={className} {...rest}>
             {label ? (
-                <div className={sectionHeaderStyles}>
-                    {withContentLeft && label && (
-                        <div className={classes.navigationDrawerMenuItemIcon}>
-                            <IconDisclosureDownCentered />
-                        </div>
-                    )}
+                <SectionHeader onClick={() => setIsCollapsed(!isCollapsed)}>
+                    {withContentLeft && label && icon}
                     {isOpened && label}
-                    {!withContentLeft && (
-                        <div className={classes.navigationDrawerMenuItemIcon}>
-                            <IconDisclosureDownCentered />
-                        </div>
-                    )}
-                </div>
+                    {!withContentLeft && icon}
+                </SectionHeader>
             ) : (
-                <div className={sectionDividerStyles} />
+                <SectionDivider />
             )}
 
-            {items.map((item, index) => (
-                <MenuItem
-                    {...item}
-                    key={String(item.label) + index}
-                    withContentLeft={withContentLeft}
-                    isOpened={isOpened}
-                />
-            ))}
-        </div>
+            {!isCollapsed &&
+                items.map((item, index) => (
+                    <MenuItem {...item} key={index} withContentLeft={withContentLeft} isOpened={isOpened} />
+                ))}
+        </StyledSection>
     );
 };
