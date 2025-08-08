@@ -36,6 +36,10 @@ export type DatePickerTextFieldProps = {
      */
     value?: Date | string;
     /**
+     * Сохранять невалидное значение после блюра поля ввода
+     */
+    preserveInvalidOnBlur?: boolean;
+    /**
      * Выбранное значение по умолчанию.
      */
     defaultDate?: Date;
