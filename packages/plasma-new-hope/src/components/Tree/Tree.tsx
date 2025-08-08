@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useState, useMemo } from 'react';
 import type { Key } from 'react';
 import Tree from 'rc-tree';
 import { RootProps } from 'src/engines';
@@ -6,7 +6,7 @@ import { cx } from 'src/utils';
 
 import type { TreeProps, SelectInfo } from './Tree.types';
 import { IconArrowWrapper, StyledArrow, base, StyledFolder, TitleWrapper, Title, ContentRight } from './Tree.styles';
-import { sizeToIconSize } from './utils';
+import { sizeToIconSize, traverseTree } from './utils';
 import { classes } from './Tree.tokens';
 
 /**
@@ -61,7 +61,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
 
             // Проходимся по дереву и устанавливаем соответствующие классы для узлов дерева,
             // чтобы соблюсти иерархию вложенности в UI.
-            // const treeData = useMemo(() => traverseTree(items, selectedKeys), [items, selectedKeys]);
+            const treeData = useMemo(() => traverseTree(items, selectedKeys), [items, selectedKeys]);
 
             return (
                 <Root view={view} size={size} ref={ref} items={items}>
@@ -75,7 +75,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                         defaultExpandAll={defaultExpandAll}
                         autoExpandParent={autoExpandParent}
                         style={{ border: '1px solid #000' }}
-                        treeData={items}
+                        treeData={treeData}
                         selectedKeys={selectedKeys}
                         {...(checkedKeys !== undefined ? { checkedKeys } : {})}
                         {...(expandedKeys !== undefined ? { expandedKeys } : {})}

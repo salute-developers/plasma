@@ -298,12 +298,16 @@ export const base = css`
         border-radius: 0;
     }
 
-    .rc-tree .rc-tree-treenode.${classes.closestParentHasSelectedChildren}:not(.rc-tree-treenode-disabled)::before {
-        background: var(${tokens.itemBackgroundColorClosestParentHasSelectedChildren});
+    .rc-tree .rc-tree-treenode.${classes.treeItemHasSelectedChildren}:not(.rc-tree-treenode-disabled) .rc-tree-title {
+        color: var(${tokens.colorSelected});
     }
 
-    .rc-tree .rc-tree-treenode.${classes.parentHasSelectedChildren}:not(.rc-tree-treenode-disabled)::before {
-        background: var(${tokens.itemBackgroundColorParentHasSelectedChildren});
+    .rc-tree .rc-tree-treenode.${classes.treeItemHasSelectedChildren}:not(.rc-tree-treenode-disabled) .rc-tree-icon__customize {
+        color: var(${tokens.colorSelected});
+    }
+
+    .rc-tree .rc-tree-treenode.${classes.treeItemPrimaryBackground}:not(.rc-tree-treenode-disabled)::before {
+        background: var(${tokens.itemBackgroundColorPrimary});
     }
 
     .rc-tree .rc-tree-treenode.rc-tree-treenode-selected:not(.rc-tree-treenode-disabled)::before {
