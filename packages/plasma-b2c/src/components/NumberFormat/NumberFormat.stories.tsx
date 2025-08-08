@@ -168,6 +168,7 @@ const StoryDemo = ({ ...rest }: StoryPropsDefault) => {
 
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
+        defaultValue: '',
         thousandSeparator: ' ',
         decimalScale: 3,
         decimalSeparator: '.',

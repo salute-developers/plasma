@@ -83,6 +83,23 @@ describe('plasma-web: NumberFormat', () => {
         cy.matchImageSnapshot();
     });
 
+    it(':defaultValue', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <NumberFormat
+                    label="Числовой формат"
+                    defaultValue="100000.23"
+                    textAfter="₽"
+                    thousandSeparator=" "
+                    decimalSeparator="."
+                    decimalScale={3}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it(':fixedDecimalScale', () => {
         mount(
             <CypressTestDecoratorWithTypo>
