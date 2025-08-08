@@ -1,20 +1,15 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef } from 'react';
 import { styled } from '@linaria/react';
+import cls from 'classnames';
 
 import { RootProps } from '../../engines';
-import { cx } from '../../utils';
 
 import { NavigationDrawerProps } from './NavigationDrawer.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { base, contentOverlayStyles, contentStyles, overlayStyles } from './NavigationDrawer.styles';
+import { base, Content, Overlay } from './NavigationDrawer.styles';
 import { Section } from './ui/Section';
-import {
-    baseSidebarStyles,
-    siderbarClosedStyles,
-    sidebarStyles,
-    sidebarOverlayStyles,
-} from './ui/Sidebar/Sidebar.styles';
+import { classes } from './NavigationDrawer.tokens';
 
 const Footer = styled.div`
     margin-top: auto;
@@ -26,25 +21,23 @@ export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationD
         const { opened, header, sections, footer, withContentLeft, mode, sidebarProps, onHide } = props;
         const isOpened = opened || !withContentLeft;
 
-        const classByMode = useMemo(() => {
-            if (mode === 'overlay' || mode === 'drawer') {
-                return sidebarOverlayStyles;
-            }
-
-            return sidebarStyles;
-        }, [mode]);
+        const isOverlay = mode === 'overlay' || mode === 'drawer';
 
         return (
             <Root ref={ref} {...rest}>
                 <div
-                    className={cx(baseSidebarStyles, classByMode, !isOpened && siderbarClosedStyles)}
+                    className={cls(
+                        classes.navigationDrawerSidebar,
+                        isOverlay && classes.navigationDrawerSidebarOverlay,
+                        !isOpened && classes.navigationDrawerSidebarClosed,
+                    )}
                     {...sidebarProps}
                 >
                     {header}
 
                     {sections.map((section, index) => (
                         <Section
-                            key={String(section.label) + index}
+                            key={index}
                             items={section.items}
                             label={section.label}
                             withContentLeft={withContentLeft}
@@ -54,10 +47,8 @@ export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationD
 
                     <Footer>{footer}</Footer>
                 </div>
-                {mode === 'overlay' && opened && <div className={overlayStyles} onClick={onHide} />}
-                <div className={cx(contentStyles, (mode === 'drawer' || mode === 'overlay') && contentOverlayStyles)}>
-                    {children}
-                </div>
+                {mode === 'overlay' && opened && <Overlay onClick={onHide} />}
+                <Content className={cls(isOverlay && classes.navigationDrawerContentOverlay)}>{children}</Content>
             </Root>
         );
     });
