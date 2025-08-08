@@ -115,6 +115,12 @@ export const base = css`
         cursor: pointer;
         color: var(${tokens.color});
     }
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled .rc-tree-node-content-wrapper,
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled span.rc-tree-switcher,
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled span.rc-tree-checkbox,
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled span.rc-tree-iconEle {
+        cursor: default;
+    }
     .rc-tree .rc-tree-treenode span.rc-tree-switcher,
     .rc-tree .rc-tree-treenode span.rc-tree-checkbox,
     .rc-tree .rc-tree-treenode span.rc-tree-iconEle {
@@ -289,7 +295,9 @@ export const base = css`
         border-radius: var(${tokens.itemBorderRadius});
     }
 
-    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled {
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled .rc-tree-node-content-wrapper,
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled .rc-tree-switcher,
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled .rc-tree-checkbox {
         opacity: var(${tokens.itemDisabledOpacity});
     }
 
@@ -298,15 +306,19 @@ export const base = css`
         border-radius: 0;
     }
 
-    .rc-tree .rc-tree-treenode.${classes.closestParentHasSelectedChildren}:not(.rc-tree-treenode-disabled)::before {
-        background: var(${tokens.itemBackgroundColorClosestParentHasSelectedChildren});
+    .rc-tree .rc-tree-treenode.${classes.treeItemHasSelectedChildren}:not(.rc-tree-treenode-disabled) .rc-tree-title {
+        color: var(${tokens.colorSelected});
     }
 
-    .rc-tree .rc-tree-treenode.${classes.parentHasSelectedChildren}:not(.rc-tree-treenode-disabled)::before {
-        background: var(${tokens.itemBackgroundColorParentHasSelectedChildren});
+    .rc-tree .rc-tree-treenode.${classes.treeItemHasSelectedChildren}:not(.rc-tree-treenode-disabled) .rc-tree-icon__customize {
+        color: var(${tokens.colorSelected});
     }
 
-    .rc-tree .rc-tree-treenode.rc-tree-treenode-selected:not(.rc-tree-treenode-disabled)::before {
+    .rc-tree .rc-tree-treenode.${classes.treeItemPrimaryBackground}::before {
+        background: var(${tokens.itemBackgroundColorPrimary});
+    }
+
+    .rc-tree .rc-tree-treenode.rc-tree-treenode-selected::before {
         background: var(${tokens.itemBackgroundColorSelected});
     }
 

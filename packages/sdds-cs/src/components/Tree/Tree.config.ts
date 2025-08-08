@@ -15,8 +15,7 @@ export const config = {
                 ${tokens.color}: var(--text-primary);
                 ${tokens.colorSelected}: var(--text-primary);
                 ${tokens.itemBackgroundColorSelected}: var(--surface-solid-primary);
-                ${tokens.itemBackgroundColorParentHasSelectedChildren}: transparent;
-                ${tokens.itemBackgroundColorClosestParentHasSelectedChildren}: transparent;
+                ${tokens.itemBackgroundColorPrimary}: transparent;
                 ${tokens.itemBackgroundColorHover}: var(--surface-transparent-accent);
                 ${tokens.itemBackgroundColorActive}: var(--surface-solid-primary-active);
                 ${tokens.checkboxBorderColor}: var(--text-accent);
