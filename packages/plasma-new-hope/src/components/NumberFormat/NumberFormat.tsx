@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useState } from 'react';
+import React, { forwardRef, useLayoutEffect, useRef, useState } from 'react';
 import type { ChangeEvent, FC, ClipboardEvent } from 'react';
 import { NumericFormat, numericFormatter } from 'react-number-format';
 import type { NumberFormatValues, SourceInfo } from 'react-number-format';
@@ -20,11 +20,18 @@ export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputC
                 disabled,
                 value: outerValue,
                 onChange,
+                defaultValue,
                 onPaste,
                 ...rest
             },
             outerRef,
         ) => {
+            if (outerValue && defaultValue) {
+                console.error(
+                    "Controlled NumberFormat can't have both value and defaultValue props. Use only value and onChange props for controlled variant",
+                );
+            }
+
             const inputRef = useRef<HTMLInputElement>(null);
             const inputForkRef = useForkRef(inputRef, outerRef);
 
@@ -71,6 +78,18 @@ export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputC
                     onPaste(event);
                 }
             };
+
+            useLayoutEffect(() => {
+                if (defaultValue || defaultValue === '') {
+                    const formattedDefaultValue = numericFormatter(String(defaultValue), {
+                        thousandSeparator,
+                        decimalScale,
+                        decimalSeparator,
+                    });
+
+                    setInnerValue(formattedDefaultValue);
+                }
+            }, [defaultValue, thousandSeparator, decimalScale, decimalSeparator]);
 
             return (
                 <NumericFormat
