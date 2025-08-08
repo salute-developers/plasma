@@ -3,6 +3,16 @@ export const classes = {
     navigationDrawerSidebarOverlay: 'navigation-drawer-sidebar-overlay',
     navigationDrawerSidebarDrawer: 'navigation-drawer-sidebar-drawer',
     navigationDrawerSidebarClosed: 'navigation-drawer-sidebar-closed',
+
+    navigationDrawerMenuItem: 'navigation-drawer-menu-item',
+    navigationDrawerMenuLink: 'navigation-drawer-menu-link',
+    navigationDrawerMenuIndicator: 'navigation-drawer-menu-item-indicator',
+    navigationDrawerMenuCounter: 'navigation-drawer-menu-item-counter',
+    navigationDrawerMenuItemWithoutContentLeft: 'navigation-drawer-menu-item-without-content-left',
+    navigationDrawerMenuItemSelected: 'navigation-drawer-menu-item-selected',
+    navigationDrawerMenuItemDisabled: 'navigation-drawer-menu-item-disabled',
+
+    navigationDrawerContentOverlay: 'navigation-drawer-content-overlay',
 };
 
 export const tokens = {
@@ -22,6 +32,7 @@ export const tokens = {
     sectionPadding: '--plasma-navigation-drawer-section-padding',
 
     // Menu Item
+    menuItemIconContainerSize: '--plasma-navigation-drawer-menu-item-icon-container-size',
     menuItemIconSize: '--plasma-navigation-drawer-menu-item-icon-size',
     menuItemGap: '--plasma-navigation-drawer-menu-item-gap',
     menuItemPadding: '--plasma-navigation-drawer-menu-item-padding',
@@ -31,6 +42,7 @@ export const tokens = {
     menuItemDisabledOpacity: '--plasma-navigation-drawer-menu-item-disabled-opacity',
     menuItemIndicatorSize: '--plasma-navigation-drawer-menu-item-indicator-size',
     menuItemIndicatorColor: '--plasma-navigation-drawer-menu-item-indicator-color',
+    menuItemFontSize: '--plasma-navigation-drawer-menu-item-font-size',
 
     // Divider
     dividerColor: '--plasma-navigation-drawer-divider-color',
@@ -38,4 +50,19 @@ export const tokens = {
 
     // Overlay
     overlayBackground: '--plasma-navigation-drawer-overlay-background',
+
+    // Extra counter tokens
+    counterBackground: '--plasma-navigation-drawer-avatar-extra-counter-background',
+    counterColor: '--plasma-navigation-drawer-avatar-extra-counter-color',
+
+    counterBorderRadius: '--plasma-navigation-drawer-avatar-extra-counter-border-radius',
+    counterHeight: '--plasma-navigation-drawer-avatar-extra-counter-height',
+    counterPadding: '--plasma-navigation-drawer-avatar-extra-counter-padding',
+
+    counterFontFamily: '--plasma-navigation-drawer-avatar-extra-counter-font-family',
+    counterFontSize: '--plasma-navigation-drawer-avatar-extra-counter-font-size',
+    counterFontStyle: '--plasma-navigation-drawer-avatar-extra-counter-font-style',
+    counterFontWeight: '--plasma-navigation-drawer-avatar-extra-counter-font-weight',
+    counterLetterSpacing: '--plasma-navigation-drawer-avatar-extra-counter-letter-spacing',
+    counterLineHeight: '--plasma-navigation-drawer-avatar-extra-counter-lineheight',
 };
