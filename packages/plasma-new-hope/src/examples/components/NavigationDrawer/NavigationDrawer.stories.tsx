@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { styled } from '@linaria/react';
 
 import { WithTheme } from '../../_helpers';
-import { IconBlankDocOutline, IconBlankOutline, IconStarFill16 } from '../../../components/_Icon';
+import { IconBlankDocOutline, IconBlankOutline } from '../../../components/_Icon';
 import { Button } from '../Button/Button';
 
 import { NavigationDrawer } from './NavigationDrawer';
@@ -31,35 +31,35 @@ const sections = [
         items: [
             {
                 label: 'Item 1 Selected',
-                icon: <IconStarFill16 />,
+                icon: <IconBlankOutline />,
                 selected: true,
                 action: action('Item 1 clicked'),
             },
-            { label: 'Item 2', icon: <IconStarFill16 />, action: action('Item 2 clicked') },
+            { label: 'Item 2', icon: <IconBlankOutline />, action: action('Item 2 clicked') },
             {
                 label: 'Link to Google',
-                icon: <IconStarFill16 />,
+                icon: <IconBlankOutline />,
                 action: 'https://google.com',
             },
             {
                 label: 'Item 4',
-                icon: <IconStarFill16 />,
+                icon: <IconBlankOutline />,
                 action: action('Item 4 clicked'),
                 disabled: true,
             },
-            { label: 'Item 5', icon: <IconStarFill16 />, action: action('Item 5 clicked') },
+            { label: 'Item 5', icon: <IconBlankOutline />, action: action('Item 5 clicked') },
             {
                 label: 'Item 6',
-                icon: <IconStarFill16 />,
+                icon: <IconBlankOutline />,
                 action: action('Item 6 clicked'),
                 hasIndicator: true,
             },
-            { label: 'Item 7', icon: <IconStarFill16 />, action: action('Item 7 clicked') },
+            { label: 'Item 7', icon: <IconBlankOutline />, action: action('Item 7 clicked') },
             {
                 label: 'Item 8',
-                icon: <IconStarFill16 />,
+                icon: <IconBlankOutline />,
                 action: action('Item 8 clicked'),
-                counter: 10,
+                counter: 5,
             },
         ],
     },
