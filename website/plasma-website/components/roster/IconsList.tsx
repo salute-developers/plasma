@@ -16,6 +16,7 @@ import { Grid } from './Grid';
 export interface IconsListProps {
     pageRef: RefObject<HTMLDivElement>;
     searchQuery?: string;
+    activeGroup?: string;
     /**
      * Item click handler
      */
@@ -136,12 +137,13 @@ const StyledIcon = styled.div<{ isDeprecated: boolean; isActive?: boolean; hasOp
         `}
 `;
 
-export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick, pageRef }) => {
+export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, onItemClick, pageRef }) => {
     const { state, dispatch } = useContext(Context);
     const [offset, setOffset] = useState(0);
     const [cellIndex, setCellIndex] = useState(1);
     const [currentGridRowLabel, setCurrentGridRowLabel] = useState('');
     const [currentGridIndex, setCurrentGridIndex] = useState(0);
+    const groupRefs = useRef<Record<string, HTMLDivElement>>({});
     const gridRefs = useRef<HTMLDivElement[]>([]);
 
     const items = useMemo(() => {
@@ -244,6 +246,16 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick, pageRe
         gridRefs.current[indexGroup] = el;
     };
 
+    const handleGroupRefInit = (el: HTMLDivElement, subcategory: string) => {
+        groupRefs.current[subcategory] = el;
+    };
+
+    useEffect(() => {
+        if (activeGroup && groupRefs.current?.[activeGroup]) {
+            setTimeout(() => groupRefs.current?.[activeGroup].scrollIntoView());
+        }
+    }, [activeGroup, groupRefs.current]);
+
     if (!items.length) {
         return (
             <StyledEmptySearch bold={false}>У нас нет иконки с таким именем, а по тегам пока не ищем</StyledEmptySearch>
@@ -255,6 +267,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick, pageRe
             {items.map((group, indexGroup) => (
                 <StyledGridWrapper key={group.iconGroup.subtitle}>
                     <IconGroupHeading
+                        ref={(el) => el && handleGroupRefInit(el, group.iconGroup.subtitle)}
                         title={group.iconGroup.title}
                         subtitle={group.iconGroup.subtitle}
                         count={group.items.length}

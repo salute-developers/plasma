@@ -232,8 +232,8 @@ export const products = [
         title: 'Пиктограммы',
         href: '/icons/',
         items: iconListGroupNames.map((groupName) => ({
-            text: groupName,
-            href: '/icons/',
+            text: groupName.toLowerCase(),
+            href: `/icons/?group=${groupName}`,
         })),
     },
     {

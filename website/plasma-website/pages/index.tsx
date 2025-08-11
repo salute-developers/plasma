@@ -337,7 +337,7 @@ export default function Home() {
                                  * TODO: вернуть вывод ссылок на группы иконок,
                                  * после добавления фильтров в url на странице
                                  */
-                                title !== 'Пиктограммы' && (
+                                items?.length && (
                                     <DraggableContainer>
                                         {items?.map(({ text, href }) => (
                                             <LinkItem key={text + href} title={text} href={href} />

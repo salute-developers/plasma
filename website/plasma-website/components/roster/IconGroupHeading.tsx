@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
 import type { IconGroup } from '../../types';
@@ -24,12 +24,14 @@ const StyledSubtitle = styled(StyledCommonTitle)`
     color: rgba(255, 255, 255, 0.28);
 `;
 
-export const IconGroupHeading = ({ title, subtitle, count }: IconGroupHeadingProps) => {
-    return (
-        <StyledIconGroupHeading>
-            <StyledTitle>{title}</StyledTitle>
-            <StyledSubtitle>{subtitle}</StyledSubtitle>
-            <StyledSubtitle>{count}</StyledSubtitle>
-        </StyledIconGroupHeading>
-    );
-};
+export const IconGroupHeading = forwardRef<HTMLDivElement, IconGroupHeadingProps>(
+    ({ title, subtitle, count }: IconGroupHeadingProps, ref) => {
+        return (
+            <StyledIconGroupHeading ref={ref}>
+                <StyledTitle>{title}</StyledTitle>
+                <StyledSubtitle>{subtitle}</StyledSubtitle>
+                <StyledSubtitle>{count}</StyledSubtitle>
+            </StyledIconGroupHeading>
+        );
+    },
+);

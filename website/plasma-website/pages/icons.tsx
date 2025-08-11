@@ -94,6 +94,7 @@ export default function Home() {
     const sectionRef = useRef<HTMLDivElement>(null);
 
     const router = useRouter();
+    const activeGroup = router.query?.group as string;
 
     const onSearchInput = useCallback(
         (input: FormEvent<HTMLInputElement> | string) => {
@@ -154,7 +155,7 @@ export default function Home() {
                 <Header />
                 <StyledMain>
                     <SearchForm searchQuery={searchQuery} onInput={onSearchInput} ref={inputRef} />
-                    <IconsList searchQuery={searchQuery} pageRef={sectionRef} />
+                    <IconsList activeGroup={activeGroup} searchQuery={searchQuery} pageRef={sectionRef} />
                 </StyledMain>
                 <Footer />
             </StyledSection>
