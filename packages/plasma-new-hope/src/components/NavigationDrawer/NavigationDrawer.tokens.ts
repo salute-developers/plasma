@@ -1,7 +1,6 @@
 export const classes = {
     navigationDrawerSidebar: 'navigation-drawer-sidebar',
     navigationDrawerSidebarOverlay: 'navigation-drawer-sidebar-overlay',
-    navigationDrawerSidebarDrawer: 'navigation-drawer-sidebar-drawer',
     navigationDrawerSidebarClosed: 'navigation-drawer-sidebar-closed',
 
     navigationDrawerMenuItem: 'navigation-drawer-menu-item',
@@ -13,6 +12,7 @@ export const classes = {
     navigationDrawerMenuItemDisabled: 'navigation-drawer-menu-item-disabled',
 
     navigationDrawerContentOverlay: 'navigation-drawer-content-overlay',
+    navigationDrawerArrowInverse: 'navigation-drawer-arrow-inverse',
 };
 
 export const tokens = {
@@ -30,10 +30,10 @@ export const tokens = {
     sectionColor: '--plasma-navigation-drawer-section-color',
     sectionHeaderGap: '--plasma-navigation-drawer-section-header-gap',
     sectionPadding: '--plasma-navigation-drawer-section-padding',
+    sectionBorderRadius: '--plasma-navigation-drawer-section-border-radius',
+    sectionHeight: '--plasma-navigation-drawer-section-height',
 
     // Menu Item
-    menuItemIconContainerSize: '--plasma-navigation-drawer-menu-item-icon-container-size',
-    menuItemIconSize: '--plasma-navigation-drawer-menu-item-icon-size',
     menuItemGap: '--plasma-navigation-drawer-menu-item-gap',
     menuItemPadding: '--plasma-navigation-drawer-menu-item-padding',
     menuItemBorderRadius: '--plasma-navigation-drawer-menu-item-border-radius',
@@ -47,6 +47,10 @@ export const tokens = {
     // Divider
     dividerColor: '--plasma-navigation-drawer-divider-color',
     dividerHeight: '--plasma-navigation-drawer-divider-height',
+
+    // Icon
+    iconSize: '--plasma-navigation-drawer-icon-size',
+    iconContainerSize: '--plasma-navigation-drawer-icon-container-size',
 
     // Overlay
     overlayBackground: '--plasma-navigation-drawer-overlay-background',

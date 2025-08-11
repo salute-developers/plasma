@@ -30,7 +30,6 @@ export const base = css`
         align-items: center;
         cursor: pointer;
         border-radius: var(${tokens.menuItemBorderRadius});
-        line-height: 1;
         font-size: var(${tokens.menuItemFontSize});
 
         &:hover {
@@ -45,14 +44,14 @@ export const base = css`
 
     .${classes.navigationDrawerMenuIndicator} {
         position: absolute;
-        top: -6px;
-        right: -6px;
+        top: -0.375rem;
+        right: -0.375rem;
     }
 
     .${classes.navigationDrawerMenuCounter} {
         position: absolute;
-        top: -10px;
-        right: -10px;
+        top: -0.625rem;
+        right: -0.625rem;
     }
 
     .${classes.navigationDrawerSidebar} {
@@ -82,7 +81,11 @@ export const base = css`
     }
 
     .${classes.navigationDrawerContentOverlay} {
-        margin-left: calc(var(${tokens.sidebarWidthClosed}) + 24px);
+        margin-left: calc(var(${tokens.sidebarWidthClosed}) + 1.5rem);
+    }
+
+    .${classes.navigationDrawerArrowInverse} {
+        transform: rotate(-180deg);
     }
 `;
 
@@ -94,10 +97,14 @@ export const Content = styled.div`
 export const Overlay = styled.div`
     position: absolute;
     top: 0;
-    left: calc(var(${tokens.sidebarWidth}) + 24px);
-    width: calc(100% - 250px + 8px);
+    left: calc(var(${tokens.sidebarWidth}) + 1.5rem);
+    width: calc(100% - var(${tokens.sidebarWidth}) + 0.5rem);
     z-index: 1;
     background-color: var(${tokens.overlayBackground});
     height: 100%;
     cursor: pointer;
+`;
+
+export const Footer = styled.div`
+    margin-top: auto;
 `;

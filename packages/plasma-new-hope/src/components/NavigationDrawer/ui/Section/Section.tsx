@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
+import cls from 'classnames';
 
 import { MenuItem } from '../MenuItem/MenuItem';
+import { classes } from '../../NavigationDrawer.tokens';
 
 import { SectionProps } from './Section.types';
-import {
-    StyledSection,
-    SectionHeader,
-    SectionDivider,
-    SectionIcon,
-    StyledIconDisclosureDownCentered,
-    StyledIconDisclosureUpCentered,
-} from './Section.styles';
+import { StyledSection, SectionHeader, SectionDivider, SectionIcon, ArrowIcon } from './Section.styles';
 
 export const Section = <T extends boolean = false>({
     items,
@@ -24,7 +19,7 @@ export const Section = <T extends boolean = false>({
 
     const icon = (
         <SectionIcon>
-            {isCollapsed ? <StyledIconDisclosureUpCentered /> : <StyledIconDisclosureDownCentered />}
+            <ArrowIcon className={cls(isCollapsed && classes.navigationDrawerArrowInverse)} color="inherit" />
         </SectionIcon>
     );
 

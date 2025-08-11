@@ -38,17 +38,21 @@ export const StyledIndicator = styled(Indicator)`
 
 export const IconWrapper = styled.div`
     position: relative;
-    width: var(${tokens.menuItemIconContainerSize});
-    height: var(${tokens.menuItemIconContainerSize});
+    width: var(${tokens.iconContainerSize});
+    height: var(${tokens.iconContainerSize});
     display: flex;
 `;
 
 export const Icon = styled.div`
     margin: auto;
+    div {
+        width: var(${tokens.iconSize});
+        height: var(${tokens.iconSize});
+    }
 `;
 
 export const RightContentWrapper = styled.div`
     position: relative;
-    height: var(${tokens.menuItemIconContainerSize});
+    height: var(${tokens.iconContainerSize});
     display: flex;
 `;
