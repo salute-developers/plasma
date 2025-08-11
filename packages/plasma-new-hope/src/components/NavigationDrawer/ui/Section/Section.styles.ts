@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { IconDisclosureDownCentered, IconDisclosureUpCentered } from 'src/components/_Icon';
+import { IconDisclosureDownCentered } from 'src/components/_Icon';
 
 import { tokens } from '../../NavigationDrawer.tokens';
 
@@ -15,18 +15,18 @@ export const SectionHeader = styled.div`
     gap: var(${tokens.sectionHeaderGap});
     align-items: center;
     cursor: pointer;
+    height: var(${tokens.sectionHeight});
 
     color: var(${tokens.sectionColor});
     font-size: var(${tokens.sectionFontSize});
-
     font-style: var(--plasma-typo-text-s-font-style);
     font-weight: var(--plasma-typo-text-s-font-weight);
     line-height: var(--plasma-typo-text-s-line-height);
     letter-spacing: var(--plasma-typo-text-s-letter-spacing);
 
-    svg {
-        color: var(${tokens.sectionColor});
-    }
+    border-radius: var(${tokens.sectionBorderRadius});
+
+    user-select: none;
 `;
 
 export const SectionDivider = styled.div`
@@ -36,15 +36,15 @@ export const SectionDivider = styled.div`
 `;
 
 export const SectionIcon = styled.div`
-    width: 16px;
-    height: var(--plasma-typo-text-s-line-height);
+    width: var(${tokens.iconContainerSize});
+    height: var(${tokens.iconContainerSize});
     display: flex;
+    div {
+        width: var(${tokens.iconSize});
+        height: var(${tokens.iconSize});
+    }
 `;
 
-export const StyledIconDisclosureDownCentered = styled(IconDisclosureDownCentered)`
-    margin: auto;
-`;
-
-export const StyledIconDisclosureUpCentered = styled(IconDisclosureUpCentered)`
+export const ArrowIcon = styled(IconDisclosureDownCentered)`
     margin: auto;
 `;

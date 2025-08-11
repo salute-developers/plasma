@@ -11,23 +11,23 @@ export const config = {
         view: {
             default: css`
                 ${navigationDrawerTokens.sidebarBoxShadow}: var(--shadow-down-soft-s);
-                ${navigationDrawerTokens.sidebarHeight}: calc(100% - 32px);
-                ${navigationDrawerTokens.sidebarPadding}: 20px 12px 12px 12px;
-                ${navigationDrawerTokens.sidebarGap}: 10px;
+                ${navigationDrawerTokens.sidebarHeight}: calc(100% - 2rem);
+                ${navigationDrawerTokens.sidebarPadding}: 1.25rem 0.75rem 0.75rem 0.75rem;
+                ${navigationDrawerTokens.sidebarGap}: 0.625rem;
                 ${navigationDrawerTokens.sidebarWidth}: 250px;
                 ${navigationDrawerTokens.sidebarBackground}: var(--surface-solid-card);
 
                 ${navigationDrawerTokens.sectionColor}: var(--text-tertiary-active);
-                ${navigationDrawerTokens.sectionFontSize}: 12px;
-                ${navigationDrawerTokens.sectionHeaderGap}: 12px;
+                ${navigationDrawerTokens.sectionFontSize}: 0.75rem;
+                ${navigationDrawerTokens.sectionHeaderGap}: 0.75rem;
 
-                ${navigationDrawerTokens.menuItemGap}: 12px;
-                ${navigationDrawerTokens.menuItemPadding}: 12px;
-                ${navigationDrawerTokens.menuItemBorderRadius}: 10px;
+                ${navigationDrawerTokens.menuItemGap}: 0.75rem;
+                ${navigationDrawerTokens.menuItemPadding}: 0.75rem;
+                ${navigationDrawerTokens.menuItemBorderRadius}: 0.625rem;
                 ${navigationDrawerTokens.menuItemSelectedColor}: var(--surface-transparent-secondary);
                 ${navigationDrawerTokens.menuItemHoverColor}: var(--surface-transparent-secondary-hover);
                 ${navigationDrawerTokens.menuItemDisabledOpacity}: 0.4;
-                ${navigationDrawerTokens.menuItemIndicatorSize}: 8px;
+                ${navigationDrawerTokens.menuItemIndicatorSize}: 0.5rem;
                 ${navigationDrawerTokens.menuItemIndicatorColor}: var(--surface-solid-default);
 
                 ${navigationDrawerTokens.dividerColor}: var(--surface-transparent-tertiary);
@@ -50,18 +50,22 @@ export const config = {
         },
         size: {
             s: css`
-                /* ${navigationDrawerTokens.menuItemIconSize}: 16px; */
-                ${navigationDrawerTokens.menuItemIconContainerSize}: 16px;
-                ${navigationDrawerTokens.menuItemFontSize}: 14px;
-                ${navigationDrawerTokens.sidebarWidthClosed}: 40px;
-                ${navigationDrawerTokens.sectionPadding}: 10px 12px;
+                ${navigationDrawerTokens.iconSize}: 0.875rem;
+                ${navigationDrawerTokens.iconContainerSize}: 1rem;
+                ${navigationDrawerTokens.menuItemFontSize}: 0.875rem;
+                ${navigationDrawerTokens.sidebarWidthClosed}: 2.5rem;
+                ${navigationDrawerTokens.sectionPadding}: 0.625rem 0.75rem;
+                ${navigationDrawerTokens.sectionBorderRadius}: 0.625rem;
+                ${navigationDrawerTokens.sectionHeight}: 1.25rem;
             `,
             m: css`
-                /* ${navigationDrawerTokens.menuItemIconSize}: 20px; */
-                ${navigationDrawerTokens.menuItemIconContainerSize}: 20px;
-                ${navigationDrawerTokens.menuItemFontSize}: 16px;
-                ${navigationDrawerTokens.sidebarWidthClosed}: 48px;
-                ${navigationDrawerTokens.sectionPadding}: 12px;
+                ${navigationDrawerTokens.iconSize}: 1.25rem;
+                ${navigationDrawerTokens.iconContainerSize}: 1.5rem;
+                ${navigationDrawerTokens.menuItemFontSize}: 1rem;
+                ${navigationDrawerTokens.sidebarWidthClosed}: 3rem;
+                ${navigationDrawerTokens.sectionPadding}: 0.75rem;
+                ${navigationDrawerTokens.sectionBorderRadius}: 0.75rem;
+                ${navigationDrawerTokens.sectionHeight}: 1.5rem;
             `,
         },
     },
