@@ -10,13 +10,17 @@ export const DraggableScrollContainer = styled.div`
 
     &:active {
         cursor: grabbing;
+
+        a {
+            cursor: grabbing;
+        }
     }
 `;
 
 export const ScrollableContainer = styled.div`
     display: flex;
     gap: 1rem;
-    padding-right: 4rem;
+    padding: 0 4rem;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 
@@ -25,7 +29,23 @@ export const ScrollableContainer = styled.div`
         display: none;
     }
 
-    ${multipleMediaQuery(['M', 'S'])(css`
+    &.inactiveLinks {
+        a {
+            pointer-events: none;
+        }
+    }
+    
+    ${multipleMediaQuery(['XL', 'L'])(css`
+        padding-left: 2.5rem;
+    `)}
+
+    ${multipleMediaQuery(['M'])(css`
+        padding-left: 1.75rem;
+        padding-right: 3.5rem;
+    `)}
+
+    ${multipleMediaQuery(['S'])(css`
+        padding-left: 1.25rem;
         padding-right: 3.5rem;
     `)}
 `;

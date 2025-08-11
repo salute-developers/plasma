@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import cls from 'classnames';
 
 import { DraggableScrollContainer, ScrollableContainer } from './DraggableContainer.styles';
 
@@ -11,6 +12,7 @@ export const DraggableContainer: React.FC<DraggableContainerProps> = ({ children
     const containerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
+    const [preventLinkClick, setPreventLinkClick] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
 
@@ -18,6 +20,7 @@ export const DraggableContainer: React.FC<DraggableContainerProps> = ({ children
         if (!contentRef.current) return;
 
         setIsDragging(true);
+        setPreventLinkClick(false);
         setStartX(e.pageX - (containerRef.current?.offsetLeft || 0));
         setScrollLeft(contentRef.current.scrollLeft);
 
@@ -28,21 +31,28 @@ export const DraggableContainer: React.FC<DraggableContainerProps> = ({ children
 
     const handleMouseUp = () => {
         setIsDragging(false);
+        setPreventLinkClick(false);
+
         if (containerRef.current) {
             containerRef.current.style.cursor = 'grab';
         }
     };
 
-    const handleMouseMove = (e: React.MouseEvent) => {
+    const handleMouseMove = (e: MouseEvent) => {
         if (!isDragging || !contentRef.current) return;
 
-        const x = e.pageX - (containerRef.current?.offsetLeft || 0);
-        const walk = x - startX;
-        contentRef.current.scrollLeft = scrollLeft - walk;
+        const offsetLeft = containerRef.current?.offsetLeft || 0;
+        const x = e.pageX - offsetLeft;
+        const step = x - startX;
+
+        if (!preventLinkClick && Math.abs(step) > 5) {
+            setPreventLinkClick(true);
+        }
+
+        contentRef.current.scrollLeft = scrollLeft - step;
     };
 
     const handleMouseLeave = () => {
-        setIsDragging(false);
         if (containerRef.current) {
             containerRef.current.style.cursor = 'grab';
         }
@@ -69,8 +79,24 @@ export const DraggableContainer: React.FC<DraggableContainerProps> = ({ children
     };
 
     useEffect(() => {
+        if (isDragging) {
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+        } else {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+        }
+
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, [isDragging, startX, scrollLeft]);
+
+    useEffect(() => {
         return () => {
             setIsDragging(false);
+            setPreventLinkClick(false);
         };
     }, []);
 
@@ -80,13 +106,14 @@ export const DraggableContainer: React.FC<DraggableContainerProps> = ({ children
             className={className}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             onTouchMove={handleTouchMove}
         >
-            <ScrollableContainer ref={contentRef}>{children}</ScrollableContainer>
+            <ScrollableContainer ref={contentRef} className={cls({ inactiveLinks: preventLinkClick })}>
+                {children}
+            </ScrollableContainer>
         </DraggableScrollContainer>
     );
 };
