@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import { styled } from '@linaria/react';
 import cls from 'classnames';
 
 import { RootProps } from '../../engines';
@@ -7,18 +6,32 @@ import { RootProps } from '../../engines';
 import { NavigationDrawerProps } from './NavigationDrawer.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { base, Content, Overlay } from './NavigationDrawer.styles';
+import { base, Content, Footer, Overlay } from './NavigationDrawer.styles';
 import { Section } from './ui/Section';
 import { classes } from './NavigationDrawer.tokens';
 
-const Footer = styled.div`
-    margin-top: auto;
-`;
-
-export const navigationDrawerRoot = (Root: RootProps<HTMLDivElement, NavigationDrawerProps>) => {
+export const navigationDrawerRoot = (
+    Root: RootProps<
+        HTMLDivElement,
+        Omit<
+            NavigationDrawerProps,
+            'opened' | 'header' | 'sections' | 'footer' | 'withContentLeft' | 'mode' | 'sidebarProps' | 'onHide'
+        >
+    >,
+) => {
     return forwardRef<HTMLDivElement, NavigationDrawerProps>((props, ref) => {
-        const { children, ...rest } = props;
-        const { opened, header, sections, footer, withContentLeft, mode, sidebarProps, onHide } = props;
+        const {
+            children,
+            opened,
+            header,
+            sections,
+            footer,
+            withContentLeft,
+            mode,
+            sidebarProps,
+            onHide,
+            ...rest
+        } = props;
         const isOpened = opened || !withContentLeft;
 
         const isOverlay = mode === 'overlay' || mode === 'drawer';
