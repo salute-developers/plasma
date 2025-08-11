@@ -346,6 +346,7 @@ export default function Home() {
                                 )
                             }
                             alwaysShowIcon
+                            isDraggable
                         />
                     ))}
                 </ProductList>
@@ -355,10 +356,20 @@ export default function Home() {
                             key={title}
                             title={title}
                             onClickTitle={handleScrollToVerticals}
-                            additionalInfo={items?.map(({ text, href, contentRight }) => (
-                                <LinkItem key={text + href} title={text} href={href} contentRight={contentRight} />
-                            ))}
+                            additionalInfo={
+                                <DraggableContainer>
+                                    {items?.map(({ text, href, contentRight }) => (
+                                        <LinkItem
+                                            key={text + href}
+                                            title={text}
+                                            href={href}
+                                            contentRight={contentRight}
+                                        />
+                                    ))}
+                                </DraggableContainer>
+                            }
                             iconRotation="bottom"
+                            isDraggable
                             alwaysShowIcon
                         />
                     ))}

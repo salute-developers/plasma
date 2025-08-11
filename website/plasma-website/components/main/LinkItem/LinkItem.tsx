@@ -34,7 +34,14 @@ export const LinkItem: FC<LinkItemProps> = ({
     };
 
     return (
-        <LinkItemWrapper href={href} className={className} isMeta={isMeta} onClick={handleClick} external={external}>
+        <LinkItemWrapper
+            href={href}
+            className={className}
+            draggable="false"
+            isMeta={isMeta}
+            onClick={handleClick}
+            external={external}
+        >
             {contentLeft && <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>}
             <Title>{title}</Title>
             {contentRight && <ContentRightWrapper>{contentRight}</ContentRightWrapper>}

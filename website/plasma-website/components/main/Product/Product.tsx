@@ -22,6 +22,7 @@ export type ProductProps = {
     alwaysShowIcon?: boolean;
     items?: Array<LinkItem>;
     additionalInfo?: ReactNode;
+    isDraggable?: boolean;
     onClickTitle?: () => void;
 };
 
@@ -31,6 +32,7 @@ export const Product: FC<ProductProps> = ({
     alwaysShowIcon,
     iconRotation = 'right',
     additionalInfo,
+    isDraggable,
     onClickTitle,
 }) => {
     return (
@@ -44,7 +46,9 @@ export const Product: FC<ProductProps> = ({
                     </Icon>
                 </ProductMainInfo>
             </Link>
-            {additionalInfo && <ProductAdditionalInfo>{additionalInfo}</ProductAdditionalInfo>}
+            {additionalInfo && (
+                <ProductAdditionalInfo isDraggable={isDraggable}>{additionalInfo}</ProductAdditionalInfo>
+            )}
         </ProductWrapper>
     );
 };
