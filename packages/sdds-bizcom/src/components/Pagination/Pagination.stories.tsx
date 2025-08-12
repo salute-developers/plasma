@@ -51,8 +51,8 @@ export default meta;
 type Story = StoryObj<typeof Pagination>;
 
 const PaginationDefault = (args) => {
-    const [pageValue, setPageValue] = useState(args.value);
-    const [perPageValue, setPerPageValue] = useState(args.perPage);
+    const [pageValue, setPageValue] = useState(1);
+    const [perPageValue, setPerPageValue] = useState(20);
 
     const handleChangePage = useCallback(
         (page: number) => {
@@ -86,9 +86,7 @@ const PaginationDefault = (args) => {
 export const Default: Story = {
     args: {
         count: 2000,
-        value: 1,
         slots: 9,
-        perPage: 20,
         type: 'default',
         view: 'clear',
         viewCurrentPage: 'secondary',
@@ -103,8 +101,8 @@ export const Default: Story = {
 };
 
 const PaginationContent = (args) => {
-    const [pageValue, setPageValue] = useState(args.value);
-    const [perPageValue, setPerPageValue] = useState(args.perPage);
+    const [pageValue, setPageValue] = useState(1);
+    const [perPageValue, setPerPageValue] = useState(20);
 
     const handleChangePage = useCallback(
         (page: number) => {
@@ -156,9 +154,7 @@ const PaginationContent = (args) => {
 export const Content: Story = {
     args: {
         count: 2000,
-        value: 1,
         slots: 9,
-        perPage: 20,
         type: 'default',
         view: 'clear',
         viewCurrentPage: 'secondary',
