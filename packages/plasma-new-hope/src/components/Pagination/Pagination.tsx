@@ -1,4 +1,4 @@
-import React, { useEffect, useState, forwardRef } from 'react';
+import React, { useState, forwardRef, Fragment } from 'react';
 
 import { cx, isNumber } from '../../utils';
 import { RootPropsOmitOnChange } from '../../engines';
@@ -25,8 +25,12 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
     forwardRef<HTMLDivElement, PaginationProps>(
         (
             {
-                value = defaultValues.value,
-                perPage,
+                value: outerValue,
+                defaultValue,
+
+                perPage: outerPerPage,
+                defaultPerPage,
+
                 slots = defaultValues.slots,
 
                 view,
@@ -60,10 +64,16 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
             },
             ref,
         ) => {
-            const [page, setPageValue] = useState<number>(1);
-            const [perPageValue, setPerPageValue] = useState(perPage);
-            const [pages, setPagesValue] = useState<number>(value);
-            const [sections, setSections] = useState<number[][] | null>(null);
+            const [pageInner, setPageInner] = useState<number>(defaultValue || defaultValues.value);
+            const pageValue = outerValue ?? pageInner;
+
+            const [perPageInner, setPerPageInner] = useState<number | undefined>(
+                hasPerPage ? defaultPerPage || defaultValues.perPage : undefined,
+            );
+            const perPageValue = outerPerPage ?? perPageInner;
+
+            const pages = Math.ceil(count / (perPageValue || 1));
+            const sections = getSections(pageValue, pages, slots);
 
             const typeClass = classes[`${type}Type` as keyof typeof classes];
             const roundedClass = pilled ? 'circle-circle' : 'square-square';
@@ -73,54 +83,42 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
 
             const disabled = disabledPages.map((el) => (isNumber(el) ? Number(el) : null));
 
-            const handlerSetPages = (newPerPage?: number) => {
-                if (newPerPage) {
-                    setPagesValue(Math.ceil(count / newPerPage));
-                } else {
-                    setPagesValue(Math.ceil(count / (hasPerPage ? defaultValues.perPage : 1)));
+            const pageSetter = (pageValueCandidate?: number) => {
+                let newPageValue = pageValueCandidate ?? defaultValues.value;
+                if (newPageValue > pages) {
+                    newPageValue = pages;
                 }
-            };
 
-            const handlerSetPage = (newPageValue?: number) => {
-                let pageValue = newPageValue ?? defaultValues.value;
-                if (pageValue > pages) {
-                    pageValue = pages;
+                if (newPageValue < 1) {
+                    newPageValue = 1;
                 }
-                if (pageValue < 1) {
-                    pageValue = 1;
-                }
-                if (disabled.includes(pageValue)) {
+
+                if (disabled.includes(newPageValue)) {
                     return;
                 }
-                setPageValue(pageValue);
-                onChangePageValue?.(pageValue);
-                onChange?.(pageValue, perPageValue);
+
+                setPageInner(newPageValue);
+
+                return newPageValue;
             };
 
-            const handlerSetPerPage = (newPerPageValue?: number) => {
-                handlerSetPage(page);
-                setPerPageValue(newPerPageValue);
-                onChange?.(page, newPerPageValue);
-                onChangePerPageValue?.(newPerPageValue);
+            const handleSetPage = (pageValueCandidate?: number) => {
+                const newValue = pageSetter(pageValueCandidate);
 
-                handlerSetPages(newPerPageValue);
+                onChange?.(newValue, perPageValue);
+                onChangePageValue?.(newValue);
+            };
+
+            const handlerSetPerPage = (newPerPageValue: number) => {
+                setPerPageInner(newPerPageValue);
+
+                onChange?.(pageValue, newPerPageValue);
+                onChangePerPageValue?.(newPerPageValue);
             };
 
             const isActiveButton = (checkPage: number) => {
-                return page === checkPage ? classes.paginationPageButtonActive : '';
+                return pageValue === checkPage ? classes.paginationPageButtonActive : '';
             };
-
-            useEffect(() => {
-                handlerSetPages(perPage);
-            }, [value, perPage, count, handlerSetPages]);
-
-            useEffect(() => {
-                handlerSetPage(value);
-            }, [value]);
-
-            useEffect(() => {
-                setSections(getSections(page, pages, slots));
-            }, [page, slots, pages, setSections, getSections]);
 
             return (
                 <Root
@@ -140,7 +138,7 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                             )}
                             {sections &&
                                 sections.map((section, indexSection) => (
-                                    <>
+                                    <Fragment key={indexSection}>
                                         {indexSection !== 0 && (
                                             <PaginationShorter
                                                 stretching="fixed"
@@ -150,25 +148,25 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                                                 ...
                                             </PaginationShorter>
                                         )}
-                                        <PaginationSection key={indexSection}>
-                                            {section.map((pageValue) => (
+                                        <PaginationSection>
+                                            {section.map((currentPage, index) => (
                                                 <PaginationButton
-                                                    square={square}
-                                                    pin={roundedClass}
-                                                    key={pageValue}
-                                                    onClick={() => handlerSetPage(pageValue)}
-                                                    disabled={disabled.includes(pageValue)}
+                                                    key={`${currentPage}_${index}`}
                                                     className={cx(
                                                         classes.paginationPageButton,
-                                                        isActiveButton(pageValue),
-                                                        disabled.includes(pageValue) ? classes.buttonDisabled : '',
+                                                        isActiveButton(currentPage),
+                                                        disabled.includes(currentPage) ? classes.buttonDisabled : '',
                                                     )}
+                                                    pin={roundedClass}
+                                                    disabled={disabled.includes(currentPage)}
+                                                    square={square}
+                                                    onClick={() => handleSetPage(currentPage)}
                                                 >
-                                                    {pageValue}
+                                                    {currentPage}
                                                 </PaginationButton>
                                             ))}
                                         </PaginationSection>
-                                    </>
+                                    </Fragment>
                                 ))}
                             {rightContent && (
                                 <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
@@ -183,7 +181,7 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                                 <PaginationQuickJumpToPage
                                     placeholderQuickJump={placeholderQuickJump}
                                     textQuickJump={textQuickJump}
-                                    onChangeValue={handlerSetPage}
+                                    onChangeValue={handleSetPage}
                                 />
                             )}
                             {hasPerPage && (
