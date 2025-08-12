@@ -7,7 +7,7 @@ import type { PaginationSelectPerPageProps } from './PaginationSelectPerPage.typ
 import { SelectPerPageRoot, SelectPerPageTypography, SelectPerPageSelect } from './PaginationSelectPerPage.styles';
 
 export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = ({
-    perPageValue = defaultValues.perPage,
+    perPageValue,
     perPageList = defaultValues.perPageList,
     textPerPage = defaultValues.textPerPage,
     onChangeValue,
@@ -30,7 +30,7 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
             <SelectPerPageSelect
                 className={classes.selectWrapper}
                 items={transformedList}
-                value={perPageValue.toString()}
+                value={perPageValue?.toString()}
                 onChange={handleSelectChange}
                 target="button-like"
                 size={size}

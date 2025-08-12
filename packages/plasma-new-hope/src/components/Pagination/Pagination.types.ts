@@ -49,6 +49,11 @@ export type CustomPaginationProps = {
     value?: number;
 
     /*
+     * Выбранная страница по умолчанию
+     */
+    defaultValue?: number;
+
+    /*
      * Выбор страницы через Input
      */
     hasQuickJump?: boolean;
@@ -62,6 +67,11 @@ export type CustomPaginationProps = {
      * Выбранное количество результатов на странице
      */
     perPage?: number;
+
+    /*
+     * Выбранное количество результатов на странице по умолчанию
+     */
+    defaultPerPage?: number;
 
     /*
      * Список результатов на странице
@@ -115,14 +125,20 @@ export type CustomPaginationProps = {
     listWidth?: CSSProperties['width'];
 
     /*
-     * Функция которая исполняeтся при изменении
+     * Функция которая исполняeтся при изменении `page`, `perPage`
      */
-    onChange?: (page?: number, perpage?: number) => void;
+    onChange?: (page?: number, perPage?: number) => void;
+    /*
+     * @deprecated - использовать onChange
+     */
     onChangePageValue?: (page?: number) => void;
-    onChangePerPageValue?: (perpage?: number) => void;
+    /*
+     * @deprecated - использовать onChange
+     */
+    onChangePerPageValue?: (perPage?: number) => void;
 };
 
 export interface PaginationProps
-    extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>,
+    extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'>,
         AsProps,
         CustomPaginationProps {}
