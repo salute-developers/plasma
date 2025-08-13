@@ -20,3 +20,5 @@ export { sdds_bcp__dark } from './sdds_bcp__dark';
 export { sdds_bcp__light } from './sdds_bcp__light';
 export { sdds_procom__dark } from './sdds_procom__dark';
 export { sdds_procom__light } from './sdds_procom__light';
+export { sdds_finai__dark } from './sdds_finai__dark';
+export { sdds_finai__light } from './sdds_finai__light';
