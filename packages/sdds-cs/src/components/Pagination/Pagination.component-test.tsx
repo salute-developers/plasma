@@ -177,19 +177,13 @@ describe('sdds-cs: Pagination Content', () => {
         const [pageValue, setPageValue] = useState(args.value);
         const [perPageValue, setPerPageValue] = useState(args.perPage);
 
-        const handleChangePerpage = useCallback(
-            (perPage: number) => {
-                setPerPageValue(perPage);
-            },
-            [perPageValue, setPerPageValue],
-        );
+        const handleChangePerPage = (perPage: number) => {
+            setPerPageValue(perPage);
+        };
 
-        const handleChangePage = useCallback(
-            (page: number) => {
-                setPageValue(page);
-            },
-            [pageValue, setPageValue],
-        );
+        const handleChangePage = (page: number) => {
+            setPageValue(page);
+        };
 
         return (
             <>
@@ -198,7 +192,6 @@ describe('sdds-cs: Pagination Content', () => {
                     count={count}
                     value={pageValue}
                     perPage={perPageValue}
-                    count={count}
                     leftContent={
                         <Button
                             id="pagination-button-prev"
@@ -220,7 +213,7 @@ describe('sdds-cs: Pagination Content', () => {
                         </Button>
                     }
                     onChangePageValue={handleChangePage}
-                    onChangePerageValue={handleChangePerpage}
+                    onChangePerPageValue={handleChangePerPage}
                 />
             </>
         );
@@ -242,7 +235,7 @@ describe('sdds-cs: Pagination Content', () => {
     it('setInput', () => {
         mount(
             <CypressTestDecorator>
-                <Pagination slots={slots[1]} value={values[0]} count={count} />
+                <Pagination slots={slots[1]} count={count} />
             </CypressTestDecorator>,
         );
         cy.get('input:first').focus().type('10').type('{enter}');
@@ -254,7 +247,7 @@ describe('sdds-cs: Pagination Content', () => {
 
         mount(
             <CypressTestDecorator>
-                <Pagination slots={slots[2]} value={values[0]} count={count} listWidth="5rem" />
+                <Pagination slots={slots[2]} count={count} listWidth="5rem" />
             </CypressTestDecorator>,
         );
         cy.get('button').last().click();
