@@ -39,11 +39,11 @@ export const MenuItem: React.FC<MenuItemProps> = (props) => {
                 <Icon>{icon}</Icon>
                 {indicators}
             </IconWrapper>
-            {isOpened && label}
+            {isOpened && <span>{label}</span>}
         </>
     ) : (
         <>
-            {label}
+            <span>{label}</span>
             <RightContentWrapper>{indicators}</RightContentWrapper>
         </>
     );

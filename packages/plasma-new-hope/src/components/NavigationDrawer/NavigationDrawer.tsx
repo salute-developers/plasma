@@ -22,12 +22,12 @@ export const navigationDrawerRoot = (
     return forwardRef<HTMLDivElement, NavigationDrawerProps>((props, ref) => {
         const {
             children,
-            opened,
+            opened = true,
             header,
             sections,
             footer,
             withContentLeft,
-            mode,
+            mode = 'static',
             sidebarProps,
             onHide,
             ...rest
@@ -55,6 +55,7 @@ export const navigationDrawerRoot = (
                             label={section.label}
                             withContentLeft={withContentLeft}
                             isOpened={isOpened}
+                            hasDivider={section.hasDivider}
                         />
                     ))}
 
