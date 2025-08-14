@@ -7,4 +7,5 @@ export type SectionProps<T extends boolean = false> = {
     label?: ReactNode;
     withContentLeft?: boolean;
     isOpened?: boolean;
+    hasDivider?: boolean;
 } & HTMLAttributes<HTMLDivElement>;

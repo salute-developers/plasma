@@ -15,7 +15,8 @@ export const SectionHeader = styled.div`
     gap: var(${tokens.sectionHeaderGap});
     align-items: center;
     cursor: pointer;
-    height: var(${tokens.sectionHeight});
+    box-sizing: border-box;
+    height: var(${tokens.sidebarWidthClosed});
 
     color: var(${tokens.sectionColor});
     font-size: var(${tokens.sectionFontSize});

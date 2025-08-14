@@ -13,6 +13,7 @@ export const Section = <T extends boolean = false>({
     withContentLeft,
     isOpened,
     className,
+    hasDivider = true,
     ...rest
 }: SectionProps<T>) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -32,7 +33,7 @@ export const Section = <T extends boolean = false>({
                     {!withContentLeft && icon}
                 </SectionHeader>
             ) : (
-                <SectionDivider />
+                hasDivider && <SectionDivider />
             )}
 
             {!isCollapsed &&

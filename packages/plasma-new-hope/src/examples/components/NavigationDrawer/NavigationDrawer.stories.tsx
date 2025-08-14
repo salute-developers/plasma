@@ -16,6 +16,7 @@ const Container = styled.div`
     width: 100%;
     height: 100vh;
     margin: -1rem;
+    transform: translateZ(0);
 `;
 
 const SlotContainer = styled.div`
@@ -26,6 +27,10 @@ const SlotContainer = styled.div`
 `;
 
 const sections = [
+    {
+        hasDivider: false,
+        items: [{ label: 'Item 0', icon: <IconBlankOutline />, action: action('Item 0 clicked') }],
+    },
     {
         label: 'Section 1',
         items: [

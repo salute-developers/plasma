@@ -9,7 +9,6 @@ export const config = {
         view: {
             default: css`
                 ${navigationDrawerTokens.sidebarBoxShadow}: var(--shadow-down-soft-s);
-                ${navigationDrawerTokens.sidebarHeight}: calc(100% - 2rem);
                 ${navigationDrawerTokens.sidebarPadding}: 1.25rem 0.75rem 0.75rem 0.75rem;
                 ${navigationDrawerTokens.sidebarGap}: 0.625rem;
                 ${navigationDrawerTokens.sidebarWidth}: 250px;
@@ -55,6 +54,7 @@ export const config = {
                 ${navigationDrawerTokens.sectionPadding}: 0.625rem 0.75rem;
                 ${navigationDrawerTokens.sectionBorderRadius}: 0.625rem;
                 ${navigationDrawerTokens.sectionHeight}: 1.25rem;
+                ${navigationDrawerTokens.iconMargin}: 1px 0 0 1px;
             `,
             m: css`
                 ${navigationDrawerTokens.iconSize}: 1.25rem;
@@ -64,6 +64,7 @@ export const config = {
                 ${navigationDrawerTokens.sectionPadding}: 0.75rem;
                 ${navigationDrawerTokens.sectionBorderRadius}: 0.75rem;
                 ${navigationDrawerTokens.sectionHeight}: 1.5rem;
+                ${navigationDrawerTokens.iconMargin}: 2px 0 0 2px;
             `,
         },
     },
