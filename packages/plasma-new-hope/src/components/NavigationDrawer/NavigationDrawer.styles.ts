@@ -7,6 +7,7 @@ export const base = css`
     display: flex;
     box-sizing: border-box;
     height: 100%;
+    width: 100%;
     position: relative;
 
     .${classes.navigationDrawerMenuItemSelected} {
@@ -31,6 +32,9 @@ export const base = css`
         cursor: pointer;
         border-radius: var(${tokens.menuItemBorderRadius});
         font-size: var(${tokens.menuItemFontSize});
+        box-sizing: border-box;
+        height: var(${tokens.sidebarWidthClosed});
+        line-height: var(${tokens.iconContainerSize});
 
         &:hover {
             background: var(${tokens.menuItemHoverColor});
@@ -59,8 +63,9 @@ export const base = css`
         display: flex;
         flex-direction: column;
         overflow-y: auto;
+        box-sizing: content-box;
 
-        height: var(${tokens.sidebarHeight});
+        height: calc(100% - 2rem);
         padding: var(${tokens.sidebarPadding});
         min-width: var(${tokens.sidebarWidth});
         max-width: var(${tokens.sidebarWidth});
@@ -97,11 +102,11 @@ export const Content = styled.div`
 export const Overlay = styled.div`
     position: absolute;
     top: 0;
+    right: 0;
     left: calc(var(${tokens.sidebarWidth}) + 1.5rem);
-    width: calc(100% - var(${tokens.sidebarWidth}) + 0.5rem);
+    bottom: 0;
     z-index: 1;
     background-color: var(${tokens.overlayBackground});
-    height: 100%;
     cursor: pointer;
 `;
 

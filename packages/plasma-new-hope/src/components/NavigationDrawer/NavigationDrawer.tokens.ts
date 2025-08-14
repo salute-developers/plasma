@@ -17,7 +17,6 @@ export const classes = {
 
 export const tokens = {
     // Sidebar
-    sidebarHeight: '--plasma-navigation-drawer-sidebar-height',
     sidebarPadding: '--plasma-navigation-drawer-sidebar-padding',
     sidebarGap: '--plasma-navigation-drawer-sidebar-gap',
     sidebarWidth: '--plasma-navigation-drawer-sidebar-width',
@@ -31,7 +30,6 @@ export const tokens = {
     sectionHeaderGap: '--plasma-navigation-drawer-section-header-gap',
     sectionPadding: '--plasma-navigation-drawer-section-padding',
     sectionBorderRadius: '--plasma-navigation-drawer-section-border-radius',
-    sectionHeight: '--plasma-navigation-drawer-section-height',
 
     // Menu Item
     menuItemGap: '--plasma-navigation-drawer-menu-item-gap',
@@ -51,6 +49,7 @@ export const tokens = {
     // Icon
     iconSize: '--plasma-navigation-drawer-icon-size',
     iconContainerSize: '--plasma-navigation-drawer-icon-container-size',
+    iconMargin: '--plasma-navigation-drawer-icon-margin',
 
     // Overlay
     overlayBackground: '--plasma-navigation-drawer-overlay-background',
