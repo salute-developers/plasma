@@ -40,11 +40,10 @@ export const IconWrapper = styled.div`
     position: relative;
     width: var(${tokens.iconContainerSize});
     height: var(${tokens.iconContainerSize});
-    display: flex;
 `;
 
 export const Icon = styled.div`
-    margin: auto;
+    margin: var(${tokens.iconMargin});
     div {
         width: var(${tokens.iconSize});
         height: var(${tokens.iconSize});

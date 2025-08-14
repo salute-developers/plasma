@@ -45,6 +45,12 @@ type SectionItem<T extends boolean = false> = {
      * Заголовок секции. При его отсутствии появится разделитель.
      */
     label?: ReactNode;
+    /**
+     * Флаг для отображения разделителя в начале секции.
+     * Используется только для секций без заголовка (label).
+     * @default true
+     */
+    hasDivider?: boolean;
 };
 
 export type NavigationDrawerProps = {
