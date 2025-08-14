@@ -125,8 +125,7 @@ export type UseDatePickerProps = {
     min?: Date;
     max?: Date;
     includeEdgeDates?: boolean;
-    setInputValue: Dispatch<SetStateAction<string>>;
-    setCalendarValue: Dispatch<SetStateAction<DateType>>;
+    setInnerDate: Dispatch<SetStateAction<string | DateType>>;
     setCorrectDates: Dispatch<
         SetStateAction<{
             calendar: Date | undefined;
