@@ -127,11 +127,11 @@ export type CustomPaginationProps = {
     /*
      * Функция которая исполняeтся при изменении `page`, `perPage`
      */
-    onChange?: (page?: number, perPage?: number) => void;
+    onChange?: (page?: number, perPage?: number, isNewPage?: boolean) => void;
     /*
      * @deprecated - использовать onChange
      */
-    onChangePageValue?: (page?: number) => void;
+    onChangePageValue?: (page?: number, isNewPage?: boolean) => void;
     /*
      * @deprecated - использовать onChange
      */

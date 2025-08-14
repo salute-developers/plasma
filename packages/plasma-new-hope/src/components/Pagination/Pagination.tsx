@@ -94,25 +94,27 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                 }
 
                 if (disabled.includes(newPageValue)) {
-                    return;
+                    return { newPageValue: pageInner, isNewPage: false };
                 }
+
+                const isNewPage = newPageValue === pageInner;
 
                 setPageInner(newPageValue);
 
-                return newPageValue;
+                return { newPageValue, isNewPage };
             };
 
             const handleSetPage = (pageValueCandidate?: number) => {
-                const newValue = pageSetter(pageValueCandidate);
+                const { newPageValue, isNewPage } = pageSetter(pageValueCandidate);
 
-                onChange?.(newValue, perPageValue);
-                onChangePageValue?.(newValue);
+                onChange?.(newPageValue, perPageValue, isNewPage);
+                onChangePageValue?.(newPageValue, isNewPage);
             };
 
             const handlerSetPerPage = (newPerPageValue: number) => {
                 setPerPageInner(newPerPageValue);
 
-                onChange?.(pageValue, newPerPageValue);
+                onChange?.(pageValue, newPerPageValue, false);
                 onChangePerPageValue?.(newPerPageValue);
             };
 
