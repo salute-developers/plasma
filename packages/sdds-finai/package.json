@@ -35,7 +35,6 @@
     "@babel/preset-env": "7.24.4",
     "@babel/preset-react": "7.24.1",
     "@babel/preset-typescript": "7.24.1",
-    "@microsoft/api-extractor": "7.38.3",
     "@salutejs/plasma-colors": "0.16.0",
     "@salutejs/plasma-core": "1.205.0-dev.0",
     "@salutejs/plasma-cy-utils": "0.135.0-dev.0",
@@ -67,8 +66,6 @@
     "access": "public"
   },
   "scripts": {
-    "preapi-report": "npm run generate:typings",
-    "api-report": "npx api-extractor run --local",
     "prepare": "npm run build",
     "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map",
     "build": "npm run build:cjs && npm run build:esm",
