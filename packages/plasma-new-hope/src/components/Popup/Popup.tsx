@@ -109,6 +109,8 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             },
             outerRootRef,
         ) => {
+            const nodeRef = useRef(null);
+
             const innerIsOpen = isOpen || opened;
             const resizable = typeof outerResizable === 'boolean' ? { disabled: !outerResizable } : outerResizable;
 
@@ -165,76 +167,81 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                         {...rest}
                     >
                         <Draggable
+                            nodeRef={nodeRef}
                             defaultClassName={draggable ? classes.draggablePopupWrapper : undefined}
                             defaultClassNameDragging={draggable ? classes.draggingPopupWrapper : undefined}
                             disabled={!draggable}
                             cancel={`.${classes.resizableHandleWrapper}`}
                         >
-                            <Resizable
-                                ref={resizableContainer}
-                                enable={
-                                    resizable && !resizable.disabled ? getResizeDirections(resizable.directions) : false
-                                }
-                                resizeRatio={getRatioBasedOnPlacement(placement)}
-                                defaultSize={resizable?.defaultSize}
-                                minWidth={resizable?.minWidth}
-                                minHeight={resizable?.minHeight}
-                                maxWidth={resizable?.maxWidth}
-                                maxHeight={resizable?.maxHeight}
-                                onResizeStart={handleResizeStart}
-                                onResizeStop={handleResizeStop}
-                                handleComponent={{
-                                    topRight: resizable?.hiddenIcons?.includes('top-right') ? undefined : (
-                                        <>
-                                            {resizable?.icons?.topRight || (
-                                                <IconResizeDiagonalStyled
-                                                    className={classes.resizableTopRightIcon}
-                                                    color="inherit"
-                                                    size={resizable?.iconSize}
-                                                />
-                                            )}
-                                        </>
-                                    ),
-                                    bottomRight: resizable?.hiddenIcons?.includes('bottom-right') ? undefined : (
-                                        <>
-                                            {resizable?.icons?.bottomRight || (
-                                                <IconResizeDiagonalStyled
-                                                    className={classes.resizableBottomRightIcon}
-                                                    color="inherit"
-                                                    size={resizable?.iconSize}
-                                                />
-                                            )}
-                                        </>
-                                    ),
-                                    bottomLeft: resizable?.hiddenIcons?.includes('bottom-left') ? undefined : (
-                                        <>
-                                            {resizable?.icons?.bottomLeft || (
-                                                <IconResizeDiagonalStyled
-                                                    className={classes.resizableBottomLeftIcon}
-                                                    color="inherit"
-                                                    size={resizable?.iconSize}
-                                                />
-                                            )}
-                                        </>
-                                    ),
-                                    topLeft: resizable?.hiddenIcons?.includes('top-left') ? undefined : (
-                                        <>
-                                            {resizable?.icons?.topLeft || (
-                                                <IconResizeDiagonalStyled
-                                                    className={classes.resizableTopLeftIcon}
-                                                    color="inherit"
-                                                    size={resizable?.iconSize}
-                                                />
-                                            )}
-                                        </>
-                                    ),
-                                }}
-                                className={classes.resizableContainer}
-                                handleStyles={getHandleStyles()}
-                                handleWrapperClass={classes.resizableHandleWrapper}
-                            >
-                                {children}
-                            </Resizable>
+                            <div ref={nodeRef}>
+                                <Resizable
+                                    ref={resizableContainer}
+                                    enable={
+                                        resizable && !resizable.disabled
+                                            ? getResizeDirections(resizable.directions)
+                                            : false
+                                    }
+                                    resizeRatio={getRatioBasedOnPlacement(placement)}
+                                    defaultSize={resizable?.defaultSize}
+                                    minWidth={resizable?.minWidth}
+                                    minHeight={resizable?.minHeight}
+                                    maxWidth={resizable?.maxWidth}
+                                    maxHeight={resizable?.maxHeight}
+                                    onResizeStart={handleResizeStart}
+                                    onResizeStop={handleResizeStop}
+                                    handleComponent={{
+                                        topRight: resizable?.hiddenIcons?.includes('top-right') ? undefined : (
+                                            <>
+                                                {resizable?.icons?.topRight || (
+                                                    <IconResizeDiagonalStyled
+                                                        className={classes.resizableTopRightIcon}
+                                                        color="inherit"
+                                                        size={resizable?.iconSize}
+                                                    />
+                                                )}
+                                            </>
+                                        ),
+                                        bottomRight: resizable?.hiddenIcons?.includes('bottom-right') ? undefined : (
+                                            <>
+                                                {resizable?.icons?.bottomRight || (
+                                                    <IconResizeDiagonalStyled
+                                                        className={classes.resizableBottomRightIcon}
+                                                        color="inherit"
+                                                        size={resizable?.iconSize}
+                                                    />
+                                                )}
+                                            </>
+                                        ),
+                                        bottomLeft: resizable?.hiddenIcons?.includes('bottom-left') ? undefined : (
+                                            <>
+                                                {resizable?.icons?.bottomLeft || (
+                                                    <IconResizeDiagonalStyled
+                                                        className={classes.resizableBottomLeftIcon}
+                                                        color="inherit"
+                                                        size={resizable?.iconSize}
+                                                    />
+                                                )}
+                                            </>
+                                        ),
+                                        topLeft: resizable?.hiddenIcons?.includes('top-left') ? undefined : (
+                                            <>
+                                                {resizable?.icons?.topLeft || (
+                                                    <IconResizeDiagonalStyled
+                                                        className={classes.resizableTopLeftIcon}
+                                                        color="inherit"
+                                                        size={resizable?.iconSize}
+                                                    />
+                                                )}
+                                            </>
+                                        ),
+                                    }}
+                                    className={classes.resizableContainer}
+                                    handleStyles={getHandleStyles()}
+                                    handleWrapperClass={classes.resizableHandleWrapper}
+                                >
+                                    {children}
+                                </Resizable>
+                            </div>
                         </Draggable>
                     </PopupRoot>
                 </Root>
