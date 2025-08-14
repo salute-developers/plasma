@@ -23,8 +23,7 @@ export const useDatePicker = ({
     maskWithFormat,
     dateFormatDelimiter,
     setCorrectDates,
-    setInputValue,
-    setCalendarValue,
+    setInnerDate,
     onChangeValue,
     onCommitDate,
     onChange,
@@ -80,8 +79,7 @@ export const useDatePicker = ({
                 onCommitDate(formattedDate, false, true, dateInfo, originalDate, isoDate);
             }
 
-            setCalendarValue(originalDate);
-            setInputValue(formattedDate);
+            setInnerDate(originalDate);
 
             if (onChangeValue) {
                 onChangeValue(event, formattedDate, originalDate, isoDate);
@@ -105,8 +103,7 @@ export const useDatePicker = ({
             setCorrectDates({ calendar: undefined, input: '' });
         }
 
-        setCalendarValue(originalDate);
-        setInputValue(formattedDate);
+        setInnerDate(formattedDate);
 
         if (onChangeValue) {
             onChangeValue(event, formattedDate, originalDate, isoDate);
@@ -123,8 +120,7 @@ export const useDatePicker = ({
         }
 
         if (!date) {
-            setCalendarValue(undefined);
-            setInputValue('');
+            setInnerDate(undefined);
 
             if (onCommitDate) {
                 onCommitDate('', false, true, undefined, undefined, '');
@@ -158,8 +154,7 @@ export const useDatePicker = ({
         }
 
         if (!date) {
-            setInputValue('');
-            setCalendarValue(date);
+            setInnerDate(date);
             setCorrectDates({ calendar: date || undefined, input: '' });
 
             if (onChangeValue) {
@@ -179,8 +174,7 @@ export const useDatePicker = ({
         const formattedDate = customDayjs(date).format(format);
         const isoDate = date.toISOString();
 
-        setCalendarValue(date);
-        setInputValue(formattedDate);
+        setInnerDate(date);
         setCorrectDates({ calendar: date, input: formattedDate });
 
         if (onChangeValue) {
@@ -205,8 +199,7 @@ export const useDatePicker = ({
             max,
         });
 
-        setInputValue(formattedDate);
-        setCalendarValue(originalDate);
+        setInnerDate(originalDate);
 
         if (originalDate) {
             setCorrectDates({ calendar: originalDate, input: formattedDate });
@@ -224,5 +217,6 @@ export const useDatePicker = ({
         handleSearch,
         handleCalendarPick,
         updateExternalDate,
+        getQuarterInfo,
     };
 };
