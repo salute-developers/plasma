@@ -35,7 +35,7 @@ module.exports = {
     '@salutejs/plasma-ui': getLatestReleaseVersion('plasma-ui'),
     '@salutejs/sdds-cs': getLatestReleaseVersion('sdds-cs'),
     '@salutejs/sdds-dfa': getLatestReleaseVersion('sdds-dfa'),
-    '@salutejs/sdds-finportal': getLatestReleaseVersion('sdds-finportal'),
+    '@salutejs/sdds-finai': getLatestReleaseVersion('sdds-finai'),
     '@salutejs/sdds-insol': getLatestReleaseVersion('sdds-insol'),
     '@salutejs/sdds-serv': getLatestReleaseVersion('sdds-serv'),
     '@salutejs/sdds-crm': getLatestReleaseVersion('sdds-crm'),
