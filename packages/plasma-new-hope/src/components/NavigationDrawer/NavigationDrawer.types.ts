@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 /**
  * Элемент меню в секции NavigationDrawer.
@@ -88,9 +88,9 @@ export type NavigationDrawerProps = {
      */
     view?: string;
     /**
-     * HTML пропсы для бокового меню. Можно использовать для onMouseEnter и onMouseLeave
+     * Контент внутри NavigationDrawer.
      */
-    sidebarProps?: HTMLAttributes<HTMLDivElement>;
+    children?: ReactNode;
 } & (
     | {
           /**
@@ -103,5 +103,4 @@ export type NavigationDrawerProps = {
           sections: SectionItem<false>[];
           withContentLeft?: never;
       }
-) &
-    HTMLAttributes<HTMLDivElement>;
+);

@@ -40,7 +40,14 @@ export const tokens = {
     menuItemDisabledOpacity: '--plasma-navigation-drawer-menu-item-disabled-opacity',
     menuItemIndicatorSize: '--plasma-navigation-drawer-menu-item-indicator-size',
     menuItemIndicatorColor: '--plasma-navigation-drawer-menu-item-indicator-color',
+
+    // Menu Item Font
+    menuItemFontFamily: '--plasma-navigation-drawer-menu-item-font-family',
     menuItemFontSize: '--plasma-navigation-drawer-menu-item-font-size',
+    menuItemFontStyle: '--plasma-navigation-drawer-menu-item-font-style',
+    menuItemFontWeight: '--plasma-navigation-drawer-menu-item-font-weight',
+    menuItemFontLetterSpacing: '--plasma-navigation-drawer-menu-item-font-letter-spacing',
+    menuItemFontLineHeight: '--plasma-navigation-drawer-menu-item-font-line-height',
 
     // Divider
     dividerColor: '--plasma-navigation-drawer-divider-color',

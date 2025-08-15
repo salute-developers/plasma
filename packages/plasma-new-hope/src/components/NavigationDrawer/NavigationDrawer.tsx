@@ -13,23 +13,19 @@ import { classes } from './NavigationDrawer.tokens';
 export const navigationDrawerRoot = (
     Root: RootProps<
         HTMLDivElement,
-        Omit<
-            NavigationDrawerProps,
-            'opened' | 'header' | 'sections' | 'footer' | 'withContentLeft' | 'mode' | 'sidebarProps' | 'onHide'
-        >
+        Omit<NavigationDrawerProps, 'opened' | 'header' | 'sections' | 'footer' | 'withContentLeft' | 'mode' | 'onHide'>
     >,
 ) => {
     return forwardRef<HTMLDivElement, NavigationDrawerProps>((props, ref) => {
         const {
-            children,
             opened = true,
             header,
             sections,
             footer,
             withContentLeft,
             mode = 'static',
-            sidebarProps,
             onHide,
+            children,
             ...rest
         } = props;
         const isOpened = opened || !withContentLeft;
@@ -44,7 +40,6 @@ export const navigationDrawerRoot = (
                         isOverlay && classes.navigationDrawerSidebarOverlay,
                         !isOpened && classes.navigationDrawerSidebarClosed,
                     )}
-                    {...sidebarProps}
                 >
                     {header}
 

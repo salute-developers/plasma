@@ -31,10 +31,16 @@ export const base = css`
         align-items: center;
         cursor: pointer;
         border-radius: var(${tokens.menuItemBorderRadius});
-        font-size: var(${tokens.menuItemFontSize});
         box-sizing: border-box;
         height: var(${tokens.sidebarWidthClosed});
         line-height: var(${tokens.iconContainerSize});
+
+        font-family: var(${tokens.menuItemFontFamily});
+        font-size: var(${tokens.menuItemFontSize});
+        font-style: var(${tokens.menuItemFontStyle});
+        font-weight: var(${tokens.menuItemFontWeight});
+        letter-spacing: var(${tokens.menuItemFontLetterSpacing});
+        line-height: var(${tokens.menuItemFontLineHeight});
 
         &:hover {
             background: var(${tokens.menuItemHoverColor});
