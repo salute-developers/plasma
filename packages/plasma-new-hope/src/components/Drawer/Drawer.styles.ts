@@ -109,6 +109,7 @@ export const StyledPopup = styled(Popup)<{
 }>`
     &&.${classes.overlay} {
         animation: fadeIn 0.2s forwards;
+        scrollbar-gutter: stable;
     }
 
     &&.${popupClasses.endAnimation} .${classes.overlay} {
