@@ -56,6 +56,11 @@ export const config = {
                 ${navigationDrawerTokens.sectionPadding}: 0.625rem 0.75rem;
                 ${navigationDrawerTokens.sectionBorderRadius}: 0.625rem;
                 ${navigationDrawerTokens.iconMargin}: 1px 0 0 1px;
+                ${navigationDrawerTokens.menuItemFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${navigationDrawerTokens.menuItemFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${navigationDrawerTokens.menuItemFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${navigationDrawerTokens.menuItemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${navigationDrawerTokens.menuItemFontLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             m: css`
                 ${navigationDrawerTokens.iconSize}: 1.25rem;
@@ -65,6 +70,11 @@ export const config = {
                 ${navigationDrawerTokens.sectionPadding}: 0.75rem;
                 ${navigationDrawerTokens.sectionBorderRadius}: 0.75rem;
                 ${navigationDrawerTokens.iconMargin}: 2px 0 0 2px;
+                ${navigationDrawerTokens.menuItemFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${navigationDrawerTokens.menuItemFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${navigationDrawerTokens.menuItemFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${navigationDrawerTokens.menuItemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${navigationDrawerTokens.menuItemFontLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
         },
     },
