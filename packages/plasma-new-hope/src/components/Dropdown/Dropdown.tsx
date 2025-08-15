@@ -58,10 +58,12 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             },
             ref,
         ) => {
-            const [path, dispatchPath] = useReducer(pathReducer, []);
+            const initialPath = alwaysOpened ? ['root'] : [];
+
+            const [path, dispatchPath] = useReducer(pathReducer, initialPath);
             const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
 
-            const isCurrentListOpen = alwaysOpened || Boolean(path[0]);
+            const isCurrentListOpen = Boolean(path[0]);
 
             const [pathMap, focusedToValueMap] = useHashMaps(items);
 

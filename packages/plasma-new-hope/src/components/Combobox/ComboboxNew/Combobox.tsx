@@ -127,19 +127,21 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
         const [pathMap, focusedToValueMap] = useMemo(() => getPathMap(filteredItems), [filteredItems, textValue]);
 
+        const initialPath = alwaysOpened ? ['root'] : [];
+
         // Состояния дерева элементов
-        const [path, dispatchPath] = useReducer(pathReducer, []);
+        const [path, dispatchPath] = useReducer(pathReducer, initialPath);
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
         const [checked, setChecked] = useState(valueToCheckedMap);
 
-        const isCurrentListOpen = alwaysOpened || Boolean(path[0]);
+        const isCurrentListOpen = Boolean(path[0]);
         const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value || '';
         const withArrowInverse = isCurrentListOpen ? classes.arrowInverse : undefined;
         const closeAfterSelect = outerCloseAfterSelect ?? !multiple;
 
         // Логика работы при клике за пределами выпадающего списка
         const targetRef = useOutsideClick<HTMLUListElement>(() => {
-            if (!isCurrentListOpen) {
+            if (!isCurrentListOpen || alwaysOpened) {
                 return;
             }
 
