@@ -1,6 +1,13 @@
 import React, { createRef, forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import cls from 'classnames';
-import type { KeyboardEvent, FocusEvent, FocusEventHandler, MutableRefObject, SyntheticEvent } from 'react';
+import type {
+    KeyboardEvent,
+    FocusEvent,
+    FocusEventHandler,
+    MutableRefObject,
+    SyntheticEvent,
+    SetStateAction,
+} from 'react';
 import type { RootProps } from 'src/engines';
 import { noop } from 'src/utils';
 
@@ -34,7 +41,10 @@ export const datePickerRangeRoot = (
 
                 isDoubleCalendar = false,
                 opened = false,
-                value: externalValue,
+
+                value: outerValue,
+                defaultFirstDate = '',
+                defaultSecondDate = '',
                 preserveInvalidOnBlur,
 
                 label,
@@ -50,8 +60,6 @@ export const datePickerRangeRoot = (
                 dividerVariant = 'dash',
                 dividerIcon,
 
-                defaultFirstDate = '',
-                defaultSecondDate = '',
                 firstValueError,
                 secondValueError,
                 firstValueSuccess,
@@ -118,10 +126,6 @@ export const datePickerRangeRoot = (
             },
             ref,
         ) => {
-            if (externalValue?.length && (defaultFirstDate || defaultSecondDate)) {
-                throw new Error("Controlled DatePicker can't have `default{First|Second}Date`, use `value` instead");
-            }
-
             const rangeRef = ref && 'current' in ref ? ref : createRef<RangeInputRefs>();
             const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -138,9 +142,11 @@ export const datePickerRangeRoot = (
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
             const dateFormatDelimiter = getDateFormatDelimiter(format);
 
-            const [startExternalValue, endExternalValue] = externalValue || [];
+            const [startInnerDate, setStartInnerDate] = useState<string | DateType>(defaultFirstDate || '');
+            const startDateValue = outerValue?.[0] ?? startInnerDate;
+
             const startInitialValues = getFormattedDates({
-                value: startExternalValue || defaultFirstDate,
+                value: startDateValue,
                 delimiter: dateFormatDelimiter,
                 lang,
                 format,
@@ -148,8 +154,12 @@ export const datePickerRangeRoot = (
                 min,
                 max,
             });
+
+            const [endInnerDate, setEndInnerDate] = useState<string | DateType>(defaultSecondDate || '');
+            const endDateValue = outerValue?.[1] ?? endInnerDate;
+
             const endInitialValues = getFormattedDates({
-                value: endExternalValue || defaultSecondDate,
+                value: endDateValue,
                 delimiter: dateFormatDelimiter,
                 lang,
                 format,
@@ -167,43 +177,52 @@ export const datePickerRangeRoot = (
                 input: endInitialValues.formattedDate,
             });
 
-            const [calendarFirstValue, setCalendarFirstValue] = useState<DateType>(startInitialValues.originalDate);
-            const [inputFirstValue, setInputFirstValue] = useState(startInitialValues.formattedDate);
+            const calendarFirstValue: DateType = startInitialValues.originalDate;
+            const inputFirstValue = startInitialValues.formattedDate;
 
-            const [calendarSecondValue, setCalendarSecondValue] = useState<DateType>(endInitialValues.originalDate);
-            const [inputSecondValue, setInputSecondValue] = useState(endInitialValues.formattedDate);
+            const calendarSecondValue: DateType = endInitialValues.originalDate;
+            const inputSecondValue = endInitialValues.formattedDate;
 
-            const [fullDateEntered, setFullDateEntered] = useState(Boolean(calendarFirstValue && calendarSecondValue));
+            const fullDateEntered = Boolean(calendarFirstValue && calendarSecondValue);
 
             const [secondTextFieldClicked, setSecondTextFieldClicked] = useState(false);
 
             const rangeErrorClass = firstValueError || secondValueError ? classes.datePickerError : undefined;
             const rangeSuccessClass = firstValueSuccess || secondValueSuccess ? classes.datePickerSuccess : undefined;
 
-            const setFirstInputValue = (value: React.SetStateAction<string>) => {
-                setInputFirstValue(value);
-
+            const handleInputChange = (value: string) => {
                 if (onChange) {
                     onChange({
                         target: {
-                            value: `${value} - ${inputSecondValue}`,
+                            value,
                             name,
                         },
                     });
                 }
             };
 
-            const setSecondInputValue = (value: React.SetStateAction<string>) => {
-                setInputSecondValue(value);
+            const setFirstInputValue = (value: SetStateAction<string | DateType>) => {
+                setStartInnerDate(value);
+                handleInputChange(`${value} - ${inputSecondValue}`);
+            };
 
-                if (onChange) {
-                    onChange({
-                        target: {
-                            value: `${inputFirstValue} - ${value}`,
-                            name,
-                        },
-                    });
-                }
+            const setSecondInputValue = (value: SetStateAction<string | DateType>) => {
+                setEndInnerDate(value);
+                handleInputChange(`${inputFirstValue} - ${value}`);
+            };
+
+            const commonUseDatePickerArgs = {
+                format,
+                lang,
+                disabled,
+                readOnly,
+                maskWithFormat,
+                name,
+                type,
+                min,
+                max,
+                includeEdgeDates,
+                dateFormatDelimiter,
             };
 
             const {
@@ -211,24 +230,15 @@ export const datePickerRangeRoot = (
                 handleCalendarPick: handleFirstCalendarPick,
                 handleSearch: handleSearchFirst,
                 updateExternalDate: updateExternalFirstDate,
+                getQuarterInfo: getFirstQuarterInfo,
             } = useDatePicker({
                 currentValue: inputFirstValue,
-                format,
-                lang,
-                disabled,
-                readOnly,
-                maskWithFormat,
                 valueError: firstValueError,
                 valueSuccess: firstValueSuccess,
-                name,
-                type,
-                min,
-                max,
-                includeEdgeDates,
-                dateFormatDelimiter,
+                ...commonUseDatePickerArgs,
+
                 setCorrectDates: setCorrectStartDates,
-                setInputValue: setFirstInputValue,
-                setCalendarValue: setCalendarFirstValue,
+                setInnerDate: setFirstInputValue,
                 onChangeValue: onChangeFirstValue,
                 onCommitDate: onCommitFirstDate,
             });
@@ -238,24 +248,15 @@ export const datePickerRangeRoot = (
                 handleCalendarPick: handleSecondCalendarPick,
                 handleSearch: handleSearchSecond,
                 updateExternalDate: updateExternalSecondDate,
+                getQuarterInfo: getSecondQuarterInfo,
             } = useDatePicker({
                 currentValue: inputSecondValue,
-                format,
-                lang,
-                disabled,
-                readOnly,
-                maskWithFormat,
                 valueError: secondValueError,
                 valueSuccess: secondValueSuccess,
-                name,
-                type,
-                min,
-                max,
-                includeEdgeDates,
-                dateFormatDelimiter,
+                ...commonUseDatePickerArgs,
+
                 setCorrectDates: setCorrectEndDates,
-                setInputValue: setSecondInputValue,
-                setCalendarValue: setCalendarSecondValue,
+                setInnerDate: setSecondInputValue,
                 onChangeValue: onChangeSecondValue,
                 onCommitDate: onCommitSecondDate,
             });
@@ -311,61 +312,76 @@ export const datePickerRangeRoot = (
                     return;
                 }
 
+                const commonArgs = { lang, format, includeEdgeDates, min, max };
+
                 let { originalDate: startOriginalDate } = getFormattedDates({
                     value: inputFirstValue,
                     delimiter: dateFormatDelimiter,
-                    lang,
-                    format,
-                    includeEdgeDates,
-                    min,
-                    max,
+                    ...commonArgs,
                 });
 
                 let { originalDate: endOriginalDate } = getFormattedDates({
                     value: inputSecondValue,
                     delimiter: dateFormatDelimiter,
-                    lang,
-                    format,
-                    includeEdgeDates,
-                    min,
-                    max,
+                    ...commonArgs,
                 });
 
                 if (!calendarFirstValue && correctStartDates.calendar) {
                     startOriginalDate = new Date(correctStartDates.calendar);
+
+                    if (onChangeFirstValue) {
+                        onChangeFirstValue(
+                            event,
+                            correctStartDates.input,
+                            correctStartDates.calendar,
+                            correctStartDates.calendar.toISOString(),
+                        );
+                    }
+
+                    if (onCommitFirstDate) {
+                        const dateInfo = getFirstQuarterInfo(correctStartDates.calendar);
+
+                        onCommitFirstDate(
+                            correctStartDates.input,
+                            false,
+                            true,
+                            dateInfo,
+                            correctStartDates.calendar,
+                            correctStartDates.calendar.toISOString(),
+                        );
+                    }
                 }
 
                 if (!calendarSecondValue && correctEndDates.calendar) {
                     endOriginalDate = new Date(correctEndDates.calendar);
+
+                    if (onChangeSecondValue) {
+                        onChangeSecondValue(
+                            event,
+                            correctEndDates.input,
+                            correctEndDates.calendar,
+                            correctEndDates.calendar.toISOString(),
+                        );
+                    }
+
+                    if (onCommitSecondDate) {
+                        const dateInfo = getSecondQuarterInfo(correctEndDates.calendar);
+
+                        onCommitSecondDate(
+                            correctEndDates.input,
+                            false,
+                            true,
+                            dateInfo,
+                            correctEndDates.calendar,
+                            correctEndDates.calendar.toISOString(),
+                        );
+                    }
                 }
 
                 const [startValue, endValue] = getSortedValues([startOriginalDate, endOriginalDate]);
 
-                const { formattedDate: startFormattedDate } = getFormattedDates({
-                    value: startValue || null,
-                    delimiter: dateFormatDelimiter,
-                    lang,
-                    format,
-                    includeEdgeDates,
-                    min,
-                    max,
-                });
-
-                const { formattedDate: endFormattedDate } = getFormattedDates({
-                    value: endValue || null,
-                    delimiter: dateFormatDelimiter,
-                    lang,
-                    format,
-                    includeEdgeDates,
-                    min,
-                    max,
-                });
-
-                setFirstInputValue(startFormattedDate);
-                setSecondInputValue(endFormattedDate);
-
-                setCalendarFirstValue(startOriginalDate);
-                setCalendarSecondValue(endOriginalDate);
+                setFirstInputValue(startValue);
+                setSecondInputValue(endValue);
 
                 outerHandler?.(event);
             };
@@ -480,32 +496,14 @@ export const datePickerRangeRoot = (
                 setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
             }, [opened]);
 
-            useEffect(() => {
-                if (calendarFirstValue && calendarSecondValue) {
-                    setFullDateEntered(true);
-                }
-            }, [calendarFirstValue, calendarSecondValue]);
-
             useLayoutEffect(() => {
-                if (!defaultFirstDate) {
-                    updateExternalFirstDate(startExternalValue || undefined);
-                }
-            }, [startExternalValue, format, lang]);
-
-            useLayoutEffect(() => {
-                if (!defaultSecondDate) {
-                    updateExternalSecondDate(endExternalValue || undefined);
-                }
-            }, [endExternalValue, format, lang]);
-
-            useLayoutEffect(() => {
-                if (!startExternalValue) {
+                if (!startDateValue) {
                     updateExternalFirstDate(defaultFirstDate);
                 }
             }, [defaultFirstDate, format, lang]);
 
             useLayoutEffect(() => {
-                if (!endExternalValue) {
+                if (!endDateValue) {
                     updateExternalSecondDate(defaultSecondDate);
                 }
             }, [defaultSecondDate, format, lang]);

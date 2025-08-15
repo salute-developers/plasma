@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback } from 'react';
+import React, { useMemo, useState, useCallback, useEffect } from 'react';
 import type { ReactElement, FC } from 'react';
 
 import type { Calendar, CalendarRange, DateInfo, DateType } from '../Calendar.types';
@@ -51,6 +51,10 @@ export const withRange = <T extends Calendar>(Component: FC<Calendar>) => ({
         },
         [onChangeValue, onChangeStartOfRange, startValue, endValue],
     );
+
+    useEffect(() => {
+        setValues(value);
+    }, [value[0], value[1]]);
 
     return (
         <Component

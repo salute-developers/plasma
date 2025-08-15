@@ -27,7 +27,9 @@ export const datePickerRoot = (
             {
                 className,
                 opened = false,
-                value,
+
+                value: outerValue,
+                defaultDate = '',
                 preserveInvalidOnBlur,
 
                 label,
@@ -48,7 +50,6 @@ export const datePickerRoot = (
                 disabled = false,
                 name,
 
-                defaultDate = '',
                 valueError,
                 valueSuccess,
                 format = 'DD.MM.YYYY',
@@ -92,10 +93,6 @@ export const datePickerRoot = (
             },
             ref,
         ) => {
-            if (value && defaultDate) {
-                throw new Error("Controlled DatePicker can't have `defaultDate`, use `value` instead");
-            }
-
             const inputRef = useRef<HTMLInputElement | null>(null);
             const innerRef = useRef<HTMLInputElement | null>(null);
             const calendarRootRef = useRef<HTMLDivElement | null>(null);
@@ -103,8 +100,11 @@ export const datePickerRoot = (
 
             const dateFormatDelimiter = getDateFormatDelimiter(format);
 
+            const [innerDate, setInnerDate] = useState<string | DateType>(defaultDate || '');
+            const dateValue = outerValue ?? innerDate;
+
             const initialValues = getFormattedDates({
-                value: value || defaultDate,
+                value: dateValue,
                 delimiter: dateFormatDelimiter,
                 lang,
                 format,
@@ -117,8 +117,9 @@ export const datePickerRoot = (
                 calendar: initialValues.originalDate,
                 input: initialValues.formattedDate,
             });
-            const [calendarValue, setCalendarValue] = useState<DateType>(correctDates.calendar);
-            const [inputValue, setInputValue] = useState(correctDates.input);
+
+            const calendarValue: DateType = initialValues.originalDate;
+            const inputValue = initialValues.formattedDate;
 
             const calendarContainerWidthValue = calendarContainerWidth
                 ? getSizeValueFromProp(calendarContainerWidth, 'rem')
@@ -133,6 +134,7 @@ export const datePickerRoot = (
                 handleChangeValue,
                 handleCalendarPick: onCalendarPick,
                 handleSearch,
+                getQuarterInfo,
                 updateExternalDate,
             } = useDatePicker({
                 currentValue: inputValue,
@@ -149,8 +151,7 @@ export const datePickerRoot = (
                 max,
                 includeEdgeDates,
                 setCorrectDates,
-                setInputValue,
-                setCalendarValue,
+                setInnerDate,
                 dateFormatDelimiter,
                 onChangeValue,
                 onCommitDate,
@@ -169,7 +170,7 @@ export const datePickerRoot = (
                         : innerOpened;
 
                 if (!innerOpened && !calendarValue) {
-                    setCalendarValue((prevValue) => (prevValue === undefined ? null : undefined));
+                    setInnerDate((prevValue) => (prevValue === undefined ? null : undefined));
                 }
 
                 if (onToggle) {
@@ -206,8 +207,39 @@ export const datePickerRoot = (
 
             const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
                 if (!preserveInvalidOnBlur && !calendarValue && correctDates.calendar) {
-                    setCalendarValue(new Date(correctDates.calendar));
-                    setInputValue(correctDates.input);
+                    setInnerDate(new Date(correctDates.calendar));
+                    if (onChangeValue) {
+                        onChangeValue(
+                            event,
+                            correctDates.input,
+                            correctDates.calendar,
+                            correctDates.calendar.toISOString(),
+                        );
+                    }
+
+                    if (onCommitDate) {
+                        const dateInfo = getQuarterInfo(correctDates.calendar);
+
+                        onCommitDate(
+                            correctDates.input,
+                            false,
+                            true,
+                            dateInfo,
+                            correctDates.calendar,
+                            correctDates.calendar.toISOString(),
+                        );
+                    }
+
+                    if (onChange) {
+                        onChange({
+                            target: {
+                                value: correctDates.input,
+                                originalDate: correctDates.calendar,
+                                isoDate: correctDates.calendar.toISOString(),
+                                name,
+                            },
+                        });
+                    }
                 }
 
                 if (onBlur) {
@@ -257,13 +289,7 @@ export const datePickerRoot = (
             }, [opened]);
 
             useLayoutEffect(() => {
-                if (!defaultDate) {
-                    updateExternalDate(value);
-                }
-            }, [value, format, lang]);
-
-            useLayoutEffect(() => {
-                if (!value) {
+                if (!dateValue) {
                     updateExternalDate(defaultDate);
                 }
             }, [defaultDate, format, lang]);
