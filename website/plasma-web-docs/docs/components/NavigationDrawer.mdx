@@ -25,7 +25,6 @@ NawigationDrawer содержит следующие параметры:
 - `footer` - ячейка для контента в конце меню.
 - `size` - размер элемента меню.
 - `view` - вид компонента.
-- `sidebarProps` - HTML пропсы для бокового меню. Можно использовать для `onMouseEnter` и `onMouseLeave`.
 - `sections` - список секций меню
 - `withContentLeft` - флаг, указывающий на наличие контента слева от меню (иконки)
 
@@ -172,12 +171,26 @@ export function App() {
 ### Режим drawer
 
 ```tsx live
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { NavigationDrawer } from '@salutejs/{{ package }}';
 import { IconBlankOutline } from '@salutejs/{{ package }}';
 
 export function App() {
     const [isOpen, setIsOpen] = useState(false);
+
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (ref.current) {
+            const sidebar = ref.current.childNodes[0] as HTMLDivElement;
+            sidebar.onmouseenter = () => {
+                setIsOpen(true);
+            };
+            sidebar.onmouseleave = () => {
+                setIsOpen(false);
+            };
+        }
+    }, [ref]);
 
     return (
         <div
@@ -192,6 +205,7 @@ export function App() {
             <NavigationDrawer
                 mode="drawer"
                 opened={isOpen}
+                ref={ref}
                 sections={[
                     {
                         hasDivider: false,
