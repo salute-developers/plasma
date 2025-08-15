@@ -20,6 +20,7 @@ export const SectionHeader = styled.div`
 
     color: var(${tokens.sectionColor});
     font-size: var(${tokens.sectionFontSize});
+    font-family: var(--plasma-typo-body-s-font-family);
     font-style: var(--plasma-typo-text-s-font-style);
     font-weight: var(--plasma-typo-text-s-font-weight);
     line-height: var(--plasma-typo-text-s-line-height);
