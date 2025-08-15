@@ -43,5 +43,5 @@
         }
     },
     "include": ["./src"],
-    "exclude": ["./src/helpers", "./src/examples/", "./src/**/*.component-test.tsx"]
+    "exclude": ["./src/helpers", "./src/**/*.stories.tsx", "./src/**/*.component-test.tsx"]
 }
