@@ -12,41 +12,41 @@ export type SpinnerProps = React.HTMLAttributes<HTMLDivElement> &
               width?: never;
               height?: never;
               /**
-               * Размер спиннера
+               * Размер spinner
                */
-              size?: string;
+              size?: string | number;
               /**
-               * Цвет спиннера
+               * Цвет spinner
                */
               view?: string;
           }
         | {
               /**
-               * Кастомная ширина спиннера
+               * Кастомная ширина spinner
                */
               width: number;
               /**
-               * Кастомная высота спиннера
+               * Кастомная высота spinner
                */
               height: number;
               size?: never;
               /**
-               * Цвет спиннера
+               * Цвет spinner
                */
               view?: string;
           }
         | {
               /**
-               * Кастомная ширина спиннера
+               * Кастомная ширина spinner
                */
               width: string;
               /**
-               * Кастомная высота спиннера
+               * Кастомная высота spinner
                */
               height: string;
               size?: never;
               /**
-               * Цвет спиннера
+               * Цвет spinner
                */
               view?: string;
           }
