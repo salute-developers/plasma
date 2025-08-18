@@ -1,10 +1,12 @@
+import type { ReactNode } from 'react';
+
 import type { InputHTMLAttributes } from '../../types';
 
 export interface SwitchPropsPropsBase {
     /**
      * Метка-подпись к элементу
      */
-    label?: string;
+    label?: ReactNode;
     /**
      * Дополнительное описание
      */
