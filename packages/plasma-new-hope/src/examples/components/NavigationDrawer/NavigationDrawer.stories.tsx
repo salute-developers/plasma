@@ -26,6 +26,12 @@ const SlotContainer = styled.div`
     overflow: hidden;
 `;
 
+const ContentLeft = styled.div`
+    background-color: #08080816;
+    width: 100%;
+    height: 100%;
+`;
+
 const sections = [
     {
         hasDivider: false,
@@ -95,6 +101,54 @@ const NavigationDrawerDemo = (props: ComponentProps<typeof NavigationDrawer>) =>
     );
 };
 
+const NavigationDrawerWithContentLeft = (props: ComponentProps<typeof NavigationDrawer>) => {
+    const [isOpen, setIsOpen] = useState(true);
+
+    return (
+        <Container>
+            <NavigationDrawer
+                {...props}
+                opened={isOpen}
+                sections={[
+                    {
+                        label: 'Section 1',
+                        items: [
+                            {
+                                label: 'Item 1',
+                                contentLeft: <ContentLeft />,
+                                action: action('Item 1 clicked'),
+                                selected: true,
+                            },
+                            {
+                                label: 'Item 2',
+                                contentLeft: <ContentLeft />,
+                                action: action('Item 2 clicked'),
+                                counter: 1,
+                            },
+                            {
+                                label: 'Item 3',
+                                contentLeft: <ContentLeft />,
+                                action: action('Item 3 clicked'),
+                                disabled: true,
+                            },
+                            {
+                                label: 'Item 4',
+                                contentLeft: <ContentLeft />,
+                                action: action('Item 4 clicked'),
+                                hasIndicator: true,
+                            },
+                            { label: 'Item 5', contentLeft: <ContentLeft />, action: action('Item 5 clicked') },
+                        ],
+                    },
+                ]}
+                withContentLeft
+            >
+                <Button onClick={() => setIsOpen(!isOpen)}>Toggle</Button>
+            </NavigationDrawer>
+        </Container>
+    );
+};
+
 const NavigationDrawerWithDrawer = (props: ComponentProps<typeof NavigationDrawer>) => {
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -113,14 +167,7 @@ const NavigationDrawerWithDrawer = (props: ComponentProps<typeof NavigationDrawe
 
     return (
         <Container>
-            <NavigationDrawer
-                {...props}
-                ref={ref}
-                opened={isOpen}
-                mode="drawer"
-                footer={<SlotContainer>Footer</SlotContainer>}
-                sections={sections}
-            >
+            <NavigationDrawer {...props} ref={ref} opened={isOpen} mode="drawer" sections={sections}>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
             </NavigationDrawer>
         </Container>
@@ -136,7 +183,6 @@ const NavigationDrawerWithOverlay = (props: ComponentProps<typeof NavigationDraw
                 {...props}
                 opened={isOpen}
                 mode="overlay"
-                footer={<SlotContainer>Footer</SlotContainer>}
                 sections={sections}
                 onHide={() => setIsOpen(false)}
             >
@@ -181,6 +227,10 @@ export const Default: Story = {
         view: 'default',
         withContentLeft: true,
     },
+};
+
+export const CustomContentLeft: Story = {
+    render: (args) => <NavigationDrawerWithContentLeft {...args} />,
 };
 
 export const DrawerMode: StoryObj<ComponentProps<typeof NavigationDrawer>> = {

@@ -61,6 +61,8 @@ export const config = {
                 ${navigationDrawerTokens.menuItemFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${navigationDrawerTokens.menuItemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${navigationDrawerTokens.menuItemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${navigationDrawerTokens.menuItemContentLeftSize}: 1.5rem;
+                ${navigationDrawerTokens.menuItemContentLeftMargin}: 0.5rem;
             `,
             m: css`
                 ${navigationDrawerTokens.iconSize}: 1.25rem;
@@ -75,6 +77,8 @@ export const config = {
                 ${navigationDrawerTokens.menuItemFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${navigationDrawerTokens.menuItemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${navigationDrawerTokens.menuItemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${navigationDrawerTokens.menuItemContentLeftSize}: 2.25rem;
+                ${navigationDrawerTokens.menuItemContentLeftMargin}: 0.375rem;
             `,
         },
     },
