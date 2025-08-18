@@ -14,11 +14,6 @@ export const base = css`
         background: var(${tokens.menuItemSelectedColor});
     }
 
-    .${classes.navigationDrawerMenuItemDisabled} {
-        cursor: not-allowed;
-        opacity: var(${tokens.menuItemDisabledOpacity});
-    }
-
     .${classes.navigationDrawerMenuLink} {
         text-decoration: none;
         color: inherit;
@@ -47,9 +42,31 @@ export const base = css`
         }
     }
 
+    .${classes.navigationDrawerMenuItemDisabled} {
+        cursor: not-allowed;
+        opacity: var(${tokens.menuItemDisabledOpacity});
+    }
+
     .${classes.navigationDrawerMenuItemWithoutContentLeft} {
         justify-content: space-between;
         align-items: center;
+    }
+
+    .${classes.navigationDrawerMenuItemContentLeft} {
+        gap: var(${tokens.menuItemContentLeftMargin});
+        padding: var(${tokens.menuItemContentLeftMargin});
+
+        .${classes.navigationDrawerMenuIndicator} {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .${classes.navigationDrawerMenuCounter} {
+            position: absolute;
+            top: -0.25rem;
+            right: -0.25rem;
+        }
     }
 
     .${classes.navigationDrawerMenuIndicator} {

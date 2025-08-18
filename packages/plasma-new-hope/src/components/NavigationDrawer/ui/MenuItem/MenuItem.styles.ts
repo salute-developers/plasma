@@ -50,6 +50,12 @@ export const Icon = styled.div`
     }
 `;
 
+export const ContentLeftWrapper = styled.div`
+    position: relative;
+    width: var(${tokens.menuItemContentLeftSize});
+    height: var(${tokens.menuItemContentLeftSize});
+`;
+
 export const RightContentWrapper = styled.div`
     position: relative;
     height: var(${tokens.iconContainerSize});
