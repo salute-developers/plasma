@@ -5,7 +5,7 @@ import { MenuItem } from '../MenuItem/MenuItem';
 import { classes } from '../../NavigationDrawer.tokens';
 
 import { SectionProps } from './Section.types';
-import { StyledSection, SectionHeader, SectionDivider, SectionIcon, ArrowIcon } from './Section.styles';
+import { StyledSection, SectionHeader, SectionDivider, SectionIcon, ArrowIcon, Label } from './Section.styles';
 
 export const Section = <T extends boolean = false>({
     items,
@@ -29,7 +29,7 @@ export const Section = <T extends boolean = false>({
             {label ? (
                 <SectionHeader onClick={() => setIsCollapsed(!isCollapsed)}>
                     {withContentLeft && label && icon}
-                    {isOpened && label}
+                    {isOpened && <Label>{label}</Label>}
                     {!withContentLeft && icon}
                 </SectionHeader>
             ) : (

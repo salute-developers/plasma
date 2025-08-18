@@ -22,7 +22,7 @@ export const navigationDrawerRoot = (
             header,
             sections,
             footer,
-            withContentLeft,
+            withContentLeft = true,
             mode = 'static',
             onHide,
             children,

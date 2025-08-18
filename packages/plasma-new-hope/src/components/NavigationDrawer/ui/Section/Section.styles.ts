@@ -50,3 +50,9 @@ export const SectionIcon = styled.div`
 export const ArrowIcon = styled(IconDisclosureDownCentered)`
     margin: auto;
 `;
+
+export const Label = styled.span`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;
