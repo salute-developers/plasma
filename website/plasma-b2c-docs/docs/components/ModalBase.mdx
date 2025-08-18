@@ -209,45 +209,54 @@ export function App() {
  * Настройка resizable-режима.
  */
 resizable?: {
-    /**
-     * Включение/выключение ресайза.
-     * @default false
-     */
-    disabled?: boolean;
-    /**
-     * Направления для ресайза.
-     */
-    directions?: ResizeDirections;
-    /**
-     * Скрывать ли иконку для ресайза.
-     * @default false
-     */
-    hiddenIcons?: PopupPlacementMixed[];
-    /**
-     * Начальный размер окна ресайза.
-     */
-    defaultSize?: { width?: number; height?: number };
-    /**
-     * Минимальная ширина ресайза в px.
-     */
-    minWidth?: number;
-    /**
-     * Минимальная высота ресайза в px.
-     */
-    minHeight?: number;
-    /**
-     * Максимальная ширина ресайза в px.
-     */
-    maxWidth?: number;
-    /**
-     * Максимальная высота ресайза в px.
-     */
-    maxHeight?: number;
-    /**
-     * Размер иконки ресайза.
-     * @default s
-     */
-    iconSize?: 'xs' | 's' | 'm';
+      /**
+       * Включение/выключение ресайза.
+       * @default false
+       */
+      disabled?: boolean;
+      /**
+       * Направления для ресайза.
+       */
+      directions?: ResizeDirections;
+      /**
+       * Начальный размер окна ресайза.
+       */
+      defaultSize?: { width?: number; height?: number };
+      /**
+       * Минимальная ширина ресайза в px.
+       */
+      minWidth?: number;
+      /**
+       * Минимальная высота ресайза в px.
+       */
+      minHeight?: number;
+      /**
+       * Максимальная ширина ресайза в px.
+       */
+      maxWidth?: number;
+      /**
+       * Максимальная высота ресайза в px.
+       */
+      maxHeight?: number;
+      /**
+       * Кастомные иконки ресайза.
+       */
+      icons?: {
+          topRight?: ReactNode;
+          bottomRight?: ReactNode;
+          bottomLeft?: ReactNode;
+          topLeft?: ReactNode;
+      };
+      /**
+       * Размер иконки ресайза.
+       * @default s
+       */
+      iconSize?: 'xs' | 's' | 'm';
+      /**
+       * Скрывать ли иконку для ресайза.
+       * @default false
+       */
+      hiddenIcons?: PopupPlacementMixed[];
 };
 ```
 
