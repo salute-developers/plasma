@@ -116,11 +116,13 @@ export const PaginationButton = styled(Button)`
         ${buttonTokens.buttonColor}: var(${tokens.paginationCurrentButtonColor});
         ${buttonTokens.buttonBackgroundColor}: var(${tokens.paginationCurrentButtonBackgroundColor});
 
-        ${buttonTokens.buttonColorHover}: var(${tokens.paginationCurrentButtonHoverColor});
-        ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.paginationCurrentButtonHoverBackgroundColor});
+        ${buttonTokens.buttonColorHover}: var(${tokens.paginationCurrentButtonColor});
+        ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.paginationCurrentButtonBackgroundColor});
 
-        ${buttonTokens.buttonColorActive}: var(${tokens.paginationCurrentButtonActiveColor});
-        ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.paginationCurrentButtonActiveBackgroundColor});
+        ${buttonTokens.buttonColorActive}: var(${tokens.paginationCurrentButtonColor});
+        ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.paginationCurrentButtonBackgroundColor});
+
+        cursor: default;
     }
 
     &.${classes.buttonDisabled} {

@@ -116,6 +116,14 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                 onChangePerPageValue?.(newPerPageValue);
             };
 
+            const handleClick = (currentPage: number) => {
+                if (isActiveButton(currentPage)) {
+                    return;
+                }
+
+                handleSetPage(currentPage);
+            };
+
             const isActiveButton = (checkPage: number) => {
                 return pageValue === checkPage ? classes.paginationPageButtonActive : '';
             };
@@ -160,7 +168,7 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                                                     pin={roundedClass}
                                                     disabled={disabled.includes(currentPage)}
                                                     square={square}
-                                                    onClick={() => handleSetPage(currentPage)}
+                                                    onClick={() => handleClick(currentPage)}
                                                 >
                                                     {currentPage}
                                                 </PaginationButton>
