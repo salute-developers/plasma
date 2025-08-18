@@ -10,6 +10,7 @@ export const classes = {
     navigationDrawerMenuItemWithoutContentLeft: 'navigation-drawer-menu-item-without-content-left',
     navigationDrawerMenuItemSelected: 'navigation-drawer-menu-item-selected',
     navigationDrawerMenuItemDisabled: 'navigation-drawer-menu-item-disabled',
+    navigationDrawerMenuItemContentLeft: 'navigation-drawer-menu-item-content-left',
 
     navigationDrawerContentOverlay: 'navigation-drawer-content-overlay',
     navigationDrawerArrowInverse: 'navigation-drawer-arrow-inverse',
@@ -48,6 +49,8 @@ export const tokens = {
     menuItemFontWeight: '--plasma-navigation-drawer-menu-item-font-weight',
     menuItemFontLetterSpacing: '--plasma-navigation-drawer-menu-item-font-letter-spacing',
     menuItemFontLineHeight: '--plasma-navigation-drawer-menu-item-font-line-height',
+    menuItemContentLeftSize: '--plasma-navigation-drawer-menu-item-content-left-size',
+    menuItemContentLeftMargin: '--plasma-navigation-drawer-menu-item-content-left-margin',
 
     // Divider
     dividerColor: '--plasma-navigation-drawer-divider-color',

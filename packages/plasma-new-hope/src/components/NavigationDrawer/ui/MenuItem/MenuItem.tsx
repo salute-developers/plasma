@@ -7,18 +7,33 @@ import {
     Icon,
     StyledIndicator,
     RightContentWrapper,
+    ContentLeftWrapper,
 } from 'src/components/NavigationDrawer/ui/MenuItem/MenuItem.styles';
 import { classes } from 'src/components/NavigationDrawer/NavigationDrawer.tokens';
 
 export const MenuItem: React.FC<MenuItemProps> = (props) => {
-    const { action, disabled, selected, icon, withContentLeft, label, isOpened, hasIndicator, counter } = props;
+    const {
+        action,
+        disabled,
+        selected,
+        icon,
+        contentLeft,
+        withContentLeft,
+        label,
+        isOpened,
+        hasIndicator,
+        counter,
+    } = props;
 
     const onClick = action && typeof action === 'function' && !disabled ? action : undefined;
+
+    const hasCustomContentLeft = contentLeft && withContentLeft;
 
     const menuClasses = cls(
         classes.navigationDrawerMenuItem,
         selected && classes.navigationDrawerMenuItemSelected,
         disabled && classes.navigationDrawerMenuItemDisabled,
+        hasCustomContentLeft && classes.navigationDrawerMenuItemContentLeft,
         !withContentLeft && classes.navigationDrawerMenuItemWithoutContentLeft,
     );
 
@@ -33,12 +48,24 @@ export const MenuItem: React.FC<MenuItemProps> = (props) => {
         </>
     );
 
+    const contentLeftItem = contentLeft ? (
+        <ContentLeftWrapper>
+            {contentLeft}
+            {indicators}
+        </ContentLeftWrapper>
+    ) : null;
+
+    const iconItem = icon ? (
+        <IconWrapper>
+            <Icon>{icon}</Icon>
+            {indicators}
+        </IconWrapper>
+    ) : null;
+
     const menuItemContent = withContentLeft ? (
         <>
-            <IconWrapper>
-                <Icon>{icon}</Icon>
-                {indicators}
-            </IconWrapper>
+            {contentLeft && contentLeftItem}
+            {icon && iconItem}
             {isOpened && <span>{label}</span>}
         </>
     ) : (

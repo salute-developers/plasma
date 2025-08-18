@@ -31,7 +31,7 @@ export type MenuItem<T extends boolean = false> = {
      * Флаг для отображения индикатора у элемента меню.
      */
     hasIndicator?: boolean;
-} & (T extends true ? { icon: ReactNode } : { icon?: never });
+} & (T extends true ? { icon?: ReactNode; contentLeft?: ReactNode } : { icon?: never; contentLeft?: never });
 
 /**
  * Секция меню в NavigationDrawer.
