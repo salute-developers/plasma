@@ -8,6 +8,7 @@ import {
     StyledIndicator,
     RightContentWrapper,
     ContentLeftWrapper,
+    Label,
 } from 'src/components/NavigationDrawer/ui/MenuItem/MenuItem.styles';
 import { classes } from 'src/components/NavigationDrawer/NavigationDrawer.tokens';
 
@@ -66,11 +67,11 @@ export const MenuItem: React.FC<MenuItemProps> = (props) => {
         <>
             {contentLeft && contentLeftItem}
             {icon && iconItem}
-            {isOpened && <span>{label}</span>}
+            {isOpened && <Label>{label}</Label>}
         </>
     ) : (
         <>
-            <span>{label}</span>
+            <Label>{label}</Label>
             <RightContentWrapper>{indicators}</RightContentWrapper>
         </>
     );

@@ -61,3 +61,9 @@ export const RightContentWrapper = styled.div`
     height: var(${tokens.iconContainerSize});
     display: flex;
 `;
+
+export const Label = styled.span`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;

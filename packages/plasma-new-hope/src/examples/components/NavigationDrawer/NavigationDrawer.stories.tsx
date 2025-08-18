@@ -75,8 +75,14 @@ const sections = [
         ],
     },
     {
-        label: 'Section 2',
-        items: [{ label: 'Item 9', icon: <IconBlankDocOutline />, action: action('Item 9 clicked') }],
+        label: 'Section 2 Text Long Lorem ipsum dolor sit amet',
+        items: [
+            {
+                label: 'Item 9 Text Long Lorem ipsum dolor sit amet',
+                icon: <IconBlankDocOutline />,
+                action: action('Item 9 clicked'),
+            },
+        ],
     },
     {
         items: [{ label: 'Item 10', icon: <IconBlankOutline />, action: action('Item 10 clicked') }],
