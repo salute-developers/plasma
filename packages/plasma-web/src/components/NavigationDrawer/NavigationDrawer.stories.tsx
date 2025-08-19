@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -157,19 +157,23 @@ const NavigationDrawerWithContentLeft = (props: ComponentProps<typeof Navigation
 
 const NavigationDrawerWithDrawer = (props: ComponentProps<typeof NavigationDrawer>) => {
     const [isOpen, setIsOpen] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (ref.current) {
+            const sidebar = ref.current.childNodes[0] as HTMLDivElement;
+            sidebar.onmouseenter = () => {
+                setIsOpen(true);
+            };
+            sidebar.onmouseleave = () => {
+                setIsOpen(false);
+            };
+        }
+    }, [ref]);
 
     return (
         <Container>
-            <NavigationDrawer
-                {...props}
-                opened={isOpen}
-                mode="drawer"
-                sections={sections}
-                sidebarProps={{
-                    onMouseEnter: () => setIsOpen(true),
-                    onMouseLeave: () => setIsOpen(false),
-                }}
-            >
+            <NavigationDrawer {...props} ref={ref} opened={isOpen} mode="drawer" sections={sections}>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
             </NavigationDrawer>
         </Container>
