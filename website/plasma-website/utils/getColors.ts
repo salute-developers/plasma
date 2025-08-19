@@ -10,7 +10,7 @@ export const paletteColors: {
     [key: string]: {
         [key: string]: string;
     };
-} = _.omit(general, ['gray', 'coolGray']);
+} = _.omit(general, ['gray', 'coolGray', 'warmGray']);
 
 export const formattedPaletteColors = Object.keys(paletteColors)
     .map((key) => ({
