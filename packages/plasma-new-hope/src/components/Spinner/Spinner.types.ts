@@ -14,7 +14,7 @@ export type SpinnerProps = React.HTMLAttributes<HTMLDivElement> &
               /**
                * Размер спиннера
                */
-              size?: string;
+              size?: string | number;
               /**
                * Цвет спиннера
                */
