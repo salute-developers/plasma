@@ -2259,13 +2259,13 @@ export const viewContainer = {
         --inverse-text-negative-active: var(--on-dark-text-negative-active);
         --inverse-text-primary: var(--on-dark-text-primary);
         --inverse-text-primary-brightness: var(--on-dark-text-primary-brightness);
-        --inverse-text-secondary: var(--on-dark-text-secondary);
         --inverse-text-accent: var(--on-dark-text-accent);
         --inverse-text-positive: var(--on-dark-text-positive);
         --inverse-text-negative: var(--on-dark-text-negative);
         --inverse-text-accent-minor: var(--on-dark-text-accent-minor);
-        --inverse-text-tertiary: var(--on-dark-text-tertiary);
         --inverse-text-warning: var(--on-dark-text-warning);
+        --inverse-text-secondary: var(--on-dark-text-secondary);
+        --inverse-text-tertiary: var(--on-dark-text-tertiary);
         --surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --surface-solid-secondary-hover: var(--on-light-surface-solid-secondary-hover);
@@ -2310,9 +2310,9 @@ export const viewContainer = {
         --surface-info-minor: var(--on-light-surface-info-minor);
         --surface-info: var(--on-light-surface-info);
         --surface-transparent-negative: var(--on-light-surface-transparent-negative);
-        --surface-solid-secondary: var(--on-light-surface-solid-secondary);
         --surface-solid-tertiary: var(--on-light-surface-solid-tertiary);
         --surface-solid-primary: var(--on-light-surface-solid-primary);
+        --surface-solid-secondary: var(--on-light-surface-solid-secondary);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --inverse-surface-solid-secondary-hover: var(--on-dark-surface-solid-secondary-hover);
@@ -2403,9 +2403,9 @@ export const viewContainer = {
         --inverse-outline-negative: var(--on-dark-outline-negative);
         --inverse-outline-positive: var(--on-dark-outline-positive);
         --inverse-outline-solid-primary: var(--on-dark-outline-solid-primary);
-        --inverse-outline-solid-secondary: var(--on-dark-outline-solid-secondary);
         --inverse-outline-clear: var(--on-dark-outline-clear);
         --inverse-outline-info: var(--on-dark-outline-info);
+        --inverse-outline-solid-secondary: var(--on-dark-outline-solid-secondary);
         --data-yellow: var(--on-light-data-yellow);
         --data-yellow-hover: var(--on-light-data-yellow-hover);
         --data-yellow-active: var(--on-light-data-yellow-active);
