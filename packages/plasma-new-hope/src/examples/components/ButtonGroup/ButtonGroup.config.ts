@@ -11,6 +11,8 @@ export const config = {
         view: {
             default: css`
                 ${buttonGroupTokens.buttonColor}: var(--inverse-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--inverse-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--inverse-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--inverse-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-default);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -21,6 +23,8 @@ export const config = {
             `,
             accent: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -31,6 +35,8 @@ export const config = {
             `,
             secondary: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -41,6 +47,8 @@ export const config = {
             `,
             clear: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -51,6 +59,8 @@ export const config = {
             `,
             positive: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-positive);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -61,6 +71,8 @@ export const config = {
             `,
             warning: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-warning);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -71,6 +83,8 @@ export const config = {
             `,
             negative: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-negative);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -81,6 +95,8 @@ export const config = {
             `,
             dark: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -91,6 +107,8 @@ export const config = {
             `,
             black: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-light-surface-solid-default);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -101,6 +119,8 @@ export const config = {
             `,
             white: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-light-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-light-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--on-light-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-light-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});

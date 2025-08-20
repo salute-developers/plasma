@@ -59,12 +59,14 @@ export const LinkButtonText = styled.span`
 
 export const StyledContentLeft = styled.div`
     line-height: 0;
+    color: var(${tokens.linkButtonIconColor});
 
     margin: var(${tokens.linkButtonLeftContentMargin});
 `;
 
 export const StyledContentRight = styled.div`
     line-height: 0;
+    color: var(${tokens.linkButtonIconColor});
 
     margin: var(${tokens.linkButtonRightContentMargin});
 `;
