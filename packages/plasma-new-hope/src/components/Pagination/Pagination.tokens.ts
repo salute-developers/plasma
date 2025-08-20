@@ -4,6 +4,7 @@ export const classes = {
     actions: 'pagination-actions',
     perPage: 'pagination-perpage-select',
     quickJump: 'pagination-quick-jump-page',
+    ellipsisText: 'pagination-ellipsis-text',
 
     selectWrapper: 'pagination-select-wrapper',
 
@@ -23,6 +24,8 @@ export const classes = {
 export const tokens = {
     paginationWidth: '--plasma-pagination-width',
     paginationColor: '--plasma-pagination-color',
+    paginationHelperTextColor: '--plasma-pagination-helper-text-color',
+    paginationHelperTextGap: '--plasma-pagination-helper-text-gap',
 
     buttonBackgroundColor: '--plasma-pagination-button-bg-color',
     buttonBackgroundColorHover: '--plasma-pagination-button-bg-color-hover',

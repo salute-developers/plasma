@@ -34,6 +34,7 @@ export const config = {
                 );
 
                 ${paginationTokens.paginationColor}: var(--text-primary);
+                ${paginationTokens.paginationHelperTextColor}: var(--text-secondary);
                 ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
             secondary: css`
@@ -56,6 +57,7 @@ export const config = {
                 ${paginationTokens.inputBorderColor}: transparent;
 
                 ${paginationTokens.paginationColor}: var(--text-primary);
+                ${paginationTokens.paginationHelperTextColor}: var(--text-secondary);
                 ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
             clear: css`
@@ -78,6 +80,7 @@ export const config = {
                 ${paginationTokens.inputBorderColor}: transparent;
 
                 ${paginationTokens.paginationColor}: var(--text-primary);
+                ${paginationTokens.paginationHelperTextColor}: var(--text-secondary);
                 ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
         },
@@ -162,6 +165,8 @@ export const config = {
                 ${paginationTokens.inputHeight}: 3.5rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
+
+                ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
             m: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -201,6 +206,8 @@ export const config = {
                 ${paginationTokens.inputHeight}: 3rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
+
+                ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
             s: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -240,6 +247,8 @@ export const config = {
                 ${paginationTokens.inputHeight}: 2.5rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
+
+                ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
             xs: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -279,6 +288,8 @@ export const config = {
                 ${paginationTokens.inputHeight}: 2rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
+
+                ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
         },
         type: {
