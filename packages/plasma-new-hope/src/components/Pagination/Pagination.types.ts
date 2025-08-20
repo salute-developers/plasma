@@ -29,6 +29,11 @@ export type CustomPaginationProps = {
     rightContent?: ReactNode;
 
     /*
+     * Дополнительный текст
+     */
+    helperText?: ReactNode;
+
+    /*
      *  Тип обычный или компактный
      */
     type?: PaginationTypes;

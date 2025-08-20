@@ -42,7 +42,9 @@ export const PaginationActions = styled.div`
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
-    gap: 0.625rem;
+    align-items: center;
+    gap: var(${tokens.paginationHelperTextGap});
+
     &.${classes.compactType} {
         flex-direction: row;
     }
@@ -147,4 +149,14 @@ export const PaginationButton = styled(Button)`
 export const PaginationShorter = styled(PaginationButton)`
     ${buttonTokens.buttonWidth}: var(${tokens.buttonWidthShorter});
     ${buttonTokens.buttonPadding}: 0;
+`;
+
+export const PaginationActionsLeft = styled.div`
+    display: flex;
+    align-items: center;
+    gap: var(${tokens.paginationHelperTextGap});
+`;
+
+export const PaginationHelperText = styled.div`
+    color: var(${tokens.paginationHelperTextColor});
 `;
