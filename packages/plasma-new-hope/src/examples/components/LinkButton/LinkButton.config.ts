@@ -11,6 +11,7 @@ export const config = {
         view: {
             default: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-primary);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-primary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-primary);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-primary-hover);
@@ -19,6 +20,7 @@ export const config = {
             `,
             accent: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-accent);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-accent);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-accent);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-accent-hover);
@@ -27,6 +29,7 @@ export const config = {
             `,
             secondary: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-secondary);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-secondary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-secondary);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-secondary-hover);
@@ -35,6 +38,7 @@ export const config = {
             `,
             positive: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-positive);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-positive);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-positive);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-positive-hover);
@@ -43,6 +47,7 @@ export const config = {
             `,
             warning: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-warning);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-warning);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-warning);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-warning-hover);
@@ -51,7 +56,7 @@ export const config = {
             `,
             negative: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-negative);
-                ${linkButtonTokens.linkButtonTextColor}: var(--text-negative);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-negative);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-negative);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-negative-hover);

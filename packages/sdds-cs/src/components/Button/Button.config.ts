@@ -11,6 +11,7 @@ export const config = {
             accent: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonValueColor}: var(--on-light-text-accent-minor);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
@@ -22,6 +23,7 @@ export const config = {
                 ${buttonTokens.buttonColorHover}: #1A9E32;
                 ${buttonTokens.buttonColorActive}: var(--text-accent-active);
                 ${buttonTokens.buttonTextColor}: var(--text-accent);
+                ${buttonTokens.buttonIconColor}: var(--text-accent);
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-primary);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
@@ -31,6 +33,7 @@ export const config = {
             clear: css`
                 ${buttonTokens.buttonColor}: var(--text-accent);
                 ${buttonTokens.buttonTextColor}: var(--text-accent);
+                ${buttonTokens.buttonIconColor}: var(--text-accent);
                 ${buttonTokens.buttonValueColor}: var(--text-accent-minor);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(--surface-transparent-accent);

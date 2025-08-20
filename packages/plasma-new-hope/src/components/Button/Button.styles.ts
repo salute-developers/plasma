@@ -58,6 +58,7 @@ export const StyledSpinner = styled(Spinner)`
 export const StyledContentLeft = styled.div<{ hasContentMargin?: boolean }>`
     display: flex;
     align-self: var(${tokens.buttonLeftContentAlignSelf});
+    color: var(${tokens.buttonIconColor});
 
     margin: ${({ hasContentMargin }) => (hasContentMargin ? `var(${tokens.buttonLeftContentMargin})` : 0)};
 `;
@@ -65,6 +66,7 @@ export const StyledContentLeft = styled.div<{ hasContentMargin?: boolean }>`
 export const StyledContentRight = styled.div<{ hasContentMargin?: boolean }>`
     display: flex;
     align-self: var(${tokens.buttonRightContentAlignSelf});
+    color: var(${tokens.buttonIconColor});
 
     margin: ${({ hasContentMargin }) => (hasContentMargin ? `var(${tokens.buttonRightContentMargin})` : 0)};
 `;

@@ -6,6 +6,8 @@ import { buttonClasses, buttonTokens } from '../../../Button';
 export const base = css`
     &.${classes.buttonGroupOverrideStyles} .${buttonClasses.buttonItem} {
         ${buttonTokens.buttonColor}: var(${tokens.buttonColor});
+        ${buttonTokens.buttonTextColor}: var(${tokens.buttonTextColor});
+        ${buttonTokens.buttonIconColor}: var(${tokens.buttonIconColor});
         ${buttonTokens.buttonValueColor}: var(${tokens.buttonValueColor});
         ${buttonTokens.buttonBackgroundColor}: var(${tokens.buttonBackgroundColor});
         ${buttonTokens.buttonLoadingBackgroundColor}: var(${tokens.buttonLoadingBackgroundColor});

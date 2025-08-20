@@ -9,6 +9,7 @@ export const config = {
         view: {
             accent: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-light-text-accent-minor);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -19,6 +20,8 @@ export const config = {
             `,
             secondary: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-primary);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
@@ -29,6 +32,7 @@ export const config = {
             `,
             clear: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-accent);
+                ${buttonGroupTokens.buttonTextColor}: var(--text-accent);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-accent);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(--surface-transparent-accent);

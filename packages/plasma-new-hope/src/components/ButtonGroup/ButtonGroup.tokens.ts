@@ -20,6 +20,8 @@ export const tokens = {
     buttonGroupOrientation: '--plasma-button-group-orientation',
 
     buttonColor: '--plasma-button-group-item-color',
+    buttonTextColor: '--plasma-button-group-item-text-color',
+    buttonIconColor: '--plasma-button-group-item-icon-color',
     buttonValueColor: '--plasma-button-group-item-value-color',
     buttonBackgroundColor: '--plasma-button-group-item-background-color',
     buttonLoadingBackgroundColor: '--plasma-button-group-loading-item-background-color',
