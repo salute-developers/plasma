@@ -52,6 +52,7 @@ export const StyledSpinner = styled(Spinner)`
 
 export const LinkButtonText = styled.span`
     padding: var(${tokens.linkButtonTextPadding});
+    color: var(${tokens.linkButtonTextColor});
 
     ${applyEllipsis()}
 `;

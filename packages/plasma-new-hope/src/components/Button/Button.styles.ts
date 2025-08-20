@@ -14,6 +14,8 @@ const Spinner = component(mergedConfig);
 export const ButtonText = styled.span`
     min-width: 4ch;
     flex-shrink: 2;
+    
+    color: var(${tokens.buttonTextColor});
 
     ${applyEllipsis()}
 
