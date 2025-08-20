@@ -23,11 +23,12 @@ export const PaginationRoot = styled.div`
         gap: 0.5rem;
     }
     &.${classes.defaultType} {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         flex: 0 0 100%;
         gap: 1rem;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 `;
 
@@ -36,14 +37,23 @@ export const PaginationPages = styled.div`
     align-items: center;
     gap: 0.25rem;
     margin: 0 auto;
+    flex-shrink: 0;
 `;
 
 export const PaginationActions = styled.div`
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
-    gap: 0.625rem;
+    align-items: center;
+    gap: var(${tokens.paginationHelperTextGap});
+    flex-shrink: 1;
+
     &.${classes.compactType} {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    &.${classes.defaultType} {
         flex-direction: row;
     }
 
@@ -147,4 +157,22 @@ export const PaginationButton = styled(Button)`
 export const PaginationShorter = styled(PaginationButton)`
     ${buttonTokens.buttonWidth}: var(${tokens.buttonWidthShorter});
     ${buttonTokens.buttonPadding}: 0;
+`;
+
+export const PaginationActionsLeft = styled.div`
+    display: flex;
+    align-items: center;
+    gap: var(${tokens.paginationHelperTextGap});
+    min-width: 0;
+    flex: 1;
+    flex-shrink: 1;
+`;
+
+export const PaginationHelperText = styled.div`
+    color: var(${tokens.paginationHelperTextColor});
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: 0;
+    flex-shrink: 1;
 `;
