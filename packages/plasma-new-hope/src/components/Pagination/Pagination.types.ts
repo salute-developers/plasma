@@ -28,6 +28,11 @@ export type CustomPaginationProps = {
      */
     rightContent?: ReactNode;
 
+    /*
+     * Дополнительный текст
+     */
+    helperText?: ReactNode;
+
     /**
      *  Тип обычный или компактный
      */
@@ -123,6 +128,11 @@ export type CustomPaginationProps = {
      * @example width="200px"
      */
     listWidth?: CSSProperties['width'];
+    /**
+     * Перенос строки для helperText
+     * @default false
+     */
+    helperTextEllipsis?: boolean;
 
     /**
      * Функция которая исполняeтся при изменении `page`, `perPage`
