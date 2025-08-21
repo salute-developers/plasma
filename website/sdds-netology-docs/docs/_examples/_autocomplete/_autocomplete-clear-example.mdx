@@ -1,0 +1,42 @@
+```tsx live
+import React, { useState } from "react";
+import { IconClose } from "@salutejs/plasma-icons";
+import { Autocomplete, IconButton } from '@salutejs/sdds-netology';
+
+export function App() {
+  const [value, setValue] = useState("");
+
+  const items = [
+    { label: 'Алексей Смирнов' },
+    { label: 'Екатерина Иванова' },
+    { label: 'Дмитрий Петров' },
+    { label: 'Ольга Васильева' },
+  ]
+
+  return (
+    <div style={{ display: "block", height: "400px" }}>
+      <Autocomplete
+        value={value}
+        listMaxHeight="250px"
+        label="Label"
+        suggestions={items}
+        placeholder="Placeholder"
+        leftHelper="Введите имя Алексей"
+        contentRight={
+          <IconButton
+            size="xs"
+            view="clear"
+            onClick={() => {
+              setValue("");
+            }}
+          >
+            <IconClose color="inherit" size="xs" />
+          </IconButton>
+        }
+       onChange={(e) => setValue(e.target.value)}
+       onSuggestionSelect={(e) => setValue(e.label)}
+      />
+    </div>
+  );
+}
+```
