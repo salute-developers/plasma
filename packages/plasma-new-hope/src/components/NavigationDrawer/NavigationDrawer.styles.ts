@@ -94,6 +94,24 @@ export const base = css`
         max-width: var(${tokens.sidebarWidth});
         box-shadow: var(${tokens.sidebarBoxShadow});
         background: var(${tokens.sidebarBackground});
+
+        &::-webkit-scrollbar {
+            width: 0.188rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--surface-transparent-tertiary);
+            background-clip: content-box;
+            border: 0.063rem solid transparent;
+            border-radius: 1rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: var(--surface-transparent-primary);
+            background-clip: content-box;
+            border: 0.063rem solid transparent;
+            border-radius: 1rem;
+        }
     }
 
     .${classes.navigationDrawerSidebarClosed} {

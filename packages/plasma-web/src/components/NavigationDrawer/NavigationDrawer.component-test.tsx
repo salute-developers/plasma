@@ -11,7 +11,6 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 // Базовые секции для тестов без contentLeft
 const sectionsBasic = [
     {
-        hasDivider: false,
         items: [{ label: 'Item 0', action }],
     },
     {
@@ -52,7 +51,6 @@ const sectionsBasic = [
 // Секции с иконками для тестов с contentLeft
 const sectionsWithIcons = [
     {
-        hasDivider: false,
         items: [{ label: 'Item 0', icon: <IconHouse />, action }],
     },
     {
