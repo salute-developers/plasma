@@ -76,6 +76,7 @@ export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputC
             return (
                 <NumericFormat
                     value={value}
+                    disabled={disabled}
                     thousandSeparator={thousandSeparator}
                     decimalScale={decimalScale}
                     decimalSeparator={decimalSeparator}
