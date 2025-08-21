@@ -4,76 +4,69 @@
 
 ### DatePicker
 
-* добавлено свойство `preserveInvalidOnBlur`, которое отключает сброс некорректных значений из поля ввода
+-   добавлено свойство `preserveInvalidOnBlur`, которое отключает сброс некорректных значений из поля ввода
 
 [PR](https://github.com/salute-developers/plasma/pull/2134)
 
-* исправлен `controlled` вариант `DatePicker`
+-   исправлен `controlled` вариант `DatePicker`
 
 [PR](https://github.com/salute-developers/plasma/pull/2148)
 
 ### NumberFormat
 
-* добавлена поддержка `defaultValue`
+-   добавлена поддержка `defaultValue`
 
 [PR](https://github.com/salute-developers/plasma/pull/2138)
 
-* добавлена функция `numberFormatter`, которая приводит число к нужному формату
+-   добавлена функция `numberFormatter`, которая приводит число к нужному формату
 
 [PR](https://github.com/salute-developers/plasma/pull/2137)
 
 ### Pagination
 
-* исправлен `controlled` вариант
+-   исправлен `controlled` вариант
 
 [PR](https://github.com/salute-developers/plasma/pull/2141)
 
-* отключено взаимодействие с текущей выбранной страницей;
+-   отключено взаимодействие с текущей выбранной страницей;
 
 [PR](https://github.com/salute-developers/plasma/pull/2160)
 
 ### NumberInput
 
-* расширен тип `value` до `number | string | undefined` для поддержки пустых значений
+-   расширен тип `value` до `number | string | undefined` для поддержки пустых значений
 
 [PR](https://github.com/salute-developers/plasma/pull/2135)
 
-### InformationWrapper
-
-* добавлен компонент-обертка для элементов формы
-
-[PR](https://github.com/salute-developers/plasma/pull/2065)
-
 ### Dropdown, Combobox
 
-* исправлен баг в свойстве `alwaysOpened`, из-за которого приходилось делать двойные нажатия для открытия дочерних списков;
+-   исправлен баг в свойстве `alwaysOpened`, из-за которого приходилось делать двойные нажатия для открытия дочерних списков;
 
 [PR](https://github.com/salute-developers/plasma/pull/2152)
 
 ### Modal, Popup
 
-* исправлен раздел документации связанный со свойством resizable
+-   исправлен раздел документации связанный со свойством resizable
 
 [PR](https://github.com/salute-developers/plasma/pull/2158)
 
 ### Switch
 
-* тип свойства `label` расширен до `ReactNode`
+-   тип свойства `label` расширен до `ReactNode`
 
 [PR](https://github.com/salute-developers/plasma/pull/2157)
 
 ### TextField
 
-* свойства, связанные с `chip` помечены как deprecated;
+-   свойства, связанные с `chip` помечены как deprecated;
 
 [PR](https://github.com/salute-developers/plasma/pull/2133)
 
 ### Spinner
 
-* свойство size теперь union type и может быть как string, так и number
+-   свойство size теперь union type и может быть как string, так и number
 
 [PR](https://github.com/salute-developers/plasma/pull/2156)
-
 
 ## 0.318.0 (7 августа 2025)
 
@@ -81,78 +74,77 @@
 
 ### EmbedIconButton
 
-* добавлен новый компонент
+-   добавлен новый компонент
 
 [PR](https://github.com/salute-developers/plasma/pull/2093)
 
 ### Combobox
 
-* исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;
+-   исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;
 
 [PR](https://github.com/salute-developers/plasma/pull/2101)
 
 ### Segment
 
-* добавлена логика задания максимальной ширины `SegmentItem` и обрезанию текста троеточием
+-   добавлена логика задания максимальной ширины `SegmentItem` и обрезанию текста троеточием
 
 [PR](https://github.com/salute-developers/plasma/pull/2110)
 
 ### Autocomplete
 
-* добавлено свойство `zIndex`;
+-   добавлено свойство `zIndex`;
 
 [PR](https://github.com/salute-developers/plasma/pull/2114)
 
 ### Tree
 
-* добавлено свойство `autoExpandParent`, которое отвечает за автоматическое раскрытие всех родителей у элемента;
+-   добавлено свойство `autoExpandParent`, которое отвечает за автоматическое раскрытие всех родителей у элемента;
 
 [PR](https://github.com/salute-developers/plasma/pull/2115)
 
 ### Table
 
-* стало возможным добавлять сложные типы данных (объекты, массивы, функции) во входных данных `data`;
+-   стало возможным добавлять сложные типы данных (объекты, массивы, функции) во входных данных `data`;
 
 [PR](https://github.com/salute-developers/plasma/pull/2111)
 
 ### Chip
 
-* добавлены токены отступов для `contentRight`
+-   добавлены токены отступов для `contentRight`
 
 [PR](https://github.com/salute-developers/plasma/pull/2112)
 
 ### Skeleton
 
-* исправлена типизация пропсов внутри `withSkeleton`
+-   исправлена типизация пропсов внутри `withSkeleton`
 
 [PR](https://github.com/salute-developers/plasma/pull/2116)
 
 ### Notification
 
-* Добавлена возможность указать пользовательскую иконку закрытия компонента
+-   Добавлена возможность указать пользовательскую иконку закрытия компонента
 
 [PR](https://github.com/salute-developers/plasma/pull/2126)
 
 ### Attach
 
-* Добавлен новый параметр `customIcon`
+-   Добавлен новый параметр `customIcon`
 
-* Расширены типы файлов с вшитыми иконками `docx` , `xlsx`
+-   Расширены типы файлов с вшитыми иконками `docx` , `xlsx`
 
 [PR](https://github.com/salute-developers/plasma/pull/2123)
 
 ### Tokens
 
-* Добавлена новая палитра `warmGray` с "тёплыми" оттенками серого
+-   Добавлена новая палитра `warmGray` с "тёплыми" оттенками серого
 
 [PR](https://github.com/salute-developers/plasma/pull/2127)
 
 ### Accordion
 
-* Исправлены отступы в соответсвии с макетами
+-   Исправлены отступы в соответсвии с макетами
 
 [PR](https://github.com/salute-developers/plasma/pull/2122)
-
 
 ## 0.317.2 (30 июля 2025)
 
@@ -160,8 +152,7 @@
 
 ### TextArea
 
-* Сделали свойство `labelAriaHidden` опциональным
-
+-   Сделали свойство `labelAriaHidden` опциональным
 
 ## 0.317.1 (28 июля 2025)
 
@@ -169,8 +160,7 @@
 
 ### Combobox
 
-* исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;
-
+-   исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;
 
 ## 0.317.0 (24 июля 2025)
 
@@ -178,54 +168,53 @@
 
 ### Button
 
-* Удалены неактуальные размеры: `xlr, lr, mr, sr, xsr`
+-   Удалены неактуальные размеры: `xlr, lr, mr, sr, xsr`
 
 [PR](https://github.com/salute-developers/plasma/pull/2079)
 
 ### Dropdown
 
-* Добавлен отступ между выпадающим списком и таргетом;
+-   Добавлен отступ между выпадающим списком и таргетом;
 
 [PR](https://github.com/salute-developers/plasma/pull/2085)
 
 ### Icons
 
-* Удален лишний атрибут style со значением `mix-blend-mode` в иконках: `DislikeFill`, `LikeFill`
+-   Удален лишний атрибут style со значением `mix-blend-mode` в иконках: `DislikeFill`, `LikeFill`
 
 [PR](https://github.com/salute-developers/plasma/pull/2090)
 
 ### Chip
 
-* Исправлен цвет токена для иконки закрытия
+-   Исправлен цвет токена для иконки закрытия
 
 [PR](https://github.com/salute-developers/plasma/pull/2082)
 
-* Убраны `scale` при `hover` и `active`
+-   Убраны `scale` при `hover` и `active`
 
 [PR](https://github.com/salute-developers/plasma/pull/2089)
 
 ### Heading
 
-* Добавлена поддержка a11y для aria role heading
+-   Добавлена поддержка a11y для aria role heading
 
 [PR](https://github.com/salute-developers/plasma/pull/2097)
 
 ### Textarea
 
-* Добавлено новое свойство `labelAriaHidden` для управления `aria-hidden`
+-   Добавлено новое свойство `labelAriaHidden` для управления `aria-hidden`
 
 [PR](https://github.com/salute-developers/plasma/pull/2097)
 
 ### Note
 
-* Добавлена документация для свойства `hasClose`
+-   Добавлена документация для свойства `hasClose`
 
-* Исправлен баг связанный со свойством `text`
+-   Исправлен баг связанный со свойством `text`
 
-* Добавлена возможность многострочного текста
+-   Добавлена возможность многострочного текста
 
 [PR](https://github.com/salute-developers/plasma/pull/2098)
-
 
 ## 0.315.0 (10 июля 2025)
 
@@ -233,15 +222,15 @@
 
 ### Tour
 
-* Добавлен в поставку новый компонент
+-   Добавлен в поставку новый компонент
 
-![4539d0a6\_Kapture\_2025-06-30\_at\_13 45 01](https://github.com/user-attachments/assets/b6dac64b-0623-4308-a4b2-8a827c5d4d55)
+![4539d0a6_Kapture_2025-06-30_at_13 45 01](https://github.com/user-attachments/assets/b6dac64b-0623-4308-a4b2-8a827c5d4d55)
 
 [PR](https://github.com/salute-developers/plasma/pull/2010)
 
 ### DatePicker
 
-* Добавлена проверка при обновлении `value/defaultValue`, чтобы избежать коллизии при `mount/unmount`
+-   Добавлена проверка при обновлении `value/defaultValue`, чтобы избежать коллизии при `mount/unmount`
 
 **Before**:
 
@@ -254,13 +243,13 @@
 
 ### useUniqId
 
-* Помечен как deprecated по причине устаревания и не актуальности. Рекомендуем использовать метод `safeUseId`
+-   Помечен как deprecated по причине устаревания и не актуальности. Рекомендуем использовать метод `safeUseId`
 
 [PR](https://github.com/salute-developers/plasma/pull/2053)
 
 ### NumberFormat
 
-* Улучшен механизм копирование и вставки числа
+-   Улучшен механизм копирование и вставки числа
 
 ![459900391-30817797-7211-4d0e-8e4b-799d7fdab2c9](https://github.com/user-attachments/assets/11c52f11-b847-49c1-9a82-4df74bf64ff7)
 
@@ -268,13 +257,13 @@
 
 ### Chip
 
-* изменен размер иконки `Close` для размера `XS`, стало `12x12`
+-   изменен размер иконки `Close` для размера `XS`, стало `12x12`
 
 [PR](https://github.com/salute-developers/plasma/pull/2070)
 
 ### Icons
 
-* добавлен `rest props` для IconRoot. Теперь есть возможность прокинуть `data-attrs` и другие атрибуты тега
+-   добавлен `rest props` для IconRoot. Теперь есть возможность прокинуть `data-attrs` и другие атрибуты тега
 
 <img width="1024" src="https://github.com/user-attachments/assets/ff1831f3-98f9-46df-a874-3c4891ca47b4" />
 
@@ -282,24 +271,23 @@
 
 ### Combobox
 
-* Добавлен токен для галочки и иконки в режиме `single`
+-   Добавлен токен для галочки и иконки в режиме `single`
 
 [PR](https://github.com/salute-developers/plasma/pull/2049)
 
 ### Select
 
-* Добавлен токен для галочки и иконки в режиме `single`
+-   Добавлен токен для галочки и иконки в режиме `single`
 
 [PR](https://github.com/salute-developers/plasma/pull/2049)
 
 ### TextArea
 
-* добавлено свойство `headerSlot`
+-   добавлено свойство `headerSlot`
 
 <img width="685" alt="image" src="https://github.com/user-attachments/assets/e092e789-b5ca-4b8e-a500-9f6594dc59ef" />
 
 [PR](https://github.com/salute-developers/plasma/pull/2075)
-
 
 ## 0.313.0 (26 июня 2025)
 
@@ -2935,7 +2923,7 @@ fix(sdds-\*): Use correct default view for Grid (https://github.com/salute-devel
 -   исправлена работа свойства `placeholder`
 
 <img width="276" src="https://github.com/user-attachments/assets/bdd67ba7-62f1-48f1-8f04-78a13fbb8045" />
- 
+
 plasma-{web, b2c}: Editable component refactor (https://github.com/salute-developers/plasma/pull/1430)
 
 ### Combobox

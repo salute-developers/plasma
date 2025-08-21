@@ -4,73 +4,67 @@
 
 ### DatePicker
 
-* добавлено свойство `preserveInvalidOnBlur`, которое отключает сброс некорректных значений из поля ввода
+-   добавлено свойство `preserveInvalidOnBlur`, которое отключает сброс некорректных значений из поля ввода
 
 [PR](https://github.com/salute-developers/plasma/pull/2134)
 
-* исправлен `controlled` вариант `DatePicker`
+-   исправлен `controlled` вариант `DatePicker`
 
 [PR](https://github.com/salute-developers/plasma/pull/2148)
 
 ### NumberFormat
 
-* добавлена поддержка `defaultValue`
+-   добавлена поддержка `defaultValue`
 
 [PR](https://github.com/salute-developers/plasma/pull/2138)
 
-* добавлена функция `numberFormatter`, которая приводит число к нужному формату
+-   добавлена функция `numberFormatter`, которая приводит число к нужному формату
 
 [PR](https://github.com/salute-developers/plasma/pull/2137)
 
 ### Pagination
 
-* исправлен `controlled` вариант
+-   исправлен `controlled` вариант
 
 [PR](https://github.com/salute-developers/plasma/pull/2141)
 
-* отключено взаимодействие с текущей выбранной страницей;
+-   отключено взаимодействие с текущей выбранной страницей;
 
 [PR](https://github.com/salute-developers/plasma/pull/2160)
 
 ### NumberInput
 
-* расширен тип `value` до `number | string | undefined` для поддержки пустых значений
+-   расширен тип `value` до `number | string | undefined` для поддержки пустых значений
 
 [PR](https://github.com/salute-developers/plasma/pull/2135)
 
-### InformationWrapper
-
-* добавлен компонент-обертка для элементов формы
-
-[PR](https://github.com/salute-developers/plasma/pull/2065)
-
 ### Dropdown, Combobox
 
-* исправлен баг в свойстве `alwaysOpened`, из-за которого приходилось делать двойные нажатия для открытия дочерних списков;
+-   исправлен баг в свойстве `alwaysOpened`, из-за которого приходилось делать двойные нажатия для открытия дочерних списков;
 
 [PR](https://github.com/salute-developers/plasma/pull/2152)
 
 ### Modal, Popup
 
-* исправлен раздел документации связанный со свойством resizable
+-   исправлен раздел документации связанный со свойством resizable
 
 [PR](https://github.com/salute-developers/plasma/pull/2158)
 
 ### Switch
 
-* тип свойства `label` расширен до `ReactNode`
+-   тип свойства `label` расширен до `ReactNode`
 
 [PR](https://github.com/salute-developers/plasma/pull/2157)
 
 ### TextField
 
-* свойства, связанные с `chip` помечены как deprecated;
+-   свойства, связанные с `chip` помечены как deprecated;
 
 [PR](https://github.com/salute-developers/plasma/pull/2133)
 
 ### Spinner
 
-* свойство size теперь union type и может быть как string, так и number
+-   свойство size теперь union type и может быть как string, так и number
 
 [PR](https://github.com/salute-developers/plasma/pull/2156)
 
@@ -78,22 +72,21 @@
 
 ### Package
 
-* пакет `sdds-finportal` переименован в `sdds-finai`
+-   пакет `sdds-finportal` переименован в `sdds-finai`
 
 [PR](https://github.com/salute-developers/plasma/pull/2146)
 
 ### Tooltip
 
-* токены инвертированы, и теперь по-умолчанию используется onDark значения
+-   токены инвертированы, и теперь по-умолчанию используется onDark значения
 
 [PR](https://github.com/salute-developers/plasma/pull/2154)
 
 ### Tree
 
-* новый UI с иерархической подсветкой выбранных элементов;
+-   новый UI с иерархической подсветкой выбранных элементов;
 
 [PR](https://github.com/salute-developers/plasma/pull/2136)
-
 
 ## 0.311.0 (7 августа 2025)
 
@@ -2963,7 +2956,7 @@ fix(sdds-\*): Use correct default view for Grid (https://github.com/salute-devel
 -   исправлена работа свойства `placeholder`
 
 <img width="276" src="https://github.com/user-attachments/assets/bdd67ba7-62f1-48f1-8f04-78a13fbb8045" />
- 
+
 plasma-{web, b2c}: Editable component refactor (https://github.com/salute-developers/plasma/pull/1430)
 
 ### Combobox
