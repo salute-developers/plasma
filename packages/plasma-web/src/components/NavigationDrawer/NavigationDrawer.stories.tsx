@@ -20,21 +20,19 @@ const Container = styled.div`
 `;
 
 const SlotContainer = styled.div`
-    border: 1px solid #08080816;
     padding: 2px;
     min-height: 24px;
     overflow: hidden;
 `;
 
 const ContentLeft = styled.div`
-    background-color: #08080816;
+    background-color: #99999950;
     width: 100%;
     height: 100%;
 `;
 
 const sections = [
     {
-        hasDivider: false,
         items: [{ label: 'Item 0', icon: <IconBlankOutline />, action: action('Item 0 clicked') }],
     },
     {
@@ -85,6 +83,7 @@ const sections = [
         ],
     },
     {
+        hasDivider: true,
         items: [{ label: 'Item 10', icon: <IconBlankOutline />, action: action('Item 10 clicked') }],
     },
 ];
@@ -218,7 +217,6 @@ const meta: Meta<typeof NavigationDrawer> = {
     },
     args: {
         size: 's',
-        view: 'default',
         withContentLeft: true,
     },
 };
@@ -230,7 +228,6 @@ type Story = StoryObj<typeof NavigationDrawer>;
 export const Default: Story = {
     args: {
         size: 's',
-        view: 'default',
         withContentLeft: true,
     },
 };
