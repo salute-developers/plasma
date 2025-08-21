@@ -48,7 +48,7 @@ type SectionItem<T extends boolean = false> = {
     /**
      * Флаг для отображения разделителя в начале секции.
      * Используется только для секций без заголовка (label).
-     * @default true
+     * @default false
      */
     hasDivider?: boolean;
 };
