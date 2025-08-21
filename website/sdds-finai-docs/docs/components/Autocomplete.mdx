@@ -7,6 +7,8 @@ import { PropsTable, Description } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+import AutocompleteExampleClear from '../_examples/_autocomplete/_autocomplete-clear-example.mdx'
+
 # Autocomplete
 Поле ввода с подсказками в выпадающем списке.
 
@@ -596,13 +598,16 @@ type SuggestionItem = {
         }
         ```
     </TabItem>
+    <TabItem value="example clear" label="Clear input">
+        <AutocompleteExampleClear />
+    </TabItem>
 </Tabs>
 
 ## Клавиатурная навигация
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/).
 
-- `Tab, Escape` - закрывает автокомплит. Перемещает фокус на следующий элемент на странице;
+- `Tab, Escape` - закрывает Autocomplete. Перемещает фокус на следующий элемент на странице;
 - `Enter` - выбираем подсказку из списка;
 - `Home` - перемещает фокус на первый элемент;
 - `End` - перемещает фокус на последний элемент;
