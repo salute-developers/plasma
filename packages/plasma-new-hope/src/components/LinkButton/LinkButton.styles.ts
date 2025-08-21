@@ -52,18 +52,21 @@ export const StyledSpinner = styled(Spinner)`
 
 export const LinkButtonText = styled.span`
     padding: var(${tokens.linkButtonTextPadding});
+    color: var(${tokens.linkButtonTextColor});
 
     ${applyEllipsis()}
 `;
 
 export const StyledContentLeft = styled.div`
     line-height: 0;
+    color: var(${tokens.linkButtonIconColor});
 
     margin: var(${tokens.linkButtonLeftContentMargin});
 `;
 
 export const StyledContentRight = styled.div`
     line-height: 0;
+    color: var(${tokens.linkButtonIconColor});
 
     margin: var(${tokens.linkButtonRightContentMargin});
 `;

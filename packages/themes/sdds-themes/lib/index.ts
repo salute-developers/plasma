@@ -41,4 +41,8 @@ generate([
         name: 'sdds_procom',
         version: 'latest',
     },
+    {
+        name: 'sdds_finai',
+        version: 'latest',
+    },
 ]);

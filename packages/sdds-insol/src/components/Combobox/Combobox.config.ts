@@ -330,7 +330,7 @@ export const config = {
                 ${tokens.borderRadius}: 1rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 1.375rem 1.125rem;
+                ${tokens.itemPadding}: 1.25rem 1.125rem;
                 ${tokens.itemPaddingTight}: 1rem 1.125rem;
                 ${tokens.itemBorderRadius}: 0.875rem;
                 ${tokens.itemIconMargin}: 0 0.625rem 0 0;
@@ -586,8 +586,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.75rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.75rem 0.875rem;
-                ${tokens.itemPaddingTight}: 0.5rem 0.875rem;
+                ${tokens.itemPadding}: 0.875rem;
+                ${tokens.itemPaddingTight}: 0.625rem 0.875rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
                 ${tokens.itemIconMargin}: 0 0.625rem 0 0;
                 ${tokens.itemIconSize}: 1.25rem;
@@ -716,7 +716,7 @@ export const config = {
                 ${tokens.borderRadius}: 0.625rem;
 
                 ${tokens.itemHeight}: 1rem;
-                ${tokens.itemPadding}: 0.5rem 0.625rem;
+                ${tokens.itemPadding}: 0.75rem 0.625rem;
                 ${tokens.itemPaddingTight}: 0.5rem 0.625rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemIconSize}: 1rem;

@@ -1,0 +1,89 @@
+---
+id: card
+title: Card
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Card
+Визуальный контейнер, который объединяет различные элементы, такие как изображения, текст и кнопки, в единый блок
+
+<Description name="Card" />
+<PropsTable name="Card" />
+
+### Использование
+
+Настройка размера осуществляется явным образом или в зависимости от содержимого, в том числе, за счет указания соотношения сторон.
+
+Настройка внутренних отступов между контентом карточки осуществляется с учетом конкретного контекста использования компонента.
+
+Компонент `Card` является базовым контейнером. `CardContent` используется для вложенного контента внутри `Card`, со своими скруглениями и имеет `overflow: hidden`.
+`CardInnerContent` используется для контента вписанного в размеры `CardContent`, имеет `position: absolute`, не влияет на размер всей карточки.
+
+### Пример с вложенным контентом
+
+```tsx live
+import React from 'react';
+import { Card, CardContent, CardInnerContent, H3, TextS } from '@salutejs/sdds-finai';
+
+export function App() {
+    const SvgBackground = (props) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMinYMin slice"
+            viewBox="1 0.5 8 8"
+            {...props}
+            style={{ ...props.style, background: 'var(--text-tertiary)' }}
+        >
+            <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+        </svg>
+    );
+
+    return (
+        <Card orientation="horizontal" style={{ width: '250px' }}>
+            <CardContent orientation='vertical' aspectRatio='1/1'>
+                <CardInnerContent>
+                    <div style={{ padding: '30px' }}>
+                        <H3>Заголовок</H3>
+                        <TextS style={{ paddingTop: '8px' }}>Как оплатить заправку бонусами СберСпасибо?</TextS>
+                    </div>
+                </CardInnerContent>
+                <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />
+            </CardContent>
+        </Card>
+    );
+}
+```
+
+### Пример выбранной карточки с `backgroundType="solid"`
+
+```tsx live
+import React from 'react';
+import { Card, CardContent, H3, TextS } from '@salutejs/sdds-finai';
+
+export function App() {
+    const SvgBackground = (props) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMinYMin slice"
+            viewBox="1 0.5 8 8"
+            {...props}
+            style={{ ...props.style, background: 'var(--text-tertiary)' }}
+        >
+            <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+        </svg>
+    );
+
+    return (
+        <Card orientation="horizontal" style={{ width: '400px' }} backgroundType="solid" selected>
+            <div style={{ padding: '30px' }}>
+                <H3>Title</H3>
+                <TextS style={{ paddingTop: '8px' }}>Description</TextS>
+            </div>
+            <CardContent orientation="vertical" aspectRatio="4/3">
+                <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />
+            </CardContent>
+        </Card>
+    );
+}
+```

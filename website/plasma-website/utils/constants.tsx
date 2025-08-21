@@ -91,16 +91,16 @@ export const verticalsMap = [
         ],
     },
     {
-        title: 'SDDS Finportal',
-        package: '@salutejs/sdds-finportal',
+        title: 'SDDS FinAI',
+        package: '@salutejs/sdds-finai',
         group: 'СДДС',
-        href: '/sdds-finportal-storybook/',
+        href: '/sdds-finai-storybook/',
         items: [
-            { text: 'Сторибук', href: '/sdds-finportal-storybook/', contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: '/sdds-finportal/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-finai-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Документация', href: '/sdds-finai/', contentRight: <ArrowTopRight /> },
             {
-                text: PACKAGES_INFO['@salutejs/sdds-finportal'][0],
-                href: `/changelog/?lib=sdds-finportal&version=${PACKAGES_INFO['@salutejs/sdds-finportal'][0]}`,
+                text: PACKAGES_INFO['@salutejs/sdds-finai'][0],
+                href: `/changelog/?lib=sdds-finai&version=${PACKAGES_INFO['@salutejs/sdds-finai'][0]}`,
                 contentLeft: <History />,
                 isMeta: false,
             },
@@ -232,8 +232,8 @@ export const products = [
         title: 'Пиктограммы',
         href: '/icons/',
         items: iconListGroupNames.map((groupName) => ({
-            text: groupName,
-            href: '/icons/',
+            text: groupName.toLowerCase(),
+            href: `/icons/?group=${groupName}`,
         })),
     },
     {
@@ -261,7 +261,7 @@ export const packageNameMap = {
     'plasma-web': 'Plasma Web',
     'plasma-giga': 'Giga',
     'sdds-serv': 'SDDS Serv',
-    'sdds-finportal': 'SDDS Finportal',
+    'sdds-finai': 'SDDS FinAI',
     'sdds-dfa': 'SDDS DFA',
     'sdds-cs': 'SDDS CS',
     'sdds-crm': 'SDDS CRM',

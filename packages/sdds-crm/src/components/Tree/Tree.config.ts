@@ -8,15 +8,15 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.iconFolderColor}: var(--text-secondary);
+                ${tokens.iconFolderColor}: var(--text-primary);
                 ${tokens.arrowColor}: var(--text-secondary);
                 ${tokens.arrowColorHover}: var(--text-secondary-hover);
                 ${tokens.arrowColorActive}: var(--text-secondary-active);
-                ${tokens.color}: var(--text-secondary);
+                ${tokens.color}: var(--text-primary);
                 ${tokens.colorSelected}: var(--text-primary);
-                ${tokens.itemBackgroundColorSelected}: var(--surface-transparent-tertiary);
-                ${tokens.itemBackgroundColorParentHasSelectedChildren}: var(--surface-transparent-secondary);
-                ${tokens.itemBackgroundColorClosestParentHasSelectedChildren}: var(--surface-transparent-primary);
+                ${tokens.itemBackgroundColorSelected}: var(--surface-transparent-secondary);
+                ${tokens.itemBackgroundColorPrimary}: transparent;
+
                 ${tokens.itemBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${tokens.itemBackgroundColorActive}: var(--surface-transparent-secondary-active);
                 ${tokens.checkboxBorderColor}: var(--text-secondary);

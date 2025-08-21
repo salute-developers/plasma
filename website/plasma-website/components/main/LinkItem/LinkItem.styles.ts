@@ -27,6 +27,8 @@ export const LinkItemWrapper = styled(Link)<{ isMeta?: boolean }>`
     width: fit-content;
     color: ${whitePrimary};
     text-decoration: none;
+    user-select: none;
+    -webkit-user-drag: none;
 
     display: flex;
     align-items: center;

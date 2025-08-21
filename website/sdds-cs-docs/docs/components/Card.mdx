@@ -87,3 +87,106 @@ export function App() {
     );
 }
 ```
+
+### Пример карточки `Shopping Card`
+
+```tsx live
+import React from 'react';
+import { Card, CardContent, BodyM, BodyS, Rating } from '@salutejs/sdds-cs';
+import { textSecondary, textTertiary } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    const SvgBackground = (props) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMinYMin slice"
+            viewBox="1 0.5 8 8"
+            {...props}
+            style={{ ...props.style, background: textTertiary }}
+        >
+            <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+        </svg>
+    );
+
+    return (
+        <Card orientation="vertical" style={{ width: '240px', height: '344px', display: 'flex', justifyContent: 'space-between' }} backgroundType="solid" selected>
+            <CardContent orientation="vertical" aspectRatio="1/1">
+                <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />
+            </CardContent>
+            <div>
+                <BodyM bold>0 ₽</BodyM>
+                <BodyM>Батарейка алкал.AA LR6</BodyM>
+                <BodyS color={textSecondary}>В наличии: 300 шт.</BodyS>
+                <Rating
+                    view="accent"
+                    value={3.8}
+                />
+            </div>
+        </Card>
+    );
+}
+```
+
+### Пример карточки `Info Card`
+
+```tsx live
+import React from 'react';
+import { Card, BodyS, BodyM, H2 } from '@salutejs/sdds-cs';
+import { IconArrowDiagRightUp } from '@salutejs/plasma-icons';
+import { textAccent, textSecondary } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    return (
+        <Card orientation="vertical" backgroundType="solid" style={{ width: '312px' }} selected>
+            <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <BodyM>Название X</BodyM>
+                    <IconArrowDiagRightUp size="s" color={textAccent} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2.25rem' }}>
+                    <H2 style={{ fontWeight: '400' }}>X<BodyS style={{ display: 'inline-block', verticalAlign: 'baseline', paddingLeft: '0.25rem' }} color={textSecondary}>шт</BodyS></H2>
+                    <H2 style={{ fontWeight: '400' }} color={textSecondary}>X млн <BodyM style={{ display: 'inline-block', verticalAlign: 'baseline' }} color={textSecondary}>₽</BodyM></H2>
+                </div>
+            </div>
+        </Card>
+    );
+}
+```
+
+### Пример карточки `Task Card`
+
+```tsx live
+import React from 'react';
+import { Card, CardContent, BodyS, BodyM, Badge } from '@salutejs/sdds-cs';
+import { IconArrowDiagRightUp } from '@salutejs/plasma-icons';
+import { IconFireOutline } from '@salutejs/plasma-icons';
+import { IconDotsHorizontalOutline } from '@salutejs/plasma-icons';
+import { IconClockCircleOutline } from '@salutejs/plasma-icons';
+import { textWarning, textAccent, textSecondary, surfaceWarningMinor, surfaceInfoMinor } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    return (
+        <Card orientation="vertical" backgroundType="solid" style={{ width: '312px' }} selected>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', gap: '0.25rem' }}>
+                        <Badge style={{ background: surfaceWarningMinor }}>
+                            <IconFireOutline size="xs" color={textWarning} />
+                        </Badge>
+                        <Badge style={{ background: surfaceInfoMinor, color: '#199AF0' }}>
+                            Признак
+                        </Badge>
+                    </div>
+                    <div style={{ display: 'flex', gap: '0.25rem' }}>
+                        <IconDotsHorizontalOutline size="s" color={textAccent} />
+                        <IconArrowDiagRightUp size="s" color={textAccent} />
+                    </div>
+                </div>
+                <BodyM>Требуется дополнительная информация</BodyM>
+                <BodyS color={textSecondary}>Проверка стоимости закупаемых товаров и услуг</BodyS>
+                <BodyS color={textSecondary} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><IconClockCircleOutline size="xs" color="var(--text-secondary, rgba(255, 255, 255, 0.56))" /> до 02.02.2025</BodyS>
+            </div>
+        </Card>
+    );
+}
+```

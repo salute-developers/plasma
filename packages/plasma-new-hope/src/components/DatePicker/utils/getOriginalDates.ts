@@ -1,4 +1,5 @@
 import { customDayjs } from 'src/utils/datejs';
+import type { DateType } from 'src/components/Calendar/Calendar.types';
 
 const initialValueStructure = {
     isoDate: '',
@@ -6,7 +7,7 @@ const initialValueStructure = {
     formattedDate: '',
 };
 
-export const getOriginalDates = (value: Date | string | null, lang?: string, format?: string) => {
+export const getOriginalDates = (value: string | DateType, lang?: string, format?: string) => {
     if (!value || !lang || !format) {
         return initialValueStructure;
     }

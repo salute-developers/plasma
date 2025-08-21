@@ -1,10 +1,12 @@
+import type { DateType } from 'src/components/Calendar/Calendar.types';
+
 import { needFullMonth } from './dateHelper';
 import type { Langs } from './dateHelper';
 import { getOriginalDates } from './getOriginalDates';
 import { normalizeDates } from './normalizeDates';
 
 type GetFormattedDatesArgs = {
-    value: Date | string | null;
+    value: string | DateType;
     delimiter: string;
     lang?: Langs;
     format?: string;

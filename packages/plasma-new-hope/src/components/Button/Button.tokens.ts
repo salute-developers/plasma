@@ -11,6 +11,8 @@ export const classes = {
 
 export const tokens = {
     buttonColor: '--plasma-button-color',
+    buttonTextColor: '--plasma-button-text-color',
+    buttonIconColor: '--plasma-button-icon-color',
     buttonValueColor: '--plasma-button-value-color',
     buttonBackgroundColor: '--plasma-button-background-color',
     buttonColorHover: '--plasma-button-color-hover',

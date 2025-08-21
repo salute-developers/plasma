@@ -14,6 +14,8 @@ const Spinner = component(mergedConfig);
 export const ButtonText = styled.span`
     min-width: 4ch;
     flex-shrink: 2;
+    
+    color: var(${tokens.buttonTextColor});
 
     ${applyEllipsis()}
 
@@ -56,6 +58,7 @@ export const StyledSpinner = styled(Spinner)`
 export const StyledContentLeft = styled.div<{ hasContentMargin?: boolean }>`
     display: flex;
     align-self: var(${tokens.buttonLeftContentAlignSelf});
+    color: var(${tokens.buttonIconColor});
 
     margin: ${({ hasContentMargin }) => (hasContentMargin ? `var(${tokens.buttonLeftContentMargin})` : 0)};
 `;
@@ -63,6 +66,7 @@ export const StyledContentLeft = styled.div<{ hasContentMargin?: boolean }>`
 export const StyledContentRight = styled.div<{ hasContentMargin?: boolean }>`
     display: flex;
     align-self: var(${tokens.buttonRightContentAlignSelf});
+    color: var(${tokens.buttonIconColor});
 
     margin: ${({ hasContentMargin }) => (hasContentMargin ? `var(${tokens.buttonRightContentMargin})` : 0)};
 `;

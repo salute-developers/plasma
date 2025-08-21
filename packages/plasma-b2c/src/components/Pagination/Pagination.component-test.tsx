@@ -216,19 +216,13 @@ describe('plasma-new-hope: Pagination Content', () => {
         const [pageValue, setPageValue] = useState(args.value);
         const [perPageValue, setPerPageValue] = useState(args.perPage);
 
-        const handleChangePerpage = useCallback(
-            (perPage: number) => {
-                setPerPageValue(perPage);
-            },
-            [perPageValue, setPerPageValue],
-        );
+        const handleChangePerPage = (perPage: number) => {
+            setPerPageValue(perPage);
+        };
 
-        const handleChangePage = useCallback(
-            (page: number) => {
-                setPageValue(page);
-            },
-            [pageValue, setPageValue],
-        );
+        const handleChangePage = (page: number) => {
+            setPageValue(page);
+        };
 
         return (
             <>
@@ -237,7 +231,6 @@ describe('plasma-new-hope: Pagination Content', () => {
                     count={count}
                     value={pageValue}
                     perPage={perPageValue}
-                    count={count}
                     leftContent={
                         <Button
                             id="pagination-button-prev"
@@ -259,7 +252,7 @@ describe('plasma-new-hope: Pagination Content', () => {
                         </Button>
                     }
                     onChangePageValue={handleChangePage}
-                    onChangePerageValue={handleChangePerpage}
+                    onChangePerPageValue={handleChangePerPage}
                 />
             </>
         );
@@ -281,7 +274,7 @@ describe('plasma-new-hope: Pagination Content', () => {
     it('setInput', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination slots={slots[1]} value={values[0]} count={count} />
+                <Pagination slots={slots[1]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
         cy.get('input:first').focus().type('10').type('{enter}');
@@ -293,7 +286,7 @@ describe('plasma-new-hope: Pagination Content', () => {
 
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination slots={slots[2]} value={values[0]} count={count} listWidth="5rem" />
+                <Pagination slots={slots[2]} count={count} listWidth="5rem" />
             </CypressTestDecoratorWithTypo>,
         );
         cy.get('button').last().click();

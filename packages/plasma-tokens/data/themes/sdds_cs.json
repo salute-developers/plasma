@@ -6461,12 +6461,12 @@
                     "enabled": true
                 },
                 "textSecondaryHover": {
-                    "value": "#000000FF",
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный вторичный цвет текста",
                     "enabled": true
                 },
                 "textSecondaryActive": {
-                    "value": "#636D74FF",
+                    "value": "#90A3B2FF",
                     "comment": "Инвертированный вторичный цвет текста",
                     "enabled": true
                 },
@@ -6476,7 +6476,7 @@
                     "enabled": true
                 },
                 "textTertiaryActive": {
-                    "value": "#596269FF",
+                    "value": "#636D74FF",
                     "comment": "Инвертированный третичный цвет текста",
                     "enabled": true
                 },
@@ -6715,11 +6715,6 @@
                     "comment": "Инвертированный основной цвет текста",
                     "enabled": true
                 },
-                "textSecondary": {
-                    "value": "[general.coolGray.500]",
-                    "comment": "Инвертированный вторичный цвет текста",
-                    "enabled": true
-                },
                 "textAccent": {
                     "value": "[general.herbal.400]",
                     "comment": "Инвертированный акцентный цвет",
@@ -6740,11 +6735,6 @@
                     "comment": "Инвертированный минорный акцентный цвет",
                     "enabled": true
                 },
-                "textTertiary": {
-                    "value": "[general.coolGray.600]",
-                    "comment": "Инвертированный третичный цвет текста",
-                    "enabled": true
-                },
                 "textWarning": {
                     "value": "[general.amber.300]",
                     "comment": "Инвертированный цвет предупреждения",
@@ -6754,28 +6744,38 @@
                     "value": "[general.blue.400]",
                     "comment": "Инвертированный минорный промо цвет с градиентом",
                     "enabled": true
+                },
+                "textSecondary": {
+                    "value": "[general.coolGray.250]",
+                    "comment": "Инвертированный вторичный цвет текста",
+                    "enabled": true
+                },
+                "textTertiary": {
+                    "value": "[general.coolGray.500]",
+                    "comment": "Инвертированный третичный цвет текста",
+                    "enabled": true
                 }
             }
         },
         "surface": {
             "default": {
                 "surfaceSolidPrimaryHover": {
-                    "value": "#F5F8F9FF",
+                    "value": "#F8FAFBFF",
                     "comment": "Основной непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
                 "surfaceSolidPrimaryActive": {
-                    "value": "#E2E9EEFF",
+                    "value": "#EBF0F4FF",
                     "comment": "Основной непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
                 "surfaceSolidSecondaryHover": {
-                    "value": "#F8FAFBFF",
+                    "value": "#F5F8F9FF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
                 "surfaceSolidSecondaryActive": {
-                    "value": "#EBF0F4FF",
+                    "value": "#E2E9EEFF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
@@ -7215,7 +7215,7 @@
                     "enabled": false
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#FCFDFDFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
@@ -7284,19 +7284,19 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
                     "enabled": true
                 },
-                "surfaceSolidSecondary": {
-                    "value": "[general.coolGray.100]",
-                    "comment": "Вторичный непрозрачный фон поверхности/контрола",
-                    "enabled": true
-                },
                 "surfaceSolidTertiary": {
                     "value": "[general.coolGray.200]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола",
                     "enabled": true
                 },
                 "surfaceSolidPrimary": {
-                    "value": "[general.coolGray.150]",
+                    "value": "[general.coolGray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceSolidSecondary": {
+                    "value": "[general.coolGray.150]",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола",
                     "enabled": true
                 }
             },
@@ -7844,22 +7844,22 @@
             },
             "onLight": {
                 "surfaceSolidPrimaryHover": {
-                    "value": "#F5F8F9FF",
+                    "value": "#F8FAFBFF",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
                 "surfaceSolidPrimaryActive": {
-                    "value": "#E2E9EEFF",
+                    "value": "#EBF0F4FF",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
                 "surfaceSolidSecondaryHover": {
-                    "value": "#F8FAFBFF",
+                    "value": "#F5F8F9FF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
                 "surfaceSolidSecondaryActive": {
-                    "value": "#EBF0F4FF",
+                    "value": "#E2E9EEFF",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
@@ -8299,7 +8299,7 @@
                     "enabled": false
                 },
                 "surfaceSolidPrimaryBrightness": {
-                    "value": "#FCFDFDFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
@@ -8374,12 +8374,12 @@
                     "enabled": true
                 },
                 "surfaceSolidPrimary": {
-                    "value": "[general.coolGray.150]",
+                    "value": "[general.coolGray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
                 "surfaceSolidSecondary": {
-                    "value": "[general.coolGray.100]",
+                    "value": "[general.coolGray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 }
@@ -8945,7 +8945,7 @@
                     "enabled": true
                 },
                 "backgroundPrimary": {
-                    "value": "[general.coolGray.150]",
+                    "value": "[general.coolGray.100]",
                     "comment": "Основной фон",
                     "enabled": true
                 }
@@ -8979,7 +8979,7 @@
                     "enabled": false
                 },
                 "backgroundPrimary": {
-                    "value": "[general.coolGray.150]",
+                    "value": "[general.coolGray.100]",
                     "comment": "Основной фон на светлом фоне",
                     "enabled": true
                 }
@@ -10446,12 +10446,12 @@
                     "enabled": true
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#20282DFF",
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки",
                     "enabled": true
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#0B0D0FFF",
+                    "value": "#515B61FF",
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки",
                     "enabled": true
                 },
@@ -10870,11 +10870,6 @@
                     "comment": "Инвертированный основной непрозрачный цвет обводки",
                     "enabled": true
                 },
-                "outlineSolidSecondary": {
-                    "value": "[general.coolGray.950]",
-                    "comment": "Инвертированный вторичный непрозрачный цвет обводки",
-                    "enabled": true
-                },
                 "outlineClear": {
                     "value": "#FFFFFF00",
                     "comment": "Инвертированная бесцветная обводка",
@@ -10883,6 +10878,11 @@
                 "outlineInfo": {
                     "value": "[general.blue.500]",
                     "comment": "Инвертированный цвет обводки информация",
+                    "enabled": true
+                },
+                "outlineSolidSecondary": {
+                    "value": "[general.coolGray.700]",
+                    "comment": "Инвертированный вторичный непрозрачный цвет обводки",
                     "enabled": true
                 }
             }

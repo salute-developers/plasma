@@ -1,0 +1,80 @@
+---
+id: tokens
+title: Токены
+sidebar_position: 2
+---
+# Токены
+
+Все `css` токены завернуты в `js` переменные для более удобного доступа:
+
+```js
+/** Основной цвет текста */
+export const textPrimary = 'var(--text-primary, #F5F5F5)';
+/** Основной фон */
+export const backgroundPrimary = 'var(--background-primary, #000000)';
+```
+## Способы подключения
+
+Есть два пути импорта токенов:
+
+* Из вертикали `@salutejs/sdds-themes/tokens` - подходит в большинстве случаев, т.к там лежит весь базовый набор токенов.
+* Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-finai` - следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме.
+
+## Использование
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
+
+const AppStyled = styled.div`
+    padding: 2rem;
+    color: ${textAccent};
+    background-color: ${backgroundPrimary};
+`;
+
+const Container = styled.div`
+    ${textL};
+    margin: 1rem;
+`;
+
+const App = () => {
+    return (
+        <AppStyled>
+            <Container>
+                <span>Hello world</span>
+            </Container>
+        </AppStyled>
+    );
+};
+
+export default App;
+```
+
+## Типографика
+
+:::tip
+Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
+
+```ts
+import { BodyL, DsplL, H3 } from '@salutejs/sdds-finai';
+```
+:::
+
+### Токены типографики на примере компонента `DsplL`
+
+Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
+
+```tsx
+import { CSSObject } from 'styled-components';
+
+export const dsplL = ({
+    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-l-line-height)'
+} as unknown) as CSSObject;
+```
+

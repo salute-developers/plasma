@@ -13,8 +13,8 @@ export const config = {
                 ${tokens.borderRadius}: 1rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 1.25rem;
-                ${tokens.itemPaddingTight}: 1rem 1.25rem;
+                ${tokens.itemPadding}: 1.25rem 1.125rem;
+                ${tokens.itemPaddingTight}: 1rem 1.125rem;
                 ${tokens.itemGap}: 0.625rem;
                 ${tokens.itemGapTight}: 0.625rem;
 
@@ -131,7 +131,7 @@ export const config = {
 
                 ${tokens.itemHeight}: 1rem;
                 ${tokens.itemPadding}: 0.75rem 0.625rem;
-                ${tokens.itemPaddingTight}: 0.5rem 0.75rem;
+                ${tokens.itemPaddingTight}: 0.5rem 0.625rem;
                 ${tokens.itemGap}: 0.5rem;
                 ${tokens.itemGapTight}: 0.25rem;
 

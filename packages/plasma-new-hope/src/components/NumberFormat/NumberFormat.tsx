@@ -20,6 +20,7 @@ export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputC
                 disabled,
                 value: outerValue,
                 onChange,
+                defaultValue,
                 onPaste,
                 ...rest
             },
@@ -28,7 +29,7 @@ export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputC
             const inputRef = useRef<HTMLInputElement>(null);
             const inputForkRef = useForkRef(inputRef, outerRef);
 
-            const [innerValue, setInnerValue] = useState('');
+            const [innerValue, setInnerValue] = useState(defaultValue || '');
 
             const value = numericFormatter(String(outerValue ?? innerValue), {
                 thousandSeparator,
@@ -75,6 +76,7 @@ export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputC
             return (
                 <NumericFormat
                     value={value}
+                    disabled={disabled}
                     thousandSeparator={thousandSeparator}
                     decimalScale={decimalScale}
                     decimalSeparator={decimalSeparator}

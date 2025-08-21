@@ -99,28 +99,33 @@ export const ProductMainInfo = styled.a<{ alwaysShowIcon?: boolean }>`
     }
 `;
 
-export const ProductAdditionalInfo = styled.div`
+export const ProductAdditionalInfo = styled.div<{ isDraggable?: boolean }>`
     display: flex;
     gap: 1rem;
-    padding-left: 4rem;
-    
+
     overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-width: none;
-    
+
     ::-webkit-scrollbar {
         display: none;
     }
-    
-    ${multipleMediaQuery(['XL', 'L'])(css`
-        padding-left: 2.5rem;
-    `)}
 
-    ${multipleMediaQuery(['M'])(css`
-        padding-left: 1.75rem;
-    `)}
+    ${({ isDraggable }) =>
+        !isDraggable &&
+        css`
+            padding-left: 4rem;
 
-    ${multipleMediaQuery(['S'])(css`
-        padding-left: 1.25rem;
-    `)}
+            ${multipleMediaQuery(['XL', 'L'])(css`
+                padding-left: 2.5rem;
+            `)}
+
+            ${multipleMediaQuery(['M'])(css`
+                padding-left: 1.75rem;
+            `)}
+
+            ${multipleMediaQuery(['S'])(css`
+                padding-left: 1.25rem;
+            `)}
+        `}
 `;

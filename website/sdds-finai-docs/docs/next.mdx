@@ -1,0 +1,66 @@
+---
+id: next
+title: Работа с Next
+---
+Раздел описывает варианты и нюансы подключения библиотеки в рамках работы с `NextJs`.
+
+:::caution RSC - React Server Components (App router)
+    <p>Библиотека поддерживает работу с **RSC** только при **явном использовании** директивы **'use client'**.</p>
+
+```ts
+'use client'
+
+import { Button } from '@salutejs/sdds-finai';
+
+...
+```
+:::
+
+## Подключение тем
+
+Ниже представлены различные способы подключения темы в проект:
+
+### Styled Components
+
+:::info
+    Прежде всего убедитесь, что у вас правильно настроена работа со Styled Components.
+
+    Для справки: официальный [пример](https://github.com/vercel/next.js/tree/main/examples/with-styled-components) работающей реализации.
+:::
+
+```tsx
+import type { AppProps } from "next/app";
+import { sdds_finai__light } from '@salutejs/sdds-themes';
+import { createGlobalStyle } from "styled-components";
+
+const PlasmaTheme = createGlobalStyle(sdds_finai__light);
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+      <>
+        <PlasmaTheme />
+
+        <Component {...pageProps} />
+      </>
+  );
+}
+```
+
+## Работа с компонентами
+
+Библиотека поставляет компоненты в формате `Styled Components`.
+
+### Пример
+
+```jsx
+import React from 'react';
+import { Button } from '@salutejs/sdds-finai'
+
+export default function Home() {
+  return (
+    <div>
+        <Button>Button</Button>
+    </div>
+  );
+}
+```

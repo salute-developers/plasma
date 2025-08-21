@@ -1,0 +1,254 @@
+---
+id: tabs
+title: Tabs
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Tabs
+Набор компонентов для создания вкладок.
+Структура для вкладок похожа на структуру маркированных списков.
+
+## Tabs
+
+<Description name="Tabs" />
+<PropsTable name="Tabs" />
+
+## TabItem
+
+<Description name="TabItem" />
+<PropsTable name="TabItem" />
+
+:::caution Взаимоисключающие свойства
+Свойство `value` - это значение Tab. Оно отображается справа от основного текста.<br/>
+`value` и `contentRight` взаимоисключающие: если передано одно, второе передать нельзя.
+:::
+
+## TabsController (deprecated)
+Вместо этого используйте Tabs, TabItem, указав параметры index, itemIndex, onIndexChange.
+
+<Description name="TabsController" />
+<PropsTable name="TabsController" />
+
+## Использование
+
+### Стандартное подключение, без клавиатурной навигации
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem } from '@salutejs/sdds-finai';
+import { IconClock } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(4).fill(0);
+    const [index, setIndex] = useState(0);
+
+    return (
+        <div>
+            <Tabs view="filled" stretch size="xs">
+                {items.map((_, i) => (
+                    <TabItem
+                        view="secondary"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === index}
+                        tabIndex={0}
+                        contentLeft={<IconClock size="xs" color="inherit" />}
+                        onClick={() => setIndex(i)}
+                    >
+                        {`Label${i + 1}`}
+                    </TabItem>
+                ))}
+            </Tabs>
+        </div>
+    );
+}
+```
+
+### Расположение Tabs
+Компонент может быть горизонтальными (по умолчанию) и вертикальными. За это отвечает свойство `orientation`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem } from '@salutejs/sdds-finai';
+import { IconClock } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(8).fill(0);
+    const [index, setIndex] = useState(0);
+
+    return (
+        <div>
+            <Tabs view="divider" orientation="vertical" size="xs" style={{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <TabItem
+                        view="divider"
+                        orientation="vertical"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === index}
+                        tabIndex={0}
+                        contentLeft={<IconClock size="xs" color="inherit" />}
+                        onClick={() => setIndex(i)}
+                    >
+                        {`Label${i + 1}`}
+                    </TabItem>
+                ))}
+            </Tabs>
+        </div>
+    );
+}
+```
+
+### Пример с прокруткой
+При выборе Tab происходит прокрутка до выбранного TabItem.
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem, Button } from '@salutejs/sdds-finai';
+import { IconClock } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(8).fill(0);
+    const [index, setIndex] = useState(0);
+
+    const specificIndex = 6;
+
+    return (
+        <div style={{ display:'flex', flexDirection: 'column', gap: '1rem' }}>
+            <Tabs view="divider" size="xs" style={{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <TabItem
+                        view="divider"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === index}
+                        tabIndex={0}
+                        contentLeft={<IconClock size="xs" color="inherit" />}
+                        onClick={() => setIndex(i)}
+                    >
+                        {`Label${i + 1}`}
+                    </TabItem>
+                ))}
+            </Tabs>
+
+            <Button onClick={() => setIndex(specificIndex)}>{`Выбрать элемент ${specificIndex + 1}`}</Button>
+        </div>
+    );
+}
+```
+
+### Пример с Dropdown
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem, Dropdown } from '@salutejs/sdds-finai';
+
+export function App() {
+    const items = Array(8).fill(0);
+    const [index, setIndex] = useState(0);
+
+    const maxItemQuantity = 3;
+    const visibleItems = items.slice(0, maxItemQuantity);
+    const otherItems = items.slice(maxItemQuantity);
+
+    const dropdownItems = otherItems.map((_, i) => {
+        const itemIndex = maxItemQuantity + i;
+
+        return {
+            label: `Label${itemIndex + 1}`,
+            value: itemIndex,
+        };
+    });
+
+    return (
+        <div style={{ height: '15rem', alignItems: 'flex-start' }}>
+            <Tabs clip="showAll" view="divider" size="xs">
+                {visibleItems.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view="divider"
+                        selected={i === index}
+                        onClick={() => setIndex(i)}
+                        tabIndex={0}
+                        size="xs"
+                    >
+                        {`Label${i + 1}`}
+                    </TabItem>
+                ))}
+                {dropdownItems.length > 0 && (
+                    <div style={{ marginLeft: '1.75rem' }}>
+                        <Dropdown size="xs" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
+                            <TabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
+                                ShowAll
+                            </TabItem>
+                        </Dropdown>
+                    </div>
+                )}
+            </Tabs>
+        </div>
+    );
+}
+```
+
+### Подключение клавиатурной навигации
+Для этого необходимо дополнительно прокинуть свойства `index, itemIndex, onIndexChange`.<br/>
+Для горизонтальных Tabs: клавиши ArrowLeft, ArrowRight, Home, End для навигации по вкладкам.<br/>
+Для вертикальных Tabs: клавиши ArrowUp, ArrowDown, Home, End для навигации по вкладкам.
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem } from '@salutejs/sdds-finai';
+import { IconClock } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(4).fill(0);
+    const [horizontalIndex, setHorizontalIndex] = useState(0);
+    const [verticalIndex, setVerticalIndex] = useState(0);
+
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "50px"}}>
+            <div>
+                <Tabs view="divider" stretch size="xs" index={horizontalIndex}>
+                    {items.map((_, i) => (
+                        <TabItem
+                            view="divider"
+                            key={`item:${i}`}
+                            size="xs"
+                            itemIndex={i}
+                            onIndexChange={(i) => setHorizontalIndex(i)}
+                            selected={i === horizontalIndex}
+                            tabIndex={0}
+                            contentLeft={<IconClock size="xs" color="inherit" />}
+                            onClick={() => setHorizontalIndex(i)}
+                        >
+                            {`Label${i + 1}`}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </div>
+
+            <div>
+                <Tabs orientation="vertical" view="divider" size="xs" index={verticalIndex}>
+                    {items.map((_, i) => (
+                        <TabItem
+                            orientation="vertical"
+                            view="divider"
+                            key={`item:${i}`}
+                            size="xs"
+                            itemIndex={i}
+                            onIndexChange={(i) => setVerticalIndex(i)}
+                            selected={i === verticalIndex}
+                            tabIndex={0}
+                            contentLeft={<IconClock size="xs" color="inherit" />}
+                            onClick={() => setVerticalIndex(i)}
+                        >
+                            {`Label${i + 1}`}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </div>
+        </div>
+    );
+}
+```

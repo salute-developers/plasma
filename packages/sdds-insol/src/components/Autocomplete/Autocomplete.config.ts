@@ -336,7 +336,7 @@ export const config = {
 
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.padding}: 0.125rem;
-                ${tokens.itemPadding}: 1.188rem 1rem;
+                ${tokens.itemPadding}: 1rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
 
                 ${tokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -416,7 +416,7 @@ export const config = {
 
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.padding}: 0.125rem;
-                ${tokens.itemPadding}: 1.063rem 0.875rem;
+                ${tokens.itemPadding}: 0.875rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
 
                 ${tokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -498,7 +498,7 @@ export const config = {
 
                 ${tokens.borderRadius}: 0.625rem;
                 ${tokens.padding}: 0.125rem;
-                ${tokens.itemPadding}: 0.813rem 0.625rem;
+                ${tokens.itemPadding}: 0.75rem 0.625rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
 
                 ${tokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -578,7 +578,7 @@ export const config = {
 
                 ${tokens.borderRadius}: 0.5rem;
                 ${tokens.padding}: 0.125rem;
-                ${tokens.itemPadding}: 0.563rem 0.5rem;
+                ${tokens.itemPadding}: 0.5rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
 
                 ${tokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);

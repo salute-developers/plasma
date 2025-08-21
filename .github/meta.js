@@ -78,9 +78,9 @@ module.exports = {
         required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes'],
         themes: 'sdds-themes',
     },
-    'sdds-finportal': {
+    'sdds-finai': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes', 'sdds-themes'],
         themes: 'sdds-themes',
     },
     'sdds-insol': {

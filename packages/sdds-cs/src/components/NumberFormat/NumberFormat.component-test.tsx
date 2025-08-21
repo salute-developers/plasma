@@ -67,6 +67,23 @@ describe('sdds-cs: NumberFormat', () => {
         cy.matchImageSnapshot();
     });
 
+    it(':defaultValue', () => {
+        mount(
+            <CypressTestDecorator>
+                <NumberFormat
+                    label="Числовой формат"
+                    defaultValue="100000.23"
+                    textAfter="₽"
+                    thousandSeparator=" "
+                    decimalSeparator="."
+                    decimalScale={3}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it(':fixedDecimalScale', () => {
         mount(
             <CypressTestDecorator>

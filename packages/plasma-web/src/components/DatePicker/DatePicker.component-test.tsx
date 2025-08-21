@@ -371,13 +371,13 @@ describe('plasma-web: DatePicker', () => {
     });
 
     const ControlledDemo = () => {
-        const [date, setDate] = useState<Date | null>();
+        const [date, setDate] = useState<string | Date | undefined>();
 
         return (
             <>
                 <div>
                     <Button onClick={() => setDate(new Date(2024, 9, 15))}>Set date</Button>
-                    <Button className="reset-btn" onClick={() => setDate(null)}>
+                    <Button className="reset-btn" onClick={() => setDate('')}>
                         Reset date
                     </Button>
                 </div>
@@ -785,13 +785,13 @@ describe('plasma-web: DatePickerRange', () => {
     });
 
     const ControlledDemo = () => {
-        const [date, setDate] = useState<[Date | null, Date | null] | undefined>();
+        const [date, setDate] = useState<[Date | string, Date | string] | undefined>();
 
         return (
             <>
                 <div>
                     <Button onClick={() => setDate([new Date(2024, 9, 15), new Date(2024, 9, 25)])}>Set date</Button>
-                    <Button className="reset-btn" onClick={() => setDate([null, null])}>
+                    <Button className="reset-btn" onClick={() => setDate(['', ''])}>
                         Reset date
                     </Button>
                 </div>

@@ -1,0 +1,366 @@
+---
+id: tree
+title: Tree
+---
+
+import { PropsTable } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Tree
+Многоуровневый раскрывающийся список в виде дерева с возможностью выбора (selection) и выделения (checkbox).
+
+<PropsTable name="Tree" />
+
+Обязательным параметром является только массив `items`. Формат следующий:
+
+```tsx
+type TreeItem = {
+    /**
+     * Уникальный идентификатор элемента.
+     */
+    key: React.Key;
+    /**
+     * Заголовок элемента.
+     */
+    title?: React.ReactNode | ((data: TreeItem) => React.ReactNode);
+    /**
+     * Classname для текущего элемента.
+     */
+    className?: string;
+    /**
+     * Стиль для текущего элемента.
+     */
+    style?: React.CSSProperties;
+    /**
+     * Флаг выключения элемента.
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * Иконка для текущего элемента.
+     */
+    icon?: React.ReactNode;
+    /**
+     * Дочерние items.
+     */
+    children?: TreeItem[];
+    /**
+     * Контент справа.
+     */
+    contentRight?: React.ReactNode;
+};
+```
+
+## Примеры
+
+<Tabs>
+    <TabItem value="uncontrolled" label="Uncontrolled" default>
+        ```tsx live
+        import React from 'react';
+        import { Tree } from '@salutejs/sdds-finai';
+
+        export function App() {
+            const treeData = [
+                {
+                    title: 'Основной каталог',
+                    key: '0-0',
+                    children: [
+                        {
+                            title: 'Документы',
+                            key: '0-0-0',
+                            children: [
+                                {
+                                    title: 'Отчёты',
+                                    key: '0-0-0-0',
+                                    disabled: true,
+                                },
+                                {
+                                    title: 'Проекты',
+                                    key: '0-0-0-1',
+                                    children: [
+                                        {
+                                            title: 'Проект Альфа',
+                                            key: '0-0-0-1-0',
+                                        },
+                                        {
+                                            title: 'Проект Бета',
+                                            key: '0-0-0-1-1',
+                                        },
+                                    ],
+                                },
+                                {
+                                    title: 'Категории',
+                                    key: '0-0-0-2',
+                                    children: [
+                                        {
+                                            title: 'Категория Гамма',
+                                            key: '0-0-0-2-0',
+                                        },
+                                        {
+                                            title: 'Категория Дельта',
+                                            key: '0-0-0-2-1',
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: 'Медиа',
+                            key: '0-0-1',
+                            children: [
+                                {
+                                    title: 'Фотографии',
+                                    key: '0-0-1-0',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    title: 'Корзина',
+                    key: '0-1',
+                    children: [
+                        {
+                            title: 'Удалённые файлы',
+                            key: '0-1-0',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: 'block' }}>
+                    <Tree items={treeData} defaultExpandAll />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="controlled" label="Controlled">
+        ```tsx live
+        import React from 'react';
+        import { Tree } from '@salutejs/sdds-finai';
+
+        export function App() {
+            const treeData = [
+                {
+                    title: 'Основной каталог',
+                    key: '0-0',
+                    children: [
+                        {
+                            title: 'Документы',
+                            key: '0-0-0',
+                            children: [
+                                {
+                                    title: 'Отчёты',
+                                    key: '0-0-0-0',
+                                    disabled: true,
+                                },
+                                {
+                                    title: 'Проекты',
+                                    key: '0-0-0-1',
+                                    children: [
+                                        {
+                                            title: 'Проект Альфа',
+                                            key: '0-0-0-1-0',
+                                        },
+                                        {
+                                            title: 'Проект Бета',
+                                            key: '0-0-0-1-1',
+                                        },
+                                    ],
+                                },
+                                {
+                                    title: 'Категории',
+                                    key: '0-0-0-2',
+                                    children: [
+                                        {
+                                            title: 'Категория Гамма',
+                                            key: '0-0-0-2-0',
+                                        },
+                                        {
+                                            title: 'Категория Дельта',
+                                            key: '0-0-0-2-1',
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: 'Медиа',
+                            key: '0-0-1',
+                            children: [
+                                {
+                                    title: 'Фотографии',
+                                    key: '0-0-1-0',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    title: 'Корзина',
+                    key: '0-1',
+                    children: [
+                        {
+                            title: 'Удалённые файлы',
+                            key: '0-1-0',
+                        },
+                    ],
+                },
+            ];
+
+            const [expanded, setExpanded] = React.useState<React.Key[]>([]);
+            const [checked, setChecked] = React.useState<React.Key[]>([]);
+            const [selected, setSelected] = React.useState<React.Key[]>([]);
+
+            return (
+                <div style={{ display: 'block' }}>
+                    <Tree
+                        items={treeData}
+                        checkable
+                        expandedKeys={expanded}
+                        onTreeExpand={setExpanded}
+                        checkedKeys={checked}
+                        onTreeCheck={setChecked}
+                        selectedKeys={selected}
+                        onTreeSelect={setSelected}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="virtual" label="Virtual">
+        Для включения виртуализации обязательными являются 2 свойства: `height` и `itemHeight`. \
+        Также есть опциональный флаг для явного отключения/включения виртуализации: `virtual`.
+
+        ```tsx live
+        import React from 'react';
+        import { Tree } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: 'block' }}>
+                    <Tree
+                        items={Array(1000)
+                            .fill(1)
+                            .map((_, i) => ({ key: i.toString(), title: i.toString() }))}
+                        height={400}
+                        itemHeight={48}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Пример с autoExpandParent
+
+Иногда может возникнуть необходимость раскрыть дерево до нужного ключа пробросив только его в поле `expanded`. В стандартном сценарии ничего не произойдет, т.к. вышестоящие уровни будут закрыты.
+Поэтому данное поведение можно реализовать с помощью свойства `autoExpandParent`.
+
+```tsx live
+import React from 'react';
+import { Tree, Button } from '@salutejs/sdds-finai';
+
+export function App() {
+    const [expanded, setExpanded] = React.useState<React.Key[]>([]);
+    const [autoExpandParent, setAutoExpandParent] = React.useState<boolean>(true);
+
+    const treeData = [
+        {
+            title: 'Основной каталог',
+            key: '0-0',
+            children: [
+                {
+                    title: 'Документы',
+                    key: '0-0-0',
+                    children: [
+                        {
+                            title: 'Отчёты',
+                            key: '0-0-0-0',
+                            disabled: true,
+                        },
+                        {
+                            title: 'Проекты',
+                            key: '0-0-0-1',
+                            children: [
+                                {
+                                    title: 'Проект Альфа',
+                                    key: '0-0-0-1-0',
+                                },
+                                {
+                                    title: 'Проект Бета',
+                                    key: '0-0-0-1-1',
+                                },
+                            ],
+                        },
+                        {
+                            title: 'Категории',
+                            key: '0-0-0-2',
+                            children: [
+                                {
+                                    title: 'Категория Гамма',
+                                    key: '0-0-0-2-0',
+                                },
+                                {
+                                    title: 'Категория Дельта',
+                                    key: '0-0-0-2-1',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    title: 'Медиа',
+                    key: '0-0-1',
+                    children: [
+                        {
+                            title: 'Фотографии',
+                            key: '0-0-1-0',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            title: 'Корзина',
+            key: '0-1',
+            children: [
+                {
+                    title: 'Удалённые файлы',
+                    key: '0-1-0',
+                },
+            ],
+        },
+    ];
+
+    const handleExpand = (expandedValue) => {
+        setAutoExpandParent(false);
+        setExpanded(expandedValue);
+    };
+
+    return (
+        <div style={{ display: 'flex', gap: '50px' }}>
+            <Button
+                onClick={() => {
+                    setAutoExpandParent(true);
+                    setExpanded(['0-0-0']);
+                }}
+            >
+                Открыть уровень "Документы"
+            </Button>
+
+            <Tree
+                items={treeData}
+                expandedKeys={expanded}
+                onTreeExpand={handleExpand}
+                autoExpandParent={autoExpandParent}
+            />
+        </div>
+    );
+}
+```
