@@ -1,3 +1,80 @@
+## 1.592.0 (21 августа 2025)
+
+## Функциональные изменения в компонентах
+
+### DatePicker
+
+* добавлено свойство `preserveInvalidOnBlur`, которое отключает сброс некорректных значений из поля ввода
+
+[PR](https://github.com/salute-developers/plasma/pull/2134)
+
+* исправлен `controlled` вариант `DatePicker`
+
+[PR](https://github.com/salute-developers/plasma/pull/2148)
+
+### NumberFormat
+
+* добавлена поддержка `defaultValue`
+
+[PR](https://github.com/salute-developers/plasma/pull/2138)
+
+* добавлена функция `numberFormatter`, которая приводит число к нужному формату
+
+[PR](https://github.com/salute-developers/plasma/pull/2137)
+
+### Pagination
+
+* исправлен `controlled` вариант
+
+[PR](https://github.com/salute-developers/plasma/pull/2141)
+
+* отключено взаимодействие с текущей выбранной страницей;
+
+[PR](https://github.com/salute-developers/plasma/pull/2160)
+
+### NumberInput
+
+* расширен тип `value` до `number | string | undefined` для поддержки пустых значений
+
+[PR](https://github.com/salute-developers/plasma/pull/2135)
+
+### InformationWrapper
+
+* добавлен компонент-обертка для элементов формы
+
+[PR](https://github.com/salute-developers/plasma/pull/2065)
+
+### Dropdown, Combobox
+
+* исправлен баг в свойстве `alwaysOpened`, из-за которого приходилось делать двойные нажатия для открытия дочерних списков;
+
+[PR](https://github.com/salute-developers/plasma/pull/2152)
+
+### Modal, Popup
+
+* исправлен раздел документации связанный со свойством resizable
+
+[PR](https://github.com/salute-developers/plasma/pull/2158)
+
+### Switch
+
+* тип свойства `label` расширен до `ReactNode`
+
+[PR](https://github.com/salute-developers/plasma/pull/2157)
+
+### TextField
+
+* свойства, связанные с `chip` помечены как deprecated;
+
+[PR](https://github.com/salute-developers/plasma/pull/2133)
+
+### Spinner
+
+* свойство size теперь union type и может быть как string, так и number
+
+[PR](https://github.com/salute-developers/plasma/pull/2156)
+
+
 ## 1.590.0 (7 августа 2025)
 
 ## Функциональные изменения в компонентах

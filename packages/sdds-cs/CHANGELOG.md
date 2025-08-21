@@ -1,3 +1,153 @@
+## 0.326.0 (21 августа 2025)
+
+## Функциональные изменения в компонентах
+
+### DatePicker
+
+* добавлено свойство `preserveInvalidOnBlur`, которое отключает сброс некорректных значений из поля ввода
+
+[PR](https://github.com/salute-developers/plasma/pull/2134)
+
+* исправлен `controlled` вариант `DatePicker`
+
+[PR](https://github.com/salute-developers/plasma/pull/2148)
+
+### NumberFormat
+
+* добавлена поддержка `defaultValue`
+
+[PR](https://github.com/salute-developers/plasma/pull/2138)
+
+* добавлена функция `numberFormatter`, которая приводит число к нужному формату
+
+[PR](https://github.com/salute-developers/plasma/pull/2137)
+
+### Pagination
+
+* исправлен `controlled` вариант
+
+[PR](https://github.com/salute-developers/plasma/pull/2141)
+
+* отключено взаимодействие с текущей выбранной страницей;
+
+[PR](https://github.com/salute-developers/plasma/pull/2160)
+
+### NumberInput
+
+* расширен тип `value` до `number | string | undefined` для поддержки пустых значений
+
+[PR](https://github.com/salute-developers/plasma/pull/2135)
+
+### InformationWrapper
+
+* добавлен компонент-обертка для элементов формы
+
+[PR](https://github.com/salute-developers/plasma/pull/2065)
+
+### Dropdown, Combobox
+
+* исправлен баг в свойстве `alwaysOpened`, из-за которого приходилось делать двойные нажатия для открытия дочерних списков;
+
+[PR](https://github.com/salute-developers/plasma/pull/2152)
+
+### Modal, Popup
+
+* исправлен раздел документации связанный со свойством resizable
+
+[PR](https://github.com/salute-developers/plasma/pull/2158)
+
+### Switch
+
+* тип свойства `label` расширен до `ReactNode`
+
+[PR](https://github.com/salute-developers/plasma/pull/2157)
+
+### TextField
+
+* свойства, связанные с `chip` помечены как deprecated;
+
+[PR](https://github.com/salute-developers/plasma/pull/2133)
+
+### Spinner
+
+* свойство size теперь union type и может быть как string, так и number
+
+[PR](https://github.com/salute-developers/plasma/pull/2156)
+
+## Изменения в библиотеки
+
+### Card
+
+* Добавлены примеры использования компонента
+
+[PR](https://github.com/salute-developers/plasma/pull/2009)
+
+### Rating
+
+* Добавлен в поставку
+
+[PR](https://github.com/salute-developers/plasma/pull/2009)
+
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+<details>
+  <summary>📦 Published PR as canary version: <code>Canary Versions</code></summary>
+  <br />
+
+:sparkles: Test out this PR locally via:
+
+```bash
+npm install @salutejs/plasma-asdk@0.349.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-b2c@1.591.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-core@1.207.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-giga@0.318.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-hope@1.352.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-new-hope@0.335.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-tokens@1.122.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-ui@1.328.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-web@1.593.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-bizcom@0.323.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-crm@0.322.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-cs@0.327.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-dfa@0.321.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-finai@0.314.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-finportal@0.314.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-insol@0.318.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-netology@0.322.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-scan@0.321.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-serv@0.322.0-canary.2164.17120159422.0
+npm install @salutejs/sdds-themes@0.47.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-cy-utils@0.137.0-canary.2164.17120159422.0
+npm install @salutejs/plasma-sb-utils@0.207.0-canary.2164.17120159422.0
+# or 
+yarn add @salutejs/plasma-asdk@0.349.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-b2c@1.591.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-core@1.207.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-giga@0.318.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-hope@1.352.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-new-hope@0.335.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-tokens@1.122.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-ui@1.328.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-web@1.593.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-bizcom@0.323.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-crm@0.322.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-cs@0.327.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-dfa@0.321.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-finai@0.314.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-finportal@0.314.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-insol@0.318.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-netology@0.322.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-scan@0.321.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-serv@0.322.0-canary.2164.17120159422.0
+yarn add @salutejs/sdds-themes@0.47.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-cy-utils@0.137.0-canary.2164.17120159422.0
+yarn add @salutejs/plasma-sb-utils@0.207.0-canary.2164.17120159422.0
+```
+
+</details>
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+
 ## 0.324.0 (7 августа 2025)
 
 ## Функциональные изменения в компонентах

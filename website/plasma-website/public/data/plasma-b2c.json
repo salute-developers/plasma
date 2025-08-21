@@ -1,4 +1,125 @@
 {
+  "1.590.0": {
+    "date": "2025-08-21",
+    "core": [
+      {
+        "component": "DatePicker",
+        "children": [
+          {
+            "text": "добавлено свойство `preserveInvalidOnBlur`, которое отключает сброс некорректных значений из поля ввода",
+            "link": "https://github.com/salute-developers/plasma/pull/2134",
+            "id": 2134
+          },
+          {
+            "text": "исправлен `controlled` вариант `DatePicker`",
+            "link": "https://github.com/salute-developers/plasma/pull/2148",
+            "id": 2148
+          }
+        ]
+      },
+      {
+        "component": "NumberFormat",
+        "children": [
+          {
+            "text": "добавлена поддержка `defaultValue`",
+            "link": "https://github.com/salute-developers/plasma/pull/2138",
+            "id": 2138
+          },
+          {
+            "text": "добавлена функция `numberFormatter`, которая приводит число к нужному формату",
+            "link": "https://github.com/salute-developers/plasma/pull/2137",
+            "id": 2137
+          }
+        ]
+      },
+      {
+        "component": "Pagination",
+        "children": [
+          {
+            "text": "исправлен `controlled` вариант",
+            "link": "https://github.com/salute-developers/plasma/pull/2141",
+            "id": 2141
+          },
+          {
+            "text": "отключено взаимодействие с текущей выбранной страницей;",
+            "link": "https://github.com/salute-developers/plasma/pull/2160",
+            "id": 2160
+          }
+        ]
+      },
+      {
+        "component": "NumberInput",
+        "children": [
+          {
+            "text": "расширен тип `value` до `number | string | undefined` для поддержки пустых значений",
+            "link": "https://github.com/salute-developers/plasma/pull/2135",
+            "id": 2135
+          }
+        ]
+      },
+      {
+        "component": "InformationWrapper",
+        "children": [
+          {
+            "text": "добавлен компонент-обертка для элементов формы",
+            "link": "https://github.com/salute-developers/plasma/pull/2065",
+            "id": 2065
+          }
+        ]
+      },
+      {
+        "component": "Dropdown, Combobox",
+        "children": [
+          {
+            "text": "исправлен баг в свойстве `alwaysOpened`, из-за которого приходилось делать двойные нажатия для открытия дочерних списков;",
+            "link": "https://github.com/salute-developers/plasma/pull/2152",
+            "id": 2152
+          }
+        ]
+      },
+      {
+        "component": "Modal, Popup",
+        "children": [
+          {
+            "text": "исправлен раздел документации связанный со свойством resizable",
+            "link": "https://github.com/salute-developers/plasma/pull/2158",
+            "id": 2158
+          }
+        ]
+      },
+      {
+        "component": "Switch",
+        "children": [
+          {
+            "text": "тип свойства `label` расширен до `ReactNode`",
+            "link": "https://github.com/salute-developers/plasma/pull/2157",
+            "id": 2157
+          }
+        ]
+      },
+      {
+        "component": "TextField",
+        "children": [
+          {
+            "text": "свойства, связанные с `chip` помечены как deprecated;",
+            "link": "https://github.com/salute-developers/plasma/pull/2133",
+            "id": 2133
+          }
+        ]
+      },
+      {
+        "component": "Spinner",
+        "children": [
+          {
+            "text": "свойство size теперь union type и может быть как string, так и number",
+            "link": "https://github.com/salute-developers/plasma/pull/2156",
+            "id": 2156
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "1.588.0": {
     "date": "2025-08-07",
     "core": [
