@@ -7,14 +7,56 @@ import { PropsTable, Description } from '@site/src/components';
 
 # Attach
 <Description name="Attach" />
-<PropsTable name="Attach" />
 
-## Примеры
+### Быстрый старт
 
-### Подсказка к кнопке
-Вид `helperText` задается с помощью свойства `helperTextView`. Возможные значения свойства:
-+ `"default"` – по умолчанию;
-+ `"negative"` – ошибка.
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/sdds-crm';
+
+export function App() {
+    const handleFileSelect = (event) => {
+        const file = event.target.files[0];
+        console.log('Выбран файл:', file.name);
+    };
+
+    return (
+        <Attach
+            view="accent"
+            text="Upload file"
+            onChange={handleFileSelect}
+        />
+    );
+}
+```
+
+### Управление внешним видом и типом компонента
+
+С помощью свойств:
+- `view` - задается внешний вид
+- `buttonType` - можно менять вид кнопки: `button`, `iconButton`
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/sdds-crm';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px"}}>
+            <Attach view="accent" buttonType='button' text="Upload file" />
+            <Attach view="secondary" buttonType='iconButton'/>
+        </div>
+    );
+}
+```
+
+### Управление подсказкой с помощью свойства helperText
+
+Вид `helperText` задается с помощью свойства `helperTextView`.
+
+Возможные значения свойства:
++ `default` – по умолчанию;
++ `negative` – ошибка.
 
 ```tsx live
 import React from 'react';
@@ -23,32 +65,16 @@ import { Attach } from '@salutejs/sdds-crm';
 export function App() {
     return (
         <div style={{ padding: "1rem" }}>
-            <Attach helperTextView="default" helperText="Подсказка" />
-            <Attach helperTextView="negative" helperText="Подсказка" />
-        </div>
-    );
-}
-```
-
-### Вид кнопки
-С помощью свойства `buttonType` можно менять вид кнопки: обычный или с иконкой.
-
-```tsx live
-import React from 'react';
-import { Attach } from '@salutejs/sdds-crm';
-
-export function App() {
-    return (
-        <div style={{ display: "flex", flexDirection: "column", gap: "50px"}}>
-            <Attach view="accent" buttonType={'button'} />
-            <Attach view="secondary" buttonType={'iconButton'} />
+            <Attach helperTextView="default" helperText="Caption" />
+            <Attach helperTextView="negative" helperText="Caption" />
         </div>
     );
 }
 ```
 
 ### Расположение элементов
-C помощью свойства `flow` можно регулировать расположение элементов в зависимости от ширины контейнера.
+Расположение регулируется свойством Flow, которое позволяет размещать элементы вертикально,
+горизонтально или автоматически (перенес на следующую строку при нехватке ширины компонента Attach).
 
 ```tsx live
 import React from 'react';
@@ -57,15 +83,16 @@ import { Attach } from '@salutejs/sdds-crm';
 export function App() {
     return (
         <div style={{ display: "flex", flexDirection: "column", gap: "50px"}}>
-            <Attach style={{ width: "400px" }} flow="auto" />
-            <Attach style={{ width: "400px" }} flow="horizontal" />
-            <Attach style={{ width: "400px" }} flow="vertical" />
+            <Attach style={{ width: "400px" }} helperText='Auto' flow="auto" />
+            <Attach style={{ width: "400px" }} helperText='Horizontal' flow="horizontal" />
+            <Attach style={{ width: "400px" }} helperText='Vertical' flow="vertical" />
         </div>
     );
 }
 ```
 
 ### Фильтр форматов файлов
+
 Свойство `acceptedFileFormats` устанавливает доступные форматы файлов.
 
 ```tsx live
@@ -73,22 +100,37 @@ import React from 'react';
 import { Attach } from '@salutejs/sdds-crm';
 
 export function App() {
+    const handleFileSelect = (event) => {
+        const file = event.target.files[0];
+        console.log('Выбран файл:', file.name);
+    };
+
     return (
-        <div>
-            <Attach acceptedFileFormats={['.pdf', '.doc']} />
-        </div>
+        <Attach
+            acceptedFileFormats={['.pdf', '.doc']}
+            view="accent"
+            text="Upload file"
+            onChange={handleFileSelect}
+        />
     );
 }
 ```
 
-### Пример использования в форме
+### Пример взаимодействия с формой
+
+:::tip
+С помощью компонента `InformationWrapper`можно добавить весь необходимый UX/UI для работы с формой, включая:
+- обязательность поле
+- label, caption, hint, etc
+- view
+:::
+
 
 ```tsx live
 import React, { useState } from 'react';
-import { Attach, Button } from '@salutejs/sdds-crm';
+import { Attach, Button, InformationWrapper, outlineSolidPrimary } from '@salutejs/sdds-crm';
 
 function App() {
-    const ids = ['0', '1', '2'];
     const [isLoading, setIsLoading] = useState(false);
     const [attachedFiles, setAttachedFiles] = useState([]);
 
@@ -109,7 +151,7 @@ function App() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsLoading(true);
-  
+
         const formData = new FormData(e.target);
         console.log('formData', Object.fromEntries(formData));
 
@@ -121,31 +163,56 @@ function App() {
 
     return (
         <>
-            <span>{isLoading ? 'Форма отправляется' : 'Прикрепленные файлы:'}</span>
-            {!isLoading && attachedFiles.length > 0 && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
-                    {attachedFiles.map((file) => (
-                        <span>{file.fileData.name}</span>
-                    ))}
-                </div>
-            )}
-
             {!isLoading && (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-                    {ids.map((id) => (
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px', padding: '16px 18px', border: `1px dashed ${outlineSolidPrimary}` }}>
+                    <InformationWrapper labelHtmlFor={`example-id-attach-1`} label="Label" hasRequiredIndicator leftHelper="Caption" titleCaption="Title Caption">
                         <Attach
-                            id={id}
-                            name={`attach${id}`}
-                            text={`Загрузить файл ${id}`}
+                            id={`example-id-attach-1`}
+                            name={`attach-1`}
+                            text={`Upload avatar`}
                             onChange={handleAttachFile}
-                            onClear={() => handleAttachClear(id)}
+                            onClear={() => handleAttachClear('1')}
+                            view="accent"
                         />
-                    ))}
-
-                    <Button type="submit">Отправить</Button>
+                   </InformationWrapper>
+                    <InformationWrapper
+                        labelHtmlFor={`example-id-attach-2`}
+                        label="Label"
+                        leftHelper="Caption"
+                        titleCaption="Title Caption"
+                        hintText='Example hint text'
+                    >
+                        <Attach
+                            id={`example-id-attach-2`}
+                            name={`attach-2`}
+                            text={`Upload config`}
+                            onChange={handleAttachFile}
+                            onClear={() => handleAttachClear('2')}
+                            view="accent"
+                        />
+                   </InformationWrapper>
+                   <Button style={{ alignSelf: 'end' }} type="submit">Submit</Button>
                 </form>
             )}
+
+            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem', margin: '16px 0 0 0', border: '1px dashed gray' }}>
+              <span>
+                {isLoading ? 'Форма отправляется' : 'Прикрепленные к форме файлы:'}
+              </span>
+
+              {!isLoading && attachedFiles.length > 0 && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    {attachedFiles.map((file) => (
+                        <div>{file.fileData.name}</div>
+                    ))}
+                </div>
+              )}
+            </div>
         </>
     );
 }
 ```
+
+## Props
+
+<PropsTable name="Attach" />
