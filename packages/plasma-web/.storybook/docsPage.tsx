@@ -1,4 +1,4 @@
-import { ArgsTable, Description, Primary, PRIMARY_STORY, Subtitle, Title } from '@storybook/addon-docs';
+import { Description, Primary, PRIMARY_STORY, Subtitle, Title } from '@storybook/addon-docs/blocks';
 
 export const docsPage = () => (
     <>
@@ -6,6 +6,5 @@ export const docsPage = () => (
         <Subtitle />
         <Description />
         <Primary />
-        <ArgsTable story={PRIMARY_STORY} />
     </>
 );
