@@ -24,7 +24,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                package: [ b2c, web ]
+                package: [ plasma-b2c, plasma-web, plasma-giga, sdds-crm, sdds-cs, sdds-dfa, sdds-finai, sdds-insol, sdds-netology, sdds-scan, sdds-serv ]
         steps:
             -   uses: actions/checkout@v4
                 with:
@@ -39,5 +39,5 @@ jobs:
                         -e TYPESENSE_PORT=443 \
                         -e TYPESENSE_PROTOCOL=https \
                         -e CONFIG=/config.json \
-                        -v ./website/plasma-${{ matrix.package }}-docs/typesense-scraper-config.json:/config.json \
+                        -v ./website/${{ matrix.package }}-docs/typesense-scraper-config.json:/config.json \
                         typesense/docsearch-scraper:0.11.0
