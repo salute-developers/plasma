@@ -1,4 +1,4 @@
-import { Description, Primary, Subtitle, Title, Controls } from '@storybook/addon-docs';
+import { Description, Primary, Subtitle, Title, Controls } from '@storybook/addon-docs/blocks';
 
 export const docsPage = () => (
     <>
