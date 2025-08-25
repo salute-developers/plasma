@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
-import { IconDone } from '@salutejs/plasma-icons';
+import { IconDone, IconClose } from '@salutejs/plasma-icons';
 
 import { Counter } from '../Counter/Counter';
 
@@ -154,6 +154,22 @@ describe('plasma-giga: Tabs', () => {
                 <Tabs size="h3" forwardedAs="ul">
                     {items.map((item, i) => (
                         <TabItem size="h3" key={i} isActive={i === 1} forwardedAs="li">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_actionContent', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs>
+                    {items.map((item, i) => (
+                        <TabItem key={i} isActive={i === 1} actionContent={<IconClose color="inherit" />}>
                             {item.label}
                         </TabItem>
                     ))}

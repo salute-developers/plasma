@@ -135,6 +135,8 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tabsTokens.actionContentMarginLeft}: 0;
             `,
             s: css`
                 ${tabsTokens.itemBorderRadius}: 0.5rem;
@@ -152,6 +154,8 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
             m: css`
                 ${tabsTokens.itemBorderRadius}: 0.625rem;
@@ -169,6 +173,8 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tabsTokens.actionContentMarginLeft}: 0.25rem;
             `,
             l: css`
                 ${tabsTokens.itemBorderRadius}: 0.75rem;
@@ -186,6 +192,8 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
             h5: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
@@ -201,6 +209,8 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-h5-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h5-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h5-line-height);
+
+                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
             h4: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
@@ -216,6 +226,8 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-h4-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h4-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h4-line-height);
+
+                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
             h3: css`
                 ${tabsTokens.itemBorderRadius}: 0.5rem;
@@ -231,6 +243,8 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-h3-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h3-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h3-line-height);
+
+                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
             h2: css`
                 ${tabsTokens.itemBorderRadius}: 0.625rem;
@@ -246,6 +260,8 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-h2-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h2-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h2-line-height);
+
+                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
             h1: css`
                 ${tabsTokens.itemBorderRadius}: 0.75rem;
@@ -261,6 +277,8 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-h1-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h1-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h1-line-height);
+
+                ${tabsTokens.actionContentMarginLeft}: 0;
             `,
         },
         disabled: {

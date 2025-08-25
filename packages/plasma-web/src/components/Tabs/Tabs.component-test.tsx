@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
+import { IconClose } from '@salutejs/plasma-icons';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
@@ -34,6 +35,22 @@ describe('plasma-web: Tabs', () => {
         );
 
         cy.get('div > button:nth-child(2)').focus();
+        cy.matchImageSnapshot();
+    });
+
+    it('_actionContent', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tabs>
+                    {items.map((item, i) => (
+                        <TabItem key={i} selected={i === 1} actionContent={<IconClose color="inherit" />}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecoratorWithTypo>,
+        );
+
         cy.matchImageSnapshot();
     });
 
@@ -127,6 +144,7 @@ describe('plasma-web: Tabs', () => {
             </CypressTestDecorator>,
         );
 
+        cy.get('button').contains('Sber').click();
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(1000);
         cy.get('button').contains('Joy').should('not.be.visible');
