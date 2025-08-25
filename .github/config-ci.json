@@ -16,5 +16,18 @@
         "sdds-netology",
         "sdds-scan",
         "sdds-bizcom"
+    ],
+    "PACKAGES_TYPESENSE": [
+        "plasma-b2c",
+        "plasma-web",
+        "plasma-giga",
+        "sdds-crm",
+        "sdds-cs",
+        "sdds-dfa",
+        "sdds-finai",
+        "sdds-insol",
+        "sdds-netology",
+        "sdds-scan",
+        "sdds-serv"
     ]
 }
