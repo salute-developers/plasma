@@ -31,11 +31,15 @@ export const usePopupContext = () => useContext(PopupContext);
 export const PopupProvider: FC<
     PropsWithChildren & {
         /**
+         * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
+         */
+        providerFrame?: 'document' | string | React.RefObject<HTMLElement>;
+        /**
          * @description Только для применения в рамках SSR.
          */
         UNSAFE_SSR_ENABLED?: boolean;
     }
-> = ({ children, UNSAFE_SSR_ENABLED }) => {
+> = ({ children, providerFrame, UNSAFE_SSR_ENABLED }) => {
     const prevBodyOverflowY = useRef(canUseDOM ? document.body.style.overflowY : '');
     const [items, setItems] = useState(initialItems);
 
@@ -90,6 +94,33 @@ export const PopupProvider: FC<
         unregister,
     };
 
+    const getDefaultPortal = () => {
+        if (typeof providerFrame !== 'string' && providerFrame && providerFrame.current && canUseDOM) {
+            return (
+                <Portal container={providerFrame.current}>
+                    <StyledPortal id={rootId} />
+                </Portal>
+            );
+        }
+
+        const withFrameId = typeof providerFrame === 'string' && providerFrame !== 'document';
+        const containerElement = withFrameId && canUseDOM && document.getElementById(providerFrame as string);
+
+        if (containerElement) {
+            return (
+                <Portal container={containerElement}>
+                    <StyledPortal id={rootId} />
+                </Portal>
+            );
+        }
+
+        return (
+            <Portal container={document.body}>
+                <StyledPortal id={rootId} />
+            </Portal>
+        );
+    };
+
     return (
         <PopupContext.Provider value={context}>
             {children}
@@ -99,9 +130,7 @@ export const PopupProvider: FC<
                     <StyledPortal id={rootId} />
                 </ClientOnlyPortal>
             ) : (
-                <Portal container={document.body}>
-                    <StyledPortal id={rootId} />
-                </Portal>
+                getDefaultPortal()
             )}
         </PopupContext.Provider>
     );
