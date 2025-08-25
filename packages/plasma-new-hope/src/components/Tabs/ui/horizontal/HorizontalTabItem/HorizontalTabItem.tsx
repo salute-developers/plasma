@@ -11,7 +11,14 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import { base as disabledCSS } from './variations/_disabled/base';
-import { LeftContent, RightContent, StyledContent, TabItemValue, base } from './HorizontalTabItem.styles';
+import {
+    ActionContent,
+    LeftContent,
+    RightContent,
+    StyledContent,
+    TabItemValue,
+    base,
+} from './HorizontalTabItem.styles';
 
 export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, HorizontalTabItemProps>) =>
     forwardRef<HTMLDivElement, HorizontalTabItemProps>((props, outerRef) => {
@@ -26,6 +33,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
             value,
             contentLeft,
             contentRight,
+            actionContent,
             animated = true,
             onIndexChange,
             itemIndex,
@@ -143,6 +151,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
                     {!value && contentRight && (
                         <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>
                     )}
+                    {actionContent && <ActionContent>{actionContent}</ActionContent>}
                 </>
             </Root>
         );

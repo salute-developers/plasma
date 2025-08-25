@@ -38,6 +38,10 @@ export interface BaseTabItemProps extends ButtonHTMLAttributes<HTMLButtonElement
      * Контент справа
      */
     contentRight?: ReactNode;
+    /**
+     * Слот для интерактивных элементов (крестик)
+     */
+    actionContent?: ReactNode;
 
     /**
      * Callback, необходимый для клавиатурной навигации

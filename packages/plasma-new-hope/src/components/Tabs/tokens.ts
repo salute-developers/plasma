@@ -101,4 +101,6 @@ export const tokens = {
     valueFontWeight: '--plasma-tab-item-value-font-weight',
     valueLetterSpacing: '--plasma-tab-item-value-letter-spacing',
     valueLineHeight: '--plasma-tab-item-value-lineheight',
+
+    actionContentMarginLeft: '--plasma-tab-item-action-content-margin-left',
 };
