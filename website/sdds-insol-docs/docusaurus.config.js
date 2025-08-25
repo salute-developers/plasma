@@ -13,7 +13,7 @@ const pckgJson = require('./package.json');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const versionsArchived = require('./versionsArchived.json');
 
-const { VERSION_NAME, PREFIX = '' } = process.env;
+const { VERSION_NAME, PREFIX = '', TYPESENSE_KEY = '', TYPESENSE_SERVICE_HOSTNAME = '' } = process.env;
 const defaultUrl = PREFIX ? `/${PREFIX}/sdds-insol/` : '/sdds-insol/';
 const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : defaultUrl;
 
@@ -29,7 +29,7 @@ module.exports = {
     organizationName: 'Salute-Developers',
     projectName: 'sdds-insol',
     trailingSlash: true,
-    themes: ['@docusaurus/theme-live-codeblock'],
+    themes: ['@docusaurus/theme-live-codeblock', 'docusaurus-theme-search-typesense'],
     future: {
         experimental_faster: true,
     },
@@ -79,6 +79,28 @@ module.exports = {
             // Whether to use the prefers-color-scheme media-query,
             // using user system preferences, instead of the hardcoded defaultMode.
             respectPrefersColorScheme: true,
+        },
+        typesense: {
+            // Replace this with the name of your index/collection.
+            // It should match the "index_name" entry in the scraper's "config.json" file.
+            typesenseCollectionName: 'insol',
+
+            typesenseServerConfig: {
+                nodes: [
+                    {
+                        host: TYPESENSE_SERVICE_HOSTNAME,
+                        port: 443,
+                        protocol: 'https',
+                    },
+                ],
+                apiKey: TYPESENSE_KEY,
+            },
+
+            // Optional: Typesense search parameters: https://typesense.org/docs/0.24.0/api/search.html#search-parameters
+            typesenseSearchParameters: {},
+
+            // Optional
+            contextualSearch: true,
         },
     },
     presets: [

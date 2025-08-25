@@ -8,6 +8,28 @@ on:
       types: [completed]
 
 jobs:
+    state:
+        name: Computed state
+        runs-on: ubuntu-22.04
+        outputs:
+            MATRIX: ${{ steps.matrix.outputs.result }}
+        steps:
+            -   uses: actions/checkout@v4
+                with:
+                    ref: master
+                    show-progress: false
+
+            -   name: Read meta config
+                id: matrix
+                uses: actions/github-script@v7
+                with:
+                    script: |
+                        const fs = require('fs');
+                        const data = '.github/config-ci.json';
+                        const config = JSON.parse(fs.readFileSync(data, 'utf8'));
+
+                        return config.PACKAGES_TYPESENSE;
+
     run:
         name: Deploy artifacts [PROD]
         if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
@@ -19,12 +41,12 @@ jobs:
 
     run-scraper:
         name: Run scraper
-        needs: [ run ]
+        needs: [ run, state ]
         runs-on: ubuntu-22.04
         strategy:
             fail-fast: false
             matrix:
-                package: [ b2c, web ]
+                package: ${{ fromJSON(needs.state.outputs.MATRIX) }}
         steps:
             -   uses: actions/checkout@v4
                 with:
@@ -39,5 +61,5 @@ jobs:
                         -e TYPESENSE_PORT=443 \
                         -e TYPESENSE_PROTOCOL=https \
                         -e CONFIG=/config.json \
-                        -v ./website/plasma-${{ matrix.package }}-docs/typesense-scraper-config.json:/config.json \
+                        -v ./website/${{ matrix.package }}-docs/typesense-scraper-config.json:/config.json \
                         typesense/docsearch-scraper:0.11.0
