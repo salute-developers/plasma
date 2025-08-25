@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 import { withTheme, DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE } from './decoratorThemes';
 import { withToast } from './decoratorToast';
 
@@ -9,7 +8,7 @@ if (typeof document !== 'undefined') {
 }
 
 const preview: Preview = {
-    decorators: [withKnobs, withTheme, withToast],
+    decorators: [withTheme, withToast],
     globalTypes: {
         theme: {
             description: 'Global theme for components',
