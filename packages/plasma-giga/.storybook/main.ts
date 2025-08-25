@@ -2,7 +2,7 @@ import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 import linaria from '@linaria/vite';
 
-const stories = ['../README.stories.mdx', '../src/**/*.stories.tsx'];
+const stories = ['../README.mdx', '../src/**/*.stories.tsx'];
 
 const config: StorybookConfig = {
     staticDirs: ['public'],
@@ -18,6 +18,9 @@ const config: StorybookConfig = {
     docs: {
         autodocs: false,
         defaultName: 'Docs',
+    },
+    typescript: {
+        reactDocgen: false,
     },
     async viteFinal(config) {
         return mergeConfig(config, {
