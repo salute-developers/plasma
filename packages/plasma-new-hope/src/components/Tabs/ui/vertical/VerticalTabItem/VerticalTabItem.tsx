@@ -7,7 +7,7 @@ import { cx } from '../../../../../utils';
 import { TabsContext } from '../../../TabsContext';
 import { VerticalTabItemProps } from '../../../TabItem.types';
 
-import { base, LeftContent, RightContent, StyledContent, TabItemValue } from './VerticalTabItem.styles';
+import { ActionContent, base, LeftContent, RightContent, StyledContent, TabItemValue } from './VerticalTabItem.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
@@ -23,6 +23,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
             value,
             contentLeft,
             contentRight,
+            actionContent,
             onIndexChange,
             itemIndex,
             tabIndex,
@@ -133,6 +134,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
                     {!value && contentRight && (
                         <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>
                     )}
+                    {actionContent && <ActionContent>{actionContent}</ActionContent>}
                 </>
             </Root>
         );
