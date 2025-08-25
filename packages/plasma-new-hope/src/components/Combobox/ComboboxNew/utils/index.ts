@@ -6,3 +6,4 @@ export { sizeToIconSize } from './sizeToIconSize';
 export { filterItems } from './filterItems';
 export { getItemId } from './getItemId';
 export { getRemovedElement } from './getRemovedElement';
+export { getTextValue } from './getTextValue';

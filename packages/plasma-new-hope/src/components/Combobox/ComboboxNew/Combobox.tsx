@@ -1,11 +1,10 @@
 import React, { forwardRef, useState, useReducer, useMemo, useLayoutEffect, useRef } from 'react';
 import type { ChangeEvent, ForwardedRef } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
-import { safeUseId } from 'src/utils';
+import { safeUseId, isEmpty } from 'src/utils';
+import { RootProps } from 'src/engines';
+import { useOutsideClick, useDidMountLayoutEffect } from 'src/hooks';
 
-import { RootProps } from '../../../engines';
-import { isEmpty } from '../../../utils';
-import { useOutsideClick } from '../../../hooks';
 import { sizeToIconSize } from '../../Select/utils';
 
 import { classes } from './Combobox.tokens';
@@ -19,6 +18,7 @@ import {
     filterItems,
     getItemId,
     getRemovedElement,
+    getTextValue,
 } from './utils';
 import { Inner, StyledTextField, VirtualList, SelectAll } from './ui';
 import { pathReducer, focusedPathReducer } from './reducers';
@@ -100,11 +100,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             items,
         ]);
 
-        const [textValue, setTextValue] = useState(
-            multiple || Array.isArray(outerValue)
-                ? ''
-                : valueToItemMap.get(outerValue as string)?.label || outerValue?.toString() || '',
-        );
+        const [textValue, setTextValue] = useState(getTextValue(multiple, outerValue, valueToItemMap, renderValue));
+
         const [internalValue, setInternalValue] = useState<string | string[]>(multiple ? [] : '');
 
         const value = outerValue !== null && outerValue !== undefined ? outerValue : internalValue;
@@ -119,7 +116,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 filterItems(
                     transformedItems,
                     textValue,
-                    (valueToItemMap.get(value as string)?.label as string) || (value as string),
+                    getTextValue(multiple, value, valueToItemMap, renderValue),
                     filter,
                 ),
             [transformedItems, textValue, filter],
@@ -152,18 +149,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 onToggle(false);
             }
 
-            // Проверяем, отличается ли значение в инпуте от выбранного value после закрытия дропдауна.
-            // Если изменилось, то возвращаем label выбранного айтема.
-            // Если нет выбранного элемента, то стираем значение инпута.
-            if (textValue !== value) {
-                if (isEmpty(value)) {
-                    setTextValue('');
-                } else if (multiple) {
-                    setTextValue('');
-                } else {
-                    setTextValue(valueToItemMap.get(value as string)?.label || (value as string) || '');
-                }
-            }
+            // Возвращаем актуальное значение поля ввода после закрытия выпадающего списка.
+            setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
         }, floatingPopoverRef);
 
         // Эта функция срабатывает при изменении Combobox и
@@ -174,12 +161,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         ) => {
             // Условие для отправки изменений наружу
             if (props.onChange) {
-                // Условие для отправки если комбобокс используется без формы.
+                // Условие для отправки, если комбобокс используется без формы.
                 if (!props.name && (typeof newValue === 'string' || Array.isArray(newValue))) {
                     props.onChange(newValue as any, item || null);
                 }
 
-                // Условие для отправки если комбобокс используется с формой.
+                // Условие для отправки, если комбобокс используется с формой.
                 if (props.name && typeof newValue === 'object' && !Array.isArray(newValue)) {
                     props.onChange(newValue as any);
                 }
@@ -442,18 +429,14 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             setChecked(checkedCopy);
 
-            if (!multiple && textValue === value && valueToItemMap.has(value)) {
-                setTextValue(valueToItemMap.get(value)?.label || '');
-            }
-
             // В deps мы кладем именно outerValue и internalValue, а не просто value.
             // Т.к. вначале нужно отфильтровать и провалидировать outerValue и результат положить в переменную.
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
         }, [outerValue, internalValue, items]);
 
         // При изменении value нужно возвращать значение в инпуте к исходному.
-        useLayoutEffect(() => {
-            setTextValue(multiple ? '' : valueToItemMap.get(value as string)?.label || value?.toString() || '');
+        useDidMountLayoutEffect(() => {
+            setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
         }, [outerValue, internalValue]);
 
         useLayoutEffect(() => {

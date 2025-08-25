@@ -2029,12 +2029,18 @@ describe('sdds-insol: Combobox', () => {
     it('flow, single: update label after getting new items', () => {
         cy.viewport(500, 500);
 
+        let isUpdated = false;
+
         const Component = () => {
             const [valueSingle, setValueSingle] = React.useState('random_value');
             const [data, setData] = React.useState(items);
 
             const handleToggle = () => {
-                setData([...data, { value: 'random_value', label: 'Random value' }]);
+                if (!isUpdated) {
+                    setData([...data, { value: 'random_value', label: 'Random value' }]);
+                }
+
+                isUpdated = true;
             };
 
             return (
@@ -2058,6 +2064,8 @@ describe('sdds-insol: Combobox', () => {
 
         mount(<Component />);
 
+        cy.get('#combobox').click();
+        cy.get('body').click('bottomRight');
         cy.get('#combobox').click();
 
         cy.matchImageSnapshot();
