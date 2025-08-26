@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, CSSProperties } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { IconPlasma } from '@salutejs/plasma-icons';
+import { IconPlasma, IconClose } from '@salutejs/plasma-icons';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Dropdown } from '../Dropdown/Dropdown';
@@ -88,6 +88,7 @@ const meta: Meta<StoryTabsProps> = {
             'forwardedAs',
             'outsideScroll',
             'index',
+            'actionContent',
         ]),
     },
 };
