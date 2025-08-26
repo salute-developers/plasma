@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconPlasma } from '@salutejs/plasma-icons';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Dropdown } from '../Dropdown';
 import { Counter } from '../Counter';
@@ -87,6 +87,7 @@ const meta: Meta<StoryTabsProps> = {
             'outsideScroll',
             'index',
             'size',
+            'actionContent',
         ]),
     },
 };
