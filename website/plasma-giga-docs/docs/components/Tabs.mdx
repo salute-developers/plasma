@@ -24,6 +24,11 @@ import { PropsTable, Description } from '@site/src/components';
 `value` и `contentRight` взаимоисключающие: если передано одно, второе передать нельзя.
 :::
 
+## IconTabItem
+
+<Description name="IconTabItem" />
+<PropsTable name="IconTabItem" />
+
 ## TabsController (deprecated)
 Вместо этого используйте Tabs, TabItem, указав параметры index, itemIndex, onIndexChange.
 
@@ -70,7 +75,7 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { Tabs, TabItem } from '@salutejs/plasma-giga';
+import { Tabs, TabItem, IconTabItem } from '@salutejs/plasma-giga';
 import { IconClock } from '@salutejs/plasma-icons';
 
 export function App() {
@@ -78,7 +83,7 @@ export function App() {
     const [index, setIndex] = useState(0);
 
     return (
-        <div>
+        <div style={{ gap: '2rem' }}>
             <Tabs view="divider" orientation="vertical" size="xs" style={{ width: '15rem' }}>
                 {items.map((_, i) => (
                     <TabItem
@@ -95,6 +100,22 @@ export function App() {
                     </TabItem>
                 ))}
             </Tabs>
+
+            <Tabs view="divider" orientation="vertical" size="xs" style={{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <IconTabItem
+                        view="divider"
+                        orientation="vertical"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === index}
+                        tabIndex={0}
+                        onClick={() => setIndex(i)}
+                    >
+                        <IconClock size="xs" color="inherit" />
+                    </IconTabItem>
+                ))}
+            </Tabs>
         </div>
     );
 }
@@ -105,7 +126,7 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { Tabs, TabItem, Button } from '@salutejs/plasma-giga';
+import { Tabs, TabItem, IconTabItem, Button } from '@salutejs/plasma-giga';
 import { IconClock } from '@salutejs/plasma-icons';
 
 export function App() {
@@ -132,6 +153,21 @@ export function App() {
                 ))}
             </Tabs>
 
+            <Tabs view="divider" size="xs" style={{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <TabItem
+                        view="divider"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === index}
+                        tabIndex={0}
+                        onClick={() => setIndex(i)}
+                    >
+                        <IconClock size="xs" color="inherit" />
+                    </TabItem>
+                ))}
+            </Tabs>
+
             <Button onClick={() => setIndex(specificIndex)}>{`Выбрать элемент ${specificIndex + 1}`}</Button>
         </div>
     );
@@ -143,6 +179,7 @@ export function App() {
 ```tsx live
 import React, { useState } from 'react';
 import { Tabs, TabItem, Dropdown } from '@salutejs/plasma-giga';
+import { IconClock } from '@salutejs/plasma-icons';
 
 export function App() {
     const items = Array(8).fill(0);
@@ -162,29 +199,91 @@ export function App() {
     });
 
     return (
-        <div style={{ height: '15rem', alignItems: 'flex-start' }}>
-            <Tabs clip="showAll" view="divider" size="xs">
-                {visibleItems.map((_, i) => (
+        <div style={{ display:'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ height: '15rem', alignItems: 'flex-start' }}>
+                <Tabs clip="showAll" view="divider" size="xs">
+                    {visibleItems.map((_, i) => (
+                        <TabItem
+                            key={`item:${i}`}
+                            view="divider"
+                            selected={i === index}
+                            onClick={() => setIndex(i)}
+                            tabIndex={0}
+                            size="xs"
+                        >
+                            {`Label${i + 1}`}
+                        </TabItem>
+                    ))}
+                    {dropdownItems.length > 0 && (
+                        <div style={{ marginLeft: '1.75rem' }}>
+                            <Dropdown size="xs" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
+                                <TabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
+                                    ShowAll
+                                </TabItem>
+                            </Dropdown>
+                        </div>
+                    )}
+                </Tabs>
+            </div>
+
+            <div style={{ height: '15rem', alignItems: 'flex-start' }}>
+                <Tabs clip="showAll" view="divider" size="xs">
+                    {visibleItems.map((_, i) => (
+                        <IconTabItem
+                            key={`item:${i}`}
+                            view="divider"
+                            selected={i === index}
+                            onClick={() => setIndex(i)}
+                            tabIndex={0}
+                            size="xs"
+                        >
+                            <IconDotsHorizontalOutline color="inherit" size="xs" />
+                        </IconTabItem>
+                    ))}
+                    {dropdownItems.length > 0 && (
+                        <div style={{ marginLeft: '1.75rem' }}>
+                            <Dropdown size="xs" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
+                                <IconTabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
+                                    <IconClock color="inherit" size="xs" />
+                                </IconTabItem>
+                            </Dropdown>
+                        </div>
+                    )}
+                </Tabs>
+            </div>
+        </div>
+    );
+}
+```
+
+### Слот дополнительного действия в `TabItem`
+Для задания дополнительного действия используется свойство `actionContent`
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem } from '@salutejs/plasma-giga';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(4).fill(0);
+    const [index, setIndex] = useState(0);
+
+    return (
+        <div>
+            <Tabs view="filled" stretch size="xs">
+                {items.map((_, i) => (
                     <TabItem
+                        view="secondary"
                         key={`item:${i}`}
-                        view="divider"
-                        selected={i === index}
-                        onClick={() => setIndex(i)}
-                        tabIndex={0}
                         size="xs"
+                        selected={i === index}
+                        tabIndex={0}
+                        actionContent={<IconClose size="xs" color="inherit" />}
+                        onClick={() => setIndex(i)}
                     >
                         {`Label${i + 1}`}
                     </TabItem>
                 ))}
-                {dropdownItems.length > 0 && (
-                    <div style={{ marginLeft: '1.75rem' }}>
-                        <Dropdown size="xs" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
-                            <TabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
-                                ShowAll
-                            </TabItem>
-                        </Dropdown>
-                    </div>
-                )}
             </Tabs>
         </div>
     );
