@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import React from 'react';
+import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
@@ -198,6 +198,18 @@ const meta: Meta<StoryProps> = {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
         },
+        listWidth: {
+            control: { type: 'text' },
+        },
+        listMaxHeight: {
+            control: { type: 'text' },
+        },
+        virtual: {
+            control: { type: 'boolean' },
+        },
+        flip: {
+            control: { type: 'boolean' },
+        },
     },
     args: {
         view: 'default',
@@ -211,8 +223,6 @@ const meta: Meta<StoryProps> = {
         placeholder: 'Заполните поле',
         leftHelper: 'Введите имя Алексей',
         keepPlaceholder: false,
-        listWidth: '100%',
-        listMaxHeight: '200px',
         threshold: 2,
         enableContentLeft: true,
         enableContentRight: true,
@@ -229,6 +239,8 @@ const meta: Meta<StoryProps> = {
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
+        virtual: false,
+        flip: false,
     },
 };
 
@@ -238,8 +250,6 @@ const DefaultStory = (args: StoryProps) => {
     const { enableContentLeft, enableContentRight } = args;
 
     const iconSize = args.size === 'xs' ? 'xs' : 's';
-
-    console.log(args.hasRequiredIndicator);
 
     return (
         <div style={{ width: '70%', margin: '0 auto' }}>

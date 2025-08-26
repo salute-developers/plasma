@@ -13,7 +13,7 @@ import { safeUseId } from 'src/utils';
 import type { FloatingPopoverProps } from './Autocomplete.types';
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, portal, zIndex, listWidth, offset }, ref) => {
+    ({ target, children, opened, portal, zIndex, listWidth, offset, flip: flipFlag }, ref) => {
         const { refs, floatingStyles } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -29,7 +29,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     mainAxis: offset?.[1] || 0,
                     alignmentAxis: offset?.[0] || 0,
                 }),
-                flip({ fallbackAxisSideDirection: 'end' }),
+                ...(flipFlag ? [flip({ fallbackAxisSideDirection: 'end' })] : []),
                 shift(),
                 size({
                     apply({ rects, elements }) {
