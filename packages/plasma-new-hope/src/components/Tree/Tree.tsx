@@ -41,6 +41,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                 hasIcon = false,
                 icon,
                 renderTitle,
+                mode = 'default',
             },
             ref,
         ) => {
@@ -48,7 +49,13 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
 
             const selectedKeys = outerSelectedKeys ?? selected;
 
+            const isRadioMode = mode === 'radio' && !multiple;
+
             const handleSelect = (updatedSelectedKeys: Key[], info: SelectInfo) => {
+                if (!multiple && isRadioMode && updatedSelectedKeys.length === 0) {
+                    return;
+                }
+
                 setSelected(updatedSelectedKeys);
 
                 if (onTreeSelect) {
@@ -58,6 +65,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
 
             const invertedClass = arrowPlacement === 'right' ? classes.treeInverted : undefined;
             const itemFilledClass = fullWidthItemSelection ? classes.treeItemFilled : undefined;
+            const radioModeClass = isRadioMode ? classes.treeRadioMode : undefined;
 
             // Проходимся по дереву и устанавливаем соответствующие классы для узлов дерева,
             // чтобы соблюсти иерархию вложенности в UI.
@@ -71,7 +79,7 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                         virtual={virtual}
                         multiple={multiple}
                         checkable={checkable}
-                        className={cx(className, invertedClass, itemFilledClass)}
+                        className={cx(className, invertedClass, itemFilledClass, radioModeClass)}
                         defaultExpandAll={defaultExpandAll}
                         autoExpandParent={autoExpandParent}
                         style={{ border: '1px solid #000' }}

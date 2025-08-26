@@ -177,6 +177,18 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
      */
     icon?: ReactNode;
     /**
+     * Callback для кастомной настройки title.
+     */
+    renderTitle?: (item: TreeItem) => ReactNode;
+    /**
+     * Режим работы взаимодействия с элементами.
+     * - default: элемент можно выбрать и можно отменить его выбор.
+     * - radio: если элемент выбран, то отменить его выбор нельзя. Только для single-режима.
+     * @default default
+     */
+    mode?: 'default' | 'radio';
+
+    /**
      * Размер дерева.
      */
     size?: string;
@@ -184,8 +196,4 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
      * Вид дерева.
      */
     view?: string;
-    /**
-     * Callback для кастомной настройки title.
-     */
-    renderTitle?: (item: TreeItem) => ReactNode;
 }

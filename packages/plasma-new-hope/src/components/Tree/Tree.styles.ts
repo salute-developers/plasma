@@ -115,6 +115,10 @@ export const base = css`
         cursor: pointer;
         color: var(${tokens.color});
     }
+    .rc-tree.${classes.treeRadioMode} .rc-tree-treenode.rc-tree-treenode-selected .rc-tree-node-content-wrapper {
+       cursor: default;
+    }
+
     .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled .rc-tree-node-content-wrapper,
     .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled span.rc-tree-switcher,
     .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled span.rc-tree-checkbox,
@@ -322,11 +326,11 @@ export const base = css`
         background: var(${tokens.itemBackgroundColorSelected});
     }
 
-    .rc-tree .rc-tree-treenode:not(.rc-tree-treenode-disabled):hover::before {
+    .rc-tree .rc-tree-treenode:not(.rc-tree-treenode-disabled):not(.rc-tree.${classes.treeRadioMode} .rc-tree-treenode.rc-tree-treenode-selected):hover::before {
         background: var(${tokens.itemBackgroundColorHover});
     }
 
-    .rc-tree .rc-tree-treenode:not(.rc-tree-treenode-disabled):active::before {
+    .rc-tree .rc-tree-treenode:not(.rc-tree-treenode-disabled):not(.rc-tree.${classes.treeRadioMode} .rc-tree-treenode.rc-tree-treenode-selected):active::before {
         background: var(${tokens.itemBackgroundColorActive});
     }
 
