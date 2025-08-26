@@ -208,6 +208,9 @@ const meta: Meta<StoryProps> = {
         virtual: {
             control: { type: 'boolean' },
         },
+        flip: {
+            control: { type: 'boolean' },
+        },
     },
     args: {
         view: 'default',
@@ -238,6 +241,7 @@ const meta: Meta<StoryProps> = {
         hintWidth: '10rem',
         hintHasArrow: true,
         virtual: false,
+        flip: false,
     },
 };
 

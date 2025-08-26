@@ -104,6 +104,11 @@ export type AutocompleteProps = {
      * @default false
      */
     virtual?: boolean;
+    /**
+     * Отображение выпадающего списка сверху, если снизу недостаточно места.
+     * @default false
+     */
+    flip?: boolean;
 
     /**
      * Размер контрола.
@@ -129,4 +134,5 @@ export type FloatingPopoverProps = {
     zIndex?: AutocompleteProps['zIndex'];
     listWidth?: AutocompleteProps['listWidth'];
     offset?: [number, number];
+    flip?: boolean;
 };
