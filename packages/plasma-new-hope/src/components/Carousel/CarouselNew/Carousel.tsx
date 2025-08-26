@@ -30,12 +30,15 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
                 gap = '20px',
                 className,
                 style,
+                defaultIndex,
             },
             ref,
         ) => {
-            const [index, setIndex] = useState(0);
-
             const slidesAmount = Children.count(children);
+
+            const [index, setIndex] = useState(
+                defaultIndex && defaultIndex >= 0 ? Math.min(slidesAmount - 1, defaultIndex) : 0,
+            );
 
             const handleClickLeft = () => {
                 setIndex(Math.max(0, index - 1));

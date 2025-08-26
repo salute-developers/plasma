@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { CypressTestDecorator, getComponent, mount } from '@salutejs/plasma-cy-utils';
-import styled, { createGlobalStyle } from 'styled-components';
-import { standard as standardTypo } from '@salutejs/plasma-typo';
-
-const StandardTypoStyle = createGlobalStyle(standardTypo);
+import styled from 'styled-components';
 
 const StyledCard = styled.div`
     display: flex;
@@ -23,7 +20,7 @@ const items = Array(20)
         title: i,
     }));
 
-describe('plasma-web: Carousel', () => {
+describe('sdds-cs: Carousel', () => {
     const Carousel = getComponent('Carousel');
     const CarouselItem = getComponent('CarouselItem');
 
@@ -32,7 +29,6 @@ describe('plasma-web: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <StandardTypoStyle />
                 <div style={{ width: '600px' }}>
                     <Carousel>
                         {items.map((item, i) => (
@@ -53,7 +49,6 @@ describe('plasma-web: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <StandardTypoStyle />
                 <div style={{ width: '600px' }}>
                     <Carousel scrollAlign="center">
                         {items.map((item, i) => (
@@ -79,7 +74,6 @@ describe('plasma-web: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <StandardTypoStyle />
                 <div style={{ width: '600px' }}>
                     <Carousel controlArrowsDisabled>
                         {items.map((item, i) => (
@@ -100,7 +94,6 @@ describe('plasma-web: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <StandardTypoStyle />
                 <div style={{ width: '600px' }}>
                     <Carousel gap="40px">
                         {items.map((item, i) => (
@@ -121,7 +114,6 @@ describe('plasma-web: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <StandardTypoStyle />
                 <div style={{ width: '600px' }}>
                     <Carousel paginationOptions={{ disabled: true }}>
                         {items.map((item, i) => (
@@ -142,7 +134,6 @@ describe('plasma-web: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <StandardTypoStyle />
                 <div style={{ width: '600px' }}>
                     <Carousel paginationOptions={{ visibleDots: 3 }}>
                         {items.map((item, i) => (
@@ -163,7 +154,6 @@ describe('plasma-web: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <StandardTypoStyle />
                 <div style={{ width: '600px' }}>
                     <Carousel paginationOptions={{ centered: true }}>
                         {items.map((item, i) => (
@@ -184,8 +174,6 @@ describe('plasma-web: Carousel', () => {
 
         mount(
             <CypressTestDecorator>
-                <StandardTypoStyle />
-
                 <div style={{ width: '600px' }}>
                     <Carousel defaultIndex={4}>
                         {items.map((item, i) => (

@@ -35,6 +35,9 @@ const meta: Meta<StoryCarouselProps> = {
                 type: 'inline-radio',
             },
         },
+        defaultIndex: {
+            control: 'number',
+        },
         scrollAlign: {
             options: ['start', 'center', 'end'],
             control: {
@@ -63,6 +66,7 @@ const meta: Meta<StoryCarouselProps> = {
     args: {
         view: 'default',
         size: 's',
+        defaultIndex: 0,
         scrollAlign: 'start',
         slides: 20,
         controlArrowsDisabled: false,
@@ -80,6 +84,7 @@ const meta: Meta<StoryCarouselProps> = {
                 'paginationDisabled',
                 'paginationCentered',
                 'gap',
+                'defaultIndex',
             ],
         },
     },

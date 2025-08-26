@@ -4,6 +4,11 @@ export type ScrollAlign = 'start' | 'center' | 'end';
 
 export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
     /**
+     * Номер слайда по-умолчанию.
+     * @default 0
+     */
+    defaultIndex?: number;
+    /**
      * Центрирование активного элемента при скролле.
      * @default start
      */
