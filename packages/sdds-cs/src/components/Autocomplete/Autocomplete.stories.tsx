@@ -114,6 +114,9 @@ const meta: Meta<StoryProps> = {
         virtual: {
             control: { type: 'boolean' },
         },
+        flip: {
+            control: { type: 'boolean' },
+        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -145,6 +148,7 @@ const meta: Meta<StoryProps> = {
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
         virtual: false,
+        flip: false,
     },
 };
 

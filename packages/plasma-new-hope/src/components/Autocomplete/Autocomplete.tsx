@@ -51,6 +51,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 beforeList,
                 afterList,
                 virtual = false,
+                flip = false,
                 // @ts-ignore
                 _offset,
                 ...rest
@@ -143,6 +144,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                         zIndex={zIndex}
                         listWidth={listWidth}
                         offset={_offset}
+                        flip={flip}
                         target={(referenceRef) => (
                             <StyledTextField
                                 ref={ref}

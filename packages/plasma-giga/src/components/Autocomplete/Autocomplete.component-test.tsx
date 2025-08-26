@@ -626,6 +626,30 @@ describe('plasma-giga: Autocomplete', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: flip', () => {
+        cy.viewport(400, 600);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <div style={{ height: '400px' }} />
+
+                    <Autocomplete
+                        label="Label"
+                        placeholder="Placeholder"
+                        suggestions={suggestions}
+                        threshold={0}
+                        flip
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('keyboard interactions', () => {
         cy.viewport(1000, 500);
 

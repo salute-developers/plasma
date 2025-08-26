@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import React from 'react';
+import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
@@ -194,6 +194,9 @@ const meta: Meta<StoryProps> = {
         virtual: {
             control: { type: 'boolean' },
         },
+        flip: {
+            control: { type: 'boolean' },
+        },
     },
     args: {
         view: 'default',
@@ -223,6 +226,7 @@ const meta: Meta<StoryProps> = {
         hintWidth: '10rem',
         hintHasArrow: true,
         virtual: false,
+        flip: false,
     },
 };
 
