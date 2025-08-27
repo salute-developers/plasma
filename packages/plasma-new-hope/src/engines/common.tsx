@@ -62,6 +62,19 @@ export const mergeConfig = <
     >;
 };
 
+// INFO: Метод, который проводит слияние двух объектов
+// INFO: если значение явно указанно как undefined/null/пустая строка, то будет взято значение указанное в default
+function mergeWithoutNullable(defaults: any, componentProps: any) {
+    const props = Object.keys(defaults).reduce((acc, key) => {
+        return {
+            ...acc,
+            [key]: [null, undefined, ''].includes(componentProps[key]) ? defaults[key] : componentProps[key],
+        };
+    }, {});
+
+    return { ...componentProps, ...props };
+}
+
 export function component<
     Tag extends HTMLTagList,
     VariantList extends Variants,
@@ -75,7 +88,9 @@ export function component<
 ): React.FunctionComponent<VariantsProps & LayoutProps> {
     const Comp = config.layout(_component((config as unknown) as ComponentConfig));
 
-    return React.forwardRef<VariantsProps & LayoutProps, any>((props, ref) => (
-        <Comp {...config?.defaults} {...props} ref={ref} />
-    ));
+    return React.forwardRef<VariantsProps & LayoutProps, any>((props, ref) => {
+        const mergedProps = mergeWithoutNullable(config?.defaults, props);
+
+        return <Comp {...mergedProps} ref={ref} />;
+    });
 }
