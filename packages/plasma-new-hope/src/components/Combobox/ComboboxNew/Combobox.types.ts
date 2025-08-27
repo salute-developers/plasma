@@ -217,7 +217,7 @@ type BasicProps<T extends ItemOption = ItemOption> = {
     /**
      * Коллбэк, срабатывающий при скролле.
      */
-    onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    onScroll?: (e: React.UIEvent<HTMLElement>) => void;
     /**
      * Событие сворачивания/разворачивания выпадающего списка.
      */

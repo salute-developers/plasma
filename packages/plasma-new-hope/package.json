@@ -127,7 +127,6 @@
     "lodash.chunk": "4.2.0",
     "lodash.throttle": "4.1.1",
     "rc-tree": "5.11.0",
-    "rc-virtual-list": "3.18.1",
     "re-resizable": "6.10.3",
     "react-draggable": "4.5.0",
     "react-hot-toast": "2.5.2",

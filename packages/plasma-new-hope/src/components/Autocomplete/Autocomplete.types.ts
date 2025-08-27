@@ -74,7 +74,7 @@ export type AutocompleteProps = {
     /**
      * Коллбэк, срабатывающий при скролле.
      */
-    onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    onScroll?: (e: React.UIEvent<HTMLElement>) => void;
     /**
      * Максимальная высота выпадающего списка подсказок.
      * @default 25rem
