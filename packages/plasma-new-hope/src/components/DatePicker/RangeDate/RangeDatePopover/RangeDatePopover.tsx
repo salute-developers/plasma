@@ -33,6 +33,7 @@ export const RangeDatePopover = ({
 
     frame = 'document',
     usePortal = false,
+    zIndex,
     placement = ['top', 'bottom'],
     closeOnOverlayClick = true,
     closeOnEsc,
@@ -98,6 +99,7 @@ export const RangeDatePopover = ({
                 isFocusTrapped={false}
                 target={target}
                 preventOverflow={false}
+                zIndex={zIndex}
             >
                 <Root
                     ref={doubleCalendarRootRef}
@@ -146,6 +148,7 @@ export const RangeDatePopover = ({
             target={target}
             preventOverflow={false}
             closeOnEsc={closeOnEsc}
+            zIndex={zIndex}
         >
             <Root
                 ref={calendarRootRef}

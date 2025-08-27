@@ -138,6 +138,10 @@ export type DatePickerPopoverProps = {
      */
     frame?: 'document' | string | RefObject<HTMLElement>;
     /**
+     * CSS-свойство z-index для выпадающего календаря
+     */
+    zIndex?: string;
+    /**
      * Закрывать календарь при нажатии вне области элемента.
      * @default true
      */
