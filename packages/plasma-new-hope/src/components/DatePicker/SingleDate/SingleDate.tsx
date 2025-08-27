@@ -71,6 +71,7 @@ export const datePickerRoot = (
 
                 frame = 'document',
                 usePortal = false,
+                zIndex,
                 placement = ['top', 'bottom'],
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
@@ -316,6 +317,7 @@ export const datePickerRoot = (
                         isFocusTrapped={false}
                         target={DatePickerInput}
                         preventOverflow={false}
+                        zIndex={zIndex}
                     >
                         <Root
                             ref={calendarRootRef}

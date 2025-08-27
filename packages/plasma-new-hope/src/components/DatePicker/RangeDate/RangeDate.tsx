@@ -98,6 +98,7 @@ export const datePickerRangeRoot = (
 
                 frame = 'document',
                 usePortal = false,
+                zIndex,
                 placement = ['top', 'bottom'],
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
@@ -553,6 +554,7 @@ export const datePickerRangeRoot = (
                         renderFromDate={renderFromDate}
                         frame={frame}
                         usePortal={usePortal}
+                        zIndex={zIndex}
                         placement={placement}
                         closeOnOverlayClick={closeOnOverlayClick}
                         closeOnEsc={closeOnEsc}
