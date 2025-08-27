@@ -192,7 +192,7 @@ export interface BasicProps<K extends ItemOption> {
     /**
      * Коллбэк, срабатывающий при скролле.
      */
-    onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    onScroll?: (e: React.UIEvent<HTMLElement>) => void;
     /**
      * Событие сворачивания/разворачивания выпадающего списка.
      */
@@ -219,7 +219,7 @@ export interface BasicProps<K extends ItemOption> {
      * Коллбэк для определения достижения скроллом конца списка.
      * @deprecated
      */
-    onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
+    onScrollBottom?: (e: React.UIEvent<HTMLElement>) => void;
 }
 
 // Тип нового селекта
@@ -394,7 +394,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
         /**
          * Коллбэк, срабатывающий при скролле.
          */
-        onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+        onScroll?: (e: React.UIEvent<HTMLElement>) => void;
         /**
          * Событие сворачивания/разворачивания выпадающего списка.
          */
@@ -433,7 +433,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * Коллбэк для определения достижения скроллом конца списка.
          * @deprecated
          */
-        onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
+        onScrollBottom?: (e: React.UIEvent<HTMLElement>) => void;
     } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
 
 export type { DropdownNode as DropdownNodeSelect };
