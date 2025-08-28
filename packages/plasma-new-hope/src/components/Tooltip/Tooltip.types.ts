@@ -11,16 +11,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      * Видимость тултипа.
      */
     opened?: boolean;
-    /**
-     * Видимость тултипа.
-     * @deprecated
-     */
-    isOpen?: boolean;
-    /**
-     * Видимость тултипа.
-     * @deprecated
-     */
-    isVisible?: boolean;
+
     /**
      * Элемент, рядом с которым произойдет вызов всплывающего окна.
      */
@@ -33,11 +24,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      * Видимость стрелки (хвоста).
      */
     hasArrow?: boolean;
-    /**
-     * Видимость стрелки (хвоста).
-     * @deprecated
-     */
-    arrow?: boolean;
+
     /**
      * Анимированное появление/сокрытие.
      */
@@ -90,17 +77,44 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     view?: string;
     /**
+     * Действие по target для отображения тултипа
+     */
+    trigger?: 'click' | 'hover' | 'none';
+    /**
+     * Задержка открытия тултипа в ms.
+     * @default 0
+     */
+    mouseEnterDelay?: number;
+    /**
+     * Задержка скрытия тултипа в ms.
+     * @default 300
+     */
+    mouseLeaveDelay?: number;
+
+    /**
+     * Время автоматического скрытия тултипа по ховеру в ms
+     * @default 300
+     * @deprecated использовать mouseLeaveDelay
+     */
+    hoverTimeout?: number;
+    /**
      * Свойство устарело, вместо этого нужно использовать target
      * @deprecated
      */
     children?: ReactNode;
     /**
-     * Действие по target для отображения тултипа
+     * Видимость стрелки (хвоста).
+     * @deprecated
      */
-    trigger?: 'click' | 'hover' | 'none';
+    arrow?: boolean;
     /**
-     * Время автоматического скрытия тултипа по ховеру в ms
-     * @default 300
+     * Видимость тултипа.
+     * @deprecated
      */
-    hoverTimeout?: number;
+    isVisible?: boolean;
+    /**
+     * Видимость тултипа.
+     * @deprecated
+     */
+    isOpen?: boolean;
 }
