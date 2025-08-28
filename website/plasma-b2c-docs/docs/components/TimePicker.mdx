@@ -1,0 +1,79 @@
+---
+id: timepicker
+title: TimePicker
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# TimePicker
+<Description name="TimePicker" />
+<PropsTable name="TimePicker" exclude={['css']} />
+
+## Использование
+Компонент `TimePicker` позволяет выбирать время через выпадающий интерфейс или вводить вручную.
+
+### Uncontrolled режим
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <TimePicker
+            label="Выберите время"
+            placeholder="HH:MM"
+        />
+    );
+}
+```
+
+### Размеры
+Доступны 4 размера: `l`, `m`, `s`, `xs`
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <>
+            <TimePicker size="l" placeholder="Large" />
+            <TimePicker size="m" placeholder="Medium" />
+            <TimePicker size="s" placeholder="Small" />
+            <TimePicker size="xs" placeholder="XSmall" />
+        </>
+    );
+}
+```
+
+### Форматы 
+Используйте columnsQuantity для формата `HH:mm:ss` или `HH:mm`
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <TimePicker
+            columnsQuantity={3}
+            placeholder="HH:MM:SS"
+        />
+    );
+}
+```
+
+### Позиционирование 
+Используйте columnsQuantity для формата `HH:mm:ss` или `HH:mm`
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <TimePicker
+            columnsQuantity={3}
+            placeholder="HH:MM:SS"
+            dropdownAlign="right"
+        />
+    );
+}
+```
