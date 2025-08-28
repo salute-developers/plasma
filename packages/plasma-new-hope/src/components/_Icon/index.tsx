@@ -49,3 +49,4 @@ export { IconResetOutline } from './Icons/IconResetOutline';
 export { IconDoneCircleOutline } from './Icons/IconDoneCircleOutline';
 export { IconTrash } from './Icons/IconTrash';
 export { IconResizeDiagonal } from './Icons/IconResizeDiagonal';
+export { IconDotsHorizontalOutline } from './Icons/IconDotsHorizontalOutline';

@@ -3,34 +3,30 @@ import { useForkRef } from '@salutejs/plasma-core';
 import { RootProps } from 'src/engines';
 import { cx } from 'src/utils';
 
-import { useTabItem, UseTabItemProps } from '../../../hooks/useTabItem';
 import { classes } from '../../../tokens';
 import { TabsContext } from '../../../TabsContext';
-import { VerticalTabItemProps } from '../../../TabItem.types';
+import { VerticalIconTabItemProps } from '../../../TabItem.types';
+import { useTabItem, UseTabItemProps } from '../../../hooks/useTabItem';
 
-import { ActionContent, base, LeftContent, RightContent, StyledContent, TabItemValue } from './VerticalTabItem.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
+import { ActionContent, base, StyledContent } from './VerticalIconTabItem.styles';
 
-export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalTabItemProps>) =>
-    forwardRef<HTMLButtonElement, VerticalTabItemProps>((props, outerRef) => {
+export const verticalIconTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalIconTabItemProps>) =>
+    forwardRef<HTMLButtonElement, VerticalIconTabItemProps>((props, outerRef) => {
         const {
             size,
             view,
             selected,
             disabled = false,
             children,
-            value,
-            contentLeft,
-            contentRight,
             actionContent,
-            onIndexChange,
             itemIndex,
             tabIndex,
             className,
+            onIndexChange,
             onClick,
-            maxItemWidth: maxWidth = 'auto',
             ...rest
         } = props;
 
@@ -41,7 +37,6 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
         const role = 'tab';
 
         const selectedClass = selected ? classes.selectedTabsItem : undefined;
-        const truncateClass = maxWidth !== 'auto' ? classes.tabsTruncate : undefined;
 
         const { hasKeyNavigation, navigationTabIndex, onItemFocus, handleClick } = useTabItem({
             refs,
@@ -58,37 +53,28 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
         return (
             <Root
                 ref={ref}
+                className={cx(selectedClass, className)}
                 disabled={disabled}
                 role={role}
                 view={view}
                 size={size}
-                onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
-                className={cx(selectedClass, truncateClass, className)}
+                onFocus={onItemFocus}
                 onClick={handleClick}
                 {...rest}
-                style={{
-                    ...rest.style,
-                    maxWidth,
-                }}
             >
                 <>
-                    {contentLeft && <LeftContent className={classes.tabLeftContent}>{contentLeft}</LeftContent>}
                     <StyledContent className={classes.tabContent}>{children}</StyledContent>
-                    {!contentRight && value && <TabItemValue>{value}</TabItemValue>}
-                    {!value && contentRight && (
-                        <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>
-                    )}
                     {actionContent && <ActionContent>{actionContent}</ActionContent>}
                 </>
             </Root>
         );
     });
 
-export const verticalTabItemConfig = {
+export const verticalIconTabItemConfig = {
     name: 'VerticalTabItem',
     tag: 'button',
-    layout: verticalTabItemRoot,
+    layout: verticalIconTabItemRoot,
     base,
     variations: {
         size: {

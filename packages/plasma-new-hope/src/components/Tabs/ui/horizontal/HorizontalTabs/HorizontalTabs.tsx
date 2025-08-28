@@ -212,7 +212,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
 
         useLayoutEffect(() => {
             setLastItemVisible(scrollRef.current?.scrollWidth === scrollRef.current?.clientWidth);
-        }, []);
+        }, [clip]);
 
         // Этот хук компенсирует появление левой стрелки при прокрутке
         useLayoutEffect(() => {
@@ -250,7 +250,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     onKeyDown={onKeyDown}
                     {...rest}
                 >
-                    {!firstItemVisible && PreviousButton}
+                    {!firstItemVisible && clip === 'scroll' && PreviousButton}
                     <StyledContentWrapper
                         className={cx(clipScrollClass, clipShowAllClass)}
                         ref={scrollRef as MutableRefObject<HTMLDivElement | null>}
@@ -260,7 +260,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                             {children}
                         </StyledContent>
                     </StyledContentWrapper>
-                    {!lastItemVisible && NextButton}
+                    {!lastItemVisible && clip === 'scroll' && NextButton}
                 </Root>
             </TabsContext.Provider>
         );

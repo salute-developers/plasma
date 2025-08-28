@@ -188,7 +188,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
 
         useLayoutEffect(() => {
             setLastItemVisible(scrollRef.current?.scrollHeight === scrollRef.current?.clientHeight);
-        }, []);
+        }, [clip]);
 
         // Этот хук компенсирует появление верхней стрелки при прокрутке
         useLayoutEffect(() => {
@@ -219,7 +219,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                     orientation={orientation}
                     {...rest}
                 >
-                    {!firstItemVisible && PreviousButton}
+                    {!firstItemVisible && clip === 'scroll' && PreviousButton}
                     <StyledContentWrapper
                         className={cx(clipScrollClass, clipShowAllClass)}
                         ref={scrollRef as MutableRefObject<HTMLDivElement | null>}
@@ -229,7 +229,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                             {children}
                         </StyledContent>
                     </StyledContentWrapper>
-                    {!lastItemVisible && NextButton}
+                    {!lastItemVisible && clip === 'scroll' && NextButton}
                 </Root>
             </TabsContext.Provider>
         );
