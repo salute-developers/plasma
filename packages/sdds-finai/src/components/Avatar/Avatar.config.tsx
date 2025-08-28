@@ -8,8 +8,8 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-accent-gradient);
-                ${tokens.backgroundColor}: linear-gradient(94deg, rgba(62, 121, 240, 0.2) 6.49%, rgba(39, 198, 229, 0.2) 93.51%);
+                ${tokens.color}: var(--text-accent);
+                ${tokens.backgroundColor}: var(--surface-transparent-accent-active);
                 ${tokens.statusOnlineColor}: var(--surface-positive);
                 ${tokens.statusOfflineColor}: var(--surface-solid-tertiary);
                 ${tokens.scaleHover}: 1.02;
