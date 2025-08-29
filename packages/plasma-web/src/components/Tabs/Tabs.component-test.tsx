@@ -1,20 +1,23 @@
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
-import { IconClose } from '@salutejs/plasma-icons';
+import { IconClose, IconPlasma } from '@salutejs/plasma-icons';
+
+import { Tabs as TabsWEB, TabItem as TabItemWEB, IconTabItem as IconTabItemWEB } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const items = [{ label: 'Joy' }, { label: 'Sber' }, { label: 'Athena' }];
 
 describe('plasma-web: Tabs', () => {
-    const Tabs = getComponent('Tabs');
-    const TabItem = getComponent('TabItem');
+    const Tabs = getComponent('Tabs') as typeof TabsWEB;
+    const TabItem = getComponent('TabItem') as typeof TabItemWEB;
+    const IconTabItem = getComponent('IconTabItem') as typeof IconTabItemWEB;
     const withAutoFocus = getComponent('withAutoFocus');
     const AutoFocusTabItem = withAutoFocus(TabItem);
 
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
             <StandardTypoStyle />
             {children}
@@ -65,6 +68,14 @@ describe('plasma-web: Tabs', () => {
                     ))}
                 </Tabs>
                 <PadMe />
+                <Tabs size="l" view="divider" forwardedAs="ul">
+                    {items.map((_, i) => (
+                        <IconTabItem size="l" view="divider" key={i} selected={i === 1} forwardedAs="li">
+                            <IconPlasma color="inherit" size="s" />
+                        </IconTabItem>
+                    ))}
+                </Tabs>
+                <PadMe />
                 <Tabs size="l" orientation="vertical" view="divider" forwardedAs="ul">
                     {items.map((item, i) => (
                         <TabItem
@@ -77,6 +88,21 @@ describe('plasma-web: Tabs', () => {
                         >
                             {item.label}
                         </TabItem>
+                    ))}
+                </Tabs>
+                <PadMe />
+                <Tabs size="l" orientation="vertical" view="divider" forwardedAs="ul">
+                    {items.map((_, i) => (
+                        <IconTabItem
+                            size="l"
+                            orientation="vertical"
+                            view="divider"
+                            key={i}
+                            selected={i === 1}
+                            forwardedAs="li"
+                        >
+                            <IconPlasma color="inherit" size="s" />
+                        </IconTabItem>
                     ))}
                 </Tabs>
             </CypressTestDecoratorWithTypo>,
