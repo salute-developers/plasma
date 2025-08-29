@@ -151,6 +151,7 @@ export const iconSectionsSet = {
         adjustWidth: 'AdjustWidth',
         crop: 'Crop',
         hierarchyFill: 'HierarchyFill',
+        selectionScreenOutline: 'SelectionScreenOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
