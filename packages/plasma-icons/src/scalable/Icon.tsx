@@ -656,6 +656,7 @@ export const iconSectionsSet = {
         productImportOutline: 'ProductImportOutline',
         cookieOutline: 'CookieOutline',
         scissorsFill: 'ScissorsFill',
+        function: 'Function',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
