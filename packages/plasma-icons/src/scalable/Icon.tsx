@@ -1225,6 +1225,10 @@ export const iconSectionsSet = {
         visa: 'Visa',
         linkedin: 'Linkedin',
         whatsapp: 'Whatsapp',
+        bitbucketOutline: 'BitbucketOutline',
+        maxFill: 'MaxFill',
+        odnoklassnikiFill: 'OdnoklassnikiFill',
+        telegramFill: 'TelegramFill',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
