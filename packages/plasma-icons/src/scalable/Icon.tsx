@@ -150,6 +150,7 @@ export const iconSectionsSet = {
         adjustHeight: 'AdjustHeight',
         adjustWidth: 'AdjustWidth',
         crop: 'Crop',
+        resizeCornered: 'ResizeCornered',
     },
     Animal: {
         animalFill: 'AnimalFill',
