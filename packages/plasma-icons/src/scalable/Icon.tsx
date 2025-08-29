@@ -153,6 +153,7 @@ export const iconSectionsSet = {
         hierarchyFill: 'HierarchyFill',
         selectionScreenOutline: 'SelectionScreenOutline',
         tableOutline: 'TableOutline',
+        resizeCornered: 'ResizeCornered',
     },
     Animal: {
         animalFill: 'AnimalFill',
