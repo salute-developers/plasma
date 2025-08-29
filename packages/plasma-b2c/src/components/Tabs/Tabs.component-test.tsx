@@ -2,11 +2,13 @@ import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 import { IconClose } from '@salutejs/plasma-icons';
 
+import { Tabs as TabsB2C, TabItem as TabItemB2C } from '.';
+
 const items = [{ label: 'Joy' }, { label: 'Sber' }, { label: 'Athena' }];
 
 describe('plasma-b2c: Tabs', () => {
-    const Tabs = getComponent('Tabs');
-    const TabItem = getComponent('TabItem');
+    const Tabs = getComponent('Tabs') as typeof TabsB2C;
+    const TabItem = getComponent('TabItem') as typeof TabItemB2C;
 
     const withAutoFocus = getComponent('withAutoFocus');
     const TabAutoFocus = withAutoFocus(TabItem);
