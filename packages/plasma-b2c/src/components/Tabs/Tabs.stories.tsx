@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import type { ComponentProps, ComponentType, CSSProperties } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconPlasma, IconClose, IconProps, IconDotsHorizontalOutline } from '@salutejs/plasma-icons';
@@ -66,7 +67,7 @@ const getIconSizes = (size: string) => {
             case 'xs':
                 return '1rem';
             default:
-                '1.5rem';
+                return '1.5rem';
         }
     };
 
@@ -77,10 +78,18 @@ const getIconSizes = (size: string) => {
     return sizeProp;
 };
 
+const StyledIconClose = styled(IconClose)`
+    color: var(--text-secondary);
+
+    &:hover {
+        color: var(--text-primary);
+    }
+`;
+
 const getAction = (hasAction: boolean, size: string) => {
     const sizeProp = getIconSizes(size);
 
-    return hasAction ? <IconClose style={sizeProp} color="inherit" /> : undefined;
+    return hasAction ? <StyledIconClose style={sizeProp} color="inherit" /> : undefined;
 };
 
 const getIconContent = (size: string, CustomIcon?: ComponentType<IconProps>) => {
