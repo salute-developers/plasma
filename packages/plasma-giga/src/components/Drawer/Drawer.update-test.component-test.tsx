@@ -43,7 +43,7 @@ describe('plasma-giga: Drawer', () => {
         const [isOpen, setIsOpen] = React.useState(false);
         const {
             width = '50vw',
-            height = '100vh',
+            height,
             placement = 'right',
             closePlacement = 'right',
             hasClose = true,
