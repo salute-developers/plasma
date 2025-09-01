@@ -16,7 +16,13 @@ export const base = css`
 
     .${classes.navigationDrawerMenuLink} {
         text-decoration: none;
-        color: inherit;
+        color: var(--text-primary);
+
+        &:visited,
+        &:hover,
+        &:visited:hover {
+            color: var(--text-primary);
+        }
     }
 
     .${classes.navigationDrawerMenuItem} {
@@ -28,6 +34,7 @@ export const base = css`
         border-radius: var(${tokens.menuItemBorderRadius});
         box-sizing: border-box;
         height: var(${tokens.sidebarWidthClosed});
+        min-width: var(${tokens.sidebarWidthClosed});
         line-height: var(${tokens.iconContainerSize});
 
         font-family: var(${tokens.menuItemFontFamily});
@@ -87,6 +94,7 @@ export const base = css`
         flex-direction: column;
         overflow-y: auto;
         box-sizing: content-box;
+        color: var(--text-primary);
 
         height: calc(100% - 2rem);
         padding: var(${tokens.sidebarPadding});

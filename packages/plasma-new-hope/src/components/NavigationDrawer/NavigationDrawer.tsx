@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import cls from 'classnames';
+import { styled } from '@linaria/react';
 
 import { RootProps } from '../../engines';
 
@@ -9,6 +10,8 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base, Content, Footer, Overlay } from './NavigationDrawer.styles';
 import { Section } from './ui/Section';
 import { classes } from './NavigationDrawer.tokens';
+
+const Wrapper = styled.div``;
 
 export const navigationDrawerRoot = (
     Root: RootProps<
@@ -28,34 +31,34 @@ export const navigationDrawerRoot = (
             children,
             ...rest
         } = props;
-        const isOpened = opened || !withContentLeft;
+        const isOpen = opened || !withContentLeft;
 
         const isOverlay = mode === 'overlay' || mode === 'drawer';
 
         return (
             <Root ref={ref} {...rest}>
-                <div
+                <Wrapper
                     className={cls(
                         classes.navigationDrawerSidebar,
                         isOverlay && classes.navigationDrawerSidebarOverlay,
-                        !isOpened && classes.navigationDrawerSidebarClosed,
+                        !isOpen && classes.navigationDrawerSidebarClosed,
                     )}
                 >
                     {header}
 
-                    {sections.map((section, index) => (
+                    {sections.map(({ items, label, hasDivider }, index) => (
                         <Section
                             key={index}
-                            items={section.items}
-                            label={section.label}
+                            items={items}
+                            label={label}
                             withContentLeft={withContentLeft}
-                            isOpened={isOpened}
-                            hasDivider={section.hasDivider}
+                            isOpen={isOpen}
+                            hasDivider={hasDivider}
                         />
                     ))}
 
-                    <Footer>{footer}</Footer>
-                </div>
+                    {footer && <Footer>{footer}</Footer>}
+                </Wrapper>
                 {mode === 'overlay' && opened && <Overlay onClick={onHide} />}
                 <Content className={cls(isOverlay && classes.navigationDrawerContentOverlay)}>{children}</Content>
             </Root>

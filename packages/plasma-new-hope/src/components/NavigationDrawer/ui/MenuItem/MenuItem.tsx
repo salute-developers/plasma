@@ -11,22 +11,25 @@ import {
     Label,
 } from 'src/components/NavigationDrawer/ui/MenuItem/MenuItem.styles';
 import { classes } from 'src/components/NavigationDrawer/NavigationDrawer.tokens';
+import { Link } from 'src/examples/components/Link/Link';
 
 export const MenuItem: React.FC<MenuItemProps> = (props) => {
     const {
-        action,
+        onClick,
+        href,
+        target,
         disabled,
         selected,
         icon,
         contentLeft,
         withContentLeft,
         label,
-        isOpened,
+        isOpen,
         hasIndicator,
         counter,
     } = props;
 
-    const onClick = action && typeof action === 'function' && !disabled ? action : undefined;
+    const onMenuClick = typeof onClick === 'function' && !disabled ? onClick : undefined;
 
     const hasCustomContentLeft = contentLeft && withContentLeft;
 
@@ -67,7 +70,7 @@ export const MenuItem: React.FC<MenuItemProps> = (props) => {
         <>
             {contentLeft && contentLeftItem}
             {icon && iconItem}
-            {isOpened && <Label>{label}</Label>}
+            {isOpen && <Label>{label}</Label>}
         </>
     ) : (
         <>
@@ -76,13 +79,18 @@ export const MenuItem: React.FC<MenuItemProps> = (props) => {
         </>
     );
 
-    return typeof action === 'function' ? (
-        <div className={menuClasses} onClick={onClick}>
+    return typeof onClick === 'function' ? (
+        <div className={menuClasses} onClick={onMenuClick}>
             {menuItemContent}
         </div>
     ) : (
-        <a className={cls(classes.navigationDrawerMenuLink, menuClasses)} href={action} rel="noopener noreferrer">
+        <Link
+            className={cls(classes.navigationDrawerMenuLink, menuClasses)}
+            href={href}
+            rel="noopener noreferrer"
+            target={target}
+        >
             {menuItemContent}
-        </a>
+        </Link>
     );
 };
