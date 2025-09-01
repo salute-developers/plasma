@@ -1,7 +1,8 @@
-import { MenuItem } from 'src/components/NavigationDrawer/NavigationDrawer.types';
 import { HTMLAttributes } from 'react';
+
+import { MenuItem } from '../../NavigationDrawer.types';
 
 export type MenuItemProps = (MenuItem<true> | MenuItem<false>) & {
     withContentLeft?: boolean;
-    isOpened?: boolean;
+    isOpen?: boolean;
 } & HTMLAttributes<HTMLDivElement>;

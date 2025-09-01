@@ -10,9 +10,16 @@ export type MenuItem<T extends boolean = false> = {
     label: string;
     /**
      * Action при клике на элемент меню.
-     * Получает либо URL в качестве строки, либо функцию, срабатывающую при клике.
      */
-    action?: string | ((event: React.MouseEvent<HTMLDivElement>) => void);
+    onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+    /**
+     * Если указан, то элемент меню становится ссылкой.
+     */
+    href?: string;
+    /**
+     * Если указана ссылка в href, target будет использоваться для открытия ссылки.
+     */
+    target?: '_blank' | '_self' | '_parent' | '_top';
     /**
      * Элемент меню неактивен.
      * @default false
@@ -61,7 +68,7 @@ export type NavigationDrawerProps = {
      * - overlay: открывается поверх контента. Контент справа не доступен для взаимодействия, есть затемнение.
      * @default static
      */
-    mode?: 'static' | 'overlay' | 'drawer';
+    mode?: 'static' | 'drawer' | 'overlay';
     /**
      * Флаг для открытия/закрытия NavigationDrawer. Если не указан, то NavigationDrawer открыт.
      * @default true

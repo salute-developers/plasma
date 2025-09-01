@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react';
 import { IconDisclosureDownCentered } from 'src/components/_Icon';
+import { applyEllipsis } from 'src/mixins';
 
 import { tokens } from '../../NavigationDrawer.tokens';
 
@@ -17,6 +18,7 @@ export const SectionHeader = styled.div`
     cursor: pointer;
     box-sizing: border-box;
     height: var(${tokens.sidebarWidthClosed});
+    min-width: var(${tokens.sidebarWidthClosed});
 
     color: var(${tokens.sectionColor});
     font-size: var(${tokens.sectionFontSize});
@@ -39,8 +41,10 @@ export const SectionDivider = styled.div`
 
 export const SectionIcon = styled.div`
     width: var(${tokens.iconContainerSize});
+    min-width: var(${tokens.iconContainerSize});
     height: var(${tokens.iconContainerSize});
     display: flex;
+
     div {
         width: var(${tokens.iconSize});
         height: var(${tokens.iconSize});
@@ -52,7 +56,5 @@ export const ArrowIcon = styled(IconDisclosureDownCentered)`
 `;
 
 export const Label = styled.span`
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    ${applyEllipsis()};
 `;

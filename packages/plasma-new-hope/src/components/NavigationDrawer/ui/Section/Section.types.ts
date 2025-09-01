@@ -6,6 +6,6 @@ export type SectionProps<T extends boolean = false> = {
     items: MenuItem<T>[];
     label?: ReactNode;
     withContentLeft?: boolean;
-    isOpened?: boolean;
+    isOpen?: boolean;
     hasDivider?: boolean;
 } & HTMLAttributes<HTMLDivElement>;

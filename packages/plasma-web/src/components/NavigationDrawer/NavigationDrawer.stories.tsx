@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -42,32 +42,33 @@ const sections = [
                 label: 'Item 1 Selected',
                 icon: <IconBlankOutline />,
                 selected: true,
-                action: action('Item 1 clicked'),
+                onClick: action('Item 1 clicked'),
             },
-            { label: 'Item 2', icon: <IconBlankOutline />, action: action('Item 2 clicked') },
+            { label: 'Item 2', icon: <IconBlankOutline />, onClick: action('Item 2 clicked') },
             {
                 label: 'Link to Google',
                 icon: <IconBlankOutline />,
-                action: 'https://google.com',
+                href: 'https://google.com',
+                target: '_blank',
             },
             {
                 label: 'Item 4',
                 icon: <IconBlankOutline />,
-                action: action('Item 4 clicked'),
+                onClick: action('Item 4 clicked'),
                 disabled: true,
             },
-            { label: 'Item 5', icon: <IconBlankOutline />, action: action('Item 5 clicked') },
+            { label: 'Item 5', icon: <IconBlankOutline />, onClick: action('Item 5 clicked') },
             {
                 label: 'Item 6',
                 icon: <IconBlankOutline />,
-                action: action('Item 6 clicked'),
+                onClick: action('Item 6 clicked'),
                 hasIndicator: true,
             },
-            { label: 'Item 7', icon: <IconBlankOutline />, action: action('Item 7 clicked') },
+            { label: 'Item 7', icon: <IconBlankOutline />, onClick: action('Item 7 clicked') },
             {
                 label: 'Item 8',
                 icon: <IconBlankOutline />,
-                action: action('Item 8 clicked'),
+                onClick: action('Item 8 clicked'),
                 counter: 5,
             },
         ],
@@ -78,13 +79,13 @@ const sections = [
             {
                 label: 'Item 9 Text Long Lorem ipsum dolor sit amet',
                 icon: <IconBlankDocOutline />,
-                action: action('Item 9 clicked'),
+                onClick: action('Item 9 clicked'),
             },
         ],
     },
     {
         hasDivider: true,
-        items: [{ label: 'Item 10', icon: <IconBlankOutline />, action: action('Item 10 clicked') }],
+        items: [{ label: 'Item 10', icon: <IconBlankOutline />, onClick: action('Item 10 clicked') }],
     },
 ];
 
@@ -99,7 +100,9 @@ const NavigationDrawerDemo = (props: ComponentProps<typeof NavigationDrawer>) =>
                 header={<SlotContainer>Header</SlotContainer>}
                 footer={<SlotContainer>Footer</SlotContainer>}
                 sections={sections}
+                onHide={() => setIsOpen(false)}
             >
+                <span>Main content container (can be hidden in drawer and overlay mode)</span>
                 <Button onClick={() => setIsOpen(!isOpen)}>Toggle</Button>
             </NavigationDrawer>
         </Container>
@@ -121,78 +124,34 @@ const NavigationDrawerWithContentLeft = (props: ComponentProps<typeof Navigation
                             {
                                 label: 'Item 1',
                                 contentLeft: <ContentLeft />,
-                                action: action('Item 1 clicked'),
+                                onClick: action('Item 1 clicked'),
                                 selected: true,
                             },
                             {
                                 label: 'Item 2',
                                 contentLeft: <ContentLeft />,
-                                action: action('Item 2 clicked'),
+                                onClick: action('Item 2 clicked'),
                                 counter: 1,
                             },
                             {
                                 label: 'Item 3',
                                 contentLeft: <ContentLeft />,
-                                action: action('Item 3 clicked'),
+                                onClick: action('Item 3 clicked'),
                                 disabled: true,
                             },
                             {
                                 label: 'Item 4',
                                 contentLeft: <ContentLeft />,
-                                action: action('Item 4 clicked'),
+                                onClick: action('Item 4 clicked'),
                                 hasIndicator: true,
                             },
-                            { label: 'Item 5', contentLeft: <ContentLeft />, action: action('Item 5 clicked') },
+                            { label: 'Item 5', contentLeft: <ContentLeft />, onClick: action('Item 5 clicked') },
                         ],
                     },
                 ]}
                 withContentLeft
             >
                 <Button onClick={() => setIsOpen(!isOpen)}>Toggle</Button>
-            </NavigationDrawer>
-        </Container>
-    );
-};
-
-const NavigationDrawerWithDrawer = (props: ComponentProps<typeof NavigationDrawer>) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (ref.current) {
-            const sidebar = ref.current.childNodes[0] as HTMLDivElement;
-            sidebar.onmouseenter = () => {
-                setIsOpen(true);
-            };
-            sidebar.onmouseleave = () => {
-                setIsOpen(false);
-            };
-        }
-    }, [ref]);
-
-    return (
-        <Container>
-            <NavigationDrawer {...props} ref={ref} opened={isOpen} mode="drawer" sections={sections}>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-            </NavigationDrawer>
-        </Container>
-    );
-};
-
-const NavigationDrawerWithOverlay = (props: ComponentProps<typeof NavigationDrawer>) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <Container>
-            <NavigationDrawer
-                {...props}
-                opened={isOpen}
-                mode="overlay"
-                sections={sections}
-                onHide={() => setIsOpen(false)}
-            >
-                <Button onClick={() => setIsOpen(!isOpen)}>Toggle</Button>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
             </NavigationDrawer>
         </Container>
     );
@@ -214,6 +173,12 @@ const meta: Meta<typeof NavigationDrawer> = {
                 type: 'boolean',
             },
         },
+        mode: {
+            options: ['static', 'drawer', 'overlay'],
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         size: 's',
@@ -229,23 +194,10 @@ export const Default: Story = {
     args: {
         size: 's',
         withContentLeft: true,
+        mode: 'static',
     },
 };
 
 export const CustomContentLeft: Story = {
     render: (args) => <NavigationDrawerWithContentLeft {...args} />,
-};
-
-export const DrawerMode: StoryObj<ComponentProps<typeof NavigationDrawer>> = {
-    args: {
-        mode: 'drawer',
-    },
-    render: (args) => <NavigationDrawerWithDrawer {...args} />,
-};
-
-export const OverlayMode: StoryObj<ComponentProps<typeof NavigationDrawer>> = {
-    args: {
-        mode: 'overlay',
-    },
-    render: (args) => <NavigationDrawerWithOverlay {...args} />,
 };

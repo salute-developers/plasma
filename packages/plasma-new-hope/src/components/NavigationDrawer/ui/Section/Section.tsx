@@ -11,7 +11,7 @@ export const Section = <T extends boolean = false>({
     items,
     label,
     withContentLeft,
-    isOpened,
+    isOpen,
     className,
     hasDivider = false,
     ...rest
@@ -29,7 +29,7 @@ export const Section = <T extends boolean = false>({
             {label ? (
                 <SectionHeader onClick={() => setIsCollapsed(!isCollapsed)}>
                     {withContentLeft && label && icon}
-                    {isOpened && <Label>{label}</Label>}
+                    {isOpen && <Label>{label}</Label>}
                     {!withContentLeft && icon}
                 </SectionHeader>
             ) : (
@@ -38,7 +38,7 @@ export const Section = <T extends boolean = false>({
 
             {!isCollapsed &&
                 items.map((item, index) => (
-                    <MenuItem {...item} key={index} withContentLeft={withContentLeft} isOpened={isOpened} />
+                    <MenuItem {...item} key={index} withContentLeft={withContentLeft} isOpen={isOpen} />
                 ))}
         </StyledSection>
     );
