@@ -146,10 +146,6 @@ export interface BasicProps<K extends ItemOption> {
      */
     zIndex?: CSSProperties['zIndex'];
     /**
-     * Значение css overflow для выпадающего меню.
-     */
-    listOverflow?: CSSProperties['overflow'];
-    /**
      * Максимальная высота выпадающего списка.
      */
     listMaxHeight?: CSSProperties['height'];
@@ -212,7 +208,7 @@ export interface BasicProps<K extends ItemOption> {
     chipView?: string;
 
     /**
-     * @deprecated
+     * @deprecated Использовать listMaxHeight.
      */
     listHeight?: CSSProperties['height'];
     /**
@@ -220,6 +216,10 @@ export interface BasicProps<K extends ItemOption> {
      * @deprecated
      */
     onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
+    /**
+     * @deprecated Скролл применится автоматически при использовании listMaxHeight.
+     */
+    listOverflow?: CSSProperties['overflow'];
 }
 
 // Тип нового селекта
@@ -348,10 +348,6 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          */
         zIndex?: CSSProperties['zIndex'];
         /**
-         * Значение css overflow для выпадающего меню.
-         */
-        listOverflow?: CSSProperties['overflow'];
-        /**
          * Максимальная высота выпадающего списка.
          */
         listMaxHeight?: CSSProperties['height'];
@@ -426,7 +422,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          */
         isOpen?: boolean;
         /**
-         * @deprecated
+         * @deprecated Использовать listMaxHeight.
          */
         listHeight?: CSSProperties['height'];
         /**
@@ -434,6 +430,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @deprecated
          */
         onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
+        /**
+         * @deprecated Скролл применится автоматически при использовании listMaxHeight.
+         */
+        listOverflow?: CSSProperties['overflow'];
     } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
 
 export type { DropdownNode as DropdownNodeSelect };
