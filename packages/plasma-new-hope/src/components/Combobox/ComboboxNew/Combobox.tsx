@@ -113,6 +113,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
         const inputForkRef = useForkRef(inputRef, ref);
         const treeId = safeUseId();
+        const listWrapperRef = useRef<HTMLDivElement>(null);
 
         const filteredItems = useMemo(
             () =>
@@ -573,7 +574,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 readOnly={readOnly}
                                 name={name}
                             >
-                                <ListWrapper listWidth={listWidth}>
+                                <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
                                     <Ul
                                         role="tree"
                                         id={`${treeId}_tree_level_1`}
@@ -581,7 +582,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         listMaxHeight={listMaxHeight || listHeight}
                                         ref={targetRef}
                                         virtual={virtual}
-                                        listOverflow={listOverflow}
                                         onScroll={virtual ? undefined : onScroll}
                                     >
                                         {beforeList}
@@ -618,6 +618,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                             dispatchPath={dispatchPath}
                                                             index={index}
                                                             listWidth={listWidth}
+                                                            portal={listWrapperRef}
                                                         />
                                                     ))
                                                 )}

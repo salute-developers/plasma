@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import React from 'react';
 
 import type { PathState } from '../../../../../../Select/reducers';
@@ -14,7 +14,7 @@ export type ItemOption = {
      */
     label: string;
     /**
-     * Сторона открытия вложенного дропдауна относительно текущего элемента
+     * Сторона открытия вложенного выпадающего списка относительно текущего элемента
      * @default right
      */
     placement?: Placement;
@@ -38,6 +38,10 @@ export type ItemOption = {
      * Classname для item
      */
     className?: string;
+    /**
+     * Максимальная высота дочернего выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
 };
 
 export type ItemOptionTransformed = ItemOption & { parent?: ItemOption | null };

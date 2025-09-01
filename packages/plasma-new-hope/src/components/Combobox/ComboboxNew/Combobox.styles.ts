@@ -25,11 +25,10 @@ export const ListWrapper = styled.div<{
 
 export const Ul = styled.ul<{
     virtual: ComboboxProps['virtual'];
-    listOverflow?: ComboboxProps['listOverflow'];
     listMaxHeight?: ComboboxProps['listMaxHeight'];
 }>`
     max-height: ${({ virtual, listMaxHeight }) => (virtual ? 'auto' : listMaxHeight || 'auto')};
-    overflow-y: ${({ virtual, listOverflow }) => (virtual ? 'visible' : listOverflow || 'visible')};
+    overflow-y: ${({ virtual }) => (virtual ? 'visible' : 'auto')};
     border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
     margin: 0;
     padding: 0;

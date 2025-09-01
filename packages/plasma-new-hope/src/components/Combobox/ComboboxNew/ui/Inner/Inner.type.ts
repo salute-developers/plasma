@@ -1,4 +1,4 @@
-import type { Dispatch } from 'react';
+import { Dispatch, RefObject } from 'react';
 
 import type { PathAction, PathState } from '../../reducers';
 import type { ComboboxProps } from '../../Combobox.types';
@@ -12,4 +12,5 @@ export type InnerProps = {
     dispatchPath: Dispatch<PathAction>;
     index: number;
     listWidth: ComboboxProps['listWidth'];
+    portal?: RefObject<HTMLElement>;
 };
