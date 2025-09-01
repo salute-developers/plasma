@@ -1500,10 +1500,10 @@ export const backgroundPrimaryBrightness = 'var(--background-primary-brightness,
 export const darkBackgroundPrimary = 'var(--dark-background-primary, #060A0C)';
 
 /** Основной фон на светлом фоне */
-export const lightBackgroundPrimary = 'var(--light-background-primary, #F7F9FB)';
+export const lightBackgroundPrimary = 'var(--light-background-primary, #F2F5F8)';
 
 /** Инвертированный основной фон */
-export const inverseBackgroundPrimary = 'var(--inverse-background-primary, #F7F9FB)';
+export const inverseBackgroundPrimary = 'var(--inverse-background-primary, #F2F5F8)';
 
 /** Инвертированный основной фон */
 export const inverseBackgroundPrimaryBrightness = 'var(--inverse-background-primary-brightness, #F7F9FB)';

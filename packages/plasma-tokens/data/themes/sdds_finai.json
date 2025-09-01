@@ -2964,7 +2964,7 @@
                     "enabled": false
                 },
                 "backgroundPrimary": {
-                    "value": "[general.coolGray.50]",
+                    "value": "[general.coolGray.100]",
                     "comment": "Основной фон на светлом фоне"
                 }
             },
@@ -2980,7 +2980,7 @@
                     "enabled": false
                 },
                 "backgroundPrimary": {
-                    "value": "[general.coolGray.50]",
+                    "value": "[general.coolGray.100]",
                     "comment": "Инвертированный основной фон"
                 },
                 "backgroundPrimaryBrightness": {
@@ -7858,7 +7858,7 @@
                     "enabled": false
                 },
                 "backgroundPrimary": {
-                    "value": "[general.coolGray.50]",
+                    "value": "[general.coolGray.100]",
                     "comment": "Основной фон"
                 },
                 "backgroundPrimaryBrightness": {
@@ -7894,7 +7894,7 @@
                     "enabled": false
                 },
                 "backgroundPrimary": {
-                    "value": "[general.coolGray.50]",
+                    "value": "[general.coolGray.100]",
                     "comment": "Основной фон на светлом фоне"
                 }
             },
