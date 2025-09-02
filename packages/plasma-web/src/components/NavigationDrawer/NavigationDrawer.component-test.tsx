@@ -4,14 +4,12 @@ import { IconHouse, IconSettings, IconEdit } from '@salutejs/plasma-icons';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 
-const action = () => {};
-
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 // Базовые секции для тестов без contentLeft
 const sectionsBasic = [
     {
-        items: [{ label: 'Item 0', action }],
+        items: [{ label: 'Item 0' }],
     },
     {
         label: 'Section 1',
@@ -19,39 +17,35 @@ const sectionsBasic = [
             {
                 label: 'Item 1 Selected',
                 selected: true,
-                action,
             },
             {
                 label: 'Link to Google',
-                action: 'https://google.com',
+                href: 'https://google.com',
             },
             {
                 label: 'Item 3 Disabled',
-                action,
                 disabled: true,
             },
             {
                 label: 'Item 4 with Indicator',
-                action,
                 hasIndicator: true,
             },
             {
                 label: 'Item 5 with Counter',
-                action,
                 counter: 5,
             },
         ],
     },
     {
         label: 'Section 2',
-        items: [{ label: 'Item 6', action }],
+        items: [{ label: 'Item 6' }],
     },
 ];
 
 // Секции с иконками для тестов с contentLeft
 const sectionsWithIcons = [
     {
-        items: [{ label: 'Item 0', icon: <IconHouse />, action }],
+        items: [{ label: 'Item 0', icon: <IconHouse /> }],
     },
     {
         label: 'Section 1',
@@ -60,36 +54,32 @@ const sectionsWithIcons = [
                 label: 'Item 1 Selected',
                 icon: <IconHouse />,
                 selected: true,
-                action,
             },
             {
                 label: 'Link to Google',
                 icon: <IconEdit />,
-                action: 'https://google.com',
+                href: 'https://google.com',
             },
             {
                 label: 'Item 3 Disabled',
                 icon: <IconHouse />,
-                action,
                 disabled: true,
             },
             {
                 label: 'Item 4 with Indicator',
                 icon: <IconHouse />,
-                action,
                 hasIndicator: true,
             },
             {
                 label: 'Item 5 with Counter',
                 icon: <IconHouse />,
-                action,
                 counter: 15,
             },
         ],
     },
     {
         label: 'Section 2',
-        items: [{ label: 'Item 6', icon: <IconSettings />, action }],
+        items: [{ label: 'Item 6', icon: <IconSettings /> }],
     },
 ];
 
@@ -103,19 +93,16 @@ const sectionsWithContentLeft = [
             {
                 label: 'Item 1',
                 contentLeft: customContentLeft,
-                action,
                 selected: true,
             },
             {
                 label: 'Item 2',
                 contentLeft: customContentLeft,
-                action,
                 counter: 1,
             },
             {
                 label: 'Item 3 Disabled',
                 contentLeft: customContentLeft,
-                action,
                 disabled: true,
             },
         ],
@@ -198,11 +185,9 @@ describe('plasma-web: NavigationDrawer', () => {
                     items: [
                         {
                             label: 'Item with extremely long label that should be handled gracefully by the component',
-                            action,
                         },
                         {
                             label: 'Short item',
-                            action,
                         },
                     ],
                 },
@@ -224,9 +209,9 @@ describe('plasma-web: NavigationDrawer', () => {
                 {
                     label: 'High Counters',
                     items: [
-                        { label: 'Low counter', counter: 1, action },
-                        { label: 'High counter', counter: 999, action },
-                        { label: 'Very high counter', counter: 9999, action },
+                        { label: 'Low counter', counter: 1 },
+                        { label: 'High counter', counter: 999 },
+                        { label: 'Very high counter', counter: 9999 },
                     ],
                 },
             ];
@@ -332,16 +317,16 @@ describe('plasma-web: NavigationDrawer', () => {
                     items: [
                         {
                             label: 'Click me',
-                            action: () => setClickedItem('Item 1'),
+                            onClick: () => setClickedItem('Item 1'),
                         },
                         {
                             label: 'Or click me',
-                            action: () => setClickedItem('Item 2'),
+                            onClick: () => setClickedItem('Item 2'),
                         },
                         {
                             label: 'Disabled item',
                             disabled: true,
-                            action: () => setClickedItem('Should not click'),
+                            onClick: () => setClickedItem('Should not click'),
                         },
                     ],
                 },
