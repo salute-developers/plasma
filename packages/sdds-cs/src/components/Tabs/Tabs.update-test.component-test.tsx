@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
-import { IconDone, IconClose } from '@salutejs/plasma-icons';
+import { IconDone } from '@salutejs/plasma-icons';
 
 import { Counter } from '../Counter';
 
