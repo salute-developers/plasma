@@ -90,6 +90,7 @@ export const config = {
                 ${calendarBaseTokens.calendarCurrentItemBorderWidth}: 0.125rem;
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0.5rem;
+                ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1.5rem;
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;
