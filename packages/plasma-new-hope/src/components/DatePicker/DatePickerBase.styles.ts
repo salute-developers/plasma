@@ -100,6 +100,7 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarHeaderFontWeight}: var(${tokens.calendarHeaderFontWeight});
     ${calendarBaseTokens.calendarHeaderFontWeightBold}: var(${tokens.calendarHeaderFontWeightBold});
     ${calendarBaseTokens.calendarHeaderArrowColor}: var(${tokens.calendarHeaderArrowColor});
+    ${calendarBaseTokens.calendarArrowHeaderCustomSize}: var(${tokens.calendarHeaderArrowCustomSize});
     
     ${calendarBaseTokens.iconButtonHeight}: var(${tokens.iconButtonHeight});
     ${calendarBaseTokens.iconButtonWidth}: var(${tokens.iconButtonWidth});
