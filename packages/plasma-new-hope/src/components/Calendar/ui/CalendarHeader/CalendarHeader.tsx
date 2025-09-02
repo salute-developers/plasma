@@ -5,7 +5,7 @@ import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
 import { CalendarState } from '../../store/types';
 import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT, I18N } from '../../utils';
 import type { DateObject } from '../../Calendar.types';
-import { classes } from '../../Calendar.tokens';
+import { classes, tokens } from '../../Calendar.tokens';
 import { sizeMap } from '../../store/reducer';
 import { cx } from '../../../../utils';
 
@@ -112,13 +112,13 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             aria-label={`${I18N.previous[locale]} ${currentCalendarType}`}
             onClick={handlePrev}
         >
-            <IconDisclosureLeft color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+            <IconDisclosureLeft color="inherit" sizeCustomProperty={tokens.calendarArrowHeaderCustomSize} />
         </StyledArrow>
     );
 
     const NextButton = () => (
         <StyledArrow aria-label={`${I18N.next[locale]} ${currentCalendarType}`} onClick={handleNext}>
-            <IconDisclosureRight color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+            <IconDisclosureRight color="inherit" sizeCustomProperty={tokens.calendarArrowHeaderCustomSize} />
         </StyledArrow>
     );
 
