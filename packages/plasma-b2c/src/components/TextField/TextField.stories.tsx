@@ -3,7 +3,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
-import { IconBellFill } from '@salutejs/plasma-icons';
+import { IconBellFill, IconProps } from '@salutejs/plasma-icons';
 
 import { config } from './TextField.config';
 
@@ -44,7 +44,7 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
-const getIcon = (IconComponent: React.ReactElement, size: string) => {
+const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
 
     return <IconComponent size={iconSize} color="inherit" />;
@@ -280,7 +280,7 @@ const StoryDemo = ({ enableContentLeft, enableContentRight, view, readOnly, ...r
     const [text, setText] = useState('Значение поля');
     console.log(readOnly);
 
-    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size) : undefined;
 
     return (
         <div
@@ -393,7 +393,7 @@ type StoryPropsChips = Omit<
 const StoryChips = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsChips) => {
     const [text, setText] = useState('Значение поля');
 
-    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size) : undefined;
 
     const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
 

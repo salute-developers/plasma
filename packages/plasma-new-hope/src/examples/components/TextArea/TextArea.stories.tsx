@@ -9,7 +9,6 @@ import { textAreaConfig } from '../../../components/TextArea';
 import { mergeConfig } from '../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../_helpers';
 import type { PopoverPlacement } from '../Popover/Popover';
-import { IconLock } from '../../../components/_Icon';
 
 import { config } from './TextArea.config';
 import { TextArea } from './TextArea';
@@ -40,7 +39,7 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
-const getIcon = (IconComponent: React.ReactElement, size: string) => {
+const getIcon = (IconComponent: React.FC<any>, size: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
 
     return <IconComponent size={iconSize} color="inherit" />;

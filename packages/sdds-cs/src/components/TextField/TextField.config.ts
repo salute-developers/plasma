@@ -255,12 +255,13 @@ export const config = {
             true: css`
                 ${tokens.readOnlyOpacity}: 1;
                 ${tokens.colorReadOnly}: var(--text-primary);
-                ${tokens.backgroundColorReadOnly}: transparent;
+                ${tokens.backgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--outline-solid-secondary);
+                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
     },

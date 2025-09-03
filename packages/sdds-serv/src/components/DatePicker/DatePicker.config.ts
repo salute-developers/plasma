@@ -601,6 +601,7 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
                 ${tokens.rightContentOpacityReadOnly}: 0.4;
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
     },

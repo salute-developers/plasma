@@ -3,7 +3,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
-import { IconBellFill } from '@salutejs/plasma-icons';
+import { IconBellFill, IconProps } from '@salutejs/plasma-icons';
 
 import { TextField } from './TextField';
 import { config } from './TextField.config';
@@ -42,7 +42,7 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
-const getIcon = (IconComponent: React.ReactElement, size: string) => {
+const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
 
     return <IconComponent size={iconSize} color="inherit" />;
