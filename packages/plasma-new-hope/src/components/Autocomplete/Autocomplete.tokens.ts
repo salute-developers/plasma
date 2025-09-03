@@ -59,6 +59,7 @@ export const tokens = {
     textFieldContentSlotRightColor: '--plasma-autocomplete-textfield-content-right-slot-color', //
     textFieldContentSlotRightColorHover: '--plasma-autocomplete-textfield-content-right-slot-color-hover', //
     textFieldContentSlotRightColorActive: '--plasma-autocomplete-textfield-content-right-slot-color-active', //
+    textFieldContentSlotRightOpacityReadOnly: '--plasma-autocomplete-textfield-content-right-slot-opacity-readonly',
 
     textFieldLabelColor: '--plasma-autocomplete-textfield-label-color',
     textFieldLabelColorReadOnly: '--plasma-autocomplete-textfield-label-color-readonly',

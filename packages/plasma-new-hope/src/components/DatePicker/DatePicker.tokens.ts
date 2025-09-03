@@ -149,6 +149,7 @@ export const tokens = {
     textFieldContentSlotColor: '--plasma-date-picker-textfield__content-color',
     textFieldContentRightSlotColor: '--plasma-date-picker-textfield__content-right-color',
     textFieldContentRightSlotColorHover: '--plasma-date-picker-textfield__content-right-color-hover',
+    textFieldContentSlotRightOpacityReadOnly: '--plasma-date-picker-textfield__content-right-color-hover',
 
     /** Токены календаря */
     calendarMarginTop: '--plasma-date-picker-calendar-margin-top',

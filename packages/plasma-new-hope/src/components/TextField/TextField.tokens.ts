@@ -82,6 +82,7 @@ export const tokens = {
     contentSlotRightColor: '--plasma-textfield-content-right-slot-color',
     contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
     contentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
+    contentSlotRightOpacityReadOnly: '--plasma-textfield-right-content-opacity-readonly',
 
     contentRightWrapperGap: '--plasma-textfield-content-right-wrapper-gap',
     contentRightWrapperMargin: '--plasma-textfield-content-right-wrapper-margin',
