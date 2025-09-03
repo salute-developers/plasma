@@ -13,16 +13,29 @@ const Spinner = component(mergedConfig);
 
 export const ButtonText = styled.span`
     min-width: 4ch;
-    flex-shrink: 2;
-    
+
+    &.${String(classes.contentRelaxed)} {
+        flex-grow: 2;
+        text-align: start;
+    }
+
     color: var(${tokens.buttonTextColor});
 
     ${applyEllipsis()}
+`;
 
+export const StyledAdditionalContent = styled.div`
+    display: flex;
+    align-items: center;
+    margin: var(${tokens.buttonAdditionalContentMargin});
 
     &.${String(classes.contentRelaxed)} {
         text-align: start;
         flex-grow: 2;
+    }
+
+    &.${classes.buttonHasValue} {
+        margin-right: var(${tokens.buttonAdditionalContentMarginRightWidthValue});
     }
 `;
 

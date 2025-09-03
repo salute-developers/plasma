@@ -80,6 +80,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextPadding}: 0.063rem 0;
                 ${linkButtonTokens.linkButtonLeftContentMargin}: 0 0.25rem 0 0;
                 ${linkButtonTokens.linkButtonRightContentMargin}: 0 0 0 0.25rem;
+                ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.25rem;
             `,
             xs: css`
                 ${linkButtonTokens.linkButtonHeight}: 2rem;
@@ -98,6 +99,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextPadding}: 0.063rem 0;
                 ${linkButtonTokens.linkButtonLeftContentMargin}: 0 0.25rem 0 0;
                 ${linkButtonTokens.linkButtonRightContentMargin}: 0 0 0 0.25rem;
+                ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.25rem;
             `,
         },
         disabled: {

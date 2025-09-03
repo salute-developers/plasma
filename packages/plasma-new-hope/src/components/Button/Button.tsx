@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import type { CSSProperties } from 'react';
+import cls from 'classnames';
 
 import type { RootProps } from '../../engines';
 import { convertRoundnessMatrix } from '../../utils/roundness';
@@ -18,6 +19,7 @@ import {
     ButtonValue,
     Loader,
     LoadWrap,
+    StyledAdditionalContent,
     StyledContentLeft,
     StyledContentRight,
     StyledSpinner,
@@ -47,6 +49,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
             blur,
             style,
             stretching = 'auto',
+            additionalContent,
             ...rest
         } = props;
 
@@ -94,7 +97,20 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                     {contentLeft && (
                         <StyledContentLeft hasContentMargin={hasRightContentMargin}>{contentLeft}</StyledContentLeft>
                     )}
-                    {txt ? <ButtonText className={contentRelaxedClass}>{txt}</ButtonText> : children}
+                    {txt ? (
+                        <ButtonText className={!additionalContent ? contentRelaxedClass : ''}>{txt}</ButtonText>
+                    ) : (
+                        children
+                    )}
+                    {additionalContent && (
+                        <StyledAdditionalContent
+                            className={cls(contentRelaxedClass, {
+                                [classes.buttonHasValue]: Boolean(value),
+                            })}
+                        >
+                            {additionalContent}
+                        </StyledAdditionalContent>
+                    )}
                     {value && <ButtonValue>{value}</ButtonValue>}
                     {contentRight && (
                         <StyledContentRight hasContentMargin={hasLeftContentMargin}>{contentRight}</StyledContentRight>
