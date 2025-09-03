@@ -11,6 +11,7 @@ import {
     LinkButtonText,
     Loader,
     LoadWrap,
+    StyledAdditionalContent,
     StyledContentLeft,
     StyledContentRight,
     StyledSpinner,
@@ -32,6 +33,7 @@ export const linkButtonRoot = (Root: RootProps<HTMLAnchorElement, LinkButtonProp
             href,
             rel,
             style,
+            additionalContent,
             ...rest
         } = props;
 
@@ -64,6 +66,7 @@ export const linkButtonRoot = (Root: RootProps<HTMLAnchorElement, LinkButtonProp
                 <LoadWrap isLoading={!disabled && isLoading} style={{ ...loadingCustomOpacity }}>
                     {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                     {txt ? <LinkButtonText>{txt}</LinkButtonText> : children}
+                    {additionalContent && <StyledAdditionalContent>{additionalContent}</StyledAdditionalContent>}
                     {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                 </LoadWrap>
                 {!disabled && isLoading && <Loader>{loader || <StyledSpinner />}</Loader>}

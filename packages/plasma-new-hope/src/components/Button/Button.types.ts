@@ -49,6 +49,10 @@ type CustomButtonProps = {
      */
     contentPlacing?: ContentPlacing;
     /**
+     * Дополнительный контент
+     */
+    additionalContent?: ReactNode;
+    /**
      * У кнопки состояние загрузки
      */
     isLoading?: boolean;

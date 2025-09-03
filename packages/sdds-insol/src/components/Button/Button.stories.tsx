@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { IconMic } from '@salutejs/plasma-icons';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
+import { Counter } from '../Counter/Counter';
+
 import { config } from './Button.config';
 
 import { Button } from '.';
@@ -108,6 +110,7 @@ export default meta;
 type StoryPropsDefault = ComponentProps<typeof Button> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    enableCounter: boolean;
 };
 
 const StyledIconMic = styled(IconMic)<{ customSize?: string }>`
@@ -120,12 +123,13 @@ const StyledIconMic = styled(IconMic)<{ customSize?: string }>`
         `}
 `;
 
-const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
+const StoryDefault = ({ enableContentLeft, enableContentRight, enableCounter, size, ...rest }: StoryPropsDefault) => {
     const iconSize = size === 's' || size === 'xs' || size === 'xxs' ? 'xs' : 's';
     const iconCustomSize = size === 'm' ? '1.25rem' : undefined;
 
     return (
         <Button
+            additionalContent={enableCounter ? <Counter view="accent" count={0} /> : undefined}
             contentLeft={
                 enableContentLeft ? (
                     <StyledIconMic customSize={iconCustomSize} size={iconSize} color="inherit" />
@@ -149,6 +153,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
         enableContentRight: false,
+        enableCounter: false,
         value: '',
     },
     argTypes: {
@@ -160,6 +165,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
 export const WithValue: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
+        enableCounter: false,
     },
     argTypes: {
         ...disableProps(['enableContentRight']),

@@ -32,6 +32,12 @@ export const base = css`
     })}
 `;
 
+export const StyledAdditionalContent = styled.div`
+    display: flex;
+    align-items: center;
+    margin: var(${tokens.linkButtonAdditionalContentMargin});
+`;
+
 export const LoadWrap = styled.div<{ isLoading?: boolean }>`
     opacity: ${({ isLoading }) => (isLoading ? '0.06' : '1')};
     display: flex;

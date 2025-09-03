@@ -5,6 +5,7 @@ import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { IconMic } from '../../../components/_Icon';
 import { WithTheme } from '../../_helpers';
+import { Counter } from '../Counter/Counter';
 
 import { LinkButton } from './LinkButton';
 import { config } from './LinkButton.config';
@@ -52,13 +53,15 @@ export default meta;
 type StoryPropsDefault = ComponentProps<typeof LinkButton> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    enableCounter: boolean;
 };
 
-const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
+const StoryDefault = ({ enableContentLeft, enableContentRight, enableCounter, size, ...rest }: StoryPropsDefault) => {
     const iconSize = size as keyof typeof sizeMap;
 
     return (
         <LinkButton
+            additionalContent={enableCounter ? <Counter count={0} /> : undefined}
             contentLeft={
                 enableContentLeft ? <IconMic sizeCustomValue={sizeMap[iconSize]} color="inherit" /> : undefined
             }
@@ -75,6 +78,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
         enableContentRight: false,
+        enableCounter: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

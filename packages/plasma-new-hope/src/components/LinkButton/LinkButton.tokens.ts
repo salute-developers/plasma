@@ -21,6 +21,7 @@ export const tokens = {
 
     linkButtonLeftContentMargin: '--plasma-link-button-left-content-margin',
     linkButtonRightContentMargin: '--plasma-link-button-right-content-margin',
+    linkButtonAdditionalContentMargin: '--plasma-link-button-additional-content-margin',
 
     linkButtonDisabledOpacity: '--plasma-link-button-disabled-opacity',
     linkButtonFocusColor: '--plasma-link-button-focus-color',

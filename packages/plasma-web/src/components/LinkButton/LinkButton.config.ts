@@ -80,6 +80,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextPadding}: 0.063rem 0;
                 ${linkButtonTokens.linkButtonLeftContentMargin}: 0 0.5rem 0 0;
                 ${linkButtonTokens.linkButtonRightContentMargin}: 0 0 0 0.5rem;
+                ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.5rem;
             `,
             l: css`
                 ${linkButtonTokens.linkButtonHeight}: 3.5rem;
@@ -98,6 +99,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextPadding}: 0.063rem 0;
                 ${linkButtonTokens.linkButtonLeftContentMargin}: 0 0.5rem 0 0;
                 ${linkButtonTokens.linkButtonRightContentMargin}: 0 0 0 0.5rem;
+                ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.5rem;
             `,
             m: css`
                 ${linkButtonTokens.linkButtonHeight}: 3rem;
@@ -116,6 +118,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextPadding}: 0.125rem 0;
                 ${linkButtonTokens.linkButtonLeftContentMargin}: 0 0.375rem 0 0;
                 ${linkButtonTokens.linkButtonRightContentMargin}: 0 0 0 0.375rem;
+                ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.375rem;
             `,
             s: css`
                 ${linkButtonTokens.linkButtonHeight}: 2.5rem;
@@ -134,6 +137,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextPadding}: 0.063rem 0;
                 ${linkButtonTokens.linkButtonLeftContentMargin}: 0 0.25rem 0 0;
                 ${linkButtonTokens.linkButtonRightContentMargin}: 0 0 0 0.25rem;
+                ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.25rem;
             `,
             xs: css`
                 ${linkButtonTokens.linkButtonHeight}: 2rem;
@@ -152,6 +156,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextPadding}: 0.063rem 0;
                 ${linkButtonTokens.linkButtonLeftContentMargin}: 0 0.25rem 0 0;
                 ${linkButtonTokens.linkButtonRightContentMargin}: 0 0 0 0.25rem;
+                ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.25rem;
             `,
             xxs: css`
                 ${linkButtonTokens.linkButtonHeight}: 1.5rem;
@@ -169,6 +174,7 @@ export const config = {
 
                 ${linkButtonTokens.linkButtonLeftContentMargin}: 0.063rem 0.25rem 0.063rem 0;
                 ${linkButtonTokens.linkButtonRightContentMargin}: 0.063rem 0 0.063rem 0.25rem;
+                ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.25rem;
             `,
         },
         disabled: {

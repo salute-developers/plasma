@@ -77,6 +77,8 @@ export const config = {
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 0;
                 ${buttonTokens.buttonRightContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
             `,
         },
         focused: {

@@ -5,6 +5,8 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { IconMic } from '@salutejs/plasma-icons';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
+import { Counter } from '../Counter/Counter';
+
 import { config } from './Button.config';
 
 import { Button } from '.';
@@ -108,13 +110,36 @@ export default meta;
 type StoryPropsDefault = ComponentProps<typeof Button> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    enableCounter: boolean;
 };
 
-const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
+type CounterSizeKey = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+type CounterSizeValue = 'xxs' | 'xs' | 's';
+type CounterSizeMap = Record<CounterSizeKey, CounterSizeValue>;
+
+const counterSizeMap: CounterSizeMap = {
+    xxs: 'xxs',
+    xs: 'xxs',
+    s: 'xxs',
+    m: 'xs',
+    l: 's',
+    xl: 's',
+};
+
+const StoryDefault = ({
+    enableContentLeft,
+    enableContentRight,
+    enableCounter,
+    size = 's',
+    ...rest
+}: StoryPropsDefault) => {
     const iconSize = size === 'xs' || size === 'xxs' ? 'xs' : 's';
 
     return (
         <Button
+            additionalContent={
+                enableCounter ? <Counter view="accent" size={counterSizeMap[size]} count={0} /> : undefined
+            }
             contentLeft={enableContentLeft && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined}
             contentRight={
                 enableContentRight && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined
@@ -132,6 +157,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
         enableContentRight: false,
+        enableCounter: false,
         value: '',
     },
     argTypes: {
@@ -143,6 +169,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
 export const WithValue: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
+        enableCounter: false,
     },
     argTypes: {
         ...disableProps(['enableContentRight']),
