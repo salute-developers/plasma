@@ -1,10 +1,9 @@
 import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import styled from 'styled-components';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
-import { IconBellFill, IconLockOutline } from '@salutejs/plasma-icons';
+import { IconBellFill } from '@salutejs/plasma-icons';
 
 import { TextField } from './TextField';
 import { config } from './TextField.config';
@@ -43,16 +42,8 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
-const StyledIconLockOutline = styled(IconLockOutline)`
-    opacity: 0.4;
-`;
-
-const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+const getIcon = (IconComponent: React.ReactElement, size: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
-
-    if (readOnly) {
-        return <StyledIconLockOutline size={iconSize} color="var(--text-secondary)" />;
-    }
 
     return <IconComponent size={iconSize} color="inherit" />;
 };
@@ -277,7 +268,7 @@ type StoryPropsDefault = Omit<
 const StoryDemo = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsDefault) => {
     const [text, setText] = useState('Значение поля');
 
-    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size) : undefined;
 
     return (
         <div
@@ -390,7 +381,7 @@ type StoryPropsChips = Omit<
 const StoryChips = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsChips) => {
     const [text, setText] = useState('Значение поля');
 
-    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size) : undefined;
 
     const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
 
