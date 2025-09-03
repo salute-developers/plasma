@@ -1,10 +1,8 @@
 import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import styled from 'styled-components';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
-import { IconPlasma, IconLockOutline } from '@salutejs/plasma-icons';
-import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
+import { IconPlasma, IconProps } from '@salutejs/plasma-icons';
 
 import { TextField } from './TextField';
 import { config } from './TextField.config';
@@ -17,16 +15,8 @@ const onSearch = action('onSearch');
 const { views, sizes } = getConfigVariations(config);
 const labelPlacements = ['outer'];
 
-const StyledIconLockOutline = styled(IconLockOutline)`
-    opacity: 0.4;
-`;
-
-const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
-
-    if (readOnly) {
-        return <StyledIconLockOutline size={iconSize} color="var(--text-secondary)" />;
-    }
 
     return <IconComponent size={iconSize} color="inherit" />;
 };

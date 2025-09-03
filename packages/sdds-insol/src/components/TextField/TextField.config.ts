@@ -746,6 +746,7 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.readOnlyOpacity}: 1;
+                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
                 ${tokens.colorReadOnly}: var(--text-primary);
                 ${tokens.backgroundColorReadOnly}: var(--surface-solid-secondary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);

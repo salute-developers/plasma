@@ -193,6 +193,7 @@ describe('sdds-insol: DatePicker', () => {
                     leftHelper="Left helper"
                     placeholder="05.05.2023"
                     lang="ru"
+                    contentRight={<IconSber size="s" />}
                     readOnly
                 />
             </CypressTestDecorator>,
