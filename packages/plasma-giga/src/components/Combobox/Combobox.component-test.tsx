@@ -1380,7 +1380,77 @@ describe('plasma-giga: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
-    it('disabled item behavior', () => {
+    it('prop: onToggle', () => {
+        cy.viewport(400, 300);
+
+        const onToggle = cy.stub().as('onToggle');
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Combobox id="combobox" items={items} label="Label" placeholder="Placeholder" onToggle={onToggle} />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#combobox').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').should('have.been.calledOnce');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('#combobox').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').should('have.been.calledOnce');
+
+        cy.get('body').click('bottomRight');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').should('have.been.calledTwice');
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.get('.combobox-target-arrow').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('input#combobox').should('not.be.focused');
+        cy.get('@onToggle').should('have.been.calledThrice');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('.combobox-target-arrow').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('input#combobox').should('not.be.focused');
+        cy.get('@onToggle').its('callCount').should('equal', 4);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.get('body').click('bottomRight');
+        cy.realPress('Tab');
+        cy.get('input#combobox').should('be.focused');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 4);
+
+        cy.realPress('ArrowDown');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('input#combobox').should('be.focused');
+        cy.get('@onToggle').its('callCount').should('equal', 5);
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.realPress('ArrowLeft');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('input#combobox').should('be.focused');
+        cy.get('@onToggle').its('callCount').should('equal', 6);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.realPress('ArrowLeft');
+        cy.get('@onToggle').its('callCount').should('equal', 6);
+        cy.realPress('ArrowDown');
+        cy.get('@onToggle').its('callCount').should('equal', 7);
+        cy.get('@onToggle').should('have.been.calledWith', true);
+        cy.realPress('Escape');
+        cy.get('@onToggle').its('callCount').should('equal', 8);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+        cy.realPress('Escape');
+        cy.get('@onToggle').its('callCount').should('equal', 8);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+    });
+
+    it('behavior: disabled item', () => {
         const items = [
             {
                 value: 'brazil',
@@ -1422,6 +1492,102 @@ describe('plasma-giga: Combobox', () => {
         cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
         cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'false');
         cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'false');
+    });
+
+    it('behavior: repeated click on target', () => {
+        const Component = () => (
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Combobox id="single" label="Список стран" items={items} />
+                </div>
+            </CypressTestDecoratorWithTypo>
+        );
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('input').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('body').click('bottomRight');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+    });
+
+    it('behavior: nesting lists within scroll', { scrollBehavior: false }, () => {
+        cy.viewport(1000, 300);
+
+        const items = [
+            {
+                value: 'north_america',
+                label: 'Северная Америка',
+                className: 'test-classname',
+            },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                listMaxHeight: '100px',
+                items: [
+                    {
+                        value: 'brazil',
+                        label: 'Бразилия',
+                        listMaxHeight: '100px',
+                        items: [
+                            {
+                                value: 'rio_de_janeiro',
+                                label: 'Рио-де-Жанейро',
+                            },
+                            {
+                                value: 'sao_paulo',
+                                label: 'Сан-Паулу',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'argentina',
+                        label: 'Аргентина',
+                    },
+                    {
+                        value: 'colombia',
+                        label: 'Колумбия',
+                    },
+                ],
+            },
+            {
+                value: 'europe',
+                label: 'Европа',
+            },
+            {
+                value: 'asia',
+                label: 'Азия',
+            },
+            {
+                value: 'africa',
+                label: 'Африка',
+                disabled: true,
+            },
+        ];
+
+        const Component = () => (
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="single"
+                        placeholder="Placeholder"
+                        label="Список стран"
+                        items={items}
+                        listMaxHeight="150px"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>
+        );
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
     });
 
     it('flow: single uncontrolled', () => {

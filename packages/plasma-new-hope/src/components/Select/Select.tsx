@@ -129,6 +129,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value.toString() || '';
         const closeAfterSelect = outerCloseAfterSelect ?? !props.multiselect;
         const treeId = safeUseId();
+        const listWrapperRef = useRef<HTMLDivElement>(null);
         const view = target === 'textfield-like' && (disabled || readOnly) ? 'default' : getView(status, outerView);
 
         // Собираем объект с пропсами для required и прокидываем их напрямую в компонент Textfield.
@@ -452,12 +453,11 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                             readOnly={readOnly}
                             {...(rest as any)}
                         >
-                            <ListWrapper listWidth={listWidth}>
+                            <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
                                 <Ul
                                     role="tree"
                                     id={`${treeId}_tree_level_1`}
                                     aria-multiselectable={Boolean(props.multiselect)}
-                                    listOverflow={listOverflow}
                                     listMaxHeight={listMaxHeight || listHeight}
                                     onScroll={virtual ? undefined : handleScroll}
                                     ref={targetRef}
@@ -486,6 +486,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                                 dispatchPath={dispatchPath}
                                                 index={index}
                                                 listWidth={listWidth}
+                                                portal={listWrapperRef}
                                             />
                                         ))
                                     )}

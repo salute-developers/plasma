@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useReducer, useMemo, useLayoutEffect, useRef } from 'react';
-import type { ChangeEvent, ForwardedRef } from 'react';
+import type { ChangeEvent, ForwardedRef, MouseEvent } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 import { safeUseId, isEmpty } from 'src/utils';
 import { RootProps } from 'src/engines';
@@ -110,6 +110,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
         const inputForkRef = useForkRef(inputRef, ref);
         const treeId = safeUseId();
+        const listWrapperRef = useRef<HTMLDivElement>(null);
 
         const filteredItems = useMemo(
             () =>
@@ -178,18 +179,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         };
 
-        const handleClickArrow = () => {
-            if (disabled || readOnly) {
-                return;
-            }
+        const handleClickArrow = (e: MouseEvent<HTMLElement>) => {
+            handleListToggle(!isCurrentListOpen);
 
-            if (isCurrentListOpen) {
-                dispatchPath({ type: 'reset' });
-            } else {
-                dispatchPath({ type: 'opened_first_level' });
-            }
-
-            dispatchFocusedPath({ type: 'reset' });
+            // При клике на иконку закрытия фокус не должен становиться в инпут.
+            e.stopPropagation();
         };
 
         // Обработчик изменения значения в инпуте
@@ -321,7 +315,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         };
 
         // Обработчик клика по айтему выпадающего списка
-        const handleItemClick = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
+        const handleItemClick = (item: ItemOptionTransformed, e?: MouseEvent<HTMLElement>) => {
             if (!isEmpty(item?.items)) {
                 return;
             }
@@ -344,6 +338,13 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             if (onChange) {
                 onChange(isCurrentChecked ? '' : item.value, item);
+            }
+        };
+
+        // Обработчик клика на таргет
+        const handleTargetClick = () => {
+            if (!isCurrentListOpen) {
+                handleListToggle(true);
             }
         };
 
@@ -370,7 +371,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             return [];
         };
 
-        const handlePressDown = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
+        const handlePressDown = (item: ItemOptionTransformed, e?: MouseEvent<HTMLElement>) => {
             if (isEmpty(item.items)) {
                 handleItemClick(item, e);
             } else if (multiple) {
@@ -378,7 +379,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         };
 
-        const helperTextStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+        const helperTextStopPropagation = (event: MouseEvent<HTMLDivElement>) => {
             event.stopPropagation();
         };
 
@@ -488,62 +489,69 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                         <FloatingPopover
                             ref={floatingPopoverRef}
                             opened={isCurrentListOpen}
-                            onToggle={handleListToggle}
                             placement={placement}
                             portal={portal}
                             listWidth={listWidth}
                             offset={_offset}
                             target={(referenceRef) => (
-                                <StyledTextField
-                                    ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
-                                    inputWrapperRef={referenceRef}
-                                    value={textValue}
-                                    onChange={handleTextValueChange}
-                                    size={size}
-                                    view={view}
-                                    disabled={disabled}
-                                    readOnly={readOnly}
-                                    label={label}
-                                    placeholder={placeholder}
-                                    contentLeft={contentLeft}
-                                    contentRight={
-                                        <IconArrowWrapper disabled={disabled} onClick={handleClickArrow}>
-                                            <StyledArrow
-                                                color="inherit"
-                                                size={sizeToIconSize(size)}
-                                                className={withArrowInverse}
-                                            />
-                                        </IconArrowWrapper>
-                                    }
-                                    textBefore={textBefore}
-                                    textAfter={textAfter}
-                                    onKeyDown={onKeyDown}
-                                    leftHelper={
-                                        helperText && (
-                                            <StyledLeftHelper onClick={helperTextStopPropagation}>
-                                                {helperText}
-                                            </StyledLeftHelper>
-                                        )
-                                    }
-                                    role="combobox"
-                                    aria-autocomplete="list"
-                                    aria-controls={`${treeId}_tree_level_1`}
-                                    aria-expanded={isCurrentListOpen}
-                                    aria-activedescendant={
-                                        activeDescendantItemValue ? getItemId(treeId, activeDescendantItemValue) : ''
-                                    }
-                                    labelPlacement={labelPlacement}
-                                    keepPlaceholder={keepPlaceholder}
-                                    {...(multiple
-                                        ? {
-                                              enumerationType: 'chip',
-                                              chips: getChips(),
-                                              onChangeChips: handleChipsChange,
-                                          }
-                                        : { enumerationType: 'plain' })}
-                                    {...rest}
-                                    _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
-                                />
+                                <div onClick={handleTargetClick}>
+                                    <StyledTextField
+                                        ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
+                                        inputWrapperRef={referenceRef}
+                                        value={textValue}
+                                        onChange={handleTextValueChange}
+                                        size={size}
+                                        view={view}
+                                        disabled={disabled}
+                                        readOnly={readOnly}
+                                        label={label}
+                                        placeholder={placeholder}
+                                        contentLeft={contentLeft}
+                                        contentRight={
+                                            <IconArrowWrapper
+                                                disabled={disabled}
+                                                onClick={handleClickArrow}
+                                                className={classes.comboboxTargetArrow}
+                                            >
+                                                <StyledArrow
+                                                    color="inherit"
+                                                    size={sizeToIconSize(size)}
+                                                    className={withArrowInverse}
+                                                />
+                                            </IconArrowWrapper>
+                                        }
+                                        textBefore={textBefore}
+                                        textAfter={textAfter}
+                                        onKeyDown={onKeyDown}
+                                        leftHelper={
+                                            helperText && (
+                                                <StyledLeftHelper onClick={helperTextStopPropagation}>
+                                                    {helperText}
+                                                </StyledLeftHelper>
+                                            )
+                                        }
+                                        role="combobox"
+                                        aria-autocomplete="list"
+                                        aria-controls={`${treeId}_tree_level_1`}
+                                        aria-expanded={isCurrentListOpen}
+                                        aria-activedescendant={
+                                            activeDescendantItemValue
+                                                ? getItemId(treeId, activeDescendantItemValue)
+                                                : ''
+                                        }
+                                        labelPlacement={labelPlacement}
+                                        keepPlaceholder={keepPlaceholder}
+                                        {...(multiple
+                                            ? {
+                                                  enumerationType: 'chip',
+                                                  chips: getChips(),
+                                                  onChangeChips: handleChipsChange,
+                                              }
+                                            : { enumerationType: 'plain' })}
+                                        {...rest}
+                                        _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
+                                    />
+                                </div>
                             )}
                             zIndex={zIndex}
                             isInner={false}
@@ -556,7 +564,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 readOnly={readOnly}
                                 name={name}
                             >
-                                <ListWrapper listWidth={listWidth}>
+                                <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
                                     <Ul
                                         role="tree"
                                         id={`${treeId}_tree_level_1`}
@@ -564,7 +572,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         listMaxHeight={listMaxHeight || listHeight}
                                         ref={targetRef}
                                         virtual={virtual}
-                                        listOverflow={listOverflow}
                                         onScroll={virtual ? undefined : onScroll}
                                     >
                                         {beforeList}
@@ -601,6 +608,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                             dispatchPath={dispatchPath}
                                                             index={index}
                                                             listWidth={listWidth}
+                                                            portal={listWrapperRef}
                                                         />
                                                     ))
                                                 )}

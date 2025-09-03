@@ -19,10 +19,10 @@ export const ListWrapper = styled.div<{
 
 export const Ul = styled.ul<{
     listMaxHeight: DropdownProps['listHeight'];
-    listOverflow: DropdownProps['listOverflow'];
 }>`
     max-height: ${({ listMaxHeight }) => (listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto')};
-    overflow-y: ${({ listOverflow }) => listOverflow || 'visible'};
+    overflow-x: hidden;
+    overflow-y: auto;
     border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.borderWidth}, 0rem));
     margin: 0;
     padding: 0;
