@@ -47,8 +47,9 @@ const config: StorybookConfig = {
             resolve: {
                 dedupe: ['react', 'react-dom', 'styled-components'],
                 alias: {
-                    'src': path.resolve(__dirname, '../src'),
-                }
+                    src: path.resolve(__dirname, '../src'),
+                    '@salutejs/plasma-sb-utils': path.resolve('../../utils/plasma-sb-utils/src'),
+                },
             },
             build: {
                 sourcemap: false,
