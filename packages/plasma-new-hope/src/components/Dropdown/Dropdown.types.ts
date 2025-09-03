@@ -55,10 +55,6 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      */
     offset?: [number, number];
     /**
-     * Значение css overflow для выпадающего меню.
-     */
-    listOverflow?: CSSProperties['overflow'];
-    /**
      * Максимальная высота выпадающего списка.
      */
     listMaxHeight?: CSSProperties['height'];
@@ -123,7 +119,7 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     /**
      * Значение css height для выпадающего меню.
      * @default initial
-     * @deprecated
+     * @deprecated Использовать listMaxHeight.
      * @example listHeight="11", listHeight="auto", listHeight={11}
      */
     listHeight?: CSSProperties['height'];
@@ -132,6 +128,10 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      * @deprecated использовать onHover
      */
     hoverIndex?: number;
+    /**
+     * @deprecated Скролл применится автоматически при использовании listMaxHeight.
+     */
+    listOverflow?: CSSProperties['overflow'];
 } & HTMLAttributes<HTMLDivElement>;
 
 export type HandleGlobalToggleType = (opened: boolean, event: SyntheticEvent | Event) => void;

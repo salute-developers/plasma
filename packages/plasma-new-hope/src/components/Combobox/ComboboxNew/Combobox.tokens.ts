@@ -2,7 +2,7 @@ export const classes = {
     dropdownItemIsFocused: 'dropdown-item-is-focused',
     dropdownItemIsDisabled: 'dropdown-item-is-disabled',
     dropdownItemIsActive: 'dropdown-item-is-active',
-    selectTargetArrow: 'combobox-target-arrow',
+    comboboxTargetArrow: 'combobox-target-arrow',
     arrowInverse: 'arrow-inverse',
     textfieldTarget: 'combobox-textfield-target',
     selectChipIsFocused: 'combobox-chip-is-focused',

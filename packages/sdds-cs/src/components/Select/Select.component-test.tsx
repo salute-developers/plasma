@@ -873,6 +873,66 @@ describe('sdds-cs: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: onToggle', () => {
+        cy.viewport(400, 300);
+
+        const onToggle = cy.stub().as('onToggle');
+
+        mount(
+            <CypressTestDecorator>
+                <div style={{ width: '300px' }}>
+                    <Select id="select" items={items} label="Label" placeholder="Placeholder" onToggle={onToggle} />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('#select').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').should('have.been.calledOnce');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('#select').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').should('have.been.calledTwice');
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.get('#select').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').should('have.been.calledThrice');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('body').realClick({ position: 'bottomRight' });
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 4);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.realPress('Tab');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 4);
+
+        cy.realPress('ArrowDown');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').its('callCount').should('equal', 5);
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.realPress('ArrowLeft');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 6);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.realPress('ArrowLeft');
+        cy.get('@onToggle').its('callCount').should('equal', 6);
+        cy.realPress('ArrowDown');
+        cy.get('@onToggle').its('callCount').should('equal', 7);
+        cy.get('@onToggle').should('have.been.calledWith', true);
+        cy.realPress('Escape');
+        cy.get('@onToggle').its('callCount').should('equal', 8);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+        cy.realPress('Escape');
+        cy.get('@onToggle').its('callCount').should('equal', 8);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 
@@ -933,7 +993,7 @@ describe('sdds-cs: Select', () => {
         cy.matchImageSnapshot();
     });
 
-    it('disabled item behavior', () => {
+    it('behavior: disabled item', () => {
         const items = [
             {
                 value: 'brazil',
@@ -975,6 +1035,83 @@ describe('sdds-cs: Select', () => {
         cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
         cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'false');
         cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'false');
+    });
+
+    it('behavior: nesting lists within scroll', { scrollBehavior: false }, () => {
+        cy.viewport(1000, 300);
+
+        const items = [
+            {
+                value: 'north_america',
+                label: 'Северная Америка',
+                className: 'test-classname',
+            },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                listMaxHeight: '100px',
+                items: [
+                    {
+                        value: 'brazil',
+                        label: 'Бразилия',
+                        listMaxHeight: '100px',
+                        items: [
+                            {
+                                value: 'rio_de_janeiro',
+                                label: 'Рио-де-Жанейро',
+                            },
+                            {
+                                value: 'sao_paulo',
+                                label: 'Сан-Паулу',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'argentina',
+                        label: 'Аргентина',
+                    },
+                    {
+                        value: 'colombia',
+                        label: 'Колумбия',
+                    },
+                ],
+            },
+            {
+                value: 'europe',
+                label: 'Европа',
+            },
+            {
+                value: 'asia',
+                label: 'Азия',
+            },
+            {
+                value: 'africa',
+                label: 'Африка',
+                disabled: true,
+            },
+        ];
+
+        const Component = () => (
+            <CypressTestDecorator>
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="single"
+                        placeholder="Placeholder"
+                        label="Список стран"
+                        items={items}
+                        listMaxHeight="150px"
+                    />
+                </div>
+            </CypressTestDecorator>
+        );
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
     });
 
     it('keyboard interactions', () => {
