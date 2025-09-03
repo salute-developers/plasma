@@ -568,6 +568,7 @@ export const config = {
                 ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
                 ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
                 ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
         disabled: {

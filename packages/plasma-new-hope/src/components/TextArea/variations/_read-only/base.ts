@@ -1,12 +1,22 @@
 import { css } from '@linaria/core';
 
-import { StyledContainer, StyledHelpers, StyledTextArea, StyledTextAreaWrapper } from '../../TextArea.styles';
+import {
+    StyledContainer,
+    StyledContent,
+    StyledHelpers,
+    StyledTextArea,
+    StyledTextAreaWrapper,
+} from '../../TextArea.styles';
 import { classes, tokens } from '../../TextArea.tokens';
 
 export const base = css`
     &[readonly] {
         ${StyledTextArea} {
             color: var(${tokens.inputColorReadOnly});
+        }
+
+        ${StyledContent} {
+            opacity: var(${tokens.contentSlotRightOpacityReadOnly});
         }
 
         &.${classes.clear} {

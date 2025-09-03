@@ -40,12 +40,8 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
-const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+const getIcon = (IconComponent: React.ReactElement, size: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
-
-    if (readOnly) {
-        return <IconLock size={iconSize} color="var(--text-secondary)" style={{ opacity: 0.4 }} />;
-    }
 
     return <IconComponent size={iconSize} color="inherit" />;
 };
@@ -320,11 +316,7 @@ const StoryDefault = (props: StoryTextAreaProps) => {
     return (
         <TextArea
             value={value}
-            contentRight={
-                props.enableContentRight || props.readOnly
-                    ? getIcon(IconPlaceholder, props.size, props.readOnly)
-                    : undefined
-            }
+            contentRight={props.enableContentRight || props.readOnly ? getIcon(IconPlaceholder, props.size) : undefined}
             headerSlot={props.enableHeader && <StyledHeader>Дополнительный контент</StyledHeader>}
             onChange={(e) => {
                 setValue(e.target.value);
