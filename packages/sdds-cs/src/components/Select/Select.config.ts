@@ -250,7 +250,7 @@ export const config = {
             true: css`
                 ${selectTokens.disclosureIconOpacityReadOnly}: 0.4;
                 ${selectTokens.textFieldColorReadOnly}: var(--text-primary);
-                ${selectTokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${selectTokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
                 ${selectTokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${selectTokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${selectTokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);

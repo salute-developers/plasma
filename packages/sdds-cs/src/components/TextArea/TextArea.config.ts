@@ -284,10 +284,15 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${textAreaTokens.backgroundColor}: transparent;
-                ${textAreaTokens.borderColor}: transparent;
-                ${textAreaTokens.borderColorHover}: transparent;
-                ${textAreaTokens.borderColorFocus}: transparent;
+                ${textAreaTokens.readOnlyOpacity}: 0.4;
+                ${textAreaTokens.labelOuterColor}: var(--text-secondary);
+                ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
+                ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.contentSlotRightOpacityReadOnly}: 0.4;
+                ${textAreaTokens.backgroundColor}: var(--surface-clear);
+                ${textAreaTokens.borderColor}: var(--surface-clear);
+                ${textAreaTokens.borderColorHover}: var(--surface-clear);
+                ${textAreaTokens.borderColorFocus}: var(--surface-clear);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-secondary);
