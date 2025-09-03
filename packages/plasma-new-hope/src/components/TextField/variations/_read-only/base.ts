@@ -64,6 +64,10 @@ export const base = css`
         ${LeftHelper} {
             color: var(${tokens.leftHelperColorReadOnly});
         }
+         
+        ${StyledContentRight} {
+            opacity: var(${tokens.contentSlotRightOpacityReadOnly});
+        }
 
         ${StyledContentRight}:hover, ${StyledContentRight}:active {
             cursor: default;
