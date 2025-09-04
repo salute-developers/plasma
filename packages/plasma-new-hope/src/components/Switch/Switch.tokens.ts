@@ -63,4 +63,5 @@ export const tokens = {
 export const classes = {
     beforeSwitchLabelPosition: 'switch-label-position-before',
     afterSwitchLabelPosition: 'switch-label-position-after',
+    labelEllipsis: 'switch-label-ellipsis',
 };

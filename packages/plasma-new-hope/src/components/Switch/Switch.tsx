@@ -25,6 +25,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
 
             label,
             description,
+            labelEllipses = true,
 
             id,
             style,
@@ -64,7 +65,9 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
                         defaultChecked={defaultChecked}
                         disabled={disabled}
                     />
-                    <StyledLabel tabIndex={-1}>{label}</StyledLabel>
+                    <StyledLabel tabIndex={-1} className={labelEllipses ? classes.labelEllipsis : ''}>
+                        {label}
+                    </StyledLabel>
                     <StyledTrigger aria-hidden />
                 </StyledContent>
                 {description && <StyledDescription>{description}</StyledDescription>}

@@ -8,6 +8,11 @@ export interface SwitchPropsPropsBase {
      */
     label?: ReactNode;
     /**
+     * Перенос строки label
+     * @default true
+     */
+    labelEllipses?: boolean;
+    /**
      * Дополнительное описание
      */
     description?: string;
