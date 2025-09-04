@@ -1,3 +1,130 @@
+## 0.314.0 (4 сентября 2025)
+
+## Функциональные изменения в компонентах
+
+### Autocomplete
+
+* Добавлен пример очистки поля ввода
+
+[PR](https://github.com/salute-developers/plasma/pull/2165)
+
+* Добавлено опциональное свойство `flip`, при котором выпадающий список при недостатке места снизу может отобразиться вверху;
+
+[PR](https://github.com/salute-developers/plasma/pull/2199)
+
+### Popup
+
+* добавлено свойство `providerFrame`, которое определяет элемент, в который поместится контейнер Popupов
+
+[PR](https://github.com/salute-developers/plasma/pull/2151)
+
+### DatePicker
+
+* добавлена возможность передавать zIndex в выпадающий календарь
+
+[PR](https://github.com/salute-developers/plasma/pull/2181)
+
+* размеры приведены в соответствие с макетами
+
+[PR](https://github.com/salute-developers/plasma/pull/2196)
+
+### Docs
+
+* в документацию добавлен поиск на базе `typesense`
+
+[PR](https://github.com/salute-developers/plasma/pull/2173)
+
+### Autocomplete, Combobox, Select
+
+* виртуализация теперь поддерживает работу с элементами с динамической высотой;
+
+[PR](https://github.com/salute-developers/plasma/pull/2183)
+
+### Carousel
+
+* добавлено свойство `defaultIndex`, которое отвечает за показ первого слайда по-умолчанию;
+
+[PR](https://github.com/salute-developers/plasma/pull/2175)
+
+### Combobox
+
+* свойство `renderValue` теперь работает и в одиночном режиме;
+
+[PR](https://github.com/salute-developers/plasma/pull/2172)
+
+### Tree
+
+* добавлено свойство `radioMode`, включающее поведение выбора элемента как у radio-checkbox;
+
+[PR](https://github.com/salute-developers/plasma/pull/2179)
+
+### Tooltip
+
+* добавлены свойства `mouseEnterDelay` и `mouseLeaveDelay` для задержки перед открытием/закрытием подсказки;
+
+[PR](https://github.com/salute-developers/plasma/pull/2186)
+
+### Tabs
+
+* добавлен `actionContent` в `TabItem`
+
+* добавлен `IconTabItem`
+
+[PR](https://github.com/salute-developers/plasma/pull/2177)
+
+### Chip
+
+* Добавлен размер `xxs` в `chip`
+
+[PR](https://github.com/salute-developers/plasma/pull/2194)
+
+### Attach
+
+* переработана документация компонента
+
+* добавлены примеры взаимодействия с формой
+
+[PR](https://github.com/salute-developers/plasma/pull/2167)
+
+### Drawer
+
+* Добавили поддержку css свойства scrollbar-gutter чтобы предотвратить дергания экрана из-за наличие scrollbar
+
+[PR](https://github.com/salute-developers/plasma/pull/2074)
+
+### Button
+
+* Добавлен новый параметр `AdditionalContent`
+
+[PR](https://github.com/salute-developers/plasma/pull/2195)
+
+### LinkButton
+
+* Добавлен новый параметр `AdditionalContent`
+
+[PR](https://github.com/salute-developers/plasma/pull/2195)
+
+## Изменения в библиотеки
+
+### Tree
+
+* добавлен пример в документацию с кастомными скруглениями выбранной категории;
+
+[PR](https://github.com/salute-developers/plasma/pull/2174)
+
+### Avatar
+
+* исправлен токен для текста и background согласно макету
+
+[PR](https://github.com/salute-developers/plasma/pull/2185)
+
+### Tokens
+
+* изменен токен `backgroundPrimary` с `general.coolGray.50` на `general.coolGray.100`
+
+[PR](https://github.com/salute-developers/plasma/pull/2198)
+
+
 ## 0.313.0 (21 августа 2025)
 
 ## Функциональные изменения в компонентах
