@@ -71,7 +71,7 @@ export type CustomNumberFormatProps = {
      */
     isAllowed?: (values: NumberFormatValues) => boolean;
     /**
-     * Колбэк, вызываемый при изменении значения в поле ввода.
+     * Callback, вызываемый при изменении значения в поле ввода.
      * Принимает событие изменения (ChangeEvent) и объект NumberFormatValues:
      * ```
      * floatValue: number | undefined;
