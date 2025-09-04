@@ -24,7 +24,7 @@ export type RightContent =
           contentRight?: ReactNode;
       };
 
-export interface BaseTabItemProps extends ButtonHTMLAttributes<HTMLButtonElement>, AsProps {
+export interface BaseTabItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value'>, AsProps {
     /**
      * Выбран ли TabItem
      */
@@ -38,6 +38,10 @@ export interface BaseTabItemProps extends ButtonHTMLAttributes<HTMLButtonElement
      * Контент справа
      */
     contentRight?: ReactNode;
+    /**
+     * Слот для интерактивных элементов (крестик)
+     */
+    actionContent?: ReactNode;
 
     /**
      * Callback, необходимый для клавиатурной навигации
@@ -89,6 +93,47 @@ export type CustomHorizontalTabItemProps = {
      */
     isActive?: boolean;
 } & RightContent;
+
+export type CustomHorizontalIconTabItemProps = {
+    /**
+     * Расположение табов
+     */
+    orientation?: 'horizontal';
+    /**
+     * Фон TabItem меняется с анимацией
+     * @deprecated
+     * @default true
+     */
+    animated?: boolean;
+    /**
+     * Вид TabItem
+     */
+    view?: string;
+    /**
+     * Размер TabItem
+     */
+    size?: 'xs' | 's' | 'm' | 'l' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    /**
+     * Активен ли TabItem
+     * @deprecated Используйте свойство `selected`
+     */
+    isActive?: boolean;
+};
+
+export type CustomVerticalIconTabItemProps = {
+    /**
+     * Расположение табов
+     */
+    orientation?: 'vertical';
+    /**
+     * Вид TabItem
+     */
+    view?: string;
+    /**
+     * Размер TabItem
+     */
+    size?: string;
+};
 
 export type CustomHeaderTabItemProps = {
     /**
@@ -146,7 +191,11 @@ export type CustomVerticalTabItemProps = {
 } & RightContent;
 
 export type HorizontalTabItemProps = BaseTabItemProps & (CustomHorizontalTabItemProps | CustomHeaderTabItemProps);
+export type HorizontalIconTabItemProps = Omit<BaseTabItemProps, 'contentRight' | 'maxItemWidth' | 'value'> &
+    CustomHorizontalIconTabItemProps;
 
 export type VerticalTabItemProps = BaseTabItemProps & CustomVerticalTabItemProps;
+export type VerticalIconTabItemProps = Omit<BaseTabItemProps, 'contentRight' | 'maxItemWidth' | 'value'> &
+    CustomVerticalIconTabItemProps;
 
 export type TabItemProps = HorizontalTabItemProps | VerticalTabItemProps;

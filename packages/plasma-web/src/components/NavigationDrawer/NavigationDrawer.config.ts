@@ -1,0 +1,83 @@
+import { css, navigationDrawerTokens } from '@salutejs/plasma-new-hope/styled-components';
+
+export const config = {
+    defaults: {
+        view: 'default',
+        size: 's',
+    },
+    variations: {
+        view: {
+            default: css`
+                ${navigationDrawerTokens.sidebarBoxShadow}: var(--shadow-down-soft-s);
+                ${navigationDrawerTokens.sidebarPadding}: 1.25rem 0.75rem 0.75rem 0.75rem;
+                ${navigationDrawerTokens.sidebarGap}: 0.625rem;
+                ${navigationDrawerTokens.sidebarWidth}: 250px;
+                ${navigationDrawerTokens.sidebarBackground}: var(--surface-solid-card);
+
+                ${navigationDrawerTokens.sectionColor}: var(--text-tertiary-active);
+                ${navigationDrawerTokens.sectionFontSize}: 0.75rem;
+                ${navigationDrawerTokens.sectionHeaderGap}: 0.75rem;
+
+                ${navigationDrawerTokens.menuItemGap}: 0.75rem;
+                ${navigationDrawerTokens.menuItemPadding}: 0.75rem;
+                ${navigationDrawerTokens.menuItemBorderRadius}: 0.625rem;
+                ${navigationDrawerTokens.menuItemSelectedColor}: var(--surface-transparent-secondary);
+                ${navigationDrawerTokens.menuItemHoverColor}: var(--surface-transparent-secondary-hover);
+                ${navigationDrawerTokens.menuItemDisabledOpacity}: 0.4;
+                ${navigationDrawerTokens.menuItemIndicatorSize}: 0.5rem;
+                ${navigationDrawerTokens.menuItemIndicatorColor}: var(--surface-solid-default);
+
+                ${navigationDrawerTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${navigationDrawerTokens.dividerHeight}: 1px;
+
+                ${navigationDrawerTokens.overlayBackground}: var(--surface-transparent-secondary);
+
+                ${navigationDrawerTokens.counterBorderRadius}: 1rem;
+                ${navigationDrawerTokens.counterHeight}: 1rem;
+                ${navigationDrawerTokens.counterPadding}: 0 0.125rem;
+                ${navigationDrawerTokens.counterBackground}: var(--surface-solid-default);
+                ${navigationDrawerTokens.counterColor}: var(--surface-solid-card);
+                ${navigationDrawerTokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${navigationDrawerTokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${navigationDrawerTokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${navigationDrawerTokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${navigationDrawerTokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${navigationDrawerTokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
+            `,
+        },
+        size: {
+            s: css`
+                ${navigationDrawerTokens.iconSize}: 0.875rem;
+                ${navigationDrawerTokens.iconContainerSize}: 1rem;
+                ${navigationDrawerTokens.menuItemFontSize}: 0.875rem;
+                ${navigationDrawerTokens.sidebarWidthClosed}: 2.5rem;
+                ${navigationDrawerTokens.sectionPadding}: 0.625rem 0.75rem;
+                ${navigationDrawerTokens.sectionBorderRadius}: 0.625rem;
+                ${navigationDrawerTokens.iconMargin}: 1px 0 0 1px;
+                ${navigationDrawerTokens.menuItemFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${navigationDrawerTokens.menuItemFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${navigationDrawerTokens.menuItemFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${navigationDrawerTokens.menuItemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${navigationDrawerTokens.menuItemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${navigationDrawerTokens.menuItemContentLeftSize}: 1.5rem;
+                ${navigationDrawerTokens.menuItemContentLeftMargin}: 0.5rem;
+            `,
+            m: css`
+                ${navigationDrawerTokens.iconSize}: 1.25rem;
+                ${navigationDrawerTokens.iconContainerSize}: 1.5rem;
+                ${navigationDrawerTokens.menuItemFontSize}: 1rem;
+                ${navigationDrawerTokens.sidebarWidthClosed}: 3rem;
+                ${navigationDrawerTokens.sectionPadding}: 0.75rem;
+                ${navigationDrawerTokens.sectionBorderRadius}: 0.75rem;
+                ${navigationDrawerTokens.iconMargin}: 2px 0 0 2px;
+                ${navigationDrawerTokens.menuItemFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${navigationDrawerTokens.menuItemFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${navigationDrawerTokens.menuItemFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${navigationDrawerTokens.menuItemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${navigationDrawerTokens.menuItemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${navigationDrawerTokens.menuItemContentLeftSize}: 2.25rem;
+                ${navigationDrawerTokens.menuItemContentLeftMargin}: 0.375rem;
+            `,
+        },
+    },
+};

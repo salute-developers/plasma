@@ -9,7 +9,7 @@ const storyMap = {
     emotion: ['../src-emotion/**/*.stories.tsx'],
 };
 
-const stories = ['../README.stories.mdx'];
+const stories = ['../README.mdx'];
 
 if (USE_EMOTION_COMPONENTS) {
     stories.push(...storyMap['emotion']);
@@ -32,6 +32,9 @@ const config: StorybookConfig = {
     docs: {
         autodocs: false,
         defaultName: 'Docs',
+    },
+    typescript: {
+        reactDocgen: false,
     },
     async viteFinal(config) {
         return mergeConfig(config, {

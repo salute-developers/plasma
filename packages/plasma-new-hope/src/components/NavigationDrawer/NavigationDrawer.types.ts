@@ -1,0 +1,113 @@
+import type { ReactNode } from 'react';
+
+/**
+ * Элемент меню в секции NavigationDrawer.
+ */
+export type MenuItem<T extends boolean = false> = {
+    /**
+     * Текст элемента меню.
+     */
+    label: string;
+    /**
+     * Action при клике на элемент меню.
+     */
+    onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+    /**
+     * Если указан, то элемент меню становится ссылкой.
+     */
+    href?: string;
+    /**
+     * Если указана ссылка в href, target будет использоваться для открытия ссылки.
+     */
+    target?: '_blank' | '_self' | '_parent' | '_top';
+    /**
+     * Элемент меню неактивен.
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * Элемент меню выбран.
+     * @default false
+     */
+    selected?: boolean;
+    /**
+     * Счетчик у элемента меню.
+     */
+    counter?: number;
+    /**
+     * Флаг для отображения индикатора у элемента меню.
+     */
+    hasIndicator?: boolean;
+} & (T extends true ? { icon?: ReactNode; contentLeft?: ReactNode } : { icon?: never; contentLeft?: never });
+
+/**
+ * Секция меню в NavigationDrawer.
+ */
+type SectionItem<T extends boolean = false> = {
+    /**
+     * Список элементов в секции.
+     */
+    items: MenuItem<T>[];
+    /**
+     * Заголовок секции. При его отсутствии появится разделитель.
+     */
+    label?: ReactNode;
+    /**
+     * Флаг для отображения разделителя в начале секции.
+     * Используется только для секций без заголовка (label).
+     * @default false
+     */
+    hasDivider?: boolean;
+};
+
+export type NavigationDrawerProps = {
+    /**
+     * Режим отображения NavigationDrawer.
+     * - static: статичный контент справа.
+     * - drawer: открывается поверх контента. Контент справа доступен для взаимодействия, нет затемнения.
+     * - overlay: открывается поверх контента. Контент справа не доступен для взаимодействия, есть затемнение.
+     * @default static
+     */
+    mode?: 'static' | 'drawer' | 'overlay';
+    /**
+     * Флаг для открытия/закрытия NavigationDrawer. Если не указан, то NavigationDrawer открыт.
+     * @default true
+     */
+    opened?: boolean;
+    /**
+     * Callback, срабатывающий при закрытии меню. Только при mode="overlay".
+     */
+    onHide?: () => void;
+    /**
+     * Ячейка для контента в начале меню.
+     */
+    header?: ReactNode;
+    /**
+     * Ячейка для контента в конце меню.
+     */
+    footer?: ReactNode;
+    /**
+     * Размер элемента меню.
+     */
+    size?: string;
+    /**
+     * Вид компонента.
+     */
+    view?: string;
+    /**
+     * Контент внутри NavigationDrawer.
+     */
+    children?: ReactNode;
+} & (
+    | {
+          /**
+           * Список секций меню.
+           */
+          sections: SectionItem<true>[];
+          withContentLeft: true;
+      }
+    | {
+          sections: SectionItem<false>[];
+          withContentLeft?: never;
+      }
+);

@@ -58,6 +58,7 @@ type UseCarouselHookResult = {
 export const useCarousel = ({ index, scrollAlign }: UseCarouselOptions): UseCarouselHookResult => {
     const scrollRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
+    const isFirstRender = useRef(true);
 
     // Прокрутка до нужной позиции индекса, если индекс изменился.
     useEffect(() => {
@@ -76,7 +77,11 @@ export const useCarousel = ({ index, scrollAlign }: UseCarouselOptions): UseCaro
                 scrollAlign,
             });
 
-            scrollRef.current.scrollTo({ left: pos });
+            scrollRef.current.scrollTo({ left: pos, behavior: isFirstRender.current ? 'instant' : 'smooth' });
+        }
+
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
         }
     }, [index]);
 

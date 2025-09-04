@@ -139,7 +139,9 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.625rem 0 -0.125rem;
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.625rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.5rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.375rem;
+                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.375rem;
             `,
             l: css`
                 ${buttonTokens.buttonHeight}: 3.5rem;
@@ -158,7 +160,9 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.625rem 0 -0.125rem;
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.625rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.5rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.375rem;
+                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.375rem;
             `,
             lr: css`
                 ${buttonTokens.buttonHeight}: 3.5rem;
@@ -175,6 +179,7 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 0;
                 ${buttonTokens.buttonRightContentMargin}: 0 0 0 0.5rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.5rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
             m: css`
@@ -194,7 +199,9 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 -0.125rem;
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.5rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.375rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
             `,
             mr: css`
                 ${buttonTokens.buttonHeight}: 3rem;
@@ -211,6 +218,7 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 0;
                 ${buttonTokens.buttonRightContentMargin}: 0 0 0 0.375rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.375rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
             s: css`
@@ -230,7 +238,9 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 -0.125rem;
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.5rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.375rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
             `,
             sr: css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
@@ -247,6 +257,7 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 0;
                 ${buttonTokens.buttonRightContentMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
             xs: css`
@@ -266,7 +277,9 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.125rem;
+                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
             `,
             xsr: css`
                 ${buttonTokens.buttonHeight}: 2rem;
@@ -283,6 +296,7 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 0;
                 ${buttonTokens.buttonRightContentMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
             `,
             xxs: css`
@@ -302,7 +316,9 @@ export const config = {
 
                 ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
                 ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
-                ${buttonTokens.buttonValueMargin}: 0 0 0 0.375rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.125rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
             `,
         },
         disabled: {

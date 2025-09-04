@@ -1,19 +1,23 @@
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
+import { IconClose, IconPlasma } from '@salutejs/plasma-icons';
+
+import { Tabs as TabsWEB, TabItem as TabItemWEB, IconTabItem as IconTabItemWEB } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const items = [{ label: 'Joy' }, { label: 'Sber' }, { label: 'Athena' }];
 
 describe('plasma-web: Tabs', () => {
-    const Tabs = getComponent('Tabs');
-    const TabItem = getComponent('TabItem');
+    const Tabs = getComponent('Tabs') as typeof TabsWEB;
+    const TabItem = getComponent('TabItem') as typeof TabItemWEB;
+    const IconTabItem = getComponent('IconTabItem') as typeof IconTabItemWEB;
     const withAutoFocus = getComponent('withAutoFocus');
     const AutoFocusTabItem = withAutoFocus(TabItem);
 
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
             <StandardTypoStyle />
             {children}
@@ -37,6 +41,22 @@ describe('plasma-web: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
+    it('_actionContent', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tabs>
+                    {items.map((item, i) => (
+                        <TabItem key={i} selected={i === 1} actionContent={<IconClose color="inherit" />}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('_orientation', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -45,6 +65,14 @@ describe('plasma-web: Tabs', () => {
                         <TabItem size="l" view="divider" key={i} selected={i === 1} forwardedAs="li">
                             {item.label}
                         </TabItem>
+                    ))}
+                </Tabs>
+                <PadMe />
+                <Tabs size="l" view="divider" forwardedAs="ul">
+                    {items.map((_, i) => (
+                        <IconTabItem size="l" view="divider" key={i} selected={i === 1} forwardedAs="li">
+                            <IconPlasma color="inherit" size="s" />
+                        </IconTabItem>
                     ))}
                 </Tabs>
                 <PadMe />
@@ -60,6 +88,21 @@ describe('plasma-web: Tabs', () => {
                         >
                             {item.label}
                         </TabItem>
+                    ))}
+                </Tabs>
+                <PadMe />
+                <Tabs size="l" orientation="vertical" view="divider" forwardedAs="ul">
+                    {items.map((_, i) => (
+                        <IconTabItem
+                            size="l"
+                            orientation="vertical"
+                            view="divider"
+                            key={i}
+                            selected={i === 1}
+                            forwardedAs="li"
+                        >
+                            <IconPlasma color="inherit" size="s" />
+                        </IconTabItem>
                     ))}
                 </Tabs>
             </CypressTestDecoratorWithTypo>,
@@ -127,6 +170,7 @@ describe('plasma-web: Tabs', () => {
             </CypressTestDecorator>,
         );
 
+        cy.get('button').contains('Sber').click();
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(1000);
         cy.get('button').contains('Joy').should('not.be.visible');

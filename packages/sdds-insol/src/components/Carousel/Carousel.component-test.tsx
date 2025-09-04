@@ -168,4 +168,24 @@ describe('sdds-insol: Carousel', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('prop: defaultIndex', () => {
+        cy.viewport(700, 500);
+
+        mount(
+            <CypressTestDecorator>
+                <div style={{ width: '600px' }}>
+                    <Carousel defaultIndex={4}>
+                        {items.map((item, i) => (
+                            <CarouselItem key={i}>
+                                <StyledCard>{item.title}</StyledCard>
+                            </CarouselItem>
+                        ))}
+                    </Carousel>
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });

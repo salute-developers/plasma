@@ -87,3 +87,4 @@ export * from './components/Tour';
 export * from './components/EmbedIconButton';
 export * from './components/ViewContainer';
 export * from './components/InformationWrapper';
+export * from './components/NavigationDrawer';

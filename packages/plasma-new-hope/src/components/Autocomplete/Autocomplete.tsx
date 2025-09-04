@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useReducer, useLayoutEffect, useRef } from 'react';
+import React, { forwardRef, useState, useReducer, useRef } from 'react';
 import { safeUseId } from 'src/utils';
 import { useDidMountEffect, useOutsideClick } from 'src/hooks';
 import { RootProps } from 'src/engines';
@@ -51,6 +51,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 beforeList,
                 afterList,
                 virtual = false,
+                flip = false,
                 // @ts-ignore
                 _offset,
                 ...rest
@@ -58,7 +59,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
             ref,
         ) => {
             const [focused, dispatchFocused] = useReducer(focusedReducer, null);
-            const [innerValue, setInnerValue] = useState<string | number>('');
+            const [innerValue, setInnerValue] = useState<string>(defaultValue || '');
             const [isOpen, setIsOpen] = useState(false);
 
             const listId = safeUseId();
@@ -126,12 +127,6 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 dispatchFocused({ type: 'reset' });
             }, [value]);
 
-            useLayoutEffect(() => {
-                if (defaultValue) {
-                    setInnerValue(defaultValue);
-                }
-            }, [defaultValue]);
-
             return (
                 <Root
                     view={view}
@@ -149,6 +144,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                         zIndex={zIndex}
                         listWidth={listWidth}
                         offset={_offset}
+                        flip={flip}
                         target={(referenceRef) => (
                             <StyledTextField
                                 ref={ref}

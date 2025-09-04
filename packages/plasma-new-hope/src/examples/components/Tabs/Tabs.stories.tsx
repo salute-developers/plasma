@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ComponentType } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../_helpers';
-import { IconMic } from '../../../components/_Icon';
+import { IconClose, IconDotsHorizontalOutline, IconMic } from '../../../components/_Icon';
 import { Dropdown } from '../Dropdown/Dropdown';
 import { Counter } from '../Counter/Counter';
+import type { IconProps } from '../../../components/_Icon/IconRoot';
 
 import { Tabs } from './Tabs';
-import { TabItem } from './TabItem';
+import { TabItem, IconTabItem } from './TabItem';
 
+const orientations = ['vertical', 'horizontal'];
 const clips = ['none', 'scroll', 'showAll'];
 const headerClips = ['none', 'scroll'];
 const sizes = ['xs', 's', 'm', 'l'] as const;
@@ -23,6 +25,7 @@ type CustomStoryTabsProps = {
     itemQuantity: number;
     contentLeft: string;
     contentRight: string;
+    hasAction: boolean;
     stretch: boolean;
     helperText: string;
     maxItemWidth: string;
@@ -51,8 +54,46 @@ const getContentRight = (contentRightOption: string, size: string) => {
     }
 };
 
+const getIconSizes = (size: string) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    const sizeCustomValue = () => {
+        switch (size) {
+            case 'h1':
+                return '3.5rem';
+            case 'h2':
+                return '2.25rem';
+            case 'h3':
+                return '1.875rem';
+            case 'h4':
+                return '1.625rem';
+            default:
+                undefined;
+        }
+    };
+
+    return { iconSize, sizeCustomValue };
+};
+
+const getAction = (hasAction: boolean, size: string) => {
+    const { iconSize, sizeCustomValue } = getIconSizes(size);
+
+    return hasAction ? (
+        <IconClose size={iconSize as Size} sizeCustomValue={sizeCustomValue()} color="inherit" />
+    ) : undefined;
+};
+
+const getIconContent = (size: string, CustomIcon?: ComponentType<IconProps>) => {
+    const { iconSize, sizeCustomValue } = getIconSizes(size);
+
+    if (CustomIcon) {
+        return <CustomIcon size={iconSize as Size} sizeCustomValue={sizeCustomValue()} color="inherit" />;
+    }
+
+    return <IconMic size={iconSize as Size} sizeCustomValue={sizeCustomValue()} color="inherit" />;
+};
+
 type StoryTabsProps = ComponentProps<typeof Tabs> & CustomStoryTabsProps;
-type HorizontalStoryTabsProps = StoryTabsProps & { width: string };
+type HorizontalStoryTabsProps = StoryTabsProps & { width: string; height: string };
 type VerticalStoryTabsProps = StoryTabsProps & { height: string };
 
 const meta: Meta<StoryTabsProps> = {
@@ -67,6 +108,18 @@ const meta: Meta<StoryTabsProps> = {
             },
             if: { arg: 'helperText', eq: '' },
         },
+        orientation: {
+            options: orientations,
+            control: {
+                type: 'select',
+            },
+        },
+        stretch: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'orientation', eq: 'horizontal' },
+        },
         maxItemWidth: {
             control: {
                 type: 'text',
@@ -74,7 +127,6 @@ const meta: Meta<StoryTabsProps> = {
             if: { arg: 'stretch', truthy: false },
         },
         ...disableProps([
-            'orientation',
             'tabItemContentLeft',
             'pilled',
             'animated',
@@ -89,146 +141,34 @@ const meta: Meta<StoryTabsProps> = {
 
 export default meta;
 
-const StoryHorizontalDefault = (props: HorizontalStoryTabsProps) => {
+const StoryDefault = (props: HorizontalStoryTabsProps) => {
     const {
+        orientation,
         disabled,
         itemQuantity,
         size,
         contentLeft: contentLeftOption,
         contentRight: contentRightOption,
+        hasAction,
         hasDivider,
         stretch,
         maxItemWidth,
         helperText,
-        clip,
-    } = props;
-    const items = Array(itemQuantity).fill(0);
-    const [index, setIndex] = useState(0);
-
-    return (
-        <Tabs clip={clip} view="divider" hasDivider={hasDivider} stretch={stretch} disabled={disabled} size={size}>
-            {items.map((_, i) => {
-                if (helperText !== '') {
-                    return (
-                        <TabItem
-                            key={`item:${i}`}
-                            view="divider"
-                            selected={i === index}
-                            onClick={() => !disabled && setIndex(i)}
-                            tabIndex={!disabled ? 0 : -1}
-                            disabled={disabled}
-                            value={helperText}
-                            contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                            size={size as Size}
-                            maxItemWidth={maxItemWidth}
-                        >
-                            {`${labels[i % labels.length]} ${i + 1}`}
-                        </TabItem>
-                    );
-                }
-
-                return (
-                    <TabItem
-                        key={`item:${i}`}
-                        view="divider"
-                        selected={i === index}
-                        onClick={() => !disabled && setIndex(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                        contentRight={getContentRight(contentRightOption, size as Size)}
-                        size={size as Size}
-                        maxItemWidth={maxItemWidth}
-                    >
-                        {`${labels[i % labels.length]} ${i + 1}`}
-                    </TabItem>
-                );
-            })}
-        </Tabs>
-    );
-};
-
-const StoryHorizontalScroll = (props: HorizontalStoryTabsProps) => {
-    const {
-        disabled,
-        itemQuantity,
-        clip,
-        size,
-        contentLeft: contentLeftOption,
-        contentRight: contentRightOption,
-        hasDivider,
-        helperText,
         width,
-        maxItemWidth,
-    } = props;
-    const items = Array(itemQuantity).fill(0);
-    const [index, setIndex] = useState(5);
-
-    return (
-        <Tabs clip={clip} view="divider" hasDivider={hasDivider} disabled={disabled} size={size} style={{ width }}>
-            {items.map((_, i) => {
-                if (helperText !== '') {
-                    return (
-                        <TabItem
-                            key={`item:${i}`}
-                            view="divider"
-                            selected={i === index}
-                            onClick={() => !disabled && setIndex(i)}
-                            tabIndex={!disabled ? 0 : -1}
-                            disabled={disabled}
-                            value={helperText}
-                            contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                            size={size as Size}
-                            maxItemWidth={maxItemWidth}
-                        >
-                            {`${labels[i % labels.length]} ${i + 1}`}
-                        </TabItem>
-                    );
-                }
-
-                return (
-                    <TabItem
-                        key={`item:${i}`}
-                        view="divider"
-                        selected={i === index}
-                        onClick={() => !disabled && setIndex(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                        contentRight={getContentRight(contentRightOption, size as Size)}
-                        size={size as Size}
-                        maxItemWidth={maxItemWidth}
-                    >
-                        {/* {`${labels[i % labels.length]} ${i + 1}`} */}
-                        {`Label ${i + 1}`}
-                    </TabItem>
-                );
-            })}
-        </Tabs>
-    );
-};
-
-const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
-    const {
-        disabled,
-        itemQuantity,
+        height,
         clip,
-        size,
-        contentLeft: contentLeftOption,
-        contentRight: contentRightOption,
-        hasDivider,
-        helperText,
-        maxItemWidth,
     } = props;
-    const maxItemQuantity = 3;
-    const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
+    const [iconIndex, setIconIndex] = useState(0);
 
-    const visibleItems = items.slice(0, maxItemQuantity);
-    const otherItems = items.slice(maxItemQuantity);
+    const items = Array(itemQuantity).fill(0);
+    const maxShowAllItemQuantity = 3;
+    const visibleCount = clip === 'showAll' ? maxShowAllItemQuantity : items.length;
+    const visibleItems = items.slice(0, visibleCount);
+    const otherItems = items.slice(visibleItems.length);
 
     const dropdownItems = otherItems.map((_, i) => {
-        const itemIndex = maxItemQuantity + i;
+        const itemIndex = maxShowAllItemQuantity + i;
 
         return {
             label: `Label${itemIndex + 1}`,
@@ -236,78 +176,121 @@ const StoryHorizontalShowAll = (props: HorizontalStoryTabsProps) => {
         };
     });
 
-    return (
-        <Tabs clip={clip} view="divider" hasDivider={hasDivider} disabled={disabled} size={size}>
-            {visibleItems.map((_, i) => {
-                if (helperText !== '') {
-                    return (
-                        <TabItem
-                            key={`item:${i}`}
-                            view="divider"
-                            selected={i === index}
-                            onClick={() => !disabled && setIndex(i)}
-                            tabIndex={!disabled ? 0 : -1}
-                            disabled={disabled}
-                            value={helperText}
-                            contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                            size={size as Size}
-                            maxItemWidth={maxItemWidth}
-                        >
-                            {`${labels[i % labels.length]} ${i + 1}`}
-                        </TabItem>
-                    );
-                }
+    const commonTabsProps = {
+        clip,
+        hasDivider,
+        disabled,
+        size,
+        view: 'divider',
+        ...(orientation === 'horizontal' ? { orientation: 'horizontal', stretch } : { orientation: 'vertical' }),
+        ...(clip === 'scroll' && { style: orientation === 'horizontal' ? { width } : { height } }),
+    } as HorizontalStoryTabsProps;
 
-                return (
-                    <TabItem
-                        key={`item:${i}`}
-                        view="divider"
-                        selected={i === index}
-                        onClick={() => !disabled && setIndex(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                        contentRight={getContentRight(contentRightOption, size as Size)}
-                        size={size as Size}
-                        maxItemWidth={maxItemWidth}
-                    >
-                        {`${labels[i % labels.length]} ${i + 1}`}
-                    </TabItem>
-                );
-            })}
-            {dropdownItems.length > 0 && (
-                <div style={{ marginLeft: '1.75rem' }}>
-                    <Dropdown
-                        size={size as Size}
-                        items={dropdownItems}
-                        onItemSelect={(item) => setIndex(item.value as number)}
-                    >
-                        <TabItem
-                            key="item:ShowAll"
-                            view="divider"
-                            tabIndex={!disabled ? 0 : -1}
-                            disabled={disabled}
+    const commonTabsItemProps = {
+        orientation,
+        disabled,
+        view: 'divider',
+        tabIndex: !disabled ? 0 : -1,
+        actionContent: getAction(hasAction, size as Size),
+        size: size as Size,
+    };
+
+    return (
+        <div style={{ display: 'flex', gap: '3rem', flexDirection: orientation === 'vertical' ? 'row' : 'column' }}>
+            <div>
+                <h3>Стандартные табы</h3>
+                <Tabs {...commonTabsProps}>
+                    {visibleItems.map((_, i) => {
+                        return (
+                            <TabItem
+                                key={`item:${i}`}
+                                selected={i === index}
+                                onClick={() => !disabled && setIndex(i)}
+                                maxItemWidth={maxItemWidth}
+                                contentLeft={getContentLeft(contentLeftOption, size as Size)}
+                                {...commonTabsItemProps}
+                                {...(helperText !== ''
+                                    ? { value: helperText }
+                                    : { contentRight: getContentRight(contentRightOption, size as Size) })}
+                            >
+                                {`${labels[i % labels.length]} ${i + 1}`}
+                            </TabItem>
+                        );
+                    })}
+                    {dropdownItems.length > 0 && (
+                        <div style={{ marginLeft: orientation === 'horizontal' ? '1.75rem' : '0' }}>
+                            <Dropdown
+                                size={size as Size}
+                                items={dropdownItems}
+                                onItemSelect={(item) => setIndex(item.value as number)}
+                            >
+                                <TabItem
+                                    key="item:ShowAll"
+                                    view="divider"
+                                    tabIndex={!disabled ? 0 : -1}
+                                    disabled={disabled}
+                                    size={size as Size}
+                                    maxItemWidth="auto"
+                                    orientation={orientation}
+                                >
+                                    ShowAll
+                                </TabItem>
+                            </Dropdown>
+                        </div>
+                    )}
+                </Tabs>
+            </div>
+
+            <div>
+                <h3>Табы с иконками</h3>
+                <Tabs {...commonTabsProps}>
+                    {visibleItems.map((_, i) => {
+                        return (
+                            <IconTabItem
+                                key={`item:${i}`}
+                                selected={i === iconIndex}
+                                onClick={() => !disabled && setIconIndex(i)}
+                                {...commonTabsItemProps}
+                            >
+                                {getIconContent(size as Size)}
+                            </IconTabItem>
+                        );
+                    })}
+                    {dropdownItems.length > 0 && (
+                        <Dropdown
                             size={size as Size}
-                            maxItemWidth="auto"
+                            items={dropdownItems}
+                            onItemSelect={(item) => setIndex(item.value as number)}
                         >
-                            ShowAll
-                        </TabItem>
-                    </Dropdown>
-                </div>
-            )}
-        </Tabs>
+                            <IconTabItem
+                                key="item:ShowAll"
+                                view="divider"
+                                tabIndex={!disabled ? 0 : -1}
+                                disabled={disabled}
+                                size={size as Size}
+                            >
+                                {getIconContent(size as Size, IconDotsHorizontalOutline)}
+                            </IconTabItem>
+                        </Dropdown>
+                    )}
+                </Tabs>
+            </div>
+        </div>
     );
 };
 
-export const HorizontalTabs: StoryObj<HorizontalStoryTabsProps> = {
+export const Default: StoryObj<HorizontalStoryTabsProps> = {
     args: {
         size: 'xs',
+        orientation: 'horizontal',
         disabled: false,
         hasDivider: true,
+        hasAction: false,
         helperText: '',
         itemQuantity: 6,
         stretch: false,
         width: '15rem',
+        height: '10rem',
         maxItemWidth: '',
     },
     argTypes: {
@@ -336,307 +319,24 @@ export const HorizontalTabs: StoryObj<HorizontalStoryTabsProps> = {
             },
             if: { arg: 'clip', eq: 'scroll' },
         },
-        size: {
-            options: sizes,
-            control: {
-                type: 'select',
-            },
-        },
-    },
-    render: (args) => {
-        switch (args.clip) {
-            case 'scroll':
-                return <StoryHorizontalScroll {...args} />;
-            case 'showAll':
-                return <StoryHorizontalShowAll {...args} />;
-            default:
-                return <StoryHorizontalDefault {...args} />;
-        }
-    },
-};
-
-const StoryVerticalDefault = (props: VerticalStoryTabsProps) => {
-    const {
-        disabled,
-        itemQuantity,
-        size,
-        contentLeft: contentLeftOption,
-        contentRight: contentRightOption,
-        hasDivider,
-        helperText,
-        maxItemWidth,
-    } = props;
-    const items = Array(itemQuantity).fill(0);
-    const [index, setIndex] = useState(0);
-
-    return (
-        <Tabs orientation="vertical" hasDivider={hasDivider} size={size as Size} disabled={disabled}>
-            {items.map((_, i) => {
-                if (helperText !== '') {
-                    return (
-                        <TabItem
-                            orientation="vertical"
-                            key={`item:${i}`}
-                            view="divider"
-                            selected={i === index}
-                            onClick={() => !disabled && setIndex(i)}
-                            tabIndex={!disabled ? 0 : -1}
-                            disabled={disabled}
-                            value={helperText}
-                            contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                            size={size as Size}
-                            maxItemWidth={maxItemWidth}
-                        >
-                            {`${labels[i % labels.length]} ${i + 1}`}
-                        </TabItem>
-                    );
-                }
-
-                return (
-                    <TabItem
-                        orientation="vertical"
-                        key={`item:${i}`}
-                        view="divider"
-                        selected={i === index}
-                        onClick={() => !disabled && setIndex(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                        contentRight={getContentRight(contentRightOption, size as Size)}
-                        size={size as Size}
-                        maxItemWidth={maxItemWidth}
-                    >
-                        {`${labels[i % labels.length]} ${i + 1}`}
-                    </TabItem>
-                );
-            })}
-        </Tabs>
-    );
-};
-
-const StoryVerticalScroll = (props: VerticalStoryTabsProps) => {
-    const {
-        disabled,
-        itemQuantity,
-        clip,
-        size,
-        contentLeft: contentLeftOption,
-        contentRight: contentRightOption,
-        hasDivider,
-        helperText,
-        height,
-        maxItemWidth,
-    } = props;
-    const items = Array(itemQuantity).fill(0);
-    const [index, setIndex] = useState(0);
-
-    return (
-        <Tabs
-            orientation="vertical"
-            size={size as Size}
-            disabled={disabled}
-            clip={clip}
-            hasDivider={hasDivider}
-            style={{ height }}
-        >
-            {items.map((_, i) => {
-                if (helperText !== '') {
-                    return (
-                        <TabItem
-                            orientation="vertical"
-                            key={`item:${i}`}
-                            view="divider"
-                            selected={i === index}
-                            onClick={() => !disabled && setIndex(i)}
-                            tabIndex={!disabled ? 0 : -1}
-                            disabled={disabled}
-                            value={helperText}
-                            contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                            size={size as Size}
-                            maxItemWidth={maxItemWidth}
-                        >
-                            {`${labels[i % labels.length]} ${i + 1}`}
-                        </TabItem>
-                    );
-                }
-
-                return (
-                    <TabItem
-                        orientation="vertical"
-                        key={`item:${i}`}
-                        view="divider"
-                        selected={i === index}
-                        onClick={() => !disabled && setIndex(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                        contentRight={getContentRight(contentRightOption, size as Size)}
-                        size={size as Size}
-                        maxItemWidth={maxItemWidth}
-                    >
-                        {`${labels[i % labels.length]} ${i + 1}`}
-                    </TabItem>
-                );
-            })}
-        </Tabs>
-    );
-};
-
-const StoryVerticalShowAll = (props: VerticalStoryTabsProps) => {
-    const {
-        disabled,
-        itemQuantity,
-        clip,
-        size,
-        contentLeft: contentLeftOption,
-        contentRight: contentRightOption,
-        hasDivider,
-        helperText,
-        maxItemWidth,
-    } = props;
-    const maxItemQuantity = 3;
-    const items = Array(itemQuantity).fill(0);
-    const [index, setIndex] = useState(0);
-
-    const visibleItems = items.slice(0, maxItemQuantity);
-    const otherItems = items.slice(maxItemQuantity);
-
-    const dropdownItems = otherItems.map((_, i) => {
-        const itemIndex = maxItemQuantity + i;
-
-        return {
-            label: `Label${itemIndex + 1}`,
-            value: itemIndex,
-        };
-    });
-
-    return (
-        <Tabs clip={clip} orientation="vertical" size={size as Size} disabled={disabled} hasDivider={hasDivider}>
-            {visibleItems.map((_, i) => {
-                if (helperText !== '') {
-                    return (
-                        <TabItem
-                            orientation="vertical"
-                            key={`item:${i}`}
-                            view="divider"
-                            selected={i === index}
-                            onClick={() => !disabled && setIndex(i)}
-                            tabIndex={!disabled ? 0 : -1}
-                            disabled={disabled}
-                            value={helperText}
-                            contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                            size={size as Size}
-                            maxItemWidth={maxItemWidth}
-                        >
-                            {`${labels[i % labels.length]} ${i + 1}`}
-                        </TabItem>
-                    );
-                }
-
-                return (
-                    <TabItem
-                        orientation="vertical"
-                        key={`item:${i}`}
-                        view="divider"
-                        selected={i === index}
-                        onClick={() => !disabled && setIndex(i)}
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        contentLeft={getContentLeft(contentLeftOption, size as Size)}
-                        contentRight={getContentRight(contentRightOption, size as Size)}
-                        size={size as Size}
-                        maxItemWidth={maxItemWidth}
-                    >
-                        {`${labels[i % labels.length]} ${i + 1}`}
-                    </TabItem>
-                );
-            })}
-            {dropdownItems.length > 0 && (
-                <Dropdown
-                    size={size as Size}
-                    items={dropdownItems}
-                    onItemSelect={(item) => setIndex(item.value as number)}
-                    placement="right"
-                >
-                    <TabItem
-                        orientation="vertical"
-                        key="item:ShowAll"
-                        tabIndex={!disabled ? 0 : -1}
-                        disabled={disabled}
-                        size={size as Size}
-                        maxItemWidth="auto"
-                    >
-                        ShowAll
-                    </TabItem>
-                </Dropdown>
-            )}
-        </Tabs>
-    );
-};
-
-export const VerticalTabs: StoryObj<VerticalStoryTabsProps> = {
-    args: {
-        size: 'xs',
-        disabled: false,
-        hasDivider: true,
-        itemQuantity: 6,
-        orientation: 'vertical',
-        helperText: '',
-        height: '10rem',
-        maxItemWidth: '',
-    },
-    argTypes: {
-        contentLeft: {
-            options: contentLeftOptions,
-            control: {
-                type: 'select',
-            },
-        },
-        contentRight: {
-            options: contentRightOptions,
-            control: {
-                type: 'select',
-            },
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'select',
-            },
-        },
-        clip: {
-            options: clips,
-            control: {
-                type: 'select',
-            },
-            if: { arg: 'stretch', truthy: false },
-        },
-        stretch: {
-            table: {
-                disable: true,
-            },
-        },
         height: {
             control: {
                 type: 'text',
             },
             if: { arg: 'clip', eq: 'scroll' },
         },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
     },
-    render: (args) => {
-        switch (args.clip) {
-            case 'scroll':
-                return <StoryVerticalScroll {...args} />;
-            case 'showAll':
-                return <StoryVerticalShowAll {...args} />;
-            default:
-                return <StoryVerticalDefault {...args} />;
-        }
-    },
+    render: StoryDefault,
 };
 
 const StoryHeaderDefault = (props: HorizontalStoryTabsProps) => {
-    const { disabled, itemQuantity, size, helperText, maxItemWidth } = props;
+    const { disabled, itemQuantity, size, helperText, maxItemWidth, hasAction } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
@@ -653,6 +353,7 @@ const StoryHeaderDefault = (props: HorizontalStoryTabsProps) => {
                     value={helperText}
                     size={size as HeaderSize}
                     maxItemWidth={maxItemWidth}
+                    actionContent={getAction(hasAction, size as Size)}
                 >
                     {`${labels[i % labels.length]} ${i + 1}`}
                 </TabItem>
@@ -662,7 +363,7 @@ const StoryHeaderDefault = (props: HorizontalStoryTabsProps) => {
 };
 
 const StoryHeaderScroll = (props: HorizontalStoryTabsProps) => {
-    const { disabled, itemQuantity, size, helperText, width, maxItemWidth } = props;
+    const { disabled, itemQuantity, size, helperText, width, maxItemWidth, hasAction } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
 
@@ -679,6 +380,7 @@ const StoryHeaderScroll = (props: HorizontalStoryTabsProps) => {
                     value={helperText}
                     size={size as HeaderSize}
                     maxItemWidth={maxItemWidth}
+                    actionContent={getAction(hasAction, size as Size)}
                 >
                     {`${labels[i % labels.length]} ${i + 1}`}
                 </TabItem>
@@ -691,6 +393,7 @@ export const HeaderTabs: StoryObj<HorizontalStoryTabsProps> = {
     args: {
         size: 'h5',
         disabled: false,
+        hasAction: false,
         helperText: '',
         itemQuantity: 4,
         width: '12rem',

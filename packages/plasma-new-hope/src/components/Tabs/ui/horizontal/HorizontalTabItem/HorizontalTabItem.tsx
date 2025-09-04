@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useContext, useEffect, useCallback, useLayoutEffect } from 'react';
+import React, { forwardRef, useRef, useContext } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../../../engines';
@@ -6,15 +6,23 @@ import { classes } from '../../../tokens';
 import { cx } from '../../../../../utils';
 import { TabsContext } from '../../../TabsContext';
 import { HorizontalTabItemProps } from '../../../TabItem.types';
+import { useTabItem, UseTabItemProps } from '../../../hooks/useTabItem';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import { base as disabledCSS } from './variations/_disabled/base';
-import { LeftContent, RightContent, StyledContent, TabItemValue, base } from './HorizontalTabItem.styles';
+import {
+    ActionContent,
+    LeftContent,
+    RightContent,
+    StyledContent,
+    TabItemValue,
+    base,
+} from './HorizontalTabItem.styles';
 
-export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, HorizontalTabItemProps>) =>
-    forwardRef<HTMLDivElement, HorizontalTabItemProps>((props, outerRef) => {
+export const horizontalTabItemRoot = (Root: RootProps<HTMLButtonElement, HorizontalTabItemProps>) =>
+    forwardRef<HTMLButtonElement, HorizontalTabItemProps>((props, outerRef) => {
         const {
             size,
             view,
@@ -26,6 +34,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
             value,
             contentLeft,
             contentRight,
+            actionContent,
             animated = true,
             onIndexChange,
             itemIndex,
@@ -36,7 +45,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
             ...rest
         } = props;
 
-        const innerRef = useRef<HTMLDivElement>(null);
+        const innerRef = useRef<HTMLButtonElement>(null);
         const ref = useForkRef(outerRef, innerRef);
         const refs = useContext(TabsContext);
 
@@ -45,77 +54,21 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
         const pilledAttr = view !== 'clear' && pilled;
         const animatedClass = animated ? classes.tabItemAnimated : undefined;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
+
         const selectedClass = isActive || selected ? classes.selectedTabsItem : undefined;
         const truncateClass = maxWidth !== 'auto' ? classes.tabsTruncate : undefined;
 
-        const hasKeyNavigation = itemIndex !== undefined && onIndexChange !== undefined;
-        const navigationTabIndex = !disabled && refs?.current === itemIndex ? 0 : -1;
+        const { hasKeyNavigation, navigationTabIndex, onItemFocus, handleClick } = useTabItem({
+            refs,
+            innerRef,
+            itemIndex,
+            selected,
+            disabled,
+            onIndexChange,
+            onClick,
 
-        useEffect(() => {
-            if (!refs) {
-                return;
-            }
-
-            refs.register(innerRef);
-
-            return () => refs.unregister(innerRef);
-        }, [refs]);
-
-        useLayoutEffect(() => {
-            if (!selected || !innerRef.current) {
-                return;
-            }
-
-            const scrollEl = innerRef.current.parentElement?.parentElement;
-            if (!scrollEl) {
-                return;
-            }
-
-            const scrollElStyle = getComputedStyle(scrollEl);
-            scrollEl.scrollTo({
-                left: innerRef.current.offsetLeft - parseInt(scrollElStyle.paddingLeft, 10),
-            });
-        }, [selected]);
-
-        const onItemFocus = useCallback<React.FocusEventHandler>(
-            (event) => {
-                if (disabled) {
-                    return;
-                }
-
-                if (!hasKeyNavigation && innerRef?.current) {
-                    innerRef.current.scrollTo({
-                        top: 0,
-                        left: innerRef.current.offsetLeft,
-                        behavior: 'smooth',
-                    });
-
-                    return;
-                }
-
-                if (!refs) {
-                    return;
-                }
-
-                const focusIndex = refs.items.findIndex((itemRef) => itemRef.current === event.target);
-
-                if (focusIndex === refs.current) {
-                    return;
-                }
-
-                onIndexChange?.(focusIndex);
-                refs.setCurrent(focusIndex);
-            },
-            [refs, innerRef, onIndexChange, disabled],
-        );
-
-        const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-            if (!onClick) {
-                return;
-            }
-
-            onClick(event);
-        };
+            orientation: rest.orientation as UseTabItemProps['orientation'],
+        });
 
         return (
             <Root
@@ -143,6 +96,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLDivElement, Horizontal
                     {!value && contentRight && (
                         <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>
                     )}
+                    {actionContent && <ActionContent>{actionContent}</ActionContent>}
                 </>
             </Root>
         );

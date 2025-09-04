@@ -199,6 +199,7 @@ export const config = {
 
                 ${tokens.calendarHeaderWrapperPadding}: 0.75rem 1rem 0 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
+                ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;

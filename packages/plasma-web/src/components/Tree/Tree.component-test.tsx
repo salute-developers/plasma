@@ -248,6 +248,22 @@ describe('plasma-web: Tree', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: mode', () => {
+        cy.viewport(1000, 1000);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Tree items={treeData} defaultExpandAll mode="radio" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('[title="Parent 1-0"]').click();
+        cy.get('[title="Parent 1-1"]').click();
+        cy.get('[title="Parent 1-1"]').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('flow: controlled', () => {
         cy.viewport(1000, 1000);
 

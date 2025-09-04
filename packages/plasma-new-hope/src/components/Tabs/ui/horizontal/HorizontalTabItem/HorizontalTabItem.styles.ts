@@ -40,6 +40,11 @@ export const LeftContent = styled.div`
     }
 `;
 
+export const ActionContent = styled.div`
+    display: flex;
+    margin-left: var(${tokens.actionContentMarginLeft});
+`;
+
 export const base = css`
     position: relative;
 

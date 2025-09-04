@@ -21,6 +21,10 @@ const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
 const requiredPlacements = ['left', 'right'];
 
+const IconPlaceholderWithBackground = ({ size }: { size: 'xs' | 's' }) => (
+    <IconPlaceholder size={size} style={{ background: '#108E26' }} />
+);
+
 const meta: Meta = {
     title: 'Data Entry/DatePicker',
     decorators: [InSpacingDecorator],
@@ -118,8 +122,8 @@ const StoryDefault = ({
             size={size}
             valueError={valueError}
             valueSuccess={valueSuccess}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => {
@@ -198,7 +202,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconPlaceholder size={iconSize} />
+            <IconPlaceholderWithBackground size={iconSize} />
         </IconButton>
     );
 };
@@ -229,7 +233,7 @@ const StoryRange = ({
     const showDefaultTextBefore = dividerVariant === 'none';
 
     const dividerIconProps = {
-        dividerIcon: showDividerIcon ? <IconPlaceholder size={iconSize} /> : null,
+        dividerIcon: showDividerIcon ? <IconPlaceholderWithBackground size={iconSize} /> : null,
         dividerVariant,
     };
 
@@ -242,19 +246,19 @@ const StoryRange = ({
             firstValueSuccess={firstValueSuccess}
             secondValueError={secondValueError}
             secondValueSuccess={secondValueSuccess}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
             firstTextfieldContentLeft={
-                enableFirstTextfieldContentLeft ? <IconPlaceholder size={iconSize} /> : undefined
+                enableFirstTextfieldContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined
             }
             firstTextfieldContentRight={
-                enableFirstTextfieldContentRight ? <IconPlaceholder size={iconSize} /> : undefined
+                enableFirstTextfieldContentRight ? <IconPlaceholderWithBackground size={iconSize} /> : undefined
             }
             secondTextfieldContentLeft={
-                enableSecondTextfieldContentLeft ? <IconPlaceholder size={iconSize} /> : undefined
+                enableSecondTextfieldContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined
             }
             secondTextfieldContentRight={
-                enableSecondTextfieldContentRight ? <IconPlaceholder size={iconSize} /> : undefined
+                enableSecondTextfieldContentRight ? <IconPlaceholderWithBackground size={iconSize} /> : undefined
             }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
@@ -356,8 +360,8 @@ const StoryDeferred = ({
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
-                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onToggle={(is) => setIsOpen(is)}

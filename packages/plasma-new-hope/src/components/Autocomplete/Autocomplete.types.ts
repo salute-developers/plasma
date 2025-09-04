@@ -20,16 +20,6 @@ export type SuggestionItemType = {
 
 export type AutocompleteProps = {
     /**
-     * Размер контрола.
-     * @default l
-     */
-    size?: string;
-    /**
-     * Вид контрола.
-     * @default default
-     */
-    view?: string;
-    /**
      * Расположение лейбла.
      * @default outer
      */
@@ -51,9 +41,13 @@ export type AutocompleteProps = {
      */
     zIndex?: CSSProperties['zIndex'];
     /**
-     * Значение инпута.
+     * Значение поля ввода.
      */
     value?: string;
+    /**
+     * Значение поля ввода по-умолчанию.
+     */
+    defaultValue?: string;
     /**
      * Массив подсказок.
      */
@@ -74,7 +68,7 @@ export type AutocompleteProps = {
     /**
      * Коллбэк, срабатывающий при скролле.
      */
-    onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    onScroll?: (e: React.UIEvent<HTMLElement>) => void;
     /**
      * Максимальная высота выпадающего списка подсказок.
      * @default 25rem
@@ -96,10 +90,7 @@ export type AutocompleteProps = {
      * Callback для кастомной настройки элемента в выпадающем списке.
      */
     renderItem?: (item: SuggestionItemType) => React.ReactNode;
-    /**
-     * Изначальное значение.
-     */
-    defaultValue?: string;
+
     /**
      * Ячейка для контента в начале выпадающего списка.
      */
@@ -113,11 +104,27 @@ export type AutocompleteProps = {
      * @default false
      */
     virtual?: boolean;
+    /**
+     * Отображение выпадающего списка сверху, если снизу недостаточно места.
+     * @default false
+     */
+    flip?: boolean;
+
+    /**
+     * Размер контрола.
+     * @default l
+     */
+    size?: string;
+    /**
+     * Вид контрола.
+     * @default default
+     */
+    view?: string;
 } & DistributiveOmit<
     TextFieldPropsBase,
     'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'
 > &
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required'>;
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required' | 'value' | 'defaultValue'>;
 
 export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
@@ -127,4 +134,5 @@ export type FloatingPopoverProps = {
     zIndex?: AutocompleteProps['zIndex'];
     listWidth?: AutocompleteProps['listWidth'];
     offset?: [number, number];
+    flip?: boolean;
 };

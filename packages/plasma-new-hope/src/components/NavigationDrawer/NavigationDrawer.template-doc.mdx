@@ -1,0 +1,234 @@
+---
+id: navigationdrawer
+title: NavigationDrawer
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# NavigationDrawer
+
+<Description name="NavigationDrawer" />
+<PropsTable name="NavigationDrawer" exclude={['css']} />
+
+## Использование
+
+NavigationDrawer — это компонент навигационного меню, который может отображаться в трех режимах `mode`:
+- `static` — статичное меню слева от контента
+- `drawer` — выдвижное меню поверх контента без затемнения фона
+- `overlay` — модальное меню поверх контента с затемнением фона
+
+NawigationDrawer содержит следующие параметры:
+- `mode` - режим отображения
+- `opened` - флаг для открытия/закрытия NavigationDrawer. Если не указан, то NavigationDrawer открыт.
+- `onHide` - callback, срабатывающий при закрытии меню. Только при `mode="overlay"`.
+- `header` - ячейка для контента в начале меню.
+- `footer` - ячейка для контента в конце меню.
+- `size` - размер элемента меню.
+- `view` - вид компонента.
+- `sections` - список секций меню
+- `withContentLeft` - флаг, указывающий на наличие контента слева от меню (иконки)
+
+### Структура меню
+
+Меню состоит из секций, каждая из которых может содержать:
+- `label` Заголовок секции (опционально)
+- `hasDivider` Отображать ли разделитель. По умолчанию `false`. Разделитель отображается, только если не указан заголовок
+- `items` Список элементов меню
+
+### Элементы меню
+
+Каждый элемент меню может содержать:
+- `label` Текст
+- `icon` Иконку (при включенном `withContentLeft`)
+- `contentLeft` Контент слева (вместо иконки, при включенном `withContentLeft`)
+- `counter` Счетчик
+- `hasIndicator` Индикатор
+- `action` Действие (функция обратного вызова или URL для перехода)
+
+## Примеры
+
+### Базовое использование
+
+```tsx live
+import React, { useState } from 'react';
+import { NavigationDrawer } from '@salutejs/{{ package }}';
+import { IconBlankOutline, IconSettingsFill, IconHomeAltFill, IconLogout, IconStacksOutline } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(true);
+
+    return (
+        <div style={{position: 'relative'}}>
+            <NavigationDrawer
+                opened={isOpen}
+                withContentLeft={true}
+                sections={[
+                    {
+                        label: 'Основная секция',
+                        items: [
+                            {
+                                label: 'Главная',
+                                icon: <IconHomeAltFill />,
+                                selected: true,
+                                action: () => console.log('Главная')
+                            },
+                            {
+                                label: 'Настройки',
+                                icon: <IconSettingsFill />,
+                                action: () => console.log('Настройки'),
+                            },
+                        ]
+                    },
+                    {
+                        label: 'Документы',
+                        items: [
+                            {
+                                label: 'Обзор документов',
+                                icon: <IconBlankOutline />,
+                                action: () => console.log('Обзор документов'),
+                            },
+                            {
+                                label: 'С индикатором',
+                                icon: <IconStacksOutline />,
+                                action: () => console.log('С индикатором'),
+                                hasIndicator: true
+                            },
+                        ]
+                    },
+                    {
+                        items: [
+                            {
+                                label: 'Выход',
+                                icon: <IconLogout />,
+                                action: () => console.log('Выход')
+                            },
+                        ]
+                    }
+                ]}
+            >
+                <div style={{ padding: '20px' }}>
+                    <button onClick={() => setIsOpen(!isOpen)}>
+                        Переключить меню
+                    </button>
+                    <p>Основной контент приложения</p>
+                </div>
+            </NavigationDrawer>
+        </div>
+    );
+}
+```
+
+### Режим overlay
+
+```tsx live
+import React, { useState } from 'react';
+import { NavigationDrawer } from '@salutejs/{{ package }}';
+import { IconBlankOutline } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div
+            style={{
+            width: 500,
+            height: 300,
+            position: 'relative',
+            overflow: 'hidden',
+            transform: 'translateZ(0)',
+            }}
+        >
+            <NavigationDrawer
+                mode="overlay"
+                opened={isOpen}
+                onHide={() => setIsOpen(false)}
+                sections={[
+                    {
+                        hasDivider: false,
+                        items: [
+                            {
+                                label: 'Пункт меню',
+                                action: () => console.log('Клик'),
+                                icon: <IconBlankOutline />,
+                            }
+                        ]
+                    }
+                ]}
+                withContentLeft
+            >
+                <div style={{ padding: '20px', width: '100%' }}>
+                    <button onClick={() => setIsOpen(true)}>
+                        Открыть меню
+                    </button>
+                    <p>Основной контент</p>
+                </div>
+            </NavigationDrawer>
+        </div>
+    );
+}
+```
+
+### Режим drawer
+
+```tsx live
+import React, { useState, useRef, useEffect } from 'react';
+import { NavigationDrawer } from '@salutejs/{{ package }}';
+import { IconBlankOutline } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (ref.current) {
+            const sidebar = ref.current.childNodes[0] as HTMLDivElement;
+            sidebar.onmouseenter = () => {
+                setIsOpen(true);
+            };
+            sidebar.onmouseleave = () => {
+                setIsOpen(false);
+            };
+        }
+    }, [ref]);
+
+    return (
+        <div
+            style={{
+            width: 500,
+            height: 300,
+            position: 'relative',
+            overflow: 'hidden',
+            transform: 'translateZ(0)',
+            }}
+        >
+            <NavigationDrawer
+                mode="drawer"
+                opened={isOpen}
+                ref={ref}
+                sections={[
+                    {
+                        hasDivider: false,
+                        items: [
+                            {
+                                label: 'Пункт меню',
+                                action: () => console.log('Клик'),
+                                icon: <IconBlankOutline />,
+                            }
+                        ]
+                    }
+                ]}
+                sidebarProps={{
+                    onMouseEnter: () => setIsOpen(true),
+                    onMouseLeave: () => setIsOpen(false),
+                }}
+                withContentLeft
+            >
+                <div style={{ padding: '20px' }}>
+                    <p>Основной контент</p>
+                </div>
+            </NavigationDrawer>
+        </div>
+    );
+}
+```

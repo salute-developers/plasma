@@ -212,6 +212,7 @@ export const tokens = {
     calendarHeaderFontWeight: '--plasma-date-picker-calendar__header-font-weight',
     calendarHeaderFontWeightBold: '--plasma-date-picker-calendar__header-font-weight-bold',
     calendarHeaderArrowColor: '--plasma-date-picker-calendar__header-arrow-color',
+    calendarHeaderArrowCustomSize: '--plasma-date-picker-calendar__header-arrow-custom-size',
 
     iconButtonColor: '--plasma-date-picker-icon-button__color',
     iconButtonBackgroundColor: '--plasma-date-picker-icon-button__background-color',

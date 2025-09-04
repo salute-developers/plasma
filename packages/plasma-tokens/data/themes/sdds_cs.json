@@ -1696,17 +1696,17 @@
                 "surfaceNegativeMinor": {
                     "value": "[general.red.900]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceNegativeMinorHover": {
                     "value": "#5B1018FF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceNegativeMinorActive": {
                     "value": "#410B11FF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceInfoMinor": {
                     "value": "[general.blue.900]",
@@ -1756,17 +1756,17 @@
                 "surfaceTransparentNegative": {
                     "value": "[general.red.500][-0.72]",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E66",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentNegativeActive": {
                     "value": "#FF293E38",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentInfo": {
                     "value": "[general.blue.500][-0.72]",
@@ -2238,17 +2238,17 @@
                 "surfaceNegativeMinor": {
                     "value": "[general.red.900]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceNegativeMinorHover": {
                     "value": "#5B1018FF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceNegativeMinorActive": {
                     "value": "#410B11FF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceInfoMinor": {
                     "value": "[general.blue.900]",
@@ -2298,17 +2298,17 @@
                 "surfaceTransparentNegative": {
                     "value": "[general.red.500][-0.72]",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E66",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentNegativeActive": {
                     "value": "#FF293E38",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentInfo": {
                     "value": "[general.blue.500][-0.72]",
@@ -2780,17 +2780,17 @@
                 "surfaceNegativeMinor": {
                     "value": "[general.red.200]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceNegativeMinorHover": {
                     "value": "#FED7DBFF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceNegativeMinorActive": {
                     "value": "#FEC3C9FF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceInfoMinor": {
                     "value": "[general.blue.200]",
@@ -2840,17 +2840,17 @@
                 "surfaceTransparentNegative": {
                     "value": "[general.red.500][-0.72]",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentNegativeHover": {
                     "value": "#FF293E66",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentNegativeActive": {
                     "value": "#FF293E38",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentInfo": {
                     "value": "[general.blue.500][-0.72]",
@@ -7134,20 +7134,15 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение",
                     "enabled": true
                 },
-                "surfaceNegativeMinor": {
-                    "value": "[general.red.200]",
-                    "comment": "Минорный цвет фона поверхности/контрола ошибка",
-                    "enabled": false
-                },
                 "surfaceNegativeMinorHover": {
-                    "value": "#FEE1E4FF",
+                    "value": "#FFFFFFFF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceNegativeMinorActive": {
-                    "value": "#FEC3C9FF",
+                    "value": "#FFEBEDFF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceInfoMinorHover": {
                     "value": "#F5FBFFFF",
@@ -7192,12 +7187,12 @@
                 "surfaceTransparentNegativeHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentNegativeActive": {
                     "value": "#FFEBEDFF",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentInfo": {
                     "value": "[general.blue.500][-0.72]",
@@ -7282,7 +7277,7 @@
                 "surfaceTransparentNegative": {
                     "value": "[general.red.100]",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceSolidTertiary": {
                     "value": "[general.coolGray.200]",
@@ -7297,6 +7292,11 @@
                 "surfaceSolidSecondary": {
                     "value": "[general.coolGray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceNegativeMinor": {
+                    "value": "[general.red.100]",
+                    "comment": "Минорный цвет фона поверхности/контрола ошибка",
                     "enabled": true
                 }
             },
@@ -7671,20 +7671,15 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на темном фоне",
                     "enabled": true
                 },
-                "surfaceNegativeMinor": {
-                    "value": "[general.red.900]",
-                    "comment": "Минорный цвет фона поверхности/контрола ошибка на темном фоне",
-                    "enabled": false
-                },
                 "surfaceNegativeMinorHover": {
                     "value": "#64121AFF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceNegativeMinorActive": {
                     "value": "#380A0FFF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceInfoMinorHover": {
                     "value": "#0E2434FF",
@@ -7729,12 +7724,12 @@
                 "surfaceTransparentNegativeHover": {
                     "value": "#400D12FF",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentNegativeActive": {
                     "value": "#1E0608FF",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentInfo": {
                     "value": "[general.blue.500][-0.72]",
@@ -7824,7 +7819,7 @@
                 "surfaceTransparentNegative": {
                     "value": "[general.red.950]",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceSolidSecondary": {
                     "value": "[general.coolGray.800]",
@@ -7839,6 +7834,11 @@
                 "surfaceSolidPrimary": {
                     "value": "[general.coolGray.850]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне",
+                    "enabled": true
+                },
+                "surfaceNegativeMinor": {
+                    "value": "[general.red.900]",
+                    "comment": "Минорный цвет фона поверхности/контрола ошибка на темном фоне",
                     "enabled": true
                 }
             },
@@ -8218,20 +8218,15 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне",
                     "enabled": true
                 },
-                "surfaceNegativeMinor": {
-                    "value": "[general.red.200]",
-                    "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
-                    "enabled": false
-                },
                 "surfaceNegativeMinorHover": {
-                    "value": "#FEE1E4FF",
+                    "value": "#FFFFFFFF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceNegativeMinorActive": {
-                    "value": "#FEC3C9FF",
+                    "value": "#FFEBEDFF",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceInfoMinorHover": {
                     "value": "#F5FBFFFF",
@@ -8276,12 +8271,12 @@
                 "surfaceTransparentNegativeHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentNegativeActive": {
                     "value": "#FFEBEDFF",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceTransparentInfo": {
                     "value": "[general.blue.500][-0.72]",
@@ -8366,7 +8361,7 @@
                 "surfaceTransparentNegative": {
                     "value": "[general.red.100]",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceSolidTertiary": {
                     "value": "[general.coolGray.200]",
@@ -8381,6 +8376,11 @@
                 "surfaceSolidSecondary": {
                     "value": "[general.coolGray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне",
+                    "enabled": true
+                },
+                "surfaceNegativeMinor": {
+                    "value": "[general.red.100]",
+                    "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
                     "enabled": true
                 }
             },

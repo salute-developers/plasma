@@ -150,6 +150,10 @@ export const iconSectionsSet = {
         adjustHeight: 'AdjustHeight',
         adjustWidth: 'AdjustWidth',
         crop: 'Crop',
+        hierarchyFill: 'HierarchyFill',
+        selectionScreenOutline: 'SelectionScreenOutline',
+        tableOutline: 'TableOutline',
+        resizeCornered: 'ResizeCornered',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -655,6 +659,7 @@ export const iconSectionsSet = {
         productImportOutline: 'ProductImportOutline',
         cookieOutline: 'CookieOutline',
         scissorsFill: 'ScissorsFill',
+        function: 'Function',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
@@ -1225,6 +1230,10 @@ export const iconSectionsSet = {
         visa: 'Visa',
         linkedin: 'Linkedin',
         whatsapp: 'Whatsapp',
+        bitbucketOutline: 'BitbucketOutline',
+        maxFill: 'MaxFill',
+        odnoklassnikiFill: 'OdnoklassnikiFill',
+        telegramFill: 'TelegramFill',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',

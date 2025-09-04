@@ -7,6 +7,7 @@ export const classes = {
     buttonSquare: 'button-square',
     buttonItem: 'button-item',
     buttonLoading: 'button-loading',
+    buttonHasValue: 'button-has-value',
 };
 
 export const tokens = {
@@ -40,7 +41,9 @@ export const tokens = {
     buttonLeftContentAlignSelf: '--plasma-button-left-content-align-self',
     buttonRightContentMargin: '--plasma-button-right-content-margin',
     buttonRightContentAlignSelf: '--plasma-button-right-content-align-self',
+    buttonAdditionalContentMargin: '--plasma-button-additional-content-margin',
     buttonValueMargin: '--plasma-button-value-margin',
+    buttonAdditionalContentMarginRightWidthValue: '--plasma-button-additional-content-margin-right-width-value',
 
     buttonDisabledOpacity: '--plasma-button-disabled-opacity',
     buttonFocusColor: '--plasma-button-focus-color',

@@ -3,6 +3,7 @@ export const classes = {
     treeItemFilled: 'tree-item-filled',
     treeItemPrimaryBackground: 'tree-item-primary-background',
     treeItemHasSelectedChildren: 'tree-item-has-selected-children',
+    treeRadioMode: 'tree-radio-mode',
 };
 
 export const treeTokens = {

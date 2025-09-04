@@ -90,6 +90,7 @@ export const tokens = {
     calendarHeaderWrapperPadding: '--plasma-calendar-header-wrapper-padding',
     calendarHeaderArrowGap: '--plasma-calendar-arrow-container-gap',
     calendarHeaderArrowPadding: '--plasma-calendar-arrow-container-padding',
+    calendarArrowHeaderCustomSize: '--plasma-calendar-arrow-custom-size',
 
     calendarHeaderPadding: '--plasma-calendar-header-padding',
     calendarHeaderDateGap: '--plasma-calendar-header-date-gap',

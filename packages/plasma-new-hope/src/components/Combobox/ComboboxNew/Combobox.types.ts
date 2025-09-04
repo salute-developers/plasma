@@ -1,5 +1,5 @@
 import type { CSSProperties, ButtonHTMLAttributes, ChangeEventHandler } from 'react';
-import React from 'react';
+import * as React from 'react';
 
 import { RequiredProps, HintProps, LabelProps } from '../../TextField/TextField.types';
 import { DropdownProps } from '../../Dropdown/Dropdown.types';
@@ -82,20 +82,6 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
                 selectAllOptions?: SelectAllProps;
             }
       ));
-
-// type VS = (value: string) => void;
-// type VSA = (value: string[]) => void;
-
-// type IsMultiselect<T extends ItemOption = ItemOption> = {
-//     name?: string;
-//     multiple?: boolean;
-//     value?: string | string[];
-//     defaultValue?: string | string[];
-//     onChange?: VS | VSA | ChangeEventHandler;
-//     isTargetAmount?: boolean;
-//     targetAmount?: number;
-//     renderValue?: (item: T) => string;
-// };
 
 type ViewStateProps =
     | {
@@ -217,7 +203,7 @@ type BasicProps<T extends ItemOption = ItemOption> = {
     /**
      * Коллбэк, срабатывающий при скролле.
      */
-    onScroll?: (e: React.UIEvent<HTMLUListElement>) => void;
+    onScroll?: (e: React.UIEvent<HTMLElement>) => void;
     /**
      * Событие сворачивания/разворачивания выпадающего списка.
      */

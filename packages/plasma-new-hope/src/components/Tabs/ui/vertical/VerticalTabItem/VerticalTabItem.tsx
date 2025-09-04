@@ -1,13 +1,14 @@
-import React, { forwardRef, useRef, useContext, useEffect, useCallback, useLayoutEffect } from 'react';
+import React, { forwardRef, useRef, useContext } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
+import { RootProps } from 'src/engines';
+import { cx } from 'src/utils';
 
-import { RootProps } from '../../../../../engines';
+import { useTabItem, UseTabItemProps } from '../../../hooks/useTabItem';
 import { classes } from '../../../tokens';
-import { cx } from '../../../../../utils';
 import { TabsContext } from '../../../TabsContext';
 import { VerticalTabItemProps } from '../../../TabItem.types';
 
-import { base, LeftContent, RightContent, StyledContent, TabItemValue } from './VerticalTabItem.styles';
+import { ActionContent, base, LeftContent, RightContent, StyledContent, TabItemValue } from './VerticalTabItem.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
@@ -23,6 +24,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
             value,
             contentLeft,
             contentRight,
+            actionContent,
             onIndexChange,
             itemIndex,
             tabIndex,
@@ -41,73 +43,17 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
         const selectedClass = selected ? classes.selectedTabsItem : undefined;
         const truncateClass = maxWidth !== 'auto' ? classes.tabsTruncate : undefined;
 
-        const hasKeyNavigation = itemIndex !== undefined && onIndexChange !== undefined;
-        const navigationTabIndex = !disabled && refs?.current === itemIndex ? 0 : -1;
+        const { hasKeyNavigation, navigationTabIndex, onItemFocus, handleClick } = useTabItem({
+            refs,
+            innerRef,
+            itemIndex,
+            selected,
+            disabled,
+            onIndexChange,
+            onClick,
 
-        useEffect(() => {
-            if (!refs) {
-                return;
-            }
-
-            refs.register(innerRef);
-
-            return () => refs.unregister(innerRef);
-        }, [refs]);
-
-        useLayoutEffect(() => {
-            if (!selected || !innerRef.current) {
-                return;
-            }
-
-            const scrollEl = innerRef.current.parentElement?.parentElement;
-            if (!scrollEl) {
-                return;
-            }
-
-            const scrollElStyle = getComputedStyle(scrollEl);
-            scrollEl.scrollTo({
-                top: innerRef.current.offsetTop - parseInt(scrollElStyle.paddingTop, 10),
-            });
-        }, [selected]);
-
-        const onItemFocus = useCallback<React.FocusEventHandler>(
-            (event) => {
-                if (disabled) {
-                    return;
-                }
-
-                if (!hasKeyNavigation && innerRef?.current) {
-                    innerRef.current.scrollTo({
-                        top: innerRef.current.offsetTop,
-                        behavior: 'smooth',
-                    });
-
-                    return;
-                }
-
-                if (!refs) {
-                    return;
-                }
-
-                const focusIndex = refs.items.findIndex((itemRef) => itemRef.current === event.target);
-
-                if (focusIndex === refs.current) {
-                    return;
-                }
-
-                onIndexChange?.(focusIndex);
-                refs.setCurrent(focusIndex);
-            },
-            [refs, innerRef, onIndexChange, disabled],
-        );
-
-        const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-            if (!onClick) {
-                return;
-            }
-
-            onClick(event);
-        };
+            orientation: rest.orientation as UseTabItemProps['orientation'],
+        });
 
         return (
             <Root
@@ -133,6 +79,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
                     {!value && contentRight && (
                         <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>
                     )}
+                    {actionContent && <ActionContent>{actionContent}</ActionContent>}
                 </>
             </Root>
         );

@@ -20,29 +20,38 @@ const getFilesPath = (name?: string) => ({
     brandsIndex: `packages/plasma-tokens/src/brands/${name}/index.ts`,
 });
 
-const getSortedExports = (exports: string) => {
-    const exportsArray = Array.from(new Set(exports.split('\n')));
+const getFileName = (exp: string) => {
+    const name = exp.match(/from\s+['"](.+?)['"]/);
+    return name ? name[1] : exp;
+};
 
-    const [newExports, legacyExports] = exportsArray.reduce<string[][]>(
+const getSortedExports = (input: string) => {
+    // Собираем все экспорты целиком
+    const exportRegex = /export\s*\{[\s\S]*?\}\s*from\s*['"][^'"]+['"]\s*;/g;
+    const matches = input.match(exportRegex) || [];
+
+    const exportsArray = Array.from(new Set(matches.map((s) => s.trim())));
+
+    const [newExports, legacyExports] = exportsArray.reduce<[string[], string[]]>(
         ([first, second], item) => {
-            const isLegacyThemes = item.includes('salutejs_');
-
             if (item === '') {
                 return [first, second];
             }
 
-            if (isLegacyThemes) {
+            if (item.includes('salutejs_')) {
                 second.push(item);
-            } else {
-                first.push(item);
+                return [first, second];
             }
 
+            first.push(item);
             return [first, second];
         },
         [[], []],
     );
 
-    return [...newExports.sort(), ...legacyExports].join('\n') + '\n';
+    newExports.sort((a, b) => getFileName(a).localeCompare(getFileName(b)));
+
+    return [...newExports, ...legacyExports].join('\n') + '\n';
 };
 
 export const getThemesTokenSet = (content: string) => {

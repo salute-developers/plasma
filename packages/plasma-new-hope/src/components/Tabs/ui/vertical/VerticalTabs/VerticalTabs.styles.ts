@@ -20,10 +20,9 @@ export const StyledContent = styled.div<{ hasDivider?: boolean }>`
 
 export const StyledContentWrapper = styled.div`
     /* allows correctly display outline focus on tabs item */
-    margin: -0.125rem;
-    padding: 0.25rem;
+    padding: 0.125rem 0.25rem;
 
-    box-sizing: content-box;
+    box-sizing: border-box;
     position: relative;
     height: 100%;
     width: 100%;

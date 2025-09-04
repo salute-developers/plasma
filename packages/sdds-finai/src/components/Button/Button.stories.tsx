@@ -5,13 +5,15 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { IconMic } from '@salutejs/plasma-icons';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
+import { Counter } from '../Counter/Counter';
+
 import { config } from './Button.config';
 
 import { Button } from '.';
 
 type ButtonProps = ComponentProps<typeof Button>;
 
-const { views, sizes } = getConfigVariations(config);
+const { views } = getConfigVariations(config);
 const stretchingValues = ['auto', 'filled', 'fixed'];
 const pinValues = [
     '',
@@ -35,7 +37,7 @@ const meta: Meta<ButtonProps> = {
     component: Button,
     args: {
         view: 'default',
-        size: 'm',
+        size: 's',
         contentPlacing: 'default',
         stretching: 'auto',
         text: 'Hello',
@@ -53,7 +55,7 @@ const meta: Meta<ButtonProps> = {
             },
         },
         size: {
-            options: sizes,
+            options: ['s', 'xs', 'xxs'],
             control: {
                 type: 'select',
             },
@@ -104,16 +106,19 @@ const meta: Meta<ButtonProps> = {
 
 export default meta;
 
-type StoryPropsDefault = ComponentProps<typeof Button> & {
+type StoryPropsDefault = Omit<ComponentProps<typeof Button>, 'size'> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    enableCounter: boolean;
+    size: 's' | 'xs' | 'xxs';
 };
 
-const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
+const StoryDefault = ({ enableContentLeft, enableContentRight, enableCounter, size, ...rest }: StoryPropsDefault) => {
     const iconSize = size === 'xs' || size === 'xxs' ? 'xs' : 's';
 
     return (
         <Button
+            additionalContent={enableCounter ? <Counter size="xxs" view="accent" count={0} /> : undefined}
             contentLeft={enableContentLeft && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined}
             contentRight={
                 enableContentRight && size !== 'xxs' ? <IconMic size={iconSize} color="inherit" /> : undefined
@@ -131,6 +136,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
         enableContentRight: false,
+        enableCounter: false,
         value: '',
     },
     argTypes: {
@@ -142,6 +148,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
 export const WithValue: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
+        enableCounter: false,
     },
     argTypes: {
         ...disableProps(['enableContentRight']),

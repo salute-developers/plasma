@@ -1,11 +1,14 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { IconClose } from '@salutejs/plasma-icons';
+
+import { Tabs as TabsB2C, TabItem as TabItemB2C } from '.';
 
 const items = [{ label: 'Joy' }, { label: 'Sber' }, { label: 'Athena' }];
 
 describe('plasma-b2c: Tabs', () => {
-    const Tabs = getComponent('Tabs');
-    const TabItem = getComponent('TabItem');
+    const Tabs = getComponent('Tabs') as typeof TabsB2C;
+    const TabItem = getComponent('TabItem') as typeof TabItemB2C;
 
     const withAutoFocus = getComponent('withAutoFocus');
     const TabAutoFocus = withAutoFocus(TabItem);
@@ -39,6 +42,22 @@ describe('plasma-b2c: Tabs', () => {
                 <Tabs pilled forwardedAs="ul">
                     {items.map((item, i) => (
                         <TabItem pilled key={i} selected={i === 1} forwardedAs="li">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_actionContent', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs>
+                    {items.map((item, i) => (
+                        <TabItem key={i} selected={i === 1} actionContent={<IconClose color="inherit" />}>
                             {item.label}
                         </TabItem>
                     ))}
@@ -194,7 +213,7 @@ describe('plasma-b2c: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs clip="scroll" orientation="vertical" size="m" style={{ height: '9rem' }}>
                     {items.map((item, i) => (
-                        <TabItem orientation="vertical" pilled key={i} selected={i === 1}>
+                        <TabItem orientation="vertical" key={i}>
                             {item.label}
                         </TabItem>
                     ))}
@@ -202,6 +221,7 @@ describe('plasma-b2c: Tabs', () => {
             </CypressTestDecorator>,
         );
 
+        cy.get('button').contains('Sber').click();
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(1000);
         cy.get('button').contains('Joy').should('not.be.visible');

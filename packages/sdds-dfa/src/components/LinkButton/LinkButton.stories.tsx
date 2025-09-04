@@ -3,6 +3,8 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
+import { Counter } from '../Counter/Counter';
+
 import { LinkButton } from './LinkButton';
 import { config } from './LinkButton.config';
 
@@ -49,6 +51,7 @@ export default meta;
 type StoryPropsDefault = ComponentProps<typeof LinkButton> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    enableCounter: boolean;
 };
 
 const BellIcon = (props) => (
@@ -60,11 +63,12 @@ const BellIcon = (props) => (
     </svg>
 );
 
-const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
+const StoryDefault = ({ enableContentLeft, enableContentRight, enableCounter, size, ...rest }: StoryPropsDefault) => {
     const iconSize = size as keyof typeof sizeMap;
 
     return (
         <LinkButton
+            additionalContent={enableCounter ? <Counter count={0} /> : undefined}
             contentLeft={
                 enableContentLeft ? (
                     <BellIcon width={sizeMap[iconSize]} height={sizeMap[iconSize]} color="inherit" />
@@ -85,6 +89,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         enableContentLeft: false,
         enableContentRight: false,
+        enableCounter: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
