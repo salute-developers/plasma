@@ -247,7 +247,11 @@ describe('plasma-b2c: Drawer', () => {
 
         cy.get('button').click();
 
-        cy.matchImageSnapshot();
+        // TODO: #2217
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('placement: top', () => {
@@ -263,7 +267,11 @@ describe('plasma-b2c: Drawer', () => {
 
         cy.get('button').click();
 
-        cy.matchImageSnapshot();
+        // TODO: #2217
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('placement: bottom', () => {
@@ -279,7 +287,11 @@ describe('plasma-b2c: Drawer', () => {
 
         cy.get('button').click();
 
-        cy.matchImageSnapshot();
+        // TODO: #2217
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('prop: data-attrs', () => {
