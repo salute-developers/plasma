@@ -193,6 +193,13 @@ export interface BasicProps<K extends ItemOption> {
      * Событие сворачивания/разворачивания выпадающего списка.
      */
     onToggle?: (isOpen: boolean) => void;
+    /**
+     * Режим работы взаимодействия с элементами.
+     * - default: элемент можно выбрать и можно отменить его выбор.
+     * - radio: если элемент выбран, то отменить его выбор нельзя. Только для single-режима.
+     * @default default
+     */
+    mode?: 'default' | 'radio';
 
     /**
      * Размер компонента.
@@ -395,6 +402,13 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * Событие сворачивания/разворачивания выпадающего списка.
          */
         onToggle?: (isOpen: boolean) => void;
+        /**
+         * Режим работы взаимодействия с элементами.
+         * - default: элемент можно выбрать и можно отменить его выбор.
+         * - radio: если элемент выбран, то отменить его выбор нельзя. Только для single-режима.
+         * @default default
+         */
+        mode?: 'default' | 'radio';
 
         /**
          * Размер компонента.
