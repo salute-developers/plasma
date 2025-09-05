@@ -22,6 +22,10 @@ const meta: Meta<typeof Avatar> = {
             options: extraType,
             if: { arg: 'hasExtra', truthy: true },
         },
+        shape: {
+            control: 'select',
+            options: ['circled', 'rounded'],
+        },
         extraPlacement: {
             control: 'select',
             options: extraPlacements,
@@ -99,6 +103,7 @@ export const Default: Story = {
         pilled: true,
         enableContentLeft: false,
         enableContentRight: false,
+        shape: 'circled',
     },
     argTypes: {
         enableContentLeft: {
