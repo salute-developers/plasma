@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, Fragment } from 'react';
+import React, { useState, forwardRef, Fragment, useRef, useEffect } from 'react';
 
 import { cx, isNumber } from '../../utils';
 import { RootPropsOmitOnChange } from '../../engines';
@@ -11,6 +11,8 @@ import {
     PaginationButtonGroup,
     PaginationRoot,
     PaginationShorter,
+    PaginationActionsLeft,
+    PaginationHelperText,
 } from './Pagination.styles';
 import type { PaginationProps } from './Pagination.types';
 import { getSections, defaultValues } from './utils';
@@ -27,6 +29,7 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
             {
                 value: outerValue,
                 defaultValue,
+                helperText,
 
                 perPage: outerPerPage,
                 defaultPerPage,
@@ -72,13 +75,16 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
             );
             const perPageValue = outerPerPage ?? perPageInner;
 
+            const pagesRef = useRef<HTMLDivElement>(null);
+            const [pagesWidth, setPagesWidth] = useState<number>(0);
+
             const pages = Math.ceil(count / (perPageValue || 1));
             const sections = getSections(pageValue, pages, slots);
 
             const typeClass = classes[`${type}Type` as keyof typeof classes];
             const roundedClass = pilled ? 'circle-circle' : 'square-square';
 
-            const withHasPerPageSelect = hasPerPage ? classes.withHasPerPageSelect : undefined;
+            const withHasPerPageSelect = hasPerPage && !helperText ? classes.withHasPerPageSelect : undefined;
             const withHasQuickJump = hasQuickJump ? classes.withHasQuickJump : undefined;
 
             const disabled = disabledPages.map((el) => (isNumber(el) ? Number(el) : null));
@@ -128,6 +134,19 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                 return pageValue === checkPage ? classes.paginationPageButtonActive : '';
             };
 
+            useEffect(() => {
+                const observer = new ResizeObserver((entries) => {
+                    const newWidth = entries[0].contentRect.width;
+                    setPagesWidth(newWidth);
+                });
+
+                if (pagesRef.current) {
+                    observer.observe(pagesRef.current);
+                }
+
+                return () => observer.disconnect();
+            }, [type]);
+
             return (
                 <Root
                     size={size}
@@ -138,7 +157,7 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                     {...rest}
                 >
                     <PaginationRoot className={typeClass}>
-                        <PaginationPages>
+                        <PaginationPages ref={pagesRef}>
                             {leftContent && (
                                 <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
                                     {leftContent}
@@ -183,15 +202,23 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                             )}
                         </PaginationPages>
                         <PaginationActions
+                            style={
+                                type === 'compact'
+                                    ? { width: `${pagesWidth}px`, maxWidth: `${pagesWidth}px` }
+                                    : { width: `calc(100% - ${pagesWidth}px)` }
+                            }
                             className={cx(classes.actions, typeClass, withHasPerPageSelect, withHasQuickJump)}
                         >
-                            {hasQuickJump && (
-                                <PaginationQuickJumpToPage
-                                    placeholderQuickJump={placeholderQuickJump}
-                                    textQuickJump={textQuickJump}
-                                    onChangeValue={handleSetPage}
-                                />
-                            )}
+                            <PaginationActionsLeft>
+                                {hasQuickJump && (
+                                    <PaginationQuickJumpToPage
+                                        placeholderQuickJump={placeholderQuickJump}
+                                        textQuickJump={textQuickJump}
+                                        onChangeValue={handleSetPage}
+                                    />
+                                )}
+                                {helperText && <PaginationHelperText>{helperText}</PaginationHelperText>}
+                            </PaginationActionsLeft>
                             {hasPerPage && (
                                 <PaginationSelectPerPage
                                     textPerPage={textPerPage}

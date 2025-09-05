@@ -11,6 +11,7 @@ export const SelectPerPageRoot = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-shrink: 0;
 `;
 
 export const SelectPerPageSelect = styled(Select)`
