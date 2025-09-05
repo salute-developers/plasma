@@ -18,7 +18,7 @@ export type SuggestionItemType = {
     contentRight?: ReactNode;
 };
 
-export type AutocompleteProps = {
+export type AutocompleteProps<T extends SuggestionItemType = SuggestionItemType> = {
     /**
      * Расположение лейбла.
      * @default outer
@@ -51,7 +51,7 @@ export type AutocompleteProps = {
     /**
      * Массив подсказок.
      */
-    suggestions?: SuggestionItemType[];
+    suggestions?: T[];
     /**
      * Минимальное число введенных символов, при котором открывается дропдаун.
      * @default 2
@@ -60,11 +60,11 @@ export type AutocompleteProps = {
     /**
      * Коллбэк фильтра подсказок.
      */
-    filter?: (data: SuggestionItemType) => boolean;
+    filter?: (data: T) => boolean;
     /**
      * Коллбэк, который срабатывает при выборе подсказки.
      */
-    onSuggestionSelect?: (data: SuggestionItemType) => void;
+    onSuggestionSelect?: (data: T) => void;
     /**
      * Коллбэк, срабатывающий при скролле.
      */
@@ -81,7 +81,7 @@ export type AutocompleteProps = {
     /**
      * Коллбэк для рендера кастомного списка подсказок.
      */
-    renderList?: (data?: SuggestionItemType[]) => ReactNode;
+    renderList?: (data?: T[]) => ReactNode;
     /**
      * Коллбэк для рендера элемента в конце выпадающего списка.
      */
@@ -89,7 +89,7 @@ export type AutocompleteProps = {
     /**
      * Callback для кастомной настройки элемента в выпадающем списке.
      */
-    renderItem?: (item: SuggestionItemType) => React.ReactNode;
+    renderItem?: (item: T) => React.ReactNode;
 
     /**
      * Ячейка для контента в начале выпадающего списка.
