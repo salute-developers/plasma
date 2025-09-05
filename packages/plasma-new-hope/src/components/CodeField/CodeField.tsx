@@ -9,13 +9,21 @@ import { useCodeHook } from '../../hooks';
 
 import type { CodeFieldProps } from './CodeField.types';
 import { BACKSPACE_KEY, FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from './utils/constants';
-import { getCodeValue, getFieldPattern, getPlaceholderValue, handleCodeError, handleItemError } from './utils';
+import {
+    getCodeValue,
+    getFieldPattern,
+    getPlaceholderValue,
+    handleCodeError,
+    handleItemError,
+    isWebOTPSupported,
+} from './utils';
 import { classes } from './CodeField.tokens';
-import { base, CaptionWrapper, CodeGroup, CodeWrapper, ItemInput, Separator } from './CodeField.styles';
+import { base, CaptionWrapper, CodeGroup, CodeWrapper, HiddenInput, ItemInput, Separator } from './CodeField.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as shapeCSS } from './variations/_shape/base';
 import { base as disabledCSS } from './variations/_disabled/base';
+import { useWebOTP } from './hooks/useWebOTP';
 
 export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =>
     forwardRef<HTMLInputElement, CodeFieldProps>(
@@ -45,7 +53,9 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             },
             ref,
         ) => {
-            const [code, setCode] = useState<Array<string>>(getCodeValue(codeLength, outerValue || ''));
+            const [innerValue, setInnerValue] = useState<Array<string>>(getCodeValue(codeLength, ''));
+            const code = outerValue?.length ? getCodeValue(codeLength, outerValue) : innerValue;
+
             const [originalValue, setOriginalValue] = useState<string>(code.join(''));
 
             const inputRefs = useRef<Array<HTMLInputElement>>([]);
@@ -57,6 +67,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             const parts = codeLength === 6 ? 2 : 1;
 
             const widthValue = width ? getSizeValueFromProp(width, 'rem') : undefined;
+            const isWebOTPEnabled = autoComplete === 'one-time-code' && !disabled && !isWebOTPSupported();
 
             const getLastActiveIndex = () => {
                 if (code.length && code.length < codeLength) {
@@ -66,6 +77,29 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 const lastEmptyIndex = code.findIndex((digit) => digit === '');
                 return lastEmptyIndex >= 0 ? lastEmptyIndex : codeLength - 1;
             };
+
+            const codeSetter = (newCode: Array<string>) => {
+                setInnerValue(newCode);
+                const originalCode = newCode.join('');
+                setOriginalValue(originalCode);
+
+                if (onChange) {
+                    onChange(originalCode);
+                }
+
+                if (originalCode.length > 0) {
+                    stopWebOTPListener();
+                }
+            };
+
+            const { startWebOTPListener, stopWebOTPListener } = useWebOTP({
+                codeString: originalValue,
+                enableSMSAutoRead: autoComplete === 'one-time-code',
+                disabled: Boolean(disabled),
+                codeLength,
+                codeSetter,
+                onFullCodeEnter,
+            });
 
             const handleClick = () => {
                 if (disabled) {
@@ -92,18 +126,24 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 }
 
                 if (key === BACKSPACE_KEY) {
-                    if (index > 0 && code[index] === '') {
-                        inputRefs.current[index - 1]?.focus();
+                    if (index > 0) {
+                        const newCode = [...code];
+
+                        newCode[index] = '';
+
+                        if (index >= codeLength - 1 && code[index]) {
+                            codeSetter(newCode);
+                            return;
+                        }
+
+                        if (!code[index]) {
+                            newCode[index - 1] = '';
+                            inputRefs.current[index - 1]?.focus();
+                        }
+
+                        inputRefs.current[index]?.classList.remove(classes.itemError);
+                        codeSetter(newCode);
                     }
-                }
-            };
-
-            const codeSetter = (newCode: Array<string>) => {
-                setCode(newCode);
-                setOriginalValue(newCode.join(''));
-
-                if (onChange) {
-                    onChange(newCode.join(''));
                 }
             };
 
@@ -141,9 +181,6 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 }
 
                 if (!symbol) {
-                    newCode[index] = '';
-                    codeSetter(newCode);
-
                     return;
                 }
 
@@ -163,8 +200,9 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                         index,
                         newCode,
                         inputRefs,
-                        setCode,
+                        setInnerValue,
                         codeSetter,
+                        onChange,
                     });
                 }
             };
@@ -202,6 +240,8 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 if (onFullCodeEnter) {
                     onFullCodeEnter(fullCode);
                 }
+
+                startWebOTPListener();
             }, []);
 
             useCodeHook({
@@ -223,7 +263,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                         inputRefs,
                         inputContainerRef,
                         captionRef,
-                        setCode,
+                        setInnerValue,
                         codeSetter,
                     });
                 }
@@ -240,7 +280,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                     className={cls(className, {
                         [classes.captionAlignLeft]: captionAlign === 'left',
                     })}
-                    {...rest}
+                    {...(!isWebOTPEnabled && { ...rest })}
                 >
                     <CodeWrapper ref={inputContainerRef}>
                         {[...Array(parts)].map((_, partIndex) => (
@@ -261,7 +301,6 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                                                         !disabled && inputCorrectIndex >= originalValue.length,
                                                 })}
                                                 value={code[inputCorrectIndex] || ''}
-                                                autoComplete={autoComplete}
                                                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                                     handleChange(e, inputCorrectIndex);
                                                 }}
@@ -283,11 +322,14 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                             </Fragment>
                         ))}
                     </CodeWrapper>
+
                     {caption && (
                         <CaptionWrapper ref={captionRef} captionAlign={captionAlign} widthValue={widthValue}>
                             {caption}
                         </CaptionWrapper>
                     )}
+
+                    {isWebOTPEnabled && <HiddenInput tabIndex={-1} {...rest} />}
                 </Root>
             );
         },
