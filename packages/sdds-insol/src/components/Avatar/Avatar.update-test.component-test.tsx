@@ -22,6 +22,17 @@ describe('sdds-insol: Avatar', () => {
         cy.matchImageSnapshot();
     });
 
+    it('[PLASMA-5103] Avatar: size=xxl, shape=rounded, status=active, with Avatar url', () => {
+        mount(
+            <CypressTestDecorator>
+                <Avatar size="xxl" shape="rounded" name="Иван Фадеев" status="active" url={AvatarImage} />
+            </CypressTestDecorator>,
+        );
+
+        cy.mockImage('img', AvatarImage);
+        cy.matchImageSnapshot();
+    });
+
     it('[PLASMA-1431] Avatar: size=l, status=inactive, without Avatar url', () => {
         mount(
             <CypressTestDecorator>

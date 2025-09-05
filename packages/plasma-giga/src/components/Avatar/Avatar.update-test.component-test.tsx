@@ -32,6 +32,17 @@ describe('plasma-giga: Avatar', () => {
         cy.matchImageSnapshot();
     });
 
+    it('[PLASMA-5103] Avatar: size=xxl, shape=rounded, status=active, with Avatar url', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Avatar size="xxl" shape="rounded" name="Иван Фадеев" status="active" url={AvatarImage} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.mockImage('img', AvatarImage);
+        cy.matchImageSnapshot();
+    });
+
     it('[PLASMA-1431] Avatar: size=l, status=inactive, without Avatar url', () => {
         mount(
             <CypressTestDecoratorWithTypo>

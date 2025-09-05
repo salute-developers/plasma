@@ -146,4 +146,15 @@ describe('plasma-web: Avatar', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('shape=rounded,status=active', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Avatar size="xxl" shape="rounded" name="Иван Фадеев" status="active" url={AvatarImage} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.mockImage('img', AvatarImage);
+        cy.matchImageSnapshot();
+    });
 });
