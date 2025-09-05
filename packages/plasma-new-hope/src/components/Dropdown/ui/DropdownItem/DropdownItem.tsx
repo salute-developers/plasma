@@ -98,7 +98,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
 
     const handleHover = () => {
         if (onHover) {
-            onHover(index);
+            onHover(index, item);
         }
     };
 

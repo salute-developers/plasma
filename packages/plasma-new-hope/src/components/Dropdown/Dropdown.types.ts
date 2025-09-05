@@ -29,7 +29,7 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     /**
      * Обработчик наведения на item.
      */
-    onHover?: (index: number) => void;
+    onHover?: (index: number, item: T) => void;
     /**
      * Обработчик выбора item.
      */
