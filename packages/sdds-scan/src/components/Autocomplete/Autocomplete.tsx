@@ -1,32 +1,16 @@
-import React, { ComponentProps } from 'react';
 import {
     autocompleteConfig,
-    component,
-    mergeConfig,
-    DistributiveOmit,
-    fixedForwardRef,
     AutocompleteProps,
+    component,
+    DistributiveOmit,
     DistributivePick,
+    mergeConfig,
     SuggestionItemType,
+    fixedForwardRef,
 } from '@salutejs/plasma-new-hope/styled-components';
+import React, { ComponentProps } from 'react';
 
 import { config } from './Autocomplete.config';
-
-// TODO: #2087
-export const mapSizesToOffset = (size?: string): number => {
-    switch (size) {
-        case 'xs':
-            return 2;
-        case 's':
-        case 'm':
-            return 4;
-        case 'l':
-        case 'xl':
-            return 6;
-        default:
-            return 4;
-    }
-};
 
 const mergedConfig = mergeConfig(autocompleteConfig, config);
 export const AutocompleteComponent = component(mergedConfig);
@@ -34,13 +18,13 @@ export const AutocompleteComponent = component(mergedConfig);
 type PropsFromConfig = keyof typeof config['variations'];
 
 type Props<T extends SuggestionItemType> = DistributiveOmit<AutocompleteProps<T>, PropsFromConfig> &
-    DistributivePick<ComponentProps<typeof AutocompleteComponent>, PropsFromConfig | 'hintTargetPlacement'>;
+    DistributivePick<ComponentProps<typeof AutocompleteComponent>, PropsFromConfig>;
 
 const AutocompleteWithoutRef = <T extends SuggestionItemType>(
     props: Props<T>,
     ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
-    return <AutocompleteComponent {...(props as any)} ref={ref} _offset={[0, mapSizesToOffset(props.size)]} />;
+    return <AutocompleteComponent {...(props as any)} ref={ref} />;
 };
 
 export const Autocomplete = fixedForwardRef(AutocompleteWithoutRef);
