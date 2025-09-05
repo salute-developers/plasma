@@ -68,7 +68,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             const parts = codeLength === 6 ? 2 : 1;
 
             const widthValue = width ? getSizeValueFromProp(width, 'rem') : undefined;
-            const isWebOTPEnabled = autoComplete === 'one-time-code' && !disabled && !isWebOTPSupported();
+            const isWebOTPEnabled = autoComplete === 'one-time-code' && !disabled && isWebOTPSupported();
 
             const getLastActiveIndex = () => {
                 if (code.length && code.length < codeLength) {
@@ -332,7 +332,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                             </CaptionWrapper>
                         )}
 
-                        {isWebOTPEnabled && <HiddenInput tabIndex={-1} {...rest} />}
+                        {isWebOTPEnabled && <HiddenInput autoComplete={autoComplete} tabIndex={-1} {...rest} />}
                     </Root>
                     <div>{JSON.stringify(otpVal)}</div>
                 </>

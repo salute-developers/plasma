@@ -46,6 +46,4 @@ export const CaptionWrapper = styled.div<{ captionAlign: 'left' | 'center'; widt
     white-space: pre-line;
 `;
 
-export const HiddenInput = styled.input`
-    display: none;
-`;
+export const HiddenInput = styled.input``;
