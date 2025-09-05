@@ -19,13 +19,13 @@ export const ListWrapper = styled.div<{
 
 export const Ul = styled.ul<{
     virtual: SelectProps['virtual'];
-    listOverflow?: SelectProps['listOverflow'];
     listMaxHeight?: SelectProps['listMaxHeight'];
 }>`
     max-height: ${({ virtual, listMaxHeight }) =>
         // eslint-disable-next-line no-nested-ternary
         virtual ? 'auto' : listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto'};
-    overflow-y: ${({ virtual, listOverflow }) => (virtual ? 'visible' : listOverflow || 'visible')};
+    overflow-x: hidden;
+    overflow-y: ${({ virtual }) => (virtual ? 'visible' : 'auto')};
     border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
     margin: 0;
     padding: 0;

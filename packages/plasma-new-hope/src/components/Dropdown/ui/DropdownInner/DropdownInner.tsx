@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import type { FC } from 'react';
 import { safeUseId } from 'src/utils';
 
@@ -16,9 +16,8 @@ const DropdownInner: FC<DropdownInnerProps> = ({
     dispatchPath,
     index,
     trigger,
-    listMaxHeight,
-    listOverflow,
     listWidth,
+    portal,
 }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
@@ -27,6 +26,8 @@ const DropdownInner: FC<DropdownInnerProps> = ({
             dispatchPath({ type: 'cut_by_level', level: currentLevel + 1 });
         }
     };
+
+    const listWrapperRef = useRef<HTMLDivElement>(null);
 
     const isCurrentListOpen = path[currentLevel + 1] === item.value.toString();
 
@@ -54,9 +55,10 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                     />
                 }
                 isInner
+                portal={portal}
             >
-                <ListWrapper listWidth={listWidth}>
-                    <Ul id={listId} role="group" listMaxHeight={listMaxHeight} listOverflow={listOverflow}>
+                <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
+                    <Ul id={listId} role="group" listMaxHeight={item.listMaxHeight}>
                         {item.items.map((innerItem, innerIndex) => (
                             <DropdownInner
                                 key={`${innerIndex}/${currentLevel}`}
@@ -66,9 +68,8 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                                 dispatchPath={dispatchPath}
                                 index={innerIndex}
                                 trigger={trigger}
-                                listMaxHeight={listMaxHeight}
-                                listOverflow={listOverflow}
                                 listWidth={listWidth}
+                                portal={listWrapperRef}
                             />
                         ))}
                     </Ul>

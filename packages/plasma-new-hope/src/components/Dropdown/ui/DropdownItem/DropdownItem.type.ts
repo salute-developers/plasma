@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode, CSSProperties } from 'react';
 
 import type { PathState } from '../../reducers/pathReducer';
 import type { DropdownPlacement, DropdownTrigger } from '../../Dropdown.types';
@@ -13,7 +13,7 @@ export type DropdownItemOption = {
      */
     label: string;
     /**
-     * Сторона открытия вложенного дропдауна относительно текущего элемента
+     * Сторона открытия вложенного выпадающего списка относительно текущего элемента
      */
     placement?: DropdownPlacement;
     /**
@@ -49,6 +49,10 @@ export type DropdownItemOption = {
      * Имеет больший приоритет над одноименным свойством из DropdownProps.
      */
     trigger?: DropdownTrigger;
+    /**
+     * Максимальная высота дочернего выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
 
     /**
      * Выбранный item.
@@ -61,7 +65,7 @@ export type DropdownItemOption = {
      */
     color?: string;
     /**
-     * Айтем не активен
+     * Item не активен
      * @deprecated использовать disabled
      */
     isDisabled?: boolean;

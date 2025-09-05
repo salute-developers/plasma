@@ -1,4 +1,4 @@
-import type { Dispatch } from 'react';
+import type { Dispatch, RefObject } from 'react';
 
 import type { PathAction, PathState } from '../../reducers';
 import type { SelectProps } from '../../Select.types';
@@ -12,4 +12,5 @@ export type InnerProps = {
     dispatchPath: Dispatch<PathAction>;
     index: number;
     listWidth: SelectProps['listWidth'];
+    portal?: RefObject<HTMLElement>;
 };

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, CSSProperties } from 'react';
 import React from 'react';
 
 import type { PathState } from '../../../../reducers';
@@ -14,7 +14,7 @@ export type ItemOption = {
      */
     label: string;
     /**
-     * Сторона открытия вложенного дропдауна относительно текущего элемента
+     * Сторона открытия вложенного выпадающего списка относительно текущего элемента
      * @default right
      */
     placement?: SelectPlacement | Array<SelectPlacementBasic>;
@@ -38,6 +38,10 @@ export type ItemOption = {
      * Classname для item
      */
     className?: string;
+    /**
+     * Максимальная высота дочернего выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
 };
 
 export type ItemOptionTransformed = ItemOption & { parent?: ItemOption | null };
@@ -57,7 +61,7 @@ export type MergedDropdownNode = {
     value: string | number;
     label: string;
     /**
-     * Сторона открытия дропдауна относительно target элемента.
+     * Сторона открытия вложенного выпадающего списка относительно target элемента.
      * @default bottom
      */
     placement?: SelectPlacement | Array<SelectPlacementBasic>;
@@ -82,6 +86,10 @@ export type MergedDropdownNode = {
      * Classname для item
      */
     className?: string;
+    /**
+     * Максимальная высота дочернего выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
 };
 
 export type MergedDropdownNodeTransformed = MergedDropdownNode & { parent?: MergedDropdownNode | null };

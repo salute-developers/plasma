@@ -1,4 +1,4 @@
-import type { Dispatch } from 'react';
+import type { Dispatch, RefObject } from 'react';
 
 import type { DropdownItemOption } from '../DropdownItem/DropdownItem.type';
 import type { DropdownProps } from '../../Dropdown.types';
@@ -11,7 +11,6 @@ export interface DropdownInnerProps {
     dispatchPath: Dispatch<PathAction>;
     index: number;
     trigger: DropdownProps['trigger'];
-    listMaxHeight: DropdownProps['listHeight'];
-    listOverflow: DropdownProps['listOverflow'];
     listWidth: DropdownProps['listWidth'];
+    portal: RefObject<HTMLElement>;
 }

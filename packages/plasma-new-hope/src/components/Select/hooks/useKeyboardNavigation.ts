@@ -190,9 +190,9 @@ export const useKeyNavigation = ({
 
             case keys.Tab:
             case keys.Escape: {
-                dispatchFocusedPath({ type: 'reset' });
-                dispatchPath({ type: 'reset' });
-                handleListToggle(false);
+                if (path[0]) {
+                    handleListToggle(false);
+                }
 
                 break;
             }
