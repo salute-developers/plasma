@@ -101,6 +101,7 @@ export const Default: Story = {
         pilled: true,
         enableContentLeft: false,
         enableContentRight: false,
+        isCircle: true,
     },
     argTypes: {
         enableContentLeft: {

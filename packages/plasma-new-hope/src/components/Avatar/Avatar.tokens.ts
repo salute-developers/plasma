@@ -22,6 +22,7 @@ export const tokens = {
     outlineOffset: '--plasma-avatar-outline-offset',
     scaleHover: '--plasma-avatar-scale-hover',
     extraPlacementFactor: '--plasma-avatar-extra-placement-factor',
+    borderRadius: '--plasma-avatar-border-radius',
 
     // extra badge tokens
     badgeBackground: '--plasma-avatar-extra-badge-background',

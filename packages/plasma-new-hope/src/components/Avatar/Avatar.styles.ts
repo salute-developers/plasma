@@ -24,7 +24,6 @@ export const Wrapper = styled.div<{ isScalable?: AvatarProps['isScalable'] }>`
     align-items: center;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
     background: var(${tokens.backgroundColor});
     overflow: hidden;
 
@@ -34,16 +33,21 @@ export const Wrapper = styled.div<{ isScalable?: AvatarProps['isScalable'] }>`
     }
 `;
 
-export const StatusIcon = styled.div`
+export const StatusIcon = styled.div<{ isCircle?: AvatarProps['isCircle'] }>`
     position: absolute;
-    top: calc(1.02 * 0.85 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
-    left: calc(1.02 * 0.85 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
+    top: ${({ isCircle }) =>
+        isCircle
+            ? `calc(1.02 * 0.85 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2)`
+            : `calc(var(${tokens.avatarSize}) - var(${tokens.statusIconSize}))`};
+    left: ${({ isCircle }) =>
+        isCircle
+            ? `calc(1.02 * 0.85 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2)`
+            : `calc(var(${tokens.avatarSize}) - var(${tokens.statusIconSize}))`};
 `;
 
 export const Image = styled.img`
     width: 100%;
     height: 100%;
-    border-radius: 50%;
 `;
 
 export const Text = styled.span`
