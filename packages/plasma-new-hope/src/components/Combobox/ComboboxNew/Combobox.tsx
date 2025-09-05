@@ -88,6 +88,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             onChangeValue,
             onScroll,
             onToggle,
+            mode = 'default',
             // @ts-ignore
             _offset,
             ...rest
@@ -334,6 +335,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             if (!alwaysOpened && closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
+            }
+
+            // Закрываем список, если элемент уже выбран.
+            if (mode === 'radio' && isCurrentChecked) {
+                return;
             }
 
             if (onChange) {

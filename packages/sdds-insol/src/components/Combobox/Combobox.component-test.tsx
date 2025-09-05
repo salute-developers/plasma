@@ -1376,6 +1376,52 @@ describe('sdds-insol: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: mode', () => {
+        cy.viewport(1000, 400);
+
+        mount(
+            <CypressTestDecorator>
+                <div style={{ width: '300px' }}>
+                    <Combobox id="single" items={items} label="Label" placeholder="Placeholder" mode="radio" />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('#single').click();
+        cy.contains('Северная Америка').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single').should('have.value', 'Северная Америка');
+
+        cy.get('#single').click();
+        cy.contains('Северная Америка').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single').should('have.value', 'Северная Америка');
+
+        cy.get('body').realClick({ position: 'bottomRight' });
+        cy.realPress('Tab');
+        cy.get('#single').should('be.focused');
+        cy.realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('Enter');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single').should('have.value', 'Рио-де-Жанейро');
+
+        cy.get('#single').should('be.focused');
+        cy.realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('Enter');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single').should('have.value', 'Рио-де-Жанейро');
+    });
+
     it('prop: onToggle', () => {
         cy.viewport(400, 300);
 
