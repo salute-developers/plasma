@@ -73,6 +73,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             onToggle,
             chipType,
             multiselect,
+            mode = 'default',
             // @ts-ignore
             _offset,
 
@@ -273,6 +274,11 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             if (closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
+            }
+
+            // Закрываем список, если элемент уже выбран.
+            if (mode === 'radio' && isCurrentChecked) {
+                return;
             }
 
             if (onChange) {
