@@ -13,7 +13,7 @@ type ValidateSymbolsArgs = {
     inputContainerRef: MutableRefObject<HTMLDivElement | null>;
     inputRefs: MutableRefObject<Array<HTMLInputElement | null>>;
     captionRef: MutableRefObject<HTMLDivElement | null>;
-    setCode: Dispatch<SetStateAction<Array<string>>>;
+    setInnerValue: Dispatch<SetStateAction<Array<string>>>;
     codeSetter: (newCode: Array<string>) => void;
 };
 
@@ -24,7 +24,7 @@ export const handleCodeError = ({
     inputRefs,
     inputContainerRef,
     captionRef,
-    setCode,
+    setInnerValue,
     codeSetter,
 }: ValidateSymbolsArgs) => {
     if (!inputContainerRef.current) {
@@ -41,7 +41,7 @@ export const handleCodeError = ({
 
                 newCode.pop();
                 codeSetter(newCode);
-                setCode(currentCode);
+                setInnerValue(currentCode);
 
                 inputContainerRef.current?.classList.remove(classes.codeErrorAnimation);
 

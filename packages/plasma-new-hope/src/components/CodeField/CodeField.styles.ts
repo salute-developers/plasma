@@ -45,3 +45,5 @@ export const CaptionWrapper = styled.div<{ captionAlign: 'left' | 'center'; widt
     width: ${({ widthValue }) => widthValue || 'auto'};
     white-space: pre-line;
 `;
+
+export const HiddenInput = styled.input``;

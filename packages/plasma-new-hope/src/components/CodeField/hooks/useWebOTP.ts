@@ -1,0 +1,115 @@
+import { useCallback, useEffect, useRef } from 'react';
+
+import { getCodeValue, isWebOTPSupported } from '../utils';
+
+type UseWebOTPProps = {
+    codeString: string;
+    enableSMSAutoRead: boolean;
+    disabled: boolean;
+    codeLength: number;
+    codeSetter: (newCode: Array<string>) => void;
+    onFullCodeEnter?: (code: string) => void;
+    setOtpVal: React.Dispatch<React.SetStateAction<Credential | null>>;
+};
+
+type OTPTransport = 'sms';
+
+interface OTPCredential extends Credential {
+    code: string;
+}
+
+declare global {
+    interface CredentialRequestOptions {
+        otp?: {
+            transport: OTPTransport[];
+        };
+        signal?: AbortSignal;
+    }
+}
+
+// Type guard function to check if credential is OTPCredential
+const isOTPCredential = (credential: Credential | null): credential is OTPCredential => {
+    return credential !== null && 'code' in credential;
+};
+
+export const useWebOTP = ({
+    codeString,
+    enableSMSAutoRead,
+    disabled,
+    codeLength,
+    codeSetter,
+    onFullCodeEnter,
+    setOtpVal,
+}: UseWebOTPProps) => {
+    const abortControllerRef = useRef<AbortController | null>(null);
+
+    const startWebOTPListener = useCallback(async () => {
+        if (!enableSMSAutoRead || disabled || !isWebOTPSupported()) {
+            return;
+        }
+
+        if (abortControllerRef.current) {
+            abortControllerRef.current.abort();
+        }
+
+        abortControllerRef.current = new AbortController();
+
+        try {
+            const otp = await navigator.credentials.get({
+                otp: { transport: ['sms'] as OTPTransport[] },
+                signal: abortControllerRef.current.signal,
+            });
+
+            console.log('otp received', otp);
+
+            setOtpVal(otp);
+
+            // Type guard to check if it's an OTP credential
+            if (otp && isOTPCredential(otp) && otp.code) {
+                const otpCode = otp.code;
+
+                // Validate the OTP code length matches our expected length
+                if (otpCode.length === codeLength) {
+                    const newCode = getCodeValue(codeLength, otpCode);
+                    codeSetter(newCode);
+
+                    // Trigger full code enter callback
+                    if (onFullCodeEnter) {
+                        onFullCodeEnter(otpCode);
+                    }
+                }
+            }
+        } catch (err) {
+            if (err instanceof DOMException) {
+                if (err.name !== 'AbortError' && err.name !== 'NotAllowedError') {
+                    console.warn('Web OTP API error:', err);
+                }
+            } else if (err instanceof Error) {
+                console.warn('Web OTP API error:', err);
+            } else {
+                console.warn('Unknown Web OTP API error:', err);
+            }
+        }
+    }, [enableSMSAutoRead, disabled, codeLength, onFullCodeEnter]);
+
+    const stopWebOTPListener = useCallback(() => {
+        if (abortControllerRef.current) {
+            abortControllerRef.current.abort();
+            abortControllerRef.current = null;
+        }
+    }, []);
+
+    useEffect(() => {
+        if (isWebOTPSupported() && codeString === '' && enableSMSAutoRead && !disabled) {
+            startWebOTPListener();
+        } else {
+            stopWebOTPListener();
+        }
+
+        return () => {
+            stopWebOTPListener();
+        };
+    }, [codeString, enableSMSAutoRead, disabled, startWebOTPListener, stopWebOTPListener]);
+
+    return { startWebOTPListener, stopWebOTPListener };
+};
