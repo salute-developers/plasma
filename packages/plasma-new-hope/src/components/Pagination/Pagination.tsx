@@ -55,7 +55,7 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                 leftContent,
                 rightContent,
 
-                listWidth,
+                listWidth = 'fit-content',
 
                 onChangePageValue,
                 onChangePerPageValue,
