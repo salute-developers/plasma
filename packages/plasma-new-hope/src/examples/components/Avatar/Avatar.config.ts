@@ -6,6 +6,7 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'xxl',
+        shape: 'circled',
     },
     variations: {
         view: {
@@ -25,6 +26,7 @@ export const config = {
                 ${tokens.fontWeight}: 600;
                 ${tokens.lineHeight}: 2rem;
                 ${tokens.statusIconSize}: 0.75rem;
+                ${tokens.borderRadius}: 1.25rem;
 
                 ${tokens.badgeBorderRadius}: 0.5rem;
                 ${tokens.badgeHeight}: 1.75rem;
@@ -61,6 +63,7 @@ export const config = {
                 ${tokens.fontWeight}: 600;
                 ${tokens.lineHeight}: 1.25rem;
                 ${tokens.statusIconSize}: 0.5rem;
+                ${tokens.borderRadius}: 0.75rem;
 
                 ${tokens.extraPlacementFactor}: 2;
 
@@ -99,6 +102,7 @@ export const config = {
                 ${tokens.fontWeight}: 600;
                 ${tokens.lineHeight}: 0.875rem;
                 ${tokens.statusIconSize}: 0.5rem;
+                ${tokens.borderRadius}: 0.625rem;
 
                 ${tokens.extraPlacementFactor}: 2;
 
@@ -137,6 +141,7 @@ export const config = {
                 ${tokens.fontWeight}: 600;
                 ${tokens.lineHeight}: 0.5rem;
                 ${tokens.statusIconSize}: 0.375rem;
+                ${tokens.borderRadius}: 0.5rem;
 
                 ${tokens.extraPlacementFactor}: 1;
 
@@ -156,6 +161,7 @@ export const config = {
                 ${tokens.fontWeight}: 0;
                 ${tokens.lineHeight}: 0;
                 ${tokens.statusIconSize}: 0;
+                ${tokens.borderRadius}: 50%;
             `,
         },
         focused: {
@@ -163,6 +169,17 @@ export const config = {
                 ${tokens.outlineSize}: 0.1rem;
                 ${tokens.outlineOffset}: -0.2rem;
                 ${tokens.outlineColor}: var(--surface-accent);
+            `,
+        },
+        shape: {
+            circled: css`
+                ${tokens.borderRadius}: 50%;
+                ${tokens.statusLeft}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
+                ${tokens.statusTop}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
+            `,
+            rounded: css`
+                ${tokens.statusLeft}: calc(var(${tokens.avatarSize}) - var(${tokens.statusIconSize}));
+                ${tokens.statusTop}: calc(var(${tokens.avatarSize}) - var(${tokens.statusIconSize}));
             `,
         },
         badgeView: {

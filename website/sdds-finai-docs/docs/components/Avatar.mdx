@@ -31,6 +31,23 @@ export function App() {
 }
 ```
 
+### Скругления аватара
+Скругления задается с помощью свойства `shape`. Возможные значения: `"circled"`, `"rounded"`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <>
+            <Avatar shape="circled" status="active" name="Иван Фадеев" />
+            <Avatar shape="rounded" status="active" name="Иван Фадеев" />
+        </>
+    );
+}
+```
+
 ### Инициалы вместо фотографии
 Инициалы можно задать с помощью свойства `name`.
 Желательный формат строки - "Имя Фамилия".
