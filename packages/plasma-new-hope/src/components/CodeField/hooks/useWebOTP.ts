@@ -9,6 +9,7 @@ type UseWebOTPProps = {
     codeLength: number;
     codeSetter: (newCode: Array<string>) => void;
     onFullCodeEnter?: (code: string) => void;
+    setOtpVal: React.Dispatch<React.SetStateAction<Credential | null>>;
 };
 
 type OTPTransport = 'sms';
@@ -38,6 +39,7 @@ export const useWebOTP = ({
     codeLength,
     codeSetter,
     onFullCodeEnter,
+    setOtpVal,
 }: UseWebOTPProps) => {
     const abortControllerRef = useRef<AbortController | null>(null);
 
@@ -57,6 +59,10 @@ export const useWebOTP = ({
                 otp: { transport: ['sms'] as OTPTransport[] },
                 signal: abortControllerRef.current.signal,
             });
+
+            console.log('otp received', otp);
+
+            setOtpVal(otp);
 
             // Type guard to check if it's an OTP credential
             if (otp && isOTPCredential(otp) && otp.code) {

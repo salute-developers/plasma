@@ -57,6 +57,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             const code = outerValue?.length ? getCodeValue(codeLength, outerValue) : innerValue;
 
             const [originalValue, setOriginalValue] = useState<string>(code.join(''));
+            const [otpVal, setOtpVal] = useState<Credential | null>(null);
 
             const inputRefs = useRef<Array<HTMLInputElement>>([]);
             const inputContainerRef = useRef<HTMLDivElement | null>(null);
@@ -99,6 +100,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 codeLength,
                 codeSetter,
                 onFullCodeEnter,
+                setOtpVal,
             });
 
             const handleClick = () => {
@@ -270,67 +272,70 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             }, [isError]);
 
             return (
-                <Root
-                    ref={ref}
-                    view={view}
-                    size={size}
-                    shape={shape}
-                    disabled={disabled}
-                    onClick={handleClick}
-                    className={cls(className, {
-                        [classes.captionAlignLeft]: captionAlign === 'left',
-                    })}
-                    {...(!isWebOTPEnabled && { ...rest })}
-                >
-                    <CodeWrapper ref={inputContainerRef}>
-                        {[...Array(parts)].map((_, partIndex) => (
-                            <Fragment key={partIndex}>
-                                <CodeGroup role="group">
-                                    {[...Array(codeLength / parts)].map((_, i) => {
-                                        const inputCorrectIndex = i + (codeLength / parts) * partIndex;
+                <>
+                    <Root
+                        ref={ref}
+                        view={view}
+                        size={size}
+                        shape={shape}
+                        disabled={disabled}
+                        onClick={handleClick}
+                        className={cls(className, {
+                            [classes.captionAlignLeft]: captionAlign === 'left',
+                        })}
+                        {...(!isWebOTPEnabled && { ...rest })}
+                    >
+                        <CodeWrapper ref={inputContainerRef}>
+                            {[...Array(parts)].map((_, partIndex) => (
+                                <Fragment key={partIndex}>
+                                    <CodeGroup role="group">
+                                        {[...Array(codeLength / parts)].map((_, i) => {
+                                            const inputCorrectIndex = i + (codeLength / parts) * partIndex;
 
-                                        return (
-                                            <ItemInput
-                                                key={partIndex + i + partIndex * i}
-                                                ref={(element: HTMLInputElement) => {
-                                                    inputRefs.current[inputCorrectIndex] = element;
-                                                }}
-                                                className={cls({
-                                                    [classes.segmented]: shape === 'segmented',
-                                                    [classes.hoverEnabled]:
-                                                        !disabled && inputCorrectIndex >= originalValue.length,
-                                                })}
-                                                value={code[inputCorrectIndex] || ''}
-                                                onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                                                    handleChange(e, inputCorrectIndex);
-                                                }}
-                                                onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => {
-                                                    handleOnKeyDown(e, inputCorrectIndex);
-                                                }}
-                                                onPaste={handlePaste}
-                                                tabIndex={
-                                                    !disabled && originalValue.length === inputCorrectIndex ? 0 : -1
-                                                }
-                                                {...(placeholderValue && {
-                                                    placeholder: placeholderValue[inputCorrectIndex],
-                                                })}
-                                            />
-                                        );
-                                    })}
-                                </CodeGroup>
-                                {partIndex !== parts - 1 && <Separator />}
-                            </Fragment>
-                        ))}
-                    </CodeWrapper>
+                                            return (
+                                                <ItemInput
+                                                    key={partIndex + i + partIndex * i}
+                                                    ref={(element: HTMLInputElement) => {
+                                                        inputRefs.current[inputCorrectIndex] = element;
+                                                    }}
+                                                    className={cls({
+                                                        [classes.segmented]: shape === 'segmented',
+                                                        [classes.hoverEnabled]:
+                                                            !disabled && inputCorrectIndex >= originalValue.length,
+                                                    })}
+                                                    value={code[inputCorrectIndex] || ''}
+                                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                                        handleChange(e, inputCorrectIndex);
+                                                    }}
+                                                    onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => {
+                                                        handleOnKeyDown(e, inputCorrectIndex);
+                                                    }}
+                                                    onPaste={handlePaste}
+                                                    tabIndex={
+                                                        !disabled && originalValue.length === inputCorrectIndex ? 0 : -1
+                                                    }
+                                                    {...(placeholderValue && {
+                                                        placeholder: placeholderValue[inputCorrectIndex],
+                                                    })}
+                                                />
+                                            );
+                                        })}
+                                    </CodeGroup>
+                                    {partIndex !== parts - 1 && <Separator />}
+                                </Fragment>
+                            ))}
+                        </CodeWrapper>
 
-                    {caption && (
-                        <CaptionWrapper ref={captionRef} captionAlign={captionAlign} widthValue={widthValue}>
-                            {caption}
-                        </CaptionWrapper>
-                    )}
+                        {caption && (
+                            <CaptionWrapper ref={captionRef} captionAlign={captionAlign} widthValue={widthValue}>
+                                {caption}
+                            </CaptionWrapper>
+                        )}
 
-                    {isWebOTPEnabled && <HiddenInput tabIndex={-1} {...rest} />}
-                </Root>
+                        {isWebOTPEnabled && <HiddenInput tabIndex={-1} {...rest} />}
+                    </Root>
+                    <div>{JSON.stringify(otpVal)}</div>
+                </>
             );
         },
     );
