@@ -72,6 +72,19 @@ export const useDrawer = ({
         }
     }, [isOpen, popupController.items]);
 
+    // При анмаунте компонента нужно обновлять overflow у body.
+    useEffect(() => {
+        return () => {
+            if (!canUseDOM) {
+                return;
+            }
+
+            if (!hasDrawers(Array.from(popupController.items.values()))) {
+                document.body.style.overflow = overflow.current;
+            }
+        };
+    }, []);
+
     const drawerInfo: DrawerInfo = {
         id,
         info: {
