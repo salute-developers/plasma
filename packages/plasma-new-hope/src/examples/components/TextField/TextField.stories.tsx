@@ -1,4 +1,4 @@
-import React, { ComponentProps, useState } from 'react';
+import React, { ComponentProps, ReactElement, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, getConfigVariations } from '@salutejs/plasma-sb-utils';
@@ -44,12 +44,8 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
-const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+const getIcon = (IconComponent: ReactElement, size: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
-
-    if (readOnly) {
-        return <IconLock size={iconSize} color="var(--text-secondary)" style={{ opacity: 0.4 }} />;
-    }
 
     return <IconComponent size={iconSize} color="inherit" />;
 };
@@ -252,7 +248,7 @@ type StoryPropsDefault = Omit<
 const StoryDemo = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsDefault) => {
     const [text, setText] = useState('Значение поля');
 
-    const contentRight = enableContentRight || readOnly ? getIcon(IconCross, rest.size, readOnly) : undefined;
+    const contentRight = enableContentRight || readOnly ? getIcon(IconCross, rest.size) : undefined;
 
     return (
         <div
@@ -365,7 +361,7 @@ type StoryPropsChips = Omit<
 const StoryChips = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsChips) => {
     const [text, setText] = useState('Значение поля');
 
-    const contentRight = enableContentRight || readOnly ? getIcon(IconCross, rest.size, readOnly) : undefined;
+    const contentRight = enableContentRight || readOnly ? getIcon(IconCross, rest.size) : undefined;
 
     const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
 

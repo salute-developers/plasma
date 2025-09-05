@@ -81,6 +81,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.contentSlotRightColor}: var(${autocompleteTokens.textFieldContentSlotRightColor});
     ${textFieldTokens.contentSlotRightColorHover}: var(${autocompleteTokens.textFieldContentSlotRightColorHover});
     ${textFieldTokens.contentSlotRightColorActive}: var(${autocompleteTokens.textFieldContentSlotRightColorActive});
+    ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${autocompleteTokens.textFieldContentSlotRightOpacityReadOnly});
     ${textFieldTokens.indicatorColor}: var(${autocompleteTokens.textFieldIndicatorColor});
     ${textFieldTokens.indicatorSizeInner}: var(${autocompleteTokens.textFieldIndicatorSizeInner});
     ${textFieldTokens.indicatorSizeOuter}: var(${autocompleteTokens.textFieldIndicatorSizeOuter});

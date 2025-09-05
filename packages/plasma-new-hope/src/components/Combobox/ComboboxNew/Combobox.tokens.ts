@@ -115,6 +115,7 @@ export const tokens = {
     textFieldContentSlotRightColor: '--plasma-combobox-new-textfield-content-right-slot-color',
     textFieldContentSlotRightColorHover: '--plasma-combobox-new-textfield-content-right-slot-color-hover',
     textFieldContentSlotRightColorActive: '--plasma-combobox-new-textfield-content-right-slot-color-active',
+    textFieldContentSlotRightOpacityReadOnly: '--plasma-combobox-new-textfield-content-right-slot-opacity-readonly',
 
     textFieldLabelColor: '--plasma-combobox-new-textfield-label-color',
     textFieldLabelColorReadOnly: '--plasma-combobox-new-textfield-label-color-readonly',
