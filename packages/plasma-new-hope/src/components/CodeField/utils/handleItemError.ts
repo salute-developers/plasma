@@ -11,8 +11,9 @@ type ValidateSymbolsArgs = {
     index: number;
     newCode: Array<string>;
     inputRefs: MutableRefObject<Array<HTMLInputElement | null>>;
-    setCode: Dispatch<SetStateAction<Array<string>>>;
+    setInnerValue: Dispatch<SetStateAction<Array<string>>>;
     codeSetter: (newCode: Array<string>) => void;
+    onChange?: (value: string) => void;
 };
 
 export const handleItemError = ({
@@ -21,8 +22,9 @@ export const handleItemError = ({
     index,
     newCode,
     inputRefs,
-    setCode,
+    setInnerValue,
     codeSetter,
+    onChange,
 }: ValidateSymbolsArgs) => {
     if (!inputRefs.current[index] || currentSymbol === ' ') {
         return;
@@ -30,7 +32,11 @@ export const handleItemError = ({
 
     switch (itemErrorBehavior) {
         case 'keep':
-            setCode(newCode);
+            setInnerValue(newCode);
+            if (onChange) {
+                onChange(newCode.join(''));
+            }
+
             inputRefs.current[index]?.classList.add(classes.itemError, classes.itemErrorAnimation);
 
             setTimeout(() => {
@@ -43,11 +49,18 @@ export const handleItemError = ({
         case 'forbid-enter':
             newCode[index] = '';
             codeSetter(newCode);
+            if (onChange) {
+                onChange(newCode.join(''));
+            }
 
             break;
         case 'remove-symbol':
         default:
-            setCode(newCode);
+            setInnerValue(newCode);
+            if (onChange) {
+                onChange(newCode.join(''));
+            }
+
             inputRefs.current[index]?.classList.add(
                 classes.itemError,
                 classes.itemErrorFade,
