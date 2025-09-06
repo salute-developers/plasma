@@ -1,5 +1,10 @@
 import type { Key, ReactNode, CSSProperties, HTMLAttributes } from 'react';
 
+export type NodeDragEventParams = {
+    event: React.DragEvent<HTMLDivElement>;
+    node: EventDataNode;
+};
+
 type EventDataNode = {
     key: Key;
     expanded: boolean;
@@ -75,7 +80,11 @@ export type TreeItem = {
     contentRight?: ReactNode;
 };
 
-export interface TreeProps extends HTMLAttributes<HTMLElement> {
+export interface TreeProps
+    extends Omit<
+        HTMLAttributes<HTMLElement>,
+        'onDragStart' | 'onDragEnter' | 'onDragOver' | 'onDragLeave' | 'onDragEnd' | 'onDrop'
+    > {
     /**
      * Список элементов.
      */
@@ -187,6 +196,28 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
      * @default default
      */
     mode?: 'default' | 'radio';
+    /**
+     * Включение режима Drag'n'Drop для элементов и групп в дереве;
+     * @default false
+     */
+    draggable?: boolean;
+    onDragStart?: (info: NodeDragEventParams) => void;
+    onDragEnter?: (
+        info: NodeDragEventParams & {
+            expandedKeys: Key[];
+        },
+    ) => void;
+    onDragOver?: (info: NodeDragEventParams) => void;
+    onDragLeave?: (info: NodeDragEventParams) => void;
+    onDragEnd?: (info: NodeDragEventParams) => void;
+    onDrop?: (
+        info: NodeDragEventParams & {
+            dragNode: EventDataNode;
+            dragNodesKeys: Key[];
+            dropPosition: number;
+            dropToGap: boolean;
+        },
+    ) => void;
 
     /**
      * Размер дерева.
