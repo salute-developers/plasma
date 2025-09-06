@@ -22,6 +22,10 @@ export type HTMLAttributesWithoutOnChangeAndDefaultValue<T = HTMLElement> = Omit
     React.HTMLAttributes<T>,
     'onChange' | 'defaultValue'
 >;
+export type HTMLAttributesWithoutDraggable<T = HTMLElement> = Omit<
+    React.HTMLAttributes<T>,
+    'onDragStart' | 'onDragEnter' | 'onDragOver' | 'onDragLeave' | 'onDragEnd' | 'onDrop'
+>;
 
 export type RootProps<
     RefElement extends HTMLElement,
@@ -36,6 +40,11 @@ export type RootPropsOmitOnChange<
 export type RootPropsOmitOnChangeAndDefaultValue<
     RefElement extends HTMLElement,
     Element extends HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>
+> = React.FunctionComponent<{ children?: React.ReactNode } & React.RefAttributes<RefElement> & Element>;
+
+export type RootPropsOmitDraggable<
+    RefElement extends HTMLElement,
+    Element extends HTMLAttributesWithoutDraggable<HTMLElement>
 > = React.FunctionComponent<{ children?: React.ReactNode } & React.RefAttributes<RefElement> & Element>;
 
 export type Variant = {
