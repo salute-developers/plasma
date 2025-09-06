@@ -41,6 +41,7 @@ const placements: Array<PopoverPlacement> = [
 
     'auto',
 ];
+const mode = ['default', 'radio'];
 
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Combobox',
@@ -174,6 +175,12 @@ const meta: Meta<StorySelectProps> = {
         emptyStateDescription: {
             control: { type: 'text' },
         },
+        mode: {
+            options: mode,
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         label: 'Label',
@@ -203,6 +210,7 @@ const meta: Meta<StorySelectProps> = {
         hintWidth: '10rem',
         hintHasArrow: true,
         emptyStateDescription: '',
+        mode: 'default',
     },
     parameters: {
         controls: {
@@ -237,6 +245,7 @@ const meta: Meta<StorySelectProps> = {
                 'hintPlacement',
                 'hintWidth',
                 'hintHasArrow',
+                'mode',
             ],
         },
     },
@@ -500,6 +509,11 @@ const MultipleStory = (args: StorySelectProps) => {
 
 export const Multiple: StoryObj<StorySelectProps> = {
     render: (args) => <MultipleStory {...args} />,
+    parameters: {
+        controls: {
+            exclude: ['mode'],
+        },
+    },
 };
 
 const flatItems = [

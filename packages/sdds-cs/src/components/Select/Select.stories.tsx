@@ -15,6 +15,7 @@ type StorySelectProps = ComponentProps<typeof Select> & {
 
 const view = ['default', 'negative'];
 const variant = ['normal', 'tight'];
+const mode = ['default', 'radio'];
 
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Select',
@@ -100,6 +101,12 @@ const meta: Meta<StorySelectProps> = {
             options: ['default', 'text'],
             if: { arg: 'target', eq: 'textfield-like' },
         },
+        mode: {
+            options: mode,
+            control: {
+                type: 'select',
+            },
+        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -131,6 +138,7 @@ const meta: Meta<StorySelectProps> = {
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
         chipType: 'default',
+        mode: 'default',
     },
     parameters: {
         controls: {
@@ -154,6 +162,7 @@ const meta: Meta<StorySelectProps> = {
                 'requiredPlacement',
                 'hasRequiredIndicator',
                 'chipType',
+                'mode',
             ],
         },
     },
@@ -423,6 +432,11 @@ export const Multiselect: StoryObj<StorySelectProps> = {
         closeAfterSelect: false,
     },
     render: (args) => <MultiselectStory {...args} />,
+    parameters: {
+        controls: {
+            exclude: ['mode'],
+        },
+    },
 };
 
 const PredefinedStory = ({ enableContentLeft, ...args }: StorySelectProps) => {

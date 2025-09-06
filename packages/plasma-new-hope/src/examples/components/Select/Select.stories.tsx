@@ -45,6 +45,7 @@ const placements: Array<PopoverPlacement> = [
 
     'auto',
 ];
+const mode = ['default', 'radio'];
 
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Select',
@@ -198,6 +199,12 @@ const meta: Meta<StorySelectProps> = {
             options: ['default', 'text'],
             if: { arg: 'target', eq: 'textfield-like' },
         },
+        mode: {
+            options: mode,
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         target: 'textfield-like',
@@ -227,6 +234,7 @@ const meta: Meta<StorySelectProps> = {
         hintPlacement: 'auto',
         hintWidth: '10rem',
         hintHasArrow: true,
+        mode: 'default',
     },
     parameters: {
         controls: {
@@ -262,6 +270,7 @@ const meta: Meta<StorySelectProps> = {
                 'hintPlacement',
                 'hintWidth',
                 'hintHasArrow',
+                'mode',
             ],
         },
     },
@@ -531,6 +540,11 @@ export const Multiselect: StoryObj<StorySelectProps> = {
         closeAfterSelect: false,
     },
     render: (args) => <MultiselectStory {...args} />,
+    parameters: {
+        controls: {
+            exclude: ['mode'],
+        },
+    },
 };
 
 const PredefinedStory = ({ enableContentLeft, ...args }: StorySelectProps) => {

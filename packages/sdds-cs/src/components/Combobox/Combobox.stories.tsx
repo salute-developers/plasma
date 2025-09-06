@@ -15,6 +15,7 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
 const view = ['default', 'negative'];
 const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
+const mode = ['default', 'radio'];
 
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Combobox',
@@ -94,6 +95,12 @@ const meta: Meta<StorySelectProps> = {
         emptyStateDescription: {
             control: { type: 'text' },
         },
+        mode: {
+            options: mode,
+            control: {
+                type: 'select',
+            },
+        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -126,6 +133,7 @@ const meta: Meta<StorySelectProps> = {
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
         emptyStateDescription: '',
+        mode: 'default',
     },
     parameters: {
         controls: {
@@ -154,6 +162,7 @@ const meta: Meta<StorySelectProps> = {
                 'requiredPlacement',
                 'hasRequiredIndicator',
                 'emptyStateDescription',
+                'mode',
             ],
         },
     },
@@ -417,6 +426,11 @@ const MultipleStory = (args: StorySelectProps) => {
 
 export const Multiple: StoryObj<StorySelectProps> = {
     render: (args) => <MultipleStory {...args} />,
+    parameters: {
+        controls: {
+            exclude: ['mode'],
+        },
+    },
 };
 
 const flatItems = [
