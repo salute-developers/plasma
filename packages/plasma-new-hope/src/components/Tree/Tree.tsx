@@ -12,7 +12,12 @@ import { classes } from './Tree.tokens';
 /**
  * Многоуровневый раскрывающийся список в виде дерева.
  */
-export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
+export const treeRoot = (
+    Root: RootProps<
+        HTMLDivElement,
+        Omit<TreeProps, 'onDragStart' | 'onDragEnter' | 'onDragOver' | 'onDragLeave' | 'onDragEnd' | 'onDrop'>
+    >,
+) =>
     forwardRef<HTMLDivElement, TreeProps>(
         (
             {
@@ -42,6 +47,13 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                 icon,
                 renderTitle,
                 mode = 'default',
+                draggable = false,
+                onDragStart,
+                onDragEnter,
+                onDragOver,
+                onDragLeave,
+                onDragEnd,
+                onDrop,
             },
             ref,
         ) => {
@@ -122,6 +134,13 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                                 {item.contentRight && <ContentRight>{item.contentRight}</ContentRight>}
                             </TitleWrapper>
                         )}
+                        draggable={draggable}
+                        onDragStart={onDragStart}
+                        onDragEnter={onDragEnter}
+                        onDragOver={onDragOver}
+                        onDragLeave={onDragLeave}
+                        onDragEnd={onDragEnd}
+                        onDrop={onDrop}
                     />
                 </Root>
             );
