@@ -12,4 +12,5 @@ export type {
     CSS,
     RootPropsOmitOnChange,
     RootPropsOmitOnChangeAndDefaultValue,
+    RootPropsOmitDraggable,
 } from './types';
