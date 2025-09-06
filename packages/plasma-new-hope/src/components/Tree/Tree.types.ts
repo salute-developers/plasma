@@ -1,5 +1,16 @@
 import type { Key, ReactNode, CSSProperties, HTMLAttributes } from 'react';
 
+export type NodeDragEventParams = {
+    event: React.DragEvent<HTMLDivElement>;
+    node: EventDataNode;
+};
+
+interface AllowDropOptions {
+    dragNode: TreeItem;
+    dropNode: TreeItem;
+    dropPosition: -1 | 0 | 1;
+}
+
 type EventDataNode = {
     key: Key;
     expanded: boolean;
@@ -75,7 +86,11 @@ export type TreeItem = {
     contentRight?: ReactNode;
 };
 
-export interface TreeProps extends HTMLAttributes<HTMLElement> {
+export interface TreeProps
+    extends Omit<
+        HTMLAttributes<HTMLElement>,
+        'onDragStart' | 'onDragEnter' | 'onDragOver' | 'onDragLeave' | 'onDragEnd' | 'onDrop'
+    > {
     /**
      * Список элементов.
      */
@@ -187,6 +202,50 @@ export interface TreeProps extends HTMLAttributes<HTMLElement> {
      * @default default
      */
     mode?: 'default' | 'radio';
+    /**
+     * Включение режима Drag'n'Drop для элементов и групп в дереве;
+     * @default false
+     */
+    draggable?: boolean;
+    /**
+     * Нативный обработчик onDragStart.
+     */
+    onDragStart?: (info: NodeDragEventParams) => void;
+    /**
+     * Нативный обработчик onDragEnter.
+     */
+    onDragEnter?: (
+        info: NodeDragEventParams & {
+            expandedKeys: Key[];
+        },
+    ) => void;
+    /**
+     * Нативный обработчик onDragOver.
+     */
+    onDragOver?: (info: NodeDragEventParams) => void;
+    /**
+     * Нативный обработчик onDragLeave.
+     */
+    onDragLeave?: (info: NodeDragEventParams) => void;
+    /**
+     * Нативный обработчик onDragEnd.
+     */
+    onDragEnd?: (info: NodeDragEventParams) => void;
+    /**
+     * Нативный обработчик onDrop.
+     */
+    onDrop?: (
+        info: NodeDragEventParams & {
+            dragNode: EventDataNode;
+            dragNodesKeys: Key[];
+            dropPosition: number;
+            dropToGap: boolean;
+        },
+    ) => void;
+    /**
+     * Разрешать ли сброс draggable-элемента на текущем target-элементе.
+     */
+    allowDrop?: (options: AllowDropOptions) => boolean;
 
     /**
      * Размер дерева.

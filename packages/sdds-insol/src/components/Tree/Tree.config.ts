@@ -24,6 +24,8 @@ export const config = {
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledBorderColor}: var(--text-secondary);
                 ${tokens.itemDisabledColor}: var(--text-secondary);
+                ${tokens.itemDraggableBorderColor}: var(--surface-positive);
+                ${tokens.itemDraggableLineColor}: var(--surface-solid-default);
             `,
         },
         size: {

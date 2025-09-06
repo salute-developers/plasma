@@ -1,18 +1,27 @@
 import React, { forwardRef, useState, useMemo } from 'react';
 import type { Key } from 'react';
 import Tree from 'rc-tree';
-import { RootProps } from 'src/engines';
+import { RootPropsOmitDraggable } from 'src/engines';
 import { cx } from 'src/utils';
 
 import type { TreeProps, SelectInfo } from './Tree.types';
-import { IconArrowWrapper, StyledArrow, base, StyledFolder, TitleWrapper, Title, ContentRight } from './Tree.styles';
+import {
+    IconArrowWrapper,
+    StyledArrow,
+    base,
+    StyledFolder,
+    TitleWrapper,
+    Title,
+    ContentRight,
+    Line,
+} from './Tree.styles';
 import { sizeToIconSize, traverseTree } from './utils';
 import { classes } from './Tree.tokens';
 
 /**
  * Многоуровневый раскрывающийся список в виде дерева.
  */
-export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
+export const treeRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, TreeProps>) =>
     forwardRef<HTMLDivElement, TreeProps>(
         (
             {
@@ -42,6 +51,14 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                 icon,
                 renderTitle,
                 mode = 'default',
+                draggable = false,
+                onDragStart,
+                onDragEnter,
+                onDragOver,
+                onDragLeave,
+                onDragEnd,
+                onDrop,
+                allowDrop,
             },
             ref,
         ) => {
@@ -122,6 +139,35 @@ export const treeRoot = (Root: RootProps<HTMLDivElement, TreeProps>) =>
                                 {item.contentRight && <ContentRight>{item.contentRight}</ContentRight>}
                             </TitleWrapper>
                         )}
+                        draggable={draggable}
+                        onDragStart={onDragStart}
+                        onDragEnter={onDragEnter}
+                        onDragOver={onDragOver}
+                        onDragLeave={onDragLeave}
+                        onDragEnd={onDragEnd}
+                        onDrop={onDrop}
+                        allowDrop={allowDrop}
+                        dropIndicatorRender={(props) => {
+                            const offset = 0;
+                            const { dropPosition, dropLevelOffset, indent } = props;
+                            const left = -dropLevelOffset * indent + offset;
+
+                            const style: React.CSSProperties = {};
+
+                            switch (dropPosition) {
+                                case -1:
+                                    style.top = 0;
+                                    break;
+                                case 1:
+                                    style.bottom = 0;
+                                    break;
+                                default:
+                                    style.bottom = 0;
+                                    style.left = indent + offset;
+                                    break;
+                            }
+                            return <Line style={style} left={left} />;
+                        }}
                     />
                 </Root>
             );
