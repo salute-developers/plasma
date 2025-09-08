@@ -291,6 +291,10 @@ const itemsWithPlacement = [
 ];
 
 describe('plasma-b2c: Dropdown', () => {
+    beforeEach(() => {
+        cy.get('body').realMouseMove(0, 0);
+    });
+
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
 
@@ -425,9 +429,9 @@ describe('plasma-b2c: Dropdown', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('button').trigger('mouseover');
-        cy.get('[id$="asia"]').trigger('mouseover');
-        cy.get('[id$="india"]').trigger('mouseover');
+        cy.get('button').realHover();
+        cy.get('[id$="asia"]').realHover();
+        cy.get('[id$="india"]').realHover();
         cy.get('[id$="delhi"]').should('be.visible');
 
         cy.matchImageSnapshot();

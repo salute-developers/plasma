@@ -6,8 +6,12 @@ import {
     offset as offsetMiddleware,
     autoPlacement,
     autoUpdate,
+    useHover,
+    useInteractions,
+    safePolygon,
+    useClick,
 } from '@floating-ui/react';
-import React, { forwardRef, MouseEvent } from 'react';
+import React, { forwardRef } from 'react';
 import { safeUseId } from 'src/utils';
 
 import { FloatingPopoverProps } from './Dropdown.types';
@@ -17,7 +21,7 @@ const LIST_PADDING = 2;
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
     ({ target, children, opened, onToggle, placement, portal, offset = [0, 8], isInner, trigger, zIndex }, ref) => {
-        const { refs, floatingStyles } = useFloating({
+        const { refs, floatingStyles, context } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
                     ancestorScroll: false,
@@ -27,6 +31,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
             },
             placement: placement === 'auto' ? undefined : placement,
             open: opened,
+            onOpenChange: onToggle,
             middleware: [
                 placement === 'auto' && autoPlacement(),
                 offsetMiddleware({
@@ -39,51 +44,22 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
         });
         const wrappedId = safeUseId();
 
-        const handleTargetClick = (event: MouseEvent<HTMLDivElement>) => {
-            if (trigger === 'hover') {
-                return;
-            }
+        const hover = useHover(context, {
+            enabled: trigger === 'hover',
+            delay: {
+                open: 0,
+                close: 50,
+            },
+            handleClose: safePolygon({
+                requireIntent: false,
+            }),
+        });
+        const click = useClick(context, {
+            stickIfOpen: false,
+            ignoreMouse: trigger === 'hover',
+        });
 
-            if (onToggle) {
-                onToggle(!opened, event);
-            }
-        };
-
-        const handleTargetMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
-            if (trigger === 'click' || opened) {
-                return;
-            }
-
-            onToggle(true, event);
-        };
-
-        const handleTargetMouseLeave = (event: MouseEvent<HTMLDivElement>) => {
-            if (event.relatedTarget instanceof HTMLElement && refs.floating.current instanceof HTMLElement) {
-                if (
-                    trigger === 'click' ||
-                    !opened ||
-                    (event.relatedTarget && refs.floating && refs.floating.current?.contains(event.relatedTarget))
-                ) {
-                    return;
-                }
-
-                onToggle(false, event);
-            }
-        };
-
-        const handleFloatingMouseLeave = (event: MouseEvent) => {
-            if (event.relatedTarget instanceof HTMLElement && refs.reference.current instanceof HTMLElement) {
-                if (
-                    trigger === 'click' ||
-                    !opened ||
-                    (event.relatedTarget && refs.reference && refs.reference.current?.contains(event.relatedTarget))
-                ) {
-                    return;
-                }
-
-                onToggle(false, event);
-            }
-        };
+        const { getReferenceProps } = useInteractions([hover, click]);
 
         return (
             <div
@@ -94,12 +70,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     display: isInner ? 'block' : 'inline-block',
                 }}
             >
-                <div
-                    ref={refs.setReference}
-                    onClick={handleTargetClick}
-                    onMouseEnter={handleTargetMouseEnter}
-                    onMouseLeave={handleTargetMouseLeave}
-                >
+                <div ref={refs.setReference} {...getReferenceProps()}>
                     {target}
                 </div>
 
@@ -107,7 +78,6 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     <FloatingPortal {...getFloatingPortalProps(portal, wrappedId)}>
                         <div
                             ref={refs.setFloating}
-                            onMouseLeave={handleFloatingMouseLeave}
                             style={{
                                 ...floatingStyles,
                                 zIndex: zIndex || 1000,

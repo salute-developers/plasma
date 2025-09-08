@@ -82,7 +82,7 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     /**
      * Событие сворачивания/разворачивания Dropdown.
      */
-    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
+    onToggle?: (isOpen: boolean, event?: SyntheticEvent | Event) => void;
     size?: string;
     view?: string;
     /**
@@ -134,7 +134,7 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     listOverflow?: CSSProperties['overflow'];
 } & HTMLAttributes<HTMLDivElement>;
 
-export type HandleGlobalToggleType = (opened: boolean, event: SyntheticEvent | Event) => void;
+export type HandleGlobalToggleType = (opened: boolean, event?: SyntheticEvent | Event) => void;
 
 export type PlacementType = 'auto' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start';
 
@@ -142,7 +142,7 @@ export type FloatingPopoverProps = {
     target: React.ReactNode;
     children: React.ReactNode;
     opened: boolean;
-    onToggle: (opened: boolean, event: SyntheticEvent | Event) => void;
+    onToggle: (opened: boolean, event?: SyntheticEvent | Event) => void;
     placement: PlacementType;
     trigger: DropdownProps['trigger'];
     isInner: boolean;

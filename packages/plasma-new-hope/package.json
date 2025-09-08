@@ -110,9 +110,9 @@
     "vite": "4.5.3"
   },
   "dependencies": {
-    "@floating-ui/dom": "1.6.10",
-    "@floating-ui/react": "0.26.22",
-    "@floating-ui/react-dom": "2.1.1",
+    "@floating-ui/dom": "1.7.4",
+    "@floating-ui/react": "0.27.16",
+    "@floating-ui/react-dom": "2.1.6",
     "@linaria/core": "5.0.2",
     "@linaria/react": "5.0.3",
     "@popperjs/core": "2.11.8",
