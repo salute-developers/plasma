@@ -223,6 +223,10 @@ const items = [
 ];
 
 describe('sdds-cs: Dropdown', () => {
+    beforeEach(() => {
+        cy.get('body').realMouseMove(0, 0);
+    });
+
     const Dropdown = getComponent('Dropdown') as typeof DropdownCS;
     const Button = getComponent('Button') as typeof ButtonCS;
 
@@ -267,9 +271,9 @@ describe('sdds-cs: Dropdown', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('button').trigger('mouseover');
-        cy.get('[id$="south_america"]').trigger('mouseover');
-        cy.get('[id$="argentina"]').trigger('mouseover');
+        cy.get('button').realHover();
+        cy.get('[id$="south_america"]').realHover();
+        cy.get('[id$="argentina"]').realHover();
 
         cy.matchImageSnapshot();
 

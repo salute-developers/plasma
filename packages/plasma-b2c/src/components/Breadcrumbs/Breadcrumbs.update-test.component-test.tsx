@@ -43,6 +43,10 @@ const customItems = [
 ];
 
 describe('plasma-b2c: Breadcrumbs', () => {
+    beforeEach(() => {
+        cy.get('body').realMouseMove(0, 0);
+    });
+
     const Breadcrumbs = getComponent('Breadcrumbs') as typeof BreadcrumbsComponent;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
@@ -93,13 +97,15 @@ describe('plasma-b2c: Breadcrumbs', () => {
     });
 
     it('[PLASMA-T1169] Breadcrumbs: customShorter', () => {
+        cy.viewport(800, 500);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Breadcrumbs items={customItems} />
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('span[role="combobox"]').trigger('mouseover');
+        cy.get('span').contains('...').realHover();
 
         cy.matchImageSnapshot();
     });
