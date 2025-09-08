@@ -275,15 +275,6 @@ export const datePickerRangeRoot = (
                         : currentOpened;
 
                 if (!isCalendarOpen) {
-                    if (calendarFirstValue && !calendarSecondValue) {
-                        secondInputRef?.current?.focus();
-                    }
-                    if (calendarSecondValue && !calendarFirstValue) {
-                        firstInputRef?.current?.focus();
-                    }
-                }
-
-                if (!isCalendarOpen) {
                     setSecondTextFieldClicked(false);
                 }
 
