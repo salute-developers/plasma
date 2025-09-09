@@ -17,7 +17,6 @@ import {
     updateSingleAncestors,
     filterItems,
     getItemId,
-    getRemovedElement,
     getTextValue,
 } from './utils';
 import { Inner, StyledTextField, VirtualList, SelectAll } from './ui';
@@ -97,9 +96,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         // Создаем структуры для быстрой работы с деревом
-        const [valueToCheckedMap, valueToItemMap, labelToItemMap] = useMemo(() => getTreeMaps(transformedItems), [
-            items,
-        ]);
+        const [valueToCheckedMap, valueToItemMap] = useMemo(() => getTreeMaps(transformedItems), [items]);
 
         const [textValue, setTextValue] = useState(getTextValue(multiple, outerValue, valueToItemMap, renderValue));
 
@@ -199,55 +196,16 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         };
 
         // Обработчик чипов
-        const handleChipsChange = (chipLabels: any[]) => {
+        const handleChipClick = (chip: { value: string; label: string; disabled: boolean }) => {
             if (!Array.isArray(value)) return;
 
-            // TODO: #1564
-            // Из лейблов чипов получаем value у item и далее прокидываем его в onChange.
-            if (renderValue && !isTargetAmount) {
-                const resultValues = [...value];
-
-                value.forEach((_, index) => {
-                    const stringValue = value[index];
-                    const label = valueToItemMap.get(stringValue)?.label;
-
-                    const labelAfterRenderValue = renderValue(
-                        label
-                            ? labelToItemMap.get(label)!
-                            : {
-                                  value: stringValue,
-                                  label: stringValue.toString(),
-                              },
-                    );
-
-                    if (!chipLabels.includes(labelAfterRenderValue)) {
-                        resultValues.splice(index, 1);
-                    }
-                });
-
-                const removedItemValue = getRemovedElement(value, resultValues, isTargetAmount);
-
-                onChange(
-                    resultValues,
-                    removedItemValue
-                        ? valueToItemMap.get(removedItemValue) || {
-                              value: removedItemValue,
-                              label: removedItemValue.toString(),
-                          }
-                        : null,
-                );
+            if (isTargetAmount) {
+                // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы
+                onChange(value.filter((val) => valueToItemMap?.get(val)?.disabled));
             } else {
-                const newValues = chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)?.value || chipLabel);
-                const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
-
                 onChange(
-                    newValues,
-                    removedItemValue
-                        ? valueToItemMap.get(removedItemValue) || {
-                              value: removedItemValue,
-                              label: removedItemValue.toString(),
-                          }
-                        : null,
+                    value.filter((val) => val !== chip.value),
+                    valueToItemMap.get(chip.value) || null,
                 );
             }
         };
@@ -278,15 +236,28 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             const checkedCopy = new Map(checked);
 
-            if (!checkedCopy.get(item.value)) {
-                checkedCopy.set(item.value, true);
-                updateDescendants(item, checkedCopy, true, valueToItemMap);
-            } else {
-                checkedCopy.set(item.value, false);
-                updateDescendants(item, checkedCopy, false);
+            switch (checkedCopy.get(item.value)) {
+                // Если чекбокс в состоянии indeterminate
+                case 'indeterminate': {
+                    updateDescendants(item, checkedCopy, true, valueToItemMap);
+                    break;
+                }
+                // Если чекбокс в состоянии checked
+                case true: {
+                    updateDescendants(item, checkedCopy, false, valueToItemMap);
+                    checkedCopy.set(item.value, false);
+                    break;
+                }
+                // Если чекбокс в состоянии unchecked
+                case false: {
+                    updateDescendants(item, checkedCopy, true, valueToItemMap);
+                    checkedCopy.set(item.value, true);
+                    break;
+                }
+                default: {
+                    break;
+                }
             }
-
-            updateAncestors(item, checkedCopy);
 
             const newValues: Array<string> = [];
 
@@ -354,24 +325,31 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         };
 
-        const getChips = (): string[] => {
+        const getChips = (): { value: string; label: string; disabled: boolean }[] => {
             if (multiple && Array.isArray(value)) {
                 if (value.length === 0) return [];
 
                 if (isTargetAmount) {
-                    return [`Выбрано ${targetAmount || value.length}`];
+                    return [
+                        {
+                            value: '_removeAll',
+                            label: `Выбрано ${targetAmount || value.length}`,
+                            disabled: value.every((val) => valueToItemMap?.get(val)?.disabled),
+                        },
+                    ];
                 }
 
-                const renderValueMapper =
-                    renderValue &&
-                    ((stringValue: string) =>
-                        renderValue(
-                            valueToItemMap.get(stringValue) || { value: stringValue, label: stringValue.toString() },
-                        ));
-                const valueToItemMapper = (stringValue: string) =>
-                    valueToItemMap.get(stringValue)?.label || stringValue.toString();
+                return value.map((value) => {
+                    const currentLabel = renderValue
+                        ? renderValue(valueToItemMap.get(value) || { value, label: value })
+                        : valueToItemMap.get(value)?.label || value.toString();
 
-                return value.map(renderValueMapper || valueToItemMapper);
+                    return {
+                        value,
+                        label: currentLabel,
+                        disabled: valueToItemMap.get(value)?.disabled || false,
+                    };
+                });
             }
 
             return [];
@@ -550,8 +528,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         {...(multiple
                                             ? {
                                                   enumerationType: 'chip',
-                                                  chips: getChips(),
-                                                  onChangeChips: handleChipsChange,
+                                                  _chips: getChips(),
+                                                  _onChipClick: handleChipClick,
                                               }
                                             : { enumerationType: 'plain' })}
                                         {...rest}
