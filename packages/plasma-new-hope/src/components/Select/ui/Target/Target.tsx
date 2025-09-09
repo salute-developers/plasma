@@ -29,7 +29,6 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             activeDescendantItemValue,
             isTargetAmount,
             onChange,
-            labelToItemMap,
             chipView,
             separator,
             requiredProps,
@@ -91,7 +90,6 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 valueToItemMap={valueToItemMap}
                 renderValue={renderValue}
                 onChange={onChange}
-                labelToItemMap={labelToItemMap}
                 chipView={chipView}
                 requiredProps={requiredProps}
                 hintProps={hintProps}

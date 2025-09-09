@@ -23,7 +23,6 @@ export type TextfieldProps = Pick<
     | 'valueToItemMap'
     | 'renderValue'
     | 'onChange'
-    | 'labelToItemMap'
     | 'chipView'
     | 'requiredProps'
     | 'hintProps'

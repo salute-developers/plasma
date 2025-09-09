@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IconLocation } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
@@ -977,6 +977,33 @@ describe('plasma-giga: Select', () => {
         cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
+    it('prop: item disabled', () => {
+        cy.viewport(400, 100);
+
+        const Component = () => {
+            const [value, setValue] = useState(['africa']);
+
+            return (
+                <CypressTestDecorator>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            multiselect
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                        />
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 
@@ -1037,7 +1064,7 @@ describe('plasma-giga: Select', () => {
         cy.matchImageSnapshot();
     });
 
-    it('behavior: disabled item', () => {
+    it('behavior: disabled unselected item', () => {
         const items = [
             {
                 value: 'brazil',
@@ -1059,14 +1086,14 @@ describe('plasma-giga: Select', () => {
         const Component = () => (
             <CypressTestDecorator>
                 <div style={{ width: '300px' }}>
-                    <Select id="multiple" multiselect label="Список стран" items={items} />
+                    <Select id="select" multiselect label="Список стран" items={items} />
                 </div>
             </CypressTestDecorator>
         );
 
         mount(<Component />);
 
-        cy.get('#multiple').click();
+        cy.get('#select').click('bottomRight');
         cy.get('[id$="brazil"]').click();
         cy.get('[id$="brazil"] .checkbox-trigger').click();
 
@@ -1077,7 +1104,62 @@ describe('plasma-giga: Select', () => {
         cy.get('[id$="brazil"] .checkbox-trigger').click();
 
         cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
-        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+    });
+
+    it('behavior: disabled selected item', () => {
+        const items = [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                        disabled: true,
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+        ];
+
+        const Component = () => {
+            const [value, setValue] = useState(['rio_de_janeiro']);
+
+            return (
+                <CypressTestDecorator>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="select"
+                            multiselect
+                            label="Список стран"
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                        />
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click('bottomRight');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"]').click();
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
         cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'false');
     });
 
@@ -1154,6 +1236,36 @@ describe('plasma-giga: Select', () => {
         cy.get('#single').click();
         cy.contains('div', 'Южная Америка').click();
         cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('behaviour: isTargetAmount', () => {
+        cy.viewport(300, 100);
+
+        mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
+
+        const Component = () => {
+            const [value, setValue] = React.useState(['africa', 'north_america']);
+
+            return (
+                <CypressTestDecorator>
+                    <Select
+                        isTargetAmount
+                        multiselect
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        value={value}
+                        onChange={setValue}
+                    />
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.contains('2').realClick();
 
         cy.matchImageSnapshot();
     });
@@ -1339,7 +1451,7 @@ describe('plasma-giga: Select', () => {
         cy.realPress('Space');
         cy.get('button').should('not.include.text', 'Буэнос-Айрес').should('not.include.text', 'Кордова');
         cy.realPress('ArrowLeft').realPress('ArrowLeft');
-        cy.realPress('Space');
+        cy.realPress('Space').realPress('Space');
         cy.get('button').should('include.text', 'Список стран');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');

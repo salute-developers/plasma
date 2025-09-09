@@ -606,6 +606,66 @@ Select может выглядеть как Button и как Textfield. За э�
     </TabItem>
 </Tabs>
 
+## Взаимодействие с disabled-элементами
+
+Изнутри компонента взаимодействие с disabled-элементами **невозможно**. Ниже представлены примеры с `selected` и `unselected` disabled-элементом.
+
+```tsx live
+    import React, { useState } from 'react';
+    import { Select } from '@salutejs/plasma-giga';
+
+    export function App() {
+        const items = [
+            {
+                value: 'north_america',
+                label: 'Северная Америка',
+            },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                items: [
+                    {
+                        value: 'brazil',
+                        label: 'Бразилия',
+                        disabled: true,
+                    },
+                    {
+                        value: 'argentina',
+                        label: 'Аргентина',
+                    },
+                ],
+            },
+        ];
+
+        const [value, setValue] = useState(['brazil']);
+
+        return (
+            <div style={{ display: "flex", height: "300px" }}>
+                <div style={{ width: "300px" }}>
+                    <Select
+                        multiselect
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                    />
+                </div>
+
+                <div style={{ width: "300px" }}>
+                    <Select
+                        multiselect
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                        isTargetAmount
+                    />
+                </div>
+            </div>
+        );
+    }
+```
+
 ## Использование с React Hook Form и нативной формой
 
 :::caution Использование атрибута `name`

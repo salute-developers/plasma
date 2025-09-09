@@ -1,6 +1,6 @@
 import type { KeyboardEvent, MutableRefObject } from 'react';
 
-import type { LabelToItemMapType, ValueToItemMapType } from '../../hooks/usePathMaps';
+import type { ValueToItemMapType } from '../../hooks/usePathMaps';
 import type { DefaultValueType, MergedSelectProps, RequiredProps } from '../../Select.types';
 import type { HintProps } from '../../../TextField/TextField.types';
 import type { MergedDropdownNodeTransformed } from '../Inner/ui/Item/Item.types';
@@ -32,7 +32,6 @@ export type TargetProps = Pick<
     treeId: string;
     activeDescendantItemValue: string;
     onChange: (newValue: string | number | Array<string | number>, item?: MergedDropdownNodeTransformed | null) => void;
-    labelToItemMap: LabelToItemMapType;
     requiredProps: RequiredProps | undefined;
     hintProps: HintProps | undefined;
     separator?: string;

@@ -109,9 +109,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         // Создаем структуры для быстрой работы с деревом
-        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap, labelToItemMap] = usePathMaps(
-            transformedItems,
-        );
+        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(transformedItems);
 
         const [internalValue, setInternalValue] = useState<string | number | Array<string | number>>(
             props.multiselect ? [] : '',
@@ -219,15 +217,28 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
 
             const checkedCopy = new Map(checked);
 
-            if (!checkedCopy.get(item.value)) {
-                checkedCopy.set(item.value, true);
-                updateDescendants(item, checkedCopy, true, valueToItemMap);
-            } else {
-                checkedCopy.set(item.value, false);
-                updateDescendants(item, checkedCopy, false);
+            switch (checkedCopy.get(item.value)) {
+                // Если чекбокс в состоянии indeterminate
+                case 'indeterminate': {
+                    updateDescendants(item, checkedCopy, true, valueToItemMap);
+                    break;
+                }
+                // Если чекбокс в состоянии checked
+                case true: {
+                    updateDescendants(item, checkedCopy, false, valueToItemMap);
+                    checkedCopy.set(item.value, false);
+                    break;
+                }
+                // Если чекбокс в состоянии unchecked
+                case false: {
+                    updateDescendants(item, checkedCopy, true, valueToItemMap);
+                    checkedCopy.set(item.value, true);
+                    break;
+                }
+                default: {
+                    break;
+                }
             }
-
-            updateAncestors(item, checkedCopy);
 
             const newValues: Array<string | number> = [];
 
@@ -440,7 +451,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 activeDescendantItemValue={activeDescendantItemValue}
                                 isTargetAmount={isTargetAmount}
                                 onChange={onChange}
-                                labelToItemMap={labelToItemMap}
                                 chipView={chipView}
                                 separator={separator}
                                 requiredProps={requiredProps}

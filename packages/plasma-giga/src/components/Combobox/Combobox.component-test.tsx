@@ -1099,40 +1099,61 @@ describe('plasma-giga: Combobox', () => {
     });
 
     it('prop: isTargetAmount', () => {
-        cy.viewport(500, 200);
+        cy.viewport(500, 300);
 
-        mount(
-            <>
-                <Combobox
-                    isTargetAmount
-                    multiple
-                    id="combobox1"
-                    items={items}
-                    label="Label"
-                    placeholder="Placeholder"
-                    closeAfterSelect
-                />
+        const Component = () => {
+            const [value, setValue] = useState(['africa', 'north_america']);
 
-                <br />
+            return (
+                <>
+                    <Combobox
+                        isTargetAmount
+                        multiple
+                        id="combobox1"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        closeAfterSelect
+                    />
 
-                <Combobox
-                    isTargetAmount
-                    targetAmount="999"
-                    multiple
-                    id="combobox2"
-                    items={items}
-                    label="Label"
-                    placeholder="Placeholder"
-                    closeAfterSelect
-                />
-            </>,
-        );
+                    <br />
+
+                    <Combobox
+                        isTargetAmount
+                        targetAmount="999"
+                        multiple
+                        id="combobox2"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        closeAfterSelect
+                    />
+
+                    <br />
+
+                    <Combobox
+                        isTargetAmount
+                        multiple
+                        id="combobox3"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        value={value}
+                        onChange={setValue}
+                    />
+                </>
+            );
+        };
+
+        mount(<Component />);
 
         cy.get('#combobox1').realClick();
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('Enter');
 
         cy.get('#combobox2').realClick();
-        cy.realPress('ArrowDown').realPress('ArrowDown').realPress('Enter').realPress('Tab');
+        cy.realPress('ArrowDown').realPress('ArrowDown').realPress('Enter');
+
+        cy.contains('2').realClick();
 
         cy.matchImageSnapshot();
     });
@@ -1380,6 +1401,33 @@ describe('plasma-giga: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: item disabled', () => {
+        cy.viewport(400, 100);
+
+        const Component = () => {
+            const [value, setValue] = useState(['africa']);
+
+            return (
+                <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ width: '300px' }}>
+                        <Combobox
+                            multiple
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                        />
+                    </div>
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: mode', () => {
         cy.viewport(1000, 400);
 
@@ -1496,7 +1544,7 @@ describe('plasma-giga: Combobox', () => {
         cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
-    it('behavior: disabled item', () => {
+    it('behavior: disabled unselected item', () => {
         const items = [
             {
                 value: 'brazil',
@@ -1536,7 +1584,62 @@ describe('plasma-giga: Combobox', () => {
         cy.get('[id$="brazil"] .checkbox-trigger').click();
 
         cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
-        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+    });
+
+    it('behavior: disabled selected item', () => {
+        const items = [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                        disabled: true,
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+        ];
+
+        const Component = () => {
+            const [value, setValue] = useState(['rio_de_janeiro']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Combobox
+                            id="multiple"
+                            multiple
+                            label="Список стран"
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#multiple').click();
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"]').click();
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
         cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'false');
     });
 
@@ -2076,16 +2179,17 @@ describe('plasma-giga: Combobox', () => {
         cy.get('.has-chips').should('exist');
         cy.get('.has-chips button').should('have.length', 6);
         cy.realPress('ArrowLeft');
-        cy.get('.has-chips .chips-wrapper div:last-child button').should('have.attr', 'data-focus-visible-added');
+        cy.get('.has-chips .chips-wrapper button:last-child').should('have.attr', 'data-focus-visible-added');
         cy.realPress('Backspace');
         cy.get('.has-chips button').should('have.length', 5);
-        cy.get('.has-chips .chips-wrapper div:last-child button').should('have.attr', 'data-focus-visible-added');
+        cy.get('.has-chips .chips-wrapper button:last-child').should('have.attr', 'data-focus-visible-added');
         cy.get('#multiple').should('not.be.focused');
         cy.realPress('Backspace');
         cy.realPress('Backspace');
         cy.realPress('Backspace');
         cy.realPress('Backspace');
         cy.realPress('Backspace');
+        cy.realPress('Tab');
         cy.get('#multiple').should('be.focused');
 
         // Tab
