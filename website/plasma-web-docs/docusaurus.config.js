@@ -69,6 +69,11 @@ module.exports = {
                     label: 'GitHub',
                     position: 'right',
                 },
+                {
+                    href: `${baseUrl}search/`,
+                    label: 'AI-поиск',
+                    position: 'right',
+                },
             ],
         },
         footer: {
