@@ -4,8 +4,8 @@ import { component, mergeConfig } from '../../engines';
 import { popupClasses, popupConfig } from '../Popup';
 import { panelTokens, panelConfig } from '../Panel';
 
-import type { DrawerPlacement } from './Drawer.types';
-import { classes, tokens } from './Drawer.tokens';
+import type { DrawerAnimationInfo, DrawerPlacement } from './Drawer.types';
+import { classes, privateTokens, tokens } from './Drawer.tokens';
 
 const mergedPanelConfig = mergeConfig(panelConfig);
 const Panel = component(mergedPanelConfig);
@@ -106,6 +106,7 @@ export const StyledPopup = styled(Popup)<{
     placement: DrawerPlacement;
     width?: number | string;
     height?: number | string;
+    drawerAnimationInfo?: DrawerAnimationInfo;
 }>`
     &&.${classes.overlay} {
         animation: fadeIn 0.2s forwards;
@@ -142,4 +143,18 @@ export const StyledPopup = styled(Popup)<{
     }
 
     ${getAnimationStyles()}
+
+    &.${classes.enterCustomAnimation} {
+        && .${popupClasses.root} {
+            animation: ${({ drawerAnimationInfo }) =>
+                drawerAnimationInfo?.enter || `var(${privateTokens.enterAnimation})`};
+        }
+    }
+
+    &.${classes.exitCustomAnimation} {
+        &&.${popupClasses.endAnimation} .${popupClasses.root} {
+            animation:${({ drawerAnimationInfo }) =>
+                drawerAnimationInfo?.exit || `var(${privateTokens.exitAnimation})`};
+        }
+    }
 `;
