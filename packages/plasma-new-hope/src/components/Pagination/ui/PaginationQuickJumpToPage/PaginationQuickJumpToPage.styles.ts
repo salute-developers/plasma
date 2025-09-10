@@ -6,6 +6,7 @@ export const QuickJumpToPageRoot = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-shrink: 0;
 
     font-family: var(${tokens.paginationFontFamily});
     font-size: var(${tokens.paginationFontSize});
@@ -15,7 +16,9 @@ export const QuickJumpToPageRoot = styled.div`
     line-height: var(${tokens.paginationLineHeight});
 `;
 
-export const QuickJumpToPageTypography = styled.div``;
+export const QuickJumpToPageTypography = styled.div`
+    white-space: nowrap;
+`;
 
 export const QuickJumpToPageInput = styled.input`
     background: var(${tokens.inputBackgroundColor});

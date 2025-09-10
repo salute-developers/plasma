@@ -59,10 +59,10 @@ import { Pagination } from '@salutejs/sdds-finai';
 export function App() {
     return (
         <div style={{display: "flex", "flex-direction": "column"}}>
-            <Pagination size="l" slots={9} count={200} hasPerPage={true} />
-            <Pagination size="m" slots={9} count={200} hasPerPage={true} />
-            <Pagination size="s" slots={9} count={200} hasPerPage={true} />
-            <Pagination size="xs" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="l" slots={9} count={200} hasPerPage={true} helperText="Helper Text" />
+            <Pagination size="m" slots={9} count={200} hasPerPage={true} helperText="Helper Text" />
+            <Pagination size="s" slots={9} count={200} hasPerPage={true} helperText="Helper Text" />
+            <Pagination size="xs" slots={9} count={200} hasPerPage={true} helperText="Helper Text" />
         </div>
     );
 }
