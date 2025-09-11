@@ -14,6 +14,38 @@ describe('plasma-b2c: Switch', () => {
         cy.matchImageSnapshot();
     });
 
+    it('[PLASMA-5794] Switch: size=l, label, description, checked, singleLine=false', () => {
+        mount(
+            <CypressTestDecorator>
+                <Switch
+                    size="l"
+                    label="Veeeeeeeeeeeeeeeeeeeery Loooooooooooooooooooooooooong Label"
+                    description="Description"
+                    checked
+                    singleLine={false}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-5794] Switch: size=l, label, description, checked, singleLine=true', () => {
+        mount(
+            <CypressTestDecorator>
+                <Switch
+                    size="l"
+                    label="Veeeeeeeeeeeeeeeeeeeery Loooooooooooooooooooooooooong Label"
+                    description="Description"
+                    checked
+                    singleLine
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('[PLASMA-1426] Switch: size=m, label, no description, unchecked', () => {
         mount(
             <CypressTestDecorator>

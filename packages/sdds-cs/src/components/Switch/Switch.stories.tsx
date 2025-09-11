@@ -61,6 +61,7 @@ const meta: Meta<SwitchProps> = {
         label: 'Label',
         description: 'Description',
         labelPosition: 'before',
+        singleLine: true,
     },
 };
 
