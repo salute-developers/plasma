@@ -1,13 +1,14 @@
 import React, { ChangeEvent, ComponentProps, Dispatch, SetStateAction, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { disableProps, IconPlaceholder } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../_helpers';
 import { IconChevronLeft } from '../../../components/_Icon';
 import { IconButton } from '../IconButton/IconButton';
 
 import { Range } from './Range';
+import { config } from './Range.config';
 
 const onChangeFirstValue = action('onChangeFirstValue');
 const onChangeSecondValue = action('onChangeSecondValue');
@@ -18,8 +19,8 @@ const onFocusSecondTextfield = action('onFocusSecondTextfield');
 const onBlurFirstTextfield = action('onBlurFirstTextfield');
 const onBlurSecondTextfield = action('onBlurSecondTextfield');
 
-const sizes = ['l', 'm', 's', 'xs'];
-const views = ['default'];
+const { views, sizes } = getConfigVariations(config);
+
 const dividers = ['none', 'dash', 'icon'];
 const requiredPlacements = ['left', 'right'];
 
@@ -75,17 +76,7 @@ type StoryPropsDefault = ComponentProps<typeof Range> & {
 };
 
 const getSizeForIcon = (size) => {
-    const map = {
-        m: 's',
-        l: 's',
-        s: 's',
-        xs: 'xs',
-    };
-    if (map[size]) {
-        return map[size];
-    }
-
-    return size;
+    return size === 'xs' ? 'xs' : 's';
 };
 
 const ActionButton = ({ size, readOnly }) => {
