@@ -667,6 +667,9 @@ export const surfaceTransparentNegative = 'var(--surface-transparent-negative, #
 export const surfaceSolidDefault = 'var(--surface-solid-default, #F9F9F9)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию */
+export const surfaceSolidDefaultBrightness = 'var(--surface-solid-default-brightness, #EAEAEAFF)';
+
+/** Непрозрачный фон поверхности/контрола по умолчанию */
 export const surfaceSolidDefaultHover = 'var(--surface-solid-default-hover, #FFFFFFFF)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию */
@@ -907,6 +910,9 @@ export const onDarkSurfaceTransparentNegative = 'var(--on-dark-surface-transpare
 export const onDarkSurfaceSolidDefault = 'var(--on-dark-surface-solid-default, #F9F9F9)';
 
 /** Непр. фон поверхности/контрола по умолчанию на тем. фоне */
+export const onDarkSurfaceSolidDefaultBrightness = 'var(--on-dark-surface-solid-default-brightness, #EAEAEAFF)';
+
+/** Непр. фон поверхности/контрола по умолчанию на тем. фоне */
 export const onDarkSurfaceSolidDefaultHover = 'var(--on-dark-surface-solid-default-hover, #FFFFFFFF)';
 
 /** Непр. фон поверхности/контрола по умолчанию на тем. фоне */
@@ -995,6 +1001,9 @@ export const onDarkSurfaceNegativeActive = 'var(--on-dark-surface-negative-activ
 
 /** Непр. фон поверхности/контрола по умолчанию на светлом фоне */
 export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #080808)';
+
+/** Непр. фон поверхности/контрола по умолчанию на светлом фоне */
+export const onLightSurfaceSolidDefaultBrightness = 'var(--on-light-surface-solid-default-brightness, #080808FF)';
 
 /** Осн. непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary, #F5F5F5)';
@@ -1345,6 +1354,9 @@ export const inverseSurfaceSolidTertiary = 'var(--inverse-surface-solid-tertiary
 
 /** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
 export const inverseSurfaceSolidDefault = 'var(--inverse-surface-solid-default, #080808)';
+
+/** Инвертированный непрозрачный фон поверхности/контрола по умолчанию */
+export const inverseSurfaceSolidDefaultBrightness = 'var(--inverse-surface-solid-default-brightness, #080808FF)';
 
 /** Инвертированный прозрачный фон для карточек */
 export const inverseSurfaceTransparentCard = 'var(--inverse-surface-transparent-card, #FFFFFFFF)';
@@ -3563,6 +3575,7 @@ export const viewContainer = {
         --surface-transparent-warning: var(--on-dark-surface-transparent-warning);
         --surface-transparent-negative: var(--on-dark-surface-transparent-negative);
         --surface-solid-default: var(--on-dark-surface-solid-default);
+        --surface-solid-default-brightness: var(--on-dark-surface-solid-default-brightness);
         --surface-solid-default-hover: var(--on-dark-surface-solid-default-hover);
         --surface-solid-default-active: var(--on-dark-surface-solid-default-active);
         --surface-info: var(--on-dark-surface-info);
@@ -3633,6 +3646,7 @@ export const viewContainer = {
         --inverse-surface-solid-secondary: var(--on-light-surface-solid-secondary);
         --inverse-surface-solid-tertiary: var(--on-light-surface-solid-tertiary);
         --inverse-surface-solid-default: var(--on-light-surface-solid-default);
+        --inverse-surface-solid-default-brightness: var(--on-light-surface-solid-default-brightness);
         --inverse-surface-transparent-card: var(--on-light-surface-transparent-card);
         --inverse-surface-transparent-primary: var(--on-light-surface-transparent-primary);
         --inverse-surface-transparent-secondary: var(--on-light-surface-transparent-secondary);
@@ -3972,6 +3986,7 @@ export const viewContainer = {
         --inverse-text-negative-minor: var(--on-dark-text-negative-minor);
         --inverse-text-info-minor: var(--on-dark-text-info-minor);
         --surface-solid-default: var(--on-light-surface-solid-default);
+        --surface-solid-default-brightness: var(--on-light-surface-solid-default-brightness);
         --surface-solid-primary: var(--on-light-surface-solid-primary);
         --surface-solid-primary-brightness: var(--on-light-surface-solid-primary-brightness);
         --surface-solid-secondary: var(--on-light-surface-solid-secondary);
@@ -4053,6 +4068,7 @@ export const viewContainer = {
         --surface-transparent-deep-hover: var(--on-light-surface-transparent-deep-hover);
         --surface-transparent-deep-active: var(--on-light-surface-transparent-deep-active);
         --inverse-surface-solid-default: var(--on-dark-surface-solid-default);
+        --inverse-surface-solid-default-brightness: var(--on-dark-surface-solid-default-brightness);
         --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
         --inverse-surface-solid-primary-brightness: var(--on-dark-surface-solid-primary-brightness);
         --inverse-surface-solid-secondary: var(--on-dark-surface-solid-secondary);

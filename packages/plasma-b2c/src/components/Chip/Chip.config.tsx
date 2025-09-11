@@ -10,7 +10,7 @@ export const config = {
         view: {
             default: css`
                 ${chipTokens.color}: var(--inverse-text-primary);
-                ${chipTokens.background}: var(--surface-solid-default);
+                ${chipTokens.background}: var(--surface-solid-default-brightness);
                 ${chipTokens.colorHover}: var(--inverse-text-primary);
                 ${chipTokens.backgroundHover}: var(--surface-solid-default-hover);
                 ${chipTokens.colorActive}: var(--inverse-text-primary);
@@ -29,7 +29,7 @@ export const config = {
              */
             primary: css`
                 ${chipTokens.color}: var(--inverse-text-primary);
-                ${chipTokens.background}: var(--surface-solid-default);
+                ${chipTokens.background}: var(--surface-solid-default-brightness);
                 ${chipTokens.colorHover}: var(--inverse-text-primary);
                 ${chipTokens.backgroundHover}: var(--surface-solid-default-hover);
                 ${chipTokens.colorActive}: var(--inverse-text-primary);

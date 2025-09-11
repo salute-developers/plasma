@@ -223,6 +223,7 @@
   --surface-transparent-warning: #FA5F0533;
   --surface-transparent-negative: #FF293E33;
   --surface-solid-default: #F9F9F9;
+  --surface-solid-default-brightness: #EAEAEAFF;
   --surface-solid-default-hover: #FFFFFFFF;
   --surface-solid-default-active: #F5F5F5FF;
   --surface-info: #3F81FD;
@@ -303,6 +304,7 @@
   --on-dark-surface-transparent-warning: #FA5F0533;
   --on-dark-surface-transparent-negative: #FF293E33;
   --on-dark-surface-solid-default: #F9F9F9;
+  --on-dark-surface-solid-default-brightness: #EAEAEAFF;
   --on-dark-surface-solid-default-hover: #FFFFFFFF;
   --on-dark-surface-solid-default-active: #F5F5F5FF;
   --on-dark-surface-surface-info: #3F81FD;
@@ -333,6 +335,7 @@
   --on-dark-surface-negative-hover: #FF475AFF;
   --on-dark-surface-negative-active: #FF1F35FF;
   --on-light-surface-solid-default: #080808;
+  --on-light-surface-solid-default-brightness: #080808FF;
   --on-light-surface-solid-primary: #F5F5F5;
   --on-light-surface-solid-primary-brightness: #FFFFFFFF;
   --on-light-surface-solid-secondary: #ECECEC;
@@ -449,6 +452,7 @@
   --inverse-surface-solid-secondary: #ECECEC;
   --inverse-surface-solid-tertiary: #DDDDDD;
   --inverse-surface-solid-default: #080808;
+  --inverse-surface-solid-default-brightness: #080808FF;
   --inverse-surface-transparent-card: #FFFFFFFF;
   --inverse-surface-transparent-primary: #08080808;
   --inverse-surface-transparent-secondary: #0808080F;
@@ -1111,6 +1115,7 @@
   --inverse-text-negative-minor: #9C1422;
   --inverse-text-info-minor: #1549AB;
   --surface-solid-default: #080808;
+  --surface-solid-default-brightness: #080808;
   --surface-solid-primary: #F5F5F5;
   --surface-solid-primary-brightness: #FFFFFFFF;
   --surface-solid-secondary: #ECECEC;
@@ -1230,6 +1235,7 @@
   --on-dark-surface-transparent-info-hover: #3F82FD1F;
   --on-dark-surface-transparent-info-active: #3F82FD3D;
   --on-dark-surface-solid-default: #F9F9F9;
+  --on-dark-surface-solid-default-brightness: #F9F9F9;
   --on-dark-surface-solid-default-hover: #FFFFFFFF;
   --on-dark-surface-solid-default-active: #F5F5F5FF;
   --on-dark-surface-transparent-primary: #FFFFFF0F;
@@ -1270,6 +1276,7 @@
   --on-dark-surface-transparent-deep-hover: #FFFFFF8F;
   --on-dark-surface-transparent-deep-active: #FFFFFFAD;
   --on-light-surface-solid-default: #080808;
+  --on-light-surface-solid-default-brightness: #080808;
   --on-light-surface-solid-primary: #F5F5F5;
   --on-light-surface-solid-primary-brightness: #FFFFFFFF;
   --on-light-surface-solid-secondary: #ECECEC;
@@ -1348,6 +1355,7 @@
   --on-light-surface-transparent-deep-hover: #0808088F;
   --on-light-surface-transparent-deep-active: #080808AD;
   --inverse-surface-solid-default: #FFFFFFFF;
+  --inverse-surface-solid-default-brightness: #FFFFFFFF;
   --inverse-surface-solid-primary: #171717;
   --inverse-surface-solid-primary-brightness: #262626FF;
   --inverse-surface-solid-secondary: #262626;

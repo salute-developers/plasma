@@ -1045,6 +1045,10 @@
                     "value": "[general.gray.50]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
+                "surfaceSolidDefaultBrightness": {
+                    "value": "#EAEAEA",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
+                },
                 "surfaceSolidDefaultHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
@@ -1399,6 +1403,10 @@
                     "value": "[general.gray.50]",
                     "comment": "Непр. фон поверхности/контрола по умолчанию на тем. фоне"
                 },
+                "surfaceSolidDefaultBrightness": {
+                    "value": "#EAEAEA",
+                    "comment": "Непр. фон поверхности/контрола по умолчанию на тем. фоне"
+                },
                 "surfaceSolidDefaultHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Непр. фон поверхности/контрола по умолчанию на тем. фоне"
@@ -1547,6 +1555,10 @@
             "onLight": {
                 "surfaceSolidDefault": {
                     "value": "[general.gray.1000]",
+                    "comment": "Непр. фон поверхности/контрола по умолчанию на светлом фоне"
+                },
+                "surfaceSolidDefaultBrightness": {
+                    "value": "#080808",
                     "comment": "Непр. фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "surfaceSolidPrimary": {
@@ -2112,6 +2124,11 @@
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
                     "enabled": true
                 },
+                "surfaceSolidDefaultBrightness": {
+                    "value": "#080808",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": true
+                },
                 "surfaceTransparentCard": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек",
@@ -2397,7 +2414,9 @@
                     "comment": "Инвертированный основной фон",
                     "enabled": true
                 }
-            }
+            },
+            "onDark": {},
+            "onLight": {}
         },
         "overlay": {
             "default": {
@@ -4666,6 +4685,10 @@
                     "value": "[general.gray.1000]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
+                "surfaceSolidDefaultBrightness": {
+                    "value": "[general.gray.1000]",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
+                },
                 "surfaceSolidPrimary": {
                     "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
@@ -5185,6 +5208,10 @@
                     "value": "[general.gray.50]",
                     "comment": "Непр. фон поверхности/контрола по умолчанию на темном фоне"
                 },
+                "surfaceSolidDefaultBrightness": {
+                    "value": "[general.gray.50]",
+                    "comment": "Непр. фон поверхности/контрола по умолчанию на темном фоне"
+                },
                 "surfaceSolidDefaultHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Непр. фон поверхности/контрола по умолчанию на темном фоне"
@@ -5372,6 +5399,10 @@
             },
             "onLight": {
                 "surfaceSolidDefault": {
+                    "value": "[general.gray.1000]",
+                    "comment": "Непр. фон поверхности/контрола по умолчанию на светлом фоне"
+                },
+                "surfaceSolidDefaultBrightness": {
                     "value": "[general.gray.1000]",
                     "comment": "Непр. фон поверхности/контрола по умолчанию на светлом фоне"
                 },
@@ -5728,6 +5759,11 @@
             },
             "inverse": {
                 "surfaceSolidDefault": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
+                    "enabled": true
+                },
+                "surfaceSolidDefaultBrightness": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
                     "enabled": true
@@ -6199,7 +6235,9 @@
                     "comment": "Инвертированный основной фон",
                     "enabled": true
                 }
-            }
+            },
+            "onDark": {},
+            "onLight": {}
         },
         "overlay": {
             "default": {
@@ -7652,10 +7690,10 @@
                             "android": {
                                 "color": "#08080814",
                                 "offsetX": 0,
-                                "offsetY": 4.0,
-                                "spreadRadius": -4.0,
-                                "blurRadius": 14.0,
-                                "fallbackElevation": 2.0
+                                "offsetY": 4,
+                                "spreadRadius": -4,
+                                "blurRadius": 14,
+                                "fallbackElevation": 2
                             }
                         },
                         {
@@ -7663,9 +7701,9 @@
                             "android": {
                                 "color": "#0000000A",
                                 "offsetX": 0,
-                                "offsetY": 1.0,
-                                "spreadRadius": -1.0,
-                                "blurRadius": 4.0
+                                "offsetY": 1,
+                                "spreadRadius": -1,
+                                "blurRadius": 4
                             }
                         }
                     ]
@@ -7677,10 +7715,10 @@
                             "android": {
                                 "color": "#00000014",
                                 "offsetX": 0,
-                                "offsetY": 24.0,
-                                "spreadRadius": -8.0,
-                                "blurRadius": 48.0,
-                                "fallbackElevation": 4.0
+                                "offsetY": 24,
+                                "spreadRadius": -8,
+                                "blurRadius": 48,
+                                "fallbackElevation": 4
                             }
                         }
                     ]
@@ -7692,10 +7730,10 @@
                             "android": {
                                 "color": "#00000014",
                                 "offsetX": 0,
-                                "offsetY": 60.0,
-                                "spreadRadius": -8.0,
-                                "blurRadius": 112.0,
-                                "fallbackElevation": 6.0
+                                "offsetY": 60,
+                                "spreadRadius": -8,
+                                "blurRadius": 112,
+                                "fallbackElevation": 6
                             }
                         }
                     ]
@@ -7709,10 +7747,10 @@
                             "android": {
                                 "color": "#08080829",
                                 "offsetX": 0,
-                                "offsetY": 4.0,
-                                "spreadRadius": -3.0,
-                                "blurRadius": 12.0,
-                                "fallbackElevation": 2.0
+                                "offsetY": 4,
+                                "spreadRadius": -3,
+                                "blurRadius": 12,
+                                "fallbackElevation": 2
                             }
                         },
                         {
@@ -7720,9 +7758,9 @@
                             "android": {
                                 "color": "#00000014",
                                 "offsetX": 0,
-                                "offsetY": 1.0,
-                                "spreadRadius": -2.0,
-                                "blurRadius": 4.0
+                                "offsetY": 1,
+                                "spreadRadius": -2,
+                                "blurRadius": 4
                             }
                         }
                     ]
@@ -7734,10 +7772,10 @@
                             "android": {
                                 "color": "#0000003D",
                                 "offsetX": 0,
-                                "offsetY": 16.0,
-                                "spreadRadius": -8.0,
-                                "blurRadius": 32.0,
-                                "fallbackElevation": 4.0
+                                "offsetY": 16,
+                                "spreadRadius": -8,
+                                "blurRadius": 32,
+                                "fallbackElevation": 4
                             }
                         }
                     ]
@@ -7749,10 +7787,10 @@
                             "android": {
                                 "color": "#00000066",
                                 "offsetX": 0,
-                                "offsetY": 60.0,
-                                "spreadRadius": -8.0,
-                                "blurRadius": 112.0,
-                                "fallbackElevation": 6.0
+                                "offsetY": 60,
+                                "spreadRadius": -8,
+                                "blurRadius": 112,
+                                "fallbackElevation": 6
                             }
                         }
                     ]
@@ -7768,9 +7806,9 @@
                             "android": {
                                 "color": "#08080814",
                                 "offsetX": 0,
-                                "offsetY": -4.0,
-                                "spreadRadius": -4.0,
-                                "blurRadius": 14.0
+                                "offsetY": -4,
+                                "spreadRadius": -4,
+                                "blurRadius": 14
                             }
                         },
                         {
@@ -7778,9 +7816,9 @@
                             "android": {
                                 "color": "#00000008",
                                 "offsetX": 0,
-                                "offsetY": -1.0,
-                                "spreadRadius": -1.0,
-                                "blurRadius": 4.0
+                                "offsetY": -1,
+                                "spreadRadius": -1,
+                                "blurRadius": 4
                             }
                         }
                     ]
@@ -7792,9 +7830,9 @@
                             "android": {
                                 "color": "#00000014",
                                 "offsetX": 0,
-                                "offsetY": -24.0,
-                                "spreadRadius": -8.0,
-                                "blurRadius": 48.0
+                                "offsetY": -24,
+                                "spreadRadius": -8,
+                                "blurRadius": 48
                             }
                         }
                     ]
@@ -7806,9 +7844,9 @@
                             "android": {
                                 "color": "#00000014",
                                 "offsetX": 0,
-                                "offsetY": -60.0,
-                                "spreadRadius": -8.0,
-                                "blurRadius": 112.0
+                                "offsetY": -60,
+                                "spreadRadius": -8,
+                                "blurRadius": 112
                             }
                         }
                     ]
@@ -7822,9 +7860,9 @@
                             "android": {
                                 "color": "#08080833",
                                 "offsetX": 0,
-                                "offsetY": -4.0,
-                                "spreadRadius": -3.0,
-                                "blurRadius": 12.0
+                                "offsetY": -4,
+                                "spreadRadius": -3,
+                                "blurRadius": 12
                             }
                         },
                         {
@@ -7832,9 +7870,9 @@
                             "android": {
                                 "color": "#00000008",
                                 "offsetX": 0,
-                                "offsetY": -1.0,
-                                "spreadRadius": -1.0,
-                                "blurRadius": 4.0
+                                "offsetY": -1,
+                                "spreadRadius": -1,
+                                "blurRadius": 4
                             }
                         }
                     ]
@@ -7846,9 +7884,9 @@
                             "android": {
                                 "color": "#0000003D",
                                 "offsetX": 0,
-                                "offsetY": -16.0,
-                                "spreadRadius": -8.0,
-                                "blurRadius": 32.0
+                                "offsetY": -16,
+                                "spreadRadius": -8,
+                                "blurRadius": 32
                             }
                         }
                     ]
@@ -7860,9 +7898,9 @@
                             "android": {
                                 "color": "#00000066",
                                 "offsetX": 0,
-                                "offsetY": -60.0,
-                                "spreadRadius": -8.0,
-                                "blurRadius": 112.0
+                                "offsetY": -60,
+                                "spreadRadius": -8,
+                                "blurRadius": 112
                             }
                         }
                     ]

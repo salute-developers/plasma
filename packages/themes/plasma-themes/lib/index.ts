@@ -3,7 +3,7 @@ import { generate } from '@salutejs/core-themes';
 generate([
     {
         name: 'plasma_b2c',
-        version: 'latest',
+        version: '0.3.1-alpha',
     },
     {
         name: 'plasma_web',

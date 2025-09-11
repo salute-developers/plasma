@@ -225,6 +225,7 @@ export const plasma_b2c__dark = ([
   --surface-transparent-warning: #FA5F0533;
   --surface-transparent-negative: #FF293E33;
   --surface-solid-default: #F9F9F9;
+  --surface-solid-default-brightness: #EAEAEAFF;
   --surface-solid-default-hover: #FFFFFFFF;
   --surface-solid-default-active: #F5F5F5FF;
   --surface-info: #3F81FD;
@@ -305,6 +306,7 @@ export const plasma_b2c__dark = ([
   --on-dark-surface-transparent-warning: #FA5F0533;
   --on-dark-surface-transparent-negative: #FF293E33;
   --on-dark-surface-solid-default: #F9F9F9;
+  --on-dark-surface-solid-default-brightness: #EAEAEAFF;
   --on-dark-surface-solid-default-hover: #FFFFFFFF;
   --on-dark-surface-solid-default-active: #F5F5F5FF;
   --on-dark-surface-surface-info: #3F81FD;
@@ -335,6 +337,7 @@ export const plasma_b2c__dark = ([
   --on-dark-surface-negative-hover: #FF475AFF;
   --on-dark-surface-negative-active: #FF1F35FF;
   --on-light-surface-solid-default: #080808;
+  --on-light-surface-solid-default-brightness: #080808FF;
   --on-light-surface-solid-primary: #F5F5F5;
   --on-light-surface-solid-primary-brightness: #FFFFFFFF;
   --on-light-surface-solid-secondary: #ECECEC;
@@ -451,6 +454,7 @@ export const plasma_b2c__dark = ([
   --inverse-surface-solid-secondary: #ECECEC;
   --inverse-surface-solid-tertiary: #DDDDDD;
   --inverse-surface-solid-default: #080808;
+  --inverse-surface-solid-default-brightness: #080808FF;
   --inverse-surface-transparent-card: #FFFFFFFF;
   --inverse-surface-transparent-primary: #08080808;
   --inverse-surface-transparent-secondary: #0808080F;
