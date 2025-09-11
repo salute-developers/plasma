@@ -65,8 +65,9 @@ export const StyledInput = styled.input`
 export const StyledLabel = styled.span`
     user-select: none;
 
-    // TODO: multiline switch
-    ${applyEllipsis()}
+    &.${classes.singleLine} {
+        ${applyEllipsis()}
+    }
 `;
 
 export const StyledTrigger = styled.div`
