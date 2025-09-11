@@ -131,6 +131,8 @@ describe('plasma-web: Range', () => {
     it('_size', () => {
         mount(
             <CypressTestDecoratorWithTypo>
+                <Demo label="Лейбл" size="xl" />
+                <PadMe />
                 <Demo label="Лейбл" size="l" />
                 <PadMe />
                 <Demo label="Лейбл" size="m" />

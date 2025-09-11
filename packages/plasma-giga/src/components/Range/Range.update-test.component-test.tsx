@@ -55,6 +55,16 @@ describe('plasma-giga: Range', () => {
         );
     };
 
+    it('Range: size=xl', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo size="xl" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('[PLASMA-T1383] Range: size=l, dividerVariant=none', () => {
         mount(
             <CypressTestDecorator>
