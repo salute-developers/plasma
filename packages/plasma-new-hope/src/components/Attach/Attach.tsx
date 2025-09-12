@@ -43,6 +43,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             id,
             name,
             customIcon,
+            onClick,
             onChange,
             onClear,
             ...rest
@@ -67,9 +68,13 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
         const filenameWithoutExtension = filename.slice(0, -1 - (extension?.length || 0));
         const cellContentLeft = customIcon || getFileIcon(extension, size);
 
-        const handleClick = () => {
+        const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
             if (!inputRef.current) {
                 return;
+            }
+
+            if (onClick) {
+                onClick(e);
             }
 
             inputRef.current.click();
