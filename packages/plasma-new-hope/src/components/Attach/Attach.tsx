@@ -30,6 +30,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
         const {
             flow = 'auto',
             buttonType = 'button',
+            hideButtonOnAttach = false,
             hasAttachment = true,
             acceptedFileFormats,
             helperText,
@@ -123,20 +124,22 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                     onChange={handleChange}
                 />
 
-                <StyledAttachButtonWrapper>
-                    <AttachButton
-                        ref={buttonRef}
-                        buttonType={buttonType}
-                        isLoading={isLoading}
-                        disabled={disabled}
-                        onClick={handleClick}
-                        {...rest}
-                    />
+                {(!hideButtonOnAttach || !filename) && (
+                    <StyledAttachButtonWrapper>
+                        <AttachButton
+                            ref={buttonRef}
+                            buttonType={buttonType}
+                            isLoading={isLoading}
+                            disabled={disabled}
+                            onClick={handleClick}
+                            {...rest}
+                        />
 
-                    {helperText && <StyledHelperText>{helperText}</StyledHelperText>}
-                </StyledAttachButtonWrapper>
+                        {helperText && <StyledHelperText>{helperText}</StyledHelperText>}
+                    </StyledAttachButtonWrapper>
+                )}
 
-                {hasAttachment && filename && (
+                {(hasAttachment || hideButtonOnAttach) && filename && (
                     <StyledCell
                         stretching="fixed"
                         ref={cellRef}
