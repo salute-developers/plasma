@@ -162,7 +162,7 @@ describe('sdds-insol: Attach', () => {
         cy.get('input').attachFile(FIXTURE_PATH);
         cy.get(cellRootSelector).should('be.visible');
         cy.get('button').last().click();
-        cy.get(cellRootSelector).should('not.be.visible');
+        cy.get(cellRootSelector).should('not.exist');
 
         cy.matchImageSnapshot();
     });
@@ -176,6 +176,17 @@ describe('sdds-insol: Attach', () => {
 
         cy.get('input').attachFile(FIXTURE_PATH);
         cy.get(cellRootSelector).should('be.visible');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_hideButtonOnAttach=true', () => {
+        mount(
+            <CypressTestDecorator>
+                <Attach hideButtonOnAttach />
+            </CypressTestDecorator>,
+        );
+        cy.get('input').attachFile(FIXTURE_PATH);
 
         cy.matchImageSnapshot();
     });

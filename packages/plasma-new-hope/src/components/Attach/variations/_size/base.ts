@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens, classes } from '../../Attach.tokens';
-import { StyledHelperText } from '../../Attach.styles';
+import { FilenameWrapper, StyledHelperText } from '../../Attach.styles';
 
 export const base = css`
     &.${classes.horizontal} {
@@ -19,6 +19,15 @@ export const base = css`
 
     &.${classes.withHelperText} {
         row-gap: var(${tokens.verticalGapWithHelperText});
+    }
+
+    ${FilenameWrapper} {
+        font-family: var(${tokens.cellTitleFontFamily});
+        font-size: var(${tokens.cellTitleFontSize});
+        font-style: var(${tokens.cellTitleFontStyle});
+        font-weight: var(${tokens.cellTitleFontWeight});
+        letter-spacing: var(${tokens.cellTitleLetterSpacing});
+        line-height: var(${tokens.cellTitleLineHeight});
     }
 
     ${StyledHelperText} {
