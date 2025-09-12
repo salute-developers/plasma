@@ -9,7 +9,14 @@ export type BaseAttachProps = {
      */
     acceptedFileFormats?: string[];
     /**
+     * Скрыть кнопку после выбора файла
+     * @default false
+     */
+    hideButtonOnAttach?: boolean;
+    /**
      * Отображать прикрепленный файл
+     * @description Если `hideButtonOnAttach` установлен как `false`,
+     * данное свойство будет всегда иметь значение `true`
      * @default true
      */
     hasAttachment?: boolean;

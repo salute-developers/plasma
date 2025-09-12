@@ -1,9 +1,9 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import type { ChangeEvent } from 'react';
-import { useForkRef, useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
+import React, { forwardRef, useRef, useState } from 'react';
+import type { ChangeEvent, MouseEvent } from 'react';
+import { useForkRef } from '@salutejs/plasma-core';
+import { RootProps } from 'src/engines';
+import { cx } from 'src/utils';
 
-import { RootProps } from '../../engines';
-import { cx } from '../../utils';
 import { IconCloseCircleOutline } from '../_Icon';
 
 import { AttachProps } from './Attach.types';
@@ -14,11 +14,13 @@ import {
     base,
     StyledHelperText,
     StyledHiddenInput,
-    StyledHiddenInputHelper,
     StyledAttachButtonWrapper,
+    FilenameWrapper,
+    TruncatedFilenamePart,
+    FilenameExtensionPart,
 } from './Attach.styles';
 import { StyledCell } from './ui/Cell/Cell';
-import { extractExtension, getFileicon, addSeparator, separator } from './utils';
+import { extractExtension, getFileIcon } from './utils';
 import { classes } from './Attach.tokens';
 import { AttachButton } from './components/AttachButton';
 import { StyledIconButtonCancel } from './ui/IconButton/IconButton.styles';
@@ -28,6 +30,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
         const {
             flow = 'auto',
             buttonType = 'button',
+            hideButtonOnAttach = false,
             hasAttachment = true,
             acceptedFileFormats,
             helperText,
@@ -41,6 +44,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             id,
             name,
             customIcon,
+            onClick,
             onChange,
             onClear,
             ...rest
@@ -50,82 +54,28 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
         const ref = useForkRef(outerRef, innerRef);
 
         const inputRef = useRef<HTMLInputElement | null>(null);
-        const inputHelperRef = useRef<HTMLDivElement | null>(null);
         const cellRef = useRef<HTMLDivElement | null>(null);
         const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-        const emptyTextCellWidth = useRef<number | null>(null);
-
         const [filename, setFilename] = useState<string>('');
-        const [truncatedFilename, setTruncatedFilename] = useState<string>('');
 
         const horizontalClass = flow === 'horizontal' ? classes.horizontal : undefined;
         const verticalClass = flow === 'vertical' ? classes.vertical : undefined;
         const withHelperTextClass = helperText ? classes.withHelperText : undefined;
         const autoClass = flow === 'auto' ? classes.auto : undefined;
-        const cellHiddenClass = truncatedFilename.length === 0 ? classes.cellHidden : undefined;
 
         const accept = acceptedFileFormats?.join(',');
         const extension = extractExtension(filename);
-        const cellContentLeft = customIcon || getFileicon(extension, size);
+        const filenameWithoutExtension = filename.slice(0, -1 - (extension?.length || 0));
+        const cellContentLeft = customIcon || getFileIcon(extension, size);
 
-        useEffect(() => {
-            emptyTextCellWidth.current = cellRef.current?.offsetWidth || 0;
-        }, []);
-
-        useIsomorphicLayoutEffect(() => {
-            if (
-                !cellRef.current ||
-                !cellRef.current.parentElement ||
-                !inputHelperRef.current ||
-                !inputHelperRef.current.textContent ||
-                !emptyTextCellWidth.current ||
-                !buttonRef.current
-            ) {
-                return;
-            }
-
-            const { offsetWidth: textWidth } = inputHelperRef.current;
-            const { offsetWidth: buttonWidth } = buttonRef.current;
-            const { width: parentWidth, left: parentLeft } = cellRef.current.parentElement.getBoundingClientRect();
-            const { left: cellLeft } = cellRef.current.getBoundingClientRect();
-            const leftDiff = cellLeft - parentLeft;
-            let currentTextWidth = textWidth;
-
-            if (
-                currentTextWidth + emptyTextCellWidth.current + leftDiff <= parentWidth ||
-                currentTextWidth + emptyTextCellWidth.current < buttonWidth
-            ) {
-                setTruncatedFilename(filename);
-                return;
-            }
-
-            let currFilename = addSeparator(filename, separator);
-            for (let i = currFilename.indexOf(separator) - 1; i > 0; i -= 1) {
-                if (currentTextWidth + emptyTextCellWidth.current + leftDiff <= parentWidth) {
-                    break;
-                }
-
-                const left = currFilename.slice(0, i);
-                const right = currFilename.slice(i + 1);
-                const newFilename = `${left}${right}`;
-                inputHelperRef.current.textContent = newFilename;
-                currentTextWidth = inputHelperRef.current.offsetWidth;
-
-                if (currentTextWidth + emptyTextCellWidth.current < buttonWidth) {
-                    break;
-                }
-
-                currFilename = newFilename;
-            }
-
-            inputHelperRef.current.textContent = filename;
-            setTruncatedFilename(currFilename);
-        });
-
-        const handleClick = () => {
+        const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
             if (!inputRef.current) {
                 return;
+            }
+
+            if (onClick) {
+                onClick(e);
             }
 
             inputRef.current.click();
@@ -154,7 +104,6 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
 
             inputRef.current.value = '';
             setFilename('');
-            setTruncatedFilename('');
         };
 
         return (
@@ -174,35 +123,41 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                     name={name}
                     onChange={handleChange}
                 />
-                <StyledHiddenInputHelper ref={inputHelperRef}>{filename}</StyledHiddenInputHelper>
 
-                <StyledAttachButtonWrapper>
-                    <AttachButton
-                        ref={buttonRef}
-                        buttonType={buttonType}
-                        isLoading={isLoading}
-                        disabled={disabled}
-                        onClick={handleClick}
-                        {...rest}
-                    />
+                {(!hideButtonOnAttach || !filename) && (
+                    <StyledAttachButtonWrapper>
+                        <AttachButton
+                            ref={buttonRef}
+                            buttonType={buttonType}
+                            isLoading={isLoading}
+                            disabled={disabled}
+                            onClick={handleClick}
+                            {...rest}
+                        />
 
-                    {helperText && <StyledHelperText>{helperText}</StyledHelperText>}
-                </StyledAttachButtonWrapper>
+                        {helperText && <StyledHelperText>{helperText}</StyledHelperText>}
+                    </StyledAttachButtonWrapper>
+                )}
 
-                {hasAttachment && (
+                {(hasAttachment || hideButtonOnAttach) && filename && (
                     <StyledCell
                         stretching="fixed"
-                        className={cellHiddenClass}
                         ref={cellRef}
                         size={size}
-                        title={truncatedFilename}
                         contentLeft={cellContentLeft}
                         contentRight={
                             <StyledIconButtonCancel onClick={handleClear}>
                                 <IconCloseCircleOutline size="xs" color="inherit" />
                             </StyledIconButtonCancel>
                         }
-                    />
+                    >
+                        <FilenameWrapper>
+                            <TruncatedFilenamePart>{filenameWithoutExtension.slice(0, -1)}</TruncatedFilenamePart>
+                            <FilenameExtensionPart>
+                                {filenameWithoutExtension.at(-1)}.{extension}
+                            </FilenameExtensionPart>
+                        </FilenameWrapper>
+                    </StyledCell>
                 )}
             </Root>
         );
