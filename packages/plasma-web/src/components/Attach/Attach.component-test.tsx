@@ -168,4 +168,15 @@ describe('plasma-web: Attach', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('_hideButtonOnAttach=true', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Attach hideButtonOnAttach />
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.get(inputSelector).attachFile(FIXTURE_PATH);
+
+        cy.matchImageSnapshot();
+    });
 });
