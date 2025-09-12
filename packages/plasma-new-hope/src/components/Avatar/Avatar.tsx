@@ -7,8 +7,9 @@ import { indicatorConfig, indicatorTokens } from '../Indicator';
 
 import { classes, tokens } from './Avatar.tokens';
 import { base, Wrapper, Image, StatusIcon, Text, ExtraContent, ExtraCounter, ExtraBadge } from './Avatar.styles';
-import { base as viewCSS } from './variations/_size/base';
+import { base as sizeCSS } from './variations/_size/base';
 import { base as focusedCSS } from './variations/_focused/base';
+import { base as shapeCSS } from './variations/_shape/base';
 import { extraPlacementMap, getInitialsForName } from './utils';
 import type { AvatarProps, StatusLabels } from './Avatar.types';
 
@@ -76,6 +77,7 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
             className,
             focused = true,
             isScalable,
+            shape,
             statusLabels = StatusLabelsDefault,
             hasExtra,
             extraPlacement,
@@ -110,6 +112,7 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
             <Root
                 ref={ref}
                 size={avatarSize}
+                shape={shape}
                 className={cx(classes.avatarItem, className)}
                 aria-label={ariaLabel}
                 focused={focused}
@@ -155,13 +158,17 @@ export const avatarConfig = {
     base,
     variations: {
         size: {
-            css: viewCSS,
+            css: sizeCSS,
         },
         focused: {
             css: focusedCSS,
         },
+        shape: {
+            css: shapeCSS,
+        },
     },
     defaults: {
         size: 'm',
+        shape: 'circled',
     },
 };

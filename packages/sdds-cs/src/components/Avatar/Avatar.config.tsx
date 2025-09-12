@@ -4,6 +4,7 @@ export const config = {
     defaults: {
         view: 'default',
         size: 's',
+        shape: 'circled',
     },
     variations: {
         view: {
@@ -78,6 +79,13 @@ export const config = {
                 ${tokens.fontWeight}: 0;
                 ${tokens.lineHeight}: 0;
                 ${tokens.statusIconSize}: 0;
+            `,
+        },
+        shape: {
+            circled: css`
+                ${tokens.borderRadius}: 50%;
+                ${tokens.statusLeft}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
+                ${tokens.statusTop}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
             `,
         },
         focused: {

@@ -41,6 +41,8 @@ type ExtraCounterProps = {
 type ExtraProps = OneOf<ExtraBadgeProps, ExtraCounterProps>;
 
 type CustomAvatarProps = {
+    // Форма аватара
+    shape?: 'string';
     // Размер аватара
     size?: string;
     // ФИО человека
