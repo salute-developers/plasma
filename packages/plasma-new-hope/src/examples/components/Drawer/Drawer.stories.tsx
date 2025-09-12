@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { styled } from '@linaria/react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { createGlobalStyle } from 'styled-components';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../_helpers';
@@ -13,7 +14,7 @@ import type { ClosePlacementType } from '../../../components/Drawer';
 
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from './Drawer';
 
-export default {
+const meta: Meta<typeof Drawer> = {
     title: 'Overlay/Drawer',
     decorators: [WithTheme],
     argTypes: {
@@ -96,7 +97,9 @@ export default {
             },
         },
     },
-} as Meta;
+};
+
+export default meta;
 
 type StoryDrawerProps = ComponentProps<typeof Drawer> & {
     placement: string;
@@ -142,6 +145,41 @@ const StyledIconButton = styled(Button)`
     height: 1.5rem;
 `;
 
+const animationName = 'customShowAnimation';
+
+const GlobalAnimations = createGlobalStyle`
+    @keyframes ${animationName} {
+        0% {
+            transform: translate(100%, -150%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(0, -50%);
+            opacity: 1;
+        }
+    }
+`;
+
+const enterAnimation = `${animationName} 0.2s forwards`;
+
+const StyledDrawerContent = styled(DrawerContent)`
+    opacity: 0;
+
+    animation: fadeIn 0.3s forwards;
+    animation-delay: 0.5s;
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+`;
+
 const StoryDrawerDemo = ({
     showHeader,
     showFooter,
@@ -156,6 +194,7 @@ const StoryDrawerDemo = ({
 
     return (
         <SSRProvider>
+            <GlobalAnimations />
             <PopupProvider>
                 <StyledWrapper>
                     <StyledSection>
@@ -166,6 +205,7 @@ const StoryDrawerDemo = ({
                             frame="theme-root"
                             opened={isOpen}
                             offset={[offsetX, offsetY]}
+                            animationInfo={{ enter: enterAnimation }}
                             onClose={() => setIsOpen(false)}
                             {...rest}
                         >
@@ -183,7 +223,7 @@ const StoryDrawerDemo = ({
                             >
                                 {showHeader && <Heading size="h3">Header</Heading>}
                             </DrawerHeader>
-                            <DrawerContent>Content</DrawerContent>
+                            <StyledDrawerContent>Content</StyledDrawerContent>
                             {showFooter && (
                                 <DrawerFooter>
                                     <Heading size="h3">Footer</Heading>
@@ -217,7 +257,7 @@ export const DrawerDemo: StoryObj<StoryDrawerProps> = {
         hasClose: true,
         asModal: true,
         closePlacement: 'right',
-        width: '25vw',
+        width: '50vw',
         height: '100dvh',
         borderRadius: 'none',
     },
