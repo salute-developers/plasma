@@ -23,6 +23,8 @@ export const config = {
                 ${tokens.itemDisabledOpacity}: 1;
                 ${tokens.itemDisabledBorderColor}: var(--text-secondary);
                 ${tokens.itemDisabledColor}: var(--text-secondary);
+                ${tokens.itemDraggableBorderColor}: var(--surface-positive);
+                ${tokens.itemDraggableLineColor}: var(--surface-solid-default);
             `,
         },
         size: {
