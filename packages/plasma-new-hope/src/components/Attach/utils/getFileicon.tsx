@@ -9,7 +9,7 @@ import {
     IconBlankXlsOutline,
 } from '../../_Icon';
 
-export const getFileicon = (extension?: string, size?: string) => {
+export const getFileIcon = (extension?: string, size?: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
 
     switch (extension) {
