@@ -9,9 +9,8 @@ import { classes } from './Menu.tokens';
 export const MenuWrapper = styled.nav`
     position: fixed;
     top: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 1rem);
+    left: 4px;
+    width: calc(100% - 2rem);
     box-sizing: border-box;
     padding: 1.5rem 3.5rem;
 
@@ -26,10 +25,12 @@ export const MenuWrapper = styled.nav`
 
     ${mediaQuery('L')(css`
         padding: 1.25rem 1.5rem;
+        width: calc(100% - 1.5rem);
     `)}
 
     ${multipleMediaQuery(['S', 'M'])(css`
         padding: 0.75rem 1.5rem;
+        width: calc(100% - 1.5rem);
     `)}
 `;
 
