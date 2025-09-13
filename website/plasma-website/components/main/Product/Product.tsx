@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, PropsWithChildren } from 'react';
 
 // TODO: забирать иконки из plasma-icons
 import { ArrowRight } from '../../icons/ArrowRight';
@@ -15,18 +15,27 @@ export type LinkItem = {
     isMeta?: boolean;
 };
 
+export type ProductDescription = {
+    title?: string;
+    package?: string;
+    version?: string;
+    links?: Partial<Record<'storybook' | 'documentation' | 'changelog', { href?: string }>>;
+};
+
 export type ProductProps = {
+    key: string;
     title: string;
-    href?: string;
     iconRotation?: 'right' | 'bottom' | 'topRightCorner';
     alwaysShowIcon?: boolean;
     items?: Array<LinkItem>;
     additionalInfo?: ReactNode;
     isDraggable?: boolean;
     onClickTitle?: () => void;
+    href?: string;
+    web?: ProductDescription;
 };
 
-export const Product: FC<ProductProps> = ({
+export const Product: FC<ProductProps & PropsWithChildren> = ({
     title,
     href,
     alwaysShowIcon,
@@ -34,9 +43,10 @@ export const Product: FC<ProductProps> = ({
     additionalInfo,
     isDraggable,
     onClickTitle,
+    children,
 }) => {
     return (
-        <ProductWrapper>
+        <ProductWrapper className="override-gap">
             <Link href={href}>
                 <ProductMainInfo onClick={onClickTitle} alwaysShowIcon={alwaysShowIcon}>
                     <Title bold={false}>{title}</Title>
@@ -49,6 +59,7 @@ export const Product: FC<ProductProps> = ({
             {additionalInfo && (
                 <ProductAdditionalInfo isDraggable={isDraggable}>{additionalInfo}</ProductAdditionalInfo>
             )}
+            {children}
         </ProductWrapper>
     );
 };

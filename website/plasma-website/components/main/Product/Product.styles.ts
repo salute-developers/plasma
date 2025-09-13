@@ -20,6 +20,14 @@ export const ProductWrapper = styled.div`
     flex-direction: column;
     gap: 1.25rem;
 
+    &.override-gap {
+        gap: 10px;
+
+        & > :first-child {
+            padding-bottom: calc(1.25rem - 10px);
+        }
+    }
+
     ${multipleMediaQuery(['M'])(css`
         padding-left: 1.125rem;
     `)}

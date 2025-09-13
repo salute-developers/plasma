@@ -1,12 +1,21 @@
 import styled, { css } from 'styled-components';
 import { useEffect, useRef, useState } from 'react';
+import { IconArrowDiagRightUp } from '@salutejs/plasma-icons';
 
 import { Menu, Product, ProductList, LinkItem, StickyNav, StickyNavItem, DraggableContainer } from '../components/main';
 import type { ProductProps } from '../components/main';
 import { currentYear, products, stickyNavSnapVariant, verticals, verticalsMap } from '../utils';
-import { rootFontSize, sectionOffsetAccuracy, stickyNavItemMargin, topOffsetAfterScroll } from '../utils/constants';
+import { useGitHubData } from '../hooks/useGitHubData';
+import {
+    rootFontSize,
+    sectionOffsetAccuracy,
+    stickyNavItemMargin,
+    topOffsetAfterScroll,
+    nativePlatformsMetaUrl,
+} from '../utils/constants';
 import { multipleMediaQuery } from '../mixins';
 import { PlasmaCopyrightText } from '../components';
+import { History } from '../components/icons/History';
 
 const ScrollContainer = styled.div`
     overflow-y: scroll;
@@ -52,6 +61,64 @@ const ProductsWrapper = styled.div`
     position: relative;
 `;
 
+const PlatformBlock = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 4rem;
+
+    ${multipleMediaQuery(['XL', 'L'])(css`
+        padding-left: 2.5rem;
+    `)}
+
+    ${multipleMediaQuery(['M'])(css`
+        padding-left: 1.75rem;
+    `)}
+
+    ${multipleMediaQuery(['S'])(css`
+        padding-left: 1.25rem;
+    `)}
+`;
+
+const PlatformTitle = styled.span`
+    display: flex;
+    align-items: center;
+    color: #4b4c58;
+    font-size: 12px;
+    line-height: 14px;
+    text-decoration: none;
+`;
+
+const PlatformCommonLabel = styled.a`
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(255, 255, 255, 0.96);
+    font-size: 12px;
+    line-height: 14px;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        & > .platform-block-title {
+            background: linear-gradient(135deg, #777a88 0, #fff 100%);
+            background-clip: text;
+            color: transparent;
+        }
+    }
+`;
+
+const StyledArrowTopRight = styled(IconArrowDiagRightUp)`
+    margin-bottom: -2px;
+    opacity: 0.56;
+`;
+
+const StyledHistory = styled(History)`
+    width: 1rem;
+    height: 100%;
+    opacity: 0.56;
+`;
+
 export default function Home() {
     const scrollContainerRef = useRef<HTMLDivElement | null>(null);
     const scrollSnapBlock = useRef<HTMLDivElement | null>(null);
@@ -67,6 +134,7 @@ export default function Home() {
 
     const groups = verticalsMap.reduce((acc, vertical) => {
         const { group } = vertical;
+
         if (!(group in acc)) {
             acc[group] = [];
         }
@@ -322,6 +390,8 @@ export default function Home() {
         };
     }, []);
 
+    const { data: NATIVE_PRODUCTS } = useGitHubData(nativePlatformsMetaUrl);
+
     return (
         <ScrollContainer ref={scrollContainerRef}>
             <Menu products={products} expanded={menuExpanded} handleScrollToTop={handleScrollToTop} />
@@ -384,32 +454,36 @@ export default function Home() {
                             }}
                             key={group}
                         >
-                            {currentProducts.map(({ title, href, items }) => (
-                                <Product
-                                    key={group + title}
-                                    title={title}
-                                    href={href}
-                                    iconRotation="topRightCorner"
-                                    {...(items?.length && {
-                                        additionalInfo: items.map(
-                                            ({ text, href: itemHref, contentRight, contentLeft, isMeta }) => {
-                                                const external = ['Сторибук', 'Документация'].includes(text);
-
-                                                return (
-                                                    <LinkItem
-                                                        key={text + itemHref}
-                                                        title={text}
-                                                        href={itemHref}
-                                                        contentRight={contentRight}
-                                                        contentLeft={contentLeft}
-                                                        isMeta={isMeta}
-                                                        external={external}
-                                                    />
-                                                );
-                                            },
-                                        ),
-                                    })}
-                                />
+                            {currentProducts.map(({ title, href, web, key }) => (
+                                <Product key={group + title} title={title} href={href} iconRotation="topRightCorner">
+                                    {[web]
+                                        .concat(Object.values(NATIVE_PRODUCTS[key] ?? {}))
+                                        .filter(Boolean)
+                                        .map((platform) => {
+                                            return (
+                                                <PlatformBlock className="platform-block">
+                                                    <PlatformTitle>{platform?.title}</PlatformTitle>
+                                                    <PlatformCommonLabel href={platform?.links?.changelog?.href}>
+                                                        <span className="platform-block-title">
+                                                            {platform?.version}
+                                                        </span>
+                                                        <StyledHistory />
+                                                    </PlatformCommonLabel>
+                                                    <PlatformCommonLabel href={platform?.links?.documentation?.href}>
+                                                        <span className="platform-block-title">Документация</span>
+                                                        <StyledArrowTopRight size="xs" />
+                                                    </PlatformCommonLabel>
+                                                    {platform?.links?.storybook && (
+                                                        <PlatformCommonLabel href={platform?.links?.storybook?.href}>
+                                                            <span className="platform-block-title">Сторибук</span>
+                                                            <StyledArrowTopRight size="xs" />
+                                                        </PlatformCommonLabel>
+                                                    )}
+                                                    <PlatformTitle>{platform?.package}</PlatformTitle>
+                                                </PlatformBlock>
+                                            );
+                                        })}
+                                </Product>
                             ))}
                         </ProductList>
                     ))}

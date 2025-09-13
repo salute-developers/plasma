@@ -11,6 +11,10 @@ type PackagesInfo = {
     [k: string]: readonly [string, string];
 };
 
+const createChangelogLink = (lib: string) => {
+    return `/changelog/?lib=${lib}&version=${PACKAGES_INFO[`@salutejs/${lib}`][0]}`;
+};
+
 export const baseColorCode = '600';
 export const PACKAGES_INFO = (process.env.PACKAGES_INFO as unknown) as PackagesInfo;
 export const basePath = process.env.BASE_PATH || '';
@@ -18,6 +22,8 @@ export const rootFontSize = 16;
 export const topOffsetAfterScroll = 35;
 export const sectionOffsetAccuracy = 5;
 export const stickyNavItemMargin = 0.75;
+export const nativePlatformsMetaUrl =
+    'https://raw.githubusercontent.com/salute-developers/plasma-android/develop/tokens/summary.json';
 
 export const stickyNavSnapVariant = {
     topOfSection: 'top-of-section',
@@ -27,6 +33,7 @@ export const stickyNavSnapVariant = {
 
 export const verticalsMap = [
     {
+        key: 'plasmaSDService',
         title: 'Plasma SD Service',
         package: '@salutejs/plasma-b2c',
         group: 'Плазма',
@@ -41,24 +48,48 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/plasma-b2c',
+            version: PACKAGES_INFO['@salutejs/plasma-b2c'][0],
+            links: {
+                storybook: {
+                    href: '/b2c-storybook/',
+                },
+                documentation: {
+                    href: '/b2c/',
+                },
+                changelog: {
+                    href: createChangelogLink('plasma-b2c'),
+                },
+            },
+        },
     },
     {
+        key: 'plasmaSDMid',
         title: 'Plasma SD Mid',
         package: '@salutejs/plasma-web',
         group: 'Плазма',
         href: '/web-storybook/',
-        items: [
-            { text: 'Сторибук', href: '/web-storybook/', contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: '/web/', contentRight: <ArrowTopRight /> },
-            {
-                text: PACKAGES_INFO['@salutejs/plasma-web'][0],
-                href: `/changelog/?lib=plasma-web&version=${PACKAGES_INFO['@salutejs/plasma-web'][0]}`,
-                contentLeft: <History />,
-                isMeta: false,
+        web: {
+            title: 'React',
+            package: '@salutejs/plasma-web',
+            version: PACKAGES_INFO['@salutejs/plasma-web'][0],
+            links: {
+                storybook: {
+                    href: '/web-storybook/',
+                },
+                documentation: {
+                    href: '/web/',
+                },
+                changelog: {
+                    href: createChangelogLink('plasma-web'),
+                },
             },
-        ],
+        },
     },
     {
+        key: 'plasmaGiga',
         title: 'Plasma Giga',
         package: '@salutejs/plasma-giga',
         group: 'Плазма',
@@ -73,8 +104,41 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/plasma-giga',
+            version: PACKAGES_INFO['@salutejs/plasma-giga'][0],
+            links: {
+                storybook: {
+                    href: '/giga-storybook/',
+                },
+                documentation: {
+                    href: '/giga/',
+                },
+                changelog: {
+                    href: createChangelogLink('plasma-giga'),
+                },
+            },
+        },
     },
     {
+        key: 'plasmaStarDS',
+        title: 'Plasma StarDS',
+        package: '',
+        group: 'Плазма',
+        href: '',
+        items: [],
+    },
+    {
+        key: 'plasmaHomeDS',
+        title: 'Plasma HomeDS',
+        package: '',
+        group: 'Плазма',
+        href: '',
+        items: [],
+    },
+    {
+        key: 'SDDSService',
         title: 'SDDS Service',
         package: '@salutejs/sdds-serv',
         group: 'СДДС',
@@ -89,8 +153,25 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/sdds-serv',
+            version: PACKAGES_INFO['@salutejs/sdds-serv'][0],
+            links: {
+                storybook: {
+                    href: '/sdds-serv-storybook/',
+                },
+                documentation: {
+                    href: '/sdds-serv/',
+                },
+                changelog: {
+                    href: createChangelogLink('sdds-serv'),
+                },
+            },
+        },
     },
     {
+        key: 'SDDSFinAI',
         title: 'SDDS FinAI',
         package: '@salutejs/sdds-finai',
         group: 'СДДС',
@@ -105,8 +186,25 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/sdds-finai',
+            version: PACKAGES_INFO['@salutejs/sdds-finai'][0],
+            links: {
+                storybook: {
+                    href: '/sdds-finai-storybook/',
+                },
+                documentation: {
+                    href: '/sdds-finai/',
+                },
+                changelog: {
+                    href: createChangelogLink('sdds-finai'),
+                },
+            },
+        },
     },
     {
+        key: 'SDDSDFA',
         title: 'SDDS DFA',
         package: '@salutejs/sdds-dfa',
         group: 'СДДС',
@@ -121,8 +219,25 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/sdds-dfa',
+            version: PACKAGES_INFO['@salutejs/sdds-dfa'][0],
+            links: {
+                storybook: {
+                    href: '/sdds-dfa-storybook/',
+                },
+                documentation: {
+                    href: '/sdds-dfa/',
+                },
+                changelog: {
+                    href: createChangelogLink('sdds-dfa'),
+                },
+            },
+        },
     },
     {
+        key: 'SDDSCS',
         title: 'SDDS CS',
         package: '@salutejs/sdds-cs',
         group: 'СДДС',
@@ -137,8 +252,25 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/sdds-cs',
+            version: PACKAGES_INFO['@salutejs/sdds-cs'][0],
+            links: {
+                storybook: {
+                    href: '/sdds-cs-storybook/',
+                },
+                documentation: {
+                    href: '/sdds-cs/',
+                },
+                changelog: {
+                    href: createChangelogLink('sdds-cs'),
+                },
+            },
+        },
     },
     {
+        key: 'SDDSCRM',
         title: 'SDDS CRM',
         package: '@salutejs/sdds-crm',
         group: 'СДДС',
@@ -153,8 +285,25 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/sdds-crm',
+            version: PACKAGES_INFO['@salutejs/sdds-crm'][0],
+            links: {
+                storybook: {
+                    href: '/sdds-crm-storybook/',
+                },
+                documentation: {
+                    href: '/sdds-crm/',
+                },
+                changelog: {
+                    href: createChangelogLink('sdds-crm'),
+                },
+            },
+        },
     },
     {
+        key: 'SDDSScan',
         title: 'SDDS Scan',
         package: '@salutejs/sdds-scan',
         group: 'СДДС',
@@ -169,8 +318,25 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/sdds-scan',
+            version: PACKAGES_INFO['@salutejs/sdds-scan'][0],
+            links: {
+                storybook: {
+                    href: '/sdds-scan-storybook/',
+                },
+                documentation: {
+                    href: '/sdds-scan/',
+                },
+                changelog: {
+                    href: createChangelogLink('sdds-scan'),
+                },
+            },
+        },
     },
     {
+        key: 'SDDSBizcom',
         title: 'SDDS Bizcom',
         package: '@salutejs/sdds-bizcom',
         group: 'СДДС',
@@ -184,8 +350,25 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/sdds-bizcom',
+            version: PACKAGES_INFO['@salutejs/sdds-bizcom'][0],
+            links: {
+                storybook: {
+                    href: '/sdds-bizcom-storybook/',
+                },
+                documentation: {
+                    href: '/sdds-bizcom/',
+                },
+                changelog: {
+                    href: createChangelogLink('sdds-bizcom'),
+                },
+            },
+        },
     },
     {
+        key: 'SDDSNetology',
         title: 'SDDS Netology',
         package: '@salutejs/sdds-netology',
         group: 'ДЗО 1',
@@ -200,8 +383,25 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/sdds-netology',
+            version: PACKAGES_INFO['@salutejs/sdds-netology'][0],
+            links: {
+                storybook: {
+                    href: '/sdds-netology-storybook/',
+                },
+                documentation: {
+                    href: '/sdds-netology/',
+                },
+                changelog: {
+                    href: createChangelogLink('sdds-netology'),
+                },
+            },
+        },
     },
     {
+        key: 'SDDSInsol',
         title: 'SDDS Insol',
         package: '@salutejs/sdds-insol',
         group: 'ДЗО 1',
@@ -216,6 +416,22 @@ export const verticalsMap = [
                 isMeta: false,
             },
         ],
+        web: {
+            title: 'React',
+            package: '@salutejs/sdds-insol',
+            version: PACKAGES_INFO['@salutejs/sdds-insol'][0],
+            links: {
+                storybook: {
+                    href: '/sdds-insol-storybook/',
+                },
+                documentation: {
+                    href: '/sdds-insol/',
+                },
+                changelog: {
+                    href: createChangelogLink('sdds-insol'),
+                },
+            },
+        },
     },
 ];
 
