@@ -59,6 +59,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.contentSlotRightColor}: var(${comboboxTokens.textFieldContentSlotRightColor});
     ${textFieldTokens.contentSlotRightColorHover}: var(${comboboxTokens.textFieldContentSlotRightColorHover});
     ${textFieldTokens.contentSlotRightColorActive}: var(${comboboxTokens.textFieldContentSlotRightColorActive});
+    ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${comboboxTokens.textFieldContentSlotRightOpacityReadOnly});
 
     ${textFieldTokens.labelColor}: var(${comboboxTokens.textFieldLabelColor});
     ${textFieldTokens.labelColorReadOnly}: var(${comboboxTokens.textFieldLabelColorReadOnly});
