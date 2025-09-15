@@ -627,8 +627,16 @@
                     "value": "#08080893",
                     "comment": "Инвертированный основной цвет текста"
                 },
+                "textPrimaryHoverBrightness": {
+                    "value": "#171799",
+                    "comment": "Инвертированный основной цвет текста"
+                },
                 "textPrimaryActive": {
                     "value": "#080808C4",
+                    "comment": "Инвертированный основной цвет текста"
+                },
+                "textPrimaryActiveBrightness": {
+                    "value": "#1717C8",
                     "comment": "Инвертированный основной цвет текста"
                 },
                 "textSecondaryHover": {
