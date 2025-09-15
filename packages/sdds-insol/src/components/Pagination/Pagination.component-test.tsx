@@ -206,7 +206,7 @@ describe('sdds-insol: Pagination Styled', () => {
                     hasQuickJump
                     hasPerPage
                     helperText="Veeeeeeeeeeeeeeeeeeeeeeery looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Helper Text"
-                    helperTextEllipsis={true}
+                    singleLine={true}
                     value={values[1]}
                     slots={slots[1]}
                     count={count}
