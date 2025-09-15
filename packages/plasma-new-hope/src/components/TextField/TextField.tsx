@@ -492,7 +492,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             tabIndex={-1}
                             ref={contentRef}
                             onKeyDown={handleContentKeyDown}
-                            className={withHasChips}
+                            className={cx(withHasChips, classes.inputScrollableWrapper)}
                         >
                             {Boolean(textBefore && isChipEnumeration) && (
                                 <StyledTextBefore>{textBefore}</StyledTextBefore>

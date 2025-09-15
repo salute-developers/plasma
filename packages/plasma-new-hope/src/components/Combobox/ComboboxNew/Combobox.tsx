@@ -104,10 +104,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
         const value = outerValue !== null && outerValue !== undefined ? outerValue : internalValue;
 
+        const rootRef = useRef<HTMLInputElement>(null);
         const inputRef = useRef<HTMLInputElement>(null);
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
         const inputForkRef = useForkRef(inputRef, ref);
         const treeId = safeUseId();
+
         const listWrapperRef = useRef<HTMLDivElement>(null);
 
         const filteredItems = useMemo(
@@ -141,12 +143,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 return;
             }
 
-            dispatchPath({ type: 'reset' });
-            dispatchFocusedPath({ type: 'reset' });
-
-            if (onToggle) {
-                onToggle(false);
-            }
+            handleListToggle(false);
 
             // Возвращаем актуальное значение поля ввода после закрытия выпадающего списка.
             setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
@@ -221,6 +218,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+
+                // Скроллим чипы к левому краю при закрытии компонента
+                const el = rootRef?.current?.querySelector('.input-scrollable-wrapper');
+                if (multiple && value.length > 0 && el) {
+                    el.scrollLeft = 0;
+                }
             }
 
             if (onToggle) {
@@ -440,6 +443,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 name={name}
                 hintView={hintView}
                 hintSize={hintSize}
+                ref={rootRef}
             >
                 {name && (
                     <SelectNative
