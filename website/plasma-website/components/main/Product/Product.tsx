@@ -33,6 +33,7 @@ export type ProductProps = {
     onClickTitle?: () => void;
     href?: string;
     web?: ProductDescription;
+    className?: string;
 };
 
 export const Product: FC<ProductProps & PropsWithChildren> = ({
@@ -44,11 +45,12 @@ export const Product: FC<ProductProps & PropsWithChildren> = ({
     isDraggable,
     onClickTitle,
     children,
+    className,
 }) => {
     return (
         <ProductWrapper className="override-gap">
             <Link href={href}>
-                <ProductMainInfo onClick={onClickTitle} alwaysShowIcon={alwaysShowIcon}>
+                <ProductMainInfo className={className} onClick={onClickTitle} alwaysShowIcon={alwaysShowIcon}>
                     <Title bold={false}>{title}</Title>
 
                     <Icon>

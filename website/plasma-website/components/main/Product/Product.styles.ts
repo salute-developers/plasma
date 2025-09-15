@@ -63,7 +63,7 @@ export const Icon = styled.div`
     transition: color 0.3s;
 `;
 
-export const ProductMainInfo = styled.a<{ alwaysShowIcon?: boolean }>`
+export const ProductMainInfo = styled.span<{ alwaysShowIcon?: boolean }>`
     height: 5.75rem;
 
     cursor: pointer;
@@ -93,7 +93,11 @@ export const ProductMainInfo = styled.a<{ alwaysShowIcon?: boolean }>`
             }
         `}
 
-    &:hover {
+    &.off-link-style {
+        cursor: default;
+    }
+
+    &:hover:not(.off-link-style) {
         text-decoration: none;
 
         & ${Title} {

@@ -23,7 +23,7 @@ export const topOffsetAfterScroll = 35;
 export const sectionOffsetAccuracy = 5;
 export const stickyNavItemMargin = 0.75;
 export const nativePlatformsMetaUrl =
-    'https://raw.githubusercontent.com/salute-developers/plasma-android/develop/tokens/summary.json';
+    'https://raw.githubusercontent.com/salute-developers/plasma-android/main/tokens/summary.json';
 
 export const stickyNavSnapVariant = {
     topOfSection: 'top-of-section',
@@ -37,7 +37,6 @@ export const verticalsMap = [
         title: 'Plasma SD Service',
         package: '@salutejs/plasma-b2c',
         group: 'Плазма',
-        href: '/b2c-storybook/',
         items: [
             { text: 'Сторибук', href: '/b2c-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/b2c/', contentRight: <ArrowTopRight /> },
@@ -70,7 +69,6 @@ export const verticalsMap = [
         title: 'Plasma SD Mid',
         package: '@salutejs/plasma-web',
         group: 'Плазма',
-        href: '/web-storybook/',
         web: {
             title: 'React',
             package: '@salutejs/plasma-web',
@@ -89,11 +87,10 @@ export const verticalsMap = [
         },
     },
     {
-        key: 'plasmaGiga',
+        key: 'plasmaGigaApp',
         title: 'Plasma Giga',
         package: '@salutejs/plasma-giga',
         group: 'Плазма',
-        href: '/giga-storybook/',
         items: [
             { text: 'Сторибук', href: '/giga-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/giga/', contentRight: <ArrowTopRight /> },
@@ -142,7 +139,6 @@ export const verticalsMap = [
         title: 'SDDS Service',
         package: '@salutejs/sdds-serv',
         group: 'СДДС',
-        href: '/sdds-serv-storybook/',
         items: [
             { text: 'Сторибук', href: '/sdds-serv-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-serv/', contentRight: <ArrowTopRight /> },
@@ -175,7 +171,6 @@ export const verticalsMap = [
         title: 'SDDS FinAI',
         package: '@salutejs/sdds-finai',
         group: 'СДДС',
-        href: '/sdds-finai-storybook/',
         items: [
             { text: 'Сторибук', href: '/sdds-finai-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-finai/', contentRight: <ArrowTopRight /> },
@@ -208,7 +203,6 @@ export const verticalsMap = [
         title: 'SDDS DFA',
         package: '@salutejs/sdds-dfa',
         group: 'СДДС',
-        href: '/sdds-dfa-storybook/',
         items: [
             { text: 'Сторибук', href: '/sdds-dfa-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-dfa/', contentRight: <ArrowTopRight /> },
@@ -241,7 +235,6 @@ export const verticalsMap = [
         title: 'SDDS CS',
         package: '@salutejs/sdds-cs',
         group: 'СДДС',
-        href: '/sdds-cs/',
         items: [
             { text: 'Сторибук', href: '/sdds-cs-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-cs/', contentRight: <ArrowTopRight /> },
@@ -274,7 +267,6 @@ export const verticalsMap = [
         title: 'SDDS CRM',
         package: '@salutejs/sdds-crm',
         group: 'СДДС',
-        href: '/sdds-crm-storybook/',
         items: [
             { text: 'Сторибук', href: '/sdds-crm-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-crm/', contentRight: <ArrowTopRight /> },
@@ -307,7 +299,6 @@ export const verticalsMap = [
         title: 'SDDS Scan',
         package: '@salutejs/sdds-scan',
         group: 'СДДС',
-        href: '/sdds-scan-storybook/',
         items: [
             { text: 'Сторибук', href: '/sdds-scan-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-scan/', contentRight: <ArrowTopRight /> },
@@ -340,7 +331,6 @@ export const verticalsMap = [
         title: 'SDDS Bizcom',
         package: '@salutejs/sdds-bizcom',
         group: 'СДДС',
-        href: '/sdds-bizcom-storybook/',
         items: [
             { text: 'Сторибук', href: '/sdds-bizcom-storybook/', contentRight: <ArrowTopRight /> },
             {
@@ -372,7 +362,6 @@ export const verticalsMap = [
         title: 'SDDS Netology',
         package: '@salutejs/sdds-netology',
         group: 'ДЗО 1',
-        href: '/sdds-netology-storybook/',
         items: [
             { text: 'Сторибук', href: '/sdds-netology-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-netology/', contentRight: <ArrowTopRight /> },
@@ -405,7 +394,6 @@ export const verticalsMap = [
         title: 'SDDS Insol',
         package: '@salutejs/sdds-insol',
         group: 'ДЗО 1',
-        href: '/sdds-insol-storybook/',
         items: [
             { text: 'Сторибук', href: '/sdds-insol-storybook/', contentRight: <ArrowTopRight /> },
             { text: 'Документация', href: '/sdds-insol/', contentRight: <ArrowTopRight /> },
