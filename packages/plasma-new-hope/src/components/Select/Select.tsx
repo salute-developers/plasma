@@ -130,6 +130,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const treeId = safeUseId();
         const listWrapperRef = useRef<HTMLDivElement>(null);
         const view = target === 'textfield-like' && (disabled || readOnly) ? 'default' : getView(status, outerView);
+        const rootRef = useRef<HTMLInputElement>(null);
 
         // Собираем объект с пропсами для required и прокидываем их напрямую в компонент Textfield.
         const requiredProps =
@@ -162,12 +163,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 return;
             }
 
-            dispatchPath({ type: 'reset' });
-            dispatchFocusedPath({ type: 'reset' });
-
-            if (onToggle) {
-                onToggle(false);
-            }
+            handleListToggle(false);
         }, floatingPopoverRef);
 
         const onChange = (
@@ -203,6 +199,12 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+
+                // Скроллим чипы к левому краю при закрытии компонента
+                const el = rootRef?.current?.querySelector('.input-scrollable-wrapper');
+                if (multiselect && value.length > 0 && el) {
+                    el.scrollLeft = 0;
+                }
             }
 
             if (onToggle) {
@@ -389,6 +391,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 disabled={disabled}
                 readOnly={readOnly}
                 id={id}
+                ref={rootRef}
                 {...(rest as any)}
             >
                 {name && (

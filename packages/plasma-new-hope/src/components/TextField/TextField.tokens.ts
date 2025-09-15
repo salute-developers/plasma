@@ -16,6 +16,7 @@ export const classes = {
     textFieldGroupItem: 'text-field-group-item',
     requiredAlignRight: 'required-align-right',
     inputWrapper: 'input-wrapper',
+    inputScrollableWrapper: 'input-scrollable-wrapper',
     inputTextEllipsis: 'textfield-input-text-ellipsis',
     contentRightCompensationMargin: 'textfield-content-right-compensation-margin',
     readOnlyInput: 'textfield-readonly-input',
