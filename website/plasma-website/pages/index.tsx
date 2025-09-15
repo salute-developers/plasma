@@ -455,7 +455,13 @@ export default function Home() {
                             key={group}
                         >
                             {currentProducts.map(({ title, href, web, key }) => (
-                                <Product key={group + title} title={title} href={href} iconRotation="topRightCorner">
+                                <Product
+                                    key={group + title}
+                                    title={title}
+                                    href={href}
+                                    iconRotation="topRightCorner"
+                                    className="off-link-style"
+                                >
                                     {[web]
                                         .concat(Object.values(NATIVE_PRODUCTS[key] ?? {}))
                                         .filter(Boolean)
