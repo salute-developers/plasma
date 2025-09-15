@@ -51,7 +51,7 @@ type CustomChipProps = {
     /**
      *  Коллбек при взаимодействии с элементом
      * @deprecated
-     * Использовать onClick для закрытия
+     * Использовать onClickClose для закрытия
      */
     onClear?: () => void;
     /**
