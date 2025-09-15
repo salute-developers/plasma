@@ -717,6 +717,10 @@ export const iconSectionsSet = {
         starRecommendOutline: 'StarRecommendOutline',
         numberedView: 'NumberedView',
         starHalfFill: 'StarHalfFill',
+        cardsGridFill: 'CardsGridFill',
+        cardsGridOutline: 'CardsGridOutline',
+        cardsListFill: 'CardsListFill',
+        cardsListOutline: 'CardsListOutline',
     },
     Design: {
         blurFill: 'BlurFill',
