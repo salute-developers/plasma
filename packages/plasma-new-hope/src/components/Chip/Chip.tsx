@@ -47,7 +47,6 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             }
 
             onClick?.(event);
-            onClear?.();
         };
 
         const handleClickClose = (event: MouseEvent<HTMLDivElement>) => {
@@ -57,6 +56,10 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
 
             event.stopPropagation();
             onClickClose(event);
+
+            if (onClear) {
+                onClear();
+            }
         };
 
         return (
