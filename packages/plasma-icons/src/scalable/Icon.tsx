@@ -535,6 +535,8 @@ export const iconSectionsSet = {
         internationalTradeRupiahOutline: 'InternationalTradeRupiahOutline',
         buildingsAddFill: 'BuildingsAddFill',
         buildingsAddOutline: 'BuildingsAddOutline',
+        couponDiscountFill: 'CouponDiscountFill',
+        couponDiscountOutline: 'CouponDiscountOutline',
     },
     Other: {
         button2x1LFill: 'Button2x1LFill',
