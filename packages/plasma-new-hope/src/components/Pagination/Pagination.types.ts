@@ -132,7 +132,7 @@ export type CustomPaginationProps = {
      * Перенос строки для helperText
      * @default false
      */
-    helperTextEllipsis?: boolean;
+    singleLine?: boolean;
 
     /**
      * Функция которая исполняeтся при изменении `page`, `perPage`

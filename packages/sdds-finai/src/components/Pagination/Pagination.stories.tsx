@@ -97,7 +97,7 @@ export const Default: Story = {
         square: true,
         listWidth: '5rem',
         helperText: 'HelperText',
-        helperTextEllipsis: false,
+        singleLine: false,
     },
     render: (args) => <PaginationDefault {...args} />,
 };

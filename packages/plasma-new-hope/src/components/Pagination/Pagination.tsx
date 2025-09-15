@@ -31,7 +31,7 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                 value: outerValue,
                 defaultValue,
                 helperText,
-                helperTextEllipsis,
+                singleLine,
 
                 perPage: outerPerPage,
                 defaultPerPage,
@@ -235,7 +235,7 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                                 )}
                                 {helperText && (
                                     <PaginationHelperText
-                                        className={cx(typeClass, helperTextEllipsis ? classes.ellipsisText : '')}
+                                        className={cx(typeClass, singleLine ? classes.ellipsisText : '')}
                                         style={{ maxWidth: rootWidth }}
                                     >
                                         {helperText}
