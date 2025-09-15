@@ -3,24 +3,80 @@ id: notification
 title: Notification
 ---
 
-import { PropsTable, Description } from '@site/src/components';
+import { PropsTable } from '@site/src/components';
 
 # Notification
-<Description name="Notification" />
-<PropsTable name="Notification" />
 
-## Использование
-Компонент `Notification` может использоваться для создания собственных систем оповещения.
-Вид компонента контролируется свойствами (props).
-Текстовая часть оповещения состоит из `title` и `children`.
-Слева или сверху от нее, также можно пробросить иконку через свойство `icon`.
-Также есть часть `actions`, в которой предполагается отображение кнопок для взаимодействия.
+Компонент группы Overlay, является всплывающим элементом поверх контента.
 
-### Провайдер контекста
-<PropsTable name="NotificationsProvider" />
+## Быстрый старт
 
-Поместите `NotificationsProvider` в [корень приложения](../../#корень-приложения) или там, где будете применять модальные окна.
-В качестве свойств можно указать контейнер для оповещений через `frame`.
+Используйте комбинацию компонента `NotificationsProvider` и метода `addNotification` для вызова компонента `Notification`.
+
+:::info
+Notifications закрываются автоматически по истечению указанного `timeout` в миллисекундах или если передан `0` или `null` то будут висеть бесконечно.
+:::
+
+```tsx live
+import React, { useCallback } from 'react';
+import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-serv';
+
+export function App() {
+    const handleShow = useCallback(() => {
+        addNotification({
+            id: 'incoming-call',
+            title: 'Входящий вызов',
+            children: 'Принять?',
+        }, 3000);
+    }, []);
+
+    const handleHide = useCallback(() => {
+        closeNotification('incoming-call');
+    }, []);
+
+    return (
+        <NotificationsProvider>
+            <ButtonGroup isCommonButtonStyles={false}>
+                <Button view="accent" text="Показать оповещение" onClick={handleShow} />
+                <Button view="secondary" text="Скрыть оповещение" onClick={handleHide} />
+            </ButtonGroup>
+        </NotificationsProvider>
+    );
+}
+```
+
+:::info
+`addNotification` возвращает сгенерированный или переданный `id`, по которому можно закрыть `Notification` через вызов `closeNotification`.
+:::
+
+```tsx
+import { addNotification, closeNotification } from '@salutejs/sdds-serv';
+
+const NotificationID = addNotification({
+    id: 'incoming-call',
+    title: 'Входящий вызов',
+    children: 'Принять?',
+    onTimeoutClose: () => {
+        console.log("Callback, вызываемый при автоматическом закрытии по timeout.")
+    },
+}, 3000);
+
+
+closeNotification(NotificationID);
+```
+
+:::info
+`onTimeoutClose` - вызывается при автоматическом закрытии по timeout
+:::
+
+
+## NotificationsProvider
+
+:::tip
+`frame` - с помощью данного свойства можно указать через, id элемента или ref для него, в каком контейнере будет позиционирование(по умолчанию document).
+:::
+
+`NotificationsProvider` может использоваться как в корне приложения или по месту применения в любой части приложения.
 
 ```tsx title="index.ts"
 import ReactDOM from 'react-dom';
@@ -36,78 +92,67 @@ ReactDOM.render(
 );
 ```
 
-### Позиционирование
-
-Позиционирование компонента регулируется с помощью свойства `placement`.
-
-```ts
-type NotificationPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
-````
-И производные комбинации, например `bottom-left` или `top-right`.
-
-### Вызов уведомления
-
-:::info
-Уведомления закрываются автоматически по истечению указанного `timeout` в миллисекундах или если передан `0` или `null` то будут висеть бесконечно.
-:::
-
-:::tip
-`onTimeoutClose` - вызывается при автоматическом закрытии по timeout
-:::
-
-После подключения `NotificationsProvider` станет возможен вызов функции `addNotification`, который приведет к отображению оповещения.
-Функция принимает значения свойств компонента `Notification`, включая необязательное поле `id`. И возвращает сгенерированный или переданный `id`, по которому можно закрыть оповещение через вызов `closeNotification`.
-
-
-```tsx live
-import React, { useCallback } from 'react';
-import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-serv';
-
+```tsx title="app.tsx"
 export function App() {
-    const handleShow = useCallback(() => {
-        addNotification({
-            id: 'incoming-call',
-            title: 'Входящий вызов',
-            children: 'Принять?',
-            onTimeoutClose: () => {
-                console.log("Callback, вызываемый при автоматическом закрытии по timeout.")
-            },
-        }, 3000);
-    }, []);
-
-    const handleHide = useCallback(() => {
-        closeNotification('incoming-call');
-    }, []);
-
     return (
         <NotificationsProvider>
-            <ButtonGroup>
-                <Button text="Показать оповещение" onClick={handleShow} />
-                <Button text="Скрыть оповещение" onClick={handleHide} />
-            </ButtonGroup>
+                ...
         </NotificationsProvider>
     );
 }
 ```
 
-## Вид иконки и текста
-:::tip
-Чтобы компонент иконки наследовал `color` от `view` используйте значение `inherit`.
+### Позиционирование
+
+С помощью свойства `placement` у компонента `NotificationsProvider` можно задать позиционирование для Notification.
+
+```ts
+type NotificationPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
+````
+
+И производные комбинации, например `bottom-left` или `top-right`.
 
 ```tsx
-<IconBell color="inherit" size="xs" />
+import { NotificationsProvider } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <NotificationsProvider placement="top-right">
+            ...
+        </NotificationsProvider>
+    );
+}
+```
+
+## Управлением внешним видом
+
+Регулируется свойством `view`.
+
+:::tip
+Используйте значение `inherit` для свойства `color`, чтобы цвет наследовался от `view` компонента `Notification`.
+
+```tsx
+//INFO: В данном случае значении цвета будет как во `view='positive'`
+addNotification({
+    view: 'positive',
+    icon: <IconBell color="inherit" size="xs" />,
+    ...
+}, 3000);
 ```
 :::
 
-Также имеются свойства `titleColor, textColor` для **переопределения** `color` текста контента и заголовка.
+###  Переопределение цвета у заголовка и контентной части
 
-```jsx live
+Для **переопределения** значений `color` текста контента `children` и заголовка `title` используйте свойства: `titleColor, textColor`.
+
+```tsx live
 import React, { useCallback } from 'react';
 import { IconBell } from '@salutejs/plasma-icons';
 import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-serv';
 
 export function App() {
     const handleShow = useCallback(() => {
+        // INFO: Настраиваем содержимое и внешний вид компонента Notification
         addNotification({
             id: 'incoming-call',
             title: 'Входящий вызов',
@@ -125,16 +170,16 @@ export function App() {
 
     return (
         <NotificationsProvider>
-            <ButtonGroup>
-                <Button text="Показать оповещение" onClick={handleShow} />
-                <Button text="Скрыть оповещение" onClick={handleHide} />
+            <ButtonGroup isCommonButtonStyles={false}>
+                <Button view="accent" text="Показать оповещение" onClick={handleShow} />
+                <Button view="secondary" text="Скрыть оповещение" onClick={handleHide} />
             </ButtonGroup>
         </NotificationsProvider>
     );
 }
 ```
 
-## Управление шириной уведомления
+### Управление шириной уведомления
 
 Для управления шириной компонента доступны следующие свойства:
 
@@ -143,7 +188,7 @@ export function App() {
 
 Оба свойства принимает любые действительные CSS значения для [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width#syntax) и [maxWidth](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width#syntax)
 
-```jsx live
+```tsx live
 import React, { useCallback } from 'react';
 import { IconBell } from '@salutejs/plasma-icons';
 import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-serv';
@@ -156,8 +201,6 @@ export function App() {
             icon: <IconBell color="inherit" size="xs" />,
             children: 'Задача организации, в особенности же сплочённость команды профессионалов требует определения и уточнения глубокомысленных рассуждений.',
             view: 'positive',
-            textColor: 'black',
-            titleColor: 'blue',
             width: 'fit-content',
             maxWidth: '30rem'
         }, 3000);
@@ -169,11 +212,17 @@ export function App() {
 
     return (
         <NotificationsProvider>
-            <ButtonGroup>
-                <Button text="Показать оповещение" onClick={handleShow} />
-                <Button text="Скрыть оповещение" onClick={handleHide} />
+            <ButtonGroup isCommonButtonStyles={false}>
+                <Button view="accent" text="Показать оповещение" onClick={handleShow} />
+                <Button view="secondary" text="Скрыть оповещение" onClick={handleHide} />
             </ButtonGroup>
         </NotificationsProvider>
     );
 }
 ```
+
+## Notification props
+<PropsTable name="Notification" />
+
+## Notifications provider props
+<PropsTable name="NotificationsProvider" />
