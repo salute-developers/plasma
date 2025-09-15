@@ -1,6 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens } from '../../Chip.tokens';
+import { StyledContentClear } from '../../Chip.styles';
 
 export const base = css`
     &[disabled] {
@@ -13,6 +14,14 @@ export const base = css`
 
             color: var(${tokens.color});
             background-color: var(${tokens.background});
+        }
+
+        ${StyledContentClear} {
+            color: var(${tokens.closeIconColor});
+
+            &:hover {
+                color: var(${tokens.closeIconColor});
+            }
         }
     }
 `;
