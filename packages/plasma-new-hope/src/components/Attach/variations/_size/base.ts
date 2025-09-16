@@ -28,6 +28,8 @@ export const base = css`
         font-weight: var(${tokens.cellTitleFontWeight});
         letter-spacing: var(${tokens.cellTitleLetterSpacing});
         line-height: var(${tokens.cellTitleLineHeight});
+
+        height: var(${tokens.filenameWrapperHeight});
     }
 
     ${StyledHelperText} {
