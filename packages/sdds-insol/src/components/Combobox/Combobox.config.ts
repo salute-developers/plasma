@@ -45,6 +45,7 @@ export const config = {
                 ${tokens.textFieldBoxShadow}: var(--shadow-down-soft-s);
 
                 ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldChipColor}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipColorHover}: var(--text-primary);
@@ -104,6 +105,7 @@ export const config = {
                 ${tokens.textFieldBoxShadow}: var(--shadow-down-soft-s);
 
                 ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldChipColor}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipColorHover}: var(--text-primary);
@@ -163,6 +165,7 @@ export const config = {
                 ${tokens.textFieldBoxShadow}: var(--shadow-down-soft-s);
 
                 ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldChipColor}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipColorHover}: var(--text-primary);
@@ -222,6 +225,7 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldChipColor}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipColorHover}: var(--text-primary);

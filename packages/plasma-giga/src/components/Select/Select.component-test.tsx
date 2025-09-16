@@ -1243,8 +1243,6 @@ describe('plasma-giga: Select', () => {
     it('behaviour: isTargetAmount', () => {
         cy.viewport(300, 100);
 
-        mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
-
         const Component = () => {
             const [value, setValue] = React.useState(['africa', 'north_america']);
 
@@ -1265,7 +1263,7 @@ describe('plasma-giga: Select', () => {
 
         mount(<Component />);
 
-        cy.contains('2').realClick();
+        cy.get('.chip-item div svg').realClick();
 
         cy.matchImageSnapshot();
     });
@@ -1757,7 +1755,7 @@ describe('plasma-giga: Select', () => {
         cy.get('#select button').should('not.include.text', 'Северная Америка');
         cy.get('#select button').should('include.text', 'minsk');
         cy.get('[id$="north_america"]').click();
-        cy.get('#multiselect').contains('minsk').click();
+        cy.get('#multiselect').get('.chip-item div svg').last().click();
         cy.get('#multiselect .chips-wrapper').should('include.text', 'Северная Америка');
         cy.get('#multiselect .chips-wrapper').should('not.include.text', 'minsk');
     });
