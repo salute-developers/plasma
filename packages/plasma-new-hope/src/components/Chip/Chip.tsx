@@ -50,7 +50,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
         };
 
         const handleClickClose = (event: MouseEvent<HTMLDivElement>) => {
-            if (disabled || readOnly || !onClickClose) {
+            if (disabled || (readOnly && !_forceChipManipulationWithReadonly) || !onClickClose) {
                 return;
             }
 

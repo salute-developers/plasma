@@ -145,6 +145,8 @@ export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: b
     ${textFieldTokens.chipBackgroundActive}: var(${tokens.textFieldChipBackgroundActive});
     ${textFieldTokens.chipColorActive}: var(${tokens.textFieldChipColorActive});
     ${textFieldTokens.chipCloseIconColor}: var(${tokens.textFieldChipCloseIconColor});
+    ${textFieldTokens.chipCloseIconColorHover}: var(${tokens.textFieldChipCloseIconColorHover});
+    ${textFieldTokens.chipCloseIconColorReadonly}: var(${tokens.textFieldChipCloseIconColorReadonly});
     ${textFieldTokens.chipOutlineSize}: var(${tokens.textFieldChipOutlineSize});
     ${textFieldTokens.chipWidth}: var(${tokens.textFieldChipWidth});
     ${textFieldTokens.chipPadding}: var(${tokens.textFieldChipPadding});
@@ -170,9 +172,11 @@ export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: b
     ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${tokens.textFieldIndicatorLabelPlacementInnerRight});
     ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${tokens.textFieldIndicatorLabelPlacementOuterRight});
     ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${tokens.textFieldClearIndicatorLabelPlacementInner});
+    /* stylelint-disable */
     ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${
     tokens.textFieldClearIndicatorLabelPlacementInnerRight
 });
+    /* stylelint-enable */
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${tokens.textFieldClearIndicatorHintInnerRight});
 
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});

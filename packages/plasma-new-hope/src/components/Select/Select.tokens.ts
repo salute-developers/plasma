@@ -233,6 +233,8 @@ export const tokens = {
     textFieldChipBackgroundActive: '--plasma-select-textfield-chip-background-active',
     textFieldChipColorActive: '--plasma-select-textfield-chip-color-active',
     textFieldChipCloseIconColor: '--plasma-select-textfield-chip-close-icons-color',
+    textFieldChipCloseIconColorHover: '--plasma-select-textfield-chip-close-icons-color-hover',
+    textFieldChipCloseIconColorReadonly: '--plasma-select-textfield-chip-close-icons-color-readonly',
     textFieldChipOutlineSize: '--plasma-select-textfield-chip-outline-size',
     textFieldChipWidth: '--plasma-select-textfield-chip-width',
     textFieldChipPadding: '--plasma-select-textfield-chip-padding',

@@ -115,7 +115,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 // @ts-ignore
                 _chips,
                 // @ts-ignore
-                _onChipClick,
+                _onChipCloseClick,
 
                 // events
                 onChange,
@@ -298,11 +298,13 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 disabled,
                 readOnly,
                 chips,
+                newCustomChips: _chips,
                 enumerationType,
                 updateChips,
                 onSearch,
                 onChange,
                 onEnterDisabled: _onEnterDisabled,
+                onChipCloseClick: _onChipCloseClick,
             });
 
             const onChipClick = (event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation();
@@ -503,10 +505,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             {Boolean(_chips?.length) && (
                                 <TextFieldChipNew
                                     chips={_chips}
-                                    onChipClick={_onChipClick}
                                     getRef={getRef}
                                     handleChipKeyDown={handleChipKeyDown}
                                     onChipClear={onChipClear}
+                                    onChipCloseClick={_onChipCloseClick}
                                     view={chipView || view}
                                     readOnly={readOnly}
                                     chipType={chipType}
