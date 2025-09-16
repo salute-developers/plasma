@@ -915,6 +915,9 @@ export const backgroundPrimary = 'var(--background-primary, #060A0C)';
 /** Основной фон */
 export const backgroundPrimaryBrightness = 'var(--background-primary-brightness, #15191B)';
 
+/** Вторичный фон */
+export const backgroundSecondary = 'var(--background-secondary, #FFFFFF)';
+
 /** Основной фон на темном фоне */
 export const darkBackgroundPrimary = 'var(--dark-background-primary, #060A0C)';
 

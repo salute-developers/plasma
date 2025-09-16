@@ -307,6 +307,7 @@ export const sdds_cs__light = {
         '--inverse-surface-solid-tertiary': '#657179',
         '--background-primary-brightness': '#F3F6F8',
         '--background-primary': '#F2F5F8',
+        '--background-secondary': '#F7F9FB',
         '--dark-background-primary': '#060A0C',
         '--light-background-primary': '#F2F5F8',
         '--inverse-background-primary-brightness': '#15191B',

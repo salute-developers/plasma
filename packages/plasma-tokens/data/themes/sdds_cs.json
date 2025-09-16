@@ -3426,7 +3426,7 @@
                 "backgroundSecondary": {
                     "value": "#FFFFFF",
                     "comment": "Вторичный фон",
-                    "enabled": false
+                    "enabled": true
                 },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
@@ -3479,14 +3479,14 @@
                     "comment": "Инвертированный основной фон",
                     "enabled": true
                 },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный вторичный фон",
-                    "enabled": false
-                },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный третичный фон",
+                    "enabled": false
+                },
+                "backgroundSecondary": {
+                    "value": "[general.coolGray.50]",
+                    "comment": "Инвертированный вторичный фон",
                     "enabled": false
                 }
             }
@@ -8929,11 +8929,6 @@
         },
         "background": {
             "default": {
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Вторичный фон",
-                    "enabled": false
-                },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Третичный фон",
@@ -8947,6 +8942,11 @@
                 "backgroundPrimary": {
                     "value": "[general.coolGray.100]",
                     "comment": "Основной фон",
+                    "enabled": true
+                },
+                "backgroundSecondary": {
+                    "value": "[general.coolGray.50]",
+                    "comment": "Вторичный фон",
                     "enabled": true
                 }
             },

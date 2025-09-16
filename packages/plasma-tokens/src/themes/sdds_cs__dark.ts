@@ -307,6 +307,7 @@ export const sdds_cs__dark = {
         '--inverse-surface-info-minor-active': '#A8DCFFFF',
         '--background-primary': '#060A0C',
         '--background-primary-brightness': '#15191B',
+        '--background-secondary': '#FFFFFF',
         '--dark-background-primary': '#060A0C',
         '--light-background-primary': '#F7F9FB',
         '--inverse-background-primary': '#F7F9FB',
