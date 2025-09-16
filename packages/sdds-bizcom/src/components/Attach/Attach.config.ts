@@ -428,6 +428,7 @@ export const config = {
                 ${attachTokens.verticalGap}: 0.5rem;
                 ${attachTokens.verticalGapWithHelperText}: 1.625rem;
 
+                ${attachTokens.filenameWrapperHeight}: 3.5rem;
                 ${attachTokens.buttonHeight}: 3.5rem;
                 ${attachTokens.buttonWidth}: 12.5rem;
                 ${attachTokens.buttonPadding}: 1.5rem;
@@ -510,6 +511,7 @@ export const config = {
                 ${attachTokens.verticalGap}: 0.5rem;
                 ${attachTokens.verticalGapWithHelperText}: 1.625rem;
 
+                ${attachTokens.filenameWrapperHeight}: 3rem;
                 ${attachTokens.buttonHeight}: 3rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1.25rem;
@@ -592,6 +594,7 @@ export const config = {
                 ${attachTokens.verticalGap}: 0.375rem;
                 ${attachTokens.verticalGapWithHelperText}: 1.5rem;
 
+                ${attachTokens.filenameWrapperHeight}: 2.5rem;
                 ${attachTokens.buttonHeight}: 2.5rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1rem;
@@ -674,6 +677,7 @@ export const config = {
                 ${attachTokens.verticalGap}: 0.25rem;
                 ${attachTokens.verticalGapWithHelperText}: 1.375rem;
 
+                ${attachTokens.filenameWrapperHeight}: 2rem;
                 ${attachTokens.buttonHeight}: 2rem;
                 ${attachTokens.buttonWidth}: 10rem;
                 ${attachTokens.buttonPadding}: 0.75rem;

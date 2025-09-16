@@ -10,6 +10,7 @@ export const tokens = {
     horizontalGap: '--plasma-attach-horizontal-gap',
     verticalGap: '--plasma-attach-vertical-gap',
     verticalGapWithHelperText: '--plasma-attach-vertical-gap-with-helper-text',
+    filenameWrapperHeight: '--plasma-attach-filename-wrapper-height',
 
     helperTextColor: '--plasma-attach-helper-text-color',
 

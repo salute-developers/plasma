@@ -147,6 +147,7 @@ export const config = {
                 ${attachTokens.verticalGap}: 0.375rem;
                 ${attachTokens.verticalGapWithHelperText}: 1.5rem;
 
+                ${attachTokens.filenameWrapperHeight}: 2.5rem;
                 ${attachTokens.buttonHeight}: 2.5rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1rem;
