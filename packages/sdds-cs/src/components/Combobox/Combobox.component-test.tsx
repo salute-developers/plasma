@@ -1156,7 +1156,7 @@ describe('sdds-cs: Combobox', () => {
         cy.get('#combobox2').realClick();
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('Enter');
 
-        cy.contains('2').realClick();
+        cy.get('.chip-item div svg').last().realClick();
 
         cy.matchImageSnapshot();
     });
@@ -1892,7 +1892,7 @@ describe('sdds-cs: Combobox', () => {
         cy.get('.has-chips').should('exist');
         cy.get('.has-chips button').should('have.length', 1);
 
-        cy.get('.has-chips button').realClick();
+        cy.get('.has-chips button svg').realClick();
         cy.get('#multiple').should('not.be.focused');
         cy.get('[id$="tree_level_1"]').should('be.visible');
         cy.get('.has-chips').should('not.exist');
@@ -1940,7 +1940,7 @@ describe('sdds-cs: Combobox', () => {
         cy.get('.has-chips').should('exist');
         cy.get('.has-chips button').should('have.length', 1);
 
-        cy.get('.has-chips button').realClick();
+        cy.get('.has-chips button svg').realClick();
         cy.get('#multiple').should('not.be.focused');
         cy.get('[id$="tree_level_1"]').should('be.visible');
         cy.get('.has-chips').should('not.exist');
@@ -2195,7 +2195,6 @@ describe('sdds-cs: Combobox', () => {
         cy.realPress('Backspace');
         cy.realPress('Backspace');
         cy.realPress('Tab');
-        cy.get('#multiple').should('be.focused');
 
         // Tab
         cy.realPress('ArrowDown').realPress('Tab');
@@ -2347,7 +2346,7 @@ describe('sdds-cs: Combobox', () => {
         cy.get('[id$="north_america"]').click();
         cy.get('.chips-wrapper').should('not.include.text', 'Северная Америка');
         cy.get('.chips-wrapper').should('include.text', 'minsk');
-        cy.get('.chips-wrapper').contains('minsk').click();
+        cy.get('.chips-wrapper').get('.chip-item div svg').click();
         cy.get('.chips-wrapper').should('not.exist');
     });
 

@@ -1273,7 +1273,7 @@ describe('sdds-insol: Select', () => {
 
         mount(<Component />);
 
-        cy.contains('2').realClick();
+        cy.get('.chip-item div svg').realClick();
 
         cy.matchImageSnapshot();
     });
@@ -1765,7 +1765,7 @@ describe('sdds-insol: Select', () => {
         cy.get('#select button').should('not.include.text', 'Северная Америка');
         cy.get('#select button').should('include.text', 'minsk');
         cy.get('[id$="north_america"]').click();
-        cy.get('#multiselect').contains('minsk').click();
+        cy.get('#multiselect').get('.chip-item div svg').last().click();
         cy.get('#multiselect .chips-wrapper').should('include.text', 'Северная Америка');
         cy.get('#multiselect .chips-wrapper').should('not.include.text', 'minsk');
     });

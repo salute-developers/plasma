@@ -581,6 +581,8 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--inverse-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--inverse-text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--inverse-text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--inverse-text-secondary-hover);
                 ${tokens.chipOpacityReadonly}: 1;
             `,
             secondary: css`
@@ -596,6 +598,8 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--text-secondary-hover);
                 ${tokens.chipOpacityReadonly}: 1;
             `,
             accent: css`
@@ -611,6 +615,8 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.chipOpacityReadonly}: 1;
             `,
             positive: css`
@@ -626,6 +632,8 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.chipOpacityReadonly}: 1;
             `,
             warning: css`
@@ -641,6 +649,8 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.chipOpacityReadonly}: 1;
             `,
             negative: css`
@@ -656,6 +666,8 @@ export const config = {
                 ${tokens.chipColorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--on-dark-text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.chipOpacityReadonly}: 1;
             `,
         },

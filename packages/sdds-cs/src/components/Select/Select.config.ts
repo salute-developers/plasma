@@ -231,7 +231,8 @@ export const config = {
                 ${selectTokens.textFieldChipColor}: var(--inverse-text-primary);
                 ${selectTokens.textFieldChipBackground}: var(--surface-solid-default);
                 ${selectTokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
-                ${selectTokens.textFieldChipCloseIconColor}: var(--inverse-text-primary);
+                ${selectTokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
+                ${selectTokens.textFieldChipCloseIconColorHover}: var(--inverse-text-primary);
                 ${selectTokens.textFieldChipOpacityReadonly}: 1;
             `,
         },
