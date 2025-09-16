@@ -196,7 +196,7 @@ describe('plasma-giga: Drawer', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('.plasma-drawer').should('be.visible');
+        cy.get('.drawer-panel').should('be.visible');
 
         cy.get('.plasma-drawer svg').click();
         cy.get('.popup-base-root').should('not.exist');
