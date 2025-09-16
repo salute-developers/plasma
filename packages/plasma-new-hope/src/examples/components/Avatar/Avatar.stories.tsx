@@ -116,7 +116,7 @@ export const Default: Story = {
             control: { type: 'boolean' },
             if: { arg: 'type', eq: 'badge' },
         },
-        ...disableProps(['focused']),
+        ...disableProps(['focused', 'view']),
     },
     render: ({ enableContentLeft, enableContentRight, size, ...rest }: StoryProps) => {
         const iconSize = () => {
