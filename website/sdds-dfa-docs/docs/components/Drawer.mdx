@@ -4,6 +4,8 @@ title: Drawer
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Drawer
 <Description name="Drawer" />
@@ -168,3 +170,225 @@ export function App() {
     );
 }
 ```
+
+### Анимация
+
+Для работы с анимацией необходимо использовать свойство `animationInfo`. 
+Данное свойство содержит два поля:
+- enter
+- exit
+
+В каждом из них можно указать собственную анимацию открытия и закрытия Drawer соответственно.
+Формат: `enterAnimation 0.2s forwards`
+
+<Tabs>
+    <TabItem value="styled" label="styled-components" default>
+        ```tsx
+        import React from 'react';
+        import { IconDone } from '@salutejs/plasma-icons';
+        import { createGlobalStyle } from 'styled-components';
+
+        import { SSRProvider, H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-dfa';
+
+        export function App() {
+            const [isOpenA, setIsOpenA] = React.useState(false);
+            const [isOpenB, setIsOpenB] = React.useState(false);
+
+            const animationInfo = {
+                enter: 'enterAnimation 0.2s forwards',
+                exit: 'exitAnimation 0.2s forwards',
+            }
+
+            const GlobalAnimations = createGlobalStyle`
+                @keyframes enterAnimation {
+                    from {
+                        transform: translate(100%, -150%);
+                        opacity: 0;
+                    }
+
+                    to {
+                        transform: translate(0, -50%);
+                        opacity: 1;
+                    }
+                }
+
+                @keyframes exitAnimation {
+                    from {
+                        transform: translate(0, -50%);
+                        opacity: 1;
+                    }
+
+                    to {
+                        transform: translate(100%, -150%);
+                        opacity: 0;
+                    }
+                }
+            `;
+
+            return (
+                <SSRProvider>
+                    <GlobalAnimations />
+
+                    <PopupProvider>
+                        <div style={{height: "500px"}}>
+                            <div style={{ display: "flex", flexDirection: "column" }}>
+                                <Button
+                                    text="Открыть в document"
+                                    onClick={() => setIsOpenA(true)}
+                                    style={{
+                                        marginTop: "1rem",
+                                        width: "15rem"
+                                    }}
+                                />
+                            </div>
+                            <Drawer
+                                animationInfo={animationInfo}
+
+                                id="drawerA"
+                                opened={isOpenA}
+                                onClose={() => setIsOpenA(false)}
+                                placement="right"
+                                withBlur={false}
+                                closeOnEsc={true}
+                                closeOnOverlayClick={true}
+                                asModal={true}
+                                width="25vw"
+                                height="100vh"
+                            >
+                                <DrawerHeader
+                                    hasClose={true}
+                                    closePlacement="right"
+                                    actions={(
+                                        <Button size="s" view="clear" style={{
+                                            position: "relative",
+                                            width: "1.5rem",
+                                            height: "1.5rem"
+                                        }}>
+                                            <IconDone size="s" />
+                                        </Button>
+                                    )}
+                                    onClose={() => setIsOpenA(false)}
+                                >
+                                    <H3>Header</H3>
+                                </DrawerHeader>
+
+                                <DrawerContent>Content</DrawerContent>
+
+                                <DrawerFooter>
+                                    <H3>Footer</H3>
+                                </DrawerFooter>
+                            </Drawer>
+                        </div>
+                    </PopupProvider>
+                </SSRProvider>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="linaria" label="linaria / css-modules / css">
+        Для linaria / css-modules необходимо определять анимацию так,
+        чтобы не добавлялся хеш к названию анимации. Иначе анимация не применится.
+        Для css необходимо просто задать анимацию либо inline (как в примере), либо в отдельном css-файле
+
+        ```tsx
+        import React from 'react';
+        import { IconDone } from '@salutejs/plasma-icons';
+
+        import { SSRProvider, H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-dfa';
+
+        const drawerAnimation = `
+            @keyframes enterAnimation {
+                0% {
+                    transform: translate(100%, -150%);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translate(0, -50%);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes exitAnimation {
+                0% {
+                    transform: translate(0, -50%);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translate(100%, -150%);
+                    opacity: 0;
+                }
+            }
+        `;
+
+        export function App() {
+            const [isOpenA, setIsOpenA] = React.useState(false);
+            const [isOpenB, setIsOpenB] = React.useState(false);
+
+            const animationInfo = {
+                enter: 'enterAnimation 0.2s forwards',
+                exit: 'exitAnimation 0.2s forwards',
+            }
+
+            return (
+                <SSRProvider>
+                    <style>{drawerAnimation}</style>
+
+                    <PopupProvider>
+                        <div style={{height: "500px"}}>
+                            <div style={{ display: "flex", flexDirection: "column" }}>
+                                <Button
+                                    text="Открыть в document"
+                                    onClick={() => setIsOpenA(true)}
+                                    style={{
+                                        marginTop: "1rem",
+                                        width: "15rem"
+                                    }}
+                                />
+                            </div>
+                            <Drawer
+                                animationInfo={animationInfo}
+
+                                id="drawerA"
+                                opened={isOpenA}
+                                onClose={() => setIsOpenA(false)}
+                                placement="right"
+                                withBlur={false}
+                                closeOnEsc={true}
+                                closeOnOverlayClick={true}
+                                asModal={true}
+                                width="25vw"
+                                height="100vh"
+                            >
+                                <DrawerHeader
+                                    hasClose={true}
+                                    closePlacement="right"
+                                    actions={(
+                                        <Button size="s" view="clear" style={{
+                                            position: "relative",
+                                            width: "1.5rem",
+                                            height: "1.5rem"
+                                        }}>
+                                            <IconDone size="s" />
+                                        </Button>
+                                    )}
+                                    onClose={() => setIsOpenA(false)}
+                                >
+                                    <H3>Header</H3>
+                                </DrawerHeader>
+
+                                <DrawerContent>Content</DrawerContent>
+
+                                <DrawerFooter>
+                                    <H3>Footer</H3>
+                                </DrawerFooter>
+                            </Drawer>
+                        </div>
+                    </PopupProvider>
+                </SSRProvider>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
