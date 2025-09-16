@@ -1,4 +1,4 @@
-import React, { FC, KeyboardEvent } from 'react';
+import React, { FC, KeyboardEvent, MouseEvent } from 'react';
 import { TextChip } from 'src/components/TextField/ui/TextFieldChip/TextFieldChip.styles';
 
 import { StyledChips } from '../../TextField.styles';
@@ -8,7 +8,7 @@ import { StyledChip } from './TextFieldChipNew.styles';
 
 export const TextFieldChipNew: FC<{
     chips: { value: string; label: string; disabled: boolean }[];
-    onChipClick: (chip: { value: string; label: string; disabled: boolean }) => void;
+    onChipCloseClick: (chip: { value: string; label: string; disabled: boolean }) => void;
     getRef: (...e: any) => void;
     handleChipKeyDown: (event: KeyboardEvent<HTMLButtonElement>, chipId: string, chipIndex: number) => void;
     onChipClear: (clearId: string, index: number) => void;
@@ -18,7 +18,7 @@ export const TextFieldChipNew: FC<{
     _forceChipManipulationWithReadonly?: any;
 }> = ({
     chips,
-    onChipClick,
+    onChipCloseClick,
     getRef,
     handleChipKeyDown,
     onChipClear,
@@ -32,23 +32,27 @@ export const TextFieldChipNew: FC<{
             {chips.map(({ value, label, disabled }, index) => {
                 const chipId = `${index}_${value}`;
 
-                const onKeyDownHandle = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+                const handleChipClick = (event: MouseEvent<HTMLButtonElement>) => {
+                    event.stopPropagation();
+                };
+
+                const onKeyDownHandle = (event: KeyboardEvent<HTMLButtonElement>) => {
                     if (handleChipKeyDown) {
                         handleChipKeyDown(event, chipId, index);
                     }
 
                     if (event.key === 'Enter' || event.key === 'Backspace') {
-                        if (onChipClick) {
-                            onChipClick({ value, label, disabled });
+                        if (onChipCloseClick) {
+                            onChipCloseClick({ value, label, disabled });
                         }
                     }
                 };
 
-                const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+                const handleCloseClick = (event: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
                     event.stopPropagation();
 
-                    if (onChipClick) {
-                        onChipClick({ value, label, disabled });
+                    if (onChipCloseClick) {
+                        onChipCloseClick({ value, label, disabled });
                     }
 
                     if (onChipClear) {
@@ -64,8 +68,10 @@ export const TextFieldChipNew: FC<{
                         disabled={disabled}
                         hasClear={!disabled}
                         readOnly={readOnly}
-                        onClick={handleClick}
+                        onClickClose={handleCloseClick}
+                        onClick={handleChipClick}
                         onKeyDown={onKeyDownHandle}
+                        onClear={() => onChipClear(chipId, index)}
                         text={label}
                         view={view}
                         // TODO: #1547
@@ -74,7 +80,7 @@ export const TextFieldChipNew: FC<{
                         _forceChipManipulationWithReadonly={_forceChipManipulationWithReadonly}
                     />
                 ) : (
-                    <TextChip tabIndex={-1} onClick={handleClick} onKeyDown={onKeyDownHandle}>
+                    <TextChip tabIndex={-1} onClick={handleCloseClick} onKeyDown={onKeyDownHandle}>
                         {label}
                     </TextChip>
                 );
