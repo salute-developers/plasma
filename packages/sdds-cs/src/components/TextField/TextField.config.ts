@@ -37,6 +37,8 @@ export const config = {
                 ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--text-primary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
                 ${tokens.chipColorHover}: var(--text-primary-hover);
@@ -78,6 +80,8 @@ export const config = {
                 ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--text-primary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
                 ${tokens.chipColorHover}: var(--text-primary);
