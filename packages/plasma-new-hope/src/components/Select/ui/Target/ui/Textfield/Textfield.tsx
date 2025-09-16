@@ -133,7 +133,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                     ? {
                           enumerationType: 'chip',
                           _chips: getChips(),
-                          _onChipClick: handleChipClick,
+                          _onChipCloseClick: handleChipClick,
                           chipType,
                           chipView,
                       }

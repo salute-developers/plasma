@@ -156,6 +156,8 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.chipBackgroundActive}: var(${comboboxTokens.textFieldChipBackgroundActive});
     ${textFieldTokens.chipColorActive}: var(${comboboxTokens.textFieldChipColorActive});
     ${textFieldTokens.chipCloseIconColor}: var(${comboboxTokens.textFieldChipCloseIconColor});
+    ${textFieldTokens.chipCloseIconColorHover}: var(${comboboxTokens.textFieldChipCloseIconColorHover});
+    ${textFieldTokens.chipCloseIconColorReadonly}: var(${comboboxTokens.textFieldChipCloseIconColorReadonly});
     ${textFieldTokens.chipOutlineSize}: var(${comboboxTokens.textFieldChipOutlineSize});
     ${textFieldTokens.chipWidth}: var(${comboboxTokens.textFieldChipWidth});
     ${textFieldTokens.chipPadding}: var(${comboboxTokens.textFieldChipPadding});

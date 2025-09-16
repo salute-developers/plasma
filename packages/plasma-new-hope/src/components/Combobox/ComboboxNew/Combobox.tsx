@@ -532,7 +532,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                             ? {
                                                   enumerationType: 'chip',
                                                   _chips: getChips(),
-                                                  _onChipClick: handleChipClick,
+                                                  _onChipCloseClick: handleChipClick,
                                               }
                                             : { enumerationType: 'plain' })}
                                         {...rest}
