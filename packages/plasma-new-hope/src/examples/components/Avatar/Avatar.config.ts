@@ -26,7 +26,7 @@ export const config = {
                 ${tokens.fontWeight}: 600;
                 ${tokens.lineHeight}: 2rem;
                 ${tokens.statusIconSize}: 0.75rem;
-                ${tokens.borderRadius}: 1.25rem;
+                ${tokens.borderRadius}: 1.125rem;
 
                 ${tokens.badgeBorderRadius}: 0.5rem;
                 ${tokens.badgeHeight}: 1.75rem;
