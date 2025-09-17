@@ -136,7 +136,9 @@
   --inverse-text-tertiary: #08080847;
   --inverse-text-paragraph: #080808CC;
   --inverse-text-primary-hover: #08080893;
+  --inverse-text-primary-hover-brightness: #4E4E4EFF;
   --inverse-text-primary-active: #080808C4;
+  --inverse-text-primary-active-brightness: #343434FF;
   --inverse-text-secondary-hover: #080808FF;
   --inverse-text-secondary-active: #080808AB;
   --inverse-text-tertiary-hover: #080808FF;
@@ -223,8 +225,11 @@
   --surface-transparent-warning: #FA5F0533;
   --surface-transparent-negative: #FF293E33;
   --surface-solid-default: #F9F9F9;
+  --surface-solid-default-brightness: #F9F9F9FF;
   --surface-solid-default-hover: #FFFFFFFF;
+  --surface-solid-default-hover-brightness: #FFFFFFFF;
   --surface-solid-default-active: #F5F5F5FF;
+  --surface-solid-default-active-brightness: #F6F6F6FF;
   --surface-info: #3F81FD;
   --surface-info-minor: #082254;
   --surface-transparent-info: #3F81FD33;
