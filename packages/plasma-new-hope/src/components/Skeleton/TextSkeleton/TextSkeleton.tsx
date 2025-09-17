@@ -21,6 +21,7 @@ export const textSkeleton = <T extends LineSkeletonProps>(
     customGradientColor,
     lighter,
     size = 'bodyM',
+    view = 'default',
     ...props
 }: T & TextSkeletonBaseProps & HTMLAttributes<HTMLDivElement>) => {
     const [fixedWidth, setFixedWidth] = useState<string | number | null>(null);
@@ -67,6 +68,7 @@ export const textSkeleton = <T extends LineSkeletonProps>(
                     <ComponentSkeleton
                         key={`line:${i}`}
                         size={size}
+                        view={view}
                         roundness={roundness}
                         customGradientColor={customGradientColor}
                         lighter={lighter}

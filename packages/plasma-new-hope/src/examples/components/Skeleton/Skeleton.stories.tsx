@@ -49,6 +49,7 @@ export const Line: StoryObj<StoryLineSkeletonProps> = {
     },
     args: {
         size: 'bodyM',
+        view: 'default',
         ...Default.args,
     },
     render: (args) => <LineSkeleton {...args} />,

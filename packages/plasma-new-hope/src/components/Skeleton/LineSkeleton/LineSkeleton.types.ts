@@ -16,7 +16,7 @@ type CustomSkeletonLineProps = {
 
 export type StyledVisibleLineProps = {
     roundness: string;
-    gradientColor: string;
+    gradientColor?: string;
 };
 
 export type LineSkeletonProps = HTMLAttributes<HTMLDivElement> &
