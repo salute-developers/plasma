@@ -19,8 +19,6 @@ export const ButtonText = styled.span`
         text-align: start;
     }
 
-    color: var(${tokens.buttonTextColor});
-
     ${applyEllipsis()}
 `;
 
