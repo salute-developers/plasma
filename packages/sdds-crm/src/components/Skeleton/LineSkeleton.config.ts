@@ -3,8 +3,17 @@ import { css, skeletonTokens } from '@salutejs/plasma-new-hope/styled-components
 export const config = {
     defaults: {
         size: 'bodyM',
+        view: 'default',
     },
     variations: {
+        view: {
+            default: css`
+                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient, var(--surface-skeleton-gradient));
+            `,
+            lighter: css`
+                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient-lighter, var(--surface-skeleton-deep-gradient));
+            `,
+        },
         size: {
             bodyL: css`
                 ${skeletonTokens.lineHeight}: var(--plasma-typo-body-l-line-height);

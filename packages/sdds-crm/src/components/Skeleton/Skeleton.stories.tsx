@@ -66,10 +66,17 @@ export const Line: StoryObj<StoryLineSkeletonProps> = {
                 type: 'select',
             },
         },
+        view: {
+            options: ['default', 'lighter'],
+            control: {
+                type: 'select',
+            },
+        },
         ...Default.argTypes,
     },
     args: {
         size: 'bodyM',
+        view: 'default',
         ...Default.args,
     },
     render: (args) => <LineSkeleton {...args} />,
@@ -79,6 +86,12 @@ export const Text: StoryObj<StoryTextSkeletonProps> = {
     argTypes: {
         size: {
             options: textSizes,
+            control: {
+                type: 'select',
+            },
+        },
+        view: {
+            options: ['default', 'lighter'],
             control: {
                 type: 'select',
             },
