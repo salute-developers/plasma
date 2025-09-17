@@ -141,7 +141,9 @@ export const plasma_b2c__light = ([
   --inverse-text-warning: #FA5F05;
   --inverse-text-negative: #FF293E;
   --inverse-text-primary-hover: #FFFFFF93;
+  --inverse-text-primary-hover-brightness: #FFFFFFFF;
   --inverse-text-primary-active: #FFFFFFC4;
+  --inverse-text-primary-active-brightness: #FFFFFFFF;
   --inverse-text-secondary-hover: #FFFFFFFF;
   --inverse-text-secondary-active: #FFFFFFAB;
   --inverse-text-tertiary-hover: #FFFFFFFF;
@@ -176,6 +178,7 @@ export const plasma_b2c__light = ([
   --inverse-text-negative-minor: #9C1422;
   --inverse-text-info-minor: #1549AB;
   --surface-solid-default: #080808;
+  --surface-solid-default-brightness: #171717FF;
   --surface-solid-primary: #F5F5F5;
   --surface-solid-primary-brightness: #FFFFFFFF;
   --surface-solid-secondary: #ECECEC;
@@ -227,7 +230,9 @@ export const plasma_b2c__light = ([
   --surface-info-minor: #DEE9FF;
   --surface-transparent-info: #2A72F81F;
   --surface-solid-default-hover: #262626FF;
+  --surface-solid-default-hover-brightness: #333333FF;
   --surface-solid-default-active: #030303FF;
+  --surface-solid-default-active-brightness: #121212FF;
   --surface-solid-primary-hover: #FAFAFAFF;
   --surface-solid-primary-active: #F0F0F0FF;
   --surface-solid-secondary-hover: #F7F7F7FF;
