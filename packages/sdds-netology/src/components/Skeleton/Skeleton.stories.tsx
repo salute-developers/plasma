@@ -54,7 +54,6 @@ const Default: StoryObj = {
     args: {
         roundness: '16',
         customGradientColor: '',
-        lighter: false,
     },
 };
 
@@ -114,6 +113,7 @@ export const Rect: StoryObj<StoryRectSkeletonProps> = {
     args: {
         width: '4rem',
         height: '4rem',
+        lighter: false,
         ...Default.args,
     },
     render: (args) => <RectSkeleton {...args} />,
