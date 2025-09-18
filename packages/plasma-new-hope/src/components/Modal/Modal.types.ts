@@ -38,6 +38,11 @@ export interface CommonModalProps extends PopupProps {
      */
     onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
     /**
+     * Фокус элементов будет происходить только внутри модального окна
+     * @default true
+     */
+    isFocusTrapped?: boolean;
+    /**
      * Первый элемент для фокуса внутри модального окна.
      */
     initialFocusRef?: React.RefObject<HTMLElement>;
