@@ -35,6 +35,10 @@ const dfs = (node: TreeItem, selectedKeys: Set<Key>, rootParentsSelected: Set<Ke
     if (rootParentsSelected.has(parents.filter((parent) => parent.key !== 'root')[0]?.key)) {
         node.className = cls(node.className, classes.treeItemPrimaryBackground);
     }
+
+    if (!node.children) {
+        node.className = cls(node.className, classes.treeLeafNode);
+    }
 };
 
 const getRootParentsSelectedChildren = (node: TreeItem, selectedKeysSet: Set<Key>) => {
@@ -67,10 +71,6 @@ const getRootParentsSelectedChildren = (node: TreeItem, selectedKeysSet: Set<Key
 
 // Перебираем и клонируем элементы в дереве, а также добавляем к ним класснеймы.
 export const traverseTree = (items: TreeItem[], selectedKeys?: Key[]): TreeItem[] => {
-    if (!selectedKeys || selectedKeys.length === 0) {
-        return items;
-    }
-
     const selectedKeysSet = new Set(selectedKeys);
 
     const copyItems = deepCopy(items);

@@ -4,6 +4,7 @@ export const classes = {
     treeItemPrimaryBackground: 'tree-item-primary-background',
     treeItemHasSelectedChildren: 'tree-item-has-selected-children',
     treeRadioMode: 'tree-radio-mode',
+    treeLeafNode: 'tree-leaf-node',
 };
 
 export const treeTokens = {
@@ -43,4 +44,6 @@ export const treeTokens = {
     itemDisabledOpacity: '--plasma-tree-item-disabled-opacity',
     itemDisabledColor: '--plasma-tree-item-disabled-color',
     itemDisabledBorderColor: '--plasma-tree-item-disabled-border-color',
+    itemDraggableBorderColor: '--plasma-tree-item-draggable-border-color',
+    itemDraggableLineColor: '--plasma-tree-item-draggable-line-color',
 };

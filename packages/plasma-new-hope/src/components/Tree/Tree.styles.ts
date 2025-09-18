@@ -51,6 +51,17 @@ export const ContentRight = styled.div`
     line-height: 0;
 `;
 
+export const Line = styled.div<{ left: number }>`
+    left: ${({ left }) => left}px;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+    height: 0.125rem;
+    background-color: var(${tokens.itemDraggableLineColor});
+    border-radius: 1px;
+    pointer-events: none;
+`;
+
 export const base = css`
     .rc-tree {
         margin: 0;
@@ -76,26 +87,15 @@ export const base = css`
         /* Required to make elements draggable in old WebKit */
     }
     .rc-tree .rc-tree-treenode.dragging {
-        background: rgba(100, 100, 255, 0.1);
+        opacity: 0.28;
     }
-    .rc-tree .rc-tree-treenode.drop-container > .draggable::after {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        box-shadow: inset 0 0 0 2px red;
-        content: '';
+
+    .rc-tree .rc-tree-treenode.drop-container::before,
+    .rc-tree:not(:has(.drop-container)) .rc-tree-treenode.drop-target.${classes.treeLeafNode}::before,
+    .rc-tree:not(:has(.drop-container)) .rc-tree-treenode.drop-target.drag-over::before {
+        box-shadow: inset 0 0 0 1px var(${tokens.itemDraggableBorderColor});
     }
-    .rc-tree .rc-tree-treenode.drop-container ~ .rc-tree-treenode {
-        border-left: 2px solid chocolate;
-    }
-    .rc-tree .rc-tree-treenode.drop-target {
-        background-color: yellowgreen;
-    }
-    .rc-tree .rc-tree-treenode.drop-target ~ .rc-tree-treenode {
-        border-left: none;
-    }
+
     .rc-tree .rc-tree-treenode.filter-node > .rc-tree-node-content-wrapper {
         color: #a60000 !important;
         font-weight: bold !important;

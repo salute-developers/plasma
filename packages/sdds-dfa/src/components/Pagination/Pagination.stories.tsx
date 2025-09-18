@@ -96,6 +96,8 @@ export const Default: Story = {
         pilled: false,
         square: true,
         listWidth: '5rem',
+        helperText: 'HelperText',
+        singleLine: false,
     },
     render: (args) => <PaginationDefault {...args} />,
 };

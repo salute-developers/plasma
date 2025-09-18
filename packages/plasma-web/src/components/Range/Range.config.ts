@@ -42,6 +42,61 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${tokens.borderRadius}: 1rem;
+                ${tokens.borderWidth}: 0.063rem;
+
+                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.dividerFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.dividerFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.dividerFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.dividerLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.leftContentMargin}: 0 0 0 1.125rem;
+                ${tokens.rightContentMargin}: 0;
+
+                ${tokens.labelOffset}: 0.75rem;
+
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.textFieldHeight}: 4rem;
+                ${tokens.textFieldBorderRadius}: 1rem;
+                ${tokens.textFieldBorderWidth}: 0.063rem;
+                ${tokens.textFieldPadding}: 1.3125rem 1.125rem;
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0 -0.0625rem 0.75rem;
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.indicatorSize}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+            `,
             l: css`
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.borderWidth}: 0.0625rem;

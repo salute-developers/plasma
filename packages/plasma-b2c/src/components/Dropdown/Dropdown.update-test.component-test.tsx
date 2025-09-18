@@ -224,6 +224,10 @@ const items = [
 ];
 
 describe('plasma-b2c: Dropdown', () => {
+    beforeEach(() => {
+        cy.get('body').realMouseMove(0, 0);
+    });
+
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
 
@@ -275,9 +279,9 @@ describe('plasma-b2c: Dropdown', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('button').trigger('mouseover');
-        cy.get('[id$="south_america"]').trigger('mouseover');
-        cy.get('[id$="argentina"]').trigger('mouseover');
+        cy.get('button').realHover();
+        cy.get('[id$="south_america"]').realHover();
+        cy.get('[id$="argentina"]').realHover();
 
         cy.matchImageSnapshot();
 

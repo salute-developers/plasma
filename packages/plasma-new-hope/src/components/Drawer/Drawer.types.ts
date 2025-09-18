@@ -11,8 +11,25 @@ export const drawerPlacements = {
 
 export type DrawerPlacement = keyof typeof drawerPlacements;
 
+export type DrawerAnimationInfo = {
+    enter?: string;
+    exit?: string;
+};
+
 export type DrawerProps = Omit<PopupProps, 'draggable' | 'resizable'> &
     PanelProps & {
+        /**
+         * Информация об анимации.
+         * Свойство может содержать поля `enter` и `exit`
+         * @example
+         * ```
+         * {
+         *      enter: 'animatinName 0.2s forwards',
+         *      exit: 'exitAnimationName 0.2s forwards',
+         * }
+         * ```
+         */
+        animationInfo?: DrawerAnimationInfo;
         /**
          * Расположение Drawer.
          * @default

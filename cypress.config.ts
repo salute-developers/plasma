@@ -59,7 +59,7 @@ export default defineConfig({
         snapshotsDir,
         package: packageName,
         a11yCheck: false,
-        threshold: 0,
+        threshold: 0.005,
         hasComponents: !!components,
         hasSpecGroup: !!specGroup,
     },

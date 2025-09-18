@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useReducer, useMemo, useLayoutEffect, useRef } from 'react';
-import type { ChangeEvent, ForwardedRef } from 'react';
+import type { ChangeEvent, ForwardedRef, MouseEvent } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 import { safeUseId, isEmpty } from 'src/utils';
 import { RootProps } from 'src/engines';
@@ -17,7 +17,6 @@ import {
     updateSingleAncestors,
     filterItems,
     getItemId,
-    getRemovedElement,
     getTextValue,
 } from './utils';
 import { Inner, StyledTextField, VirtualList, SelectAll } from './ui';
@@ -88,6 +87,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             onChangeValue,
             onScroll,
             onToggle,
+            mode = 'default',
             // @ts-ignore
             _offset,
             ...rest
@@ -96,9 +96,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         // Создаем структуры для быстрой работы с деревом
-        const [valueToCheckedMap, valueToItemMap, labelToItemMap] = useMemo(() => getTreeMaps(transformedItems), [
-            items,
-        ]);
+        const [valueToCheckedMap, valueToItemMap] = useMemo(() => getTreeMaps(transformedItems), [items]);
 
         const [textValue, setTextValue] = useState(getTextValue(multiple, outerValue, valueToItemMap, renderValue));
 
@@ -106,10 +104,13 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
         const value = outerValue !== null && outerValue !== undefined ? outerValue : internalValue;
 
+        const rootRef = useRef<HTMLInputElement>(null);
         const inputRef = useRef<HTMLInputElement>(null);
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
         const inputForkRef = useForkRef(inputRef, ref);
         const treeId = safeUseId();
+
+        const listWrapperRef = useRef<HTMLDivElement>(null);
 
         const filteredItems = useMemo(
             () =>
@@ -142,12 +143,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 return;
             }
 
-            dispatchPath({ type: 'reset' });
-            dispatchFocusedPath({ type: 'reset' });
-
-            if (onToggle) {
-                onToggle(false);
-            }
+            handleListToggle(false);
 
             // Возвращаем актуальное значение поля ввода после закрытия выпадающего списка.
             setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
@@ -178,18 +174,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         };
 
-        const handleClickArrow = () => {
-            if (disabled || readOnly) {
-                return;
-            }
+        const handleClickArrow = (e: MouseEvent<HTMLElement>) => {
+            handleListToggle(!isCurrentListOpen);
 
-            if (isCurrentListOpen) {
-                dispatchPath({ type: 'reset' });
-            } else {
-                dispatchPath({ type: 'opened_first_level' });
-            }
-
-            dispatchFocusedPath({ type: 'reset' });
+            // При клике на иконку закрытия фокус не должен становиться в инпут.
+            e.stopPropagation();
         };
 
         // Обработчик изменения значения в инпуте
@@ -204,55 +193,16 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         };
 
         // Обработчик чипов
-        const handleChipsChange = (chipLabels: any[]) => {
+        const handleChipClick = (chip: { value: string; label: string; disabled: boolean }) => {
             if (!Array.isArray(value)) return;
 
-            // TODO: #1564
-            // Из лейблов чипов получаем value у item и далее прокидываем его в onChange.
-            if (renderValue && !isTargetAmount) {
-                const resultValues = [...value];
-
-                value.forEach((_, index) => {
-                    const stringValue = value[index];
-                    const label = valueToItemMap.get(stringValue)?.label;
-
-                    const labelAfterRenderValue = renderValue(
-                        label
-                            ? labelToItemMap.get(label)!
-                            : {
-                                  value: stringValue,
-                                  label: stringValue.toString(),
-                              },
-                    );
-
-                    if (!chipLabels.includes(labelAfterRenderValue)) {
-                        resultValues.splice(index, 1);
-                    }
-                });
-
-                const removedItemValue = getRemovedElement(value, resultValues, isTargetAmount);
-
-                onChange(
-                    resultValues,
-                    removedItemValue
-                        ? valueToItemMap.get(removedItemValue) || {
-                              value: removedItemValue,
-                              label: removedItemValue.toString(),
-                          }
-                        : null,
-                );
+            if (isTargetAmount) {
+                // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы
+                onChange(value.filter((val) => valueToItemMap?.get(val)?.disabled));
             } else {
-                const newValues = chipLabels.map((chipLabel) => labelToItemMap.get(chipLabel)?.value || chipLabel);
-                const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
-
                 onChange(
-                    newValues,
-                    removedItemValue
-                        ? valueToItemMap.get(removedItemValue) || {
-                              value: removedItemValue,
-                              label: removedItemValue.toString(),
-                          }
-                        : null,
+                    value.filter((val) => val !== chip.value),
+                    valueToItemMap.get(chip.value) || null,
                 );
             }
         };
@@ -268,6 +218,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+
+                // Скроллим чипы к левому краю при закрытии компонента
+                const el = rootRef?.current?.querySelector('.input-scrollable-wrapper');
+                if (multiple && value.length > 0 && el) {
+                    el.scrollLeft = 0;
+                }
             }
 
             if (onToggle) {
@@ -283,15 +239,28 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             const checkedCopy = new Map(checked);
 
-            if (!checkedCopy.get(item.value)) {
-                checkedCopy.set(item.value, true);
-                updateDescendants(item, checkedCopy, true, valueToItemMap);
-            } else {
-                checkedCopy.set(item.value, false);
-                updateDescendants(item, checkedCopy, false);
+            switch (checkedCopy.get(item.value)) {
+                // Если чекбокс в состоянии indeterminate
+                case 'indeterminate': {
+                    updateDescendants(item, checkedCopy, true, valueToItemMap);
+                    break;
+                }
+                // Если чекбокс в состоянии checked
+                case true: {
+                    updateDescendants(item, checkedCopy, false, valueToItemMap);
+                    checkedCopy.set(item.value, false);
+                    break;
+                }
+                // Если чекбокс в состоянии unchecked
+                case false: {
+                    updateDescendants(item, checkedCopy, true, valueToItemMap);
+                    checkedCopy.set(item.value, true);
+                    break;
+                }
+                default: {
+                    break;
+                }
             }
-
-            updateAncestors(item, checkedCopy);
 
             const newValues: Array<string> = [];
 
@@ -321,7 +290,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         };
 
         // Обработчик клика по айтему выпадающего списка
-        const handleItemClick = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
+        const handleItemClick = (item: ItemOptionTransformed, e?: MouseEvent<HTMLElement>) => {
             if (!isEmpty(item?.items)) {
                 return;
             }
@@ -342,35 +311,54 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 dispatchFocusedPath({ type: 'reset' });
             }
 
+            // Закрываем список, если элемент уже выбран.
+            if (mode === 'radio' && isCurrentChecked) {
+                return;
+            }
+
             if (onChange) {
                 onChange(isCurrentChecked ? '' : item.value, item);
             }
         };
 
-        const getChips = (): string[] => {
+        // Обработчик клика на таргет
+        const handleTargetClick = () => {
+            if (!isCurrentListOpen) {
+                handleListToggle(true);
+            }
+        };
+
+        const getChips = (): { value: string; label: string; disabled: boolean }[] => {
             if (multiple && Array.isArray(value)) {
                 if (value.length === 0) return [];
 
                 if (isTargetAmount) {
-                    return [`Выбрано ${targetAmount || value.length}`];
+                    return [
+                        {
+                            value: '_removeAll',
+                            label: `Выбрано ${targetAmount || value.length}`,
+                            disabled: value.every((val) => valueToItemMap?.get(val)?.disabled),
+                        },
+                    ];
                 }
 
-                const renderValueMapper =
-                    renderValue &&
-                    ((stringValue: string) =>
-                        renderValue(
-                            valueToItemMap.get(stringValue) || { value: stringValue, label: stringValue.toString() },
-                        ));
-                const valueToItemMapper = (stringValue: string) =>
-                    valueToItemMap.get(stringValue)?.label || stringValue.toString();
+                return value.map((value) => {
+                    const currentLabel = renderValue
+                        ? renderValue(valueToItemMap.get(value) || { value, label: value })
+                        : valueToItemMap.get(value)?.label || value.toString();
 
-                return value.map(renderValueMapper || valueToItemMapper);
+                    return {
+                        value,
+                        label: currentLabel,
+                        disabled: valueToItemMap.get(value)?.disabled || false,
+                    };
+                });
             }
 
             return [];
         };
 
-        const handlePressDown = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
+        const handlePressDown = (item: ItemOptionTransformed, e?: MouseEvent<HTMLElement>) => {
             if (isEmpty(item.items)) {
                 handleItemClick(item, e);
             } else if (multiple) {
@@ -378,7 +366,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         };
 
-        const helperTextStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+        const helperTextStopPropagation = (event: MouseEvent<HTMLDivElement>) => {
             event.stopPropagation();
         };
 
@@ -455,6 +443,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 name={name}
                 hintView={hintView}
                 hintSize={hintSize}
+                ref={rootRef}
             >
                 {name && (
                     <SelectNative
@@ -488,62 +477,69 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                         <FloatingPopover
                             ref={floatingPopoverRef}
                             opened={isCurrentListOpen}
-                            onToggle={handleListToggle}
                             placement={placement}
                             portal={portal}
                             listWidth={listWidth}
                             offset={_offset}
                             target={(referenceRef) => (
-                                <StyledTextField
-                                    ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
-                                    inputWrapperRef={referenceRef}
-                                    value={textValue}
-                                    onChange={handleTextValueChange}
-                                    size={size}
-                                    view={view}
-                                    disabled={disabled}
-                                    readOnly={readOnly}
-                                    label={label}
-                                    placeholder={placeholder}
-                                    contentLeft={contentLeft}
-                                    contentRight={
-                                        <IconArrowWrapper disabled={disabled} onClick={handleClickArrow}>
-                                            <StyledArrow
-                                                color="inherit"
-                                                size={sizeToIconSize(size)}
-                                                className={withArrowInverse}
-                                            />
-                                        </IconArrowWrapper>
-                                    }
-                                    textBefore={textBefore}
-                                    textAfter={textAfter}
-                                    onKeyDown={onKeyDown}
-                                    leftHelper={
-                                        helperText && (
-                                            <StyledLeftHelper onClick={helperTextStopPropagation}>
-                                                {helperText}
-                                            </StyledLeftHelper>
-                                        )
-                                    }
-                                    role="combobox"
-                                    aria-autocomplete="list"
-                                    aria-controls={`${treeId}_tree_level_1`}
-                                    aria-expanded={isCurrentListOpen}
-                                    aria-activedescendant={
-                                        activeDescendantItemValue ? getItemId(treeId, activeDescendantItemValue) : ''
-                                    }
-                                    labelPlacement={labelPlacement}
-                                    keepPlaceholder={keepPlaceholder}
-                                    {...(multiple
-                                        ? {
-                                              enumerationType: 'chip',
-                                              chips: getChips(),
-                                              onChangeChips: handleChipsChange,
-                                          }
-                                        : { enumerationType: 'plain' })}
-                                    {...rest}
-                                    _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
-                                />
+                                <div onClick={handleTargetClick}>
+                                    <StyledTextField
+                                        ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
+                                        inputWrapperRef={referenceRef}
+                                        value={textValue}
+                                        onChange={handleTextValueChange}
+                                        size={size}
+                                        view={view}
+                                        disabled={disabled}
+                                        readOnly={readOnly}
+                                        label={label}
+                                        placeholder={placeholder}
+                                        contentLeft={contentLeft}
+                                        contentRight={
+                                            <IconArrowWrapper
+                                                disabled={disabled}
+                                                onClick={handleClickArrow}
+                                                className={classes.comboboxTargetArrow}
+                                            >
+                                                <StyledArrow
+                                                    color="inherit"
+                                                    size={sizeToIconSize(size)}
+                                                    className={withArrowInverse}
+                                                />
+                                            </IconArrowWrapper>
+                                        }
+                                        textBefore={textBefore}
+                                        textAfter={textAfter}
+                                        onKeyDown={onKeyDown}
+                                        leftHelper={
+                                            helperText && (
+                                                <StyledLeftHelper onClick={helperTextStopPropagation}>
+                                                    {helperText}
+                                                </StyledLeftHelper>
+                                            )
+                                        }
+                                        role="combobox"
+                                        aria-autocomplete="list"
+                                        aria-controls={`${treeId}_tree_level_1`}
+                                        aria-expanded={isCurrentListOpen}
+                                        aria-activedescendant={
+                                            activeDescendantItemValue
+                                                ? getItemId(treeId, activeDescendantItemValue)
+                                                : ''
+                                        }
+                                        labelPlacement={labelPlacement}
+                                        keepPlaceholder={keepPlaceholder}
+                                        {...(multiple
+                                            ? {
+                                                  enumerationType: 'chip',
+                                                  _chips: getChips(),
+                                                  _onChipClick: handleChipClick,
+                                              }
+                                            : { enumerationType: 'plain' })}
+                                        {...rest}
+                                        _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
+                                    />
+                                </div>
                             )}
                             zIndex={zIndex}
                             isInner={false}
@@ -556,7 +552,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 readOnly={readOnly}
                                 name={name}
                             >
-                                <ListWrapper listWidth={listWidth}>
+                                <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
                                     <Ul
                                         role="tree"
                                         id={`${treeId}_tree_level_1`}
@@ -564,7 +560,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         listMaxHeight={listMaxHeight || listHeight}
                                         ref={targetRef}
                                         virtual={virtual}
-                                        listOverflow={listOverflow}
                                         onScroll={virtual ? undefined : onScroll}
                                     >
                                         {beforeList}
@@ -601,6 +596,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                             dispatchPath={dispatchPath}
                                                             index={index}
                                                             listWidth={listWidth}
+                                                            portal={listWrapperRef}
                                                         />
                                                     ))
                                                 )}

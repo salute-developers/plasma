@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { IconLocation } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
@@ -883,6 +883,139 @@ describe('plasma-web: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: mode', () => {
+        cy.viewport(1000, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Select id="single" items={items} label="Label" placeholder="Placeholder" mode="radio" />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#single').click();
+        cy.contains('Северная Америка').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Северная Америка');
+
+        cy.get('#single').click();
+        cy.contains('Северная Америка').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Северная Америка');
+
+        cy.get('body').realClick({ position: 'bottomRight' });
+        cy.realPress('Tab');
+        cy.get('#single input').should('be.focused');
+        cy.realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('Enter');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Рио-де-Жанейро');
+
+        cy.get('#single input').should('be.focused');
+        cy.realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('ArrowRight')
+            .realPress('Enter');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Рио-де-Жанейро');
+    });
+
+    it('prop: onToggle', () => {
+        cy.viewport(400, 300);
+
+        const onToggle = cy.stub().as('onToggle');
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Select id="select" items={items} label="Label" placeholder="Placeholder" onToggle={onToggle} />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#select').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').should('have.been.calledOnce');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('#select').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').should('have.been.calledTwice');
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.get('#select').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').should('have.been.calledThrice');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('body').realClick({ position: 'bottomRight' });
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 4);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.realPress('Tab');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 4);
+
+        cy.realPress('ArrowDown');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').its('callCount').should('equal', 5);
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.realPress('ArrowLeft');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 6);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.realPress('ArrowLeft');
+        cy.get('@onToggle').its('callCount').should('equal', 6);
+        cy.realPress('ArrowDown');
+        cy.get('@onToggle').its('callCount').should('equal', 7);
+        cy.get('@onToggle').should('have.been.calledWith', true);
+        cy.realPress('Escape');
+        cy.get('@onToggle').its('callCount').should('equal', 8);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+        cy.realPress('Escape');
+        cy.get('@onToggle').its('callCount').should('equal', 8);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+    });
+
+    it('prop: item disabled', () => {
+        cy.viewport(400, 100);
+
+        const Component = () => {
+            const [value, setValue] = useState(['africa']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            multiselect
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 
@@ -943,7 +1076,7 @@ describe('plasma-web: Select', () => {
         cy.matchImageSnapshot();
     });
 
-    it('disabled item behavior', () => {
+    it('behavior: disabled unselected item', () => {
         const items = [
             {
                 value: 'brazil',
@@ -965,14 +1098,14 @@ describe('plasma-web: Select', () => {
         const Component = () => (
             <CypressTestDecoratorWithTypo>
                 <div style={{ width: '300px' }}>
-                    <Select id="multiple" multiselect label="Список стран" items={items} />
+                    <Select id="select" multiselect label="Список стран" items={items} />
                 </div>
             </CypressTestDecoratorWithTypo>
         );
 
         mount(<Component />);
 
-        cy.get('#multiple').click();
+        cy.get('#select').click('bottomRight');
         cy.get('[id$="brazil"]').click();
         cy.get('[id$="brazil"] .checkbox-trigger').click();
 
@@ -983,8 +1116,170 @@ describe('plasma-web: Select', () => {
         cy.get('[id$="brazil"] .checkbox-trigger').click();
 
         cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
-        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+    });
+
+    it('behavior: disabled selected item', () => {
+        const items = [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                        disabled: true,
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+        ];
+
+        const Component = () => {
+            const [value, setValue] = useState(['rio_de_janeiro']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="select"
+                            multiselect
+                            label="Список стран"
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click('bottomRight');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"]').click();
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
         cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'false');
+    });
+
+    it('behavior: nesting lists within scroll', { scrollBehavior: false }, () => {
+        cy.viewport(1000, 300);
+
+        const items = [
+            {
+                value: 'north_america',
+                label: 'Северная Америка',
+                className: 'test-classname',
+            },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                listMaxHeight: '100px',
+                items: [
+                    {
+                        value: 'brazil',
+                        label: 'Бразилия',
+                        listMaxHeight: '100px',
+                        items: [
+                            {
+                                value: 'rio_de_janeiro',
+                                label: 'Рио-де-Жанейро',
+                            },
+                            {
+                                value: 'sao_paulo',
+                                label: 'Сан-Паулу',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'argentina',
+                        label: 'Аргентина',
+                    },
+                    {
+                        value: 'colombia',
+                        label: 'Колумбия',
+                    },
+                ],
+            },
+            {
+                value: 'europe',
+                label: 'Европа',
+            },
+            {
+                value: 'asia',
+                label: 'Азия',
+            },
+            {
+                value: 'africa',
+                label: 'Африка',
+                disabled: true,
+            },
+        ];
+
+        const Component = () => (
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="single"
+                        placeholder="Placeholder"
+                        label="Список стран"
+                        items={items}
+                        listMaxHeight="150px"
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>
+        );
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('behaviour: isTargetAmount', () => {
+        cy.viewport(300, 100);
+
+        mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
+
+        const Component = () => {
+            const [value, setValue] = React.useState(['africa', 'north_america']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <Select
+                        isTargetAmount
+                        multiselect
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        value={value}
+                        onChange={setValue}
+                    />
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.contains('2').realClick();
+
+        cy.matchImageSnapshot();
     });
 
     it('keyboard interactions', () => {
@@ -1168,7 +1463,7 @@ describe('plasma-web: Select', () => {
         cy.realPress('Space');
         cy.get('button').should('not.include.text', 'Буэнос-Айрес').should('not.include.text', 'Кордова');
         cy.realPress('ArrowLeft').realPress('ArrowLeft');
-        cy.realPress('Space');
+        cy.realPress('Space').realPress('Space');
         cy.get('button').should('include.text', 'Список стран');
         cy.realPress('Escape');
         cy.get('button').should('have.focus');

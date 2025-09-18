@@ -85,7 +85,7 @@ const StoryDefault = (args: StoryPropsDefault) => {
         onChange(newValue);
     };
 
-    return <CodeField {...args} value={value} onChange={handleChange} onFullCodeEnter={onFullCodeEnter} />;
+    return <CodeField {...args} onFullCodeEnter={onFullCodeEnter} />;
 };
 
 export const Default: StoryObj<StoryPropsDefault> = {

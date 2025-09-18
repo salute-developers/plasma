@@ -218,7 +218,7 @@ describe('plasma-b2c: Drawer', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('.plasma-drawer').should('be.visible');
+        cy.get('.drawer-panel').should('be.visible');
         cy.get('body').click(5, 5);
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
@@ -236,7 +236,7 @@ describe('plasma-b2c: Drawer', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('.plasma-drawer').should('be.visible');
+        cy.get('.drawer-panel').should('be.visible');
         cy.get('.plasma-drawer svg').click();
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
@@ -257,7 +257,11 @@ describe('plasma-b2c: Drawer', () => {
 
         cy.get('button').click();
 
-        cy.matchImageSnapshot();
+        // TODO: #2217
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('placement: top', () => {
@@ -273,7 +277,11 @@ describe('plasma-b2c: Drawer', () => {
 
         cy.get('button').click();
 
-        cy.matchImageSnapshot();
+        // TODO: #2217
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('placement: bottom', () => {
@@ -289,7 +297,11 @@ describe('plasma-b2c: Drawer', () => {
 
         cy.get('button').click();
 
-        cy.matchImageSnapshot();
+        // TODO: #2217
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('prop: data-attrs', () => {

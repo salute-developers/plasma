@@ -83,15 +83,56 @@ describe('plasma-new-hope: Pagination Styled', () => {
         cy.matchImageSnapshot();
     });
 
-    it('type', () => {
+    it('type:Default', () => {
+        cy.viewport(1000, 1000);
         mount(
             <CypressTestDecoratorWithTypo>
+                <Pagination
+                    type="default"
+                    hasQuickJump
+                    hasPerPage
+                    helperText="Helper Text"
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
+                <Pagination
+                    type="default"
+                    hasQuickJump
+                    hasPerPage
+                    helperText="Loooooooooooooooooooooooooooooooooooooooooooooooog Helper Text"
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
                 <Pagination type="default" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} count={count} />
+                <SpaceMe />
+                <Pagination
+                    type="default"
+                    helperText="HelperText"
+                    hasQuickJump
+                    hasPerPage={false}
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
                 <SpaceMe />
                 <Pagination
                     type="default"
                     hasQuickJump
                     hasPerPage={false}
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
+                <Pagination
+                    type="default"
+                    hasQuickJump={false}
+                    hasPerPage
+                    helperText="HelperText"
                     value={values[1]}
                     slots={slots[1]}
                     count={count}
@@ -108,8 +149,75 @@ describe('plasma-new-hope: Pagination Styled', () => {
                 <SpaceMe />
                 <Pagination
                     type="default"
+                    helperText="HelperText"
                     hasQuickJump={false}
                     hasPerPage={false}
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
+                <Pagination
+                    type="default"
+                    hasQuickJump={false}
+                    hasPerPage={false}
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('type:Compact', () => {
+        cy.on('uncaught:exception', (err) => {
+            if (err.message.includes('ResizeObserver loop completed with undelivered notifications')) {
+                return false; // Игнорируем ошибку
+            }
+            return true; // Для остальных ошибок тест упадет
+        });
+
+        cy.viewport(650, 1200);
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Pagination
+                    type="compact"
+                    hasQuickJump
+                    hasPerPage
+                    helperText="Helper Text"
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
+                <Pagination
+                    type="compact"
+                    hasQuickJump
+                    hasPerPage
+                    helperText="Looooooooooooooooooooooooooooong Helper Text"
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
+                <Pagination
+                    type="compact"
+                    hasQuickJump
+                    hasPerPage
+                    helperText="Veeeeeeeeeeeeeeeeeeeeeeery looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Helper Text"
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
+                <Pagination
+                    type="compact"
+                    hasQuickJump
+                    hasPerPage
+                    helperText="Veeeeeeeeeeeeeeeeeeeeeeery looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Helper Text"
+                    singleLine={true}
                     value={values[1]}
                     slots={slots[1]}
                     count={count}
@@ -119,6 +227,16 @@ describe('plasma-new-hope: Pagination Styled', () => {
                 <SpaceMe />
                 <Pagination
                     type="compact"
+                    helperText="HelperText"
+                    hasQuickJump
+                    hasPerPage={false}
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
+                <Pagination
+                    type="compact"
                     hasQuickJump
                     hasPerPage={false}
                     value={values[1]}
@@ -130,6 +248,26 @@ describe('plasma-new-hope: Pagination Styled', () => {
                     type="compact"
                     hasQuickJump={false}
                     hasPerPage
+                    helperText="HelperText"
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
+                <Pagination
+                    type="compact"
+                    hasQuickJump={false}
+                    hasPerPage
+                    value={values[1]}
+                    slots={slots[1]}
+                    count={count}
+                />
+                <SpaceMe />
+                <Pagination
+                    type="compact"
+                    hasQuickJump={false}
+                    hasPerPage={false}
+                    helperText="HelperText"
                     value={values[1]}
                     slots={slots[1]}
                     count={count}

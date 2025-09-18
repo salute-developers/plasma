@@ -4,7 +4,7 @@ import { useForkRef } from '@salutejs/plasma-core';
 
 import type { RootProps } from '../../engines/types';
 import { useFocusTrap } from '../../hooks';
-import { cx } from '../../utils';
+import { cx, safeUseId } from '../../utils';
 import { Portal } from '../Portal';
 
 import { base as viewCSS } from './variations/_view/base';
@@ -56,6 +56,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const targetRef = useRef<HTMLDivElement | null>(null);
 
             const trapRef = useFocusTrap(innerIsOpen && isFocusTrapped);
+            const uuid = safeUseId();
 
             const popoverForkRef = useForkRef<HTMLDivElement>(popoverRef, trapRef);
 
@@ -211,8 +212,10 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 }
 
                 if (!portal) {
+                    const portalId = `${POPOVER_PORTAL_ID}-${uuid}`;
+
                     portal = document.createElement('div');
-                    portal.setAttribute('id', POPOVER_PORTAL_ID);
+                    portal.setAttribute('id', portalId);
 
                     if (typeof frame === 'string' && frame !== 'document') {
                         document.getElementById(frame)?.appendChild(portal);

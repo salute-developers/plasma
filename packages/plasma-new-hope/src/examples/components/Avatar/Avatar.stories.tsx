@@ -24,6 +24,10 @@ const meta: Meta<typeof Avatar> = {
             options: extraType,
             if: { arg: 'hasExtra', truthy: true },
         },
+        shape: {
+            control: 'select',
+            options: ['circled', 'rounded'],
+        },
         extraPlacement: {
             control: 'select',
             options: extraPlacements,
@@ -101,6 +105,7 @@ export const Default: Story = {
         pilled: true,
         enableContentLeft: false,
         enableContentRight: false,
+        shape: 'circled',
     },
     argTypes: {
         enableContentLeft: {
@@ -111,7 +116,7 @@ export const Default: Story = {
             control: { type: 'boolean' },
             if: { arg: 'type', eq: 'badge' },
         },
-        ...disableProps(['focused']),
+        ...disableProps(['focused', 'view']),
     },
     render: ({ enableContentLeft, enableContentRight, size, ...rest }: StoryProps) => {
         const iconSize = () => {

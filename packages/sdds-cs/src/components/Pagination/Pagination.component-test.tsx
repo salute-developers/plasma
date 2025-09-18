@@ -58,7 +58,8 @@ describe('sdds-cs: Pagination Styled', () => {
         cy.matchImageSnapshot();
     });
 
-    it('type', () => {
+    it('type:Default', () => {
+        cy.viewport(1000, 1000);
         mount(
             <CypressTestDecorator>
                 <Pagination type="default" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} count={count} />
@@ -89,7 +90,16 @@ describe('sdds-cs: Pagination Styled', () => {
                     slots={slots[1]}
                     count={count}
                 />
-                <SpaceMe />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('type:Compact', () => {
+        cy.viewport(650, 1200);
+        mount(
+            <CypressTestDecorator>
                 <Pagination type="compact" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
                 <Pagination

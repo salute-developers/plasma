@@ -68,6 +68,12 @@ const meta: Meta<StoryAttachProps> = {
                 type: 'select',
             },
         },
+        hasAttachment: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'hideButtonOnAttach', truthy: false },
+        },
     },
 };
 
@@ -81,6 +87,7 @@ export const Button: StoryObj<StoryAttachProps> = {
     args: {
         fileFormat: 'all',
         flow: 'horizontal',
+        hideButtonOnAttach: false,
         hasAttachment: true,
         width: '400px',
         buttonText: 'Загрузить файл',
@@ -130,6 +137,7 @@ export const IconButton: StoryObj<StoryAttachProps> = {
     args: {
         fileFormat: 'all',
         flow: 'horizontal',
+        hideButtonOnAttach: false,
         hasAttachment: true,
         width: '400px',
         helperText: 'Подсказка',

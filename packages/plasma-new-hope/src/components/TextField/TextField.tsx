@@ -45,7 +45,7 @@ import {
     StyledContentRightWrapper,
 } from './TextField.styles';
 import { classes } from './TextField.tokens';
-import { TextFieldChip } from './ui';
+import { TextFieldChip, TextFieldChipNew } from './ui';
 import { useKeyNavigation } from './hooks';
 import { HintComponent } from './ui/Hint/Hint';
 import { getInputWidth } from './getInputWidth';
@@ -112,6 +112,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 chips: values,
                 chipType = 'default',
 
+                // @ts-ignore
+                _chips,
+                // @ts-ignore
+                _onChipClick,
+
                 // events
                 onChange,
                 onChangeChips,
@@ -155,7 +160,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const isDefaultView = view === 'default' || readOnly || disabled;
 
             const isChipEnumeration = enumerationType === 'chip';
-            const isChipsVisible = isChipEnumeration && Boolean(chips?.length);
+            const isChipsVisible = isChipEnumeration && Boolean(chips?.length || _chips?.length);
             const withHasChips = isChipsVisible ? classes.hasChips : undefined;
 
             const hasLabelValue = Boolean(label);
@@ -487,11 +492,28 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             tabIndex={-1}
                             ref={contentRef}
                             onKeyDown={handleContentKeyDown}
-                            className={withHasChips}
+                            className={cx(withHasChips, classes.inputScrollableWrapper)}
                         >
                             {Boolean(textBefore && isChipEnumeration) && (
                                 <StyledTextBefore>{textBefore}</StyledTextBefore>
                             )}
+
+                            {Boolean(_chips?.length) && (
+                                <TextFieldChipNew
+                                    chips={_chips}
+                                    onChipClick={_onChipClick}
+                                    getRef={getRef}
+                                    handleChipKeyDown={handleChipKeyDown}
+                                    onChipClear={onChipClear}
+                                    view={chipView || view}
+                                    readOnly={readOnly}
+                                    chipType={chipType}
+                                    // TODO: #1547
+                                    // @ts-ignore
+                                    _forceChipManipulationWithReadonly={_forceChipManipulationWithReadonly}
+                                />
+                            )}
+
                             {isChipEnumeration && Boolean(chips?.length) && (
                                 <StyledChips className={classes.chipsWrapper}>
                                     {chips?.map(({ id: chipId, text }, index) => {

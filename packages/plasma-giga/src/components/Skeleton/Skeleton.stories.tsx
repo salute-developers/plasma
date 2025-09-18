@@ -54,7 +54,6 @@ const Default: StoryObj = {
     args: {
         roundness: '16',
         customGradientColor: '',
-        lighter: false,
     },
 };
 
@@ -70,6 +69,7 @@ export const Line: StoryObj<StoryLineSkeletonProps> = {
     },
     args: {
         size: 'bodyM',
+        view: 'default',
         ...Default.args,
     },
     render: (args) => <LineSkeleton {...args} />,
@@ -79,6 +79,12 @@ export const Text: StoryObj<StoryTextSkeletonProps> = {
     argTypes: {
         size: {
             options: textSizes,
+            control: {
+                type: 'select',
+            },
+        },
+        view: {
+            options: ['default', 'lighter'],
             control: {
                 type: 'select',
             },
@@ -101,6 +107,7 @@ export const Rect: StoryObj<StoryRectSkeletonProps> = {
     args: {
         width: '4rem',
         height: '4rem',
+        lighter: false,
         ...Default.args,
     },
     render: (args) => <RectSkeleton {...args} />,

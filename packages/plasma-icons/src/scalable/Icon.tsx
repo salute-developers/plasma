@@ -535,6 +535,8 @@ export const iconSectionsSet = {
         internationalTradeRupiahOutline: 'InternationalTradeRupiahOutline',
         buildingsAddFill: 'BuildingsAddFill',
         buildingsAddOutline: 'BuildingsAddOutline',
+        couponDiscountFill: 'CouponDiscountFill',
+        couponDiscountOutline: 'CouponDiscountOutline',
     },
     Other: {
         button2x1LFill: 'Button2x1LFill',
@@ -715,6 +717,10 @@ export const iconSectionsSet = {
         starRecommendOutline: 'StarRecommendOutline',
         numberedView: 'NumberedView',
         starHalfFill: 'StarHalfFill',
+        cardsGridFill: 'CardsGridFill',
+        cardsGridOutline: 'CardsGridOutline',
+        cardsListFill: 'CardsListFill',
+        cardsListOutline: 'CardsListOutline',
     },
     Design: {
         blurFill: 'BlurFill',
@@ -810,6 +816,8 @@ export const iconSectionsSet = {
         documentImportOutline: 'DocumentImportOutline',
         documentPasteFill: 'DocumentPasteFill',
         documentPasteOutline: 'DocumentPasteOutline',
+        blankPptxFill: 'BlankPptxFill',
+        blankPptxOutline: 'BlankPptxOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',

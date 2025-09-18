@@ -39,7 +39,6 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 listMaxHeight,
                 listWidth,
                 listHeight,
-                listOverflow,
                 closeOnSelect = true,
                 onHover,
                 onItemSelect,
@@ -70,6 +69,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value || '';
 
             const floatingPopoverRef = useRef<HTMLDivElement>(null);
+            const listWrapperRef = useRef<HTMLDivElement>(null);
 
             const treeId = safeUseId();
 
@@ -169,15 +169,13 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                             ref={ref}
                             view={view}
                             size={size}
-                            style={{ display: 'inline-block' }}
                             {...rest}
                         >
-                            <ListWrapper listWidth={listWidth}>
+                            <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
                                 <Ul
                                     ref={targetRef}
                                     id={`${treeId}_tree_level_1`}
                                     role="tree"
-                                    listOverflow={listOverflow}
                                     listMaxHeight={listMaxHeight || listHeight}
                                 >
                                     {beforeList}
@@ -191,9 +189,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                             path={path}
                                             dispatchPath={dispatchPath}
                                             index={index}
-                                            listOverflow={listOverflow}
-                                            listMaxHeight={listMaxHeight || listHeight}
                                             listWidth={listWidth}
+                                            portal={listWrapperRef}
                                         />
                                     ))}
 

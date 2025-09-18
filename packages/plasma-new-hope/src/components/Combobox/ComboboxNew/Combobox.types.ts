@@ -167,10 +167,6 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     zIndex?: CSSProperties['zIndex'];
     /**
-     * Значение css overflow для выпадающего меню.
-     */
-    listOverflow?: CSSProperties['overflow'];
-    /**
      * Максимальная высота выпадающего списка.
      */
     listMaxHeight?: CSSProperties['height'];
@@ -223,6 +219,13 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     virtual?: boolean;
     /**
+     * Режим работы взаимодействия с элементами.
+     * - default: элемент можно выбрать и можно отменить его выбор.
+     * - radio: если элемент выбран, то отменить его выбор нельзя. Только для single-режима.
+     * @default default
+     */
+    mode?: 'default' | 'radio';
+    /**
      * Размер компонента.
      */
     size?: string;
@@ -236,9 +239,13 @@ type BasicProps<T extends ItemOption = ItemOption> = {
     emptyStateDescription?: string;
 
     /**
-     * @deprecated
+     * @deprecated Использовать listMaxHeight.
      */
     listHeight?: CSSProperties['height'];
+    /**
+     * @deprecated Скролл применится автоматически при использовании listMaxHeight.
+     */
+    listOverflow?: CSSProperties['overflow'];
 };
 
 export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
@@ -253,9 +260,9 @@ export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
     children: React.ReactNode;
     opened: boolean;
-    onToggle: (opened: boolean) => void;
     placement: Placement;
     isInner: boolean;
+    onToggle?: (opened: boolean) => void;
     portal?: ComboboxProps['portal'];
     listWidth?: ComboboxProps['listWidth'];
     zIndex?: DropdownProps['zIndex'];

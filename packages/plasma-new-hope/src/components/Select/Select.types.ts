@@ -146,10 +146,6 @@ export interface BasicProps<K extends ItemOption> {
      */
     zIndex?: CSSProperties['zIndex'];
     /**
-     * Значение css overflow для выпадающего меню.
-     */
-    listOverflow?: CSSProperties['overflow'];
-    /**
      * Максимальная высота выпадающего списка.
      */
     listMaxHeight?: CSSProperties['height'];
@@ -197,6 +193,13 @@ export interface BasicProps<K extends ItemOption> {
      * Событие сворачивания/разворачивания выпадающего списка.
      */
     onToggle?: (isOpen: boolean) => void;
+    /**
+     * Режим работы взаимодействия с элементами.
+     * - default: элемент можно выбрать и можно отменить его выбор.
+     * - radio: если элемент выбран, то отменить его выбор нельзя. Только для single-режима.
+     * @default default
+     */
+    mode?: 'default' | 'radio';
 
     /**
      * Размер компонента.
@@ -212,7 +215,7 @@ export interface BasicProps<K extends ItemOption> {
     chipView?: string;
 
     /**
-     * @deprecated
+     * @deprecated Использовать listMaxHeight.
      */
     listHeight?: CSSProperties['height'];
     /**
@@ -220,6 +223,10 @@ export interface BasicProps<K extends ItemOption> {
      * @deprecated
      */
     onScrollBottom?: (e: React.UIEvent<HTMLElement>) => void;
+    /**
+     * @deprecated Скролл применится автоматически при использовании listMaxHeight.
+     */
+    listOverflow?: CSSProperties['overflow'];
 }
 
 // Тип нового селекта
@@ -348,10 +355,6 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          */
         zIndex?: CSSProperties['zIndex'];
         /**
-         * Значение css overflow для выпадающего меню.
-         */
-        listOverflow?: CSSProperties['overflow'];
-        /**
          * Максимальная высота выпадающего списка.
          */
         listMaxHeight?: CSSProperties['height'];
@@ -399,6 +402,13 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * Событие сворачивания/разворачивания выпадающего списка.
          */
         onToggle?: (isOpen: boolean) => void;
+        /**
+         * Режим работы взаимодействия с элементами.
+         * - default: элемент можно выбрать и можно отменить его выбор.
+         * - radio: если элемент выбран, то отменить его выбор нельзя. Только для single-режима.
+         * @default default
+         */
+        mode?: 'default' | 'radio';
 
         /**
          * Размер компонента.
@@ -426,7 +436,7 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          */
         isOpen?: boolean;
         /**
-         * @deprecated
+         * @deprecated Использовать listMaxHeight.
          */
         listHeight?: CSSProperties['height'];
         /**
@@ -434,6 +444,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @deprecated
          */
         onScrollBottom?: (e: React.UIEvent<HTMLElement>) => void;
+        /**
+         * @deprecated Скролл применится автоматически при использовании listMaxHeight.
+         */
+        listOverflow?: CSSProperties['overflow'];
     } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
 
 export type { DropdownNode as DropdownNodeSelect };

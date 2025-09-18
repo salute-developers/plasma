@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { sizeToIconSize, getItemId, getRemovedElement } from '../../../../utils';
+import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
 
 import { IconArrowWrapper, StyledArrow, StyledTextField, StyledLeftHelper } from './Textfield.styles';
@@ -30,7 +30,6 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             valueToItemMap,
             renderValue,
             onChange,
-            labelToItemMap,
             chipView,
             requiredProps,
             chipType,
@@ -52,81 +51,48 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             return valueToItemMap.get(value.toString())?.label || value.toString();
         };
 
-        const getChips = (): string[] => {
+        const getChips = (): { value: string | number; label: string; disabled: boolean }[] => {
             if (multiselect && Array.isArray(value)) {
                 if (value.length === 0) return [];
 
                 if (isTargetAmount) {
-                    return [`Выбрано ${value.length}`];
+                    return [
+                        {
+                            value: '_removeAll',
+                            label: `Выбрано ${value.length}`,
+                            disabled: value.every((val) => valueToItemMap?.get(val)?.disabled),
+                        },
+                    ];
                 }
 
-                const renderValueMapper =
-                    renderValue &&
-                    ((stringValue: string | number) =>
-                        renderValue(
-                            valueToItemMap.get(stringValue) || { value: stringValue, label: stringValue.toString() },
-                        ));
-                const valueToItemMapper = (stringValue: string | number) =>
-                    valueToItemMap.get(stringValue)?.label || stringValue.toString();
+                return value.map((value) => {
+                    const currentLabel = renderValue
+                        ? renderValue(valueToItemMap.get(value) || { value, label: value.toString() })
+                        : valueToItemMap.get(value)?.label || value.toString();
 
-                return value.map(renderValueMapper || valueToItemMapper);
+                    return {
+                        value,
+                        label: currentLabel,
+                        disabled: valueToItemMap.get(value)?.disabled || false,
+                    };
+                });
             }
 
             return [];
         };
 
         // Обработчик чипов
-        const handleChipsChange = (chipLabels: any[]) => {
+        const handleChipClick = (chip: { value: string; label: string; disabled: boolean }) => {
             if (!Array.isArray(value)) return;
 
-            // TODO: #1564
-            // Из лейблов чипов получаем value у item и далее прокидываем его в onChange.
-            if (renderValue && !isTargetAmount) {
-                const resultValues = [...value];
-
-                value.forEach((_, index) => {
-                    const stringValue = value[index];
-                    const label = valueToItemMap.get(stringValue)?.label;
-
-                    const labelAfterRenderValue = renderValue(
-                        label
-                            ? labelToItemMap.get(label)!
-                            : {
-                                  value: stringValue,
-                                  label: stringValue.toString(),
-                              },
-                    );
-
-                    if (!chipLabels.includes(labelAfterRenderValue)) {
-                        resultValues.splice(index, 1);
-                    }
-                });
-
-                const removedItemValue = getRemovedElement(value, resultValues, isTargetAmount);
-
-                onChange(
-                    resultValues,
-                    removedItemValue
-                        ? valueToItemMap.get(removedItemValue) || {
-                              value: removedItemValue,
-                              label: removedItemValue.toString(),
-                          }
-                        : null,
-                );
+            if (isTargetAmount) {
+                // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы
+                onChange(value.filter((val) => valueToItemMap?.get(val)?.disabled));
             } else {
-                const newValues = chipLabels.map((chipLabel) => {
-                    return labelToItemMap.get(chipLabel)?.value || chipLabel;
-                });
-
-                const removedItemValue = getRemovedElement(value, newValues, isTargetAmount);
-                const item = removedItemValue
-                    ? valueToItemMap.get(removedItemValue) || {
-                          value: removedItemValue,
-                          label: removedItemValue.toString(),
-                      }
-                    : null;
-
-                onChange(newValues, item);
+                onChange(
+                    value.filter((val) => val !== chip.value),
+                    valueToItemMap.get(chip.value) || null,
+                );
             }
         };
 
@@ -166,8 +132,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 {...(multiselect
                     ? {
                           enumerationType: 'chip',
-                          chips: getChips(),
-                          onChangeChips: handleChipsChange,
+                          _chips: getChips(),
+                          _onChipClick: handleChipClick,
                           chipType,
                           chipView,
                       }

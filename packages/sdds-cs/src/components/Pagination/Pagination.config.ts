@@ -26,6 +26,7 @@ export const config = {
                 ${paginationTokens.inputBorderColor}: var(--outline-solid-primary);
 
                 ${paginationTokens.paginationColor}: var(--text-primary);
+                ${paginationTokens.paginationHelperTextColor}: var(--text-secondary);
                 ${paginationTokens.buttonFocusColor}: var(--surface-accent);
                 ${paginationTokens.paginationDisabledButtonColor}: var(--text-secondary);
                 ${paginationTokens.paginationDisabledButtonBackgroundColor}: var(--surface-clear);
@@ -80,6 +81,8 @@ export const config = {
                 ${paginationTokens.inputHeight}: 2.5rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
                 ${paginationTokens.inputBorderWidth}: 0.125rem;
+
+                ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
         },
         type: {

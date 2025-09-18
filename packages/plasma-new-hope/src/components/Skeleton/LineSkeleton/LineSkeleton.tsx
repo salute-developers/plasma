@@ -4,6 +4,7 @@ import type { RootProps } from '../../../engines';
 import { getRoundness, getSkeletonColor } from '../../../mixins';
 
 import { base as sizeCSS } from './variations/_size/base';
+import { base as viewCSS } from './variations/_view/base';
 import { StyledVisibleLine, base } from './LineSkeleton.styles';
 import type { LineSkeletonProps } from './LineSkeleton.types';
 
@@ -12,12 +13,12 @@ import type { LineSkeletonProps } from './LineSkeleton.types';
  */
 export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonProps>) =>
     forwardRef<HTMLDivElement, LineSkeletonProps>(
-        ({ size, lighter, customGradientColor, roundness = '16', ...rest }, outerRootRef) => {
+        ({ size, lighter, customGradientColor, roundness = '16', view, ...rest }, outerRootRef) => {
             const roundnessValue = getRoundness({ roundness });
-            const skeletonGradientColor = getSkeletonColor({ lighter, customGradientColor });
+            const skeletonGradientColor = lighter ? getSkeletonColor({ lighter, customGradientColor }) : undefined;
 
             return (
-                <Root ref={outerRootRef} size={size} {...rest}>
+                <Root ref={outerRootRef} size={size} view={view} {...rest}>
                     <StyledVisibleLine roundness={roundnessValue} gradientColor={skeletonGradientColor} />
                 </Root>
             );
@@ -32,6 +33,9 @@ export const lineSkeletonConfig = {
     variations: {
         size: {
             css: sizeCSS,
+        },
+        view: {
+            css: viewCSS,
         },
     },
     defaults: {},

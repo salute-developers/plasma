@@ -13,7 +13,7 @@ import type { ClosePlacementType } from '../../../components/Drawer';
 
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from './Drawer';
 
-export default {
+const meta: Meta<typeof Drawer> = {
     title: 'Overlay/Drawer',
     decorators: [WithTheme],
     argTypes: {
@@ -96,7 +96,9 @@ export default {
             },
         },
     },
-} as Meta;
+};
+
+export default meta;
 
 type StoryDrawerProps = ComponentProps<typeof Drawer> & {
     placement: string;
@@ -217,7 +219,7 @@ export const DrawerDemo: StoryObj<StoryDrawerProps> = {
         hasClose: true,
         asModal: true,
         closePlacement: 'right',
-        width: '25vw',
+        width: '50vw',
         height: '100dvh',
         borderRadius: 'none',
     },

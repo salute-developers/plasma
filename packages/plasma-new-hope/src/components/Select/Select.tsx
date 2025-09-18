@@ -73,6 +73,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             onToggle,
             chipType,
             multiselect,
+            mode = 'default',
             // @ts-ignore
             _offset,
 
@@ -108,9 +109,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         // Создаем структуры для быстрой работы с деревом
-        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap, labelToItemMap] = usePathMaps(
-            transformedItems,
-        );
+        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(transformedItems);
 
         const [internalValue, setInternalValue] = useState<string | number | Array<string | number>>(
             props.multiselect ? [] : '',
@@ -129,7 +128,9 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value.toString() || '';
         const closeAfterSelect = outerCloseAfterSelect ?? !props.multiselect;
         const treeId = safeUseId();
+        const listWrapperRef = useRef<HTMLDivElement>(null);
         const view = target === 'textfield-like' && (disabled || readOnly) ? 'default' : getView(status, outerView);
+        const rootRef = useRef<HTMLInputElement>(null);
 
         // Собираем объект с пропсами для required и прокидываем их напрямую в компонент Textfield.
         const requiredProps =
@@ -162,12 +163,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 return;
             }
 
-            dispatchPath({ type: 'reset' });
-            dispatchFocusedPath({ type: 'reset' });
-
-            if (onToggle) {
-                onToggle(false);
-            }
+            handleListToggle(false);
         }, floatingPopoverRef);
 
         const onChange = (
@@ -203,6 +199,12 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+
+                // Скроллим чипы к левому краю при закрытии компонента
+                const el = rootRef?.current?.querySelector('.input-scrollable-wrapper');
+                if (multiselect && value.length > 0 && el) {
+                    el.scrollLeft = 0;
+                }
             }
 
             if (onToggle) {
@@ -217,15 +219,28 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
 
             const checkedCopy = new Map(checked);
 
-            if (!checkedCopy.get(item.value)) {
-                checkedCopy.set(item.value, true);
-                updateDescendants(item, checkedCopy, true, valueToItemMap);
-            } else {
-                checkedCopy.set(item.value, false);
-                updateDescendants(item, checkedCopy, false);
+            switch (checkedCopy.get(item.value)) {
+                // Если чекбокс в состоянии indeterminate
+                case 'indeterminate': {
+                    updateDescendants(item, checkedCopy, true, valueToItemMap);
+                    break;
+                }
+                // Если чекбокс в состоянии checked
+                case true: {
+                    updateDescendants(item, checkedCopy, false, valueToItemMap);
+                    checkedCopy.set(item.value, false);
+                    break;
+                }
+                // Если чекбокс в состоянии unchecked
+                case false: {
+                    updateDescendants(item, checkedCopy, true, valueToItemMap);
+                    checkedCopy.set(item.value, true);
+                    break;
+                }
+                default: {
+                    break;
+                }
             }
-
-            updateAncestors(item, checkedCopy);
 
             const newValues: Array<string | number> = [];
 
@@ -273,6 +288,11 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             if (closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
+            }
+
+            // Закрываем список, если элемент уже выбран.
+            if (mode === 'radio' && isCurrentChecked) {
+                return;
             }
 
             if (onChange) {
@@ -371,6 +391,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 disabled={disabled}
                 readOnly={readOnly}
                 id={id}
+                ref={rootRef}
                 {...(rest as any)}
             >
                 {name && (
@@ -433,7 +454,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 activeDescendantItemValue={activeDescendantItemValue}
                                 isTargetAmount={isTargetAmount}
                                 onChange={onChange}
-                                labelToItemMap={labelToItemMap}
                                 chipView={chipView}
                                 separator={separator}
                                 requiredProps={requiredProps}
@@ -452,12 +472,11 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                             readOnly={readOnly}
                             {...(rest as any)}
                         >
-                            <ListWrapper listWidth={listWidth}>
+                            <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
                                 <Ul
                                     role="tree"
                                     id={`${treeId}_tree_level_1`}
                                     aria-multiselectable={Boolean(props.multiselect)}
-                                    listOverflow={listOverflow}
                                     listMaxHeight={listMaxHeight || listHeight}
                                     onScroll={virtual ? undefined : handleScroll}
                                     ref={targetRef}
@@ -486,6 +505,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                                 dispatchPath={dispatchPath}
                                                 index={index}
                                                 listWidth={listWidth}
+                                                portal={listWrapperRef}
                                             />
                                         ))
                                     )}

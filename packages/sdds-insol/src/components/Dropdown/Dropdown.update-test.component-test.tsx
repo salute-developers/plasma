@@ -219,6 +219,10 @@ const items = [
 ];
 
 describe('sdds-insol: Dropdown', () => {
+    beforeEach(() => {
+        cy.get('body').realMouseMove(0, 0);
+    });
+
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
 
@@ -263,9 +267,9 @@ describe('sdds-insol: Dropdown', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('button').trigger('mouseover');
-        cy.get('[id$="south_america"]').trigger('mouseover');
-        cy.get('[id$="argentina"]').trigger('mouseover');
+        cy.get('button').realHover();
+        cy.get('[id$="south_america"]').realHover();
+        cy.get('[id$="argentina"]').realHover();
 
         cy.matchImageSnapshot();
 

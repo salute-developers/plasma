@@ -236,11 +236,11 @@ export type TextFieldPropsBase = {
      */
     contentRight?: React.ReactElement;
     /**
-     * Слот для вспомогательного текста справа.
+     * Слот для вспомогательного текста слева.
      */
     textBefore?: string;
     /**
-     * Слот для вспомогательного текста слева.
+     * Слот для вспомогательного текста справа.
      */
     textAfter?: string;
     /**

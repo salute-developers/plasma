@@ -4,6 +4,8 @@ title: DatePicker
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # DatePicker
 <Description name="DatePicker" />
@@ -12,6 +14,7 @@ import { PropsTable, Description } from '@site/src/components';
 ## Использование
 Компонент `DatePicker` представляет собой поле ввода даты с выпадающим календарем.
 
+### Размер компонента
 Размер `DatePicker` задаётся с помощью свойства `size`.
 Возможные значения свойства: `"l"`, `"m"`, `"s"`, `"xs"`.
 
@@ -22,13 +25,14 @@ import { IconDone } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div style={{ height: "450px" }}>
+        <div>
             <DatePicker
                 label="Лейбл"
                 leftHelper="Подсказка к полю"
                 placeholder="Введите дату"
                 contentRight={<IconDone size="s" />}
                 size="l"
+                usePortal
             />
         </div>
     );
@@ -59,7 +63,7 @@ import { IconDone } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div style={{ height: "450px" }}>
+        <div>
             <DatePicker
                 label="Лейбл"
                 leftHelper="Подсказка к полю"
@@ -67,6 +71,7 @@ export function App() {
                 format="DD-MM-YYYY"
                 maskWithFormat
                 contentRight={<IconDone size="s" />}
+                usePortal
             />
         </div>
     );
@@ -90,15 +95,16 @@ import { IconDone } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div style={{ height: "450px" }}>
+        <div>
             <DatePicker
                 label="Лейбл"
                 leftHelper="Подсказка к полю"
+                contentRight={<IconDone size="s" />}
                 placeholder="Введите дату"
                 format="DD MMMM YYYY"
                 lang="en"
                 maskWithFormat
-                contentRight={<IconDone size="s" />}
+                usePortal
             />
         </div>
     );
@@ -133,7 +139,7 @@ export function App() {
     };
 
     return (
-        <div style={{ height: "450px" }}>
+        <div>
             <DatePicker
                 opened={isOpen}
                 label="Лейбл"
@@ -149,44 +155,7 @@ export function App() {
                     setSuccess(false);
                 }}
                 onCommitDate={handleCommitDate}
-            />
-        </div>
-    );
-}
-```
-
-## DatePickerRange
-<Description name="DatePickerRange" />
-<PropsTable name="DatePickerRange" exclude={['css']} />
-
-## Использование
-Компонент `DatePickerRange` представляет собой `Range` с выпадающим календарем.
-Календарь может быть одиночным или двойным. За это отвечает свойство `isDoubleCalendar`.
-
-```tsx live
-import React from 'react';
-import { DatePickerRange, IconButton } from '@salutejs/plasma-b2c';
-import { IconDone } from '@salutejs/plasma-icons';
-
-export function App() {
-    const ActionButton = () => {
-        return (
-            <IconButton view="clear" size="l">
-                <IconDone size="s" />
-            </IconButton>
-        );
-    };
-
-    return (
-        <div style={{ height: "500px" }}>
-            <DatePickerRange
-                size="l"
-                label="Лейбл"
-                leftHelper="Подсказка к полю"
-                firstPlaceholder="Введите дату 1"
-                secondPlaceholder="Введите дату 2"
-                contentRight={<ActionButton />}
-                isDoubleCalendar
+                usePortal
             />
         </div>
     );
@@ -194,8 +163,13 @@ export function App() {
 ```
 
 ### Обязательность поля
+
+:::tip
+Наличие индикатора регулируется свойством `hasRequiredIndicator`.
+:::
+
 Обязательность поля задаётся с помощью свойства `required`. 
-Если поле является обязательным, то у компонента появляется специальный индикатор. Наличие индикатора регулируется свойством `hasRequiredIndicator`.
+Если поле является обязательным, то у компонента появляется специальный индикатор. 
 Изменить расположение индикатора можно с помощью свойства `requiredPlacement`, которое принимает значения `left` и `right`. 
 
 ```tsx live
@@ -227,3 +201,168 @@ export function App() {
     );
 }
 ```
+
+## DatePickerRange
+<Description name="DatePickerRange" />
+<PropsTable name="DatePickerRange" exclude={['css']} />
+
+Компонент `DatePickerRange` представляет собой `Range` с выпадающим календарем.
+Календарь может быть одиночным или двойным. За это отвечает свойство `isDoubleCalendar`.
+
+```tsx live
+import React from 'react';
+import { DatePickerRange, IconButton } from '@salutejs/plasma-b2c';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const ActionButton = () => {
+        return (
+            <IconButton view="clear" size="l">
+                <IconDone size="s" />
+            </IconButton>
+        );
+    };
+
+    return (
+        <div>
+            <DatePickerRange
+                size="l"
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                firstPlaceholder="Введите дату 1"
+                secondPlaceholder="Введите дату 2"
+                contentRight={<ActionButton />}
+                isDoubleCalendar
+                usePortal
+            />
+        </div>
+    );
+}
+```
+
+## Контролируемый вариант компонента
+
+<Tabs>
+    <TabItem value="default" label="DatePicker" default>
+        Для передачи текущего значения необходимо использовать свойство `value`. 
+        Чтобы отслеживать изменения, полученные в поле ввода необходимо использовать `onChangeValue`.
+        Свойство `onCommitDate` вызывается, когда выбор даты сделан с помощью выпадающего календарая 
+        или же в поле ввода введена корректная дата.
+
+        ```tsx live
+        import React, {useState} from 'react';
+        import { DatePicker } from '@salutejs/plasma-b2c';
+        import { IconDone } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const [dateValue, setDate] = useState<Date | string | undefined>(new Date());
+            const [originalDateValue, setOriginalDate] = useState<Date | string | null | undefined>(new Date());
+            const [isoDateValue, setIsoDate] = useState<string | undefined>(new Date().toISOString());
+
+            const handleChangeValue = (
+                _: React.SyntheticEvent<HTMLInputElement> | null,
+                value?: string,
+                originalDate?: Date | string | null,
+                isoDate?: string,
+            ) => {
+                setDate(value);
+                setOriginalDate(originalDate);
+                setIsoDate(isoDate);
+            };
+
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem'}}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>
+                        <p>Значение date: {String(dateValue)}</p>
+                        <p>Значение originalDate: {String(originalDateValue)}</p>
+                        <p>Значение isoDate: {isoDateValue}</p>
+                    </div>
+
+                    <DatePicker
+                        value={dateValue}
+                        onChangeValue={handleChangeValue}
+                        onCommitDate={console.log}
+                        label="Контролируемый DatePicker"
+                        format="DD.MM.YYYY"
+                        lang="ru"
+                        contentRight={<IconDone size="s" />}
+                        placement="bottom"
+                        usePortal
+                        maskWithFormat
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="range" label="DatePickerRange">
+        Для передачи текущего значения необходимо использовать свойство `value` - принимает массив из двух значений. 
+        Чтобы отслеживать изменения, полученные в полях ввода необходимо использовать `onChangeFirstValue` и `onChangeSecondValue` соответственно.
+        Свойства `onCommitFirstDate` вызывается для первого значения, а `onCommitSecondDate` для второго, когда выбор даты сделан с помощью выпадающего календарая 
+        или же в соответствующем поле ввода введена корректная дата.
+
+        ```tsx live
+        import React, {useState} from 'react';
+        import { DatePickerRange } from '@salutejs/plasma-b2c';
+        import { IconDone } from '@salutejs/plasma-icons';
+
+        type DateType = Date | string | undefined | null
+
+        export function App() {
+            const [dateValue, setDate] = useState<[DateType, DateType]>([new Date(), null]);
+            const [originalDateValue, setOriginalDate] = useState<[DateType, DateType]>([new Date(), null]);
+            const [isoDateValue, setIsoDate] = useState<[string?, string?]>([new Date().toISOString(), '']);
+
+            const valueSetter = <T extends unknown, P extends React.Dispatch<React.SetStateAction<any>>>(
+                value: T,
+                sideOfDate: 'start' | 'end',
+                setter: P,
+            ) => {
+                setter((prevValue) => {
+                    if (sideOfDate === 'start') {
+                        return [value, prevValue[1]];
+                    }
+
+                    return [prevValue[0], value];
+                });
+            };
+
+            const handleChangeValue = (sideOfDate: 'start' | 'end') => (
+                _: React.SyntheticEvent<HTMLInputElement> | null,
+                value?: string,
+                originalDate?: Date | string | null,
+                isoDate?: string,
+            ) => {
+                valueSetter(value, sideOfDate, setDate);
+                valueSetter(originalDate, sideOfDate, setOriginalDate);
+                valueSetter(isoDate, sideOfDate, setIsoDate);
+            };
+
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                        <p>Значение date:<br/> {dateValue.map(String).join(' --- ')}</p>
+                        <p>Значение originalDate:<br/> {originalDateValue.map(String).join(' --- ')}</p>
+                        <p>Значение isoDate:<br/> {isoDateValue.join(' --- ')}</p>
+                    </div>
+
+                    <DatePickerRange
+                        value={dateValue}
+                        onChangeFirstValue={handleChangeValue('start')}
+                        onChangeSecondValue={handleChangeValue('end')}
+                        onCommitFirstDate={console.log}
+                        onCommitSecondDate={console.log}
+                        label="Контролируемый RangeDatePicker"
+                        format="DD.MM.YYYY"
+                        lang="ru"
+                        placement="bottom"
+                        isDoubleCalendar
+                        usePortal
+                        maskWithFormat
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>

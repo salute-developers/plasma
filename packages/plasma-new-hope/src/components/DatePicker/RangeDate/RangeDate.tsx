@@ -275,15 +275,6 @@ export const datePickerRangeRoot = (
                         : currentOpened;
 
                 if (!isCalendarOpen) {
-                    if (calendarFirstValue && !calendarSecondValue) {
-                        secondInputRef?.current?.focus();
-                    }
-                    if (calendarSecondValue && !calendarFirstValue) {
-                        firstInputRef?.current?.focus();
-                    }
-                }
-
-                if (!isCalendarOpen) {
                     setSecondTextFieldClicked(false);
                 }
 
@@ -329,57 +320,64 @@ export const datePickerRangeRoot = (
 
                 if (!calendarFirstValue && correctStartDates.calendar) {
                     startOriginalDate = new Date(correctStartDates.calendar);
-
-                    if (onChangeFirstValue) {
-                        onChangeFirstValue(
-                            event,
-                            correctStartDates.input,
-                            correctStartDates.calendar,
-                            correctStartDates.calendar.toISOString(),
-                        );
-                    }
-
-                    if (onCommitFirstDate) {
-                        const dateInfo = getFirstQuarterInfo(correctStartDates.calendar);
-
-                        onCommitFirstDate(
-                            correctStartDates.input,
-                            false,
-                            true,
-                            dateInfo,
-                            correctStartDates.calendar,
-                            correctStartDates.calendar.toISOString(),
-                        );
-                    }
                 }
 
                 if (!calendarSecondValue && correctEndDates.calendar) {
                     endOriginalDate = new Date(correctEndDates.calendar);
-
-                    if (onChangeSecondValue) {
-                        onChangeSecondValue(
-                            event,
-                            correctEndDates.input,
-                            correctEndDates.calendar,
-                            correctEndDates.calendar.toISOString(),
-                        );
-                    }
-
-                    if (onCommitSecondDate) {
-                        const dateInfo = getSecondQuarterInfo(correctEndDates.calendar);
-
-                        onCommitSecondDate(
-                            correctEndDates.input,
-                            false,
-                            true,
-                            dateInfo,
-                            correctEndDates.calendar,
-                            correctEndDates.calendar.toISOString(),
-                        );
-                    }
                 }
 
                 const [startValue, endValue] = getSortedValues([startOriginalDate, endOriginalDate]);
+
+                const {
+                    formattedDate: formattedFirstDate,
+                    originalDate: originalFirstDate,
+                    isoDate: isoFirstDate,
+                } = getFormattedDates({
+                    value: startValue,
+                    delimiter: dateFormatDelimiter,
+                    ...commonArgs,
+                });
+
+                const {
+                    formattedDate: formattedSecondDate,
+                    originalDate: originalSecondDate,
+                    isoDate: isoSecondDate,
+                } = getFormattedDates({
+                    value: endValue,
+                    delimiter: dateFormatDelimiter,
+                    ...commonArgs,
+                });
+
+                if (formattedFirstDate !== inputFirstValue) {
+                    if (onChangeFirstValue) {
+                        onChangeFirstValue(event, formattedFirstDate, originalFirstDate, isoFirstDate);
+                    }
+
+                    if (onCommitFirstDate) {
+                        const dateInfo = originalFirstDate ? getFirstQuarterInfo(originalFirstDate) : undefined;
+
+                        onCommitFirstDate(formattedFirstDate, false, true, dateInfo, originalFirstDate, isoFirstDate);
+                    }
+                }
+
+                if (formattedSecondDate !== inputSecondValue) {
+                    if (onChangeSecondValue) {
+                        onChangeSecondValue(event, formattedSecondDate, originalSecondDate, isoSecondDate);
+                    }
+
+                    if (onCommitSecondDate) {
+                        const dateInfo = originalSecondDate ? getSecondQuarterInfo(originalSecondDate) : undefined;
+
+                        onCommitSecondDate(
+                            formattedSecondDate,
+                            false,
+                            true,
+                            dateInfo,
+                            originalSecondDate,
+                            isoSecondDate,
+                        );
+                    }
+                }
 
                 setFirstInputValue(startValue);
                 setSecondInputValue(endValue);

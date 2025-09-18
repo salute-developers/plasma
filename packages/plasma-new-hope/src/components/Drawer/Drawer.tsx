@@ -1,6 +1,7 @@
 import React, { forwardRef, useMemo } from 'react';
+import cls from 'classnames';
 import { useForkRef } from '@salutejs/plasma-core';
-import { cx, getSizeValueFromProp, safeUseId } from 'src/utils';
+import { getSizeValueFromProp, safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines';
 
 import { usePopupContext } from '../Popup';
@@ -36,6 +37,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 opened,
                 initialFocusRef,
                 focusAfterRef,
+                animationInfo,
                 className,
                 customBackgroundColor,
                 customContentBackgroundColor,
@@ -100,7 +102,10 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 <StyledPopup
                     id={innerId}
                     ref={asModal ? innerRef : outerRef}
-                    className={cx(placementClass)}
+                    className={cls(placementClass, className, {
+                        [classes.enterCustomAnimation]: animationInfo?.enter,
+                        [classes.exitCustomAnimation]: animationInfo?.exit,
+                    })}
                     opened={innerIsOpen}
                     zIndex={zIndex}
                     placement={placement}
@@ -110,6 +115,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                     height={innerHeight}
                     offset={offset}
                     withAnimation
+                    drawerAnimationInfo={animationInfo}
                     overlay={
                         asModal && (
                             <Root view={view}>
@@ -128,6 +134,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                     {...rest}
                 >
                     <Root
+                        className={classes.panel}
                         view={view}
                         size={size}
                         style={{ width: innerWidth, height: innerHeight }}
@@ -138,7 +145,6 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                             height={innerHeight}
                             customBackgroundColor={customBackgroundColor}
                             customContentBackgroundColor={customContentBackgroundColor}
-                            className={className}
                         >
                             {children}
                         </StyledPanel>
