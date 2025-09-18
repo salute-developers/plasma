@@ -1,3 +1,125 @@
+## 1.329.0 (18 сентября 2025)
+
+## Функциональные изменения в компонентах
+
+### Drawer
+
+* исправлен баг, при котором `unmount` компонента не очищал свойство `overflow` у `body`;
+
+[PR](https://github.com/salute-developers/plasma/pull/2208)
+
+* добавлена возможность задавать кастомные анимации в компоненте
+
+[PR](https://github.com/salute-developers/plasma/pull/2222)
+
+### Autocomplete
+
+* добавлен дженерик для гибкой настройки `SuggestionItem`;
+
+[PR](https://github.com/salute-developers/plasma/pull/2211)
+
+### Dropdown
+
+* в коллбэк `onHover` добавлен вторым аргументом `item` наведенного элемента;
+
+[PR](https://github.com/salute-developers/plasma/pull/2212)
+
+### Select, Combobox
+
+* добавлено свойство `mode` со значениями `default` и `radio`;
+
+[PR](https://github.com/salute-developers/plasma/pull/2213)
+
+### Engine
+
+* добавлена проверка свойств на nullable значения. Например если значение для свойства типа `view` или `size` будет указано, как `undefined`, то применится значение по-умолчанию, взятое из конфигурации компонента.
+
+[PR](https://github.com/salute-developers/plasma/pull/2202)
+
+### CodeField
+
+* добавлена поддержка чтения OTP из смс
+
+* исправлен `controlled` вариант компонента
+
+[PR](https://github.com/salute-developers/plasma/pull/2210)
+
+### Combobox, Select
+
+* переработана логика работы с disabled-элементами. Теперь взаимодействие с ними изнутри компонента невозможно;
+
+[PR](https://github.com/salute-developers/plasma/pull/2220)
+
+* при закрытии выпадающего списка происходит скролл всех чипов в начало.
+
+[PR](https://github.com/salute-developers/plasma/pull/2231)
+
+### Combobox, Select, Dropdown
+
+* разработан функционал, позволяющий корректно позиционировать вложенные выпадающие списки в контейнерах со скроллом;
+
+[PR](https://github.com/salute-developers/plasma/pull/2205)
+
+### Range
+
+* добавлен размер `xl`
+
+[PR](https://github.com/salute-developers/plasma/pull/2227)
+
+### DatePicker
+
+* удален автофокус инпута при закрытии выпадающего календаря
+* исправлен вызов `callback` внутри `onBlur`
+
+[PR](https://github.com/salute-developers/plasma/pull/2216)
+
+### Popover
+
+* исправлена генерация `id` портала
+
+[PR](https://github.com/salute-developers/plasma/pull/2216)
+
+### Pagination
+
+* Добавлен пропс `helperText`
+
+[PR](https://github.com/salute-developers/plasma/pull/2163)
+
+### Switch
+
+* Добавлен новый параметр `singleLine`, который влияет на перенос строки текста `label`
+
+[PR](https://github.com/salute-developers/plasma/pull/2224)
+
+### Tree
+
+* добавлен DragAndDrop
+
+[PR](https://github.com/salute-developers/plasma/pull/2214)
+
+### Attach
+
+* добавлен обработчик `onClick`
+
+* добавлена возможность скрывать кнопку после прикрепления файла, с помощью `hideButtonOnAttach`
+
+[PR](https://github.com/salute-developers/plasma/pull/2228)
+
+### Avatar
+
+* Добавлен новый параметр `shape`
+
+* Обновлены тесты и документация
+
+[PR](https://github.com/salute-developers/plasma/pull/2209)
+
+### Skeleton
+
+* Добавлено новое значение для `view` - `lighter`
+
+[PR](https://github.com/salute-developers/plasma/pull/2238)
+
+
 ## 1.328.0 (4 сентября 2025)
 
 ## Функциональные изменения в компонентах
