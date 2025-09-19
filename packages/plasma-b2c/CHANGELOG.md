@@ -1,3 +1,57 @@
+## 1.592.1 (19 сентября 2025)
+
+## Функциональные изменения в компонентах
+
+### Avatar
+
+* Исправлен `type` для свойства `shape`
+
+### What/why changed
+
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+<details>
+  <summary>📦 Published PR as canary version: <code>Canary Versions</code></summary>
+  <br />
+
+:sparkles: Test out this PR locally via:
+
+```bash
+npm install @salutejs/plasma-asdk@0.350.1-canary.2246.17847852413.0
+npm install @salutejs/plasma-b2c@1.592.1-canary.2246.17847852413.0
+npm install @salutejs/plasma-giga@0.319.1-canary.2246.17847852413.0
+npm install @salutejs/plasma-new-hope@0.336.1-canary.2246.17847852413.0
+npm install @salutejs/plasma-web@1.594.1-canary.2246.17847852413.0
+npm install @salutejs/sdds-bizcom@0.324.1-canary.2246.17847852413.0
+npm install @salutejs/sdds-crm@0.323.1-canary.2246.17847852413.0
+npm install @salutejs/sdds-cs@0.328.1-canary.2246.17847852413.0
+npm install @salutejs/sdds-dfa@0.322.1-canary.2246.17847852413.0
+npm install @salutejs/sdds-finai@0.315.1-canary.2246.17847852413.0
+npm install @salutejs/sdds-insol@0.319.1-canary.2246.17847852413.0
+npm install @salutejs/sdds-netology@0.323.1-canary.2246.17847852413.0
+npm install @salutejs/sdds-scan@0.322.1-canary.2246.17847852413.0
+npm install @salutejs/sdds-serv@0.323.1-canary.2246.17847852413.0
+# or 
+yarn add @salutejs/plasma-asdk@0.350.1-canary.2246.17847852413.0
+yarn add @salutejs/plasma-b2c@1.592.1-canary.2246.17847852413.0
+yarn add @salutejs/plasma-giga@0.319.1-canary.2246.17847852413.0
+yarn add @salutejs/plasma-new-hope@0.336.1-canary.2246.17847852413.0
+yarn add @salutejs/plasma-web@1.594.1-canary.2246.17847852413.0
+yarn add @salutejs/sdds-bizcom@0.324.1-canary.2246.17847852413.0
+yarn add @salutejs/sdds-crm@0.323.1-canary.2246.17847852413.0
+yarn add @salutejs/sdds-cs@0.328.1-canary.2246.17847852413.0
+yarn add @salutejs/sdds-dfa@0.322.1-canary.2246.17847852413.0
+yarn add @salutejs/sdds-finai@0.315.1-canary.2246.17847852413.0
+yarn add @salutejs/sdds-insol@0.319.1-canary.2246.17847852413.0
+yarn add @salutejs/sdds-netology@0.323.1-canary.2246.17847852413.0
+yarn add @salutejs/sdds-scan@0.322.1-canary.2246.17847852413.0
+yarn add @salutejs/sdds-serv@0.323.1-canary.2246.17847852413.0
+```
+
+</details>
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+
 ## 1.592.0 (18 сентября 2025)
 
 ## Функциональные изменения в компонентах
