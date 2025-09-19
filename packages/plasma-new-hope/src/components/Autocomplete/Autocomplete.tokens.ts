@@ -100,6 +100,7 @@ export const tokens = {
     textFieldTextAfterMargin: '--plasma-autocomplete-textfield-after-text-margin',
 
     textFieldDisabledOpacity: '--plasma-autocomplete-textfield-disabled-opacity',
+    textFieldReadOnlyOpacity: '--plasma-autocomplete-textfield-readonly-opacity',
 
     /** Токены для tooltip */
     textFieldHintCustomIconTargetSize: '--plasma-autocomplete-textfield__hint-custom-icon-target-size',

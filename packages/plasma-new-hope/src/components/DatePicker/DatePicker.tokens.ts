@@ -94,6 +94,8 @@ export const tokens = {
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-date-picker-disabled-opacity',
 
+    rangeReadOnlyOpacity: '--plasma-date-picker-readonly-opacity',
+
     /** Цвет обводки поля ввода при фокусе */
     focusColor: '--plasma-date-picker-focus-color',
 
@@ -128,6 +130,7 @@ export const tokens = {
     textFieldBackgroundColorReadOnly: '--plasma-date-picker-textfield-background-color-readonly',
     textFieldBorderColorReadOnly: '--plasma-date-picker-textfield-border-color-readonly',
     textFieldPlaceholderColorReadOnly: '--plasma-date-picker-textfield-placeholder-color-readonly',
+    textFieldReadOnlyOpacity: '--plasma-date-picker-textfield-readonly-opacity',
 
     textFieldHeight: '--plasma-date-picker-textfield-height',
     textFieldBorderWidth: '--plasma-date-picker-textfield-border-width',
