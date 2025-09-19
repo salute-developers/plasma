@@ -29,6 +29,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.borderColorReadOnly}: var(${autocompleteTokens.textFieldBorderColorReadOnly});
     ${textFieldTokens.placeholderColorReadOnly}: var(${autocompleteTokens.textFieldPlaceholderColorReadOnly});
     ${textFieldTokens.dividerColorReadOnly}: var(${autocompleteTokens.textFieldDividerColorReadOnly});
+    ${textFieldTokens.readOnlyOpacity}: var(${autocompleteTokens.textFieldReadOnlyOpacity});
     ${textFieldTokens.caretColor}: var(${autocompleteTokens.textFieldCaretColor});
     ${textFieldTokens.height}: var(${autocompleteTokens.textFieldHeight});
     ${textFieldTokens.borderWidth}: var(${autocompleteTokens.textFieldBorderWidth});
