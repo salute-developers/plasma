@@ -658,6 +658,7 @@ export const config = {
         },
         readOnly: {
             true: css`
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-secondary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-primary);

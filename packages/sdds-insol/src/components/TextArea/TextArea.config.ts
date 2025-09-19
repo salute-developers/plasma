@@ -566,6 +566,7 @@ export const config = {
         readOnly: {
             true: css`
                 ${textAreaTokens.readOnlyOpacity}: 1;
+                ${textAreaTokens.contentSlotRightOpacityReadOnly}: 0.4;
                 ${textAreaTokens.backgroundColorReadOnly}: var(--surface-solid-secondary);
                 ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
 
