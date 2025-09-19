@@ -5,7 +5,7 @@ import { findTabbableDescendants } from './tabbable';
  * @param node
  * @param event
  */
-export const scopeTab = (node: HTMLElement, event: KeyboardEvent) => {
+export const scopeTab = (node: HTMLElement, event: KeyboardEvent, activeFocusTrap?: boolean) => {
     const tabbable = findTabbableDescendants(node);
     if (!tabbable.length) {
         event.preventDefault();
@@ -17,7 +17,7 @@ export const scopeTab = (node: HTMLElement, event: KeyboardEvent) => {
     const leavingFinalTabbable = finalTabbable === document.activeElement || node === document.activeElement;
 
     // если не является, то передаем обработку таба самому браузеру
-    if (!leavingFinalTabbable) {
+    if (!leavingFinalTabbable || !activeFocusTrap) {
         return;
     }
 

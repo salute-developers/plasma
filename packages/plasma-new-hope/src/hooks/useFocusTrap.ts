@@ -58,6 +58,7 @@ export const useFocusTrap = (
     firstFocusSelector?: string | React.RefObject<HTMLElement>,
     focusAfterNode?: React.RefObject<HTMLElement>,
     focusAfterAnimation?: boolean,
+    enableOnFirstMount?: boolean,
 ): ((instance: HTMLElement | null) => void) => {
     const ref = useRef<HTMLElement | null>();
 
@@ -68,7 +69,7 @@ export const useFocusTrap = (
                 focusManager.returnFocus();
             }
 
-            if (active && node) {
+            if ((active || enableOnFirstMount) && node) {
                 focusManager.setupScopedFocus(node);
                 focusManager.markForFocusAfter(focusAfterNode);
 
@@ -89,17 +90,23 @@ export const useFocusTrap = (
 
             ref.current = null;
         },
-        [active, firstFocusSelector],
+        [active, enableOnFirstMount, firstFocusSelector],
     );
 
     useEffect(() => {
-        if (!active) {
+        if (!active && !enableOnFirstMount) {
             return;
         }
 
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Tab' && ref.current) {
-                scopeTab(ref.current, event);
+                scopeTab(ref.current, event, active);
+
+                if (enableOnFirstMount) {
+                    setTimeout(() => {
+                        focusManager.teardownScopedFocus();
+                    });
+                }
             }
         };
 
@@ -107,7 +114,7 @@ export const useFocusTrap = (
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
         };
-    }, [active]);
+    }, [active, enableOnFirstMount]);
 
     return setRef;
 };
