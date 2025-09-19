@@ -794,7 +794,7 @@ export const config = {
             true: css`
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
-                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-tertiary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);

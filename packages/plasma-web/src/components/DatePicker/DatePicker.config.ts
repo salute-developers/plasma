@@ -602,8 +602,8 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.backgroundReadOnly}: var(--surface-clear);
-                ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
-                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-tertiary);
+                ${tokens.borderColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
