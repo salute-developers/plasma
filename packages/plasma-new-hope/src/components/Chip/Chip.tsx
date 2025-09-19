@@ -47,16 +47,19 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             }
 
             onClick?.(event);
-            onClear?.();
         };
 
         const handleClickClose = (event: MouseEvent<HTMLDivElement>) => {
-            if (disabled || readOnly || !onClickClose) {
+            if (disabled || (readOnly && !_forceChipManipulationWithReadonly) || !onClickClose) {
                 return;
             }
 
             event.stopPropagation();
             onClickClose(event);
+
+            if (onClear) {
+                onClear();
+            }
         };
 
         return (

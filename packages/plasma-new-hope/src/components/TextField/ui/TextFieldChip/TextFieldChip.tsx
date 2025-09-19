@@ -51,6 +51,7 @@ export const TextFieldChip = forwardRef<
                     readOnly={readOnly}
                     onClick={onClick}
                     onClear={onClearHandle}
+                    onClickClose={onClearHandle}
                     onKeyDown={onKeyDownHandle}
                     text={`${text}`}
                     view={view}
