@@ -4,11 +4,11 @@ export type NoteProps = {
     /**
      * Заголовок к Note.
      */
-    title?: string;
+    title?: ReactNode;
     /**
      * Текст к Note.
      */
-    text?: string;
+    text?: ReactNode;
     /**
      * Слот под иконку слева от контента.
      */
