@@ -284,7 +284,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${textAreaTokens.readOnlyOpacity}: 0.4;
+                ${textAreaTokens.readOnlyOpacity}: 0.1;
                 ${textAreaTokens.labelOuterColor}: var(--text-secondary);
                 ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
                 ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
