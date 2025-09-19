@@ -41,21 +41,38 @@ type ExtraCounterProps = {
 type ExtraProps = OneOf<ExtraBadgeProps, ExtraCounterProps>;
 
 type CustomAvatarProps = {
-    // Форма аватара
-    shape?: 'string';
-    // Размер аватара
+    /**
+     * Форма аватара. Возможные значения: 'circled', 'rounded'.
+     * @default circled
+     */
+    shape?: string;
+    /**
+     * Размер аватара
+     */
     size?: string;
-    // ФИО человека
+    /**
+     * ФИО человека
+     */
     name?: string;
-    // Ссылка на фотографию
+    /**
+     * Ссылка на фотографию
+     */
     url?: string;
-    // Кастомный текст вместо фотографии
+    /**
+     * Кастомный текст вместо фотографии
+     */
     customText?: string;
-    // Статус профиля
+    /**
+     * Статус профиля
+     */
     status?: 'active' | 'inactive';
-    // Масштабируемый при наведении
+    /**
+     * Масштабируемый при наведении
+     */
     isScalable?: boolean;
-    // Фокус
+    /**
+     * Фокус
+     */
     focused?: boolean;
     /**
      * Словарь для озвучивания значений свойства status [a11y]
