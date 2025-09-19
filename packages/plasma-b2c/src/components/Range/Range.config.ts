@@ -318,7 +318,7 @@ export const config = {
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
-                ${tokens.readOnlyOpacity}: 0.4;
+                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.dividerOpacityReadOnly}: 0.4;
                 ${tokens.rightContentOpacityReadOnly}: 0.4;
 

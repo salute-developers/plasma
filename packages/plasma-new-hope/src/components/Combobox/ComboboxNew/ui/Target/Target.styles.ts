@@ -23,6 +23,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.backgroundColorReadOnly}: var(${comboboxTokens.textFieldBackgroundColorReadOnly});
     ${textFieldTokens.borderColorReadOnly}: var(${comboboxTokens.textFieldBorderColorReadOnly});
     ${textFieldTokens.placeholderColorReadOnly}: var(${comboboxTokens.textFieldPlaceholderColorReadOnly});
+    ${textFieldTokens.readOnlyOpacity}: var(${comboboxTokens.textFieldReadOnlyOpacity});
 
     ${textFieldTokens.caretColor}: var(${comboboxTokens.textFieldCaretColor});
     ${textFieldTokens.placeholderColor}: var(${comboboxTokens.textFieldPlaceholderColor});

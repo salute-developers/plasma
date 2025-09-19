@@ -167,6 +167,7 @@ export const tokens = {
     textFieldTextAfterMargin: '--plasma-combobox-new-textfield-after-text-margin',
 
     textFieldDisabledOpacity: '--plasma-combobox-new-textfield-disabled-opacity',
+    textFieldReadOnlyOpacity: '--plasma-combobox-new-textfield-readonly-opacity',
 
     /** Токены для tooltip */
     textFieldHintCustomIconTargetSize: '--plasma-combobox-textfield__hint-custom-icon-target-size',

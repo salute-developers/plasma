@@ -34,6 +34,7 @@ export const StyledInput = styled(TextField)`
 
     ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
+    ${textFieldTokens.readOnlyOpacity}: var(${tokens.textFieldReadOnlyOpacity});
     ${textFieldTokens.borderColorReadOnly}: var(${tokens.textFieldBorderColorReadOnly});
     ${textFieldTokens.placeholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
 

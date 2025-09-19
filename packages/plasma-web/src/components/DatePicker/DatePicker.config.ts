@@ -602,8 +602,8 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.backgroundReadOnly}: var(--surface-clear);
-                ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
-                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-tertiary);
+                ${tokens.borderColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
@@ -616,6 +616,8 @@ export const config = {
 
                 ${tokens.rightContentOpacityReadOnly}: 0.4;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.textFieldReadOnlyOpacity}: 0.1;
+                ${tokens.rangeReadOnlyOpacity}: 0.1;
             `,
         },
     },

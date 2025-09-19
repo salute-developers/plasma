@@ -604,6 +604,8 @@ export const config = {
 
                 ${tokens.rightContentOpacityReadOnly}: 0.4;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.textFieldReadOnlyOpacity}: 0.1;
+                ${tokens.rangeReadOnlyOpacity}: 0.1;
             `,
         },
     },

@@ -19,6 +19,7 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.background}: var(${tokens.background});
     ${rangeTokens.backgroundError}: var(${tokens.backgroundError});
     ${rangeTokens.backgroundSuccess}: var(${tokens.backgroundSuccess});
+    ${rangeTokens.readOnlyOpacity}: var(${tokens.rangeReadOnlyOpacity});
     
     ${rangeTokens.borderColor}: var(${tokens.borderColor});
     ${rangeTokens.borderColorError}: var(${tokens.borderColorError});
