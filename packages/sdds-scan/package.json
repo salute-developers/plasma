@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-scan",
-  "version": "0.322.0",
+  "version": "0.322.1",
   "description": "Salute Design System / React UI kit for SDDS SCAN web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -30,7 +30,7 @@
     "directory": "packages/sdds-scan"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.336.0",
+    "@salutejs/plasma-new-hope": "0.336.1",
     "@salutejs/sdds-themes": "0.47.0"
   },
   "peerDependencies": {
