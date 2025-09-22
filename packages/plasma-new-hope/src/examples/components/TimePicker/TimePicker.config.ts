@@ -44,6 +44,9 @@ export const config = {
                 ${tokens.timePickerBackground}: var(--surface-solid-card);
                 ${tokens.itemHoverBackground}: var(--surface-transparent-secondary);
                 ${tokens.itemActiveBackground}: var(--surface-transparent-secondary);
+
+                ${tokens.scrollbarColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarTrackColor}: var(--surface-transparent-primary);
             `,
         },
         size: {
@@ -103,6 +106,8 @@ export const config = {
                 ${tokens.itemHeight}: 3.5rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
                 ${tokens.itemPadding}: 0rem;
+
+                ${tokens.scrollbarWidth}: 0.125rem;
             `,
             m: css`
                 ${tokens.width}: 20rem;
@@ -160,6 +165,8 @@ export const config = {
                 ${tokens.itemHeight}: 3rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
                 ${tokens.itemPadding}: 0rem;
+
+                ${tokens.scrollbarWidth}: 0.125rem;
             `,
             s: css`
                 ${tokens.width}: 20rem;
@@ -217,6 +224,8 @@ export const config = {
                 ${tokens.itemHeight}: 2.5rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemPadding}: 0rem;
+
+                ${tokens.scrollbarWidth}: 0.125rem;
             `,
             xs: css`
                 ${tokens.width}: 20rem;
@@ -274,6 +283,8 @@ export const config = {
                 ${tokens.itemHeight}: 2rem;
                 ${tokens.itemBorderRadius}: 0.375rem;
                 ${tokens.itemPadding}: 0rem;
+
+                ${tokens.scrollbarWidth}: 0.125rem;
             `,
         },
         disabled: {

@@ -132,4 +132,8 @@ export const tokens = {
     itemFontWeight: '--plasma-time-picker-item-font-weight',
     itemLetterSpacing: '--plasma-time-picker-item-letter-spacing',
     itemLineHeight: '--plasma-time-picker-item-line-height',
+
+    scrollbarWidth: '--plasma-time-picker-scrollbar-width',
+    scrollbarColor: '--plasma-time-picker-scrollbar-color',
+    scrollbarTrackColor: '--plasma-time-picker-scrollbar-track-color',
 };
