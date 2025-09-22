@@ -4,10 +4,16 @@ import { tokens } from './Tooltip.tokens';
 import { TooltipProps } from './Tooltip.types';
 
 export const TooltipRoot = styled.div<Pick<TooltipProps, 'minWidth' | 'maxWidth'>>`
+    display: flex;
+    align-items: center;
+
     padding: var(${tokens.paddingTop}) var(${tokens.paddingRight}) var(${tokens.paddingBottom})
         var(${tokens.paddingLeft});
+
     min-height: var(${tokens.minHeight});
-    box-sizing: border-box;
+    max-width: ${({ maxWidth }) => maxWidth || 'unset'};
+    min-width: ${({ minWidth }) => minWidth || 'unset'};
+    width: max-content;
 
     background-color: var(${tokens.backgroundColor});
     border-radius: var(${tokens.borderRadius});
@@ -21,15 +27,8 @@ export const TooltipRoot = styled.div<Pick<TooltipProps, 'minWidth' | 'maxWidth'
     letter-spacing: var(${tokens.textFontLetterSpacing});
     line-height: var(${tokens.textFontLineHeight});
 
-    max-width: ${({ maxWidth }) => maxWidth || 'unset'};
-    min-width: ${({ minWidth }) => minWidth || 'unset'};
-    width: max-content;
+    box-sizing: border-box;
     word-break: break-word;
-
-    pointer-events: none;
-
-    display: flex;
-    align-items: center;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
