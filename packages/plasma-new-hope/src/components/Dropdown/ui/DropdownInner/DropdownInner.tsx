@@ -59,6 +59,8 @@ const DropdownInner: FC<DropdownInnerProps> = ({
             >
                 <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
                     <Ul id={listId} role="group" listMaxHeight={item.listMaxHeight}>
+                        {item.beforeList}
+
                         {item.items.map((innerItem, innerIndex) => (
                             <DropdownInner
                                 key={`${innerIndex}/${currentLevel}`}
