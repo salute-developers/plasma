@@ -155,6 +155,7 @@ export const StyledTimeItem = styled.div`
     transition: 0.05s;
     border-radius: var(${tokens.itemBorderRadius});
     cursor: pointer;
+    flex-shrink: 0;
 
     font-family: var(${tokens.itemFontFamily});
     font-size: var(${tokens.itemFontSize});
@@ -176,8 +177,12 @@ export const StyledTimeColumn = styled.div<{ height?: string | number }>`
     overflow-y: scroll;
     flex: 1;
     z-index: 3;
-    padding: 0.063rem;
+    padding: calc(var(${tokens.scrollbarWidth}) / 2);
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: var(${tokens.scrollbarWidth});
+    width: 100%;
 
     &.${classes.timeColumnActive} {
         border: 0.125rem solid var(${tokens.itemHoverBackground});
@@ -185,35 +190,17 @@ export const StyledTimeColumn = styled.div<{ height?: string | number }>`
     }
 
     &::-webkit-scrollbar {
-        width: 0.125rem;
-        height: 0.125rem;
+        width: var(${tokens.scrollbarWidth});
+        height: var(${tokens.scrollbarWidth});
     }
 
     &::-webkit-scrollbar-track {
-        background: var(--surface-transparent-primary);
-        border-radius: 0.125rem;
+        background: var(${tokens.scrollbarTrackColor});
+        border-radius: var(${tokens.scrollbarWidth});
     }
 
     &::-webkit-scrollbar-thumb {
-        background: var(--surface-transparent-tertiary);
-        border-radius: 0.125rem;
-    }
-`;
-
-export const StyledTimeItemEmpty = styled.div`
-    height: calc(var(${tokens.columnHeight}) - var(${tokens.itemHeight}));
-`;
-
-export const StyledSelectedTime = styled.div`
-    height: var(${tokens.itemHeight});
-    border-radius: var(${tokens.itemBorderRadius});
-    position: absolute;
-    top: var(${tokens.timePickerPadding});
-    left: var(${tokens.timePickerPadding});
-    right: var(${tokens.timePickerPadding});
-    z-index: 2;
-
-    &.${classes.timePickerActive} {
-        background: var(${tokens.itemActiveBackground});
+        background: var(${tokens.scrollbarColor});
+        border-radius: var(${tokens.scrollbarWidth});
     }
 `;

@@ -84,6 +84,7 @@ export const timePickerRoot = (
                 currentColumn: null,
             });
             const [itemHeight, setItemHeight] = useState(0);
+            const [gap, setGap] = useState(0);
 
             const viewValue = outerValue ?? innerTime;
 
@@ -123,14 +124,20 @@ export const timePickerRoot = (
                         setItemHeight(firstItem.offsetHeight);
                     }
                 }
+                if (isInnerOpen && hoursColumnRef.current) {
+                    const computedStyle = getComputedStyle(hoursColumnRef.current);
+                    const gapValue = parseFloat(computedStyle.gap || '0');
+                    setGap(gapValue);
+                }
             }, [isInnerOpen]);
 
             useEffect(() => {
                 if (!isInnerOpen || itemHeight === 0) return;
 
                 const scrollToActiveItem = (columnRef: React.RefObject<HTMLDivElement>, index: number | null) => {
-                    if (columnRef.current) {
-                        animateScrollTo(columnRef.current, (index ?? 0) * itemHeight);
+                    if (columnRef.current && index !== null) {
+                        const scrollPosition = index * (itemHeight + gap);
+                        animateScrollTo(columnRef.current, scrollPosition);
                     }
                 };
 
@@ -425,7 +432,6 @@ export const timePickerRoot = (
                             ref={(el) => {
                                 timeItemRefs.current[`${column}-${value}`] = el;
                             }}
-                            // tabIndex={activeTime[column] === index ? 0 : -1}
                             className={cls({
                                 [classes.timeItemActive]: activeTime[column] === index,
                             })}
@@ -435,7 +441,6 @@ export const timePickerRoot = (
                             {value}
                         </StyledTimeItem>
                     ))}
-                    {/* <StyledTimeItemEmpty /> */}
                 </StyledTimeColumn>
             );
 
@@ -476,12 +481,6 @@ export const timePickerRoot = (
                             stretched={stretched}
                         >
                             <StyledTimePicker width={dropdownWidth}>
-                                {/* <StyledSelectedTime
-                                    className={cls({
-                                        [classes.timePickerActive]:
-                                            activeTime.hours || activeTime.minutes || activeTime.seconds,
-                                    })}
-                                /> */}
                                 {renderTimeColumn(hours, 'hours', hoursColumnRef)}
                                 {renderTimeColumn(minutes, 'minutes', minutesColumnRef)}
                                 {columnsQuantity === 3 && renderTimeColumn(seconds, 'seconds', secondsColumnRef)}
