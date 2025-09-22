@@ -2,7 +2,6 @@ import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { disableProps, getConfigVariations, IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { read } from 'fs';
 
 import { TimePicker } from './TimePicker';
 import { config } from './TimePicker.config';
