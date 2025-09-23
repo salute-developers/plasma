@@ -5,6 +5,7 @@ export const classes = {
     treeItemHasSelectedChildren: 'tree-item-has-selected-children',
     treeRadioMode: 'tree-radio-mode',
     treeLeafNode: 'tree-leaf-node',
+    treeTightVariant: 'tree-tight-variant',
 };
 
 export const treeTokens = {
@@ -37,6 +38,7 @@ export const treeTokens = {
     checkboxMargin: '--plasma-tree-checkbox-margin',
     checkboxBorderColor: '--plasma-tree-checkbox-border-color',
     checkboxBackgroundColor: '--plasma-tree-checkbox-background-color',
+    itemBackgroundExtraOffset: '--plasma-tree-item-background-extra-offset',
     itemBackgroundColorSelected: '--plasma-tree-item-background-color-selected',
     itemBackgroundColorPrimary: '--plasma-tree-item-background-color-primary',
     itemBackgroundColorHover: '--plasma-tree-item-background-color-hover',

@@ -10,6 +10,7 @@ import { Tree } from './Tree';
 type StoryTreeProps = ComponentProps<typeof Tree>;
 
 const size = ['xs', 's', 'm', 'l'];
+const variant = ['normal', 'tight'];
 const arrowPlacements = ['left', 'right'];
 const mode = ['default', 'radio'];
 
@@ -21,6 +22,10 @@ const meta: Meta<StoryTreeProps> = {
         size: {
             control: 'select',
             options: size,
+        },
+        variant: {
+            control: 'select',
+            options: variant,
         },
         checkable: {
             control: 'boolean',
@@ -53,6 +58,7 @@ const meta: Meta<StoryTreeProps> = {
     },
     args: {
         size: 'm',
+        variant: 'normal',
         fullWidthItemSelection: false,
         checkable: false,
         multiple: false,
