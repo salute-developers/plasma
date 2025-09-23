@@ -218,6 +218,28 @@ const items = [
     },
 ];
 
+const itemsWithBeforeList = [
+    {
+        value: 'south_america',
+        label: 'Южная Америка',
+        beforeList: 'Content before list',
+        items: [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+            },
+            {
+                value: 'argentina',
+                label: 'Аргентина',
+            },
+            {
+                value: 'colombia',
+                label: 'Колумбия',
+            },
+        ],
+    },
+];
+
 describe('sdds-insol: Dropdown', () => {
     beforeEach(() => {
         cy.get('body').realMouseMove(0, 0);
@@ -334,6 +356,25 @@ describe('sdds-insol: Dropdown', () => {
         cy.get('button').click();
         cy.get('[id$="south_america"]').click();
         cy.get('[id$="argentina"]').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: beforeList in items', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecorator>
+                <div style={{ width: '300px' }}>
+                    <Dropdown items={itemsWithBeforeList}>
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+        cy.get('[id$="south_america"]').click();
 
         cy.matchImageSnapshot();
     });
