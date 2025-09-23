@@ -225,6 +225,28 @@ const items = [
     },
 ];
 
+const itemsWithBeforeList = [
+    {
+        value: 'south_america',
+        label: 'Южная Америка',
+        beforeList: 'Content before list',
+        items: [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+            },
+            {
+                value: 'argentina',
+                label: 'Аргентина',
+            },
+            {
+                value: 'colombia',
+                label: 'Колумбия',
+            },
+        ],
+    },
+];
+
 const itemsWithPlacement = [
     {
         value: 'europe',
@@ -666,6 +688,25 @@ describe('plasma-web: Dropdown', () => {
         cy.get('button').realClick();
 
         cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
+    });
+
+    it('prop: beforeList in items', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Dropdown items={itemsWithBeforeList}>
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('[id$="south_america"]').click();
+
+        cy.matchImageSnapshot();
     });
 
     it('prop: beforeList', () => {
