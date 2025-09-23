@@ -177,7 +177,7 @@ export const StyledTimeColumn = styled.div<{ height?: string | number }>`
     overflow-y: scroll;
     flex: 1;
     z-index: 3;
-    padding: calc(var(${tokens.scrollbarWidth}) / 2);
+    margin: calc(var(${tokens.scrollbarWidth}) / 2);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -197,6 +197,8 @@ export const StyledTimeColumn = styled.div<{ height?: string | number }>`
     &::-webkit-scrollbar-track {
         background: var(${tokens.scrollbarTrackColor});
         border-radius: var(${tokens.scrollbarWidth});
+        margin-top: var(${tokens.scrollbarMargin});
+        margin-bottom: var(${tokens.scrollbarMargin});
     }
 
     &::-webkit-scrollbar-thumb {
