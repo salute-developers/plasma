@@ -196,6 +196,11 @@ export interface TreeProps
      */
     renderTitle?: (item: TreeItem) => ReactNode;
     /**
+     * Заголовок элемента в одну строку или с переносом строк.
+     * @default true
+     */
+    singleLine?: boolean;
+    /**
      * Режим работы взаимодействия с элементами.
      * - default: элемент можно выбрать и можно отменить его выбор.
      * - radio: если элемент выбран, то отменить его выбор нельзя. Только для single-режима.
@@ -255,4 +260,9 @@ export interface TreeProps
      * Вид дерева.
      */
     view?: string;
+    /**
+     * Вариант: обычный или сжатый
+     * @default normal
+     */
+    variant?: 'normal' | 'tight';
 }
