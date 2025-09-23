@@ -92,7 +92,7 @@ export const config = {
                 ${tokens.timePickerWidth}: 15rem;
                 ${tokens.timePickerPadding}: 0.125rem;
 
-                ${tokens.columnHeight}: 35.25rem;
+                ${tokens.columnHeight}: 36.25rem;
 
                 ${tokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
@@ -106,6 +106,7 @@ export const config = {
                 ${tokens.itemPadding}: 0rem;
 
                 ${tokens.scrollbarWidth}: 0.125rem;
+                ${tokens.scrollbarMargin}: 0.5rem;
             `,
             m: css`
                 ${tokens.width}: 20rem;
@@ -151,7 +152,7 @@ export const config = {
                 ${tokens.timePickerWidth}: 13.75rem;
                 ${tokens.timePickerPadding}: 0.125rem;
 
-                ${tokens.columnHeight}: 30.125rem;
+                ${tokens.columnHeight}: 31.25rem;
 
                 ${tokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
@@ -165,6 +166,7 @@ export const config = {
                 ${tokens.itemPadding}: 0rem;
 
                 ${tokens.scrollbarWidth}: 0.125rem;
+                ${tokens.scrollbarMargin}: 0.375rem;
             `,
             s: css`
                 ${tokens.width}: 20rem;
@@ -210,7 +212,7 @@ export const config = {
                 ${tokens.timePickerWidth}: 12rem;
                 ${tokens.timePickerPadding}: 0.125rem;
 
-                ${tokens.columnHeight}: 25.125rem;
+                ${tokens.columnHeight}: 26.25rem;
 
                 ${tokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
@@ -224,6 +226,7 @@ export const config = {
                 ${tokens.itemPadding}: 0rem;
 
                 ${tokens.scrollbarWidth}: 0.125rem;
+                ${tokens.scrollbarMargin}: 0.25rem;
             `,
             xs: css`
                 ${tokens.width}: 20rem;
@@ -269,7 +272,7 @@ export const config = {
                 ${tokens.timePickerWidth}: 10rem;
                 ${tokens.timePickerPadding}: 0.125rem;
 
-                ${tokens.columnHeight}: 30rem;
+                ${tokens.columnHeight}: 21.25rem;
 
                 ${tokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -283,6 +286,7 @@ export const config = {
                 ${tokens.itemPadding}: 0rem;
 
                 ${tokens.scrollbarWidth}: 0.125rem;
+                ${tokens.scrollbarMargin}: 0.25rem;
             `,
         },
         disabled: {

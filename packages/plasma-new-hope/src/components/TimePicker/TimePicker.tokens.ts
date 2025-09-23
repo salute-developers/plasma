@@ -136,4 +136,5 @@ export const tokens = {
     scrollbarWidth: '--plasma-time-picker-scrollbar-width',
     scrollbarColor: '--plasma-time-picker-scrollbar-color',
     scrollbarTrackColor: '--plasma-time-picker-scrollbar-track-color',
+    scrollbarMargin: '--plasma-time-picker-scrollbar-margin',
 };
