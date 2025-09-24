@@ -8,6 +8,9 @@ export const classes = {
     timePickerFullWidth: 'plasma-time-picker-full-width',
     timePickerActive: 'plasma-time-picker-active',
     timeColumnActive: 'plasma-time-picker-column-active',
+    timeColumn: 'plasma-time-picker-column',
+    timeColumnScrolling: 'plasma-time-picker-column-scrolling',
+    scrollbarVisible: 'plasma-time-picker-scrollbar-visible',
 };
 
 export const tokens = {

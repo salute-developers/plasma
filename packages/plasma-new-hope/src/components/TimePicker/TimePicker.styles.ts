@@ -141,6 +141,7 @@ export const StyledTimePicker = styled.div<{ width?: string | number }>`
     display: flex;
     padding: var(${tokens.timePickerPadding});
     flex: 1 1 1;
+    gap: var(${tokens.scrollbarWidth});
     box-sizing: border-box;
     position: relative;
 `;
@@ -156,6 +157,7 @@ export const StyledTimeItem = styled.div`
     border-radius: var(${tokens.itemBorderRadius});
     cursor: pointer;
     flex-shrink: 0;
+    overflow: auto;
 
     font-family: var(${tokens.itemFontFamily});
     font-size: var(${tokens.itemFontSize});
@@ -177,7 +179,6 @@ export const StyledTimeColumn = styled.div<{ height?: string | number }>`
     overflow-y: scroll;
     flex: 1;
     z-index: 3;
-    margin: calc(var(${tokens.scrollbarWidth}) / 2);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -189,20 +190,61 @@ export const StyledTimeColumn = styled.div<{ height?: string | number }>`
         border-radius: var(${tokens.itemBorderRadius});
     }
 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
     &::-webkit-scrollbar {
-        width: var(${tokens.scrollbarWidth});
-        height: var(${tokens.scrollbarWidth});
+        display: none;
+        width: 0;
     }
+`;
 
-    &::-webkit-scrollbar-track {
-        background: var(${tokens.scrollbarTrackColor});
-        border-radius: var(${tokens.scrollbarWidth});
-        margin-top: var(${tokens.scrollbarMargin});
-        margin-bottom: var(${tokens.scrollbarMargin});
+export const CustomScrollbar = styled.div`
+    position: absolute;
+    top: var(${tokens.scrollbarMargin});
+    right: 0;
+    bottom: var(${tokens.scrollbarMargin});
+    width: var(${tokens.scrollbarWidth});
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+
+    &.${classes.scrollbarVisible} {
+        opacity: 1;
+        pointer-events: auto;
     }
+`;
 
-    &::-webkit-scrollbar-thumb {
+export const ScrollbarTrack = styled.div`
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(${tokens.scrollbarTrackColor});
+    border-radius: var(${tokens.scrollbarWidth});
+`;
+
+export const ScrollbarThumb = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(${tokens.scrollbarColor});
+    border-radius: var(${tokens.scrollbarWidth});
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
         background: var(${tokens.scrollbarColor});
-        border-radius: var(${tokens.scrollbarWidth});
     }
+
+    &:active {
+        background: var(${tokens.scrollbarTrackColor});
+    }
+`;
+
+export const StyledEmpty = styled.div`
+    width: 100%;
+    height: 0%.125rem;
 `;

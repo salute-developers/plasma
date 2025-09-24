@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useState, useEffect } from 'react';
+import React, { forwardRef, useRef, useState, useEffect, useCallback } from 'react';
 import cls from 'classnames';
 import type { ChangeEvent, MouseEvent, KeyboardEvent } from 'react';
 import type { RootProps } from 'src/engines';
@@ -13,6 +13,10 @@ import {
     StyledTimeColumn,
     StyledTimeItem,
     StyledTimePicker,
+    CustomScrollbar,
+    ScrollbarTrack,
+    ScrollbarThumb,
+    StyledEmpty,
 } from './TimePicker.styles';
 import { classes } from './TimePicker.tokens';
 import { base as sizeCSS } from './variations/_size/base';
@@ -26,6 +30,13 @@ interface ActiveTime {
     minutes: number | null;
     seconds: number | null;
     currentColumn: 'hours' | 'minutes' | 'seconds' | null;
+}
+
+interface ScrollbarState {
+    isVisible: boolean;
+    thumbHeight: number;
+    thumbPosition: number;
+    isDragging: boolean;
 }
 
 export const timePickerRoot = (
@@ -75,6 +86,18 @@ export const timePickerRoot = (
             const minutesColumnRef = useRef<HTMLDivElement>(null);
             const secondsColumnRef = useRef<HTMLDivElement>(null);
             const timeItemRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+            const hoursScrollbarRef = useRef<HTMLDivElement>(null);
+            const minutesScrollbarRef = useRef<HTMLDivElement>(null);
+            const secondsScrollbarRef = useRef<HTMLDivElement>(null);
+            const hoursThumbRef = useRef<HTMLDivElement>(null);
+            const minutesThumbRef = useRef<HTMLDivElement>(null);
+            const secondsThumbRef = useRef<HTMLDivElement>(null);
+
+            const hoursHideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+            const minutesHideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+            const secondsHideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
             const [innerTime, setInnerTime] = useState(outerValue || '');
             const [activeTime, setActiveTime] = useState<ActiveTime>({
@@ -86,12 +109,181 @@ export const timePickerRoot = (
             const [itemHeight, setItemHeight] = useState(0);
             const [gap, setGap] = useState(0);
 
+            const [hoursScrollbar, setHoursScrollbar] = useState<ScrollbarState>({
+                isVisible: false,
+                thumbHeight: 0,
+                thumbPosition: 0,
+                isDragging: false,
+            });
+            const [minutesScrollbar, setMinutesScrollbar] = useState<ScrollbarState>({
+                isVisible: false,
+                thumbHeight: 0,
+                thumbPosition: 0,
+                isDragging: false,
+            });
+            const [secondsScrollbar, setSecondsScrollbar] = useState<ScrollbarState>({
+                isVisible: false,
+                thumbHeight: 0,
+                thumbPosition: 0,
+                isDragging: false,
+            });
+
             const viewValue = outerValue ?? innerTime;
 
             const format = columnsQuantity === 3 ? 'HH:mm:ss' : 'HH:mm';
             const hours = range(24);
             const minutes = range(60);
             const seconds = range(60);
+
+            const calculateScrollbar = useCallback((columnRef: React.RefObject<HTMLDivElement>) => {
+                if (!columnRef.current) return { thumbHeight: 0, thumbPosition: 0 };
+
+                const { scrollTop, scrollHeight, clientHeight } = columnRef.current;
+                const trackHeight = clientHeight;
+                const thumbHeight = Math.max((trackHeight / scrollHeight) * trackHeight, 20); // Минимальная высота 20px
+                const maxScroll = scrollHeight - clientHeight;
+                const thumbPosition = maxScroll > 0 ? (scrollTop / maxScroll) * (trackHeight - thumbHeight) : 0;
+
+                return { thumbHeight, thumbPosition };
+            }, []);
+
+            const showScrollbarWithDelay = useCallback(
+                (
+                    setScrollbar: React.Dispatch<React.SetStateAction<ScrollbarState>>,
+                    timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>,
+                    columnRef: React.RefObject<HTMLDivElement>,
+                ) => {
+                    if (timeoutRef.current) {
+                        clearTimeout(timeoutRef.current);
+                    }
+
+                    updateScrollbar(columnRef, setScrollbar, true);
+
+                    timeoutRef.current = (setTimeout(() => {
+                        setScrollbar((prev) => ({ ...prev, isVisible: false }));
+                        timeoutRef.current = null;
+                    }, 2000) as unknown) as NodeJS.Timeout;
+                },
+                [],
+            );
+
+            const updateScrollbar = useCallback(
+                (
+                    columnRef: React.RefObject<HTMLDivElement>,
+                    setScrollbar: React.Dispatch<React.SetStateAction<ScrollbarState>>,
+                    show = false,
+                ) => {
+                    if (!columnRef.current) return;
+
+                    const { thumbHeight, thumbPosition } = calculateScrollbar(columnRef);
+                    setScrollbar((prev) => ({
+                        ...prev,
+                        thumbHeight,
+                        thumbPosition,
+                        isVisible: show || prev.isVisible,
+                    }));
+                },
+                [calculateScrollbar],
+            );
+
+            const handleColumnScroll = useCallback(
+                (
+                    columnRef: React.RefObject<HTMLDivElement>,
+                    setScrollbar: React.Dispatch<React.SetStateAction<ScrollbarState>>,
+                    timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>,
+                ) => {
+                    showScrollbarWithDelay(setScrollbar, timeoutRef, columnRef);
+                },
+                [showScrollbarWithDelay],
+            );
+
+            const createScrollbarDragHandler = useCallback(
+                (
+                    columnRef: React.RefObject<HTMLDivElement>,
+                    setScrollbar: React.Dispatch<React.SetStateAction<ScrollbarState>>,
+                    timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>,
+                ) => (e: React.MouseEvent<HTMLDivElement>) => {
+                    e.preventDefault();
+
+                    const thumb = e.currentTarget as HTMLDivElement;
+                    const track = thumb.parentElement as HTMLDivElement;
+                    if (!columnRef.current || !track) return;
+
+                    if (timeoutRef.current) {
+                        clearTimeout(timeoutRef.current);
+                        timeoutRef.current = null;
+                    }
+
+                    const startY = e.clientY;
+                    const startThumbPosition = parseFloat(thumb.style.top || '0');
+                    const trackRect = track.getBoundingClientRect();
+                    const trackHeight = trackRect.height;
+                    const thumbHeight = thumb.offsetHeight;
+
+                    const { scrollHeight, clientHeight } = columnRef.current;
+                    const maxScroll = scrollHeight - clientHeight;
+
+                    const handleMouseMove = (moveEvent: MouseEvent) => {
+                        const deltaY = moveEvent.clientY - startY;
+                        const newThumbPosition = Math.max(
+                            0,
+                            Math.min(trackHeight - thumbHeight, startThumbPosition + deltaY),
+                        );
+
+                        const scrollPercentage = newThumbPosition / (trackHeight - thumbHeight);
+                        const newScrollTop = scrollPercentage * maxScroll;
+
+                        if (columnRef.current) {
+                            columnRef.current.scrollTop = newScrollTop;
+                        }
+
+                        setScrollbar((prev) => ({
+                            ...prev,
+                            thumbPosition: newThumbPosition,
+                            isDragging: true,
+                            isVisible: true,
+                        }));
+                    };
+
+                    const handleMouseUp = () => {
+                        document.removeEventListener('mousemove', handleMouseMove as any);
+                        document.removeEventListener('mouseup', handleMouseUp);
+
+                        setScrollbar((prev) => ({
+                            ...prev,
+                            isDragging: false,
+                        }));
+
+                        showScrollbarWithDelay(setScrollbar, timeoutRef, columnRef);
+                    };
+
+                    document.addEventListener('mousemove', handleMouseMove as any);
+                    document.addEventListener('mouseup', handleMouseUp);
+                },
+                [showScrollbarWithDelay],
+            );
+
+            useEffect(() => {
+                return () => {
+                    [hoursHideTimeoutRef, minutesHideTimeoutRef, secondsHideTimeoutRef].forEach((timeoutRef) => {
+                        if (timeoutRef.current) {
+                            clearTimeout(timeoutRef.current);
+                        }
+                    });
+                };
+            }, []);
+
+            useEffect(() => {
+                if (isInnerOpen) {
+                    setTimeout(() => {
+                        updateScrollbar(hoursColumnRef, setHoursScrollbar);
+                        updateScrollbar(minutesColumnRef, setMinutesScrollbar);
+                        if (columnsQuantity === 3) {
+                            updateScrollbar(secondsColumnRef, setSecondsScrollbar);
+                        }
+                    }, 100);
+                }
+            }, [isInnerOpen, columnsQuantity, updateScrollbar]);
 
             useEffect(() => {
                 if (viewValue) {
@@ -138,13 +330,92 @@ export const timePickerRoot = (
                     if (columnRef.current && index !== null) {
                         const scrollPosition = index * (itemHeight + gap);
                         animateScrollTo(columnRef.current, scrollPosition);
+                        setTimeout(() => {
+                            if (columnRef === hoursColumnRef) {
+                                updateScrollbar(hoursColumnRef, setHoursScrollbar);
+                            } else if (columnRef === minutesColumnRef) {
+                                updateScrollbar(minutesColumnRef, setMinutesScrollbar);
+                            } else if (columnRef === secondsColumnRef) {
+                                updateScrollbar(secondsColumnRef, setSecondsScrollbar);
+                            }
+                        }, 300);
                     }
                 };
 
                 scrollToActiveItem(hoursColumnRef, activeTime.hours);
                 scrollToActiveItem(minutesColumnRef, activeTime.minutes);
                 scrollToActiveItem(secondsColumnRef, activeTime.seconds);
-            }, [activeTime, isInnerOpen, itemHeight]);
+            }, [activeTime, isInnerOpen, itemHeight, gap, updateScrollbar]);
+
+            useEffect(() => {
+                const hoursColumn = hoursColumnRef.current;
+                const minutesColumn = minutesColumnRef.current;
+                const secondsColumn = secondsColumnRef.current;
+
+                const handleHoursScroll = () =>
+                    handleColumnScroll(hoursColumnRef, setHoursScrollbar, hoursHideTimeoutRef);
+                const handleMinutesScroll = () =>
+                    handleColumnScroll(minutesColumnRef, setMinutesScrollbar, minutesHideTimeoutRef);
+                const handleSecondsScroll = () =>
+                    handleColumnScroll(secondsColumnRef, setSecondsScrollbar, secondsHideTimeoutRef);
+
+                if (hoursColumn) {
+                    hoursColumn.addEventListener('scroll', handleHoursScroll);
+                }
+                if (minutesColumn) {
+                    minutesColumn.addEventListener('scroll', handleMinutesScroll);
+                }
+                if (secondsColumn) {
+                    secondsColumn.addEventListener('scroll', handleSecondsScroll);
+                }
+
+                return () => {
+                    if (hoursColumn) {
+                        hoursColumn.removeEventListener('scroll', handleHoursScroll);
+                    }
+                    if (minutesColumn) {
+                        minutesColumn.removeEventListener('scroll', handleMinutesScroll);
+                    }
+                    if (secondsColumn) {
+                        secondsColumn.removeEventListener('scroll', handleSecondsScroll);
+                    }
+                };
+            }, [isInnerOpen, handleColumnScroll]);
+
+            useEffect(() => {
+                const hoursColumn = hoursColumnRef.current;
+                const minutesColumn = minutesColumnRef.current;
+                const secondsColumn = secondsColumnRef.current;
+
+                const handleHoursMouseEnter = () =>
+                    showScrollbarWithDelay(setHoursScrollbar, hoursHideTimeoutRef, hoursColumnRef);
+                const handleMinutesMouseEnter = () =>
+                    showScrollbarWithDelay(setMinutesScrollbar, minutesHideTimeoutRef, minutesColumnRef);
+                const handleSecondsMouseEnter = () =>
+                    showScrollbarWithDelay(setSecondsScrollbar, secondsHideTimeoutRef, secondsColumnRef);
+
+                if (hoursColumn) {
+                    hoursColumn.addEventListener('mouseenter', handleHoursMouseEnter);
+                }
+                if (minutesColumn) {
+                    minutesColumn.addEventListener('mouseenter', handleMinutesMouseEnter);
+                }
+                if (secondsColumn) {
+                    secondsColumn.addEventListener('mouseenter', handleSecondsMouseEnter);
+                }
+
+                return () => {
+                    if (hoursColumn) {
+                        hoursColumn.removeEventListener('mouseenter', handleHoursMouseEnter);
+                    }
+                    if (minutesColumn) {
+                        minutesColumn.removeEventListener('mouseenter', handleMinutesMouseEnter);
+                    }
+                    if (secondsColumn) {
+                        secondsColumn.removeEventListener('mouseenter', handleSecondsMouseEnter);
+                    }
+                };
+            }, [isInnerOpen, showScrollbarWithDelay]);
 
             const handleToggle = () => {
                 if (disabled || readonly) return;
@@ -424,24 +695,55 @@ export const timePickerRoot = (
                 values: string[],
                 column: 'hours' | 'minutes' | 'seconds',
                 columnRef: React.RefObject<HTMLDivElement>,
+                scrollbarState: ScrollbarState,
+                setScrollbar: React.Dispatch<React.SetStateAction<ScrollbarState>>,
+                scrollbarRef: React.RefObject<HTMLDivElement>,
+                thumbRef: React.RefObject<HTMLDivElement>,
+                timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>,
             ) => (
-                <StyledTimeColumn key={column} ref={columnRef} height={dropdownHeight}>
-                    {values.map((value, index) => (
-                        <StyledTimeItem
-                            key={value}
-                            ref={(el) => {
-                                timeItemRefs.current[`${column}-${value}`] = el;
-                            }}
-                            className={cls({
-                                [classes.timeItemActive]: activeTime[column] === index,
-                            })}
-                            onClick={() => handleTimeItemClick(value, column)}
-                            onKeyDown={(e) => handleTimeItemKeyDown(e, column, value)}
-                        >
-                            {value}
-                        </StyledTimeItem>
-                    ))}
-                </StyledTimeColumn>
+                <div style={{ position: 'relative', width: '100%' }}>
+                    <StyledTimeColumn
+                        key={column}
+                        ref={columnRef}
+                        height={dropdownHeight}
+                        className={classes.timeColumn}
+                    >
+                        {values.map((value, index) => (
+                            <StyledTimeItem
+                                key={value}
+                                ref={(el) => {
+                                    timeItemRefs.current[`${column}-${value}`] = el;
+                                }}
+                                className={cls({
+                                    [classes.timeItemActive]: activeTime[column] === index,
+                                })}
+                                onClick={() => handleTimeItemClick(value, column)}
+                                onKeyDown={(e) => handleTimeItemKeyDown(e, column, value)}
+                            >
+                                {value}
+                            </StyledTimeItem>
+                        ))}
+                        <StyledEmpty />
+                    </StyledTimeColumn>
+
+                    <CustomScrollbar
+                        ref={scrollbarRef}
+                        className={cls({
+                            [classes.scrollbarVisible]: scrollbarState.isVisible,
+                        })}
+                    >
+                        <ScrollbarTrack>
+                            <ScrollbarThumb
+                                ref={thumbRef}
+                                style={{
+                                    height: `${scrollbarState.thumbHeight}px`,
+                                    top: `${scrollbarState.thumbPosition}px`,
+                                }}
+                                onMouseDown={createScrollbarDragHandler(columnRef, setScrollbar, timeoutRef)}
+                            />
+                        </ScrollbarTrack>
+                    </CustomScrollbar>
+                </div>
             );
 
             return (
@@ -481,9 +783,37 @@ export const timePickerRoot = (
                             stretched={stretched}
                         >
                             <StyledTimePicker width={dropdownWidth}>
-                                {renderTimeColumn(hours, 'hours', hoursColumnRef)}
-                                {renderTimeColumn(minutes, 'minutes', minutesColumnRef)}
-                                {columnsQuantity === 3 && renderTimeColumn(seconds, 'seconds', secondsColumnRef)}
+                                {renderTimeColumn(
+                                    hours,
+                                    'hours',
+                                    hoursColumnRef,
+                                    hoursScrollbar,
+                                    setHoursScrollbar,
+                                    hoursScrollbarRef,
+                                    hoursThumbRef,
+                                    hoursHideTimeoutRef,
+                                )}
+                                {renderTimeColumn(
+                                    minutes,
+                                    'minutes',
+                                    minutesColumnRef,
+                                    minutesScrollbar,
+                                    setMinutesScrollbar,
+                                    minutesScrollbarRef,
+                                    minutesThumbRef,
+                                    minutesHideTimeoutRef,
+                                )}
+                                {columnsQuantity === 3 &&
+                                    renderTimeColumn(
+                                        seconds,
+                                        'seconds',
+                                        secondsColumnRef,
+                                        secondsScrollbar,
+                                        setSecondsScrollbar,
+                                        secondsScrollbarRef,
+                                        secondsThumbRef,
+                                        secondsHideTimeoutRef,
+                                    )}
                             </StyledTimePicker>
                         </Root>
                     </StyledPopover>
