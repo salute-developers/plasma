@@ -29,4 +29,8 @@ generate([
         name: 'plasma_web_ACTUAL_TYPOGRAPHY',
         version: 'latest',
     },
+    {
+        name: 'plasma_infra',
+        version: 'latest',
+    },
 ]);
