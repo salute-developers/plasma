@@ -72,6 +72,7 @@ export * from './components/Carousel';
 export * from './components/Tour';
 export * from './components/EmbedIconButton';
 export * from './components/InformationWrapper';
+export * from './components/TimePicker';
 
 export * from './mixins';
 export * from './tokens';

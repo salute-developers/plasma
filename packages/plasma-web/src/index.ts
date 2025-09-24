@@ -88,3 +88,4 @@ export * from './components/EmbedIconButton';
 export * from './components/ViewContainer';
 export * from './components/InformationWrapper';
 export * from './components/NavigationDrawer';
+export * from './components/TimePicker';
