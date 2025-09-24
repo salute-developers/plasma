@@ -377,7 +377,7 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;

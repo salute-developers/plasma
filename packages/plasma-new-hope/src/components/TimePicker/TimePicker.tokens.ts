@@ -11,6 +11,7 @@ export const classes = {
     timeColumn: 'plasma-time-picker-column',
     timeColumnScrolling: 'plasma-time-picker-column-scrolling',
     scrollbarVisible: 'plasma-time-picker-scrollbar-visible',
+    timePickerPlacementRight: 'plasma-time-picker-placement-right',
 };
 
 export const tokens = {
@@ -86,6 +87,7 @@ export const tokens = {
     textFieldBorderColorSuccess: '--plasma-time-picker-textfield-border-color-success',
     textFieldBorderColorSuccessHover: '--plasma-time-picker-textfield-border-color-success-hover',
     textFieldBorderColorSuccessFocus: '--plasma-time-picker-textfield-border-color-success-focus',
+    textFieldBoxShadow: '--plasma-time-picker-textfield-box-shadow',
 
     textFieldColorReadOnly: '--plasma-time-picker-textfield-color-readonly',
     textFieldBackgroundColorReadOnly: '--plasma-time-picker-textfield-background-color-readonly',
@@ -115,6 +117,8 @@ export const tokens = {
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-time-picker-disabled-opacity',
+
+    dropdownMarginTop: '--plasma-time-picker-dropdown-margin-top',
 
     timePickerBackground: '--plasma-time-picker-ui-background',
     timePickerBorderRadius: '--plasma-time-picker-ui-border-radius',

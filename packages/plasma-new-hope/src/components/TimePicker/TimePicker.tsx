@@ -780,6 +780,7 @@ export const timePickerRoot = (
                             disabled={disabled}
                             readonly={readonly}
                             onClick={handleCalendarRootClick}
+                            className={dropdownAlign === 'right' ? classes.timePickerPlacementRight : ''}
                             stretched={stretched}
                         >
                             <StyledTimePicker width={dropdownWidth}>
