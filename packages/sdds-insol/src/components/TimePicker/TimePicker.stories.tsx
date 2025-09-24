@@ -62,6 +62,10 @@ type StoryPropsDefault = ComponentProps<typeof TimePicker> & {
     enableContentRight: boolean;
 };
 
+const IconPlaceholderWithBackground = ({ size }: { size: 'xs' | 's' }) => (
+    <IconPlaceholder size={size} style={{ background: 'var(--text-secondary)' }} />
+);
+
 const StoryDefault = ({ enableContentLeft, enableContentRight, size, dropdownWidth, ...rest }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -71,8 +75,8 @@ const StoryDefault = ({ enableContentLeft, enableContentRight, size, dropdownWid
         <TimePicker
             opened={isOpen}
             size={size}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
             onToggle={(is) => {
                 setIsOpen(is);
                 onToggle(is);

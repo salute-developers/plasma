@@ -13,7 +13,7 @@ const TextField = component(mergedTextFieldConfig);
 const mergedPopoverConfig = mergeConfig(popoverConfig);
 const Popover = component(mergedPopoverConfig);
 
-export const StyledPopover = styled(Popover)<{ align?: 'left' | 'right'; width?: string | number }>``;
+export const StyledPopover = styled(Popover)``;
 
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`
@@ -32,6 +32,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.borderColor}: var(${tokens.borderColor});
     ${textFieldTokens.borderColorHover}: var(${tokens.borderColorHover});
     ${textFieldTokens.borderColorFocus}: var(${tokens.borderColorFocus});
+    ${textFieldTokens.boxShadow}: var(${tokens.textFieldBoxShadow});
 
     ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
@@ -113,8 +114,9 @@ export const StyledInput = styled(TextField)`
 `;
 
 export const base = css`
-    display: inline-block;
+    display: flex;
     width: var(${tokens.width});
+    margin-top: var(${tokens.dropdownMarginTop});
 
     .${popoverClasses.wrapper}, .${popoverClasses.target} {
         width: inherit;
@@ -130,6 +132,10 @@ export const base = css`
 
     &.${classes.timePickerFullWidth} {
         width: 100%;
+    }
+
+    &.${classes.timePickerPlacementRight} {
+        justify-content: flex-end;
     }
 `;
 
