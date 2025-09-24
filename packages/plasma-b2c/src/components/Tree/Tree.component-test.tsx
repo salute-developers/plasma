@@ -290,6 +290,20 @@ describe('plasma-b2c: Tree', () => {
         cy.matchImageSnapshot();
     });
 
+    it('flow: thin block, multi-line title', () => {
+        cy.viewport(200, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '300px' }}>
+                    <Tree items={treeData} singleLine={false} defaultExpandAll />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('flow: virtual', () => {
         cy.viewport(500, 500);
 
