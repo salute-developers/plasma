@@ -31,8 +31,9 @@ export const config = {
         size: {
             l: css`
                 ${tokens.itemHeight}: 3.5rem;
+                ${tokens.itemBackgroundExtraOffset}: 1rem;
                 ${tokens.itemPadding}: 1rem;
-                ${tokens.itemPaddingTight}: 0.375rem;
+                ${tokens.itemPaddingTight}: 0.75rem 1rem;
                 ${tokens.itemIndent}: 2rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
                 ${tokens.itemTop}: 0.25rem;
@@ -55,15 +56,16 @@ export const config = {
             `,
             m: css`
                 ${tokens.itemHeight}: 3rem;
-                ${tokens.itemPadding}: 0.875rem;
-                ${tokens.itemPaddingTight}: 0.375rem;
+                ${tokens.itemBackgroundExtraOffset}: 0.875rem;
+                ${tokens.itemPadding}: 0.75rem 0.875rem;
+                ${tokens.itemPaddingTight}: 0.5rem 0.875rem;
                 ${tokens.itemIndent}: 2rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
                 ${tokens.itemTop}: 0.25rem;
                 ${tokens.itemBottom}: 0.25rem;
                 ${tokens.iconFolderMargin}: 0 0.5rem 0 0;
-                ${tokens.switcherMarginInverted}: 0 0 0 0.5rem;
                 ${tokens.switcherMargin}: 0 0.5rem 0 0;
+                ${tokens.switcherMarginInverted}: 0 0 0 0.5rem;
                 ${tokens.switcherSize}: 1.5rem;
                 ${tokens.checkboxMargin}: 0 0.5rem 0 0;
                 ${tokens.checkboxSize}: 1.5rem;
@@ -79,8 +81,9 @@ export const config = {
             `,
             s: css`
                 ${tokens.itemHeight}: 2.5rem;
-                ${tokens.itemPadding}: 0.75rem;
-                ${tokens.itemPaddingTight}: 0.25rem;
+                ${tokens.itemBackgroundExtraOffset}: 0.75rem;
+                ${tokens.itemPadding}: 0.5rem 0.75rem;
+                ${tokens.itemPaddingTight}: 0.4375rem 0.5rem;
                 ${tokens.itemIndent}: 1.875rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemTop}: 0.25rem;
@@ -103,8 +106,9 @@ export const config = {
             `,
             xs: css`
                 ${tokens.itemHeight}: 2rem;
+                ${tokens.itemBackgroundExtraOffset}: 0.5rem;
                 ${tokens.itemPadding}: 0.5rem;
-                ${tokens.itemPaddingTight}: 0.125rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
                 ${tokens.itemIndent}: 1.25rem;
                 ${tokens.itemBorderRadius}: 0.375rem;
                 ${tokens.itemTop}: 0.25rem;

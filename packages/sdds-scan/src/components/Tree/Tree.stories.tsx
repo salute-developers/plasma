@@ -11,6 +11,7 @@ type StoryTreeProps = ComponentProps<typeof Tree>;
 const size = ['xs', 's', 'm', 'l'];
 const arrowPlacements = ['left', 'right'];
 const mode = ['default', 'radio'];
+const variant = ['normal', 'tight'];
 
 const meta: Meta<StoryTreeProps> = {
     title: 'Data Entry/Tree',
@@ -20,6 +21,10 @@ const meta: Meta<StoryTreeProps> = {
         size: {
             control: 'select',
             options: size,
+        },
+        variant: {
+            control: 'select',
+            options: variant,
         },
         checkable: {
             control: 'boolean',
@@ -52,6 +57,7 @@ const meta: Meta<StoryTreeProps> = {
     },
     args: {
         size: 'm',
+        variant: 'normal',
         fullWidthItemSelection: false,
         checkable: false,
         multiple: false,

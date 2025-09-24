@@ -30,8 +30,9 @@ export const config = {
         size: {
             s: css`
                 ${tokens.itemHeight}: 2.5rem;
-                ${tokens.itemPadding}: 0.75rem;
-                ${tokens.itemPaddingTight}: 0.25rem;
+                ${tokens.itemBackgroundExtraOffset}: 0.75rem;
+                ${tokens.itemPadding}: 0.5rem 0.75rem;
+                ${tokens.itemPaddingTight}: 0.4375rem 0.5rem;
                 ${tokens.itemIndent}: 1.875rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemTop}: 0rem;

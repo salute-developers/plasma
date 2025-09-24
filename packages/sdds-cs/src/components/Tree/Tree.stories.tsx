@@ -1,14 +1,13 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconBlankTxtOutline, IconLock, IconTrash } from '@salutejs/plasma-icons';
 
 import { Tree } from './Tree';
 
 type StoryTreeProps = ComponentProps<typeof Tree>;
 
-const size = ['s'];
 const arrowPlacements = ['left', 'right'];
 const mode = ['default', 'radio'];
 
@@ -17,10 +16,6 @@ const meta: Meta<StoryTreeProps> = {
     decorators: [InSpacingDecorator],
     component: Tree,
     argTypes: {
-        size: {
-            control: 'select',
-            options: size,
-        },
         checkable: {
             control: 'boolean',
         },
@@ -49,9 +44,11 @@ const meta: Meta<StoryTreeProps> = {
             control: 'select',
             options: mode,
         },
+        ...disableProps(['size', 'variant']),
     },
     args: {
         size: 's',
+        variant: 'normal',
         fullWidthItemSelection: false,
         checkable: false,
         multiple: false,
