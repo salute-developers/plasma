@@ -4,26 +4,16 @@ import type { ChangeEvent, MouseEvent, KeyboardEvent } from 'react';
 import type { RootProps } from 'src/engines';
 import { getPlacements } from 'src/utils';
 
-import { range, processTimeInput, animateScrollTo } from './utils';
+import { range, processTimeInput, animateScrollTo, delimiter } from './utils';
 import { TimePickerProps } from './TimePicker.types';
-import {
-    base,
-    StyledInput,
-    StyledPopover,
-    StyledTimeColumn,
-    StyledTimeItem,
-    StyledTimePicker,
-    CustomScrollbar,
-    ScrollbarTrack,
-    ScrollbarThumb,
-    StyledEmpty,
-} from './TimePicker.styles';
+import { base, StyledInput, StyledPopover, StyledTimePicker } from './TimePicker.styles';
 import { classes } from './TimePicker.tokens';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readonlyCSS } from './variations/_readonly/base';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
+import { renderTimeColumn } from './ui/TimeColumn/TimeColumn';
 
 interface ActiveTime {
     hours: number | null;
@@ -135,12 +125,14 @@ export const timePickerRoot = (
             const minutes = range(60);
             const seconds = range(60);
 
+            const minScrollbarTrackHeight = 20;
+
             const calculateScrollbar = useCallback((columnRef: React.RefObject<HTMLDivElement>) => {
                 if (!columnRef.current) return { thumbHeight: 0, thumbPosition: 0 };
 
                 const { scrollTop, scrollHeight, clientHeight } = columnRef.current;
                 const trackHeight = clientHeight;
-                const thumbHeight = Math.max((trackHeight / scrollHeight) * trackHeight, 20); // Минимальная высота 20px
+                const thumbHeight = Math.max((trackHeight / scrollHeight) * trackHeight, minScrollbarTrackHeight);
                 const maxScroll = scrollHeight - clientHeight;
                 const thumbPosition = maxScroll > 0 ? (scrollTop / maxScroll) * (trackHeight - thumbHeight) : 0;
 
@@ -274,32 +266,36 @@ export const timePickerRoot = (
             }, []);
 
             useEffect(() => {
-                if (isInnerOpen) {
-                    setTimeout(() => {
-                        updateScrollbar(hoursColumnRef, setHoursScrollbar);
-                        updateScrollbar(minutesColumnRef, setMinutesScrollbar);
-                        if (columnsQuantity === 3) {
-                            updateScrollbar(secondsColumnRef, setSecondsScrollbar);
-                        }
-                    }, 100);
+                if (!isInnerOpen) {
+                    return;
                 }
+
+                setTimeout(() => {
+                    updateScrollbar(hoursColumnRef, setHoursScrollbar);
+                    updateScrollbar(minutesColumnRef, setMinutesScrollbar);
+                    if (columnsQuantity === 3) {
+                        updateScrollbar(secondsColumnRef, setSecondsScrollbar);
+                    }
+                }, 100);
             }, [isInnerOpen, columnsQuantity, updateScrollbar]);
 
             useEffect(() => {
-                if (viewValue) {
-                    let timeString = viewValue;
-                    if (format === 'HH:mm' && viewValue.length > 5) {
-                        timeString = viewValue.substring(0, 5);
-                    }
-                    setInnerTime(viewValue);
-                    const [hh, mm, ss] = timeString.split(':').map(Number);
-                    setActiveTime({
-                        hours: !Number.isNaN(hh) ? hh : null,
-                        minutes: !Number.isNaN(mm) ? mm : null,
-                        seconds: format === 'HH:mm:ss' && !Number.isNaN(ss) ? ss : null,
-                        currentColumn: null,
-                    });
+                if (!viewValue) {
+                    return;
                 }
+
+                let timeString = viewValue;
+                if (format === 'HH:mm' && viewValue.length > 5) {
+                    timeString = viewValue.substring(0, 5);
+                }
+                setInnerTime(viewValue);
+                const [hh, mm, ss] = timeString.split(delimiter).map(Number);
+                setActiveTime({
+                    hours: !Number.isNaN(hh) ? hh : null,
+                    minutes: !Number.isNaN(mm) ? mm : null,
+                    seconds: format === 'HH:mm:ss' && !Number.isNaN(ss) ? ss : null,
+                    currentColumn: null,
+                });
             }, [outerValue, format]);
 
             useEffect(() => {
@@ -331,13 +327,7 @@ export const timePickerRoot = (
                         const scrollPosition = index * (itemHeight + gap);
                         animateScrollTo(columnRef.current, scrollPosition);
                         setTimeout(() => {
-                            if (columnRef === hoursColumnRef) {
-                                updateScrollbar(hoursColumnRef, setHoursScrollbar);
-                            } else if (columnRef === minutesColumnRef) {
-                                updateScrollbar(minutesColumnRef, setMinutesScrollbar);
-                            } else if (columnRef === secondsColumnRef) {
-                                updateScrollbar(secondsColumnRef, setSecondsScrollbar);
-                            }
+                            updateScrollbar(columnRef, setHoursScrollbar);
                         }, 300);
                     }
                 };
@@ -445,7 +435,7 @@ export const timePickerRoot = (
                 column: 'hours' | 'minutes' | 'seconds',
                 isNextColumn = true,
             ) => {
-                const currentTime = innerTime.split(':');
+                const currentTime = innerTime.split(delimiter);
                 let newTime = [];
                 if (format === 'HH:mm:ss') {
                     newTime = [...currentTime];
@@ -467,10 +457,8 @@ export const timePickerRoot = (
                         if (!currentTime[1]) {
                             newTime[1] = '00';
                         }
-                        if (format === 'HH:mm:ss') {
-                            if (!currentTime[2]) {
-                                newTime[2] = '00';
-                            }
+                        if (format === 'HH:mm:ss' && !currentTime[2]) {
+                            newTime[2] = '00';
                         }
                         break;
                     case 'minutes':
@@ -480,10 +468,8 @@ export const timePickerRoot = (
                             newTime[0] = '00';
                         }
 
-                        if (format === 'HH:mm:ss') {
-                            if (!currentTime[2]) {
-                                newTime[2] = '00';
-                            }
+                        if (format === 'HH:mm:ss' && !currentTime[2]) {
+                            newTime[2] = '00';
                         }
                         break;
                     case 'seconds':
@@ -502,7 +488,7 @@ export const timePickerRoot = (
                         break;
                 }
 
-                const newTimeString = newTime.join(':');
+                const newTimeString = newTime.join(delimiter);
                 setInnerTime(newTimeString);
 
                 let nextColumn: 'hours' | 'minutes' | 'seconds' | null = null;
@@ -546,14 +532,16 @@ export const timePickerRoot = (
                     seconds: values.ss,
                 }));
 
-                onChange?.(({
-                    ...event,
-                    target: {
-                        ...event.target,
-                        value: innerString,
-                        timeValues: values,
-                    },
-                } as unknown) as ChangeEvent<HTMLInputElement>);
+                if (onChange) {
+                    onChange(({
+                        ...event,
+                        target: {
+                            ...event.target,
+                            value: innerString,
+                            timeValues: values,
+                        },
+                    } as unknown) as ChangeEvent<HTMLInputElement>);
+                }
 
                 requestAnimationFrame(() => {
                     if (inputRef.current) {
@@ -571,10 +559,14 @@ export const timePickerRoot = (
                     return;
                 }
 
-                if (!isInnerOpen) return;
+                if (!isInnerOpen) {
+                    return;
+                }
 
                 const { currentColumn } = activeTime;
-                if (!currentColumn) return;
+                if (!currentColumn) {
+                    return;
+                }
 
                 let newIndex: number | null = null;
                 let newColumn = currentColumn;
@@ -627,8 +619,11 @@ export const timePickerRoot = (
                         }
                         break;
                     case 'ArrowLeft':
-                        if (currentColumn === 'minutes') newColumn = 'hours';
-                        else if (currentColumn === 'seconds') newColumn = 'minutes';
+                        if (currentColumn === 'minutes') {
+                            newColumn = 'hours';
+                        } else if (currentColumn === 'seconds') {
+                            newColumn = 'minutes';
+                        }
                         newIndex = activeTime[newColumn] ?? 0;
                         setActiveTime({
                             ...activeTime,
@@ -655,11 +650,16 @@ export const timePickerRoot = (
                 }
             };
 
+            const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+                onKeyDownNavigation(e);
+                handleKeyDown(e);
+            };
+
             const { onKeyDown: onKeyDownNavigation } = useKeyNavigation({
                 isCalendarOpen: isInnerOpen,
                 format,
                 maskWithFormat: true,
-                delimiter: ':',
+                delimiter,
                 closeOnEsc,
                 onToggle: handleToggle,
             });
@@ -678,10 +678,7 @@ export const timePickerRoot = (
                     textAfter={textAfter}
                     onChange={handleInputChange}
                     onFocus={onFocus}
-                    onKeyDown={(e) => {
-                        onKeyDownNavigation(e);
-                        handleKeyDown(e);
-                    }}
+                    onKeyDown={handleOnKeyDown}
                     required={required}
                     requiredPlacement={requiredPlacement}
                     hasRequiredIndicator={hasRequiredIndicator}
@@ -689,61 +686,6 @@ export const timePickerRoot = (
                     labelPlacement={labelPlacement}
                     keepPlaceholder={keepPlaceholder}
                 />
-            );
-
-            const renderTimeColumn = (
-                values: string[],
-                column: 'hours' | 'minutes' | 'seconds',
-                columnRef: React.RefObject<HTMLDivElement>,
-                scrollbarState: ScrollbarState,
-                setScrollbar: React.Dispatch<React.SetStateAction<ScrollbarState>>,
-                scrollbarRef: React.RefObject<HTMLDivElement>,
-                thumbRef: React.RefObject<HTMLDivElement>,
-                timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>,
-            ) => (
-                <div style={{ position: 'relative', width: '100%' }}>
-                    <StyledTimeColumn
-                        key={column}
-                        ref={columnRef}
-                        height={dropdownHeight}
-                        className={classes.timeColumn}
-                    >
-                        {values.map((value, index) => (
-                            <StyledTimeItem
-                                key={value}
-                                ref={(el) => {
-                                    timeItemRefs.current[`${column}-${value}`] = el;
-                                }}
-                                className={cls({
-                                    [classes.timeItemActive]: activeTime[column] === index,
-                                })}
-                                onClick={() => handleTimeItemClick(value, column)}
-                                onKeyDown={(e) => handleTimeItemKeyDown(e, column, value)}
-                            >
-                                {value}
-                            </StyledTimeItem>
-                        ))}
-                        <StyledEmpty />
-                    </StyledTimeColumn>
-
-                    <CustomScrollbar
-                        ref={scrollbarRef}
-                        className={cls({
-                            [classes.scrollbarVisible]: scrollbarState.isVisible,
-                        })}
-                    >
-                        <ScrollbarTrack>
-                            <ScrollbarThumb
-                                ref={thumbRef}
-                                style={{
-                                    height: `${scrollbarState.thumbHeight}px`,
-                                    top: `${scrollbarState.thumbPosition}px`,
-                                }}
-                                onMouseDown={createScrollbarDragHandler(columnRef, setScrollbar, timeoutRef)}
-                            />
-                        </ScrollbarTrack>
-                    </CustomScrollbar>
-                </div>
             );
 
             return (
@@ -784,37 +726,55 @@ export const timePickerRoot = (
                             stretched={stretched}
                         >
                             <StyledTimePicker width={dropdownWidth}>
-                                {renderTimeColumn(
-                                    hours,
-                                    'hours',
-                                    hoursColumnRef,
-                                    hoursScrollbar,
-                                    setHoursScrollbar,
-                                    hoursScrollbarRef,
-                                    hoursThumbRef,
-                                    hoursHideTimeoutRef,
-                                )}
-                                {renderTimeColumn(
-                                    minutes,
-                                    'minutes',
-                                    minutesColumnRef,
-                                    minutesScrollbar,
-                                    setMinutesScrollbar,
-                                    minutesScrollbarRef,
-                                    minutesThumbRef,
-                                    minutesHideTimeoutRef,
-                                )}
+                                {renderTimeColumn({
+                                    values: hours,
+                                    dropdownHeight,
+                                    column: 'hours',
+                                    columnRef: hoursColumnRef,
+                                    scrollbarState: hoursScrollbar,
+                                    setScrollbar: setHoursScrollbar,
+                                    scrollbarRef: hoursScrollbarRef,
+                                    thumbRef: hoursThumbRef,
+                                    timeoutRef: hoursHideTimeoutRef,
+                                    timeItemRefs,
+                                    activeTime,
+                                    handleTimeItemClick,
+                                    handleTimeItemKeyDown,
+                                    createScrollbarDragHandler,
+                                })}
+                                {renderTimeColumn({
+                                    values: minutes,
+                                    dropdownHeight,
+                                    column: 'minutes',
+                                    columnRef: minutesColumnRef,
+                                    scrollbarState: minutesScrollbar,
+                                    setScrollbar: setMinutesScrollbar,
+                                    scrollbarRef: minutesScrollbarRef,
+                                    thumbRef: minutesThumbRef,
+                                    timeoutRef: minutesHideTimeoutRef,
+                                    timeItemRefs,
+                                    activeTime,
+                                    handleTimeItemClick,
+                                    handleTimeItemKeyDown,
+                                    createScrollbarDragHandler,
+                                })}
                                 {columnsQuantity === 3 &&
-                                    renderTimeColumn(
-                                        seconds,
-                                        'seconds',
-                                        secondsColumnRef,
-                                        secondsScrollbar,
-                                        setSecondsScrollbar,
-                                        secondsScrollbarRef,
-                                        secondsThumbRef,
-                                        secondsHideTimeoutRef,
-                                    )}
+                                    renderTimeColumn({
+                                        values: seconds,
+                                        dropdownHeight,
+                                        column: 'seconds',
+                                        columnRef: secondsColumnRef,
+                                        scrollbarState: secondsScrollbar,
+                                        setScrollbar: setSecondsScrollbar,
+                                        scrollbarRef: secondsScrollbarRef,
+                                        thumbRef: secondsThumbRef,
+                                        timeoutRef: secondsHideTimeoutRef,
+                                        timeItemRefs,
+                                        activeTime,
+                                        handleTimeItemClick,
+                                        handleTimeItemKeyDown,
+                                        createScrollbarDragHandler,
+                                    })}
                             </StyledTimePicker>
                         </Root>
                     </StyledPopover>

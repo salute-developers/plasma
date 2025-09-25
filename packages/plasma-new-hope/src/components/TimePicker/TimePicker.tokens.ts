@@ -130,8 +130,8 @@ export const tokens = {
     itemHeight: '--plasma-time-picker-item-height',
     itemBorderRadius: '--plasma-time-picker-item-border-radius',
     itemPadding: '--plasma-time-picker-item-padding',
-    itemHoverBackground: '--plasma-time-picker-item-hover-background',
-    itemActiveBackground: '--plasma-time-picker-item-active-background',
+    itemBackgroundHover: '--plasma-time-picker-item-hover-background',
+    itemBackgroundActive: '--plasma-time-picker-item-active-background',
 
     itemFontFamily: '--plasma-time-picker-item-font-family',
     itemFontStyle: '--plasma-time-picker-item-font-style',

@@ -23,21 +23,13 @@ export const useKeyNavigation = ({
             return;
         }
 
-        switch (event.code) {
-            case 'Space':
-                if (!isCalendarOpen) {
-                    event.preventDefault();
-                    onToggle(true, event);
-                }
-                break;
-            case 'Escape':
-                if (isCalendarOpen && closeOnEsc) {
-                    event.preventDefault();
-                    onToggle(false, event);
-                }
-                break;
-            default:
-                break;
+        if (event.code === 'Space' && !isCalendarOpen) {
+            event.preventDefault();
+            onToggle(true, event);
+        }
+        if (event.code === 'Escape' && isCalendarOpen && closeOnEsc) {
+            event.preventDefault();
+            onToggle(false, event);
         }
     };
 
