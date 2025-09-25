@@ -31,7 +31,7 @@ export type TextFieldProps = {
     /**
      * Значение по умолчанию
      */
-    defaultTime?: Date;
+    defaultValue?: Date;
     /**
      * Плейсхолдер поля ввода
      */
