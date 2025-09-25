@@ -107,7 +107,7 @@
     "storybook": "8.6.12",
     "styled-components": "5.3.1",
     "tsc-alias": "1.8.16",
-    "vite": "4.5.3"
+    "vite": "5.4.20"
   },
   "dependencies": {
     "@floating-ui/dom": "1.7.4",
