@@ -93,7 +93,8 @@ const getTreeData = (args: any): any[] => [
                         key: '0-0-0-1',
                         children: [
                             {
-                                title: 'Проект Альфа',
+                                title:
+                                    'Проект Альфа альфа альфа альфа альфа альфа альфа альфа альфа альфа альфа альфа альфа альфа альфа',
                                 key: '0-0-0-1-0',
                                 icon: <IconBlankTxtOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />,
                             },
