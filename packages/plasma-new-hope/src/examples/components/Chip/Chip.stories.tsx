@@ -29,6 +29,7 @@ const meta: Meta<typeof Chip> = {
         text: 'Hello',
         view: 'default',
         size: 'm',
+        appearance: 'default',
         hasClear: true,
         disabled: false,
         focused: true,
@@ -44,6 +45,12 @@ const meta: Meta<typeof Chip> = {
         },
         size: {
             options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
+        appearance: {
+            options: ['default', 'transparent'],
             control: {
                 type: 'select',
             },
