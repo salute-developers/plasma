@@ -1,11 +1,28 @@
-import { chipConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    chipConfig,
+    component,
+    createConditionalComponent,
+    mergeConfig,
+} from '@salutejs/plasma-new-hope/styled-components';
+import { ComponentProps } from 'react';
 
 import { config } from './Chip.config';
+import { config as clearConfig } from './Chip.transparent.config';
 
-const mergedConfig = mergeConfig(chipConfig, config);
-const ChipComponent = component(mergedConfig);
+const mergedConfigDefault = mergeConfig(chipConfig, config);
+export const ChipDefault = component(mergedConfigDefault);
+
+const mergedConfigTransparent = mergeConfig(chipConfig, clearConfig);
+export const ChipTransparent = component(mergedConfigTransparent);
+
+export type ChipProps = ComponentProps<typeof ChipDefault>;
 
 /**
  * Компонент chip.
  */
-export const Chip = ChipComponent;
+export const Chip = createConditionalComponent<ChipProps>(ChipDefault, [
+    {
+        conditions: { prop: 'appearance', value: 'transparent' },
+        component: ChipTransparent,
+    },
+]);

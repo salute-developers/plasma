@@ -31,6 +31,7 @@ const meta: Meta<typeof Chip> = {
         disabled: false,
         focused: true,
         pilled: false,
+        appearance: 'default',
         onClear,
     },
     argTypes: {
@@ -42,6 +43,12 @@ const meta: Meta<typeof Chip> = {
         },
         size: {
             options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
+        appearance: {
+            options: ['default', 'transparent'],
             control: {
                 type: 'select',
             },
