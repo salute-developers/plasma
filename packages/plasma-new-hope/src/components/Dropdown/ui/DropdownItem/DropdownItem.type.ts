@@ -21,6 +21,11 @@ export type DropdownItemOption = {
      */
     items?: Array<DropdownItemOption>;
     /**
+     * Ячейка для контента в начале выпадающего списка.
+     * Применяется только к при наличии дочерних элементов `items`
+     */
+    beforeList?: ReactNode;
+    /**
      * Item не активен
      */
     disabled?: boolean;
