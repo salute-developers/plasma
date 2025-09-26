@@ -12,8 +12,8 @@ export const config = {
             default: css`
                 ${tokens.trackColor}: var(--surface-transparent-primary);
                 ${tokens.thumbColor}: var(--surface-transparent-tertiary);
-                ${tokens.thumbColorHover}: var(--surface-transparent-tertiary);
-                ${tokens.thumbColorActive}: var(--surface-transparent-tertiary);
+                ${tokens.thumbColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.thumbColorActive}: var(--surface-transparent-tertiary-active);
             `,
         },
         size: {
