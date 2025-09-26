@@ -213,6 +213,7 @@ export const tokens = {
     textFieldChipBackgroundActive: '--plasma-combobox-new-textfield-chip-background-active',
     textFieldChipColorActive: '--plasma-combobox-new-textfield-chip-color-active',
     textFieldChipCloseIconColor: '--plasma-combobox-new-textfield-chip-close-icons-color',
+    textFieldChipCloseIconColorHover: '--plasma-combobox-new-textfield-chip-close-icons-color-hover',
     textFieldChipOutlineSize: '--plasma-combobox-new-textfield-chip-outline-size',
     textFieldChipWidth: '--plasma-combobox-new-textfield-chip-width',
     textFieldChipPadding: '--plasma-combobox-new-textfield-chip-padding',

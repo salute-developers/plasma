@@ -12,17 +12,27 @@ export const Keys = {
     Backspace: 'Backspace',
 };
 
+type NewChip = { value: string; label: string; disabled: boolean };
+
+type NewChipExtraProps = {
+    onEnterDisabled: boolean;
+    newCustomChips?: NewChip[];
+    onChipCloseClick?: (chip: NewChip) => void;
+};
+
 export const useKeyNavigation = ({
     controlledRefs: { chipsRefs, contentRef, inputRef },
     disabled,
     readOnly,
     chips,
+    newCustomChips,
     enumerationType,
     updateChips,
     onChange,
     onSearch,
     onEnterDisabled = false,
-}: UseKeyNavigationProps & { onEnterDisabled: boolean }) => {
+    onChipCloseClick,
+}: UseKeyNavigationProps & NewChipExtraProps) => {
     const [activeChipIndex, setActiveChipIndex] = useState(-1);
 
     const handleInputKeydown = (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
@@ -49,6 +59,14 @@ export const useKeyNavigation = ({
             }
         }
 
+        if (event.key === Keys.Backspace && newCustomChips?.length && inputRef?.current?.selectionStart === 0) {
+            const lastChip = newCustomChips.at(-1);
+            if (onChipCloseClick && lastChip) {
+                onChipCloseClick(lastChip);
+                chipsRefs?.current.pop();
+            }
+        }
+
         if (event.key === Keys.Backspace && chips.length && inputRef?.current?.selectionStart === 0) {
             const newChips = [...chips];
             newChips?.pop();
@@ -61,7 +79,7 @@ export const useKeyNavigation = ({
     };
 
     const onChipClear = (clearId: string, index: number) => {
-        if (!chips.length) {
+        if (!chips.length && !newCustomChips?.length) {
             return;
         }
 

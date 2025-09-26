@@ -35,6 +35,7 @@ export const StyledChip = styled(Chip)`
     ${chipTokens.clearContentMarginRight}: var(${tokens.chipClearContentMarginRight});
     ${chipTokens.closeIconSize}: var(${tokens.chipCloseIconSize});
     ${chipTokens.closeIconColor}: var(${tokens.chipCloseIconColor});
+    ${chipTokens.closeIconColorHover}: var(${tokens.chipCloseIconColorHover});
     ${chipTokens.focusColor}: var(${tokens.focusColor});
 
     scroll-snap-align: center;

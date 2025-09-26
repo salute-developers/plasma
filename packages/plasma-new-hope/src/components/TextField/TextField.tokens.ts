@@ -191,6 +191,7 @@ export const tokens = {
     chipColorActive: '--plasma-textfield__chip-color-active',
     chipFocusColor: '--plasma-textfield__chip-focus-color',
     chipCloseIconColor: '--plasma-textfield__chip-close-icon-color',
+    chipCloseIconColorHover: '--plasma-textfield__chip-close-icon-color-hover',
     chipOutlineSize: '--plasma-textfield__chip-outline-size',
     chipWidth: '--plasma-textfield__chip-width',
     chipPadding: '--plasma-textfield__chip-padding',

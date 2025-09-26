@@ -20,6 +20,7 @@ export const config = {
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-card);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
                 ${chipTokens.closeIconColor}: var(--text-accent);
+                ${chipTokens.closeIconColorHover}: var(--text-accent-hover);
                 ${chipTokens.leftContentColor}: var(--text-accent);
             `,
             secondary: css`
@@ -34,6 +35,7 @@ export const config = {
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-primary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
                 ${chipTokens.closeIconColor}: var(--text-accent);
+                ${chipTokens.closeIconColorHover}: var(--text-accent-hover);
                 ${chipTokens.leftContentColor}: var(--text-accent);
             `,
             accent: css`
@@ -49,6 +51,7 @@ export const config = {
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${chipTokens.closeIconColor}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-primary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
         },
