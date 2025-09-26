@@ -58,6 +58,7 @@ type CustomChipProps = {
      *  Коллбек при нажатии на крестик
      */
     onClickClose?: (event: MouseEvent<HTMLDivElement>) => void;
+    appearance?: string;
 } & PropsWithChildren;
 
 export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement>, CustomChipProps {}
