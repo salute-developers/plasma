@@ -164,7 +164,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             }
 
             handleListToggle(false);
-        }, floatingPopoverRef);
+        }, listWrapperRef);
 
         const onChange = (
             newValue?: string | number | Array<string | number> | ChangeEvent<HTMLSelectElement> | null,

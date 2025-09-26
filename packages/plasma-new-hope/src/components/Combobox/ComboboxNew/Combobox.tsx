@@ -147,7 +147,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             // Возвращаем актуальное значение поля ввода после закрытия выпадающего списка.
             setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
-        }, floatingPopoverRef);
+        }, listWrapperRef);
 
         // Эта функция срабатывает при изменении Combobox и
         // при изменении нативного Select для формы (срабатывает только после изменения internalValue и рендера).

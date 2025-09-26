@@ -85,7 +85,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 if (onToggle) {
                     onToggle(false, event);
                 }
-            }, floatingPopoverRef);
+            }, listWrapperRef);
 
             const handleGlobalToggle: HandleGlobalToggleType = (opened, event) => {
                 if (alwaysOpened || opened) {
