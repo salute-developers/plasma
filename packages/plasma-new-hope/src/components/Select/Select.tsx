@@ -158,13 +158,14 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                       hintHasArrow,
                   } as HintProps);
 
-        const targetRef = useOutsideClick<HTMLUListElement>(() => {
+        /* Логика работы при клике за пределами выпадающего списка */
+        useOutsideClick(() => {
             if (!isCurrentListOpen) {
                 return;
             }
 
             handleListToggle(false);
-        }, floatingPopoverRef);
+        }, [floatingPopoverRef, listWrapperRef]);
 
         const onChange = (
             newValue?: string | number | Array<string | number> | ChangeEvent<HTMLSelectElement> | null,
@@ -479,7 +480,6 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                     aria-multiselectable={Boolean(props.multiselect)}
                                     listMaxHeight={listMaxHeight || listHeight}
                                     onScroll={virtual ? undefined : handleScroll}
-                                    ref={targetRef}
                                     virtual={virtual}
                                 >
                                     {beforeList}

@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import type { MouseEventHandler } from 'react';
 import cx from 'classnames';
-import { useForkRef } from '@salutejs/plasma-core';
 import { useOutsideClick } from 'src/hooks';
 
 import { HintWrapper, Indicator, IndicatorWrapper, Label, OptionalText } from '../../InformationWrapper.styles';
@@ -31,11 +30,11 @@ export const LabelComponent = ({
 }: LabelComponentProps) => {
     const [isHintVisible, setIsHintVisible] = useState(false);
 
-    const hintRef = useOutsideClick<HTMLDivElement>(() => {
+    const hintRef = useRef<HTMLDivElement>(null);
+
+    useOutsideClick(() => {
         setIsHintVisible(false);
-    });
-    const hintInnerRef = useRef<HTMLDivElement>(null);
-    const hintForkRef = useForkRef(hintRef, hintInnerRef);
+    }, [hintRef]);
 
     const innerOptional = Boolean(hasRequiredIndicator ? false : optional);
     const requiredPlacementClass = requiredIndicatorPlacement === 'left' ? classes.requiredAlignLeft : undefined;
@@ -54,8 +53,8 @@ export const LabelComponent = ({
         }
 
         event.stopPropagation();
-        const targetIsPopover = event.target === hintInnerRef.current;
-        const rootHasTarget = hintInnerRef.current?.contains(event.target as Element);
+        const targetIsPopover = event.target === hintRef.current;
+        const rootHasTarget = hintRef.current?.contains(event.target as Element);
 
         if (!targetIsPopover && !rootHasTarget) {
             setIsHintVisible(true);
@@ -68,7 +67,7 @@ export const LabelComponent = ({
             {hintText && (
                 <HintWrapper className={cx({ [classes.withoutLabel]: !label })} hasCaption={Boolean(titleCaption)}>
                     <HintComponent
-                        ref={hintForkRef}
+                        ref={hintRef}
                         size={size}
                         hintText={hintText}
                         hintTrigger={hintTrigger}

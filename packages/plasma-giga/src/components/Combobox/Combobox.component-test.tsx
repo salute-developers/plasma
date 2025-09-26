@@ -1054,7 +1054,7 @@ describe('plasma-giga: Combobox', () => {
     });
 
     it('prop: portal ref', () => {
-        cy.viewport(300, 400);
+        cy.viewport(1000, 400);
 
         const Component = () => {
             const ref = useRef(null);
@@ -1062,7 +1062,14 @@ describe('plasma-giga: Combobox', () => {
             return (
                 <>
                     <div id="combobox-wrapper">
-                        <Combobox portal={ref} id="combobox" items={items} label="Label" placeholder="Placeholder" />
+                        <Combobox
+                            portal={ref}
+                            id="combobox"
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            listWidth="300px"
+                        />
                     </div>
 
                     <div id="portal-root" ref={ref} />
@@ -1075,6 +1082,12 @@ describe('plasma-giga: Combobox', () => {
         cy.get('#combobox').realClick();
         cy.get('#combobox-wrapper [data-floating-ui-portal]').should('not.exist');
         cy.get('#portal-root [data-floating-ui-portal]').should('exist');
+
+        cy.get('[id$="south_america"]').realClick();
+        cy.get('[id$="tree_level_2"]').should('be.visible');
+
+        cy.get('[id$="brazil"]').realClick();
+        cy.get('[id$="tree_level_3"]').should('be.visible');
     });
 
     it('prop: renderItem', () => {

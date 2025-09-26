@@ -108,9 +108,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const inputRef = useRef<HTMLInputElement>(null);
         const floatingPopoverRef = useRef<HTMLDivElement>(null);
         const inputForkRef = useForkRef(inputRef, ref);
-        const treeId = safeUseId();
-
         const listWrapperRef = useRef<HTMLDivElement>(null);
+        const treeId = safeUseId();
 
         const filteredItems = useMemo(
             () =>
@@ -137,8 +136,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const withArrowInverse = isCurrentListOpen ? classes.arrowInverse : undefined;
         const closeAfterSelect = outerCloseAfterSelect ?? !multiple;
 
-        // Логика работы при клике за пределами выпадающего списка
-        const targetRef = useOutsideClick<HTMLUListElement>(() => {
+        /* Логика работы при клике за пределами выпадающего списка */
+        useOutsideClick(() => {
             if (!isCurrentListOpen || alwaysOpened) {
                 return;
             }
@@ -147,7 +146,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             // Возвращаем актуальное значение поля ввода после закрытия выпадающего списка.
             setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
-        }, floatingPopoverRef);
+        }, [floatingPopoverRef, listWrapperRef]);
 
         // Эта функция срабатывает при изменении Combobox и
         // при изменении нативного Select для формы (срабатывает только после изменения internalValue и рендера).
@@ -558,7 +557,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         id={`${treeId}_tree_level_1`}
                                         aria-multiselectable={Boolean(multiple)}
                                         listMaxHeight={listMaxHeight || listHeight}
-                                        ref={targetRef}
                                         virtual={virtual}
                                         onScroll={virtual ? undefined : onScroll}
                                     >

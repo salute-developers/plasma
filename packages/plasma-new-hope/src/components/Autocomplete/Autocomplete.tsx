@@ -67,10 +67,12 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
 
             const helperTextId = safeUseId();
             const floatingPopoverRef = useRef<HTMLDivElement>(null);
+            const listWrapperRef = useRef<HTMLDivElement>(null);
 
-            const targetRef = useOutsideClick<HTMLUListElement>(() => {
+            /* Логика работы при клике за пределами выпадающего списка */
+            useOutsideClick(() => {
                 setIsOpen(false);
-            }, floatingPopoverRef);
+            }, [floatingPopoverRef, listWrapperRef]);
 
             const handleFocus = () => {
                 if (value.toString().length >= threshold) {
@@ -192,9 +194,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                     disabled={disabled}
                                     readOnly={readOnly}
                                 >
-                                    <ListWrapper>
+                                    <ListWrapper ref={listWrapperRef}>
                                         <Ul
-                                            ref={targetRef}
                                             id={listId}
                                             role="listbox"
                                             aria-label={label}
