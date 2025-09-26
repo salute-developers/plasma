@@ -9,7 +9,6 @@ import { textAreaConfig } from '../../../components/TextArea';
 import { mergeConfig } from '../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../_helpers';
 import type { PopoverPlacement } from '../Popover/Popover';
-import { IconLock } from '../../../components/_Icon';
 
 import { config } from './TextArea.config';
 import { TextArea } from './TextArea';
@@ -40,12 +39,8 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
-const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+const getIcon = (IconComponent: React.FC<any>, size: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
-
-    if (readOnly) {
-        return <IconLock size={iconSize} color="var(--text-secondary)" style={{ opacity: 0.4 }} />;
-    }
 
     return <IconComponent size={iconSize} color="inherit" />;
 };
@@ -320,11 +315,7 @@ const StoryDefault = (props: StoryTextAreaProps) => {
     return (
         <TextArea
             value={value}
-            contentRight={
-                props.enableContentRight || props.readOnly
-                    ? getIcon(IconPlaceholder, props.size, props.readOnly)
-                    : undefined
-            }
+            contentRight={props.enableContentRight || props.readOnly ? getIcon(IconPlaceholder, props.size) : undefined}
             headerSlot={props.enableHeader && <StyledHeader>Дополнительный контент</StyledHeader>}
             onChange={(e) => {
                 setValue(e.target.value);

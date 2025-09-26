@@ -115,6 +115,7 @@ export const tokens = {
     textFieldContentSlotRightColor: '--plasma-combobox-new-textfield-content-right-slot-color',
     textFieldContentSlotRightColorHover: '--plasma-combobox-new-textfield-content-right-slot-color-hover',
     textFieldContentSlotRightColorActive: '--plasma-combobox-new-textfield-content-right-slot-color-active',
+    textFieldContentSlotRightOpacityReadOnly: '--plasma-combobox-new-textfield-content-right-slot-opacity-readonly',
 
     textFieldLabelColor: '--plasma-combobox-new-textfield-label-color',
     textFieldLabelColorReadOnly: '--plasma-combobox-new-textfield-label-color-readonly',
@@ -166,6 +167,7 @@ export const tokens = {
     textFieldTextAfterMargin: '--plasma-combobox-new-textfield-after-text-margin',
 
     textFieldDisabledOpacity: '--plasma-combobox-new-textfield-disabled-opacity',
+    textFieldReadOnlyOpacity: '--plasma-combobox-new-textfield-readonly-opacity',
 
     /** Токены для tooltip */
     textFieldHintCustomIconTargetSize: '--plasma-combobox-textfield__hint-custom-icon-target-size',

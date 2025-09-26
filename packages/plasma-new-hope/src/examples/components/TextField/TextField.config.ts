@@ -725,7 +725,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.4;
+                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.colorReadOnly}: var(--text-primary);
                 ${tokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
@@ -733,6 +733,7 @@ export const config = {
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
     },

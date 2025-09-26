@@ -267,8 +267,8 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
+                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldColor}: var(--text-primary);

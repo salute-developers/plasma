@@ -59,6 +59,7 @@ export const tokens = {
     textFieldContentSlotRightColor: '--plasma-autocomplete-textfield-content-right-slot-color', //
     textFieldContentSlotRightColorHover: '--plasma-autocomplete-textfield-content-right-slot-color-hover', //
     textFieldContentSlotRightColorActive: '--plasma-autocomplete-textfield-content-right-slot-color-active', //
+    textFieldContentSlotRightOpacityReadOnly: '--plasma-autocomplete-textfield-content-right-slot-opacity-readonly',
 
     textFieldLabelColor: '--plasma-autocomplete-textfield-label-color',
     textFieldLabelColorReadOnly: '--plasma-autocomplete-textfield-label-color-readonly',
@@ -99,6 +100,7 @@ export const tokens = {
     textFieldTextAfterMargin: '--plasma-autocomplete-textfield-after-text-margin',
 
     textFieldDisabledOpacity: '--plasma-autocomplete-textfield-disabled-opacity',
+    textFieldReadOnlyOpacity: '--plasma-autocomplete-textfield-readonly-opacity',
 
     /** Токены для tooltip */
     textFieldHintCustomIconTargetSize: '--plasma-autocomplete-textfield__hint-custom-icon-target-size',
