@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useState, useEffect, useCallback } from 'react';
+import React, { forwardRef, useRef, useState, useEffect } from 'react';
 import cls from 'classnames';
 import type { MouseEvent } from 'react';
 import type { RootProps } from 'src/engines';
@@ -49,7 +49,7 @@ export const scrollbarRoot = (Root: RootProps<HTMLDivElement, ScrollBarProps>) =
 
             const minScrollbarTrackHeight = 20;
 
-            const calculateScrollbar = useCallback(() => {
+            const calculateScrollbar = () => {
                 if (!containerRef.current || !contentRef.current) {
                     return { thumbHeight: 0, thumbPosition: 0 };
                 }
@@ -61,24 +61,21 @@ export const scrollbarRoot = (Root: RootProps<HTMLDivElement, ScrollBarProps>) =
                 const thumbPosition = maxScroll > 0 ? (scrollTop / maxScroll) * (trackHeight - thumbHeight) : 0;
 
                 return { thumbHeight, thumbPosition };
-            }, [verticalOffset]);
+            };
 
-            const updateScrollbar = useCallback(
-                (show = false) => {
-                    if (!containerRef.current) return;
+            const updateScrollbar = (show = false) => {
+                if (!containerRef.current) return;
 
-                    const { thumbHeight, thumbPosition } = calculateScrollbar();
-                    setScrollbarState((prev) => ({
-                        ...prev,
-                        thumbHeight,
-                        thumbPosition,
-                        isVisible: show || prev.isVisible,
-                    }));
-                },
-                [calculateScrollbar],
-            );
+                const { thumbHeight, thumbPosition } = calculateScrollbar();
+                setScrollbarState((prev) => ({
+                    ...prev,
+                    thumbHeight,
+                    thumbPosition,
+                    isVisible: show || prev.isVisible,
+                }));
+            };
 
-            const showScrollbarWithDelay = useCallback(() => {
+            const showScrollbarWithDelay = () => {
                 if (hideTimeoutRef.current) {
                     clearTimeout(hideTimeoutRef.current);
                 }
@@ -91,79 +88,118 @@ export const scrollbarRoot = (Root: RootProps<HTMLDivElement, ScrollBarProps>) =
                         hideTimeoutRef.current = null;
                     }, autoHideDelay) as unknown) as NodeJS.Timeout;
                 }
-            }, [autoHide, autoHideDelay, updateScrollbar]);
+            };
 
-            const handleScroll = useCallback(() => {
+            const handleScroll = () => {
                 if (!containerRef.current) return;
-
                 showScrollbarWithDelay();
-            }, [showScrollbarWithDelay]);
+            };
 
-            const handleMouseEnter = useCallback(() => {
+            const handleMouseEnter = () => {
                 showScrollbarWithDelay();
-            }, [showScrollbarWithDelay]);
+            };
 
-            const handleScrollbarDrag = useCallback(
-                (e: MouseEvent<HTMLDivElement>) => {
-                    e.preventDefault();
+            const handleScrollbarDrag = (e: MouseEvent<HTMLDivElement>) => {
+                e.preventDefault();
 
-                    const thumb = e.currentTarget;
-                    const track = thumb.parentElement as HTMLDivElement;
-                    if (!containerRef.current || !track) return;
+                const thumb = e.currentTarget;
+                const track = thumb.parentElement as HTMLDivElement;
+                if (!containerRef.current || !track) return;
 
-                    if (hideTimeoutRef.current) {
-                        clearTimeout(hideTimeoutRef.current);
-                        hideTimeoutRef.current = null;
+                if (hideTimeoutRef.current) {
+                    clearTimeout(hideTimeoutRef.current);
+                    hideTimeoutRef.current = null;
+                }
+
+                const startY = e.clientY;
+                const startThumbPosition = parseFloat(thumb.style.top || '0');
+                const trackRect = track.getBoundingClientRect();
+                const trackHeight = trackRect.height;
+                const thumbHeight = thumb.offsetHeight;
+
+                const { scrollHeight, clientHeight } = containerRef.current;
+                const maxScroll = scrollHeight - clientHeight;
+
+                const handleMouseMove = (moveEvent: globalThis.MouseEvent) => {
+                    const deltaY = moveEvent.clientY - startY;
+                    const newThumbPosition = Math.max(
+                        0,
+                        Math.min(trackHeight - thumbHeight, startThumbPosition + deltaY),
+                    );
+
+                    const scrollPercentage = newThumbPosition / (trackHeight - thumbHeight);
+                    const newScrollTop = scrollPercentage * maxScroll;
+
+                    if (containerRef.current) {
+                        containerRef.current.scrollTop = newScrollTop;
                     }
 
-                    const startY = e.clientY;
-                    const startThumbPosition = parseFloat(thumb.style.top || '0');
-                    const trackRect = track.getBoundingClientRect();
-                    const trackHeight = trackRect.height;
-                    const thumbHeight = thumb.offsetHeight;
+                    setScrollbarState((prev) => ({
+                        ...prev,
+                        thumbPosition: newThumbPosition,
+                        isDragging: true,
+                        isVisible: true,
+                    }));
+                };
 
-                    const { scrollHeight, clientHeight } = containerRef.current;
-                    const maxScroll = scrollHeight - clientHeight;
+                const handleMouseUp = () => {
+                    document.removeEventListener('mousemove', handleMouseMove);
+                    document.removeEventListener('mouseup', handleMouseUp);
 
-                    const handleMouseMove = (moveEvent: globalThis.MouseEvent) => {
-                        const deltaY = moveEvent.clientY - startY;
-                        const newThumbPosition = Math.max(
-                            0,
-                            Math.min(trackHeight - thumbHeight, startThumbPosition + deltaY),
-                        );
+                    setScrollbarState((prev) => ({
+                        ...prev,
+                        isDragging: false,
+                    }));
 
-                        const scrollPercentage = newThumbPosition / (trackHeight - thumbHeight);
-                        const newScrollTop = scrollPercentage * maxScroll;
+                    showScrollbarWithDelay();
+                };
 
-                        if (containerRef.current) {
-                            containerRef.current.scrollTop = newScrollTop;
-                        }
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', handleMouseUp);
+            };
 
-                        setScrollbarState((prev) => ({
-                            ...prev,
-                            thumbPosition: newThumbPosition,
-                            isDragging: true,
-                            isVisible: true,
-                        }));
-                    };
+            const handleTrackClick = (e: MouseEvent<HTMLDivElement>) => {
+                e.preventDefault();
 
-                    const handleMouseUp = () => {
-                        document.removeEventListener('mousemove', handleMouseMove);
-                        document.removeEventListener('mouseup', handleMouseUp);
+                const track = e.currentTarget;
+                const container = containerRef.current;
+                if (!container || !track) return;
 
-                        setScrollbarState((prev) => ({
-                            ...prev,
-                            isDragging: false,
-                        }));
+                if (thumbRef.current && thumbRef.current.contains(e.target as Node)) {
+                    return;
+                }
 
-                        showScrollbarWithDelay();
-                    };
+                if (hideTimeoutRef.current) {
+                    clearTimeout(hideTimeoutRef.current);
+                    hideTimeoutRef.current = null;
+                }
 
-                    document.addEventListener('mousemove', handleMouseMove);
-                    document.addEventListener('mouseup', handleMouseUp);
-                },
-                [showScrollbarWithDelay],
-            );
+                const trackRect = track.getBoundingClientRect();
+                const clickY = e.clientY - trackRect.top;
+                const trackHeight = trackRect.height;
+                const { thumbHeight } = scrollbarState;
+
+                const { scrollHeight, clientHeight } = container;
+                const maxScroll = scrollHeight - clientHeight;
+
+                if (maxScroll <= 0) return;
+
+                let newThumbPosition = clickY - thumbHeight / 2;
+                newThumbPosition = Math.max(0, Math.min(trackHeight - thumbHeight, newThumbPosition));
+
+                const scrollPercentage = newThumbPosition / (trackHeight - thumbHeight);
+                const newScrollTop = scrollPercentage * maxScroll;
+
+                container.scrollTop = newScrollTop;
+
+                setScrollbarState((prev) => ({
+                    ...prev,
+                    thumbPosition: newThumbPosition,
+                    isVisible: true,
+                }));
+
+                showScrollbarWithDelay();
+            };
 
             useEffect(() => {
                 return () => {
@@ -193,11 +229,11 @@ export const scrollbarRoot = (Root: RootProps<HTMLDivElement, ScrollBarProps>) =
                     container.removeEventListener('mouseenter', handleMouseEnter);
                     resizeObserver.disconnect();
                 };
-            }, [handleScroll, handleMouseEnter, updateScrollbar]);
+            }, []);
 
             useEffect(() => {
                 updateScrollbar();
-            }, [updateScrollbar]);
+            });
 
             return (
                 <Root view={view} size={size} className={cls(classes.scrollBarRoot, className)} ref={ref} {...rest}>
@@ -232,6 +268,7 @@ export const scrollbarRoot = (Root: RootProps<HTMLDivElement, ScrollBarProps>) =
                                 top: verticalOffset,
                                 bottom: verticalOffset,
                             }}
+                            onMouseDown={handleTrackClick}
                         >
                             <StyledThumb
                                 ref={thumbRef}
