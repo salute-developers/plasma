@@ -278,6 +278,20 @@ describe('sdds-cs: Tree', () => {
         cy.matchImageSnapshot();
     });
 
+    it('flow: thin block, multi-line title', () => {
+        cy.viewport(200, 500);
+
+        mount(
+            <CypressTestDecorator>
+                <div style={{ width: '300px' }}>
+                    <Tree items={treeData} singleLine={false} defaultExpandAll />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('flow: virtual', () => {
         cy.viewport(500, 500);
 
