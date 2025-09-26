@@ -6,7 +6,7 @@ import { standard as standardTypo } from '@salutejs/plasma-typo';
 import type { FC } from 'react';
 
 const id = 'test-pagination';
-const slots = [7, 9, 13];
+const slots = [7, 9, 13, 1, 3];
 const values = [1, 10, 20];
 const count = 2000;
 const views = ['clear', 'secondary', 'default'];
@@ -320,11 +320,24 @@ describe('plasma-new-hope: Pagination Slots', () => {
                 <Pagination slots={slots[0]} value={values[1]} count={count} />
                 <SpaceMe />
                 <Pagination slots={slots[0]} value={values[2]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[3]} value={values[0]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[3]} value={values[1]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[3]} value={values[2]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[4]} value={values[0]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[4]} value={values[1]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[4]} value={values[2]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
+
     it('avrSlots', () => {
         cy.viewport(1000, 500);
         mount(
