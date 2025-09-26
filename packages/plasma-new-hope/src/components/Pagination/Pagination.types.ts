@@ -91,7 +91,7 @@ export type CustomPaginationProps = {
     /**
      * Количество PageButtons
      */
-    slots?: NumericRange<CreateArrayWithLengthX<7>, 15>;
+    slots?: NumericRange<CreateArrayWithLengthX<1>, 15>;
 
     /**
      * Скругление кнопки

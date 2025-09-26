@@ -9,6 +9,12 @@ const dType: PaginationTypes = 'default';
 const dDlots: NumericRange<CreateArrayWithLengthX<7>, 15> = 9;
 
 const sections = {
+    1: [1, 0, 0],
+    2: [2, 0, 0],
+    3: [3, 0, 0],
+    4: [4, 0, 0],
+    5: [5, 0, 0],
+    6: [6, 0, 0],
     7: [1, 3, 1],
     8: [1, 4, 1],
     9: [2, 3, 2],
@@ -40,19 +46,23 @@ export const defaultValues = {
 export const getSections = (
     value?: number,
     pages?: number,
-    slots?: NumericRange<CreateArrayWithLengthX<7>, 15>,
+    slots?: NumericRange<CreateArrayWithLengthX<1>, 15>,
 ): number[][] => {
     value = value ?? 1;
     pages = pages ?? 1;
     slots = slots ?? defaultValues.slots;
     const pageArray = [generateSection(pages, 1)];
 
-    if (slots >= pages || slots < 5) {
+    if (slots >= pages) {
         return pageArray;
     }
 
     if (!sections[slots]) {
         return pageArray;
+    }
+
+    if (slots < 7) {
+        return [generateSection(slots, value)];
     }
 
     const smallSection = Math.min(Math.floor((slots - 1) / 2), 6);

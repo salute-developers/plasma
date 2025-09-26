@@ -32,7 +32,7 @@ const meta: Meta<typeof Pagination> = {
         slots: {
             control: {
                 type: 'range',
-                min: 7,
+                min: 1,
                 max: 15,
             },
         },
