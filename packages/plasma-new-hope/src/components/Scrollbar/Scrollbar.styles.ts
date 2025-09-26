@@ -60,7 +60,6 @@ export const StyledContent = styled.div`
 
 export const StyledTrack = styled.div`
     position: absolute;
-    /* Убраны фиксированные top и bottom, теперь они задаются через style */
     width: var(${tokens.trackWidth});
     opacity: 0;
     transition: opacity 0.3s ease;
