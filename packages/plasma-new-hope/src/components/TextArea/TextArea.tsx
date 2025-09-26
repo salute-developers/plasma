@@ -1,6 +1,6 @@
 import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler, useLayoutEffect } from 'react';
 import { css } from '@linaria/core';
-import { useForkRef, useResizeObserver } from '@salutejs/plasma-core';
+import { useResizeObserver } from '@salutejs/plasma-core';
 
 import { cx, mergeRefs } from '../../utils';
 import type { RootProps } from '../../engines/types';
@@ -162,12 +162,11 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
 
         const outerRef = createRef<HTMLTextAreaElement>();
         const hiddenRef = useRef<HTMLTextAreaElement | null>(null);
+        const hintRef = useRef<HTMLDivElement>(null);
 
-        const hintRef = useOutsideClick<HTMLDivElement>(() => {
+        useOutsideClick(() => {
             setIsHintVisible(false);
-        });
-        const hintInnerRef = useRef<HTMLDivElement>(null);
-        const hintForkRef = useForkRef(hintRef, hintInnerRef);
+        }, [hintRef]);
 
         const isInnerLeftHelperPlacement = leftHelperPlacement === 'inner';
         const leftHelperText = leftHelper || helperText;
@@ -200,8 +199,8 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
 
             event.stopPropagation();
-            const targetIsPopover = event.target === hintInnerRef.current;
-            const rootHasTarget = hintInnerRef.current?.contains(event.target as Element);
+            const targetIsPopover = event.target === hintRef.current;
+            const rootHasTarget = hintRef.current?.contains(event.target as Element);
 
             if (!targetIsPopover && !rootHasTarget) {
                 setIsHintVisible(true);
@@ -297,7 +296,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                 {hintText && (
                                     <StyledHintWrapper>
                                         <HintComponent
-                                            ref={hintForkRef}
+                                            ref={hintRef}
                                             hintText={hintText}
                                             hintTrigger={hintTrigger}
                                             isHintVisible={isHintVisible}
@@ -342,7 +341,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             {hintText && (
                                 <StyledHintWrapper className={classes.innerLabelPlacement}>
                                     <HintComponent
-                                        ref={hintForkRef}
+                                        ref={hintRef}
                                         hintText={hintText}
                                         hintTrigger={hintTrigger}
                                         isHintVisible={isHintVisible}

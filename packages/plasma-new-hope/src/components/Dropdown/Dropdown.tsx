@@ -73,19 +73,22 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
 
             const treeId = safeUseId();
 
-            // Логика работы при клике за пределами выпадающего списка
-            const targetRef = useOutsideClick<HTMLUListElement>((event) => {
-                if (!isCurrentListOpen || !closeOnOverlayClick || alwaysOpened) {
-                    return;
-                }
+            /* Логика работы при клике за пределами выпадающего списка */
+            useOutsideClick(
+                (event) => {
+                    if (!isCurrentListOpen || !closeOnOverlayClick || alwaysOpened) {
+                        return;
+                    }
 
-                dispatchPath({ type: 'reset' });
-                dispatchFocusedPath({ type: 'reset' });
+                    dispatchPath({ type: 'reset' });
+                    dispatchFocusedPath({ type: 'reset' });
 
-                if (onToggle) {
-                    onToggle(false, event);
-                }
-            }, floatingPopoverRef);
+                    if (onToggle) {
+                        onToggle(false, event);
+                    }
+                },
+                [floatingPopoverRef, listWrapperRef],
+            );
 
             const handleGlobalToggle: HandleGlobalToggleType = (opened, event) => {
                 if (alwaysOpened || opened) {
@@ -173,7 +176,6 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                         >
                             <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
                                 <Ul
-                                    ref={targetRef}
                                     id={`${treeId}_tree_level_1`}
                                     role="tree"
                                     listMaxHeight={listMaxHeight || listHeight}
