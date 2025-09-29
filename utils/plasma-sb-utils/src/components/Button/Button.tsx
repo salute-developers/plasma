@@ -12,10 +12,14 @@ type CreateStoriesProps = {
     disablePropsList?: string[];
     defaultArgs?: {};
     additionalArgTypes?: {};
+    additionalComponents: {
+        Counter: any;
+    };
 };
 
 export const getButtonStories = (config: CreateStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, additionalComponents, ...rest } = config;
+    const { Counter } = additionalComponents;
 
     const buttonConfig = getConfigVariations(componentConfig);
 
@@ -25,7 +29,7 @@ export const getButtonStories = (config: CreateStoriesProps) => {
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component);
+    const DefaultStoryComponent = createDefaultStory(component, Counter);
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,
@@ -42,6 +46,7 @@ export const getButtonStories = (config: CreateStoriesProps) => {
         args: {
             enableContentLeft: false,
             enableCounter: false,
+            value: 'Value',
         },
         argTypes: {
             ...disableProps(['enableContentRight']),
