@@ -25,7 +25,7 @@ export const createMeta = ({
         component,
         args: {
             view: 'default',
-            size: 'xs',
+            size: 's',
             contentPlacing: 'default',
             stretching: 'auto',
             text: 'Button',
@@ -34,6 +34,8 @@ export const createMeta = ({
             focused: true,
             square: false,
             isLoading: false,
+            enableContentLeft: false,
+            enableContentRight: false,
             ...defaultArgs,
         },
         argTypes: {
@@ -50,6 +52,26 @@ export const createMeta = ({
                 table: {
                     category: 'Appearance',
                 },
+            },
+            value: {
+                control: { type: 'text' },
+                table: {
+                    category: 'Content',
+                },
+            },
+            text: {
+                control: { type: 'text' },
+                table: {
+                    category: 'Content',
+                },
+            },
+            isLoading: {
+                control: { type: 'boolean' },
+                table: { defaultValue: { summary: 'false' }, category: 'State' },
+            },
+            disabled: {
+                control: { type: 'boolean' },
+                table: { defaultValue: { summary: 'false' }, category: 'State' },
             },
             contentPlacing: {
                 options: contentPlacingValues,
@@ -70,25 +92,13 @@ export const createMeta = ({
                 control: { type: 'select' },
                 table: { defaultValue: { summary: 'bottom' }, category: 'Other' },
             },
-            isLoading: {
+            enableContentLeft: {
                 control: { type: 'boolean' },
-                table: { defaultValue: { summary: 'false' }, category: 'State' },
+                table: { defaultValue: { summary: 'bottom' }, category: 'Other' },
             },
-            disabled: {
+            enableContentRight: {
                 control: { type: 'boolean' },
-                table: { defaultValue: { summary: 'false' }, category: 'State' },
-            },
-            value: {
-                control: { type: 'text' },
-                table: {
-                    category: 'Content',
-                },
-            },
-            text: {
-                control: { type: 'text' },
-                table: {
-                    category: 'Content',
-                },
+                table: { defaultValue: { summary: 'bottom' }, category: 'Other' },
             },
             ...additionalArgTypes,
             ...disableProps([

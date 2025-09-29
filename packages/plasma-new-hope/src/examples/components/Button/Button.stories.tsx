@@ -8,7 +8,10 @@ import { config } from './Button.config';
 
 type ButtonProps = ComponentProps<typeof Button>;
 
-const { meta: META, Default } = getButtonStories({ component: Button, componentConfig: config });
+const { meta: META, Default, WithValue } = getButtonStories({
+    component: Button,
+    componentConfig: config,
+});
 
 const meta: Meta<ButtonProps> = {
     ...META,
@@ -17,4 +20,4 @@ const meta: Meta<ButtonProps> = {
 
 export default meta;
 
-export { Default };
+export { Default, WithValue };
