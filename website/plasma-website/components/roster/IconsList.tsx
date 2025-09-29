@@ -182,8 +182,9 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, showDe
                 ...group,
                 items: group.items
                     .filter(({ name, isDeprecated }) => {
-                        // Добавляем проверку на deprecated
-                        if (!showDeprecated && isDeprecated) return false;
+                        if (!showDeprecated && isDeprecated) {
+                            return false;
+                        }
                         return name.toLocaleLowerCase().search(regExp) !== -1;
                     })
                     .sort((a, b) => {
