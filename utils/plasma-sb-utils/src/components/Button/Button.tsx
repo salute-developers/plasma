@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getConfigVariations } from '../../helpers';
+import { disableProps, getConfigVariations } from '../../helpers';
 
 import { createMeta } from './meta';
 import { createDefaultStory } from './stories';
@@ -12,10 +12,14 @@ type CreateStoriesProps = {
     disablePropsList?: string[];
     defaultArgs?: {};
     additionalArgTypes?: {};
+    additionalComponents: {
+        Counter: any;
+    };
 };
 
 export const getButtonStories = (config: CreateStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, additionalComponents, ...rest } = config;
+    const { Counter } = additionalComponents;
 
     const buttonConfig = getConfigVariations(componentConfig);
 
@@ -25,14 +29,33 @@ export const getButtonStories = (config: CreateStoriesProps) => {
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component);
+    const DefaultStoryComponent = createDefaultStory(component, Counter);
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,
+        args: {
+            value: '',
+        },
+        argTypes: {
+            ...disableProps(['value']),
+        },
+    };
+
+    const WithValue = {
+        render: (args: any) => <DefaultStoryComponent {...args} />,
+        args: {
+            enableContentLeft: false,
+            enableCounter: false,
+            value: 'Value',
+        },
+        argTypes: {
+            ...disableProps(['enableContentRight']),
+        },
     };
 
     return {
         meta,
         Default,
+        WithValue,
     };
 };
