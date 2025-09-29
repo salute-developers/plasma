@@ -17,6 +17,7 @@ export interface IconsListProps {
     pageRef: RefObject<HTMLDivElement>;
     searchQuery?: string;
     activeGroup?: string;
+    showDeprecated?: boolean;
     /**
      * Item click handler
      */
@@ -137,7 +138,7 @@ const StyledIcon = styled.div<{ isDeprecated: boolean; isActive?: boolean; hasOp
         `}
 `;
 
-export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, onItemClick, pageRef }) => {
+export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, showDeprecated, onItemClick, pageRef }) => {
     const { state, dispatch } = useContext(Context);
     const [offset, setOffset] = useState(0);
     const [cellIndex, setCellIndex] = useState(1);
@@ -147,14 +148,22 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, onItem
     const gridRefs = useRef<HTMLDivElement[]>([]);
 
     const items = useMemo(() => {
+        let filteredIconsList = iconsList;
+
+        if (!showDeprecated) {
+            filteredIconsList = iconsList.filter((group) => !group.items.every((item) => item.isDeprecated));
+        }
+
         if (!searchQuery) {
-            const processedGroups = iconsList.map((group) => ({
+            const processedGroups = filteredIconsList.map((group) => ({
                 ...group,
-                items: [...group.items].sort((a, b) => {
-                    if (!a.isDeprecated && b.isDeprecated) return -1;
-                    if (a.isDeprecated && !b.isDeprecated) return 1;
-                    return 0;
-                }),
+                items: [...group.items]
+                    .filter((item) => showDeprecated || !item.isDeprecated) // Фильтруем deprecated иконки
+                    .sort((a, b) => {
+                        if (!a.isDeprecated && b.isDeprecated) return -1;
+                        if (a.isDeprecated && !b.isDeprecated) return 1;
+                        return 0;
+                    }),
             }));
 
             return processedGroups.sort((a, b) => {
@@ -168,11 +177,13 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, onItem
 
         const regExp = new RegExp(searchQuery.toLocaleLowerCase().replace(/[^\w\u0400-\u04FF]/g, ''));
 
-        let filteredGroups = iconsList
+        let filteredGroups = filteredIconsList
             .map((group) => ({
                 ...group,
                 items: group.items
-                    .filter(({ name }) => {
+                    .filter(({ name, isDeprecated }) => {
+                        // Добавляем проверку на deprecated
+                        if (!showDeprecated && isDeprecated) return false;
                         return name.toLocaleLowerCase().search(regExp) !== -1;
                     })
                     .sort((a, b) => {
@@ -194,7 +205,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, onItem
         });
 
         return filteredGroups;
-    }, [searchQuery]);
+    }, [searchQuery, showDeprecated]);
 
     useEffect(() => {
         items.forEach((group, gridIndex) => {
