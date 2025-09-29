@@ -36,69 +36,47 @@ export const createMeta = ({
             isLoading: false,
             enableContentLeft: false,
             enableContentRight: false,
+            enableCounter: false,
             ...defaultArgs,
         },
         argTypes: {
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: {
-                    category: 'Appearance',
-                },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: {
-                    category: 'Appearance',
-                },
             },
             value: {
                 control: { type: 'text' },
-                table: {
-                    category: 'Content',
-                },
             },
             text: {
                 control: { type: 'text' },
-                table: {
-                    category: 'Content',
-                },
             },
             isLoading: {
                 control: { type: 'boolean' },
-                table: { defaultValue: { summary: 'false' }, category: 'State' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { defaultValue: { summary: 'false' }, category: 'State' },
             },
             contentPlacing: {
                 options: contentPlacingValues,
                 control: { type: 'select' },
-                table: {
-                    category: 'Other',
-                },
             },
             stretching: {
                 options: stretchingValues,
                 control: { type: 'select' },
-                table: {
-                    category: 'Other',
-                },
             },
             pin: {
                 options: pinValues,
                 control: { type: 'select' },
-                table: { defaultValue: { summary: 'bottom' }, category: 'Other' },
             },
             enableContentLeft: {
                 control: { type: 'boolean' },
-                table: { defaultValue: { summary: 'bottom' }, category: 'Other' },
             },
             enableContentRight: {
                 control: { type: 'boolean' },
-                table: { defaultValue: { summary: 'bottom' }, category: 'Other' },
             },
             ...additionalArgTypes,
             ...disableProps([
