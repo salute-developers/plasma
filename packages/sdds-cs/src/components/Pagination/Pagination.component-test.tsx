@@ -5,7 +5,7 @@ import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/pl
 import { Pagination as PaginationCS } from '.';
 
 const id = 'test-pagination';
-const slots = [7, 9, 13];
+const slots = [7, 9, 13, 1, 3];
 const values = [1, 10, 20];
 const count = 2000;
 
@@ -139,6 +139,7 @@ describe('sdds-cs: Pagination Slots', () => {
     const Pagination = getComponent('Pagination');
 
     it('minSlots', () => {
+        cy.viewport(1000, 500);
         mount(
             <CypressTestDecorator>
                 <Pagination slots={slots[0]} value={values[0]} count={count} />
@@ -146,11 +147,24 @@ describe('sdds-cs: Pagination Slots', () => {
                 <Pagination slots={slots[0]} value={values[1]} count={count} />
                 <SpaceMe />
                 <Pagination slots={slots[0]} value={values[2]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[3]} value={values[0]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[3]} value={values[1]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[3]} value={values[2]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[4]} value={values[0]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[4]} value={values[1]} count={count} />
+                <SpaceMe />
+                <Pagination slots={slots[4]} value={values[2]} count={count} />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
+
     it('avrSlots', () => {
         mount(
             <CypressTestDecorator>

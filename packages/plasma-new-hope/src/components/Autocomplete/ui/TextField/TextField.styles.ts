@@ -29,6 +29,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.borderColorReadOnly}: var(${autocompleteTokens.textFieldBorderColorReadOnly});
     ${textFieldTokens.placeholderColorReadOnly}: var(${autocompleteTokens.textFieldPlaceholderColorReadOnly});
     ${textFieldTokens.dividerColorReadOnly}: var(${autocompleteTokens.textFieldDividerColorReadOnly});
+    ${textFieldTokens.readOnlyOpacity}: var(${autocompleteTokens.textFieldReadOnlyOpacity});
     ${textFieldTokens.caretColor}: var(${autocompleteTokens.textFieldCaretColor});
     ${textFieldTokens.height}: var(${autocompleteTokens.textFieldHeight});
     ${textFieldTokens.borderWidth}: var(${autocompleteTokens.textFieldBorderWidth});
@@ -81,6 +82,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.contentSlotRightColor}: var(${autocompleteTokens.textFieldContentSlotRightColor});
     ${textFieldTokens.contentSlotRightColorHover}: var(${autocompleteTokens.textFieldContentSlotRightColorHover});
     ${textFieldTokens.contentSlotRightColorActive}: var(${autocompleteTokens.textFieldContentSlotRightColorActive});
+    ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${autocompleteTokens.textFieldContentSlotRightOpacityReadOnly});
     ${textFieldTokens.indicatorColor}: var(${autocompleteTokens.textFieldIndicatorColor});
     ${textFieldTokens.indicatorSizeInner}: var(${autocompleteTokens.textFieldIndicatorSizeInner});
     ${textFieldTokens.indicatorSizeOuter}: var(${autocompleteTokens.textFieldIndicatorSizeOuter});

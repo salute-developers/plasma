@@ -59,6 +59,6 @@ export const base = css`
         letter-spacing: var(${tokens.textLetterSpacing});
         line-height: var(${tokens.textLineHeight});
 
-        word-break: break-all;
+        overflow-wrap: break-word;
     }
 `;

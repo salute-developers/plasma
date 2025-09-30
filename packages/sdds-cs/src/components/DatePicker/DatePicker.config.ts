@@ -237,14 +237,16 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-clear);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
-                ${tokens.dividerColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-secondary);
 
-                ${tokens.textFieldColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.dividerColorReadOnly}: var(--text-secondary);
+                ${tokens.dividerOpacityReadOnly}: 0.4;
+
+                ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
             `,
         },

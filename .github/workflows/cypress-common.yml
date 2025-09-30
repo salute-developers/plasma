@@ -49,7 +49,7 @@ jobs:
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 45
-          max_attempts: 3
+          max_attempts: 2
           retry_on: error
           command: |
             if [ "${{ inputs.prefix }}" = "plasma" ]; then
@@ -57,20 +57,42 @@ jobs:
             else
               npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
             fi
-          
+
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 120
-          max_attempts: 3
+          max_attempts: 2
           retry_on: error
           command: npm run cy:${{ inputs.scope }}:run-ct
+
+      - name: Reorganize diff artifacts
+        if: ${{ failure() || inputs.with-artifacts }}
+        run: |
+          mkdir -p /tmp/artifacts
+            find /home/runner/work/plasma/plasma/cypress/snapshots -name "__diff_output__" -type d | while read dir; do
+            # Извлекаем package name из пути
+            package=$(echo "$dir" | sed 's|.*/snapshots/\([^/]*\)/.*|\1|')
+
+            # Проверяем, содержит ли путь /components/ и извлекаем component name
+            if [[ "$dir" == *"/components/"* ]]; then
+              component=$(echo "$dir" | sed 's|.*/components/\([^/]*\)/.*|\1|')
+            else
+              # Если нет /components/, берем последнюю значимую часть пути перед __diff_output__
+              component=$(echo "$dir" | sed 's|/__diff_output__$||' | sed 's|.*/||')
+            fi
+
+            target_dir="/tmp/artifacts/${package}/${component}"
+            mkdir -p "$target_dir"
+
+            cp "$dir"/* "$target_dir"/ 2>/dev/null || true
+          done
 
       - name: Save artifacts
         if: ${{ failure() || inputs.with-artifacts }}
         uses: actions/upload-artifact@v4
         with:
-          name: Test_Artifacts_${{ inputs.scope }}_
-          path: /home/runner/work/plasma/plasma/cypress
+          name: Failures_Tests_Artifact_${{ inputs.scope }}_
+          path: /tmp/artifacts/
           overwrite: true

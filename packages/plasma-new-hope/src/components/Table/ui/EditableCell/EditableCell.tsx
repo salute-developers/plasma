@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { flexRender, Table, Cell as CellType } from '@tanstack/react-table';
+import { useOutsideClick } from 'src/hooks';
 
 import { Resizer } from '../../Table.styles';
 import { SELECT_COLUMN_ID } from '../../Table';
-import { useOutsideClick } from '../../../../hooks';
 import { IconEditOutline, IconResetOutline, IconDoneCircleOutline } from '../../../_Icon';
 import { getIconSize } from '../HeadCell/HeadCell';
 import { classes } from '../../Table.tokens';
@@ -41,9 +41,11 @@ export const EditableCell: React.FC<Props> = ({ size, view, cell, borderVariant,
 
     const updateData = table.options.meta?.updateData;
 
-    const ref = useOutsideClick<HTMLTableDataCellElement>(() => {
+    const ref = useRef<HTMLTableCellElement>(null);
+
+    useOutsideClick(() => {
         setEditingMode(false);
-    });
+    }, [ref]);
 
     const handleEditClick = (e: React.MouseEvent<HTMLSpanElement>) => {
         e.stopPropagation();

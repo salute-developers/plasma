@@ -37,10 +37,12 @@ export const tokens = {
     dividerFontWeight: '--plasma-date-picker_range__divider-font-weight',
     dividerLetterSpacing: '--plasma-date-picker_range__divider-letter-spacing',
     dividerLineHeight: '--plasma-date-picker_range__divider-line-height',
+    dividerOpacityReadOnly: '--plasma-date-picker_range__divider-opacity-readonly',
 
-    /** Токены слотов для контента в рендже */
+    /** Токены слотов для контента в range */
     leftContentMargin: '--plasma-date-picker_range__left-content-margin',
     rightContentMargin: '--plasma-date-picker_range__right-content-margin',
+    rightContentOpacityReadOnly: '--plasma-date-picker_range__right-content-opacity-readonly',
 
     /** Токены лейбла */
     labelColor: '--plasma-date-picker__label-color',
@@ -92,6 +94,8 @@ export const tokens = {
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-date-picker-disabled-opacity',
 
+    rangeReadOnlyOpacity: '--plasma-date-picker-readonly-opacity',
+
     /** Цвет обводки поля ввода при фокусе */
     focusColor: '--plasma-date-picker-focus-color',
 
@@ -126,6 +130,7 @@ export const tokens = {
     textFieldBackgroundColorReadOnly: '--plasma-date-picker-textfield-background-color-readonly',
     textFieldBorderColorReadOnly: '--plasma-date-picker-textfield-border-color-readonly',
     textFieldPlaceholderColorReadOnly: '--plasma-date-picker-textfield-placeholder-color-readonly',
+    textFieldReadOnlyOpacity: '--plasma-date-picker-textfield-readonly-opacity',
 
     textFieldHeight: '--plasma-date-picker-textfield-height',
     textFieldBorderWidth: '--plasma-date-picker-textfield-border-width',
@@ -147,6 +152,7 @@ export const tokens = {
     textFieldContentSlotColor: '--plasma-date-picker-textfield__content-color',
     textFieldContentRightSlotColor: '--plasma-date-picker-textfield__content-right-color',
     textFieldContentRightSlotColorHover: '--plasma-date-picker-textfield__content-right-color-hover',
+    textFieldContentSlotRightOpacityReadOnly: '--plasma-date-picker-textfield__content-right-color-hover',
 
     /** Токены календаря */
     calendarMarginTop: '--plasma-date-picker-calendar-margin-top',

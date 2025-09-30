@@ -1,11 +1,7 @@
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconLocation } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
-
-const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const items = [
     {
@@ -223,6 +219,28 @@ const items = [
     },
 ];
 
+const itemsWithBeforeList = [
+    {
+        value: 'south_america',
+        label: 'Южная Америка',
+        beforeList: 'Content before list',
+        items: [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+            },
+            {
+                value: 'argentina',
+                label: 'Аргентина',
+            },
+            {
+                value: 'colombia',
+                label: 'Колумбия',
+            },
+        ],
+    },
+];
+
 describe('plasma-giga: Dropdown', () => {
     beforeEach(() => {
         cy.get('body').realMouseMove(0, 0);
@@ -231,24 +249,17 @@ describe('plasma-giga: Dropdown', () => {
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
 
-    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
-        <CypressTestDecorator>
-            <StandardTypoStyle />
-            {children}
-        </CypressTestDecorator>
-    );
-
     it('[PLASMA-T1629] Dropdown: size=l, variant=normal, placement=top, trigger=click, hasArrow', () => {
         cy.viewport(1000, 400);
 
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <div style={{ height: '300px' }} />
 
                 <Dropdown items={items} size="l" variant="normal" placement="top" trigger="click" hasArrow>
                     <Button text="Список стран" />
                 </Dropdown>
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.get('button').click();
@@ -262,7 +273,7 @@ describe('plasma-giga: Dropdown', () => {
         cy.viewport(1000, 400);
 
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <span id="outer">outer text</span>
 
                 <Dropdown
@@ -276,7 +287,7 @@ describe('plasma-giga: Dropdown', () => {
                 >
                     <Button text="Список стран" />
                 </Dropdown>
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.get('button').realHover();
@@ -293,13 +304,13 @@ describe('plasma-giga: Dropdown', () => {
         cy.viewport(400, 400);
 
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <span id="outer">outer text</span>
 
                 <Dropdown items={items} size="s" placement="right" closeOnSelect closeOnOverlayClick={false}>
                     <Button text="Список стран" />
                 </Dropdown>
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.get('button').click();
@@ -316,13 +327,13 @@ describe('plasma-giga: Dropdown', () => {
         cy.viewport(600, 400);
 
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <span style={{ marginLeft: '200px' }} />
 
                 <Dropdown items={items} size="xs" placement="left">
                     <Button text="Список стран" />
                 </Dropdown>
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.get('button').click();
@@ -336,16 +347,35 @@ describe('plasma-giga: Dropdown', () => {
         cy.viewport(1000, 500);
 
         mount(
-            <CypressTestDecoratorWithTypo>
+            <CypressTestDecorator>
                 <Dropdown items={items} size="xl" offset={[20, 20]} listWidth="300px">
                     <Button text="Список стран" />
                 </Dropdown>
-            </CypressTestDecoratorWithTypo>,
+            </CypressTestDecorator>,
         );
 
         cy.get('button').click();
         cy.get('[id$="south_america"]').click();
         cy.get('[id$="argentina"]').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: beforeList in items', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <CypressTestDecorator>
+                <div style={{ width: '300px' }}>
+                    <Dropdown items={itemsWithBeforeList}>
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+        cy.get('[id$="south_america"]').click();
 
         cy.matchImageSnapshot();
     });

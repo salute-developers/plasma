@@ -64,6 +64,7 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                 if (
                     !canUseDOM ||
                     !text ||
+                    typeof text !== 'string' ||
                     !contentWrapperRef?.current ||
                     !textRenderHelperRef?.current ||
                     (!width && !height)

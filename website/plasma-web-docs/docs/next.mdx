@@ -1,20 +1,20 @@
 ---
 id: next
 title: Работа с Next
-sidebar_position: 1
 ---
+Раздел описывает варианты и нюансы подключения библиотеки в рамках работы с `NextJs`.
 
-Подключение библиотеки и ее компонентов не отличается от стандартного варианта, за исключением некоторых нюансов, о которых ниже.
+:::caution RSC - React Server Components (App router)
+<p>Библиотека поддерживает работу с **RSC** только при **явном использовании** директивы **'use client'**.</p>
 
-:::caution
-    <span>Библиотека не поддерживает работу с <strong>React Server Components (App router)</strong>. За исключением тех мест в вашем проекте, где явно задана директива <strong>'use client'</strong>.</span>
+```ts
+'use client'
+
+import { Button } from '@salutejs/plasma-web';
+
+...
+```
 :::
-
-<br />
-
-<blockquote>
-    В дальнейшем речь пойдет исключительно для <u><b>pages</b> router'a</u>, вне зависимости от версии Next.
-</blockquote>
 
 ## Подключение тем
 
@@ -22,11 +22,13 @@ sidebar_position: 1
 
 ### Styled Components
 
-<blockquote>
-    Прежде всего убедитесь, что у вас правильно настроена работа со Styled Components. Для справки: официальный [пример](https://github.com/vercel/next.js/tree/main/examples/with-styled-components) работающей реализации.
-</blockquote>
+:::info
+Прежде всего убедитесь, что у вас правильно настроена работа со Styled Components.
 
-```jsx
+    Для справки: официальный [пример](https://github.com/vercel/next.js/tree/main/examples/with-styled-components) работающей реализации.
+:::
+
+```tsx
 import type { AppProps } from "next/app";
 import { plasma_web__light } from '@salutejs/plasma-themes';
 import { createGlobalStyle } from "styled-components";
@@ -46,9 +48,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ### Импорт CSS
 
-```jsx
+```tsx
 import type { AppProps } from "next/app";
-import '@salutejs/plasma-themes/css/plasma_web__dark.css';
+import '@salutejs/plasma-themes/css/plasma_web__light.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
@@ -76,17 +78,19 @@ export default function Home() {
 
 ### Пример с CSS
 
-:::caution
+:::tip
 Next не разрешает импорт CSS из сторонних модулей, поэтому важно не забыть добавить наши библиотеки в `next.config.js` следующим образом:
 :::
 
 ```js
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['@salutejs/plasma-web', '@salutejs/plasma-new-hope']
+  transpilePackages: ['@salutejs/plasma-web', '@salutejs/plasma-new-hope', '@salutejs/plasma-icons']
 };
 ````
+
 И далее уже можно подключать наши компоненты:
+
 ```jsx
 import React from 'react';
 import { Button } from '@salutejs/plasma-web/css'

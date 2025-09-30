@@ -54,6 +54,7 @@ const meta: Meta<StoryTreeProps> = {
     args: {
         size: 'm',
         fullWidthItemSelection: false,
+        singleLine: true,
         checkable: false,
         multiple: false,
         arrowPlacement: 'left',
@@ -87,7 +88,8 @@ const getTreeData = (args: any): any[] => [
                         key: '0-0-0-1',
                         children: [
                             {
-                                title: 'Проект Альфа',
+                                title:
+                                    'Проект альфа с длинным названием альфа с длинным названием альфа с длинным названием альфа с длинным названием альфа с длинным названием',
                                 key: '0-0-0-1-0',
                                 icon: <IconBlankTxtOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />,
                             },

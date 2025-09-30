@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-insol",
-  "version": "0.319.1",
+  "version": "0.320.0-dev.0",
   "description": "Salute Design System / React UI kit for SDDS INSOL web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "directory": "packages/sdds-insol"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.336.1",
+    "@salutejs/plasma-new-hope": "0.337.0-dev.0",
     "@salutejs/sdds-themes": "0.47.0"
   },
   "peerDependencies": {

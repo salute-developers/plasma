@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
-import { IconBellFill, IconLockOutline } from '@salutejs/plasma-icons';
+import { IconBellFill, IconProps } from '@salutejs/plasma-icons';
 
 import { config } from './TextField.config';
 
@@ -54,17 +54,9 @@ const StyledIconBellFill = styled(IconBellFill)<{ customSize?: string }>`
         `}
 `;
 
-const StyledIconLockOutline = styled(IconLockOutline)`
-    opacity: 0.4;
-`;
-
-const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
     const iconSize = size === 'xs' || size === 's' ? 'xs' : 's';
     const iconCustomSize = size === 'm' ? '1.25rem' : undefined;
-
-    if (readOnly) {
-        return <StyledIconLockOutline customSize={iconCustomSize} size={iconSize} color="var(--text-secondary)" />;
-    }
 
     return <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />;
 };
@@ -286,7 +278,7 @@ type StoryPropsDefault = Omit<
 const StoryDemo = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsDefault) => {
     const [text, setText] = useState('Значение поля');
 
-    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size) : undefined;
 
     return (
         <div
@@ -399,7 +391,7 @@ type StoryPropsChips = Omit<
 const StoryChips = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsChips) => {
     const [text, setText] = useState('Значение поля');
 
-    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size, readOnly) : undefined;
+    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size) : undefined;
 
     const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
 
