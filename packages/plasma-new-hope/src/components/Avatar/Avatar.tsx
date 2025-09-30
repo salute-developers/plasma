@@ -20,6 +20,7 @@ const StatusLabelsDefault: StatusLabels = {
 
 const getAvatarContent = ({
     customText,
+    customBorderRadius,
     url,
     initials,
     name,
@@ -29,7 +30,7 @@ const getAvatarContent = ({
     }
 
     if (url) {
-        return <Image src={url} alt={name} />;
+        return <Image src={url} alt={name} borderRadius={customBorderRadius} />;
     }
 
     return <Text>{initials}</Text>;
@@ -92,6 +93,7 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
             text,
             customColor,
             customBackgroundColor,
+            customBorderRadius,
             contentLeft,
             contentRight,
             pilled,
@@ -107,6 +109,7 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
         });
 
         const extraViewProp = type === 'badge' ? { badgeView } : { counterView };
+        const borderRadius = avatarSize === 'fit' ? customBorderRadius : undefined;
 
         return (
             <Root
@@ -119,7 +122,9 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
                 {...extraViewProp}
                 {...rest}
             >
-                <Wrapper isScalable={isScalable}>{getAvatarContent({ customText, url, initials, name })}</Wrapper>
+                <Wrapper isScalable={isScalable} borderRadius={borderRadius}>
+                    {getAvatarContent({ customText, url, initials, name, customBorderRadius: borderRadius })}
+                </Wrapper>
 
                 {status && (
                     <StatusIcon>

@@ -18,7 +18,10 @@ export const base = css`
     position: relative;
 `;
 
-export const Wrapper = styled.div<{ isScalable?: AvatarProps['isScalable'] }>`
+export const Wrapper = styled.div<{
+    isScalable?: AvatarProps['isScalable'];
+    borderRadius?: AvatarProps['customBorderRadius'];
+}>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,6 +29,7 @@ export const Wrapper = styled.div<{ isScalable?: AvatarProps['isScalable'] }>`
     height: 100%;
     background: var(${tokens.backgroundColor});
     overflow: hidden;
+    border-radius: ${({ borderRadius }) => borderRadius || `var(${tokens.borderRadius})`};
 
     &:hover {
         scale: ${({ isScalable }) => (isScalable ? `var(${tokens.scaleHover})` : '1')};
@@ -37,9 +41,11 @@ export const StatusIcon = styled.div`
     position: absolute;
 `;
 
-export const Image = styled.img`
+export const Image = styled.img<{ borderRadius?: AvatarProps['customBorderRadius'] }>`
     width: 100%;
     height: 100%;
+
+    border-radius: ${({ borderRadius }) => borderRadius || `var(${tokens.borderRadius})`};
 `;
 
 export const Text = styled.span`
