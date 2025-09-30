@@ -92,6 +92,10 @@ type CustomAvatarProps = {
      * Расположение дополнительного элемента
      */
     extraPlacement?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+    /**
+     * Кастомный border-radius для fit варианта
+     */
+    customBorderRadius?: number | string;
 } & ExtraProps;
 
 export type StatusLabels = Record<'active' | 'inactive', string>;
