@@ -2482,4 +2482,98 @@ describe('plasma-web: Combobox', () => {
         cy.get('ul').should('be.visible');
         cy.get('ul').find('li').should('have.length', 4);
     });
+
+    it('flow: single mode, async items loading', () => {
+        const Component = () => {
+            const [value, setValue] = useState('');
+            const [items, setItems] = useState([]);
+
+            React.useEffect(() => {
+                const t = setTimeout(() => {
+                    setItems([
+                        { value: 'A', label: 'A' },
+                        { value: 'B', label: 'B' },
+                        { value: 'C', label: 'C' },
+                    ]);
+                }, 10);
+
+                return () => clearTimeout(t);
+            }, []);
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="single"
+                        value={value}
+                        onChange={setValue}
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="A"]').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        cy.get('#single').should('have.value', 'A');
+
+        cy.get('#single').click();
+        cy.get('[id$="A"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="B"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="C"]').should('have.attr', 'aria-selected', 'false');
+    });
+
+    it('flow: multiple mode, async items loading', () => {
+        const Component = () => {
+            const [value, setValue] = useState([]);
+            const [items, setItems] = useState([]);
+
+            React.useEffect(() => {
+                const t = setTimeout(() => {
+                    setItems([
+                        { value: 'A', label: 'A' },
+                        { value: 'B', label: 'B' },
+                        { value: 'C', label: 'C' },
+                    ]);
+                }, 10);
+
+                return () => clearTimeout(t);
+            }, []);
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="multiple"
+                        value={value}
+                        onChange={setValue}
+                        multiple
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#multiple').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="A"]').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('.has-chips').should('exist');
+        cy.get('.has-chips button').should('have.length', 1);
+        cy.get('.has-chips button').should('include.text', 'A');
+        cy.get('[id$="A"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="B"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="C"]').should('have.attr', 'aria-selected', 'false');
+    });
 });
