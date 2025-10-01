@@ -1,3 +1,88 @@
+## 0.316.0 (1 октября 2025)
+
+## Функциональные изменения в компонентах
+
+### Autocomplete, Combobox, Datepicker, Select, TextArea, TextField
+
+* изменен token для value на `--text-primary`
+* изменен opacity для separator на `0.4`
+* изменен opacity для `rightContent` на `0.4`
+
+[PR](https://github.com/salute-developers/plasma/pull/1906)
+
+### Modal
+
+* добавлена возможность отключать `focusTrap`
+
+[PR](https://github.com/salute-developers/plasma/pull/2244)
+
+### Tooltip
+
+* удален лишний `pointer-events` блокирующий click на содержимом компонента
+
+[PR](https://github.com/salute-developers/plasma/pull/2249)
+
+### Note
+
+* исправлена ошибка с некорректным переносом по буквам - правильно по словам
+
+* расширен `type` до ReactNode для свойств `title, text`
+
+[PR](https://github.com/salute-developers/plasma/pull/2247)
+
+### TimePicker
+
+* Добавлен новый компонент
+
+[PR](https://github.com/salute-developers/plasma/pull/2184)
+
+### Pagination
+
+* Убрано ограничение на минимальное количество слотов для элементов
+
+[PR](https://github.com/salute-developers/plasma/pull/2258)
+
+### Dropdown
+
+* добавлена возможность указывать beforeList во вложенные списки
+
+[PR](https://github.com/salute-developers/plasma/pull/2250)
+
+### Tree
+
+* добавлено свойство `singleLine`, отвечающее за перенес заголовка
+
+* исправлено поведение сокращения текста при нехватке места
+
+[PR](https://github.com/salute-developers/plasma/pull/2253)
+
+### TextField, Select, Combobox, Dropdown, Autocomplete
+
+* Исправлен баг с открытием вложенных уровней при использовании свойства `portal`
+
+[PR](https://github.com/salute-developers/plasma/pull/2263)
+
+### Docs
+
+* Исправлено описание для свойства `isNumeric` в типографии
+
+[PR](https://github.com/salute-developers/plasma/pull/2264)
+
+### Avatar
+
+* Добавлен `customBorderRadius` для `fit` размера при `shape = rounded`
+
+[PR](https://github.com/salute-developers/plasma/pull/2262)
+
+## Изменения в библиотеки
+
+### Chip
+
+* Добавлена новая конфигурация для `transparent` вариантов
+
+[PR](https://github.com/salute-developers/plasma/pull/2255)
+
+
 ## 0.315.1 (19 сентября 2025)
 
 ## Функциональные изменения в компонентах

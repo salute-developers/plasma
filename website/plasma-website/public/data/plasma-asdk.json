@@ -1,4 +1,120 @@
 {
+  "0.351.0": {
+    "date": "2025-10-01",
+    "core": [
+      {
+        "component": "Autocomplete, Combobox, Datepicker, Select, TextArea, TextField",
+        "children": [
+          {
+            "text": "изменен token для value на `--text-primary`\n\nизменен opacity для separator на `0.4`\n\nизменен opacity для `rightContent` на `0.4`",
+            "link": "https://github.com/salute-developers/plasma/pull/1906",
+            "id": 1906
+          }
+        ]
+      },
+      {
+        "component": "Modal",
+        "children": [
+          {
+            "text": "добавлена возможность отключать `focusTrap`",
+            "link": "https://github.com/salute-developers/plasma/pull/2244",
+            "id": 2244
+          }
+        ]
+      },
+      {
+        "component": "Tooltip",
+        "children": [
+          {
+            "text": "удален лишний `pointer-events` блокирующий click на содержимом компонента",
+            "link": "https://github.com/salute-developers/plasma/pull/2249",
+            "id": 2249
+          }
+        ]
+      },
+      {
+        "component": "Note",
+        "children": [
+          {
+            "text": "исправлена ошибка с некорректным переносом по буквам - правильно по словам\n\nрасширен `type` до ReactNode для свойств `title, text`",
+            "link": "https://github.com/salute-developers/plasma/pull/2247",
+            "id": 2247
+          }
+        ]
+      },
+      {
+        "component": "TimePicker",
+        "children": [
+          {
+            "text": "Добавлен новый компонент",
+            "link": "https://github.com/salute-developers/plasma/pull/2184",
+            "id": 2184
+          }
+        ]
+      },
+      {
+        "component": "Pagination",
+        "children": [
+          {
+            "text": "Убрано ограничение на минимальное количество слотов для элементов",
+            "link": "https://github.com/salute-developers/plasma/pull/2258",
+            "id": 2258
+          }
+        ]
+      },
+      {
+        "component": "Dropdown",
+        "children": [
+          {
+            "text": "добавлена возможность указывать beforeList во вложенные списки",
+            "link": "https://github.com/salute-developers/plasma/pull/2250",
+            "id": 2250
+          }
+        ]
+      },
+      {
+        "component": "Tree",
+        "children": [
+          {
+            "text": "добавлено свойство `singleLine`, отвечающее за перенес заголовка\n\nисправлено поведение сокращения текста при нехватке места",
+            "link": "https://github.com/salute-developers/plasma/pull/2253",
+            "id": 2253
+          }
+        ]
+      },
+      {
+        "component": "TextField, Select, Combobox, Dropdown, Autocomplete",
+        "children": [
+          {
+            "text": "Исправлен баг с открытием вложенных уровней при использовании свойства `portal`",
+            "link": "https://github.com/salute-developers/plasma/pull/2263",
+            "id": 2263
+          }
+        ]
+      },
+      {
+        "component": "Docs",
+        "children": [
+          {
+            "text": "Исправлено описание для свойства `isNumeric` в типографии",
+            "link": "https://github.com/salute-developers/plasma/pull/2264",
+            "id": 2264
+          }
+        ]
+      },
+      {
+        "component": "Avatar",
+        "children": [
+          {
+            "text": "Добавлен `customBorderRadius` для `fit` размера при `shape = rounded`",
+            "link": "https://github.com/salute-developers/plasma/pull/2262",
+            "id": 2262
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.350.1": {
     "date": "2025-09-19",
     "core": [
