@@ -15,6 +15,7 @@ export const TextFieldChipNew: FC<{
     readOnly: boolean;
     chipType?: string;
     view?: string;
+    chipClickArea?: 'full' | 'close-icon';
     _forceChipManipulationWithReadonly?: any;
 }> = ({
     chips,
@@ -25,6 +26,7 @@ export const TextFieldChipNew: FC<{
     readOnly,
     chipType,
     view,
+    chipClickArea = 'full',
     _forceChipManipulationWithReadonly,
 }) => {
     return (
@@ -68,12 +70,14 @@ export const TextFieldChipNew: FC<{
                         disabled={disabled}
                         hasClear={!disabled}
                         readOnly={readOnly}
-                        onClickClose={handleCloseClick}
-                        onClick={handleChipClick}
                         onKeyDown={onKeyDownHandle}
                         onClear={() => onChipClear(chipId, index)}
                         text={label}
                         view={view}
+                        chipClickArea={chipClickArea}
+                        {...(chipClickArea === 'full'
+                            ? { onClick: handleCloseClick }
+                            : { onClick: handleChipClick, onClickClose: handleCloseClick })}
                         // TODO: #1547
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore

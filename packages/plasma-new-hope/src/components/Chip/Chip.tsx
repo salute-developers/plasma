@@ -33,6 +33,8 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             disabled = false,
             // @ts-ignore
             _forceChipManipulationWithReadonly,
+            // @ts-ignore
+            chipClickArea,
             ...rest
         } = props;
 
@@ -70,7 +72,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                 tabIndex={readOnly ? -1 : 0}
                 onClick={handleClick}
                 disabled={disabled}
-                readOnly={!disabled && readOnly}
+                readOnly={!disabled && readOnly && !_forceChipManipulationWithReadonly}
                 size={size}
                 {...rest}
             >

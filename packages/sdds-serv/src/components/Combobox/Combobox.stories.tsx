@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconDone } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Combobox } from './Combobox';
+import { config } from './Combobox.config';
 
 type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
@@ -14,8 +15,12 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
     selectAllSticky?: boolean;
 };
 
-const view = ['default', 'positive', 'warning', 'negative'];
-const size = ['xs', 's', 'm', 'l'];
+const getIconSize = (size?: string) => {
+    return size === 'xs' ? 'xs' : 's';
+};
+
+const { views, sizes } = getConfigVariations(config);
+
 const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 const hintViews = ['default'];
@@ -42,6 +47,41 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 const mode = ['default', 'radio'];
+const chipClickArea = ['full', 'close-icon'];
+
+const includeParams = [
+    'size',
+    'view',
+    'enableContentLeft',
+    'label',
+    'labelPlacement',
+    'placeholder',
+    'helperText',
+    'isTargetAmount',
+    'targetAmount',
+    'closeAfterSelect',
+    'alwaysOpened',
+    'variant',
+    'disabled',
+    'readOnly',
+    'listWidth',
+    'listOverflow',
+    'listMaxHeight',
+    'optional',
+    'required',
+    'requiredPlacement',
+    'hasRequiredIndicator',
+    'hasHint',
+    'hintText',
+    'hintTrigger',
+    'hintView',
+    'hintSize',
+    'hintTargetPlacement',
+    'hintPlacement',
+    'hintWidth',
+    'hintHasArrow',
+    'mode',
+];
 
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Combobox',
@@ -49,13 +89,13 @@ const meta: Meta<StorySelectProps> = {
     component: Combobox,
     argTypes: {
         size: {
-            options: size,
+            options: sizes,
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: view,
+            options: views,
             control: {
                 type: 'select',
             },
@@ -214,39 +254,7 @@ const meta: Meta<StorySelectProps> = {
     },
     parameters: {
         controls: {
-            include: [
-                'size',
-                'view',
-                'enableContentLeft',
-                'label',
-                'labelPlacement',
-                'placeholder',
-                'helperText',
-                'isTargetAmount',
-                'targetAmount',
-                'closeAfterSelect',
-                'alwaysOpened',
-                'variant',
-                'disabled',
-                'readOnly',
-                'listWidth',
-                'listOverflow',
-                'listMaxHeight',
-                'optional',
-                'required',
-                'requiredPlacement',
-                'hasRequiredIndicator',
-                'hasHint',
-                'hintText',
-                'hintTrigger',
-                'hintView',
-                'hintSize',
-                'hintTargetPlacement',
-                'hintPlacement',
-                'hintWidth',
-                'hintHasArrow',
-                'mode',
-            ],
+            include: includeParams,
         },
     },
 };
@@ -461,7 +469,7 @@ const items = [
     {
         value: 'africa',
         label: 'Африка',
-        isDisabled: true,
+        disabled: true,
     },
 ];
 
@@ -475,7 +483,7 @@ const SingleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size={getIconSize(args.size)} /> : undefined}
             />
         </div>
     );
@@ -501,7 +509,7 @@ const MultipleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={args.enableContentLeft ? <IconDone size={getIconSize(args.size)} /> : undefined}
             />
         </div>
     );
@@ -509,8 +517,20 @@ const MultipleStory = (args: StorySelectProps) => {
 
 export const Multiple: StoryObj<StorySelectProps> = {
     render: (args) => <MultipleStory {...args} />,
+    argTypes: {
+        chipClickArea: {
+            options: chipClickArea,
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    args: {
+        chipClickArea: 'full',
+    },
     parameters: {
         controls: {
+            include: [...includeParams, 'chipClickArea'],
             exclude: ['mode'],
         },
     },
