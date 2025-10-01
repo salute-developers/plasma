@@ -24,18 +24,26 @@ describe('sdds-cs: Modal', () => {
     function Demo({
         open = false,
         withBlur = false,
+        isFocusTrapped = true,
         placement,
     }: {
         open?: boolean;
         withBlur?: boolean;
         placement?: string;
+        isFocusTrapped?: boolean;
     }) {
         const [isOpen, setIsOpen] = React.useState(open);
 
         return (
             <PopupProvider>
                 <Button text="Open modal" onClick={() => setIsOpen(true)} />
-                <Modal opened={isOpen} onClose={() => setIsOpen(false)} withBlur={withBlur} placement={placement}>
+                <Modal
+                    opened={isOpen}
+                    isFocusTrapped={isFocusTrapped}
+                    onClose={() => setIsOpen(false)}
+                    withBlur={withBlur}
+                    placement={placement}
+                >
                     <Content id="modal-content">
                         <H3>Modal</H3>
                         <Button text="Close" onClick={() => setIsOpen(false)} />
@@ -243,6 +251,29 @@ describe('sdds-cs: Modal', () => {
         cy.get('button').contains('Close A').type('{enter}');
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal A');
+        });
+    });
+
+    it('check disabled focus trap', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo isFocusTrapped={false} />
+                <Button>Outer</Button>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').contains('Open modal').type('{enter}');
+
+        cy.focused().tab();
+
+        cy.focused().should(($p) => {
+            expect($p).to.contain('Close');
+        });
+
+        cy.focused().tab({ shift: true });
+
+        cy.focused().should(($p) => {
+            expect($p).to.contain('Outer');
         });
     });
 

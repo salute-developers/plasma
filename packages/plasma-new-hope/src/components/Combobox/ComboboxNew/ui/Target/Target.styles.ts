@@ -23,6 +23,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.backgroundColorReadOnly}: var(${comboboxTokens.textFieldBackgroundColorReadOnly});
     ${textFieldTokens.borderColorReadOnly}: var(${comboboxTokens.textFieldBorderColorReadOnly});
     ${textFieldTokens.placeholderColorReadOnly}: var(${comboboxTokens.textFieldPlaceholderColorReadOnly});
+    ${textFieldTokens.readOnlyOpacity}: var(${comboboxTokens.textFieldReadOnlyOpacity});
 
     ${textFieldTokens.caretColor}: var(${comboboxTokens.textFieldCaretColor});
     ${textFieldTokens.placeholderColor}: var(${comboboxTokens.textFieldPlaceholderColor});
@@ -59,6 +60,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.contentSlotRightColor}: var(${comboboxTokens.textFieldContentSlotRightColor});
     ${textFieldTokens.contentSlotRightColorHover}: var(${comboboxTokens.textFieldContentSlotRightColorHover});
     ${textFieldTokens.contentSlotRightColorActive}: var(${comboboxTokens.textFieldContentSlotRightColorActive});
+    ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${comboboxTokens.textFieldContentSlotRightOpacityReadOnly});
 
     ${textFieldTokens.labelColor}: var(${comboboxTokens.textFieldLabelColor});
     ${textFieldTokens.labelColorReadOnly}: var(${comboboxTokens.textFieldLabelColorReadOnly});

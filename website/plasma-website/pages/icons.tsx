@@ -89,6 +89,7 @@ const StyledMain = styled(Main)`
 export default function Home() {
     const [searchQuery, setSearchQuery] = useState('');
     const [isScrolling, setIsScrolling] = useState(false);
+    const [showDeprecated, setShowDeprecated] = useState(false);
 
     const inputRef = useRef<HTMLInputElement>(null);
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -154,8 +155,19 @@ export default function Home() {
                 </StyledFilterWrapper>
                 <Header />
                 <StyledMain>
-                    <SearchForm searchQuery={searchQuery} onInput={onSearchInput} ref={inputRef} />
-                    <IconsList activeGroup={activeGroup} searchQuery={searchQuery} pageRef={sectionRef} />
+                    <SearchForm
+                        searchQuery={searchQuery}
+                        onInput={onSearchInput}
+                        showDeprecated={showDeprecated}
+                        onShowDeprecatedChange={setShowDeprecated}
+                        ref={inputRef}
+                    />
+                    <IconsList
+                        activeGroup={activeGroup}
+                        searchQuery={searchQuery}
+                        showDeprecated={showDeprecated}
+                        pageRef={sectionRef}
+                    />
                 </StyledMain>
                 <Footer />
             </StyledSection>

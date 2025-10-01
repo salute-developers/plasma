@@ -2,6 +2,7 @@ import React, { memo, useRef, useEffect, useState, KeyboardEventHandler, forward
 import type { FormEvent } from 'react';
 import styled, { css } from 'styled-components';
 import { IconClose } from '@salutejs/plasma-icons';
+import { Checkbox, BodyXS } from '@salutejs/plasma-b2c';
 
 import { multipleMediaQuery } from '../../mixins';
 
@@ -10,6 +11,8 @@ import { StyledActionIcon } from './StyledActionIcon';
 interface SearchFormProps {
     onInput: (e: FormEvent<HTMLInputElement> | string) => void;
     searchQuery: string;
+    showDeprecated: boolean;
+    onShowDeprecatedChange: (show: boolean) => void;
 }
 
 const minWidth = 64;
@@ -122,50 +125,66 @@ const StyleIconClose = styled.span`
     `)}
 `;
 
+const StyledCheckboxWrapper = styled.div`
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+`;
+
 export const SearchForm = memo(
-    forwardRef<HTMLInputElement, SearchFormProps>(({ onInput, searchQuery }, inputRef) => {
-        const hiddenElRef = useRef<HTMLSpanElement>(null);
+    forwardRef<HTMLInputElement, SearchFormProps>(
+        ({ onInput, searchQuery, showDeprecated, onShowDeprecatedChange }, inputRef) => {
+            const hiddenElRef = useRef<HTMLSpanElement>(null);
 
-        const [width, setWidth] = useState<number | 'auto'>('auto');
+            const [width, setWidth] = useState<number | 'auto'>('auto');
 
-        const handleKeyPress: KeyboardEventHandler<HTMLInputElement> = (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-            }
-        };
-
-        useEffect(() => {
-            if (hiddenElRef.current && inputRef) {
-                const { clientWidth } = hiddenElRef.current;
-
-                if (searchQuery.length !== 0) {
-                    setWidth(clientWidth > minWidth ? clientWidth : minWidth);
-                } else {
-                    setWidth('auto');
+            const handleKeyPress: KeyboardEventHandler<HTMLInputElement> = (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
                 }
-            }
-        }, [searchQuery, width]);
+            };
 
-        return (
-            <StyledForm>
-                <StyledInputWrapper>
-                    <StyledHiddenEl ref={hiddenElRef}>{searchQuery}</StyledHiddenEl>
-                    <StyledSearchInput
-                        width={width}
-                        type="text"
-                        ref={inputRef}
-                        value={searchQuery}
-                        placeholder="Знаю, что ищу"
-                        onInput={onInput}
-                        onKeyDown={handleKeyPress}
-                    />
-                    {searchQuery && (
-                        <StyleIconClose onClick={() => onInput?.('')}>
-                            <IconClose size="m" color="inherit" />
-                        </StyleIconClose>
-                    )}
-                </StyledInputWrapper>
-            </StyledForm>
-        );
-    }),
+            useEffect(() => {
+                if (hiddenElRef.current && inputRef) {
+                    const { clientWidth } = hiddenElRef.current;
+
+                    if (searchQuery.length !== 0) {
+                        setWidth(clientWidth > minWidth ? clientWidth : minWidth);
+                    } else {
+                        setWidth('auto');
+                    }
+                }
+            }, [searchQuery, width]);
+
+            return (
+                <StyledForm>
+                    <StyledInputWrapper>
+                        <StyledHiddenEl ref={hiddenElRef}>{searchQuery}</StyledHiddenEl>
+                        <StyledSearchInput
+                            width={width}
+                            type="text"
+                            ref={inputRef}
+                            value={searchQuery}
+                            placeholder="Знаю, что ищу"
+                            onInput={onInput}
+                            onKeyDown={handleKeyPress}
+                        />
+                        {searchQuery && (
+                            <StyleIconClose onClick={() => onInput?.('')}>
+                                <IconClose size="m" color="inherit" />
+                            </StyleIconClose>
+                        )}
+                    </StyledInputWrapper>
+                    <StyledCheckboxWrapper>
+                        <Checkbox
+                            size="m"
+                            checked={showDeprecated}
+                            onChange={(e) => onShowDeprecatedChange(e.target.checked)}
+                            label={<BodyXS style={{ marginTop: '2px' }}>Показать deprecated иконки</BodyXS>}
+                        />
+                    </StyledCheckboxWrapper>
+                </StyledForm>
+            );
+        },
+    ),
 );

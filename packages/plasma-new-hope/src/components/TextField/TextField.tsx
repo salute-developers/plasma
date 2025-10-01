@@ -141,6 +141,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             const inputRef = useRef<HTMLInputElement>(null);
             const inputForkRef = useForkRef(inputRef, ref);
             const chipsRefs = useRef<Array<HTMLButtonElement>>([]);
+            const hintRef = useRef<HTMLDivElement>(null);
 
             const controlledRefs = { contentRef, inputRef, chipsRefs };
 
@@ -206,9 +207,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     ? classes.contentRightCompensationMargin
                     : undefined;
 
-            const hintRef = useOutsideClick<HTMLDivElement>(() => {
+            useOutsideClick(() => {
                 setIsHintVisible(false);
-            });
+            }, [hintRef]);
+
             const hintInnerRef = useRef<HTMLDivElement>(null);
             const hintForkRef = useForkRef(hintRef, hintInnerRef);
 

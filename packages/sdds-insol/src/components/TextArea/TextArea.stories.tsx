@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
-import { IconBell, IconLockOutline } from '@salutejs/plasma-icons';
+import { IconBell, IconProps } from '@salutejs/plasma-icons';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
@@ -46,32 +46,9 @@ const StyledIconBell = styled(IconBell)<{ customSize?: string }>`
         `}
 `;
 
-const StyledIconLockOutline = styled(IconLockOutline)<{ customSize?: string }>`
-    opacity: 0.4;
-
-    ${({ customSize }) =>
-        customSize &&
-        `
-            width: ${customSize};
-            height: ${customSize};
-            flex: 0 0 ${customSize};
-        `}
-`;
-
-const getIcon = (IconComponent: React.ReactElement, size: string, readOnly = false) => {
+const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
     const iconSize = size === 'xs' || size === 's' ? 'xs' : 's';
     const iconCustomSize = size === 'm' ? '1.25rem' : undefined;
-
-    if (readOnly) {
-        return (
-            <StyledIconLockOutline
-                customSize={iconCustomSize}
-                size={iconSize}
-                color="var(--text-secondary)"
-                style={{ opacity: '0.4' }}
-            />
-        );
-    }
 
     return <IconComponent customSize={iconCustomSize} size={iconSize} color="inherit" />;
 };
@@ -345,11 +322,7 @@ const StoryDefault = (props: StoryTextAreaProps) => {
     return (
         <TextArea
             value={value}
-            contentRight={
-                props.enableContentRight || props.readOnly
-                    ? getIcon(StyledIconBell, props.size, props.readOnly)
-                    : undefined
-            }
+            contentRight={props.enableContentRight || props.readOnly ? getIcon(StyledIconBell, props.size) : undefined}
             headerSlot={props.enableHeader && <StyledHeader>Дополнительный контент</StyledHeader>}
             onChange={(e) => {
                 setValue(e.target.value);

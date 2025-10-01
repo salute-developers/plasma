@@ -1,0 +1,103 @@
+---
+id: time-picker
+title: TimePicker
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# TimePicker
+<Description name="TimePicker" />
+
+### Быстрый старт
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-serv';
+
+export function App() {
+    const handleTimeChange = (event) => {
+        console.log('Выбрано время:', event.target.value);
+    };
+
+    return (
+        <div style={{height: '500px'}}>
+            <TimePicker
+                view="default"
+                size="m"
+                placeholder="00:00:00"
+                onChange={handleTimeChange}
+            />
+        </div>
+    );
+}
+```
+
+### Управление внешним видом и размером компонента
+
+С помощью свойств:
+- `view` - задается внешний вид
+- `size` - можно менять размер компонента (xs, s, m, l)
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px"}}>
+            <TimePicker view="default" size="l" placeholder="Большой размер" />
+            <TimePicker view="default" size="m" placeholder="Средний размер" />
+            <TimePicker view="default" size="s" placeholder="Маленький размер" />
+            <TimePicker view="default" size="xs" placeholder="Очень маленький размер" />
+        </div>
+    );
+}
+```
+
+### Управление форматом времени (с секундами или без)
+
+С помощью свойства `columnsQuantity` можно выбрать количество колонок: 2 (часы и минуты) или 3 (часы, минуты, секунды).
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px", height: '500px'}}>
+            <TimePicker size="s" columnsQuantity={2} placeholder="ЧЧ:мм" />
+            <TimePicker size="s" columnsQuantity={3} placeholder="ЧЧ:мм:сс" />
+        </div>
+    );
+}
+```
+
+### Расположение выпадающего списка
+
+Свойство `dropdownAlign` позволяет выравнивать выпадающий список относительно поля ввода.
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px", width: "300px", height: '500px'}}>
+            <TimePicker size="s" dropdownAlign="left" placeholder="Выравнивание слева" />
+            <TimePicker size="s" dropdownAlign="right" placeholder="Выравнивание справа" />
+        </div>
+    );
+}
+```
+
+### Управление клавиатурной навигацией
+
+Компонент поддерживает полную клавиатурную навигацию:
+- `Enter` - открыть/закрыть выбор времени
+- `Arrow Up/Down` - навигация по значениям
+- `Arrow Left/Right` - переход между колонками
+- `Tab` - переход к следующему значению
+
+## Props
+
+<PropsTable name="TimePicker" />

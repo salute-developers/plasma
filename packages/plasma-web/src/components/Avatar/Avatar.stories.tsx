@@ -15,7 +15,7 @@ const meta: Meta<typeof Avatar> = {
     component: Avatar,
     argTypes: {
         view: { control: 'inline-radio', options: ['default'] },
-        size: { control: 'select', options: ['xxl', 'l', 'm', 's', 'fit'] },
+        size: { control: 'select', options: ['xxl', 'xl', 'l', 'm', 's', 'fit'] },
         status: { control: 'select', options: ['active', 'inactive'] },
         type: {
             control: 'select',
@@ -104,6 +104,7 @@ export const Default: Story = {
         enableContentLeft: false,
         enableContentRight: false,
         shape: 'circled',
+        customBorderRadius: '',
     },
     argTypes: {
         enableContentLeft: {

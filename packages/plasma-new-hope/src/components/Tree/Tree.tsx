@@ -2,7 +2,7 @@ import React, { forwardRef, useState, useMemo } from 'react';
 import type { Key } from 'react';
 import Tree from 'rc-tree';
 import { RootPropsOmitDraggable } from 'src/engines';
-import { cx } from 'src/utils';
+import cls from 'classnames';
 
 import type { TreeProps, SelectInfo } from './Tree.types';
 import {
@@ -32,6 +32,7 @@ export const treeRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, TreeProps>
                 itemHeight,
                 size,
                 view,
+                variant,
                 fullWidthItemSelection = false,
                 multiple = false,
                 defaultExpandAll = false,
@@ -50,6 +51,7 @@ export const treeRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, TreeProps>
                 hasIcon = false,
                 icon,
                 renderTitle,
+                singleLine = true,
                 mode = 'default',
                 draggable = false,
                 onDragStart,
@@ -83,20 +85,21 @@ export const treeRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, TreeProps>
             const invertedClass = arrowPlacement === 'right' ? classes.treeInverted : undefined;
             const itemFilledClass = fullWidthItemSelection ? classes.treeItemFilled : undefined;
             const radioModeClass = isRadioMode ? classes.treeRadioMode : undefined;
+            const tightVariantClass = variant === 'tight' ? classes.treeTightVariant : undefined;
 
             // Проходимся по дереву и устанавливаем соответствующие классы для узлов дерева,
             // чтобы соблюсти иерархию вложенности в UI.
             const treeData = useMemo(() => traverseTree(items, selectedKeys), [items, selectedKeys]);
 
             return (
-                <Root view={view} size={size} ref={ref} items={items}>
+                <Root view={view} size={size} variant={variant} ref={ref} items={items}>
                     <Tree
                         height={height}
                         itemHeight={itemHeight}
                         virtual={virtual}
                         multiple={multiple}
                         checkable={checkable}
-                        className={cx(className, invertedClass, itemFilledClass, radioModeClass)}
+                        className={cls(className, invertedClass, itemFilledClass, radioModeClass, tightVariantClass)}
                         defaultExpandAll={defaultExpandAll}
                         autoExpandParent={autoExpandParent}
                         style={{ border: '1px solid #000' }}
@@ -117,17 +120,24 @@ export const treeRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, TreeProps>
 
                             return (
                                 <IconArrowWrapper>
-                                    <StyledArrow size={sizeToIconSize(size)} color="inherit" className="arrow" />
+                                    <StyledArrow
+                                        size={sizeToIconSize(size, variant)}
+                                        color="inherit"
+                                        className="arrow"
+                                    />
                                 </IconArrowWrapper>
                             );
                         }}
-                        icon={hasIcon && (icon || <StyledFolder size={sizeToIconSize(size)} color="inherit" />)}
+                        icon={
+                            hasIcon && (icon || <StyledFolder size={sizeToIconSize(size, variant)} color="inherit" />)
+                        }
                         titleRender={(item) => (
                             <TitleWrapper
                                 fullWidthItemSelection={fullWidthItemSelection}
                                 arrowPlacement={arrowPlacement}
+                                singleLine={singleLine}
                             >
-                                <Title>
+                                <Title singleLine={singleLine}>
                                     {/* eslint-disable-next-line no-nested-ternary */}
                                     {renderTitle
                                         ? renderTitle(item)

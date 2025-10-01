@@ -106,6 +106,7 @@ export const Default: Story = {
         enableContentLeft: false,
         enableContentRight: false,
         shape: 'circled',
+        customBorderRadius: '',
     },
     argTypes: {
         enableContentLeft: {

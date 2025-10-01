@@ -1,7 +1,6 @@
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
-import { applyEllipsis } from '../../mixins';
 import { IconDisclosureRightCentered, IconFolder } from '../_Icon';
 
 import { TreeProps } from './Tree.types';
@@ -31,6 +30,7 @@ export const StyledFolder = styled(IconFolder)``;
 export const TitleWrapper = styled.div<{
     fullWidthItemSelection: boolean;
     arrowPlacement: TreeProps['arrowPlacement'];
+    singleLine?: boolean;
 }>`
     display: flex;
     align-items: center;
@@ -38,13 +38,15 @@ export const TitleWrapper = styled.div<{
     margin: ${({ arrowPlacement, fullWidthItemSelection }) =>
         arrowPlacement === 'left' && !fullWidthItemSelection ? `var(${tokens.iconFolderMargin})` : 0};
 
-    ${applyEllipsis()};
+    overflow: ${({ singleLine }) => (singleLine ? 'hidden' : 'visible')};
 `;
 
-export const Title = styled.span`
+export const Title = styled.span<{ singleLine?: boolean }>`
     margin: var(${tokens.iconFolderMargin});
 
-    ${applyEllipsis()};
+    overflow: ${({ singleLine }) => (singleLine ? 'hidden' : 'visible')};
+    text-overflow: ${({ singleLine }) => (singleLine ? 'ellipsis' : 'unset')};
+    white-space: ${({ singleLine }) => (singleLine ? 'nowrap' : 'normal')};
 `;
 
 export const ContentRight = styled.div`
@@ -71,13 +73,24 @@ export const base = css`
         border-color: cyan;
     }
     .rc-tree .rc-tree-treenode {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
         margin: 0;
-        padding: 0;
+        padding: var(${tokens.itemPadding});
+        position: relative;
+        z-index: 0;
+        width: 100%;
         line-height: 24px;
         white-space: nowrap;
         list-style: none;
         outline: 0;
     }
+
+    .rc-tree.${classes.treeTightVariant} .rc-tree-treenode {
+        padding: var(${tokens.itemPaddingTight});
+    }
+
     .rc-tree .rc-tree-treenode .draggable {
         color: #333;
         -moz-user-select: none;
@@ -91,8 +104,10 @@ export const base = css`
     }
 
     .rc-tree .rc-tree-treenode.drop-container::before,
-    .rc-tree:not(:has(.drop-container)) .rc-tree-treenode.drop-target.${classes.treeLeafNode}::before,
-    .rc-tree:not(:has(.drop-container)) .rc-tree-treenode.drop-target.drag-over::before {
+    .rc-tree:not(:has(.drop-container))
+        .rc-tree-treenode.drop-target.${classes.treeLeafNode}::before,
+        .rc-tree:not(:has(.drop-container))
+        .rc-tree-treenode.drop-target.drag-over::before {
         box-shadow: inset 0 0 0 1px var(${tokens.itemDraggableBorderColor});
     }
 
@@ -106,17 +121,18 @@ export const base = css`
     }
     .rc-tree .rc-tree-treenode .rc-tree-node-content-wrapper {
         position: relative;
-        display: inline-block;
-        height: 24px;
         margin: 0;
         padding: 0;
         text-decoration: none;
         vertical-align: top;
         cursor: pointer;
         color: var(${tokens.color});
+        display: flex;
+        align-items: center;
+        width: 100%;
     }
     .rc-tree.${classes.treeRadioMode} .rc-tree-treenode.rc-tree-treenode-selected .rc-tree-node-content-wrapper {
-       cursor: default;
+        cursor: default;
     }
 
     .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled .rc-tree-node-content-wrapper,
@@ -139,7 +155,7 @@ export const base = css`
         margin-right: 2px;
         vertical-align: top;
         background: url('data:image/gif;base64,R0lGODlhEAAQAKIGAMLY8YSx5HOm4Mjc88/g9Ofw+v///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgAGACwAAAAAEAAQAAADMGi6RbUwGjKIXCAA016PgRBElAVlG/RdLOO0X9nK61W39qvqiwz5Ls/rRqrggsdkAgAh+QQFCgAGACwCAAAABwAFAAADD2hqELAmiFBIYY4MAutdCQAh+QQFCgAGACwGAAAABwAFAAADD1hU1kaDOKMYCGAGEeYFCQAh+QQFCgAGACwKAAIABQAHAAADEFhUZjSkKdZqBQG0IELDQAIAIfkEBQoABgAsCgAGAAUABwAAAxBoVlRKgyjmlAIBqCDCzUoCACH5BAUKAAYALAYACgAHAAUAAAMPaGpFtYYMAgJgLogA610JACH5BAUKAAYALAIACgAHAAUAAAMPCAHWFiI4o1ghZZJB5i0JACH5BAUKAAYALAAABgAFAAcAAAMQCAFmIaEp1motpDQySMNFAgA7')
-        no-repeat scroll 0 0 transparent;
+            no-repeat scroll 0 0 transparent;
     }
     .rc-tree .rc-tree-treenode span.rc-tree-switcher.rc-tree-switcher-noop {
         flex: none;
@@ -194,7 +210,7 @@ export const base = css`
     }
     .rc-tree.rc-tree-show-line .rc-tree-treenode:not(:last-child) > ul {
         background: url('data:image/gif;base64,R0lGODlhCQACAIAAAMzMzP///yH5BAEAAAEALAAAAAAJAAIAAAIEjI9pUAA7') 0 0
-        repeat-y;
+            repeat-y;
     }
     .rc-tree.rc-tree-show-line .rc-tree-treenode:not(:last-child) > .rc-tree-switcher-noop {
         background-position: -56px -18px;
@@ -244,7 +260,7 @@ export const base = css`
         margin: var(${tokens.iconFolderMargin});
     }
     .rc-tree-title {
-        display: inline-block;
+        display: grid;
         width: 100%;
     }
     .rc-tree-indent {
@@ -262,29 +278,13 @@ export const base = css`
         width: 16px;
     }
 
-    .rc-tree, .rc-tree-list {
+    .rc-tree,
+    .rc-tree-list {
         border: none !important;
     }
 
     .rc-tree .rc-tree-list-holder {
         overflow: hidden auto;
-    }
-
-    .rc-tree .rc-tree-treenode {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        align-items: center;
-        min-height: var(${tokens.itemHeight});
-        padding: 0;
-    }
-
-    .rc-tree.${classes.treeItemFilled} .rc-tree-treenode {
-        padding: 0 var(${tokens.itemPadding}) !important;
-    }
-
-    .rc-tree.${classes.treeInverted}:not(${classes.treeItemFilled}) .rc-tree-treenode {
-        padding: 0 var(${tokens.itemPaddingTight});
     }
 
     .rc-tree .rc-tree-treenode::before {
@@ -293,7 +293,7 @@ export const base = css`
         z-index: -1;
         top: var(${tokens.itemTop});
         bottom: var(${tokens.itemBottom});
-        left: var(${tokens.switcherSize});
+        left: calc(var(${tokens.switcherSize}) + var(${tokens.itemBackgroundExtraOffset}));
         right: 0;
         background: transparent;
         border-radius: var(${tokens.itemBorderRadius});
@@ -314,7 +314,9 @@ export const base = css`
         color: var(${tokens.colorSelected});
     }
 
-    .rc-tree .rc-tree-treenode.${classes.treeItemHasSelectedChildren}:not(.rc-tree-treenode-disabled) .rc-tree-icon__customize {
+    .rc-tree
+        .rc-tree-treenode.${classes.treeItemHasSelectedChildren}:not(.rc-tree-treenode-disabled)
+        .rc-tree-icon__customize {
         color: var(${tokens.colorSelected});
     }
 
@@ -326,21 +328,16 @@ export const base = css`
         background: var(${tokens.itemBackgroundColorSelected});
     }
 
-    .rc-tree .rc-tree-treenode:not(.rc-tree-treenode-disabled):not(.rc-tree.${classes.treeRadioMode} .rc-tree-treenode.rc-tree-treenode-selected):hover::before {
+    .rc-tree
+        .rc-tree-treenode:not(.rc-tree-treenode-disabled):not(.rc-tree.${classes.treeRadioMode}
+            .rc-tree-treenode.rc-tree-treenode-selected):hover::before {
         background: var(${tokens.itemBackgroundColorHover});
     }
 
-    .rc-tree .rc-tree-treenode:not(.rc-tree-treenode-disabled):not(.rc-tree.${classes.treeRadioMode} .rc-tree-treenode.rc-tree-treenode-selected):active::before {
+    .rc-tree
+        .rc-tree-treenode:not(.rc-tree-treenode-disabled):not(.rc-tree.${classes.treeRadioMode}
+            .rc-tree-treenode.rc-tree-treenode-selected):active::before {
         background: var(${tokens.itemBackgroundColorActive});
-    }
-
-    .rc-tree .rc-tree-treenode .rc-tree-node-content-wrapper {
-        display: flex;
-        align-items: center;
-        align-self: stretch;
-        height: auto;
-        flex: 1;
-        min-width: max-content;
     }
 
     .rc-tree .rc-tree-treenode span.rc-tree-switcher {
@@ -446,7 +443,7 @@ export const base = css`
     }
 
     .rc-tree .rc-tree-treenode.rc-tree-treenode-disabled .rc-tree-icon__customize {
-        color: var(${tokens.itemDisabledColor});;
+        color: var(${tokens.itemDisabledColor});
     }
 
     .rc-tree-indent-unit {

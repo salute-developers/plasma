@@ -584,6 +584,16 @@ export const config = {
         clear: {
             true: css``,
         },
+        readOnly: {
+            true: css`
+                ${textAreaTokens.readOnlyOpacity}: 0.1;
+                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-clear);
+                ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
+                ${textAreaTokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
+                ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.contentSlotRightOpacityReadOnly}: 0.4;
+            `,
+        },
         disabled: {
             true: css`
                 ${textAreaTokens.disabledOpacity}: 0.4;

@@ -377,7 +377,7 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -712,14 +712,19 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
-                ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.backgroundReadOnly}: var(--surface-solid-secondary);
+                ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
-                ${tokens.dividerColorReadOnly}: var(--text-secondary);
 
-                ${tokens.textFieldColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.dividerColorReadOnly}: var(--text-primary);
+                ${tokens.dividerOpacityReadOnly}: 0.4;
+
+                ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-secondary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+
+                ${tokens.rightContentOpacityReadOnly}: 0.4;
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
     },
