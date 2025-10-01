@@ -15,7 +15,11 @@ const deepCopy = <T>(obj: T): T => {
         return (obj.map((item) => deepCopy(item)) as unknown) as T;
     }
 
-    if ((obj as any).type && (typeof (obj as any).type === 'function' || typeof (obj as any).type === 'string')) {
+    if (
+        (obj as any).$$typeof === Symbol.for('react.element') ||
+        (obj as any).$$typeof === Symbol.for('react.fragment') ||
+        typeof (obj as any)?.$$typeof === 'symbol'
+    ) {
         return obj;
     }
 
