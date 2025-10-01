@@ -388,7 +388,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
         // Пример: когда юзер очистил value извне, тогда нужно пройтись по элементам и выключить все чекбоксы.
         useLayoutEffect(() => {
-            const checkedCopy = new Map(checked);
+            const checkedCopy = new Map(valueToCheckedMap);
 
             checkedCopy.forEach((_, key) => {
                 checkedCopy.set(key, false);
