@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-serv",
-  "version": "0.324.0-dev.0",
+  "version": "0.324.0",
   "description": "Salute Design System / React UI kit for SDDS SERV web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "directory": "packages/sdds-serv"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.337.0-dev.0",
+    "@salutejs/plasma-new-hope": "0.337.0",
     "@salutejs/sdds-themes": "0.47.0"
   },
   "peerDependencies": {
