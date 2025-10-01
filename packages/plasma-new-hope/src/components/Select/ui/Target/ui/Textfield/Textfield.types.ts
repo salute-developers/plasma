@@ -27,4 +27,5 @@ export type TextfieldProps = Pick<
     | 'requiredProps'
     | 'hintProps'
     | 'chipType'
+    | 'chipClickArea'
 >;

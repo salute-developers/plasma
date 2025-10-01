@@ -115,6 +115,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 // @ts-ignore
                 _chips,
                 // @ts-ignore
+                _chipClickArea,
+                // @ts-ignore
                 _onChipCloseClick,
 
                 // events
@@ -509,6 +511,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     handleChipKeyDown={handleChipKeyDown}
                                     onChipClear={onChipClear}
                                     onChipCloseClick={_onChipCloseClick}
+                                    chipClickArea={_chipClickArea}
                                     view={chipView || view}
                                     readOnly={readOnly}
                                     chipType={chipType}

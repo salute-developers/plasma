@@ -74,6 +74,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             chipType,
             multiselect,
             mode = 'default',
+            chipClickArea,
             // @ts-ignore
             _offset,
 

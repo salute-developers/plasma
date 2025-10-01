@@ -42,7 +42,7 @@ import { Context } from './Combobox.context';
  * Поле ввода с выпадающим списком и возможностью фильтрации и выбора элементов.
  */
 
-export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProps, 'items'>>) =>
+export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProps, 'items' | 'chipClickArea'>>) =>
     forwardRef<HTMLInputElement, ComboboxProps>((props, ref) => {
         const {
             name,
@@ -88,6 +88,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             onScroll,
             onToggle,
             mode = 'default',
+            chipClickArea = 'full',
             // @ts-ignore
             _offset,
             ...rest
@@ -531,6 +532,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         {...(multiple
                                             ? {
                                                   enumerationType: 'chip',
+                                                  _chipClickArea: chipClickArea,
                                                   _chips: getChips(),
                                                   _onChipCloseClick: handleChipClick,
                                               }

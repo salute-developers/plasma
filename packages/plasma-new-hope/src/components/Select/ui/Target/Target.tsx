@@ -94,6 +94,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 requiredProps={requiredProps}
                 hintProps={hintProps}
                 chipType={selectProps.chipType}
+                chipClickArea={selectProps.chipClickArea}
             />
         );
     },

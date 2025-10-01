@@ -30,6 +30,8 @@ export type Placement =
     | 'left-start'
     | 'left-end';
 
+type ChipClickArea = 'full' | 'close-icon';
+
 type IsMultiselect<T extends ItemOption = ItemOption> =
     | ({ name?: never; defaultValue?: never } & (
           | {
@@ -51,6 +53,11 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
                  */
                 renderValue?: never;
                 selectAllOptions?: never;
+                /**
+                 * Область, по которой происходит нажатие.
+                 * @default full
+                 */
+                chipClickArea?: never;
             }
           | {
                 multiple: true;
@@ -60,6 +67,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
                 targetAmount?: number;
                 renderValue?: (item: T) => string;
                 selectAllOptions?: SelectAllProps;
+                chipClickArea?: ChipClickArea;
             }
       ))
     | ({ name: string; onChange?: ChangeEventHandler } & (
@@ -71,6 +79,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
                 targetAmount?: never;
                 renderValue?: never;
                 selectAllOptions?: never;
+                chipClickArea?: never;
             }
           | {
                 multiple: true;
@@ -80,6 +89,7 @@ type IsMultiselect<T extends ItemOption = ItemOption> =
                 targetAmount?: number;
                 renderValue?: (item: T) => string;
                 selectAllOptions?: SelectAllProps;
+                chipClickArea?: ChipClickArea;
             }
       ));
 
