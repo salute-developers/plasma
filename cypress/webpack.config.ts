@@ -40,6 +40,7 @@ export const getWebpackConfig = () => {
                 react: resolveInsidePackage('react'),
                 'react-dom': resolveInsidePackage('react-dom'),
                 '@salutejs/plasma-icons': resolveInsidePackage('@salutejs', 'plasma-icons'),
+                '@salutejs/plasma-cy-utils': resolveInsidePackage('@salutejs', 'plasma-cy-utils'),
             },
         },
         optimization: {

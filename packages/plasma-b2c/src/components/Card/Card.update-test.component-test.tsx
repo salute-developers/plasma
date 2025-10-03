@@ -23,7 +23,7 @@ describe('plasma-b2c: Card', () => {
         </CypressTestDecorator>
     );
 
-    it('[PLASMA-T1720] Card: ratio=1/1, roundness=0', () => {
+    it('[PLASMA-T1720] Card: ratio=1:1, roundness=0', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Card style={{ width: '50%', color: 'black' }} roundness="0">
@@ -44,7 +44,7 @@ describe('plasma-b2c: Card', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1721] Card: ratio=1/2, roundness=16', () => {
+    it('[PLASMA-T1721] Card: ratio=1:2, roundness=16', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Card style={{ width: '50%', color: 'black' }} roundness="16">
@@ -65,7 +65,7 @@ describe('plasma-b2c: Card', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1722] Card: ratio=4/3, roundness=32, scaleOnFocus', () => {
+    it('[PLASMA-T1722] Card: ratio=4:3, roundness=32, scaleOnFocus', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Card style={{ width: '50%', color: 'black' }} roundness="32" scaleOnFocus>
@@ -86,7 +86,7 @@ describe('plasma-b2c: Card', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1723] Card: ratio=16/9, roundness=250', () => {
+    it('[PLASMA-T1723] Card: ratio=16:9, roundness=250', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Card style={{ width: '50%', color: 'black' }} roundness="250">

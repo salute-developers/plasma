@@ -1,6 +1,8 @@
+import React from 'react';
 import { mount as cyMount } from '@cypress/react';
 
 import type { resourceOrOption } from './Portal';
+import { CypressTestDecorator } from './CypressDecorator';
 
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -14,7 +16,7 @@ declare global {
 export const mount: typeof cyMount = (...args) => {
     const [jsx, opts = {}] = args;
 
-    return cyMount(jsx, opts);
+    return cyMount(<CypressTestDecorator>{jsx}</CypressTestDecorator>, opts);
 };
 
 // INFO: для временного использования в plasma-ui

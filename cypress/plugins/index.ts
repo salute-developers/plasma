@@ -1,7 +1,7 @@
 /* eslint-disable */
 /// <reference types="cypress" />
 
-import { addMatchImageSnapshotPlugin } from 'cypress-image-snapshot/plugin';
+import { addMatchImageSnapshotPlugin } from '@simonsmith/cypress-image-snapshot/plugin';
 import coverage from '@cypress/code-coverage/task';
 
 const windowSize = {
@@ -11,7 +11,7 @@ const windowSize = {
 };
 
 export const setupNodeEvents = (on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) => {
-    addMatchImageSnapshotPlugin(on, config);
+    addMatchImageSnapshotPlugin(on);
 
     coverage(on, config);
 

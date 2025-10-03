@@ -1,20 +1,31 @@
 import React from 'react';
 import { IconDownload } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import {
+    mount,
+    CypressTestDecorator,
+    getComponent,
+    PadMe,
+    SpaceMe,
+    // getBaseVisualTests,
+} from '@salutejs/plasma-cy-utils';
+
+// import { config } from './Button.config';
 
 import { Button as ButtonWeb } from '.';
 
 const Icon = () => <IconDownload color="inherit" />;
 
+/**
+ * NOTE:
+ * пример вызова базовых тестов с помощью генерации матрицы пропсов (импорт нужных частей закоменчен)
+ * getBaseVisualTests({ config, component: 'Button', children: 'Hello Plasma', configPropsForMatrix: ['view', 'size'] })
+ */
+
 describe('plasma-b2c: Button', () => {
     const Button = getComponent('Button') as typeof ButtonWeb;
 
     it('simple', () => {
-        mount(
-            <CypressTestDecorator>
-                <Button>Hello Plasma</Button>
-            </CypressTestDecorator>,
-        );
+        mount(<Button>Hello Plasma</Button>);
         cy.matchImageSnapshot();
     });
 
