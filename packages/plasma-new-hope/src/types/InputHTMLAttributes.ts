@@ -2,7 +2,12 @@
 
 import React from 'react';
 
-import { DisabledProps } from '../mixins';
+interface DisabledProps {
+    /**
+     * Компонент неактивен
+     */
+    disabled?: boolean;
+}
 
 export interface InputHTMLAttributes<T> extends DisabledProps, React.InputHTMLAttributes<T> {
     /**
@@ -46,11 +51,11 @@ export interface InputHTMLAttributes<T> extends DisabledProps, React.InputHTMLAt
      */
     onChange?: React.InputHTMLAttributes<T>['onChange'];
     /**
-     * Обработчик фокуса на элементе формы
+     * Обработчик focus на элементе формы
      */
     onFocus?: React.InputHTMLAttributes<T>['onFocus'];
     /**
-     * Обработчик блюра на элементе формы
+     * Обработчик blur на элементе формы
      */
     onBlur?: React.InputHTMLAttributes<T>['onBlur'];
 }
