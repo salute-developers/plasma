@@ -1,30 +1,36 @@
-import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command';
 import 'cypress-file-upload';
 
-const { absolute } = Cypress.spec;
-const componentName = absolute.split('/').at(-2);
+const { name } = Cypress.spec;
+
+const componentName = name.split('.').at(0);
 const baseSnapsDir = `${Cypress.env('snapshotsDir')}`;
 
-const getSnapshotPath = () => {
-    if (Cypress.env('hasSpecGroup')) {
-        return `${baseSnapsDir}/components`;
-    }
+// const getSnapshotPath = () => {
+//     if (Cypress.env('hasSpecGroup')) {
+//         return `${baseSnapsDir}/components`;
+//     }
 
-    if (Cypress.env('hasComponents')) {
-        return `${baseSnapsDir}/components/${componentName}`;
-    }
+//     if (Cypress.env('hasComponents')) {
+//         return `${baseSnapsDir}/components/${componentName}`;
+//     }
 
-    if (['plasma-web', 'plasma-b2c'].includes(Cypress.env('package'))) {
-        return baseSnapsDir;
-    }
+//     if (['plasma-web', 'plasma-b2c'].includes(Cypress.env('package'))) {
+//         return baseSnapsDir;
+//     }
 
-    return `${baseSnapsDir}/components`;
-};
+//     return `${baseSnapsDir}/components`;
+// };
 
 addMatchImageSnapshotCommand({
-    customSnapshotsDir: getSnapshotPath(),
+    customSnapshotsDir: `${baseSnapsDir}/${componentName}`,
+    customDiffDir: `${baseSnapsDir}/${componentName}`,
     failureThreshold: Cypress.env('threshold'),
     failureThresholdType: 'percent',
+});
+
+Cypress.Commands.overwrite('matchImageSnapshot', (originalFn, subject, options = {}) => {
+    return originalFn(subject, { ...options, specFileRelativeToRoot: '' });
 });
 
 const { isPlainObject, last } = Cypress._;

@@ -79,7 +79,12 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
+<<<<<<< HEAD
     "@salutejs/plasma-sb-utils": "0.210.0",
+=======
+    "@salutejs/plasma-sb-utils": "0.209.0",
+    "@salutejs/plasma-cy-utils": "0.138.0",
+>>>>>>> 5cb6fec60c (feat: core tests module)
     "@salutejs/plasma-themes": "0.38.0",
     "@storybook/addon-docs": "8.6.12",
     "@storybook/addon-essentials": "8.6.12",

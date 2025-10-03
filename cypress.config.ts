@@ -4,6 +4,8 @@ import { defineConfig } from 'cypress';
 import { getWebpackConfig } from './cypress/webpack.config';
 import { setupNodeEvents } from './cypress/plugins';
 
+const CORE_TESTS_DIR = 'plasma-new-hope';
+
 const supportFilePath = path.resolve(__dirname, 'cypress', 'support', 'index.ts');
 
 const { PACKAGE_NAME: packageName, COMPONENTS: components, RETRIES: retries = 5, SPEC_GROUP: specGroup } = process.env;
@@ -30,18 +32,20 @@ const getTestMatch = () => {
               })
         : [];
 
+    const searchDirs = `{${packageName},${CORE_TESTS_DIR}}`;
+
     if (specGroup) {
-        return `**/${packageName}/'**/${specGroup}*.component-test.{ts,tsx}`;
+        return `**/${searchDirs}/'**/${specGroup}*.component-test.{ts,tsx}`;
     }
 
     if (!componentMatchingDirs.length) {
-        return `**/${packageName}/${baseTestMatch}`;
+        return `**/${searchDirs}/${baseTestMatch}`;
     }
 
     const matchingDirs =
         componentMatchingDirs.length === 1 ? `${componentMatchingDirs[0]}` : `{${componentMatchingDirs.join(',')}}`;
 
-    return `**/${packageName}/**/${matchingDirs}/${baseTestMatch}`;
+    return `**/${searchDirs}/**/${matchingDirs}/${baseTestMatch}`;
 };
 
 export default defineConfig({
