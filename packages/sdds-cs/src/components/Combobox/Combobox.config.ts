@@ -34,7 +34,7 @@ export const config = {
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
                 ${tokens.textFieldContentSlotRightColor}: var(--text-accent);
-                ${tokens.textFieldContentSlotRightColorHover}: #1A9E32;
+                ${tokens.textFieldContentSlotRightColorHover}:var(--text-accent-minor);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.textFieldIndicatorColor}: var(--surface-negative);
@@ -57,7 +57,7 @@ export const config = {
                 ${tokens.dropdownBorderColor}: var(--surface-solid-primary);
 
                 ${tokens.disclosureIconColor}: var(--text-accent);
-                ${tokens.disclosureIconColorHover}: #1A9E32;
+                ${tokens.disclosureIconColorHover}: var(--text-accent-minor);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
 
                 ${tokens.dividerColor}: var(--surface-solid-primary);
@@ -95,7 +95,7 @@ export const config = {
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
                 ${tokens.textFieldContentSlotRightColor}: var(--text-accent);
-                ${tokens.textFieldContentSlotRightColorHover}: #1A9E32;
+                ${tokens.textFieldContentSlotRightColorHover}: var(--text-accent-minor);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.textFieldIndicatorColor}: var(--surface-negative);
@@ -118,7 +118,7 @@ export const config = {
                 ${tokens.dropdownBorderColor}: var(--surface-solid-primary);
 
                 ${tokens.disclosureIconColor}: var(--text-accent);
-                ${tokens.disclosureIconColorHover}: #1A9E32;
+                ${tokens.disclosureIconColorHover}: var(--text-accent-minor);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
 
                 ${tokens.dividerColor}: var(--surface-solid-primary);

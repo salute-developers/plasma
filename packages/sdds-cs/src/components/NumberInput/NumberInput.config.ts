@@ -22,7 +22,7 @@ export const config = {
 
                 ${tokens.iconButtonColor}: var(--text-accent);
                 ${tokens.iconButtonBackgroundColor}: var(--surface-solid-card);
-                ${tokens.iconButtonColorSolidHover}: #1A9E32;
+                ${tokens.iconButtonColorSolidHover}: var(--text-accent-minor);
                 ${tokens.iconButtonColorSolidActive}: var(--text-accent-active);
 
                 ${tokens.actionButtonDisabledOpacity}: 0.4;

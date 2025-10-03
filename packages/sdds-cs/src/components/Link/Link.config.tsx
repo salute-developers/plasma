@@ -50,10 +50,10 @@ export const config = {
             accent: css`
                 ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
                 ${tokens.linkColor}: var(--text-accent);
-                ${tokens.linkColorHover}: #1a9e32;
+                ${tokens.linkColorHover}: var(--text-accent-minor);
                 ${tokens.linkColorActive}: var(--text-accent-active);
                 ${tokens.linkColorVisited}: var(--text-accent);
-                ${tokens.linkColorVisitedHover}: #1a9e32;
+                ${tokens.linkColorVisitedHover}: var(--text-accent-minor);
                 ${tokens.linkColorVisitedActive}: var(--text-accent-active);
                 ${tokens.linkUnderlineBorder}: 0;
             `,

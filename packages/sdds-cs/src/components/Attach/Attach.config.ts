@@ -55,7 +55,7 @@ export const config = {
                 ${attachTokens.buttonValueColor}: var(--text-secondary);
                 ${attachTokens.buttonBackgroundColor}: var(--surface-solid-primary);
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: #1A9E32;
+                ${attachTokens.buttonColorHover}: var(--text-accent-minor);
                 ${attachTokens.buttonBackgroundColorHover}: var(--surface-solid-primary-hover);
                 ${attachTokens.buttonColorActive}: var(--text-accent-active);
                 ${attachTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
@@ -72,9 +72,9 @@ export const config = {
                 ${attachTokens.iconButtonColor}: var(--text-accent);
                 ${attachTokens.iconButtonBackgroundColor}: var(--surface-solid-primary);
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: #1A9E32;
+                ${attachTokens.iconButtonColorHover}: var(--text-accent-minor);
                 ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
-                ${attachTokens.iconButtonColorActive}: #1A9E32;
+                ${attachTokens.iconButtonColorActive}: var(--text-accent-minor);
                 ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-solid-primary-active);
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
@@ -96,9 +96,9 @@ export const config = {
                 ${attachTokens.buttonValueColor}: var(--text-accent-minor);
                 ${attachTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${attachTokens.buttonLoadingBackgroundColor}: var(--surface-transparent-accent);
-                ${attachTokens.buttonColorHover}: var(--text-accent);
+                ${attachTokens.buttonColorHover}: var(--text-accent-minor);
                 ${attachTokens.buttonBackgroundColorHover}: var(--surface-transparent-accent);
-                ${attachTokens.buttonColorActive}: var(--text-accent);
+                ${attachTokens.buttonColorActive}: var(--text-accent-active);
                 ${attachTokens.buttonBackgroundColorActive}: var(--surface-clear);
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
@@ -113,9 +113,9 @@ export const config = {
                 ${attachTokens.iconButtonColor}: var(--text-accent);
                 ${attachTokens.iconButtonBackgroundColor}: var(--surface-clear);
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-accent);
-                ${attachTokens.iconButtonColorHover}: var(--text-accent);
+                ${attachTokens.iconButtonColorHover}: var(--text-accent-minor);
                 ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-accent);
-                ${attachTokens.iconButtonColorActive}: var(--text-accent);
+                ${attachTokens.iconButtonColorActive}: var(--text-accent-active);
                 ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;

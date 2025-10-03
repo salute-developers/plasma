@@ -9,7 +9,7 @@ export const config = {
         view: {
             default: css`
                 ${tokens.activeTitleColor}: var(--text-accent);
-                ${tokens.activeTitleColorHover}: var(--text-accent);
+                ${tokens.activeTitleColorHover}: var(--text-accent-minor);
                 ${tokens.activeIndicatorBorder}: solid var(--text-accent);
                 ${tokens.activeIndicatorColor}: var(--text-positive);
                 ${tokens.activeIndicatorBackground}: var(--surface-clear);

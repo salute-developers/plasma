@@ -56,11 +56,9 @@ export const config = {
                 ${tokens.focusColor}: var(--surface-accent);
                 ${tokens.background}: var(--surface-solid-card-brightness);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.itemBackground}: var(--surface-clear);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
                 ${tokens.itemColor}: var(--text-primary);
-                ${tokens.disclosureIconColor}: var(--text-accent);
                 ${tokens.dividerColor}: var(--surface-solid-primary);
                 ${tokens.disclosureIconColor}: var(--text-accent);
             `,
