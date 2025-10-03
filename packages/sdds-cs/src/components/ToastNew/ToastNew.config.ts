@@ -12,7 +12,7 @@ export const config = {
                 ${toastTokens.background}: var(--surface-solid-card-brightness);
 
                 ${toastTokens.closeIconColor}: var(--text-accent);
-                ${toastTokens.closeIconColorOnHover}: #1A9E32;
+                ${toastTokens.closeIconColorOnHover}: var(--text-accent-minor);
             `,
         },
         size: {

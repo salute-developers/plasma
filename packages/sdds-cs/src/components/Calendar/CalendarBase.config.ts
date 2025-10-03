@@ -31,9 +31,9 @@ export const config = {
 
                 ${calendarBaseTokens.iconButtonColor}: var(--text-accent);
                 ${calendarBaseTokens.iconButtonBackgroundColor}: var(--surface-clear);
-                ${calendarBaseTokens.iconButtonColorHover}: var(--text-primary-hover);
+                ${calendarBaseTokens.iconButtonColorHover}: var(--text-accent-minor);
                 ${calendarBaseTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
-                ${calendarBaseTokens.iconButtonColorActive}: var(--text-primary-hover);
+                ${calendarBaseTokens.iconButtonColorActive}: var(--text-accent-active);
                 ${calendarBaseTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
                 ${calendarBaseTokens.iconButtonFocusColor}: var(--surface-accent);
             `,

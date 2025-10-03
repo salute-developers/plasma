@@ -14,9 +14,9 @@ export const config = {
                 ${modalTokens.modalBodyPadding}: 2rem;
                 ${modalTokens.modalContentPadding}: 0.625rem;
                 ${modalTokens.modalCloseButtonRadius}: 0.375rem;
-                ${modalTokens.modalCloseButtonColor}: var(--text-secondary);
-                ${modalTokens.modalCloseButtonHoverColor}: var(--text-secondary-hover);
-                ${modalTokens.modalCloseButtonActiveColor}: var(--text-secondary-active);
+                ${modalTokens.modalCloseButtonColor}: var(--text-accent);
+                ${modalTokens.modalCloseButtonHoverColor}: var(--text-accent-minor);
+                ${modalTokens.modalCloseButtonActiveColor}: var(--text-accent-active);
                 ${modalTokens.modalOutlineFocusColor}: var(--surface-accent);
             `,
         },

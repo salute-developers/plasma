@@ -10,7 +10,7 @@ export const config = {
             default: css`
                 ${tokens.iconFolderColor}: var(--text-primary);
                 ${tokens.arrowColor}: var(--text-accent);
-                ${tokens.arrowColorHover}: var(--text-accent-hover);
+                ${tokens.arrowColorHover}: var(--text-accent-minor);
                 ${tokens.arrowColorActive}: var(--text-accent-active);
                 ${tokens.color}: var(--text-primary);
                 ${tokens.colorSelected}: var(--text-primary);

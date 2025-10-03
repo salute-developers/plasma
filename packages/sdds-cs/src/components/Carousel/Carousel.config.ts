@@ -12,7 +12,7 @@ export const config = {
                 ${tokens.paginationDotActiveBackground}: var(--text-primary);
                 ${tokens.controlIconButtonColor}: var(--text-accent);
                 ${tokens.controlIconButtonBackgroundColor}: var(--surface-solid-primary);
-                ${tokens.controlIconButtonColorHover}: var(--text-positive);
+                ${tokens.controlIconButtonColorHover}: var(--text-accent-minor);
                 ${tokens.controlIconButtonBackgroundColorHover}: var(--surface-solid-primary-hover);
                 ${tokens.controlIconButtonColorActive}: var(--text-accent-active);
                 ${tokens.controlIconButtonBackgroundColorActive}: var(--surface-solid-primary-active);

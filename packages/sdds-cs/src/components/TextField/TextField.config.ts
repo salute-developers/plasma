@@ -29,7 +29,7 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
                 ${tokens.contentSlotRightColor}: var(--text-accent);
-                ${tokens.contentSlotRightColorHover}: #1A9E32;
+                ${tokens.contentSlotRightColorHover}: var(--text-accent-minor);
                 ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.dividerColor}: var(--outline-solid-primary);

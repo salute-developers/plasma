@@ -13,7 +13,7 @@ export const config = {
                 ${toastTokens.background}: var(--surface-solid-card-brightness);
 
                 ${toastTokens.closeIconColor}: var(--text-accent);
-                ${toastTokens.closeIconColorOnHover}: #1A9E32;
+                ${toastTokens.closeIconColorOnHover}: var(--text-accent-minor);
             `,
             /**
              * @deprecated
@@ -24,7 +24,7 @@ export const config = {
                 ${toastTokens.background}: var(--on-dark-surface-solid-primary-brightness);
 
                 ${toastTokens.closeIconColor}: var(--on-dark-text-accent);
-                ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-accent-hover);
+                ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-accent-minor);
             `,
             /**
              * @deprecated
@@ -35,7 +35,7 @@ export const config = {
                 ${toastTokens.background}: var(--on-light-surface-solid-primary-brightness);
 
                 ${toastTokens.closeIconColor}: var(--on-light-text-accent);
-                ${toastTokens.closeIconColorOnHover}: var(--on-light-text-accent-hover);
+                ${toastTokens.closeIconColorOnHover}: var(--on-light-text-accent-minor);
             `,
         },
         size: {

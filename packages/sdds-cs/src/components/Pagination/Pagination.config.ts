@@ -10,16 +10,16 @@ export const config = {
         view: {
             default: css`
                 ${paginationTokens.buttonColor}: var(--text-accent);
-                ${paginationTokens.buttonColorHover}: var(--text-accent);
-                ${paginationTokens.buttonColorActive}: var(--text-accent);
+                ${paginationTokens.buttonColorHover}: var(--text-accent-minor);
+                ${paginationTokens.buttonColorActive}: var(--text-accent-active);
                 ${paginationTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${paginationTokens.buttonBackgroundColorHover}: var(--surface-clear);
                 ${paginationTokens.buttonBackgroundColorActive}: var(--surface-clear);
-                ${paginationTokens.buttonHoverColor}: var(--text-accent);
-                ${paginationTokens.buttonActiveColor}: var(--text-accent);
+                ${paginationTokens.buttonHoverColor}: var(--text-accent-minor);
+                ${paginationTokens.buttonActiveColor}: var(--text-accent-active);
                 ${paginationTokens.buttonArrowColor}: var(--text-accent);
-                ${paginationTokens.buttonArrowColorHover}: var(--text-accent);
-                ${paginationTokens.buttonArrowColorActive}: var(--text-accent);
+                ${paginationTokens.buttonArrowColorHover}: var(--text-accent-minor);
+                ${paginationTokens.buttonArrowColorActive}: var(--text-accent-active);
 
                 ${paginationTokens.inputBackgroundColor}: var(--surface-solid-card);
                 ${paginationTokens.selectBackgroundColor}: var(--surface-solid-card);

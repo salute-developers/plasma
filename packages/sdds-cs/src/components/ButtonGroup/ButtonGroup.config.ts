@@ -19,15 +19,15 @@ export const config = {
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
-                ${buttonGroupTokens.buttonColor}: var(--text-primary);
-                ${buttonGroupTokens.buttonTextColor}: var(--text-primary);
-                ${buttonGroupTokens.buttonIconColor}: var(--text-primary);
+                ${buttonGroupTokens.buttonColor}:  var(--text-accent);
+                ${buttonGroupTokens.buttonTextColor}: var(--text-accent);
+                ${buttonGroupTokens.buttonIconColor}: var(--text-accent);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-primary);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--text-primary);
+                ${buttonGroupTokens.buttonColorHover}: var(--text-accent-minor);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-solid-primary-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--text-primary);
+                ${buttonGroupTokens.buttonColorActive}: var(--text-accent-active);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
             `,
             clear: css`
@@ -36,9 +36,9 @@ export const config = {
                 ${buttonGroupTokens.buttonValueColor}: var(--text-accent);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(--surface-transparent-accent);
-                ${buttonGroupTokens.buttonColorHover}: var(--text-accent);
+                ${buttonGroupTokens.buttonColorHover}: var(--text-accent-minor);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-transparent-accent);
-                ${buttonGroupTokens.buttonColorActive}: var(--text-accent);
+                ${buttonGroupTokens.buttonColorActive}: var(--text-accent-active);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-clear);
             `,
         },
