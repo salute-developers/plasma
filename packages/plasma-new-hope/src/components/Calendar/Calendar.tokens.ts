@@ -86,6 +86,8 @@ export const tokens = {
 
     calendarDayOfWeekColor: '--plasma-calendar-day-of-the-week-color',
 
+    calendarEventItemBottom: '--plasma-calendar-event-item-bottom',
+
     /* Токены шапки календаря */
     calendarHeaderWrapperPadding: '--plasma-calendar-header-wrapper-padding',
     calendarHeaderArrowGap: '--plasma-calendar-arrow-container-gap',

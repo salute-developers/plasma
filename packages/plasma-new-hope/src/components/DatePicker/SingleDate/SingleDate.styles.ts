@@ -93,6 +93,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${tokens.textFieldContentSlotRightOpacityReadOnly});
 
     &.${classes.datePickerError} {
+        ${textFieldTokens.color}: var(${tokens.textFieldColorError}, var(${tokens.textFieldColor}));
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
@@ -103,6 +104,7 @@ export const StyledInput = styled(TextField)`
     }
 
     &.${classes.datePickerSuccess} {
+        ${textFieldTokens.color}: var(${tokens.textFieldColorSuccess}, var(${tokens.textFieldColor}));
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundSuccessColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundSuccessColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundSuccessColorFocus});

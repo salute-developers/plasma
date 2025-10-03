@@ -1,15 +1,19 @@
 import React, { ComponentProps, useCallback, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Tabs } from '../Tabs/Tabs';
 import { TabItem } from '../Tabs/TabItem';
 import { H3 } from '../Typography';
 
+import { config } from './CalendarBase.config';
+
 import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoubleRange } from '.';
 
 const onChangeValue = action('onChangeValue');
+
+const { sizes } = getConfigVariations(config);
 
 const meta: Meta<CalendarProps> = {
     title: 'Data Entry/Calendar',
@@ -27,7 +31,7 @@ const meta: Meta<CalendarProps> = {
             },
         },
         size: {
-            options: ['l', 'm', 's', 'xs'],
+            options: sizes,
             control: {
                 type: 'inline-radio',
             },
