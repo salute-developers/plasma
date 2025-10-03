@@ -40,13 +40,13 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card-active);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-clear);
                 ${tokens.textFieldColorError}: var(--text-negative);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-card-active);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-clear);
                 ${tokens.textFieldColorSuccess}: var(--text-positive);
                 ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-card-active);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-clear);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);

@@ -101,6 +101,8 @@ export const tokens = {
 
     /** Токены полей ввода */
     textFieldColor: '--plasma-date-picker-textfield-color',
+    textFieldColorError: '--plasma-date-picker-textfield-color-error',
+    textFieldColorSuccess: '--plasma-date-picker-textfield-color-success',
     textFieldPlaceholderColorFocus: '--plasma-datepicker-textfield__placeholder-color-focus',
     textFieldFocusColor: '--plasma-date-picker-textfield-focus-color',
     textFieldPlaceholderColor: '--plasma-date-picker-textfield-placeholder-color',
@@ -204,6 +206,8 @@ export const tokens = {
     calendarDayFontWeight: '--plasma-date-picker-calendar__day-font-weight',
     calendarDaySelectedFontWeight: '--plasma-date-picker-calendar__day-selected-font-weight',
     calendarDayOfWeekColor: '--plasma-date-picker-calendar__day-of-week-color',
+
+    calendarEventItemBottom: '--plasma-date-picker-calendar__event-item-bottom',
 
     calendarHeaderWrapperPadding: '--plasma-date-picker-calendar__header-wrapper-padding',
     calendarHeaderArrowGap: '--plasma-date-picker-calendar__header-arrow-gap',
