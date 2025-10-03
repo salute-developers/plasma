@@ -2,7 +2,12 @@
 
 import React from 'react';
 
-import { DisabledProps } from '../mixins';
+interface DisabledProps {
+    /**
+     * Компонент неактивен
+     */
+    disabled?: boolean;
+}
 
 export interface TextareaHTMLAttributes<T> extends DisabledProps, React.TextareaHTMLAttributes<T> {
     autoComplete?: string;
@@ -45,11 +50,11 @@ export interface TextareaHTMLAttributes<T> extends DisabledProps, React.Textarea
      */
     onChange?: React.TextareaHTMLAttributes<T>['onChange'];
     /**
-     * Обработчик фокуса на элементе формы
+     * Обработчик focus на элементе формы
      */
     onFocus?: React.TextareaHTMLAttributes<T>['onFocus'];
     /**
-     * Обработчик блюра на элементе формы
+     * Обработчик blur на элементе формы
      */
     onBlur?: React.TextareaHTMLAttributes<T>['onBlur'];
 }
