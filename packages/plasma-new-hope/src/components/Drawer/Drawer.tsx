@@ -46,6 +46,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 onEscKeyDown,
                 offset,
                 frame,
+                positionFixed = false,
                 borderRadius = 'none',
                 placement = 'right',
                 closeOnEsc = true,
@@ -111,6 +112,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                     placement={placement}
                     popupInfo={drawerInfo}
                     frame={frame}
+                    positionFixed={positionFixed}
                     width={innerWidth}
                     height={innerHeight}
                     offset={offset}
