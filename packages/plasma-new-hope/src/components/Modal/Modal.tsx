@@ -3,11 +3,11 @@ import { useForkRef } from '@salutejs/plasma-core';
 import { safeUseId } from 'src/utils';
 import { RootProps, component } from 'src/engines';
 import { useFocusTrap } from 'src/hooks';
+import { IconClose } from 'src/components/_Icon';
 
 import { popupConfig, usePopupContext } from '../Popup';
 import { Overlay } from '../Overlay';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
-import { IconClose } from '../_Icon/Icons/IconClose';
 
 import { classes, tokens } from './Modal.tokens';
 import { ModalProps } from './Modal.types';
@@ -48,6 +48,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 hasClose,
                 resizable,
                 draggable,
+                overlay,
                 ...rest
             },
             outerRootRef,
@@ -113,7 +114,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                     popupInfo={modalInfo}
                     withAnimation={withAnimation}
                     zIndex={zIndex}
-                    overlay={hasBody ? overlayNode : <Root view={view}>{overlayNode}</Root>}
+                    overlay={<Root view={view}>{overlay || overlayNode}</Root>}
                     draggable={draggable}
                     resizable={resizable}
                     {...rest}
