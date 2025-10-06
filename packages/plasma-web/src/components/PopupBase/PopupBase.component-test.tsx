@@ -14,6 +14,8 @@ const Content = styled.div`
     box-sizing: border-box;
 `;
 
+const StyledInFrame = styled.div``;
+
 const OtherContent = styled.div`
     width: 50%;
     height: 50%;
@@ -27,6 +29,13 @@ const OtherContent = styled.div`
 
     bottom: 0rem;
     right: 0;
+
+    ${StyledInFrame} {
+        padding: 1rem;
+        box-sizing: border-box;
+        background-color: rgba(145, 50, 50, 1);
+        color: rgba(255, 255, 255, 1);
+    }
 `;
 
 describe('plasma-web: PopupBase', () => {
@@ -74,21 +83,32 @@ describe('plasma-web: PopupBase', () => {
     function Frame() {
         const [isOpenA, setIsOpenA] = React.useState(false);
         const [isOpenB, setIsOpenB] = React.useState(false);
+        const [isOpenC, setIsOpenC] = React.useState(false);
 
         const ref = React.useRef<HTMLDivElement>(null);
         return (
             <>
                 <Button text="Open popup A" onClick={() => setIsOpenA(true)} />
                 <Button text="Open popup B" onClick={() => setIsOpenB(true)} />
+                <Button text="Open popup C" onClick={() => setIsOpenC(true)} />
                 <PopupBase opened={isOpenA} frame={ref}>
                     <Content>
                         <Headline3>Popup A</Headline3>
                         <Button text="Close A" onClick={() => setIsOpenA(false)} />
                     </Content>
                 </PopupBase>
+
+                <PopupBase opened={isOpenC} frame={ref} positionFixed>
+                    <StyledInFrame>
+                        <Headline3>Popup C</Headline3>
+                        <Button text="Close C" onClick={() => setIsOpenC(false)} />
+                    </StyledInFrame>
+                </PopupBase>
+
                 <OtherContent ref={ref}>
                     <Headline3>Frame</Headline3>
                 </OtherContent>
+
                 <PopupBase opened={isOpenB}>
                     <Content>
                         <Headline3>Popup B</Headline3>
@@ -185,6 +205,20 @@ describe('plasma-web: PopupBase', () => {
 
         cy.get('button').contains('Open popup A').click();
         cy.get('button').contains('Open popup B').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('frame, alwaysFixed', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <PopupBaseProvider>
+                    <Frame />
+                </PopupBaseProvider>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').contains('Open popup A').click();
+        cy.get('button').contains('Open popup C').click();
         cy.matchImageSnapshot();
     });
 
