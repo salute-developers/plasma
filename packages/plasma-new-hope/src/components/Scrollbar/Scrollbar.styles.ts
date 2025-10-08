@@ -34,17 +34,10 @@ export const StyledContainer = styled.div`
     width: 100%;
     height: 100%;
     overflow: auto;
+    overflow: overlay;
     scrollbar-width: none;
     -ms-overflow-style: none;
     box-sizing: border-box;
-
-    &[data-placement='left'] {
-        padding-left: var(${tokens.trackWidth});
-    }
-
-    &[data-placement='right'] {
-        padding-right: var(${tokens.trackWidth});
-    }
 
     &::-webkit-scrollbar {
         display: none;
@@ -56,6 +49,7 @@ export const StyledContainer = styled.div`
 export const StyledContent = styled.div`
     min-height: 100%;
     box-sizing: border-box;
+    width: 100%;
 `;
 
 export const StyledTrack = styled.div`
@@ -67,13 +61,15 @@ export const StyledTrack = styled.div`
     z-index: 10;
     background: var(${tokens.trackColor});
     border-radius: var(${tokens.trackBorderRadius});
+    top: var(--scrollbar-offset-top, 0);
+    bottom: var(--scrollbar-offset-bottom, 0);
 
     &[data-placement='left'] {
-        left: 0;
+        left: var(--scrollbar-offset-left, 0);
     }
 
     &[data-placement='right'] {
-        right: 0;
+        right: var(--scrollbar-offset-right, 0);
     }
 
     &.${classes.scrollBarTrackVisible} {
