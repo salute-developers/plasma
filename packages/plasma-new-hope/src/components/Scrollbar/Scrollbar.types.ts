@@ -18,13 +18,9 @@ export interface ScrollBarProps {
      */
     placement?: 'left' | 'right';
     /**
-     * Отступ скроллбара от краев
+     * Отступы скроллбара
      */
-    offset?: number;
-    /**
-     * Вертикальный отступ скроллбара
-     */
-    verticalOffset?: number;
+    offset?: string | number;
     /**
      * Автоматически скрывать скроллбар
      */
@@ -41,4 +37,18 @@ export interface ScrollBarProps {
      * Дочерние элементы
      */
     children?: React.ReactNode;
+}
+
+export interface ScrollbarState {
+    isVisible: boolean;
+    thumbHeight: number;
+    thumbPosition: number;
+    isDragging: boolean;
+}
+
+export interface ParsedOffset {
+    top: string;
+    right: string;
+    bottom: string;
+    left: string;
 }
