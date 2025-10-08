@@ -1,8 +1,9 @@
 import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { disableProps } from '@salutejs/plasma-sb-utils';
+import { styled } from '@linaria/react';
 
 import { WithTheme } from '../../_helpers';
+import { scrollbarLarge, scrollbarSmall } from '../../../mixins/addScrollbar';
 
 import { Scrollbar } from './Scrollbar';
 
@@ -45,10 +46,9 @@ export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         view: 'default',
         size: 's',
-        offset: 8,
+        offset: '8px',
         autoHide: true,
         autoHideDelay: 3000,
-        verticalOffset: 8,
         placement: 'right',
     },
     render: ({ ...args }) => (
@@ -61,5 +61,36 @@ export const Default: StoryObj<StoryPropsDefault> = {
                 ))}
             </div>
         </Scrollbar>
+    ),
+};
+
+const StyledContainer = styled.div`
+    height: 400px;
+    width: 300px;
+    overflow-y: scroll;
+
+    &.scrollbarSmall {
+        ${scrollbarSmall()}
+    }
+
+    &.scrollbarLarge {
+        ${scrollbarLarge()}
+    }
+`;
+
+export const NativeScroll: StoryObj<StoryPropsDefault> = {
+    args: {
+        size: 's',
+    },
+    render: ({ ...args }) => (
+        <StyledContainer className={args.size === 's' ? 'scrollbarSmall' : 'scrollbarLarge'}>
+            <div>
+                {Array.from({ length: 50 }, (_, i) => (
+                    <div key={i} style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
+                        Item {i + 1}
+                    </div>
+                ))}
+            </div>
+        </StyledContainer>
     ),
 };
