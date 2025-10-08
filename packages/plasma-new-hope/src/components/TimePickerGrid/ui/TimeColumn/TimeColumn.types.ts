@@ -6,8 +6,9 @@ interface ActiveTime {
     hours: number | null;
     minutes: number | null;
     seconds: number | null;
-    currentColumn: TimeColumnType | null;
 }
+
+type CurrentColumn = TimeColumnType | null;
 
 interface ScrollbarState {
     isVisible: boolean;
@@ -36,6 +37,7 @@ export interface TimeColumnProps {
     column: TimeColumnType;
     timeItemRefs: React.MutableRefObject<Record<string, HTMLDivElement | null>>;
     activeTime: ActiveTime;
+    currentColumn: CurrentColumn;
     handleTimeItemClick: TimeItemClickHandler;
     handleTimeItemKeyDown: TimeItemKeyDownHandler;
     createScrollbarDragHandler: ScrollbarDragHandler;
