@@ -13,6 +13,7 @@ export { IconChevronDown } from './Icons/IconChevronDown';
 export { IconChevronDownFill } from './Icons/IconChevronDownFill';
 export { IconClose } from './Icons/IconClose';
 export { IconCross } from './Icons/IconCross';
+export { IconCrossThin } from './Icons/IconCrossThin';
 export { IconDone } from './Icons/IconDone';
 export { IconDisclosureRightCentered } from './Icons/IconDisclosureRightCentered';
 export { IconDisclosureDownCentered } from './Icons/IconDisclosureDownCentered';
