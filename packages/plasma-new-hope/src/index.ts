@@ -85,4 +85,5 @@ export * from './components/Tour';
 export * from './components/EmbedIconButton';
 export * from './components/InformationWrapper';
 export * from './components/NavigationDrawer';
+export * from './components/ProgressBarCircular';
 export * from './components/TimePicker';
