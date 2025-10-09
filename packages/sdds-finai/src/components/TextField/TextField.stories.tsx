@@ -12,11 +12,9 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 const onSearch = action('onSearch');
-const onChipsChange = action('onChipsChange');
 
 const { views, sizes } = getConfigVariations(config);
 
-const chipViews = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];
 const hintTriggers = ['hover', 'click'];
@@ -353,78 +351,4 @@ export const Default: StoryObj<StoryPropsDefault> = {
         },
     },
     render: (args) => <StoryDemo {...args} />,
-};
-
-type StoryPropsChips = Omit<
-    ComponentProps<typeof TextField>,
-    | 'helperBlock'
-    | 'contentLeft'
-    | 'htmlSize'
-    | 'contentRight'
-    | 'type'
-    | 'name'
-    | 'onFocus'
-    | 'onBlur'
-    | 'onChange'
-    | 'onSearch'
-    | 'value'
-    | 'checked'
-    | 'maxLength'
-    | 'minLength'
-    | 'enumerationType'
-> & {
-    hasHint: boolean;
-    enableContentLeft: boolean;
-    enableContentRight: boolean;
-};
-
-const StoryChips = ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: StoryPropsChips) => {
-    const [text, setText] = useState('Значение поля');
-
-    const contentRight = enableContentRight || readOnly ? getIcon(IconBellFill, rest.size) : undefined;
-
-    const validateChip = (value) => (value === '1 value' ? { view: 'negative' } : {});
-
-    return (
-        <TextField
-            {...rest}
-            enumerationType="chip"
-            value={text}
-            contentLeft={enableContentLeft ? getIcon(IconBellFill, rest.size) : undefined}
-            contentRight={contentRight}
-            view={view}
-            readOnly={readOnly}
-            onChange={(e) => {
-                setText(e.target.value);
-                onChange(e.target.value);
-            }}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onChangeChips={onChipsChange}
-            chipValidator={validateChip}
-            style={{
-                width: '70%',
-                margin: '0 auto',
-            }}
-        />
-    );
-};
-
-export const Chips: StoryObj<StoryPropsChips> = {
-    argTypes: {
-        chipView: {
-            options: chipViews,
-            control: {
-                type: 'select',
-            },
-        },
-    },
-    args: {
-        ...Default.args,
-        leftHelper: 'Для первого чипа валидация вернула view="negative"',
-        chipView: 'secondary',
-        chips: ['1 value', '2 value', '3 value', '4 value'],
-        chipType: 'default',
-    },
-    render: (args) => <StoryChips {...args} />,
 };
