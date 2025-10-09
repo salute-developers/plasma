@@ -5,8 +5,6 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../_helpers';
-import { IconDisclosureRight } from '../../../components/_Icon';
-import { IconButton } from '../IconButton/IconButton';
 
 import { Popover, PopoverPlacement } from './Popover';
 
@@ -100,6 +98,16 @@ export default meta;
 type StoryPopoverProps = ComponentProps<typeof Popover> & {
     skidding?: number;
     distance?: number;
+
+    resizableDisabled: boolean;
+    resizableDirections: string[];
+    resizableHiddenIcons: string[];
+    resizableDefaultSize: { width?: number; height?: number };
+    resizableMinWidth: number;
+    resizableMinHeight: number;
+    resizableMaxWidth: number;
+    resizableMaxHeight: number;
+    resizableIconSize: 's' | 'xs' | 'm';
 };
 
 const StyledContent = styled.div`
@@ -110,6 +118,8 @@ const StyledContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+    box-sizing: border-box;
 `;
 
 const StoryDefault = (args: StoryPopoverProps) => {
@@ -142,4 +152,99 @@ export const Default: StoryObj<StoryPopoverProps> = {
         placement: 'bottom-start',
     },
     render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryResizable = (args: StoryPopoverProps) => {
+    const {
+        skidding = 0,
+        distance = 6,
+        resizableDirections,
+        resizableDisabled,
+        resizableHiddenIcons,
+        resizableDefaultSize,
+        resizableMinWidth,
+        resizableMinHeight,
+        resizableMaxWidth,
+        resizableMaxHeight,
+        resizableIconSize,
+    } = args;
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <Popover
+            opened={isOpen}
+            onToggle={(is) => setIsOpen(is)}
+            frame="theme-root"
+            usePortal={false}
+            role="presentation"
+            id="popover"
+            target={<Button>Target</Button>}
+            offset={[skidding, distance]}
+            resizable={{
+                disabled: resizableDisabled,
+                directions: resizableDirections,
+                hiddenIcons: resizableHiddenIcons,
+                defaultSize: resizableDefaultSize,
+                minWidth: resizableMinWidth,
+                minHeight: resizableMinHeight,
+                maxWidth: resizableMaxWidth,
+                maxHeight: resizableMaxHeight,
+                iconSize: resizableIconSize,
+            }}
+            {...args}
+        >
+            <StyledContent>
+                <>Content</>
+                <Button onClick={() => setIsOpen(false)}>Close</Button>
+            </StyledContent>
+        </Popover>
+    );
+};
+
+export const Resizable: StoryObj<StoryPopoverProps> = {
+    argTypes: {
+        resizableDisabled: {
+            control: 'boolean',
+        },
+        resizableDirections: {
+            control: 'check',
+            options: ['top', 'top-right', 'right', 'bottom-right', 'bottom', 'bottom-left', 'left', 'top-left'],
+        },
+        resizableDefaultSize: {
+            control: 'object',
+        },
+        resizableHiddenIcons: {
+            control: 'check',
+            options: ['top-right', 'bottom-right', 'bottom-left', 'top-left'],
+        },
+        resizableMinWidth: {
+            control: 'number',
+        },
+        resizableMinHeight: {
+            control: 'number',
+        },
+        resizableMaxWidth: {
+            control: 'number',
+        },
+        resizableMaxHeight: {
+            control: 'number',
+        },
+        resizableIconSize: {
+            control: {
+                type: 'select',
+            },
+            options: ['xs', 's', 'm'],
+        },
+    },
+    args: {
+        resizableDisabled: false,
+        resizableDirections: ['bottom-right'],
+        resizableHiddenIcons: [],
+        resizableIconSize: 's',
+        resizableDefaultSize: { width: 200, height: 100 },
+        resizableMinWidth: 200,
+        resizableMinHeight: 100,
+    },
+    render: (args) => <StoryResizable {...args} />,
 };

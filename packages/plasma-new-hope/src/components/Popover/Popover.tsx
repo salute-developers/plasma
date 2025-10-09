@@ -6,6 +6,7 @@ import type { RootProps } from '../../engines/types';
 import { useFocusTrap } from '../../hooks';
 import { cx, safeUseId } from '../../utils';
 import { Portal } from '../Portal';
+import { Resizable } from '../_Resizable';
 
 import { base as viewCSS } from './variations/_view/base';
 import type { PopoverPlacement, PopoverProps } from './Popover.types';
@@ -40,8 +41,11 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 closeOnEsc = true,
                 preventOverflow = true,
                 usePortal = false,
+                resizable,
                 view,
                 onToggle,
+                onResizeStart,
+                onResizeEnd,
                 closeOnOverlayClick,
                 ...rest
             },
@@ -298,7 +302,13 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                                 {...attributes.arrow}
                                             />
                                         )}
-                                        {children}
+                                        <Resizable
+                                            resizable={resizable}
+                                            onResizeStart={onResizeStart}
+                                            onResizeEnd={onResizeEnd}
+                                        >
+                                            {children}
+                                        </Resizable>
                                     </StyledPopover>
                                 </Root>
                             </Portal>
