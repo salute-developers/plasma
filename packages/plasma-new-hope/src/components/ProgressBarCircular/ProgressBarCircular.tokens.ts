@@ -6,14 +6,16 @@ export const classes = {
 };
 
 export const tokens = {
+    size: '--plasma-progressbar-circular-size',
     width: '--plasma-progressbar-circular-width',
     height: '--plasma-progressbar-circular-height',
 
+    strokeWidth: '--plasma-progressbar-circular-stroke-width',
+    strokeSize: '--plasma-progressbar-circular-stroke-size',
+
     backgroundStroke: '--plasma-progressbar-circular-background-stroke',
-    backgroundStrokeWidth: '--plasma-progressbar-circular-background-stroke-width',
 
     progressStroke: '--plasma-progressbar-circular-progress-stroke',
-    progressStrokeWidth: '--plasma-progressbar-circular-progress-stroke-width',
 
     contentColor: '--plasma-progressbar-circular-content-color',
     contentFontFamily: '--plasma-progressbar-circular-content-font-family',
