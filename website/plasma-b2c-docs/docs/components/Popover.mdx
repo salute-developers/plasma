@@ -11,9 +11,9 @@ import TabItem from '@theme/TabItem';
 <Description name="Popover" />
 <PropsTable name="Popover" />
 
-:::info
+## Варианты использования `target`
+
 `target` может быть как ReactNode, так и RefObject:
-:::
 
 :::important Работа с фокусом элементов
 Свойство `isFocusTrapped` захватывает фокус внутри одного DOM элемента.
@@ -147,4 +147,108 @@ import TabItem from '@theme/TabItem';
         ```
     </TabItem>
 </Tabs>
+
+## Resizable
+
+Чтобы иметь возможность растягивать Popover нужно настроить свойство `resizable`. Формат следующий:
+
+```tsx
+/**
+ * Настройка resizable-режима.
+ */
+resizable?: 
+    |  boolean
+    |  {
+            /**
+            * Включение/выключение ресайза.
+            * @default false
+            */
+            disabled?: boolean;
+            /**
+            * Направления для ресайза.
+            */
+            directions?: ResizeDirections;
+            /**
+            * Начальный размер окна ресайза.
+            */
+            defaultSize?: { width?: number; height?: number };
+            /**
+            * Минимальная ширина ресайза в px.
+            */
+            minWidth?: number;
+            /**
+            * Минимальная высота ресайза в px.
+            */
+            minHeight?: number;
+            /**
+            * Максимальная ширина ресайза в px.
+            */
+            maxWidth?: number;
+            /**
+            * Максимальная высота ресайза в px.
+            */
+            maxHeight?: number;
+            /**
+            * Кастомные иконки ресайза.
+            */
+            icons?: {
+                topRight?: ReactNode;
+                bottomRight?: ReactNode;
+                bottomLeft?: ReactNode;
+                topLeft?: ReactNode;
+            };
+            /**
+            * Размер иконки ресайза.
+            * @default s
+            */
+            iconSize?: 'xs' | 's' | 'm';
+            /**
+            * Скрывать ли иконку для ресайза.
+            * @default false
+            */
+            hiddenIcons?: PopupPlacementMixed[];
+        };
+```
+
+Пример:
+
+```tsx live
+import React from 'react';
+import styled from "styled-components";
+import { surfaceSolid03 } from "@salutejs/plasma-tokens-b2c";
+import { Popover, Button } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const StyledContent = styled.div`
+        background: ${surfaceSolid03};
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        box-sizing: border-box;
+    `;
+
+    return (
+        <section style={{width: '20rem', height: '15rem'}}>
+            <Popover
+                opened={isOpen}
+                onToggle={(is) => setIsOpen(is)}
+                target={<Button>Target</Button>}
+                placement='bottom'
+                trigger='click'
+                resizable
+            >
+                <StyledContent>
+                    <>Content</>
+                    <Button onClick={() => setIsOpen(false)}>close</Button>
+                </StyledContent>
+            </Popover>
+        </section>
+    );
+}
+```
 
