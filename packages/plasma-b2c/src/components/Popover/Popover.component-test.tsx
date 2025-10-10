@@ -1,9 +1,17 @@
-import React, { RefObject, useRef } from 'react';
+import React, { useRef } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import styled from 'styled-components';
 
 import type { PopoverTrigger } from '.';
 
 const text = 'Голосовая викторина с Валдисом Пельшем';
+
+const Content = styled.div`
+    background: var(--surface-solid-card);
+    padding: 1rem;
+    height: 100%;
+    box-sizing: border-box;
+`;
 
 describe('plasma-b2c: Popover', () => {
     const Popover = getComponent('Popover');
@@ -145,5 +153,44 @@ describe('plasma-b2c: Popover', () => {
 
         cy.get('body').type('{esc}');
         cy.get('p').contains(text).should('not.be.visible');
+    });
+
+    it('resizable', () => {
+        function Resizable() {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            return (
+                <>
+                    <Popover
+                        opened={isOpen}
+                        onToggle={(is) => setIsOpen(is)}
+                        role="presentation"
+                        id="popover"
+                        target={<Button>Target</Button>}
+                        resizable
+                    >
+                        <Content>
+                            <P1>{text}</P1>
+                            <Button onClick={() => setIsOpen(!isOpen)}>close</Button>
+                        </Content>
+                    </Popover>
+                </>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <Resizable />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').first().click();
+
+        cy.get('.resizable-bottom-right-icon')
+            .trigger('mousedown')
+            .trigger('mousemove', { clientX: 400, clientY: 400 })
+            .trigger('mouseup');
+
+        cy.matchImageSnapshot();
     });
 });
