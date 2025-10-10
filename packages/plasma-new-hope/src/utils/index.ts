@@ -14,7 +14,6 @@ export * from './initialValuesHelper';
 export { noop } from './noop';
 export { getHeightAsNumber } from './getHeightAsNumber';
 export { createConditionalComponent } from './createConditionalComponent';
-export { getTokenValueInPixels } from './getTokenValueInPixels';
 
 export const cx = (...classes: (string | boolean | undefined)[]) => classes.filter((classItem) => classItem).join(' ');
 
