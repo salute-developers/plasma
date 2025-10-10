@@ -10,6 +10,8 @@ const StyledContent = styled.div`
     flex-direction: column;
     align-items: center;
     border-radius: 0.5rem;
+    height: 100%;
+    box-sizing: border-box;
 `;
 
 describe('sdds-cs: Popover', () => {
@@ -33,6 +35,7 @@ describe('sdds-cs: Popover', () => {
         hasArrow,
         isFocusTrapped,
         offset,
+        resizable,
     }) => {
         const [isOpen, setIsOpen] = React.useState(false);
         return (
@@ -49,6 +52,7 @@ describe('sdds-cs: Popover', () => {
                     closeOnOverlayClick={closeOnOverlayClick}
                     closeOnEsc={closeOnEsc}
                     isFocusTrapped={isFocusTrapped}
+                    resizable={resizable}
                 >
                     <StyledContent>
                         <TextM>Content</TextM>
@@ -171,6 +175,33 @@ describe('sdds-cs: Popover', () => {
             </CypressTestDecorator>,
         );
         cy.get('button').contains('Open').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('resizable', () => {
+        mount(
+            <CypressTestDecorator>
+                <PopoverForTest
+                    resizable
+                    opened={false}
+                    placement="auto"
+                    trigger="click"
+                    offset={[0, 6]}
+                    closeOnOverlayClick
+                    closeOnEsc={false}
+                    hasArrow={false}
+                    isFocusTrapped
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').first().click();
+
+        cy.get('.resizable-bottom-right-icon')
+            .trigger('mousedown')
+            .trigger('mousemove', { clientX: 400, clientY: 400 })
+            .trigger('mouseup');
+
         cy.matchImageSnapshot();
     });
 });
