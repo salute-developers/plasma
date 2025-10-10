@@ -11,7 +11,7 @@ import { config } from './ProgressBarCircular.config';
 const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<typeof ProgressBarCircular> = {
-    title: 'Data Display/ProgressBarCircular',
+    title: 'Overlay/ProgressBarCircular',
     component: ProgressBarCircular,
     decorators: [WithTheme],
     argTypes: {
@@ -28,10 +28,9 @@ const meta: Meta<typeof ProgressBarCircular> = {
             },
         },
         strokeWidth: {
+            options: [2, 4, 6, 8],
             control: {
-                type: 'range',
-                min: 1,
-                max: 16,
+                type: 'radio',
             },
         },
     },
@@ -39,12 +38,16 @@ const meta: Meta<typeof ProgressBarCircular> = {
 
 export default meta;
 
-type StoryPropsDefault = ComponentProps<typeof ProgressBarCircular> & {
-    hasValue?: boolean;
-};
+type StoryPropsDefault = ComponentProps<typeof ProgressBarCircular>;
 
-const getContent = (value?: number, size?: string) => {
+const getContent = (value: number, size?: string) => {
     if (size === 'xxl' || size === 'xl') {
+        if (value >= 100) {
+            return '100%';
+        }
+        if (value <= 0) {
+            return '0%';
+        }
         return `${value}%`;
     }
 
@@ -61,5 +64,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         size: 's',
         value: 50,
     },
-    render: ({ ...args }) => <ProgressBarCircular {...args}>{getContent(args.value, args.size)}</ProgressBarCircular>,
+    render: ({ ...args }) => (
+        <ProgressBarCircular {...args}>{getContent(args.value ?? 0, args.size)}</ProgressBarCircular>
+    ),
 };

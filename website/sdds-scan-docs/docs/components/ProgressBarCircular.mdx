@@ -1,0 +1,170 @@
+---
+id: progress-bar-circular
+title: ProgressBarCircular
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# ProgressBarCircular
+Круговой индикатор прогресса. Может отображаться в нескольких размерах и цветах, может содержать текст и/или иконку внутри.
+
+<Description name="ProgressBarCircular" />
+<PropsTable name="ProgressBarCircular" exclude={['css']} />
+
+:::info Особенности работы
+- Значение прогресса автоматически ограничивается диапазоном от 0 до `maxValue`
+- Толщина линии прогресса адаптируется под размер компонента
+- Поддерживается плавная анимация изменения прогресса
+:::
+
+## Использование
+Компонент `ProgressBarCircular` отображает прогресс в виде круговой диаграммы. 
+Основное значение прогресса задается через свойство `value`, а максимальное значение через `maxValue`.
+
+Внутри индикатора можно отображать дополнительную информацию через `children`.
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div>
+            <ProgressBarCircular value={25} />
+            
+            <ProgressBarCircular value={50}>50%</ProgressBarCircular>
+            
+            <ProgressBarCircular value={75} maxValue={200} />
+        </div>
+    );
+}
+```
+
+## Примеры
+
+### Размер индикатора
+Размер индикатора задается с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <ProgressBarCircular value={25} size="xxl" />
+            <ProgressBarCircular value={25} size="xl" />
+            <ProgressBarCircular value={25} size="l" />
+            <ProgressBarCircular value={25} size="m" />
+            <ProgressBarCircular value={25} size="s" />
+            <ProgressBarCircular value={25} size="xs" />
+            <ProgressBarCircular value={25} size="xxs" />
+        </div>
+    );
+}
+```
+
+### Вид индикатора
+Вид индикатора задается с помощью свойства `view`. Возможные значения свойства `view`:
++ `"default"` – по умолчанию;
++ `"secondary"` – вторичный;
++ `"accent"` – акцентный;
++ `"info"` – информация;
++ `"positive"` – положительный;
++ `"warning"` – предупреждение;
++ `"negative"` – отрицательный.
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <ProgressBarCircular value={50} view="default" />
+            <ProgressBarCircular value={50} view="secondary" />
+            <ProgressBarCircular value={50} view="accent" />
+            <ProgressBarCircular value={50} view="positive" />
+            <ProgressBarCircular value={50} view="warning" />
+            <ProgressBarCircular value={50} view="negative" />
+            <ProgressBarCircular value={50} view="info" />
+        </div>
+    );
+}
+```
+
+### Отображение контента внутри
+Внутри индикатора можно отображать текст, числа, иконки или любой другой контент:
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/sdds-scan';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <ProgressBarCircular value={25} size="xl">25%</ProgressBarCircular>
+            <ProgressBarCircular value={50} size="xl">
+                <IconClose color="var(--text-primary)" size="s" />
+            </ProgressBarCircular>
+        </div>
+    );
+}
+```
+
+### Разные значения прогресса
+Индикатор поддерживает отображение прогресса от 0% до 100%:
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <ProgressBarCircular value={0} />
+            <ProgressBarCircular value={25} />
+            <ProgressBarCircular value={50} />
+            <ProgressBarCircular value={75} />
+            <ProgressBarCircular value={100} />
+        </div>
+    );
+}
+```
+
+### Кастомная толщина линии
+Толщину линии прогресса можно настроить с помощью свойства `strokeWidth`:
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <ProgressBarCircular value={50} strokeWidth={2} />
+            <ProgressBarCircular value={50} strokeWidth={4} />
+            <ProgressBarCircular value={50} strokeWidth={8} />
+            <ProgressBarCircular value={50} strokeWidth={12} />
+        </div>
+    );
+}
+```
+
+### Кастомный максимальный показатель
+Максимальное значение прогресса можно изменить с помощью свойства `maxValue`:
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <ProgressBarCircular value={25} maxValue={50} size="xl">25/50</ProgressBarCircular>
+            <ProgressBarCircular value={75} maxValue={150} size="xl">75/150</ProgressBarCircular>
+        </div>
+    );
+}
+```

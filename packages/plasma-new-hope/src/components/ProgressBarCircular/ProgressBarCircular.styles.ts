@@ -10,7 +10,7 @@ export const base = css`
     justify-content: center;
     box-sizing: border-box;
 
-    width: var(${tokens.width});
+    width: var(${tokens.height});
     height: var(${tokens.height});
 `;
 
@@ -21,17 +21,28 @@ export const StyledSVG = styled.svg`
 
 export const StyledBackgroundCircle = styled.circle<{ customStrokeWidth?: number }>`
     fill: none;
+    r: ${({ customStrokeWidth = `var(${tokens.strokeSize})` }) =>
+        `calc(50px - calc(calc(50px / var(${tokens.size})) * ${customStrokeWidth}))`};
     stroke: var(${tokens.backgroundStroke});
-    stroke-width: ${({ customStrokeWidth }) =>
-        customStrokeWidth ? `${customStrokeWidth}px` : `var(${tokens.backgroundStrokeWidth})`};
+    stroke-width: ${({ customStrokeWidth = `var(${tokens.strokeSize})` }) =>
+        `calc(calc(50px / var(${tokens.size})) * calc(${customStrokeWidth}) * 2)`};
 `;
 
-export const StyledProgressCircle = styled.circle<{ customStrokeWidth?: number }>`
+export const StyledProgressCircle = styled.circle<{ customStrokeWidth?: number; percent?: number }>`
+    --percentage: ${({ percent }) => percent ?? 0};
+    --radius: ${({ customStrokeWidth = `var(${tokens.strokeSize})` }) =>
+        `calc(50px - calc(calc(50px / var(${tokens.size})) * ${customStrokeWidth}))`};
+    --circumference: calc(calc(2 * 3.1415926535) * var(--radius));
+    --dashoffset: calc(var(--circumference) - (var(--percentage, 0) * var(--circumference) / 100));
+
     fill: none;
     stroke: var(${tokens.progressStroke});
-    stroke-width: ${({ customStrokeWidth }) =>
-        customStrokeWidth ? `${customStrokeWidth}px` : `var(${tokens.progressStrokeWidth})`};
+    stroke-width: ${({ customStrokeWidth = `var(${tokens.strokeSize})` }) =>
+        `calc(calc(50px / var(${tokens.size})) * calc(${customStrokeWidth}) * 2)`};
     stroke-linecap: round;
+    r: var(--radius);
+    stroke-dasharray: var(--circumference);
+    stroke-dashoffset: var(--dashoffset);
     transition: stroke-dashoffset 0.3s ease-in-out;
 `;
 
