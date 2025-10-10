@@ -39,13 +39,19 @@ export const config = {
                 ${progressBarCircularTokens.progressStroke}: var(--surface-negative);
                 ${progressBarCircularTokens.contentColor}: var(--text-primary);
             `,
+            info: css`
+                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
+                ${progressBarCircularTokens.progressStroke}: var(--surface-info);
+                ${progressBarCircularTokens.contentColor}: var(--text-primary);
+            `,
         },
         size: {
             xxl: css`
-                ${progressBarCircularTokens.width}: 8rem;
+                ${progressBarCircularTokens.size}: 128;
                 ${progressBarCircularTokens.height}: 8rem;
-                ${progressBarCircularTokens.backgroundStrokeWidth}: 0.25rem;
-                ${progressBarCircularTokens.progressStrokeWidth}: 0.25rem;
+                ${progressBarCircularTokens.width}: 8rem;
+                ${progressBarCircularTokens.strokeWidth}: 0.25rem;
+                ${progressBarCircularTokens.strokeSize}: 4;
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-h2-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-h2-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-h2-font-style);
@@ -54,10 +60,11 @@ export const config = {
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-h2-line-height);
             `,
             xl: css`
-                ${progressBarCircularTokens.width}: 5.5rem;
+                ${progressBarCircularTokens.size}: 88;
                 ${progressBarCircularTokens.height}: 5.5rem;
-                ${progressBarCircularTokens.backgroundStrokeWidth}: 0.25rem;
-                ${progressBarCircularTokens.progressStrokeWidth}: 0.25rem;
+                ${progressBarCircularTokens.width}: 5.5rem;
+                ${progressBarCircularTokens.strokeWidth}: 0.25rem;
+                ${progressBarCircularTokens.strokeSize}: 4;
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-h5-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-h5-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-h5-font-style);
@@ -66,10 +73,11 @@ export const config = {
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-h5-line-height);
             `,
             l: css`
-                ${progressBarCircularTokens.width}: 3.5rem;
+                ${progressBarCircularTokens.size}: 56;
                 ${progressBarCircularTokens.height}: 3.5rem;
-                ${progressBarCircularTokens.backgroundStrokeWidth}: 0.125rem;
-                ${progressBarCircularTokens.progressStrokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.width}: 3.5rem;
+                ${progressBarCircularTokens.strokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.strokeSize}: 2;
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-l-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -78,10 +86,11 @@ export const config = {
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             m: css`
-                ${progressBarCircularTokens.width}: 3rem;
+                ${progressBarCircularTokens.size}: 48;
                 ${progressBarCircularTokens.height}: 3rem;
-                ${progressBarCircularTokens.backgroundStrokeWidth}: 0.125rem;
-                ${progressBarCircularTokens.progressStrokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.width}: 3rem;
+                ${progressBarCircularTokens.strokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.strokeSize}: 2;
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-m-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -90,10 +99,11 @@ export const config = {
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
-                ${progressBarCircularTokens.width}: 2.25rem;
+                ${progressBarCircularTokens.size}: 32;
                 ${progressBarCircularTokens.height}: 2.25rem;
-                ${progressBarCircularTokens.backgroundStrokeWidth}: 0.125rem;
-                ${progressBarCircularTokens.progressStrokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.width}: 2.25rem;
+                ${progressBarCircularTokens.strokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.strokeSize}: 2;
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -102,10 +112,11 @@ export const config = {
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             xs: css`
-                ${progressBarCircularTokens.width}: 1.5rem;
+                ${progressBarCircularTokens.size}: 24;
                 ${progressBarCircularTokens.height}: 1.5rem;
-                ${progressBarCircularTokens.backgroundStrokeWidth}: 0.125rem;
-                ${progressBarCircularTokens.progressStrokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.width}: 1.5rem;
+                ${progressBarCircularTokens.strokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.strokeSize}: 2;
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -114,10 +125,11 @@ export const config = {
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             xxs: css`
-                ${progressBarCircularTokens.width}: 1rem;
+                ${progressBarCircularTokens.size}: 16;
                 ${progressBarCircularTokens.height}: 1rem;
-                ${progressBarCircularTokens.backgroundStrokeWidth}: 0.125rem;
-                ${progressBarCircularTokens.progressStrokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.width}: 1rem;
+                ${progressBarCircularTokens.strokeWidth}: 0.125rem;
+                ${progressBarCircularTokens.strokeSize}: 2;
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-xxs-font-style);
