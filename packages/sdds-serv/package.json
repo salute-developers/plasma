@@ -15,6 +15,7 @@
     "styled-components",
     "components",
     "mixins",
+    "types",
     "es",
     "api",
     "tokens",
