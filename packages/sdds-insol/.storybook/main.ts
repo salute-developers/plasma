@@ -1,6 +1,7 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 import linaria from '@linaria/vite';
+import * as path from 'node:path';
 
 const stories = ['../README.mdx', '../src/**/*.stories.tsx'];
 
@@ -27,6 +28,9 @@ const config: StorybookConfig = {
             base: '',
             resolve: {
                 dedupe: ['react', 'react-dom', 'styled-components'],
+                alias: {
+                    '@salutejs/plasma-sb-utils': path.resolve('../../utils/plasma-sb-utils/src'),
+                },
             },
             build: {
                 sourcemap: false,

@@ -1,6 +1,8 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
+import * as path from 'node:path';
+
 const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
 
 const storyMap = {
@@ -45,6 +47,9 @@ const config: StorybookConfig = {
             ],
             resolve: {
                 dedupe: ['react', 'react-dom', 'styled-components'],
+                alias: {
+                    '@salutejs/plasma-sb-utils': path.resolve('../../utils/plasma-sb-utils/src'),
+                },
             },
             build: {
                 sourcemap: false,
