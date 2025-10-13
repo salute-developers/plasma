@@ -1,7 +1,8 @@
 import React, { useRef, useState, forwardRef, KeyboardEvent } from 'react';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
+import { useForkRef } from '@salutejs/plasma-core';
+import { cx } from 'src/utils';
 
-import { cx } from '../../../../utils';
 import { getSliderThumbValue, getOffsets } from '../../utils';
 import { Thumb } from '../Thumb/Thumb';
 import { classes } from '../../Slider.tokens';
@@ -43,11 +44,14 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
         },
         ref,
     ) => {
+        const nodeRef = useRef<HTMLDivElement>(null);
+        const combinedRef = useForkRef(nodeRef, ref);
+
         const isVertical = orientation === 'vertical';
         const [isDrag, setIsDrag] = useState(false);
 
         const lastOnChangeValue = useRef<number>();
-        const [startClientOffset, endClientOffset] = getOffsets(ref, side, isVertical);
+        const [startClientOffset, endClientOffset] = getOffsets(nodeRef, side, isVertical);
 
         const [startValueBound, endValueBound] = bounds;
         const startPositionBound = startValueBound ? (startValueBound - min) * stepSize : null;
@@ -69,6 +73,7 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
 
         const onDrag: DraggableEventHandler = (_, data) => {
             const newValue = getSliderThumbValue(isVertical ? data.y : data.x, stepSize, min, max);
+
             if (lastOnChangeValue.current !== newValue) {
                 onChange?.(newValue, data);
                 lastOnChangeValue.current = newValue;
@@ -129,6 +134,7 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
 
         return (
             <Draggable
+                nodeRef={nodeRef}
                 axis={isVertical ? 'y' : 'x'}
                 bounds={computedBounds}
                 grid={isVertical ? [1, stepSize] : [stepSize, 1]}
@@ -139,7 +145,7 @@ export const Handler = forwardRef<HTMLDivElement, HandlerProps>(
                 disabled={disabled}
             >
                 <HandlerStyled
-                    ref={ref}
+                    ref={combinedRef}
                     style={{ zIndex }}
                     className={cx(
                         isVertical && classes.verticalOrientation,
