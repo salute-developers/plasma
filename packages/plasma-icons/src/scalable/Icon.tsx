@@ -154,6 +154,8 @@ export const iconSectionsSet = {
         selectionScreenOutline: 'SelectionScreenOutline',
         tableOutline: 'TableOutline',
         resizeCornered: 'ResizeCornered',
+        filterFunnelOffFill: 'FilterFunnelOffFill',
+        filterFunnelOffOutline: 'FilterFunnelOffOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
