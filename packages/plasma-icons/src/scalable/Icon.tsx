@@ -664,6 +664,8 @@ export const iconSectionsSet = {
         cookieOutline: 'CookieOutline',
         scissorsFill: 'ScissorsFill',
         function: 'Function',
+        closePanelFill: 'ClosePanelFill',
+        openPanelFill: 'OpenPanelFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
