@@ -818,6 +818,8 @@ export const iconSectionsSet = {
         documentPasteOutline: 'DocumentPasteOutline',
         blankPptxFill: 'BlankPptxFill',
         blankPptxOutline: 'BlankPptxOutline',
+        documentAddFill: 'DocumentAddFill',
+        documentAddOutline: 'DocumentAddOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
