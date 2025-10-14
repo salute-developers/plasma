@@ -3,12 +3,12 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { styled } from '@linaria/react';
 
 import { WithTheme } from '../../_helpers';
-import { scrollbarLarge, scrollbarSmall } from '../../../mixins/addScrollbar';
+import { scrollbarLarge, scrollbarSmall, scrollbarTest } from '../../../mixins/addScrollbar';
 
 import { Scrollbar } from './Scrollbar';
 
 const views = ['default'];
-const sizes = ['m', 's'];
+const sizes = ['m', 's', 'test'];
 
 const meta: Meta<typeof Scrollbar> = {
     title: 'Data Display/Scrollbar',
@@ -76,14 +76,24 @@ const StyledContainer = styled.div`
     &.scrollbarLarge {
         ${scrollbarLarge()}
     }
+
+    &.scrollbarTest {
+        ${scrollbarTest()}
+    }
 `;
+
+const sizeMap = {
+    s: 'scrollbarSmall',
+    m: 'scrollbarLarge',
+    test: 'scrollbarTest',
+};
 
 export const NativeScroll: StoryObj<StoryPropsDefault> = {
     args: {
         size: 's',
     },
     render: ({ ...args }) => (
-        <StyledContainer className={args.size === 's' ? 'scrollbarSmall' : 'scrollbarLarge'}>
+        <StyledContainer className={sizeMap[args?.size]}>
             <div>
                 {Array.from({ length: 50 }, (_, i) => (
                     <div key={i} style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>

@@ -28,6 +28,10 @@ export const scrollbarLarge = () => `
 `;
 
 export const scrollbarSmall = () => `
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+
     &::-webkit-scrollbar {
         width: 0.125rem;
         height: 0.125rem;
@@ -54,4 +58,34 @@ export const scrollbarSmall = () => `
 
     /* scrollbar-width: thin;
     scrollbar-color: var(--surface-transparent-tertiary) var(--surface-transparent-primary); */
+`;
+
+export const scrollbarTest = () => `
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--surface-transparent-primary);
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        background: var(--surface-transparent-tertiary);
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: transparent var(--surface-transparent-primary);
+    transition: scrollbar-color 0.3s ease;
+    
+
+    &:hover {
+        scrollbar-color: var(--surface-transparent-tertiary); var(--surface-transparent-primary);
+    }
 `;
