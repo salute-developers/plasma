@@ -177,6 +177,8 @@ export const config = {
                 ${selectTokens.itemIconSize}: 1.5rem;
                 ${selectTokens.itemIconSizeTight}: 1rem;
                 ${selectTokens.itemIconMargin}: 0 0.5rem 0 0;
+                ${selectTokens.itemGap}: 0.375rem;
+                ${selectTokens.itemTreeOffsetWidth}: 1.875rem;
 
                 ${selectTokens.cellPadding}: 0rem;
                 ${selectTokens.cellPaddingLeftContent}: 0rem;
