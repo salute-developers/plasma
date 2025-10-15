@@ -40,13 +40,10 @@ export const textAccentHover = 'var(--text-accent-hover, #0EB90EFF)';
 export const textAccentActive = 'var(--text-accent-active, #0A800AFF)';
 
 /** Акцентный минорный цвет */
-export const textAccentMinor = 'var(--text-accent-minor, #94FF94)';
+export const textAccentMinorHover = 'var(--text-accent-minor-hover, #23E723FF)';
 
 /** Акцентный минорный цвет */
-export const textAccentMinorHover = 'var(--text-accent-minor-hover, #B3FFB3FF)';
-
-/** Акцентный минорный цвет */
-export const textAccentMinorActive = 'var(--text-accent-minor-active, #75FF75FF)';
+export const textAccentMinorActive = 'var(--text-accent-minor-active, #14B814FF)';
 
 /** Цвет успеха */
 export const textPositive = 'var(--text-positive, #1A9E32)';
@@ -83,6 +80,9 @@ export const textInfoHover = 'var(--text-info-hover, #50B1F2FF)';
 
 /** Цвет информации */
 export const textInfoActive = 'var(--text-info-active, #0F7BC2FF)';
+
+/** Акцентный минорный цвет */
+export const textAccentMinor = 'var(--text-accent-minor, #17D317)';
 
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimary = 'var(--on-dark-text-primary, rgba(255, 255, 255, 0.96))';
@@ -124,13 +124,10 @@ export const onDarkTextAccentHover = 'var(--on-dark-text-accent-hover, #0EB90EFF
 export const onDarkTextAccentActive = 'var(--on-dark-text-accent-active, #0A800AFF)';
 
 /** Акцентный минорный цвет на темном фоне */
-export const onDarkTextAccentMinor = 'var(--on-dark-text-accent-minor, #94FF94)';
+export const onDarkTextAccentMinorHover = 'var(--on-dark-text-accent-minor-hover, #23E723FF)';
 
 /** Акцентный минорный цвет на темном фоне */
-export const onDarkTextAccentMinorHover = 'var(--on-dark-text-accent-minor-hover, #B3FFB3FF)';
-
-/** Акцентный минорный цвет на темном фоне */
-export const onDarkTextAccentMinorActive = 'var(--on-dark-text-accent-minor-active, #75FF75FF)';
+export const onDarkTextAccentMinorActive = 'var(--on-dark-text-accent-minor-active, #14B814FF)';
 
 /** Цвет успеха на темном фоне */
 export const onDarkTextPositive = 'var(--on-dark-text-positive, #1A9E32)';
@@ -167,6 +164,9 @@ export const onDarkTextInfoHover = 'var(--on-dark-text-info-hover, #50B1F2FF)';
 
 /** Цвет информации на темном фоне */
 export const onDarkTextInfoActive = 'var(--on-dark-text-info-active, #0F7BC2FF)';
+
+/** Акцентный минорный цвет на темном фоне */
+export const onDarkTextAccentMinor = 'var(--on-dark-text-accent-minor, #17D317)';
 
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimary = 'var(--on-light-text-primary, #060A0CF5)';
@@ -208,13 +208,10 @@ export const onLightTextAccentHover = 'var(--on-light-text-accent-hover, #17BA17
 export const onLightTextAccentActive = 'var(--on-light-text-accent-active, #149F14FF)';
 
 /** Акцентный минорный цвет на светлом фоне */
-export const onLightTextAccentMinor = 'var(--on-light-text-accent-minor, #082B08)';
+export const onLightTextAccentMinorHover = 'var(--on-light-text-accent-minor-hover, #0EB90EFF)';
 
 /** Акцентный минорный цвет на светлом фоне */
-export const onLightTextAccentMinorHover = 'var(--on-light-text-accent-minor-hover, #115F11FF)';
-
-/** Акцентный минорный цвет на светлом фоне */
-export const onLightTextAccentMinorActive = 'var(--on-light-text-accent-minor-active, #0D450DFF)';
+export const onLightTextAccentMinorActive = 'var(--on-light-text-accent-minor-active, #0A800AFF)';
 
 /** Цвет успеха на светлом фоне */
 export const onLightTextPositive = 'var(--on-light-text-positive, #108E26)';
@@ -251,6 +248,9 @@ export const onLightTextInfoHover = 'var(--on-light-text-info-hover, #34A7F4FF)'
 
 /** Цвет информации на светлом фоне */
 export const onLightTextInfoActive = 'var(--on-light-text-info-active, #096CAEFF)';
+
+/** Акцентный минорный цвет на светлом фоне */
+export const onLightTextAccentMinor = 'var(--on-light-text-accent-minor, #0C9C0C)';
 
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimary = 'var(--inverse-text-primary, #060A0CF5)';
@@ -292,13 +292,10 @@ export const inverseTextAccentHover = 'var(--inverse-text-accent-hover, #17BA17F
 export const inverseTextAccentActive = 'var(--inverse-text-accent-active, #149F14FF)';
 
 /** Инвертированный минорный акцентный цвет */
-export const inverseTextAccentMinor = 'var(--inverse-text-accent-minor, #082B08)';
+export const inverseTextAccentMinorHover = 'var(--inverse-text-accent-minor-hover, #0EB90EFF)';
 
 /** Инвертированный минорный акцентный цвет */
-export const inverseTextAccentMinorHover = 'var(--inverse-text-accent-minor-hover, #115F11FF)';
-
-/** Инвертированный минорный акцентный цвет */
-export const inverseTextAccentMinorActive = 'var(--inverse-text-accent-minor-active, #0D450DFF)';
+export const inverseTextAccentMinorActive = 'var(--inverse-text-accent-minor-active, #0A800AFF)';
 
 /** Инвертированный минорный промо цвет с градиентом */
 export const inverseTextPromoMinorGradient = 'var(--inverse-text-promo-minor-gradient, #FFFFFF)';
@@ -335,6 +332,9 @@ export const inverseTextNegativeHover = 'var(--inverse-text-negative-hover, #F53
 
 /** Инвертированный цвет ошибки */
 export const inverseTextNegativeActive = 'var(--inverse-text-negative-active, #E40C22FF)';
+
+/** Инвертированный минорный акцентный цвет */
+export const inverseTextAccentMinor = 'var(--inverse-text-accent-minor, #0C9C0C)';
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimary = 'var(--surface-solid-primary, #13181B)';

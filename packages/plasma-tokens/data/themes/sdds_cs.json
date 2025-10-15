@@ -108,18 +108,13 @@
                     "comment": "Акцентный цвет с градиентом",
                     "enabled": false
                 },
-                "textAccentMinor": {
-                    "value": "[general.herbal.150]",
-                    "comment": "Акцентный минорный цвет",
-                    "enabled": true
-                },
                 "textAccentMinorHover": {
-                    "value": "#B3FFB3FF",
+                    "value": "#23E723FF",
                     "comment": "Акцентный минорный цвет",
                     "enabled": true
                 },
                 "textAccentMinorActive": {
-                    "value": "#75FF75FF",
+                    "value": "#14B814FF",
                     "comment": "Акцентный минорный цвет",
                     "enabled": true
                 },
@@ -317,6 +312,11 @@
                     "value": "#B3E0FFFF",
                     "comment": "Минорный цвет информации",
                     "enabled": false
+                },
+                "textAccentMinor": {
+                    "value": "[general.herbal.300]",
+                    "comment": "Акцентный минорный цвет",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -415,18 +415,13 @@
                     "comment": "Акцентный цвет с градиентом на темном фоне",
                     "enabled": false
                 },
-                "textAccentMinor": {
-                    "value": "[general.herbal.150]",
-                    "comment": "Акцентный минорный цвет на темном фоне",
-                    "enabled": true
-                },
                 "textAccentMinorHover": {
-                    "value": "#B3FFB3FF",
+                    "value": "#23E723FF",
                     "comment": "Акцентный минорный цвет на темном фоне",
                     "enabled": true
                 },
                 "textAccentMinorActive": {
-                    "value": "#75FF75FF",
+                    "value": "#14B814FF",
                     "comment": "Акцентный минорный цвет на темном фоне",
                     "enabled": true
                 },
@@ -624,6 +619,11 @@
                     "value": "#B3E0FFFF",
                     "comment": "Минорный цвет информации на темном фоне",
                     "enabled": false
+                },
+                "textAccentMinor": {
+                    "value": "[general.herbal.300]",
+                    "comment": "Акцентный минорный цвет на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -722,18 +722,13 @@
                     "comment": "Акцентный цвет с градиентом на светлом фоне",
                     "enabled": false
                 },
-                "textAccentMinor": {
-                    "value": "[general.herbal.900]",
-                    "comment": "Акцентный минорный цвет на светлом фоне",
-                    "enabled": true
-                },
                 "textAccentMinorHover": {
-                    "value": "#115F11FF",
+                    "value": "#0EB90EFF",
                     "comment": "Акцентный минорный цвет на светлом фоне",
                     "enabled": true
                 },
                 "textAccentMinorActive": {
-                    "value": "#0D450DFF",
+                    "value": "#0A800AFF",
                     "comment": "Акцентный минорный цвет на светлом фоне",
                     "enabled": true
                 },
@@ -931,6 +926,11 @@
                     "value": "#113A55FF",
                     "comment": "Минорный цвет информации на светлом фоне",
                     "enabled": false
+                },
+                "textAccentMinor": {
+                    "value": "[general.herbal.500]",
+                    "comment": "Акцентный минорный цвет на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -1029,18 +1029,13 @@
                     "comment": "Инвертированный акцентный цвет с градиентом",
                     "enabled": false
                 },
-                "textAccentMinor": {
-                    "value": "[general.herbal.900]",
-                    "comment": "Инвертированный минорный акцентный цвет",
-                    "enabled": true
-                },
                 "textAccentMinorHover": {
-                    "value": "#115F11FF",
+                    "value": "#0EB90EFF",
                     "comment": "Инвертированный минорный акцентный цвет",
                     "enabled": true
                 },
                 "textAccentMinorActive": {
-                    "value": "#0D450DFF",
+                    "value": "#0A800AFF",
                     "comment": "Инвертированный минорный акцентный цвет",
                     "enabled": true
                 },
@@ -1238,6 +1233,11 @@
                     "value": "#113A55FF",
                     "comment": "Инвертированный минорный цвет информации",
                     "enabled": false
+                },
+                "textAccentMinor": {
+                    "value": "[general.herbal.500]",
+                    "comment": "Инвертированный минорный акцентный цвет",
+                    "enabled": true
                 }
             }
         },
@@ -5600,12 +5600,12 @@
                     "enabled": false
                 },
                 "textAccentMinorHover": {
-                    "value": "#2CE82CFF",
+                    "value": "#0FC20FFF",
                     "comment": "Акцентный минорный цвет",
                     "enabled": true
                 },
                 "textAccentMinorActive": {
-                    "value": "#13AE13FF",
+                    "value": "#097709FF",
                     "comment": "Акцентный минорный цвет",
                     "enabled": true
                 },
@@ -5814,11 +5814,6 @@
                     "comment": "Цвет успеха",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.herbal.300]",
-                    "comment": "Акцентный минорный цвет",
-                    "enabled": true
-                },
                 "textTertiary": {
                     "value": "[general.coolGray.700]",
                     "comment": "Третичный цвет текста",
@@ -5832,6 +5827,11 @@
                 "textInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Цвет информации",
+                    "enabled": true
+                },
+                "textAccentMinor": {
+                    "value": "[general.herbal.500]",
+                    "comment": "Акцентный минорный цвет",
                     "enabled": true
                 }
             },
@@ -5907,12 +5907,12 @@
                     "enabled": false
                 },
                 "textAccentMinorHover": {
-                    "value": "#09AA09FF",
+                    "value": "#2CE82CFF",
                     "comment": "Акцентный минорный цвет на темном фоне",
                     "enabled": true
                 },
                 "textAccentMinorActive": {
-                    "value": "#078307FF",
+                    "value": "#13AE13FF",
                     "comment": "Акцентный минорный цвет на темном фоне",
                     "enabled": true
                 },
@@ -6121,11 +6121,6 @@
                     "comment": "Цвет успеха на темном фоне",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.herbal.800]",
-                    "comment": "Акцентный минорный цвет на темном фоне",
-                    "enabled": true
-                },
                 "textTertiary": {
                     "value": "[general.coolGray.600]",
                     "comment": "Третичный цвет текста на темном фоне",
@@ -6139,6 +6134,11 @@
                 "textInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Цвет информации на темном фоне",
+                    "enabled": true
+                },
+                "textAccentMinor": {
+                    "value": "[general.herbal.300]",
+                    "comment": "Акцентный минорный цвет на темном фоне",
                     "enabled": true
                 }
             },
@@ -6214,12 +6214,12 @@
                     "enabled": false
                 },
                 "textAccentMinorHover": {
-                    "value": "#2CE82CFF",
+                    "value": "#0FC20FFF",
                     "comment": "Акцентный минорный цвет на светлом фоне",
                     "enabled": true
                 },
                 "textAccentMinorActive": {
-                    "value": "#13AE13FF",
+                    "value": "#097709FF",
                     "comment": "Акцентный минорный цвет на светлом фоне",
                     "enabled": true
                 },
@@ -6428,11 +6428,6 @@
                     "comment": "Цвет ошибки на светлом фоне",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.herbal.300]",
-                    "comment": "Акцентный минорный цвет на светлом фоне",
-                    "enabled": true
-                },
                 "textTertiary": {
                     "value": "[general.coolGray.700]",
                     "comment": "Третичный цвет текста на светлом фоне",
@@ -6446,6 +6441,11 @@
                 "textInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Цвет информации на светлом фоне",
+                    "enabled": true
+                },
+                "textAccentMinor": {
+                    "value": "[general.herbal.500]",
+                    "comment": "Акцентный минорный цвет на светлом фоне",
                     "enabled": true
                 }
             },
@@ -6521,12 +6521,12 @@
                     "enabled": false
                 },
                 "textAccentMinorHover": {
-                    "value": "#09AA09FF",
+                    "value": "#2CE82CFF",
                     "comment": "Инвертированный минорный акцентный цвет",
                     "enabled": true
                 },
                 "textAccentMinorActive": {
-                    "value": "#078307FF",
+                    "value": "#13AE13FF",
                     "comment": "Инвертированный минорный акцентный цвет",
                     "enabled": true
                 },
@@ -6730,11 +6730,6 @@
                     "comment": "Инвертированный цвет ошибки",
                     "enabled": true
                 },
-                "textAccentMinor": {
-                    "value": "[general.herbal.800]",
-                    "comment": "Инвертированный минорный акцентный цвет",
-                    "enabled": true
-                },
                 "textWarning": {
                     "value": "[general.amber.300]",
                     "comment": "Инвертированный цвет предупреждения",
@@ -6753,6 +6748,11 @@
                 "textTertiary": {
                     "value": "[general.coolGray.500]",
                     "comment": "Инвертированный третичный цвет текста",
+                    "enabled": true
+                },
+                "textAccentMinor": {
+                    "value": "[general.herbal.300]",
+                    "comment": "Инвертированный минорный акцентный цвет",
                     "enabled": true
                 }
             }
