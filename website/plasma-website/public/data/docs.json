@@ -1,0 +1,119 @@
+{
+  "1.581.0": {
+    "date": "2025-10-15",
+    "core": [
+      {
+        "component": "Combobox, Select",
+        "children": [
+          {
+            "text": "Исправлена некорректная работа компонента при асинхронной загрузке опций в режиме `multiple`",
+            "link": "https://github.com/salute-developers/plasma/pull/2268",
+            "id": 2268
+          }
+        ]
+      },
+      {
+        "component": "Chip, TextField, Select, Combobox",
+        "children": [
+          {
+            "text": "Добавлено состояние `hover` для крестика в `Chip`\n\nДобавлено свойство `chipClickArea`, которое определяет область нажатия",
+            "link": "https://github.com/salute-developers/plasma/pull/2237",
+            "id": 2237
+          }
+        ]
+      },
+      {
+        "component": "Tree",
+        "children": [
+          {
+            "text": "Исправлено некорректной поведение компонента при использование ключа `type` в объектах `treeData`",
+            "link": "https://github.com/salute-developers/plasma/pull/2267",
+            "id": 2267
+          }
+        ]
+      },
+      {
+        "component": "Modal",
+        "children": [
+          {
+            "text": "Исправлено переопределение overlay при использование свойства `hasBody`",
+            "link": "https://github.com/salute-developers/plasma/pull/2276",
+            "id": 2276
+          }
+        ]
+      },
+      {
+        "component": "Popup, Drawer",
+        "children": [
+          {
+            "text": "Добавлено новое свойство `positionFixed`, которое вне зависимости от `frame` устанавливает `position: fixed`",
+            "link": "https://github.com/salute-developers/plasma/pull/2277",
+            "id": 2277
+          }
+        ]
+      },
+      {
+        "component": "Slider",
+        "children": [
+          {
+            "text": "Исправлена транзитивная ошибка `_reactDom.default.findDOMNode is not a function` в библиотеки `react-draggable` при использование в связке с `React 19`",
+            "link": "https://github.com/salute-developers/plasma/pull/2282",
+            "id": 2282
+          }
+        ]
+      },
+      {
+        "component": "Table",
+        "children": [
+          {
+            "text": "Добавлены новые свойства `setCellProps` и `setRowProps` для настройки атрибутов в `cell` и `row` соответственно\n\nОбновлена документацию: новые примеры, улучшили структуру",
+            "link": "https://github.com/salute-developers/plasma/pull/2271",
+            "id": 2271
+          }
+        ]
+      },
+      {
+        "component": "Popover",
+        "children": [
+          {
+            "text": "Добавлен механизм resizable\n\nДобавлены новые `callback` для событий `onResizeStart`, `onResizeStop`",
+            "link": "https://github.com/salute-developers/plasma/pull/2281",
+            "id": 2281
+          }
+        ]
+      },
+      {
+        "component": "Icons",
+        "children": [
+          {
+            "text": "Добавлены новые иконки:  `DocumentAddOutline/Fill, FilterFunnelOffOutline/Fill, TargetOutline, OpenPanelFill, ClosePanelFill`",
+            "link": "https://github.com/salute-developers/plasma/pull/2284",
+            "id": 2284
+          }
+        ]
+      },
+      {
+        "component": "ProgressBarCircular",
+        "children": [
+          {
+            "text": "Добавлен новый компонент",
+            "link": "https://github.com/salute-developers/plasma/pull/2280",
+            "id": 2280
+          }
+        ]
+      }
+    ],
+    "lib": [
+      {
+        "component": "Popover, Modal",
+        "children": [
+          {
+            "text": "Добавлен новый раздел описывающий работу свойства `isFocusTrapped`",
+            "link": "https://github.com/salute-developers/plasma/pull/2273",
+            "id": 2273
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,3 +1,90 @@
+## 0.321.0 (15 октября 2025)
+
+## Функциональные изменения в компонентах
+
+### Combobox, Select
+
+* Исправлена некорректная работа компонента при асинхронной загрузке опций в режиме `multiple`
+
+[PR](https://github.com/salute-developers/plasma/pull/2268)
+
+### Chip, TextField, Select, Combobox
+
+* Добавлено состояние `hover` для крестика в `Chip`
+
+* Добавлено свойство `chipClickArea`, которое определяет область нажатия
+
+[PR](https://github.com/salute-developers/plasma/pull/2237)
+
+### Tree
+
+* Исправлено некорректной поведение компонента при использование ключа `type` в объектах `treeData`
+
+[PR](https://github.com/salute-developers/plasma/pull/2267)
+
+### Modal
+
+* Исправлено переопределение overlay при использование свойства `hasBody`
+
+[PR](https://github.com/salute-developers/plasma/pull/2276)
+
+### Popup, Drawer
+
+* Добавлено новое свойство `positionFixed`, которое вне зависимости от `frame` устанавливает `position: fixed`
+
+[PR](https://github.com/salute-developers/plasma/pull/2277)
+
+### Slider
+
+* Исправлена транзитивная ошибка `_reactDom.default.findDOMNode is not a function` в библиотеки `react-draggable` при использование в связке с `React 19`
+
+[PR](https://github.com/salute-developers/plasma/pull/2282)
+
+### Table
+
+* Добавлены новые свойства `setCellProps` и `setRowProps` для настройки атрибутов в `cell` и `row` соответственно
+
+* Обновлена документацию: новые примеры, улучшили структуру
+
+[PR](https://github.com/salute-developers/plasma/pull/2271)
+
+### Popover
+
+* Добавлен механизм resizable
+
+* Добавлены новые `callback` для событий `onResizeStart`, `onResizeStop`
+
+[PR](https://github.com/salute-developers/plasma/pull/2281)
+
+### Icons
+
+* Добавлены новые иконки:  `DocumentAddOutline/Fill, FilterFunnelOffOutline/Fill, TargetOutline, OpenPanelFill, ClosePanelFill`
+
+[PR](https://github.com/salute-developers/plasma/pull/2284)
+
+### ProgressBarCircular
+
+* Добавлен новый компонент
+
+[PR](https://github.com/salute-developers/plasma/pull/2280)
+
+## Docs
+
+### Popover, Modal
+
+* Добавлен новый раздел описывающий работу свойства `isFocusTrapped`
+
+[PR](https://github.com/salute-developers/plasma/pull/2273)
+
+## Изменения в библиотеки
+
+### DatePicker
+
+* компонент приведен к соответствию с макетами (корректные `view` и `size`)
+
+[PR](https://github.com/salute-developers/plasma/pull/2270)
+
+
 ## 0.320.0 (1 октября 2025)
 
 ## Функциональные изменения в компонентах
