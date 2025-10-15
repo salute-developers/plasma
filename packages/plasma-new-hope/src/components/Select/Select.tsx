@@ -16,8 +16,8 @@ import type { HintProps } from '../TextField/TextField.types';
 
 import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
-import { Inner, Target, VirtualList, SelectAll } from './ui';
-import { pathReducer, focusedPathReducer } from './reducers';
+import { Inner, Target, VirtualList, SelectAll, TreeList } from './ui';
+import { pathReducer, focusedPathReducer, treePathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { Ul, base, ListWrapper } from './Select.styles';
 import type { MergedSelectProps, RequiredProps } from './Select.types';
@@ -38,6 +38,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             onChange: outerOnChange,
             target = 'textfield-like',
             items,
+            treeView = false,
+            arrowPlacement = 'left',
             placement = 'bottom',
             label,
             labelPlacement,
@@ -110,7 +112,9 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         // Создаем структуры для быстрой работы с деревом
-        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(transformedItems);
+        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap, valueToPathMap] = usePathMaps(
+            transformedItems,
+        );
 
         const [internalValue, setInternalValue] = useState<string | number | Array<string | number>>(
             props.multiselect ? [] : '',
@@ -122,6 +126,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
 
         // Состояния дерева элементов
         const [path, dispatchPath] = useReducer(pathReducer, []);
+        const [treePath, dispatchTreePath] = useReducer(treePathReducer, {});
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
         const [checked, setChecked] = useState(valueToCheckedMap);
 
@@ -201,6 +206,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+                dispatchTreePath({ type: 'reset' });
 
                 // Скроллим чипы к левому краю при закрытии компонента
                 const el = rootRef?.current?.querySelector('.input-scrollable-wrapper');
@@ -264,6 +270,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             if (closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
+                dispatchTreePath({ type: 'reset' });
             }
 
             if (onChange) {
@@ -290,6 +297,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             if (closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
+                dispatchTreePath({ type: 'reset' });
             }
 
             // Закрываем список, если элемент уже выбран.
@@ -314,7 +322,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             }
         };
 
-        const handleScroll = (e: React.UIEvent<HTMLUListElement>) => {
+        const handleScroll = (e: React.UIEvent<HTMLElement>) => {
             if (onScroll) {
                 onScroll(e);
             }
@@ -340,6 +348,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             focusedToValueMap,
             handleListToggle,
             handlePressDown,
+            treePath,
+            dispatchTreePath,
+            treeView,
+            valueToPathMap,
         });
 
         // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
@@ -422,6 +434,10 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         // @ts-ignore
                         // eslint-disable-next-line no-underscore-dangle
                         _checkboxAppearance: (rest as any)._checkboxAppearance,
+                        treePath,
+                        dispatchTreePath,
+                        arrowPlacement,
+                        valueToPathMap,
                     }}
                 >
                     <FloatingPopover
@@ -474,45 +490,56 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                             readOnly={readOnly}
                             {...(rest as any)}
                         >
-                            <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
-                                <Ul
-                                    role="tree"
-                                    id={`${treeId}_tree_level_1`}
-                                    aria-multiselectable={Boolean(props.multiselect)}
-                                    listMaxHeight={listMaxHeight || listHeight}
+                            {treeView ? (
+                                <TreeList
+                                    items={items}
+                                    listMaxHeight={listMaxHeight}
                                     onScroll={virtual ? undefined : handleScroll}
                                     virtual={virtual}
-                                >
-                                    {beforeList}
+                                    beforeList={beforeList}
+                                    afterList={afterList}
+                                />
+                            ) : (
+                                <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
+                                    <Ul
+                                        role="tree"
+                                        id={`${treeId}_tree_level_1`}
+                                        aria-multiselectable={Boolean(props.multiselect)}
+                                        listMaxHeight={listMaxHeight || listHeight}
+                                        onScroll={virtual ? undefined : handleScroll}
+                                        virtual={virtual}
+                                    >
+                                        {beforeList}
 
-                                    {props.multiselect && props.selectAllOptions && (
-                                        // TODO: #2004
-                                        <SelectAll selectAllOptions={props.selectAllOptions} variant={variant} />
-                                    )}
+                                        {props.multiselect && props.selectAllOptions && (
+                                            // TODO: #2004
+                                            <SelectAll selectAllOptions={props.selectAllOptions} variant={variant} />
+                                        )}
 
-                                    {virtual ? (
-                                        <VirtualList
-                                            items={transformedItems}
-                                            listMaxHeight={listMaxHeight || listHeight}
-                                            onScroll={onScroll}
-                                        />
-                                    ) : (
-                                        transformedItems.map((item, index) => (
-                                            <Inner
-                                                key={`${index}/0`}
-                                                item={item}
-                                                currentLevel={0}
-                                                path={path}
-                                                dispatchPath={dispatchPath}
-                                                index={index}
-                                                listWidth={listWidth}
-                                                portal={listWrapperRef}
+                                        {virtual ? (
+                                            <VirtualList
+                                                items={transformedItems}
+                                                listMaxHeight={listMaxHeight || listHeight}
+                                                onScroll={onScroll}
                                             />
-                                        ))
-                                    )}
-                                    {afterList}
-                                </Ul>
-                            </ListWrapper>
+                                        ) : (
+                                            transformedItems.map((item, index) => (
+                                                <Inner
+                                                    key={`${index}/0`}
+                                                    item={item}
+                                                    currentLevel={0}
+                                                    path={path}
+                                                    dispatchPath={dispatchPath}
+                                                    index={index}
+                                                    listWidth={listWidth}
+                                                    portal={listWrapperRef}
+                                                />
+                                            ))
+                                        )}
+                                        {afterList}
+                                    </Ul>
+                                </ListWrapper>
+                            )}
                         </Root>
                     </FloatingPopover>
                 </Context.Provider>

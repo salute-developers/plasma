@@ -604,6 +604,49 @@ Select может выглядеть как Button и как Textfield. За э�
         }
         ```
     </TabItem>
+    <TabItem value="treeView" label="Tree View">
+        Включение отображения выпадающего списка в виде дерева осуществляется через свойство `treeView`. Для настройки стороны стрелочки открытия/закрытия используется свойство `arrowPlacement`.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Select } from '@salutejs/sdds-finai';
+
+        export function App() {
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "block", width: "300px", height: "300px" }}>
+                    <Select
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                        treeView
+                        arrowPlacement="right"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Взаимодействие с disabled-элементами

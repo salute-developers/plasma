@@ -1,10 +1,10 @@
-import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent, ChangeEventHandler } from 'react';
+import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent, ChangeEventHandler, Dispatch } from 'react';
 import React from 'react';
 
 import type { RequiredProps, LabelProps, HintProps } from '../TextField/TextField.types';
 import { DropdownProps } from '../Dropdown/Dropdown.types';
 
-import { FocusedPathState } from './reducers';
+import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import {
     ItemOption,
     MergedDropdownNode as DropdownNode,
@@ -130,6 +130,16 @@ export interface BasicProps<K extends ItemOption> {
      * Список элементов.
      */
     items: K[];
+    /**
+     * Режим отображения выпадающего списка в виде дерева.
+     * @default false
+     */
+    treeView?: boolean;
+    /**
+     * Сторона расположения стрелки скрытия/раскрытия.
+     * @default left
+     */
+    arrowPlacement?: 'left' | 'right';
     /**
      * Сторона открытия дропдауна относительно target элемента.
      * @default bottom
@@ -258,6 +268,10 @@ export type ItemContext = {
     variant: MergedSelectProps['variant'];
     renderItem: MergedSelectProps['renderItem'];
     treeId: string;
+    treePath: TreePathState;
+    dispatchTreePath: Dispatch<TreePathAction>;
+    arrowPlacement: MergedSelectProps['arrowPlacement'];
+    valueToPathMap: Map<string, string[]>;
 };
 
 // Тип старого селекта
@@ -335,6 +349,16 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * Список элементов.
          */
         items?: K[];
+        /**
+         * Режим отображения выпадающего списка в виде дерева.
+         * @default false
+         */
+        treeView?: boolean;
+        /**
+         * Сторона расположения стрелки скрытия/раскрытия.
+         * @default left
+         */
+        arrowPlacement?: 'left' | 'right';
         onItemSelect?: (e: K, event: SyntheticEvent) => void;
 
         children?: never;
