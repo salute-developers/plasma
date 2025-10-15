@@ -42,7 +42,7 @@ import { Context } from './Combobox.context';
  * Поле ввода с выпадающим списком и возможностью фильтрации и выбора элементов.
  */
 
-export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProps, 'items'>>) =>
+export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProps, 'items' | 'chipClickArea'>>) =>
     forwardRef<HTMLInputElement, ComboboxProps>((props, ref) => {
         const {
             name,
@@ -88,6 +88,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             onScroll,
             onToggle,
             mode = 'default',
+            chipClickArea = 'full',
             // @ts-ignore
             _offset,
             ...rest
@@ -388,7 +389,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
         // Пример: когда юзер очистил value извне, тогда нужно пройтись по элементам и выключить все чекбоксы.
         useLayoutEffect(() => {
-            const checkedCopy = new Map(checked);
+            const checkedCopy = new Map(valueToCheckedMap);
 
             checkedCopy.forEach((_, key) => {
                 checkedCopy.set(key, false);
@@ -531,8 +532,9 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         {...(multiple
                                             ? {
                                                   enumerationType: 'chip',
+                                                  _chipClickArea: chipClickArea,
                                                   _chips: getChips(),
-                                                  _onChipClick: handleChipClick,
+                                                  _onChipCloseClick: handleChipClick,
                                               }
                                             : { enumerationType: 'plain' })}
                                         {...rest}

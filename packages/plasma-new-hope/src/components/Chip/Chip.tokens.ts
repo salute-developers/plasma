@@ -19,6 +19,7 @@ export const tokens = {
     closeIconColor: '--plasma-chip-close-icon-color',
     closeIconColorHover: '--plasma-chip-close-icon-color-hover',
     closeIconColorActive: '--plasma-chip-close-icon-color-active',
+    closeIconColorReadonly: '--plasma-chip-close-icon-color-readonly',
     leftContentColor: '--plasma-chip-left-content-color',
 
     borderRadius: '--plasma-chip-border-radius',

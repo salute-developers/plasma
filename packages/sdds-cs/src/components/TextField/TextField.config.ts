@@ -29,7 +29,7 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
                 ${tokens.contentSlotRightColor}: var(--text-accent);
-                ${tokens.contentSlotRightColorHover}: #1A9E32;
+                ${tokens.contentSlotRightColorHover}: var(--text-accent-minor);
                 ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.dividerColor}: var(--outline-solid-primary);
@@ -37,6 +37,8 @@ export const config = {
                 ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--text-primary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
                 ${tokens.chipColorHover}: var(--text-primary-hover);
@@ -78,6 +80,8 @@ export const config = {
                 ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
+                ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
+                ${tokens.chipCloseIconColorHover}: var(--text-primary);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
                 ${tokens.chipColorHover}: var(--text-primary);

@@ -154,6 +154,8 @@ export const iconSectionsSet = {
         selectionScreenOutline: 'SelectionScreenOutline',
         tableOutline: 'TableOutline',
         resizeCornered: 'ResizeCornered',
+        filterFunnelOffFill: 'FilterFunnelOffFill',
+        filterFunnelOffOutline: 'FilterFunnelOffOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -662,6 +664,9 @@ export const iconSectionsSet = {
         cookieOutline: 'CookieOutline',
         scissorsFill: 'ScissorsFill',
         function: 'Function',
+        closePanelFill: 'ClosePanelFill',
+        openPanelFill: 'OpenPanelFill',
+        targetOutline: 'TargetOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
@@ -818,6 +823,8 @@ export const iconSectionsSet = {
         documentPasteOutline: 'DocumentPasteOutline',
         blankPptxFill: 'BlankPptxFill',
         blankPptxOutline: 'BlankPptxOutline',
+        documentAddFill: 'DocumentAddFill',
+        documentAddOutline: 'DocumentAddOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',

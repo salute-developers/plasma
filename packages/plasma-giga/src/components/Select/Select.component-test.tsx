@@ -1243,8 +1243,6 @@ describe('plasma-giga: Select', () => {
     it('behaviour: isTargetAmount', () => {
         cy.viewport(300, 100);
 
-        mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
-
         const Component = () => {
             const [value, setValue] = React.useState(['africa', 'north_america']);
 
@@ -1265,7 +1263,7 @@ describe('plasma-giga: Select', () => {
 
         mount(<Component />);
 
-        cy.contains('2').realClick();
+        cy.get('.chip-item div svg').realClick();
 
         cy.matchImageSnapshot();
     });
@@ -1757,8 +1755,102 @@ describe('plasma-giga: Select', () => {
         cy.get('#select button').should('not.include.text', 'Северная Америка');
         cy.get('#select button').should('include.text', 'minsk');
         cy.get('[id$="north_america"]').click();
-        cy.get('#multiselect').contains('minsk').click();
+        cy.get('#multiselect').get('.chip-item div svg').last().click();
         cy.get('#multiselect .chips-wrapper').should('include.text', 'Северная Америка');
         cy.get('#multiselect .chips-wrapper').should('not.include.text', 'minsk');
+    });
+
+    it('flow: single mode, async items loading', () => {
+        const Component = () => {
+            const [value, setValue] = useState('');
+            const [items, setItems] = useState([]);
+
+            React.useEffect(() => {
+                const t = setTimeout(() => {
+                    setItems([
+                        { value: 'A', label: 'A' },
+                        { value: 'B', label: 'B' },
+                        { value: 'C', label: 'C' },
+                    ]);
+                }, 10);
+
+                return () => clearTimeout(t);
+            }, []);
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="single"
+                        value={value}
+                        onChange={setValue}
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="A"]').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        cy.get('#single input').should('have.value', 'A');
+
+        cy.get('#single').click();
+        cy.get('[id$="A"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="B"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="C"]').should('have.attr', 'aria-selected', 'false');
+    });
+
+    it('flow: multiple mode, async items loading', () => {
+        const Component = () => {
+            const [value, setValue] = useState([]);
+            const [items, setItems] = useState([]);
+
+            React.useEffect(() => {
+                const t = setTimeout(() => {
+                    setItems([
+                        { value: 'A', label: 'A' },
+                        { value: 'B', label: 'B' },
+                        { value: 'C', label: 'C' },
+                    ]);
+                }, 10);
+
+                return () => clearTimeout(t);
+            }, []);
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="multiple"
+                        value={value}
+                        onChange={setValue}
+                        multiselect
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={items}
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#multiple').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="A"]').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('.has-chips').should('exist');
+        cy.get('.has-chips button').should('have.length', 1);
+        cy.get('.has-chips button').should('include.text', 'A');
+        cy.get('[id$="A"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="B"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="C"]').should('have.attr', 'aria-selected', 'false');
     });
 });

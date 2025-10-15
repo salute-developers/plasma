@@ -19,8 +19,8 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--inverse-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-default);
                 ${chipTokens.colorReadOnlyHover}: var(--inverse-text-primary);
-
                 ${chipTokens.closeIconColor}: var(--inverse-text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--inverse-text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--inverse-text-primary);
             `,
             secondary: css`
@@ -34,8 +34,8 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
-
                 ${chipTokens.closeIconColor}: var(--text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--text-primary);
             `,
             accent: css`
@@ -64,8 +64,8 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-positive);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
-
                 ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             warning: css`
@@ -79,8 +79,8 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-warning);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
-
                 ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             negative: css`
@@ -94,8 +94,8 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-negative);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
-
                 ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
         },

@@ -166,7 +166,7 @@ export const StyledEvents = styled.div`
     display: flex;
 
     position: absolute;
-    bottom: 0.25rem;
+    bottom: var(${tokens.calendarEventItemBottom}, 0.25rem);
 `;
 
 export const StyledEvent = styled.div<{ color?: string }>`
@@ -176,5 +176,5 @@ export const StyledEvent = styled.div<{ color?: string }>`
     height: 0.188rem;
     border-radius: 50%;
 
-    background-color: ${({ color = 'var(--plasma-colors-accent)' }) => color};
+    background-color: ${({ color = 'var(--plasma-colors-accent, var(--surface-accent))' }) => color};
 `;

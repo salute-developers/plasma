@@ -31,7 +31,7 @@ export const config = {
             `,
             divider: css`
                 ${tabsTokens.arrowColor}: var(--text-accent);
-                ${tabsTokens.arrowColorHover}: #1A9E32;
+                ${tabsTokens.arrowColorHover}: var(--text-accent-minor);
                 ${tabsTokens.arrowColorActive}: var(--text-accent-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);

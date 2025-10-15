@@ -20,6 +20,7 @@ export const config = {
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-card);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
                 ${chipTokens.closeIconColor}: var(--text-accent);
+                ${chipTokens.closeIconColorHover}: var(--text-accent-minor);
                 ${chipTokens.leftContentColor}: var(--text-accent);
             `,
             secondary: css`
@@ -34,21 +35,23 @@ export const config = {
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-primary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
                 ${chipTokens.closeIconColor}: var(--text-accent);
+                ${chipTokens.closeIconColorHover}: var(--text-accent-minor);
                 ${chipTokens.leftContentColor}: var(--text-accent);
             `,
             accent: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
                 ${chipTokens.background}: var(--surface-accent);
                 ${chipTokens.colorHover}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-accent);
+                ${chipTokens.backgroundHover}: var(--surface-accent-hover);
                 ${chipTokens.colorActive}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-accent);
+                ${chipTokens.backgroundActive}: var(--surface-accent-active);
                 ${chipTokens.backgroundReadOnly}: var(--surface-accent);
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
 
                 ${chipTokens.closeIconColor}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-primary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
         },

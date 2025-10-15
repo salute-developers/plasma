@@ -9,35 +9,64 @@ import TabItem from '@theme/TabItem';
 
 # Table
 
-<Description name="Table" />
-<PropsTable name="Table" />
+Компонент предназначен для визуализации табличных данных с поддержкой сортировки, фильтрации, редактирования ячеек и других интерактивных возможностей. Он позволяет настраивать внешний вид колонок, включая их ширину, возможность изменения размера, фильтрацию значений и другие функции. Таблица поддерживает выделение строк, а также предоставляет методы для управления состоянием таблицы через API.
 
-## Использование
-Обязательными полями являются `data` и `columns`. Формат следующий:
+## Быстрый старт
 
-```tsx
-type TableRowData = {
-    id: string;
-    [key: string]: string | number;
-};
+```tsx live
+import React from 'react';
+import { Table } from '@salutejs/sdds-insol';
 
-export type TableColumnData = {
-    id: string;
-    label: string;
-    width?: number;
-    enableSorting?: boolean;
-    enableResizing?: boolean;
-    enableEditing?: boolean;
-    filters?: { value: string; label: string }[];
-    filterFn?: (filteredValue: string, cellValue: unknown) => boolean;
-    renderCell?: (value: unknown, row: TableRowData, rowIndex: number) => ReactNode;
-};
+export function App() {
+    const data = [
+        {
+            id: '0',
+            country: 'Канада',
+            capital: 'Оттава',
+            population: 38,
+        },
+        {
+            id: '1',
+            country: 'Бразилия',
+            capital: 'Бразилиа',
+            population: 213,
+        },
+        {
+            id: '2',
+            country: 'Германия',
+            capital: 'Берлин',
+            population: 83,
+        },
+    ];
+
+    const columns = [
+        {
+            id: 'country',
+            label: 'Страна',
+        },
+        {
+            id: 'capital',
+            label: 'Столица',
+        },
+        {
+            id: 'population',
+            label: 'Население, млн',
+        },
+    ];
+
+    return (
+        <Table data={data} columns={columns} />
+    );
+}
 ```
 
 ## Примеры
 
 <Tabs>
-    <TabItem value="basic" label="Basic" default>
+    <TabItem value="renderCell" label="Render Cell" default>
+        Свойство `renderCell` нужно для настройки кастомного отображения ячейки. \
+        Это render-prop, который в параметрах принимает значение ячейки `value`, объект строки, к которой принадлежит ячейка `row` и индекс этой строки `rowIndex`.
+
         ```tsx live
         import React from 'react';
         import { Table } from '@salutejs/sdds-insol';
@@ -68,6 +97,9 @@ export type TableColumnData = {
                 {
                     id: 'country',
                     label: 'Страна',
+                    renderCell: (value, { id }) => {
+                        return <div style={{ background: 'lightblue' }}>{value}</div>
+                    },
                 },
                 {
                     id: 'capital',
@@ -525,3 +557,187 @@ export type TableColumnData = {
         ```
     </TabItem>
 </Tabs>
+
+## Сценарии использования
+
+### Выделение строки по нажатию
+Для осуществления этой цели существует свойство `setRowProps`. Это функция, которая принимает объект строки `row` и возвращает объект атрибутов, которые будут прокинуты в тег `<tr>`.
+
+```tsx live
+    import React from 'react';
+    import { Table } from '@salutejs/sdds-insol';
+
+    export function App() {
+        const data = [
+            {
+                id: '0',
+                country: 'Канада',
+                capital: 'Оттава',
+                population: 38,
+            },
+            {
+                id: '1',
+                country: 'Бразилия',
+                capital: 'Бразилиа',
+                population: 213,
+            },
+            {
+                id: '2',
+                country: 'Германия',
+                capital: 'Берлин',
+                population: 83,
+            },
+        ];
+
+        const columns = [
+            {
+                id: 'country',
+                label: 'Страна',
+            },
+            {
+                id: 'capital',
+                label: 'Столица',
+            },
+            {
+                id: 'population',
+                label: 'Население, млн',
+            },
+        ];
+
+        const [rowHighlighted, setRowHighlighted] = React.useState(null);
+
+        const setRowProps = (row: any) => {
+            return {
+                onClick: () => setRowHighlighted(row.id),
+                style: rowHighlighted === row.id ? {
+                    background: 'lightgray'
+                } : undefined
+            };
+        };
+
+        return (
+            <Table data={data} columns={columns} setRowProps={setRowProps} />
+        );
+    }
+```
+
+### Выделение строки по наведению
+Это можно осуществить или с помощью css, либо использовать свойство `setRowProps` для более гибкой настройки и сложных сценариев.
+
+```tsx live
+    import React from 'react';
+    import { Table } from '@salutejs/sdds-insol';
+    import styled from 'styled-components'
+
+    export function App() {
+        const data = [
+            {
+                id: '0',
+                country: 'Канада',
+                capital: 'Оттава',
+                population: 38,
+            },
+            {
+                id: '1',
+                country: 'Бразилия',
+                capital: 'Бразилиа',
+                population: 213,
+            },
+            {
+                id: '2',
+                country: 'Германия',
+                capital: 'Берлин',
+                population: 83,
+            },
+        ];
+
+        const columns = [
+            {
+                id: 'country',
+                label: 'Страна',
+            },
+            {
+                id: 'capital',
+                label: 'Столица',
+            },
+            {
+                id: 'population',
+                label: 'Население, млн',
+            },
+        ];
+
+        const Wrapper = styled.div`
+            & tr:hover {
+                background: lightgray;
+            }
+        `
+
+        return (
+            <Wrapper>
+                <Table data={data} columns={columns} />
+            </Wrapper>
+        );
+    }
+```
+
+## API
+<PropsTable name="Table" />
+
+Обязательными полями являются `data` и `columns`. Формат следующий:
+
+```tsx
+export type TableRowData = {
+    /**
+     * Уникальный идентификатор строки
+     */
+    id: string;
+    /**
+     * Неограниченный список пар ключ:значение, составляющих контент таблицы.
+     * Должен совпадать с ключами из TableColumnData
+     */
+    [key: string]: string | number | object;
+};
+
+export type TableColumnData = {
+    /**
+     * Уникальный идентификатор колонки
+     */
+    id: string;
+    /**
+     * Label колонки
+     */
+    label: string;
+    /**
+     * Ширина колонки
+     */
+    width?: number;
+    /**
+     * Включение сортировки
+     */
+    enableSorting?: boolean;
+    /**
+     * Включение ресайза
+     */
+    enableResizing?: boolean;
+    /**
+     * Включение изменения ячеек
+     */
+    enableEditing?: boolean;
+    /**
+     * Набор опций для фильтрации строк
+     */
+    filters?: { value: string; label: string }[];
+    /**
+     * Кастомный обработчик для фильтрации строк
+     */
+    filterFn?: (filteredValue: string, cellValue: unknown) => boolean;
+    /**
+     * Рендер-пропс для ячейки
+     */
+    renderCell?: (value: unknown, row: TableRowData, rowIndex: number) => ReactNode;
+    /**
+     * Сеттер свойств для ячейки
+     */
+    setCellProps?: (record: TableRowData, cellId: string) => HTMLAttributes<any> & TdHTMLAttributes<any>;
+};
+```

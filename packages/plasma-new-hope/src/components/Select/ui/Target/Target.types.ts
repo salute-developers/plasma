@@ -1,7 +1,7 @@
 import type { KeyboardEvent, MutableRefObject } from 'react';
 
 import type { ValueToItemMapType } from '../../hooks/usePathMaps';
-import type { DefaultValueType, MergedSelectProps, RequiredProps } from '../../Select.types';
+import type { DefaultValueType, MergedSelectProps, RequiredProps, ChipClickArea } from '../../Select.types';
 import type { HintProps } from '../../../TextField/TextField.types';
 import type { MergedDropdownNodeTransformed } from '../Inner/ui/Item/Item.types';
 
@@ -22,6 +22,7 @@ export type TargetProps = Pick<
     | 'isTargetAmount'
     | 'chipView'
     | 'chipType'
+    | 'chipClickArea'
 > & {
     value: DefaultValueType;
     opened: boolean;
@@ -35,4 +36,5 @@ export type TargetProps = Pick<
     requiredProps: RequiredProps | undefined;
     hintProps: HintProps | undefined;
     separator?: string;
+    chipClickArea?: ChipClickArea;
 };

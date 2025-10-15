@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../_helpers';
-import { IconCross, IconLock } from '../../../components/_Icon';
+import { IconCross } from '../../../components/_Icon';
 import type { PopoverPlacement } from '../Popover/Popover';
 
 import { TextField } from './TextField';

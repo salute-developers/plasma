@@ -69,3 +69,4 @@ export * from './components/Rating';
 
 export * from './mixins';
 export * from './tokens';
+export * from './types';

@@ -1,7 +1,8 @@
 import React, { ComponentProps, useEffect, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { disableProps, getConfigVariations, IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { IconCalendarOutline, IconDone } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton';
 
@@ -21,9 +22,12 @@ const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
 const requiredPlacements = ['left', 'right'];
 
-const IconPlaceholderWithBackground = ({ size }: { size: 'xs' | 's' }) => (
-    <IconPlaceholder size={size} style={{ background: '#108E26' }} />
-);
+const Icon = ({ size, isAction = false }: { size: 'xs' | 's'; isAction?: boolean }) =>
+    isAction ? (
+        <IconDone size={size} style={{ color: 'var(--text-primary)' }} />
+    ) : (
+        <IconCalendarOutline size={size} style={{ color: 'var(--text-primary)' }} />
+    );
 
 const meta: Meta = {
     title: 'Data Entry/DatePicker',
@@ -122,8 +126,8 @@ const StoryDefault = ({
             size={size}
             valueError={valueError}
             valueSuccess={valueSuccess}
-            contentLeft={enableContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <Icon size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <Icon size={iconSize} isAction /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => {
@@ -179,7 +183,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         readOnly: false,
         textBefore: '',
         enableContentLeft: true,
-        enableContentRight: true,
+        enableContentRight: false,
         valueError: false,
         valueSuccess: false,
         calendarContainerWidth: 0,
@@ -202,7 +206,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconPlaceholderWithBackground size={iconSize} />
+            <Icon size={iconSize} isAction />
         </IconButton>
     );
 };
@@ -233,7 +237,7 @@ const StoryRange = ({
     const showDefaultTextBefore = dividerVariant === 'none';
 
     const dividerIconProps = {
-        dividerIcon: showDividerIcon ? <IconPlaceholderWithBackground size={iconSize} /> : null,
+        dividerIcon: showDividerIcon ? <Icon size={iconSize} /> : null,
         dividerVariant,
     };
 
@@ -246,20 +250,12 @@ const StoryRange = ({
             firstValueSuccess={firstValueSuccess}
             secondValueError={secondValueError}
             secondValueSuccess={secondValueSuccess}
-            contentLeft={enableContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <Icon size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
-            firstTextfieldContentLeft={
-                enableFirstTextfieldContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined
-            }
-            firstTextfieldContentRight={
-                enableFirstTextfieldContentRight ? <IconPlaceholderWithBackground size={iconSize} /> : undefined
-            }
-            secondTextfieldContentLeft={
-                enableSecondTextfieldContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined
-            }
-            secondTextfieldContentRight={
-                enableSecondTextfieldContentRight ? <IconPlaceholderWithBackground size={iconSize} /> : undefined
-            }
+            firstTextfieldContentLeft={enableFirstTextfieldContentLeft ? <Icon size={iconSize} /> : undefined}
+            firstTextfieldContentRight={enableFirstTextfieldContentRight ? <Icon size={iconSize} /> : undefined}
+            secondTextfieldContentLeft={enableSecondTextfieldContentLeft ? <Icon size={iconSize} /> : undefined}
+            secondTextfieldContentRight={enableSecondTextfieldContentRight ? <Icon size={iconSize} /> : undefined}
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
             }
@@ -318,7 +314,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         disabled: false,
         readOnly: false,
         enableContentLeft: true,
-        enableContentRight: true,
+        enableContentRight: false,
         enableFirstTextfieldContentLeft: false,
         enableFirstTextfieldContentRight: false,
         enableSecondTextfieldContentLeft: false,
@@ -360,8 +356,8 @@ const StoryDeferred = ({
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
-                contentLeft={enableContentLeft ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlaceholderWithBackground size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <Icon size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <Icon size={iconSize} /> : undefined}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onToggle={(is) => setIsOpen(is)}

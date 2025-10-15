@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import type { HTMLAttributes, TdHTMLAttributes } from 'react';
 import { flexRender, Table, Cell as CellType } from '@tanstack/react-table';
 import { useOutsideClick } from 'src/hooks';
 
@@ -33,9 +34,18 @@ type Props = {
     borderVariant: TableProps['borderVariant'];
     selected: boolean;
     table: Table<TableRowData>;
+    additionalProps: HTMLAttributes<any> & TdHTMLAttributes<any>;
 };
 
-export const EditableCell: React.FC<Props> = ({ size, view, cell, borderVariant, table, selected }) => {
+export const EditableCell: React.FC<Props> = ({
+    size,
+    view,
+    cell,
+    borderVariant,
+    table,
+    selected,
+    additionalProps,
+}) => {
     const [value, setValue] = useState<string>(cell.getValue() as string);
     const [editingMode, setEditingMode] = useState(false);
 
@@ -104,6 +114,7 @@ export const EditableCell: React.FC<Props> = ({ size, view, cell, borderVariant,
             selected={selected}
             view={view}
             ref={ref}
+            {...additionalProps}
         >
             <InnerWrapper>
                 {editingMode ? (

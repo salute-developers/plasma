@@ -30,7 +30,7 @@ export const config = {
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
                 ${tokens.textFieldContentSlotRightColor}: var(--text-accent);
-                ${tokens.textFieldContentSlotRightColorHover}: #1A9E32;
+                ${tokens.textFieldContentSlotRightColorHover}: var(--text-accent-minor);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.focusColor}: var(--surface-accent);
@@ -73,7 +73,7 @@ export const config = {
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
                 ${tokens.textFieldContentSlotRightColor}: var(--text-accent);
-                ${tokens.textFieldContentSlotRightColorHover}: #1A9E32;
+                ${tokens.textFieldContentSlotRightColorHover}: var(--text-accent-minor);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.focusColor}: var(--surface-accent);

@@ -1,4 +1,5 @@
 import React from 'react';
+import type { HTMLAttributes, TdHTMLAttributes } from 'react';
 import { flexRender, Cell as CellType } from '@tanstack/react-table';
 
 import { Resizer } from '../../Table.styles';
@@ -12,9 +13,10 @@ type Props = {
     selected: boolean;
     borderVariant: TableProps['borderVariant'];
     view: TableProps['view'];
+    additionalProps: HTMLAttributes<any> & TdHTMLAttributes<any>;
 };
 
-export const Cell: React.FC<Props> = ({ cell, borderVariant, selected, view }) => {
+export const Cell: React.FC<Props> = ({ cell, borderVariant, selected, view, additionalProps }) => {
     const renderCell = cell.column.columnDef.meta?.renderCell;
 
     return (
@@ -24,6 +26,7 @@ export const Cell: React.FC<Props> = ({ cell, borderVariant, selected, view }) =
             selectionCell={cell.column.id === SELECT_COLUMN_ID}
             selected={selected}
             view={view}
+            {...additionalProps}
         >
             {renderCell
                 ? renderCell(cell.getValue(), cell.row.original, cell.row.index)

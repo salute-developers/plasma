@@ -1,6 +1,8 @@
 import type { HTMLAttributes, ReactNode, RefObject, SyntheticEvent } from 'react';
 import { Placement as PopoverPlacement, ComputedPlacement as PopoverPlacementBasic } from '@popperjs/core';
 
+import { ResizableProps } from '../_Resizable';
+
 export type { Placement as PopoverPlacement, ComputedPlacement as PopoverPlacementBasic } from '@popperjs/core';
 export type PopoverTrigger = 'hover' | 'click';
 
@@ -81,6 +83,18 @@ export type CustomPopoverProps = {
      * false
      */
     usePortal?: boolean;
+    /**
+     * Настройка resizable-режима.
+     */
+    resizable?: ResizableProps['resizable'];
+    /**
+     * Обработчик начала ресайза.
+     */
+    onResizeStart?: ResizableProps['onResizeStart'];
+    /**
+     * Обработчик остановки ресайза.
+     */
+    onResizeEnd?: ResizableProps['onResizeEnd'];
 
     /**
      * Анимированное появление Popover

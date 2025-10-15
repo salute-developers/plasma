@@ -71,6 +71,8 @@ export * from './components/Carousel';
 export * from './components/Tour';
 export * from './components/EmbedIconButton';
 export * from './components/TimePicker';
+export * from './components/ProgressBarCircular';
 
 export * from './mixins';
 export * from './tokens';
+export * from './types';

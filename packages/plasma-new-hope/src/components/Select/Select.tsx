@@ -74,6 +74,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             chipType,
             multiselect,
             mode = 'default',
+            chipClickArea,
             // @ts-ignore
             _offset,
 
@@ -344,7 +345,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
         // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
         // Пример: когда юзер очистил value извне, тогда нужно пройтись по элементам и выключить все чекбоксы.
         useLayoutEffect(() => {
-            const checkedCopy = new Map(checked);
+            const checkedCopy = new Map(valueToCheckedMap);
 
             checkedCopy.forEach((_, key) => {
                 checkedCopy.set(key, false);

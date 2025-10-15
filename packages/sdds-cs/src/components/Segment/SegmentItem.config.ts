@@ -10,7 +10,7 @@ export const config = {
             default: css`
                 ${segmentTokens.itemColor}: var(--text-accent);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: #1A9E32;
+                ${segmentTokens.itemColorHover}: var(--text-accent-minor);
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
                 ${segmentTokens.itemAdditionalColor}: var(--text-accent-minor);
                 ${segmentTokens.itemAdditionalColorHover}: var(--text-accent-minor);
@@ -26,13 +26,13 @@ export const config = {
             secondary: css`
                 ${segmentTokens.itemColor}: var(--text-accent);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: #1A9E32;
+                ${segmentTokens.itemColorHover}: var(--text-accent-minor);
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
                 ${segmentTokens.itemAdditionalColor}: var(--text-accent-minor);
                 ${segmentTokens.itemAdditionalColorHover}: var(--text-accent-minor);
                 ${segmentTokens.itemSelectedColor}: var(--text-accent);
                 ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--text-accent);
+                ${segmentTokens.itemSelectedColorHover}: var(--text-accent-minor);
                 ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
                 ${segmentTokens.itemSelectedAdditionalColor}: var(--text-accent-minor);
                 ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-accent-minor);

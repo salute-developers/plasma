@@ -25,6 +25,8 @@ export type SelectAllProps = {
     sticky?: boolean;
 };
 
+export type ChipClickArea = 'full' | 'close-icon';
+
 type Target = LabelProps &
     (
         | (RequiredProps &
@@ -51,6 +53,11 @@ type Target = LabelProps &
                    * Внешний вид chip.
                    */
                   chipType?: 'default' | 'text';
+                  /**
+                   * Область, по которой происходит нажатие.
+                   * @default full
+                   */
+                  chipClickArea?: ChipClickArea;
               })
         | {
               target: 'button-like';
@@ -69,6 +76,7 @@ type Target = LabelProps &
               placeholder?: never;
               helperText?: never;
               chipType?: never;
+              chipClickArea?: never;
           }
     );
 

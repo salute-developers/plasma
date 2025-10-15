@@ -12,8 +12,7 @@ import {
     Row,
 } from '@tanstack/react-table';
 import { useForkRef } from '@salutejs/plasma-core';
-
-import { RootProps } from '../../engines';
+import { RootProps } from 'src/engines';
 
 import { HeadCell, Cell, EditableCell } from './ui';
 import { TableProps, TableRowData } from './Table.types';
@@ -37,13 +36,14 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                 view,
                 size,
                 borderVariant = 'all',
-                enableSelection,
+                enableSelection = false,
                 selected: outerSelected,
                 filtered: outerFiltered,
                 sorted: outerSorted,
                 maxHeight,
-                stickyHeader,
+                stickyHeader = false,
                 onCellUpdate,
+                setRowProps,
                 ...props
             },
             ref,
@@ -141,6 +141,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                             width: columnSize,
                             enableEditing = false,
                             renderCell,
+                            setCellProps,
                         }) => ({
                             header: label,
                             accessorKey: id,
@@ -160,6 +161,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                                 filters,
                                 enableEditing,
                                 renderCell,
+                                setCellProps,
                             },
                         }),
                     ),
@@ -225,11 +227,15 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
 
                         <Tbody>
                             {table.getRowModel().rows.map((row) => (
-                                <Tr key={row.id} selected={row.getIsSelected()}>
-                                    {row.getVisibleCells().map((cell) =>
+                                <Tr key={row.id} selected={row.getIsSelected()} {...setRowProps?.(row.original)}>
+                                    {row.getVisibleCells().map((cell) => {
+                                        const additionalProps =
+                                            cell?.column?.columnDef?.meta?.setCellProps?.(cell.row.original, cell.id) ||
+                                            {};
+
                                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                         // @ts-ignore
-                                        cell?.column?.columnDef?.meta?.enableEditing ? (
+                                        return cell?.column?.columnDef?.meta?.enableEditing ? (
                                             <EditableCell
                                                 key={cell.id}
                                                 size={size}
@@ -238,6 +244,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                                                 table={table}
                                                 selected={row.getIsSelected()}
                                                 view={view}
+                                                additionalProps={additionalProps}
                                             />
                                         ) : (
                                             <Cell
@@ -246,9 +253,10 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                                                 borderVariant={borderVariant}
                                                 selected={row.getIsSelected()}
                                                 view={view}
+                                                additionalProps={additionalProps}
                                             />
-                                        ),
-                                    )}
+                                        );
+                                    })}
                                 </Tr>
                             ))}
                         </Tbody>

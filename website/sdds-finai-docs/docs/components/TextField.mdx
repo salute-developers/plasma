@@ -7,7 +7,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 # TextField
 <Description name="TextField" />
-<PropsTable name="TextField" exclude={['$isFocused']} />
+<PropsTable name="TextField" exclude={['$isFocused', 'chips', 'onChangeChips', 'enumerationType', 'chipType', 'chipView', 'chipValidator']} />
 
 ## Использование
 Компонент `TextField` может содержать иконку (или кнопку) слева и справа.
@@ -176,47 +176,6 @@ export function App() {
                 hintText="Подсказка в виде Tooltip"
                 hintView="default"
                 hintSize="m"
-            />
-        </div>
-    );
-}
-```
-
-### Режим ввода (DEPRECATED)
-С помощью свойства `enumerationType` можно вводить элементы как теги. Свойство `chipType` изменяет внешний вид чипа.
-
-С помощью `chipView` можно задать общий вид `Chip`. Валидация `Chip` происходит с помощью функции `chipValidator`.
-
-По нажатию Enter, после ввода нужного текста, он преобразуется в Chip.
-
-```tsx live
-import React from 'react';
-import { TextField } from '@salutejs/sdds-finai';
-
-export function App() {
-    const validateChip = (value) => (value === 'Значение 1' ? { view: 'negative' } : {});
-
-    return (
-        <div>
-            <TextField
-                placeholder="Введите значение"
-                defaultValue="Значение"
-                size="l"
-                enumerationType="chip"
-                leftHelper="Подсказка снизу"
-                chips={["Значение 1", "Значение 2"]}
-                chipView="positive"
-                chipValidator={validateChip}
-            />
-
-            <TextField
-                placeholder="Введите значение"
-                defaultValue="Значение"
-                size="l"
-                enumerationType="chip"
-                leftHelper="Подсказка снизу"
-                chips={["Значение 1"]}
-                chipType="text"
             />
         </div>
     );

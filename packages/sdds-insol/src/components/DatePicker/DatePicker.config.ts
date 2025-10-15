@@ -8,9 +8,9 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-primary);
-                ${tokens.backgroundError}: var(--surface-transparent-negative);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+                ${tokens.background}: var(--surface-transparent-card);
+                ${tokens.backgroundError}: var(--surface-transparent-card);
+                ${tokens.backgroundSuccess}: var(--surface-transparent-card);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -23,21 +23,31 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
-                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
-
                 ${tokens.indicatorColor}: var(--surface-negative);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
+                ${tokens.textFieldBorderColorHover}: var(--outline-clear);
+
+                ${tokens.borderColorFocus}: var(--outline-solid-secondary);
+
+                ${tokens.borderColorSuccess}: var(--outline-positive-minor);
+                ${tokens.textFieldBorderColorSuccess}: var(--outline-positive-minor);
+                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-positive-minor-active);
+                ${tokens.textFieldBorderColorSuccessHover}: var(--outline-positive-minor-hover);
+
+                ${tokens.borderColorError}: var(--outline-negative-minor);
+                ${tokens.textFieldBorderColorError}: var(--outline-negative-minor);
+                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-negative-minor-active);
+                ${tokens.textFieldBorderColorErrorHover}: var(--outline-negative-minor-hover);
+
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-clear);
+                ${tokens.textFieldColorError}: var(--text-negative);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-clear);
+                ${tokens.textFieldColorSuccess}: var(--text-positive);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-clear);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -75,8 +85,9 @@ export const config = {
         },
         size: {
             xl: css`
-                ${tokens.width}: 23rem;
+                ${tokens.width}: 30rem;
                 ${tokens.borderRadius}: 1rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -100,6 +111,13 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
 
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
@@ -109,6 +127,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 4rem;
                 ${tokens.textFieldBorderRadius}: 1rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldPadding}: 1.375rem 1.25rem 1.375rem 1.25rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -131,8 +150,8 @@ export const config = {
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.calendarBorderRadius}: 1rem;
-                ${tokens.calendarContainerWidth}: 23rem;
-                ${tokens.calendarContainerHeight}: 22.625rem;
+                ${tokens.calendarContainerWidth}: 30rem;
+                ${tokens.calendarContainerHeight}: 30.5rem;
 
                 ${tokens.calendarYearsPadding}: 0 1rem 1.125rem 1rem;
                 ${tokens.calendarYearItemBorderRadius}: 0.75rem;
@@ -143,7 +162,7 @@ export const config = {
                 ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
 
                 ${tokens.calendarMonthsPadding}: 0 1rem 1.125rem 1rem;
                 ${tokens.calendarMonthItemBorderRadius}: 0.75rem;
@@ -154,7 +173,7 @@ export const config = {
                 ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
 
                 ${tokens.calendarQuartersPadding}: 0 0.5rem 0 0.5rem;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.75rem;
@@ -165,7 +184,7 @@ export const config = {
                 ${tokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.calendarQuarterFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
 
                 ${tokens.calendarDaysPadding}: 0 1rem 1.125rem 1rem;
                 ${tokens.calendarDayItemBorderRadius}: 0.75rem;
@@ -176,13 +195,14 @@ export const config = {
                 ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
-                ${tokens.calendarHeaderWrapperPadding}: 1rem 1rem 0.5rem 1rem;
+                ${tokens.calendarEventItemBottom}: 0.5rem;
+                ${tokens.calendarHeaderWrapperPadding}: 1rem 1rem 0.375rem 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
-                ${tokens.calendarHeaderArrowCustomSize}: 1.25rem;
+                ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.75rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
@@ -195,14 +215,15 @@ export const config = {
                 ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
                 ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
 
-                ${tokens.iconButtonHeight}: 3rem;
-                ${tokens.iconButtonWidth}: 3rem;
-                ${tokens.iconButtonPadding}: 0.875rem;
-                ${tokens.iconButtonRadius}: 0.875rem;
+                ${tokens.iconButtonHeight}: 4rem;
+                ${tokens.iconButtonWidth}: 4rem;
+                ${tokens.iconButtonPadding}: 1.25rem;
+                ${tokens.iconButtonRadius}: 1.25rem;
             `,
             l: css`
-                ${tokens.width}: 19.5rem;
+                ${tokens.width}: 26.5rem;
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -226,6 +247,13 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
@@ -235,6 +263,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -257,8 +286,8 @@ export const config = {
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.calendarBorderRadius}: 0.875rem;
-                ${tokens.calendarContainerWidth}: 19.5rem;
-                ${tokens.calendarContainerHeight}: 19.125rem;
+                ${tokens.calendarContainerWidth}: 26.5rem;
+                ${tokens.calendarContainerHeight}: 27.125rem;
 
                 ${tokens.calendarYearsPadding}: 0 1rem 1.125rem 1rem;
                 ${tokens.calendarYearItemBorderRadius}: 0.5rem;
@@ -269,7 +298,7 @@ export const config = {
                 ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
                 ${tokens.calendarMonthsPadding}: 0 1rem 1.125rem 1rem;
                 ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
@@ -280,7 +309,7 @@ export const config = {
                 ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
                 ${tokens.calendarQuartersPadding}: 0 0.5rem 0 0.5rem;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
@@ -291,7 +320,7 @@ export const config = {
                 ${tokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.calendarQuarterFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
                 ${tokens.calendarDaysPadding}: 0 1rem 1.125rem 1rem;
                 ${tokens.calendarDayItemBorderRadius}: 0.5rem;
@@ -302,13 +331,14 @@ export const config = {
                 ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
-                ${tokens.calendarHeaderWrapperPadding}: 1rem 1rem 0.5rem 1rem;
+                ${tokens.calendarEventItemBottom}: 0.5rem;
+                ${tokens.calendarHeaderWrapperPadding}: 1rem 1rem 0.375rem 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
-                ${tokens.calendarHeaderArrowCustomSize}: 1rem;
+                ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
@@ -321,14 +351,15 @@ export const config = {
                 ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
                 ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
 
-                ${tokens.iconButtonHeight}: 2.5rem;
-                ${tokens.iconButtonWidth}: 2.5rem;
-                ${tokens.iconButtonPadding}: 0.75rem;
+                ${tokens.iconButtonHeight}: 3.5rem;
+                ${tokens.iconButtonWidth}: 3.5rem;
+                ${tokens.iconButtonPadding}: 1rem;
                 ${tokens.iconButtonRadius}: 0.625rem;
             `,
             m: css`
-                ${tokens.width}: 19.5rem;
+                ${tokens.width}: 23rem;
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -352,6 +383,13 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
@@ -361,6 +399,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -382,8 +421,8 @@ export const config = {
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.calendarContainerWidth}: 19.5rem;
-                ${tokens.calendarContainerHeight}: 17.625rem;
+                ${tokens.calendarContainerWidth}: 23rem;
+                ${tokens.calendarContainerHeight}: 22.625rem;
                 ${tokens.calendarBorderRadius}: 0.75rem;
 
                 ${tokens.calendarYearsPadding}: 0 1rem 1.125rem 1rem;
@@ -395,9 +434,9 @@ export const config = {
                 ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${tokens.calendarQuartersPadding}: 0 0.5rem 0 0.5rem;
+                ${tokens.calendarQuartersPadding}: 0 1rem 0 1rem;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.375rem;
 
                 ${tokens.calendarQuarterFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -406,7 +445,7 @@ export const config = {
                 ${tokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarQuarterFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarMonthsPadding}: 0 1rem 1.125rem 1rem;
                 ${tokens.calendarMonthItemBorderRadius}: 0.375rem;
@@ -417,7 +456,7 @@ export const config = {
                 ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarDaysPadding}: 0 1rem 1.125rem 1rem;
                 ${tokens.calendarDayItemBorderRadius}: 0.375rem;
@@ -428,33 +467,35 @@ export const config = {
                 ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
+                ${tokens.calendarEventItemBottom}: 0.375rem;
                 ${tokens.calendarHeaderWrapperPadding}: 1rem 1rem 0.375rem 1rem;
                 ${tokens.calendarHeaderArrowGap}: 0;
-                ${tokens.calendarHeaderArrowCustomSize}: 1rem;
+                ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h5-font-family);
-                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h5-font-size);
-                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h5-font-style);
-                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
-                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h5-line-height);
-                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h5-font-weight);
-                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h5-bold-font-weight);
+                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
+                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
+                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h4-font-style);
+                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
+                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h4-line-height);
+                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
+                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
 
-                ${tokens.iconButtonHeight}: 2rem;
-                ${tokens.iconButtonWidth}: 2rem;
-                ${tokens.iconButtonPadding}: 0.5rem;
+                ${tokens.iconButtonHeight}: 3rem;
+                ${tokens.iconButtonWidth}: 3rem;
+                ${tokens.iconButtonPadding}: 0.75rem;
                 ${tokens.iconButtonRadius}: 0.5rem;
             `,
             s: css`
                 ${tokens.width}: 19.25rem;
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -478,6 +519,13 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
@@ -487,6 +535,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldPadding}: 0.813rem 0.75rem 0.813rem 0.75rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -509,7 +558,7 @@ export const config = {
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.calendarContainerWidth}: 19.25rem;
-                ${tokens.calendarContainerHeight}: 17.375rem;
+                ${tokens.calendarContainerHeight}: 18.875rem;
                 ${tokens.calendarBorderRadius}: 0.625rem;
 
                 ${tokens.calendarYearsPadding}: 0 0.875rem 0.875rem 0.875rem;
@@ -521,9 +570,9 @@ export const config = {
                 ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${tokens.calendarQuartersPadding}: 0 0.5rem 0 0.5rem;
+                ${tokens.calendarQuartersPadding}: 0 0.875rem 0 0.875rem;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
 
                 ${tokens.calendarQuarterFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -532,7 +581,7 @@ export const config = {
                 ${tokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarQuarterFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarMonthsPadding}: 0 0.875rem 0.875rem 0.875rem;
                 ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
@@ -543,7 +592,7 @@ export const config = {
                 ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarDaysPadding}: 0 0.875rem 0.875rem 0.875rem;
                 ${tokens.calendarDayItemBorderRadius}: 0.5rem;
@@ -554,10 +603,11 @@ export const config = {
                 ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
+                ${tokens.calendarEventItemBottom}: 0.25rem;
                 ${tokens.calendarHeaderWrapperPadding}: 0.875rem 0.875rem 0.375rem 0.875rem;
                 ${tokens.calendarHeaderArrowGap}: 0;
                 ${tokens.calendarHeaderArrowCustomSize}: 1rem;
@@ -573,14 +623,15 @@ export const config = {
                 ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h5-font-weight);
                 ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h5-bold-font-weight);
 
-                ${tokens.iconButtonHeight}: 2rem;
-                ${tokens.iconButtonWidth}: 2rem;
+                ${tokens.iconButtonHeight}: 2.5rem;
+                ${tokens.iconButtonWidth}: 2.5rem;
                 ${tokens.iconButtonPadding}: 0.75rem;
                 ${tokens.iconButtonRadius}: 0.5rem;
             `,
             xs: css`
                 ${tokens.width}: 19rem;
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -613,6 +664,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldPadding}: 0.5rem 0.625rem 0.5rem 0.625rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -635,7 +687,7 @@ export const config = {
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.calendarContainerWidth}: 19rem;
-                ${tokens.calendarContainerHeight}: 17.125rem;
+                ${tokens.calendarContainerHeight}: 18.625rem;
                 ${tokens.calendarBorderRadius}: 0.5rem;
 
                 ${tokens.calendarYearsPadding}: 0 0.75rem 0.625rem 0.75rem;
@@ -647,7 +699,7 @@ export const config = {
                 ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarQuartersPadding}: 0 0.25rem 0 0.25rem;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.375rem;
@@ -658,7 +710,7 @@ export const config = {
                 ${tokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarQuarterFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarMonthsPadding}: 0 0.75rem 0.625rem 0.75rem;
                 ${tokens.calendarMonthItemBorderRadius}: 0.375rem;
@@ -669,7 +721,7 @@ export const config = {
                 ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarDaysPadding}: 0 0.75rem 0.625rem 0.75rem;
                 ${tokens.calendarDayItemBorderRadius}: 0.375rem;
@@ -680,10 +732,11 @@ export const config = {
                 ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
+                ${tokens.calendarEventItemBottom}: 0.25rem;
                 ${tokens.calendarHeaderWrapperPadding}: 0.5rem 0.75rem 0.375rem 0.75rem;
                 ${tokens.calendarHeaderArrowGap}: 0;
                 ${tokens.calendarHeaderArrowCustomSize}: 1rem;
@@ -701,7 +754,7 @@ export const config = {
 
                 ${tokens.iconButtonHeight}: 2rem;
                 ${tokens.iconButtonWidth}: 2rem;
-                ${tokens.iconButtonPadding}: 0.75rem;
+                ${tokens.iconButtonPadding}: 0.5rem;
                 ${tokens.iconButtonRadius}: 0.5rem;
             `,
         },

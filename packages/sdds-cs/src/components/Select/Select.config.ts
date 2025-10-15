@@ -25,7 +25,7 @@ export const config = {
                 ${selectTokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${selectTokens.buttonColor}: var(--text-accent);
-                ${selectTokens.buttonColorHover}: #1A9E32;
+                ${selectTokens.buttonColorHover}: var(--text-accent-minor);
                 ${selectTokens.buttonColorActive}: var(--text-accent-active);
                 ${selectTokens.buttonArrowColor}: var(--text-primary);
                 ${selectTokens.buttonArrowColorHover}: var(--text-primary-hover);
@@ -35,7 +35,7 @@ export const config = {
                 ${selectTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
 
                 ${selectTokens.disclosureIconColor}: var(--text-accent);
-                ${selectTokens.disclosureIconColorHover}: #1A9E32;
+                ${selectTokens.disclosureIconColorHover}: var(--text-accent-minor);
                 ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
                 ${selectTokens.itemDisabledOpacity}: 1;
                 ${selectTokens.itemDisabledColor}: var(--text-secondary);
@@ -68,7 +68,7 @@ export const config = {
                 ${selectTokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${selectTokens.buttonColor}: var(--text-accent);
-                ${selectTokens.buttonColorHover}: #1A9E32;
+                ${selectTokens.buttonColorHover}: var(--text-accent-minor);
                 ${selectTokens.buttonColorActive}: var(--text-accent-active);
                 ${selectTokens.buttonArrowColor}: var(--text-primary);
                 ${selectTokens.buttonArrowColorHover}: var(--text-primary-hover);
@@ -78,7 +78,7 @@ export const config = {
                 ${selectTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
 
                 ${selectTokens.disclosureIconColor}: var(--text-accent);
-                ${selectTokens.disclosureIconColorHover}: #1A9E32;
+                ${selectTokens.disclosureIconColorHover}: var(--text-accent-minor);
                 ${selectTokens.itemBackgroundHover}: var(--surface-transparent-accent);
                 ${selectTokens.itemDisabledOpacity}: 1;
                 ${selectTokens.itemDisabledColor}: var(--text-secondary);
@@ -231,7 +231,8 @@ export const config = {
                 ${selectTokens.textFieldChipColor}: var(--inverse-text-primary);
                 ${selectTokens.textFieldChipBackground}: var(--surface-solid-default);
                 ${selectTokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
-                ${selectTokens.textFieldChipCloseIconColor}: var(--inverse-text-primary);
+                ${selectTokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
+                ${selectTokens.textFieldChipCloseIconColorHover}: var(--inverse-text-primary);
                 ${selectTokens.textFieldChipOpacityReadonly}: 1;
             `,
         },

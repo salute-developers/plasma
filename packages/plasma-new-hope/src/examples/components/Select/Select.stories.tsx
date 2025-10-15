@@ -46,6 +46,42 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 const mode = ['default', 'radio'];
+const chipClickArea = ['full', 'close-icon'];
+
+const includeParams = [
+    'target',
+    'size',
+    'view',
+    'chipView',
+    'enableContentLeft',
+    'label',
+    'labelPlacement',
+    'placeholder',
+    'helperText',
+    'isTargetAmount',
+    'closeAfterSelect',
+    'variant',
+    'disabled',
+    'readOnly',
+    'listWidth',
+    'listOverflow',
+    'listMaxHeight',
+    'optional',
+    'required',
+    'requiredPlacement',
+    'hasRequiredIndicator',
+    'chipType',
+    'hasHint',
+    'hintText',
+    'hintTrigger',
+    'hintView',
+    'hintSize',
+    'hintTargetPlacement',
+    'hintPlacement',
+    'hintWidth',
+    'hintHasArrow',
+    'mode',
+];
 
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Select',
@@ -238,40 +274,7 @@ const meta: Meta<StorySelectProps> = {
     },
     parameters: {
         controls: {
-            include: [
-                'target',
-                'size',
-                'view',
-                'chipView',
-                'enableContentLeft',
-                'label',
-                'labelPlacement',
-                'placeholder',
-                'helperText',
-                'isTargetAmount',
-                'closeAfterSelect',
-                'variant',
-                'disabled',
-                'readOnly',
-                'listWidth',
-                'listOverflow',
-                'listMaxHeight',
-                'optional',
-                'required',
-                'requiredPlacement',
-                'hasRequiredIndicator',
-                'chipType',
-                'hasHint',
-                'hintText',
-                'hintTrigger',
-                'hintView',
-                'hintSize',
-                'hintTargetPlacement',
-                'hintPlacement',
-                'hintWidth',
-                'hintHasArrow',
-                'mode',
-            ],
+            include: includeParams,
         },
     },
 };
@@ -535,13 +538,23 @@ const MultiselectStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
 };
 
 export const Multiselect: StoryObj<StorySelectProps> = {
+    argTypes: {
+        chipClickArea: {
+            options: chipClickArea,
+            control: {
+                type: 'select',
+            },
+        },
+    },
     args: {
         multiselect: true,
         closeAfterSelect: false,
+        chipClickArea: 'full',
     },
     render: (args) => <MultiselectStory {...args} />,
     parameters: {
         controls: {
+            include: [...includeParams, 'chipClickArea'],
             exclude: ['mode'],
         },
     },
