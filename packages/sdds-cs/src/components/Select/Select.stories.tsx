@@ -16,6 +16,7 @@ type StorySelectProps = ComponentProps<typeof Select> & {
 const view = ['default', 'negative'];
 const variant = ['normal', 'tight'];
 const mode = ['default', 'radio'];
+const arrowPlacement = ['left', 'right'];
 
 const meta: Meta<StorySelectProps> = {
     title: 'Data Entry/Select',
@@ -107,6 +108,18 @@ const meta: Meta<StorySelectProps> = {
                 type: 'select',
             },
         },
+        treeView: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        arrowPlacement: {
+            options: arrowPlacement,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'treeView', truthy: true },
+        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -139,6 +152,8 @@ const meta: Meta<StorySelectProps> = {
         hasRequiredIndicator: true,
         chipType: 'default',
         mode: 'default',
+        treeView: false,
+        arrowPlacement: 'left',
     },
     parameters: {
         controls: {
@@ -163,6 +178,8 @@ const meta: Meta<StorySelectProps> = {
                 'hasRequiredIndicator',
                 'chipType',
                 'mode',
+                'treeView',
+                'arrowPlacement',
             ],
         },
     },

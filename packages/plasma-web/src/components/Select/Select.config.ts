@@ -454,6 +454,8 @@ export const config = {
                 ${tokens.itemIconMargin}: 0 0.5rem 0 0;
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1.5rem;
+                ${tokens.itemGap}: 0.5rem;
+                ${tokens.itemTreeOffsetWidth}: 2rem;
 
                 ${tokens.cellPadding}: 0rem;
                 ${tokens.cellPaddingLeftContent}: 0rem;
@@ -577,6 +579,8 @@ export const config = {
                 ${tokens.itemIconMargin}: 0 0.375rem 0 0;
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1.5rem;
+                ${tokens.itemGap}: 0.375rem;
+                ${tokens.itemTreeOffsetWidth}: 2rem;
 
                 ${tokens.cellPadding}: 0rem;
                 ${tokens.cellPaddingLeftContent}: 0rem;
@@ -700,6 +704,8 @@ export const config = {
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1rem;
                 ${tokens.itemIconMargin}: 0 0.375rem 0 0;
+                ${tokens.itemGap}: 0.375rem;
+                ${tokens.itemTreeOffsetWidth}: 1.875rem;
 
                 ${tokens.cellPadding}: 0rem;
                 ${tokens.cellPaddingLeftContent}: 0rem;
@@ -823,6 +829,8 @@ export const config = {
                 ${tokens.itemIconSize}: 1rem;
                 ${tokens.itemIconSizeTight}: 1rem;
                 ${tokens.itemIconMargin}: 0 0.25rem 0 0;
+                ${tokens.itemGap}: 0.25rem;
+                ${tokens.itemTreeOffsetWidth}: 1.25rem;
 
                 ${tokens.cellPadding}: 0rem;
                 ${tokens.cellPaddingLeftContent}: 0rem;

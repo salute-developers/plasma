@@ -1,7 +1,8 @@
 import type { KeyboardEvent, Dispatch } from 'react';
 import React from 'react';
 
-import { PathAction, PathState, FocusedPathAction, FocusedPathState } from '../reducers';
+import { keyExists } from '../reducers/treePathReducer';
+import { PathAction, PathState, FocusedPathAction, FocusedPathState, TreePathAction, TreePathState } from '../reducers';
 import type { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
 
 import { PathMapType, FocusedToValueMapType } from './usePathMaps';
@@ -39,6 +40,10 @@ type Props = {
     focusedToValueMap: FocusedToValueMapType;
     handleListToggle: (opened: boolean) => void;
     handlePressDown: (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => void;
+    treePath: TreePathState;
+    dispatchTreePath: Dispatch<TreePathAction>;
+    treeView: boolean;
+    valueToPathMap: Map<string, string[]>;
 };
 
 type ReturnedProps = {
@@ -46,6 +51,53 @@ type ReturnedProps = {
 };
 
 export const useKeyNavigation = ({
+    focusedPath,
+    dispatchFocusedPath,
+    path,
+    dispatchPath,
+    pathMap,
+    focusedToValueMap,
+    handleListToggle,
+    handlePressDown,
+    treePath,
+    dispatchTreePath,
+    treeView,
+    valueToPathMap,
+}: Props): ReturnedProps => {
+    if (treeView) {
+        return keyboardNavigationTree({
+            focusedPath,
+            dispatchFocusedPath,
+            path,
+            dispatchPath,
+            pathMap,
+            focusedToValueMap,
+            handleListToggle,
+            handlePressDown,
+            treePath,
+            dispatchTreePath,
+            treeView,
+            valueToPathMap,
+        });
+    }
+
+    return keyboardNavigationDefault({
+        focusedPath,
+        dispatchFocusedPath,
+        path,
+        dispatchPath,
+        pathMap,
+        focusedToValueMap,
+        handleListToggle,
+        handlePressDown,
+        treePath,
+        dispatchTreePath,
+        treeView,
+        valueToPathMap,
+    });
+};
+
+const keyboardNavigationDefault = ({
     focusedPath,
     dispatchFocusedPath,
     path,
@@ -262,6 +314,144 @@ export const useKeyNavigation = ({
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
                 } else {
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + JUMP_SIZE });
+                }
+
+                break;
+            }
+
+            default: {
+                break;
+            }
+        }
+    };
+
+    return { onKeyDown };
+};
+
+const keyboardNavigationTree = ({
+    focusedPath,
+    dispatchFocusedPath,
+    path,
+    dispatchPath,
+    pathMap,
+    focusedToValueMap,
+    handleListToggle,
+    handlePressDown,
+    treePath,
+    dispatchTreePath,
+    valueToPathMap,
+}: Props): ReturnedProps => {
+    const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
+    const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
+    const currentLength: number = currentItem?.parent?.items?.length || pathMap.get('root') || 0;
+
+    const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+        switch (event.code) {
+            case keys.ArrowUp: {
+                if (focusedPath.length) {
+                    if (currentIndex > 0) {
+                        dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex - 1 });
+                    }
+                } else {
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                    handleListToggle(true);
+                }
+
+                break;
+            }
+
+            case keys.ArrowDown: {
+                if (focusedPath.length) {
+                    if (currentIndex + 1 < currentLength) {
+                        dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + 1 });
+                    }
+                } else {
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                    handleListToggle(true);
+                }
+
+                break;
+            }
+
+            case keys.ArrowLeft: {
+                if (path[0]) {
+                    if (focusedPath.length) {
+                        const isCurrentLevelOpened = keyExists(
+                            treePath,
+                            valueToPathMap.get(currentItem?.value.toString() || '') || [],
+                        );
+
+                        if (isCurrentLevelOpened) {
+                            dispatchTreePath({
+                                type: 'toggled_level',
+                                value: valueToPathMap.get(currentItem?.value.toString() || '') || [],
+                            });
+                        } else if (focusedPath.length === 1) {
+                            handleListToggle(false);
+                        } else {
+                            dispatchFocusedPath({ type: 'return_prev_focus' });
+                        }
+                    }
+                }
+
+                break;
+            }
+
+            case keys.ArrowRight: {
+                if (path[0]) {
+                    if (!focusedPath.length) {
+                        break;
+                    }
+
+                    if (currentItem?.disabled || currentItem?.isDisabled) {
+                        break;
+                    }
+
+                    if (currentItem?.items) {
+                        const isCurrentLevelOpened = keyExists(
+                            treePath,
+                            valueToPathMap.get(currentItem.value.toString()) || [],
+                        );
+
+                        if (isCurrentLevelOpened) {
+                            dispatchFocusedPath({ type: 'add_focus', value: 0 });
+                        } else {
+                            dispatchTreePath({
+                                type: 'toggled_level',
+                                value: valueToPathMap.get(currentItem.value.toString()) || [],
+                            });
+                        }
+                    }
+                }
+
+                break;
+            }
+
+            case keys.Space:
+            case keys.Enter: {
+                event.preventDefault();
+
+                if (!path[0]) {
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                    break;
+                }
+
+                if (!currentItem || currentItem?.disabled || currentItem?.isDisabled) {
+                    break;
+                }
+
+                handlePressDown(currentItem);
+
+                break;
+            }
+
+            case keys.Tab:
+            case keys.Escape: {
+                if (path[0]) {
+                    handleListToggle(false);
                 }
 
                 break;

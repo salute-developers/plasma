@@ -1016,6 +1016,71 @@ describe('plasma-b2c: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: treeView, single mode', () => {
+        cy.viewport(400, 700);
+
+        const Component = () => {
+            const [value, setValue] = useState('rio_de_janeiro');
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="select"
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            treeView
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click('bottomRight');
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: treeView, multiple mode', () => {
+        cy.viewport(400, 700);
+
+        const Component = () => {
+            const [value, setValue] = useState(['rio_de_janeiro']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="select"
+                            multiselect
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            treeView
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click('bottomRight');
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 
