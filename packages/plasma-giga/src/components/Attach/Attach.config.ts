@@ -3,6 +3,7 @@ import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'default',
+        helperTextView: 'default',
         focused: 'true',
         size: 'm',
     },
@@ -48,6 +49,8 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
             `,
             accent: css`
                 ${attachTokens.buttonColor}: var(--on-dark-text-primary);
@@ -89,6 +92,8 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
             `,
             secondary: css`
                 ${attachTokens.buttonColor}: var(--text-primary);
@@ -130,6 +135,8 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
             `,
             clear: css`
                 ${attachTokens.buttonColor}: var(--text-primary);
@@ -171,6 +178,8 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
             `,
             success: css`
                 ${attachTokens.buttonColor}: var(--on-dark-text-primary);
@@ -181,6 +190,9 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
                 ${attachTokens.buttonColorActive}: var(--on-dark-text-primary);
                 ${attachTokens.buttonBackgroundColorActive}: var(--surface-positive-active);
+
+                ${attachTokens.buttonDisabledOpacity}: 0.4;
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: var(--text-primary);
                 ${attachTokens.cellLabelColor}: var(--text-secondary);
@@ -209,6 +221,8 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
             `,
             warning: css`
                 ${attachTokens.buttonColor}: var(--on-dark-text-primary);
@@ -250,6 +264,8 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
             `,
             critical: css`
                 ${attachTokens.buttonColor}: var(--on-dark-text-primary);
@@ -288,6 +304,8 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
             `,
             dark: css`
                 ${attachTokens.buttonColor}: var(--on-dark-text-primary);
@@ -329,6 +347,8 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
             `,
             black: css`
                 ${attachTokens.buttonColor}: var(--on-dark-text-primary);
@@ -370,6 +390,8 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
             `,
             white: css`
                 ${attachTokens.buttonColor}: var(--on-light-text-primary);
@@ -411,13 +433,26 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
+            `,
+        },
+        helperTextView: {
+            default: css`
+                ${attachTokens.helperTextColor}: var(--text-secondary);
+            `,
+            negative: css`
+                ${attachTokens.helperTextColor}: var(--text-negative);
             `,
         },
         size: {
             l: css`
                 ${attachTokens.horizontalGap}: 1.5rem;
                 ${attachTokens.verticalGap}: 0.5rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.625rem;
 
+                ${attachTokens.filenameWrapperHeight}: 3.5rem;
+                ${attachTokens.filenameDropdownWrapperHeight}: 2.125rem;
                 ${attachTokens.buttonHeight}: 3.5rem;
                 ${attachTokens.buttonWidth}: 12.5rem;
                 ${attachTokens.buttonPadding}: 1.5rem;
@@ -494,11 +529,20 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
+
+                ${attachTokens.moreIconPadding}: 0.75rem;
+
+                ${attachTokens.dropdownBorderRadius}: 0.875rem;
+                ${attachTokens.dropdownPadding}: 0.125rem;
+                ${attachTokens.dropdownItemPadding}: 1rem;
             `,
             m: css`
                 ${attachTokens.horizontalGap}: 1.25rem;
                 ${attachTokens.verticalGap}: 0.5rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.625rem;
 
+                ${attachTokens.filenameWrapperHeight}: 3rem;
+                ${attachTokens.filenameDropdownWrapperHeight}: 2rem;
                 ${attachTokens.buttonHeight}: 3rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1.25rem;
@@ -575,11 +619,20 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
+
+                ${attachTokens.moreIconPadding}: 0.5rem;
+
+                ${attachTokens.dropdownBorderRadius}: 0.75rem;
+                ${attachTokens.dropdownPadding}: 0.125rem;
+                ${attachTokens.dropdownItemPadding}: 0.5rem 0.875rem;
             `,
             s: css`
                 ${attachTokens.horizontalGap}: 1rem;
                 ${attachTokens.verticalGap}: 0.375rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.5rem;
 
+                ${attachTokens.filenameWrapperHeight}: 2.5rem;
+                ${attachTokens.filenameDropdownWrapperHeight}: 2rem;
                 ${attachTokens.buttonHeight}: 2.5rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1rem;
@@ -656,11 +709,20 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
+
+                ${attachTokens.moreIconPadding}: 0.25rem;
+
+                ${attachTokens.dropdownBorderRadius}: 0.625rem;
+                ${attachTokens.dropdownPadding}: 0.125rem;
+                ${attachTokens.dropdownItemPadding}: 0.25rem 0.75rem;
             `,
             xs: css`
                 ${attachTokens.horizontalGap}: 0.75rem;
                 ${attachTokens.verticalGap}: 0.25rem;
+                ${attachTokens.verticalGapWithHelperText}: 1.375rem;
 
+                ${attachTokens.filenameWrapperHeight}: 2rem;
+                ${attachTokens.filenameDropdownWrapperHeight}: 2rem;
                 ${attachTokens.buttonHeight}: 2rem;
                 ${attachTokens.buttonWidth}: 10rem;
                 ${attachTokens.buttonPadding}: 0.75rem;
@@ -737,6 +799,12 @@ export const config = {
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
+
+                ${attachTokens.moreIconPadding}: 0.25rem;
+
+                ${attachTokens.dropdownBorderRadius}: 0.5rem;
+                ${attachTokens.dropdownPadding}: 0.125rem;
+                ${attachTokens.dropdownItemPadding}: 0.125rem 0.5rem;
             `,
         },
     },
