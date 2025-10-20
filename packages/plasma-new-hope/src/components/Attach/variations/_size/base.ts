@@ -17,6 +17,14 @@ export const base = css`
         column-gap: var(${tokens.horizontalGap});
     }
 
+    .${classes.horizontal} {
+        column-gap: var(${tokens.horizontalGap});
+    }
+
+    .${classes.auto} {
+        column-gap: var(${tokens.horizontalGap});
+    }
+
     &.${classes.withHelperText} {
         row-gap: var(${tokens.verticalGapWithHelperText});
     }
@@ -28,8 +36,6 @@ export const base = css`
         font-weight: var(${tokens.cellTitleFontWeight});
         letter-spacing: var(${tokens.cellTitleLetterSpacing});
         line-height: var(${tokens.cellTitleLineHeight});
-
-        height: var(${tokens.filenameWrapperHeight});
     }
 
     ${StyledHelperText} {
