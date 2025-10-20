@@ -4,6 +4,7 @@ import { component, mergeConfig } from 'src/engines';
 
 import { textFieldConfig, textFieldTokens } from '../TextField';
 import { popoverClasses, popoverConfig } from '../Popover';
+import { timePickerGridConfig, timePickerGridTokens } from '../TimePickerGrid';
 
 import { classes, tokens } from './TimePicker.tokens';
 
@@ -13,7 +14,39 @@ const TextField = component(mergedTextFieldConfig);
 const mergedPopoverConfig = mergeConfig(popoverConfig);
 const Popover = component(mergedPopoverConfig);
 
+const mergedTimePickerGrid = mergeConfig(timePickerGridConfig);
+const TimePickerGrid = component(mergedTimePickerGrid);
+
 export const StyledPopover = styled(Popover)``;
+
+export const StyledTimePickerGrid = styled(TimePickerGrid)`
+    ${timePickerGridTokens.timePickerGridBackground}: var(${tokens.timePickerBackground});
+    ${timePickerGridTokens.timePickerGridBorderRadius}: var(${tokens.timePickerBorderRadius});
+    ${timePickerGridTokens.timePickerGridWidth}: var(${tokens.timePickerWidth});
+    ${timePickerGridTokens.timePickerGridPadding}: var(${tokens.timePickerPadding});
+
+    ${timePickerGridTokens.disabledOpacity}: var(${tokens.disabledOpacity});
+
+    ${timePickerGridTokens.columnHeight}: var(${tokens.columnHeight});
+
+    ${timePickerGridTokens.itemHeight}: var(${tokens.itemHeight});
+    ${timePickerGridTokens.itemBorderRadius}: var(${tokens.itemBorderRadius});
+    ${timePickerGridTokens.itemPadding}: var(${tokens.itemPadding});
+    ${timePickerGridTokens.itemBackgroundHover}: var(${tokens.itemBackgroundHover});
+    ${timePickerGridTokens.itemBackgroundActive}: var(${tokens.itemBackgroundActive});
+
+    ${timePickerGridTokens.itemFontFamily}: var(${tokens.itemFontFamily});
+    ${timePickerGridTokens.itemFontSize}: var(${tokens.itemFontSize});
+    ${timePickerGridTokens.itemFontStyle}: var(${tokens.itemFontStyle});
+    ${timePickerGridTokens.itemFontWeight}: var(${tokens.itemFontWeight});
+    ${timePickerGridTokens.itemLetterSpacing}: var(${tokens.itemLetterSpacing});
+    ${timePickerGridTokens.itemLineHeight}: var(${tokens.itemLineHeight});
+
+    ${timePickerGridTokens.scrollbarWidth}: var(${tokens.scrollbarWidth});
+    ${timePickerGridTokens.scrollbarColor}: var(${tokens.scrollbarColor});
+    ${timePickerGridTokens.scrollbarTrackColor}: var(${tokens.scrollbarTrackColor});
+    ${timePickerGridTokens.scrollbarMargin}: var(${tokens.scrollbarMargin});
+`;
 
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`

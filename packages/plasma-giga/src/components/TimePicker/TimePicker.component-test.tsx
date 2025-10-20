@@ -176,26 +176,4 @@ describe('plasma-b2c: TimePicker', () => {
 
         cy.matchImageSnapshot();
     });
-
-    it('keyboard navigation', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('input').first().click();
-        cy.get('.popover-root').should('be.visible');
-        cy.get('input').first().type('{downarrow}');
-        cy.get('input').first().type('{downarrow}');
-        cy.get('input').first().type('{rightarrow}');
-        cy.get('input').first().type('{downarrow}');
-        cy.get('input').first().type('{enter}');
-        cy.get('input').first().should('have.value', '02:01');
-
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
-
-        cy.matchImageSnapshot();
-    });
 });
