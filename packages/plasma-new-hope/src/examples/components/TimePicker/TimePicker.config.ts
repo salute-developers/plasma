@@ -40,6 +40,8 @@ export const config = {
 
                 ${tokens.scrollbarColor}: var(--surface-transparent-tertiary);
                 ${tokens.scrollbarTrackColor}: var(--surface-transparent-primary);
+
+                ${tokens.disabledOpacity}: 0.4;
             `,
         },
         size: {

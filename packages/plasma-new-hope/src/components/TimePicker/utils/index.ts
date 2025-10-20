@@ -82,7 +82,7 @@ export const normalizeTimeSegment = (type: 'HH' | 'mm' | 'ss', input: string): N
 
 export const processTimeInput = (
     input: string,
-    format: 'HH:mm' | 'HH:mm:ss' = 'HH:mm:ss',
+    format: 'HH:mm' | 'HH:mm:ss',
     cursorPosition: number | null,
 ): { innerString: string; values: TimeValues; newCursorPosition: number | null } => {
     const digits = input.replace(/\D/g, '');
@@ -118,27 +118,4 @@ export const processTimeInput = (
     }
 
     return { innerString, values, newCursorPosition };
-};
-
-export const animateScrollTo = (element: HTMLDivElement, targetScrollTop: number, duration = 300) => {
-    const startScrollTop = element.scrollTop;
-    const distance = targetScrollTop - startScrollTop;
-    let startTime: number | null = null;
-
-    const animate = (currentTime: number) => {
-        if (!startTime) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
-
-        const easeOut = (t: number) => 1 - (1 - t) ** 3;
-        const scrollPosition = startScrollTop + distance * easeOut(progress);
-
-        element.scrollTop = scrollPosition;
-
-        if (timeElapsed < duration) {
-            requestAnimationFrame(animate);
-        }
-    };
-
-    requestAnimationFrame(animate);
 };
