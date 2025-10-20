@@ -1,49 +1,35 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
-import { mergeConfig } from '../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../_helpers';
-import { attachConfig } from '../../../components/Attach';
+import { WithTheme } from '../../_helpers';
 import { IconMic } from '../../../components/_Icon';
 
 import { Attach } from './Attach';
 import { config } from './Attach.config';
 
-const buttonViewOptions = [
-    'default',
-    'accent',
-    'secondary',
-    'clear',
-    'positive',
-    'warning',
-    'negative',
-    'dark',
-    'black',
-    'white',
-];
-const iconButtonViewOptions = [
-    'default',
-    'accent',
-    'secondary',
-    'clear',
-    'success',
-    'warning',
-    'critical',
-    'dark',
-    'black',
-    'white',
-];
+const { views, sizes } = getConfigVariations(config);
+
 const flowOptions = ['horizontal', 'vertical', 'auto'];
 const fileFormatOptions = ['all', '.doc', '.xls', '.pdf', '.csv', '.txt'];
 
+const placements = ['auto', 'top', 'right', 'bottom', 'left'];
+const triggers = ['click', 'hover'];
+const buttonTypeVariant = ['button', 'iconButton'];
+
 type StoryAttachProps = ComponentProps<typeof Attach> & {
+    trigger: string;
     enableContentLeft: boolean;
     enableContentRight: boolean;
     buttonText?: string;
     buttonValue?: string;
     fileFormat?: string;
     width?: string;
+    placement?: string;
+    closeOnOverlayClick?: boolean;
+    listWidth?: string;
+    buttonType?: string;
 };
 
 const meta: Meta<StoryAttachProps> = {
@@ -51,7 +37,48 @@ const meta: Meta<StoryAttachProps> = {
     decorators: [WithTheme],
     component: Attach,
     argTypes: {
-        ...argTypesFromConfig(mergeConfig(attachConfig, config)),
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
+        buttonType: {
+            options: buttonTypeVariant,
+            control: {
+                type: 'select',
+            },
+        },
+        buttonText: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'buttonType', eq: 'button' },
+        },
+        buttonValue: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'buttonType', eq: 'button' },
+        },
+        enableContentLeft: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'buttonType', eq: 'button' },
+        },
+        enableContentRight: {
+            control: {
+                type: 'boolean',
+            },
+            if: { arg: 'buttonType', eq: 'button' },
+        },
         fileFormat: {
             options: fileFormatOptions,
             control: {
@@ -70,119 +97,96 @@ const meta: Meta<StoryAttachProps> = {
             },
             if: { arg: 'hideButtonOnAttach', truthy: false },
         },
+        placement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+        },
+        trigger: {
+            options: triggers,
+            control: {
+                type: 'select',
+            },
+        },
+        closeOnOverlayClick: {
+            control: { type: 'boolean' },
+            if: { arg: 'alwaysOpened', truthy: false },
+        },
+        listWidth: {
+            control: { type: 'text' },
+        },
+    },
+    args: {
+        size: 'm',
+        view: 'accent',
+        width: '400px',
+
+        fileFormat: 'all',
+        multiple: false,
+        flow: 'horizontal',
+        hasAttachment: true,
+        hideButtonOnAttach: false,
+
+        buttonType: 'button',
+        buttonText: 'Загрузить файл',
+        buttonValue: '',
+        enableContentLeft: false,
+        enableContentRight: false,
+
+        helperTextView: 'default',
+        helperText: 'Подсказка',
+
+        placement: 'bottom-start',
+        trigger: 'click',
+        listWidth: '300px',
+        closeOnOverlayClick: true,
     },
 };
 
 export default meta;
 
-const StoryButton = (props: StoryAttachProps) => {
-    return <Attach {...props} />;
+const StoryDefault = ({
+    buttonType,
+    buttonText,
+    buttonValue,
+    width,
+    size,
+    fileFormat,
+    enableContentLeft,
+    enableContentRight,
+    placement,
+    trigger,
+    listWidth,
+    closeOnOverlayClick,
+    ...rest
+}: StoryAttachProps) => {
+    const accepted = fileFormat && fileFormat !== 'all' ? [fileFormat] : undefined;
+    const iconSize = size === 'xs' ? 'xs' : 's';
+
+    const dropdownOptions = {
+        placement,
+        trigger,
+        listWidth,
+        closeOnOverlayClick,
+    };
+
+    return (
+        <Attach
+            style={{ width }}
+            size={size}
+            buttonType={buttonType}
+            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            acceptedFileFormats={accepted}
+            text={buttonText}
+            value={buttonValue}
+            {...rest}
+            dropdownOptions={dropdownOptions}
+        />
+    );
 };
 
-export const Button: StoryObj<StoryAttachProps> = {
-    args: {
-        fileFormat: 'all',
-        flow: 'horizontal',
-        hasAttachment: true,
-        hideButtonOnAttach: false,
-        width: '400px',
-        buttonText: 'Загрузить файл',
-        buttonValue: '',
-        helperText: 'Подсказка',
-        enableContentLeft: false,
-        enableContentRight: false,
-        size: 'm',
-        view: 'accent',
-        helperTextView: 'default',
-    },
-    argTypes: {
-        view: {
-            options: buttonViewOptions,
-            control: {
-                type: 'select',
-            },
-        },
-    },
-    render: (args) => {
-        const {
-            buttonText,
-            buttonValue,
-            width,
-            size,
-            fileFormat,
-            enableContentLeft,
-            enableContentRight,
-            ...rest
-        } = args;
-        const accepted = fileFormat && fileFormat !== 'all' ? [fileFormat] : undefined;
-        const iconSize = size === 'xs' ? 'xs' : 's';
-
-        return (
-            <StoryButton
-                style={{ width }}
-                size={size}
-                buttonType="button"
-                contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
-                contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
-                acceptedFileFormats={accepted}
-                text={buttonText}
-                value={buttonValue}
-                {...rest}
-            />
-        );
-    },
-};
-
-const StoryIconButton = (props: StoryAttachProps) => {
-    return <Attach {...props} />;
-};
-
-export const IconButton: StoryObj<StoryAttachProps> = {
-    args: {
-        fileFormat: 'all',
-        flow: 'horizontal',
-        hideButtonOnAttach: false,
-        hasAttachment: true,
-        width: '400px',
-        helperText: 'Подсказка',
-        size: 'm',
-        view: 'accent',
-        helperTextView: 'default',
-    },
-    argTypes: {
-        view: {
-            options: iconButtonViewOptions,
-            control: {
-                type: 'select',
-            },
-        },
-    },
-    render: (args) => {
-        const {
-            buttonText,
-            buttonValue,
-            width,
-            size,
-            fileFormat,
-            enableContentLeft,
-            enableContentRight,
-            ...rest
-        } = args;
-        const accepted = fileFormat && fileFormat !== 'all' ? [fileFormat] : undefined;
-        const iconSize = size === 'xs' ? 'xs' : 's';
-
-        return (
-            <StoryIconButton
-                style={{ width }}
-                size={size}
-                buttonType="iconButton"
-                contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
-                contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
-                acceptedFileFormats={accepted}
-                text={buttonText}
-                value={buttonValue}
-                {...rest}
-            />
-        );
-    },
+export const Default: StoryObj<StoryAttachProps> = {
+    render: StoryDefault,
 };

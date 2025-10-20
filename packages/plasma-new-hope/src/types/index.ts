@@ -6,3 +6,4 @@ export type { InputHTMLAttributes } from './InputHTMLAttributes';
 export type { TextareaHTMLAttributes } from './TextareaHTMLAttributes';
 export type { DistributiveOmit } from './DistributiveOmit';
 export type { DistributivePick } from './DistributivePick';
+export type { MakeNever } from './MakeNever';

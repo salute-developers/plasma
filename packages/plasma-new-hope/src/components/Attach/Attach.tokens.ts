@@ -1,9 +1,10 @@
 export const classes = {
-    auto: 'auto',
-    horizontal: 'horizontal',
-    vertical: 'vertical',
-    withHelperText: 'with-helper-text',
-    cellHidden: 'cell-hidden',
+    auto: 'plasma-attach-auto',
+    horizontal: 'plasma-attach-horizontal',
+    horizontalHidden: 'plasma-attach-horizontal-hidden',
+    vertical: 'plasma-attach-vertical',
+    withHelperText: 'plasma-attach-with-helper-text',
+    cellHidden: 'plasma-attach-cell-hidden',
 };
 
 export const tokens = {
@@ -11,6 +12,7 @@ export const tokens = {
     verticalGap: '--plasma-attach-vertical-gap',
     verticalGapWithHelperText: '--plasma-attach-vertical-gap-with-helper-text',
     filenameWrapperHeight: '--plasma-attach-filename-wrapper-height',
+    filenameDropdownWrapperHeight: '--plasma-attach-filename-dropdown-wrapper-height',
 
     helperTextColor: '--plasma-attach-helper-text-color',
 
@@ -148,4 +150,19 @@ export const tokens = {
 
     iconButtonCancelSpinnerColor: '--plasma-attach-icon-button-cancel-spinner-color',
     iconButtonCancelSpinnerSize: '--plasma-attach-icon-button-cancel-spinner-size',
+
+    // Токены для MoreIcon
+    moreIconPadding: '--plasma-attach-more-icon-padding',
+    moreIconColor: '--plasma-attach-more-icon-color',
+    moreIconColorHover: '--plasma-attach-more-icon-color-hover',
+
+    // Токены для Dropdown
+    dropdownBackground: '--plasma-attach-dropdown-background',
+    dropdownBoxShadow: '--plasma-attach-dropdown-box-shadow',
+    dropdownWidth: '--plasma-attach-dropdown-width',
+    dropdownBorderRadius: '--plasma-attach-dropdown-border-radius',
+    dropdownPadding: '--plasma-attach-dropdown-padding',
+    dropdownBorderColor: '--plasma-attach-dropdown-border-color',
+    dropdownBorderWidth: '--plasma-attach-dropdown-border-width',
+    dropdownItemPadding: '--plasma-attach-dropdown-item-padding',
 };
