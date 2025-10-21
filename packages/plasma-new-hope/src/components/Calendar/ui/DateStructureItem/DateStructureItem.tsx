@@ -1,4 +1,6 @@
-import React, { forwardRef, memo } from 'react';
+import React, { forwardRef, memo, useRef } from 'react';
+import type { MouseEvent } from 'react';
+import { useForkRef } from '@salutejs/plasma-core';
 
 import { cx } from '../../../../utils';
 import { classes } from '../../Calendar.tokens';
@@ -30,6 +32,7 @@ export const DateStructureItem = memo(
                 year,
                 onClick,
                 onMouseOver,
+                onTriggerEventTooltip,
                 onFocus,
                 disabledArrowKey,
                 disabledMonths,
@@ -37,6 +40,9 @@ export const DateStructureItem = memo(
             },
             outerRef,
         ) => {
+            const structureRef = useRef<HTMLDivElement | null>(null);
+            const innerRef = useForkRef(outerRef, structureRef);
+
             const selectableClass = !dayOfWeek && !disabled ? classes.selectableItem : undefined;
             const selectedClass = isDayInCurrentMonth && isSelected ? classes.selectedItem : undefined;
             const currentClass = isDayInCurrentMonth && isCurrent ? classes.currentItem : undefined;
@@ -51,9 +57,21 @@ export const DateStructureItem = memo(
             const inRangeStyle = isDayInCurrentMonth && inRange ? classes.inRange : undefined;
             const sideOffset = !isSelected && isCurrent ? -1 : 0;
 
+            const handleMouseOver = (event: MouseEvent<HTMLDivElement>) => {
+                if (onMouseOver) {
+                    onMouseOver(event);
+                }
+
+                if (onTriggerEventTooltip) {
+                    const eventNodes = eventList?.map(({ eventInfo }) => eventInfo) || [];
+
+                    onTriggerEventTooltip(structureRef, eventNodes);
+                }
+            };
+
             return (
                 <StyledItemRoot
-                    ref={outerRef}
+                    ref={innerRef}
                     className={cx(
                         disabledClass,
                         disabledCurrentClass,
@@ -73,7 +91,7 @@ export const DateStructureItem = memo(
                     isHovered={isHovered}
                     sideInRange={sideInRange}
                     onClick={disabled ? undefined : onClick}
-                    onMouseOver={onMouseOver}
+                    onMouseOver={handleMouseOver}
                     onFocus={onFocus}
                     data-day={day}
                     data-month-index={monthIndex}
@@ -93,7 +111,7 @@ export const DateStructureItem = memo(
                     </StyledItem>
                     <StyledEvents aria-hidden>
                         {[eventList[0], eventList[1], eventList[2]].map(
-                            (event, i) => event && <StyledEvent key={`${event.date}-${i}`} {...event} />,
+                            (event, i) => event && <StyledEvent key={`${event.date}-${i}`} color={event.color} />,
                         )}
                     </StyledEvents>
                 </StyledItemRoot>

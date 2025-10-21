@@ -1,4 +1,4 @@
-import { HTMLAttributes, KeyboardEvent, MutableRefObject } from 'react';
+import type { HTMLAttributes, KeyboardEvent, MutableRefObject, ReactNode } from 'react';
 
 import type { CalendarValueType, DateObject, DisabledDay, EventDay } from '../../Calendar.types';
 
@@ -19,5 +19,6 @@ export interface CalendarYearsProps extends HTMLAttributes<HTMLDivElement> {
     onHoverYear?: (date?: DateObject) => void;
     onSetRefs?: (refs: HTMLDivElement[][]) => void;
     onSetSelected?: (selected: number[]) => void;
+    onTriggerEventTooltip?: (structureRef?: MutableRefObject<HTMLDivElement | null>, events?: ReactNode[]) => void;
     onKeyDown?: (event: KeyboardEvent<HTMLDivElement>) => void;
 }

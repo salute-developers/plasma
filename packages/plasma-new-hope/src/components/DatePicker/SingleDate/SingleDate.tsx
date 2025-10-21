@@ -12,16 +12,15 @@ import { InputHidden, StyledCalendar } from '../DatePickerBase.styles';
 import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { getFormattedDates } from '../utils';
 
-import type { DatePickerProps } from './SingleDate.types';
+import type { DatePickerProps, RootDatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
+import { base as eventTooltipSizeCSS } from './variations/_tooltip-size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
 import { LeftHelper, StyledInput, StyledPopover, base } from './SingleDate.styles';
 
-export const datePickerRoot = (
-    Root: RootProps<HTMLDivElement, Omit<DatePickerProps, 'opened' | 'defaultValue' | 'onChangeValue'>>,
-) =>
+export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerProps>) =>
     forwardRef<HTMLInputElement, DatePickerProps>(
         (
             {
@@ -59,6 +58,7 @@ export const datePickerRoot = (
                 max,
                 renderFromDate,
                 includeEdgeDates = false,
+                eventTooltipOptions,
                 eventList,
                 disabledList,
                 eventMonthList,
@@ -303,6 +303,7 @@ export const datePickerRoot = (
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
                     ref={ref}
+                    eventTooltipSize={eventTooltipOptions?.size}
                     {...rest}
                 >
                     <StyledPopover
@@ -337,6 +338,7 @@ export const datePickerRoot = (
                                 size={size}
                                 value={calendarValue}
                                 type={type}
+                                eventTooltipOptions={eventTooltipOptions}
                                 eventList={eventList}
                                 disabledList={disabledList}
                                 eventMonthList={eventMonthList}
@@ -385,6 +387,9 @@ export const datePickerConfig = {
         size: {
             css: sizeCSS,
         },
+        eventTooltipSize: {
+            css: eventTooltipSizeCSS,
+        },
         disabled: {
             css: disabledCSS,
             attrs: true,
@@ -397,5 +402,6 @@ export const datePickerConfig = {
     defaults: {
         size: 'm',
         view: 'default',
+        eventTooltipSizeCSS: 'm',
     },
 };

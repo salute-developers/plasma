@@ -1,4 +1,6 @@
-import { HTMLAttributes, MutableRefObject } from 'react';
+import type { FC, HTMLAttributes, MutableRefObject, PropsWithChildren, ReactNode } from 'react';
+
+import type { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
 
 import type { CalendarBaseProps } from './CalendarBase/CalendarBase';
 import type { CalendarDoubleProps } from './CalendarDouble/CalendarDouble';
@@ -86,6 +88,7 @@ export interface YearsItem extends ItemProps {
 export interface EventDay {
     date: Date;
     color?: string;
+    eventInfo?: ReactNode;
 }
 
 export interface DisabledDay {
@@ -102,6 +105,43 @@ export type DateInfo = {
 };
 
 export type Locales = 'ru' | 'en';
+
+export type EventTooltipOptions = {
+    /**
+     * Обертка для всплывающей подсказки для событий.
+     */
+    bodyWrapper?: FC<PropsWithChildren>;
+    /**
+     * Размер всплывающей подсказки для событий.
+     */
+    size?: string;
+    /**
+     * Направление раскрытия тултипа.
+     */
+    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+    /**
+     * Отступ окна относительно элемента, у которого оно вызвано.
+     * @default
+     * [0, 8]
+     */
+    offset?: [number, number];
+    /**
+     * Видимость стрелки (хвоста).
+     */
+    hasArrow?: boolean;
+    /**
+     * Анимированное появление/сокрытие.
+     */
+    animated?: boolean;
+    /**
+     * Минимальная ширина окна (в rem).
+     */
+    minWidth?: number | string;
+    /**
+     * Максимальная ширина окна (в rem).
+     */
+    maxWidth?: number | string;
+};
 
 export interface Calendar extends HTMLAttributes<HTMLDivElement> {
     /**
@@ -132,6 +172,10 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      * Должны ли значения минимального и максимального дня включаться в диапазон.
      */
     includeEdgeDates?: boolean;
+    /**
+     * Свойства всплывающей подсказки для событий.
+     */
+    eventTooltipOptions?: EventTooltipOptions;
     /**
      * Список событий.
      */

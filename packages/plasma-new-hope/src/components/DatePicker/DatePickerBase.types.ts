@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction, ChangeEvent } from 'react';
 
 import type { CalendarStateType } from '../Calendar';
-import type { DateInfo, DateType, DisabledDay, EventDay } from '../Calendar/Calendar.types';
+import type { DateInfo, DateType, DisabledDay, EventDay, EventTooltipOptions } from '../Calendar/Calendar.types';
 
 import type { Langs } from './utils/dateHelper';
 
@@ -31,6 +31,10 @@ export type DatePickerCalendarProps = {
      * Должны ли значения минимального и максимального дня включаться в диапазон.
      */
     includeEdgeDates?: boolean;
+    /**
+     * Свойства всплывающей подсказки для событий.
+     */
+    eventTooltipOptions?: EventTooltipOptions;
     /**
      * Список событий.
      */
