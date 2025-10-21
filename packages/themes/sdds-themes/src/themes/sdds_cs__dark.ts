@@ -16,9 +16,8 @@ export const sdds_cs__dark = ([
   --text-accent: #0C9C0C;
   --text-accent-hover: #0EB90EFF;
   --text-accent-active: #0A800AFF;
-  --text-accent-minor: #94FF94;
-  --text-accent-minor-hover: #B3FFB3FF;
-  --text-accent-minor-active: #75FF75FF;
+  --text-accent-minor-hover: #23E723FF;
+  --text-accent-minor-active: #14B814FF;
   --text-positive: #1A9E32;
   --text-positive-hover: #1EB83AFF;
   --text-positive-active: #15842AFF;
@@ -31,6 +30,7 @@ export const sdds_cs__dark = ([
   --text-info: #118CDF;
   --text-info-hover: #50B1F2FF;
   --text-info-active: #0F7BC2FF;
+  --text-accent-minor: #17D317;
   --on-dark-text-primary: #FFFFFFF5;
   --on-dark-text-primary-brightness: #FFFFFFFF;
   --on-dark-text-primary-hover: #FFFFFF93;
@@ -44,9 +44,8 @@ export const sdds_cs__dark = ([
   --on-dark-text-accent: #0C9C0C;
   --on-dark-text-accent-hover: #0EB90EFF;
   --on-dark-text-accent-active: #0A800AFF;
-  --on-dark-text-accent-minor: #94FF94;
-  --on-dark-text-accent-minor-hover: #B3FFB3FF;
-  --on-dark-text-accent-minor-active: #75FF75FF;
+  --on-dark-text-accent-minor-hover: #23E723FF;
+  --on-dark-text-accent-minor-active: #14B814FF;
   --on-dark-text-positive: #1A9E32;
   --on-dark-text-positive-hover: #1EB83AFF;
   --on-dark-text-positive-active: #15842AFF;
@@ -59,6 +58,7 @@ export const sdds_cs__dark = ([
   --on-dark-text-info: #118CDF;
   --on-dark-text-info-hover: #50B1F2FF;
   --on-dark-text-info-active: #0F7BC2FF;
+  --on-dark-text-accent-minor: #17D317;
   --on-light-text-primary: #060A0CF5;
   --on-light-text-primary-brightness: #191BF6FF;
   --on-light-text-primary-hover: #070B0E93;
@@ -72,9 +72,8 @@ export const sdds_cs__dark = ([
   --on-light-text-accent: #108210;
   --on-light-text-accent-hover: #17BA17FF;
   --on-light-text-accent-active: #149F14FF;
-  --on-light-text-accent-minor: #082B08;
-  --on-light-text-accent-minor-hover: #115F11FF;
-  --on-light-text-accent-minor-active: #0D450DFF;
+  --on-light-text-accent-minor-hover: #0EB90EFF;
+  --on-light-text-accent-minor-active: #0A800AFF;
   --on-light-text-positive: #108E26;
   --on-light-text-positive-hover: #13AA2CFF;
   --on-light-text-positive-active: #0D731EFF;
@@ -87,6 +86,7 @@ export const sdds_cs__dark = ([
   --on-light-text-info: #0B7ECB;
   --on-light-text-info-hover: #34A7F4FF;
   --on-light-text-info-active: #096CAEFF;
+  --on-light-text-accent-minor: #0C9C0C;
   --inverse-text-primary: #060A0CF5;
   --inverse-text-primary-brightness: #191BF6FF;
   --inverse-text-primary-hover: #070B0E93;
@@ -100,9 +100,8 @@ export const sdds_cs__dark = ([
   --inverse-text-accent: #108210;
   --inverse-text-accent-hover: #17BA17FF;
   --inverse-text-accent-active: #149F14FF;
-  --inverse-text-accent-minor: #082B08;
-  --inverse-text-accent-minor-hover: #115F11FF;
-  --inverse-text-accent-minor-active: #0D450DFF;
+  --inverse-text-accent-minor-hover: #0EB90EFF;
+  --inverse-text-accent-minor-active: #0A800AFF;
   --inverse-text-positive: #108E26;
   --inverse-text-positive-hover: #13AA2CFF;
   --inverse-text-positive-active: #0D731EFF;
@@ -112,6 +111,7 @@ export const sdds_cs__dark = ([
   --inverse-text-negative: #F31B31;
   --inverse-text-negative-hover: #F5384BFF;
   --inverse-text-negative-active: #E40C22FF;
+  --inverse-text-accent-minor: #0C9C0C;
   --surface-solid-primary: #13181B;
   --surface-solid-primary-brightness: #212629FF;
   --surface-solid-primary-hover: #171D21FF;
