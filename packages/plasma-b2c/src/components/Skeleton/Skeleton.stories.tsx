@@ -114,12 +114,6 @@ export const Text: StoryObj<StoryTextSkeletonProps> = {
                 type: 'select',
             },
         },
-        view: {
-            options: ['default', 'lighter'],
-            control: {
-                type: 'select',
-            },
-        },
         ...Default.argTypes,
     },
     args: {

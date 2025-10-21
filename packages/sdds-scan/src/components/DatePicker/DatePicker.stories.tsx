@@ -1,4 +1,4 @@
-import React, { ComponentProps, useEffect, useRef, useState } from 'react';
+import React, { ComponentProps, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { disableProps, getConfigVariations, IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
@@ -96,6 +96,56 @@ type StoryPropsDefault = ComponentProps<typeof DatePicker> & {
     enableContentRight: boolean;
 };
 
+const EventNode = ({ dateValue, color }: { dateValue: string; color: string }) => {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span>Дата: {dateValue}</span>
+            <span>Цвет: {color}</span>
+        </div>
+    );
+};
+
+const eventColors = ['red', 'green', 'blue', 'purple'];
+
+const EventTooltipBody = ({ children }: PropsWithChildren) => {
+    return <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>{children}</div>;
+};
+
+const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumber = 2) => {
+    const baseDate = {
+        day: 14,
+        monthIndex: 5,
+        year: 2024,
+    };
+
+    const colorIndex = Math.floor(Math.random() * eventColors.length);
+
+    const events = [...new Array(datesNumber)].map((_, index) => {
+        const eventNumber = Math.floor(Math.random() * 3 + 1);
+        const day = type === 'days' ? baseDate.day + index : 1;
+        const month =
+            // eslint-disable-next-line no-nested-ternary
+            type === 'months' || type === 'quarters'
+                ? baseDate.monthIndex + index
+                : type === 'days'
+                ? baseDate.monthIndex
+                : 0;
+        const year = type === 'years' ? baseDate.year + index : baseDate.year;
+
+        return [...new Array(eventNumber)].map((_, ind) => {
+            return {
+                date: new Date(year, month, day),
+                color: eventColors[colorIndex],
+                eventInfo: (
+                    <EventNode key={ind} color={eventColors[colorIndex]} dateValue={`${year} ${month} ${day}`} />
+                ),
+            };
+        });
+    });
+
+    return events.flat();
+};
+
 const StoryDefault = ({
     enableContentLeft,
     enableContentRight,
@@ -106,11 +156,17 @@ const StoryDefault = ({
     format,
     min,
     max,
+    eventTooltipSize,
     ...rest
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const iconSize = size === 'xs' ? 'xs' : 's';
+
+    const eventList = useRef(getBaseEvents('days', 5));
+    const eventMonthList = useRef(getBaseEvents('months', 5));
+    const eventQuarterList = useRef(getBaseEvents('quarters'));
+    const eventYearList = useRef(getBaseEvents('years'));
 
     return (
         <DatePicker
@@ -124,7 +180,6 @@ const StoryDefault = ({
             onFocus={onFocus}
             onToggle={(is) => {
                 setIsOpen(is);
-                onToggle(is);
             }}
             onChangeValue={onChangeValue}
             onCommitDate={onCommitDate}
@@ -132,6 +187,14 @@ const StoryDefault = ({
             format={format}
             min={min}
             max={max}
+            eventTooltipOptions={{
+                bodyWrapper: EventTooltipBody,
+                size: eventTooltipSize,
+            }}
+            eventList={eventList.current}
+            eventMonthList={eventMonthList.current}
+            eventQuarterList={eventQuarterList.current}
+            eventYearList={eventYearList.current}
             {...rest}
         />
     );
@@ -148,6 +211,12 @@ export const Default: StoryObj<StoryPropsDefault> = {
             options: labelPlacements,
             control: {
                 type: 'inline-radio',
+            },
+        },
+        eventTooltipSize: {
+            options: ['m', 's'],
+            control: {
+                type: 'select',
             },
         },
     },
@@ -178,6 +247,10 @@ export const Default: StoryObj<StoryPropsDefault> = {
         enableContentRight: true,
         valueError: false,
         valueSuccess: false,
+        calendarContainerWidth: 0,
+        calendarContainerHeight: 0,
+        stretched: false,
+        eventTooltipSize: 'm',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -261,7 +334,6 @@ const StoryRange = ({
             }
             onToggle={(is) => {
                 setIsOpen(is);
-                onToggle(is);
             }}
             onChangeFirstValue={onChangeFirstValue}
             onChangeSecondValue={onChangeSecondValue}
@@ -291,6 +363,9 @@ export const Range: StoryObj<StoryPropsRange> = {
         secondTextfieldTextAfter: '',
         size: 'l',
         view: 'default',
+        calendarContainerWidth: 0,
+        calendarContainerHeight: 0,
+        stretched: false,
         isDoubleCalendar: false,
         dividerVariant: 'dash',
         preserveInvalidOnBlur: false,
