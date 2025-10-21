@@ -4,6 +4,7 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'm',
+        tooltipSize: 'm',
     },
     variations: {
         view: {
@@ -36,6 +37,10 @@ export const config = {
                 ${calendarBaseTokens.iconButtonColorActive}: var(--text-primary-hover);
                 ${calendarBaseTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
                 ${calendarBaseTokens.iconButtonFocusColor}: var(--surface-accent);
+
+                ${calendarBaseTokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
+                ${calendarBaseTokens.tooltipBoxShadow}: var(--shadow-down-hard-s);
+                ${calendarBaseTokens.tooltipColor}: var(--text-primary);
             `,
         },
         size: {
@@ -314,6 +319,58 @@ export const config = {
                 ${calendarBaseTokens.iconButtonWidth}: 2rem;
                 ${calendarBaseTokens.iconButtonPadding}: 0.75rem;
                 ${calendarBaseTokens.iconButtonRadius}: 0.5rem;
+            `,
+        },
+        eventTooltipSize: {
+            m: css`
+                ${calendarBaseTokens.tooltipPaddingTop}: 0.6875rem;
+                ${calendarBaseTokens.tooltipPaddingRight}: 0.875rem;
+                ${calendarBaseTokens.tooltipPaddingBottom}: 0.6875rem;
+                ${calendarBaseTokens.tooltipPaddingLeft}: 0.875rem;
+
+                ${calendarBaseTokens.tooltipMinHeight}: 2.5rem;
+                ${calendarBaseTokens.tooltipBorderRadius}: 0.625rem;
+
+                ${calendarBaseTokens.tooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${calendarBaseTokens.tooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${calendarBaseTokens.tooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${calendarBaseTokens.tooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${calendarBaseTokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${calendarBaseTokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${calendarBaseTokens.tooltipContentLeftMargin}: 0.375rem;
+
+                ${calendarBaseTokens.tooltipArrowMaskWidth}: 1.25rem;
+                ${calendarBaseTokens.tooltipArrowMaskHeight}: 1.25rem;
+                ${calendarBaseTokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${calendarBaseTokens.tooltipArrowHeight}: 0.5rem;
+                ${calendarBaseTokens.tooltipArrowEdgeMargin}: 0.625rem;
+                ${calendarBaseTokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+            `,
+            s: css`
+                ${calendarBaseTokens.tooltipPaddingTop}: 0.5rem;
+                ${calendarBaseTokens.tooltipPaddingRight}: 0.75rem;
+                ${calendarBaseTokens.tooltipPaddingBottom}: 0.5rem;
+                ${calendarBaseTokens.tooltipPaddingLeft}: 0.75rem;
+
+                ${calendarBaseTokens.tooltipMinHeight}: 2rem;
+                ${calendarBaseTokens.tooltipBorderRadius}: 0.5rem;
+
+                ${calendarBaseTokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${calendarBaseTokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${calendarBaseTokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${calendarBaseTokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${calendarBaseTokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${calendarBaseTokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${calendarBaseTokens.tooltipContentLeftMargin}: 0.25rem;
+
+                ${calendarBaseTokens.tooltipArrowMaskWidth}: 1rem;
+                ${calendarBaseTokens.tooltipArrowMaskHeight}: 1rem;
+                ${calendarBaseTokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${calendarBaseTokens.tooltipArrowHeight}: 0.375rem;
+                ${calendarBaseTokens.tooltipArrowEdgeMargin}: 0.5625rem;
+                ${calendarBaseTokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
             `,
         },
     },

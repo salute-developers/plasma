@@ -1,4 +1,4 @@
-import React, { ComponentProps, useCallback, useRef, useState } from 'react';
+import React, { ComponentProps, PropsWithChildren, useCallback, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
@@ -70,6 +70,19 @@ const eventColors = ['red', 'green', 'blue', 'purple'];
 const defaultMinDate = new Date(2016, 6, 1);
 const defaultMaxDate = new Date(2030, 11, 24);
 
+const EventNode = ({ dateValue, color }: { dateValue: string; color: string }) => {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span>Дата: {dateValue}</span>
+            <span>Цвет: {color}</span>
+        </div>
+    );
+};
+
+const EventTooltipBody = ({ children }: PropsWithChildren) => {
+    return <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>{children}</div>;
+};
+
 const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumber = 2) => {
     const baseDate = {
         day: 10,
@@ -91,8 +104,14 @@ const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumb
                 : 0;
         const year = type === 'years' ? baseDate.year + index : baseDate.year;
 
-        return [...new Array(eventNumber)].map(() => {
-            return { date: new Date(year, month, day), color: eventColors[colorIndex] };
+        return [...new Array(eventNumber)].map((_, ind) => {
+            return {
+                date: new Date(year, month, day),
+                color: eventColors[colorIndex],
+                eventInfo: (
+                    <EventNode key={ind} color={eventColors[colorIndex]} dateValue={`${year} ${month} ${day}`} />
+                ),
+            };
         });
     });
 
@@ -148,7 +167,7 @@ export const Default: StoryObj<CalendarProps> = {
 };
 
 const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
-    const { min, max, includeEdgeDates, size, displayDouble, locale, ...rest } = args;
+    const { min, max, includeEdgeDates, size, displayDouble, locale, eventToolTipSize, ...rest } = args;
     const [value, setValue] = useState(new Date(2023, 6, 7));
     const [currentState, setCurrentState] = useState('Days');
 
@@ -177,6 +196,10 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
                 onChangeValue={handleOnChange}
                 min={min}
                 max={max}
+                eventTooltipOptions={{
+                    bodyWrapper: EventTooltipBody,
+                    size: eventTooltipSize,
+                }}
                 {...rest}
             />
         ) : (
@@ -189,6 +212,10 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
                 onChangeValue={handleOnChange}
                 min={min}
                 max={max}
+                eventTooltipOptions={{
+                    bodyWrapper: EventTooltipBody,
+                    size: eventTooltipSize,
+                }}
                 {...rest}
             />
         );
@@ -224,6 +251,12 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
 
 export const Base: StoryObj<CalendarBaseProps & { displayDouble: boolean }> = {
     argTypes: {
+        eventTooltipSize: {
+            options: ['m', 's'],
+            control: {
+                type: 'select',
+            },
+        },
         ...disableProps(['isRange', 'isDouble']),
     },
     args: {
@@ -234,6 +267,7 @@ export const Base: StoryObj<CalendarBaseProps & { displayDouble: boolean }> = {
         displayDouble: false,
         locale: 'ru',
         stretched: false,
+        eventTooltipSize: 'm',
     },
     render: (args) => <StoryBase {...args} />,
 };
