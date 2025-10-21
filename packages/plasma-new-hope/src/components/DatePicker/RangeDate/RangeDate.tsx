@@ -21,18 +21,17 @@ import { getSortedValues } from '../../Calendar/utils';
 import type { DateInfo, DateType } from '../../Calendar/Calendar.types';
 import { getFormattedDates } from '../utils';
 
-import type { DatePickerRangeProps } from './RangeDate.types';
+import type { DatePickerRangeProps, RootDatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
+import { base as eventTooltipSizeCSS } from './variations/_tooltip-size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
 import { LeftHelper, StyledRange, base } from './RangeDate.styles';
 import { RangeDatePopover } from './RangeDatePopover/RangeDatePopover';
 import { RootWrapperProps } from './RangeDatePopover/RangeDatePopover.types';
 
-export const datePickerRangeRoot = (
-    Root: RootProps<HTMLDivElement, Omit<DatePickerRangeProps, 'opened' | 'defaultValue' | 'onChangeValue'>>,
-) =>
+export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePickerRangeProps>) =>
     forwardRef<RangeInputRefs, DatePickerRangeProps>(
         (
             {
@@ -86,6 +85,7 @@ export const datePickerRangeRoot = (
                 max,
                 renderFromDate,
                 includeEdgeDates = false,
+                eventTooltipOptions,
                 eventList,
                 disabledList,
                 eventMonthList,
@@ -513,6 +513,7 @@ export const datePickerRangeRoot = (
                         ref={rootWrapperRef}
                         view={view}
                         size={size}
+                        eventTooltipSize={eventTooltipOptions?.size}
                         className={rootWrapperClassName}
                         disabled={disabled}
                         readOnly={!disabled && readOnly}
@@ -529,6 +530,7 @@ export const datePickerRangeRoot = (
                     ref={rootRef}
                     view={view}
                     size={size}
+                    eventTooltipSize={eventTooltipOptions?.size}
                     className={cls(classes.datePickerRoot, className, { [classes.datePickerstretched]: stretched })}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
@@ -539,6 +541,7 @@ export const datePickerRangeRoot = (
                         target={RangeComponent}
                         opened={isInnerOpen}
                         includeEdgeDates={includeEdgeDates}
+                        eventTooltipOptions={eventTooltipOptions}
                         eventList={eventList}
                         disabledList={disabledList}
                         eventMonthList={eventMonthList}
@@ -607,6 +610,9 @@ export const datePickerRangeConfig = {
         size: {
             css: sizeCSS,
         },
+        eventTooltipSize: {
+            css: eventTooltipSizeCSS,
+        },
         disabled: {
             css: disabledCSS,
             attrs: true,
@@ -619,5 +625,6 @@ export const datePickerRangeConfig = {
     defaults: {
         size: 'm',
         view: 'default',
+        eventTooltipSizeCSS: 'm',
     },
 };

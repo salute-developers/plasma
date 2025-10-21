@@ -37,6 +37,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     outerRefs,
     onChangeDay,
     onHoverDay,
+    onTriggerEventTooltip,
     onSetSelected,
     onKeyDown,
     locale = 'ru',
@@ -44,6 +45,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     const [days, selected] = useDays({ date: currentDate, value, eventList, disabledList, min, max, includeEdgeDates });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
+    const noopRef = useRef(null);
 
     const offset = isSecond ? ROW_STEP : 0;
 
@@ -108,7 +110,10 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
         [getSelectedDate, onHoverDay, value],
     );
 
-    const handleMouseOutGrid = () => onHoverDay?.(undefined);
+    const handleMouseOutGrid = () => {
+        onHoverDay?.(undefined);
+        onTriggerEventTooltip?.(noopRef, []);
+    };
 
     const getRefs = (element: HTMLDivElement, isDayInCurrentMonth: boolean, i: number, j: number) => {
         if (isDayInCurrentMonth) {
@@ -186,6 +191,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                                 sideInRange={getSideInRange(value, date, hoveredDay, isSelected)}
                                 onClick={disabled ? undefined : handleOnChangeDay(i, j)}
                                 onMouseOver={disabled ? undefined : handleOnHoverDay}
+                                onTriggerEventTooltip={onTriggerEventTooltip}
                                 key={`StyledDay-${i}-${j}`}
                                 role="gridcell"
                                 disabledArrowKey={disabledArrowKey}

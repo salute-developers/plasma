@@ -172,3 +172,7 @@ export type DatePickerProps = DatePickerVariationProps &
     DatePickerCalendarProps &
     DatePickerPopoverProps &
     Omit<HTMLAttributes<HTMLDivElement>, 'defaultValue'>;
+
+export type RootDatePickerProps = {
+    eventTooltipSize?: string;
+} & Omit<DatePickerProps, 'opened' | 'defaultValue' | 'onChangeValue'>;

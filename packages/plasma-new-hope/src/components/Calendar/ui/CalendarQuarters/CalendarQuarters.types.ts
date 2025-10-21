@@ -1,4 +1,4 @@
-import type { HTMLAttributes, MutableRefObject, KeyboardEvent } from 'react';
+import type { HTMLAttributes, MutableRefObject, KeyboardEvent, ReactNode } from 'react';
 
 import type { CalendarValueType, DateObject, DisabledDay, EventDay } from '../../Calendar.types';
 
@@ -18,5 +18,6 @@ export interface CalendarQuartersProps extends HTMLAttributes<HTMLDivElement> {
     onHoverQuarter?: (date?: DateObject) => void;
     onSetRefs?: (refs: HTMLDivElement[][]) => void;
     onSetSelected?: (selected: number[]) => void;
+    onTriggerEventTooltip?: (structureRef?: MutableRefObject<HTMLDivElement | null>, events?: ReactNode[]) => void;
     onKeyDown?: (event: KeyboardEvent<HTMLDivElement>) => void;
 }

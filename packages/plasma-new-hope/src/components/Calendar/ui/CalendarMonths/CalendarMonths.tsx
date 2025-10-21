@@ -26,6 +26,7 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
     onChangeMonth,
     onHoverMonth,
     onSetSelected,
+    onTriggerEventTooltip,
     onKeyDown,
     locale,
 }) => {
@@ -43,6 +44,7 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
     });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
+    const noopRef = useRef(null);
 
     const offset = isSecond ? ROW_MONTH_STEP : 0;
 
@@ -114,7 +116,10 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
         [getSelectedDate, onHoverMonth, value],
     );
 
-    const handleMouseOutGrid = () => onHoverMonth?.(undefined);
+    const handleMouseOutGrid = () => {
+        onHoverMonth?.(undefined);
+        onTriggerEventTooltip?.(noopRef, []);
+    };
 
     const getRefs = useCallback(
         (element: HTMLDivElement, i: number, j: number) => {
@@ -182,6 +187,7 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
                                     sideInRange={getSideInRange(value, date, hoveredMonth, isSelected)}
                                     onClick={disabled ? undefined : handleOnChangeMonth(i, j)}
                                     onMouseOver={disabled ? undefined : handleOnHoverMonth}
+                                    onTriggerEventTooltip={onTriggerEventTooltip}
                                     key={`StyledMonth-${i}-${j}`}
                                     role="gridcell"
                                     aria-label={monthFullName}

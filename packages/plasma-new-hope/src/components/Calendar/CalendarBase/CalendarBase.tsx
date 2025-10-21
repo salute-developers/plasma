@@ -7,20 +7,25 @@ import React, {
     HTMLAttributes,
     forwardRef,
     useEffect,
+    useRef,
+    ReactNode,
+    MutableRefObject,
 } from 'react';
 import cls from 'classnames';
+import { useForkRef } from '@salutejs/plasma-core';
 
 import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
 import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
 import { I18N, isValueUpdate } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
-import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears } from '../ui';
+import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears, EventTooltip } from '../ui';
 import { RootProps } from '../../../engines';
 import { classes } from '../Calendar.tokens';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
+import { base as eventTooltipSizeCSS } from './variations/_tooltip-size/base';
 import { IsOutOfRange, StyledCalendar } from './CalendarBase.styles';
 
 export type CalendarBaseProps = Calendar & CalendarConfigProps;
@@ -28,7 +33,9 @@ export type CalendarBaseProps = Calendar & CalendarConfigProps;
 /**
  * Компонент календаря.
  */
-export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>>) =>
+export const calendarBaseRoot = (
+    Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { eventTooltipSize?: string }>,
+) =>
     forwardRef<HTMLDivElement, CalendarBaseProps>(
         (
             {
@@ -39,6 +46,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 renderFromDate,
                 includeEdgeDates,
                 type = 'Days',
+                eventTooltipOptions,
                 eventList,
                 disabledList,
                 eventMonthList,
@@ -64,6 +72,11 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
             const [prevType, setPrevType] = useState(type);
             const [prevValue, setPrevValue] = useState(value);
             const [outOfRangeKey, setOutOfRangeKey] = useState<number>(0);
+
+            const [eventNodes, setEventNodes] = useState<ReactNode[]>([]);
+            const eventTooltipTargetRef = useRef<HTMLDivElement | null>(null);
+            const rootRef = useRef<HTMLDivElement | null>(null);
+            const innerRootRef = useForkRef(rootRef, outerRootRef);
 
             const min = minDate && new Date(minDate);
             const max = maxDate && new Date(maxDate);
@@ -105,6 +118,30 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 },
                 [onKeyDown],
             );
+
+            const handleTriggerEventTooltip = (
+                structureRef?: MutableRefObject<HTMLDivElement | null>,
+                events?: ReactNode[],
+            ) => {
+                if (structureRef?.current && events?.length) {
+                    eventTooltipTargetRef.current = structureRef.current;
+
+                    setEventNodes(events);
+                } else if (eventTooltipTargetRef.current !== null) {
+                    eventTooltipTargetRef.current = null;
+
+                    setEventNodes([]);
+                }
+            };
+
+            const tooltipContent = () => {
+                const TooltipBodyWrapper = eventTooltipOptions?.bodyWrapper;
+                if (!TooltipBodyWrapper) {
+                    return eventNodes;
+                }
+
+                return <TooltipBodyWrapper>{eventNodes}</TooltipBodyWrapper>;
+            };
 
             useEffect(() => {
                 if (prevType !== calendarState) {
@@ -148,9 +185,10 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
 
             return (
                 <Root
-                    ref={outerRootRef}
+                    ref={innerRootRef}
                     className={cls(className, { [classes.stretched]: stretched })}
                     aria-label={I18N.selectDate[locale]}
+                    eventTooltipSize={eventTooltipOptions?.size}
                     {...rest}
                 >
                     {isOutOfRange && (
@@ -188,6 +226,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                             onChangeDay={handleOnChangeDay}
                             onSetSelected={onSelectIndexes}
                             onHoverDay={setHoveredItem}
+                            onTriggerEventTooltip={handleTriggerEventTooltip}
                             onKeyDown={handleKeyDown}
                             outerRefs={outerRefs}
                             locale={locale}
@@ -206,6 +245,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                             onChangeMonth={handleOnChangeMonth}
                             onSetSelected={onSelectIndexes}
                             onHoverMonth={setHoveredItem}
+                            onTriggerEventTooltip={handleTriggerEventTooltip}
                             onKeyDown={onKeyDown}
                             outerRefs={outerRefs}
                             locale={locale}
@@ -224,6 +264,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                             onChangeQuarter={handleOnChangeQuarter}
                             onSetSelected={onSelectIndexes}
                             onHoverQuarter={setHoveredItem}
+                            onTriggerEventTooltip={handleTriggerEventTooltip}
                             onKeyDown={onKeyDown}
                             outerRefs={outerRefs}
                         />
@@ -242,8 +283,20 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                             onChangeYear={handleOnChangeYear}
                             onSetSelected={onSelectIndexes}
                             onHoverYear={setHoveredItem}
+                            onTriggerEventTooltip={handleTriggerEventTooltip}
                             onKeyDown={onKeyDown}
                             outerRefs={outerRefs}
+                        />
+                    )}
+
+                    {eventTooltipTargetRef.current && eventNodes?.length && (
+                        <EventTooltip
+                            opened={Boolean(eventNodes?.length)}
+                            target={eventTooltipTargetRef}
+                            frame={rootRef}
+                            text={tooltipContent()}
+                            trigger="hover"
+                            {...eventTooltipOptions}
                         />
                     )}
                 </Root>
@@ -263,9 +316,13 @@ export const calendarBaseConfig = {
         size: {
             css: sizeCSS,
         },
+        eventTooltipSize: {
+            css: eventTooltipSizeCSS,
+        },
     },
     defaults: {
         view: 'primary',
         size: 'm',
+        eventTooltipSizeCSS: 'm',
     },
 };
