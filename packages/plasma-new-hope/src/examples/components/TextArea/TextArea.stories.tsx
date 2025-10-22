@@ -92,6 +92,15 @@ const meta: Meta<StoryTextAreaProps> = {
                 truthy: false,
             },
         },
+        optionalText: {
+            control: {
+                type: 'text',
+            },
+            if: {
+                arg: 'required',
+                truthy: false,
+            },
+        },
         size: {
             options: sizes,
             defaultValue: 'm',
@@ -276,6 +285,7 @@ const meta: Meta<StoryTextAreaProps> = {
         minAuto: 0,
         maxAuto: 0,
         optional: false,
+        optionalText: 'опционально',
         required: false,
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
