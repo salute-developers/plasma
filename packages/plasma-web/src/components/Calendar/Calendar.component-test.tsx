@@ -409,6 +409,12 @@ describe('plasma-web: Calendar', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('case: very future date', () => {
+        mount(<Demo baseValue={new Date(9999, 5, 14)} type="Days" />);
+
+        cy.matchImageSnapshot();
+    });
 });
 
 describe('plasma-web: Calendar keyboard navigation', () => {

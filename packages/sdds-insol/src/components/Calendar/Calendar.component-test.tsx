@@ -397,6 +397,12 @@ describe('sdds-insol: Calendar', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('case: very future date', () => {
+        mount(<Demo baseValue={new Date(9999, 5, 14)} type="Days" />);
+
+        cy.matchImageSnapshot();
+    });
 });
 
 describe('sdds-insol: Calendar keyboard navigation', () => {

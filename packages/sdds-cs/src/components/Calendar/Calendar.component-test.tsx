@@ -391,6 +391,12 @@ describe('sdds-cs: Calendar', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('case: very future date', () => {
+        mount(<Demo baseValue={new Date(9999, 5, 14)} type="Days" />);
+
+        cy.matchImageSnapshot();
+    });
 });
 
 describe('sdds-cs: Calendar keyboard navigation', () => {
