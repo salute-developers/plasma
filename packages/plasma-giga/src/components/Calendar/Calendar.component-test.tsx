@@ -409,6 +409,12 @@ describe('plasma-giga: Calendar', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('case: very future date', () => {
+        mount(<Demo baseValue={new Date(9999, 5, 14)} type="Days" />);
+
+        cy.matchImageSnapshot();
+    });
 });
 
 describe('plasma-giga: Calendar keyboard navigation', () => {

@@ -377,6 +377,18 @@ describe('sdds-insol: DatePicker', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('case: very future date', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo defaultDate={new Date(9999, 5, 14)} />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('input').first().click();
+
+        cy.matchImageSnapshot();
+    });
 });
 
 describe('sdds-insol: DatePickerRange', () => {

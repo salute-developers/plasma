@@ -387,6 +387,18 @@ describe('plasma-giga: DatePicker', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('case: very future date', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo defaultDate={new Date(9999, 5, 14)} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+
+        cy.matchImageSnapshot();
+    });
 });
 
 describe('plasma-giga: DatePickerRange', () => {
