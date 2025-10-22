@@ -171,6 +171,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         requiredPlacement: 'right',
         hasRequiredIndicator: true,
         optional: false,
+        optionalText: 'опционально',
     },
     render: (args) => <StoryDemo {...args} />,
 };
