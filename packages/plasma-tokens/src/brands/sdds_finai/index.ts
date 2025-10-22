@@ -589,10 +589,10 @@ export const surfaceAccentHover = 'var(--surface-accent-hover, #1798EEFF)';
 export const surfaceAccentActive = 'var(--surface-accent-active, #1086D5FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinorHover = 'var(--surface-accent-minor-hover, #10344CFF)';
+export const surfaceAccentMinorHover = 'var(--surface-accent-minor-hover, #09212FFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinorActive = 'var(--surface-accent-minor-active, #0A2333FF)';
+export const surfaceAccentMinorActive = 'var(--surface-accent-minor-active, #06151EFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола */
 export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-hover, #118CDF52)';
@@ -705,9 +705,6 @@ export const surfaceClear = 'var(--surface-clear, rgba(255,255,255,0))';
 /** Акцентный фон поверхности/контрола */
 export const surfaceAccent = 'var(--surface-accent, #118CDF)';
 
-/** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinor = 'var(--surface-accent-minor, #0C283B)';
-
 /** Прозрачный акцентный фон поверхности/контрола */
 export const surfaceTransparentAccent = 'var(--surface-transparent-accent, rgba(17,140,223,0.2))';
 
@@ -758,6 +755,9 @@ export const surfaceTransparentTertiary = 'var(--surface-transparent-tertiary, #
 
 /** Глубокий прозрачный фон поверхности/контрола */
 export const surfaceTransparentDeep = 'var(--surface-transparent-deep, #d5dfe6bd)';
+
+/** Акцентный минорный непрозрачный фон поверхности/контрола */
+export const surfaceAccentMinor = 'var(--surface-accent-minor, #071A26)';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #171D21FF)';
@@ -832,13 +832,10 @@ export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #17
 export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #1086D5FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #0C283B)';
+export const onDarkSurfaceAccentMinorHover = 'var(--on-dark-surface-accent-minor-hover, #09212FFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinorHover = 'var(--on-dark-surface-accent-minor-hover, #10344CFF)';
-
-/** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinorActive = 'var(--on-dark-surface-accent-minor-active, #0A2333FF)';
+export const onDarkSurfaceAccentMinorActive = 'var(--on-dark-surface-accent-minor-active, #06151EFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, #199AF047)';
@@ -1002,6 +999,9 @@ export const onDarkSurfaceTransparentTertiary = 'var(--on-dark-surface-transpare
 /** Глубокий прозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentDeep = 'var(--on-dark-surface-transparent-deep, #d5dfe6bd)';
 
+/** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #071A26)';
+
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F8FAFBFF)';
 
@@ -1079,10 +1079,10 @@ export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #
 export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #1086D5FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinorHover = 'var(--on-light-surface-accent-minor-hover, #DBF1FFFF)';
+export const onLightSurfaceAccentMinorHover = 'var(--on-light-surface-accent-minor-hover, #F6FBFEFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinorActive = 'var(--on-light-surface-accent-minor-active, #C7E9FFFF)';
+export const onLightSurfaceAccentMinorActive = 'var(--on-light-surface-accent-minor-active, #E5F2FBFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-transparent-accent-hover, #118CDF3D)';
@@ -1192,9 +1192,6 @@ export const onLightSurfaceTransparentCardBrightness = 'var(--on-light-surface-t
 /** Акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #118CDF)';
 
-/** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #CFECFF)';
-
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, rgba(17,140,223,0.12))';
 
@@ -1245,6 +1242,9 @@ export const onLightSurfaceTransparentTertiary = 'var(--on-light-surface-transpa
 
 /** Глубокий прозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentDeep = 'var(--on-light-surface-transparent-deep, #30373cc7)';
+
+/** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #ECF6FC)';
 
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F8FAFBFF)';
@@ -1323,10 +1323,10 @@ export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #1
 export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #1086D5FF)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinorHover = 'var(--inverse-surface-accent-minor-hover, #DBF1FFFF)';
+export const inverseSurfaceAccentMinorHover = 'var(--inverse-surface-accent-minor-hover, #09212FFF)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinorActive = 'var(--inverse-surface-accent-minor-active, #C7E9FFFF)';
+export const inverseSurfaceAccentMinorActive = 'var(--inverse-surface-accent-minor-active, #06151EFF)';
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
 export const inverseSurfaceTransparentAccentHover = 'var(--inverse-surface-transparent-accent-hover, #118CDF3D)';
@@ -1436,9 +1436,6 @@ export const inverseSurfaceTransparentCardBrightness = 'var(--inverse-surface-tr
 /** Инвертированный акцентный фон поверхности/контрола */
 export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #118CDF)';
 
-/** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #CFECFF)';
-
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
 export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, rgba(17,140,223,0.12))';
 
@@ -1489,6 +1486,9 @@ export const inverseSurfaceTransparentTertiary = 'var(--inverse-surface-transpar
 
 /** Инвертированный глубокий прозрачный фон поверхности/контрола */
 export const inverseSurfaceTransparentDeep = 'var(--inverse-surface-transparent-deep, #30373cc7)';
+
+/** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #071A26)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #060A0C)';
@@ -2217,16 +2217,10 @@ export const inverseOutlineNegative = 'var(--inverse-outline-negative, #E31227)'
 export const inverseOutlineSolidTertiary = 'var(--inverse-outline-solid-tertiary, #657179)';
 
 /** Желтый цвет для данных */
-export const dataDefaultDataYellow = 'var(--data-default-data-yellow, #F3A912)';
-
-/** Желтый цвет для данных */
 export const dataDefaultDataYellowHover = 'var(--data-default-data-yellow-hover, #F4B22FFF)';
 
 /** Желтый цвет для данных */
 export const dataDefaultDataYellowActive = 'var(--data-default-data-yellow-active, #EDA20CFF)';
-
-/** Минорный желтый цвет для данных */
-export const dataDefaultDataYellowMinor = 'var(--data-default-data-yellow-minor, #A16B00)';
 
 /** Минорный желтый цвет для данных */
 export const dataDefaultDataYellowMinorHover = 'var(--data-default-data-yellow-minor-hover, #B87A00FF)';
@@ -2235,16 +2229,10 @@ export const dataDefaultDataYellowMinorHover = 'var(--data-default-data-yellow-m
 export const dataDefaultDataYellowMinorActive = 'var(--data-default-data-yellow-minor-active, #996600FF)';
 
 /** Прозрачный желтый цвет для данных */
-export const dataDefaultDataYellowTransparent = 'var(--data-default-data-yellow-transparent, #F3A9128F)';
-
-/** Прозрачный желтый цвет для данных */
 export const dataDefaultDataYellowTransparentHover = 'var(--data-default-data-yellow-transparent-hover, #F3A812AD)';
 
 /** Прозрачный желтый цвет для данных */
 export const dataDefaultDataYellowTransparentActive = 'var(--data-default-data-yellow-transparent-active, #F3A81280)';
-
-/** Светлый желтый цвет для данных */
-export const dataDefaultDataYellowLight = 'var(--data-default-data-yellow-light, #332200)';
 
 /** Светлый желтый цвет для данных */
 export const dataDefaultDataYellowLightHover = 'var(--data-default-data-yellow-light-hover, #FFF4E0FF)';
@@ -2253,25 +2241,85 @@ export const dataDefaultDataYellowLightHover = 'var(--data-default-data-yellow-l
 export const dataDefaultDataYellowLightActive = 'var(--data-default-data-yellow-light-active, #FFF3DBFF)';
 
 /** Светлый голубой цвет для данных */
-export const dataDefaultDataSkyBlueLight = 'var(--data-default-data-sky-blue-light, #0C283B)';
-
-/** Светлый голубой цвет для данных */
 export const dataDefaultDataSkyBlueLightHover = 'var(--data-default-data-sky-blue-light-hover, #E0F8FFFF)';
 
 /** Светлый голубой цвет для данных */
 export const dataDefaultDataSkyBlueLightActive = 'var(--data-default-data-sky-blue-light-active, #DBF7FFFF)';
 
-/** Желтый цвет для данных на темном фоне */
-export const dataOnDarkDataYellow = 'var(--data-on-dark-data-yellow, #F3A912)';
+export const dataDefaultDataGreen = 'var(--data-default-data-green, #1A9E32)';
+
+/** Светлый желтый цвет для данных */
+export const dataDefaultDataYellowLight = 'var(--data-default-data-yellow-light, #211807)';
+
+/** Светлый голубой цвет для данных */
+export const dataDefaultDataBlueLight = 'var(--data-default-data-blue-light, #0A1924)';
+
+export const dataDefaultDataOrchid = 'var(--data-default-data-orchid, #AD42F5)';
+
+export const dataDefaultDataOrchidMinor = 'var(--data-default-data-orchid-minor, #722BA1)';
+
+/** Желтый цвет для данных */
+export const dataDefaultDataYellow = 'var(--data-default-data-yellow, #A16B00)';
+
+/** Минорный желтый цвет для данных */
+export const dataDefaultDataYellowMinor = 'var(--data-default-data-yellow-minor, #493203)';
+
+export const dataDefaultDataOrange = 'var(--data-default-data-orange, #FA5F05)';
+
+export const dataDefaultDataOrangeMinor = 'var(--data-default-data-orange-minor, #85380C)';
+
+export const dataDefaultDataOrangeLight = 'var(--data-default-data-orange-light, #3D1D0A)';
+
+export const dataDefaultDataRed = 'var(--data-default-data-red, #E31227)';
+
+export const dataDefaultDataRedMinor = 'var(--data-default-data-red-minor, #9C1422)';
+
+export const dataDefaultDataRedLight = 'var(--data-default-data-red-light, #4A0D13)';
+
+export const dataDefaultDataArctic = 'var(--data-default-data-arctic, #197D61)';
+
+export const dataDefaultDataGreenMinor = 'var(--data-default-data-green-minor, #0D8523)';
+
+export const dataDefaultDataGreenLight = 'var(--data-default-data-green-light, #0A4014)';
+
+export const dataDefaultDataSpring = 'var(--data-default-data-spring, #0D8523)';
+
+export const dataDefaultDataBlue = 'var(--data-default-data-blue, #118CDF)';
+
+export const dataDefaultDataBlueMild = 'var(--data-default-data-blue-mild, #0C72B6)';
+
+export const dataDefaultDataBlueMinor = 'var(--data-default-data-blue-minor, #0D3B59)';
+
+export const dataDefaultDataMalachite = 'var(--data-default-data-malachite, #007D80)';
+
+export const dataDefaultDataMalachiteMinor = 'var(--data-default-data-malachite-minor, #0C585A)';
+
+export const dataDefaultDataElectricBlue = 'var(--data-default-data-electric-blue, #1549AB)';
+
+export const dataDefaultDataFuchsia = 'var(--data-default-data-fuchsia, #8A2178)';
+
+export const dataDefaultDataPink = 'var(--data-default-data-pink, #9B0D46)';
+
+export const dataDefaultDataGray = 'var(--data-default-data-gray, #707C84)';
+
+export const dataDefaultDataGrayMinor = 'var(--data-default-data-gray-minor, #30373C)';
+
+export const dataDefaultDataRedTransparent = 'var(--data-default-data-red-transparent, #FF293E3D)';
+
+export const dataDefaultDataOrangeTransparent = 'var(--data-default-data-orange-transparent, #FA5F053D)';
+
+/** Прозрачный желтый цвет для данных */
+export const dataDefaultDataYellowTransparent = 'var(--data-default-data-yellow-transparent, #F3A9128F)';
+
+export const dataDefaultDataGreenTransparent = 'var(--data-default-data-green-transparent, #1A9E323D)';
+
+export const dataDefaultDataBlueTransparent = 'var(--data-default-data-blue-transparent, #118CDF3D)';
 
 /** Желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellowHover = 'var(--data-on-dark-data-yellow-hover, #F4B22FFF)';
 
 /** Желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellowActive = 'var(--data-on-dark-data-yellow-active, #EDA20CFF)';
-
-/** Минорный желтый цвет для данных на темном фоне */
-export const dataOnDarkDataYellowMinor = 'var(--data-on-dark-data-yellow-minor, #A16B00)';
 
 /** Минорный желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellowMinorHover = 'var(--data-on-dark-data-yellow-minor-hover, #B87A00FF)';
@@ -2289,22 +2337,82 @@ export const dataOnDarkDataYellowTransparentHover = 'var(--data-on-dark-data-yel
 export const dataOnDarkDataYellowTransparentActive = 'var(--data-on-dark-data-yellow-transparent-active, #F3A81280)';
 
 /** Светлый желтый цвет для данных на темном фоне */
-export const dataOnDarkDataYellowLight = 'var(--data-on-dark-data-yellow-light, #332200)';
-
-/** Светлый желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellowLightHover = 'var(--data-on-dark-data-yellow-light-hover, #FFF4E0FF)';
 
 /** Светлый желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellowLightActive = 'var(--data-on-dark-data-yellow-light-active, #FFF3DBFF)';
-
-/** Светлый голубой цвет для данных на темном фоне */
-export const dataOnDarkDataSkyBlueLight = 'var(--data-on-dark-data-sky-blue-light, #0C283B)';
 
 /** Cветлый голубой цвет для данных на темном фоне */
 export const dataOnDarkDataSkyBlueLightHover = 'var(--data-on-dark-data-sky-blue-light-hover, #E0F8FFFF)';
 
 /** Cветлый голубой цвет для данных на темном фоне */
 export const dataOnDarkDataSkyBlueLightActive = 'var(--data-on-dark-data-sky-blue-light-active, #DBF7FFFF)';
+
+export const dataOnDarkDataBlueMinor = 'var(--data-on-dark-data-blue-minor, #0D3B59)';
+
+export const dataOnDarkDataOrchidMinor = 'var(--data-on-dark-data-orchid-minor, #722BA1)';
+
+export const dataOnDarkDataRedMinor = 'var(--data-on-dark-data-red-minor, #9C1422)';
+
+export const dataOnDarkDataRedLight = 'var(--data-on-dark-data-red-light, #4A0D13)';
+
+export const dataOnDarkDataGreen = 'var(--data-on-dark-data-green, #1A9E32)';
+
+export const dataOnDarkDataGreenMinor = 'var(--data-on-dark-data-green-minor, #0D8523)';
+
+export const dataOnDarkDataGreenLight = 'var(--data-on-dark-data-green-light, #0A4014)';
+
+export const dataOnDarkDataSpring = 'var(--data-on-dark-data-spring, #567D0C)';
+
+export const dataOnDarkDataBlue = 'var(--data-on-dark-data-blue, #118CDF)';
+
+export const dataOnDarkDataBlueMild = 'var(--data-on-dark-data-blue-mild, #0C72B6)';
+
+export const dataOnDarkDataMalachite = 'var(--data-on-dark-data-malachite, #007D80)';
+
+export const dataOnDarkDataMalachiteMinor = 'var(--data-on-dark-data-malachite-minor, #0C585A)';
+
+export const dataOnDarkDataElectricBlue = 'var(--data-on-dark-data-electric-blue, #1549AB)';
+
+export const dataOnDarkDataFuchsia = 'var(--data-on-dark-data-fuchsia, #8A2178)';
+
+export const dataOnDarkDataPink = 'var(--data-on-dark-data-pink, #9B0D46)';
+
+export const dataOnDarkDataGray = 'var(--data-on-dark-data-gray, #707C84)';
+
+export const dataOnDarkDataGrayMinor = 'var(--data-on-dark-data-gray-minor, #30373C)';
+
+/** Светлый желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowLight = 'var(--data-on-dark-data-yellow-light, #211807)';
+
+/** Светлый голубой цвет для данных на темном фоне */
+export const dataOnDarkDataBlueLight = 'var(--data-on-dark-data-blue-light, #0A1924)';
+
+export const dataOnDarkDataOrchid = 'var(--data-on-dark-data-orchid, #AD42F5)';
+
+/** Желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellow = 'var(--data-on-dark-data-yellow, #A16B00)';
+
+/** Минорный желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowMinor = 'var(--data-on-dark-data-yellow-minor, #493203)';
+
+export const dataOnDarkDataOrange = 'var(--data-on-dark-data-orange, #FA5F05)';
+
+export const dataOnDarkDataOrangeMinor = 'var(--data-on-dark-data-orange-minor, #85380C)';
+
+export const dataOnDarkDataOrangeLight = 'var(--data-on-dark-data-orange-light, #3D1D0A)';
+
+export const dataOnDarkDataRed = 'var(--data-on-dark-data-red, #E31227)';
+
+export const dataOnDarkDataArctic = 'var(--data-on-dark-data-arctic, #197D61)';
+
+export const dataOnDarkDataRedTransparent = 'var(--data-on-dark-data-red-transparent, #FF293E3D)';
+
+export const dataOnDarkDataOrangeTransparent = 'var(--data-on-dark-data-orange-transparent, #FA5F053D)';
+
+export const dataOnDarkDataGreenTransparent = 'var(--data-on-dark-data-green-transparent, #1A9E323D)';
+
+export const dataOnDarkDataBlueTransparent = 'var(--data-on-dark-data-blue-transparent, #118CDF3D)';
 
 /** Желтый цвет для данных на светлом фоне */
 export const dataOnLightDataYellow = 'var(--data-on-light-data-yellow, #F3A912)';
@@ -2334,22 +2442,76 @@ export const dataOnLightDataYellowTransparentHover = 'var(--data-on-light-data-y
 export const dataOnLightDataYellowTransparentActive = 'var(--data-on-light-data-yellow-transparent-active, #F3A81280)';
 
 /** Светлый желтый цвет для данных на светлом фоне */
-export const dataOnLightDataYellowLight = 'var(--data-on-light-data-yellow-light, #FFF6E5)';
-
-/** Светлый желтый цвет для данных на светлом фоне */
 export const dataOnLightDataYellowLightHover = 'var(--data-on-light-data-yellow-light-hover, #FFF4E0FF)';
 
 /** Светлый желтый цвет для данных на светлом фоне */
 export const dataOnLightDataYellowLightActive = 'var(--data-on-light-data-yellow-light-active, #FFF3DBFF)';
 
 /** Светлый голубой цвет для данных на светлом фоне */
-export const dataOnLightDataSkyBlueLight = 'var(--data-on-light-data-sky-blue-light, #E8FAFF)';
-
-/** Светлый голубой цвет для данных на светлом фоне */
 export const dataOnLightDataSkyBlueLightHover = 'var(--data-on-light-data-sky-blue-light-hover, #E0F8FFFF)';
 
 /** Светлый голубой цвет для данных на светлом фоне */
 export const dataOnLightDataSkyBlueLightActive = 'var(--data-on-light-data-sky-blue-light-active, #DBF7FFFF)';
+
+/** Светлый голубой цвет для данных на светлом фоне */
+export const dataOnLightDataBlueLight = 'var(--data-on-light-data-blue-light, #EDF8FF)';
+
+export const dataOnLightDataBlueMinor = 'var(--data-on-light-data-blue-minor, #CFECFF)';
+
+export const dataOnLightDataOrchid = 'var(--data-on-light-data-orchid, #C46BFF)';
+
+export const dataOnLightDataOrchidMinor = 'var(--data-on-light-data-orchid-minor, #DEB7F7)';
+
+export const dataOnLightDataArctic = 'var(--data-on-light-data-arctic, #14CC98)';
+
+export const dataOnLightDataGreen = 'var(--data-on-light-data-green, #1A9E32)';
+
+export const dataOnLightDataGreenMinor = 'var(--data-on-light-data-green-minor, #28D247)';
+
+export const dataOnLightDataSpring = 'var(--data-on-light-data-spring, #93E006)';
+
+export const dataOnLightDataOrange = 'var(--data-on-light-data-orange, #FA5F05)';
+
+export const dataOnLightDataOrangeMinor = 'var(--data-on-light-data-orange-minor, #FD9C68)';
+
+export const dataOnLightDataOrangeLight = 'var(--data-on-light-data-orange-light, #FEE2D2)';
+
+export const dataOnLightDataRed = 'var(--data-on-light-data-red, #FF293E)';
+
+export const dataOnLightDataRedMinor = 'var(--data-on-light-data-red-minor, #FF8F9A)';
+
+export const dataOnLightDataRedLight = 'var(--data-on-light-data-red-light, #FFE0E3)';
+
+export const dataOnLightDataBlue = 'var(--data-on-light-data-blue, #118CDF)';
+
+export const dataOnLightDataBlueMild = 'var(--data-on-light-data-blue-mild, #52BAFF)';
+
+export const dataOnLightDataMalachite = 'var(--data-on-light-data-malachite, #04C6C9)';
+
+export const dataOnLightDataMalachiteMinor = 'var(--data-on-light-data-malachite-minor, #00DDE0)';
+
+export const dataOnLightDataElectricBlue = 'var(--data-on-light-data-electric-blue, #52BAFF)';
+
+export const dataOnLightDataFuchsia = 'var(--data-on-light-data-fuchsia, #F391E2)';
+
+export const dataOnLightDataPink = 'var(--data-on-light-data-pink, #FF8FBC)';
+
+export const dataOnLightDataGray = 'var(--data-on-light-data-gray, #8A959D)';
+
+export const dataOnLightDataGrayMinor = 'var(--data-on-light-data-gray-minor, #D5DFE6)';
+
+export const dataOnLightDataRedTransparent = 'var(--data-on-light-data-red-transparent, #FF293E33)';
+
+export const dataOnLightDataBlueTransparent = 'var(--data-on-light-data-blue-transparent, #118CDF33)';
+
+export const dataOnLightDataGreenTransparent = 'var(--data-on-light-data-green-transparent, #1A9E3233)';
+
+export const dataOnLightDataOrangeTransparent = 'var(--data-on-light-data-orange-transparent, #FA5F0533)';
+
+/** Светлый желтый цвет для данных на светлом фоне */
+export const dataOnLightDataYellowLight = 'var(--data-on-light-data-yellow-light, #FFF6E5)';
+
+export const dataOnLightDataGreenLight = 'var(--data-on-light-data-green-light, #9EFAAF)';
 
 /** Инвертированный желтый цвет для данных */
 export const dataInverseDataYellow = 'var(--data-inverse-data-yellow, #F3A912)';
@@ -2368,9 +2530,6 @@ export const dataInverseDataYellowMinorHover = 'var(--data-inverse-data-yellow-m
 
 /** Инвертированный минорный желтый цвет для данных */
 export const dataInverseDataYellowMinorActive = 'var(--data-inverse-data-yellow-minor-active, #FFCF70FF)';
-
-/** Инвертированный прозрачный желтый цвет для данных */
-export const dataInverseDataYellowTransparent = 'var(--data-inverse-data-yellow-transparent, #F3A9128F)';
 
 /** Инвертированный прозрачный желтый цвет для данных */
 export const dataInverseDataYellowTransparentHover = 'var(--data-inverse-data-yellow-transparent-hover, #F3A812AD)';
@@ -2395,6 +2554,63 @@ export const dataInverseDataSkyBlueLightHover = 'var(--data-inverse-data-sky-blu
 
 /** Инвертированный светлый голубой цвет для данных */
 export const dataInverseDataSkyBlueLightActive = 'var(--data-inverse-data-sky-blue-light-active, #DBF7FFFF)';
+
+export const dataInverseDataBlueMinor = 'var(--data-inverse-data-blue-minor, #0D3B59)';
+
+export const dataInverseDataOrchid = 'var(--data-inverse-data-orchid, #AD42F5)';
+
+export const dataInverseDataOrchidMinor = 'var(--data-inverse-data-orchid-minor, #722BA1)';
+
+export const dataInverseDataOrange = 'var(--data-inverse-data-orange, #FA5F05)';
+
+export const dataInverseDataOrangeMinor = 'var(--data-inverse-data-orange-minor, #85380C)';
+
+export const dataInverseDataOrangeLight = 'var(--data-inverse-data-orange-light, #3D1D0A)';
+
+export const dataInverseDataRed = 'var(--data-inverse-data-red, #E31227)';
+
+export const dataInverseDataRedMinor = 'var(--data-inverse-data-red-minor, #9C1422)';
+
+export const dataInverseDataRedLight = 'var(--data-inverse-data-red-light, #4A0D13)';
+
+export const dataInverseDataArctic = 'var(--data-inverse-data-arctic, #197D61)';
+
+export const dataInverseDataGreen = 'var(--data-inverse-data-green, #1A9E32)';
+
+export const dataInverseDataGreenMinor = 'var(--data-inverse-data-green-minor, #0D8523)';
+
+export const dataInverseDataGreenLight = 'var(--data-inverse-data-green-light, #0A4014)';
+
+export const dataInverseDataSpring = 'var(--data-inverse-data-spring, #567D0C)';
+
+export const dataInverseDataBlue = 'var(--data-inverse-data-blue, #118CDF)';
+
+export const dataInverseDataBlueMild = 'var(--data-inverse-data-blue-mild, #0C72B6)';
+
+export const dataInverseDataMalachite = 'var(--data-inverse-data-malachite, #007D80)';
+
+export const dataInverseDataMalachiteMinor = 'var(--data-inverse-data-malachite-minor, #0C585A)';
+
+export const dataInverseDataElectricBlue = 'var(--data-inverse-data-electric-blue, #1549AB)';
+
+export const dataInverseDataFuchsia = 'var(--data-inverse-data-fuchsia, #8A2178)';
+
+export const dataInverseDataPink = 'var(--data-inverse-data-pink, #9B0D46)';
+
+export const dataInverseDataGray = 'var(--data-inverse-data-gray, #707C84)';
+
+export const dataInverseDataGrayMinor = 'var(--data-inverse-data-gray-minor, #30373C)';
+
+export const dataInverseDataOrangeTransparent = 'var(--data-inverse-data-orange-transparent, #FA5F0533)';
+
+export const dataInverseDataGreenTransparent = 'var(--data-inverse-data-green-transparent, #1A9E3233)';
+
+export const dataInverseDataBlueTransparent = 'var(--data-inverse-data-blue-transparent, #118CDF33)';
+
+export const dataInverseDataRedTransparent = 'var(--data-inverse-data-red-transparent, #FF293E33)';
+
+/** Инвертированный прозрачный желтый цвет для данных */
+export const dataInverseDataYellowTransparent = 'var(--data-inverse-data-yellow-transparent, #F3A9128F)';
 
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';
