@@ -50,8 +50,6 @@ import { useKeyNavigation } from './hooks';
 import { HintComponent } from './ui/Hint/Hint';
 import { getInputWidth } from './getInputWidth';
 
-const optionalText = 'optional';
-
 export const base = css`
     /* NOTE: Webkit не применяет opacity к inline тегам */
     display: block;
@@ -105,6 +103,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 required = false,
                 clear = false,
                 optional,
+                optionalText = 'optional',
                 hasDivider,
 
                 // controlled
