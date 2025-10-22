@@ -246,7 +246,7 @@ type BasicProps<T extends ItemOption = ItemOption> = {
     /**
      * Текст для состояния когда нет результата.
      */
-    emptyStateDescription?: string;
+    emptyStateDescription?: React.ReactNode;
 
     /**
      * @deprecated Использовать listMaxHeight.
