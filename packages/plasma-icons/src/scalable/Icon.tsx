@@ -752,6 +752,12 @@ export const iconSectionsSet = {
         pictureCopyOutline: 'PictureCopyOutline',
         pictureFill: 'PictureFill',
         pictureOutline: 'PictureOutline',
+        colorFill: 'ColorFill',
+        colorOutline: 'ColorOutline',
+        colorSwatchFill: 'ColorSwatchFill',
+        colorSwatchOutline: 'ColorSwatchOutline',
+        paletteFill: 'PaletteFill',
+        paletteOutline: 'PaletteOutline',
     },
     File: {
         blankFill: 'BlankFill',
