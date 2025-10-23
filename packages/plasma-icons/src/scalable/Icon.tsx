@@ -160,6 +160,7 @@ export const iconSectionsSet = {
         dashboardOutline: 'DashboardOutline',
         spacingHorizontal: 'SpacingHorizontal',
         spacingVertical: 'SpacingVertical',
+        typography: 'Typography',
     },
     Animal: {
         animalFill: 'AnimalFill',
