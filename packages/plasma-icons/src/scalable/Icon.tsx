@@ -843,6 +843,7 @@ export const iconSectionsSet = {
         blankPptxOutline: 'BlankPptxOutline',
         documentAddFill: 'DocumentAddFill',
         documentAddOutline: 'DocumentAddOutline',
+        bookOpenOutline: 'BookOpenOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
