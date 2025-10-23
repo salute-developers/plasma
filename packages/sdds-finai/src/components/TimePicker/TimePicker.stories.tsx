@@ -1,7 +1,8 @@
 import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { disableProps, getConfigVariations, IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { IconClockCircleOutline } from '@salutejs/plasma-icons';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { TimePicker } from './TimePicker';
 import { config } from './TimePicker.config';
@@ -71,8 +72,8 @@ const StoryDefault = ({ enableContentLeft, enableContentRight, size, dropdownWid
         <TimePicker
             opened={isOpen}
             size={size}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconClockCircleOutline size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconClockCircleOutline size={iconSize} /> : undefined}
             onToggle={(is) => {
                 setIsOpen(is);
                 onToggle(is);
@@ -97,7 +98,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         readonly: false,
         textBefore: '',
         textAfter: '',
-        enableContentLeft: true,
+        enableContentLeft: false,
         enableContentRight: true,
         dropdownWidth: 'fixed',
     },
