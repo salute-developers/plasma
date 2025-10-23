@@ -91,6 +91,7 @@ export default meta;
 type StoryPropsDefault = ComponentProps<typeof DatePicker> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    enableEventTooltip: boolean;
 };
 
 const EventNode = ({ dateValue, color }: { dateValue: string; color: string }) => {
@@ -108,17 +109,32 @@ const EventTooltipBody = ({ children }: PropsWithChildren) => {
     return <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>{children}</div>;
 };
 
-const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumber = 2) => {
+const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumber = 2, enableEventTooltip = false) => {
     const baseDate = {
         day: 14,
         monthIndex: 5,
         year: 2024,
     };
 
-    const colorIndex = Math.floor(Math.random() * eventColors.length);
+    const getColorIndex = () => {
+        switch (type) {
+            case 'days':
+                return 0;
+            case 'months':
+                return 1;
+            case 'quarters':
+                return 2;
+            case 'years':
+                return 3;
+            default:
+                return 0;
+        }
+    };
+
+    const colorIndex = getColorIndex();
 
     const events = [...new Array(datesNumber)].map((_, index) => {
-        const eventNumber = Math.floor(Math.random() * 3 + 1);
+        const eventNumber = index + 1;
         const day = type === 'days' ? baseDate.day + index : 1;
         const month =
             // eslint-disable-next-line no-nested-ternary
@@ -133,9 +149,11 @@ const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumb
             return {
                 date: new Date(year, month, day),
                 color: eventColors[colorIndex],
-                eventInfo: (
-                    <EventNode key={ind} color={eventColors[colorIndex]} dateValue={`${year} ${month} ${day}`} />
-                ),
+                ...(enableEventTooltip && {
+                    eventInfo: (
+                        <EventNode key={ind} color={eventColors[colorIndex]} dateValue={`${year} ${month} ${day}`} />
+                    ),
+                }),
             };
         });
     });
@@ -154,16 +172,17 @@ const StoryDefault = ({
     min,
     max,
     eventTooltipSize,
+    enableEventTooltip,
     ...rest
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const iconSize = size === 'xs' ? 'xs' : 's';
 
-    const eventList = useRef(getBaseEvents('days', 5));
-    const eventMonthList = useRef(getBaseEvents('months', 5));
-    const eventQuarterList = useRef(getBaseEvents('quarters'));
-    const eventYearList = useRef(getBaseEvents('years'));
+    const eventList = getBaseEvents('days', 5, enableEventTooltip);
+    const eventMonthList = getBaseEvents('months', 5, enableEventTooltip);
+    const eventQuarterList = getBaseEvents('quarters', 2, enableEventTooltip);
+    const eventYearList = getBaseEvents('years', 2, enableEventTooltip);
 
     return (
         <DatePicker
@@ -189,10 +208,10 @@ const StoryDefault = ({
                 bodyWrapper: EventTooltipBody,
                 size: eventTooltipSize,
             }}
-            eventList={eventList.current}
-            eventMonthList={eventMonthList.current}
-            eventQuarterList={eventQuarterList.current}
-            eventYearList={eventYearList.current}
+            eventList={eventList}
+            eventMonthList={eventMonthList}
+            eventQuarterList={eventQuarterList}
+            eventYearList={eventYearList}
             {...rest}
         />
     );
@@ -232,7 +251,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         labelPlacement: 'outer',
         preserveInvalidOnBlur: false,
-        // defaultDate: new Date(2024, 5, 14),
+        defaultDate: new Date(2024, 5, 14),
         renderFromDate: new Date(2024, 4, 14),
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),
@@ -254,6 +273,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         calendarContainerWidth: 0,
         calendarContainerHeight: 0,
         stretched: false,
+        enableEventTooltip: true,
         eventTooltipSize: 'm',
     },
     render: (args) => <StoryDefault {...args} />,
