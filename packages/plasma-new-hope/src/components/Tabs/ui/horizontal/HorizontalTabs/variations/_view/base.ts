@@ -8,7 +8,7 @@ export const base = css`
     &::after {
         content: '';
         position: absolute;
-        bottom: 0.125rem;
+        bottom: 0;
         left: 0.125rem;
         right: 0.125rem;
         background: var(${tokens.tabsDividerColor});

@@ -2,7 +2,7 @@ import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'secondary',
+        view: 'divider',
         size: 's',
     },
     variations: {
@@ -23,9 +23,6 @@ export const config = {
                 ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
-
-                ${tabsTokens.itemPaddingClear}: 0;
-                ${tabsTokens.itemContentPaddingClear}: 0;
 
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
@@ -81,9 +78,6 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.itemPaddingClear}: 0;
-                ${tabsTokens.itemContentPaddingClear}: 0;
-
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
@@ -128,8 +122,8 @@ export const config = {
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 2.5rem;
                 ${tabsTokens.itemPadding}: 0 0.625rem;
-                ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
-                ${tabsTokens.itemMarginLeft}: 1.75rem;
+                ${tabsTokens.itemPaddingPilled}: 0 0.125rem;
+                ${tabsTokens.itemMarginLeft}: 1.5rem;
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 

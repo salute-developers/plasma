@@ -186,9 +186,9 @@ describe('sdds-insol: Tabs', () => {
     it('[PLASMA-T803] Tabs: clicking on arrows scrolls to previous or next', () => {
         mount(
             <CypressTestDecorator>
-                <Tabs size="m" style={{ width: '10.5rem' }}>
+                <Tabs size="l" style={{ width: '9rem' }}>
                     {items.map((item, i) => (
-                        <TabItem key={i} isActive={i === 1}>
+                        <TabItem size="l" key={i} isActive={i === 1}>
                             {item.label}
                         </TabItem>
                     ))}
