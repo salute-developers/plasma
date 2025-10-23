@@ -758,6 +758,10 @@ export const iconSectionsSet = {
         colorSwatchOutline: 'ColorSwatchOutline',
         paletteFill: 'PaletteFill',
         paletteOutline: 'PaletteOutline',
+        bendFill: 'BendFill',
+        bendOutline: 'BendOutline',
+        shapeFill: 'ShapeFill',
+        shapeOutline: 'ShapeOutline',
     },
     File: {
         blankFill: 'BlankFill',
