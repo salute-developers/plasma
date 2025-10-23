@@ -294,6 +294,7 @@ export const calendarBaseRoot = (
                             opened={Boolean(eventNodes?.length)}
                             target={eventTooltipTargetRef}
                             frame={rootRef}
+                            isFocusTrapped={false}
                             text={tooltipContent()}
                             trigger="hover"
                             {...eventTooltipOptions}

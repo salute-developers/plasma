@@ -163,7 +163,7 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
     }
 
 
-    & .${popoverClasses.targetAsRef} {
+    & .${popoverClasses.wrapper}.${popoverClasses.targetAsRef} {
         z-index: -1;
         width: 100%;
     }
