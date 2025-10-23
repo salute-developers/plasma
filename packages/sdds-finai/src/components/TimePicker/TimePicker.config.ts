@@ -27,6 +27,10 @@ export const config = {
                 ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
                 ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
 
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary-hover);
+
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
 
