@@ -762,6 +762,10 @@ export const iconSectionsSet = {
         bendOutline: 'BendOutline',
         shapeFill: 'ShapeFill',
         shapeOutline: 'ShapeOutline',
+        shadowDownOutline: 'ShadowDownOutline',
+        shadowLeftOutline: 'ShadowLeftOutline',
+        shadowRightOutline: 'ShadowRightOutline',
+        shadowUpOutline: 'ShadowUpOutline',
     },
     File: {
         blankFill: 'BlankFill',
