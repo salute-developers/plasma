@@ -163,7 +163,7 @@ export const Default: StoryObj<CalendarProps> = {
 };
 
 const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
-    const { min, max, includeEdgeDates, size, displayDouble, locale, eventToolTipSize, ...rest } = args;
+    const { min, max, includeEdgeDates, size, displayDouble, locale, eventTooltipSize, ...rest } = args;
     const [value, setValue] = useState(new Date(2023, 6, 7));
     const [currentState, setCurrentState] = useState('Days');
 

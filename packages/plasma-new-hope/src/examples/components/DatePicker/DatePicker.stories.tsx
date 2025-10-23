@@ -232,7 +232,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         labelPlacement: 'outer',
         preserveInvalidOnBlur: false,
-        defaultDate: new Date(2024, 5, 14),
+        // defaultDate: new Date(2024, 5, 14),
         renderFromDate: new Date(2024, 4, 14),
         includeEdgeDates: true,
         min: new Date(2024, 1, 1),

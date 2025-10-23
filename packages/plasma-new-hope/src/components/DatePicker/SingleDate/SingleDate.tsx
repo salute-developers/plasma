@@ -170,10 +170,6 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                         ? true
                         : innerOpened;
 
-                if (!innerOpened && !calendarValue) {
-                    setInnerDate((prevValue) => (prevValue === undefined ? null : undefined));
-                }
-
                 if (onToggle) {
                     onToggle(isCalendarOpen, event);
 
