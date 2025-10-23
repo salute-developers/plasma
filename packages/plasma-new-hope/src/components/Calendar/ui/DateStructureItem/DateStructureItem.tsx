@@ -63,7 +63,7 @@ export const DateStructureItem = memo(
                 }
 
                 if (onTriggerEventTooltip) {
-                    const eventNodes = eventList?.map(({ eventInfo }) => eventInfo) || [];
+                    const eventNodes = eventList?.map(({ eventInfo }) => eventInfo).filter(Boolean) || [];
 
                     onTriggerEventTooltip(structureRef, eventNodes);
                 }

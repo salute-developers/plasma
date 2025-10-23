@@ -62,7 +62,7 @@ const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumb
     };
 
     const events = [...new Array(datesNumber)].map((_, index) => {
-        const eventNumber = Math.floor(Math.random() * 3 + 1);
+        const eventNumber = index + 1;
         const day = type === 'days' ? baseDate.day + index : 1;
         const month =
             // eslint-disable-next-line no-nested-ternary
@@ -173,10 +173,10 @@ const StoryBase = (args: CalendarBaseProps & { displayDouble: boolean }) => {
     };
 
     const calendarMap = {
-        Days: getCalendarComponent({ type: 'Days', eventList: eventList.current, disabledList: disabledDays, ...rest }),
-        Months: getCalendarComponent({ type: 'Months', eventMonthList: eventMonthList.current, ...rest }),
-        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: eventQuarterList.current, ...rest }),
-        Years: getCalendarComponent({ type: 'Years', eventYearList: eventYearList.current, ...rest }),
+        Days: getCalendarComponent({ type: 'Days', eventList, disabledList: disabledDays, ...rest }),
+        Months: getCalendarComponent({ type: 'Months', eventMonthList, ...rest }),
+        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList, ...rest }),
+        Years: getCalendarComponent({ type: 'Years', eventYearList, ...rest }),
     };
 
     return (
@@ -261,10 +261,10 @@ const StoryRange = (args: CalendarBaseRangeProps & { displayDouble: boolean }) =
     };
 
     const calendarMap = {
-        Days: getCalendarComponent({ type: 'Days', eventList: eventList.current, disabledList: disabledDays, ...rest }),
-        Months: getCalendarComponent({ type: 'Months', eventMonthList: eventMonthList.current, ...rest }),
-        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: eventQuarterList.current, ...rest }),
-        Years: getCalendarComponent({ type: 'Years', eventYearList: eventYearList.current, ...rest }),
+        Days: getCalendarComponent({ type: 'Days', eventList, disabledList: disabledDays, ...rest }),
+        Months: getCalendarComponent({ type: 'Months', eventMonthList, ...rest }),
+        Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList, ...rest }),
+        Years: getCalendarComponent({ type: 'Years', eventYearList, ...rest }),
     };
 
     return (
