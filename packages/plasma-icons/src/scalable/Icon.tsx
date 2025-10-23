@@ -158,6 +158,8 @@ export const iconSectionsSet = {
         filterFunnelOffOutline: 'FilterFunnelOffOutline',
         dashboardFill: 'DashboardFill',
         dashboardOutline: 'DashboardOutline',
+        spacingHorizontal: 'SpacingHorizontal',
+        spacingVertical: 'SpacingVertical',
     },
     Animal: {
         animalFill: 'AnimalFill',
