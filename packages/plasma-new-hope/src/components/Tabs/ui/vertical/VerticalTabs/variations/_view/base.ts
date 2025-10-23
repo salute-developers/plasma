@@ -10,7 +10,7 @@ export const base = css`
         position: absolute;
         top: 0.125rem;
         bottom: 0.125rem;
-        left: 0.25rem;
+        left: 0;
         background: var(${tokens.tabsDividerColor});
         width: var(${tokens.tabsDividerWidth});
         border-radius: var(${tokens.tabsDividerBorderRadius});

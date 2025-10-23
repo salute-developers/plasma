@@ -70,9 +70,9 @@ export const base = css`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0.063rem',
         outlineColor: `var(${tokens.outlineFocusColor})`,
-        outlineRadius: 'calc(var(--plasma_private-outline-radius) + 0.063rem)',
+        outlineRadius: 'var(--border-radius-m , calc(var(--plasma_private-outline-radius) + 0.063rem))',
         customFocusRules: `
             &.focus-visible:focus,
             &[data-focus-visible-added] {

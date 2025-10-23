@@ -18,10 +18,6 @@ export const StyledContent = styled.div`
 `;
 
 export const StyledContentWrapper = styled.div`
-    /* allows correctly display outline focus on tabs item */
-    margin: -0.125rem;
-    padding: 0.25rem;
-
     box-sizing: content-box;
     position: relative;
     height: 100%;
