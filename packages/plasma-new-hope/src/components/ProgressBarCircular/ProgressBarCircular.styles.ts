@@ -43,7 +43,7 @@ export const StyledProgressCircle = styled.circle<{ customStrokeWidth?: number; 
     r: var(--radius);
     stroke-dasharray: var(--circumference);
     stroke-dashoffset: var(--dashoffset);
-    transition: stroke-dashoffset 0.3s ease-in-out;
+    transition: stroke-dashoffset 0.3s linear;
 `;
 
 export const StyledContent = styled.div`
