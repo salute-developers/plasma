@@ -1986,6 +1986,39 @@ describe('plasma-b2c: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('flow: single, async items loading with preset value', () => {
+        cy.viewport(500, 500);
+
+        const Component = () => {
+            const [value, setValue] = useState('north_america');
+            const [options, setOptions] = useState([]);
+
+            setTimeout(() => {
+                setOptions(items);
+            }, 100);
+
+            return (
+                <Combobox
+                    id="combobox"
+                    value={value}
+                    onChange={setValue}
+                    items={options}
+                    label="Label"
+                    placeholder="Placeholder"
+                />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').should('have.value', 'north_america');
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(100);
+
+        cy.get('#combobox').should('have.value', 'Северная Америка');
+    });
+
     it('keyboard interactions: single', () => {
         cy.viewport(1000, 500);
 
