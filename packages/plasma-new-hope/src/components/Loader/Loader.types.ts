@@ -3,23 +3,23 @@ import { Blur } from 'src/mixins';
 
 export type CustomLoaderProps = {
     /**
-     * Текущее значение прогресса (от 0 до maxValue)
+     * Тип loader
      */
     type?: 'spinner' | 'progress';
     /**
-     * Текущее значение прогресса (от 0 до maxValue)
+     * Наличие блюра на фоне
      */
     hasBlur?: boolean;
     /**
-     * Текущее значение прогресса (от 0 до maxValue)
+     * Степень блюра "small | medium | large"
      */
     blur?: Blur;
     /**
-     * Текущее значение прогресса (от 0 до maxValue)
+     * Наличие overlay на фоне
      */
     hasOverlay?: boolean;
     /**
-     * Текущее значение прогресса (от 0 до maxValue)
+     * Кастомное значение фона
      */
     overlayColor?: string;
     /**
@@ -45,7 +45,7 @@ export type CustomLoaderProps = {
      */
     view?: string;
     /**
-     * Толщина обводки ProgressBar
+     * Толщина обводки ProgressBarCircular
      */
     strokeWidth?: number;
     /**
