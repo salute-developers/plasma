@@ -1,17 +1,15 @@
-import React, { ComponentProps, useEffect } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { getConfigVariations } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
+import React, { ComponentProps, useEffect } from 'react';
+import { IconCross } from '@salutejs/plasma-icons';
 
-import { WithTheme } from '../../_helpers';
-import { IconCrossThin } from '../../../components/_Icon';
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
-import { Loader } from './Loader';
 import { config } from './Loader.config';
 
-const { views, sizes } = getConfigVariations(config);
+import { Loader } from '.';
 
-const sizeSpinner = ['s', 'm', 'l'];
+const { views, sizes } = getConfigVariations(config);
 
 type StoryPropsDefault = ComponentProps<typeof Loader> & {
     progressSize?: string;
@@ -21,7 +19,7 @@ type StoryPropsDefault = ComponentProps<typeof Loader> & {
 const meta: Meta<StoryPropsDefault> = {
     title: 'Overlay/Loader',
     component: Loader,
-    decorators: [WithTheme],
+    decorators: [InSpacingDecorator],
     argTypes: {
         view: {
             options: views,
@@ -40,7 +38,7 @@ const meta: Meta<StoryPropsDefault> = {
             },
         },
         spinnerSize: {
-            options: sizeSpinner,
+            options: sizes,
             control: {
                 type: 'select',
             },
@@ -87,7 +85,7 @@ const getContent = (value: number, size?: string) => {
     }
 
     if (size !== 'xxs') {
-        return <IconCrossThin size={size === 'l' ? 's' : 'xs'} />;
+        return <IconCross size={size === 'l' ? 's' : 'xs'} />;
     }
 
     return '';
