@@ -88,3 +88,4 @@ export * from './components/NavigationDrawer';
 export * from './components/ProgressBarCircular';
 export * from './components/TimePicker';
 export * from './components/DateTimePicker';
+export * from './components/Loader';
