@@ -323,6 +323,10 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
             calendarState,
         );
 
+        if (selectIndexes[0] === newRowIndex && selectIndexes[1] === newColumnIndex) {
+            return;
+        }
+
         /**
          * Изменение состояния необходимо сделать здесь, т.к.
          * требуется дождаться обновление DOM и outerRefs
