@@ -1,6 +1,4 @@
-import { css } from '@linaria/core';
-
-import { loaderTokens } from '../../../components/Loader';
+import { css, loaderTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
