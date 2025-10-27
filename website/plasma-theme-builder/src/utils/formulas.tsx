@@ -746,7 +746,7 @@ export const formulas: Formula = {
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 6,
+                        hover: (l: number) => l - 2,
                         active: (l: number) => l - 4,
                     },
                 },
@@ -758,7 +758,7 @@ export const formulas: Formula = {
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 4,
+                        hover: (l: number) => l - 2,
                         active: (l: number) => l - 4,
                     },
                 },
@@ -770,7 +770,7 @@ export const formulas: Formula = {
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 6,
+                        hover: (l: number) => l - 2,
                         active: (l: number) => l - 4,
                     },
                 },
@@ -782,7 +782,7 @@ export const formulas: Formula = {
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 4,
+                        hover: (l: number) => l - 2,
                         active: (l: number) => l - 4,
                     },
                 },
@@ -794,8 +794,8 @@ export const formulas: Formula = {
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 4,
-                        active: (l: number) => l - 2,
+                        hover: (l: number) => l - 2,
+                        active: (l: number) => l - 3,
                     },
                 },
                 {
@@ -806,7 +806,7 @@ export const formulas: Formula = {
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 2,
+                        hover: (l: number) => l - 1,
                         active: (l: number) => l - 2,
                     },
                 },
@@ -1012,7 +1012,7 @@ export const formulas: Formula = {
                     },
                     operation: {
                         brightness: (a: number) => a,
-                        hover: (a: number) => a - 0.02,
+                        hover: (a: number) => a + 0.01,
                         active: (a: number) => a + 0.02,
                     },
                 },
@@ -1022,23 +1022,23 @@ export const formulas: Formula = {
                     },
                     operation: {
                         brightness: (a: number) => a,
-                        hover: (a: number) => a - 0.04,
+                        hover: (a: number) => a + 0.02,
                         active: (a: number) => a + 0.04,
                     },
                 },
                 {
                     condition: {
-                        alpha: [0.1, 0.94],
+                        alpha: [0.1, 0.74],
                     },
                     operation: {
                         brightness: (a: number) => a,
-                        hover: (a: number) => a - 0.08,
-                        active: (a: number) => a + 0.04,
+                        hover: (a: number) => a + 0.06,
+                        active: (a: number) => a + 0.08,
                     },
                 },
                 {
                     condition: {
-                        alpha: [0.95, 0.99],
+                        alpha: [0.75, 0.99],
                     },
                     operation: {
                         brightness: (a: number) => a,
