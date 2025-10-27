@@ -53,7 +53,7 @@ const meta: Meta<StoryPropsDefault> = {
                 type: 'select',
             },
         },
-        strokeWidth: {
+        strokeSize: {
             options: [2, 4, 6, 8],
             control: {
                 type: 'radio',

@@ -16,7 +16,17 @@ import { classes } from './ProgressBarCircular.tokens';
 
 export const progressBarCircularRoot = (Root: RootProps<HTMLDivElement, ProgressBarCircularProps>) =>
     forwardRef<HTMLDivElement, ProgressBarCircularProps>((props, ref) => {
-        const { value = 0, maxValue = 100, size, view, children, className, strokeWidth, ...rest } = props;
+        const {
+            value = 0,
+            maxValue = 100,
+            size,
+            view,
+            children,
+            className,
+            strokeSize,
+            hasTrack = true,
+            ...rest
+        } = props;
 
         const clampedValue = Math.min(Math.max(value, 0), maxValue);
         const percentage = (clampedValue / maxValue) * 100;
@@ -26,16 +36,18 @@ export const progressBarCircularRoot = (Root: RootProps<HTMLDivElement, Progress
         return (
             <Root ref={ref} view={view} size={size} className={className} {...rest}>
                 <StyledSVG width="100%" height="100%" viewBox="0 0 100 100" className={classes.svg}>
-                    <StyledBackgroundCircle
-                        customStrokeWidth={strokeWidth}
-                        cx={center}
-                        cy={center}
-                        className={classes.backgroundCircle}
-                    />
+                    {hasTrack && (
+                        <StyledBackgroundCircle
+                            customStrokeWidth={strokeSize}
+                            cx={center}
+                            cy={center}
+                            className={classes.backgroundCircle}
+                        />
+                    )}
                     <StyledProgressCircle
                         cx={center}
                         cy={center}
-                        customStrokeWidth={strokeWidth}
+                        customStrokeWidth={strokeSize}
                         className={classes.progressCircle}
                         percent={percentage}
                         transform="rotate(-90 50 50)"
