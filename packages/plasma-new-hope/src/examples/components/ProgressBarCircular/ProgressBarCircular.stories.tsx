@@ -27,7 +27,7 @@ const meta: Meta<typeof ProgressBarCircular> = {
                 type: 'select',
             },
         },
-        strokeWidth: {
+        strokeSize: {
             options: [2, 4, 6, 8],
             control: {
                 type: 'radio',
@@ -63,6 +63,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         size: 's',
         value: 50,
+        hasTrack: true,
     },
     render: ({ ...args }) => (
         <ProgressBarCircular {...args}>{getContent(args.value ?? 0, args.size)}</ProgressBarCircular>
