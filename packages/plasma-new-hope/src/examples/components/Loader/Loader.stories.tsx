@@ -55,7 +55,7 @@ const meta: Meta<StoryPropsDefault> = {
                 type: 'select',
             },
         },
-        strokeWidth: {
+        strokeSize: {
             options: [2, 4, 6, 8],
             control: {
                 type: 'radio',
@@ -140,6 +140,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         hasBlur: true,
         hasOverlay: false,
         type: 'spinner',
+        hasTrack: true,
     },
     render: ({ ...args }) => {
         return <LoaderContent {...args} />;

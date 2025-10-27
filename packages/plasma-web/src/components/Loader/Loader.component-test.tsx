@@ -54,7 +54,7 @@ describe('plasma-b2c: Loader', () => {
     it('Loader: default, size="xl", strokeWidth="8"', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Demo size="xl" strokeWidth={8}>
+                <Demo size="xl" strokeSize={8}>
                     50%
                 </Demo>
             </CypressTestDecoratorWithTypo>,

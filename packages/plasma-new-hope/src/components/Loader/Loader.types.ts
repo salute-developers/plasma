@@ -47,7 +47,11 @@ export type CustomLoaderProps = {
     /**
      * Толщина обводки ProgressBarCircular
      */
-    strokeWidth?: number;
+    strokeSize?: number;
+    /**
+     * Наличие трэка у прогресс-бара
+     */
+    hasTrack?: boolean;
     /**
      * Контент в центре прогресс-бара
      */

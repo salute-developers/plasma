@@ -26,7 +26,11 @@ export type CustomProgressBarCircularProps = {
     /**
      * Толщина обводки ProgressBar
      */
-    strokeWidth?: number;
+    strokeSize?: number;
+    /**
+     * Наличие трека
+     */
+    hasTrack?: boolean;
     /**
      * Контент в центре прогресс-бара
      */

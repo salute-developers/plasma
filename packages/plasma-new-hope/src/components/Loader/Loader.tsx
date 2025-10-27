@@ -23,7 +23,8 @@ export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
             view,
             children,
             className,
-            strokeWidth,
+            strokeSize,
+            hasTrack,
             style,
             ...rest
         } = props;
@@ -50,9 +51,10 @@ export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
                     <StyledProgressBarCircular
                         value={value}
                         maxValue={maxValue}
-                        strokeWidth={strokeWidth}
+                        strokeSize={strokeSize}
                         size={size}
                         view={view}
+                        hasTrack={hasTrack}
                     >
                         {children}
                     </StyledProgressBarCircular>

@@ -31,9 +31,9 @@ describe('plasma-b2c: ProgressBarCircular', () => {
     it('with custom strokeWidth', () => {
         mount(
             <CypressTestDecorator>
-                <ProgressBarCircular value={25} strokeWidth={8} />
+                <ProgressBarCircular value={25} strokeSize={8} />
                 <PadMe />
-                <ProgressBarCircular value={50} strokeWidth={4} />
+                <ProgressBarCircular value={50} strokeSize={4} />
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();
