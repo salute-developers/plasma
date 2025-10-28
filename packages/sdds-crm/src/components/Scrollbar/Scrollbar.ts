@@ -1,4 +1,4 @@
-import { addScrollbar } from 'src/mixins';
+import { addScrollbar } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './Scrollbar.config';
 

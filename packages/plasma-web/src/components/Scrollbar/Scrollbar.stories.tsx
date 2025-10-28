@@ -1,8 +1,7 @@
 import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { styled } from '@linaria/react';
-
-import { WithTheme } from '../../_helpers';
+import styled from 'styled-components';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { scrollBar } from './Scrollbar';
 
@@ -10,7 +9,7 @@ const sizes = ['m', 's'];
 
 const meta: Meta = {
     title: 'Data Display/Scrollbar',
-    decorators: [WithTheme],
+    decorators: [InSpacingDecorator],
     argTypes: {
         size: {
             options: sizes,
