@@ -55,7 +55,7 @@ export function App() {
             <Loader type="spinner" size="s" />
             <Loader type="spinner" size="m" />
             <Loader type="spinner" size="l" />
-            
+
             <Loader type="progress" size="s" value={25} />
             <Loader type="progress" size="m" value={50} />
             <Loader type="progress" size="l" value={75} />
@@ -74,11 +74,11 @@ import { Loader } from '@salutejs/plasma-giga';
 export function App() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="spinner" view="primary" />
+            <Loader type="spinner" view="default" />
             <Loader type="spinner" view="accent" />
             <Loader type="spinner" view="positive" />
-            
-            <Loader type="progress" view="primary" value={25} />
+
+            <Loader type="progress" view="default" value={25} />
             <Loader type="progress" view="accent" value={50} />
             <Loader type="progress" view="positive" value={75} />
         </div>
@@ -99,7 +99,7 @@ export function App() {
             <Loader type="spinner" hasBlur blur="small" />
             <Loader type="spinner" hasBlur blur="medium" />
             <Loader type="spinner" hasBlur blur="large" />
-            
+
             <Loader type="progress" hasBlur blur="medium" value={50} />
         </div>
     );
@@ -116,10 +116,10 @@ import { Loader } from '@salutejs/plasma-giga';
 export function App() {
     return (
         <div style={{ position: 'relative', height: '200px', border: '1px solid #ccc' }}>
-            <Loader 
-                type="spinner" 
-                hasOverlay 
-                style={{ position: 'absolute', inset: 0 }} 
+            <Loader
+                type="spinner"
+                hasOverlay
+                style={{ position: 'absolute', inset: 0 }}
             />
         </div>
     );
