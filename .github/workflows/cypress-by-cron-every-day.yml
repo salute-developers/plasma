@@ -34,3 +34,33 @@ jobs:
       with-react-17: true
     secrets: inherit
 
+  cypress_plasma_19:
+      name: "Cypress with React 19 for plasma packages"
+      strategy:
+          fail-fast: false
+          matrix:
+              scope: [web,b2c,giga]
+
+      uses: ./.github/workflows/cypress-common.yml
+      with:
+          scope: ${{ matrix.scope }}
+          prefix: "plasma"
+          with-react-19: true
+          with-artifacts: true
+      secrets: inherit
+
+  cypress_sdds_19:
+      name: "Cypress with React 19 for sdds packages"
+      strategy:
+          fail-fast: false
+          matrix:
+              scope: [cs,insol]
+
+      uses: ./.github/workflows/cypress-common.yml
+      with:
+          scope: ${{ matrix.scope }}
+          prefix: "sdds"
+          with-react-19: true
+      secrets: inherit
+
+
