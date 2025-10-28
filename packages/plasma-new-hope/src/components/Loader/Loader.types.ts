@@ -1,17 +1,18 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { Blur } from 'src/mixins';
 
 export type CustomLoaderProps = {
     /**
      * Тип loader
+     * @default spinner
      */
     type?: 'spinner' | 'progress';
     /**
-     * Наличие блюра на фоне
+     * Наличие blur на фоне
      */
     hasBlur?: boolean;
     /**
-     * Степень блюра "small | medium | large"
+     * Тип эффекта blur "small | medium | large"
      */
     blur?: Blur;
     /**
@@ -19,7 +20,7 @@ export type CustomLoaderProps = {
      */
     hasOverlay?: boolean;
     /**
-     * Кастомное значение фона
+     * Собственное значение для фона
      */
     overlayColor?: string;
     /**
@@ -28,20 +29,17 @@ export type CustomLoaderProps = {
     value?: number;
     /**
      * Максимальное значение прогресса
-     * @default
-     * 100
+     * @default 100
      */
     maxValue?: number;
     /**
      * Размер ProgressBar
-     * @default
-     * m
+     * @default m
      */
     size?: string;
     /**
      * Вид ProgressBar
-     * @default
-     * default
+     * @default default
      */
     view?: string;
     /**
@@ -49,13 +47,13 @@ export type CustomLoaderProps = {
      */
     strokeSize?: number;
     /**
-     * Наличие трэка у прогресс-бара
+     * Наличие track у progress bar
      */
     hasTrack?: boolean;
     /**
-     * Контент в центре прогресс-бара
+     * Контент в центре progress bar
      */
-    children?: React.ReactNode;
+    children?: ReactNode;
 };
 
 export type LoaderProps = HTMLAttributes<HTMLDivElement> & CustomLoaderProps;

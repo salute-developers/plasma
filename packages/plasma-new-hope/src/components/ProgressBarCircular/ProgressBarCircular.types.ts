@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 export type CustomProgressBarCircularProps = {
     /**
@@ -7,24 +7,21 @@ export type CustomProgressBarCircularProps = {
     value?: number;
     /**
      * Максимальное значение прогресса
-     * @default
-     * 100
+     * @default 100
      */
     maxValue?: number;
     /**
-     * Размер ProgressBar
-     * @default
-     * m
+     * Размер компонента
+     * @default m
      */
     size?: string;
     /**
-     * Вид ProgressBar
-     * @default
-     * default
+     * Вид компонента
+     * @default default
      */
     view?: string;
     /**
-     * Толщина обводки ProgressBar
+     * Толщина обводки компонента
      */
     strokeSize?: number;
     /**
@@ -32,9 +29,9 @@ export type CustomProgressBarCircularProps = {
      */
     hasTrack?: boolean;
     /**
-     * Контент в центре прогресс-бара
+     * Контент в центре компонента
      */
-    children?: React.ReactNode;
+    children?: ReactNode;
 };
 
 export type ProgressBarCircularProps = HTMLAttributes<HTMLDivElement> & CustomProgressBarCircularProps;
