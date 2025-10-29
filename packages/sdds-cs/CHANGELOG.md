@@ -1,3 +1,66 @@
+## 0.331.0 (29 октября 2025)
+
+## Функциональные изменения в компонентах
+
+### Select
+
+* Добавлено новое свойство `treeView`, отвечающее за отображение дерева в выпадающем списке;
+
+[PR](https://github.com/salute-developers/plasma/pull/2286)
+
+### TextField, TextArea, Mask, NumberFormat
+
+* Добавлена возможность указать текст для индикатора опциональности
+
+[PR](https://github.com/salute-developers/plasma/pull/2290)
+
+### Calendar, DatePicker
+
+* Добавлена возможность вызвать всплывающую подсказку для событий в календаре
+
+[PR](https://github.com/salute-developers/plasma/pull/2289)
+
+### Combobox
+
+* Исправлен баг в single-режиме, при котором в некоторых случаях значение поля ввода не обновлялось после изменения `items`;
+
+[PR](https://github.com/salute-developers/plasma/pull/2298)
+
+* Тип свойства `emptyStateDescription` расширен до `ReactNode`;
+
+[PR](https://github.com/salute-developers/plasma/pull/2293)
+
+### Typography
+
+* Обнулили значения по-умолчанию (браузерные) для свойств `padding/margin/border`
+
+[PR](https://github.com/salute-developers/plasma/pull/2302)
+
+### Attach
+
+* Добавлена возможность прикреплять несколько файлов
+
+* Исправлена типизация для `callback onChange`
+
+[PR](https://github.com/salute-developers/plasma/pull/2288)
+
+### Tabs
+
+* Убраны внешние отступы у контейнера `Tabs`
+
+* Отступы внутри `TabItem` приведены в соответствие с макетами
+
+* Скорректировано отображение фокусной рамки
+
+[PR](https://github.com/salute-developers/plasma/pull/2297)
+
+### LinkButton
+
+* Добавлено состояние `hover` для текста
+
+[PR](https://github.com/salute-developers/plasma/pull/2304)
+
+
 ## 0.330.0 (15 октября 2025)
 
 ## Функциональные изменения в компонентах

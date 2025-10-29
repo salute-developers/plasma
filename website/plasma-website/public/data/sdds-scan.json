@@ -1,4 +1,95 @@
 {
+  "0.325.0": {
+    "date": "2025-10-29",
+    "core": [
+      {
+        "component": "Select",
+        "children": [
+          {
+            "text": "Добавлено новое свойство `treeView`, отвечающее за отображение дерева в выпадающем списке;",
+            "link": "https://github.com/salute-developers/plasma/pull/2286",
+            "id": 2286
+          }
+        ]
+      },
+      {
+        "component": "TextField, TextArea, Mask, NumberFormat",
+        "children": [
+          {
+            "text": "Добавлена возможность указать текст для индикатора опциональности",
+            "link": "https://github.com/salute-developers/plasma/pull/2290",
+            "id": 2290
+          }
+        ]
+      },
+      {
+        "component": "Calendar, DatePicker",
+        "children": [
+          {
+            "text": "Добавлена возможность вызвать всплывающую подсказку для событий в календаре",
+            "link": "https://github.com/salute-developers/plasma/pull/2289",
+            "id": 2289
+          }
+        ]
+      },
+      {
+        "component": "Combobox",
+        "children": [
+          {
+            "text": "Исправлен баг в single-режиме, при котором в некоторых случаях значение поля ввода не обновлялось после изменения `items`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2298",
+            "id": 2298
+          },
+          {
+            "text": "Тип свойства `emptyStateDescription` расширен до `ReactNode`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2293",
+            "id": 2293
+          }
+        ]
+      },
+      {
+        "component": "Typography",
+        "children": [
+          {
+            "text": "Обнулили значения по-умолчанию (браузерные) для свойств `padding/margin/border`",
+            "link": "https://github.com/salute-developers/plasma/pull/2302",
+            "id": 2302
+          }
+        ]
+      },
+      {
+        "component": "Attach",
+        "children": [
+          {
+            "text": "Добавлена возможность прикреплять несколько файлов\n\nИсправлена типизация для `callback onChange`",
+            "link": "https://github.com/salute-developers/plasma/pull/2288",
+            "id": 2288
+          }
+        ]
+      },
+      {
+        "component": "Tabs",
+        "children": [
+          {
+            "text": "Убраны внешние отступы у контейнера `Tabs`\n\nОтступы внутри `TabItem` приведены в соответствие с макетами\n\nСкорректировано отображение фокусной рамки",
+            "link": "https://github.com/salute-developers/plasma/pull/2297",
+            "id": 2297
+          }
+        ]
+      },
+      {
+        "component": "LinkButton",
+        "children": [
+          {
+            "text": "Добавлено состояние `hover` для текста",
+            "link": "https://github.com/salute-developers/plasma/pull/2304",
+            "id": 2304
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.324.0": {
     "date": "2025-10-15",
     "core": [

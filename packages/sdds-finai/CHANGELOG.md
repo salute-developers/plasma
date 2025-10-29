@@ -1,3 +1,139 @@
+## 0.318.0 (29 октября 2025)
+
+## Функциональные изменения в компонентах
+
+### Select
+
+* Добавлено новое свойство `treeView`, отвечающее за отображение дерева в выпадающем списке;
+
+[PR](https://github.com/salute-developers/plasma/pull/2286)
+
+### TextField, TextArea, Mask, NumberFormat
+
+* Добавлена возможность указать текст для индикатора опциональности
+
+[PR](https://github.com/salute-developers/plasma/pull/2290)
+
+### Calendar, DatePicker
+
+* Добавлена возможность вызвать всплывающую подсказку для событий в календаре
+
+[PR](https://github.com/salute-developers/plasma/pull/2289)
+
+### Combobox
+
+* Исправлен баг в single-режиме, при котором в некоторых случаях значение поля ввода не обновлялось после изменения `items`;
+
+[PR](https://github.com/salute-developers/plasma/pull/2298)
+
+* Тип свойства `emptyStateDescription` расширен до `ReactNode`;
+
+[PR](https://github.com/salute-developers/plasma/pull/2293)
+
+### Typography
+
+* Обнулили значения по-умолчанию (браузерные) для свойств `padding/margin/border`
+
+[PR](https://github.com/salute-developers/plasma/pull/2302)
+
+### Attach
+
+* Добавлена возможность прикреплять несколько файлов
+
+* Исправлена типизация для `callback onChange`
+
+[PR](https://github.com/salute-developers/plasma/pull/2288)
+
+### Tabs
+
+* Убраны внешние отступы у контейнера `Tabs`
+
+* Отступы внутри `TabItem` приведены в соответствие с макетами
+
+* Скорректировано отображение фокусной рамки
+
+[PR](https://github.com/salute-developers/plasma/pull/2297)
+
+### LinkButton
+
+* Добавлено состояние `hover` для текста
+
+[PR](https://github.com/salute-developers/plasma/pull/2304)
+
+## Изменения в библиотеки
+
+### Theme
+
+* Изменены формулы расчета производных состояний (hover\active) для группы `Surfases Solid \ Transparent [Light Theme]`
+
+[PR](https://github.com/salute-developers/plasma/pull/2301)
+
+### Tokens Data
+
+* Расширен список токенов
+
+[PR](https://github.com/salute-developers/plasma/pull/2291)
+
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+<details>
+  <summary>📦 Published PR as canary version: <code>Canary Versions</code></summary>
+  <br />
+
+:sparkles: Test out this PR locally via:
+
+```bash
+npm install @salutejs/plasma-asdk@0.354.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-b2c@1.596.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-core@1.210.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-giga@0.323.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-hope@1.356.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-icons@1.227.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-new-hope@0.340.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-tokens@1.124.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-ui@1.332.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-web@1.598.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-bizcom@0.328.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-crm@0.327.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-cs@0.332.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-dfa@0.326.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-finai@0.319.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-insol@0.323.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-netology@0.327.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-scan@0.326.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-serv@0.327.0-canary.2305.18873573377.0
+npm install @salutejs/sdds-themes@0.49.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-cy-utils@0.140.0-canary.2305.18873573377.0
+npm install @salutejs/plasma-sb-utils@0.210.0-canary.2305.18873573377.0
+# or 
+yarn add @salutejs/plasma-asdk@0.354.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-b2c@1.596.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-core@1.210.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-giga@0.323.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-hope@1.356.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-icons@1.227.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-new-hope@0.340.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-tokens@1.124.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-ui@1.332.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-web@1.598.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-bizcom@0.328.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-crm@0.327.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-cs@0.332.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-dfa@0.326.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-finai@0.319.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-insol@0.323.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-netology@0.327.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-scan@0.326.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-serv@0.327.0-canary.2305.18873573377.0
+yarn add @salutejs/sdds-themes@0.49.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-cy-utils@0.140.0-canary.2305.18873573377.0
+yarn add @salutejs/plasma-sb-utils@0.210.0-canary.2305.18873573377.0
+```
+
+</details>
+<!-- GITHUB_RELEASE PR BODY: canary-version -->
+
+
 ## 0.317.0 (15 октября 2025)
 
 ## Функциональные изменения в компонентах
