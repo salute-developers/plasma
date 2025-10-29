@@ -10,3 +10,4 @@ export * from './applyRoundness';
 export * from './applySkeletonGradient';
 export * from './applyHidden';
 export * from './createApplyPaperMixin';
+export * from './addScrollbar';
