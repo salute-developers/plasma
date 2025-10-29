@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-tokens",
-  "version": "1.123.0-dev.0",
+  "version": "1.123.0",
   "description": "plasma-tokens package",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
