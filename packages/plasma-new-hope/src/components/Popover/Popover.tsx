@@ -142,6 +142,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
 
             const onClick = useCallback<React.MouseEventHandler>(
                 (event) => {
+                    event.persist();
                     if (trigger === 'click') {
                         const targetIsPopover = event.target === popoverRef.current;
                         const rootHasTarget = popoverRef.current?.contains(event.target as Element);

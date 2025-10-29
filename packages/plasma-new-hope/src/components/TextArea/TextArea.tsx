@@ -53,8 +53,6 @@ const {
     styledContentWrapper,
 } = classes;
 
-const optionalText = 'optional';
-
 const base = css`
     ${applyDynamicLabel};
 
@@ -129,6 +127,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             requiredPlacement = 'right',
             hasRequiredIndicator = true,
             optional = false,
+            optionalText = 'optional',
             clear,
             hasDivider,
             size,

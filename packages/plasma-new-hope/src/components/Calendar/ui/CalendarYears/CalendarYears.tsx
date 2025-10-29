@@ -27,6 +27,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
     onChangeYear,
     onHoverYear,
     onSetSelected,
+    onTriggerEventTooltip,
     onKeyDown,
 }) => {
     const minDate = min ? new Date(min.getFullYear(), 0, 1) : undefined;
@@ -43,6 +44,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
     });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
+    const noopRef = useRef(null);
 
     const offset = isSecond ? ROW_YEAR_STEP : 0;
 
@@ -114,7 +116,10 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
         [getSelectedDate, onHoverYear, value],
     );
 
-    const handleMouseOutGrid = () => onHoverYear?.(undefined);
+    const handleMouseOutGrid = () => {
+        onHoverYear?.(undefined);
+        onTriggerEventTooltip?.(noopRef, []);
+    };
 
     const getRefs = useCallback(
         (element: HTMLDivElement, i: number, j: number) => {
@@ -180,6 +185,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
                                     sideInRange={getSideInRange(value, date, hoveredYear, isSelected)}
                                     onClick={disabled ? undefined : handleOnChangeYear(i, j)}
                                     onMouseOver={disabled ? undefined : handleOnHoverYear}
+                                    onTriggerEventTooltip={onTriggerEventTooltip}
                                     key={`StyledYear-${i}-${j}`}
                                     role="gridcell"
                                     data-year={yearValue}

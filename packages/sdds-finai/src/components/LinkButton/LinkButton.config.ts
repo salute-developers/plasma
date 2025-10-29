@@ -15,6 +15,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-primary-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-primary-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-primary-hover);
             `,
             accent: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-accent);
@@ -24,6 +25,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-accent-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-accent-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-accent-hover);
             `,
             secondary: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-secondary);
@@ -33,6 +35,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-secondary-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-secondary-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-secondary-hover);
             `,
             positive: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-positive);
@@ -42,6 +45,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-positive-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-positive-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-positive-hover);
             `,
             warning: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-warning);
@@ -51,6 +55,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-warning-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-warning-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-warning-hover);
             `,
             negative: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-negative);
@@ -60,6 +65,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-negative-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-negative-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-negative-hover);
             `,
         },
         size: {

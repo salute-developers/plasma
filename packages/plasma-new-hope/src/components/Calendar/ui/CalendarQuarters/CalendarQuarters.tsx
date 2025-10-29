@@ -26,6 +26,7 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
     onChangeQuarter,
     onHoverQuarter,
     onSetSelected,
+    onTriggerEventTooltip,
     onKeyDown,
 }) => {
     const minDate = min ? new Date(min.getFullYear(), min.getMonth(), 1) : undefined;
@@ -41,6 +42,7 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
     });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
+    const noopRef = useRef(null);
 
     const offset = isSecond ? ROW_QUARTER_STEP : 0;
 
@@ -112,7 +114,10 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
         [getSelectedDate, onHoverQuarter, value],
     );
 
-    const handleMouseOutGrid = () => onHoverQuarter?.(undefined);
+    const handleMouseOutGrid = () => {
+        onHoverQuarter?.(undefined);
+        onTriggerEventTooltip?.(noopRef, []);
+    };
 
     const getRefs = useCallback(
         (element: HTMLDivElement, i: number, j: number) => {
@@ -178,6 +183,7 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
                                     sideInRange={getSideInRange(value, date, hoveredQuarter, isSelected)}
                                     onClick={disabled ? undefined : handleOnChangeQuarter(i, j, String(quarterName))}
                                     onMouseOver={disabled ? undefined : handleOnHoverQuarter}
+                                    onTriggerEventTooltip={onTriggerEventTooltip}
                                     key={`StyledQuarter-${i}-${j}`}
                                     role="gridcell"
                                     aria-label={quarterName}

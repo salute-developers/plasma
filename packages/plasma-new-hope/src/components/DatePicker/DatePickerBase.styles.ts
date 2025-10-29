@@ -109,6 +109,29 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.iconButtonPadding}: var(${tokens.iconButtonPadding});
     ${calendarBaseTokens.iconButtonRadius}: var(${tokens.iconButtonRadius});
     ${calendarBaseTokens.iconButtonFocusColor}: var(${tokens.iconButtonFocusColor});
+
+    ${calendarBaseTokens.tooltipPaddingTop} var(${tokens.tooltipPaddingTop});
+    ${calendarBaseTokens.tooltipPaddingRight} var(${tokens.tooltipPaddingRight});
+    ${calendarBaseTokens.tooltipPaddingBottom} var(${tokens.tooltipPaddingBottom});
+    ${calendarBaseTokens.tooltipPaddingLeft} var(${tokens.tooltipPaddingLeft});
+    ${calendarBaseTokens.tooltipMinHeight} var(${tokens.tooltipMinHeight});
+    ${calendarBaseTokens.tooltipBackgroundColor} var(${tokens.tooltipBackgroundColor});
+    ${calendarBaseTokens.tooltipBoxShadow} var(${tokens.tooltipBoxShadow});
+    ${calendarBaseTokens.tooltipBorderRadius} var(${tokens.tooltipBorderRadius});
+    ${calendarBaseTokens.tooltipColor} var(${tokens.tooltipColor});
+    ${calendarBaseTokens.tooltipTextFontFamily} var(${tokens.tooltipTextFontFamily});
+    ${calendarBaseTokens.tooltipTextFontSize} var(${tokens.tooltipTextFontSize});
+    ${calendarBaseTokens.tooltipTextFontStyle} var(${tokens.tooltipTextFontStyle});
+    ${calendarBaseTokens.tooltipTextFontWeight} var(${tokens.tooltipTextFontWeight});
+    ${calendarBaseTokens.tooltipTextFontLetterSpacing} var(${tokens.tooltipTextFontLetterSpacing});
+    ${calendarBaseTokens.tooltipTextFontLineHeight} var(${tokens.tooltipTextFontLineHeight});
+    ${calendarBaseTokens.tooltipContentLeftMargin} var(${tokens.tooltipContentLeftMargin});
+    ${calendarBaseTokens.tooltipArrowMaskWidth} var(${tokens.tooltipArrowMaskWidth});
+    ${calendarBaseTokens.tooltipArrowMaskHeight} var(${tokens.tooltipArrowMaskHeight});
+    ${calendarBaseTokens.tooltipArrowMaskImage} var(${tokens.tooltipArrowMaskImage});
+    ${calendarBaseTokens.tooltipArrowBackground} var(${tokens.tooltipArrowBackground});
+    ${calendarBaseTokens.tooltipArrowHeight} var(${tokens.tooltipArrowHeight});
+    ${calendarBaseTokens.tooltipArrowEdgeMargin} var(${tokens.tooltipArrowEdgeMargin});
 `;
 
 // NOTE: переопределение токенов Calendar

@@ -3,17 +3,21 @@ import React, {
     useCallback,
     useMemo,
     forwardRef,
-    HTMLAttributes,
     KeyboardEvent,
     useEffect,
     useReducer,
+    ReactNode,
+    useRef,
+    MutableRefObject,
+    HTMLAttributes,
 } from 'react';
 import cls from 'classnames';
+import { useForkRef } from '@salutejs/plasma-core';
 
 import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
 import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate, I18N } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
-import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears } from '../ui';
+import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears, EventTooltip } from '../ui';
 import { RootProps } from '../../../engines/types';
 import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
@@ -21,6 +25,8 @@ import { IsOutOfRange } from '../CalendarBase/CalendarBase.styles';
 import { classes } from '../Calendar.tokens';
 
 import { base as viewCSS } from './variations/_view/base';
+import { base as sizeCSS } from './variations/_size/base';
+import { base as eventTooltipSizeCSS } from './variations/_tooltip-size/base';
 import { StyledCalendar, StyledSeparator, StyledWrapper } from './CalendarDouble.styles';
 
 export type CalendarDoubleProps = Calendar & CalendarConfigProps;
@@ -28,7 +34,9 @@ export type CalendarDoubleProps = Calendar & CalendarConfigProps;
 /**
  * Компонент двойного календаря.
  */
-export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>>) =>
+export const calendarDoubleRoot = (
+    Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { eventTooltipSize?: string }>,
+) =>
     forwardRef<HTMLDivElement, CalendarDoubleProps>(
         (
             {
@@ -39,6 +47,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                 renderFromDate,
                 includeEdgeDates,
                 type = 'Days',
+                eventTooltipOptions,
                 eventList,
                 disabledList,
                 eventMonthList,
@@ -64,6 +73,11 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
             const [prevType, setPrevType] = useState(type);
             const [prevValue, setPrevValue] = useState(value);
             const [outOfRangeKey, setOutOfRangeKey] = useState<number>(0);
+
+            const [eventNodes, setEventNodes] = useState<ReactNode[]>([]);
+            const eventTooltipTargetRef = useRef<HTMLDivElement | null>(null);
+            const rootRef = useRef<HTMLDivElement | null>(null);
+            const innerRootRef = useForkRef(rootRef, outerRootRef);
 
             const min = minDate && new Date(minDate);
             const max = maxDate && new Date(maxDate);
@@ -141,6 +155,30 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                 [onKeyDown],
             );
 
+            const handleTriggerEventTooltip = (
+                structureRef?: MutableRefObject<HTMLDivElement | null>,
+                events?: ReactNode[],
+            ) => {
+                if (structureRef?.current && events?.length) {
+                    eventTooltipTargetRef.current = structureRef.current;
+
+                    setEventNodes(events);
+                } else if (eventTooltipTargetRef.current !== null) {
+                    eventTooltipTargetRef.current = null;
+
+                    setEventNodes([]);
+                }
+            };
+
+            const tooltipContent = () => {
+                const TooltipBodyWrapper = eventTooltipOptions?.bodyWrapper;
+                if (!TooltipBodyWrapper) {
+                    return eventNodes;
+                }
+
+                return <TooltipBodyWrapper>{eventNodes}</TooltipBodyWrapper>;
+            };
+
             useEffect(() => {
                 if (prevType !== calendarState) {
                     dispatch({
@@ -193,9 +231,10 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
 
             return (
                 <Root
-                    ref={outerRootRef}
+                    ref={innerRootRef}
                     className={cls(className, { [classes.stretched]: stretched })}
                     aria-label={I18N.selectDate[locale]}
+                    eventTooltipSize={eventTooltipOptions?.size}
                     {...rest}
                 >
                     {isOutOfRange && (
@@ -238,6 +277,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onChangeDay={handleOnChangeDay}
                                     onHoverDay={setHoveredItem}
                                     onSetSelected={onSelectIndexes}
+                                    onTriggerEventTooltip={handleTriggerEventTooltip}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
                                     locale={locale}
@@ -257,6 +297,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onChangeDay={handleOnChangeDay}
                                     onHoverDay={setHoveredItem}
                                     onSetSelected={onSelectIndexes}
+                                    onTriggerEventTooltip={handleTriggerEventTooltip}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
                                     locale={locale}
@@ -279,6 +320,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onChangeMonth={handleOnChangeMonth}
                                     onSetSelected={onSelectIndexes}
                                     onHoverMonth={setHoveredItem}
+                                    onTriggerEventTooltip={handleTriggerEventTooltip}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
                                     locale={locale}
@@ -297,6 +339,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onChangeMonth={handleOnChangeMonth}
                                     onSetSelected={onSelectIndexes}
                                     onHoverMonth={setHoveredItem}
+                                    onTriggerEventTooltip={handleTriggerEventTooltip}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
                                     locale={locale}
@@ -319,6 +362,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onChangeQuarter={handleOnChangeQuarter}
                                     onSetSelected={onSelectIndexes}
                                     onHoverQuarter={setHoveredItem}
+                                    onTriggerEventTooltip={handleTriggerEventTooltip}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
                                     isDouble
@@ -336,6 +380,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onChangeQuarter={handleOnChangeQuarter}
                                     onSetSelected={onSelectIndexes}
                                     onHoverQuarter={setHoveredItem}
+                                    onTriggerEventTooltip={handleTriggerEventTooltip}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
                                     isDouble
@@ -358,6 +403,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onChangeYear={handleOnChangeYear}
                                     onSetSelected={onSelectIndexes}
                                     onHoverYear={setHoveredItem}
+                                    onTriggerEventTooltip={handleTriggerEventTooltip}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
                                     isDouble
@@ -376,6 +422,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                                     onChangeYear={handleOnChangeYear}
                                     onSetSelected={onSelectIndexes}
                                     onHoverYear={setHoveredItem}
+                                    onTriggerEventTooltip={handleTriggerEventTooltip}
                                     onKeyDown={handleKeyDown}
                                     outerRefs={outerRefs}
                                     isDouble
@@ -384,6 +431,17 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                             </>
                         )}
                     </StyledWrapper>
+
+                    {eventTooltipTargetRef.current && eventNodes?.length && (
+                        <EventTooltip
+                            opened={Boolean(eventNodes?.length)}
+                            target={eventTooltipTargetRef}
+                            frame={rootRef}
+                            text={tooltipContent()}
+                            trigger="hover"
+                            {...eventTooltipOptions}
+                        />
+                    )}
                 </Root>
             );
         },
@@ -398,9 +456,16 @@ export const calendarDoubleConfig = {
         view: {
             css: viewCSS,
         },
+        size: {
+            css: sizeCSS,
+        },
+        eventTooltipSize: {
+            css: eventTooltipSizeCSS,
+        },
     },
     defaults: {
         view: 'primary',
         size: 'm',
+        eventTooltipSizeCSS: 'm',
     },
 };

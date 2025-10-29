@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { withViewContainer } from './decoratorViewContainer';
+import { withReactStrictMode, reactStrictModePreviewOption } from '@salutejs/plasma-sb-utils';
 
 const LIGHT_THEME = 'light';
 const DARK_THEME = 'dark';
@@ -9,7 +10,7 @@ const ON_DARK_MODE = 'onDark';
 const ON_LIGHT_MODE = 'onLight';
 
 const preview: Preview = {
-    decorators: [withViewContainer],
+    decorators: [withViewContainer, withReactStrictMode],
     parameters: {
         docs: {
             source: { type: 'code', language: 'tsx' },
@@ -32,6 +33,7 @@ const preview: Preview = {
                 items: [DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE],
             },
         },
+        ...reactStrictModePreviewOption,
     },
     tags: ['autodocs'],
 };

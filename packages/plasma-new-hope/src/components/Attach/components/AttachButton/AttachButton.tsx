@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { AttachButtonProps } from '../../Attach.types';
-import { StyledIconButton } from '../../ui/IconButton/IconButton';
-import { StyledButton } from '../../ui/Button/Button';
+import { StyledIconButton, StyledButton } from '../../ui';
 import { IconPlus } from '../../../_Icon';
 
 const getDefaultIcon = (size?: string) => {

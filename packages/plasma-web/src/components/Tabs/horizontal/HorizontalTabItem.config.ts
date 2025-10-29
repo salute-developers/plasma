@@ -24,9 +24,6 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.itemPaddingClear}: 0;
-                ${tabsTokens.itemContentPaddingClear}: 0;
-
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
@@ -79,9 +76,6 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.itemPaddingClear}: 0;
-                ${tabsTokens.itemContentPaddingClear}: 0;
-
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
@@ -123,9 +117,9 @@ export const config = {
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 2rem;
-                ${tabsTokens.itemPadding}: 0 0.5rem;
+                ${tabsTokens.itemPadding}: 0 0.125rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.375rem;
-                ${tabsTokens.itemMarginLeft}: 1.75rem;
+                ${tabsTokens.itemMarginLeft}: 1.5rem;
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
@@ -142,9 +136,9 @@ export const config = {
                 ${tabsTokens.itemBorderRadius}: 0.5rem;
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 2.5rem;
-                ${tabsTokens.itemPadding}: 0 0.625rem;
+                ${tabsTokens.itemPadding}: 0 0.125rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
-                ${tabsTokens.itemMarginLeft}: 1.75rem;
+                ${tabsTokens.itemMarginLeft}: 1.5rem;
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
@@ -161,9 +155,9 @@ export const config = {
                 ${tabsTokens.itemBorderRadius}: 0.625rem;
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 3rem;
-                ${tabsTokens.itemPadding}: 0 0.625rem;
+                ${tabsTokens.itemPadding}: 0 0.125rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
-                ${tabsTokens.itemMarginLeft}: 1.75rem;
+                ${tabsTokens.itemMarginLeft}: 1.5rem;
                 ${tabsTokens.itemContentGap}: 0.375rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
@@ -180,9 +174,9 @@ export const config = {
                 ${tabsTokens.itemBorderRadius}: 0.75rem;
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 3.5rem;
-                ${tabsTokens.itemPadding}: 0 0.875rem;
+                ${tabsTokens.itemPadding}: 0 0.125rem;
                 ${tabsTokens.itemPaddingPilled}: 0 0.75rem;
-                ${tabsTokens.itemMarginLeft}: 1.75rem;
+                ${tabsTokens.itemMarginLeft}: 1.5rem;
                 ${tabsTokens.itemContentGap}: 0.5rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
@@ -199,8 +193,8 @@ export const config = {
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 3rem;
-                ${tabsTokens.itemPadding}: 0rem;
-                ${tabsTokens.itemMarginLeft}: 1.75rem;
+                ${tabsTokens.itemPadding}: 0 0.125rem;
+                ${tabsTokens.itemMarginLeft}: 1.5rem;
                 ${tabsTokens.itemContentGap}: 0.625rem;
 
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h5-font-family);
@@ -216,8 +210,8 @@ export const config = {
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 3.25rem;
-                ${tabsTokens.itemPadding}: 0rem;
-                ${tabsTokens.itemMarginLeft}: 2rem;
+                ${tabsTokens.itemPadding}: 0 0.125rem;
+                ${tabsTokens.itemMarginLeft}: 1.75rem;
                 ${tabsTokens.itemContentGap}: 0.625rem;
 
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h4-font-family);
@@ -233,8 +227,8 @@ export const config = {
                 ${tabsTokens.itemBorderRadius}: 0.5rem;
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 3.875rem;
-                ${tabsTokens.itemPadding}: 0rem;
-                ${tabsTokens.itemMarginLeft}: 2.25rem;
+                ${tabsTokens.itemPadding}: 0 0.125rem;
+                ${tabsTokens.itemMarginLeft}: 2rem;
                 ${tabsTokens.itemContentGap}: 0.75rem;
 
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h3-font-family);
@@ -250,8 +244,8 @@ export const config = {
                 ${tabsTokens.itemBorderRadius}: 0.625rem;
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 4.5rem;
-                ${tabsTokens.itemPadding}: 0rem;
-                ${tabsTokens.itemMarginLeft}: 2.5rem;
+                ${tabsTokens.itemPadding}: 0 0.125rem;
+                ${tabsTokens.itemMarginLeft}: 2.25rem;
                 ${tabsTokens.itemContentGap}: 0.875rem;
 
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h2-font-family);
@@ -267,8 +261,8 @@ export const config = {
                 ${tabsTokens.itemBorderRadius}: 0.75rem;
                 ${tabsTokens.itemWidth}: auto;
                 ${tabsTokens.itemHeight}: 5.75rem;
-                ${tabsTokens.itemPadding}: 0rem;
-                ${tabsTokens.itemMarginLeft}: 3.5rem;
+                ${tabsTokens.itemPadding}: 0 0.125rem;
+                ${tabsTokens.itemMarginLeft}: 3.25rem;
                 ${tabsTokens.itemContentGap}: 1rem;
 
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h1-font-family);

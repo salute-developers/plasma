@@ -1,7 +1,8 @@
-import React, { ComponentProps, useEffect, useRef, useState } from 'react';
+import React, { ComponentProps, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { disableProps, getConfigVariations, IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { IconCalendarOutline } from '@salutejs/plasma-icons';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { IconButton } from '../IconButton';
 
@@ -94,6 +95,74 @@ export default meta;
 type StoryPropsDefault = ComponentProps<typeof DatePicker> & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
+    enableEventTooltip: boolean;
+};
+
+const EventNode = ({ dateValue, color }: { dateValue: string; color: string }) => {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span>Дата: {dateValue}</span>
+            <span>Цвет: {color}</span>
+        </div>
+    );
+};
+
+const eventColors = ['red', 'green', 'blue', 'purple'];
+
+const EventTooltipBody = ({ children }: PropsWithChildren) => {
+    return <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>{children}</div>;
+};
+
+const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumber = 2, enableEventTooltip = false) => {
+    const baseDate = {
+        day: 14,
+        monthIndex: 5,
+        year: 2024,
+    };
+
+    const getColorIndex = () => {
+        switch (type) {
+            case 'days':
+                return 0;
+            case 'months':
+                return 1;
+            case 'quarters':
+                return 2;
+            case 'years':
+                return 3;
+            default:
+                return 0;
+        }
+    };
+
+    const colorIndex = getColorIndex();
+
+    const events = [...new Array(datesNumber)].map((_, index) => {
+        const eventNumber = index + 1;
+        const day = type === 'days' ? baseDate.day + index : 1;
+        const month =
+            // eslint-disable-next-line no-nested-ternary
+            type === 'months' || type === 'quarters'
+                ? baseDate.monthIndex + index
+                : type === 'days'
+                ? baseDate.monthIndex
+                : 0;
+        const year = type === 'years' ? baseDate.year + index : baseDate.year;
+
+        return [...new Array(eventNumber)].map((_, ind) => {
+            return {
+                date: new Date(year, month, day),
+                color: eventColors[colorIndex],
+                ...(enableEventTooltip && {
+                    eventInfo: (
+                        <EventNode key={ind} color={eventColors[colorIndex]} dateValue={`${year} ${month} ${day}`} />
+                    ),
+                }),
+            };
+        });
+    });
+
+    return events.flat();
 };
 
 const StoryDefault = ({
@@ -106,11 +175,18 @@ const StoryDefault = ({
     format,
     min,
     max,
+    eventTooltipSize,
+    enableEventTooltip,
     ...rest
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const iconSize = size === 'xs' ? 'xs' : 's';
+
+    const eventList = getBaseEvents('days', 5, enableEventTooltip);
+    const eventMonthList = getBaseEvents('months', 5, enableEventTooltip);
+    const eventQuarterList = getBaseEvents('quarters', 2, enableEventTooltip);
+    const eventYearList = getBaseEvents('years', 2, enableEventTooltip);
 
     return (
         <DatePicker
@@ -118,13 +194,12 @@ const StoryDefault = ({
             size={size}
             valueError={valueError}
             valueSuccess={valueSuccess}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconCalendarOutline color="inherit" size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconCalendarOutline color="inherit" size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => {
                 setIsOpen(is);
-                onToggle(is);
             }}
             onChangeValue={onChangeValue}
             onCommitDate={onCommitDate}
@@ -132,6 +207,14 @@ const StoryDefault = ({
             format={format}
             min={min}
             max={max}
+            eventTooltipOptions={{
+                bodyWrapper: EventTooltipBody,
+                size: eventTooltipSize,
+            }}
+            eventList={eventList}
+            eventMonthList={eventMonthList}
+            eventQuarterList={eventQuarterList}
+            eventYearList={eventYearList}
             {...rest}
         />
     );
@@ -148,6 +231,12 @@ export const Default: StoryObj<StoryPropsDefault> = {
             options: labelPlacements,
             control: {
                 type: 'inline-radio',
+            },
+        },
+        eventTooltipSize: {
+            options: ['m', 's'],
+            control: {
+                type: 'select',
             },
         },
     },
@@ -174,13 +263,15 @@ export const Default: StoryObj<StoryPropsDefault> = {
         disabled: false,
         readOnly: false,
         textBefore: '',
-        enableContentLeft: true,
+        enableContentLeft: false,
         enableContentRight: true,
         valueError: false,
         valueSuccess: false,
         calendarContainerWidth: 0,
         calendarContainerHeight: 0,
         stretched: false,
+        enableEventTooltip: true,
+        eventTooltipSize: 'm',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -198,7 +289,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconPlaceholder size={iconSize} />
+            <IconCalendarOutline color="inherit" size={iconSize} />
         </IconButton>
     );
 };
@@ -229,7 +320,7 @@ const StoryRange = ({
     const showDefaultTextBefore = dividerVariant === 'none';
 
     const dividerIconProps = {
-        dividerIcon: showDividerIcon ? <IconPlaceholder size={iconSize} /> : null,
+        dividerIcon: showDividerIcon ? <IconCalendarOutline color="inherit" size={iconSize} /> : null,
         dividerVariant,
     };
 
@@ -242,19 +333,19 @@ const StoryRange = ({
             firstValueSuccess={firstValueSuccess}
             secondValueError={secondValueError}
             secondValueSuccess={secondValueSuccess}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconCalendarOutline color="inherit" size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
             firstTextfieldContentLeft={
-                enableFirstTextfieldContentLeft ? <IconPlaceholder size={iconSize} /> : undefined
+                enableFirstTextfieldContentLeft ? <IconCalendarOutline color="inherit" size={iconSize} /> : undefined
             }
             firstTextfieldContentRight={
-                enableFirstTextfieldContentRight ? <IconPlaceholder size={iconSize} /> : undefined
+                enableFirstTextfieldContentRight ? <IconCalendarOutline color="inherit" size={iconSize} /> : undefined
             }
             secondTextfieldContentLeft={
-                enableSecondTextfieldContentLeft ? <IconPlaceholder size={iconSize} /> : undefined
+                enableSecondTextfieldContentLeft ? <IconCalendarOutline color="inherit" size={iconSize} /> : undefined
             }
             secondTextfieldContentRight={
-                enableSecondTextfieldContentRight ? <IconPlaceholder size={iconSize} /> : undefined
+                enableSecondTextfieldContentRight ? <IconCalendarOutline color="inherit" size={iconSize} /> : undefined
             }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
@@ -264,7 +355,6 @@ const StoryRange = ({
             }
             onToggle={(is) => {
                 setIsOpen(is);
-                onToggle(is);
             }}
             onChangeFirstValue={onChangeFirstValue}
             onChangeSecondValue={onChangeSecondValue}
@@ -313,10 +403,10 @@ export const Range: StoryObj<StoryPropsRange> = {
         hasRequiredIndicator: true,
         disabled: false,
         readOnly: false,
-        enableContentLeft: true,
+        enableContentLeft: false,
         enableContentRight: true,
         enableFirstTextfieldContentLeft: false,
-        enableFirstTextfieldContentRight: false,
+        enableFirstTextfieldContentRight: true,
         enableSecondTextfieldContentLeft: false,
         enableSecondTextfieldContentRight: false,
         firstValueError: false,
@@ -356,8 +446,8 @@ const StoryDeferred = ({
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
-                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconCalendarOutline color="inherit" size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconCalendarOutline color="inherit" size={iconSize} /> : undefined}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onToggle={(is) => setIsOpen(is)}

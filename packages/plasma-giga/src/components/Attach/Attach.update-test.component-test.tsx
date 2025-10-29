@@ -9,6 +9,14 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const Icon = () => <IconPlasma color="inherit" />;
 const FIXTURE_PATH = 'images/placeholder.png';
+const MULTIPLE_FIXTURE_PATH = [
+    'images/placeholder.png',
+    'images/parrot.png',
+    'images/img.png',
+    'images/cat.png',
+    'images/avocado.png',
+];
+
 const cellRootSelector = '.cell-root';
 
 describe('plasma-giga: Attach', () => {
@@ -199,6 +207,54 @@ describe('plasma-giga: Attach', () => {
             </CypressTestDecoratorWithTypo>,
         );
         cy.get('input').attachFile(FIXTURE_PATH);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('multiple=true, flow=horizontal', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Attach flow="horizontal" multiple />
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.get('input').attachFile(MULTIPLE_FIXTURE_PATH);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('multiple=true, flow=vertical', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Attach flow="vertical" multiple />
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.get('input').attachFile(MULTIPLE_FIXTURE_PATH);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('multiple=true, flow=horizontal, delete first file', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Attach flow="horizontal" multiple />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').attachFile(MULTIPLE_FIXTURE_PATH);
+        cy.get('.cell-root .cell-content + div').first().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('multiple=true, flow=horizontal, files in dropdown', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Attach flow="horizontal" multiple />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').attachFile(MULTIPLE_FIXTURE_PATH);
+        cy.get('.plasma-attach-horizontal + div').first().click();
 
         cy.matchImageSnapshot();
     });

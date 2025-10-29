@@ -61,6 +61,10 @@ export const LinkButtonText = styled.span`
     color: var(${tokens.linkButtonTextColor});
 
     ${applyEllipsis()}
+
+    &:hover {
+        color: var(${tokens.linkButtonTextColorHover});
+    }
 `;
 
 export const StyledContentLeft = styled.div`

@@ -132,7 +132,7 @@ describe('plasma-web: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs clip="scroll" size="m" style={{ width: '10.5rem' }}>
                     {items.map((item, i) => (
-                        <TabItem pilled key={i} selected={i === 1}>
+                        <TabItem size="m" pilled key={i} selected={i === 1}>
                             {item.label}
                         </TabItem>
                     ))}
@@ -140,20 +140,14 @@ describe('plasma-web: Tabs', () => {
             </CypressTestDecorator>,
         );
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(1000);
         cy.get('button').contains('Joy').should('not.be.visible');
         cy.get('button').contains('Athena').should('be.visible');
 
         cy.get('[aria-label="Предыдущий таб"]').click();
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(1000);
         cy.get('button').contains('Sber').should('be.visible');
         cy.get('button').contains('Joy').should('be.visible');
 
         cy.get('[aria-label="Следующий таб"]').click();
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(1000);
         cy.get('button').contains('Joy').should('not.be.visible');
     });
 

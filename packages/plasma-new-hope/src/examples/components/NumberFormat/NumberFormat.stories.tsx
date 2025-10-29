@@ -53,6 +53,15 @@ const meta: Meta = {
                 truthy: false,
             },
         },
+        optionalText: {
+            control: {
+                type: 'text',
+            },
+            if: {
+                arg: 'required',
+                truthy: false,
+            },
+        },
         hasDivider: {
             control: {
                 type: 'boolean',
@@ -179,6 +188,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         disabled: false,
         readOnly: false,
         optional: false,
+        optionalText: 'опционально',
         required: false,
         requiredPlacement: 'right',
         clear: false,

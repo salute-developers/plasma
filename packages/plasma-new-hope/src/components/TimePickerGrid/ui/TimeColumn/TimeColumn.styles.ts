@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import { classes, tokens } from '../../TimePicker.tokens';
+import { classes, tokens } from '../../TimePickerGrid.tokens';
 
 export const StyledRoot = styled.div`
     position: relative;
@@ -32,6 +32,11 @@ export const StyledTimeItem = styled.div`
     }
     &.${classes.timeItemActive} {
         background: var(${tokens.itemBackgroundActive});
+    }
+
+    &.${classes.itemDisabled} {
+        cursor: not-allowed;
+        opacity: var(${tokens.disabledOpacity});
     }
 `;
 

@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode, MutableRefObject } from 'react';
 
 import type { DateStructureProps, EventDay } from '../../Calendar.types';
 
@@ -11,4 +11,5 @@ export interface DateStructureItemProps extends DateStructureProps, HTMLAttribut
     isFocused?: boolean;
     disabledArrowKey?: string;
     disabledMonths?: string;
+    onTriggerEventTooltip?: (structureRef?: MutableRefObject<HTMLDivElement | null>, events?: ReactNode[]) => void;
 }

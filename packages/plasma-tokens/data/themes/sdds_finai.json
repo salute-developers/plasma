@@ -1183,11 +1183,11 @@
                     "enabled": false
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#09212FFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#0A2333FF",
+                    "value": "#06151EFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorGradient": {
@@ -1458,10 +1458,6 @@
                     "value": "[general.blue.500]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.2)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
@@ -1529,6 +1525,10 @@
                 "surfaceTransparentDeep": {
                     "value": "#d5dfe6bd",
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#071A26",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 }
             },
             "onDark": {
@@ -1643,16 +1643,12 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": false
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
-                },
                 "surfaceAccentMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#09212FFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#0A2333FF",
+                    "value": "#06151EFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentMinorGradient": {
@@ -1990,6 +1986,10 @@
                 "surfaceTransparentDeep": {
                     "value": "#d5dfe6bd",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#071A26",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 }
             },
             "onLight": {
@@ -2109,11 +2109,11 @@
                     "enabled": false
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#DBF1FFFF",
+                    "value": "#F6FBFEFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#E5F2FBFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorGradient": {
@@ -2380,10 +2380,6 @@
                     "value": "[general.blue.500]",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
@@ -2451,6 +2447,10 @@
                 "surfaceTransparentDeep": {
                     "value": "#30373cc7",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#ECF6FC",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 }
             },
             "inverse": {
@@ -2570,11 +2570,11 @@
                     "enabled": false
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#DBF1FFFF",
+                    "value": "#09212FFF",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#C7E9FFFF",
+                    "value": "#06151EFF",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorGradient": {
@@ -2841,10 +2841,6 @@
                     "value": "[general.blue.500]",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.12)",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
@@ -2912,6 +2908,10 @@
                 "surfaceTransparentDeep": {
                     "value": "#30373cc7",
                     "comment": "Инвертированный глубокий прозрачный фон поверхности/контрола"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#071A26",
+                    "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 }
             }
         },
@@ -4691,10 +4691,6 @@
         },
         "data": {
             "default": {
-                "dataYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": "Желтый цвет для данных"
-                },
                 "dataYellowHover": {
                     "value": "#F4B22FFF",
                     "comment": "Желтый цвет для данных"
@@ -4702,10 +4698,6 @@
                 "dataYellowActive": {
                     "value": "#EDA20CFF",
                     "comment": "Желтый цвет для данных"
-                },
-                "dataYellowMinor": {
-                    "value": "[general.amber.700]",
-                    "comment": "Минорный желтый цвет для данных"
                 },
                 "dataYellowMinorHover": {
                     "value": "#B87A00FF",
@@ -4715,10 +4707,6 @@
                     "value": "#996600FF",
                     "comment": "Минорный желтый цвет для данных"
                 },
-                "dataYellowTransparent": {
-                    "value": "[general.amber.300][-0.44]",
-                    "comment": "Прозрачный желтый цвет для данных"
-                },
                 "dataYellowTransparentHover": {
                     "value": "#F3A812AD",
                     "comment": "Прозрачный желтый цвет для данных"
@@ -4726,10 +4714,6 @@
                 "dataYellowTransparentActive": {
                     "value": "#F3A81280",
                     "comment": "Прозрачный желтый цвет для данных"
-                },
-                "dataYellowLight": {
-                    "value": "[general.amber.900]",
-                    "comment": "Светлый желтый цвет для данных"
                 },
                 "dataYellowLightHover": {
                     "value": "#FFF4E0FF",
@@ -4739,10 +4723,6 @@
                     "value": "#FFF3DBFF",
                     "comment": "Светлый желтый цвет для данных"
                 },
-                "dataSkyBlueLight": {
-                    "value": "[general.blue.900]",
-                    "comment": "Светлый голубой цвет для данных"
-                },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
                     "comment": "Светлый голубой цвет для данных"
@@ -4750,13 +4730,137 @@
                 "dataSkyBlueLightActive": {
                     "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных"
+                },
+                "dataGreen": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "dataYellowLight": {
+                    "value": "[general.amber.950]",
+                    "comment": "Светлый желтый цвет для данных"
+                },
+                "dataBlueLight": {
+                    "value": "[general.blue.950]",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataYellow": {
+                    "value": "[general.amber.700]",
+                    "comment": "Желтый цвет для данных"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.850]",
+                    "comment": "Минорный желтый цвет для данных"
+                },
+                "dataOrange": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "dataOrangeMinor": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "dataOrangeLight": {
+                    "value": "[general.orange.900]",
+                    "comment": ""
+                },
+                "dataRed": {
+                    "value": "[general.red.700]",
+                    "comment": ""
+                },
+                "dataRedMinor": {
+                    "value": "[general.red.800]",
+                    "comment": ""
+                },
+                "dataRedLight": {
+                    "value": "[general.red.900]",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.700]",
+                    "comment": ""
+                },
+                "dataGreenMinor": {
+                    "value": "[general.green.700]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.850]",
+                    "comment": ""
+                },
+                "dataSpring": {
+                    "value": "[general.green.700]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.500]",
+                    "comment": ""
+                },
+                "dataBlueMild": {
+                    "value": "[general.blue.700]",
+                    "comment": ""
+                },
+                "dataBlueMinor": {
+                    "value": "[general.blue.850]",
+                    "comment": ""
+                },
+                "dataMalachite": {
+                    "value": "[general.malachite.700]",
+                    "comment": ""
+                },
+                "dataMalachiteMinor": {
+                    "value": "[general.malachite.800]",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.800]",
+                    "comment": ""
+                },
+                "dataPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "dataGray": {
+                    "value": "[general.coolGray.600]",
+                    "comment": ""
+                },
+                "dataGrayMinor": {
+                    "value": "[general.coolGray.850]",
+                    "comment": ""
+                },
+                "dataRedTransparent": {
+                    "value": "#FF293E3D",
+                    "comment": ""
+                },
+                "dataOrangeTransparent": {
+                    "value": "#FA5F053D",
+                    "comment": ""
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Прозрачный желтый цвет для данных"
+                },
+                "dataGreenTransparent": {
+                    "value": "#1A9E323D",
+                    "comment": ""
+                },
+                "dataBlueTransparent": {
+                    "value": "#118CDF3D",
+                    "comment": ""
                 }
             },
             "onDark": {
-                "dataYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": "Желтый цвет для данных на темном фоне"
-                },
                 "dataYellowHover": {
                     "value": "#F4B22FFF",
                     "comment": "Желтый цвет для данных на темном фоне"
@@ -4764,10 +4868,6 @@
                 "dataYellowActive": {
                     "value": "#EDA20CFF",
                     "comment": "Желтый цвет для данных на темном фоне"
-                },
-                "dataYellowMinor": {
-                    "value": "[general.amber.700]",
-                    "comment": "Минорный желтый цвет для данных на темном фоне"
                 },
                 "dataYellowMinorHover": {
                     "value": "#B87A00FF",
@@ -4789,10 +4889,6 @@
                     "value": "#F3A81280",
                     "comment": "Прозрачный желтый цвет для данных на темном фоне"
                 },
-                "dataYellowLight": {
-                    "value": "[general.amber.900]",
-                    "comment": "Светлый желтый цвет для данных на темном фоне"
-                },
                 "dataYellowLightHover": {
                     "value": "#FFF4E0FF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
@@ -4801,10 +4897,6 @@
                     "value": "#FFF3DBFF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
-                "dataSkyBlueLight": {
-                    "value": "[general.blue.900]",
-                    "comment": "Светлый голубой цвет для данных на темном фоне"
-                },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
                     "comment": "Cветлый голубой цвет для данных на темном фоне"
@@ -4812,6 +4904,130 @@
                 "dataSkyBlueLightActive": {
                     "value": "#DBF7FFFF",
                     "comment": "Cветлый голубой цвет для данных на темном фоне"
+                },
+                "dataBlueMinor": {
+                    "value": "[general.blue.850]",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataRedMinor": {
+                    "value": "[general.red.800]",
+                    "comment": ""
+                },
+                "dataRedLight": {
+                    "value": "[general.red.900]",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "dataGreenMinor": {
+                    "value": "[general.green.700]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.850]",
+                    "comment": ""
+                },
+                "dataSpring": {
+                    "value": "[general.spring.700]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.500]",
+                    "comment": ""
+                },
+                "dataBlueMild": {
+                    "value": "[general.blue.700]",
+                    "comment": ""
+                },
+                "dataMalachite": {
+                    "value": "[general.malachite.700]",
+                    "comment": ""
+                },
+                "dataMalachiteMinor": {
+                    "value": "[general.malachite.800]",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.800]",
+                    "comment": ""
+                },
+                "dataPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "dataGray": {
+                    "value": "[general.coolGray.600]",
+                    "comment": ""
+                },
+                "dataGrayMinor": {
+                    "value": "[general.coolGray.850]",
+                    "comment": ""
+                },
+                "dataYellowLight": {
+                    "value": "[general.amber.950]",
+                    "comment": "Светлый желтый цвет для данных на темном фоне"
+                },
+                "dataBlueLight": {
+                    "value": "[general.blue.950]",
+                    "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataYellow": {
+                    "value": "[general.amber.700]",
+                    "comment": "Желтый цвет для данных на темном фоне"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.850]",
+                    "comment": "Минорный желтый цвет для данных на темном фоне"
+                },
+                "dataOrange": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "dataOrangeMinor": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "dataOrangeLight": {
+                    "value": "[general.orange.900]",
+                    "comment": ""
+                },
+                "dataRed": {
+                    "value": "[general.red.700]",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.700]",
+                    "comment": ""
+                },
+                "dataRedTransparent": {
+                    "value": "#FF293E3D",
+                    "comment": ""
+                },
+                "dataOrangeTransparent": {
+                    "value": "#FA5F053D",
+                    "comment": ""
+                },
+                "dataGreenTransparent": {
+                    "value": "#1A9E323D",
+                    "comment": ""
+                },
+                "dataBlueTransparent": {
+                    "value": "#118CDF3D",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -4851,10 +5067,6 @@
                     "value": "#F3A81280",
                     "comment": "Прозрачный желтый цвет для данных на светлом фоне"
                 },
-                "dataYellowLight": {
-                    "value": "[general.amber.100]",
-                    "comment": "Светлый желтый цвет для данных на светлом фоне"
-                },
                 "dataYellowLightHover": {
                     "value": "#FFF4E0FF",
                     "comment": "Светлый желтый цвет для данных на светлом фоне"
@@ -4863,10 +5075,6 @@
                     "value": "#FFF3DBFF",
                     "comment": "Светлый желтый цвет для данных на светлом фоне"
                 },
-                "dataSkyBlueLight": {
-                    "value": "[general.skyBlue.100]",
-                    "comment": "Светлый голубой цвет для данных на светлом фоне"
-                },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
                     "comment": "Светлый голубой цвет для данных на светлом фоне"
@@ -4874,6 +5082,122 @@
                 "dataSkyBlueLightActive": {
                     "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных на светлом фоне"
+                },
+                "dataBlueLight": {
+                    "value": "[general.blue.100]",
+                    "comment": "Светлый голубой цвет для данных на светлом фоне"
+                },
+                "dataBlueMinor": {
+                    "value": "[general.blue.150]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.400]",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.250]",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.300]",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "dataGreenMinor": {
+                    "value": "[general.green.300]",
+                    "comment": ""
+                },
+                "dataSpring": {
+                    "value": "[general.spring.250]",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "dataOrangeMinor": {
+                    "value": "[general.orange.300]",
+                    "comment": ""
+                },
+                "dataOrangeLight": {
+                    "value": "[general.orange.150]",
+                    "comment": ""
+                },
+                "dataRed": {
+                    "value": "[general.red.500]",
+                    "comment": ""
+                },
+                "dataRedMinor": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                },
+                "dataRedLight": {
+                    "value": "[general.red.150]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.500]",
+                    "comment": ""
+                },
+                "dataBlueMild": {
+                    "value": "[general.blue.300]",
+                    "comment": ""
+                },
+                "dataMalachite": {
+                    "value": "[general.malachite.300]",
+                    "comment": ""
+                },
+                "dataMalachiteMinor": {
+                    "value": "[general.malachite.250]",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.blue.300]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.300]",
+                    "comment": ""
+                },
+                "dataPink": {
+                    "value": "[general.pink.300]",
+                    "comment": ""
+                },
+                "dataGray": {
+                    "value": "[general.coolGray.400]",
+                    "comment": ""
+                },
+                "dataGrayMinor": {
+                    "value": "[general.coolGray.200]",
+                    "comment": ""
+                },
+                "dataRedTransparent": {
+                    "value": "#FF293E33",
+                    "comment": ""
+                },
+                "dataBlueTransparent": {
+                    "value": "#118CDF33",
+                    "comment": ""
+                },
+                "dataGreenTransparent": {
+                    "value": "#1A9E3233",
+                    "comment": ""
+                },
+                "dataOrangeTransparent": {
+                    "value": "#FA5F0533",
+                    "comment": ""
+                },
+                "dataYellowLight": {
+                    "value": "[general.amber.100]",
+                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.150]",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -4900,10 +5224,6 @@
                 "dataYellowMinorActive": {
                     "value": "#FFCF70FF",
                     "comment": "Инвертированный минорный желтый цвет для данных"
-                },
-                "dataYellowTransparent": {
-                    "value": "[general.amber.300][-0.44]",
-                    "comment": "Инвертированный прозрачный желтый цвет для данных"
                 },
                 "dataYellowTransparentHover": {
                     "value": "#F3A812AD",
@@ -4936,6 +5256,118 @@
                 "dataSkyBlueLightActive": {
                     "value": "#DBF7FFFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataBlueMinor": {
+                    "value": "[general.blue.850]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "dataOrangeMinor": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "dataOrangeLight": {
+                    "value": "[general.orange.900]",
+                    "comment": ""
+                },
+                "dataRed": {
+                    "value": "[general.red.700]",
+                    "comment": ""
+                },
+                "dataRedMinor": {
+                    "value": "[general.red.800]",
+                    "comment": ""
+                },
+                "dataRedLight": {
+                    "value": "[general.red.900]",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.700]",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "dataGreenMinor": {
+                    "value": "[general.green.700]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.850]",
+                    "comment": ""
+                },
+                "dataSpring": {
+                    "value": "[general.spring.700]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.500]",
+                    "comment": ""
+                },
+                "dataBlueMild": {
+                    "value": "[general.blue.700]",
+                    "comment": ""
+                },
+                "dataMalachite": {
+                    "value": "[general.malachite.700]",
+                    "comment": ""
+                },
+                "dataMalachiteMinor": {
+                    "value": "[general.malachite.800]",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.800]",
+                    "comment": ""
+                },
+                "dataPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "dataGray": {
+                    "value": "[general.coolGray.600]",
+                    "comment": ""
+                },
+                "dataGrayMinor": {
+                    "value": "[general.coolGray.850]",
+                    "comment": ""
+                },
+                "dataOrangeTransparent": {
+                    "value": "#FA5F0533",
+                    "comment": ""
+                },
+                "dataGreenTransparent": {
+                    "value": "#1A9E3233",
+                    "comment": ""
+                },
+                "dataBlueTransparent": {
+                    "value": "#118CDF33",
+                    "comment": ""
+                },
+                "dataRedTransparent": {
+                    "value": "#FF293E33",
+                    "comment": ""
+                },
+                "dataYellowTransparent": {
+                    "value": "[general.amber.300][-0.44]",
+                    "comment": "Инвертированный прозрачный желтый цвет для данных"
                 }
             }
         }
@@ -6022,7 +6454,7 @@
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidTertiaryActive": {
-                    "value": "#C9D6DFFF",
+                    "value": "#C9D5DEFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidCardHover": {
@@ -6042,11 +6474,11 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#D5DFE652",
+                    "value": "#D6DFE652",
                     "comment": "Основной прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#D5DFE657",
+                    "value": "#D6DFE657",
                     "comment": "Основной прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentSecondaryHover": {
@@ -6058,19 +6490,19 @@
                     "comment": "Вторичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentTertiaryHover": {
-                    "value": "#8A959D57",
+                    "value": "#8A969E57",
                     "comment": "Третичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentTertiaryActive": {
-                    "value": "#8A959D5C",
+                    "value": "#8A969E5C",
                     "comment": "Третичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentDeepHover": {
-                    "value": "#30373CAD",
+                    "value": "#30373BAD",
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentDeepActive": {
-                    "value": "#30373CCC",
+                    "value": "#30373BCC",
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCardHover": {
@@ -6113,11 +6545,11 @@
                     "enabled": false
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#C7E9FFFF",
+                    "value": "#E9F4FCFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#C2E7FFFF",
+                    "value": "#E5F2FBFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorGradient": {
@@ -6281,7 +6713,7 @@
                     "comment": "Цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinorHover": {
-                    "value": "#94FAA7FF",
+                    "value": "#94F9A7FF",
                     "comment": "Минорный цвет фона поверхности/контрола успех"
                 },
                 "surfacePositiveMinorActive": {
@@ -6293,7 +6725,7 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceWarningMinorActive": {
-                    "value": "#FED8C3FF",
+                    "value": "#FED9C3FF",
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegativeMinorHover": {
@@ -6392,10 +6824,6 @@
                     "value": "rgba(17,140,223,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
-                },
                 "surfacePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех"
@@ -6459,6 +6887,10 @@
                 "surfaceTransparentDeep": {
                     "value": "#30373cc7",
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#ECF6FC",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 }
             },
             "onDark": {
@@ -6578,11 +7010,11 @@
                     "enabled": false
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2638FF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#091D2AFF",
+                    "value": "#040F16FF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentMinorGradient": {
@@ -6853,10 +7285,6 @@
                     "value": "rgba(17,140,223,0.2)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
-                },
                 "surfacePositive": {
                     "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на темном фоне"
@@ -6920,6 +7348,10 @@
                 "surfaceTransparentDeep": {
                     "value": "#d5dfe6bd",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#071A26",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
                 }
             },
             "onLight": {
@@ -6944,7 +7376,7 @@
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidTertiaryActive": {
-                    "value": "#C9D6DFFF",
+                    "value": "#C9D5DEFF",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceSolidCardHover": {
@@ -6964,11 +7396,11 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#D5DFE652",
+                    "value": "#D6DFE652",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#D5DFE657",
+                    "value": "#D6DFE657",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentSecondaryHover": {
@@ -6980,19 +7412,19 @@
                     "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentTertiaryHover": {
-                    "value": "#8A959D57",
+                    "value": "#8A969E57",
                     "comment": "Третичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentTertiaryActive": {
-                    "value": "#8A959D5C",
+                    "value": "#8A969E5C",
                     "comment": "Третичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentDeepHover": {
-                    "value": "#30373CAD",
+                    "value": "#30373BAD",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentDeepActive": {
-                    "value": "#30373CCC",
+                    "value": "#30373BCC",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentCardHover": {
@@ -7039,11 +7471,11 @@
                     "enabled": false
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#C7E9FFFF",
+                    "value": "#E9F4FCFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#C2E7FFFF",
+                    "value": "#E5F2FBFF",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentMinorGradient": {
@@ -7207,7 +7639,7 @@
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfacePositiveMinorHover": {
-                    "value": "#94FAA7FF",
+                    "value": "#94F9A7FF",
                     "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfacePositiveMinorActive": {
@@ -7219,7 +7651,7 @@
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceWarningMinorActive": {
-                    "value": "#FED8C3FF",
+                    "value": "#FED9C3FF",
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceNegativeMinorHover": {
@@ -7310,10 +7742,6 @@
                     "value": "[general.blue.500]",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.blue.150]",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
@@ -7381,6 +7809,10 @@
                 "surfaceTransparentDeep": {
                     "value": "#30373cc7",
                     "comment": "Глубокий прозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#ECF6FC",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
                 }
             },
             "inverse": {
@@ -7500,11 +7932,11 @@
                     "enabled": false
                 },
                 "surfaceAccentMinorHover": {
-                    "value": "#10344CFF",
+                    "value": "#0A2638FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorActive": {
-                    "value": "#091D2AFF",
+                    "value": "#040F16FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceAccentMinorGradient": {
@@ -7771,10 +8203,6 @@
                     "value": "[general.blue.500]",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
-                "surfaceAccentMinor": {
-                    "value": "[general.blue.900]",
-                    "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.2)",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
@@ -7842,6 +8270,10 @@
                 "surfaceTransparentDeep": {
                     "value": "#d5dfe6bd",
                     "comment": "Инвертированный глубокий прозрачный фон поверхности/контрола"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#071A26",
+                    "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
                 }
             }
         },
@@ -9645,10 +10077,6 @@
                     "value": "#FFCC66FF",
                     "comment": "Минорный желтый цвет для данных"
                 },
-                "dataYellowTransparent": {
-                    "value": "[general.amber.300][-0.44]",
-                    "comment": "Прозрачный желтый цвет для данных"
-                },
                 "dataYellowTransparentHover": {
                     "value": "#F3A9129E",
                     "comment": "Прозрачный желтый цвет для данных"
@@ -9669,10 +10097,6 @@
                     "value": "#FFF3DBFF",
                     "comment": "Светлый желтый цвет для данных"
                 },
-                "dataSkyBlueLight": {
-                    "value": "[general.skyBlue.100]",
-                    "comment": "Светлый голубой цвет для данных"
-                },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
                     "comment": "Светлый голубой цвет для данных"
@@ -9680,13 +10104,125 @@
                 "dataSkyBlueLightActive": {
                     "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных"
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.400]",
+                    "comment": ""
+                },
+                "dataBlueMinor": {
+                    "value": "[general.blue.150]",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.250]",
+                    "comment": ""
+                },
+                "dataBlueLight": {
+                    "value": "[general.blue.100]",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.300]",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "dataGreenMinor": {
+                    "value": "[general.green.300]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.150]",
+                    "comment": ""
+                },
+                "dataSpring": {
+                    "value": "[general.green.250]",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "dataOrangeMinor": {
+                    "value": "[general.orange.300]",
+                    "comment": ""
+                },
+                "dataOrangeLight": {
+                    "value": "[general.orange.150]",
+                    "comment": ""
+                },
+                "dataRed": {
+                    "value": "[general.red.500]",
+                    "comment": ""
+                },
+                "dataRedMinor": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                },
+                "dataRedLight": {
+                    "value": "[general.red.150]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.500]",
+                    "comment": ""
+                },
+                "dataBlueMild": {
+                    "value": "[general.blue.300]",
+                    "comment": ""
+                },
+                "dataMalachite": {
+                    "value": "[general.malachite.300]",
+                    "comment": ""
+                },
+                "dataMalachiteMinor": {
+                    "value": "[general.malachite.250]",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.300]",
+                    "comment": ""
+                },
+                "dataPink": {
+                    "value": "[general.pink.300]",
+                    "comment": ""
+                },
+                "dataGray": {
+                    "value": "[general.gray.400]",
+                    "comment": ""
+                },
+                "dataGrayMinor": {
+                    "value": "[general.coolGray.200]",
+                    "comment": ""
+                },
+                "dataRedTransparent": {
+                    "value": "#FF293E33",
+                    "comment": ""
+                },
+                "dataYellowTransparent": {
+                    "value": "#F3A9128F",
+                    "comment": ""
+                },
+                "dataBlueTransparent": {
+                    "value": "#118CDF33",
+                    "comment": ""
+                },
+                "dataGreenTransparent": {
+                    "value": "#1A9E3233",
+                    "comment": ""
+                },
+                "dataOrangeTransparent": {
+                    "value": "#FA5F0533",
+                    "comment": ""
                 }
             },
             "onDark": {
-                "dataYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": "Желтый цвет для данных на темном фоне"
-                },
                 "dataYellowHover": {
                     "value": "#F5B638FF",
                     "comment": "Желтый цвет для данных на темном фоне"
@@ -9694,10 +10230,6 @@
                 "dataYellowActive": {
                     "value": "#E49C0CFF",
                     "comment": "Желтый цвет для данных на темном фоне"
-                },
-                "dataYellowMinor": {
-                    "value": "[general.amber.700]",
-                    "comment": "Минорный желтый цвет для данных на темном фоне"
                 },
                 "dataYellowMinorHover": {
                     "value": "#B87A00FF",
@@ -9708,8 +10240,8 @@
                     "comment": "Минорный желтый цвет для данных на темном фоне"
                 },
                 "dataYellowTransparent": {
-                    "value": "[general.amber.300][-0.44]",
-                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                    "value": "#F3A9128F",
+                    "comment": ""
                 },
                 "dataYellowTransparentHover": {
                     "value": "#F3A8127A",
@@ -9719,10 +10251,6 @@
                     "value": "#F3A81299",
                     "comment": "Прозрачный желтый цвет для данных на темном фоне"
                 },
-                "dataYellowLight": {
-                    "value": "[general.amber.900]",
-                    "comment": "Светлый желтый цвет для данных на темном фоне"
-                },
                 "dataYellowLightHover": {
                     "value": "#FFF4E0FF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
@@ -9731,10 +10259,6 @@
                     "value": "#FFF3DBFF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
-                "dataSkyBlueLight": {
-                    "value": "[general.blue.900]",
-                    "comment": "Светлый голубой цвет для данных на темном фоне"
-                },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
                     "comment": "Светлый голубой цвет для данных на темном фоне"
@@ -9742,12 +10266,136 @@
                 "dataSkyBlueLightActive": {
                     "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataBlueLight": {
+                    "value": "[general.blue.950]",
+                    "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataYellowLight": {
+                    "value": "[general.amber.950]",
+                    "comment": "Светлый желтый цвет для данных на темном фоне"
+                },
+                "dataBlueMinor": {
+                    "value": "[general.blue.850]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataYellow": {
+                    "value": "[general.amber.700]",
+                    "comment": "Желтый цвет для данных на темном фоне"
+                },
+                "dataYellowMinor": {
+                    "value": "[general.amber.850]",
+                    "comment": "Минорный желтый цвет для данных на темном фоне"
+                },
+                "dataOrange": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "dataOrangeMinor": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "dataOrangeLight": {
+                    "value": "[general.orange.900]",
+                    "comment": ""
+                },
+                "dataRed": {
+                    "value": "[general.red.700]",
+                    "comment": ""
+                },
+                "dataRedMinor": {
+                    "value": "[general.red.800]",
+                    "comment": ""
+                },
+                "dataRedLight": {
+                    "value": "[general.red.900]",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.700]",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "dataGreenMinor": {
+                    "value": "[general.green.700]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.850]",
+                    "comment": ""
+                },
+                "dataSpring": {
+                    "value": "[general.spring.700]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.500]",
+                    "comment": ""
+                },
+                "dataBlueMild": {
+                    "value": "[general.blue.700]",
+                    "comment": ""
+                },
+                "dataMalachite": {
+                    "value": "[general.malachite.700]",
+                    "comment": ""
+                },
+                "dataMalachiteMinor": {
+                    "value": "[general.malachite.800]",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.800]",
+                    "comment": ""
+                },
+                "dataPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "dataGray": {
+                    "value": "[general.coolGray.600]",
+                    "comment": ""
+                },
+                "dataGrayMinor": {
+                    "value": "[general.coolGray.850]",
+                    "comment": ""
+                },
+                "dataRedTransparent": {
+                    "value": "#FF293E3D",
+                    "comment": ""
+                },
+                "dataOrangeTransparent": {
+                    "value": "#FA5F053D",
+                    "comment": ""
+                },
+                "dataGreenTransparent": {
+                    "value": "#1A9E323D",
+                    "comment": ""
+                },
+                "dataBlueTransparent": {
+                    "value": "#118CDF3D",
+                    "comment": ""
                 }
             },
             "onLight": {
                 "dataYellow": {
                     "value": "[general.amber.300]",
-                    "comment": "Желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowHover": {
                     "value": "#F5B638FF",
@@ -9759,7 +10407,7 @@
                 },
                 "dataYellowMinor": {
                     "value": "[general.amber.200]",
-                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowMinorHover": {
                     "value": "#FFD070FF",
@@ -9770,8 +10418,8 @@
                     "comment": "Минорный желтый цвет для данных на светлом фоне"
                 },
                 "dataYellowTransparent": {
-                    "value": "[general.amber.300][-0.44]",
-                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                    "value": "#F3A9128F",
+                    "comment": ""
                 },
                 "dataYellowTransparentHover": {
                     "value": "#F3A9129E",
@@ -9783,7 +10431,7 @@
                 },
                 "dataYellowLight": {
                     "value": "[general.amber.100]",
-                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowLightHover": {
                     "value": "#FFF4E0FF",
@@ -9793,10 +10441,6 @@
                     "value": "#FFF3DBFF",
                     "comment": "Светлый желтый цвет для данных на светлом фоне"
                 },
-                "dataSkyBlueLight": {
-                    "value": "[general.skyBlue.100]",
-                    "comment": "Светлый голубой цвет для данных на светлом фоне"
-                },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
                     "comment": "Светлый голубой цвет для данных на светлом фоне"
@@ -9804,12 +10448,124 @@
                 "dataSkyBlueLightActive": {
                     "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных на светлом фоне"
+                },
+                "dataBlueLight": {
+                    "value": "[general.blue.100]",
+                    "comment": ""
+                },
+                "dataBlueMinor": {
+                    "value": "[general.blue.150]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.400]",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.250]",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.300]",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "dataGreenMinor": {
+                    "value": "[general.green.300]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.50]",
+                    "comment": ""
+                },
+                "dataSpring": {
+                    "value": "[general.spring.250]",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "dataOrangeMinor": {
+                    "value": "[general.orange.300]",
+                    "comment": ""
+                },
+                "dataOrangeLight": {
+                    "value": "[general.orange.150]",
+                    "comment": ""
+                },
+                "dataRed": {
+                    "value": "[general.red.500]",
+                    "comment": ""
+                },
+                "dataRedMinor": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                },
+                "dataRedLight": {
+                    "value": "[general.red.150]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.500]",
+                    "comment": ""
+                },
+                "dataBlueMild": {
+                    "value": "[general.blue.300]",
+                    "comment": ""
+                },
+                "dataMalachite": {
+                    "value": "[general.malachite.300]",
+                    "comment": ""
+                },
+                "dataMalachiteMinor": {
+                    "value": "[general.malachite.250]",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.blue.300]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.300]",
+                    "comment": ""
+                },
+                "dataPink": {
+                    "value": "[general.pink.300]",
+                    "comment": ""
+                },
+                "dataGray": {
+                    "value": "[general.coolGray.400]",
+                    "comment": ""
+                },
+                "dataGrayMinor": {
+                    "value": "[general.coolGray.200]",
+                    "comment": ""
+                },
+                "dataRedTransparent": {
+                    "value": "#FF293E33",
+                    "comment": ""
+                },
+                "dataBlueTransparent": {
+                    "value": "#118CDF33",
+                    "comment": ""
+                },
+                "dataGreenTransparent": {
+                    "value": "#1A9E3233",
+                    "comment": ""
+                },
+                "dataOrangeTransparent": {
+                    "value": "#FA5F0533",
+                    "comment": ""
                 }
             },
             "inverse": {
                 "dataYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": "Инвертированный желтый цвет для данных"
+                    "value": "[general.amber.700]",
+                    "comment": ""
                 },
                 "dataYellowHover": {
                     "value": "#F5B638FF",
@@ -9820,8 +10576,8 @@
                     "comment": "Инвертированный желтый цвет для данных"
                 },
                 "dataYellowMinor": {
-                    "value": "[general.amber.700]",
-                    "comment": "Инвертированный минорный желтый цвет для данных"
+                    "value": "[general.amber.850]",
+                    "comment": ""
                 },
                 "dataYellowMinorHover": {
                     "value": "#B87A00FF",
@@ -9832,8 +10588,8 @@
                     "comment": "Инвертированный минорный желтый цвет для данных"
                 },
                 "dataYellowTransparent": {
-                    "value": "[general.amber.300][-0.44]",
-                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                    "value": "#F3A9128F",
+                    "comment": ""
                 },
                 "dataYellowTransparentHover": {
                     "value": "#F3A8127A",
@@ -9843,10 +10599,6 @@
                     "value": "#F3A81299",
                     "comment": "Инвертированный прозрачный желтый цвет для данных"
                 },
-                "dataYellowLight": {
-                    "value": "[general.amber.900]",
-                    "comment": "Инвертированный светлый желтый цвет для данных"
-                },
                 "dataYellowLightHover": {
                     "value": "#FFF4E0FF",
                     "comment": "Инвертированный светлый желтый цвет для данных"
@@ -9855,10 +10607,6 @@
                     "value": "#FFF3DBFF",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
-                "dataSkyBlueLight": {
-                    "value": "[general.blue.900]",
-                    "comment": "Инвертированный светлый голубой цвет для данных"
-                },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
@@ -9866,6 +10614,122 @@
                 "dataSkyBlueLightActive": {
                     "value": "#DBF7FFFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataBlueMinor": {
+                    "value": "[general.blue.850]",
+                    "comment": ""
+                },
+                "dataYellowLight": {
+                    "value": "[general.amber.950]",
+                    "comment": "Инвертированный светлый желтый цвет для данных"
+                },
+                "dataSkyBlueLight": {
+                    "value": "[general.blue.950]",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.500]",
+                    "comment": ""
+                },
+                "dataOrangeMinor": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "dataOrangeLight": {
+                    "value": "[general.orange.900]",
+                    "comment": ""
+                },
+                "dataRed": {
+                    "value": "[general.red.700]",
+                    "comment": ""
+                },
+                "dataRedMinor": {
+                    "value": "[general.red.800]",
+                    "comment": ""
+                },
+                "dataRedLight": {
+                    "value": "[general.red.900]",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.700]",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "dataGreenMinor": {
+                    "value": "[general.green.700]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.850]",
+                    "comment": ""
+                },
+                "dataSpring": {
+                    "value": "[general.spring.700]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.500]",
+                    "comment": ""
+                },
+                "dataBlueMild": {
+                    "value": "[general.blue.700]",
+                    "comment": ""
+                },
+                "dataMalachite": {
+                    "value": "[general.malachite.700]",
+                    "comment": ""
+                },
+                "dataMalachiteMinor": {
+                    "value": "[general.malachite.800]",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.800]",
+                    "comment": ""
+                },
+                "dataPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "dataGray": {
+                    "value": "[general.coolGray.600]",
+                    "comment": ""
+                },
+                "dataGrayMinor": {
+                    "value": "[general.coolGray.850]",
+                    "comment": ""
+                },
+                "dataRedTransparent": {
+                    "value": "#FF293E3D",
+                    "comment": ""
+                },
+                "dataOrangeTransparent": {
+                    "value": "#FA5F055C",
+                    "comment": ""
+                },
+                "dataGreenTransparent": {
+                    "value": "#1A9E323D",
+                    "comment": ""
+                },
+                "dataBlueTransparent": {
+                    "value": "#118CDF3D",
+                    "comment": ""
                 }
             }
         }

@@ -19,9 +19,6 @@ export const StyledContent = styled.div<{ hasDivider?: boolean }>`
 `;
 
 export const StyledContentWrapper = styled.div`
-    /* allows correctly display outline focus on tabs item */
-    padding: 0.125rem 0.25rem;
-
     box-sizing: border-box;
     position: relative;
     height: 100%;
@@ -60,7 +57,7 @@ export const StyledArrow = styled.button`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0.063rem',
         outlineColor: `var(${tokens.outlineFocusColor})`,
         outlineRadius: 'calc(var(--plasma_private-outline-radius) - 0.063rem)',
     })};

@@ -13,8 +13,8 @@ const mergedCalendarDoubleConfig = mergeConfig(calendarDoubleConfig, doubleConfi
 
 export const CalendarBase = component(mergedCalendarBaseConfig);
 export const CalendarDouble = component(mergedCalendarDoubleConfig);
-export const CalendarBaseRange = withRange<CalendarBaseProps>(CalendarBase);
-export const CalendarDoubleRange = withRange<CalendarDoubleProps>(CalendarDouble);
+export const CalendarBaseRange = withRange<CalendarBaseProps>(CalendarBase as FC<CalendarBaseProps>);
+export const CalendarDoubleRange = withRange<CalendarDoubleProps>(CalendarDouble as FC<CalendarDoubleProps>);
 
 export const Calendar = boundCalendar({
     base: CalendarBase as FC<CalendarBaseProps>,

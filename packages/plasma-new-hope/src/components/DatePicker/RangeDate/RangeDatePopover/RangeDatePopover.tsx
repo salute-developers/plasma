@@ -22,6 +22,7 @@ export const RangeDatePopover = ({
     max,
     renderFromDate,
     includeEdgeDates,
+    eventTooltipOptions,
     eventList,
     disabledList,
     eventMonthList,
@@ -112,6 +113,7 @@ export const RangeDatePopover = ({
                         innerHeight={calendarContainerHeightValue}
                         size={size}
                         value={calendarValue}
+                        eventTooltipOptions={eventTooltipOptions}
                         eventList={eventList}
                         disabledList={disabledList}
                         eventMonthList={eventMonthList}
@@ -161,6 +163,7 @@ export const RangeDatePopover = ({
                     innerHeight={calendarContainerHeightValue}
                     size={size}
                     value={calendarValue}
+                    eventTooltipOptions={eventTooltipOptions}
                     eventList={eventList}
                     disabledList={disabledList}
                     eventMonthList={eventMonthList}

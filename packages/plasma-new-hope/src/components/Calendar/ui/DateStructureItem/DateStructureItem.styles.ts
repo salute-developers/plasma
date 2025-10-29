@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react';
 import { FocusProps } from '@salutejs/plasma-core';
+import { popoverClasses } from 'src/components/Popover';
 
 import type { DateStructureProps } from '../../Calendar.types';
 import { classes, innerTokens, tokens } from '../../Calendar.tokens';
@@ -160,6 +161,13 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
             right: unset;
         }
     }
+
+
+    & .${popoverClasses.wrapper}.${popoverClasses.targetAsRef} {
+        z-index: -1;
+        width: 100%;
+    }
+    
 `;
 
 export const StyledEvents = styled.div`

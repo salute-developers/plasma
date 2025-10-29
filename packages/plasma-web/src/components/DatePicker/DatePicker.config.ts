@@ -76,6 +76,10 @@ export const config = {
                 ${tokens.iconButtonColorActive}: var(--text-primary-hover);
                 ${tokens.iconButtonBackgroundColorActive}: var(--surface-clear);
                 ${tokens.iconButtonFocusColor}: var(--surface-accent);
+
+                ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
+                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-s);
+                ${tokens.tooltipColor}: var(--text-primary);
             `,
         },
         size: {
@@ -592,6 +596,58 @@ export const config = {
                 ${tokens.iconButtonWidth}: 2rem;
                 ${tokens.iconButtonPadding}: 0.75rem;
                 ${tokens.iconButtonRadius}: 0.5rem;
+            `,
+        },
+        eventTooltipSize: {
+            m: css`
+                ${tokens.tooltipPaddingTop}: 0.6875rem;
+                ${tokens.tooltipPaddingRight}: 0.875rem;
+                ${tokens.tooltipPaddingBottom}: 0.6875rem;
+                ${tokens.tooltipPaddingLeft}: 0.875rem;
+
+                ${tokens.tooltipMinHeight}: 2.5rem;
+                ${tokens.tooltipBorderRadius}: 0.625rem;
+
+                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.tooltipContentLeftMargin}: 0.375rem;
+
+                ${tokens.tooltipArrowMaskWidth}: 1.25rem;
+                ${tokens.tooltipArrowMaskHeight}: 1.25rem;
+                ${tokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${tokens.tooltipArrowHeight}: 0.5rem;
+                ${tokens.tooltipArrowEdgeMargin}: 0.625rem;
+                ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+            `,
+            s: css`
+                ${tokens.tooltipPaddingTop}: 0.5rem;
+                ${tokens.tooltipPaddingRight}: 0.75rem;
+                ${tokens.tooltipPaddingBottom}: 0.5rem;
+                ${tokens.tooltipPaddingLeft}: 0.75rem;
+
+                ${tokens.tooltipMinHeight}: 2rem;
+                ${tokens.tooltipBorderRadius}: 0.5rem;
+
+                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.tooltipContentLeftMargin}: 0.25rem;
+
+                ${tokens.tooltipArrowMaskWidth}: 1rem;
+                ${tokens.tooltipArrowMaskHeight}: 1rem;
+                ${tokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${tokens.tooltipArrowHeight}: 0.375rem;
+                ${tokens.tooltipArrowEdgeMargin}: 0.5625rem;
+                ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
             `,
         },
         disabled: {

@@ -317,3 +317,125 @@ export function App() {
     );
 }
 ```
+
+## Всплывающая подсказка для событий календаря
+
+С помощью `eventList`, `eventMonthList`, `eventQuarterList` и `eventYearList`
+можно задать список событий для определенной даты
+
+Элемент списка имеет следующую структуру:
+```
+    type EventDay {
+        date: Date;
+        color?: string;
+        eventInfo?: ReactNode;
+    }
+```
+
+Типизация свойств всплывающего окна:
+```
+type EventTooltipOptions = {
+    /**
+     * Обертка для всплывающей подсказки для событий.
+     */
+    bodyWrapper?: FC<PropsWithChildren>;
+    /**
+     * Размер всплывающей подсказки для событий.
+     */
+    size?: string;
+    /**
+     * Направление раскрытия тултипа.
+     */
+    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+    /**
+     * Отступ окна относительно элемента, у которого оно вызвано.
+     * @default
+     * [0, 8]
+     */
+    offset?: [number, number];
+    /**
+     * Видимость стрелки (хвоста).
+     */
+    hasArrow?: boolean;
+    /**
+     * Анимированное появление/сокрытие.
+     */
+    animated?: boolean;
+    /**
+     * Минимальная ширина окна (в rem).
+     */
+    minWidth?: number | string;
+    /**
+     * Максимальная ширина окна (в rem).
+     */
+    maxWidth?: number | string;
+};
+```
+
+```tsx live
+import React from 'react';
+import { CalendarBase } from '@salutejs/sdds-scan';
+
+    export function App() {
+
+    const EventNode = ({ dateValue, color }: { dateValue: string; color: string }) => {
+        return (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span>Дата: {dateValue}</span>
+                <span>Цвет: {color}</span>
+            </div>
+        );
+    };
+
+    const EventTooltipBody = ({ children }: PropsWithChildren) => {
+        return <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>{children}</div>;
+    };
+
+    const events = [
+        {
+            date: new Date('2025-07-09'),
+            color: 'red',
+            eventInfo: <EventNode color="red" dateValue="2025-07-09" />
+        },
+        {
+            date: new Date('2025-07-09'),
+            color: 'purple',
+            eventInfo: <EventNode color="purple" dateValue="2025-07-09" />
+        },
+        {
+            date: new Date('2025-07-10'),
+            color: 'green',
+            eventInfo: <EventNode color="green" dateValue="2025-07-10" />
+        },
+        {
+            date: new Date('2025-07-11'),
+            color: 'blue',
+            eventInfo: <EventNode color="blue" dateValue="2025-07-11" />
+        },
+        {
+            date: new Date('2025-07-12'),
+            color: 'red',
+            eventInfo: <EventNode color="red" dateValue="2025-07-12" />
+        },
+        {
+            date: new Date('2025-07-12'),
+            color: 'red',
+            eventInfo: <EventNode color="red" dateValue="2025-07-12" />
+        },
+    ];
+
+    return (
+        <div>
+            <CalendarBase
+                type="Days"
+                eventList={events}
+                eventTooltipOptions={{ 
+                    bodyWrapper: EventTooltipBody,
+                    size: 'm'
+                }}
+                renderFromDate={new Date('2025-07-01')}
+            />
+        </div>
+    );
+}
+```

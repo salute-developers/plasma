@@ -422,6 +422,14 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
         }, [outerValue, internalValue, items]);
 
+        // Эффект для исключительных случаев, когда нужно обновить значение textValue при изменении items,
+        // но только если значение textValue совпадает с value в item.
+        useLayoutEffect(() => {
+            if (!multiple && value && valueToItemMap.get(value as string)?.value === textValue) {
+                setTextValue(valueToItemMap.get(value as string)?.label || value.toString());
+            }
+        }, [items]);
+
         // При изменении value нужно возвращать значение в инпуте к исходному.
         useDidMountLayoutEffect(() => {
             setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
