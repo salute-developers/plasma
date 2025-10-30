@@ -9,13 +9,17 @@ import { PropsTable, Description, StorybookLink, Badge } from '@site/src/compone
 
 <Badge />
 
+:::caution
+Компонент не поддерживает React 19.
+:::
+
 <Description name="UploadVisual" />
 <PropsTable name="UploadVisual" />
 <StorybookLink name="UploadVisual" />
 
 ## Использование
 
-```tsx live 
+```tsx live
 import React, { useCallback, useState } from 'react';
 import { UploadVisual, arrayItemRemoving, arrayItemSelecting } from '@salutejs/plasma-web';
 
