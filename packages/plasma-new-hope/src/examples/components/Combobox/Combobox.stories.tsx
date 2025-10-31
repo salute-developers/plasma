@@ -44,6 +44,7 @@ const placements: Array<PopoverPlacement> = [
 ];
 const mode = ['default', 'radio'];
 const chipClickArea = ['full', 'close-icon'];
+const arrowPlacement = ['left', 'right'];
 
 const includeParams = [
     'size',
@@ -77,6 +78,8 @@ const includeParams = [
     'hintWidth',
     'hintHasArrow',
     'mode',
+    'treeView',
+    'arrowPlacement',
 ];
 
 const meta: Meta<StorySelectProps> = {
@@ -217,6 +220,18 @@ const meta: Meta<StorySelectProps> = {
                 type: 'select',
             },
         },
+        treeView: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        arrowPlacement: {
+            options: arrowPlacement,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'treeView', truthy: true },
+        },
     },
     args: {
         label: 'Label',
@@ -247,6 +262,8 @@ const meta: Meta<StorySelectProps> = {
         hintHasArrow: true,
         emptyStateDescription: '',
         mode: 'default',
+        treeView: false,
+        arrowPlacement: 'left',
     },
     parameters: {
         controls: {
