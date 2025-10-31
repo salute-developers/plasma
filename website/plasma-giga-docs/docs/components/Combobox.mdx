@@ -649,6 +649,145 @@ type Items = Array<{
     }
 ```
 
+## TreeView и подсветка найденных элементов
+
+Данный пример показывает реализацию подсветки (highlighting) символов в найденных элементах в режиме `treeView`.
+
+```tsx live
+    import React, { useState } from 'react';
+    import { Combobox, ComboboxItemOption } from '@salutejs/plasma-giga';
+
+    export function App() {
+        const items = [
+            {
+                value: 'asia',
+                label: 'Азия',
+                items: [
+                    {
+                        value: 'china',
+                        label: 'Китай',
+                        items: [
+                            {
+                                value: 'beijing',
+                                label: 'Пекин',
+                            },
+                            {
+                                value: 'shanghai',
+                                label: 'Шанхай',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'japan',
+                        label: 'Япония',
+                        items: [
+                            {
+                                value: 'tokyo',
+                                label: 'Токио',
+                            },
+                            {
+                                value: 'osaka',
+                                label: 'Осака',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'india',
+                        label: 'Индия',
+                        items: [
+                            {
+                                value: 'delhi',
+                                label: 'Дели',
+                            },
+                            {
+                                value: 'mumbai',
+                                label: 'Мумбаи',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'south_korea',
+                        label: 'Южная Корея',
+                        items: [
+                            {
+                                value: 'seoul',
+                                label: 'Сеул',
+                            },
+                            {
+                                value: 'busan',
+                                label: 'Пусан',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'thailand',
+                        label: 'Таиланд',
+                        items: [
+                            {
+                                value: 'bangkok',
+                                label: 'Бангкок',
+                            },
+                            {
+                                value: 'phuket',
+                                label: 'Пхукет',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                value: 'africa',
+                label: 'Африка',
+                isDisabled: true,
+            },
+        ];
+
+        const [textValue, setTextValue] = useState('');
+
+        function highlightText(label: string, highlight: string): React.ReactNode {
+            if (!highlight.trim()) return label;
+            const re = new RegExp('(' + highlight + ')', 'ig');
+            const parts = label.split(re);
+            return (
+                <>
+                    {parts.map((part, i) =>
+                        part.toLowerCase() === highlight.toLowerCase() ? (
+                            <mark key={i} style={{ backgroundColor: '#ffeb3b' }}>
+                                {part}
+                            </mark>
+                        ) : (
+                            <span key={i}>{part}</span>
+                        ),
+                    )}
+                </>
+            );
+        }
+
+        const renderItem = (item: ComboboxItemOption) => {
+            if (!textValue) return item.label;
+
+            return highlightText(item.label, textValue);
+        };
+
+        return (
+            <div style={{ display: 'flex', height: '400px' }}>
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        multiple
+                        treeView
+                        label="Введите 'Токио'"
+                        placeholder="Placeholder"
+                        items={items}
+                        listMaxHeight="300px"
+                        renderItem={renderItem}
+                        onChangeValue={setTextValue}
+                    />
+                </div>
+            </div>
+        );
+    }
+```
+
 ## Использование с React Hook Form и нативной формой
 
 :::caution Использование атрибута `name`

@@ -6,7 +6,11 @@ type NestedTreePath = {
 
 export type TreePathState = NestedTreePath;
 
-export type TreePathAction = { type: 'reset' } | { type: 'toggled_level'; value: string[] };
+export type TreePathAction =
+    | { type: 'reset' }
+    | { type: 'toggled_level'; value: string[] }
+    | { type: 'open_level'; value: string[] }
+    | { type: 'close_level'; value: string[] };
 
 // Утилита для поиска ключа в объекте по пути.
 export const keyExists = (obj: NestedTreePath, path: string[]) => {
@@ -97,6 +101,22 @@ export function treePathReducer(state: TreePathState, action: TreePathAction): T
                 // нужно открыть требуемый уровень
                 createObjectAtPath(stateCopy, action.value);
             }
+
+            return stateCopy;
+        }
+
+        case 'open_level': {
+            const stateCopy = deepCopy(state);
+
+            createObjectAtPath(stateCopy, action.value);
+
+            return stateCopy;
+        }
+
+        case 'close_level': {
+            const stateCopy = deepCopy(state);
+
+            removeObjectAtPath(stateCopy, action.value);
 
             return stateCopy;
         }

@@ -2,6 +2,7 @@ export type FocusedPathState = Array<number>;
 
 export type FocusedPathAction =
     | { type: 'reset' }
+    | { type: 'set_focus'; value: FocusedPathState }
     | { type: 'set_initial_focus' }
     | { type: 'change_last_focus'; value: number }
     | { type: 'add_focus'; value: number }
@@ -11,6 +12,10 @@ export function focusedPathReducer(state: FocusedPathState, action: FocusedPathA
     switch (action.type) {
         case 'reset': {
             return [];
+        }
+
+        case 'set_focus': {
+            return action.value;
         }
 
         case 'set_initial_focus': {
@@ -26,6 +31,10 @@ export function focusedPathReducer(state: FocusedPathState, action: FocusedPathA
         }
 
         case 'return_prev_focus': {
+            if (state.length === 1) {
+                return state;
+            }
+
             return state.slice(0, -1);
         }
 

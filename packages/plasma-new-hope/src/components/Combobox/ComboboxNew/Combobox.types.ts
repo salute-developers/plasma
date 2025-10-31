@@ -1,10 +1,10 @@
-import type { CSSProperties, ButtonHTMLAttributes, ChangeEventHandler } from 'react';
+import type { CSSProperties, ButtonHTMLAttributes, ChangeEventHandler, Dispatch } from 'react';
 import * as React from 'react';
 
 import { RequiredProps, HintProps, LabelProps } from '../../TextField/TextField.types';
 import { DropdownProps } from '../../Dropdown/Dropdown.types';
 
-import { FocusedPathState } from './reducers';
+import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
 import type { ValueToCheckedMapType } from './hooks/getPathMaps';
 
@@ -247,6 +247,16 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * Текст для состояния когда нет результата.
      */
     emptyStateDescription?: React.ReactNode;
+    /**
+     * Режим отображения выпадающего списка в виде дерева.
+     * @default false
+     */
+    treeView?: boolean;
+    /**
+     * Сторона расположения стрелки скрытия/раскрытия.
+     * @default left
+     */
+    arrowPlacement?: 'left' | 'right';
 
     /**
      * @deprecated Использовать listMaxHeight.
@@ -289,4 +299,10 @@ export type ItemContext = {
     variant: ComboboxProps['variant'];
     renderItem: ComboboxProps['renderItem'];
     treeId: string;
+    treePath: TreePathState;
+    dispatchTreePath: Dispatch<TreePathAction>;
+    arrowPlacement: ComboboxProps['arrowPlacement'];
+    valueToPathMap: Map<string, string[]>;
 };
+
+export type { ItemOption, ItemOptionTransformed };

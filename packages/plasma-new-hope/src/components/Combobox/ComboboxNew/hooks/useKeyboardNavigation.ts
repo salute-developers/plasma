@@ -1,9 +1,10 @@
 import type { KeyboardEvent, Dispatch } from 'react';
 import React from 'react';
+import { isEmpty } from 'src/utils';
+import { keyExists } from 'src/components/Select/reducers';
 
-import { PathAction, PathState, FocusedPathAction, FocusedPathState } from '../reducers';
+import { PathAction, PathState, FocusedPathAction, FocusedPathState, TreePathState, TreePathAction } from '../reducers';
 import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
-import { isEmpty } from '../../../../utils';
 
 import { PathMapType, FocusedToValueMapType, ValueToItemMapType } from './getPathMaps';
 
@@ -40,18 +41,89 @@ type Props = {
     focusedToValueMap: FocusedToValueMapType;
     handleListToggle: (opened: boolean) => void;
     handlePressDown: (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => void;
-    setTextValue: React.Dispatch<React.SetStateAction<string>>;
+    setTextValue: (newTextValue: string) => void;
     multiple: boolean | undefined;
     value: string | string[];
     textValue: string;
     valueToItemMap: ValueToItemMapType;
+    treePath: TreePathState;
+    dispatchTreePath: Dispatch<TreePathAction>;
+    treeView: boolean;
+    valueToPathMap: Map<string, string[]>;
+    items: ItemOptionTransformed[];
 };
 
 type ReturnedProps = {
     onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
 };
 
+// #TODO: подумать над идеей выноса логики фокуса непосредственно в focusedPathReducer.
 export const useKeyNavigation = ({
+    focusedPath,
+    dispatchFocusedPath,
+    path,
+    dispatchPath,
+    pathMap,
+    focusedToValueMap,
+    handleListToggle,
+    handlePressDown,
+    setTextValue,
+    multiple,
+    value,
+    textValue,
+    valueToItemMap,
+    treePath,
+    dispatchTreePath,
+    treeView,
+    valueToPathMap,
+    items,
+}: Props): ReturnedProps => {
+    if (treeView) {
+        return keyboardNavigationTree({
+            focusedPath,
+            dispatchFocusedPath,
+            path,
+            dispatchPath,
+            pathMap,
+            focusedToValueMap,
+            handleListToggle,
+            handlePressDown,
+            setTextValue,
+            multiple,
+            value,
+            textValue,
+            valueToItemMap,
+            treePath,
+            dispatchTreePath,
+            treeView,
+            valueToPathMap,
+            items,
+        });
+    }
+
+    return keyboardNavigationDefault({
+        focusedPath,
+        dispatchFocusedPath,
+        path,
+        dispatchPath,
+        pathMap,
+        focusedToValueMap,
+        handleListToggle,
+        handlePressDown,
+        setTextValue,
+        multiple,
+        value,
+        textValue,
+        valueToItemMap,
+        treePath,
+        dispatchTreePath,
+        treeView,
+        valueToPathMap,
+        items,
+    });
+};
+
+const keyboardNavigationDefault = ({
     focusedPath,
     dispatchFocusedPath,
     path,
@@ -274,6 +346,256 @@ export const useKeyNavigation = ({
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
                 } else {
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + JUMP_SIZE });
+                }
+
+                break;
+            }
+
+            default: {
+                break;
+            }
+        }
+    };
+
+    return { onKeyDown };
+};
+
+const keyboardNavigationTree = ({
+    focusedPath,
+    dispatchFocusedPath,
+    path,
+    dispatchPath,
+    pathMap,
+    focusedToValueMap,
+    handleListToggle,
+    handlePressDown,
+    setTextValue,
+    multiple,
+    value,
+    textValue,
+    valueToItemMap,
+    treePath,
+    dispatchTreePath,
+    valueToPathMap,
+    items,
+}: Props): ReturnedProps => {
+    const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
+    const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
+    const currentLength: number = currentItem?.parent?.items?.length || pathMap.get('root') || 0;
+
+    const isValidFocus = (focusCandidate: FocusedPathState) => {
+        if (!Array.isArray(items) || !Array.isArray(focusCandidate)) return false;
+
+        let currentLevel = items;
+
+        for (const index of focusCandidate) {
+            if (!Array.isArray(currentLevel) || index >= currentLevel.length) {
+                return false;
+            }
+
+            const node = currentLevel[index];
+
+            currentLevel = node.items || [];
+        }
+
+        return true;
+    };
+
+    const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+        switch (event.code) {
+            case keys.ArrowUp: {
+                if (path[0]) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
+
+                /**
+                 * Если список открыт и фокус уже установлен на каком-либо элементе.
+                 * */
+                if (focusedPath.length) {
+                    /**
+                     * Если это не первый элемент, то нужно вначале найти элемент для фокуса.
+                     * Т.к. если верхний элемент раскрыт, то и перемещаться нужно не на него,
+                     * а на его самый нижний дочерний элемент.
+                     * */
+                    if (currentIndex > 0) {
+                        let nextFocus = [...focusedPath.slice(0, -1), currentIndex - 1];
+
+                        for (let i = 0; i <= focusedPath.length; i++) {
+                            const focusedPathAsString = nextFocus
+                                .reduce((acc, n) => `${acc}/${n}`, '')
+                                .replace(/^(\/)/, '');
+
+                            const item = focusedToValueMap.get(focusedPathAsString)!;
+
+                            const isLevelOpened = keyExists(treePath, valueToPathMap.get(item?.value.toString()) || []);
+
+                            if (isLevelOpened) {
+                                nextFocus = [...nextFocus, (item?.items?.length || 0) - 1];
+                            } else {
+                                break;
+                            }
+                        }
+
+                        dispatchFocusedPath({ type: 'set_focus', value: nextFocus });
+                    } else {
+                        /**
+                         * Если элемент первый, то нужно лишь подняться к его родителю.
+                         * */
+                        dispatchFocusedPath({ type: 'return_prev_focus' });
+                    }
+                } else {
+                    /**
+                     * Если список закрыт, то нужно его открыть и установить фокус на первый элемент.
+                     * */
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                    handleListToggle(true);
+                }
+
+                break;
+            }
+
+            case keys.ArrowDown: {
+                if (path[0]) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
+
+                /**
+                 * Если список открыт и фокус уже установлен на каком-либо элементе.
+                 * */
+                if (focusedPath.length) {
+                    /**
+                     * Заходим сюда если у элемента есть другие вложенные элементы.
+                     * */
+                    if (currentItem?.items && currentItem?.items.length) {
+                        const isCurrentLevelOpened = keyExists(
+                            treePath,
+                            valueToPathMap.get(currentItem.value.toString()) || [],
+                        );
+
+                        /**
+                         * Если у этого элемента открыт его дочерний список,
+                         * то устанавливаем фокус на первый элемент из этого списка
+                         * и сразу же выходим из обработчика события.
+                         * */
+                        if (isCurrentLevelOpened) {
+                            dispatchFocusedPath({ type: 'add_focus', value: 0 });
+                            break;
+                        }
+                    }
+
+                    /**
+                     * Если мы еще не достигли конца списка, то движемся к следующему элементу.
+                     * */
+                    if (currentIndex + 1 < currentLength) {
+                        dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + 1 });
+                    } else {
+                        /**
+                         * Если же достигли последнего элемента на текущем уровне, то нужно определить,
+                         * на какой из элементов ниже мы перейдем.
+                         * Переход фокуса отсюда может быть только на уровни выше, при чем сразу на несколько.
+                         * */
+                        let focusCandidate = [...focusedPath];
+                        let nextFocus = null;
+
+                        while (focusCandidate.length > 1) {
+                            focusCandidate = [...focusCandidate.slice(0, -2), (focusCandidate.at(-2) || 0) + 1];
+
+                            if (isValidFocus(focusCandidate)) {
+                                nextFocus = focusCandidate;
+                                break;
+                            }
+                        }
+
+                        if (nextFocus) {
+                            dispatchFocusedPath({ type: 'set_focus', value: nextFocus });
+                        } else {
+                            break;
+                        }
+                    }
+                } else {
+                    /**
+                     * Если список закрыт, то нужно его открыть и установить фокус на первый элемент.
+                     * */
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                    handleListToggle(true);
+                }
+
+                break;
+            }
+
+            case keys.ArrowLeft: {
+                if (path[0]) {
+                    event.stopPropagation();
+                    event.preventDefault();
+
+                    if (focusedPath.length) {
+                        dispatchTreePath({
+                            type: 'close_level',
+                            value: valueToPathMap.get(currentItem?.value.toString() || '') || [],
+                        });
+                    }
+                }
+
+                break;
+            }
+
+            case keys.ArrowRight: {
+                if (path[0]) {
+                    event.stopPropagation();
+                    event.preventDefault();
+
+                    if (!focusedPath.length || currentItem?.disabled || !currentItem?.items) {
+                        break;
+                    }
+
+                    dispatchTreePath({
+                        type: 'open_level',
+                        value: valueToPathMap.get(currentItem.value.toString()) || [],
+                    });
+                }
+
+                break;
+            }
+
+            case keys.Enter: {
+                event.preventDefault();
+
+                if (!currentItem || currentItem?.disabled) {
+                    break;
+                }
+
+                if (!path[0]) {
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                    break;
+                }
+
+                handlePressDown(currentItem);
+
+                break;
+            }
+
+            case keys.Tab:
+            case keys.Escape: {
+                if (path[0]) {
+                    handleListToggle(false);
+                }
+
+                if (multiple) {
+                    setTextValue('');
+                } else if (textValue !== value) {
+                    // Проверяем, отличается ли значение в инпуте от выбранного value после нажатия Tab/Enter.
+                    // Если изменилось, то возвращаем label выбранного айтема.
+                    // Если нет выбранного элемента, то стираем значение инпута.
+                    if (isEmpty(value)) {
+                        setTextValue('');
+                    } else {
+                        setTextValue(valueToItemMap.get(value as string)?.label || '');
+                    }
                 }
 
                 break;
