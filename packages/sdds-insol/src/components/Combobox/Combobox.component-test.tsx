@@ -1555,6 +1555,71 @@ describe('sdds-insol: Combobox', () => {
         cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
+    it('prop: treeView, single mode', () => {
+        cy.viewport(400, 700);
+
+        const Component = () => {
+            const [value, setValue] = useState('rio_de_janeiro');
+
+            return (
+                <CypressTestDecorator>
+                    <div style={{ width: '300px' }}>
+                        <Combobox
+                            id="combobox"
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            treeView
+                        />
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: treeView, multiple mode', () => {
+        cy.viewport(400, 700);
+
+        const Component = () => {
+            const [value, setValue] = useState(['rio_de_janeiro']);
+
+            return (
+                <CypressTestDecorator>
+                    <div style={{ width: '300px' }}>
+                        <Combobox
+                            id="combobox"
+                            multiple
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            treeView
+                        />
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('behavior: disabled unselected item', () => {
         const items = [
             {

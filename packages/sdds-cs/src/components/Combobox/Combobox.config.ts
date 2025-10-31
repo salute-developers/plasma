@@ -201,8 +201,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.75rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.5rem 0.75rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
+                ${tokens.itemPadding}: 0.5rem 0.5rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemIconSize}: 1.5rem;
                 ${tokens.itemIconSizeTight}: 1rem;

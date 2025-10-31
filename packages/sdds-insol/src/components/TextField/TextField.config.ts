@@ -145,7 +145,7 @@ export const config = {
         size: {
             xl: css`
                 ${tokens.height}: 4rem;
-                ${tokens.padding}: 1.375rem 1.125rem;
+                ${tokens.padding}: 1.375rem 1.25rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.borderWidth}: 0.0625rem;

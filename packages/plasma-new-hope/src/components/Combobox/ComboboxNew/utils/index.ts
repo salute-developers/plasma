@@ -3,6 +3,6 @@ export { updateDescendants } from './updateDescendants';
 export { updateAncestors } from './updateAncestors';
 export { updateSingleAncestors } from './updateSingleAncestors';
 export { sizeToIconSize } from './sizeToIconSize';
-export { filterItems } from './filterItems';
+export { filterItems, defaultFilter } from './filterItems';
 export { getItemId } from './getItemId';
 export { getTextValue } from './getTextValue';
