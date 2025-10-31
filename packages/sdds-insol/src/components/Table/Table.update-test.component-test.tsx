@@ -287,7 +287,7 @@ describe('sdds-insol: Table', () => {
     const Table = getComponent('Table');
 
     it('[PLASMA-T2166] Table: size=l, view=default, borderVariant=all', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1200, 1000);
 
         mount(
             <CypressTestDecorator>
