@@ -139,9 +139,9 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.popoverBorderRadius}: 0.875rem;
-                ${tokens.popoverGap}: 1rem;
-                ${tokens.popoverPadding}: 1rem 1.125rem 1.125rem 1.125rem;
-                ${tokens.popoverVerticalPadding}: 2.125rem;
+                ${tokens.popoverGap}: 1.125rem;
+                ${tokens.popoverPadding}: 1.125rem 1.125rem 1.25rem 1.125rem;
+                ${tokens.popoverVerticalPadding}: 2.375rem;
 
                 ${tokens.calendarWidth}: 28rem;
                 ${tokens.calendarHeight}: 28.75rem;
@@ -290,8 +290,8 @@ export const config = {
 
                 ${tokens.popoverBorderRadius}: 0.875rem;
                 ${tokens.popoverGap}: 1rem;
-                ${tokens.popoverPadding}: 0.875rem 1rem 1.125rem 1rem;
-                ${tokens.popoverVerticalPadding}: 2rem;
+                ${tokens.popoverPadding}: 1rem 1rem 1.125rem 1rem;
+                ${tokens.popoverVerticalPadding}: 2.125rem;
 
                 ${tokens.calendarWidth}: 24.5rem;
                 ${tokens.calendarHeight}: 25rem;
@@ -590,8 +590,8 @@ export const config = {
 
                 ${tokens.popoverBorderRadius}: 0.625rem;
                 ${tokens.popoverGap}: 0.875rem;
-                ${tokens.popoverPadding}: 0.875rem;
-                ${tokens.popoverVerticalPadding}: 1.75rem;
+                ${tokens.popoverPadding}: 0.875rem 0.875rem 1rem 0.875rem;
+                ${tokens.popoverVerticalPadding}: 1.875rem;
 
                 ${tokens.calendarWidth}: 17.5rem;
                 ${tokens.calendarHeight}: 17rem;
@@ -740,8 +740,8 @@ export const config = {
 
                 ${tokens.popoverBorderRadius}: 0.5rem;
                 ${tokens.popoverGap}: 0.75rem;
-                ${tokens.popoverPadding}: 0.5rem 0.75rem 0.625rem 0.75rem;
-                ${tokens.popoverVerticalPadding}: 1.125rem;
+                ${tokens.popoverPadding}: 0.75rem 0.75rem 0.875rem 0.75rem;
+                ${tokens.popoverVerticalPadding}: 1.625rem;
 
                 ${tokens.calendarWidth}: 17.5rem;
                 ${tokens.calendarHeight}: 15.5rem;

@@ -312,8 +312,13 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
             });
 
             useEffect(() => {
+                if (disabled || readOnly) {
+                    setIsInnerOpen(false);
+                    return;
+                }
+
                 setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
-            }, [opened]);
+            }, [opened, disabled, readOnly]);
 
             useLayoutEffect(() => {
                 if (!dateValue) {

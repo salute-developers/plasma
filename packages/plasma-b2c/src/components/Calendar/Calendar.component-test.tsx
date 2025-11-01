@@ -804,7 +804,7 @@ describe('plasma-b2c: Calendar keyboard navigation', () => {
         });
 
         it("Can't jump to dates outside of min max dates", () => {
-            mount(<Demo baseValue={new Date(1970, 1, 28)} min={new Date(1970, 0, 31)} max={new Date(1970, 2, 1)} />);
+            mount(<Demo baseValue={new Date(1970, 1, 28)} min={new Date(1970, 0, 31)} max={new Date(1970, 2, 0)} />);
 
             cy.get('body').find('[data-day="1"][data-month-index="1"]').type('leftArrow');
             checkFocusedDay('1');
@@ -832,7 +832,7 @@ describe('plasma-b2c: Calendar keyboard navigation', () => {
         });
 
         it("Can't jump to dates outside of min max dates in current month", () => {
-            mount(<Demo baseValue={new Date(1970, 1, 14)} min={new Date(1970, 1, 10)} max={new Date(1970, 1, 15)} />);
+            mount(<Demo baseValue={new Date(1970, 1, 14)} min={new Date(1970, 1, 10)} max={new Date(1970, 1, 14)} />);
 
             cy.get('body').find('[data-day="14"][data-month-index="1"]').type('rightArrow');
             checkFocusedDay('14');
@@ -904,7 +904,7 @@ describe('plasma-b2c: Calendar keyboard navigation', () => {
                 date: new Date(1970, 5, 1 + day),
             }));
 
-            mount(<Demo baseValue={new Date(1970, 4, 1)} max={new Date(1970, 6, 1)} disabledList={disabledList} />);
+            mount(<Demo baseValue={new Date(1970, 4, 1)} max={new Date(1970, 6, 0)} disabledList={disabledList} />);
 
             cy.get('body').find('[data-day="31"][data-month-index="4"]').type(shiftRightArrow);
             checkFocusedDay('31');
