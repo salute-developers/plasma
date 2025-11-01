@@ -60,12 +60,22 @@ jobs:
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 120
-          max_attempts: 2
-          retry_on: error
-          command: npm run cy:${{ inputs.scope }}:run-ct
+        run: |
+            set -o pipefail
+            npm run cy:${{ inputs.scope }}:run-ct 2>&1 | tee /tmp/cypress-output.log
+
+      - name: Failed tests list
+        if: ${{ failure() }}
+        run: |
+            echo "==================================="
+            echo "Failed Tests Summary:"
+            echo "==================================="
+            if [ -f /tmp/cypress-output.log ]; then
+              awk '/failing/{flag=1; next} /passing/{flag=0} flag && /^\s+[0-9]+\)/ {print}' /tmp/cypress-output.log | head -20 || echo "No failed tests found"
+            else
+              echo "Cypress output log not found"
+            fi
+            echo "==================================="
 
       - name: Reorganize diff artifacts
         if: ${{ failure() || inputs.with-artifacts }}
