@@ -92,6 +92,7 @@ export const tokens = {
     fontSize: '--plasma-tab-item-font-size',
     fontStyle: '--plasma-tab-item-font-style',
     fontWeight: '--plasma-tab-item-font-weight',
+    fontWeightSelected: '--plasma-tab-item-font-weight-selected',
     letterSpacing: '--plasma-tab-item-letter-spacing',
     lineHeight: '--plasma-tab-item-lineheight',
 

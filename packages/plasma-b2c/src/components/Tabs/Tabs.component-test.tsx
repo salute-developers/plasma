@@ -39,9 +39,9 @@ describe('plasma-b2c: Tabs', () => {
     it('_pilled', () => {
         mount(
             <CypressTestDecorator>
-                <Tabs pilled forwardedAs="ul">
+                <Tabs size="s" pilled forwardedAs="ul">
                     {items.map((item, i) => (
-                        <TabItem pilled key={i} selected={i === 1} forwardedAs="li">
+                        <TabItem size="s" pilled key={i} selected={i === 1} forwardedAs="li">
                             {item.label}
                         </TabItem>
                     ))}
@@ -55,9 +55,9 @@ describe('plasma-b2c: Tabs', () => {
     it('_actionContent', () => {
         mount(
             <CypressTestDecorator>
-                <Tabs>
+                <Tabs size="s">
                     {items.map((item, i) => (
-                        <TabItem key={i} selected={i === 1} actionContent={<IconClose color="inherit" />}>
+                        <TabItem size="s" key={i} selected={i === 1} actionContent={<IconClose color="inherit" />}>
                             {item.label}
                         </TabItem>
                     ))}
@@ -118,9 +118,9 @@ describe('plasma-b2c: Tabs', () => {
     it('Handle tab focus: autoFocus', () => {
         mount(
             <CypressTestDecorator>
-                <Tabs>
+                <Tabs size="s">
                     {items.map((item, i) => (
-                        <TabAutoFocus key={i} selected={i === 1} autoFocus={i === 1}>
+                        <TabAutoFocus size="s" key={i} selected={i === 1} autoFocus={i === 1}>
                             {item.label}
                         </TabAutoFocus>
                     ))}
@@ -135,9 +135,9 @@ describe('plasma-b2c: Tabs', () => {
     it('Handle tab focus: pilled', () => {
         mount(
             <CypressTestDecorator>
-                <Tabs pilled>
+                <Tabs size="s" pilled>
                     {items.map((item, i) => (
-                        <TabAutoFocus pilled key={i} selected={i === 1} autoFocus={i === 1}>
+                        <TabAutoFocus size="s" pilled key={i} selected={i === 1} autoFocus={i === 1}>
                             {item.label}
                         </TabAutoFocus>
                     ))}
@@ -156,9 +156,9 @@ describe('plasma-b2c: Tabs', () => {
             const [index, setIndex] = React.useState(1);
 
             return (
-                <Tabs>
+                <Tabs size="s">
                     {items.map((item, i) => (
-                        <TabItem key={i} tabIndex={0} selected={i === index} onClick={() => setIndex(i)}>
+                        <TabItem size="s" key={i} tabIndex={0} selected={i === index} onClick={() => setIndex(i)}>
                             {item.label}
                         </TabItem>
                     ))}
@@ -205,9 +205,9 @@ describe('plasma-b2c: Tabs', () => {
     it('vertical: clicking on arrows scrolls to prev/next tab', () => {
         mount(
             <CypressTestDecorator>
-                <Tabs clip="scroll" orientation="vertical" size="m" style={{ height: '9rem' }}>
+                <Tabs clip="scroll" orientation="vertical" size="m" style={{ height: '8rem' }}>
                     {items.map((item, i) => (
-                        <TabItem orientation="vertical" key={i}>
+                        <TabItem orientation="vertical" size="m" key={i}>
                             {item.label}
                         </TabItem>
                     ))}

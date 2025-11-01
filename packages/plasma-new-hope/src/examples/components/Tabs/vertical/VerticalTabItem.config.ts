@@ -54,7 +54,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
@@ -74,7 +74,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-body-s-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
@@ -94,7 +94,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-body-m-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
@@ -114,7 +114,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-body-l-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
