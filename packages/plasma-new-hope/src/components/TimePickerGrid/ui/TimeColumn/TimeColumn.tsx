@@ -20,6 +20,7 @@ export const renderTimeColumn = ({
     dropdownHeight,
     column,
     activeTime,
+    currentColumn,
     handleTimeItemClick,
     handleTimeItemKeyDown,
     createScrollbarDragHandler,
@@ -62,7 +63,7 @@ export const renderTimeColumn = ({
         return 0;
     };
 
-    const isColumnActive = activeTime.currentColumn === column;
+    const isColumnActive = currentColumn === column;
     const minAvailableIndex = minDisableIndex();
 
     return (

@@ -74,6 +74,7 @@ export * from './components/EmbedIconButton';
 export * from './components/InformationWrapper';
 export * from './components/TimePicker';
 export * from './components/ProgressBarCircular';
+export * from './components/DateTimePicker';
 
 export * from './mixins';
 export * from './tokens';
