@@ -27,9 +27,9 @@ describe('plasma-web: Tabs', () => {
     it('item autoFocus', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Tabs>
+                <Tabs size="m">
                     {items.map((item, i) => (
-                        <AutoFocusTabItem key={i} selected={i === 1} autoFocus={i === 1}>
+                        <AutoFocusTabItem size="m" key={i} selected={i === 1} autoFocus={i === 1}>
                             {item.label}
                         </AutoFocusTabItem>
                     ))}
@@ -44,9 +44,9 @@ describe('plasma-web: Tabs', () => {
     it('_actionContent', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Tabs>
+                <Tabs size="m">
                     {items.map((item, i) => (
-                        <TabItem key={i} selected={i === 1} actionContent={<IconClose color="inherit" />}>
+                        <TabItem size="m" key={i} selected={i === 1} actionContent={<IconClose color="inherit" />}>
                             {item.label}
                         </TabItem>
                     ))}
