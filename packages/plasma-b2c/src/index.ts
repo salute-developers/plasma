@@ -89,3 +89,4 @@ export * from './components/ViewContainer';
 export * from './components/InformationWrapper';
 export * from './components/TimePicker';
 export * from './components/ProgressBarCircular';
+export * from './components/DateTimePicker';
