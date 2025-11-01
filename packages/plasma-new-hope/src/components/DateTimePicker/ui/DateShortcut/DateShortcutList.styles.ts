@@ -31,6 +31,7 @@ export const ShortcutsWrapper = styled.div<{
 export const ShortcutList = styled.ul<{ width?: CSSProperties['width'] }>`
     width: ${({ width }) => width || 'fit-content'};
 
+    list-style: none;
     margin: 0;
     padding: 0;
     overflow-y: auto;

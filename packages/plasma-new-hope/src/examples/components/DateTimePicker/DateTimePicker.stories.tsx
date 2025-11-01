@@ -180,7 +180,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         label: 'Лейбл',
         leftHelper: 'Подсказка к полю',
-        placeholder: '30.05.2024',
+        placeholder: '30.05.2024 00:00:00',
         size: 'l',
         view: 'default',
         isDouble: false,
