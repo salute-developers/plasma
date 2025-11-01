@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../../../../tokens';
+import { classes, tokens } from '../../../../../tokens';
 
 export const base = css`
     font-family: var(${tokens.fontFamily});
@@ -15,4 +15,8 @@ export const base = css`
 
     width: var(${tokens.itemWidth});
     height: var(${tokens.itemHeight});
+
+    &.${classes.selectedTabsItem} {
+        font-weight: var(${tokens.fontWeightSelected}, var(${tokens.fontWeight}));
+    }
 `;
