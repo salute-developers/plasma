@@ -14,12 +14,13 @@ type CreateStoriesProps = {
     additionalArgTypes?: {};
     additionalComponents: {
         Counter: any;
+        Icon?: any;
     };
 };
 
 export const getButtonStories = (config: CreateStoriesProps) => {
     const { component, componentConfig, additionalComponents, ...rest } = config;
-    const { Counter } = additionalComponents;
+    const { Counter, Icon } = additionalComponents;
 
     const buttonConfig = getConfigVariations(componentConfig);
 
@@ -29,7 +30,7 @@ export const getButtonStories = (config: CreateStoriesProps) => {
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component, Counter);
+    const DefaultStoryComponent = createDefaultStory(component, { Counter, Icon });
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,

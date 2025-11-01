@@ -19,10 +19,14 @@ const getIconSize = (size: string) => (size === 'xs' || size === 'xxs' ? 'xs' : 
 const getCounterSize = (size: string) => counterSizeMap?.[size] ?? 's';
 const shouldShowIcon = (enabled: boolean, size: string) => enabled && size !== 'xxs';
 
-export const createDefaultStory = (Button: any, Counter: any) => {
+export const createDefaultStory = (Button: any, Components: any) => {
+    const { Counter, Icon } = Components;
+
+    const getIcon = (size: string) => {
+        return Icon ? <Icon size={size} color="inherit" /> : <IconMic size={getIconSize(size)} color="inherit" />;
+    };
     return ({ enableContentLeft, enableContentRight, enableCounter, size, ...rest }: any) => {
-        const computedContentSlot = (predicate: boolean) =>
-            predicate ? <IconMic size={getIconSize(size)} color="inherit" /> : undefined;
+        const computedContentSlot = (predicate: boolean) => (predicate ? getIcon(size) : undefined);
         const computedCounterSlot = (predicate: boolean) =>
             predicate ? <Counter view="accent" size={getCounterSize(size)} count={0} /> : undefined;
 
