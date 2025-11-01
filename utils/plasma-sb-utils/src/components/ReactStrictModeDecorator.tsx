@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Decorator } from '@storybook/react';
+import type { Decorator, StoryFn, StoryContext } from '@storybook/react';
 
 export const reactStrictModePreviewOption = {
     reactStrictMode: {
@@ -14,7 +14,7 @@ export const reactStrictModePreviewOption = {
     },
 };
 
-export const withReactStrictMode: Decorator = (Story, context) => {
+export const withReactStrictMode: Decorator = (Story: StoryFn, context: StoryContext) => {
     if (!context.globals.reactStrictMode) {
         return <Story />;
     }
