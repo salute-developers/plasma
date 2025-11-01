@@ -12,7 +12,7 @@ describe('plasma-b2c: Button', () => {
     it('[PLASMA-T1319] Button: size=l, view=default', () => {
         mount(
             <CypressTestDecorator>
-                <Button text="Button_view_default_size_l" view="default" size="l" />
+                <Button text="Button MM" view="default" size="m" />
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();
