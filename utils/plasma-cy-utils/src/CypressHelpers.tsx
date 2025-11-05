@@ -11,12 +11,6 @@ declare global {
     }
 }
 
-export const mount: typeof cyMount = (...args) => {
-    const [jsx, opts = {}] = args;
-
-    return cyMount(jsx, opts);
-};
-
 // INFO: для временного использования в plasma-ui
 export const mountLegacyMode: typeof cyMount = (...args) => {
     const [jsx, opts = {}] = args;

@@ -7,5 +7,4 @@ declare global {
         }
     }
 }
-export declare const mount: typeof cyMount;
 export declare const mountLegacyMode: typeof cyMount;

@@ -1,16 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mountLegacyMode = exports.mount = void 0;
+exports.mountLegacyMode = void 0;
 var react_1 = require("@cypress/react");
-var mount = function () {
-    var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i] = arguments[_i];
-    }
-    var jsx = args[0], _a = args[1], opts = _a === void 0 ? {} : _a;
-    return (0, react_1.mount)(jsx, opts);
-};
-exports.mount = mount;
 // INFO: для временного использования в plasma-ui
 var mountLegacyMode = function () {
     var args = [];
