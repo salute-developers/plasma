@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -8,6 +8,7 @@ import { WithTheme } from '../../_helpers';
 import { Mask } from './Mask';
 
 const onChange = action('onChange');
+const onKeyDown = action('onKeyDown');
 
 const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
@@ -65,6 +66,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 showStartChars={false}
                 view={view}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
 
@@ -75,6 +77,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 view={view}
                 alwaysShowMask
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
                 value="+79123"
                 name="example"
@@ -87,6 +90,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 alwaysShowMask
                 view={view}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
 
@@ -98,6 +102,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 alwaysShowMask
                 view={view}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
 
@@ -108,6 +113,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 alwaysShowMask
                 view={view}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
         </div>

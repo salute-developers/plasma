@@ -7,6 +7,7 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { Mask } from './Mask';
 
 const onChange = action('onChange');
+const onKeyDown = action('onKeyDown');
 
 const sizes = ['s'];
 const views = ['default', 'positive', 'warning', 'negative'];
@@ -113,6 +114,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 showStartChars={false}
                 view={view}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
 
@@ -123,6 +125,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 view={view}
                 alwaysShowMask
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
 
@@ -133,6 +136,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 alwaysShowMask
                 view={view}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
 
@@ -144,6 +148,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 alwaysShowMask
                 view={view}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
 
@@ -154,6 +159,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
                 alwaysShowMask
                 view={view}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
         </div>
