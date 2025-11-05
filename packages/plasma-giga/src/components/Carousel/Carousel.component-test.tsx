@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { CypressTestDecorator, getComponent, mount } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 

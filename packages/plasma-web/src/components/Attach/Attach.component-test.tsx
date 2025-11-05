@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
-import { CypressTestDecorator, getComponent, mount, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 

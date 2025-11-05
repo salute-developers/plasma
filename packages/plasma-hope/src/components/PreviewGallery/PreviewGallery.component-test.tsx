@@ -1,5 +1,6 @@
 import React from 'react';
-import { CypressTestDecorator, getComponent, mount, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { IconTrashFilled } from '@salutejs/plasma-icons';
 
 import type { PreviewGalleryItemProps } from './PreviewGalleryItemBase';
