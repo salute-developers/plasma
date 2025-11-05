@@ -1,5 +1,6 @@
 import React, { ComponentProps, useState } from 'react';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { CodeField as CodeFieldB2C } from '.';
 

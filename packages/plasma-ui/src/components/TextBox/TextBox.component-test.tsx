@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { accent } from '@salutejs/plasma-tokens';
 
 const TextBox = getComponent('TextBox');

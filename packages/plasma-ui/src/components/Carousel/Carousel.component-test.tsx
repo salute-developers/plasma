@@ -1,7 +1,8 @@
 /* eslint-disable cypress/no-unnecessary-waiting */
 import React, { ReactNode } from 'react';
 import { useVirtual } from '@salutejs/use-virtual';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { ProductCard, GalleryCard, MusicCard } from '../Card/Card.examples';
 

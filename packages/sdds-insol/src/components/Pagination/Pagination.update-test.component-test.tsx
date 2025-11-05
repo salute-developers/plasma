@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 describe('sdds-insol: Pagination', () => {
     const Pagination = getComponent('Pagination');

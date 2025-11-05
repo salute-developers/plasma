@@ -2,7 +2,8 @@ import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { IconSleep, IconEye } from '@salutejs/plasma-icons';
 
 import { TextField as TextFieldWeb } from '.';

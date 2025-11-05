@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { surfaceSolid03 } from '@salutejs/plasma-core';
 import styled from 'styled-components';
 

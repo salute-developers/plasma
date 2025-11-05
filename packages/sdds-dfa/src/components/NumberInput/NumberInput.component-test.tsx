@@ -1,7 +1,8 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { IconPlus, IconMinus, IconSber } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 const PlusIcon = () => <IconPlus color="inherit" />;
 const MinusIcon = () => <IconMinus color="inherit" />;

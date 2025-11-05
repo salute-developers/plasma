@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import { IconSber } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { DatePicker as DatePickerCS, DatePickerRange as DatePickerRangeCS } from '.';
 

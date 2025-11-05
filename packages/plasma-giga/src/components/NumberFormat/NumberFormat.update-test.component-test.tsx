@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { NumberFormat as NumberFormatGIGA } from '.';
 

@@ -5,7 +5,8 @@ import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 import { IconEye } from '@salutejs/plasma-icons';
 
-import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 const Icon = () => <IconEye color="inherit" size="xs" />;
 const StandardTypoStyle = createGlobalStyle(standardTypo);

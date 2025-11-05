@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 describe('plasma-ui: Typography', () => {
     const Body1 = getComponent('Body1');

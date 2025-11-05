@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { IconChevronLeft, IconChevronRight } from '@salutejs/plasma-icons';
 
 describe('plasma-ui: SmartPaginationDots', () => {

@@ -1,5 +1,6 @@
 import React, { ComponentProps } from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { IconEdit } from '@salutejs/plasma-icons';
 
 import * as typographyVariants from '../Typography/Typography';

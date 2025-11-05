@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { IconBell } from '@salutejs/plasma-icons';
 
 const Icon = () => <IconBell color="inherit" size="xs" />;

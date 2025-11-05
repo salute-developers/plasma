@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useState, useCallback } from 'react';
-import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import type { FC } from 'react';

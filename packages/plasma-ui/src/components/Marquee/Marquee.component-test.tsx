@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mount, CypressTestDecorator, getComponent, withNoAnimation } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, withNoAnimation } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 describe('plasma-ui: Marquee', () => {
     const Marquee = withNoAnimation(getComponent('Marquee'));

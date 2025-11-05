@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 describe('plasma-web: Typography', () => {
     const DsplS = getComponent('DsplS');

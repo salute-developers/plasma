@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { IconEye } from '@salutejs/plasma-icons';
 
 describe('plasma-b2c: TextArea', () => {

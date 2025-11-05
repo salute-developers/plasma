@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe, withNoAnimation } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe, SpaceMe, withNoAnimation } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { radiuses } from '@salutejs/plasma-new-hope/styled-components';
 
 // from  typography in '@salutejs/plasma-tokens'

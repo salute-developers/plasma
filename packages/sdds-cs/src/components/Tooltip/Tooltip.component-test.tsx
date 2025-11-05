@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { Button as ButtonCS } from '../Button';
 

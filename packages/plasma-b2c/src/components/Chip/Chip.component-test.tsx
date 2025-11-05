@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IconDownload } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { Chip as ChipB2C } from '.';
 

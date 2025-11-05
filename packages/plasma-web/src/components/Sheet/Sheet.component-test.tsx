@@ -1,4 +1,5 @@
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import React, { FC, PropsWithChildren, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';

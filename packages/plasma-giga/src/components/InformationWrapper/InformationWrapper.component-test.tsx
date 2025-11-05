@@ -1,6 +1,7 @@
 import React from 'react';
 import type { ComponentProps, FC } from 'react';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { InformationWrapper as InformationWrapperGIGA } from '.';
 

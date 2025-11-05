@@ -3,7 +3,8 @@ import type { FC, PropsWithChildren } from 'react';
 import { IconClose } from '@salutejs/plasma-icons';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
-import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 const Icon = () => <IconClose color="inherit" />;
 const StandardTypoStyle = createGlobalStyle(standardTypo);

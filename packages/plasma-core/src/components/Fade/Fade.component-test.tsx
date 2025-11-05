@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, CypressTestDecorator } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { Fade } from '.';
 

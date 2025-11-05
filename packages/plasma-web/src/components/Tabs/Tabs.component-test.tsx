@@ -1,5 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 import { IconClose, IconPlasma } from '@salutejs/plasma-icons';

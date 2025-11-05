@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconEye } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, PadMe, SpaceMe, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, PadMe, SpaceMe, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 const Badge = getComponent('Badge');
 

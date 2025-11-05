@@ -1,7 +1,8 @@
 import React from 'react';
 import type { ComponentProps, FC } from 'react';
 import { IconSaluteOutline } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { Note as NoteB2c } from '.';
 

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { IconPlus, IconMinus, IconSber } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { NumberInput as NumberInputB2C } from '.';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconClose } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 const Icon = () => <IconClose color="inherit" />;
 

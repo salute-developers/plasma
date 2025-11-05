@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mount, CypressTestDecorator, PadMe, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, PadMe, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 const Item = styled.div`
     width: 100%;

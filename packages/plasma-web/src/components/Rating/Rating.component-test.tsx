@@ -3,7 +3,8 @@ import type { FC, PropsWithChildren, ReactNode } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconKeyFill, IconKeyOutline, IconLockFill } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { ratingClasses } from '@salutejs/plasma-new-hope/styled-components';
 
 type RatingDemoProps = {

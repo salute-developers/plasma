@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import styled from 'styled-components';
 
 const items = [{ label: 'Joy' }, { label: 'Sber' }, { label: 'Athena' }];

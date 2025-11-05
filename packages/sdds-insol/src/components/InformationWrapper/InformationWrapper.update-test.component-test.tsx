@@ -1,6 +1,7 @@
 import React from 'react';
 import type { ComponentProps, FC } from 'react';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { TextField } from '../TextField/TextField';
 import { TextArea } from '../TextArea/TextArea';

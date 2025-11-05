@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 
 const NoAnimationStyle = createGlobalStyle`

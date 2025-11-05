@@ -3,7 +3,8 @@ import React, { useCallback, useState } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 import { CalendarDoubleRange as CalendarDoubleRangeB2C, CalendarBaseRange as CalendarBaseRangeB2C } from './Calendar';
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { mount, CypressTestDecorator, getComponent, PadMe, Portal } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe, Portal } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 
 const noop = () => {};
 

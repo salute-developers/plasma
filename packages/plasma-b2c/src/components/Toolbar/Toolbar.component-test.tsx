@@ -1,7 +1,8 @@
 import React, { ComponentProps, FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount } from '@cypress/react';
 import { IconEdit } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton';
