@@ -1,12 +1,8 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import type { MouseEvent, SyntheticEvent, KeyboardEvent, FocusEvent } from 'react';
+import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import type { MouseEvent, SyntheticEvent, KeyboardEvent } from 'react';
 import cls from 'classnames';
-import { customDayjs } from 'src/utils/datejs';
 import { useForkRef } from '@salutejs/plasma-core';
 import type { RootProps } from 'src/engines';
-
-import { getDateFormatDelimiter } from '../DatePicker/utils/dateHelper';
-import type { DateType } from '../Calendar/Calendar.types';
 
 import type { DateTimePickerProps, DateTimePickerRootProps } from './DateTimePicker.types';
 import { base, CalendarContainerOverlay, LeftHelper } from './DateTimePicker.styles';
@@ -18,7 +14,6 @@ import { base as readOnlyCSS } from './variations/_readonly/base';
 import { CalendarGrid, DateShortcutList, Input, Popover, StyledSeparator, TimeGrid } from './ui';
 import { classes } from './DateTimePicker.tokens';
 import { useDateTimePicker } from './hooks/useDateTimePicker';
-import { getFormattedDateTime } from './utils';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 
 export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePickerRootProps>) =>
@@ -113,71 +108,25 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
             const calendarOverlayRef = useRef<HTMLDivElement | null>(null);
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
 
-            const dateFormatDelimiter = useMemo(() => getDateFormatDelimiter(dateFormat), [dateFormat]);
-            const timeFormatDelimiter = useMemo(() => getDateFormatDelimiter(timeFormat), [timeFormat]);
-
-            const timeColumnsCount = timeFormat?.split(timeFormatDelimiter).length || 2;
-            const fullFormat = dateFormat + dateTimeSeparator + timeFormat;
-
-            const [innerDate, setInnerDate] = useState<string | DateType>(defaultDate || '');
-            const dateValue = outerValue ?? innerDate;
-
-            const initialValues = getFormattedDateTime({
-                value: dateValue,
-                lang,
-                format: fullFormat,
-                includeEdgeDates,
-                min,
-                max,
-                dateFormat,
-                timeFormat,
-            });
-
-            const [correctDates, setCorrectDates] = useState({
-                input: initialValues.formattedDate,
-                calendar: initialValues.dateValue,
-                time: initialValues.timeValue,
-            });
-
-            const calendarGridValue: DateType = initialValues.dateValue;
-            const timeGridValue = initialValues.timeValue;
-
-            customDayjs.locale(lang);
-            const timeVisibleValue = timeGridValue ? customDayjs(timeGridValue).format(timeFormat) : '';
-            const inputValue = initialValues.formattedDate;
-
-            const isDateEqualEdge = (dateEdge?: Date) => {
-                if (!dateEdge) {
-                    return false;
-                }
-
-                const normalizedEdgeDate = customDayjs(dateEdge);
-                normalizedEdgeDate.set('hours', 0);
-                normalizedEdgeDate.set('minutes', 0);
-                normalizedEdgeDate.set('seconds', 0);
-
-                const normalizedCurrentDate = customDayjs(correctDates.calendar);
-                normalizedCurrentDate.set('hours', 0);
-                normalizedCurrentDate.set('minutes', 0);
-                normalizedCurrentDate.set('seconds', 0);
-
-                if (normalizedCurrentDate.isSame(normalizedEdgeDate)) {
-                    return true;
-                }
-
-                return false;
-            };
-
             const {
+                format,
+                dateVisibleValue,
+                calendarGridValue,
+                inputValue,
+                timeVisibleValue,
+                timeColumnsCount,
                 errorClass,
                 successClass,
                 handleChangeValue,
                 handleSearch,
-                getQuarterInfo,
+                handleBlur,
                 handleCalendarPick,
                 handleTimePick,
                 updateExternalDate,
+                isDateEqualEdge,
             } = useDateTimePicker({
+                inputRef,
+                outerValue,
                 valueError,
                 valueSuccess,
                 type,
@@ -185,87 +134,18 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 disabled,
                 readOnly,
                 maskWithFormat,
-                format: fullFormat,
+                dateTimeSeparator,
                 dateFormat,
                 timeFormat,
-                currentValue: inputValue,
-                delimiters: [dateFormatDelimiter, timeFormatDelimiter, dateTimeSeparator],
-                inputRef,
-                correctDates,
                 max,
                 min,
                 includeEdgeDates,
                 dateOnTimeSelectOnly,
 
-                setCorrectDates,
-                setInnerDate,
                 onChangeValue,
                 onCommitDate,
+                onBlur,
             });
-
-            const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-                if (!preserveInvalidOnBlur) {
-                    customDayjs.locale(lang);
-
-                    const originalDate = correctDates.calendar;
-
-                    if (!originalDate) {
-                        if (onChangeValue) {
-                            onChangeValue(event, correctDates.input, {
-                                originalDate: undefined,
-                                isoDate: '',
-                            });
-                        }
-
-                        if (onCommitDate) {
-                            onCommitDate(correctDates.input, {
-                                quarterInfo: undefined,
-                                originalDate: undefined,
-                                isoDate: '',
-                            });
-                        }
-
-                        return;
-                    }
-
-                    if (correctDates.time) {
-                        originalDate.setHours(
-                            correctDates.time.getHours(),
-                            correctDates.time.getMinutes(),
-                            correctDates.time.getSeconds(),
-                        );
-                    }
-
-                    setInnerDate(originalDate);
-
-                    if (!timeGridValue) {
-                        if (correctDates.calendar) {
-                            setInnerDate(correctDates.calendar);
-                        }
-                    }
-
-                    if (onChangeValue) {
-                        onChangeValue(event, correctDates.input, {
-                            originalDate,
-                            isoDate: originalDate.toISOString(),
-                        });
-                    }
-
-                    if (onCommitDate) {
-                        const quarterInfo = getQuarterInfo(originalDate);
-
-                        onCommitDate(correctDates.input, {
-                            quarterInfo,
-                            originalDate,
-                            isoDate: originalDate.toISOString(),
-                        });
-                    }
-                }
-
-                if (onBlur) {
-                    onBlur(event);
-                }
-            };
 
             const handleCalendarOverlayClick = (event: MouseEvent<HTMLDivElement>) => {
                 if (disabled || readOnly) {
@@ -304,9 +184,6 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
 
             const { onKeyDown } = useKeyNavigation({
                 opened: isInnerOpen,
-                format: fullFormat,
-                maskWithFormat,
-                delimiters: [dateFormatDelimiter, timeFormatDelimiter, dateTimeSeparator],
                 closeOnEsc,
                 onToggle: handleToggle,
             });
@@ -321,10 +198,10 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
             }, [opened, disabled, readOnly]);
 
             useLayoutEffect(() => {
-                if (!dateValue) {
+                if (!dateVisibleValue) {
                     updateExternalDate(defaultDate);
                 }
-            }, [defaultDate, fullFormat, lang]);
+            }, [defaultDate, format, lang]);
 
             return (
                 <Root
@@ -439,7 +316,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                             />
                         </Root>
                     </Popover>
-                    {leftHelper && <LeftHelper className={cls('errorClass, successClass')}>{leftHelper}</LeftHelper>}
+                    {leftHelper && <LeftHelper className={cls(errorClass, successClass)}>{leftHelper}</LeftHelper>}
                 </Root>
             );
         },

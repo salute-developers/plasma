@@ -1,10 +1,12 @@
-import type { ChangeEvent } from 'react';
+import { useMemo, useState } from 'react';
+import type { ChangeEvent, FocusEvent } from 'react';
 import type { Dayjs } from 'dayjs';
 import { customDayjs } from 'src/utils/datejs';
 import { QUARTER_NAMES } from 'src/components/Calendar/utils';
 import type { TimePickerGridChangeEvent } from 'src/components/TimePickerGrid/TimePickerGrid.types';
+import { getDateFormatDelimiter } from 'src/components/DatePicker/utils/dateHelper';
 
-import type { CalendarValueType, DateInfo } from '../../Calendar/Calendar.types';
+import type { CalendarValueType, DateInfo, DateType } from '../../Calendar/Calendar.types';
 import { classes } from '../DateTimePicker.tokens';
 import type { UseDateTimePickerArgs } from '../DateTimePicker.types';
 import { getMaskedValue } from '../utils/getMaskedValue';
@@ -24,25 +26,59 @@ export const useDateTimePicker = ({
     lang = 'ru',
     disabled,
     readOnly,
+    outerValue,
+    defaultDate,
     maskWithFormat,
-    format,
-    dateFormat,
-    timeFormat,
-    currentValue,
-    delimiters,
+    dateFormat = 'DD.MM.YYYY',
+    timeFormat = 'HH:mm:ss',
+    dateTimeSeparator = ' ',
     inputRef,
     min,
     max,
     includeEdgeDates,
-    correctDates,
     dateOnTimeSelectOnly,
-    setCorrectDates,
-    setInnerDate,
+    preserveInvalidOnBlur,
     onChangeValue,
     onCommitDate,
+    onBlur,
 }: UseDateTimePickerArgs) => {
     const errorClass = valueError ? classes.error : undefined;
     const successClass = valueSuccess ? classes.success : undefined;
+
+    const dateFormatDelimiter = useMemo(() => getDateFormatDelimiter(dateFormat), [dateFormat]);
+    const timeFormatDelimiter = useMemo(() => getDateFormatDelimiter(timeFormat), [timeFormat]);
+
+    const delimiters = [dateFormatDelimiter, timeFormatDelimiter, dateTimeSeparator];
+
+    const format = dateFormat + dateTimeSeparator + timeFormat;
+    const timeColumnsCount = timeFormat?.split(timeFormatDelimiter).length || 2;
+
+    const [innerDate, setInnerDate] = useState<string | DateType>(defaultDate || '');
+    const dateVisibleValue = outerValue ?? innerDate;
+
+    const initialValues = getFormattedDateTime({
+        value: dateVisibleValue,
+        lang,
+        format,
+        includeEdgeDates,
+        min,
+        max,
+        dateFormat,
+        timeFormat,
+    });
+
+    const [correctDates, setCorrectDates] = useState({
+        input: initialValues.formattedDate,
+        calendar: initialValues.dateValue,
+        time: initialValues.timeValue,
+    });
+
+    const calendarGridValue: DateType = initialValues.dateValue;
+    const timeGridValue = initialValues.timeValue;
+
+    customDayjs.locale(lang);
+    const timeVisibleValue = timeGridValue ? customDayjs(timeGridValue).format(timeFormat) : '';
+    const inputValue = initialValues.formattedDate;
 
     const getQuarterInfo = (originalDate?: Date) => {
         if (type !== 'Quarters' || !originalDate) {
@@ -61,6 +97,28 @@ export const useDateTimePicker = ({
             name: QUARTER_NAMES[quarterIndex],
             fullValue: [originalDate, endQuarter] as CalendarValueType,
         };
+    };
+
+    const isDateEqualEdge = (dateEdge?: Date) => {
+        if (!dateEdge) {
+            return false;
+        }
+
+        const normalizedEdgeDate = customDayjs(dateEdge);
+        normalizedEdgeDate.set('hours', 0);
+        normalizedEdgeDate.set('minutes', 0);
+        normalizedEdgeDate.set('seconds', 0);
+
+        const normalizedCurrentDate = customDayjs(correctDates.calendar);
+        normalizedCurrentDate.set('hours', 0);
+        normalizedCurrentDate.set('minutes', 0);
+        normalizedCurrentDate.set('seconds', 0);
+
+        if (normalizedCurrentDate.isSame(normalizedEdgeDate)) {
+            return true;
+        }
+
+        return false;
     };
 
     const getFormattedCorrectInput = ({
@@ -99,7 +157,7 @@ export const useDateTimePicker = ({
         const { value, selectionStart } = event.target;
 
         const { formattedValue, selectionStart: newSelectionStart } = maskWithFormat
-            ? getMaskedValue({ value, format, delimiters, prevValue: currentValue, selectionStart })
+            ? getMaskedValue({ value, format, delimiters, prevValue: inputValue, selectionStart })
             : { formattedValue: value, selectionStart };
 
         const { formattedDate, isoDate, originalDate, dateValue, timeValue } = getFormattedDateTime({
@@ -313,14 +371,86 @@ export const useDateTimePicker = ({
         setInnerDate(formattedDate);
     };
 
+    const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+        if (!preserveInvalidOnBlur) {
+            customDayjs.locale(lang);
+
+            const originalDate = correctDates.calendar;
+
+            if (!originalDate) {
+                if (onChangeValue) {
+                    onChangeValue(event, correctDates.input, {
+                        originalDate: undefined,
+                        isoDate: '',
+                    });
+                }
+
+                if (onCommitDate) {
+                    onCommitDate(correctDates.input, {
+                        quarterInfo: undefined,
+                        originalDate: undefined,
+                        isoDate: '',
+                    });
+                }
+
+                return;
+            }
+
+            if (correctDates.time) {
+                originalDate.setHours(
+                    correctDates.time.getHours(),
+                    correctDates.time.getMinutes(),
+                    correctDates.time.getSeconds(),
+                );
+            }
+
+            setInnerDate(originalDate);
+
+            if (!timeGridValue) {
+                if (correctDates.calendar) {
+                    setInnerDate(correctDates.calendar);
+                }
+            }
+
+            if (onChangeValue) {
+                onChangeValue(event, correctDates.input, {
+                    originalDate,
+                    isoDate: originalDate.toISOString(),
+                });
+            }
+
+            if (onCommitDate) {
+                const quarterInfo = getQuarterInfo(originalDate);
+
+                onCommitDate(correctDates.input, {
+                    quarterInfo,
+                    originalDate,
+                    isoDate: originalDate.toISOString(),
+                });
+            }
+        }
+
+        if (onBlur) {
+            onBlur(event);
+        }
+    };
+
     return {
+        format,
+        dateVisibleValue,
+        calendarGridValue,
+        inputValue,
+        timeVisibleValue,
+        timeColumnsCount,
         errorClass,
         successClass,
         handleChangeValue,
         handleSearch,
         handleCalendarPick,
         handleTimePick,
+        handleBlur,
         updateExternalDate,
         getQuarterInfo,
+        isDateEqualEdge,
     };
 };
