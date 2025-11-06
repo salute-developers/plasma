@@ -122,7 +122,6 @@ const StoryDefault = ({
     valueSuccess,
     size,
     lang,
-    format,
     min,
     max,
     showShortcuts,
@@ -148,7 +147,6 @@ const StoryDefault = ({
             onChangeValue={onChangeValue}
             onCommitDate={onCommitDate}
             lang={lang}
-            format={format}
             min={min}
             max={max}
             {...(showShortcuts && { dateShortcuts })}
@@ -170,8 +168,14 @@ export const Default: StoryObj<StoryPropsDefault> = {
                 type: 'inline-radio',
             },
         },
-        format: {
+        dateFormat: {
             options: ['DD.MM.YYYY', 'DD MMMM YYYY', 'YYYY DD MM', 'DD YYYY MM'],
+            control: {
+                type: 'select',
+            },
+        },
+        timeFormat: {
+            options: ['HH:mm:ss', 'HH:mm', 'mm:ss', 'HH'],
             control: {
                 type: 'select',
             },

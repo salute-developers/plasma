@@ -2,14 +2,12 @@ import type {
     InputHTMLAttributes,
     SyntheticEvent,
     KeyboardEvent,
-    SetStateAction,
-    Dispatch,
     MutableRefObject,
     ReactNode,
     CSSProperties,
 } from 'react';
 
-import type { DateInfo, DateType } from '../Calendar/Calendar.types';
+import type { DateInfo } from '../Calendar/Calendar.types';
 import type { DatePickerPopoverProps, DatePickerTextFieldProps } from '../DatePicker/SingleDate/SingleDate.types';
 import type { LabelProps } from '../TextField/TextField.types';
 import type { DatePickerCalendarProps } from '../DatePicker/DatePickerBase.types';
@@ -162,9 +160,16 @@ export type CorrectDates = {
 };
 
 export type UseDateTimePickerArgs = {
-    currentValue: string;
+    // currentValue: string;
     inputRef: MutableRefObject<HTMLInputElement | null>;
-    delimiters?: string[];
+    outerValue?: Date | string;
+    defaultDate?: Date;
+    // correctDates: CorrectDates;
+    // setInnerDate: Dispatch<SetStateAction<string | DateType>>;
+    // setCorrectDates: Dispatch<SetStateAction<CorrectDates>>;
+
+    preserveInvalidOnBlur?: boolean;
+    // delimiters?: string[];
     valueError?: boolean;
     valueSuccess?: boolean;
     type?: CalendarStateType;
@@ -172,16 +177,15 @@ export type UseDateTimePickerArgs = {
     disabled?: boolean;
     readOnly?: boolean;
     maskWithFormat?: boolean;
-    format?: string;
+    // format?: string;
     dateFormat?: string;
     timeFormat?: string;
+    dateTimeSeparator?: string;
     min?: Date;
     max?: Date;
     includeEdgeDates?: boolean;
     dateOnTimeSelectOnly?: Date;
-    correctDates: CorrectDates;
-    setInnerDate: Dispatch<SetStateAction<string | DateType>>;
-    setCorrectDates: Dispatch<SetStateAction<CorrectDates>>;
     onChangeValue?: InputProps['onChangeValue'];
     onCommitDate?: InputProps['onCommitDate'];
+    onBlur?: InputProps['onBlur'];
 };
