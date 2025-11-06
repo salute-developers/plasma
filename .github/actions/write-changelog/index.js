@@ -55,24 +55,6 @@ async function run() {
             headings.add(heading);
         });
 
-        // INFO: В коллекции будут или все пакеты так как были изменения в core,
-        // INFO: или только те библиотеки в которых были изменения
-        // INFO: Это часть логики останется как fallback на тот случай если новая генерация даст сбой
-        for (const pkg of Array.from(headings)) {
-            const blackList = [...packages.filter((item) => pkg !== item), 'bugs'];
-
-            const isPlasmaIcons = pkg === 'plasma-icons';
-
-            const changelogMD = unified()
-                .use(remarkParse)
-                .use(() => processingHeadingByPackages(isPlasmaIcons ? [...blackList, 'core'] : blackList))
-                .use(() => rewriteHeadingValue(pkg))
-                .use(remarkStringify)
-                .processSync(rawData);
-
-            await writeChangelog(changelogMD.toString(), pkg);
-        }
-
         // INFO: Новый блок генерации changelog as JSON на основе входящих данных
         for (const pkg of Array.from(headings)) {
             const blackList = [...packages.filter((item) => pkg !== item), 'bugs'];
