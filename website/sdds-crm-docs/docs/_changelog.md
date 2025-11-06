@@ -1,1 +1,0 @@
-../../../packages/sdds-crm/CHANGELOG.md
