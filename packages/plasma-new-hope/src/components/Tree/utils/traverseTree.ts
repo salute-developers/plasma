@@ -1,7 +1,7 @@
 import type { Key } from 'react';
 import cls from 'classnames/dedupe';
-import { deepCopy } from 'src/utils';
 
+import { deepCopy } from '../utils';
 import { classes } from '../Tree.tokens';
 import type { TreeItem } from '../Tree.types';
 
