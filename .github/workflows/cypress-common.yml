@@ -1,108 +1,117 @@
 name: Cypress reusable workflow
 
 on:
-  workflow_call:
-    inputs:
-      scope:
-        description: 'scope name'
-        required: true
-        type: string
-      prefix:
-        description: 'package prefix (plasma or sdds)'
-        required: true
-        type: string
-      with-react-17:
-        type: boolean
-        default: false
-      with-artifacts:
-        type: boolean
-        default: false
+    workflow_call:
+        inputs:
+            scope:
+                description: 'scope name'
+                required: true
+                type: string
+            prefix:
+                description: 'package prefix (plasma or sdds)'
+                required: true
+                type: string
+            with-react-17:
+                type: boolean
+                default: false
+            with-artifacts:
+                type: boolean
+                default: false
 
 jobs:
-  run:
-    if: ${{ inputs.scope != '' }}
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    env:
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
-      COVERAGE: true
+    run:
+        if: ${{ inputs.scope != '' }}
+        runs-on: ubuntu-latest
+        continue-on-error: true
+        env:
+            NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+            COVERAGE: true
 
-    steps:
-      - uses: actions/checkout@v3
+        steps:
+            - uses: actions/checkout@v3
 
-      - uses: ./.github/actions/prepare-environment
+            - uses: ./.github/actions/prepare-environment
 
-      - name: Set default scope
-        run: |
-          if [ "${{ inputs.prefix }}" = "plasma" ]; then
-            echo "SCOPE={${{ inputs.scope }},core,hope,new-hope,themes,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils}" >> $GITHUB_ENV
-          else
-            echo "SCOPE={core,new-hope,typo,icons,cy-utils}" >> $GITHUB_ENV
-          fi
+            - name: Set default scope
+              run: |
+                  if [ "${{ inputs.prefix }}" = "plasma" ]; then
+                    echo "SCOPE={${{ inputs.scope }},core,hope,new-hope,themes,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils}" >> $GITHUB_ENV
+                  else
+                    echo "SCOPE={core,new-hope,typo,icons,cy-utils}" >> $GITHUB_ENV
+                  fi
 
-      - name: Install React 17
-        if:  ${{ inputs.with-react-17 }}
-        run: |
-          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/${{ inputs.prefix }}-${{ inputs.scope }}"
+            - name: Install React 17
+              if: ${{ inputs.with-react-17 }}
+              run: |
+                  npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/${{ inputs.prefix }}-${{ inputs.scope }}"
 
-      - name: Lerna bootstrap
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 45
-          max_attempts: 2
-          retry_on: error
-          command: |
-            if [ "${{ inputs.prefix }}" = "plasma" ]; then
-              npx lerna bootstrap --scope=@salutejs/${{ inputs.prefix }}-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes"
-            else
-              npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
-            fi
+            - name: Lerna bootstrap
+              uses: nick-fields/retry@v3
+              with:
+                  timeout_minutes: 45
+                  max_attempts: 2
+                  retry_on: error
+                  command: |
+                      if [ "${{ inputs.prefix }}" = "plasma" ]; then
+                        npx lerna bootstrap --scope=@salutejs/${{ inputs.prefix }}-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes"
+                      else
+                        npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
+                      fi
 
-      - name: Run Cypress CT for Plasma ${{ inputs.scope }}
-        if: ${{ success() }}
-        run: |
-            set -o pipefail
-            npm run cy:${{ inputs.scope }}:run-ct 2>&1 | tee /tmp/cypress-output.log
+            - name: Run Cypress CT for Plasma ${{ inputs.scope }}
+              if: ${{ success() }}
+              run: |
+                  npm run cy:${{ inputs.scope }}:run-ct
 
-      - name: Failed tests list
-        if: ${{ failure() }}
-        run: |
-            echo "==================================="
-            echo "Failed Tests Summary:"
-            echo "==================================="
-            if [ -f /tmp/cypress-output.log ]; then
-              awk '/failing/{flag=1; next} /passing/{flag=0} flag && /^\s+[0-9]+\)/ {print}' /tmp/cypress-output.log | head -20 || echo "No failed tests found"
-            else
-              echo "Cypress output log not found"
-            fi
-            echo "==================================="
+            - name: Failed tests list
+              if: ${{ failure() }}
+              run: |
+                  echo "==================================="
+                  echo "Failed Tests Summary:"
+                  echo "==================================="
 
-      - name: Reorganize diff artifacts
-        if: ${{ failure() || inputs.with-artifacts }}
-        run: |
-          mkdir -p /tmp/artifacts
-            find /home/runner/work/plasma/plasma/cypress/snapshots -name "__diff_output__" -type d | while read dir; do
-            # Извлекаем package name из пути
-            package=$(echo "$dir" | sed 's|.*/snapshots/\([^/]*\)/.*|\1|')
+                  if [ -f /tmp/cypress-results.json ]; then
+                    echo ""
+                    printf "%-35s | %s\n" "Component" "Test Name"
+                    echo "-----------------------------------+------------------------------------------------"
 
-            # Проверяем, содержит ли путь /components/ и извлекаем component name
-            if [[ "$dir" == *"/components/"* ]]; then
-              component=$(echo "$dir" | sed 's|.*/components/\([^/]*\)/.*|\1|')
-            else
-              # Если нет /components/, берем последнюю значимую часть пути перед __diff_output__
-              component=$(echo "$dir" | sed 's|/__diff_output__$||' | sed 's|.*/||')
-            fi
+                    jq -r '.results[]?.suites[]?.tests[]? | select(.state == "failed") | "\(.title)"' /tmp/cypress-results.json | \
+                    awk -F': ' '{printf "%-35s | %s\n", $1, $2}' | head -30
 
-            target_dir="/tmp/artifacts/${package}/${component}"
-            mkdir -p "$target_dir"
+                    echo ""
+                    total=$(jq '[.results[]?.suites[]?.tests[]? | select(.state == "failed")] | length' /tmp/cypress-results.json)
+                    echo "Total failed: $total"
+                  else
+                    echo "No cypress results JSON found"
+                  fi
+                  echo "==================================="
 
-            cp "$dir"/* "$target_dir"/ 2>/dev/null || true
-          done
+            - name: Reorganize diff artifacts
+              if: ${{ failure() || inputs.with-artifacts }}
+              run: |
+                  mkdir -p /tmp/artifacts
+                    find /home/runner/work/plasma/plasma/cypress/snapshots -name "__diff_output__" -type d | while read dir; do
+                    # Извлекаем package name из пути
+                    package=$(echo "$dir" | sed 's|.*/snapshots/\([^/]*\)/.*|\1|')
 
-      - name: Save artifacts
-        if: ${{ failure() || inputs.with-artifacts }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: Failures_Tests_Artifact_${{ inputs.scope }}_
-          path: /tmp/artifacts/
-          overwrite: true
+                    # Проверяем, содержит ли путь /components/ и извлекаем component name
+                    if [[ "$dir" == *"/components/"* ]]; then
+                      component=$(echo "$dir" | sed 's|.*/components/\([^/]*\)/.*|\1|')
+                    else
+                      # Если нет /components/, берем последнюю значимую часть пути перед __diff_output__
+                      component=$(echo "$dir" | sed 's|/__diff_output__$||' | sed 's|.*/||')
+                    fi
+
+                    target_dir="/tmp/artifacts/${package}/${component}"
+                    mkdir -p "$target_dir"
+
+                    cp "$dir"/* "$target_dir"/ 2>/dev/null || true
+                  done
+
+            - name: Save artifacts
+              if: ${{ failure() || inputs.with-artifacts }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Failures_Tests_Artifact_${{ inputs.scope }}_
+                  path: /tmp/artifacts/
+                  overwrite: true
