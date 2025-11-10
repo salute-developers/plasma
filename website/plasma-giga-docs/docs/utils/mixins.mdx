@@ -33,3 +33,26 @@ import { applyPaper } from '@salutejs/plasma-giga';
     Test card
 </div>
 ```
+
+## `addScrollbar`
+
+:::caution
+Стилизация системного scrollbar возможна **только** в браузерах: Safari, Chrome и на базе Chromium!
+:::
+
+Позволяет изменить внешний вид системного scrollbar согласно цветовым токенам темы.
+
+###
+```tsx
+import { addScrollbar } from '@salutejs/plasma-giga';
+
+type Size = 's' | 'm';
+
+const ScrollbarContainer = styled.div`
+    ${addScrollbar('s')};
+`;
+
+<ScrollbarContainer>
+    { children }
+</ScrollbarContainer>
+```
