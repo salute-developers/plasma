@@ -59,7 +59,8 @@ describe('plasma-b2c: ComboboxOld', () => {
         });
     });
 
-    it('multiple', () => {
+    it.only('multiple', () => {
+        cy.viewport(500, 950);
         mount(
             <CypressTestDecoratorWithTypo>
                 <Combobox valueType="multiple" placeholder="Placeholder" />
@@ -105,7 +106,8 @@ describe('plasma-b2c: ComboboxOld', () => {
         });
     });
 
-    it('sizes', () => {
+    it.only('sizes', () => {
+        cy.viewport(500, 950);
         mount(
             <CypressTestDecoratorWithTypo>
                 <Combobox valueType="single" opened value="item_0" label="Size" size="xs">
