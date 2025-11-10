@@ -215,11 +215,14 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             if (isTargetAmount) {
                 // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы
-                onChange(value.filter((val) => valueToItemMap?.get(val)?.disabled));
+                onChange(
+                    value.filter((val) => valueToItemMap?.get(val)?.disabled),
+                    null,
+                );
             } else {
                 onChange(
                     value.filter((val) => val !== chip.value),
-                    valueToItemMap.get(chip.value) || null,
+                    valueToItemMap.get(chip.value) || { value: chip.value, label: chip.label },
                 );
             }
         };
