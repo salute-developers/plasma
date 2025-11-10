@@ -228,4 +228,13 @@ describe('plasma-b2c: NumberInput', () => {
         cy.get('input').type('{enter}');
         cy.matchImageSnapshot();
     });
+
+    it('undefined', () => {
+        mount(
+            <CypressTestDecorator>
+                <InteractiveNumberInput size="l" min={0} max={9} step={2} width={188} isManualInput value={undefined} />
+            </CypressTestDecorator>,
+        );
+        cy.matchImageSnapshot();
+    });
 });
