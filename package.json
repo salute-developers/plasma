@@ -21,50 +21,52 @@
 
     "cy:get-image": "echo younggod/cypress-13$(if [[ $(uname -a) == *\"ARM64\"* ]]; then echo \"-m\"; fi):13.17.0",
     "cy:run-ct": "CYPRESS_IMAGE=$(npm run cy:get-image | tail -1) && docker run --rm -v $PWD:/e2e -w /e2e --entrypoint=/bin/bash -e CYPRESS_CONFIG_FILE='cypress.config.ts' -e PACKAGE_NAME=$PACKAGE_NAME -e SPEC_GROUP=$SPEC_GROUP -e COMPONENTS=$COMPONENTS -e RETRIES=$RETRIES -e COVERAGE_DIR=cypress/${PACKAGE_NAME}-coverage -e COVERAGE=true -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots ${CYPRESS_IMAGE} -c 'node ./actions/platform-test/lib/index.js --config $CYPRESS_CONFIG_FILE --command run-ct'",
-    
-    "cy:b2c:run-ct": "PACKAGE_NAME=plasma-b2c COMPONENTS=$npm_config_components npm run cy:run-ct",
+
+    "cy:run-ct-cypress-latest": "docker run --rm -v $PWD:/e2e -w /e2e --entrypoint=/bin/bash -e CYPRESS_CONFIG_FILE='cypress.config.ts' -e PACKAGE_NAME=$PACKAGE_NAME -e SPEC_GROUP=$SPEC_GROUP -e COMPONENTS=$COMPONENTS -e RETRIES=$RETRIES -e COVERAGE_DIR=cypress/${PACKAGE_NAME}-coverage -e COVERAGE=true -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots plasmadockerhub/cypress:latest -c 'export NODE_OPTIONS=\"--max-old-space-size=6144\" && cypress run --component --browser chromium --config-file cypress.config.ts'",
+
+    "cy:b2c:run-ct": "PACKAGE_NAME=plasma-b2c COMPONENTS=$npm_config_components npm run cy:run-ct-cypress-latest",
     "cy:b2c:run-ct:a-d": "PACKAGE_NAME=plasma-b2c SPEC_GROUP='[A-D]' npm run cy:run-ct",
     "cy:b2c:run-ct:e-l": "PACKAGE_NAME=plasma-b2c SPEC_GROUP='[E-L]' npm run cy:run-ct",
     "cy:b2c:run-ct:m-r": "PACKAGE_NAME=plasma-b2c SPEC_GROUP='[M-R]' npm run cy:run-ct",
     "cy:b2c:run-ct:s-z": "PACKAGE_NAME=plasma-b2c SPEC_GROUP='[S-Z]' npm run cy:run-ct",
-    
+
     "cy:giga:run-ct": "PACKAGE_NAME=plasma-giga COMPONENTS=$npm_config_components npm run cy:run-ct",
     "cy:giga:run-ct:a-d": "PACKAGE_NAME=plasma-giga SPEC_GROUP='[A-D]' npm run cy:run-ct",
     "cy:giga:run-ct:e-l": "PACKAGE_NAME=plasma-giga SPEC_GROUP='[E-L]' npm run cy:run-ct",
     "cy:giga:run-ct:m-r": "PACKAGE_NAME=plasma-giga SPEC_GROUP='[M-R]' npm run cy:run-ct",
     "cy:giga:run-ct:s-z": "PACKAGE_NAME=plasma-giga SPEC_GROUP='[S-Z]' npm run cy:run-ct",
-    
+
     "cy:web:run-ct": "PACKAGE_NAME=plasma-web COMPONENTS=$npm_config_components npm run cy:run-ct",
     "cy:web:run-ct:a-d": "PACKAGE_NAME=plasma-web SPEC_GROUP='[A-D]' npm run cy:run-ct",
     "cy:web:run-ct:e-l": "PACKAGE_NAME=plasma-web SPEC_GROUP='[E-L]' npm run cy:run-ct",
     "cy:web:run-ct:m-r": "PACKAGE_NAME=plasma-web SPEC_GROUP='[M-R]' npm run cy:run-ct",
     "cy:web:run-ct:s-z": "PACKAGE_NAME=plasma-web SPEC_GROUP='[S-Z]' npm run cy:run-ct",
-    
+
     "cy:ui:run-ct": "PACKAGE_NAME=plasma-ui COMPONENTS=$npm_config_components RETRIES=3 npm run cy:run-ct",
     "cy:ui:run-ct:a-d": "PACKAGE_NAME=plasma-ui SPEC_GROUP='[A-D]' npm run cy:run-ct",
     "cy:ui:run-ct:e-l": "PACKAGE_NAME=plasma-ui SPEC_GROUP='[E-L]' npm run cy:run-ct",
     "cy:ui:run-ct:m-r": "PACKAGE_NAME=plasma-ui SPEC_GROUP='[M-R]' npm run cy:run-ct",
     "cy:ui:run-ct:s-z": "PACKAGE_NAME=plasma-ui SPEC_GROUP='[S-Z]' npm run cy:run-ct",
-    
+
     "cy:cs:run-ct": "PACKAGE_NAME=sdds-cs COMPONENTS=$npm_config_components npm run cy:run-ct",
     "cy:cs:run-ct:a-d": "PACKAGE_NAME=sdds-cs SPEC_GROUP='[A-D]' npm run cy:run-ct",
     "cy:cs:run-ct:e-l": "PACKAGE_NAME=sdds-cs SPEC_GROUP='[E-L]' npm run cy:run-ct",
     "cy:cs:run-ct:m-r": "PACKAGE_NAME=sdds-cs SPEC_GROUP='[M-R]' npm run cy:run-ct",
     "cy:cs:run-ct:s-z": "PACKAGE_NAME=sdds-cs SPEC_GROUP='[S-Z]' npm run cy:run-ct",
-    
+
     "cy:insol:run-ct": "PACKAGE_NAME=sdds-insol COMPONENTS=$npm_config_components npm run cy:run-ct",
     "cy:insol:run-ct:a-d": "PACKAGE_NAME=sdds-insol SPEC_GROUP='[A-D]' npm run cy:run-ct",
     "cy:insol:run-ct:e-l": "PACKAGE_NAME=sdds-insol SPEC_GROUP='[E-L]' npm run cy:run-ct",
     "cy:insol:run-ct:m-r": "PACKAGE_NAME=sdds-insol SPEC_GROUP='[M-R]' npm run cy:run-ct",
     "cy:insol:run-ct:s-z": "PACKAGE_NAME=sdds-insol SPEC_GROUP='[S-Z]' npm run cy:run-ct",
-    
-    "cy:b2c:run-ct-update-diffs": "PACKAGE_NAME=plasma-b2c COMPONENTS=$npm_config_components CYPRESS_updateSnapshots=true npm run cy:run-ct",
+
+    "cy:b2c:run-ct-update-diffs": "PACKAGE_NAME=plasma-b2c COMPONENTS=$npm_config_components CYPRESS_updateSnapshots=true npm run cy:run-ct-cypress-latest",
     "cy:giga:run-ct-update-diffs": "PACKAGE_NAME=plasma-giga COMPONENTS=$npm_config_components CYPRESS_updateSnapshots=true npm run cy:run-ct",
     "cy:web:run-ct-update-diffs": "PACKAGE_NAME=plasma-web COMPONENTS=$npm_config_components CYPRESS_updateSnapshots=true npm run cy:run-ct",
     "cy:ui:run-ct-update-diffs": "PACKAGE_NAME=plasma-ui COMPONENTS=$npm_config_components RETRIES=3 CYPRESS_updateSnapshots=true npm run cy:run-ct",
     "cy:cs:run-ct-update-diffs": "PACKAGE_NAME=sdds-cs COMPONENTS=$npm_config_components CYPRESS_updateSnapshots=true npm run cy:run-ct",
     "cy:insol:run-ct-update-diffs": "PACKAGE_NAME=sdds-insol COMPONENTS=$npm_config_components CYPRESS_updateSnapshots=true npm run cy:run-ct",
-    
+
     "cy:ui:open-ct": "PACKAGE_DIR=packages/plasma-ui node actions/platform-test/lib/index.js --config cypress/config/ui-config.json --command open-ct --env failOnSnapshotDiff=false",
     "cy:web:open-ct": "PACKAGE_NAME=plasma-web node actions/platform-test/lib/index.js --config cypress.config.ts --command open-ct --env failOnSnapshotDiff=false",
     "cy:giga:open-ct": "PACKAGE_NAME=plasma-giga node actions/platform-test/lib/index.js --config cypress.config.ts --command open-ct --env failOnSnapshotDiff=false",
@@ -73,7 +75,7 @@
     "cy:insol:open-ct": "PACKAGE_NAME=sdds-insol node actions/platform-test/lib/index.js --config cypress.config.ts --command open-ct --env failOnSnapshotDiff=false",
 
     "cy:report:coverage": "nyc report --reporter=cobertura --reporter=html",
-    
+
     "extract-docgen-info": "lerna run extract-docgen-info",
     "lint:scripts": "eslint ./scripts ./auto-plugins/src --ext .js,.ts --quiet",
     "lint:packages": "./scripts/lint-packages.js",
@@ -105,8 +107,8 @@
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
     "@cypress/code-coverage": "3.10.9",
-    "@cypress/react": "5.12.0",
-    "@cypress/webpack-dev-server": "2.4.1",
+    "@cypress/react": "9.0.1",
+    "@cypress/webpack-dev-server": "5.1.4",
     "@cypress/webpack-preprocessor": "5.9.1",
     "@salutejs/eslint-config": "1.2.0",
     "@salutejs/eslint-config-base": "0.4.0",
@@ -125,7 +127,7 @@
     "@typescript-eslint/eslint-plugin": "5.48.2",
     "@typescript-eslint/parser": "5.48.2",
     "auto": "11.1.1",
-    "axe-core": "4.3.4",
+    "axe-core": "4.11.0",
     "babel-eslint": "10.1.0",
     "babel-loader": "9.1.3",
     "babel-plugin-const-enum": "1.2.0",
@@ -135,7 +137,7 @@
     "chalk": "4.1.2",
     "commander": "10.0.0",
     "css-loader": "7.1.2",
-    "cypress": "13.17.0",
+    "cypress": "15.6.0",
     "cypress-axe": "0.13.0",
     "cypress-file-upload": "5.0.8",
     "cypress-image-snapshot": "4.0.1",
@@ -165,8 +167,8 @@
     "lint-staged": "13.1.2",
     "nyc": "15.1.0",
     "prettier": "2.0.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "required-path": "1.0.1",
     "semver": "7.3.7",
     "simple-scaffold": "2.2.0",
@@ -182,17 +184,16 @@
     "typescript": "5.6.3",
     "url-loader": "4.1.1",
     "webpack": "5.76.0",
-    "webpack-dev-server": "3.11.2"
+    "webpack-dev-server": "5.2.2"
   },
   "dependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
     "babel-plugin-annotate-pure-calls": "0.4.0",
     "cypress-real-events": "1.12.0",
     "patch-package": "8.0.0"
   },
   "overrides": {
     "chokidar": "^3.3.1"
-  },
-  "engines": {
-    "npm": "^8.19.0 || ^9.5.1"
   }
 }

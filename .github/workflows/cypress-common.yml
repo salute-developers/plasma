@@ -51,7 +51,7 @@ jobs:
       - name: Install React 19
         if:  ${{ inputs.with-react-19 }}
         run: |
-          npm i --no-progress react@19 react-dom@19 @types/react@19 @types/react-dom@19 --prefix="./packages/${{ inputs.prefix }}-${{ inputs.scope }}"
+          npm i --no-progress cypress@15.6.0 @cypress/react@9.0.1 react@19 react-dom@19 @types/react@19 @types/react-dom@19
 
       - name: Lerna bootstrap
         uses: nick-fields/retry@v3
