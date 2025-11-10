@@ -13,6 +13,7 @@ import { dark } from '@salutejs/plasma-tokens-b2c/themes';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 
 import { SSRProvider } from './SSRProvider';
+import { NormalizeCSSDecorator } from './NormalizeCSSDecorator';
 
 // NOTE: new theme format
 const ThemeGIGA = createGlobalStyle(plasma_giga__light);
@@ -97,6 +98,7 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
     if (pkgName === 'plasma-web') {
         return (
             <SSRProvider noSSR={noSSR}>
+                <NormalizeCSSDecorator />
                 <TypoThemeStyle />
                 <WebLightThemeStyle />
                 {children}
@@ -107,6 +109,7 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
     if (pkgName === 'plasma-b2c') {
         return (
             <SSRProvider noSSR={noSSR}>
+                <NormalizeCSSDecorator />
                 <StandardTypoStyle />
                 <CompatibleTypoStyle />
                 <ColorB2CStyle />
@@ -118,6 +121,7 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
     if (['plasma-giga', 'sdds-cs', 'sdds-insol'].includes(pkgName)) {
         return (
             <SSRProvider noSSR={noSSR}>
+                <NormalizeCSSDecorator />
                 {testPackagesThemes[pkgName as keyof typeof testPackagesThemes]}
                 {children}
             </SSRProvider>
