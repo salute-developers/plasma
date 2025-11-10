@@ -16,6 +16,7 @@ const Item = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: content-box;
 `;
 
 describe('sdds-cs: Flow', () => {
