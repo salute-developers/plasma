@@ -126,7 +126,7 @@ describe('plasma-web: Typography', () => {
                     }
                 `}</style>
 
-                <div style={{ width: '200px', border: '1px solid red' }}>
+                <div style={{ width: '200px', border: '1px solid red', boxSizing: 'content-box' }}>
                     <Headline5>Текст на русском языкe, свойство noWrap выключено</Headline5>
                     <Subtitle>Text in English, noWrap is false</Subtitle>
                     <SpaceMe />
@@ -134,7 +134,7 @@ describe('plasma-web: Typography', () => {
                     <BodyM>Text in English, noWrap is false</BodyM>
                 </div>
                 <PadMe />
-                <div style={{ width: '200px', border: '1px solid red' }}>
+                <div style={{ width: '200px', border: '1px solid red', boxSizing: 'content-box' }}>
                     <Headline5 noWrap>Текст на русском языкe, свойство noWrap выключено</Headline5>
                     <Subtitle noWrap>Text in English, noWrap is false</Subtitle>
                     <SpaceMe />

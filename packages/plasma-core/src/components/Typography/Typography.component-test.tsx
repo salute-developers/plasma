@@ -121,12 +121,12 @@ describe('plasma-core: Typography', () => {
                     }
                 `}</style>
 
-                <div style={{ width: '200px', border: '1px solid red' }}>
+                <div style={{ width: '200px', border: '1px solid red', boxSizing: 'content-box' }}>
                     <Body1>Текст на русском языкe, свойство noWrap выключено</Body1>
                     <Body2>Text in English, noWrap is false</Body2>
                 </div>
                 <PadMe />
-                <div style={{ width: '200px', border: '1px solid red' }}>
+                <div style={{ width: '200px', border: '1px solid red', boxSizing: 'content-box' }}>
                     <Body1 noWrap>Текст на русском языке, свойство noWrap включено</Body1>
                     <Body2 noWrap>Text in English, noWrap is true</Body2>
                 </div>
