@@ -15,6 +15,11 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
+                ${tokens.textFieldContentSlotColor}: var(--text-primary);
+                ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: var(--text-secondary-active);
+
                 ${tokens.textFieldBorderColor}: var(--outline-clear);
                 ${tokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
                 ${tokens.textFieldBorderColorHover}: var(--outline-clear);
