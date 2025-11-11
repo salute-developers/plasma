@@ -3,6 +3,7 @@ import { css } from '@linaria/core';
 import { tokens } from '../../Toast.tokens';
 
 export const base = css`
+    box-sizing: content-box;
     padding: var(${tokens.padding});
     border-radius: var(${tokens.borderRadius});
     max-width: var(${tokens.maxWidth});
