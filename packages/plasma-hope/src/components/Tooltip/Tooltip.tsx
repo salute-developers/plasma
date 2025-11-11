@@ -73,6 +73,7 @@ const StyledTooltip = styled.span<Pick<TooltipProps, 'opened' | 'animated'>>`
     position: absolute;
     z-index: 9200;
 
+    box-sizing: content-box;
     padding: 0.375rem 0.5rem;
 
     background-color: ${dark02};

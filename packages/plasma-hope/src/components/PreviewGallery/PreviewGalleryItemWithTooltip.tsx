@@ -7,6 +7,7 @@ import { TooltipItem } from './types';
 
 const StyledTooltip = styled(Tooltip)`
     display: block;
+    box-sizing: content-box;
 `;
 
 export interface PreviewGalleryItemWithTooltipProps {
