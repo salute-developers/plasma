@@ -121,10 +121,20 @@ export const Label = styled.label`
 `;
 
 export const StyledContentLeft = styled.div<{ isDefaultView: boolean; isClear: boolean }>`
-    margin: var(${tokens.leftContentMargin});
-    color: ${({ isDefaultView, isClear }) =>
+    --private_content-slot-color: ${({ isDefaultView, isClear }) =>
         !isDefaultView && isClear ? `var(${tokens.clearColor})` : `var(${tokens.contentSlotColor})`};
+
+    margin: var(${tokens.leftContentMargin});
+    color: var(--private_content-slot-color);
     line-height: 0;
+
+    &:hover {
+        color: var(${tokens.contentSlotColorHover}, var(--private_content-slot-color));
+    }
+
+    &:active {
+        color: var(${tokens.contentSlotColorActive}, var(--private_content-slot-color));
+    }
 `;
 
 export const StyledContentRightWrapper = styled.div`

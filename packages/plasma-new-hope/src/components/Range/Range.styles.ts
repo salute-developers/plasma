@@ -114,6 +114,27 @@ export const StyledDivider = styled.div``;
 
 export const StyledContentLeft = styled.div`
     line-height: 0;
+
+    color: var(${tokens.contentSlotColor});
+
+    &:hover {
+        color: var(${tokens.contentSlotColorHover});
+    }
+
+    &:active {
+        color: var(${tokens.contentSlotColorActive});
+    }
 `;
 
-export const StyledContentRight = styled.div``;
+export const StyledContentRight = styled.div`
+    color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
+
+    &:hover {
+        color: var(${tokens.contentSlotRightColorHover}, var(${tokens.contentSlotColorHover}));
+        cursor: pointer;
+    }
+
+    &:active {
+        color: var(${tokens.contentSlotRightColorActive}, var(${tokens.contentSlotColorActive}));
+    }
+`;

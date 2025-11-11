@@ -2,9 +2,9 @@ import React, { ComponentProps, PropsWithChildren, useEffect, useRef, useState }
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconCalendarOutline, IconDone } from '@salutejs/plasma-icons';
+import { IconSearch, IconCalendar } from '@salutejs/plasma-icons';
 
-import { IconButton } from '../IconButton';
+import { IconButton } from '../IconButton/IconButton';
 
 import { DatePicker, DatePickerRange } from './DatePicker';
 import { config } from './DatePicker.config';
@@ -21,13 +21,6 @@ const { sizes, views } = getConfigVariations(config);
 const dividers = ['none', 'dash', 'icon'];
 const labelPlacements = ['outer', 'inner'];
 const requiredPlacements = ['left', 'right'];
-
-const Icon = ({ size, isAction = false }: { size: 'xs' | 's'; isAction?: boolean }) =>
-    isAction ? (
-        <IconDone size={size} style={{ color: 'var(--text-primary)' }} />
-    ) : (
-        <IconCalendarOutline size={size} style={{ color: 'var(--text-primary)' }} />
-    );
 
 const meta: Meta = {
     title: 'Data Entry/DatePicker',
@@ -172,6 +165,15 @@ const getBaseEvents = (type: 'days' | 'months' | 'quarters' | 'years', datesNumb
     return events.flat();
 };
 
+const ActionButton = ({ size }) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    return (
+        <IconButton view="clear" size={size}>
+            <IconSearch color="inherit" size={iconSize} />
+        </IconButton>
+    );
+};
+
 const StoryDefault = ({
     enableContentLeft,
     enableContentRight,
@@ -201,8 +203,8 @@ const StoryDefault = ({
             size={size}
             valueError={valueError}
             valueSuccess={valueSuccess}
-            contentLeft={enableContentLeft ? <Icon size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <Icon size={iconSize} isAction /> : undefined}
+            contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconSearch color="inherit" size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => {
@@ -271,7 +273,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         readOnly: false,
         textBefore: '',
         enableContentLeft: true,
-        enableContentRight: false,
+        enableContentRight: true,
         valueError: false,
         valueSuccess: false,
         calendarContainerWidth: 0,
@@ -290,15 +292,6 @@ type StoryPropsRange = ComponentProps<typeof DatePickerRange> & {
     enableSecondTextfieldContentLeft: boolean;
     enableFirstTextfieldContentRight: boolean;
     enableSecondTextfieldContentRight: boolean;
-};
-
-const ActionButton = ({ size }) => {
-    const iconSize = size === 'xs' ? 'xs' : 's';
-    return (
-        <IconButton view="clear" size={size}>
-            <Icon size={iconSize} isAction />
-        </IconButton>
-    );
 };
 
 const StoryRange = ({
@@ -327,7 +320,7 @@ const StoryRange = ({
     const showDefaultTextBefore = dividerVariant === 'none';
 
     const dividerIconProps = {
-        dividerIcon: showDividerIcon ? <Icon size={iconSize} /> : null,
+        dividerIcon: showDividerIcon ? <IconCalendar color="inherit" size={iconSize} /> : null,
         dividerVariant,
     };
 
@@ -340,12 +333,20 @@ const StoryRange = ({
             firstValueSuccess={firstValueSuccess}
             secondValueError={secondValueError}
             secondValueSuccess={secondValueSuccess}
-            contentLeft={enableContentLeft ? <Icon size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
-            firstTextfieldContentLeft={enableFirstTextfieldContentLeft ? <Icon size={iconSize} /> : undefined}
-            firstTextfieldContentRight={enableFirstTextfieldContentRight ? <Icon size={iconSize} /> : undefined}
-            secondTextfieldContentLeft={enableSecondTextfieldContentLeft ? <Icon size={iconSize} /> : undefined}
-            secondTextfieldContentRight={enableSecondTextfieldContentRight ? <Icon size={iconSize} /> : undefined}
+            firstTextfieldContentLeft={
+                enableFirstTextfieldContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined
+            }
+            firstTextfieldContentRight={
+                enableFirstTextfieldContentRight ? <IconCalendar color="inherit" size={iconSize} /> : undefined
+            }
+            secondTextfieldContentLeft={
+                enableSecondTextfieldContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined
+            }
+            secondTextfieldContentRight={
+                enableSecondTextfieldContentRight ? <IconCalendar color="inherit" size={iconSize} /> : undefined
+            }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
             }
@@ -354,7 +355,6 @@ const StoryRange = ({
             }
             onToggle={(is) => {
                 setIsOpen(is);
-                onToggle(is);
             }}
             onChangeFirstValue={onChangeFirstValue}
             onChangeSecondValue={onChangeSecondValue}
@@ -404,7 +404,7 @@ export const Range: StoryObj<StoryPropsRange> = {
         disabled: false,
         readOnly: false,
         enableContentLeft: true,
-        enableContentRight: false,
+        enableContentRight: true,
         enableFirstTextfieldContentLeft: false,
         enableFirstTextfieldContentRight: false,
         enableSecondTextfieldContentLeft: false,
@@ -446,8 +446,8 @@ const StoryDeferred = ({
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
-                contentLeft={enableContentLeft ? <Icon size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <Icon size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconSearch color="inherit" size={iconSize} /> : undefined}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onToggle={(is) => setIsOpen(is)}

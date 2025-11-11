@@ -37,6 +37,14 @@ export const tokens = {
     rightContentMargin: '--plasma-range__right-content-margin',
     rightContentOpacityReadOnly: '--plasma-range__right-content-opacity-readonly',
 
+    contentSlotColor: '--plasma-textfield-content-slot-color',
+    contentSlotColorHover: '--plasma-textfield-content-slot-color-hover',
+    contentSlotColorActive: '--plasma-textfield-content-slot-color-active',
+
+    contentSlotRightColor: '--plasma-textfield-content-right-slot-color',
+    contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
+    contentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
+
     /** Токены лейбла */
     labelColor: '--plasma-range__label-color',
     labelColorReadOnly: '--plasma-range__label-color-readonly',

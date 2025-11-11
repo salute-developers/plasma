@@ -19,6 +19,10 @@ export const config = {
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
 
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
                 ${tokens.indicatorColor}: var(--surface-negative);
 
                 ${tokens.textFieldColor}: var(--text-primary);

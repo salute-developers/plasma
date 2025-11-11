@@ -18,10 +18,21 @@ export const config = {
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
 
+                ${tokens.contentSlotColor}: var(--text-primary);
+                ${tokens.contentSlotColorHover}: var(--text-primary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-primary-active);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-primary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-primary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-primary-active);
+                ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: var(--text-secondary-active);
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 

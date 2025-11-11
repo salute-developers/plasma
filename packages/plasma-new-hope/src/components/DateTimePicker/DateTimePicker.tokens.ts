@@ -63,9 +63,12 @@ export const tokens = {
     textFieldTextBeforeMargin: '--plasma-date-time-picker-textfield__before-text-margin',
     textFieldTextAfterMargin: '--plasma-date-time-picker-textfield__after-text-margin',
     textFieldContentSlotColor: '--plasma-date-time-picker-textfield__content-color',
+    textFieldContentSlotColorHover: '--plasma-date-time-picker-textfield__content-color-hover',
+    textFieldContentSlotColorActive: '--plasma-date-time-picker-textfield__content-color-active',
     textFieldContentRightSlotColor: '--plasma-date-time-picker-textfield__content-right-color',
     textFieldContentRightSlotColorHover: '--plasma-date-time-picker-textfield__content-right-color-hover',
-    textFieldContentSlotRightOpacityReadOnly: '--plasma-date-time-picker-textfield__content-right-color-hover',
+    textFieldContentRightSlotColorActive: '--plasma-date-time-picker-textfield__content-right-color-active',
+    textFieldContentSlotRightOpacityReadOnly: '--plasma-date-time-picker-textfield__content-right-opacity-readonly',
 
     /** Токены лейбла */
     labelColor: '--plasma-date-time-picker__label-color',
