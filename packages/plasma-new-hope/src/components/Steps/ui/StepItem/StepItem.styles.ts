@@ -47,6 +47,7 @@ export const StepItemContent = styled.div`
 export const BulletIndicatorWrapper = styled.div`
     display: flex;
     align-items: center;
+    box-sizing: content-box;
 
     &:not(.${classes.simple}) {
         flex: 0;
