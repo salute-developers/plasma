@@ -11,7 +11,7 @@ export const tokens = {
     labelFontWeight: '--plasma-radiobox-label-font-weight',
     labelLetterSpacing: '--plasma-radiobox-label-letter-spacing',
     labelLineHeight: '--plasma-radiobox-label-line-height',
-    descriptionMarginTop: '--plasma-checkbox-description-margin-top',
+    descriptionMarginTop: '--plasma-radiobox-description-margin-top',
     descriptionFontFamily: '--plasma-radiobox-description-font-family',
     descriptionFontSize: '--plasma-radiobox-description-font-size',
     descriptionFontStyle: '--plasma-radiobox-description-font-style',
@@ -20,10 +20,11 @@ export const tokens = {
     descriptionLineHeight: '--plasma-radiobox-description-line-height',
 
     fillColor: '--plasma-radiobox-fill-color',
+    labelColor: '--plasma-radiobox-label-color',
     descriptionColor: '--plasma-radiobox-description-color',
-    triggerBorderWidth: '--plasma-checkbox-trigger-border-width',
+    triggerBorderWidth: '--plasma-radiobox-trigger-border-width',
     triggerBorderColor: '--plasma-radiobox-trigger-border-color',
-    triggerBorderCheckedColor: '--plasma-checkbox-trigger-border-checked-color',
+    triggerBorderCheckedColor: '--plasma-radiobox-trigger-border-checked-color',
     triggerBackgroundColor: '--plasma-radiobox-trigger-background-color',
 
     contentTopOffset: '--plasma-radiobox-content-top-offset',
