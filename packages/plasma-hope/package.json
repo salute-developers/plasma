@@ -33,12 +33,13 @@
     "directory": "packages/plasma-web-core"
   },
   "dependencies": {
+    "@dnd-kit/core": "6.3.1",
+    "@dnd-kit/sortable": "10.0.0",
     "@popperjs/core": "2.9.2",
     "@salutejs/plasma-core": "1.209.0",
     "@salutejs/plasma-typo": "0.42.0",
     "react-file-drop": "3.1.6",
     "react-popper": "2.3.0",
-    "react-sortable-hoc": "2.0.0",
     "storeon": "3.1.4"
   },
   "peerDependencies": {
