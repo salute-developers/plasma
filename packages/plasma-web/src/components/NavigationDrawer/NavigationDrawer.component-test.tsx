@@ -123,7 +123,15 @@ describe('plasma-web: NavigationDrawer', () => {
         </CypressTestDecorator>
     );
     const SlotContainer = ({ children }: { children: React.ReactNode }) => (
-        <div style={{ border: '1px solid #08080816', padding: '2px', minHeight: '24px', overflow: 'hidden' }}>
+        <div
+            style={{
+                border: '1px solid #08080816',
+                padding: '2px',
+                minHeight: '24px',
+                overflow: 'hidden',
+                boxSizing: 'content-box',
+            }}
+        >
             {children}
         </div>
     );
