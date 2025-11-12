@@ -1,41 +1,41 @@
-import { existsSync, readdirSync, statSync, mkdirSync, renameSync, rmdirSync } from 'fs';
-import { join, extname, basename } from 'path';
+const fs = require('fs');
+const path = require('path');
 
 function reorganizeScreenshots(basePath) {
-    const componentsPath = join(basePath, 'ui', 'components');
+    const componentsPath = path.join(basePath, 'b2c', 'components');
 
-    if (!existsSync(componentsPath)) {
+    if (!fs.existsSync(componentsPath)) {
         console.log('Директория components не найдена');
         return;
     }
 
-    const components = readdirSync(componentsPath);
+    const components = fs.readdirSync(componentsPath);
 
     components.forEach((componentName) => {
-        const componentPath = join(componentsPath, componentName);
+        const componentPath = path.join(componentsPath, componentName);
 
-        if (!statSync(componentPath).isDirectory()) return;
+        if (!fs.statSync(componentPath).isDirectory()) return;
 
-        const targetPath = join(basePath, 'test-temp', 'ui', componentName);
+        const targetPath = path.join(basePath, 'test-temp', 'b2c', componentName);
 
-        if (!existsSync(targetPath)) {
-            mkdirSync(targetPath, { recursive: true });
+        if (!fs.existsSync(targetPath)) {
+            fs.mkdirSync(targetPath, { recursive: true });
         }
 
-        const subDirs = readdirSync(componentPath);
+        const subDirs = fs.readdirSync(componentPath);
 
         subDirs.forEach((subDir) => {
-            const subDirPath = join(componentPath, subDir);
+            const subDirPath = path.join(componentPath, subDir);
 
-            if (!statSync(subDirPath).isDirectory()) return;
+            if (!fs.statSync(subDirPath).isDirectory()) return;
 
             // Рекурсивно находим все файлы в поддиректории, игнорируя __diff_output__
             function moveFilesRecursively(currentPath) {
-                const items = readdirSync(currentPath);
+                const items = fs.readdirSync(currentPath);
 
                 items.forEach((item) => {
-                    const itemPath = join(currentPath, item);
-                    const stat = statSync(itemPath);
+                    const itemPath = path.join(currentPath, item);
+                    const stat = fs.statSync(itemPath);
 
                     if (stat.isDirectory()) {
                         // Если это папка __diff_output__ - полностью пропускаем
@@ -47,19 +47,19 @@ function reorganizeScreenshots(basePath) {
                         moveFilesRecursively(itemPath);
                     } else if (stat.isFile()) {
                         // Перемещаем только файлы
-                        const targetFilePath = join(targetPath, item);
+                        const targetFilePath = path.join(targetPath, item);
 
                         // Обрабатываем конфликты имен
                         let finalTargetPath = targetFilePath;
                         let counter = 1;
-                        while (existsSync(finalTargetPath)) {
-                            const ext = extname(item);
-                            const name = basename(item, ext);
-                            finalTargetPath = join(targetPath, `${name}_${counter}${ext}`);
+                        while (fs.existsSync(finalTargetPath)) {
+                            const ext = path.extname(item);
+                            const name = path.basename(item, ext);
+                            finalTargetPath = path.join(targetPath, `${name}_${counter}${ext}`);
                             counter++;
                         }
 
-                        renameSync(itemPath, finalTargetPath);
+                        fs.renameSync(itemPath, finalTargetPath);
                         console.log(`Перемещен файл: ${itemPath} -> ${finalTargetPath}`);
                     }
                 });
@@ -69,7 +69,7 @@ function reorganizeScreenshots(basePath) {
 
             // Удаляем поддиректорию если она пустая
             try {
-                rmdirSync(subDirPath);
+                fs.rmdirSync(subDirPath);
                 console.log(`Удалена пустая директория: ${subDirPath}`);
             } catch (error) {
                 if (error.code === 'ENOTEMPTY') {
@@ -82,7 +82,7 @@ function reorganizeScreenshots(basePath) {
 
         // Удаляем директорию компонента если она пустая
         try {
-            rmdirSync(componentPath);
+            fs.rmdirSync(componentPath);
             console.log(`Удалена пустая директория: ${componentPath}`);
         } catch (error) {
             if (error.code === 'ENOTEMPTY') {
