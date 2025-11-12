@@ -1,4 +1,100 @@
 {
+  "0.326.0": {
+    "date": "2025-11-12",
+    "core": [
+      {
+        "component": "Mask",
+        "children": [
+          {
+            "text": "добавлено свойство `onKeyDown`",
+            "link": "https://github.com/salute-developers/plasma/pull/2319",
+            "id": 2319
+          }
+        ]
+      },
+      {
+        "component": "Tabs",
+        "children": [
+          {
+            "text": "исправлен `font-weight` для `TabItem`",
+            "link": "https://github.com/salute-developers/plasma/pull/2317",
+            "id": 2317
+          }
+        ]
+      },
+      {
+        "component": "DatePicker",
+        "children": [
+          {
+            "text": "удален вызов лишнего onDateCommit в DatePickerRange",
+            "link": "https://github.com/salute-developers/plasma/pull/2321",
+            "id": 2321
+          }
+        ]
+      },
+      {
+        "component": "Combobox",
+        "children": [
+          {
+            "text": "добавлено новое свойство `treeView`, отвечающее за отображение дерева в выпадающем списке;",
+            "link": "https://github.com/salute-developers/plasma/pull/2314",
+            "id": 2314
+          }
+        ]
+      },
+      {
+        "component": "Tree",
+        "children": [
+          {
+            "text": "исправлен баг, который возникал при использовании кастомных полей в `treeData`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2324",
+            "id": 2324
+          }
+        ]
+      },
+      {
+        "component": "DateTimePicker",
+        "children": [
+          {
+            "text": "добавлен новый компонент",
+            "link": "https://github.com/salute-developers/plasma/pull/2316",
+            "id": 2316
+          }
+        ]
+      },
+      {
+        "component": "Combobox, Select",
+        "children": [
+          {
+            "text": "исправлен баг в коллбэке `onChange`, при котором при работе с чипами в некоторых случаях не приходил второй параметр `Item`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2325",
+            "id": 2325
+          }
+        ]
+      },
+      {
+        "component": "Scrollbar",
+        "children": [
+          {
+            "text": "Добавлен новый mixin для кастомизации системного scroll",
+            "link": "https://github.com/salute-developers/plasma/pull/2254",
+            "id": 2254
+          }
+        ]
+      },
+      {
+        "component": "DatePicker, Range",
+        "children": [
+          {
+            "text": "добавлены цветовые токена для `contentLeft`, `contentRight`",
+            "link": "https://github.com/salute-developers/plasma/pull/2322",
+            "id": 2322
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.325.0": {
     "date": "2025-10-29",
     "core": [
