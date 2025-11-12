@@ -1,1 +1,0 @@
-../../../packages/plasma-b2c/CHANGELOG.md

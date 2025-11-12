@@ -18,7 +18,7 @@ const onFocusSecondTextfield = action('onFocusSecondTextfield');
 const onBlurFirstTextfield = action('onBlurFirstTextfield');
 const onBlurSecondTextfield = action('onBlurSecondTextfield');
 
-const { sizes, views } = getConfigVariations(config);
+const { views, sizes } = getConfigVariations(config);
 
 const dividers = ['none', 'dash', 'icon'];
 const requiredPlacements = ['left', 'right'];
@@ -75,24 +75,13 @@ type StoryPropsDefault = ComponentProps<typeof Range> & {
 };
 
 const getSizeForIcon = (size) => {
-    const map = {
-        xl: 's',
-        l: 's',
-        m: 's',
-        s: 's',
-        xs: 'xs',
-    };
-    if (map[size]) {
-        return map[size];
-    }
-
-    return size;
+    return size === 'xs' ? 'xs' : 's';
 };
 
 const ActionButton = ({ size, readOnly }) => {
     return (
         <IconButton view="clear" size={size} disabled={readOnly}>
-            <IconSearch color={readOnly ? 'var(--text-secondary)' : 'inherit'} size={getSizeForIcon(size)} />
+            <IconSearch color="inherit" size={getSizeForIcon(size)} />
         </IconButton>
     );
 };
@@ -133,17 +122,13 @@ const StoryDefault = ({
                 enableFirstTextfieldContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             firstTextfieldContentRight={
-                enableFirstTextfieldContentRight ? (
-                    <IconSber color="inherit" size={iconSize} readOnly={rest.readOnly} />
-                ) : undefined
+                enableFirstTextfieldContentRight ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             secondTextfieldContentLeft={
                 enableSecondTextfieldContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             secondTextfieldContentRight={
-                enableSecondTextfieldContentRight ? (
-                    <IconSber color="inherit" size={iconSize} readOnly={rest.readOnly} />
-                ) : undefined
+                enableSecondTextfieldContentRight ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore

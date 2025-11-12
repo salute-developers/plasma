@@ -91,7 +91,7 @@ const ActionButton = ({ size, readOnly }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size} disabled={readOnly}>
-            <IconSearch color={readOnly ? 'var(--text-secondary)' : 'inherit'} size={getSizeForIcon(size)} />
+            <IconSearch color="inherit" size={getSizeForIcon(size)} />
         </IconButton>
     );
 };

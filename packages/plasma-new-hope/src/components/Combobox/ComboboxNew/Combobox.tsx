@@ -18,9 +18,10 @@ import {
     filterItems,
     getItemId,
     getTextValue,
+    defaultFilter,
 } from './utils';
-import { Inner, StyledTextField, VirtualList, SelectAll } from './ui';
-import { pathReducer, focusedPathReducer } from './reducers';
+import { Inner, StyledTextField, VirtualList, SelectAll, TreeList } from './ui';
+import { pathReducer, focusedPathReducer, treePathReducer } from './reducers';
 import { getPathMap, getTreeMaps } from './hooks/getPathMaps';
 import {
     Ul,
@@ -53,6 +54,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             isTargetAmount,
             targetAmount,
             items,
+            treeView = false,
+            arrowPlacement = 'left',
             placement = 'bottom-start',
             label,
             placeholder,
@@ -97,10 +100,16 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
         // Создаем структуры для быстрой работы с деревом
-        const [valueToCheckedMap, valueToItemMap] = useMemo(() => getTreeMaps(transformedItems), [items]);
+        const [valueToCheckedMap, valueToItemMap, valueToPathMap] = useMemo(() => getTreeMaps(transformedItems), [
+            items,
+        ]);
 
-        const [textValue, setTextValue] = useState(getTextValue(multiple, outerValue, valueToItemMap, renderValue));
+        // Состояние поля поиска в target
+        const [textValue, setTextValueState] = useState(
+            getTextValue(multiple, outerValue, valueToItemMap, renderValue),
+        );
 
+        // Внутреннее состояние выбранных элементов
         const [internalValue, setInternalValue] = useState<string | string[]>(multiple ? [] : '');
 
         const value = outerValue !== null && outerValue !== undefined ? outerValue : internalValue;
@@ -112,6 +121,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const listWrapperRef = useRef<HTMLDivElement>(null);
         const treeId = safeUseId();
 
+        const filterCb = filter || defaultFilter;
+
         const filteredItems = useMemo(
             () =>
                 filterItems(
@@ -120,7 +131,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                     getTextValue(multiple, value, valueToItemMap, renderValue),
                     filter,
                 ),
-            [transformedItems, textValue, filter],
+            [transformedItems, textValue, filter, value],
         );
 
         const [pathMap, focusedToValueMap] = useMemo(() => getPathMap(filteredItems), [filteredItems, textValue]);
@@ -131,11 +142,20 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const [path, dispatchPath] = useReducer(pathReducer, initialPath);
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
         const [checked, setChecked] = useState(valueToCheckedMap);
+        const [treePath, dispatchTreePath] = useReducer(treePathReducer, {});
 
         const isCurrentListOpen = Boolean(path[0]);
         const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value || '';
         const withArrowInverse = isCurrentListOpen ? classes.arrowInverse : undefined;
         const closeAfterSelect = outerCloseAfterSelect ?? !multiple;
+
+        const setTextValue = (newTextValue: string) => {
+            setTextValueState(newTextValue);
+
+            if (onChangeValue) {
+                onChangeValue(newTextValue);
+            }
+        };
 
         /* Логика работы при клике за пределами выпадающего списка */
         useOutsideClick(() => {
@@ -144,9 +164,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
 
             handleListToggle(false);
-
-            // Возвращаем актуальное значение поля ввода после закрытия выпадающего списка.
-            setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
         }, [floatingPopoverRef, listWrapperRef]);
 
         // Эта функция срабатывает при изменении Combobox и
@@ -198,11 +215,14 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             if (isTargetAmount) {
                 // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы
-                onChange(value.filter((val) => valueToItemMap?.get(val)?.disabled));
+                onChange(
+                    value.filter((val) => valueToItemMap?.get(val)?.disabled),
+                    null,
+                );
             } else {
                 onChange(
                     value.filter((val) => val !== chip.value),
-                    valueToItemMap.get(chip.value) || null,
+                    valueToItemMap.get(chip.value) || { value: chip.value, label: chip.label },
                 );
             }
         };
@@ -218,6 +238,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+                dispatchTreePath({ type: 'reset' });
+
+                // Возвращаем актуальное значение поля ввода после закрытия выпадающего списка.
+                setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
 
                 // Скроллим чипы к левому краю при закрытии компонента
                 const el = rootRef?.current?.querySelector('.input-scrollable-wrapper');
@@ -282,6 +306,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             if (!alwaysOpened && closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
+                dispatchTreePath({ type: 'reset' });
             }
 
             if (onChange) {
@@ -309,6 +334,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             if (!alwaysOpened && closeAfterSelect) {
                 dispatchPath({ type: 'reset' });
                 dispatchFocusedPath({ type: 'reset' });
+                dispatchTreePath({ type: 'reset' });
             }
 
             // Закрываем список, если элемент уже выбран.
@@ -384,6 +410,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             value,
             textValue,
             valueToItemMap,
+            treePath,
+            dispatchTreePath,
+            treeView,
+            valueToPathMap,
+            items: filteredItems,
         });
 
         // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
@@ -441,6 +472,21 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         }, [defaultValue]);
 
+        // Эффект для раскрытия дерева при поиске.
+        useLayoutEffect(() => {
+            if (treeView) {
+                // Если поле ввода стало пустым или если пользователь выбирает элемент,
+                // то скрываем все узлы дерева и выходим из эффекта.
+                if (textValue === '' || textValue === getTextValue(multiple, value, valueToItemMap, renderValue)) {
+                    dispatchTreePath({ type: 'reset' });
+                    return;
+                }
+
+                // Иначе раскрываем все узлы, когда пользователь начинает вводить текст в поле ввода.
+                dispatchTreePath({ type: 'expand_by_key', value: { filteredItems, filterCb, textValue } });
+            }
+        }, [textValue]);
+
         return (
             <Root
                 size={size}
@@ -480,6 +526,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             // @ts-ignore
                             // eslint-disable-next-line no-underscore-dangle
                             _checkboxAppearance: (rest as any)._checkboxAppearance,
+                            treePath,
+                            dispatchTreePath,
+                            arrowPlacement,
+                            valueToPathMap,
                         }}
                     >
                         <FloatingPopover
@@ -561,59 +611,70 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 readOnly={readOnly}
                                 name={name}
                             >
-                                <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
-                                    <Ul
-                                        role="tree"
-                                        id={`${treeId}_tree_level_1`}
-                                        aria-multiselectable={Boolean(multiple)}
-                                        listMaxHeight={listMaxHeight || listHeight}
-                                        virtual={virtual}
-                                        onScroll={virtual ? undefined : onScroll}
-                                    >
-                                        {beforeList}
-
-                                        {isEmpty(filteredItems) ? (
-                                            <StyledEmptyState
-                                                className={classes.emptyStateWrapper}
-                                                size={size}
-                                                description={emptyStateDescription || 'Ничего не найдено'}
+                                {isEmpty(filteredItems) ? (
+                                    <StyledEmptyState
+                                        className={classes.emptyStateWrapper}
+                                        size={size}
+                                        description={emptyStateDescription || 'Ничего не найдено'}
+                                    />
+                                ) : (
+                                    <>
+                                        {treeView ? (
+                                            <TreeList
+                                                items={filteredItems}
+                                                listMaxHeight={listMaxHeight || listHeight}
+                                                onScroll={virtual ? undefined : onScroll}
+                                                virtual={virtual}
+                                                beforeList={beforeList}
+                                                afterList={afterList}
                                             />
                                         ) : (
-                                            <>
-                                                {props.multiple && props.selectAllOptions && (
-                                                    // TODO: #2004
-                                                    <SelectAll
-                                                        selectAllOptions={props.selectAllOptions}
-                                                        variant={variant}
-                                                    />
-                                                )}
+                                            <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
+                                                <Ul
+                                                    role="tree"
+                                                    id={`${treeId}_tree_level_1`}
+                                                    aria-multiselectable={Boolean(multiple)}
+                                                    listMaxHeight={listMaxHeight || listHeight}
+                                                    virtual={virtual}
+                                                    onScroll={virtual ? undefined : onScroll}
+                                                >
+                                                    {beforeList}
 
-                                                {virtual ? (
-                                                    <VirtualList
-                                                        items={filteredItems}
-                                                        listMaxHeight={listMaxHeight || listHeight}
-                                                        onScroll={onScroll}
-                                                    />
-                                                ) : (
-                                                    filteredItems.map((item, index) => (
-                                                        <Inner
-                                                            key={`${index}/0`}
-                                                            item={item}
-                                                            currentLevel={0}
-                                                            path={path}
-                                                            dispatchPath={dispatchPath}
-                                                            index={index}
-                                                            listWidth={listWidth}
-                                                            portal={listWrapperRef}
+                                                    {props.multiple && props.selectAllOptions && (
+                                                        // TODO: #2004
+                                                        <SelectAll
+                                                            selectAllOptions={props.selectAllOptions}
+                                                            variant={variant}
                                                         />
-                                                    ))
-                                                )}
-                                            </>
-                                        )}
+                                                    )}
 
-                                        {afterList}
-                                    </Ul>
-                                </ListWrapper>
+                                                    {virtual ? (
+                                                        <VirtualList
+                                                            items={filteredItems}
+                                                            listMaxHeight={listMaxHeight || listHeight}
+                                                            onScroll={onScroll}
+                                                        />
+                                                    ) : (
+                                                        filteredItems.map((item, index) => (
+                                                            <Inner
+                                                                key={`${index}/0`}
+                                                                item={item}
+                                                                currentLevel={0}
+                                                                path={path}
+                                                                dispatchPath={dispatchPath}
+                                                                index={index}
+                                                                listWidth={listWidth}
+                                                                portal={listWrapperRef}
+                                                            />
+                                                        ))
+                                                    )}
+
+                                                    {afterList}
+                                                </Ul>
+                                            </ListWrapper>
+                                        )}
+                                    </>
+                                )}
                             </Root>
                         </FloatingPopover>
                     </Context.Provider>

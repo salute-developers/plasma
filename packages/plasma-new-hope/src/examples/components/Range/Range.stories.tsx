@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { disableProps, getConfigVariations, IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../_helpers';
-import { IconChevronLeft } from '../../../components/_Icon';
+import { IconDisclosureLeft } from '../../../components/_Icon';
 import { IconButton } from '../IconButton/IconButton';
 
 import { Range } from './Range';
@@ -82,11 +82,7 @@ const getSizeForIcon = (size) => {
 const ActionButton = ({ size, readOnly }) => {
     return (
         <IconButton view="clear" size={size} disabled={readOnly}>
-            <IconChevronLeft
-                color={readOnly ? 'var(--text-secondary)' : 'inherit'}
-                size={getSizeForIcon(size)}
-                style={{ transform: 'rotate(180deg)' }}
-            />
+            <IconDisclosureLeft color="inherit" size={getSizeForIcon(size)} style={{ transform: 'rotate(180deg)' }} />
         </IconButton>
     );
 };

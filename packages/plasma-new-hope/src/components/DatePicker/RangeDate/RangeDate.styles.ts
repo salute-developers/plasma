@@ -66,6 +66,14 @@ export const StyledRange = styled(Range)`
 
     ${rangeTokens.leftContentMargin}: var(${tokens.leftContentMargin});
     ${rangeTokens.rightContentMargin}: var(${tokens.rightContentMargin});
+    
+    ${rangeTokens.contentSlotColor}: var(${tokens.contentSlotColor});
+    ${rangeTokens.contentSlotColorHover}: var(${tokens.contentSlotColorHover});
+    ${rangeTokens.contentSlotColorActive}: var(${tokens.contentSlotColorActive});
+    
+    ${rangeTokens.contentSlotRightColor}: var(${tokens.contentSlotRightColor});
+    ${rangeTokens.contentSlotRightColorHover}: var(${tokens.contentSlotRightColorHover});
+    ${rangeTokens.contentSlotRightColorActive}: var(${tokens.contentSlotRightColorActive});
 
     ${rangeTokens.labelOffset}: var(${tokens.labelOffset});
 

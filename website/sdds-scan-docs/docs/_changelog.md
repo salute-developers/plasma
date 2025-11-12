@@ -1,1 +1,0 @@
-../../../packages/sdds-scan/CHANGELOG.md

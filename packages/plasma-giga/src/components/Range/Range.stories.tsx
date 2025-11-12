@@ -81,7 +81,7 @@ const getSizeForIcon = (size) => {
 const ActionButton = ({ size, readOnly }) => {
     return (
         <IconButton view="clear" size={size} disabled={readOnly}>
-            <IconSearch color={readOnly ? 'var(--text-secondary)' : 'inherit'} size={getSizeForIcon(size)} />
+            <IconSearch color="inherit" size={getSizeForIcon(size)} />
         </IconButton>
     );
 };
@@ -122,17 +122,13 @@ const StoryDefault = ({
                 enableFirstTextfieldContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             firstTextfieldContentRight={
-                enableFirstTextfieldContentRight ? (
-                    <IconSber color="inherit" size={iconSize} readOnly={rest.readOnly} />
-                ) : undefined
+                enableFirstTextfieldContentRight ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             secondTextfieldContentLeft={
                 enableSecondTextfieldContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             secondTextfieldContentRight={
-                enableSecondTextfieldContentRight ? (
-                    <IconSber color="inherit" size={iconSize} readOnly={rest.readOnly} />
-                ) : undefined
+                enableSecondTextfieldContentRight ? <IconSber color="inherit" size={iconSize} /> : undefined
             }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore

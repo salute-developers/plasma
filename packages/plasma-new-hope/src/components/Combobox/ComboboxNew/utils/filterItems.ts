@@ -15,8 +15,6 @@ export const filterItems = (
 ): Array<ItemOptionTransformed> => {
     if ((!textValue && !customFilter) || textValue === currentLabel) return items;
 
-    const defaultFilter = (item: ItemOption, value: string) => item.label.toLowerCase().includes(value.toLowerCase());
-
     const filter = customFilter || defaultFilter;
 
     const dfs = (items: Array<ItemOptionTransformed>) => {
@@ -44,3 +42,6 @@ export const filterItems = (
 
     return dfs(items);
 };
+
+export const defaultFilter = (item: ItemOption, textValue: string) =>
+    item.label.toLowerCase().includes(textValue.toLowerCase());

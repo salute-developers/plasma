@@ -10,6 +10,7 @@ import type {
 } from 'react';
 import type { RootProps } from 'src/engines';
 import { noop } from 'src/utils';
+import { customDayjs } from 'src/utils/datejs';
 
 import { getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
@@ -406,8 +407,22 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
 
                 const [first, second] = getSortedValues([prevValue, chosenDate]);
 
-                handleFirstCalendarPick(first, dateInfo);
-                handleSecondCalendarPick(second, dateInfo);
+                /**
+                 * NOTE: проверяем совпадает ли новая дата с предыдущей
+                 * Если нет, то вызываем handle{First,Second}CalendarPick
+                 */
+                customDayjs.locale(lang);
+
+                const firstFormatted = first ? customDayjs(first).format(format) : '';
+                const secondFormatted = second ? customDayjs(second).format(format) : '';
+
+                if (firstFormatted !== inputFirstValue) {
+                    handleFirstCalendarPick(first, dateInfo);
+                }
+
+                if (secondFormatted !== inputSecondValue) {
+                    handleSecondCalendarPick(second, dateInfo);
+                }
 
                 if (!firstValueError && !secondValueError && closeAfterDateSelect) {
                     handleToggle(false);
@@ -415,11 +430,20 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
             };
 
             const handleChangeCalendarValue = ([firstDate, secondDate]: [DateType, DateType], dateInfo?: DateInfo) => {
-                if (firstDate) {
+                /**
+                 * NOTE: проверяем совпадает ли новая дата с предыдущей
+                 * Если нет, то вызываем handle{First,Second}CalendarPick
+                 */
+                customDayjs.locale(lang);
+
+                const firstFormatted = firstDate ? customDayjs(firstDate).format(format) : '';
+                const secondFormatted = secondDate ? customDayjs(secondDate).format(format) : '';
+
+                if (firstFormatted !== inputFirstValue) {
                     handleFirstCalendarPick(firstDate, dateInfo);
                 }
 
-                if (secondDate) {
+                if (secondFormatted !== inputSecondValue) {
                     handleSecondCalendarPick(secondDate, dateInfo);
                 }
 

@@ -18,17 +18,11 @@ export const normalizeDates = ({ originalDate, lang, format, includeEdgeDates, m
 
     if (min && includeEdgeDates && min > originalDate) {
         dateCandidate = min;
-    }
-
-    if (min && !includeEdgeDates && min >= originalDate) {
+    } else if (min && !includeEdgeDates && min >= originalDate) {
         dateCandidate = customDayjs(min).add(1, 'd').toDate();
-    }
-
-    if (max && includeEdgeDates && max < originalDate) {
+    } else if (max && includeEdgeDates && max < originalDate) {
         dateCandidate = max;
-    }
-
-    if (max && !includeEdgeDates && max <= originalDate) {
+    } else if (max && !includeEdgeDates && max <= originalDate) {
         dateCandidate = customDayjs(max).subtract(1, 'd').toDate();
     }
 

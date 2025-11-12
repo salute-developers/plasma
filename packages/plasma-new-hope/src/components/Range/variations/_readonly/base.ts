@@ -50,6 +50,12 @@ export const base = css`
 
         ${StyledContentLeft}, ${StyledContentRight} {
             color: var(${tokens.textFieldColorReadOnly});
+
+            &:hover,
+            &:active {
+                color: var(${tokens.textFieldColorReadOnly});
+                cursor: default;
+            }
         }
 
         ${StyledContentRight} {

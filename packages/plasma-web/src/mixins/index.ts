@@ -38,4 +38,6 @@ export type {
     BreakWordProps,
 } from '@salutejs/plasma-core';
 
+export { addScrollbar } from '../components/Scrollbar/Scrollbar';
+
 export const applyPaper = createApplyPaperMixin(allTokens);

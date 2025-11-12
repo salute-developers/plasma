@@ -80,6 +80,14 @@ export const calendarBaseRoot = (
 
             const min = minDate && new Date(minDate);
             const max = maxDate && new Date(maxDate);
+
+            if (min) {
+                min.setHours(0, 0, 0);
+            }
+            if (max) {
+                max.setHours(23, 59, 59);
+            }
+
             const renderFrom = renderFromDate && new Date(renderFromDate);
 
             const [state, dispatch] = useReducer(reducer, getInitialState(value, min, renderFrom, type));

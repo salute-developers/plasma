@@ -1,0 +1,415 @@
+---
+id: dateTimePicker
+title: DateTimePicker
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# DateTimePicker
+<Description name="DateTimePicker" />
+
+### Быстрый старт
+
+<Tabs>
+    <TabItem value="default" label="Uncontrolled" default>
+        ```tsx live
+        import React, {useState} from 'react';
+        import { DateTimePicker } from '@salutejs/sdds-serv';
+        import { IconDone } from '@salutejs/plasma-icons';
+
+        type FormattedValues = {
+            originalDate?: Date;
+            isoDate?: string;
+        };
+
+        export function App() {
+            const [dateValue, setDate] = useState<Date | string | undefined>(new Date());
+            const [originalDateValue, setOriginalDate] = useState<Date | string | null | undefined>(new Date());
+            const [isoDateValue, setIsoDate] = useState<string | undefined>(new Date().toISOString());
+
+            const handleChangeValue = (
+                _: React.SyntheticEvent<HTMLInputElement> | null,
+                value?: string,
+                formattedValues?: FormattedValues,
+            ) => {
+                setDate(value);
+                setOriginalDate(formattedValues.originalDate);
+                setIsoDate(formattedValues.isoDate);
+            };
+
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem'}}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>
+                        <p>Значение date: {String(dateValue)}</p>
+                        <p>Значение originalDate: {String(originalDateValue)}</p>
+                        <p>Значение isoDate: {isoDateValue}</p>
+                    </div>
+
+                    <DateTimePicker
+                        onChangeValue={handleChangeValue}
+                        onCommitDate={console.log}
+                        label="Неконтролируемый DateTimePicker"
+                        dateFormat="DD.MM.YYYY"
+                        timeFormat="HH:mm:ss"
+                        maskWithFormat
+                        lang="ru"
+                        contentRight={<IconDone size="s" />}
+                        placement="bottom"
+                        usePortal
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="controlled" label="Controlled">
+        ```tsx live
+        import React, {useState} from 'react';
+        import { DateTimePicker } from '@salutejs/sdds-serv';
+        import { IconDone } from '@salutejs/plasma-icons';
+
+        type FormattedValues = {
+            originalDate?: Date;
+            isoDate?: string;
+        };
+
+        export function App() {
+            const [dateValue, setDate] = useState<Date | string | undefined>(new Date());
+            const [originalDateValue, setOriginalDate] = useState<Date | string | null | undefined>(new Date());
+            const [isoDateValue, setIsoDate] = useState<string | undefined>(new Date().toISOString());
+
+            const handleChangeValue = (
+                _: React.SyntheticEvent<HTMLInputElement> | null,
+                value?: string,
+                formattedValues?: FormattedValues,
+            ) => {
+                setDate(value);
+                setOriginalDate(formattedValues.originalDate);
+                setIsoDate(formattedValues.isoDate);
+            };
+
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem'}}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>
+                        <p>Значение date: {String(dateValue)}</p>
+                        <p>Значение originalDate: {String(originalDateValue)}</p>
+                        <p>Значение isoDate: {isoDateValue}</p>
+                    </div>
+
+                    <DateTimePicker
+                        value={dateValue}
+                        onChangeValue={handleChangeValue}
+                        onCommitDate={console.log}
+                        label="Контролируемый DateTimePicker"
+                        dateFormat="DD.MM.YYYY"
+                        timeFormat="HH:mm:ss"
+                        maskWithFormat
+                        lang="ru"
+                        contentRight={<IconDone size="s" />}
+                        placement="bottom"
+                        usePortal
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Управление внешним видом
+
+С помощью свойств:
+- `size` - размер
+- `isDouble` - отображение двойного календаря
+
+```tsx live
+import React from 'react';
+import { DateTimePicker } from '@salutejs/sdds-serv';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const sizes = ['xl', 'l', 'm', 's', 'xs']
+
+    return (
+        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+            {sizes.map((size) => (
+                <DateTimePicker
+                    size={size}
+                    label="Лейбл"
+                    leftHelper="Подсказка к полю"
+                    placeholder="Введите дату"
+                    maskWithFormat
+                    contentRight={<IconDone size="s" />}
+                    usePortal
+                />
+            ))}
+
+            <DateTimePicker
+                size="s"
+                isDouble
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                maskWithFormat
+                contentRight={<IconDone size="s" />}
+                usePortal
+            />
+        </div>
+    );
+}
+```
+
+### Формат даты и времени
+
+Формат даты задается с помощью свойства `dateFormat`.
+| Обозначение | Отображение                           | Описание                         |
+|-------------|---------------------------------------|----------------------------------|
+| DD          | 01-31                                 | Дни месяца, 2 цифры              |
+| D           | 1-31                                  | Дни месяца                       |
+| MMMM        | January...December / январь...декабрь | Месяц года, полное название      |
+| MMM         | Jan...Dec / янв.-дек.                 | Месяц года, сокращенное название |
+| MM          | 01-12                                 | Месяц года, 2 цифры              |
+| M           | 1-12                                  | Месяц года                       |
+| YYYY        | 2024                                  | Год из 4 цифр                    |
+| YY          | 24                                    | Год из 2 цифр                    |
+| Q           | 1-4                                   | Квартал                          |
+
+Формат времени задается с помощью свойства `timeFormat`.
+| Обозначение | Отображение                           | Описание                         |
+|-------------|---------------------------------------|----------------------------------|
+| HH          | 01-24                                 | Часы, 2 цифры                    |
+| mm          | 01-59                                 | Минуты, 2 цифры                  |
+| ss          | 01-59                                 | Секунды, 2 цифры                 |
+
+Разделитель форматов даты и времени задается с помощью свойства `dateTimeSeparator`
+
+При выборе даты в календаре или вводе даты через поле ввода, дата будет приводиться к заданному формату.
+Свойство `maskWithFormat` позволяет маскировать ввод, кроме случаев когда месяц имеет формат полной записи MMMM:
+
+```tsx live
+import React from 'react';
+import { DateTimePicker } from '@salutejs/sdds-serv';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <DateTimePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                dateFormat="DD-MM-YYYY"
+                timeFormat="HH:mm"
+                dateTimeSeparator=" "
+                maskWithFormat
+                contentRight={<IconDone size="s" />}
+                usePortal
+            />
+        </div>
+    );
+}
+```
+
+### Язык даты
+Язык даты задается с помощью свойства `lang`.
+
+| Обозначение | Отображение | Описание            |
+|-------------|-------------|---------------------|
+| ru          | June        | Английский Язык     |
+| en          | июнь        | Русский язык        |
+
+По умолчанию используется `ru`
+
+```tsx live
+import React from 'react';
+import { DateTimePicker } from '@salutejs/sdds-serv';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <DateTimePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                contentRight={<IconDone size="s" />}
+                placeholder="Введите дату"
+                dateFormat="DD MMMM YYYY"
+                lang="en"
+                maskWithFormat
+                usePortal
+            />
+        </div>
+    );
+}
+```
+
+### Обязательность поля
+
+:::tip
+Наличие индикатора регулируется свойством `hasRequiredIndicator`.
+:::
+
+Обязательность поля задаётся с помощью свойства `required`. 
+Если поле является обязательным, то у компонента появляется специальный индикатор. 
+Изменить расположение индикатора можно с помощью свойства `requiredPlacement`, которое принимает значения `left` и `right`. 
+
+```tsx live
+import React from 'react';
+import { DateTimePicker, IconButton } from '@salutejs/sdds-serv';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const ActionButton = () => {
+        return (
+            <IconButton view="clear" size="l">
+                <IconDone size="s" />
+            </IconButton>
+        );
+    };
+
+    return (
+        <div>
+            <DateTimePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                contentRight={<ActionButton />}
+                hasRequiredIndicator
+                required
+                requiredPlacement="right"
+            />
+        </div>
+    );
+}
+```
+
+### Всплывающая подсказка для событий календаря
+
+С помощью `eventList`, `eventMonthList`, `eventQuarterList` и `eventYearList`
+можно задать список событий для определенной даты
+
+Элемент списка имеет следующую структуру:
+```
+    type EventDay {
+        date: Date;
+        color?: string;
+        eventInfo?: ReactNode;
+    }
+```
+
+Типизация свойств всплывающего окна:
+```
+type EventTooltipOptions = {
+    /**
+     * Обертка для всплывающей подсказки для событий.
+     */
+    bodyWrapper?: FC<PropsWithChildren>;
+    /**
+     * Размер всплывающей подсказки для событий.
+     */
+    size?: string;
+    /**
+     * Направление раскрытия тултипа.
+     */
+    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+    /**
+     * Отступ окна относительно элемента, у которого оно вызвано.
+     * @default
+     * [0, 8]
+     */
+    offset?: [number, number];
+    /**
+     * Видимость стрелки (хвоста).
+     */
+    hasArrow?: boolean;
+    /**
+     * Анимированное появление/сокрытие.
+     */
+    animated?: boolean;
+    /**
+     * Минимальная ширина окна (в rem).
+     */
+    minWidth?: number | string;
+    /**
+     * Максимальная ширина окна (в rem).
+     */
+    maxWidth?: number | string;
+};
+```
+
+```tsx live
+import React from 'react';
+import { DateTimePicker } from '@salutejs/sdds-serv';
+
+    export function App() {
+
+    const EventNode = ({ dateValue, color }: { dateValue: string; color: string }) => {
+        return (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span>Дата: {dateValue}</span>
+                <span>Цвет: {color}</span>
+            </div>
+        );
+    };
+
+    const EventTooltipBody = ({ children }: PropsWithChildren) => {
+        return <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>{children}</div>;
+    };
+
+    const events = [
+        {
+            date: new Date('2025-07-09'),
+            color: 'red',
+            eventInfo: <EventNode color="red" dateValue="2025-07-09" />
+        },
+        {
+            date: new Date('2025-07-09'),
+            color: 'purple',
+            eventInfo: <EventNode color="purple" dateValue="2025-07-09" />
+        },
+        {
+            date: new Date('2025-07-10'),
+            color: 'green',
+            eventInfo: <EventNode color="green" dateValue="2025-07-10" />
+        },
+        {
+            date: new Date('2025-07-11'),
+            color: 'blue',
+            eventInfo: <EventNode color="blue" dateValue="2025-07-11" />
+        },
+        {
+            date: new Date('2025-07-12'),
+            color: 'red',
+            eventInfo: <EventNode color="red" dateValue="2025-07-12" />
+        },
+        {
+            date: new Date('2025-07-12'),
+            color: 'red',
+            eventInfo: <EventNode color="red" dateValue="2025-07-12" />
+        },
+    ];
+
+    return (
+        <div>
+            <DateTimePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                format="DD MMMM YYYY"
+                eventList={events}
+                eventTooltipOptions={{ 
+                    bodyWrapper: EventTooltipBody,
+                    size: 'm'
+                }}
+                renderFromDate={new Date('2025-07-01')}
+            />
+        </div>
+    );
+}
+```
+
+## Props
+
+<PropsTable name="DateTimePicker" exclude={['css']} />

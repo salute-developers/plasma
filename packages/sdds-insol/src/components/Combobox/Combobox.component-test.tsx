@@ -1555,6 +1555,135 @@ describe('sdds-insol: Combobox', () => {
         cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
+    it('prop: treeView, single mode', () => {
+        cy.viewport(400, 700);
+
+        const Component = () => {
+            const [value, setValue] = useState('rio_de_janeiro');
+
+            return (
+                <CypressTestDecorator>
+                    <div style={{ width: '300px' }}>
+                        <Combobox
+                            id="combobox"
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            treeView
+                        />
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: treeView, multiple mode', () => {
+        cy.viewport(400, 700);
+
+        const Component = () => {
+            const [value, setValue] = useState(['rio_de_janeiro']);
+
+            return (
+                <CypressTestDecorator>
+                    <div style={{ width: '300px' }}>
+                        <Combobox
+                            id="combobox"
+                            multiple
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            treeView
+                        />
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: onChange + renderValue + multiple + async items change', () => {
+        const list1 = [
+            { value: 'item1', label: 'Item 1' },
+            { value: 'item2', label: 'Item 2' },
+            { value: 'item3', label: 'Item 3' },
+        ];
+
+        const list2 = [
+            { value: 'item4', label: 'Item 4' },
+            { value: 'item5', label: 'Item 5' },
+            { value: 'item6', label: 'Item 6' },
+        ];
+
+        const handleChange = cy.stub().as('onChange');
+
+        const Component = () => {
+            const [items, setItems] = React.useState(list1);
+
+            return (
+                <CypressTestDecorator>
+                    <button type="button" id="list1" onClick={() => setItems(list1)}>
+                        set list 1
+                    </button>
+                    <button type="button" id="list2" onClick={() => setItems(list2)}>
+                        set list 2
+                    </button>
+
+                    <div style={{ width: '300px' }}>
+                        <Combobox
+                            id="combobox"
+                            multiple
+                            onChange={handleChange}
+                            items={items}
+                            label="Label"
+                            placeholder="Placeholder"
+                            renderValue={(item) => {
+                                if (item.value === 'item2') {
+                                    return 'Item 2';
+                                }
+
+                                return item.label;
+                            }}
+                        />
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click();
+        cy.get('[id$="item1"]').click();
+        cy.get('[id$="item2"]').click();
+        cy.get('#list2').click();
+        cy.get('#combobox').click();
+        cy.get('[id$="item4"]').click();
+        cy.get('button').contains('Item 2').click();
+        cy.get('@onChange').its('lastCall.args.0').should('deep.equal', ['item4', 'item1']);
+        cy.get('@onChange').its('lastCall.args.1').should('deep.equal', { value: 'item2', label: 'Item 2' });
+        cy.get('[id$="item4"]').click();
+        cy.get('@onChange').its('lastCall.args.0').should('deep.equal', ['item1']);
+        cy.get('@onChange').its('lastCall.args.1').should('include', { value: 'item4', label: 'Item 4' });
+    });
+
     it('behavior: disabled unselected item', () => {
         const items = [
             {

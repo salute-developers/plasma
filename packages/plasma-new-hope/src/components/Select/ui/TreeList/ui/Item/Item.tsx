@@ -1,6 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { classes } from 'src/components/Select/Select.tokens';
 import { sizeToIconSize } from 'src/components/Select/utils';
+import { isArraysEqual, cx } from 'src/utils';
+import { useDidMountEffect } from 'src/hooks';
 
 import { keyExists } from '../../../../reducers/treePathReducer';
 import { Context } from '../../../../Select.context';
@@ -24,7 +26,7 @@ import {
     StyledArrowLeft,
 } from './Item.styles';
 
-export const Item: React.FC<Props> = ({ item, index }) => {
+export const Item: React.FC<Props> = ({ item, pathToItem }) => {
     const { label, value, disabled, isDisabled, contentLeft, contentRight } = item;
 
     const isLeaf = !item?.items;
@@ -48,6 +50,9 @@ export const Item: React.FC<Props> = ({ item, index }) => {
     } = useContext(Context);
 
     const itemDisabled = Boolean(disabled || isDisabled);
+    const disabledClassName = itemDisabled ? classes.dropdownItemIsDisabled : undefined;
+
+    const ref = useRef<HTMLDivElement | null>(null);
 
     const currentItemDepth = (valueToPathMap.get(item.value.toString())?.length || 0) - 1;
 
@@ -55,12 +60,11 @@ export const Item: React.FC<Props> = ({ item, index }) => {
 
     const withArrowInverse = isCurrentLevelOpened ? classes.arrowInverse : undefined;
 
-    const focusedClass =
-        currentItemDepth === focusedPath.length - 1 && index === focusedPath?.[currentItemDepth]
-            ? classes.dropdownItemIsFocused
-            : undefined;
+    const focusedClass = isArraysEqual(pathToItem, focusedPath) ? classes.dropdownItemIsFocused : undefined;
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+        if (itemDisabled) return;
+
         if (!isLeaf) {
             dispatchTreePath({ type: 'toggled_level', value: valueToPathMap.get(value.toString()) || [] });
         }
@@ -78,9 +82,25 @@ export const Item: React.FC<Props> = ({ item, index }) => {
         handleCheckboxChange(item);
     };
 
+    useDidMountEffect(() => {
+        if (focusedClass && ref?.current) {
+            ref.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center',
+            });
+        }
+    }, [focusedClass]);
+
     return (
         <ItemWrapper>
-            <Wrapper className={focusedClass} onClick={handleClick} variant={variant} role="treeitem">
+            <Wrapper
+                ref={ref}
+                className={cx(focusedClass, disabledClassName)}
+                onClick={handleClick}
+                variant={variant}
+                role="treeitem"
+            >
                 <Offset depth={currentItemDepth} />
 
                 {arrowPlacement === 'left' && (
@@ -156,7 +176,7 @@ export const Item: React.FC<Props> = ({ item, index }) => {
             {!isLeaf && isCurrentLevelOpened && (
                 <ChildItems>
                     {item.items?.map((item, index) => {
-                        return <Item item={item} index={index} key={index} />;
+                        return <Item item={item} key={item.value} pathToItem={[...pathToItem, index]} />;
                     })}
                 </ChildItems>
             )}

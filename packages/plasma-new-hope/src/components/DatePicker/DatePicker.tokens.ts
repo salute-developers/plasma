@@ -44,6 +44,14 @@ export const tokens = {
     rightContentMargin: '--plasma-date-picker_range__right-content-margin',
     rightContentOpacityReadOnly: '--plasma-date-picker_range__right-content-opacity-readonly',
 
+    contentSlotColor: '--plasma-date-picker-content-slot-color',
+    contentSlotColorHover: '--plasma-date-picker-content-slot-color-hover',
+    contentSlotColorActive: '--plasma-date-picker-content-slot-color-active',
+
+    contentSlotRightColor: '--plasma-date-picker-content-right-slot-color',
+    contentSlotRightColorHover: '--plasma-date-picker-content-right-slot-color-hover',
+    contentSlotRightColorActive: '--plasma-date-picker-content-right-slot-color-active',
+
     /** Токены лейбла */
     labelColor: '--plasma-date-picker__label-color',
     labelColorReadOnly: '--plasma-date-picker__label-color-readonly',
@@ -152,9 +160,12 @@ export const tokens = {
     textFieldTextBeforeMargin: '--plasma-date-picker-textfield__before-text-margin',
     textFieldTextAfterMargin: '--plasma-date-picker-textfield__after-text-margin',
     textFieldContentSlotColor: '--plasma-date-picker-textfield__content-color',
+    textFieldContentSlotColorHover: '--plasma-date-picker-textfield__content-color-hover',
+    textFieldContentSlotColorActive: '--plasma-date-picker-textfield__content-color-active',
     textFieldContentRightSlotColor: '--plasma-date-picker-textfield__content-right-color',
     textFieldContentRightSlotColorHover: '--plasma-date-picker-textfield__content-right-color-hover',
-    textFieldContentSlotRightOpacityReadOnly: '--plasma-date-picker-textfield__content-right-color-hover',
+    textFieldContentRightSlotColorActive: '--plasma-date-picker-textfield__content-right-color-active',
+    textFieldContentSlotRightOpacityReadOnly: '--plasma-date-picker-textfield__content-right-readonly-opacity',
 
     /** Токены календаря */
     calendarMarginTop: '--plasma-date-picker-calendar-margin-top',
