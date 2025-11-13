@@ -549,6 +549,18 @@ describe('plasma-web: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    it('[PLASMA-T2393] TextField: truncate placeholder', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ width: '6rem' }}>
+                    <TextField size="l" label="Label" helperText="Helper text" placeholder="Placeholder very long" />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     describe('_required', () => {
         const sizes = ['xs', 's', 'm', 'l'] as const;
 
