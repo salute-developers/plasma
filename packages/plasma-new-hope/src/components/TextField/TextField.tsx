@@ -43,6 +43,7 @@ import {
     StyledHintWrapper,
     StyledIndicatorWrapper,
     StyledContentRightWrapper,
+    InputPlaceholderValue,
 } from './TextField.styles';
 import { classes } from './TextField.tokens';
 import { TextFieldChip, TextFieldChipNew } from './ui';
@@ -578,14 +579,20 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                 />
                                 {hasInnerLabel && (
                                     <Label data-root id={labelId} htmlFor={innerId}>
-                                        {innerLabelValue}
+                                        <InputPlaceholderValue className={cx(classTextEllipsis)}>
+                                            {innerLabelValue}
+                                        </InputPlaceholderValue>
                                         {optionalTextNode}
                                     </Label>
                                 )}
                                 {placeholderShown && !hasValue && (
                                     <InputPlaceholder hasPadding={hasPlaceholderPadding}>
                                         {hasTextBefore && <StyledTextBefore isHidden>{textBefore}</StyledTextBefore>}
-                                        {innerPlaceholderValue}
+                                        {innerPlaceholderValue && (
+                                            <InputPlaceholderValue className={cx(classTextEllipsis)}>
+                                                {innerPlaceholderValue}
+                                            </InputPlaceholderValue>
+                                        )}
                                         {hasPlaceholderOptional && optionalTextNode}
                                     </InputPlaceholder>
                                 )}

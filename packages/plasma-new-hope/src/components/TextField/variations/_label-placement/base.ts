@@ -44,6 +44,7 @@ export const base = css`
             box-sizing: border-box;
 
             height: 100%;
+            width: 100%;
         }
 
         &.${classes.clear} ${Label} {
