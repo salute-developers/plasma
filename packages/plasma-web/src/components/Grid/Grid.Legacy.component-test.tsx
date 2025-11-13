@@ -16,7 +16,7 @@ const Filler = styled.div`
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-describe('plasma-web: Grid', () => {
+describe('plasma-web: Grid Legacy', () => {
     const Container = getComponent('Container');
     const Row = getComponent('Row');
     const Col = getComponent('Col');
