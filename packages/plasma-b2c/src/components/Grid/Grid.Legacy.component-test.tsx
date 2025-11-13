@@ -12,7 +12,7 @@ const Filler = styled.div`
     background-color: rgba(255, 255, 255, 0.06);
 `;
 
-describe('plasma-b2c: Grid', () => {
+describe('plasma-b2c: Grid Legacy', () => {
     const Container = getComponent('Container');
     const Row = getComponent('Row');
     const Col = getComponent('Col');
@@ -54,7 +54,7 @@ describe('plasma-b2c: Grid', () => {
     });
 });
 
-describe('plasma-b2c: Grid _size', () => {
+describe('plasma-b2c: Grid Legacy _size', () => {
     const Container = getComponent('Container');
     const Row = getComponent('Row');
     const Col = getComponent('Col');

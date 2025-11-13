@@ -24,13 +24,15 @@ const baseSnapsDir = `${Cypress.env('snapshotsDir')}`;
 
 addMatchImageSnapshotCommand({
     customSnapshotsDir: `${baseSnapsDir}/${componentName}`,
-    customDiffDir: `${baseSnapsDir}/${componentName}`,
+    customDiffDir: `${baseSnapsDir}/${componentName}/__diff_output__`,
     failureThreshold: Cypress.env('threshold'),
     failureThresholdType: 'percent',
 });
 
 Cypress.Commands.overwrite('matchImageSnapshot', (originalFn, subject, options = {}) => {
-    return originalFn(subject, { ...options, specFileRelativeToRoot: '' });
+    const sanitizedName = Cypress.currentTest.title.replace('/', 'backslash');
+
+    return originalFn(subject, { ...options, specFileRelativeToRoot: '', customSnapshotName: sanitizedName });
 });
 
 const { isPlainObject, last } = Cypress._;
