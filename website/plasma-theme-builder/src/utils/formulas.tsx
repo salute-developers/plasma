@@ -6,21 +6,33 @@ export const formulas: Formula = {
             light: [
                 {
                     condition: {
-                        lightness: [0, 29],
+                        lightness: [0, 9],
                         hue: [0, 360],
                         saturation: [0, 24],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 32,
-                        active: (l: number) => l + 16,
+                        hover: (l: number) => l + 56,
+                        active: (l: number) => l + 0,
                     },
                 },
                 {
                     condition: {
-                        lightness: [0, 29],
+                        lightness: [0, 9],
                         hue: [0, 360],
-                        saturation: [25, 100],
+                        saturation: [25, 79],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 24,
+                        active: (l: number) => l + 12,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [0, 9],
+                        hue: [0, 360],
+                        saturation: [80, 100],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
@@ -30,251 +42,165 @@ export const formulas: Formula = {
                 },
                 {
                     condition: {
-                        lightness: [30, 79],
-                        hue: [0, 179],
+                        lightness: [10, 24],
+                        hue: [0, 360],
                         saturation: [0, 24],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: () => 0,
-                        active: (l: number) => l * 0.8,
+                        hover: (l: number) => l + 48,
+                        active: (l: number) => l + 20,
                     },
                 },
                 {
                     condition: {
-                        lightness: [30, 79],
-                        hue: [0, 179],
-                        saturation: [25, 100],
+                        lightness: [10, 24],
+                        hue: [0, 360],
+                        saturation: [25, 79],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 8,
-                        active: (l: number) => l - 8,
+                        hover: (l: number) => l + 20,
+                        active: (l: number) => l - 2,
                     },
                 },
                 {
                     condition: {
-                        lightness: [30, 79],
-                        hue: [180, 279],
-                        saturation: [0, 79],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: () => 0,
-                        active: (l: number) => l * 0.8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [30, 79],
-                        hue: [180, 279],
+                        lightness: [10, 24],
+                        hue: [0, 360],
                         saturation: [80, 100],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 8,
-                        active: (l: number) => l - 8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [30, 79],
-                        hue: [280, 360],
-                        saturation: [0, 24],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: () => 0,
-                        active: (l: number) => l * 0.8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [30, 79],
-                        hue: [280, 360],
-                        saturation: [25, 100],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 8,
-                        active: (l: number) => l - 8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [80, 100],
-                        hue: [0, 179],
-                        saturation: [0, 24],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: () => 0,
-                        active: (l: number) => l * 0.8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [80, 100],
-                        hue: [0, 179],
-                        saturation: [25, 100],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 8,
-                        active: (l: number) => l - 8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [80, 100],
-                        hue: [180, 279],
-                        saturation: [0, 39],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: () => 0,
-                        active: (l: number) => l * 0.8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [80, 100],
-                        hue: [180, 279],
-                        saturation: [40, 100],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 8,
-                        active: (l: number) => l - 8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [80, 100],
-                        hue: [280, 360],
-                        saturation: [0, 24],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: () => 0,
-                        active: (l: number) => l * 0.8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [80, 100],
-                        hue: [280, 360],
-                        saturation: [25, 100],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 8,
-                        active: (l: number) => l - 8,
-                    },
-                },
-            ],
-            dark: [
-                {
-                    condition: {
-                        lightness: [0, 29],
-                        hue: [0, 360],
-                        saturation: [0, 24],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: () => 100,
-                        active: (l: number) => (100 - l) * 0.8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [0, 29],
-                        hue: [0, 360],
-                        saturation: [25, 100],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
                         hover: (l: number) => l + 12,
-                        active: (l: number) => l + 6,
+                        active: (l: number) => l - 4,
                     },
                 },
                 {
                     condition: {
-                        lightness: [30, 79],
-                        hue: [0, 179],
+                        lightness: [25, 39],
+                        hue: [0, 360],
                         saturation: [0, 24],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: () => 100,
-                        active: (l: number) => (100 - l) * 0.8,
+                        hover: (l: number) => l + 32,
+                        active: (l: number) => l - 2,
                     },
                 },
                 {
                     condition: {
-                        lightness: [30, 79],
-                        hue: [0, 179],
-                        saturation: [25, 100],
+                        lightness: [25, 39],
+                        hue: [0, 360],
+                        saturation: [25, 79],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 6,
-                        active: (l: number) => l - 6,
+                        hover: (l: number) => l + 14,
+                        active: (l: number) => l - 4,
                     },
                 },
                 {
                     condition: {
-                        lightness: [30, 79],
-                        hue: [180, 279],
-                        saturation: [0, 79],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: () => 100,
-                        active: (l: number) => (100 - l) * 0.8,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [30, 79],
-                        hue: [180, 279],
+                        lightness: [25, 39],
+                        hue: [0, 199],
                         saturation: [80, 100],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 16,
+                        hover: (l: number) => l + 10,
+                        active: (l: number) => l - 8,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [25, 39],
+                        hue: [200, 299],
+                        saturation: [80, 100],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 14,
+                        active: (l: number) => l - 8,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [25, 39],
+                        hue: [300, 360],
+                        saturation: [80, 100],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 10,
+                        active: (l: number) => l - 8,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [40, 54],
+                        hue: [0, 360],
+                        saturation: [0, 9],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 20,
+                        active: () => 0,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [40, 54],
+                        hue: [0, 360],
+                        saturation: [10, 100],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 20,
                         active: (l: number) => l - 6,
                     },
                 },
                 {
                     condition: {
-                        lightness: [30, 79],
-                        hue: [280, 360],
-                        saturation: [0, 24],
+                        lightness: [55, 69],
+                        hue: [0, 360],
+                        saturation: [0, 100],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: () => 100,
-                        active: (l: number) => (100 - l) * 0.8,
+                        hover: (l: number) => l + 16,
+                        active: (l: number) => l - 8,
                     },
                 },
                 {
                     condition: {
-                        lightness: [30, 79],
-                        hue: [280, 360],
+                        lightness: [70, 84],
+                        hue: [0, 360],
+                        saturation: [0, 24],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 16,
+                        active: (l: number) => l - 14,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [70, 84],
+                        hue: [0, 360],
                         saturation: [25, 100],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 6,
-                        active: (l: number) => l - 6,
+                        hover: (l: number) => l + 8,
+                        active: (l: number) => l - 8,
                     },
                 },
                 {
                     condition: {
-                        lightness: [80, 100],
+                        lightness: [85, 100],
                         hue: [0, 360],
-                        saturation: [0, 24],
+                        saturation: [0, 25],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
@@ -284,14 +210,220 @@ export const formulas: Formula = {
                 },
                 {
                     condition: {
-                        lightness: [80, 100],
+                        lightness: [85, 100],
                         hue: [0, 360],
                         saturation: [25, 100],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
-                        hover: (l: number) => l - 12,
+                        hover: (l: number) => l - 6,
+                        active: (l: number) => l - 10,
+                    },
+                },
+            ],
+            dark: [
+                {
+                    condition: {
+                        lightness: [0, 9],
+                        hue: [0, 360],
+                        saturation: [0, 24],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l) => l + 24,
+                        active: (l: number) => l + 12,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [0, 9],
+                        hue: [0, 360],
+                        saturation: [25, 79],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 8,
+                        active: (l: number) => l + 4,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [0, 9],
+                        hue: [0, 360],
+                        saturation: [80, 100],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 6,
+                        active: (l: number) => l + 2,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [10, 24],
+                        hue: [0, 360],
+                        saturation: [0, 24],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 18,
                         active: (l: number) => l - 6,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [10, 24],
+                        hue: [0, 360],
+                        saturation: [25, 79],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 16,
+                        active: (l: number) => l - 4,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [10, 24],
+                        hue: [0, 360],
+                        saturation: [80, 100],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 12,
+                        active: (l: number) => l - 4,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [25, 40],
+                        hue: [0, 360],
+                        saturation: [0, 24],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 36,
+                        active: (l: number) => l - 10,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [25, 40],
+                        hue: [0, 360],
+                        saturation: [25, 100],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 12,
+                        active: (l: number) => l - 4,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [40, 49],
+                        hue: [0, 360],
+                        saturation: [0, 24],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 36,
+                        active: (l: number) => l - 10,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [40, 49],
+                        hue: [0, 360],
+                        saturation: [25, 100],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 20,
+                        active: (l: number) => l - 6,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [50, 79],
+                        hue: [0, 360],
+                        saturation: [0, 24],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: () => 100,
+                        active: (l: number) => l - 20,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [50, 79],
+                        hue: [0, 360],
+                        saturation: [25, 100],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l + 16,
+                        active: (l: number) => l - 6,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [80, 94],
+                        hue: [0, 360],
+                        saturation: [0, 24],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l - 32,
+                        active: (l: number) => l - 48,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [80, 94],
+                        hue: [0, 360],
+                        saturation: [25, 59],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l - 20,
+                        active: (l: number) => l - 32,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [80, 94],
+                        hue: [0, 360],
+                        saturation: [60, 100],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l - 16,
+                        active: (l: number) => l - 24,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [95, 100],
+                        hue: [0, 360],
+                        saturation: [0, 24],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l - 48,
+                        active: (l: number) => l - 60,
+                    },
+                },
+                {
+                    condition: {
+                        lightness: [95, 100],
+                        hue: [0, 360],
+                        saturation: [25, 59],
+                    },
+                    operation: {
+                        brightness: (l: number) => l + 6,
+                        hover: (l: number) => l - 16,
+                        active: (l: number) => l - 20,
                     },
                 },
             ],
@@ -310,12 +442,12 @@ export const formulas: Formula = {
                 },
                 {
                     condition: {
-                        alpha: [0.01, 0.69],
+                        alpha: [0.01, 0.14],
                     },
                     operation: {
                         brightness: (a: number) => a,
-                        hover: () => 1,
-                        active: (a: number) => a * 1.2,
+                        hover: (a) => a + 0.2,
+                        active: (a: number) => a + 0.1,
                     },
                 },
                 {
