@@ -32,7 +32,11 @@ addMatchImageSnapshotCommand({
 Cypress.Commands.overwrite('matchImageSnapshot', (originalFn, subject, options = {}) => {
     const sanitizedName = Cypress.currentTest.title.replace('/', 'backslash');
 
-    return originalFn(subject, { ...options, specFileRelativeToRoot: '', customSnapshotName: sanitizedName });
+    if (typeof options === 'string') {
+        return originalFn(subject, options, { specFileRelativeToRoot: '' });
+    }
+
+    return originalFn(subject, { customSnapshotName: sanitizedName, ...options, specFileRelativeToRoot: '' });
 });
 
 const { isPlainObject, last } = Cypress._;
