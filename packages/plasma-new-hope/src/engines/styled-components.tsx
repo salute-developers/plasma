@@ -11,16 +11,18 @@ const Root = styled.div<{
     staticVariants: string[];
     dynamicVariants: (props: HTMLAnyAttributes) => any[];
     intersectionStyles: string[];
+    invariants: string;
 }>`
     ${({ base }) => base};
     ${({ staticVariants }) => staticVariants};
     ${({ dynamicVariants }) => dynamicVariants};
     ${({ intersectionStyles }) => intersectionStyles};
+    ${({ invariants }) => invariants};
 `;
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
-    const { tag, base, intersections } = componentConfig;
+    const { tag, base, intersections, invariants } = componentConfig;
     const staticVariants = getStaticVariants(componentConfig);
     const dynamicVariants = getDynamicVariants(componentConfig);
 
@@ -34,6 +36,7 @@ export const _component = (componentConfig: ComponentConfig) => {
                 staticVariants={staticVariants}
                 dynamicVariants={dynamicVariants}
                 intersectionStyles={intersectionStyles}
+                invariants={invariants}
                 {...props}
                 ref={ref}
             />
