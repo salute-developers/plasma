@@ -2,7 +2,6 @@ import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 import styled, { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { IconMic } from '@salutejs/plasma-icons';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 

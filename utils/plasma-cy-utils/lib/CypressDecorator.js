@@ -17,6 +17,7 @@ var themes_2 = require("@salutejs/plasma-tokens/themes");
 var themes_3 = require("@salutejs/plasma-tokens-b2c/themes");
 var plasma_typo_1 = require("@salutejs/plasma-typo");
 var SSRProvider_1 = require("./SSRProvider");
+var NormalizeCSSDecorator_1 = require("./NormalizeCSSDecorator");
 // NOTE: new theme format
 var ThemeGIGA = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_giga__light);
 var ThemeCS = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_cs__light);
@@ -83,12 +84,14 @@ var CypressTestDecorator = function (_a) {
     }
     if (pkgName === 'plasma-web') {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
+            react_1.default.createElement(NormalizeCSSDecorator_1.NormalizeCSSDecorator, null),
             react_1.default.createElement(TypoThemeStyle, null),
             react_1.default.createElement(WebLightThemeStyle, null),
             children));
     }
     if (pkgName === 'plasma-b2c') {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
+            react_1.default.createElement(NormalizeCSSDecorator_1.NormalizeCSSDecorator, null),
             react_1.default.createElement(StandardTypoStyle, null),
             react_1.default.createElement(CompatibleTypoStyle, null),
             react_1.default.createElement(ColorB2CStyle, null),
@@ -96,6 +99,7 @@ var CypressTestDecorator = function (_a) {
     }
     if (['plasma-giga', 'sdds-cs', 'sdds-insol'].includes(pkgName)) {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
+            react_1.default.createElement(NormalizeCSSDecorator_1.NormalizeCSSDecorator, null),
             testPackagesThemes[pkgName],
             children));
     }

@@ -45,6 +45,7 @@ export const Table = styled.table<{ borderVariant: TableProps['borderVariant']; 
 `;
 
 export const Tr = styled.tr<{ selected?: boolean }>`
+    box-sizing: content-box;
     width: fit-content;
     background-color: ${({ selected }) => (selected ? 'var(--surface-transparent-accent)' : 'transparent')};
 `;
@@ -97,6 +98,7 @@ export const Th = styled.th<{ borderVariant: TableProps['borderVariant']; select
     background-color: transparent;
     color: inherit;
 
+    box-sizing: content-box;
     border-width: 0.0625rem;
     border-top-width: 0;
     border-bottom-width: 0;

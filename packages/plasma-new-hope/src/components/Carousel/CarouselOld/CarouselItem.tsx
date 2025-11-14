@@ -4,6 +4,7 @@ import { styled } from '@linaria/react';
 import { SnapAlign, SnapStop, CarouselItemProps } from './Carousel.types';
 
 const StyledItem = styled.div<{ scrollSnapAlign: SnapAlign; scrollSnapStop: SnapStop }>`
+    box-sizing: content-box;
     scroll-snap-align: ${({ scrollSnapAlign }) => scrollSnapAlign || 'none'};
     scroll-snap-stop: ${({ scrollSnapAlign, scrollSnapStop }) => (scrollSnapAlign ? scrollSnapStop : 'normal')};
 `;

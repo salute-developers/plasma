@@ -60,6 +60,7 @@ describe('plasma-web: ComboboxOld', () => {
     });
 
     it('multiple', () => {
+        cy.viewport(500, 950);
         mount(
             <CypressTestDecoratorWithTypo>
                 <Combobox valueType="multiple" placeholder="Placeholder" />
@@ -106,6 +107,7 @@ describe('plasma-web: ComboboxOld', () => {
     });
 
     it('sizes', () => {
+        cy.viewport(500, 950);
         mount(
             <CypressTestDecoratorWithTypo>
                 <Combobox valueType="single" opened value="item_0" label="Size" size="xs">

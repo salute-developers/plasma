@@ -26,6 +26,7 @@ const Item = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: content-box;
 `;
 
 const meta: Meta<typeof Flow> = {

@@ -100,7 +100,7 @@ describe('plasma-giga: Note', () => {
     it(':stretch', () => {
         mount(
             <CypressTestDecorator>
-                <div style={{ height: '400px', width: '400px', border: '3px solid red' }}>
+                <div style={{ height: '400px', width: '400px', border: '3px solid red', boxSizing: 'content-box' }}>
                     <Note {...commonProps} size="l" stretch />
                 </div>
             </CypressTestDecorator>,
