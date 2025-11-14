@@ -18,10 +18,10 @@ jobs:
                 uses: actions/checkout@v4
 
             -   name: Setup Node.js
-                uses: actions/setup-node@v4
+                uses: actions/setup-node@v6
                 with:
-                    node-version: '20'
-                    cache: npm
+                    node-version-file: '.nvmrc'
+                    cache: 'npm'
 
             -   name: Install dependencies
                 run: |
@@ -43,16 +43,16 @@ jobs:
                         const fs = require('fs');
                         const path = '.github/teammates.json';
                         const teammates = JSON.parse(fs.readFileSync(path, 'utf8'));
-                        
+
                         const reviewers = JSON.parse(process.env.REVIEWERS_LIST);
-                        
+
                         // INFO: First, it is necessary to remove those who were automatically assigned from CODEOWNERS.
                         await github.rest.pulls.removeRequestedReviewers({
                             ...context.repo,
                             pull_number: context.payload.pull_request.number,
                             reviewers: ['Yeti-or', ...Object.keys(teammates)],
                         });
-                        
+
                         // INFO: Set new list reviewers
                         await github.rest.pulls.requestReviewers({
                             ...context.repo,
