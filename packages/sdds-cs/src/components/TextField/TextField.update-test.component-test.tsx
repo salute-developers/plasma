@@ -508,4 +508,16 @@ describe('sdds-cs: TextField', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('[PLASMA- ] TextField: truncate placeholder', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ width: '4rem' }}>
+                    <TextField size="s" label="Label" leftHelper="Helper text" placeholder="Placeholder very long" />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });
