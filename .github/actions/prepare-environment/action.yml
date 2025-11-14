@@ -6,7 +6,7 @@ runs:
   using: "composite"
   steps:
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v6
       with:
         node-version-file: '.nvmrc'
         cache: 'npm'
@@ -29,7 +29,7 @@ runs:
         key: cache-${{ hashFiles('package-lock.json') }}
         restore-keys: |
           cache-${{ hashFiles('package-lock.json') }}
-          cache-            
+          cache-
 
     - name: Setup packages
       shell: bash
