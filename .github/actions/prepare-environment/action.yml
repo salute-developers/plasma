@@ -13,7 +13,7 @@ runs:
 
     - name: Cache node modules
       id: node_modules
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: node_modules
         key: node-modules-${{ hashFiles('package-lock.json') }}
@@ -23,7 +23,7 @@ runs:
 
     - name: Cache dependencies
       id: cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache
         key: cache-${{ hashFiles('package-lock.json') }}
@@ -33,5 +33,5 @@ runs:
 
     - name: Setup packages
       shell: bash
-      if: ${{ steps.cache.outputs.cache-hit != 'true' && steps.node_modules.outputs.cache-hit != 'true' }}
+      if: ${{ steps.cache.outputs.cache-hit != 'true' || steps.node_modules.outputs.cache-hit != 'true' }}
       run: npm ci --no-progress
