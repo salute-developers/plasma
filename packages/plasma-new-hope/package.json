@@ -118,7 +118,7 @@
     "@popperjs/core": "2.11.8",
     "@salutejs/input-core": "2.1.2",
     "@salutejs/plasma-core": "1.209.0",
-    "@salutejs/react-maskinput": "3.3.0",
+    "@salutejs/react-maskinput": "3.3.2",
     "@tanstack/react-table": "8.21.2",
     "@tanstack/react-virtual": "3.13.2",
     "classnames": "2.5.1",
