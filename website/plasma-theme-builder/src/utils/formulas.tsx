@@ -452,12 +452,22 @@ export const formulas: Formula = {
                 },
                 {
                     condition: {
-                        alpha: [0.7, 0.99],
+                        alpha: [0.15, 0.5],
                     },
                     operation: {
                         brightness: (a: number) => a,
                         hover: (a: number) => a * 0.6,
-                        active: (a: number) => a * 0.8,
+                        active: (a: number) => a * 1.6,
+                    },
+                },
+                {
+                    condition: {
+                        alpha: [0.5, 0.99],
+                    },
+                    operation: {
+                        brightness: (a: number) => a,
+                        hover: (a: number) => a * 0.5,
+                        active: () => 1,
                     },
                 },
             ],
@@ -474,22 +484,52 @@ export const formulas: Formula = {
                 },
                 {
                     condition: {
-                        alpha: [0.01, 0.69],
+                        alpha: [0.01, 0.09],
                     },
                     operation: {
                         brightness: (a: number) => a,
-                        hover: () => 1,
-                        active: (a: number) => a * 1.2,
+                        hover: (a: number) => a + 0.1,
+                        active: (a: number) => a + 0.2,
                     },
                 },
                 {
                     condition: {
-                        alpha: [0.7, 0.99],
+                        alpha: [0.1, 0.29],
+                    },
+                    operation: {
+                        brightness: (a: number) => a,
+                        hover: (a: number) => a * 2.5,
+                        active: (a: number) => a * 0.6,
+                    },
+                },
+                {
+                    condition: {
+                        alpha: [0.3, 0.49],
+                    },
+                    operation: {
+                        brightness: (a: number) => a,
+                        hover: (a: number) => a * 2,
+                        active: (a: number) => a * 0.6,
+                    },
+                },
+                {
+                    condition: {
+                        alpha: [0.5, 0.79],
+                    },
+                    operation: {
+                        brightness: (a: number) => a,
+                        hover: () => 1,
+                        active: (a: number) => a * 0.5,
+                    },
+                },
+                {
+                    condition: {
+                        alpha: [0.8, 0.99],
                     },
                     operation: {
                         brightness: (a: number) => a,
                         hover: (a: number) => a * 0.6,
-                        active: (a: number) => a * 0.8,
+                        active: (a: number) => a * 0.4,
                     },
                 },
             ],
