@@ -6,6 +6,7 @@ export const tokens = {
     linkButtonColorHover: '--plasma-link-button-color-hover',
     linkButtonColorActive: '--plasma-link-button-color-active',
     linkButtonTextColorHover: '--plasma-link-button-text-color-hover',
+    linkButtonTextColorActive: '--plasma-link-button-text-color-active',
 
     linkButtonPadding: '--plasma-link-button-padding',
     linkButtonHeight: '--plasma-link-button-height',
