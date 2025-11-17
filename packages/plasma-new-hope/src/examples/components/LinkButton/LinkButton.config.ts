@@ -18,6 +18,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-primary-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-primary-hover);
+                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-primary-active);
             `,
             accent: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-accent);
@@ -28,6 +29,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-accent-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-accent-hover);
+                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-accent-active);
             `,
             secondary: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-secondary);
@@ -38,6 +40,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-secondary-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-secondary-hover);
+                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-secondary-active);
             `,
             positive: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-positive);
@@ -48,6 +51,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-positive-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-positive-hover);
+                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-positive-active);
             `,
             warning: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-warning);
@@ -58,6 +62,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-warning-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-warning-hover);
+                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-warning-active);
             `,
             negative: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-negative);
@@ -68,6 +73,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-negative-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-negative-hover);
+                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-negative-active);
             `,
         },
         size: {
