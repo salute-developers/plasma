@@ -3,6 +3,22 @@
   "version": "1.601.0",
   "description": "Salute Design System / React UI kit for web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "exports": {
+    ".": {
+      "import": "./dist/styled-components/es/index.js",
+      "require": "./dist/styled-components/cjs/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./css": {
+      "import": "./dist/css/es/index.js",
+      "require": "./dist/css/cjs/index.js",
+      "types": "./types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
   "license": "MIT",
   "keywords": [
     "design-system",
@@ -10,9 +26,6 @@
     "ui-kit",
     "react"
   ],
-  "main": "index.js",
-  "module": "es/index.js",
-  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -74,15 +87,15 @@
     "preapi-report": "npm run generate:typings",
     "api-report": "npx api-extractor run --local",
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map",
-    "build": "npm run build:cjs && npm run build:esm && npm run build:css",
+    "build": "npm run build:css && npm run build:styled-components",
     "postbuild": "npm run generate:typings",
-    "build:cjs": "swc ./src -d . --strip-leading-paths -C module.type=commonjs --config-file ../../swc.config.json",
-    "build:esm": "swc ./src -d ./es --strip-leading-paths -C module.type=es6 --config-file ../../swc.config.json",
     "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
-    "build:css": "BABEL_ENV=esm SC_NAMESPACE=plasma-web rollup -c",
+    "build:css": "rm -rf dist/css && rollup -c",
     "postbuild:css": "rm -rf src-css",
-    "generate:typings": "tsc --outDir . --emitDeclarationOnly",
+    "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
+    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "generate:typings": "rm -rf types && tsc",
     "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
     "typescript-coverage": "npx typescript-coverage-report > /dev/null",
@@ -101,5 +114,7 @@
     "Anton Vinogradov",
     "Fanil Zubairov"
   ],
-  "sideEffects": false
+  "sideEffects": [
+    "*.css"
+  ]
 }

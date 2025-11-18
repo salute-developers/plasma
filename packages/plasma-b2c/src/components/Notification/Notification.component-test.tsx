@@ -22,6 +22,8 @@ const ButtonsWrapper = styled.div`
 
 describe('plasma-web: Notification', () => {
     const NotificationsProvider = getComponent('NotificationsProvider');
+    const addNotification = getComponent('addNotification');
+    const closeNotification = getComponent('closeNotification');
     const Button = getComponent('Button');
 
     const CypressTestDecoratorWithTypo: FC = ({ children }) => (

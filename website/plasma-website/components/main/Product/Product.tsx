@@ -49,7 +49,17 @@ export const Product: FC<ProductProps & PropsWithChildren> = ({
 }) => {
     return (
         <ProductWrapper className="override-gap">
-            <Link href={href}>
+            {href ? (
+                <Link href={href}>
+                    <ProductMainInfo className={className} onClick={onClickTitle} alwaysShowIcon={alwaysShowIcon}>
+                        <Title bold={false}>{title}</Title>
+
+                        <Icon>
+                            <ArrowRight style={{ rotate: constants.rotationVariants[iconRotation] }} />
+                        </Icon>
+                    </ProductMainInfo>
+                </Link>
+            ) : (
                 <ProductMainInfo className={className} onClick={onClickTitle} alwaysShowIcon={alwaysShowIcon}>
                     <Title bold={false}>{title}</Title>
 
@@ -57,7 +67,7 @@ export const Product: FC<ProductProps & PropsWithChildren> = ({
                         <ArrowRight style={{ rotate: constants.rotationVariants[iconRotation] }} />
                     </Icon>
                 </ProductMainInfo>
-            </Link>
+            )}
             {additionalInfo && (
                 <ProductAdditionalInfo isDraggable={isDraggable}>{additionalInfo}</ProductAdditionalInfo>
             )}

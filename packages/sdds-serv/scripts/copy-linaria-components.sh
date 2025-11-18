@@ -10,7 +10,7 @@ for component in $components; do
     cp -R src/components/$component src-css/components/;
     grep -E "\<$component\>" src/index.ts >> src-css/index.ts
     echo "export * from '../components/$component';" >> src-css/index.d.ts;
-    
+
 done;
 
 # remove unused tests
@@ -26,7 +26,7 @@ for file in $files; do
 done;
 
 # plasma-new-hope/styled-components => plasma-new-hope
-perl -p -i -e "s/\/styled-components//g" $files
+perl -p -i -e "s/\/styled-components/\/css/g" $files
 
 #TODO: #1024 удалить обертку styled в спиннере
 perl -p -i -e "s/import styled from 'styled-components';//g" src-css/components/Spinner/Spinner.tsx

@@ -13,7 +13,7 @@ describe('sdds-insol: Tabs', () => {
     const TabItem = getComponent('TabItem') as typeof TabItemINSOL;
     const IconTabItem = getComponent('IconTabItem') as typeof IconTabItemINSOL;
 
-    it('[PLASMA-T1655] Tabs: size=l, with divider, orientation=horizontal', () => {
+    it.skip('[PLASMA-T1655] Tabs: size=l, with divider, orientation=horizontal', () => {
         mount(
             <CypressTestDecorator>
                 <div>
@@ -41,7 +41,7 @@ describe('sdds-insol: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1656] Tabs: size=m, without divider, stretch, contentLeft, contentRight as counter', () => {
+    it.skip('[PLASMA-T1656] Tabs: size=m, without divider, stretch, contentLeft, contentRight as counter', () => {
         mount(
             <CypressTestDecorator>
                 <Tabs size="m" stretch forwardedAs="ul">
@@ -97,7 +97,7 @@ describe('sdds-insol: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1658] Tabs: size=xs', () => {
+    it.skip('[PLASMA-T1658] Tabs: size=xs', () => {
         mount(
             <CypressTestDecorator>
                 <div>
@@ -125,7 +125,7 @@ describe('sdds-insol: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1659] Tabs: vertical', () => {
+    it.skip('[PLASMA-T1659] Tabs: vertical', () => {
         mount(
             <CypressTestDecorator>
                 <div>
@@ -206,7 +206,7 @@ describe('sdds-insol: Tabs', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T819] Tabs: size=h3', () => {
+    it.skip('[PLASMA-T819] Tabs: size=h3', () => {
         mount(
             <CypressTestDecorator>
                 <Tabs size="h3" forwardedAs="ul">

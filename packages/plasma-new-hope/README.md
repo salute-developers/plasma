@@ -12,7 +12,7 @@
 
 ```
 cd packages/plasma-new-hope
-npm run build:css:watch
+npm run build:css
 ```
 
 [EPIC](https://github.com/salute-developers/plasma/milestone/1)

@@ -46,19 +46,19 @@ var getComponent = function (componentName) {
             pkg = require('../../../packages/plasma-ui');
             break;
         case 'plasma-web':
-            pkg = require('../../../packages/plasma-web');
+            pkg = require('../../../packages/plasma-web/dist/styled-components/cjs/index.js');
             break;
         case 'plasma-b2c':
-            pkg = require('../../../packages/plasma-b2c');
+            pkg = require('../../../packages/plasma-b2c/dist/styled-components/cjs/index.js');
             break;
         case 'plasma-giga':
-            pkg = require('../../../packages/plasma-giga');
+            pkg = require('../../../packages/plasma-giga/dist/styled-components/cjs/index.js');
             break;
         case 'sdds-cs':
-            pkg = require('../../../packages/sdds-cs');
+            pkg = require('../../../packages/sdds-cs/dist/styled-components/cjs/index.js');
             break;
         case 'sdds-insol':
-            pkg = require('../../../packages/sdds-insol');
+            pkg = require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
             break;
         default:
             throw new Error("Library ".concat(pkgName, " is not required in plasma-core/CypressHelpers:getComponent"));

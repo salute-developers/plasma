@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
 import { ToastProvider } from '@salutejs/plasma-b2c';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
 import { multipleMediaQuery } from '../mixins';
 import { Header, Main, SearchForm, IconsList, Footer, IconFilterMenu } from '../components/roster';
@@ -86,7 +87,7 @@ const StyledMain = styled(Main)`
     max-width: 100%;
 `;
 
-export default function Home() {
+function Home() {
     const [searchQuery, setSearchQuery] = useState('');
     const [isScrolling, setIsScrolling] = useState(false);
     const [showDeprecated, setShowDeprecated] = useState(false);
@@ -174,3 +175,5 @@ export default function Home() {
         </ToastProvider>
     );
 }
+
+export default dynamic(() => Promise.resolve(Home), { ssr: false });

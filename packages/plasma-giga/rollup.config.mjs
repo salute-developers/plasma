@@ -20,7 +20,7 @@ export default {
     },
     output: [{
         preserveModules: true,
-        dir: './es',
+        dir: './dist/css/es',
         format: 'es',
         freeze: false,
         esModule: true,
@@ -29,7 +29,7 @@ export default {
         assetFileNames: "[name][extname]",
     }, {
         preserveModules: true,
-        dir: './',
+        dir: './dist/css/cjs',
         format: 'cjs',
         freeze: false,
         esModule: true,
@@ -49,7 +49,7 @@ export default {
         linaria({
             exclude: ['plasma-core/src/collectPackageInfo.ts'],
             tagResolver: (source, tag) => {
-                if (source === '@salutejs/plasma-new-hope') {
+                if (source === '@salutejs/plasma-new-hope/css') {
                     if (tag === 'css') {
                         // TODO: move to node@20
                         // return import.meta.resolve('@linaria/core/processors/css');

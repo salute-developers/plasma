@@ -3,6 +3,22 @@
   "version": "0.330.0",
   "description": "Salute Design System / React UI kit for SDDS PLATFORM-AI web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "exports": {
+    "." : {
+      "import": "./dist/css/es/index.js",
+      "require": "./dist/css/cjs/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./styled-components" : {
+      "import": "./dist/styled-components/es/index.js",
+      "require": "./dist/styled-components/cjs/index.js",
+      "types": "./types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
   "license": "MIT",
   "keywords": [
     "design-system",
@@ -10,19 +26,6 @@
     "ui-kit",
     "react"
   ],
-  "files": [
-    "styled-components",
-    "components",
-    "mixins",
-    "types",
-    "es",
-    "tokens",
-    "index.d.ts",
-    "_virtual"
-  ],
-  "main": "index.js",
-  "module": "es/index.js",
-  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",

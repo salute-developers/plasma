@@ -179,7 +179,7 @@ export const SearchForm = memo(
                         <Checkbox
                             size="m"
                             checked={showDeprecated}
-                            onChange={(e) => onShowDeprecatedChange(e.target.checked)}
+                            onChange={(e: any) => onShowDeprecatedChange(e.target.checked)}
                             label={<BodyXS style={{ marginTop: '2px' }}>Показать deprecated иконки</BodyXS>}
                         />
                     </StyledCheckboxWrapper>

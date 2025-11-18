@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "ES5",
+        "module": "NodeNext",
         "lib": ["esnext", "dom"],
         "types": [
             "cypress",
@@ -12,7 +13,7 @@
             "cypress-file-upload"
         ],
         "allowJs": true,
-        "moduleResolution": "node",
+        "moduleResolution": "nodenext",
         "esModuleInterop": true,
         "resolveJsonModule": true
     },
