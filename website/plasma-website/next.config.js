@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
-
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const packagesInfo = require('./getPackageInfo');
 
 const { PR_NAME } = process.env;
@@ -14,21 +12,16 @@ module.exports = {
     trailingSlash: true,
     env: {
         BASE_PATH: basePath,
-        PACKAGES_INFO: packagesInfo,
+        PACKAGES_INFO: JSON.stringify(packagesInfo),
     },
     output: 'export',
-    webpack: (config) => {
-        return {
-            ...config,
-            resolve: {
-                ...config.resolve,
-                alias: {
-                    ...config.resolve.alias,
-                    react: path.resolve(__dirname, 'node_modules', 'react'),
-                    'react-dom': path.resolve(__dirname, 'node_modules', 'react-dom'),
-                    'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
-                },
-            },
-        };
+    compiler: {
+        styledComponents: true,
+    },
+    distDir: 'build',
+    webpack: (config, { isServer }) => {
+        config.resolve.conditionNames = isServer ? ['require', 'node', 'default'] : ['import', 'browser', 'default'];
+
+        return config;
     },
 };

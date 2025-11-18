@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+// @ts-ignore
 import { Button } from '@salutejs/plasma-web';
 
 /**

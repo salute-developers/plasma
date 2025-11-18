@@ -14,6 +14,7 @@ import {
 import { useForkRef } from '@salutejs/plasma-core';
 import { RootProps } from 'src/engines';
 
+import { SELECT_COLUMN_ID } from './utils';
 import { HeadCell, Cell, EditableCell } from './ui';
 import { TableProps, TableRowData } from './Table.types';
 import { base, Table, Tr, Thead, StyledCheckbox, Tbody } from './Table.styles';
@@ -23,8 +24,6 @@ type ColumnSort = {
     desc: boolean;
 };
 type SortingState = ColumnSort[];
-
-export const SELECT_COLUMN_ID = 'SELECT_COLUMN_UNIQUE_ID';
 
 export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
     forwardRef<HTMLDivElement, TableProps>(

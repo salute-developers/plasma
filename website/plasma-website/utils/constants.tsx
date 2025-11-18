@@ -34,7 +34,7 @@ export const createChangelogLink = ({ vertical, version, platform = 'react' }: C
 };
 
 export const baseColorCode = '600';
-export const PACKAGES_INFO = (process.env.PACKAGES_INFO as unknown) as PackagesInfo;
+export const PACKAGES_INFO = JSON.parse(process.env.PACKAGES_INFO || '{}') as PackagesInfo;
 export const basePath = process.env.BASE_PATH || '';
 export const rootFontSize = 16;
 export const topOffsetAfterScroll = 35;

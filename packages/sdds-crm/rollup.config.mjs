@@ -1,42 +1,42 @@
 import path from 'path';
-import { createRequire } from 'module'
-import { createFilter } from '@rollup/pluginutils'
-
+import { createRequire } from 'module';
+import { createFilter } from '@rollup/pluginutils';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-
 import linaria from '@linaria/rollup';
 import { babel } from '@rollup/plugin-babel';
-
-import styles from "@ironkinoko/rollup-plugin-styles";
+import styles from '@ironkinoko/rollup-plugin-styles';
 
 const inputDir = 'src-css';
-const require = createRequire(import.meta.url)
+const require = createRequire(import.meta.url);
 
 export default {
     input: path.join(inputDir, 'index.ts'),
     treeshake: {
         propertyReadSideEffects: false,
     },
-    output: [{
-        preserveModules: true,
-        dir: './es',
-        format: 'es',
-        freeze: false,
-        esModule: true,
-        sourcemap: true,
-        exports: 'named',
-        assetFileNames: "[name][extname]",
-    }, {
-        preserveModules: true,
-        dir: './',
-        format: 'cjs',
-        freeze: false,
-        esModule: true,
-        sourcemap: true,
-        exports: 'named',
-        assetFileNames: "[name][extname]",
-        interop: 'auto',
-    }],
+    output: [
+        {
+            preserveModules: true,
+            dir: 'dist/css/es',
+            format: 'es',
+            freeze: false,
+            esModule: true,
+            sourcemap: true,
+            exports: 'named',
+            assetFileNames: '[name][extname]',
+        },
+        {
+            preserveModules: true,
+            dir: 'dist/css/cjs',
+            format: 'cjs',
+            freeze: false,
+            esModule: true,
+            sourcemap: true,
+            exports: 'named',
+            assetFileNames: '[name][extname]',
+            interop: 'auto',
+        },
+    ],
     external: (id) => {
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
@@ -48,7 +48,7 @@ export default {
         linaria({
             exclude: ['plasma-core/src/collectPackageInfo.ts'],
             tagResolver: (source, tag) => {
-                if (source === '@salutejs/plasma-new-hope') {
+                if (source === '@salutejs/plasma-new-hope/css') {
                     if (tag === 'css') {
                         // TODO: move to node@20
                         // return import.meta.resolve('@linaria/core/processors/css');
@@ -69,10 +69,10 @@ export default {
         importCssPlugin(),
         // TODO: #717 remove this plugin: it generates index.css but we don't need it
         styles({
-            mode: "extract",
+            mode: 'extract',
             modules: true,
         }),
-        babel({ babelHelpers: 'bundled', extensions: ['.ts', '.tsx'], }),
+        babel({ babelHelpers: 'bundled', extensions: ['.ts', '.tsx'] }),
     ],
 };
 
