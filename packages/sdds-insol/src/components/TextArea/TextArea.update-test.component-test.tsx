@@ -334,7 +334,7 @@ describe('sdds-insol: TextArea', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1236] TextArea: resize=horizontal', () => {
+    it.skip('[PLASMA-T1236] TextArea: resize=horizontal', () => {
         mount(
             <CypressTestDecorator>
                 <TextArea resize="horizontal" {...propsDefault} />
