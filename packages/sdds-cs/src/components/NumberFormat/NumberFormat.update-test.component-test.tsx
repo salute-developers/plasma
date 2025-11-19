@@ -19,7 +19,7 @@ describe('sdds-cs: NumberFormat', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T2149] NumberFormat: thousandSeparator="/", decimalSeparator=",", decimalScale=2', () => {
+    it('[PLASMA-T2149] NumberFormat: thousandSeparator="backslash", decimalSeparator=",", decimalScale=2', () => {
         mount(
             <CypressTestDecorator>
                 <NumberFormat thousandSeparator="/" decimalSeparator="," decimalScale={2} />
