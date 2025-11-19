@@ -7,6 +7,7 @@ import {
     InputWrapper,
     Label,
     LeftHelper,
+    StyledContentLeft,
     StyledContentRight,
     TitleCaption,
 } from '../../TextField.styles';
@@ -64,6 +65,10 @@ export const base = css`
         ${LeftHelper} {
             color: var(${tokens.leftHelperColorReadOnly});
         }
+
+        ${StyledContentLeft}:hover {
+            color: var(--private_content-slot-color);
+        }
          
         ${StyledContentRight} {
             opacity: var(${tokens.contentSlotRightOpacityReadOnly});
@@ -76,12 +81,6 @@ export const base = css`
 
         &.${classes.outerLabelPlacement} ${Label} {
             color: var(${tokens.labelColorReadOnly});
-        }
-
-        ${StyledContentRight} {
-            &:hover {
-                cursor: default;
-            }
         }
     }
 `;
