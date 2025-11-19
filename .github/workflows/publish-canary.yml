@@ -30,10 +30,11 @@ jobs:
     name: Publish canary version
     needs: [ authorize, state ]
     uses: ./.github/workflows/publish-common.yml
+    permissions:
+        id-token: write
+        contents: write
     with:
       ref: refs/pull/${{github.event.pull_request.number}}/merge
       auto-options: '--no-changelog'
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
-      npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
-

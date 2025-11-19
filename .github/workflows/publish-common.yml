@@ -24,41 +24,41 @@ on:
     secrets:
       gh_token:
         required: true
-      npm_registry_token:
-        required: true
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+        id-token: write
+        contents: write
     env:
       GITHUB_TOKEN: ${{ secrets.gh_token }}
-      NPM_REGISTRY_TOKEN: ${{ secrets.npm_registry_token }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           show-progress: false
           ref: ${{ inputs.ref }}
-      
+
       - name: Prepare repository
         run: git fetch --unshallow --tags
-      
+
       - name: Unset header
         # https://github.com/intuit/auto/issues/1030
         run: git config --local --unset http.https://github.com/.extraheader
-      
+
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
-      
+
       - name: Lerna bootstrap
         run: npm run ${{ inputs.cmd }} -- --ignore="@salutejs/{*-docs,platform-test,plasma-website}"
 
       - name: Release Info
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
-      
+
       - name: Create Release
         run: |
           npm run release -- ${{ inputs.auto-options }}
-      
+
       - name: Update package-lock files
         if: ${{ inputs.with-update-package-lock }}
         uses: ./.github/actions/update-package-lock
