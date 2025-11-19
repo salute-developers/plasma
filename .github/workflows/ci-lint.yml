@@ -21,6 +21,22 @@ jobs:
                   fetch-depth: 0
                   show-progress: false
 
+            - name: Free disk space
+              run:
+                  echo "Removing .NET SDK"
+                  sudo rm -rf /usr/share/dotnet || true
+
+                  echo "Removing Android SDK"
+                  sudo rm -rf /usr/local/lib/android || true
+
+                  echo "Removing GHC"
+                  sudo rm -rf /opt/ghc || true
+
+                  echo "Pruning Docker"
+                  docker system prune -af || true
+
+                  echo "Done!"
+
             - name: Prepare environment
               uses: ./.github/actions/prepare-environment
 
