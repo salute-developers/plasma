@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-giga-docs",
-  "version": "0.117.0",
+  "version": "0.118.0-dev.0",
   "description": "PLASMA GIGA documentation",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -31,8 +31,8 @@
     "@docusaurus/preset-classic": "3.6.1",
     "@docusaurus/theme-live-codeblock": "3.6.1",
     "@mdx-js/react": "3.0.0",
-    "@salutejs/plasma-docs-ui": "0.509.0",
-    "@salutejs/plasma-giga": "0.323.0",
+    "@salutejs/plasma-docs-ui": "0.510.0-dev.0",
+    "@salutejs/plasma-giga": "0.324.0-dev.0",
     "@salutejs/plasma-icons": "1.226.0",
     "@salutejs/plasma-themes": "0.38.0",
     "@salutejs/plasma-typo": "0.42.0",
