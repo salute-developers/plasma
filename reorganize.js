@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 function reorganizeScreenshots(basePath) {
-    const componentsPath = path.join(basePath, 'b2c', 'components');
+    const componentsPath = path.join(basePath, 'web', 'components');
 
     if (!fs.existsSync(componentsPath)) {
         console.log('Директория components не найдена');
@@ -16,7 +16,7 @@ function reorganizeScreenshots(basePath) {
 
         if (!fs.statSync(componentPath).isDirectory()) return;
 
-        const targetPath = path.join(basePath, 'test-temp', 'b2c', componentName);
+        const targetPath = path.join(basePath, 'test-temp', 'web', componentName);
 
         if (!fs.existsSync(targetPath)) {
             fs.mkdirSync(targetPath, { recursive: true });
