@@ -1,16 +1,16 @@
 /* eslint-disable */
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
+import { IconEye } from '@salutejs/plasma-icons';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
-import { IconEye } from '@salutejs/plasma-icons';
 
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
 const Icon = () => <IconEye color="inherit" size="xs" />;
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-describe('plasma-web: Badge', () => {
+describe('plasma-core: Badge', () => {
     const Badge = getComponent('Badge');
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
@@ -20,43 +20,139 @@ describe('plasma-web: Badge', () => {
         </CypressTestDecorator>
     );
 
+    it('simple', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge text="Badge" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('with Icon', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge text="Badge" contentLeft={<Icon />} />
+                <PadMe />
+                <Badge text="Badge" contentRight={<Icon />} />
+                <PadMe />
+                <Badge>
+                    <Icon />
+                </Badge>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_sizes', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge text="Badge_size_l" size="l" contentLeft={<Icon />} />
+                <PadMe />
+                <Badge text="Badge_size_m" size="m" contentLeft={<Icon />} />
+                <PadMe />
+                <Badge text="Badge_size_s" size="s" contentLeft={<Icon />} />
+                <PadMe />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('_view', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge view="default" text="Badge_view_default" contentLeft={<Icon />} />
-                <SpaceMe />
-                <Badge view="default" contentLeft={<Icon />} />
+                <Badge text="Badge" view="default" />
                 <PadMe />
-                <Badge view="accent" text="Badge_view_accent" contentLeft={<Icon />} />
-                <SpaceMe />
-                <Badge view="accent" contentLeft={<Icon />} />
+                <Badge text="Badge" view="accent" />
                 <PadMe />
-                <Badge view="positive" text="Badge_view_positive" contentLeft={<Icon />} />
-                <SpaceMe />
-                <Badge view="positive" contentLeft={<Icon />} />
+                <Badge text="Badge" view="positive" />
                 <PadMe />
-                <Badge view="warning" text="Badge_view_warning" contentLeft={<Icon />} />
-                <SpaceMe />
-                <Badge view="warning" contentLeft={<Icon />} />
+                <Badge text="Badge" view="warning" />
                 <PadMe />
-                <Badge view="negative" text="Badge_view_negative" contentLeft={<Icon />} />
-                <SpaceMe />
-                <Badge view="negative" contentLeft={<Icon />} />
+                <Badge text="Badge" view="negative" />
                 <PadMe />
-                <Badge view="dark" text="Badge_view_dark" contentLeft={<Icon />} />
-                <SpaceMe />
-                <Badge view="dark" contentLeft={<Icon />} />
+                <Badge text="Badge" view="dark" />
                 <PadMe />
-                <Badge view="light" text="Badge_view_light" contentLeft={<Icon />} />
-                <SpaceMe />
-                <Badge view="light" contentLeft={<Icon />} />
-                <PadMe />
-                <Badge view="light" text="Badge_truncated_text" contentLeft={<Icon />} maxWidth="8rem" />
-                <PadMe />
-                <Badge view="light" text="Badge_truncated_text" maxWidth="8rem" />
-                <SpaceMe />
+                <Badge text="Badge" view="light" />
             </CypressTestDecoratorWithTypo>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_view: transparent', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge text="Badge" view="default" transparent />
+                <PadMe />
+                <Badge text="Badge" view="accent" transparent />
+                <PadMe />
+                <Badge text="Badge" view="positive" transparent />
+                <PadMe />
+                <Badge text="Badge" view="warning" transparent />
+                <PadMe />
+                <Badge text="Badge" view="negative" transparent />
+                <PadMe />
+                <Badge text="Badge" view="dark" transparent />
+                <PadMe />
+                <Badge text="Badge" view="light" transparent />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_pilled', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                pilled :
+                <SpaceMe />
+                <Badge pilled size="l" text="18" />
+                <SpaceMe />
+                <Badge pilled size="m" text="18" />
+                <SpaceMe />
+                <Badge pilled size="s" text="18" />
+                <PadMe />
+                simple :
+                <SpaceMe />
+                <Badge size="l" text="18" />
+                <SpaceMe />
+                <Badge size="m" text="18" />
+                <SpaceMe />
+                <Badge size="s" text="18" />
+                <PadMe />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('icon only', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge contentLeft={<Icon />} size="l" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="m" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="s" />
+                <PadMe />
+                <Badge contentLeft={<Icon />} size="xs" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('customBackroundColor, customColor', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Badge text="Badge_custom" customBackgroundColor="red" customColor="purple" size="l" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
         cy.matchImageSnapshot();
     });
 });
