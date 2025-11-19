@@ -20,7 +20,6 @@ jobs:
     name: Clean up
     runs-on: ubuntu-22.04
     env:
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       PR_NAME: pr-${{ github.event.number }}
     steps:
       - name: s3 Clean artifacts made for closed pr - pr

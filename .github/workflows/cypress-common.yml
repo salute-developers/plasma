@@ -24,7 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     env:
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       COVERAGE: true
 
     steps:
