@@ -1,11 +1,12 @@
 import React, { ComponentProps, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { disableProps, getConfigVariations, IconPlaceholder } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../_helpers';
 import { IconButton } from '../IconButton/IconButton';
 import { RangeInputRefs } from '../../../components/Range/Range.types';
+import { IconDone, IconFolder } from '../../../components/_Icon';
 
 import { DatePicker, DatePickerRange } from './DatePicker';
 import { config } from './DatePicker.config';
@@ -190,8 +191,8 @@ const StoryDefault = ({
             size={size}
             valueError={valueError}
             valueSuccess={valueSuccess}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconFolder color="inherit" size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconDone color="inherit" size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => {
@@ -292,7 +293,7 @@ const ActionButton = ({ size }) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
-            <IconPlaceholder size={iconSize} />
+            <IconDone color="inherit" size={iconSize} />
         </IconButton>
     );
 };
@@ -326,7 +327,7 @@ const StoryRange = ({
     const showDefaultTextBefore = dividerVariant === 'none';
 
     const dividerIconProps = {
-        dividerIcon: showDividerIcon ? <IconPlaceholder size={iconSize} /> : null,
+        dividerIcon: showDividerIcon ? <IconFolder color="inherit" size={iconSize} /> : null,
         dividerVariant,
     };
 
@@ -339,19 +340,19 @@ const StoryRange = ({
             firstValueSuccess={firstValueSuccess}
             secondValueError={secondValueError}
             secondValueSuccess={secondValueSuccess}
-            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentLeft={enableContentLeft ? <IconFolder color="inherit" size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
             firstTextfieldContentLeft={
-                enableFirstTextfieldContentLeft ? <IconPlaceholder size={iconSize} /> : undefined
+                enableFirstTextfieldContentLeft ? <IconFolder color="inherit" size={iconSize} /> : undefined
             }
             firstTextfieldContentRight={
-                enableFirstTextfieldContentRight ? <IconPlaceholder size={iconSize} /> : undefined
+                enableFirstTextfieldContentRight ? <IconFolder color="inherit" size={iconSize} /> : undefined
             }
             secondTextfieldContentLeft={
-                enableSecondTextfieldContentLeft ? <IconPlaceholder size={iconSize} /> : undefined
+                enableSecondTextfieldContentLeft ? <IconFolder color="inherit" size={iconSize} /> : undefined
             }
             secondTextfieldContentRight={
-                enableSecondTextfieldContentRight ? <IconPlaceholder size={iconSize} /> : undefined
+                enableSecondTextfieldContentRight ? <IconFolder color="inherit" size={iconSize} /> : undefined
             }
             firstTextfieldTextBefore={
                 showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
@@ -466,8 +467,8 @@ const StoryDeferred = ({
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
-                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconFolder color="inherit" size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconDone color="inherit" size={iconSize} /> : undefined}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onToggle={(is) => setIsOpen(is)}

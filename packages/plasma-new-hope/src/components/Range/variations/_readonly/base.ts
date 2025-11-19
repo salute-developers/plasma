@@ -60,6 +60,7 @@ export const base = css`
 
         ${StyledContentRight} {
             opacity: var(${tokens.rightContentOpacityReadOnly});
+            pointer-events: none;
         }
     }
 `;
