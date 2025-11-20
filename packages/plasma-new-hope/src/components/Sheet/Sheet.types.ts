@@ -75,6 +75,12 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
      * Throttling внутренних обработчиков события onScroll
      */
     throttleMs?: number;
+    /**
+     * Наличие событий скролла
+     * @default
+     * true
+     */
+    hasScrollEvents?: boolean;
     view?: string;
 }
 
