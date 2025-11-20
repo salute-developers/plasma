@@ -23,10 +23,18 @@ export const useSheetSwipe = (args: {
     contentWrapperRef: RefObject<HTMLDivElement>;
     contentRef: RefObject<HTMLDivElement>;
     handleRef: RefObject<HTMLDivElement>;
+    hasScrollEvents?: boolean;
     throttleMs?: number;
     onClose: () => void;
 }) => {
-    const { contentWrapperRef, contentRef, handleRef, onClose, throttleMs = THROTTLE_DEFAULT_MS } = args;
+    const {
+        contentWrapperRef,
+        contentRef,
+        handleRef,
+        hasScrollEvents,
+        onClose,
+        throttleMs = THROTTLE_DEFAULT_MS,
+    } = args;
     const [isTopScroll, setIsTopScroll] = useState(true);
     const isOverscroll = useRef(false);
     const startY = useRef(0);
@@ -39,7 +47,7 @@ export const useSheetSwipe = (args: {
 
         const triggerElement = !isTopScroll ? handleEl : contentWrapperEl;
 
-        if (!triggerElement || !contentEl || !contentWrapperEl) {
+        if (!triggerElement || !contentEl || !contentWrapperEl || !hasScrollEvents) {
             return;
         }
 
