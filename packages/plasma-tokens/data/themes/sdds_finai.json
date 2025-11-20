@@ -4840,23 +4840,23 @@
                     "comment": ""
                 },
                 "dataRedTransparent": {
-                    "value": "#FF293E3D",
+                    "value": "rgba(255,41,62,0.24)",
                     "comment": ""
                 },
                 "dataOrangeTransparent": {
-                    "value": "#FA5F053D",
+                    "value": "rgba(250,95,5,0.24)",
                     "comment": ""
                 },
                 "dataYellowTransparent": {
-                    "value": "[general.amber.300][-0.44]",
+                    "value": "rgba(243,169,18,0.56)",
                     "comment": "Прозрачный желтый цвет для данных"
                 },
                 "dataGreenTransparent": {
-                    "value": "#1A9E323D",
+                    "value": "rgba(26,158,50,0.24)",
                     "comment": ""
                 },
                 "dataBlueTransparent": {
-                    "value": "#118CDF3D",
+                    "value": "rgba(17,140,223,0.24)",
                     "comment": ""
                 }
             },
@@ -10138,7 +10138,7 @@
                     "comment": ""
                 },
                 "dataSpring": {
-                    "value": "[general.green.250]",
+                    "value": "[general.spring.250]",
                     "comment": ""
                 },
                 "dataOrange": {
@@ -10154,7 +10154,7 @@
                     "comment": ""
                 },
                 "dataRed": {
-                    "value": "[general.red.500]",
+                    "value": "[general.red.400]",
                     "comment": ""
                 },
                 "dataRedMinor": {
@@ -10194,7 +10194,7 @@
                     "comment": ""
                 },
                 "dataGray": {
-                    "value": "[general.gray.400]",
+                    "value": "[general.coolGray.400]",
                     "comment": ""
                 },
                 "dataGrayMinor": {
@@ -10202,23 +10202,23 @@
                     "comment": ""
                 },
                 "dataRedTransparent": {
-                    "value": "#FF293E33",
+                    "value": "rgba(255,41,62,0.2)",
                     "comment": ""
                 },
                 "dataYellowTransparent": {
-                    "value": "#F3A9128F",
+                    "value": "rgba(243,169,18,0.56)",
                     "comment": ""
                 },
                 "dataBlueTransparent": {
-                    "value": "#118CDF33",
+                    "value": "rgba(17,140,223,0.2)",
                     "comment": ""
                 },
                 "dataGreenTransparent": {
-                    "value": "#1A9E3233",
+                    "value": "rgba(26,158,50,0.2)",
                     "comment": ""
                 },
                 "dataOrangeTransparent": {
-                    "value": "#FA5F0533",
+                    "value": "rgba(250,95,5,0.2)",
                     "comment": ""
                 }
             },
