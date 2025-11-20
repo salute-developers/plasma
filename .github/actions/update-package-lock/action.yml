@@ -18,15 +18,11 @@ runs:
       shell: bash
       run: |
         echo "OPTIONS=--no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps" >> "$GITHUB_ENV"
-    
+
     - name: Sync package-lock's root  level
       shell: bash
       run: npm i --silent ${{ env.OPTIONS }}
-    
-    - name: Remove the node_modules directory from all packages
-      shell: bash
-      run: npx lerna clean -y
-    
+
     - name: Sync package-lock files
       uses: nick-fields/retry@v2.9.0
       with:
@@ -38,17 +34,17 @@ runs:
           npm i --silent ${{ env.OPTIONS }}
         command: |
           npx lerna exec --no-private -- npm i --silent ${{ env.OPTIONS }} --ignore-scripts
-    
+
     - name: Root deps don't update correctly on first regeneration
       shell: bash
       run: |
         npm i ${{ env.OPTIONS }}
-    
+
     - name: Extract branch name
       id: branch
       shell: bash
       run: echo "BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_OUTPUT
-    
+
     - name: Commit & Push package-lock's
       uses: actions-js/push@master
       with:
