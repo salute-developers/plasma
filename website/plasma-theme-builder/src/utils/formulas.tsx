@@ -145,7 +145,7 @@ export const formulas: Formula = {
                     operation: {
                         brightness: (l: number) => l + 6,
                         hover: (l: number) => l + 20,
-                        active: () => 0,
+                        active: (l: number) => l - 8,
                     },
                 },
                 {
@@ -698,23 +698,11 @@ export const formulas: Formula = {
                     condition: {
                         lightness: [10, 49],
                         hue: [200, 299],
-                        saturation: [70, 79],
+                        saturation: [70, 100],
                     },
                     operation: {
                         brightness: (l: number) => l + 6,
                         hover: (l: number) => l + 6,
-                        active: (l: number) => l - 4,
-                    },
-                },
-                {
-                    condition: {
-                        lightness: [10, 49],
-                        hue: [200, 299],
-                        saturation: [80, 100],
-                    },
-                    operation: {
-                        brightness: (l: number) => l + 6,
-                        hover: (l: number) => l + 4,
                         active: (l: number) => l - 4,
                     },
                 },
