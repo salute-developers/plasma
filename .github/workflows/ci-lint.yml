@@ -16,26 +16,22 @@ jobs:
     lint:
         runs-on: ubuntu-latest
         steps:
+            - name: Check disk usage before clear
+              run: df -h
+
+            - name: Free disk space
+              run: |
+                sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+                sudo docker image prune --all --force
+                sudo docker builder prune -a
+
+            - name: Check disk usage after clear
+              run: df -h
+
             - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
                   show-progress: false
-
-            - name: Free disk space
-              run:
-                  echo "Removing .NET SDK"
-                  sudo rm -rf /usr/share/dotnet || true
-
-                  echo "Removing Android SDK"
-                  sudo rm -rf /usr/local/lib/android || true
-
-                  echo "Removing GHC"
-                  sudo rm -rf /opt/ghc || true
-
-                  echo "Pruning Docker"
-                  docker system prune -af || true
-
-                  echo "Done!"
 
             - name: Prepare environment
               uses: ./.github/actions/prepare-environment
@@ -44,6 +40,9 @@ jobs:
             # INFO: Только установить пакеты и сделать symlink
             - name: Lerna bootstrap
               run: npx lerna bootstrap --ignore-scripts
+
+            - name: Check disk usage after bootstrap
+              run: df -h
 
             - name: Lint
               run: npm run lint
