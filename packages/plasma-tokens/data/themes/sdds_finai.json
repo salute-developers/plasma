@@ -10070,7 +10070,7 @@
                     "comment": "Минорный желтый цвет для данных"
                 },
                 "dataYellowMinorHover": {
-                    "value": "#FFD070FF",
+                    "value": "#FFCF70FF",
                     "comment": "Минорный желтый цвет для данных"
                 },
                 "dataYellowMinorActive": {
@@ -10078,12 +10078,12 @@
                     "comment": "Минорный желтый цвет для данных"
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A9129E",
-                    "comment": "Прозрачный желтый цвет для данных"
+                    "value": "#F3A8129E",
+                    "comment": ""
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A912A3",
-                    "comment": "Прозрачный желтый цвет для данных"
+                    "value": "#F3A812A3",
+                    "comment": ""
                 },
                 "dataYellowLight": {
                     "value": "[general.amber.100]",
@@ -10220,23 +10220,247 @@
                 "dataOrangeTransparent": {
                     "value": "rgba(250,95,5,0.2)",
                     "comment": ""
+                },
+                "dataOrchidHover": {
+                    "value": "#C061FFFF",
+                    "comment": ""
+                },
+                "dataOrchidActive": {
+                    "value": "#BC57FFFF",
+                    "comment": ""
+                },
+                "dataBlueMinorHover": {
+                    "value": "#C7E9FFFF",
+                    "comment": ""
+                },
+                "dataBlueMinorActive": {
+                    "value": "#C2E7FFFF",
+                    "comment": ""
+                },
+                "dataOrchidMinorHover": {
+                    "value": "#DAACF6FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorActive": {
+                    "value": "#D6A3F5FF",
+                    "comment": ""
+                },
+                "dataBlueLightHover": {
+                    "value": "#E5F5FFFF",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataBlueLightActive": {
+                    "value": "#E0F3FFFF",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataArcticHover": {
+                    "value": "#16DFA6FF",
+                    "comment": ""
+                },
+                "dataArcticActive": {
+                    "value": "#12BA8AFF",
+                    "comment": ""
+                },
+                "dataGreenHover": {
+                    "value": "#1EB83AFF",
+                    "comment": ""
+                },
+                "dataGreenActive": {
+                    "value": "#178C2CFF",
+                    "comment": ""
+                },
+                "dataGreenMinorHover": {
+                    "value": "#36D954FF",
+                    "comment": ""
+                },
+                "dataGreenMinorActive": {
+                    "value": "#25C141FF",
+                    "comment": ""
+                },
+                "dataGreenLightHover": {
+                    "value": "#94F9A7FF",
+                    "comment": ""
+                },
+                "dataGreenLightActive": {
+                    "value": "#8BF99FFF",
+                    "comment": ""
+                },
+                "dataSpringHover": {
+                    "value": "#A1F406FF",
+                    "comment": ""
+                },
+                "dataSpringActive": {
+                    "value": "#86CC05FF",
+                    "comment": ""
+                },
+                "dataOrangeHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "dataOrangeActive": {
+                    "value": "#E65705FF",
+                    "comment": ""
+                },
+                "dataOrangeMinorHover": {
+                    "value": "#FD965EFF",
+                    "comment": ""
+                },
+                "dataOrangeMinorActive": {
+                    "value": "#FC8F54FF",
+                    "comment": ""
+                },
+                "dataOrangeLightHover": {
+                    "value": "#FEDCC8FF",
+                    "comment": ""
+                },
+                "dataOrangeLightActive": {
+                    "value": "#FED9C3FF",
+                    "comment": ""
+                },
+                "dataRedHover": {
+                    "value": "#FF6675FF",
+                    "comment": ""
+                },
+                "dataRedActive": {
+                    "value": "#FF293EFF",
+                    "comment": ""
+                },
+                "dataRedMinorHover": {
+                    "value": "#FF8591FF",
+                    "comment": ""
+                },
+                "dataRedMinorActive": {
+                    "value": "#FF7A88FF",
+                    "comment": ""
+                },
+                "dataRedLightHover": {
+                    "value": "#FFD6DAFF",
+                    "comment": ""
+                },
+                "dataRedLightActive": {
+                    "value": "#FFD1D6FF",
+                    "comment": ""
+                },
+                "dataBlueHover": {
+                    "value": "#209CEEFF",
+                    "comment": ""
+                },
+                "dataBlueActive": {
+                    "value": "#0F81CCFF",
+                    "comment": ""
+                },
+                "dataBlueMildHover": {
+                    "value": "#7ACAFFFF",
+                    "comment": ""
+                },
+                "dataBlueMildActive": {
+                    "value": "#3DB1FFFF",
+                    "comment": ""
+                },
+                "dataMalachiteHover": {
+                    "value": "#04D8DCFF",
+                    "comment": ""
+                },
+                "dataMalachiteActive": {
+                    "value": "#04B1B4FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorHover": {
+                    "value": "#00F1F5FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorActive": {
+                    "value": "#00C9CCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueHover": {
+                    "value": "#83ADFCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueActive": {
+                    "value": "#79A7FCFF",
+                    "comment": ""
+                },
+                "dataFuchsiaHover": {
+                    "value": "#F288E0FF",
+                    "comment": ""
+                },
+                "dataFuchsiaActive": {
+                    "value": "#F17EDEFF",
+                    "comment": ""
+                },
+                "dataPinkHover": {
+                    "value": "#FF85B6FF",
+                    "comment": ""
+                },
+                "dataPinkActive": {
+                    "value": "#FF7AAFFF",
+                    "comment": ""
+                },
+                "dataGrayHover": {
+                    "value": "#9BA5ABFF",
+                    "comment": ""
+                },
+                "dataGrayActive": {
+                    "value": "#7F8B94FF",
+                    "comment": ""
+                },
+                "dataGrayMinorHover": {
+                    "value": "#CFDAE2FF",
+                    "comment": ""
+                },
+                "dataGrayMinorActive": {
+                    "value": "#C9D5DEFF",
+                    "comment": ""
+                },
+                "dataRedTransparentHover": {
+                    "value": "#FF293E42",
+                    "comment": ""
+                },
+                "dataRedTransparentActive": {
+                    "value": "#FF293E47",
+                    "comment": ""
+                },
+                "dataBlueTransparentHover": {
+                    "value": "#118CDF42",
+                    "comment": ""
+                },
+                "dataBlueTransparentActive": {
+                    "value": "#118CDF47",
+                    "comment": ""
+                },
+                "dataGreenTransparentHover": {
+                    "value": "#1A9E3242",
+                    "comment": ""
+                },
+                "dataGreenTransparentActive": {
+                    "value": "#1A9E3247",
+                    "comment": ""
+                },
+                "dataOrangeTransparentHover": {
+                    "value": "#FA5F0542",
+                    "comment": ""
+                },
+                "dataOrangeTransparentActive": {
+                    "value": "#FA5F0547",
+                    "comment": ""
                 }
             },
             "onDark": {
                 "dataYellowHover": {
-                    "value": "#F5B638FF",
+                    "value": "#B87A00FF",
                     "comment": "Желтый цвет для данных на темном фоне"
                 },
                 "dataYellowActive": {
-                    "value": "#E49C0CFF",
+                    "value": "#8F5F00FF",
                     "comment": "Желтый цвет для данных на темном фоне"
                 },
                 "dataYellowMinorHover": {
-                    "value": "#B87A00FF",
+                    "value": "#5D3F04FF",
                     "comment": "Минорный желтый цвет для данных на темном фоне"
                 },
                 "dataYellowMinorActive": {
-                    "value": "#8F5F00FF",
+                    "value": "#362502FF",
                     "comment": "Минорный желтый цвет для данных на темном фоне"
                 },
                 "dataYellowTransparent": {
@@ -10244,19 +10468,19 @@
                     "comment": ""
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A8127A",
-                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                    "value": "#F3A8129E",
+                    "comment": ""
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A81299",
-                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                    "value": "#F3A812A3",
+                    "comment": ""
                 },
                 "dataYellowLightHover": {
-                    "value": "#FFF4E0FF",
+                    "value": "#32250BFF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
                 "dataYellowLightActive": {
-                    "value": "#FFF3DBFF",
+                    "value": "#110C04FF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
                 "dataSkyBlueLightHover": {
@@ -10390,6 +10614,230 @@
                 "dataBlueTransparent": {
                     "value": "#118CDF3D",
                     "comment": ""
+                },
+                "dataBlueLightHover": {
+                    "value": "#0E2434FF",
+                    "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataBlueLightActive": {
+                    "value": "#050E14FF",
+                    "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataBlueMinorHover": {
+                    "value": "#114C74FF",
+                    "comment": ""
+                },
+                "dataBlueMinorActive": {
+                    "value": "#0A2F47FF",
+                    "comment": ""
+                },
+                "dataOrchidHover": {
+                    "value": "#BE69F7FF",
+                    "comment": ""
+                },
+                "dataOrchidActive": {
+                    "value": "#A52FF4FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorHover": {
+                    "value": "#7D2FB1FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorActive": {
+                    "value": "#662791FF",
+                    "comment": ""
+                },
+                "dataOrangeHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "dataOrangeActive": {
+                    "value": "#E65705FF",
+                    "comment": ""
+                },
+                "dataOrangeMinorHover": {
+                    "value": "#95400EFF",
+                    "comment": ""
+                },
+                "dataOrangeMinorActive": {
+                    "value": "#70300AFF",
+                    "comment": ""
+                },
+                "dataOrangeLightHover": {
+                    "value": "#58290EFF",
+                    "comment": ""
+                },
+                "dataOrangeLightActive": {
+                    "value": "#2C1507FF",
+                    "comment": ""
+                },
+                "dataRedHover": {
+                    "value": "#ED1D31FF",
+                    "comment": ""
+                },
+                "dataRedActive": {
+                    "value": "#D01124FF",
+                    "comment": ""
+                },
+                "dataRedMinorHover": {
+                    "value": "#B91828FF",
+                    "comment": ""
+                },
+                "dataRedMinorActive": {
+                    "value": "#8C121EFF",
+                    "comment": ""
+                },
+                "dataRedLightHover": {
+                    "value": "#64121AFF",
+                    "comment": ""
+                },
+                "dataRedLightActive": {
+                    "value": "#380A0FFF",
+                    "comment": ""
+                },
+                "dataArcticHover": {
+                    "value": "#1C8D6DFF",
+                    "comment": ""
+                },
+                "dataArcticActive": {
+                    "value": "#156A52FF",
+                    "comment": ""
+                },
+                "dataGreenHover": {
+                    "value": "#1EB83AFF",
+                    "comment": ""
+                },
+                "dataGreenActive": {
+                    "value": "#178C2CFF",
+                    "comment": ""
+                },
+                "dataGreenMinorHover": {
+                    "value": "#0F9928FF",
+                    "comment": ""
+                },
+                "dataGreenMinorActive": {
+                    "value": "#0B741FFF",
+                    "comment": ""
+                },
+                "dataGreenLightHover": {
+                    "value": "#0E5D1DFF",
+                    "comment": ""
+                },
+                "dataGreenLightActive": {
+                    "value": "#08310FFF",
+                    "comment": ""
+                },
+                "dataSpringHover": {
+                    "value": "#62900EFF",
+                    "comment": ""
+                },
+                "dataSpringActive": {
+                    "value": "#496B0BFF",
+                    "comment": ""
+                },
+                "dataBlueHover": {
+                    "value": "#209CEEFF",
+                    "comment": ""
+                },
+                "dataBlueActive": {
+                    "value": "#0F81CCFF",
+                    "comment": ""
+                },
+                "dataBlueMildHover": {
+                    "value": "#0D84D3FF",
+                    "comment": ""
+                },
+                "dataBlueMildActive": {
+                    "value": "#0A66A3FF",
+                    "comment": ""
+                },
+                "dataMalachiteHover": {
+                    "value": "#009194FF",
+                    "comment": ""
+                },
+                "dataMalachiteActive": {
+                    "value": "#00696BFF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorHover": {
+                    "value": "#107175FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorActive": {
+                    "value": "#0A4648FF",
+                    "comment": ""
+                },
+                "dataElectricBlueHover": {
+                    "value": "#1956C8FF",
+                    "comment": ""
+                },
+                "dataElectricBlueActive": {
+                    "value": "#13429AFF",
+                    "comment": ""
+                },
+                "dataFuchsiaHover": {
+                    "value": "#9C2688FF",
+                    "comment": ""
+                },
+                "dataFuchsiaActive": {
+                    "value": "#7B1E6CFF",
+                    "comment": ""
+                },
+                "dataPinkHover": {
+                    "value": "#AF0E4EFF",
+                    "comment": ""
+                },
+                "dataPinkActive": {
+                    "value": "#890B3DFF",
+                    "comment": ""
+                },
+                "dataGrayHover": {
+                    "value": "#869198FF",
+                    "comment": ""
+                },
+                "dataGrayActive": {
+                    "value": "#677279FF",
+                    "comment": ""
+                },
+                "dataGrayMinorHover": {
+                    "value": "#394147FF",
+                    "comment": ""
+                },
+                "dataGrayMinorActive": {
+                    "value": "#272C30FF",
+                    "comment": ""
+                },
+                "dataRedTransparentHover": {
+                    "value": "#FF293E4D",
+                    "comment": ""
+                },
+                "dataRedTransparentActive": {
+                    "value": "#FF293E52",
+                    "comment": ""
+                },
+                "dataOrangeTransparentHover": {
+                    "value": "#FA5F054D",
+                    "comment": ""
+                },
+                "dataOrangeTransparentActive": {
+                    "value": "#FA5F0552",
+                    "comment": ""
+                },
+                "dataGreenTransparentHover": {
+                    "value": "#1A9E324D",
+                    "comment": ""
+                },
+                "dataGreenTransparentActive": {
+                    "value": "#1A9E3252",
+                    "comment": ""
+                },
+                "dataBlueTransparentHover": {
+                    "value": "#118CDF4D",
+                    "comment": ""
+                },
+                "dataBlueTransparentActive": {
+                    "value": "#118CDF52",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -10399,35 +10847,35 @@
                 },
                 "dataYellowHover": {
                     "value": "#F5B638FF",
-                    "comment": "Желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowActive": {
                     "value": "#E49C0CFF",
-                    "comment": "Желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowMinor": {
                     "value": "[general.amber.200]",
                     "comment": ""
                 },
                 "dataYellowMinorHover": {
-                    "value": "#FFD070FF",
-                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                    "value": "#FFCF70FF",
+                    "comment": ""
                 },
                 "dataYellowMinorActive": {
                     "value": "#FFCC66FF",
-                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowTransparent": {
                     "value": "#F3A9128F",
                     "comment": ""
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A9129E",
-                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                    "value": "#F3A8129E",
+                    "comment": ""
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A912A3",
-                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                    "value": "#F3A812A3",
+                    "comment": ""
                 },
                 "dataYellowLight": {
                     "value": "[general.amber.100]",
@@ -10435,11 +10883,11 @@
                 },
                 "dataYellowLightHover": {
                     "value": "#FFF4E0FF",
-                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowLightActive": {
                     "value": "#FFF3DBFF",
-                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
@@ -10560,6 +11008,230 @@
                 "dataOrangeTransparent": {
                     "value": "#FA5F0533",
                     "comment": ""
+                },
+                "dataBlueLightHover": {
+                    "value": "#E5F5FFFF",
+                    "comment": ""
+                },
+                "dataBlueLightActive": {
+                    "value": "#E0F3FFFF",
+                    "comment": ""
+                },
+                "dataBlueMinorHover": {
+                    "value": "#C7E9FFFF",
+                    "comment": ""
+                },
+                "dataBlueMinorActive": {
+                    "value": "#C2E7FFFF",
+                    "comment": ""
+                },
+                "dataOrchidHover": {
+                    "value": "#C061FFFF",
+                    "comment": ""
+                },
+                "dataOrchidActive": {
+                    "value": "#BC57FFFF",
+                    "comment": ""
+                },
+                "dataOrchidMinorHover": {
+                    "value": "#DAACF6FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorActive": {
+                    "value": "#D6A3F5FF",
+                    "comment": ""
+                },
+                "dataArcticHover": {
+                    "value": "#16DFA6FF",
+                    "comment": ""
+                },
+                "dataArcticActive": {
+                    "value": "#12BA8AFF",
+                    "comment": ""
+                },
+                "dataGreenHover": {
+                    "value": "#1EB83AFF",
+                    "comment": ""
+                },
+                "dataGreenActive": {
+                    "value": "#178C2CFF",
+                    "comment": ""
+                },
+                "dataGreenMinorHover": {
+                    "value": "#36D954FF",
+                    "comment": ""
+                },
+                "dataGreenMinorActive": {
+                    "value": "#25C141FF",
+                    "comment": ""
+                },
+                "dataGreenLightHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "dataGreenLightActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "dataSpringHover": {
+                    "value": "#A1F406FF",
+                    "comment": ""
+                },
+                "dataSpringActive": {
+                    "value": "#86CC05FF",
+                    "comment": ""
+                },
+                "dataOrangeHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "dataOrangeActive": {
+                    "value": "#E65705FF",
+                    "comment": ""
+                },
+                "dataOrangeMinorHover": {
+                    "value": "#FD965EFF",
+                    "comment": ""
+                },
+                "dataOrangeMinorActive": {
+                    "value": "#FC8F54FF",
+                    "comment": ""
+                },
+                "dataOrangeLightHover": {
+                    "value": "#FEDCC8FF",
+                    "comment": ""
+                },
+                "dataOrangeLightActive": {
+                    "value": "#FED9C3FF",
+                    "comment": ""
+                },
+                "dataRedHover": {
+                    "value": "#FF5263FF",
+                    "comment": ""
+                },
+                "dataRedActive": {
+                    "value": "#FF142CFF",
+                    "comment": ""
+                },
+                "dataRedMinorHover": {
+                    "value": "#FF8591FF",
+                    "comment": ""
+                },
+                "dataRedMinorActive": {
+                    "value": "#FF7A88FF",
+                    "comment": ""
+                },
+                "dataRedLightHover": {
+                    "value": "#FFD6DAFF",
+                    "comment": ""
+                },
+                "dataRedLightActive": {
+                    "value": "#FFD1D6FF",
+                    "comment": ""
+                },
+                "dataBlueHover": {
+                    "value": "#209CEEFF",
+                    "comment": ""
+                },
+                "dataBlueActive": {
+                    "value": "#0F81CCFF",
+                    "comment": ""
+                },
+                "dataBlueMildHover": {
+                    "value": "#7ACAFFFF",
+                    "comment": ""
+                },
+                "dataBlueMildActive": {
+                    "value": "#3DB1FFFF",
+                    "comment": ""
+                },
+                "dataMalachiteHover": {
+                    "value": "#04D8DCFF",
+                    "comment": ""
+                },
+                "dataMalachiteActive": {
+                    "value": "#04B1B4FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorHover": {
+                    "value": "#00F1F5FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorActive": {
+                    "value": "#00C9CCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueHover": {
+                    "value": "#7ACAFFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueActive": {
+                    "value": "#3DB1FFFF",
+                    "comment": ""
+                },
+                "dataFuchsiaHover": {
+                    "value": "#F288E0FF",
+                    "comment": ""
+                },
+                "dataFuchsiaActive": {
+                    "value": "#F17EDEFF",
+                    "comment": ""
+                },
+                "dataPinkHover": {
+                    "value": "#FF85B6FF",
+                    "comment": ""
+                },
+                "dataPinkActive": {
+                    "value": "#FF7AAFFF",
+                    "comment": ""
+                },
+                "dataGrayHover": {
+                    "value": "#9BA5ABFF",
+                    "comment": ""
+                },
+                "dataGrayActive": {
+                    "value": "#7F8B94FF",
+                    "comment": ""
+                },
+                "dataGrayMinorHover": {
+                    "value": "#CFDAE2FF",
+                    "comment": ""
+                },
+                "dataGrayMinorActive": {
+                    "value": "#C9D5DEFF",
+                    "comment": ""
+                },
+                "dataRedTransparentHover": {
+                    "value": "#FF293E42",
+                    "comment": ""
+                },
+                "dataRedTransparentActive": {
+                    "value": "#FF293E47",
+                    "comment": ""
+                },
+                "dataBlueTransparentHover": {
+                    "value": "#118CDF42",
+                    "comment": ""
+                },
+                "dataBlueTransparentActive": {
+                    "value": "#118CDF47",
+                    "comment": ""
+                },
+                "dataGreenTransparentHover": {
+                    "value": "#1A9E3242",
+                    "comment": ""
+                },
+                "dataGreenTransparentActive": {
+                    "value": "#1A9E3247",
+                    "comment": ""
+                },
+                "dataOrangeTransparentHover": {
+                    "value": "#FA5F0542",
+                    "comment": ""
+                },
+                "dataOrangeTransparentActive": {
+                    "value": "#FA5F0547",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -10568,51 +11240,51 @@
                     "comment": ""
                 },
                 "dataYellowHover": {
-                    "value": "#F5B638FF",
-                    "comment": "Инвертированный желтый цвет для данных"
+                    "value": "#B87A00FF",
+                    "comment": ""
                 },
                 "dataYellowActive": {
-                    "value": "#E49C0CFF",
-                    "comment": "Инвертированный желтый цвет для данных"
+                    "value": "#8F5F00FF",
+                    "comment": ""
                 },
                 "dataYellowMinor": {
                     "value": "[general.amber.850]",
                     "comment": ""
                 },
                 "dataYellowMinorHover": {
-                    "value": "#B87A00FF",
-                    "comment": "Инвертированный минорный желтый цвет для данных"
+                    "value": "#5D3F04FF",
+                    "comment": ""
                 },
                 "dataYellowMinorActive": {
-                    "value": "#8F5F00FF",
-                    "comment": "Инвертированный минорный желтый цвет для данных"
+                    "value": "#362502FF",
+                    "comment": ""
                 },
                 "dataYellowTransparent": {
                     "value": "#F3A9128F",
                     "comment": ""
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A8127A",
-                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                    "value": "#F3A8129E",
+                    "comment": ""
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A81299",
-                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                    "value": "#F3A812A3",
+                    "comment": ""
                 },
                 "dataYellowLightHover": {
-                    "value": "#FFF4E0FF",
+                    "value": "#32250BFF",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
                 "dataYellowLightActive": {
-                    "value": "#FFF3DBFF",
+                    "value": "#110C04FF",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
                 "dataSkyBlueLightHover": {
-                    "value": "#E0F8FFFF",
+                    "value": "#0E2434FF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
                 },
                 "dataSkyBlueLightActive": {
-                    "value": "#DBF7FFFF",
+                    "value": "#050E14FF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
                 },
                 "dataBlueMinor": {
@@ -10729,6 +11401,222 @@
                 },
                 "dataBlueTransparent": {
                     "value": "#118CDF3D",
+                    "comment": ""
+                },
+                "dataBlueMinorHover": {
+                    "value": "#114C74FF",
+                    "comment": ""
+                },
+                "dataBlueMinorActive": {
+                    "value": "#0A2F47FF",
+                    "comment": ""
+                },
+                "dataOrchidHover": {
+                    "value": "#BE69F7FF",
+                    "comment": ""
+                },
+                "dataOrchidActive": {
+                    "value": "#A52FF4FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorHover": {
+                    "value": "#7D2FB1FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorActive": {
+                    "value": "#662791FF",
+                    "comment": ""
+                },
+                "dataOrangeHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "dataOrangeActive": {
+                    "value": "#E65705FF",
+                    "comment": ""
+                },
+                "dataOrangeMinorHover": {
+                    "value": "#95400EFF",
+                    "comment": ""
+                },
+                "dataOrangeMinorActive": {
+                    "value": "#70300AFF",
+                    "comment": ""
+                },
+                "dataOrangeLightHover": {
+                    "value": "#58290EFF",
+                    "comment": ""
+                },
+                "dataOrangeLightActive": {
+                    "value": "#2C1507FF",
+                    "comment": ""
+                },
+                "dataRedHover": {
+                    "value": "#ED1D31FF",
+                    "comment": ""
+                },
+                "dataRedActive": {
+                    "value": "#D01124FF",
+                    "comment": ""
+                },
+                "dataRedMinorHover": {
+                    "value": "#B91828FF",
+                    "comment": ""
+                },
+                "dataRedMinorActive": {
+                    "value": "#8C121EFF",
+                    "comment": ""
+                },
+                "dataRedLightHover": {
+                    "value": "#64121AFF",
+                    "comment": ""
+                },
+                "dataRedLightActive": {
+                    "value": "#380A0FFF",
+                    "comment": ""
+                },
+                "dataArcticHover": {
+                    "value": "#1C8D6DFF",
+                    "comment": ""
+                },
+                "dataArcticActive": {
+                    "value": "#156A52FF",
+                    "comment": ""
+                },
+                "dataGreenHover": {
+                    "value": "#1EB83AFF",
+                    "comment": ""
+                },
+                "dataGreenActive": {
+                    "value": "#178C2CFF",
+                    "comment": ""
+                },
+                "dataGreenMinorHover": {
+                    "value": "#0F9928FF",
+                    "comment": ""
+                },
+                "dataGreenMinorActive": {
+                    "value": "#0B741FFF",
+                    "comment": ""
+                },
+                "dataGreenLightHover": {
+                    "value": "#0E5D1DFF",
+                    "comment": ""
+                },
+                "dataGreenLightActive": {
+                    "value": "#08310FFF",
+                    "comment": ""
+                },
+                "dataSpringHover": {
+                    "value": "#62900EFF",
+                    "comment": ""
+                },
+                "dataSpringActive": {
+                    "value": "#496B0BFF",
+                    "comment": ""
+                },
+                "dataBlueHover": {
+                    "value": "#209CEEFF",
+                    "comment": ""
+                },
+                "dataBlueActive": {
+                    "value": "#0F81CCFF",
+                    "comment": ""
+                },
+                "dataBlueMildHover": {
+                    "value": "#0D84D3FF",
+                    "comment": ""
+                },
+                "dataBlueMildActive": {
+                    "value": "#0A66A3FF",
+                    "comment": ""
+                },
+                "dataMalachiteHover": {
+                    "value": "#009194FF",
+                    "comment": ""
+                },
+                "dataMalachiteActive": {
+                    "value": "#00696BFF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorHover": {
+                    "value": "#107175FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorActive": {
+                    "value": "#0A4648FF",
+                    "comment": ""
+                },
+                "dataElectricBlueHover": {
+                    "value": "#1956C8FF",
+                    "comment": ""
+                },
+                "dataElectricBlueActive": {
+                    "value": "#13429AFF",
+                    "comment": ""
+                },
+                "dataFuchsiaHover": {
+                    "value": "#9C2688FF",
+                    "comment": ""
+                },
+                "dataFuchsiaActive": {
+                    "value": "#7B1E6CFF",
+                    "comment": ""
+                },
+                "dataPinkHover": {
+                    "value": "#AF0E4EFF",
+                    "comment": ""
+                },
+                "dataPinkActive": {
+                    "value": "#890B3DFF",
+                    "comment": ""
+                },
+                "dataGrayHover": {
+                    "value": "#869198FF",
+                    "comment": ""
+                },
+                "dataGrayActive": {
+                    "value": "#677279FF",
+                    "comment": ""
+                },
+                "dataGrayMinorHover": {
+                    "value": "#394147FF",
+                    "comment": ""
+                },
+                "dataGrayMinorActive": {
+                    "value": "#272C30FF",
+                    "comment": ""
+                },
+                "dataRedTransparentHover": {
+                    "value": "#FF293E4D",
+                    "comment": ""
+                },
+                "dataRedTransparentActive": {
+                    "value": "#FF293E52",
+                    "comment": ""
+                },
+                "dataOrangeTransparentHover": {
+                    "value": "#FA5F056B",
+                    "comment": ""
+                },
+                "dataOrangeTransparentActive": {
+                    "value": "#FA5F0570",
+                    "comment": ""
+                },
+                "dataGreenTransparentHover": {
+                    "value": "#1A9E324D",
+                    "comment": ""
+                },
+                "dataGreenTransparentActive": {
+                    "value": "#1A9E3252",
+                    "comment": ""
+                },
+                "dataBlueTransparentHover": {
+                    "value": "#118CDF4D",
+                    "comment": ""
+                },
+                "dataBlueTransparentActive": {
+                    "value": "#118CDF52",
                     "comment": ""
                 }
             }
