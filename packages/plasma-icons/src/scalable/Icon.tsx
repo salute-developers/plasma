@@ -318,6 +318,7 @@ export const iconSectionsSet = {
         mindmap: 'Mindmap',
         dataBaseFill: 'DataBaseFill',
         dataBaseOutline: 'DataBaseOutline',
+        axisX: 'AxisX',
     },
     Travel: {
         busFill: 'BusFill',
