@@ -7,6 +7,8 @@
         "declaration": true,
         "sourceMap": true,
         "importHelpers": false,
+        "typeRoots": ["node_modules/@types"],
+        "types": ["node"],
 
         /* Strict Type-Checking Options */
         "strict": true,
@@ -34,5 +36,7 @@
         "forceConsistentCasingInFileNames": true,
         "outDir": "./lib",
         "rootDir": "./src"
-    }
+    },
+    "include": ["./src"],
+    "exclude": ["node_modules/*", "./lib"]
 }

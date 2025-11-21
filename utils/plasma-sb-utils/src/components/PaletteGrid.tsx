@@ -70,7 +70,7 @@ const StyledHoverCard = styled(StyledColorCard)`
         opacity: 1;
     }
 `;
-const ShowcaseHead = styled(Caption)`
+const ShowcaseHead = styled(Caption as any)`
     padding: 12px;
     font-size: 0.625rem;
     color: #7765f6;
