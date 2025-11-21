@@ -884,6 +884,7 @@ export const iconSectionsSet = {
         flashlightOutline: 'FlashlightOutline',
         sensorTemperatureFill: 'SensorTemperatureFill',
         sensorTemperatureOutline: 'SensorTemperatureOutline',
+        letterSpacing: 'LetterSpacing',
     },
     Time: {
         alarmAddFill: 'AlarmAddFill',
