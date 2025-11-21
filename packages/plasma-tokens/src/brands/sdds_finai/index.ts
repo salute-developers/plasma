@@ -2304,16 +2304,16 @@ export const dataDefaultDataGray = 'var(--data-default-data-gray, #707C84)';
 
 export const dataDefaultDataGrayMinor = 'var(--data-default-data-gray-minor, #30373C)';
 
-export const dataDefaultDataRedTransparent = 'var(--data-default-data-red-transparent, #FF293E3D)';
+export const dataDefaultDataRedTransparent = 'var(--data-default-data-red-transparent, rgba(255,41,62,0.24))';
 
-export const dataDefaultDataOrangeTransparent = 'var(--data-default-data-orange-transparent, #FA5F053D)';
+export const dataDefaultDataOrangeTransparent = 'var(--data-default-data-orange-transparent, rgba(250,95,5,0.24))';
 
 /** Прозрачный желтый цвет для данных */
-export const dataDefaultDataYellowTransparent = 'var(--data-default-data-yellow-transparent, #F3A9128F)';
+export const dataDefaultDataYellowTransparent = 'var(--data-default-data-yellow-transparent, rgba(243,169,18,0.56))';
 
-export const dataDefaultDataGreenTransparent = 'var(--data-default-data-green-transparent, #1A9E323D)';
+export const dataDefaultDataGreenTransparent = 'var(--data-default-data-green-transparent, rgba(26,158,50,0.24))';
 
-export const dataDefaultDataBlueTransparent = 'var(--data-default-data-blue-transparent, #118CDF3D)';
+export const dataDefaultDataBlueTransparent = 'var(--data-default-data-blue-transparent, rgba(17,140,223,0.24))';
 
 /** Желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellowHover = 'var(--data-on-dark-data-yellow-hover, #F4B22FFF)';
