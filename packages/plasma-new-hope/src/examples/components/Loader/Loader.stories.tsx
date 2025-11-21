@@ -5,6 +5,7 @@ import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { WithTheme } from '../../_helpers';
 import { IconCrossThin } from '../../../components/_Icon';
 import { Button } from '../Button/Button';
+import { PopupProvider } from '../Popup/Popup';
 
 import { Loader } from './Loader';
 import { config } from './Loader.config';
@@ -65,9 +66,39 @@ const meta: Meta<StoryPropsDefault> = {
                 eq: 'progress',
             },
         },
+        hasOverlay: {
+            control: {
+                type: 'boolean',
+            },
+            description: 'Наличие overlay на фоне',
+        },
         overlayColor: {
             control: {
                 type: 'color',
+            },
+            if: {
+                arg: 'hasOverlay',
+                eq: true,
+            },
+        },
+        withBlur: {
+            control: {
+                type: 'boolean',
+            },
+            description: 'Применить blur эффект к overlay',
+            if: {
+                arg: 'hasOverlay',
+                eq: true,
+            },
+        },
+        zIndex: {
+            control: {
+                type: 'text',
+            },
+            description: 'Z-index для loader и overlay',
+            if: {
+                arg: 'hasOverlay',
+                eq: true,
             },
         },
     },
@@ -115,20 +146,21 @@ const LoaderContent = (args) => {
     }, [toggle, setProgress]);
 
     return (
-        <div style={{ height: '500px', width: '100%' }}>
-            <Button onClick={() => setToggle(true)}>Show Loader</Button>
-            {toggle && (
-                <Loader
-                    size={args.spinnerSize ?? args.progressSize ?? 'm'}
-                    maxValue={100}
-                    style={{ position: 'absolute', inset: 0 }}
-                    value={progress}
-                    {...args}
-                >
-                    {getContent(progress, args.progressSize)}
-                </Loader>
-            )}
-        </div>
+        <PopupProvider>
+            <div style={{ position: 'relative', width: '100%' }}>
+                <Button onClick={() => setToggle(true)}>Show Loader</Button>
+                {toggle && (
+                    <Loader
+                        size={args.spinnerSize ?? args.progressSize ?? 'm'}
+                        maxValue={100}
+                        value={progress}
+                        {...args}
+                    >
+                        {getContent(progress, args.progressSize)}
+                    </Loader>
+                )}
+            </div>
+        </PopupProvider>
     );
 };
 
@@ -137,7 +169,6 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         progressSize: 'm',
         spinnerSize: 'm',
-        hasBlur: true,
         hasOverlay: false,
         type: 'spinner',
         hasTrack: true,

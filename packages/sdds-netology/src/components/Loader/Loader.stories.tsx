@@ -4,6 +4,7 @@ import React, { ComponentProps, useEffect } from 'react';
 import { IconCross } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';
+import { PopupProvider } from '../Popup';
 
 import { config } from './Loader.config';
 
@@ -113,20 +114,21 @@ const LoaderContent = (args) => {
     }, [toggle, setProgress]);
 
     return (
-        <div style={{ height: '500px', width: '100%' }}>
-            <Button onClick={() => setToggle(true)}>Show Loader</Button>
-            {toggle && (
-                <Loader
-                    size={args.spinnerSize ?? args.progressSize ?? 'm'}
-                    maxValue={100}
-                    style={{ position: 'absolute', inset: 0 }}
-                    value={progress}
-                    {...args}
-                >
-                    {getContent(progress, args.progressSize)}
-                </Loader>
-            )}
-        </div>
+        <PopupProvider>
+            <div style={{ position: 'relative', width: '100%' }}>
+                <Button onClick={() => setToggle(true)}>Show Loader</Button>
+                {toggle && (
+                    <Loader
+                        size={args.spinnerSize ?? args.progressSize ?? 'm'}
+                        maxValue={100}
+                        value={progress}
+                        {...args}
+                    >
+                        {getContent(progress, args.progressSize)}
+                    </Loader>
+                )}
+            </div>
+        </PopupProvider>
     );
 };
 
@@ -135,7 +137,6 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         progressSize: 'm',
         spinnerSize: 'm',
-        hasBlur: true,
         hasOverlay: false,
         type: 'spinner',
     },
