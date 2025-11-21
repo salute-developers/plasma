@@ -1,8 +1,5 @@
 export const classes = {
-    smallLoaderBlur: '--plasma-loader-small-blur',
-    mediumLoaderBlur: '--plasma-loader-medium-blur',
-    largeLoaderBlur: '--plasma-loader-large-blur',
-    loaderHasOverlay: '--plasma-progressbar-circular-background-circle',
+    loaderOverlay: '--plasma-loader-overlay',
 };
 
 export const tokens = {
@@ -33,7 +30,4 @@ export const tokens = {
     spinnerColor: '--plasma-loader-spinner-color',
 };
 
-export const privateTokens = {
-    loaderOverlayColor: '--plasma_private-loader-overlay-color',
-    loaderBlur: '--plasma_private-loader-blur',
-};
+export const privateTokens = {};

@@ -1,7 +1,10 @@
-import React, { CSSProperties, forwardRef } from 'react';
-import cls from 'classnames';
+import React, { forwardRef } from 'react';
 
 import type { RootProps } from '../../engines';
+import { component } from '../../engines';
+import { Overlay } from '../Overlay';
+import { popupConfig } from '../Popup';
+import { DEFAULT_Z_INDEX } from '../Popup/utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -9,14 +12,15 @@ import type { LoaderProps } from './Loader.types';
 import { base, StyledProgressBarCircular, StyledSpinner } from './Loader.styles';
 import { classes, tokens } from './Loader.tokens';
 
+const Popup = component(popupConfig);
+
 export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
     forwardRef<HTMLDivElement, LoaderProps>((props, ref) => {
         const {
             type = 'spinner',
-            hasBlur = false,
             hasOverlay = false,
+            withBlur = false,
             value = 0,
-            blur = 'medium',
             overlayColor,
             maxValue = 100,
             size,
@@ -26,25 +30,13 @@ export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
             strokeSize,
             hasTrack,
             style,
+            zIndex = DEFAULT_Z_INDEX,
+            onOverlayClick,
             ...rest
         } = props;
 
-        const blurClass = hasBlur ? classes[`${blur}LoaderBlur` as keyof typeof classes] : '';
-
-        return (
-            <Root
-                ref={ref}
-                view={view}
-                size={size}
-                className={cls(className, blurClass, { [classes.loaderHasOverlay]: hasOverlay })}
-                style={
-                    {
-                        ...style,
-                        '--plasma_private-loader-overlay-color': overlayColor || `var(${tokens.overlayColor})`,
-                    } as CSSProperties
-                }
-                {...rest}
-            >
+        const loaderContent = (
+            <Root ref={ref} view={view} size={size} className={className} style={style} {...rest}>
                 {type === 'spinner' ? (
                     <StyledSpinner size={size} view={view} />
                 ) : (
@@ -60,6 +52,29 @@ export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
                     </StyledProgressBarCircular>
                 )}
             </Root>
+        );
+
+        if (!hasOverlay) {
+            return loaderContent;
+        }
+
+        const overlayBackgroundToken = overlayColor || `var(${tokens.overlayColor})`;
+
+        const overlayNode = (
+            <Overlay
+                className={classes.loaderOverlay}
+                zIndex={zIndex || DEFAULT_Z_INDEX}
+                backgroundColorProperty={overlayBackgroundToken}
+                withBlur={withBlur}
+                isClickable={Boolean(onOverlayClick)}
+                onOverlayClick={onOverlayClick}
+            />
+        );
+
+        return (
+            <Popup opened placement="center" zIndex={zIndex} overlay={overlayNode}>
+                {loaderContent}
+            </Popup>
         );
     });
 

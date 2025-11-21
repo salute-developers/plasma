@@ -1,12 +1,11 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
-import { applyBlur } from 'src/mixins';
 
 import { spinnerConfig, spinnerTokens } from '../Spinner';
 import { progressBarCircularConfig, progressBarCircularTokens } from '../ProgressBarCircular';
 import { component, mergeConfig } from '../../engines';
 
-import { tokens, classes, privateTokens } from './Loader.tokens';
+import { tokens } from './Loader.tokens';
 
 const mergedSpinnerConfig = mergeConfig(spinnerConfig);
 const Spinner = component(mergedSpinnerConfig);
@@ -15,7 +14,6 @@ const mergedProgressBarCircularConfig = mergeConfig(progressBarCircularConfig);
 const ProgressBarCircular = component(mergedProgressBarCircularConfig);
 
 export const base = css`
-    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -23,22 +21,6 @@ export const base = css`
 
     width: var(${tokens.width});
     height: var(${tokens.height});
-
-    &.${classes.smallLoaderBlur} {
-        ${applyBlur('small')}
-    }
-
-    &.${classes.mediumLoaderBlur} {
-        ${applyBlur('medium')}
-    }
-
-    &.${classes.largeLoaderBlur} {
-        ${applyBlur('large')}
-    }
-
-    &.${classes.loaderHasOverlay} {
-        background: var(${privateTokens.loaderOverlayColor});
-    }
 `;
 
 export const StyledSpinner = styled(Spinner)`

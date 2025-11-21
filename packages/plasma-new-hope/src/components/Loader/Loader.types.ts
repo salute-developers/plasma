@@ -1,5 +1,4 @@
 import type { HTMLAttributes, ReactNode } from 'react';
-import { Blur } from 'src/mixins';
 
 export type CustomLoaderProps = {
     /**
@@ -8,21 +7,26 @@ export type CustomLoaderProps = {
      */
     type?: 'spinner' | 'progress';
     /**
-     * Наличие blur на фоне
-     */
-    hasBlur?: boolean;
-    /**
-     * Тип эффекта blur "small | medium | large"
-     */
-    blur?: Blur;
-    /**
      * Наличие overlay на фоне
      */
     hasOverlay?: boolean;
     /**
-     * Собственное значение для фона
+     * Применить blur эффект к overlay (работает только при hasOverlay=true)
+     */
+    withBlur?: boolean;
+    /**
+     * Собственное значение для фона overlay
      */
     overlayColor?: string;
+    /**
+     * Z-index для loader и overlay (работает только при hasOverlay=true)
+     * @default 9000
+     */
+    zIndex?: string;
+    /**
+     * Обработчик клика по overlay (работает только при hasOverlay=true)
+     */
+    onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
     /**
      * Текущее значение прогресса (от 0 до maxValue)
      */
@@ -43,7 +47,7 @@ export type CustomLoaderProps = {
      */
     view?: string;
     /**
-     * Толщина обводки ProgressBarCircular
+     * Толщина обводки
      */
     strokeSize?: number;
     /**
