@@ -1,13 +1,25 @@
 /**
  * NOTE:
- * общие тесты на логику (клики, клавиатурная навигация; то, что не требует скриншотов)
+ * общие тесты (клики, клавиатурная навигация, тд.)
  */
 
 // ПРИМЕР:
 // import React, { useState } from 'react';
+// import {
+//     mount,
+//     getComponent,
+//     getBaseVisualTests,
+// } from '@salutejs/plasma-cy-utils';
 // import { mount, getComponent } from '@salutejs/plasma-cy-utils';
 
 // import { ButtonProps } from './Button.types';
+// import { config } from './Button.config';
+
+/**
+ * NOTE:
+ * пример вызова базовых тестов с помощью генерации матрицы пропсов (импорт нужных частей закоменчен)
+ * getBaseVisualTests({ config, component: 'Button', children: 'Hello Plasma', configPropsForMatrix: ['view', 'size'] })
+ */
 
 // describe('plasma-new-hope: Button', () => {
 //     const Button = getComponent<ButtonProps>('Button');
