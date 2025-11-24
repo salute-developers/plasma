@@ -15,7 +15,6 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
-      with-artifacts: true
     secrets: inherit
 
   cypress_plasma-react-17:
@@ -29,7 +28,6 @@ jobs:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
       with-react-17: true
-      with-artifacts: true
     secrets: inherit
 
   cypress_sdds:
@@ -42,7 +40,6 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
-      with-artifacts: true
     secrets: inherit
 
   cypress_sdds-react-17:

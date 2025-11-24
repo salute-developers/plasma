@@ -60,12 +60,8 @@ jobs:
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 120
-          max_attempts: 2
-          retry_on: error
-          command: npm run cy:${{ inputs.scope }}:run-ct
+        run: |
+          npm run cy:${{ inputs.scope }}:run-ct
 
       - name: Reorganize diff artifacts
         if: ${{ failure() || inputs.with-artifacts }}
