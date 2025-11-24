@@ -67,12 +67,6 @@ const meta: Meta<typeof Card> = {
                 type: 'inline-radio',
             },
         },
-        orientation: {
-            options: ['vertical', 'horizontal'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
         backgroundType: {
             options: ['none', 'solid'],
             control: {
@@ -238,7 +232,6 @@ export const Default: Story = {
         text: 'Title',
         view: 'default',
         size: 'm',
-        orientation: 'horizontal',
 
         selected: true,
         backgroundType: 'none',
