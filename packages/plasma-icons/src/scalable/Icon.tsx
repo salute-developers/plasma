@@ -888,6 +888,7 @@ export const iconSectionsSet = {
         sensorTemperatureOutline: 'SensorTemperatureOutline',
         lineHeight: 'LineHeight',
         letterSpacing: 'LetterSpacing',
+        layerBlurOutline: 'LayerBlurOutline',
     },
     Time: {
         alarmAddFill: 'AlarmAddFill',
