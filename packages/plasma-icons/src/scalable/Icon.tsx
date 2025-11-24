@@ -1277,6 +1277,7 @@ export const iconSectionsSet = {
         maxFill: 'MaxFill',
         odnoklassnikiFill: 'OdnoklassnikiFill',
         telegramFill: 'TelegramFill',
+        sbCost: 'SbCost',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
