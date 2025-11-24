@@ -319,6 +319,7 @@ export const iconSectionsSet = {
         dataBaseFill: 'DataBaseFill',
         dataBaseOutline: 'DataBaseOutline',
         axisX: 'AxisX',
+        axisY: 'AxisY',
     },
     Travel: {
         busFill: 'BusFill',
