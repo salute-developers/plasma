@@ -2,6 +2,7 @@ import React, { forwardRef, useRef, useState, useEffect } from 'react';
 import cls from 'classnames';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import type { RootProps } from 'src/engines';
+import { useForkRef } from '@salutejs/plasma-core';
 import { getPlacements } from 'src/utils';
 
 import { TimePickerGridChangeEvent } from '../TimePickerGrid/TimePickerGrid.types';
@@ -26,7 +27,7 @@ interface ActiveTime {
 export const timePickerRoot = (
     Root: RootProps<HTMLDivElement, Omit<TimePickerProps, 'opened' | 'defaultValue' | 'onChange'>>,
 ) =>
-    forwardRef<HTMLInputElement, TimePickerProps>(
+    forwardRef<HTMLDivElement, TimePickerProps>(
         (
             {
                 className,
@@ -65,6 +66,8 @@ export const timePickerRoot = (
             ref,
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
+            const rootRef = useRef<HTMLDivElement | null>(null);
+            const rootForkRef = useForkRef(rootRef, ref);
 
             const hoursHideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
             const minutesHideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -72,6 +75,7 @@ export const timePickerRoot = (
 
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
             const [innerTime, setInnerTime] = useState(outerValue || '');
+            const [rootWidth, setRootWidth] = useState<number | null>(null);
             const [, setActiveTime] = useState<ActiveTime>({
                 hours: null,
                 minutes: null,
@@ -117,6 +121,13 @@ export const timePickerRoot = (
                     setIsInnerOpen(false);
                 }
             }, [disabled, readonly]);
+
+            useEffect(() => {
+                if (dropdownWidth === 'fullWidth' && rootRef.current) {
+                    const width = rootRef.current.offsetWidth;
+                    setRootWidth(width);
+                }
+            }, [dropdownWidth, isInnerOpen]);
 
             const handleToggle = () => {
                 if (disabled || readonly) return;
@@ -236,6 +247,16 @@ export const timePickerRoot = (
                 />
             );
 
+            const getDropdownWidth = (): 'fixed' | 'fullWidth' | React.CSSProperties['width'] => {
+                if (dropdownWidth === 'fixed' || dropdownWidth === undefined) {
+                    return undefined;
+                }
+                if (dropdownWidth === 'fullWidth') {
+                    return rootWidth !== null ? `${rootWidth}px` : 'fullWidth';
+                }
+                return dropdownWidth as React.CSSProperties['width'];
+            };
+
             return (
                 <Root
                     stretched={stretched}
@@ -246,7 +267,7 @@ export const timePickerRoot = (
                     })}
                     disabled={disabled}
                     readonly={readonly}
-                    ref={ref}
+                    ref={rootForkRef}
                     {...rest}
                 >
                     <StyledPopover
@@ -267,7 +288,7 @@ export const timePickerRoot = (
                             value={viewValue}
                             onChange={handleOnChange}
                             dropdownHeight={dropdownHeight}
-                            dropdownWidth={dropdownWidth}
+                            dropdownWidth={getDropdownWidth()}
                             format={format}
                             view={view}
                             size={size}
