@@ -162,6 +162,7 @@ export const iconSectionsSet = {
         spacingVertical: 'SpacingVertical',
         typography: 'Typography',
         exportOutline: 'ExportOutline',
+        exportDoneOutline: 'ExportDoneOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
