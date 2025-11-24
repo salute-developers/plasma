@@ -3,136 +3,87 @@ id: card
 title: Card
 ---
 
-import { PropsTable, Description, StorybookLink, Badge } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 
 # Card
+Визуальный контейнер, который объединяет различные элементы, такие как изображения, текст и кнопки, в единый блок
 
-<Badge />
-
-Набор компонентов для создания карточек.
-
-<StorybookLink name="Card" />
-
-## Card
 <Description name="Card" />
 <PropsTable name="Card" />
 
-## CardBody
-<Description name="CardBody" />
+### Использование
 
-## CardContent
-<Description name="CardContent" />
-<PropsTable name="CardContent" />
+Настройка размера осуществляется явным образом или в зависимости от содержимого, в том числе, за счет указания соотношения сторон.
 
-## CardMedia
-<Description name="CardMedia" />
-<PropsTable name="CardMedia" />
+Настройка внутренних отступов между контентом карточки осуществляется с учетом конкретного контекста использования компонента.
 
-## Примеры
+Компонент `Card` является базовым контейнером. `CardContent` используется для вложенного контента внутри `Card`, со своими скруглениями и имеет `overflow: hidden`.
+`CardInnerContent` используется для контента вписанного в размеры `CardContent`, имеет `position: absolute`, не влияет на размер всей карточки.
 
-### Простая карточка
-Представляет собой ответ в виде карточки, которая может содержать ячейку с изображением.
-Включает в себя класс карточек нескольких видов.
+### Пример с вложенным контентом
 
 ```tsx live
 import React from 'react';
-import { 
-    Card, 
-    CardBody, 
-    CardMedia, 
-    CardBadge, 
-    CardContent,
-    BodyM,
-    H4
-} from '@salutejs/plasma-web';
+import { Card, CardContent, CardInnerContent, H3, TextS } from '@salutejs/sdds-crm';
 
 export function App() {
-    const src = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
+    const SvgBackground = (props) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMinYMin slice"
+            viewBox="1 0.5 8 8"
+            {...props}
+            style={{ ...props.style, background: 'var(--text-tertiary)' }}
+        >
+            <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+        </svg>
+    );
 
     return (
-        <div>
-            <Card style={{ width: '22.5rem' }} tabIndex={0} outlined scaleOnFocus>
-                <CardBody>
-                    <CardMedia src={src} placeholder={src} ratio="1/1" />
-                    <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
-                    <CardContent>
-                        <BodyM>Label</BodyM>
-                        <H4>Tittle</H4>
-                        <BodyM>description</BodyM>
-                    </CardContent>
-                </CardBody>
-            </Card>
-        </div>
+        <Card orientation="horizontal" style={{ width: '250px' }}>
+            <CardContent orientation='vertical' aspectRatio='1/1'>
+                <CardInnerContent>
+                    <div style={{ padding: '30px' }}>
+                        <H3>Заголовок</H3>
+                        <TextS style={{ paddingTop: '8px' }}>Как оплатить заправку бонусами СберСпасибо?</TextS>
+                    </div>
+                </CardInnerContent>
+                <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />
+            </CardContent>
+        </Card>
     );
 }
 ```
 
-### Карточка с подложкой
+### Пример выбранной карточки с `backgroundType="solid"`
 
 ```tsx live
 import React from 'react';
-import { 
-    Card, 
-    CardBody, 
-    CardMedia, 
-    CardBadge, 
-    CardContent,
-    BodyM,
-    H4
-} from '@salutejs/plasma-web';
+import { Card, CardContent, H3, TextS } from '@salutejs/sdds-crm';
 
 export function App() {
-    const src = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
-
-    return (
-        <div>
-            <Card style={{ width: '22.5rem' }} background="cadetblue" tabIndex={0} outlined scaleOnFocus>
-                <CardBody>
-                    <CardMedia src={src} placeholder={src} ratio="1/1" />
-                    <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
-                    <CardContent>
-                        <BodyM>Label</BodyM>
-                        <H4>Tittle</H4>
-                        <BodyM>description</BodyM>
-                    </CardContent>
-                </CardBody>
-            </Card>
-        </div>
+    const SvgBackground = (props) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMinYMin slice"
+            viewBox="1 0.5 8 8"
+            {...props}
+            style={{ ...props.style, background: 'var(--text-tertiary)' }}
+        >
+            <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+        </svg>
     );
-}
-```
-
-### Карточка с текстом на изображении
-
-```tsx live
-import React from 'react';
-import { 
-    Card, 
-    CardBody, 
-    CardMedia, 
-    CardBadge, 
-    CardContent,
-    BodyM,
-    H4
-} from '@salutejs/plasma-web';
-
-export function App() {
-    const src = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
 
     return (
-        <div>
-            <Card style={{ width: '22.5rem', color: 'white' }} tabIndex={0} outlined scaleOnFocus>
-                <CardBody>
-                    <CardMedia src={src} placeholder={src} ratio="1/1" />
-                    <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
-                    <CardContent cover>
-                        <BodyM>Label</BodyM>
-                        <H4>Tittle</H4>
-                        <BodyM>description</BodyM>
-                    </CardContent>
-                </CardBody>
-            </Card>
-        </div>
+        <Card orientation="horizontal" style={{ width: '400px' }} backgroundType="solid" selected>
+            <div style={{ padding: '30px' }}>
+                <H3>Title</H3>
+                <TextS style={{ paddingTop: '8px' }}>Description</TextS>
+            </div>
+            <CardContent orientation="vertical" aspectRatio="4/3">
+                <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />
+            </CardContent>
+        </Card>
     );
 }
 ```
