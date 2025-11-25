@@ -207,6 +207,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     onChangeValue?: (value: string) => void;
     /**
+     * Функция валидации вводимых значений.
+     */
+    filterValue?: (value: string) => boolean;
+    /**
      * Коллбэк, срабатывающий при скролле.
      */
     onScroll?: (e: React.UIEvent<HTMLElement>) => void;
