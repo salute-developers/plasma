@@ -12,6 +12,8 @@ import { Loader } from '.';
 
 const { views, sizes } = getConfigVariations(config);
 
+const sizeSpinner = ['s', 'm', 'l'];
+
 type StoryPropsDefault = ComponentProps<typeof Loader> & {
     progressSize?: string;
     spinnerSize?: string;
@@ -39,7 +41,7 @@ const meta: Meta<StoryPropsDefault> = {
             },
         },
         spinnerSize: {
-            options: sizes,
+            options: sizeSpinner,
             control: {
                 type: 'select',
             },
@@ -64,9 +66,39 @@ const meta: Meta<StoryPropsDefault> = {
                 eq: 'progress',
             },
         },
+        hasOverlay: {
+            control: {
+                type: 'boolean',
+            },
+            description: 'Наличие overlay на фоне',
+        },
         overlayColor: {
             control: {
                 type: 'color',
+            },
+            if: {
+                arg: 'hasOverlay',
+                eq: true,
+            },
+        },
+        withBlur: {
+            control: {
+                type: 'boolean',
+            },
+            description: 'Применить blur эффект к overlay',
+            if: {
+                arg: 'hasOverlay',
+                eq: true,
+            },
+        },
+        zIndex: {
+            control: {
+                type: 'text',
+            },
+            description: 'Z-index для loader і overlay',
+            if: {
+                arg: 'hasOverlay',
+                eq: true,
             },
         },
     },
@@ -139,6 +171,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         spinnerSize: 'm',
         hasOverlay: false,
         type: 'spinner',
+        hasTrack: true,
     },
     render: ({ ...args }) => {
         return <LoaderContent {...args} />;

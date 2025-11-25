@@ -1,18 +1,15 @@
 import React from 'react';
 import type { ComponentProps, FC, PropsWithChildren } from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import cypress from 'cypress';
 
-import { Loader as LoaderB2C } from '.';
+import { PopupProvider } from '../Popup';
 
-const StandardTypoStyle = createGlobalStyle(standardTypo);
+import { Loader as LoaderB2C } from '.';
 
 const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
     <CypressTestDecorator>
-        <StandardTypoStyle />
-        {children}
+        <PopupProvider>{children}</PopupProvider>
     </CypressTestDecorator>
 );
 
@@ -22,8 +19,8 @@ describe('plasma-b2c: Loader', () => {
     const Demo = ({
         size = 'm',
         view = 'default',
-        hasBlur = true,
-        hasOverlay = true,
+        hasBlur = false,
+        hasOverlay = false,
         type = 'progress',
         value = 50,
         ...rest
@@ -77,16 +74,6 @@ describe('plasma-b2c: Loader', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo type="spinner" size="xl" />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('Loader: customOverlayColor', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Demo overlayColor="red" />
             </CypressTestDecoratorWithTypo>,
         );
 

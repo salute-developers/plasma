@@ -128,6 +128,37 @@ export function App() {
 }
 ```
 
+### Использование с PopupBaseProvider
+Для корректной работы Loader с оверлеем необходимо обернуть приложение в `PopupBaseProvider`:
+
+```tsx live
+import React, { useState } from 'react';
+import { Loader, Button, PopupBaseProvider } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [loading, setLoading] = useState(false);
+
+    const handleShowLoader = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 3000);
+    };
+
+    return (
+        <PopupBaseProvider>
+            <div style={{ position: 'relative', padding: '1rem' }}>
+                <Button onClick={handleShowLoader}>Показать загрузку</Button>
+                {loading && (
+                    <Loader
+                        type="spinner"
+                        hasOverlay
+                    />
+                )}
+            </div>
+        </PopupBaseProvider>
+    );
+}
+```
+
 ### Контент внутри прогресс-бара
 Отображение дополнительной информации внутри кругового индикатора:
 
