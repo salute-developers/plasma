@@ -284,16 +284,28 @@ export const timePickerRoot = (
                         preventOverflow={false}
                         align={dropdownAlign}
                     >
-                        <StyledTimePickerGrid
-                            value={viewValue}
-                            onChange={handleOnChange}
-                            dropdownHeight={dropdownHeight}
-                            dropdownWidth={getDropdownWidth()}
-                            format={format}
+                        <Root
+                            stretched={stretched}
                             view={view}
                             size={size}
+                            className={cls(classes.timePickerRoot, className, {
+                                [classes.timePickerstretched]: stretched,
+                            })}
                             disabled={disabled}
-                        />
+                            readonly={readonly}
+                            {...rest}
+                        >
+                            <StyledTimePickerGrid
+                                value={viewValue}
+                                onChange={handleOnChange}
+                                dropdownHeight={dropdownHeight}
+                                dropdownWidth={getDropdownWidth()}
+                                format={format}
+                                view={view}
+                                size={size}
+                                disabled={disabled}
+                            />
+                        </Root>
                     </StyledPopover>
                 </Root>
             );
