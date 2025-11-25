@@ -87,6 +87,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             hintSize,
             emptyStateDescription,
             onChangeValue,
+            filterValue,
             onScroll,
             onToggle,
             mode = 'default',
@@ -199,13 +200,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
         // Обработчик изменения значения в инпуте
         const handleTextValueChange = (e: ChangeEvent<HTMLInputElement>) => {
-            setTextValue(e.target.value);
+            if (!filterValue || filterValue(e.target.value)) {
+                setTextValue(e.target.value);
+            }
             dispatchPath({ type: 'opened_first_level' });
             dispatchFocusedPath({ type: 'reset' });
-
-            if (onChangeValue) {
-                onChangeValue(e.target.value);
-            }
         };
 
         // Обработчик чипов
