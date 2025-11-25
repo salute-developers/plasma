@@ -4,13 +4,15 @@ import React, { ComponentProps, useEffect } from 'react';
 import { IconCross } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';
-import { PopupProvider } from '../Popup';
+import { PopupBaseProvider } from '../PopupBase';
 
 import { config } from './Loader.config';
 
 import { Loader } from '.';
 
 const { views, sizes } = getConfigVariations(config);
+
+const sizeSpinner = ['s', 'm', 'l'];
 
 type StoryPropsDefault = ComponentProps<typeof Loader> & {
     progressSize?: string;
@@ -39,7 +41,7 @@ const meta: Meta<StoryPropsDefault> = {
             },
         },
         spinnerSize: {
-            options: sizes,
+            options: sizeSpinner,
             control: {
                 type: 'select',
             },
@@ -64,9 +66,39 @@ const meta: Meta<StoryPropsDefault> = {
                 eq: 'progress',
             },
         },
+        hasOverlay: {
+            control: {
+                type: 'boolean',
+            },
+            description: 'Наличие overlay на фоне',
+        },
         overlayColor: {
             control: {
                 type: 'color',
+            },
+            if: {
+                arg: 'hasOverlay',
+                eq: true,
+            },
+        },
+        withBlur: {
+            control: {
+                type: 'boolean',
+            },
+            description: 'Применить blur эффект к overlay',
+            if: {
+                arg: 'hasOverlay',
+                eq: true,
+            },
+        },
+        zIndex: {
+            control: {
+                type: 'text',
+            },
+            description: 'Z-index для loader и overlay',
+            if: {
+                arg: 'hasOverlay',
+                eq: true,
             },
         },
     },
@@ -114,7 +146,7 @@ const LoaderContent = (args) => {
     }, [toggle, setProgress]);
 
     return (
-        <PopupProvider>
+        <PopupBaseProvider>
             <div style={{ position: 'relative', width: '100%' }}>
                 <Button onClick={() => setToggle(true)}>Show Loader</Button>
                 {toggle && (
@@ -128,7 +160,7 @@ const LoaderContent = (args) => {
                     </Loader>
                 )}
             </div>
-        </PopupProvider>
+        </PopupBaseProvider>
     );
 };
 
@@ -139,6 +171,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         spinnerSize: 'm',
         hasOverlay: false,
         type: 'spinner',
+        hasTrack: true,
     },
     render: ({ ...args }) => {
         return <LoaderContent {...args} />;

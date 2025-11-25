@@ -126,6 +126,37 @@ export function App() {
 }
 ```
 
+### Использование с PopupProvider
+Для корректной работы Loader с оверлеем необходимо обернуть приложение в `PopupProvider`:
+
+```tsx live
+import React, { useState } from 'react';
+import { Loader, Button, PopupProvider } from '@salutejs/plasma-web';
+
+export function App() {
+    const [loading, setLoading] = useState(false);
+
+    const handleShowLoader = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 3000);
+    };
+
+    return (
+        <PopupProvider>
+            <div style={{ position: 'relative', padding: '1rem' }}>
+                <Button onClick={handleShowLoader}>Показать загрузку</Button>
+                {loading && (
+                    <Loader
+                        type="spinner"
+                        hasOverlay
+                    />
+                )}
+            </div>
+        </PopupProvider>
+    );
+}
+```
+
 ### Контент внутри прогресс-бара
 Отображение дополнительной информации внутри кругового индикатора:
 
