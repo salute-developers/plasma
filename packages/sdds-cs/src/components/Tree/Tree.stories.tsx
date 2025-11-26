@@ -10,6 +10,7 @@ type StoryTreeProps = ComponentProps<typeof Tree>;
 
 const arrowPlacements = ['left', 'right'];
 const mode = ['default', 'radio'];
+const variant = ['normal', 'tight'];
 
 const meta: Meta<StoryTreeProps> = {
     title: 'Data Entry/Tree',
@@ -44,6 +45,10 @@ const meta: Meta<StoryTreeProps> = {
             control: 'select',
             options: mode,
         },
+        variant: {
+            control: 'select',
+            options: variant,
+        },
         ...disableProps(['size', 'variant']),
     },
     args: {
@@ -57,6 +62,7 @@ const meta: Meta<StoryTreeProps> = {
         height: undefined,
         hasIcon: true,
         mode: 'default',
+        variant: 'normal',
     },
 };
 
