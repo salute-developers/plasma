@@ -161,6 +161,8 @@ export const iconSectionsSet = {
         spacingHorizontal: 'SpacingHorizontal',
         spacingVertical: 'SpacingVertical',
         typography: 'Typography',
+        exportOutline: 'ExportOutline',
+        exportDoneOutline: 'ExportDoneOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -318,6 +320,8 @@ export const iconSectionsSet = {
         mindmap: 'Mindmap',
         dataBaseFill: 'DataBaseFill',
         dataBaseOutline: 'DataBaseOutline',
+        axisX: 'AxisX',
+        axisY: 'AxisY',
     },
     Travel: {
         busFill: 'BusFill',
@@ -672,6 +676,7 @@ export const iconSectionsSet = {
         closePanelFill: 'ClosePanelFill',
         openPanelFill: 'OpenPanelFill',
         targetOutline: 'TargetOutline',
+        trafficLightOutline: 'TrafficLightOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
@@ -884,6 +889,9 @@ export const iconSectionsSet = {
         flashlightOutline: 'FlashlightOutline',
         sensorTemperatureFill: 'SensorTemperatureFill',
         sensorTemperatureOutline: 'SensorTemperatureOutline',
+        lineHeight: 'LineHeight',
+        letterSpacing: 'LetterSpacing',
+        layerBlurOutline: 'LayerBlurOutline',
     },
     Time: {
         alarmAddFill: 'AlarmAddFill',
@@ -1269,6 +1277,7 @@ export const iconSectionsSet = {
         maxFill: 'MaxFill',
         odnoklassnikiFill: 'OdnoklassnikiFill',
         telegramFill: 'TelegramFill',
+        sbCost: 'SbCost',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',

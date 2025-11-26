@@ -21,6 +21,7 @@ const OtherContent = styled.div`
     align-items: flex-start;
     justify-content: center;
     padding: 1rem;
+    box-sizing: content-box;
 
     bottom: 0rem;
     right: 0;

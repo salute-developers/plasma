@@ -4840,23 +4840,23 @@
                     "comment": ""
                 },
                 "dataRedTransparent": {
-                    "value": "#FF293E3D",
+                    "value": "rgba(255,41,62,0.24)",
                     "comment": ""
                 },
                 "dataOrangeTransparent": {
-                    "value": "#FA5F053D",
+                    "value": "rgba(250,95,5,0.24)",
                     "comment": ""
                 },
                 "dataYellowTransparent": {
-                    "value": "[general.amber.300][-0.44]",
+                    "value": "rgba(243,169,18,0.56)",
                     "comment": "Прозрачный желтый цвет для данных"
                 },
                 "dataGreenTransparent": {
-                    "value": "#1A9E323D",
+                    "value": "rgba(26,158,50,0.24)",
                     "comment": ""
                 },
                 "dataBlueTransparent": {
-                    "value": "#118CDF3D",
+                    "value": "rgba(17,140,223,0.24)",
                     "comment": ""
                 }
             },
@@ -8412,27 +8412,27 @@
         "outline": {
             "default": {
                 "outlineSolidPrimaryHover": {
-                    "value": "#000000FF",
+                    "value": "#96AEC0FF",
                     "comment": "Основной непрозрачный цвет обводки"
                 },
                 "outlineSolidPrimaryActive": {
-                    "value": "#9FB6C6FF",
+                    "value": "#B6C7D3FF",
                     "comment": "Основной непрозрачный цвет обводки"
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#000000FF",
+                    "value": "#B7BEC3FF",
                     "comment": "Вторичный непрозрачный цвет обводки"
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#6B7780FF",
+                    "value": "#74818BFF",
                     "comment": "Вторичный непрозрачный цвет обводки"
                 },
                 "outlineSolidTertiaryHover": {
-                    "value": "#000000FF",
+                    "value": "#9BA5ABFF",
                     "comment": "Третичный непрозрачный цвет обводки"
                 },
                 "outlineSolidTertiaryActive": {
-                    "value": "#515B61FF",
+                    "value": "#545D64FF",
                     "comment": "Третичный непрозрачный цвет обводки"
                 },
                 "outlineTransparentDefault": {
@@ -8441,12 +8441,12 @@
                     "enabled": false
                 },
                 "outlineTransparentDefaultHover": {
-                    "value": "#070B0E93",
+                    "value": "#070B0E7A",
                     "comment": "Прозрачный цвет обводки по умолчанию",
                     "enabled": false
                 },
                 "outlineTransparentDefaultActive": {
-                    "value": "#070B0EC4",
+                    "value": "#070B0EFF",
                     "comment": "Прозрачный цвет обводки по умолчанию",
                     "enabled": false
                 },
@@ -8511,11 +8511,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#0D96F2FF",
+                    "value": "#47B0F5FF",
                     "comment": "Акцентный цвет обводки"
                 },
                 "outlineAccentActive": {
-                    "value": "#0966A5FF",
+                    "value": "#096CAEFF",
                     "comment": "Акцентный цвет обводки"
                 },
                 "outlineAccentGradient": {
@@ -8534,7 +8534,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#A3DAFFFF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorActive": {
@@ -8557,11 +8557,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#0B7ECBFF",
+                    "value": "#0B7ECB1F",
                     "comment": "Прозрачный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#0B7ECB3D",
+                    "value": "#0B7ECB52",
                     "comment": "Прозрачный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentGradient": {
@@ -8615,12 +8615,12 @@
                     "enabled": false
                 },
                 "outlinePromoMinorHover": {
-                    "value": "#000000FF",
+                    "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки",
                     "enabled": false
                 },
                 "outlinePromoMinorActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#E6E6E6FF",
                     "comment": "Минорный промо цвет обводки",
                     "enabled": false
                 },
@@ -8630,17 +8630,17 @@
                     "enabled": false
                 },
                 "outlinePromoMinorGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Минорный промо цвет обводки с градиентом",
-                    "enabled": false
-                },
-                "outlinePromoMinorGradientActive": {
                     "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки с градиентом",
                     "enabled": false
                 },
+                "outlinePromoMinorGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Минорный промо цвет обводки с градиентом",
+                    "enabled": false
+                },
                 "outlinePositiveHover": {
-                    "value": "#14B32EFF",
+                    "value": "#15BC31FF",
                     "comment": "Цвет обводки успех"
                 },
                 "outlinePositiveActive": {
@@ -8648,35 +8648,35 @@
                     "comment": "Цвет обводки успех"
                 },
                 "outlineWarningHover": {
-                    "value": "#FB782DFF",
+                    "value": "#FC9F69FF",
                     "comment": "Цвет обводки предупреждение"
                 },
                 "outlineWarningActive": {
-                    "value": "#D25004FF",
+                    "value": "#DC5304FF",
                     "comment": "Цвет обводки предупреждение"
                 },
                 "outlineNegativeHover": {
-                    "value": "#EE2F43FF",
+                    "value": "#F36876FF",
                     "comment": "Цвет обводки ошибка"
                 },
                 "outlineNegativeActive": {
-                    "value": "#BD0F21FF",
+                    "value": "#C61022FF",
                     "comment": "Цвет обводки ошибка"
                 },
                 "outlineInfoHover": {
-                    "value": "#0D96F2FF",
+                    "value": "#47B0F5FF",
                     "comment": "Цвет обводки информация"
                 },
                 "outlineInfoActive": {
-                    "value": "#0966A5FF",
+                    "value": "#096CAEFF",
                     "comment": "Цвет обводки информация"
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#47DC62FF",
+                    "value": "#7AE68EFF",
                     "comment": "Минорный цвет обводки успех"
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#21B03CFF",
+                    "value": "#23B83EFF",
                     "comment": "Минорный цвет обводки успех"
                 },
                 "outlineWarningMinorHover": {
@@ -8696,7 +8696,7 @@
                     "comment": "Минорный цвет обводки ошибка"
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#A3DAFFFF",
                     "comment": "Минорный цвет обводки информация"
                 },
                 "outlineInfoMinorActive": {
@@ -8704,35 +8704,35 @@
                     "comment": "Минорный цвет обводки информация"
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#108E25FF",
+                    "value": "#108E251F",
                     "comment": "Прозрачный цвет обводки успех"
                 },
                 "outlineTransparentPositiveActive": {
-                    "value": "#108E253D",
+                    "value": "#108E2552",
                     "comment": "Прозрачный цвет обводки успех"
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#E85702FF",
+                    "value": "#E857021F",
                     "comment": "Прозрачный цвет обводки предупреждение"
                 },
                 "outlineTransparentWarningActive": {
-                    "value": "#E857023D",
+                    "value": "#E8570252",
                     "comment": "Прозрачный цвет обводки предупреждение"
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#F31B31FF",
+                    "value": "#F31B311F",
                     "comment": "Прозрачный цвет обводки предупреждение"
                 },
                 "outlineTransparentNegativeActive": {
-                    "value": "#F31B313D",
+                    "value": "#F31B3152",
                     "comment": "Прозрачный цвет обводки предупреждение"
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#0B7ECBFF",
+                    "value": "#0B7ECB1F",
                     "comment": "Прозрачный цвет обводки информация"
                 },
                 "outlineTransparentInfoActive": {
-                    "value": "#0B7ECB3D",
+                    "value": "#0B7ECB52",
                     "comment": "Прозрачный цвет обводки информация"
                 },
                 "outlineSolidPrimary": {
@@ -8812,46 +8812,46 @@
                     "comment": ""
                 },
                 "outlineSolidDefaultHover": {
-                    "value": "#223944FF",
+                    "value": "#304F5FFF",
                     "comment": ""
                 },
                 "outlineSolidDefaultActive": {
-                    "value": "#152229FF",
+                    "value": "#1B2D36FF",
                     "comment": ""
                 }
             },
             "onDark": {
                 "outlineSolidPrimaryHover": {
-                    "value": "#6A7E8AFF",
+                    "value": "#97A6AFFF",
                     "comment": "Основной непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidPrimaryActive": {
-                    "value": "#47545CFF",
+                    "value": "#505E68FF",
                     "comment": "Основной непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#7A8994FF",
+                    "value": "#A7B1B9FF",
                     "comment": "Вторичный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#546069FF",
+                    "value": "#5D6A74FF",
                     "comment": "Вторичный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidTertiaryHover": {
-                    "value": "#000000FF",
+                    "value": "#9BA5ABFF",
                     "comment": "Третичный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidTertiaryActive": {
-                    "value": "#515B61FF",
+                    "value": "#545D64FF",
                     "comment": "Третичный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineTransparentDefaultHover": {
-                    "value": "#000000FF",
+                    "value": "#C7C7C7FF",
                     "comment": "Прозрачный цвет обводки по умолчанию на темном фоне",
                     "enabled": false
                 },
                 "outlineTransparentDefaultActive": {
-                    "value": "#C7C7C7FF",
+                    "value": "#E0E0E0FF",
                     "comment": "Прозрачный цвет обводки по умолчанию на темном фоне",
                     "enabled": false
                 },
@@ -8916,11 +8916,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#3FABF3FF",
+                    "value": "#79C4F6FF",
                     "comment": "Акцентный цвет обводки на темном фоне"
                 },
                 "outlineAccentActive": {
-                    "value": "#0D84D3FF",
+                    "value": "#0E8ADDFF",
                     "comment": "Акцентный цвет обводки на темном фоне"
                 },
                 "outlineAccentGradient": {
@@ -8939,11 +8939,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#1483CCFF",
+                    "value": "#137DC3FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#116BA7FF",
+                    "value": "#093B5DFF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineAccentMinorGradient": {
@@ -8962,11 +8962,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#199AF0FF",
+                    "value": "#199AF02B",
                     "comment": "Прозрачный акцентный цвет обводки на темном фоне"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#199AF056",
+                    "value": "#199AF072",
                     "comment": "Прозрачный акцентный цвет обводки на темном фоне"
                 },
                 "outlineTransparentAccentGradient": {
@@ -9020,12 +9020,12 @@
                     "enabled": false
                 },
                 "outlinePromoMinorHover": {
-                    "value": "#000000FF",
+                    "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки на темном фоне",
                     "enabled": false
                 },
                 "outlinePromoMinorActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#E6E6E6FF",
                     "comment": "Минорный промо цвет обводки на темном фоне",
                     "enabled": false
                 },
@@ -9035,25 +9035,25 @@
                     "enabled": false
                 },
                 "outlinePromoMinorGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Минорный промо цвет обводки с градиентом на темном фоне",
-                    "enabled": false
-                },
-                "outlinePromoMinorGradientActive": {
                     "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки с градиентом на темном фоне",
                     "enabled": false
                 },
+                "outlinePromoMinorGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Минорный промо цвет обводки с градиентом на темном фоне",
+                    "enabled": false
+                },
                 "outlinePositiveHover": {
-                    "value": "#2BD44AFF",
+                    "value": "#5EDE76FF",
                     "comment": "Цвет обводки успех на темном фоне"
                 },
                 "outlinePositiveActive": {
-                    "value": "#1D9032FF",
+                    "value": "#1F9835FF",
                     "comment": "Цвет обводки успех на темном фоне"
                 },
                 "outlineWarningHover": {
-                    "value": "#FF8B4DFF",
+                    "value": "#FFA575FF",
                     "comment": "Цвет обводки предупреждение на темном фоне"
                 },
                 "outlineWarningActive": {
@@ -9061,7 +9061,7 @@
                     "comment": "Цвет обводки предупреждение на темном фоне"
                 },
                 "outlineNegativeHover": {
-                    "value": "#FF6675FF",
+                    "value": "#FF8F9AFF",
                     "comment": "Цвет обводки ошибка на темном фоне"
                 },
                 "outlineNegativeActive": {
@@ -9069,75 +9069,75 @@
                     "comment": "Цвет обводки ошибка на темном фоне"
                 },
                 "outlineInfoHover": {
-                    "value": "#3FABF3FF",
+                    "value": "#79C4F6FF",
                     "comment": "Цвет обводки информация на темном фоне"
                 },
                 "outlineInfoActive": {
-                    "value": "#0D84D3FF",
+                    "value": "#0E8ADDFF",
                     "comment": "Цвет обводки информация на темном фоне"
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#11A72CFF",
+                    "value": "#0F9527FF",
                     "comment": "Минорный цвет обводки успех на темном фоне"
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#0D8222FF",
+                    "value": "#074A14FF",
                     "comment": "Минорный цвет обводки успех на темном фоне"
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#CD5713FF",
+                    "value": "#B14B10FF",
                     "comment": "Минорный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineWarningMinorActive": {
-                    "value": "#A84710FF",
+                    "value": "#5D2809FF",
                     "comment": "Минорный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#C2192AFF",
+                    "value": "#DD1D30FF",
                     "comment": "Минорный цвет обводки ошибка на темном фоне"
                 },
                 "outlineNegativeMinorActive": {
-                    "value": "#7A101AFF",
+                    "value": "#8C121EFF",
                     "comment": "Минорный цвет обводки ошибка на темном фоне"
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#1483CCFF",
+                    "value": "#137DC3FF",
                     "comment": "Минорный цвет обводки информация на темном фоне"
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#116BA7FF",
+                    "value": "#093B5DFF",
                     "comment": "Минорный цвет обводки информация на темном фоне"
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#24B23EFF",
+                    "value": "#24B23E2B",
                     "comment": "Прозрачный цвет обводки успех на темном фоне"
                 },
                 "outlineTransparentPositiveActive": {
-                    "value": "#24B23E56",
+                    "value": "#24B23E72",
                     "comment": "Прозрачный цвет обводки успех на темном фоне"
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FF7024FF",
+                    "value": "#FF70242B",
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineTransparentWarningActive": {
-                    "value": "#FF702456",
+                    "value": "#FF702472",
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#FF3D51FF",
+                    "value": "#FF3D512B",
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineTransparentNegativeActive": {
-                    "value": "#FF3D5156",
+                    "value": "#FF3D5172",
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#199AF0FF",
+                    "value": "#199AF02B",
                     "comment": "Прозрачный цвет обводки информация на темном фоне"
                 },
                 "outlineTransparentInfoActive": {
-                    "value": "#199AF056",
+                    "value": "#199AF072",
                     "comment": "Прозрачный цвет обводки информация на темном фоне"
                 },
                 "outlineSolidPrimary": {
@@ -9222,37 +9222,37 @@
                     "comment": ""
                 },
                 "outlineSolidDefaultHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#E4EBF1FF",
                     "comment": ""
                 },
                 "outlineSolidDefaultActive": {
-                    "value": "#B4C7D9FF",
+                    "value": "#D6E0EAFF",
                     "comment": ""
                 }
             },
             "onLight": {
                 "outlineSolidPrimaryHover": {
-                    "value": "#000000FF",
+                    "value": "#96AEC0FF",
                     "comment": "Основной непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidPrimaryActive": {
-                    "value": "#9FB6C6FF",
+                    "value": "#B6C7D3FF",
                     "comment": "Основной непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#000000FF",
+                    "value": "#B7BEC3FF",
                     "comment": "Вторичный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#6B7780FF",
+                    "value": "#74818BFF",
                     "comment": "Вторичный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidTertiaryHover": {
-                    "value": "#000000FF",
+                    "value": "#9BA5ABFF",
                     "comment": "Третичный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidTertiaryActive": {
-                    "value": "#515B61FF",
+                    "value": "#545D64FF",
                     "comment": "Третичный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentDefault": {
@@ -9261,12 +9261,12 @@
                     "enabled": false
                 },
                 "outlineTransparentDefaultHover": {
-                    "value": "#070B0E93",
+                    "value": "#070B0E7A",
                     "comment": "Прозрачный цвет обводки по умолчанию на светлом фоне",
                     "enabled": false
                 },
                 "outlineTransparentDefaultActive": {
-                    "value": "#070B0EC4",
+                    "value": "#070B0EFF",
                     "comment": "Прозрачный цвет обводки по умолчанию на светлом фоне",
                     "enabled": false
                 },
@@ -9331,11 +9331,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#0D96F2FF",
+                    "value": "#47B0F5FF",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
                 "outlineAccentActive": {
-                    "value": "#0966A5FF",
+                    "value": "#096CAEFF",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
                 "outlineAccentGradient": {
@@ -9354,7 +9354,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#A3DAFFFF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineAccentMinorActive": {
@@ -9377,11 +9377,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#0B7ECBFF",
+                    "value": "#0B7ECB1F",
                     "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#0B7ECB3D",
+                    "value": "#0B7ECB52",
                     "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentAccentGradient": {
@@ -9435,12 +9435,12 @@
                     "enabled": false
                 },
                 "outlinePromoMinorHover": {
-                    "value": "#000000FF",
+                    "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки на светлом фоне",
                     "enabled": false
                 },
                 "outlinePromoMinorActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#E6E6E6FF",
                     "comment": "Минорный промо цвет обводки на светлом фоне",
                     "enabled": false
                 },
@@ -9450,17 +9450,17 @@
                     "enabled": false
                 },
                 "outlinePromoMinorGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Минорный промо цвет обводки с градиентом на светлом фоне",
-                    "enabled": false
-                },
-                "outlinePromoMinorGradientActive": {
                     "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки с градиентом на светлом фоне",
                     "enabled": false
                 },
+                "outlinePromoMinorGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Минорный промо цвет обводки с градиентом на светлом фоне",
+                    "enabled": false
+                },
                 "outlinePositiveHover": {
-                    "value": "#14B32EFF",
+                    "value": "#15BC31FF",
                     "comment": "Цвет обводки успех на светлом фоне"
                 },
                 "outlinePositiveActive": {
@@ -9468,35 +9468,35 @@
                     "comment": "Цвет обводки успех на светлом фоне"
                 },
                 "outlineWarningHover": {
-                    "value": "#FB782DFF",
+                    "value": "#FC9F69FF",
                     "comment": "Цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineWarningActive": {
-                    "value": "#D25004FF",
+                    "value": "#DC5304FF",
                     "comment": "Цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineNegativeHover": {
-                    "value": "#EE2F43FF",
+                    "value": "#F36876FF",
                     "comment": "Цвет обводки ошибка на светлом фоне"
                 },
                 "outlineNegativeActive": {
-                    "value": "#BD0F21FF",
+                    "value": "#C61022FF",
                     "comment": "Цвет обводки ошибка на светлом фоне"
                 },
                 "outlineInfoHover": {
-                    "value": "#0D96F2FF",
+                    "value": "#47B0F5FF",
                     "comment": "Цвет обводки информация на светлом фоне"
                 },
                 "outlineInfoActive": {
-                    "value": "#0966A5FF",
+                    "value": "#096CAEFF",
                     "comment": "Цвет обводки информация на светлом фоне"
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#47DC62FF",
+                    "value": "#7AE68EFF",
                     "comment": "Минорный цвет обводки успех на светлом фоне"
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#21B03CFF",
+                    "value": "#23B83EFF",
                     "comment": "Минорный цвет обводки успех на светлом фоне"
                 },
                 "outlineWarningMinorHover": {
@@ -9516,7 +9516,7 @@
                     "comment": "Минорный цвет обводки ошибка на светлом фоне"
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#A3DAFFFF",
                     "comment": "Минорный цвет обводки информация на светлом фоне"
                 },
                 "outlineInfoMinorActive": {
@@ -9524,35 +9524,35 @@
                     "comment": "Минорный цвет обводки информация на светлом фоне"
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#108E25FF",
+                    "value": "#108E251F",
                     "comment": "Прозрачный цвет обводки успех на светлом фоне"
                 },
                 "outlineTransparentPositiveActive": {
-                    "value": "#108E253D",
+                    "value": "#108E2552",
                     "comment": "Прозрачный цвет обводки успех на светлом фоне"
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#E85702FF",
+                    "value": "#E857021F",
                     "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineTransparentWarningActive": {
-                    "value": "#E857023D",
+                    "value": "#E8570252",
                     "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#F31B31FF",
+                    "value": "#F31B311F",
                     "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineTransparentNegativeActive": {
-                    "value": "#F31B313D",
+                    "value": "#F31B3152",
                     "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#0B7ECBFF",
+                    "value": "#0B7ECB1F",
                     "comment": "Прозрачный цвет обводки информация на светлом фоне"
                 },
                 "outlineTransparentInfoActive": {
-                    "value": "#0B7ECB3D",
+                    "value": "#0B7ECB52",
                     "comment": "Прозрачный цвет обводки информация на светлом фоне"
                 },
                 "outlineSolidPrimary": {
@@ -9632,37 +9632,37 @@
                     "comment": ""
                 },
                 "outlineSolidDefaultHover": {
-                    "value": "#223944FF",
+                    "value": "#304F5FFF",
                     "comment": ""
                 },
                 "outlineSolidDefaultActive": {
-                    "value": "#152229FF",
+                    "value": "#1B2D36FF",
                     "comment": ""
                 }
             },
             "inverse": {
                 "outlineSolidPrimaryHover": {
-                    "value": "#6A7E8AFF",
+                    "value": "#97A6AFFF",
                     "comment": "Инвертированный основной непрозрачный цвет обводки"
                 },
                 "outlineSolidPrimaryActive": {
-                    "value": "#47545CFF",
+                    "value": "#505E68FF",
                     "comment": "Инвертированный основной непрозрачный цвет обводки"
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#7A8994FF",
+                    "value": "#A7B1B9FF",
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки"
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#546069FF",
+                    "value": "#5D6A74FF",
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки"
                 },
                 "outlineSolidTertiaryHover": {
-                    "value": "#000000FF",
+                    "value": "#9BA5ABFF",
                     "comment": "Инвертированный третичный непрозрачный цвет обводки"
                 },
                 "outlineSolidTertiaryActive": {
-                    "value": "#515B61FF",
+                    "value": "#545D64FF",
                     "comment": "Инвертированный третичный непрозрачный цвет обводки"
                 },
                 "outlineTransparentDefault": {
@@ -9671,12 +9671,12 @@
                     "enabled": false
                 },
                 "outlineTransparentDefaultHover": {
-                    "value": "#F8FAFC93",
+                    "value": "#F8FAFC7A",
                     "comment": "Инвертированный прозрачный цвет обводки по умолчанию",
                     "enabled": false
                 },
                 "outlineTransparentDefaultActive": {
-                    "value": "#F8FAFCC4",
+                    "value": "#F8FAFCFF",
                     "comment": "Инвертированный прозрачный цвет обводки по умолчанию",
                     "enabled": false
                 },
@@ -9741,11 +9741,11 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#3FABF3FF",
+                    "value": "#79C4F6FF",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
                 "outlineAccentActive": {
-                    "value": "#0D84D3FF",
+                    "value": "#0E8ADDFF",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
                 "outlineAccentGradient": {
@@ -9764,11 +9764,11 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#1483CCFF",
+                    "value": "#137DC3FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorActive": {
-                    "value": "#116BA7FF",
+                    "value": "#093B5DFF",
                     "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorGradient": {
@@ -9787,11 +9787,11 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#199AF0FF",
+                    "value": "#199AF02B",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentActive": {
-                    "value": "#199AF056",
+                    "value": "#199AF072",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentGradient": {
@@ -9845,12 +9845,12 @@
                     "enabled": false
                 },
                 "outlinePromoMinorHover": {
-                    "value": "#000000FF",
+                    "value": "#CCCCCCFF",
                     "comment": "Инвертированный минорный промо цвет обводки",
                     "enabled": false
                 },
                 "outlinePromoMinorActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#E6E6E6FF",
                     "comment": "Инвертированный минорный промо цвет обводки",
                     "enabled": false
                 },
@@ -9860,25 +9860,25 @@
                     "enabled": false
                 },
                 "outlinePromoMinorGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Инвертированный минорный промо цвет обводки с градиентом",
-                    "enabled": false
-                },
-                "outlinePromoMinorGradientActive": {
                     "value": "#CCCCCCFF",
                     "comment": "Инвертированный минорный промо цвет обводки с градиентом",
                     "enabled": false
                 },
+                "outlinePromoMinorGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Инвертированный минорный промо цвет обводки с градиентом",
+                    "enabled": false
+                },
                 "outlinePositiveHover": {
-                    "value": "#2BD44AFF",
+                    "value": "#5EDE76FF",
                     "comment": "Инвертированный цвет обводки успех"
                 },
                 "outlinePositiveActive": {
-                    "value": "#1D9032FF",
+                    "value": "#1F9835FF",
                     "comment": "Инвертированный цвет обводки успех"
                 },
                 "outlineWarningHover": {
-                    "value": "#FF8B4DFF",
+                    "value": "#FFA575FF",
                     "comment": "Инвертированный цвет обводки предупреждение"
                 },
                 "outlineWarningActive": {
@@ -9886,7 +9886,7 @@
                     "comment": "Инвертированный цвет обводки предупреждение"
                 },
                 "outlineNegativeHover": {
-                    "value": "#FF6675FF",
+                    "value": "#FF8F9AFF",
                     "comment": "Инвертированный цвет обводки ошибка"
                 },
                 "outlineNegativeActive": {
@@ -9894,75 +9894,75 @@
                     "comment": "Инвертированный цвет обводки ошибка"
                 },
                 "outlineInfoHover": {
-                    "value": "#3FABF3FF",
+                    "value": "#79C4F6FF",
                     "comment": "Инвертированный цвет обводки информация"
                 },
                 "outlineInfoActive": {
-                    "value": "#0D84D3FF",
+                    "value": "#0E8ADDFF",
                     "comment": "Инвертированный цвет обводки информация"
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#11A72CFF",
+                    "value": "#0F9527FF",
                     "comment": "Инвертированный минорный цвет обводки успех"
                 },
                 "outlinePositiveMinorActive": {
-                    "value": "#0D8222FF",
+                    "value": "#074A14FF",
                     "comment": "Инвертированный минорный цвет обводки успех"
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#CD5713FF",
+                    "value": "#B14B10FF",
                     "comment": "Инвертированный минорный цвет обводки предупреждение"
                 },
                 "outlineWarningMinorActive": {
-                    "value": "#A84710FF",
+                    "value": "#5D2809FF",
                     "comment": "Инвертированный минорный цвет обводки предупреждение"
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#C2192AFF",
+                    "value": "#DD1D30FF",
                     "comment": "Инвертированный минорный цвет обводки ошибка"
                 },
                 "outlineNegativeMinorActive": {
-                    "value": "#7A101AFF",
+                    "value": "#8C121EFF",
                     "comment": "Инвертированный минорный цвет обводки ошибка"
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#1483CCFF",
+                    "value": "#137DC3FF",
                     "comment": "Инвертированный минорный цвет обводки информация"
                 },
                 "outlineInfoMinorActive": {
-                    "value": "#116BA7FF",
+                    "value": "#093B5DFF",
                     "comment": "Инвертированный минорный цвет обводки информация"
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#24B23EFF",
+                    "value": "#24B23E2B",
                     "comment": "Прозрачный инвертированный цвет обводки успех"
                 },
                 "outlineTransparentPositiveActive": {
-                    "value": "#24B23E56",
+                    "value": "#24B23E72",
                     "comment": "Прозрачный инвертированный цвет обводки успех"
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FF7024FF",
+                    "value": "#FF70242B",
                     "comment": "Прозрачный инвертированный цвет обводки предупреждение"
                 },
                 "outlineTransparentWarningActive": {
-                    "value": "#FF702456",
+                    "value": "#FF702472",
                     "comment": "Прозрачный инвертированный цвет обводки предупреждение"
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#FF3D51FF",
+                    "value": "#FF3D512B",
                     "comment": "Прозрачный инвертированный цвет обводки предупреждение"
                 },
                 "outlineTransparentNegativeActive": {
-                    "value": "#FF3D5156",
+                    "value": "#FF3D5172",
                     "comment": "Прозрачный инвертированный цвет обводки предупреждение"
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#199AF0FF",
+                    "value": "#199AF02B",
                     "comment": "Прозрачный инвертированный цвет обводки информация"
                 },
                 "outlineTransparentInfoActive": {
-                    "value": "#199AF056",
+                    "value": "#199AF072",
                     "comment": "Прозрачный инвертированный цвет обводки информация"
                 },
                 "outlineSolidPrimary": {
@@ -10038,11 +10038,11 @@
                     "comment": "Прозрачный инвертированный цвет обводки информация"
                 },
                 "outlineSolidDefaultHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#E4EBF1FF",
                     "comment": ""
                 },
                 "outlineSolidDefaultActive": {
-                    "value": "#B4C7D9FF",
+                    "value": "#D6E0EAFF",
                     "comment": ""
                 },
                 "outlineSolidDefault": {
@@ -10070,7 +10070,7 @@
                     "comment": "Минорный желтый цвет для данных"
                 },
                 "dataYellowMinorHover": {
-                    "value": "#FFD070FF",
+                    "value": "#FFCF70FF",
                     "comment": "Минорный желтый цвет для данных"
                 },
                 "dataYellowMinorActive": {
@@ -10078,12 +10078,12 @@
                     "comment": "Минорный желтый цвет для данных"
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A9129E",
-                    "comment": "Прозрачный желтый цвет для данных"
+                    "value": "#F3A8129E",
+                    "comment": ""
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A912A3",
-                    "comment": "Прозрачный желтый цвет для данных"
+                    "value": "#F3A812A3",
+                    "comment": ""
                 },
                 "dataYellowLight": {
                     "value": "[general.amber.100]",
@@ -10138,7 +10138,7 @@
                     "comment": ""
                 },
                 "dataSpring": {
-                    "value": "[general.green.250]",
+                    "value": "[general.spring.250]",
                     "comment": ""
                 },
                 "dataOrange": {
@@ -10154,7 +10154,7 @@
                     "comment": ""
                 },
                 "dataRed": {
-                    "value": "[general.red.500]",
+                    "value": "[general.red.400]",
                     "comment": ""
                 },
                 "dataRedMinor": {
@@ -10194,7 +10194,7 @@
                     "comment": ""
                 },
                 "dataGray": {
-                    "value": "[general.gray.400]",
+                    "value": "[general.coolGray.400]",
                     "comment": ""
                 },
                 "dataGrayMinor": {
@@ -10202,41 +10202,265 @@
                     "comment": ""
                 },
                 "dataRedTransparent": {
-                    "value": "#FF293E33",
+                    "value": "rgba(255,41,62,0.2)",
                     "comment": ""
                 },
                 "dataYellowTransparent": {
-                    "value": "#F3A9128F",
+                    "value": "rgba(243,169,18,0.56)",
                     "comment": ""
                 },
                 "dataBlueTransparent": {
-                    "value": "#118CDF33",
+                    "value": "rgba(17,140,223,0.2)",
                     "comment": ""
                 },
                 "dataGreenTransparent": {
-                    "value": "#1A9E3233",
+                    "value": "rgba(26,158,50,0.2)",
                     "comment": ""
                 },
                 "dataOrangeTransparent": {
-                    "value": "#FA5F0533",
+                    "value": "rgba(250,95,5,0.2)",
+                    "comment": ""
+                },
+                "dataOrchidHover": {
+                    "value": "#C061FFFF",
+                    "comment": ""
+                },
+                "dataOrchidActive": {
+                    "value": "#BC57FFFF",
+                    "comment": ""
+                },
+                "dataBlueMinorHover": {
+                    "value": "#C7E9FFFF",
+                    "comment": ""
+                },
+                "dataBlueMinorActive": {
+                    "value": "#C2E7FFFF",
+                    "comment": ""
+                },
+                "dataOrchidMinorHover": {
+                    "value": "#DAACF6FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorActive": {
+                    "value": "#D6A3F5FF",
+                    "comment": ""
+                },
+                "dataBlueLightHover": {
+                    "value": "#E5F5FFFF",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataBlueLightActive": {
+                    "value": "#E0F3FFFF",
+                    "comment": "Светлый голубой цвет для данных"
+                },
+                "dataArcticHover": {
+                    "value": "#16DFA6FF",
+                    "comment": ""
+                },
+                "dataArcticActive": {
+                    "value": "#12BA8AFF",
+                    "comment": ""
+                },
+                "dataGreenHover": {
+                    "value": "#1EB83AFF",
+                    "comment": ""
+                },
+                "dataGreenActive": {
+                    "value": "#178C2CFF",
+                    "comment": ""
+                },
+                "dataGreenMinorHover": {
+                    "value": "#36D954FF",
+                    "comment": ""
+                },
+                "dataGreenMinorActive": {
+                    "value": "#25C141FF",
+                    "comment": ""
+                },
+                "dataGreenLightHover": {
+                    "value": "#94F9A7FF",
+                    "comment": ""
+                },
+                "dataGreenLightActive": {
+                    "value": "#8BF99FFF",
+                    "comment": ""
+                },
+                "dataSpringHover": {
+                    "value": "#A1F406FF",
+                    "comment": ""
+                },
+                "dataSpringActive": {
+                    "value": "#86CC05FF",
+                    "comment": ""
+                },
+                "dataOrangeHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "dataOrangeActive": {
+                    "value": "#E65705FF",
+                    "comment": ""
+                },
+                "dataOrangeMinorHover": {
+                    "value": "#FD965EFF",
+                    "comment": ""
+                },
+                "dataOrangeMinorActive": {
+                    "value": "#FC8F54FF",
+                    "comment": ""
+                },
+                "dataOrangeLightHover": {
+                    "value": "#FEDCC8FF",
+                    "comment": ""
+                },
+                "dataOrangeLightActive": {
+                    "value": "#FED9C3FF",
+                    "comment": ""
+                },
+                "dataRedHover": {
+                    "value": "#FF6675FF",
+                    "comment": ""
+                },
+                "dataRedActive": {
+                    "value": "#FF293EFF",
+                    "comment": ""
+                },
+                "dataRedMinorHover": {
+                    "value": "#FF8591FF",
+                    "comment": ""
+                },
+                "dataRedMinorActive": {
+                    "value": "#FF7A88FF",
+                    "comment": ""
+                },
+                "dataRedLightHover": {
+                    "value": "#FFD6DAFF",
+                    "comment": ""
+                },
+                "dataRedLightActive": {
+                    "value": "#FFD1D6FF",
+                    "comment": ""
+                },
+                "dataBlueHover": {
+                    "value": "#209CEEFF",
+                    "comment": ""
+                },
+                "dataBlueActive": {
+                    "value": "#0F81CCFF",
+                    "comment": ""
+                },
+                "dataBlueMildHover": {
+                    "value": "#7ACAFFFF",
+                    "comment": ""
+                },
+                "dataBlueMildActive": {
+                    "value": "#3DB1FFFF",
+                    "comment": ""
+                },
+                "dataMalachiteHover": {
+                    "value": "#04D8DCFF",
+                    "comment": ""
+                },
+                "dataMalachiteActive": {
+                    "value": "#04B1B4FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorHover": {
+                    "value": "#00F1F5FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorActive": {
+                    "value": "#00C9CCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueHover": {
+                    "value": "#83ADFCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueActive": {
+                    "value": "#79A7FCFF",
+                    "comment": ""
+                },
+                "dataFuchsiaHover": {
+                    "value": "#F288E0FF",
+                    "comment": ""
+                },
+                "dataFuchsiaActive": {
+                    "value": "#F17EDEFF",
+                    "comment": ""
+                },
+                "dataPinkHover": {
+                    "value": "#FF85B6FF",
+                    "comment": ""
+                },
+                "dataPinkActive": {
+                    "value": "#FF7AAFFF",
+                    "comment": ""
+                },
+                "dataGrayHover": {
+                    "value": "#9BA5ABFF",
+                    "comment": ""
+                },
+                "dataGrayActive": {
+                    "value": "#7F8B94FF",
+                    "comment": ""
+                },
+                "dataGrayMinorHover": {
+                    "value": "#CFDAE2FF",
+                    "comment": ""
+                },
+                "dataGrayMinorActive": {
+                    "value": "#C9D5DEFF",
+                    "comment": ""
+                },
+                "dataRedTransparentHover": {
+                    "value": "#FF293E42",
+                    "comment": ""
+                },
+                "dataRedTransparentActive": {
+                    "value": "#FF293E47",
+                    "comment": ""
+                },
+                "dataBlueTransparentHover": {
+                    "value": "#118CDF42",
+                    "comment": ""
+                },
+                "dataBlueTransparentActive": {
+                    "value": "#118CDF47",
+                    "comment": ""
+                },
+                "dataGreenTransparentHover": {
+                    "value": "#1A9E3242",
+                    "comment": ""
+                },
+                "dataGreenTransparentActive": {
+                    "value": "#1A9E3247",
+                    "comment": ""
+                },
+                "dataOrangeTransparentHover": {
+                    "value": "#FA5F0542",
+                    "comment": ""
+                },
+                "dataOrangeTransparentActive": {
+                    "value": "#FA5F0547",
                     "comment": ""
                 }
             },
             "onDark": {
                 "dataYellowHover": {
-                    "value": "#F5B638FF",
+                    "value": "#B87A00FF",
                     "comment": "Желтый цвет для данных на темном фоне"
                 },
                 "dataYellowActive": {
-                    "value": "#E49C0CFF",
+                    "value": "#8F5F00FF",
                     "comment": "Желтый цвет для данных на темном фоне"
                 },
                 "dataYellowMinorHover": {
-                    "value": "#B87A00FF",
+                    "value": "#5D3F04FF",
                     "comment": "Минорный желтый цвет для данных на темном фоне"
                 },
                 "dataYellowMinorActive": {
-                    "value": "#8F5F00FF",
+                    "value": "#362502FF",
                     "comment": "Минорный желтый цвет для данных на темном фоне"
                 },
                 "dataYellowTransparent": {
@@ -10244,19 +10468,19 @@
                     "comment": ""
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A8127A",
-                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                    "value": "#F3A8129E",
+                    "comment": ""
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A81299",
-                    "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                    "value": "#F3A812A3",
+                    "comment": ""
                 },
                 "dataYellowLightHover": {
-                    "value": "#FFF4E0FF",
+                    "value": "#32250BFF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
                 "dataYellowLightActive": {
-                    "value": "#FFF3DBFF",
+                    "value": "#110C04FF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
                 "dataSkyBlueLightHover": {
@@ -10390,6 +10614,230 @@
                 "dataBlueTransparent": {
                     "value": "#118CDF3D",
                     "comment": ""
+                },
+                "dataBlueLightHover": {
+                    "value": "#0E2434FF",
+                    "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataBlueLightActive": {
+                    "value": "#050E14FF",
+                    "comment": "Светлый голубой цвет для данных на темном фоне"
+                },
+                "dataBlueMinorHover": {
+                    "value": "#114C74FF",
+                    "comment": ""
+                },
+                "dataBlueMinorActive": {
+                    "value": "#0A2F47FF",
+                    "comment": ""
+                },
+                "dataOrchidHover": {
+                    "value": "#BE69F7FF",
+                    "comment": ""
+                },
+                "dataOrchidActive": {
+                    "value": "#A52FF4FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorHover": {
+                    "value": "#7D2FB1FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorActive": {
+                    "value": "#662791FF",
+                    "comment": ""
+                },
+                "dataOrangeHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "dataOrangeActive": {
+                    "value": "#E65705FF",
+                    "comment": ""
+                },
+                "dataOrangeMinorHover": {
+                    "value": "#95400EFF",
+                    "comment": ""
+                },
+                "dataOrangeMinorActive": {
+                    "value": "#70300AFF",
+                    "comment": ""
+                },
+                "dataOrangeLightHover": {
+                    "value": "#58290EFF",
+                    "comment": ""
+                },
+                "dataOrangeLightActive": {
+                    "value": "#2C1507FF",
+                    "comment": ""
+                },
+                "dataRedHover": {
+                    "value": "#ED1D31FF",
+                    "comment": ""
+                },
+                "dataRedActive": {
+                    "value": "#D01124FF",
+                    "comment": ""
+                },
+                "dataRedMinorHover": {
+                    "value": "#B91828FF",
+                    "comment": ""
+                },
+                "dataRedMinorActive": {
+                    "value": "#8C121EFF",
+                    "comment": ""
+                },
+                "dataRedLightHover": {
+                    "value": "#64121AFF",
+                    "comment": ""
+                },
+                "dataRedLightActive": {
+                    "value": "#380A0FFF",
+                    "comment": ""
+                },
+                "dataArcticHover": {
+                    "value": "#1C8D6DFF",
+                    "comment": ""
+                },
+                "dataArcticActive": {
+                    "value": "#156A52FF",
+                    "comment": ""
+                },
+                "dataGreenHover": {
+                    "value": "#1EB83AFF",
+                    "comment": ""
+                },
+                "dataGreenActive": {
+                    "value": "#178C2CFF",
+                    "comment": ""
+                },
+                "dataGreenMinorHover": {
+                    "value": "#0F9928FF",
+                    "comment": ""
+                },
+                "dataGreenMinorActive": {
+                    "value": "#0B741FFF",
+                    "comment": ""
+                },
+                "dataGreenLightHover": {
+                    "value": "#0E5D1DFF",
+                    "comment": ""
+                },
+                "dataGreenLightActive": {
+                    "value": "#08310FFF",
+                    "comment": ""
+                },
+                "dataSpringHover": {
+                    "value": "#62900EFF",
+                    "comment": ""
+                },
+                "dataSpringActive": {
+                    "value": "#496B0BFF",
+                    "comment": ""
+                },
+                "dataBlueHover": {
+                    "value": "#209CEEFF",
+                    "comment": ""
+                },
+                "dataBlueActive": {
+                    "value": "#0F81CCFF",
+                    "comment": ""
+                },
+                "dataBlueMildHover": {
+                    "value": "#0D84D3FF",
+                    "comment": ""
+                },
+                "dataBlueMildActive": {
+                    "value": "#0A66A3FF",
+                    "comment": ""
+                },
+                "dataMalachiteHover": {
+                    "value": "#009194FF",
+                    "comment": ""
+                },
+                "dataMalachiteActive": {
+                    "value": "#00696BFF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorHover": {
+                    "value": "#107175FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorActive": {
+                    "value": "#0A4648FF",
+                    "comment": ""
+                },
+                "dataElectricBlueHover": {
+                    "value": "#1956C8FF",
+                    "comment": ""
+                },
+                "dataElectricBlueActive": {
+                    "value": "#13429AFF",
+                    "comment": ""
+                },
+                "dataFuchsiaHover": {
+                    "value": "#9C2688FF",
+                    "comment": ""
+                },
+                "dataFuchsiaActive": {
+                    "value": "#7B1E6CFF",
+                    "comment": ""
+                },
+                "dataPinkHover": {
+                    "value": "#AF0E4EFF",
+                    "comment": ""
+                },
+                "dataPinkActive": {
+                    "value": "#890B3DFF",
+                    "comment": ""
+                },
+                "dataGrayHover": {
+                    "value": "#869198FF",
+                    "comment": ""
+                },
+                "dataGrayActive": {
+                    "value": "#677279FF",
+                    "comment": ""
+                },
+                "dataGrayMinorHover": {
+                    "value": "#394147FF",
+                    "comment": ""
+                },
+                "dataGrayMinorActive": {
+                    "value": "#272C30FF",
+                    "comment": ""
+                },
+                "dataRedTransparentHover": {
+                    "value": "#FF293E4D",
+                    "comment": ""
+                },
+                "dataRedTransparentActive": {
+                    "value": "#FF293E52",
+                    "comment": ""
+                },
+                "dataOrangeTransparentHover": {
+                    "value": "#FA5F054D",
+                    "comment": ""
+                },
+                "dataOrangeTransparentActive": {
+                    "value": "#FA5F0552",
+                    "comment": ""
+                },
+                "dataGreenTransparentHover": {
+                    "value": "#1A9E324D",
+                    "comment": ""
+                },
+                "dataGreenTransparentActive": {
+                    "value": "#1A9E3252",
+                    "comment": ""
+                },
+                "dataBlueTransparentHover": {
+                    "value": "#118CDF4D",
+                    "comment": ""
+                },
+                "dataBlueTransparentActive": {
+                    "value": "#118CDF52",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -10399,35 +10847,35 @@
                 },
                 "dataYellowHover": {
                     "value": "#F5B638FF",
-                    "comment": "Желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowActive": {
                     "value": "#E49C0CFF",
-                    "comment": "Желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowMinor": {
                     "value": "[general.amber.200]",
                     "comment": ""
                 },
                 "dataYellowMinorHover": {
-                    "value": "#FFD070FF",
-                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                    "value": "#FFCF70FF",
+                    "comment": ""
                 },
                 "dataYellowMinorActive": {
                     "value": "#FFCC66FF",
-                    "comment": "Минорный желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowTransparent": {
                     "value": "#F3A9128F",
                     "comment": ""
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A9129E",
-                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                    "value": "#F3A8129E",
+                    "comment": ""
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A912A3",
-                    "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                    "value": "#F3A812A3",
+                    "comment": ""
                 },
                 "dataYellowLight": {
                     "value": "[general.amber.100]",
@@ -10435,11 +10883,11 @@
                 },
                 "dataYellowLightHover": {
                     "value": "#FFF4E0FF",
-                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataYellowLightActive": {
                     "value": "#FFF3DBFF",
-                    "comment": "Светлый желтый цвет для данных на светлом фоне"
+                    "comment": ""
                 },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
@@ -10560,6 +11008,230 @@
                 "dataOrangeTransparent": {
                     "value": "#FA5F0533",
                     "comment": ""
+                },
+                "dataBlueLightHover": {
+                    "value": "#E5F5FFFF",
+                    "comment": ""
+                },
+                "dataBlueLightActive": {
+                    "value": "#E0F3FFFF",
+                    "comment": ""
+                },
+                "dataBlueMinorHover": {
+                    "value": "#C7E9FFFF",
+                    "comment": ""
+                },
+                "dataBlueMinorActive": {
+                    "value": "#C2E7FFFF",
+                    "comment": ""
+                },
+                "dataOrchidHover": {
+                    "value": "#C061FFFF",
+                    "comment": ""
+                },
+                "dataOrchidActive": {
+                    "value": "#BC57FFFF",
+                    "comment": ""
+                },
+                "dataOrchidMinorHover": {
+                    "value": "#DAACF6FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorActive": {
+                    "value": "#D6A3F5FF",
+                    "comment": ""
+                },
+                "dataArcticHover": {
+                    "value": "#16DFA6FF",
+                    "comment": ""
+                },
+                "dataArcticActive": {
+                    "value": "#12BA8AFF",
+                    "comment": ""
+                },
+                "dataGreenHover": {
+                    "value": "#1EB83AFF",
+                    "comment": ""
+                },
+                "dataGreenActive": {
+                    "value": "#178C2CFF",
+                    "comment": ""
+                },
+                "dataGreenMinorHover": {
+                    "value": "#36D954FF",
+                    "comment": ""
+                },
+                "dataGreenMinorActive": {
+                    "value": "#25C141FF",
+                    "comment": ""
+                },
+                "dataGreenLightHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "dataGreenLightActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "dataSpringHover": {
+                    "value": "#A1F406FF",
+                    "comment": ""
+                },
+                "dataSpringActive": {
+                    "value": "#86CC05FF",
+                    "comment": ""
+                },
+                "dataOrangeHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "dataOrangeActive": {
+                    "value": "#E65705FF",
+                    "comment": ""
+                },
+                "dataOrangeMinorHover": {
+                    "value": "#FD965EFF",
+                    "comment": ""
+                },
+                "dataOrangeMinorActive": {
+                    "value": "#FC8F54FF",
+                    "comment": ""
+                },
+                "dataOrangeLightHover": {
+                    "value": "#FEDCC8FF",
+                    "comment": ""
+                },
+                "dataOrangeLightActive": {
+                    "value": "#FED9C3FF",
+                    "comment": ""
+                },
+                "dataRedHover": {
+                    "value": "#FF5263FF",
+                    "comment": ""
+                },
+                "dataRedActive": {
+                    "value": "#FF142CFF",
+                    "comment": ""
+                },
+                "dataRedMinorHover": {
+                    "value": "#FF8591FF",
+                    "comment": ""
+                },
+                "dataRedMinorActive": {
+                    "value": "#FF7A88FF",
+                    "comment": ""
+                },
+                "dataRedLightHover": {
+                    "value": "#FFD6DAFF",
+                    "comment": ""
+                },
+                "dataRedLightActive": {
+                    "value": "#FFD1D6FF",
+                    "comment": ""
+                },
+                "dataBlueHover": {
+                    "value": "#209CEEFF",
+                    "comment": ""
+                },
+                "dataBlueActive": {
+                    "value": "#0F81CCFF",
+                    "comment": ""
+                },
+                "dataBlueMildHover": {
+                    "value": "#7ACAFFFF",
+                    "comment": ""
+                },
+                "dataBlueMildActive": {
+                    "value": "#3DB1FFFF",
+                    "comment": ""
+                },
+                "dataMalachiteHover": {
+                    "value": "#04D8DCFF",
+                    "comment": ""
+                },
+                "dataMalachiteActive": {
+                    "value": "#04B1B4FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorHover": {
+                    "value": "#00F1F5FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorActive": {
+                    "value": "#00C9CCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueHover": {
+                    "value": "#7ACAFFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueActive": {
+                    "value": "#3DB1FFFF",
+                    "comment": ""
+                },
+                "dataFuchsiaHover": {
+                    "value": "#F288E0FF",
+                    "comment": ""
+                },
+                "dataFuchsiaActive": {
+                    "value": "#F17EDEFF",
+                    "comment": ""
+                },
+                "dataPinkHover": {
+                    "value": "#FF85B6FF",
+                    "comment": ""
+                },
+                "dataPinkActive": {
+                    "value": "#FF7AAFFF",
+                    "comment": ""
+                },
+                "dataGrayHover": {
+                    "value": "#9BA5ABFF",
+                    "comment": ""
+                },
+                "dataGrayActive": {
+                    "value": "#7F8B94FF",
+                    "comment": ""
+                },
+                "dataGrayMinorHover": {
+                    "value": "#CFDAE2FF",
+                    "comment": ""
+                },
+                "dataGrayMinorActive": {
+                    "value": "#C9D5DEFF",
+                    "comment": ""
+                },
+                "dataRedTransparentHover": {
+                    "value": "#FF293E42",
+                    "comment": ""
+                },
+                "dataRedTransparentActive": {
+                    "value": "#FF293E47",
+                    "comment": ""
+                },
+                "dataBlueTransparentHover": {
+                    "value": "#118CDF42",
+                    "comment": ""
+                },
+                "dataBlueTransparentActive": {
+                    "value": "#118CDF47",
+                    "comment": ""
+                },
+                "dataGreenTransparentHover": {
+                    "value": "#1A9E3242",
+                    "comment": ""
+                },
+                "dataGreenTransparentActive": {
+                    "value": "#1A9E3247",
+                    "comment": ""
+                },
+                "dataOrangeTransparentHover": {
+                    "value": "#FA5F0542",
+                    "comment": ""
+                },
+                "dataOrangeTransparentActive": {
+                    "value": "#FA5F0547",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -10568,51 +11240,51 @@
                     "comment": ""
                 },
                 "dataYellowHover": {
-                    "value": "#F5B638FF",
-                    "comment": "Инвертированный желтый цвет для данных"
+                    "value": "#B87A00FF",
+                    "comment": ""
                 },
                 "dataYellowActive": {
-                    "value": "#E49C0CFF",
-                    "comment": "Инвертированный желтый цвет для данных"
+                    "value": "#8F5F00FF",
+                    "comment": ""
                 },
                 "dataYellowMinor": {
                     "value": "[general.amber.850]",
                     "comment": ""
                 },
                 "dataYellowMinorHover": {
-                    "value": "#B87A00FF",
-                    "comment": "Инвертированный минорный желтый цвет для данных"
+                    "value": "#5D3F04FF",
+                    "comment": ""
                 },
                 "dataYellowMinorActive": {
-                    "value": "#8F5F00FF",
-                    "comment": "Инвертированный минорный желтый цвет для данных"
+                    "value": "#362502FF",
+                    "comment": ""
                 },
                 "dataYellowTransparent": {
                     "value": "#F3A9128F",
                     "comment": ""
                 },
                 "dataYellowTransparentHover": {
-                    "value": "#F3A8127A",
-                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                    "value": "#F3A8129E",
+                    "comment": ""
                 },
                 "dataYellowTransparentActive": {
-                    "value": "#F3A81299",
-                    "comment": "Инвертированный прозрачный желтый цвет для данных"
+                    "value": "#F3A812A3",
+                    "comment": ""
                 },
                 "dataYellowLightHover": {
-                    "value": "#FFF4E0FF",
+                    "value": "#32250BFF",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
                 "dataYellowLightActive": {
-                    "value": "#FFF3DBFF",
+                    "value": "#110C04FF",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
                 "dataSkyBlueLightHover": {
-                    "value": "#E0F8FFFF",
+                    "value": "#0E2434FF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
                 },
                 "dataSkyBlueLightActive": {
-                    "value": "#DBF7FFFF",
+                    "value": "#050E14FF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
                 },
                 "dataBlueMinor": {
@@ -10729,6 +11401,222 @@
                 },
                 "dataBlueTransparent": {
                     "value": "#118CDF3D",
+                    "comment": ""
+                },
+                "dataBlueMinorHover": {
+                    "value": "#114C74FF",
+                    "comment": ""
+                },
+                "dataBlueMinorActive": {
+                    "value": "#0A2F47FF",
+                    "comment": ""
+                },
+                "dataOrchidHover": {
+                    "value": "#BE69F7FF",
+                    "comment": ""
+                },
+                "dataOrchidActive": {
+                    "value": "#A52FF4FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorHover": {
+                    "value": "#7D2FB1FF",
+                    "comment": ""
+                },
+                "dataOrchidMinorActive": {
+                    "value": "#662791FF",
+                    "comment": ""
+                },
+                "dataOrangeHover": {
+                    "value": "#FB782DFF",
+                    "comment": ""
+                },
+                "dataOrangeActive": {
+                    "value": "#E65705FF",
+                    "comment": ""
+                },
+                "dataOrangeMinorHover": {
+                    "value": "#95400EFF",
+                    "comment": ""
+                },
+                "dataOrangeMinorActive": {
+                    "value": "#70300AFF",
+                    "comment": ""
+                },
+                "dataOrangeLightHover": {
+                    "value": "#58290EFF",
+                    "comment": ""
+                },
+                "dataOrangeLightActive": {
+                    "value": "#2C1507FF",
+                    "comment": ""
+                },
+                "dataRedHover": {
+                    "value": "#ED1D31FF",
+                    "comment": ""
+                },
+                "dataRedActive": {
+                    "value": "#D01124FF",
+                    "comment": ""
+                },
+                "dataRedMinorHover": {
+                    "value": "#B91828FF",
+                    "comment": ""
+                },
+                "dataRedMinorActive": {
+                    "value": "#8C121EFF",
+                    "comment": ""
+                },
+                "dataRedLightHover": {
+                    "value": "#64121AFF",
+                    "comment": ""
+                },
+                "dataRedLightActive": {
+                    "value": "#380A0FFF",
+                    "comment": ""
+                },
+                "dataArcticHover": {
+                    "value": "#1C8D6DFF",
+                    "comment": ""
+                },
+                "dataArcticActive": {
+                    "value": "#156A52FF",
+                    "comment": ""
+                },
+                "dataGreenHover": {
+                    "value": "#1EB83AFF",
+                    "comment": ""
+                },
+                "dataGreenActive": {
+                    "value": "#178C2CFF",
+                    "comment": ""
+                },
+                "dataGreenMinorHover": {
+                    "value": "#0F9928FF",
+                    "comment": ""
+                },
+                "dataGreenMinorActive": {
+                    "value": "#0B741FFF",
+                    "comment": ""
+                },
+                "dataGreenLightHover": {
+                    "value": "#0E5D1DFF",
+                    "comment": ""
+                },
+                "dataGreenLightActive": {
+                    "value": "#08310FFF",
+                    "comment": ""
+                },
+                "dataSpringHover": {
+                    "value": "#62900EFF",
+                    "comment": ""
+                },
+                "dataSpringActive": {
+                    "value": "#496B0BFF",
+                    "comment": ""
+                },
+                "dataBlueHover": {
+                    "value": "#209CEEFF",
+                    "comment": ""
+                },
+                "dataBlueActive": {
+                    "value": "#0F81CCFF",
+                    "comment": ""
+                },
+                "dataBlueMildHover": {
+                    "value": "#0D84D3FF",
+                    "comment": ""
+                },
+                "dataBlueMildActive": {
+                    "value": "#0A66A3FF",
+                    "comment": ""
+                },
+                "dataMalachiteHover": {
+                    "value": "#009194FF",
+                    "comment": ""
+                },
+                "dataMalachiteActive": {
+                    "value": "#00696BFF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorHover": {
+                    "value": "#107175FF",
+                    "comment": ""
+                },
+                "dataMalachiteMinorActive": {
+                    "value": "#0A4648FF",
+                    "comment": ""
+                },
+                "dataElectricBlueHover": {
+                    "value": "#1956C8FF",
+                    "comment": ""
+                },
+                "dataElectricBlueActive": {
+                    "value": "#13429AFF",
+                    "comment": ""
+                },
+                "dataFuchsiaHover": {
+                    "value": "#9C2688FF",
+                    "comment": ""
+                },
+                "dataFuchsiaActive": {
+                    "value": "#7B1E6CFF",
+                    "comment": ""
+                },
+                "dataPinkHover": {
+                    "value": "#AF0E4EFF",
+                    "comment": ""
+                },
+                "dataPinkActive": {
+                    "value": "#890B3DFF",
+                    "comment": ""
+                },
+                "dataGrayHover": {
+                    "value": "#869198FF",
+                    "comment": ""
+                },
+                "dataGrayActive": {
+                    "value": "#677279FF",
+                    "comment": ""
+                },
+                "dataGrayMinorHover": {
+                    "value": "#394147FF",
+                    "comment": ""
+                },
+                "dataGrayMinorActive": {
+                    "value": "#272C30FF",
+                    "comment": ""
+                },
+                "dataRedTransparentHover": {
+                    "value": "#FF293E4D",
+                    "comment": ""
+                },
+                "dataRedTransparentActive": {
+                    "value": "#FF293E52",
+                    "comment": ""
+                },
+                "dataOrangeTransparentHover": {
+                    "value": "#FA5F056B",
+                    "comment": ""
+                },
+                "dataOrangeTransparentActive": {
+                    "value": "#FA5F0570",
+                    "comment": ""
+                },
+                "dataGreenTransparentHover": {
+                    "value": "#1A9E324D",
+                    "comment": ""
+                },
+                "dataGreenTransparentActive": {
+                    "value": "#1A9E3252",
+                    "comment": ""
+                },
+                "dataBlueTransparentHover": {
+                    "value": "#118CDF4D",
+                    "comment": ""
+                },
+                "dataBlueTransparentActive": {
+                    "value": "#118CDF52",
                     "comment": ""
                 }
             }

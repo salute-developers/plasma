@@ -12,7 +12,11 @@ export const base = css`
 export const StyledTimePicker = styled.div<{ width?: string | number }>`
     background: var(${tokens.timePickerGridBackground});
     border-radius: var(${tokens.timePickerGridBorderRadius});
-    width: ${({ width }) => (width === 'fullWidth' ? '100%' : width) || `var(${tokens.timePickerGridWidth})`};
+    width: ${({ width }) => {
+        if (width === 'fullWidth') return '100%';
+        if (width === 'fixed' || width === undefined) return `var(${tokens.timePickerGridWidth})`;
+        return width;
+    }};
     display: flex;
     padding: var(${tokens.timePickerGridPadding});
     flex: 1 1 1;

@@ -1,0 +1,231 @@
+# Loader
+
+import { PropsTable, Description } from '@site/src/components';
+
+**Loader** - универсальный компонент для отображения индикаторов загрузки. Поддерживает два типа индикаторов: спиннер (`spinner`) и круговой прогресс-бар (`progress`).
+
+<Description name="Loader" />
+<PropsTable name="Loader" exclude={['css']} />
+
+:::info Особенности работы
+- Автоматически ограничивает значение прогресса в диапазоне от 0 до `maxValue`
+- Поддерживает различные степени размытия фона (`blur`)
+- Может отображаться поверх контента с полупрозрачным оверлеем
+- Адаптирует толщину линии прогресса под размер компонента
+:::
+
+## Использование
+
+### Спиннер
+Используется для отображения процесса загрузки без указания прогресса:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+
+export function App() {
+    return <Loader type="spinner" />;
+}
+```
+
+### Прогресс-бар
+Отображает прогресс выполнения задачи в виде круговой диаграммы:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+
+export function App() {
+    return <Loader type="progress" value={45} />;
+}
+```
+
+## Примеры
+
+### Размеры индикатора
+Размер задается с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="spinner" size="s" />
+            <Loader type="spinner" size="m" />
+            <Loader type="spinner" size="l" />
+
+            <Loader type="progress" size="s" value={25} />
+            <Loader type="progress" size="m" value={50} />
+            <Loader type="progress" size="l" value={75} />
+        </div>
+    );
+}
+```
+
+### Виды индикатора
+Вид задается с помощью свойства `view`:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="spinner" view="default" />
+            <Loader type="spinner" view="accent" />
+            <Loader type="spinner" view="positive" />
+
+            <Loader type="progress" view="default" value={25} />
+            <Loader type="progress" view="accent" value={50} />
+            <Loader type="progress" view="positive" value={75} />
+        </div>
+    );
+}
+```
+
+### Размытие фона
+Добавление эффекта размытия фона с разной интенсивностью:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="spinner" hasBlur blur="small" />
+            <Loader type="spinner" hasBlur blur="medium" />
+            <Loader type="spinner" hasBlur blur="large" />
+
+            <Loader type="progress" hasBlur blur="medium" value={50} />
+        </div>
+    );
+}
+```
+
+### Полупрозрачный оверлей
+Отображение индикатора поверх затемненного фона:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div style={{ position: 'relative', height: '200px', border: '1px solid #ccc' }}>
+            <Loader
+                type="spinner"
+                hasOverlay
+                style={{ position: 'absolute', inset: 0 }}
+            />
+        </div>
+    );
+}
+```
+
+### Использование с PopupProvider
+Для корректной работы Loader с оверлеем необходимо обернуть приложение в `PopupProvider`:
+
+```tsx live
+import React, { useState } from 'react';
+import { Loader, Button, PopupProvider } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [loading, setLoading] = useState(false);
+
+    const handleShowLoader = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 3000);
+    };
+
+    return (
+        <PopupProvider>
+            <div style={{ position: 'relative', padding: '1rem' }}>
+                <Button onClick={handleShowLoader}>Показать загрузку</Button>
+                {loading && (
+                    <Loader
+                        type="spinner"
+                        hasOverlay
+                    />
+                )}
+            </div>
+        </PopupProvider>
+    );
+}
+```
+
+### Контент внутри прогресс-бара
+Отображение дополнительной информации внутри кругового индикатора:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="progress" value={25} size="xl">25%</Loader>
+            <Loader type="progress" value={75} size="l">
+                <IconClose color="var(--text-primary)" size="s" />
+            </Loader>
+        </div>
+    );
+}
+```
+
+### Настройка толщины линии прогресса
+Изменение толщины обводки прогресс-бара:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="progress" value={50} strokeSize={2} />
+            <Loader type="progress" value={50} strokeSize={4} />
+            <Loader type="progress" value={50} strokeSize={8} />
+        </div>
+    );
+}
+```
+
+### Отключение фоновой дорожки
+Скрытие фоновой линии прогресс-бара:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="progress" value={50} hasTrack />
+            <Loader type="progress" value={50} hasTrack={false} />
+        </div>
+    );
+}
+```
+
+### Кастомный максимальный показатель
+Изменение максимального значения прогресса:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="progress" value={25} maxValue={50} size="xl">25/50</Loader>
+            <Loader type="progress" value={75} maxValue={150} size="xl">75/150</Loader>
+        </div>
+    );
+}
+```
+

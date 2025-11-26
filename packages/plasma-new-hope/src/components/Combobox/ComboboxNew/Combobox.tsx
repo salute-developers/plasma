@@ -42,7 +42,6 @@ import { Context } from './Combobox.context';
 /**
  * Поле ввода с выпадающим списком и возможностью фильтрации и выбора элементов.
  */
-
 export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProps, 'items' | 'chipClickArea'>>) =>
     forwardRef<HTMLInputElement, ComboboxProps>((props, ref) => {
         const {

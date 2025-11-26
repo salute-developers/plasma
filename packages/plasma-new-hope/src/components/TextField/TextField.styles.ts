@@ -96,6 +96,12 @@ export const InputPlaceholder = styled.div<{ hasPadding?: boolean }>`
     padding: ${({ hasPadding }) => (hasPadding ? `var(${tokens.contentLabelInnerPadding})` : '0')};
 `;
 
+export const InputPlaceholderValue = styled.div`
+    &.${classes.inputTextEllipsis} {
+        ${applyEllipsis()}
+    }
+`;
+
 export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
     align-items: center;

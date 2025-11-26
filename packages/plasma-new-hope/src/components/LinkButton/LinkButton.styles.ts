@@ -65,6 +65,10 @@ export const LinkButtonText = styled.span`
     &:hover {
         color: var(${tokens.linkButtonTextColorHover});
     }
+
+    &:active {
+        color: var(${tokens.linkButtonTextColorActive});
+    }
 `;
 
 export const StyledContentLeft = styled.div`

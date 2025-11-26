@@ -755,6 +755,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '60px 60px 0 60px',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -772,6 +773,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '60px 60px 0 60px',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -789,6 +791,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '60px 60px 0 60px',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -806,6 +809,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '20px 300px 20px 0',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -822,6 +826,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '20px 300px 20px 0',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -838,6 +843,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '20px 300px 20px 0',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -854,6 +860,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '0 60px 60px 60px',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -871,6 +878,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '0 60px 60px 60px',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -888,6 +896,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '0 60px 60px 60px',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -905,6 +914,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '20px 0 20px 300px',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox placement="left" size="xs" alwaysOpened items={items} label="Label" placeholder="Left" />
@@ -914,6 +924,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '20px 0 20px 300px',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox
@@ -930,6 +941,7 @@ describe('sdds-insol: Combobox', () => {
                     style={{
                         width: '200px',
                         padding: '20px 0 20px 300px',
+                        boxSizing: 'content-box',
                     }}
                 >
                     <Combobox

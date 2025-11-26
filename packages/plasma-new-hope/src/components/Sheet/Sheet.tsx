@@ -39,6 +39,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 withOverlay = true,
                 withBlur = false,
                 withTransition = true,
+                hasScrollEvents = true,
                 throttleMs,
                 className,
                 view,
@@ -51,7 +52,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             const handleRef = useRef<HTMLDivElement>(null);
 
             useOverflow({ opened });
-            useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, onClose });
+            useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, hasScrollEvents, onClose });
 
             const hasHeader = Boolean(contentHeader);
             const hasFooter = Boolean(contentFooter);
