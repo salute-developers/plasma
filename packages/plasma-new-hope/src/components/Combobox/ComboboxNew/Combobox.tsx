@@ -555,6 +555,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         contentRight={
                                             <IconArrowWrapper
                                                 disabled={disabled}
+                                                readOnly={readOnly}
                                                 onClick={handleClickArrow}
                                                 className={classes.comboboxTargetArrow}
                                             >
