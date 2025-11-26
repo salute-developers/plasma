@@ -8,6 +8,11 @@
       "import": "./dist/styled-components/es/index.js",
       "require": "./dist/styled-components/cjs/index.js",
       "types": "./types/index.d.ts"
+    },
+    "./beta": {
+      "import": "./dist/beta/es/index.js",
+      "require": "./dist/beta/cjs/index.js",
+      "types": "./dist/beta/types/index.d.ts"
     }
   },
   "files": [
@@ -66,12 +71,15 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "npm run build:styled-components",
+    "build": "npm run build:styled-components && npm run build:beta",
     "postbuild": "npm run generate:typings",
     "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
-    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
-    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-    "generate:typings": "rm -rf types && tsc",
+    "build:styled-components:cjs": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:styled-components:esm": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "build:beta": "rm -rf dist/beta && npm run build:beta:esm && npm run build:beta:cjs",
+    "build:beta:cjs": "swc ./src/components/_beta -d ./dist/beta/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs && mv dist/beta/cjs/components/_beta/* dist/beta/cjs && rimraf dist/beta/cjs/components",
+    "build:beta:esm": "swc ./src/components/_beta -d ./dist/beta/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6 && mv dist/beta/es/components/_beta/* dist/beta/es && rimraf dist/beta/es/components",
+    "generate:typings": "rm -rf types && tsc && rm -rf dist/beta/types && tsc -p src/components/_beta/tsconfig.json",
     "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
     "storybook:draft": "IS_DRAFT=true storybook dev -p ${PORT:-7007} -c .storybook",
     "storybook:build:draft": "IS_DRAFT=true storybook build -c .storybook -o build-sb-draft",
