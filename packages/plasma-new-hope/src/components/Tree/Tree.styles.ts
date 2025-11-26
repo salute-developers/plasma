@@ -53,8 +53,16 @@ export const ContentRight = styled.div`
     line-height: 0;
 `;
 
-export const Line = styled.div<{ left: number }>`
+export const Line = styled.div<{ left: number; dropPosition: number; variant: TreeProps['variant'] }>`
+    top: ${({ dropPosition, variant }) =>
+        dropPosition === -1
+            ? `calc(var(${variant === 'normal' ? tokens.itemPaddingTop : tokens.itemPaddingTightTop}) * -1)`
+            : 'auto'};
     left: ${({ left }) => left}px;
+    bottom: ${({ dropPosition, variant }) =>
+        dropPosition !== -1
+            ? `calc(var(${variant === 'normal' ? tokens.itemPaddingBottom : tokens.itemPaddingTightBottom}) * -1)`
+            : 'auto'};
     right: 0;
     position: absolute;
     z-index: 1;
@@ -77,7 +85,10 @@ export const base = css`
         align-items: center;
         box-sizing: border-box;
         margin: 0;
-        padding: var(${tokens.itemPadding});
+        padding-top: var(${tokens.itemPaddingTop});
+        padding-right: var(${tokens.itemPaddingRight});
+        padding-bottom: var(${tokens.itemPaddingBottom});
+        padding-left: var(${tokens.itemPaddingLeft});
         position: relative;
         z-index: 0;
         width: 100%;
@@ -88,7 +99,10 @@ export const base = css`
     }
 
     .rc-tree.${classes.treeTightVariant} .rc-tree-treenode {
-        padding: var(${tokens.itemPaddingTight});
+        padding-top: var(${tokens.itemPaddingTightTop});
+        padding-right: var(${tokens.itemPaddingTightRight});
+        padding-bottom: var(${tokens.itemPaddingTightBottom});
+        padding-left: var(${tokens.itemPaddingTightLeft});
     }
 
     .rc-tree .rc-tree-treenode .draggable {

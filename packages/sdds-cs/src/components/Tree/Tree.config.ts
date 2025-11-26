@@ -31,8 +31,14 @@ export const config = {
             s: css`
                 ${tokens.itemHeight}: 2.5rem;
                 ${tokens.itemBackgroundExtraOffset}: 0.75rem;
-                ${tokens.itemPadding}: 0.5rem 0.75rem;
-                ${tokens.itemPaddingTight}: 0.4375rem 0.5rem;
+                ${tokens.itemPaddingTop}: 0.5rem;
+                ${tokens.itemPaddingRight}: 0.75rem;
+                ${tokens.itemPaddingBottom}: 0.5rem;
+                ${tokens.itemPaddingLeft}: 0.75rem;
+                ${tokens.itemPaddingTightTop}: 0.4375rem;
+                ${tokens.itemPaddingTightRight}: 0.5rem;
+                ${tokens.itemPaddingTightBottom}: 0.4375rem;
+                ${tokens.itemPaddingTightLeft}: 0.5rem;
                 ${tokens.itemIndent}: 1.875rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemTop}: 0rem;
