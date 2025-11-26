@@ -1,4 +1,90 @@
 {
+  "0.334.0": {
+    "date": "2025-11-26",
+    "core": [
+      {
+        "component": "Infra",
+        "children": [
+          {
+            "text": "обновлена `node` до версии 24.11.0 (LTS);\n\nобновлен `npm` до версии 11.6.1;",
+            "link": "https://github.com/salute-developers/plasma/pull/2326",
+            "id": 2326
+          }
+        ]
+      },
+      {
+        "component": "TextField",
+        "children": [
+          {
+            "text": "добавлен механизм сокращение через троеточие для `placeholder`",
+            "link": "https://github.com/salute-developers/plasma/pull/2329",
+            "id": 2329
+          }
+        ]
+      },
+      {
+        "component": "TextField, Range, DatePicker, DateTimePicker",
+        "children": [
+          {
+            "text": "исправлены hover/active состояния для leftContent, rightContent",
+            "link": "https://github.com/salute-developers/plasma/pull/2336",
+            "id": 2336
+          }
+        ]
+      },
+      {
+        "component": "LinkButton",
+        "children": [
+          {
+            "text": "Добавлено производное состояние `active`",
+            "link": "https://github.com/salute-developers/plasma/pull/2331",
+            "id": 2331
+          }
+        ]
+      },
+      {
+        "component": "Mask",
+        "children": [
+          {
+            "text": "исправлена транзитивная ошибка в режиме `strict mode` (терялось значение маски при повторном рендере)",
+            "link": "https://github.com/salute-developers/plasma/pull/2332",
+            "id": 2332
+          }
+        ]
+      },
+      {
+        "component": "Sheet",
+        "children": [
+          {
+            "text": "Добавлен новый пропс \"hasScrollEvents\"",
+            "link": "https://github.com/salute-developers/plasma/pull/2342",
+            "id": 2342
+          }
+        ]
+      },
+      {
+        "component": "Loader",
+        "children": [
+          {
+            "text": "Добавлен новый компонент",
+            "link": "https://github.com/salute-developers/plasma/pull/2299",
+            "id": 2299
+          }
+        ]
+      },
+      {
+        "component": "TimePicker",
+        "children": [
+          {
+            "text": "Исправлено ошибка использовании свойства `usePortal`  в  компонентах группы `Overlay`",
+            "link": "https://github.com/salute-developers/plasma/pull/2352",
+            "id": 2352
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.332.0": {
     "date": "2025-11-12",
     "core": [
