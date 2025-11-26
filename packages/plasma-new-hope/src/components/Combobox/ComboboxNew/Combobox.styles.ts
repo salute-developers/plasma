@@ -39,10 +39,10 @@ export const Ul = styled.ul<{
     }
 `;
 
-export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
+export const IconArrowWrapper = styled.div<{ disabled: boolean; readOnly: boolean }>`
     line-height: 0;
     color: var(${tokens.disclosureIconColor});
-    cursor: ${({ disabled }) => (disabled ? 'inherit' : 'pointer')};
+    cursor: ${({ disabled, readOnly }) => (disabled || readOnly ? 'inherit' : 'pointer')};
 
     .${classes.arrowInverse} {
         transform: rotate(-180deg);
@@ -50,8 +50,8 @@ export const IconArrowWrapper = styled.div<{ disabled: boolean }>`
 
     &:hover,
     &:active {
-        color: ${({ disabled }) =>
-            disabled ? `var(${tokens.disclosureIconColor})` : `var(${tokens.disclosureIconColorHover})`};
+        color: ${({ disabled, readOnly }) =>
+            disabled || readOnly ? `var(${tokens.disclosureIconColor})` : `var(${tokens.disclosureIconColorHover})`};
     }
 `;
 
