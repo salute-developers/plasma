@@ -262,7 +262,7 @@ export type TextFieldPropsBase = {
 export type TextFieldProps = {
     /**
      * Стиль для UI конфигурации
-     * Влияет на выбор предустановленого набора токенов
+     * Влияет на выбор предустановленного набора токенов
      * @default default
      */
     appearance?: 'default' | 'clear';

@@ -30,3 +30,4 @@ export const composableStyle = (s: TemplateStringsArray, ...expr: Array<string |
 };
 
 export { fixedForwardRef } from './fixedForwardRef';
+export { mergeHandlers } from './mergeHandlers';
