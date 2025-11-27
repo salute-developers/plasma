@@ -242,7 +242,7 @@ describe('sdds-insol: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     optional
-                    clear
+                    appearance="clear"
                     hasDivider
                 />
             </CypressTestDecorator>,
@@ -266,7 +266,7 @@ describe('sdds-insol: TextField', () => {
                         contentRight={Icon}
                         required
                         requiredPlacement="left"
-                        clear
+                        appearance="clear"
                         hasDivider
                     />
                 </div>
@@ -286,7 +286,7 @@ describe('sdds-insol: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     optional
-                    clear
+                    appearance="clear"
                     hasDivider
                 />
             </CypressTestDecorator>,
@@ -308,7 +308,7 @@ describe('sdds-insol: TextField', () => {
                     contentRight={Icon}
                     required
                     requiredPlacement="right"
-                    clear
+                    appearance="clear"
                     hasDivider
                 />
             </CypressTestDecorator>,
@@ -332,7 +332,7 @@ describe('sdds-insol: TextField', () => {
                     contentRight={Icon}
                     required
                     requiredPlacement="right"
-                    clear
+                    appearance="clear"
                     hasDivider
                 />
             </CypressTestDecorator>,
@@ -355,7 +355,7 @@ describe('sdds-insol: TextField', () => {
                         contentRight={Icon}
                         required
                         requiredPlacement="left"
-                        clear
+                        appearance="clear"
                     />
                 </div>
             </CypressTestDecorator>,

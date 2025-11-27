@@ -282,7 +282,7 @@ describe('plasma-giga: NumberFormat', () => {
                     titleCaption="titleCaption"
                     placeholder="placeholder"
                     helperText="helperText"
-                    clear
+                    appearance="clear"
                 />
             </CypressTestDecoratorWithTypo>,
         );
