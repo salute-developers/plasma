@@ -24,6 +24,7 @@ export const Default: StoryObj<ComponentProps<typeof Link>> = {
         href: 'https://google.com',
         children: 'Hello',
         view: 'accent',
+        size: 'm',
         disabled: false,
         focused: true,
     },
