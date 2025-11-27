@@ -3,20 +3,23 @@ import { css, textFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled
 export const config = {
     defaults: {
         view: 'default',
-        size: 's',
+        size: 'l',
         labelPlacement: 'outer',
     },
     variations: {
         view: {
             default: css`
                 ${tokens.color}: var(--text-primary);
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.backgroundColorFocus}: var(--surface-solid-card-active);
-                ${tokens.caretColor}: var(--text-accent);
+
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.textBeforeColor}: var(--text-secondary);
-                ${tokens.textAfterColor}: var(--text-secondary);
+
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
+                ${tokens.caretColor}: var(--text-accent);
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
@@ -29,35 +32,24 @@ export const config = {
                 ${tokens.contentSlotRightColorHover}: var(--text-accent-minor);
                 ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
 
-                ${tokens.chipCloseIconColor}: var(--text-secondary);
-                ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
-                ${tokens.chipCloseIconColorHover}: var(--text-primary);
-                ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
-                ${tokens.chipColorHover}: var(--text-primary-hover);
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${tokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
-                ${tokens.chipColorReadOnly}: var(--text-primary);
-                ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${tokens.chipColorReadOnlyHover}: var(--text-primary);
-                ${tokens.chipOpacityReadonly}: 0.72;
+                ${tokens.dividerColor}: var(--outline-solid-primary);
+                ${tokens.dividerColorHover}: var(--text-secondary);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.focusColor}: var(--text-accent);
-                ${tokens.borderColor}: var(--outline-solid-primary);
-                ${tokens.borderColorFocus}: var(--outline-accent);
-                ${tokens.borderColorHover}: var(--outline-solid-primary-hover);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             negative: css`
-                ${tokens.color}: var(--text-primary);
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.backgroundColorFocus}: var(--surface-solid-card-active);
+                ${tokens.color}: var(--text-negative);
+
+                ${tokens.placeholderColor}: var(--text-negative);
+                ${tokens.placeholderColorFocus}: var(--text-negative);
+
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: var(--text-accent);
-                ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.textBeforeColor}: var(--text-secondary);
                 ${tokens.textAfterColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -68,26 +60,15 @@ export const config = {
                 ${tokens.contentSlotColor}: var(--text-negative);
                 ${tokens.contentSlotColorHover}: var(--text-negative-hover);
                 ${tokens.contentSlotColorActive}: var(--text-negative-active);
-                ${tokens.contentSlotRightColor}: var(--text-accent);
-                ${tokens.contentSlotRightColorHover}: var(--text-accent-minor);
-                ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
 
-                ${tokens.chipCloseIconColor}: var(--text-secondary);
-                ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
-                ${tokens.chipCloseIconColorHover}: var(--text-primary);
-                ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
-                ${tokens.chipColorHover}: var(--text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${tokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
-                ${tokens.chipColorReadOnly}: var(--text-primary);
-                ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${tokens.chipColorReadOnlyHover}: var(--text-primary);
-                ${tokens.chipOpacityReadonly}: 0.72;
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary-active);
 
-                ${tokens.borderColor}: var(--text-negative);
+                ${tokens.dividerColor}: var(--surface-negative);
+                ${tokens.dividerColorHover}: var(--surface-negative);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
+
                 ${tokens.focusColor}: var(--text-negative);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
@@ -96,16 +77,12 @@ export const config = {
         size: {
             s: css`
                 ${tokens.height}: 2.5rem;
-                ${tokens.padding}: 0.6875rem 0.75rem 0.6875rem 0.75rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.75rem;
-                ${tokens.borderWidth}: 0.125rem;
+                ${tokens.padding}: 0.6875rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem 0;
+                ${tokens.rightContentMargin}: -0.1875rem 0 -0.1875rem 0.75rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -124,7 +101,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.1063rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -144,6 +121,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.25rem;
@@ -162,9 +141,9 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
             `,
         },
@@ -232,11 +211,9 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 1;
-                ${tokens.backgroundColor}: var(--surface-solid-primary);
-                ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
-                ${tokens.borderColor}: var(--surface-solid-primary);
-                ${tokens.borderColorHover}: var(--surface-solid-primary);
-                ${tokens.borderColorFocus}: var(--surface-solid-primary);
+                ${tokens.dividerColor}: var(--surface-solid-primary);
+                ${tokens.dividerColorHover}: var(--surface-solid-primary);
+                ${tokens.dividerColorFocus}: var(--surface-solid-primary);
                 ${tokens.color}: var(--text-secondary);
             `,
         },
@@ -248,7 +225,8 @@ export const config = {
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
-                ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.labelColorReadOnly}: var(--text-primary);
+                ${tokens.dividerColorReadOnly}: var(--outline-solid-secondary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },

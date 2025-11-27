@@ -5,18 +5,14 @@ export const config = {
         view: 'default',
         size: 'm',
         labelPlacement: 'outer',
-        chipView: 'secondary',
     },
     variations: {
         view: {
             default: css`
                 ${tokens.color}: var(--text-primary);
-                ${tokens.clearColor}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColor}: var(--text-secondary);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: var(--surface-transparent-primary);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
@@ -43,12 +39,9 @@ export const config = {
             `,
             positive: css`
                 ${tokens.color}: var(--text-primary);
-                ${tokens.clearColor}: var(--text-positive);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColor}: var(--text-positive);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-positive);
 
                 ${tokens.backgroundColor}: var(--surface-transparent-positive);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-positive-hover);
@@ -75,12 +68,9 @@ export const config = {
             `,
             warning: css`
                 ${tokens.color}: var(--text-primary);
-                ${tokens.clearColor}: var(--text-warning);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColor}: var(--text-warning);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-warning);
 
                 ${tokens.backgroundColor}: var(--surface-transparent-warning);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
@@ -107,12 +97,9 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: var(--text-primary);
-                ${tokens.clearColor}: var(--text-negative);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColor}: var(--text-negative);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-negative);
 
                 ${tokens.backgroundColor}: var(--surface-transparent-negative);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-negative-hover);
@@ -156,7 +143,6 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelOffset}: 0.75rem;
-                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -167,7 +153,6 @@ export const config = {
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.938rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.82rem -2.063rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -219,19 +204,17 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${tokens.clearIndicatorLabelPlacementInner}: 1.75rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.75rem -0.875rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.75rem -2.488rem auto auto;
             `,
             l: css`
                 ${tokens.height}: 3.5rem;
-                ${tokens.padding}: 1.063rem 1.125rem 1.063rem 1.125rem;
+                ${tokens.padding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.leftContentMargin}: -0.063rem 0.5rem -0.063rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.063rem -0.125rem -0.063rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.063rem -0.438rem -0.063rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.rightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
 
                 ${tokens.contentRightWrapperGap}: 0.25rem;
                 ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
@@ -244,7 +227,6 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelOffset}: 0.75rem;
-                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -297,9 +279,6 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${tokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -309,6 +288,7 @@ export const config = {
                 ${tokens.padding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
@@ -325,7 +305,6 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.labelOffset}: 0.625rem;
-                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -378,9 +357,6 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
-                ${tokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -390,6 +366,7 @@ export const config = {
                 ${tokens.padding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
@@ -406,7 +383,6 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.labelOffset}: 0.5rem;
-                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -436,7 +412,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
-                ${tokens.contentLabelInnerPadding}: 1.063rem 0 0.3125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.25rem;
@@ -459,9 +435,6 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -471,10 +444,11 @@ export const config = {
                 ${tokens.padding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.leftContentMargin}: -0.063rem 0.25rem -0.063rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.063rem -0.125rem -0.063rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.063rem -0.688rem -0.063rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.rightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
 
                 ${tokens.contentRightWrapperGap}: 0.25rem;
                 ${tokens.contentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;
@@ -487,7 +461,6 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelOffset}: 0.375rem;
-                ${tokens.clearLabelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -497,7 +470,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
                 ${tokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
@@ -517,7 +490,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
-                ${tokens.contentLabelInnerPadding}: 1.063rem 0 0.3125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.125rem;
@@ -540,9 +513,6 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
-                ${tokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -559,9 +529,6 @@ export const config = {
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             outer: css``,
-        },
-        clear: {
-            true: css``,
         },
         chipView: {
             default: css`
@@ -670,7 +637,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m);
+                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
                 ${tokens.tooltipColor}: var(--text-primary);
                 ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
             `,
