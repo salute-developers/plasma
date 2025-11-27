@@ -86,7 +86,7 @@ describe('plasma-b2c: TextField', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <TextField
-                    clear
+                    appearance="clear"
                     hasDivider
                     size="m"
                     value="Value"
@@ -96,7 +96,7 @@ describe('plasma-b2c: TextField', () => {
                 />
                 <SpaceMe />
                 <TextField
-                    clear
+                    appearance="clear"
                     hasDivider
                     size="m"
                     value="Value"
@@ -106,7 +106,7 @@ describe('plasma-b2c: TextField', () => {
                 />
                 <SpaceMe />
                 <TextField
-                    clear
+                    appearance="clear"
                     hasDivider
                     size="m"
                     value="Value"
@@ -115,11 +115,11 @@ describe('plasma-b2c: TextField', () => {
                     status="error"
                 />
                 <SpaceMe />
-                <TextField clear hasDivider size="m" placeholder="Placeholder" status="success" />
+                <TextField appearance="clear" hasDivider size="m" placeholder="Placeholder" status="success" />
                 <SpaceMe />
-                <TextField clear hasDivider size="m" placeholder="Placeholder" status="warning" />
+                <TextField appearance="clear" hasDivider size="m" placeholder="Placeholder" status="warning" />
                 <SpaceMe />
-                <TextField clear hasDivider size="m" placeholder="Placeholder" status="error" />
+                <TextField appearance="clear" hasDivider size="m" placeholder="Placeholder" status="error" />
             </CypressTestDecoratorWithTypo>,
         );
 

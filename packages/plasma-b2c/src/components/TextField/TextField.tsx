@@ -121,6 +121,7 @@ export type CustomTextFieldProps = Omit<TextFieldProps, 'helperText'> & {
     helperText?: ReactNode;
 } & Pick<
         newHopeTextFieldProps,
+        | 'appearance'
         | 'enumerationType'
         | 'chips'
         | 'chipType'

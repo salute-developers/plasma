@@ -118,6 +118,7 @@ type TextFieldProps = Omit<TextFieldPropsOld, 'helperText'> & {
 export type CustomTextFieldProps = TextFieldProps &
     Pick<
         newHopeTextFieldProps,
+        | 'appearance'
         | 'enumerationType'
         | 'chips'
         | 'chipType'
