@@ -3,9 +3,8 @@ import { css, textFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 'l',
         labelPlacement: 'outer',
-        chipView: 'secondary',
     },
     variations: {
         view: {
@@ -15,9 +14,9 @@ export const config = {
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.backgroundColor}: var(--surface-transparent-primary);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -39,14 +38,14 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             positive: css`
-                ${tokens.color}: var(--text-primary);
+                ${tokens.color}: var(--text-positive);
 
-                ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.placeholderColor}: var(--text-positive);
+                ${tokens.placeholderColorFocus}: var(--text-positive);
 
-                ${tokens.backgroundColor}: var(--surface-transparent-positive);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-positive-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -55,9 +54,13 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
-                ${tokens.contentSlotColor}: var(--text-secondary);
-                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.contentSlotColor}: var(--text-positive);
+                ${tokens.contentSlotColorHover}: var(--text-positive-hover);
+                ${tokens.contentSlotColorActive}: var(--text-positive-active);
+
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary-active);
 
                 ${tokens.dividerColor}: var(--surface-positive);
                 ${tokens.dividerColorHover}: var(--surface-positive);
@@ -68,14 +71,14 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             warning: css`
-                ${tokens.color}: var(--text-primary);
+                ${tokens.clearColor}: var(--text-warning);
 
-                ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.placeholderColor}: var(--text-warning);
+                ${tokens.placeholderColorFocus}: var(--text-warning);
 
-                ${tokens.backgroundColor}: var(--surface-transparent-warning);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -84,9 +87,13 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
-                ${tokens.contentSlotColor}: var(--text-secondary);
-                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.contentSlotColor}: var(--text-warning);
+                ${tokens.contentSlotColorHover}: var(--text-warning-hover);
+                ${tokens.contentSlotColorActive}: var(--text-warning-active);
+
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary-active);
 
                 ${tokens.dividerColor}: var(--surface-warning);
                 ${tokens.dividerColorHover}: var(--surface-warning);
@@ -97,14 +104,14 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             negative: css`
-                ${tokens.color}: var(--text-primary);
+                ${tokens.color}: var(--text-negative);
 
-                ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.placeholderColor}: var(--text-negative);
+                ${tokens.placeholderColorFocus}: var(--text-negative);
 
-                ${tokens.backgroundColor}: var(--surface-transparent-negative);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-negative-active);
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -113,9 +120,13 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
-                ${tokens.contentSlotColor}: var(--text-secondary);
-                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.contentSlotColor}: var(--text-negative);
+                ${tokens.contentSlotColorHover}: var(--text-negative-hover);
+                ${tokens.contentSlotColorActive}: var(--text-negative-active);
+
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary-active);
 
                 ${tokens.dividerColor}: var(--surface-negative);
                 ${tokens.dividerColorHover}: var(--surface-negative);
@@ -129,12 +140,12 @@ export const config = {
         size: {
             xl: css`
                 ${tokens.height}: 4rem;
-                ${tokens.padding}: 1.3125rem 1.125rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 1rem;
+                ${tokens.padding}: 1.375rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
-                ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
+                ${tokens.rightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
@@ -143,7 +154,7 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -153,8 +164,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.938rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.82rem -2.063rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.063rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -173,7 +183,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.8125rem 0 0.125rem 0;
-                ${tokens.contentLabelInnerPadding}: 1.813rem 0 0.813rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.938rem 0 0.813rem 0;
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
@@ -202,24 +212,20 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 1.75rem auto auto -0.875rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.75rem -0.875rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.75rem -2.488rem auto auto;
             `,
             l: css`
                 ${tokens.height}: 3.5rem;
-                ${tokens.padding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.875rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.padding}: 1rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
-
-                ${tokens.contentRightWrapperGap}: 0.25rem;
-                ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.leftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
+                ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
@@ -228,7 +234,7 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -238,8 +244,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -259,6 +264,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.5rem;
@@ -277,27 +284,20 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
             `,
             m: css`
                 ${tokens.height}: 3rem;
-                ${tokens.padding}: 0.875rem 1rem 0.875rem 1rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.75rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.padding}: 0.875rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.125rem -0.438rem -0.125rem 0.75rem;
-
-                ${tokens.contentRightWrapperGap}: 0.25rem;
-                ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.leftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
+                ${tokens.rightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
@@ -306,7 +306,7 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.labelOffset}: 0.625rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -316,8 +316,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -337,8 +336,10 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.chipGap}: 0.25rem;
+                ${tokens.chipGap}: 0.125rem;
                 ${tokens.chipBorderRadius}: 0.375rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2.25rem;
@@ -355,27 +356,20 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.25rem auto auto;
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
-                ${tokens.padding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.625rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.padding}: 0.75rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
-
-                ${tokens.contentRightWrapperGap}: 0.25rem;
-                ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.leftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
+                ${tokens.rightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
@@ -384,7 +378,7 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.labelOffset}: 0.5rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -394,8 +388,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -415,8 +408,10 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.chipGap}: 0.25rem;
+                ${tokens.chipGap}: 0.125rem;
                 ${tokens.chipBorderRadius}: 0.25rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 1.75rem;
@@ -433,27 +428,20 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
             `,
             xs: css`
                 ${tokens.height}: 2rem;
-                ${tokens.padding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.5rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.padding}: 0.5rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
-                ${tokens.rightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
-
-                ${tokens.contentRightWrapperGap}: 0.25rem;
-                ${tokens.contentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;
+                ${tokens.leftContentMargin}: -0.0625rem 0.375rem -0.0625rem 0rem;
+                ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.625rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
@@ -462,7 +450,7 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.labelOffset}: 0.375rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -473,7 +461,6 @@ export const config = {
                 ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -493,8 +480,10 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.chipGap}: 0.25rem;
+                ${tokens.chipGap}: 0.125rem;
                 ${tokens.chipBorderRadius}: 0.125rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 1.25rem;
@@ -511,13 +500,11 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
             `,
         },
         labelPlacement: {
@@ -703,7 +690,7 @@ export const config = {
             true: css`
                 ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.colorReadOnly}: var(--text-primary);
-                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundColorReadOnly}: transparent;
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
