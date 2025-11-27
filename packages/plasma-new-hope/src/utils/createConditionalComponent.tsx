@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 type PropCondition<T> = {
     prop: keyof T;
@@ -11,11 +11,11 @@ type ComponentMapping<T> = {
 };
 
 // TODO: Поправить типы, если внутри услвовия типы не совпадают
-export function createConditionalComponent<T extends object>(
+export function createConditionalComponent<T extends object, K extends HTMLElement>(
     defaultComponent: React.ComponentType<T>,
     mappings: ComponentMapping<T>[],
-): React.FC<T> {
-    return (props: T) => {
+) {
+    return forwardRef<K, T>((props: T, ref) => {
         for (const mapping of mappings) {
             const { conditions, component } = mapping;
 
@@ -25,11 +25,11 @@ export function createConditionalComponent<T extends object>(
 
             if (allConditionsMatch) {
                 const Component = component;
-                return <Component {...props} />;
+                return <Component ref={ref} {...props} />;
             }
         }
 
         const DefaultComponent = defaultComponent;
-        return <DefaultComponent {...props} />;
-    };
+        return <DefaultComponent ref={ref} {...props} />;
+    });
 }
