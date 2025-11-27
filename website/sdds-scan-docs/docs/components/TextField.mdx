@@ -1,150 +1,210 @@
 ---
-id: textfield
+id: TextField
 title: TextField
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # TextField
 <Description name="TextField" />
-<PropsTable name="TextField" exclude={['$isFocused']} />
 
-## Использование
-Компонент `TextField` может содержать иконку (или кнопку) слева и справа.
-Для этого используйте свойства `contentLeft` и `contentRight`:
+### Быстрый старт
 
-```tsx live
-import React from 'react';
-import { TextField } from '@salutejs/sdds-scan';
-import { IconDownload } from '@salutejs/plasma-icons';
+<Tabs>
+    <TabItem value="default" label="Uncontrolled" default>
+        ```tsx live
+        import React, {useState} from 'react';
+        import { TextField } from '@salutejs/sdds-scan';
+        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
 
-export function App() {
-    return (
-        <div>
-            <TextField
-                placeholder="Положение иконки"
-                defaultValue="Слева"
-                contentLeft={<IconDownload color="inherit" />}
-            />
-            <TextField
-                placeholder="Положение иконки"
-                defaultValue="Справа"
-                contentRight={<IconDownload color="inherit" />}
-            />
-        </div>
-    );
-}
-```
+        export function App() {
+            return (
+                <div>
+                    <TextField
+                        label="Uncontrolled TextField"
+                        defaultValue="Дефолтное значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                        view="default"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="controlled" label="Controlled">
+        ```tsx live
+        import React, {useState} from 'react';
+        import { DateTimePicker } from '@salutejs/sdds-scan';
+        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
 
-### Размер поля
-Размер поля задаётся с помощью свойства `size`. Свойство принимает значения `"l" | "m" | "s" | "xs"`:
+        export function App() {
+            const [text, setText] = useState('Значение поля');
 
-```tsx live
-import React from 'react';
-import { TextField } from '@salutejs/sdds-scan';
+            return (
+                <div>
+                    <TextField
+                        value={text}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                            setText(e.target.value);
+                        }}
+                        label="Uncontrolled TextField"
+                        defaultValue="Дефолтное значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                        view="default"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
 
-export function App() {
-    return (
-        <div>
-            <TextField
-                placeholder="Размер"
-                size="l"
-                defaultValue="L56"
-            />
-            <TextField
-                placeholder="Размер"
-                size="s"
-                defaultValue="S40"
-            />
-        </div>
-    );
-}
-```
+### Управление внешним видом
 
-### Статус поля
-Статус поля задается с помощью свойства `view`.
+Внешний вид компонента зависит от свойств `appearance`, `view`, `size`:
 
-Возможные значения свойства: `"positive" | "warning" | "negative"`
+<Tabs>
+    <TabItem value="appearance" label="Appearance" default>
+        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasDivider`
 
-```tsx live
-import React from 'react';
-import { TextField } from '@salutejs/sdds-scan';
+        ```tsx live
+        import React, {useState} from 'react';
+        import { TextField } from '@salutejs/sdds-scan';
+        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
 
-export function App() {
-    return (
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <div style={{ display: "flex", gap: "0.5rem" }}>
-                <TextField
-                    placeholder="Статус positive"
-                    view="positive"
-                    size="m"
-                    defaultValue="Positive"
-                />
-                <TextField
-                    placeholder="Статус warning"
-                    view="warning"
-                    size="m"
-                    defaultValue="Warning"
-                />
-                <TextField
-                    placeholder="Статус Ошибка"
-                    view="negative"
-                    size="m"
-                    defaultValue="Negative"
-                />
-            </div>
-        </div>
-    );
-}
-```
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+                    <TextField
+                        view="default"
+                        appearance="default"
+                        label="Appearance default"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        view="default"
+                        appearance="clear"
+                        label="Appearance clear"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        view="positive"
+                        appearance="clear"
+                        hasDivider
+                        label="Appearance clear"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="view" label="View">
+        ```tsx live
+        import React, {useState} from 'react';
+        import { TextField } from '@salutejs/sdds-scan';
+        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
 
-### Вариация Clear
-На отображение компонента так же влияют свойства `clear` и `hasDivider`:
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+                    <TextField
+                        view="default"
+                        label="View default"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        view="positive"
+                        label="View positive"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        view="warning"
+                        label="View warning"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        view="negative"
+                        label="View negative"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React, {useState} from 'react';
+        import { TextField } from '@salutejs/sdds-scan';
+        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
 
-```tsx live
-import React from 'react';
-import { TextField } from '@salutejs/sdds-scan';
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+                    <TextField
+                        size="xl"
+                        label="Size xl"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        size="l"
+                        label="Size l"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        size="m"
+                        label="Size m"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        size="s"
+                        label="Size s"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        size="xs"
+                        label="Size xs"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
 
-export function App() {
-    return (
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <div style={{ display: "flex", gap: "0.5rem" }}>
-                <TextField
-                    placeholder="Статус positive"
-                    view="positive"
-                    size="m"
-                    defaultValue="Positive"
-                    clear
-                    hasDivider
-                />
-                <TextField
-                    placeholder="Статус warning"
-                    view="warning"
-                    size="m"
-                    defaultValue="Warning"
-                    clear
-                    hasDivider
-                />
-                <TextField
-                    placeholder="Статус negative"
-                    view="negative"
-                    size="m"
-                    defaultValue="Negative"
-                    clear
-                    hasDivider
-                />
-            </div>
-        </div>
-    );
-}
-```
-
-### Подсказка
-Для вывода подсказок:
-
-- `leftHelper` внизу слева под компонентом
-- `titleCaption` сверху справа над компонентом
-- `hintText` для подсказки в виде `Tooltip`
+### Подсказки
+Для вывода подсказки снизу от поля используйте свойство `leftHelper`,
+для подсказки в виде Tooltip - `hintText`, для подсказки сверху справа - `titleCaption`:
 
 ```tsx live
 import React from 'react';
@@ -155,7 +215,6 @@ export function App() {
         <div>
             <TextField
                 placeholder="Введите значение"
-                defaultValue="Значение"
                 leftHelper="Подсказка снизу"
                 titleCaption="Подсказка сверху"
                 hintText="Подсказка в виде Tooltip"
@@ -167,11 +226,45 @@ export function App() {
 }
 ```
 
+### Обязательность поля
+
+:::tip
+Наличие индикатора регулируется свойством `hasRequiredIndicator`.
+:::
+
+Обязательность поля задаётся с помощью свойства `required`. 
+Если поле является обязательным, то у компонента появляется специальный индикатор. 
+Изменить расположение индикатора можно с помощью свойства `requiredPlacement`, которое принимает значения `left` и `right`. 
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-scan';
+import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                hasRequiredIndicator
+                required
+                requiredPlacement="right"
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите значение"
+                contentLeft={<IconBellFill size="s" color="inherit" />}
+                contentRight={<IconDone size="s" color="inherit" />}
+            />
+        </div>
+    );
+}
+```
+
+### Таблица свойств
+<PropsTable name="TextField" exclude={['css']} />
+
 ### Режим ввода (DEPRECATED)
 С помощью свойства `enumerationType` можно вводить элементы как теги. Свойство `chipType` изменяет внешний вид чипа.
-
-С помощью `chipView` можно задать общий вид `Chip`. Валидация `Chip` происходит с помощью функции `chipValidator`.
-
+С помощью `chipView` можно задать общий вид Chip. Валидация Chip происходит с помощью функции chipValidator.
 По нажатию Enter, после ввода нужного текста, он преобразуется в Chip.
 
 ```tsx live
@@ -188,7 +281,7 @@ export function App() {
                 defaultValue="Значение"
                 size="l"
                 enumerationType="chip"
-                leftHelper="Подсказка снизу"
+                helperText="Подсказка снизу"
                 chips={["Значение 1", "Значение 2"]}
                 chipView="positive"
                 chipValidator={validateChip}
@@ -199,91 +292,11 @@ export function App() {
                 defaultValue="Значение"
                 size="l"
                 enumerationType="chip"
-                leftHelper="Подсказка снизу"
+                helperText="Подсказка снизу"
                 chips={["Значение 1"]}
                 chipType="text"
             />
         </div>
     );
-}
-```
-
-### Обязательность поля
-
-:::tip
-Наличие индикатора регулируется свойством `hasRequiredIndicator`.
-:::
-
-Обязательность поля задаётся с помощью свойств `required` и `requiredPlacement`.
-
-Где `requiredPlacement` отвечает за выравнивание и принимает значения `"left"` и `"right"`:
-
-```tsx live
-import React from 'react';
-import { TextField } from '@salutejs/sdds-scan';
-
-export function App() {
-    return (
-        <div>
-            <TextField
-                placeholder="Введите значение"
-                required
-            />
-            <TextField
-                placeholder="Введите значение"
-                label="Заголовок"
-                required
-                requiredPlacement="right"
-            />
-            <TextField
-                placeholder="Введите значение"
-                label="Поле обязательное, но не имеет визуального индикатора"
-                required
-                requiredPlacement="right"
-                hasRequiredIndicator={false}
-            />
-        </div>
-    );
-}
-```
-
-## Примеры
-
-### TextField + очистка поля
-
-```tsx live
-import React, { useState } from "react";
-import { TextField } from "@salutejs/sdds-scan";
-import { IconClose } from "@salutejs/plasma-icons";
-
-export function App() {
-  const [value, setValue] = useState("");
-
-  const ControlClear = (props: { onClick: () => void }) => {
-      return (
-        <div {...props}>
-          <IconClose size="xs" color="inherit" />
-        </div>
-      );
-  };
-
-  return (
-    <div>
-      <TextField
-        placeholder="Положение иконки"
-        value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        contentRight={
-          <ControlClear
-            onClick={() => {
-              setValue("");
-            }}
-          />
-        }
-      />
-    </div>
-  );
 }
 ```
