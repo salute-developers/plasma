@@ -21,7 +21,7 @@ type CheckboxProps =
           appearance?: 'default' | undefined;
       });
 
-export const Radiobox = createConditionalComponent<CheckboxProps>(RadioboxDefault, [
+export const Radiobox = createConditionalComponent<CheckboxProps, HTMLInputElement>(RadioboxDefault, [
     {
         conditions: { prop: 'appearance', value: 'outline' },
         component: RadioboxOutline,
