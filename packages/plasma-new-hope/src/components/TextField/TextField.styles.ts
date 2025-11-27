@@ -126,20 +126,17 @@ export const Label = styled.label`
     display: inline-flex;
 `;
 
-export const StyledContentLeft = styled.div<{ isDefaultView: boolean; isClear: boolean }>`
-    --private_content-slot-color: ${({ isDefaultView, isClear }) =>
-        !isDefaultView && isClear ? `var(${tokens.clearColor})` : `var(${tokens.contentSlotColor})`};
-
+export const StyledContentLeft = styled.div`
     margin: var(${tokens.leftContentMargin});
-    color: var(--private_content-slot-color);
+    color: var(${tokens.contentSlotColor});
     line-height: 0;
 
     &:hover {
-        color: var(${tokens.contentSlotColorHover}, var(--private_content-slot-color));
+        color: var(${tokens.contentSlotColorHover}, var(${tokens.contentSlotColor}));
     }
 
     &:active {
-        color: var(${tokens.contentSlotColorActive}, var(--private_content-slot-color));
+        color: var(${tokens.contentSlotColorActive}, var(${tokens.contentSlotColor}));
     }
 `;
 
