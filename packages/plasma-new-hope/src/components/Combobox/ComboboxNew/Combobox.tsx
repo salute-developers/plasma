@@ -610,43 +610,43 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 readOnly={readOnly}
                                 name={name}
                             >
-                                {isEmpty(filteredItems) ? (
-                                    <StyledEmptyState
-                                        className={classes.emptyStateWrapper}
-                                        size={size}
-                                        description={emptyStateDescription || 'Ничего не найдено'}
+                                {treeView ? (
+                                    <TreeList
+                                        items={filteredItems}
+                                        listMaxHeight={listMaxHeight || listHeight}
+                                        onScroll={virtual ? undefined : onScroll}
+                                        virtual={virtual}
+                                        beforeList={beforeList}
+                                        afterList={afterList}
                                     />
                                 ) : (
-                                    <>
-                                        {treeView ? (
-                                            <TreeList
-                                                items={filteredItems}
-                                                listMaxHeight={listMaxHeight || listHeight}
-                                                onScroll={virtual ? undefined : onScroll}
-                                                virtual={virtual}
-                                                beforeList={beforeList}
-                                                afterList={afterList}
-                                            />
-                                        ) : (
-                                            <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
-                                                <Ul
-                                                    role="tree"
-                                                    id={`${treeId}_tree_level_1`}
-                                                    aria-multiselectable={Boolean(multiple)}
-                                                    listMaxHeight={listMaxHeight || listHeight}
-                                                    virtual={virtual}
-                                                    onScroll={virtual ? undefined : onScroll}
-                                                >
-                                                    {beforeList}
+                                    <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
+                                        <Ul
+                                            role="tree"
+                                            id={`${treeId}_tree_level_1`}
+                                            aria-multiselectable={Boolean(multiple)}
+                                            listMaxHeight={listMaxHeight || listHeight}
+                                            virtual={virtual}
+                                            onScroll={virtual ? undefined : onScroll}
+                                        >
+                                            {beforeList}
 
-                                                    {props.multiple && props.selectAllOptions && (
-                                                        // TODO: #2004
-                                                        <SelectAll
-                                                            selectAllOptions={props.selectAllOptions}
-                                                            variant={variant}
-                                                        />
-                                                    )}
+                                            {props.multiple && props.selectAllOptions && (
+                                                // TODO: #2004
+                                                <SelectAll
+                                                    selectAllOptions={props.selectAllOptions}
+                                                    variant={variant}
+                                                />
+                                            )}
 
+                                            {isEmpty(filteredItems) ? (
+                                                <StyledEmptyState
+                                                    className={classes.emptyStateWrapper}
+                                                    size={size}
+                                                    description={emptyStateDescription || 'Ничего не найдено'}
+                                                />
+                                            ) : (
+                                                <>
                                                     {virtual ? (
                                                         <VirtualList
                                                             items={filteredItems}
@@ -667,12 +667,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                             />
                                                         ))
                                                     )}
+                                                </>
+                                            )}
 
-                                                    {afterList}
-                                                </Ul>
-                                            </ListWrapper>
-                                        )}
-                                    </>
+                                            {afterList}
+                                        </Ul>
+                                    </ListWrapper>
                                 )}
                             </Root>
                         </FloatingPopover>
