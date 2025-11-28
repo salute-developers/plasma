@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 import { IconFolder } from '@salutejs/plasma-icons';
@@ -239,9 +239,9 @@ export const Default: StoryObj<StoryPropsDefault> = {
     },
     args: {
         id: 'example-form-item',
-        size: 'l',
+        size: 's',
         view: 'default',
-        componentContent: 'TextField',
+        componentContent: 'Placeholder',
         label: 'Лейбл',
         labelPlacement: 'top',
         titleCaption: 'Подпись к полю',
