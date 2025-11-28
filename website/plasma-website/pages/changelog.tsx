@@ -17,7 +17,7 @@ import {
 import { PlasmaCopyrightText } from '../components';
 import { getFormattedDate, groupVersionsByMonth, currentYear } from '../utils';
 import { ChangelogListContent } from '../components/changelog/ChangelogListContent';
-import { packageNameMap } from '../utils/constants';
+import { verticalToNpmPackageMap } from '../utils/constants';
 
 const GlobalStyle = createGlobalStyle`
     html, body {
@@ -204,11 +204,12 @@ export default function ChangelogPage() {
         versions: string[];
     } | null>(null);
     const [loadingJSON, setLoadingJSON] = useState(false);
+
     const [hasVersionList, showVersionList] = useState(false);
     const [isScrolling, setIsScrolling] = useState(false);
 
     const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const slugs = Object.keys(packageNameMap);
+    const listAllVerticals = Object.keys(verticalToNpmPackageMap);
 
     // Мемоизируем функцию расчета соседних версий
     const calculateAdjacentVersions = useCallback((currentVersion: string, versions: string[]) => {
@@ -247,15 +248,29 @@ export default function ChangelogPage() {
         [router],
     );
 
+    const handlePlatformChange = useCallback(
+        (url: string) => {
+            router.push(url);
+        },
+        [router],
+    );
+
     // Загрузка данных
+    // TODO: Заменить полностью когда будет свой сервис хранения данных о релизах
     useEffect(() => {
         if (!router.isReady) {
             return;
         }
 
-        const lib = router.query.lib as string;
+        // INFO: Like plasmaSDService || SDDSFinAI
+        const vertical = router.query.vertical as keyof typeof verticalToNpmPackageMap;
+        // INFO: Like React || viewSystem
+        const platform = router.query.platform as string;
 
-        if (!lib || !slugs.includes(lib)) {
+        const InvalidVertical = !vertical || !listAllVerticals.includes(vertical);
+        const InvalidPlatform = !platform || !['React', 'viewSystem', 'composeUi'].includes(platform);
+
+        if (InvalidVertical || InvalidPlatform) {
             return;
         }
 
@@ -263,24 +278,43 @@ export default function ChangelogPage() {
             try {
                 setLoadingJSON(true);
 
-                const basePath = process.env.BASE_PATH || '';
-                const url = `${basePath}/data/${lib}.json`;
+                if (platform === 'React') {
+                    const basePath = process.env.BASE_PATH || '';
+                    const npmPackageName = verticalToNpmPackageMap[vertical];
 
-                const response = await fetch(url);
+                    const url = `${basePath}/data/${npmPackageName}.json`;
 
-                if (!response.ok) {
-                    throw new Error(`Файл ${lib}.json не найден (${response.status})`);
+                    const response = await fetch(url);
+
+                    if (!response.ok) {
+                        throw new Error(`Файл ${npmPackageName}.json не найден (${response.status})`);
+                    }
+
+                    const changelog = await response.json();
+
+                    const listVersionsByMonth = groupVersionsByMonth(changelog);
+
+                    setChangeLogData({
+                        data: changelog,
+                        listVersionsByMonth,
+                        versions: Object.keys(changelog),
+                    });
+                } else {
+                    const storage = JSON.parse(localStorage.getItem('DATA') || JSON.stringify({}));
+                    const platformData = storage[vertical][platform] || {};
+
+                    const response = await fetch(platformData.changelogURL);
+
+                    const data = await response.json();
+
+                    const listVersionsByMonth = groupVersionsByMonth(data);
+
+                    setChangeLogData({
+                        data,
+                        listVersionsByMonth,
+                        versions: Object.keys(data),
+                    });
                 }
-
-                const changelog = await response.json();
-
-                const listVersionsByMonth = groupVersionsByMonth(changelog);
-
-                setChangeLogData({
-                    data: changelog,
-                    listVersionsByMonth,
-                    versions: Object.keys(changelog),
-                });
             } catch (err) {
                 console.error('Ошибка загрузки:', err);
             } finally {
@@ -289,7 +323,7 @@ export default function ChangelogPage() {
         };
 
         fetchData();
-    }, [router.isReady, router.query.lib]);
+    }, [router.isReady, router.query.vertical, router.query.platform]);
 
     useEffect(() => {
         if (!router.isReady || !changeLogData) {
@@ -346,7 +380,6 @@ export default function ChangelogPage() {
     }
 
     const version = router.query?.version as string;
-    const packageName = router.query?.lib as keyof typeof packageNameMap;
 
     if (!changeLogData.data[version]) {
         return <Page404 />;
@@ -361,8 +394,10 @@ export default function ChangelogPage() {
             <PageHeader
                 isScrolling={isScrolling}
                 onScrollTop={onScrollTop}
-                lib={packageNameMap[packageName]}
+                vertical={router.query?.vertical as keyof typeof verticalToNpmPackageMap}
                 version={version}
+                platform={(router.query?.platform as string) || 'React'}
+                onChangePlatform={handlePlatformChange}
             />
             <ScrollablePageContainer
                 className="scrollable-page-container"
