@@ -131,7 +131,7 @@ jobs:
       -   name: Build documentation - "${{ matrix.package }}"
           if: ${{ fromJSON(env.HAS_PACKAGE_DOCS) }}
           env:
-            NODE_OPTIONS: "--max_old_space_size=6034"
+            NODE_OPTIONS: "--max_old_space_size=10240"
           run: |
             npm run build --prefix="./website/${{ matrix.package }}-docs" -- --no-minify
             cp -R ./website/${{ matrix.package }}-docs/build ./s3_build/${PR_NAME}/${{ env.SHORT_NAME }}
