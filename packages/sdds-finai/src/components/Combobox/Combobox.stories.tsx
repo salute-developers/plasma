@@ -538,7 +538,7 @@ export const Multiple: StoryObj<StorySelectProps> = {
         },
     },
     args: {
-        chipClickArea: 'full',
+        chipClickArea: 'close-icon',
     },
     parameters: {
         controls: {
