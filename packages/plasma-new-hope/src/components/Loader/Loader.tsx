@@ -1,18 +1,20 @@
 import React, { forwardRef } from 'react';
 
 import type { RootProps } from '../../engines';
-import { component } from '../../engines';
-import { Overlay } from '../Overlay';
-import { popupConfig } from '../Popup';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import type { LoaderProps } from './Loader.types';
-import { base, StyledProgressBarCircular, StyledSpinner } from './Loader.styles';
+import {
+    base,
+    LoaderContentWrapper,
+    LoaderWrapper,
+    StyledOverlay,
+    StyledProgressBarCircular,
+    StyledSpinner,
+} from './Loader.styles';
 import { classes, tokens } from './Loader.tokens';
-
-const Popup = component(popupConfig);
 
 export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
     forwardRef<HTMLDivElement, LoaderProps>((props, ref) => {
@@ -60,21 +62,16 @@ export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
 
         const overlayBackgroundToken = overlayColor || `var(${tokens.overlayColor})`;
 
-        const overlayNode = (
-            <Overlay
-                className={classes.loaderOverlay}
-                zIndex={zIndex || DEFAULT_Z_INDEX}
-                backgroundColorProperty={overlayBackgroundToken}
-                withBlur={withBlur}
-                isClickable={Boolean(onOverlayClick)}
-                onOverlayClick={onOverlayClick}
-            />
-        );
-
         return (
-            <Popup opened placement="center" zIndex={zIndex} overlay={overlayNode}>
-                {loaderContent}
-            </Popup>
+            <LoaderWrapper zIndex={zIndex}>
+                <StyledOverlay
+                    className={classes.loaderOverlay}
+                    backgroundColorToken={overlayBackgroundToken}
+                    withBlur={withBlur}
+                    onClick={onOverlayClick}
+                />
+                <LoaderContentWrapper>{loaderContent}</LoaderContentWrapper>
+            </LoaderWrapper>
         );
     });
 
