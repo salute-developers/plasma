@@ -47,3 +47,33 @@ export const StyledProgressBarCircular = styled(ProgressBarCircular)`
     ${progressBarCircularTokens.contentLetterSpacing}: var(${tokens.progressBarCircularContentLetterSpacing});
     ${progressBarCircularTokens.contentLineHeight}: var(${tokens.progressBarCircularContentLineHeight});
 `;
+
+export const LoaderWrapper = styled.div<{ zIndex?: string }>`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: ${({ zIndex }) => zIndex || 9000};
+`;
+
+export const StyledOverlay = styled.div<{
+    backgroundColorToken: string;
+    withBlur?: boolean;
+}>`
+    position: absolute;
+    inset: 0;
+    background: var(--plasma_private-overlay-background-color);
+    backdrop-filter: ${({ withBlur }) => (withBlur ? 'blur(1rem)' : 'none')};
+    cursor: ${({ onClick }) => (onClick ? 'pointer' : 'default')};
+
+    --plasma_private-overlay-background-color: ${({ backgroundColorToken }) => backgroundColorToken};
+`;
+
+export const LoaderContentWrapper = styled.div`
+    position: relative;
+    z-index: 1;
+`;

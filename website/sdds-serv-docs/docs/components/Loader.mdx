@@ -88,73 +88,40 @@ export function App() {
 }
 ```
 
-### Размытие фона
-Добавление эффекта размытия фона с разной интенсивностью:
+### Полупрозрачный оверлей с размытием
+Отображение индикатора поверх затемненного фона с blur эффектом:
 
 ```tsx live
-import React from 'react';
-import { Loader } from '@salutejs/sdds-serv';
-
-export function App() {
-    return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="spinner" hasBlur blur="small" />
-            <Loader type="spinner" hasBlur blur="medium" />
-            <Loader type="spinner" hasBlur blur="large" />
-
-            <Loader type="progress" hasBlur blur="medium" value={50} />
-        </div>
-    );
-}
-```
-
-### Полупрозрачный оверлей
-Отображение индикатора поверх затемненного фона:
-
-```tsx live
-import React from 'react';
-import { Loader } from '@salutejs/sdds-serv';
-
-export function App() {
-    return (
-        <div style={{ position: 'relative', height: '200px', border: '1px solid #ccc' }}>
-            <Loader
-                type="spinner"
-                hasOverlay
-                style={{ position: 'absolute', inset: 0 }}
-            />
-        </div>
-    );
-}
-```
-
-### Использование с PopupProvider
-Для корректной работы Loader с оверлеем необходимо обернуть приложение в `PopupProvider`:
-
-```tsx live
-import React, { useState } from 'react';
-import { Loader, Button, PopupProvider } from '@salutejs/sdds-serv';
+import React, { useState, useEffect } from 'react';
+import { Loader, Button } from '@salutejs/sdds-serv';
 
 export function App() {
     const [loading, setLoading] = useState(false);
 
     const handleShowLoader = () => {
         setLoading(true);
-        setTimeout(() => setLoading(false), 3000);
     };
 
+    useEffect(() => {
+        if (loading) {
+            const timer = setTimeout(() => {
+                setLoading(false);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [loading]);
+
     return (
-        <PopupProvider>
-            <div style={{ position: 'relative', padding: '1rem' }}>
-                <Button onClick={handleShowLoader}>Показать загрузку</Button>
-                {loading && (
-                    <Loader
-                        type="spinner"
-                        hasOverlay
-                    />
-                )}
-            </div>
-        </PopupProvider>
+        <div style={{ position: 'relative', height: '200px' }}>
+            <Button onClick={handleShowLoader}>Показать загрузку</Button>
+            {loading && (
+                <Loader
+                    type="spinner"
+                    hasOverlay
+                    withBlur
+                />
+            )}
+        </div>
     );
 }
 ```

@@ -3,14 +3,10 @@ import type { ComponentProps, FC, PropsWithChildren } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import cypress from 'cypress';
 
-import { PopupProvider } from '../Popup';
-
 import { Loader as LoaderB2C } from '.';
 
 const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
-    <CypressTestDecorator>
-        <PopupProvider>{children}</PopupProvider>
-    </CypressTestDecorator>
+    <CypressTestDecorator>{children}</CypressTestDecorator>
 );
 
 describe('plasma-b2c: Loader', () => {
