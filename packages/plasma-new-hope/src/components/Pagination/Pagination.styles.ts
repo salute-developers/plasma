@@ -45,23 +45,19 @@ export const PaginationActions = styled.div`
     align-items: center;
     gap: var(${tokens.paginationHelperTextGap});
     flex-shrink: 1;
+    flex-direction: row;
 
     &.${classes.compactType} {
-        flex-direction: row;
         width: 100%;
         flex-wrap: wrap;
-    }
 
-    &.${classes.defaultType} {
-        flex-direction: row;
-    }
+        &.${classes.withHasPerPageSelect} {
+            flex-direction: row-reverse;
+        }
 
-    &.${classes.withHasPerPageSelect} {
-        flex-direction: row-reverse;
-    }
-
-    &.${classes.withHasQuickJump} {
-        flex-direction: row;
+        &.${classes.withHasQuickJump} {
+            flex-direction: row;
+        }
     }
 `;
 
