@@ -151,11 +151,13 @@ export const PageHeader = ({
     const [platforms, setPlatforms] = useState<Record<string, { route: string; title: string }>>({});
 
     useEffect(() => {
-        const storage = JSON.parse(localStorage.getItem('DATA') || JSON.stringify({}));
+        const storage = JSON.parse(localStorage.getItem('CHANGELOG_DATA') || '{}');
         const data = storage[vertical];
 
-        setPlatforms(data);
-    }, []);
+        if (data) {
+            setPlatforms(data);
+        }
+    }, [vertical]);
 
     const url = isScrolling ? '' : '/';
     // @ts-ignore

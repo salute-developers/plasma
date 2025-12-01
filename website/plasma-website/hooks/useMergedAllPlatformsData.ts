@@ -180,12 +180,16 @@ export type Platforms = 'web' | 'viewSystem' | 'composeUi';
 export type AllPlatformsData = Record<VerticalKey, Record<'web' | 'viewSystem' | 'composeUi', ChangelogItem>>;
 
 // INFO: Хук объединяет данные о вертикалях и пакетах как нативной платформы так и web
-export const useMergedAllPlatformsData = () => {
+export const useMergedAllPlatformsData = (skipFetch = false) => {
     const [data, setData] = useState<AllPlatformsData>({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        if (skipFetch) {
+            return;
+        }
+
         const fetchData = async () => {
             try {
                 setLoading(true);
@@ -237,7 +241,7 @@ export const useMergedAllPlatformsData = () => {
                     };
                 }, {});
 
-                localStorage.setItem('DATA', JSON.stringify(storage));
+                localStorage.setItem('CHANGELOG_DATA', JSON.stringify(storage));
             } catch (e) {
                 setError(e?.message || '');
 
@@ -248,7 +252,7 @@ export const useMergedAllPlatformsData = () => {
         };
 
         fetchData();
-    }, []);
+    }, [skipFetch]);
 
     return { data, loading, error };
 };

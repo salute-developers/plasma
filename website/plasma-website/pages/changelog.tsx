@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { ToastProvider } from '@salutejs/plasma-b2c';
 import { useRouter } from 'next/router';
 import styled, { createGlobalStyle } from 'styled-components';
 
@@ -18,6 +17,7 @@ import { PlasmaCopyrightText } from '../components';
 import { getFormattedDate, groupVersionsByMonth, currentYear } from '../utils';
 import { ChangelogListContent } from '../components/changelog/ChangelogListContent';
 import { verticalToNpmPackageMap } from '../utils/constants';
+import { useMergedAllPlatformsData } from '../hooks/useMergedAllPlatformsData';
 
 const GlobalStyle = createGlobalStyle`
     html, body {
@@ -198,6 +198,16 @@ const PageControlsFixedBottom = styled(PageControlsFixed)`
 export default function ChangelogPage() {
     const router = useRouter();
 
+    const [hasChangelogData] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return !!localStorage.getItem('CHANGELOG_DATA');
+        }
+
+        return false;
+    });
+
+    const { loading: loadingPlatforms } = useMergedAllPlatformsData(hasChangelogData);
+
     const [changeLogData, setChangeLogData] = useState<{
         data: any;
         listVersionsByMonth: any;
@@ -258,7 +268,7 @@ export default function ChangelogPage() {
     // Загрузка данных
     // TODO: Заменить полностью когда будет свой сервис хранения данных о релизах
     useEffect(() => {
-        if (!router.isReady) {
+        if (!router.isReady || loadingPlatforms) {
             return;
         }
 
@@ -300,8 +310,13 @@ export default function ChangelogPage() {
                         versions: Object.keys(changelog),
                     });
                 } else {
-                    const storage = JSON.parse(localStorage.getItem('DATA') || JSON.stringify({}));
-                    const platformData = storage[vertical][platform] || {};
+                    const storage = JSON.parse(localStorage.getItem('CHANGELOG_DATA') || '{}');
+                    const platformData = storage[vertical]?.[platform] || {};
+
+                    if (!platformData.changelogURL) {
+                        console.error('changelogURL не найден');
+                        return;
+                    }
 
                     const response = await fetch(platformData.changelogURL);
 
@@ -323,7 +338,7 @@ export default function ChangelogPage() {
         };
 
         fetchData();
-    }, [router.isReady, router.query.vertical, router.query.platform]);
+    }, [router.isReady, router.query.vertical, router.query.platform, loadingPlatforms]);
 
     useEffect(() => {
         if (!router.isReady || !changeLogData) {
@@ -375,7 +390,7 @@ export default function ChangelogPage() {
         });
     }, []);
 
-    if (!router.isReady || !changeLogData || loadingJSON) {
+    if (!router.isReady || loadingPlatforms || !changeLogData || loadingJSON) {
         return <PageLoading />;
     }
 
@@ -389,7 +404,7 @@ export default function ChangelogPage() {
     const releaseDate = getFormattedDate({ date: changeLogData.data[version].date });
 
     return (
-        <ToastProvider>
+        <>
             <GlobalStyle />
             <PageHeader
                 isScrolling={isScrolling}
@@ -475,6 +490,6 @@ export default function ChangelogPage() {
                 </PageControlsFixedBottom>
             </ScrollablePageContainer>
             <PlasmaCopyrightText>{`©${currentYear} СалютДевайсы`}</PlasmaCopyrightText>
-        </ToastProvider>
+        </>
     );
 }
