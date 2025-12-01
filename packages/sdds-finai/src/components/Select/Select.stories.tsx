@@ -565,7 +565,7 @@ export const Multiselect: StoryObj<StorySelectProps> = {
     args: {
         multiselect: true,
         closeAfterSelect: false,
-        chipClickArea: 'full',
+        chipClickArea: 'close-icon',
     },
     render: (args) => <MultiselectStory {...args} />,
     parameters: {
