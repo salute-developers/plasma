@@ -71,7 +71,7 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             warning: css`
-                ${tokens.clearColor}: var(--text-warning);
+                ${tokens.color}: var(--text-warning);
 
                 ${tokens.placeholderColor}: var(--text-warning);
                 ${tokens.placeholderColorFocus}: var(--text-warning);
