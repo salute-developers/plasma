@@ -6,6 +6,6 @@ const mergedConfig = mergeConfig(cellConfig, config);
 const CellComponent = component(mergedConfig);
 
 /**
- * Кнопка.
+ * Компонент ячейки.
  */
 export const Cell = CellComponent;
