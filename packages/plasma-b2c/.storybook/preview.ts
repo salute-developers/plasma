@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 import { withTheme, DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE } from './decoratorThemes';
 import { withToast } from './decoratorToast';
 import { withReactStrictMode, reactStrictModePreviewOption } from '@salutejs/plasma-sb-utils';
@@ -13,7 +13,6 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme for components',
-            defaultValue: 'dark',
             toolbar: {
                 title: 'Theme',
                 items: ['light', 'dark'],
@@ -21,7 +20,6 @@ const preview: Preview = {
         },
         typoVersion: {
             description: 'Global typography version for components',
-            defaultValue: 'standard',
             toolbar: {
                 title: 'Typography version',
                 items: ['standard', 'old'],
@@ -29,7 +27,6 @@ const preview: Preview = {
         },
         breakWord: {
             description: 'Break word for typography',
-            defaultValue: 'yes',
             toolbar: {
                 title: 'Break word',
                 items: ['yes', 'no'],
@@ -37,13 +34,18 @@ const preview: Preview = {
         },
         viewContainer: {
             description: 'ViewContainer mode for components',
-            defaultValue: DEFAULT_MODE,
             toolbar: {
                 title: 'ViewContainer',
                 items: [DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE],
             },
         },
         ...reactStrictModePreviewOption,
+    },
+    initialGlobals: {
+        theme: 'dark',
+        typoVersion: 'standard',
+        breakWord: 'yes',
+        viewContainer: DEFAULT_MODE,
     },
     parameters: {
         options: {
@@ -56,7 +58,7 @@ const preview: Preview = {
             source: { type: 'code' },
         },
         viewport: {
-            viewports: {
+            options: {
                 '375': {
                     name: '375x812',
                     styles: {

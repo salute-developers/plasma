@@ -243,6 +243,7 @@ export const useMergedAllPlatformsData = (skipFetch = false) => {
 
                 localStorage.setItem('CHANGELOG_DATA', JSON.stringify(storage));
             } catch (e) {
+                // @ts-ignore
                 setError(e?.message || '');
 
                 console.error('Error fetching GitHub data:', e);

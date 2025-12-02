@@ -1,6 +1,6 @@
 import React from 'react';
 import { Filler } from '@salutejs/plasma-sb-utils';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { Container, Row, Col } from '.';
 

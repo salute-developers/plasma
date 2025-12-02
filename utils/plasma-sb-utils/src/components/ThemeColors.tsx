@@ -231,6 +231,7 @@ const StyledThemeBG = styled.div<{
     `}
 `;
 const StyledSection = styled.section``;
+// @ts-ignore
 const StyledHeadline1 = styled(Headline1)`
     margin: 0 0 1rem;
     color: var(--plasma-tc-primary);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-vite';
 
 import { text, background, gradient } from '@salutejs/plasma-tokens';
 import { darkEva, darkJoy, darkSber, darkB2E, lightEva, lightJoy, lightSber, lightB2E } from '@salutejs/plasma-tokens';

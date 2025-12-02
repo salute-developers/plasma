@@ -1,4 +1,5 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
+// @ts-ignore
 import { withViewContainer } from './decoratorViewContainer';
 import { withReactStrictMode, reactStrictModePreviewOption } from '@salutejs/plasma-sb-utils';
 
@@ -19,7 +20,6 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme for components',
-            defaultValue: LIGHT_THEME,
             toolbar: {
                 title: 'Theme',
                 items: [LIGHT_THEME, DARK_THEME],
@@ -27,13 +27,16 @@ const preview: Preview = {
         },
         viewContainer: {
             description: 'ViewContainer mode for components',
-            defaultValue: DEFAULT_MODE,
             toolbar: {
                 title: 'ViewContainer',
                 items: [DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE],
             },
         },
         ...reactStrictModePreviewOption,
+    },
+    initialGlobals: {
+        theme: LIGHT_THEME,
+        viewContainer: DEFAULT_MODE,
     },
     tags: ['autodocs'],
 };

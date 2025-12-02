@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 export const TokensWrapper = styled.div`
     margin-top: 1.5rem;

@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { sdds_scan__dark, sdds_scan__light } from '@salutejs/sdds-themes';
 import {
     InSpacingDecorator,

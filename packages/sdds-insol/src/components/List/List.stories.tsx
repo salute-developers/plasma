@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 import { IconChevronRight } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
 import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';

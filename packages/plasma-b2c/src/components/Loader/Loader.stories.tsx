@@ -1,5 +1,5 @@
 import React, { ComponentProps, useEffect } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconCross } from '@salutejs/plasma-icons';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ArgTypes, Decorator } from '@storybook/react';
+import type { ArgTypes, Decorator } from '@storybook/react-vite';
 
 import { ComponentConfig } from '../engines';
 import type { HTMLAttributesWithoutOnChange, HTMLTagList, PropsType, Variants } from '../engines/types';

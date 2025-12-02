@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import type { StoryObj, Meta } from '@storybook/react-vite';
+import { action } from 'storybook/actions';
 import { accent, footnote1 } from '@salutejs/plasma-tokens';
 
 import { Footnote1, Headline1 } from '../Typography';

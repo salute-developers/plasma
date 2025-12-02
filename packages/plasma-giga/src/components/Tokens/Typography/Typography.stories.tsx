@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { plasma_giga__dark, plasma_giga__light } from '@salutejs/plasma-themes';
 import {
     InSpacingDecorator,

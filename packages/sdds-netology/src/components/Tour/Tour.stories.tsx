@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import styled from 'styled-components';
 import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 

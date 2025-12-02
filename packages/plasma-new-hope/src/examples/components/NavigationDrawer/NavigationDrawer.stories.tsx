@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { styled } from '@linaria/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
+import { action } from 'storybook/actions';
+import styled from 'styled-components';
 
 import { WithTheme } from '../../_helpers';
 import { IconBlankDocOutline, IconBlankOutline } from '../../../components/_Icon';

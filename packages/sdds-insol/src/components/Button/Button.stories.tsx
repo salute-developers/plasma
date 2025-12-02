@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 import { getButtonStories } from '@salutejs/plasma-sb-utils';
 import { IconMic } from '@salutejs/plasma-icons';
 

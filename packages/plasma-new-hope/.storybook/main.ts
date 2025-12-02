@@ -1,7 +1,11 @@
+import { fileURLToPath } from 'url';
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 import linaria from '@linaria/vite';
-import * as path from 'path';
+import path, { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const USE_STYLED_COMPONENTS = process.env.USE_STYLED_COMPONENTS || false;
 const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
@@ -25,7 +29,7 @@ if (USE_STYLED_COMPONENTS) {
 
 const config: StorybookConfig = {
     staticDirs: ['public'],
-    addons: ['@storybook/addon-essentials'],
+    addons: ['@storybook/addon-docs'],
     stories,
     framework: {
         name: '@storybook/react-vite',
@@ -35,7 +39,6 @@ const config: StorybookConfig = {
         disableTelemetry: true,
     },
     docs: {
-        autodocs: false,
         defaultName: 'Docs',
     },
     typescript: {

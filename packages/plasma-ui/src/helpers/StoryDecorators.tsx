@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story as StoryType, StoryContext } from '@storybook/react';
+import { Story as StoryType, StoryContext } from '@storybook/react-vite';
 
 import { Container } from '../components/Grid';
 

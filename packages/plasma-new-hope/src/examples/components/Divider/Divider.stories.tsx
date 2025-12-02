@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
-import { styled } from '@linaria/react';
-import type { StoryObj, Meta } from '@storybook/react';
+import styled from 'styled-components';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { WithTheme } from '../../_helpers';
 import { bodyS } from '../../../mixins';

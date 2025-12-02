@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconPlasma } from '@salutejs/plasma-icons';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 

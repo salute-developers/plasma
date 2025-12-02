@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { InSpacingDecorator, IconPlaceholder } from '../../helpers';
 import { Button } from '../Button';

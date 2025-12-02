@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconKeyFill, IconKeyOutline, IconLockFill } from '@salutejs/plasma-icons';
 import { ratingClasses } from '@salutejs/plasma-new-hope/styled-components';

@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 
 import storybookTheme from './theme';
 import { docsPage } from './docsPage';
@@ -15,7 +15,6 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme for components',
-            defaultValue: 'darkSber',
             toolbar: {
                 title: 'Theme',
                 items: ['darkSber', 'darkJoy', 'darkEva', 'darkB2E', 'lightSber', 'lightJoy', 'lightEva', 'lightB2E'],
@@ -23,7 +22,6 @@ const preview: Preview = {
         },
         typoSystem: {
             description: 'Typography system',
-            defaultValue: 'legacy',
             toolbar: {
                 title: 'Typo system',
                 items: ['legacy', 'responsive'],
@@ -31,7 +29,6 @@ const preview: Preview = {
         },
         deviceKind: {
             description: 'Device kind',
-            defaultValue: 'sberBox',
             toolbar: {
                 title: 'Device kind',
                 items: ['mobile', 'sberBox', 'sberPortal'],
@@ -39,7 +36,6 @@ const preview: Preview = {
         },
         lowPerformanceDevice: {
             description: 'Low performance device',
-            defaultValue: 'no',
             toolbar: {
                 title: 'Low performance',
                 items: ['yes', 'no'],
@@ -47,12 +43,22 @@ const preview: Preview = {
         },
         breakWord: {
             description: 'Break word for typography',
-            defaultValue: 'yes',
             toolbar: {
                 title: 'Break word',
                 items: ['yes', 'no'],
             },
         },
+    },
+    initialGlobals: {
+        viewport: {
+            value: 'SberBox',
+            isRotated: false,
+        },
+        theme: 'darkSber',
+        typoSystem: 'legacy',
+        deviceKind: 'sberBox',
+        lowPerformanceDevice: 'no',
+        breakWord: 'yes',
     },
     parameters: {
         docs: {
@@ -61,8 +67,7 @@ const preview: Preview = {
             source: { type: 'code' },
         },
         viewport: {
-            defaultViewport: 'SberBox',
-            viewports: {
+            options: {
                 '360': {
                     name: '360',
                     styles: {

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { surfaceLiquid01 } from '@salutejs/plasma-core';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';

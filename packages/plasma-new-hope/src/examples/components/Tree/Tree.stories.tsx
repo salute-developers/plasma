@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { WithTheme } from '../../_helpers';
 import { IconBlankTxtOutline, IconLock, IconTrash } from '../../../components/_Icon';

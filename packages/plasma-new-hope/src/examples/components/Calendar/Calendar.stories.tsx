@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps, PropsWithChildren } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import type { StoryObj, Meta } from '@storybook/react-vite';
+import { action } from 'storybook/actions';
 
 import { Heading } from '../typography/components/Heading/Heading';
 import { WithTheme } from '../../_helpers';

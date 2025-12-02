@@ -1,5 +1,5 @@
 import React, { useRef, ComponentProps, useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconEditOutline } from '@salutejs/plasma-icons';
 

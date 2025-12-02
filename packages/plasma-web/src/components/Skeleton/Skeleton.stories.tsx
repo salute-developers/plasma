@@ -2,7 +2,7 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import { radiuses } from '@salutejs/plasma-core';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button as BasicButton } from '../Button/Button';
 import { withSkeleton } from '../../hocs';

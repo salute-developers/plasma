@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { plasma_b2c__dark, plasma_b2c__light } from '@salutejs/plasma-themes/es/themes';
 import { InSpacingDecorator, getGroupedTokens, upperFirstLetter } from '@salutejs/plasma-sb-utils';
 import type { GroupedTokens, TokenData } from '@salutejs/plasma-sb-utils';
