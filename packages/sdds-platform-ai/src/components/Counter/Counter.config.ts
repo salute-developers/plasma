@@ -3,7 +3,7 @@ import { css, counterTokens } from '@salutejs/plasma-new-hope/styled-components'
 export const config = {
     defaults: {
         view: 'default',
-        size: 'xs',
+        size: 'l',
     },
     variations: {
         view: {
