@@ -3,8 +3,11 @@ import type { StoryObj, Meta } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import { IconChevronRight } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Avatar } from '../Avatar';
+
+import { config } from './Cell.config';
 
 import { Cell, CellTextbox, CellTextboxTitle } from '.';
 
@@ -13,9 +16,11 @@ type StoryProps = ComponentProps<typeof Cell> & {
     disableLeftContent?: boolean;
     disableRightContent?: boolean;
 };
+
 type Story = StoryObj<StoryProps>;
 
-const sizes = ['l', 'm', 's', 'xs'];
+const { sizes } = getConfigVariations(config);
+
 const stretchingValues = ['fixed', 'filled', 'auto'];
 const alignLeft = ['top', 'center', 'bottom'];
 const alignRight = ['top', 'center', 'bottom'];
