@@ -12,7 +12,19 @@ const { meta: META, Default } = getTextFieldStories({
     componentConfig: config,
     defaultArgs: {
         size: 's',
+        hasHint: false,
     },
+    disablePropsList: [
+        'hasHint',
+        'hintText',
+        'hintTrigger',
+        'hintView',
+        'hintSize',
+        'hintTargetPlacement',
+        'hintPlacement',
+        'hintWidth',
+        'hintHasArrow',
+    ],
 });
 
 const meta: Meta<TextFieldProps> = {

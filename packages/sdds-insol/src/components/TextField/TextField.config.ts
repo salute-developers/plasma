@@ -11,7 +11,6 @@ export const config = {
         view: {
             default: css`
                 ${tokens.color}: var(--text-primary);
-                ${tokens.clearColor}: var(--text-primary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.clearPlaceholderColor}: var(--text-secondary);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
@@ -44,7 +43,6 @@ export const config = {
             `,
             positive: css`
                 ${tokens.color}: color-mix(in oklab, var(--text-positive) 70%, transparent);
-                ${tokens.clearColor}: color-mix(in oklab, var(--text-positive) 70%, transparent);
                 ${tokens.clearPlaceholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
@@ -77,7 +75,6 @@ export const config = {
             `,
             warning: css`
                 ${tokens.color}: color-mix(in oklab, var(--text-warning) 70%, transparent);
-                ${tokens.clearColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
                 ${tokens.clearPlaceholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
@@ -110,7 +107,6 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: color-mix(in oklab, var(--text-negative) 70%, transparent);
-                ${tokens.clearColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
                 ${tokens.clearPlaceholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);

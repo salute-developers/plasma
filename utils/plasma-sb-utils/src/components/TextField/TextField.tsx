@@ -9,6 +9,7 @@ import { chipViews } from './fixtures';
 type CreateStoriesProps = {
     component: any;
     componentConfig: any;
+    customIcon?: (size: string) => JSX.Element;
     title?: string;
     disablePropsList?: string[];
     defaultArgs?: {};
@@ -17,7 +18,7 @@ type CreateStoriesProps = {
 };
 
 export const getTextFieldStories = (config: CreateStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, customIcon, ...rest } = config;
 
     const textFieldConfig = getConfigVariations(componentConfig);
 
@@ -27,8 +28,8 @@ export const getTextFieldStories = (config: CreateStoriesProps) => {
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component);
-    const ChipsStoryComponent = createChipsStory(component);
+    const DefaultStoryComponent = createDefaultStory(component, customIcon);
+    const ChipsStoryComponent = createChipsStory(component, customIcon);
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,
