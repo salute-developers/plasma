@@ -1,20 +1,24 @@
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Indicator } from './Indicator';
+import { config } from './Indicator.config';
+
+const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<typeof Indicator> = {
     title: 'Data Display/Indicator',
     component: Indicator,
     argTypes: {
         view: {
-            options: ['default', 'accent', 'inactive', 'positive', 'warning', 'negative', 'black', 'white'],
+            options: views,
             control: {
                 type: 'select',
             },
         },
         size: {
-            options: ['l', 'm', 's'],
+            options: sizes,
             control: {
                 type: 'select',
             },
