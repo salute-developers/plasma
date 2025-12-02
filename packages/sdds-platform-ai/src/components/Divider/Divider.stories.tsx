@@ -1,12 +1,15 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import styled from 'styled-components';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { BodyS } from '../Typography';
 
 import { Divider } from './Divider';
+import { config } from './Divider.config';
+
+const { views } = getConfigVariations(config);
 
 const meta: Meta<typeof Divider> = {
     title: 'Data Display/Divider',
@@ -20,7 +23,7 @@ const meta: Meta<typeof Divider> = {
             table: { defaultValue: { summary: 'horizontal' } },
         },
         view: {
-            options: ['default', 'dark', 'light', 'inverse'],
+            options: views,
             control: {
                 type: 'select',
             },
