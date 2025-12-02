@@ -56,45 +56,6 @@ export const config = {
                 ${tokens.counterLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.counterLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
-            l: css`
-                ${tokens.avatarSize}: 3rem;
-                ${tokens.fontSize}: 1.25rem;
-                ${tokens.fontWeight}: 600;
-                ${tokens.lineHeight}: 1.25rem;
-                ${tokens.statusIconSize}: 0.5rem;
-                ${tokens.borderRadius}: 0.75rem;
-
-                ${tokens.extraPlacementFactor}: 2;
-
-                ${tokens.badgeBorderRadius}: 0.375rem;
-                ${tokens.badgeHeight}: 1.25rem;
-                ${tokens.badgePadding}: 0 0.438rem;
-                ${tokens.badgePaddingIconOnly}: 0 0.25rem;
-
-                ${tokens.badgeFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.badgeFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.badgeFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.badgeFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.badgeLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.badgeLineHeight}: var(--plasma-typo-body-xxs-line-height);
-
-                ${tokens.badgeLeftContentMarginLeft}: -0.063rem;
-                ${tokens.badgeLeftContentMarginRight}: 0.125rem;
-
-                ${tokens.badgeRightContentMarginLeft}: 0.125rem;
-                ${tokens.badgeRightContentMarginRight}: -0.063rem;
-                ${tokens.badgePilledBorderRadius}: 1.25rem;
-
-                ${tokens.counterBorderRadius}: 1rem;
-                ${tokens.counterHeight}: 1.25rem;
-                ${tokens.counterPadding}: 0 0.375rem;
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
-            `,
             m: css`
                 ${tokens.avatarSize}: 2.25rem;
                 ${tokens.fontSize}: 0.875rem;
