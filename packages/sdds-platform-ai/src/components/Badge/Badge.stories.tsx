@@ -1,8 +1,11 @@
 import React, { ComponentProps } from 'react';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { Badge } from './Badge';
+import { config } from './Badge.config';
+
+const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<typeof Badge> = {
     title: 'Data Display/Badge',
@@ -10,13 +13,13 @@ const meta: Meta<typeof Badge> = {
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
-            options: ['l', 'm', 's', 'xs'],
+            options: sizes,
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
+            options: views,
             control: {
                 type: 'select',
             },

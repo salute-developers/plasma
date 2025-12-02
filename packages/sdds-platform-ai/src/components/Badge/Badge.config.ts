@@ -25,15 +25,6 @@ export const config = {
 
                 ${badgeTokens.colorClear}: var(--text-accent);
             `,
-            positive: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
-                ${badgeTokens.background}: var(--surface-positive);
-
-                ${badgeTokens.colorTransparent}: var(--text-positive);
-                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-positive);
-
-                ${badgeTokens.colorClear}: var(--text-positive);
-            `,
             warning: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
                 ${badgeTokens.background}: var(--surface-warning);
@@ -108,25 +99,6 @@ export const config = {
                 ${badgeTokens.leftContentMarginRight}: 0.1875rem;
 
                 ${badgeTokens.rightContentMarginLeft}: 0.1875rem;
-                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
-            `,
-            s: css`
-                ${badgeTokens.borderRadius}: 0.375rem;
-                ${badgeTokens.height}: 1.25rem;
-                ${badgeTokens.padding}: 0 0.4375rem;
-                ${badgeTokens.paddingIconOnly}: 0 0.25rem;
-
-                ${badgeTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${badgeTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${badgeTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${badgeTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
-
-                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
-                ${badgeTokens.leftContentMarginRight}: 0.125rem;
-
-                ${badgeTokens.rightContentMarginLeft}: 0.125rem;
                 ${badgeTokens.rightContentMarginRight}: -0.0625rem;
             `,
             xs: css`
