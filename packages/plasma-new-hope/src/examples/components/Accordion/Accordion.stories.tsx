@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { ComponentProps, ReactNode } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { mergeConfig } from '../../../engines';

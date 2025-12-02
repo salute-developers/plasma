@@ -1,4 +1,4 @@
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, getConfigVariations, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { config } from './Progress.config';

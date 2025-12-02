@@ -1,6 +1,6 @@
 import React, { useRef, useCallback, memo, useState } from 'react';
 import type { FC } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import type { SnapType, SnapAlign, CarouselLiteProps } from '@salutejs/plasma-core';
 import { CarouselItemVirtual } from '@salutejs/plasma-core';
 import { useVirtual } from '@salutejs/use-virtual';

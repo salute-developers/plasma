@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { P1 } from '../Typography';

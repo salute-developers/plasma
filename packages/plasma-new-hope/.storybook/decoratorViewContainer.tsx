@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryContext } from '@storybook/react';
+import { StoryContext } from '@storybook/react-vite';
 
 import plasmaB2CTheme from '@salutejs/plasma-themes/css/plasma_b2c.module.css';
 import plasmaWebTheme from '@salutejs/plasma-themes/css/plasma_web.module.css';
@@ -51,7 +51,7 @@ const themeMap: Record<string, ThemeType> = {
     web: plasmaWebTheme,
 };
 
-export const withViewContainer = (Story, context: StoryContext) => {
+export const withViewContainer = (Story: any, context: StoryContext) => {
     const themeType = context.globals.theme as keyof ThemeType;
     const themeName = 'b2c';
     const viewContainerType = viewMap[context.globals.viewContainer];

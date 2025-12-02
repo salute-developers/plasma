@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Button } from '../Button';
 

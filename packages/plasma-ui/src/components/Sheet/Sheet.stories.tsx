@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { InSpacing } from '../../helpers/StoryDecorators';
 import { Button } from '../Button';

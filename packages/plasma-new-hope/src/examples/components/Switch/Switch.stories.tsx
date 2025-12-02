@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { styled } from '@linaria/react';
-import { action } from '@storybook/addon-actions';
+import styled from 'styled-components';
+import { action } from 'storybook/actions';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { switchConfig } from '../../../components/Switch';
 import { mergeConfig } from '../../../engines';

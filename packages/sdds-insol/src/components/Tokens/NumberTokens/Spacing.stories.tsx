@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { sdds_insol__dark, sdds_insol__light } from '@salutejs/sdds-themes/es/themes';
 import { InSpacingDecorator, getGroupedCornerRadiusTokens } from '@salutejs/plasma-sb-utils';
 import type { GroupedNumberTokens } from '@salutejs/plasma-sb-utils';

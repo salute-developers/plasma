@@ -1,6 +1,6 @@
 import React, { ComponentProps, useCallback, useRef, useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import type { StoryObj, Meta } from '@storybook/react-vite';
+import { action } from 'storybook/actions';
 import styled from 'styled-components';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 

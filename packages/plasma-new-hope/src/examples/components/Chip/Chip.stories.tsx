@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { IconMic } from '../../../components/_Icon';
 import { WithTheme } from '../../_helpers';

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Decorator, StoryFn, StoryContext } from '@storybook/react';
+import type { Decorator, StoryFn, StoryContext } from '@storybook/react-vite';
 
 export const reactStrictModePreviewOption = {
     reactStrictMode: {

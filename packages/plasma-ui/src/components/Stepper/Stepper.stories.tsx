@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import type { StoryObj, Meta } from '@storybook/react-vite';
+import { action } from 'storybook/actions';
 import { IconMinus, IconPlus, IconClose } from '@salutejs/plasma-icons';
 
 import { actionWithPersistedEvent, InSpacingDecorator, ShowcaseComponentRow } from '../../helpers';

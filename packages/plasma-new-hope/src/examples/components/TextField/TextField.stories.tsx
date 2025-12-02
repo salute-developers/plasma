@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 import { getTextFieldStories } from '@salutejs/plasma-sb-utils';
 
 import { TextField } from './TextField';

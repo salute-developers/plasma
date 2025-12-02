@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { plasma_b2c__dark, plasma_b2c__light } from '@salutejs/plasma-themes/es/themes';
 import { getGroupedSpacingTokens } from '@salutejs/plasma-sb-utils';
 import type { GroupedNumberTokens } from '@salutejs/plasma-sb-utils';

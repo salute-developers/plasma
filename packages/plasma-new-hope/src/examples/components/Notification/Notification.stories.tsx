@@ -1,9 +1,9 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { getConfigVariations } from '@salutejs/plasma-sb-utils';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';

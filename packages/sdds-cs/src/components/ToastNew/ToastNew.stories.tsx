@@ -1,6 +1,6 @@
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconDone } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';

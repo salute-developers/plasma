@@ -1,6 +1,6 @@
 import React, { ComponentProps } from 'react';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { badgeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
 import { hasComponentDraftConfig } from '../../helpers/hasComponentDraftConfig';

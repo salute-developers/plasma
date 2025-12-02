@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { InSpacing } from '../../helpers/StoryDecorators';
 import { Footnote1 } from '../Typography';

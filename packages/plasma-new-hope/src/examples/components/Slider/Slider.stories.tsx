@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 import { disableProps } from '@salutejs/plasma-sb-utils';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { IconMic } from '../../../components/_Icon';
 import { WithTheme } from '../../_helpers';

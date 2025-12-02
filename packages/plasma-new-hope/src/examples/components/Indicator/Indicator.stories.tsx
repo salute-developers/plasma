@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { argTypesFromConfig, WithTheme } from '../../_helpers';
 

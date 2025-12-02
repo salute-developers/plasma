@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconPlayCircleFill } from '@salutejs/plasma-icons';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 

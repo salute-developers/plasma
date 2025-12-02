@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconMic } from '@salutejs/plasma-icons';
 
 import { actionWithPersistedEvent, disableProps, InSpacingDecorator } from '../../helpers';

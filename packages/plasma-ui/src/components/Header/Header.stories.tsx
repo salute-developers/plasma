@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import type { StoryObj, Meta } from '@storybook/react-vite';
+import { action } from 'storybook/actions';
 import { IconMic, IconPlus, IconTrash } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';

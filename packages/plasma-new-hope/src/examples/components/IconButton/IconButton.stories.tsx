@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { iconButtonConfig } from '../../../components/IconButton';

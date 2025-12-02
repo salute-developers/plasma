@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { sdds_scan__dark, sdds_scan__light } from '@salutejs/sdds-themes/es/themes';
 import { InSpacingDecorator, getGroupedTokens, upperFirstLetter } from '@salutejs/plasma-sb-utils';
 import type { GroupedTokens, TokenData } from '@salutejs/plasma-sb-utils';
