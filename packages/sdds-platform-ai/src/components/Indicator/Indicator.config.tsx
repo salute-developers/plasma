@@ -28,9 +28,6 @@ export const config = {
             black: css`
                 ${tokens.color}: var(--on-light-surface-solid-default);
             `,
-            white: css`
-                ${tokens.color}: var(--on-dark-surface-solid-default);
-            `,
         },
         size: {
             l: css`
