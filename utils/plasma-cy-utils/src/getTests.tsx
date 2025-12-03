@@ -7,6 +7,7 @@ import { getConfigMatrix } from './getConfigMatrix';
 type GetBaseVisualTestsArgs = {
     config: any;
     component: string;
+    componentProps: any;
     configPropsForMatrix?: string[];
     children?: ReactNode;
     testCaseIds?: string[];
@@ -16,6 +17,7 @@ export const getBaseVisualTests = ({
     testCaseIds,
     config,
     component,
+    componentProps,
     children,
     configPropsForMatrix,
 }: GetBaseVisualTestsArgs) => {
@@ -32,7 +34,13 @@ export const getBaseVisualTests = ({
             it(`${testId}${component} ${testParams}`, () => {
                 mount(
                     <>
-                        {children ? <Component {...combination}>{children}</Component> : <Component {...combination} />}
+                        {children ? (
+                            <Component {...combination} {...componentProps}>
+                                {children}
+                            </Component>
+                        ) : (
+                            <Component {...combination} {...componentProps} />
+                        )}
                     </>,
                 );
 

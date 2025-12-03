@@ -20,7 +20,7 @@ var CypressHelpers_1 = require("./CypressHelpers");
 var CypressDecorator_1 = require("./CypressDecorator");
 var getConfigMatrix_1 = require("./getConfigMatrix");
 var getBaseVisualTests = function (_a) {
-    var testCaseIds = _a.testCaseIds, config = _a.config, component = _a.component, children = _a.children, configPropsForMatrix = _a.configPropsForMatrix;
+    var testCaseIds = _a.testCaseIds, config = _a.config, component = _a.component, componentProps = _a.componentProps, children = _a.children, configPropsForMatrix = _a.configPropsForMatrix;
     return describe("plasma-new-hope: ".concat(component), function () {
         var Component = (0, CypressDecorator_1.getComponent)(component);
         var configMatrix = (0, getConfigMatrix_1.getConfigMatrix)(config, configPropsForMatrix);
@@ -33,7 +33,7 @@ var getBaseVisualTests = function (_a) {
             })
                 .join(', ');
             it("".concat(testId).concat(component, " ").concat(testParams), function () {
-                (0, CypressHelpers_1.mount)(react_1.default.createElement(react_1.default.Fragment, null, children ? react_1.default.createElement(Component, __assign({}, combination), children) : react_1.default.createElement(Component, __assign({}, combination))));
+                (0, CypressHelpers_1.mount)(react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement(Component, __assign({}, combination, componentProps), children)) : (react_1.default.createElement(Component, __assign({}, combination, componentProps)))));
                 // @ts-ignore
                 cy.matchImageSnapshot();
             });
