@@ -6,6 +6,7 @@ export const classes = {
     timeColumnLabel: 'plasma-time-picker-column-label',
     timeItemActive: 'plasma-time-picker-item-active',
     timePickerFullWidth: 'plasma-time-picker-full-width',
+    timePickerFixed: 'plasma-time-picker-fixed',
     timePickerActive: 'plasma-time-picker-active',
     timeColumnActive: 'plasma-time-picker-column-active',
     timeColumn: 'plasma-time-picker-column',

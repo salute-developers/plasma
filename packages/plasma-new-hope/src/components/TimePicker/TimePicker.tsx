@@ -289,7 +289,8 @@ export const timePickerRoot = (
                             view={view}
                             size={size}
                             className={cls(classes.timePickerRoot, className, {
-                                [classes.timePickerstretched]: stretched,
+                                [classes.timePickerFullWidth]: dropdownWidth === 'fullWidth',
+                                [classes.timePickerFixed]: dropdownWidth !== 'fullWidth',
                             })}
                             disabled={disabled}
                             readonly={readonly}
@@ -304,6 +305,7 @@ export const timePickerRoot = (
                                 view={view}
                                 size={size}
                                 disabled={disabled}
+                                width={getDropdownWidth()}
                             />
                         </Root>
                     </StyledPopover>
