@@ -7,7 +7,7 @@ generate([
     },
     {
         name: 'sdds_dfa',
-        version: 'latest',
+        version: '0.4.0',
     },
     {
         name: 'sdds_cs',
