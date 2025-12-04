@@ -163,6 +163,7 @@ export const iconSectionsSet = {
         typography: 'Typography',
         exportOutline: 'ExportOutline',
         exportDoneOutline: 'ExportDoneOutline',
+        resizeCorneredFill: 'ResizeCorneredFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
