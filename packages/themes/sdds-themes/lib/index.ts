@@ -3,7 +3,7 @@ import { generate } from '@salutejs/core-themes';
 generate([
     {
         name: 'sdds_serv',
-        version: 'latest',
+        version: '0.8.0',
     },
     {
         name: 'sdds_dfa',
