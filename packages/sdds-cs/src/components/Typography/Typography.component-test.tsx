@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-describe('plasma-giga: ResponsiveTypography', () => {
+describe('sdds-cs: ResponsiveTypography', () => {
     const BodyL = getComponent('BodyL');
     const BodyM = getComponent('BodyM');
     const BodyS = getComponent('BodyS');
@@ -95,6 +95,8 @@ describe('plasma-giga: ResponsiveTypography', () => {
     it('Dspl @375px', () => {
         mount(dspl);
 
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(100);
         cy.viewport(375, 667);
         cy.matchImageSnapshot();
     });
