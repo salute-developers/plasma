@@ -42,22 +42,6 @@ export const config = {
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
-            l: css`
-                ${switchTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${switchTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${switchTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${switchTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
-                ${switchTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${switchTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
-                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${switchTokens.verticalGap}: 0.25rem;
-                ${switchTokens.labelOffset}: 0.75rem;
-            `,
         },
         toggleSize: {
             l: css`

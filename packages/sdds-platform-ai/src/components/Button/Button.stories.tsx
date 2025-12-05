@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react';
 import { getButtonStories } from '@salutejs/plasma-sb-utils';
 
-import { Counter } from '../Counter/Counter';
+import { Counter } from '../Counter';
 
 import { Button } from './Button';
 import { config } from './Button.config';

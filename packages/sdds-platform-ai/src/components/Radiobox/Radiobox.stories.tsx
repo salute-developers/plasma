@@ -22,13 +22,13 @@ const meta: Meta<RadioboxProps> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         view: {
             options: views,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         ...disableProps(['view']),

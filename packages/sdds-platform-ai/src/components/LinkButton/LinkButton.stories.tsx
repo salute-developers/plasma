@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
-import { Counter } from '../Counter/Counter';
+import { Counter } from '../Counter';
 
 import { LinkButton } from './LinkButton';
 import { config } from './LinkButton.config';

@@ -4,7 +4,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconMic } from '@salutejs/plasma-icons';
 
-import { Counter } from '../Counter/Counter';
+import { Counter } from '../Counter';
 
 import { SegmentItem, SegmentGroup } from './Segment';
 
