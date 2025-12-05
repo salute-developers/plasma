@@ -54,13 +54,13 @@ const meta: Meta<CheckboxProps> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         view: {
             options: views,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         ...disableProps(propsToDisable),

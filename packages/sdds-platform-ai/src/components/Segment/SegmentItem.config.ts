@@ -90,23 +90,6 @@ export const config = {
                 ${segmentTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${segmentTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
-            s: css`
-                ${segmentTokens.itemBorderRadius}: 0.625rem;
-                ${segmentTokens.itemWidth}: auto;
-                ${segmentTokens.itemHeight}: 2.5rem;
-                ${segmentTokens.itemPadding}: 0.5rem 1rem;
-                ${segmentTokens.itemPilledPadding}: 0.5rem 0.5rem;
-                ${segmentTokens.itemContentPadding}: 0.1875rem 0.125rem;
-                ${segmentTokens.itemIconMargin}: 0.125rem;
-                ${segmentTokens.itemMarginLeft}: 0rem;
-
-                ${segmentTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${segmentTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${segmentTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${segmentTokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${segmentTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
-            `,
             m: css`
                 ${segmentTokens.itemBorderRadius}: 0.75rem;
                 ${segmentTokens.itemWidth}: auto;
@@ -123,40 +106,6 @@ export const config = {
                 ${segmentTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
                 ${segmentTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${segmentTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
-            `,
-            l: css`
-                ${segmentTokens.itemBorderRadius}: 0.875rem;
-                ${segmentTokens.itemWidth}: auto;
-                ${segmentTokens.itemHeight}: 3.5rem;
-                ${segmentTokens.itemPadding}: 1rem 1.5rem; /* 1.625 */
-                ${segmentTokens.itemPilledPadding}: 1rem 1rem;
-                ${segmentTokens.itemContentPadding}: 0.0625rem 0.125rem;
-                ${segmentTokens.itemIconMargin}: 0.375rem;
-                ${segmentTokens.itemMarginLeft}: 0;
-
-                ${segmentTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${segmentTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${segmentTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${segmentTokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${segmentTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
-            `,
-            xl: css`
-                ${segmentTokens.itemBorderRadius}: 1rem;
-                ${segmentTokens.itemWidth}: auto;
-                ${segmentTokens.itemHeight}: 4rem;
-                ${segmentTokens.itemPadding}: 1.25rem 1.75rem;
-                ${segmentTokens.itemPilledPadding}: 1.25rem;
-                ${segmentTokens.itemContentPadding}: 0.0625rem 0.125rem;
-                ${segmentTokens.itemIconMargin}: 0.375rem;
-                ${segmentTokens.itemMarginLeft}: 0;
-
-                ${segmentTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${segmentTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${segmentTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${segmentTokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${segmentTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
             `,
         },
         disabled: {

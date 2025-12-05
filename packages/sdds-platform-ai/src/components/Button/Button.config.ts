@@ -48,7 +48,7 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
-            success: css`
+            positive: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
@@ -68,7 +68,7 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-warning-hover);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-warning-active);
             `,
-            critical: css`
+            negative: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
