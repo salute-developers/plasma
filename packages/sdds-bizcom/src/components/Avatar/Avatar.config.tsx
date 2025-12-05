@@ -9,8 +9,10 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-accent-gradient);
-                ${tokens.backgroundColor}: linear-gradient(94deg, rgba(62, 121, 240, 0.2) 6.49%, rgba(39, 198, 229, 0.2) 93.51%);
+                /* stylelint-disable value-list-comma-space-after */
+                ${tokens.color}: radial-gradient(88% 150% at 0% 100%, rgba(0, 120, 153, 1), rgba(25, 125, 97, 1) 100%);
+                ${tokens.backgroundColor}: radial-gradient(88% 150% at 0% 100%, rgba(0, 120, 153, 0.2), rgba(25, 125, 97, 0.2) 100%);
+                /* stylelint-enable value-list-comma-space-after */
                 ${tokens.statusOnlineColor}: var(--surface-positive);
                 ${tokens.statusOfflineColor}: var(--surface-solid-tertiary);
                 ${tokens.scaleHover}: 1.02;
