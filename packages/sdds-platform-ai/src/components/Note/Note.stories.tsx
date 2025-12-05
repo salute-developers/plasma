@@ -1,12 +1,13 @@
 import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconSaluteOutline } from '@salutejs/plasma-icons';
 
 import { Note } from './Note';
+import { config } from './Note.config';
 
-const views = ['default', 'positive', 'warning', 'negative', 'info'];
-const sizes = ['l', 'm', 's', 'xs'];
+const { views, sizes } = getConfigVariations(config);
+
 const contentBeforeSizes = ['fixed', 'scalable'];
 
 const meta: Meta<typeof Note> = {
