@@ -1,9 +1,10 @@
 import { css } from '@salutejs/plasma-new-hope/styled-components';
 
+// TODO: Добавить view info
 export const config = {
     defaults: {
         view: 'accent',
-        size: 'm',
+        size: 'xxs',
     },
     variations: {
         view: {
@@ -12,12 +13,6 @@ export const config = {
             `,
             secondary: css`
                 --plasma-spinner-color: var(--text-secondary);
-            `,
-            tertiary: css`
-                --plasma-spinner-color: var(--text-tertiary);
-            `,
-            paragraph: css`
-                --plasma-spinner-color: var(--text-paragraph);
             `,
             accent: css`
                 --plasma-spinner-color: var(--text-accent);
