@@ -49,6 +49,7 @@ export const tokens = {
     paginationCurrentButtonActiveColor: '--plasma-pagination--button-current-color-active',
     paginationDisabledButtonColor: '--plasma-pagination--button-color-disabled',
     paginationDisabledButtonBackgroundColor: '--plasma-pagination--button-bg-color-disabled',
+    paginationCompactTypeGap: '--plasma-pagination-compact-type-gap',
 
     buttonDisabledOpacity: '--plasma-pagination-button-disabled-opacity',
 

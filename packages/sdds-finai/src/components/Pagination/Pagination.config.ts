@@ -165,6 +165,8 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationCompactTypeGap}: 0.5rem;
             `,
             m: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -206,6 +208,8 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationCompactTypeGap}: 0.5rem;
             `,
             s: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -247,6 +251,8 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationCompactTypeGap}: 0.5rem;
             `,
             xs: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -288,6 +294,8 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationCompactTypeGap}: 0.5rem;
             `,
         },
         type: {

@@ -19,7 +19,7 @@ export const PaginationRoot = styled.div`
 
     &.${classes.compactType} {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: var(${tokens.paginationCompactTypeGap});
         justify-content: flex-start;
     }
     &.${classes.defaultType} {

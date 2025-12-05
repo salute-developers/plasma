@@ -126,6 +126,7 @@ export const config = {
         },
         size: {
             l: css`
+                ${paginationTokens.paginationCompactTypeGap}: 0.5rem;
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-l-font-size);
                 ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -167,6 +168,7 @@ export const config = {
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
             m: css`
+                ${paginationTokens.paginationCompactTypeGap}: 0.5rem;
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-m-font-size);
                 ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -208,6 +210,7 @@ export const config = {
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
             s: css`
+                ${paginationTokens.paginationCompactTypeGap}: 0.5rem;
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-s-font-size);
                 ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -249,6 +252,7 @@ export const config = {
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
             xs: css`
+                ${paginationTokens.paginationCompactTypeGap}: 0.5rem;
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-xs-font-style);

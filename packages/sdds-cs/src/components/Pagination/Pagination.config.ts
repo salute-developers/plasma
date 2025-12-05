@@ -44,6 +44,7 @@ export const config = {
         },
         size: {
             s: css`
+                ${paginationTokens.paginationCompactTypeGap}: 0.5rem;
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-m-font-size);
                 ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-m-font-style);
