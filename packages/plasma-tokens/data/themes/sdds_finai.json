@@ -4691,6 +4691,54 @@
         },
         "data": {
             "default": {
+                "dataPositiveGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0.302%, rgba(0, 172, 123, 0.68) 30.285%, rgba(0, 125, 128, 0.32) 54.577%, rgba(6, 10, 12, 0) 74.407%)",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataWarningGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 112, 36) 0%, rgba(255, 112, 36, 0.68) 30.401%, rgba(133, 56, 12, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataNegativeGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 61, 81, 0.68) 30.401%, rgba(156, 20, 34, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataInfoGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 142, 255, 0.68) 30.401%, rgba(12, 114, 182, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
                 "dataYellowHover": {
                     "value": "#F4B22FFF",
                     "comment": "Желтый цвет для данных"
@@ -4861,6 +4909,54 @@
                 }
             },
             "onDark": {
+                "dataPositiveGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0.302%, rgba(0, 172, 123, 0.68) 30.285%, rgba(0, 125, 128, 0.32) 54.577%, rgba(6, 10, 12, 0) 74.407%)",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataWarningGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 112, 36) 0%, rgba(255, 112, 36, 0.68) 30.401%, rgba(133, 56, 12, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataNegativeGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 61, 81, 0.68) 30.401%, rgba(156, 20, 34, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataInfoGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 142, 255, 0.68) 30.401%, rgba(12, 114, 182, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
                 "dataYellowHover": {
                     "value": "#F4B22FFF",
                     "comment": "Желтый цвет для данных на темном фоне"
@@ -5031,6 +5127,54 @@
                 }
             },
             "onLight": {
+                "dataPositiveGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0%, rgba(0, 172, 123, 0.68) 30.401%, rgba(237, 248, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataWarningGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(250, 95, 5) 0%, rgba(253, 156, 104, 0.68) 30.401%, rgba(255, 246, 229, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataNegativeGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 143, 154, 0.68) 30.401%, rgba(254, 226, 210, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataInfoGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 186, 255, 0.68) 30.401%, rgba(207, 236, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
                 "dataYellow": {
                     "value": "[general.amber.300]",
                     "comment": "Желтый цвет для данных на светлом фоне"
@@ -5201,6 +5345,54 @@
                 }
             },
             "inverse": {
+                "dataPositiveGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0%, rgba(0, 172, 123, 0.68) 30.401%, rgba(237, 248, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataWarningGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(250, 95, 5) 0%, rgba(253, 156, 104, 0.68) 30.401%, rgba(255, 246, 229, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataNegativeGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 143, 154, 0.68) 30.401%, rgba(254, 226, 210, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataInfoGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 186, 255, 0.68) 30.401%, rgba(207, 236, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
                 "dataYellow": {
                     "value": "[general.amber.300]",
                     "comment": "Инвертированный желтый цвет для данных"
@@ -10053,6 +10245,54 @@
         },
         "data": {
             "default": {
+                "dataPositiveGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0%, rgba(0, 172, 123, 0.68) 30.401%, rgba(237, 248, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataWarningGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(250, 95, 5) 0%, rgba(253, 156, 104, 0.68) 30.401%, rgba(255, 246, 229, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataNegativeGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 143, 154, 0.68) 30.401%, rgba(254, 226, 210, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataInfoGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 186, 255, 0.68) 30.401%, rgba(207, 236, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
                 "dataYellow": {
                     "value": "[general.amber.300]",
                     "comment": "Желтый цвет для данных"
@@ -10447,6 +10687,54 @@
                 }
             },
             "onDark": {
+                "dataPositiveGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0.302%, rgba(0, 172, 123, 0.68) 30.285%, rgba(0, 125, 128, 0.32) 54.577%, rgba(6, 10, 12, 0) 74.407%)",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataWarningGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 112, 36) 0%, rgba(255, 112, 36, 0.68) 30.401%, rgba(133, 56, 12, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataNegativeGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 61, 81, 0.68) 30.401%, rgba(156, 20, 34, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataInfoGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 142, 255, 0.68) 30.401%, rgba(12, 114, 182, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
                 "dataYellowHover": {
                     "value": "#B87A00FF",
                     "comment": "Желтый цвет для данных на темном фоне"
@@ -10841,6 +11129,54 @@
                 }
             },
             "onLight": {
+                "dataPositiveGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0%, rgba(0, 172, 123, 0.68) 30.401%, rgba(237, 248, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataWarningGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(250, 95, 5) 0%, rgba(253, 156, 104, 0.68) 30.401%, rgba(255, 246, 229, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataNegativeGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 143, 154, 0.68) 30.401%, rgba(254, 226, 210, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataInfoGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 186, 255, 0.68) 30.401%, rgba(207, 236, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%)",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
                 "dataYellow": {
                     "value": "[general.amber.300]",
                     "comment": ""
@@ -11235,6 +11571,54 @@
                 }
             },
             "inverse": {
+                "dataPositiveGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0.302%, rgba(0, 172, 123, 0.68) 30.285%, rgba(0, 125, 128, 0.32) 54.577%, rgba(6, 10, 12, 0) 74.407%)",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataPositiveGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет успеха с градиентом"
+                },
+                "dataWarningGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 112, 36) 0%, rgba(255, 112, 36, 0.68) 30.401%, rgba(133, 56, 12, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataWarningGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет предупреждения с градиентом"
+                },
+                "dataNegativeGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 61, 81, 0.68) 30.401%, rgba(156, 20, 34, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataNegativeGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет ошибки с градиентом"
+                },
+                "dataInfoGradient": {
+                    "value": "radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 142, 255, 0.68) 30.401%, rgba(12, 114, 182, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%)",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientHover": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
+                "dataInfoGradientActive": {
+                    "value": "#FFFFFF",
+                    "comment": "Цвет информации с градиентом"
+                },
                 "dataYellow": {
                     "value": "[general.amber.700]",
                     "comment": ""
