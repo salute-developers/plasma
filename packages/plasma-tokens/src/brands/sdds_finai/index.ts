@@ -2216,6 +2216,46 @@ export const inverseOutlineNegative = 'var(--inverse-outline-negative, #E31227)'
 /** Инвертированный третичный непрозрачный цвет обводки */
 export const inverseOutlineSolidTertiary = 'var(--inverse-outline-solid-tertiary, #657179)';
 
+/** Цвет успеха с градиентом */
+export const dataDefaultDataPositiveGradient =
+    'var(--data-default-data-positive-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0.302%, rgba(0, 172, 123, 0.68) 30.285%, rgba(0, 125, 128, 0.32) 54.577%, rgba(6, 10, 12, 0) 74.407%))';
+
+/** Цвет успеха с градиентом */
+export const dataDefaultDataPositiveGradientHover = 'var(--data-default-data-positive-gradient-hover, #FFFFFF)';
+
+/** Цвет успеха с градиентом */
+export const dataDefaultDataPositiveGradientActive = 'var(--data-default-data-positive-gradient-active, #FFFFFF)';
+
+/** Цвет предупреждения с градиентом */
+export const dataDefaultDataWarningGradient =
+    'var(--data-default-data-warning-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 112, 36) 0%, rgba(255, 112, 36, 0.68) 30.401%, rgba(133, 56, 12, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%))';
+
+/** Цвет предупреждения с градиентом */
+export const dataDefaultDataWarningGradientHover = 'var(--data-default-data-warning-gradient-hover, #FFFFFF)';
+
+/** Цвет предупреждения с градиентом */
+export const dataDefaultDataWarningGradientActive = 'var(--data-default-data-warning-gradient-active, #FFFFFF)';
+
+/** Цвет ошибки с градиентом */
+export const dataDefaultDataNegativeGradient =
+    'var(--data-default-data-negative-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 61, 81, 0.68) 30.401%, rgba(156, 20, 34, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%))';
+
+/** Цвет ошибки с градиентом */
+export const dataDefaultDataNegativeGradientHover = 'var(--data-default-data-negative-gradient-hover, #FFFFFF)';
+
+/** Цвет ошибки с градиентом */
+export const dataDefaultDataNegativeGradientActive = 'var(--data-default-data-negative-gradient-active, #FFFFFF)';
+
+/** Цвет информации с градиентом */
+export const dataDefaultDataInfoGradient =
+    'var(--data-default-data-info-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 142, 255, 0.68) 30.401%, rgba(12, 114, 182, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%))';
+
+/** Цвет информации с градиентом */
+export const dataDefaultDataInfoGradientHover = 'var(--data-default-data-info-gradient-hover, #FFFFFF)';
+
+/** Цвет информации с градиентом */
+export const dataDefaultDataInfoGradientActive = 'var(--data-default-data-info-gradient-active, #FFFFFF)';
+
 /** Желтый цвет для данных */
 export const dataDefaultDataYellowHover = 'var(--data-default-data-yellow-hover, #F4B22FFF)';
 
@@ -2314,6 +2354,46 @@ export const dataDefaultDataYellowTransparent = 'var(--data-default-data-yellow-
 export const dataDefaultDataGreenTransparent = 'var(--data-default-data-green-transparent, rgba(26,158,50,0.24))';
 
 export const dataDefaultDataBlueTransparent = 'var(--data-default-data-blue-transparent, rgba(17,140,223,0.24))';
+
+/** Цвет успеха с градиентом */
+export const dataOnDarkDataPositiveGradient =
+    'var(--data-on-dark-data-positive-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0.302%, rgba(0, 172, 123, 0.68) 30.285%, rgba(0, 125, 128, 0.32) 54.577%, rgba(6, 10, 12, 0) 74.407%))';
+
+/** Цвет успеха с градиентом */
+export const dataOnDarkDataPositiveGradientHover = 'var(--data-on-dark-data-positive-gradient-hover, #FFFFFF)';
+
+/** Цвет успеха с градиентом */
+export const dataOnDarkDataPositiveGradientActive = 'var(--data-on-dark-data-positive-gradient-active, #FFFFFF)';
+
+/** Цвет предупреждения с градиентом */
+export const dataOnDarkDataWarningGradient =
+    'var(--data-on-dark-data-warning-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 112, 36) 0%, rgba(255, 112, 36, 0.68) 30.401%, rgba(133, 56, 12, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%))';
+
+/** Цвет предупреждения с градиентом */
+export const dataOnDarkDataWarningGradientHover = 'var(--data-on-dark-data-warning-gradient-hover, #FFFFFF)';
+
+/** Цвет предупреждения с градиентом */
+export const dataOnDarkDataWarningGradientActive = 'var(--data-on-dark-data-warning-gradient-active, #FFFFFF)';
+
+/** Цвет ошибки с градиентом */
+export const dataOnDarkDataNegativeGradient =
+    'var(--data-on-dark-data-negative-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 61, 81, 0.68) 30.401%, rgba(156, 20, 34, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%))';
+
+/** Цвет ошибки с градиентом */
+export const dataOnDarkDataNegativeGradientHover = 'var(--data-on-dark-data-negative-gradient-hover, #FFFFFF)';
+
+/** Цвет ошибки с градиентом */
+export const dataOnDarkDataNegativeGradientActive = 'var(--data-on-dark-data-negative-gradient-active, #FFFFFF)';
+
+/** Цвет информации с градиентом */
+export const dataOnDarkDataInfoGradient =
+    'var(--data-on-dark-data-info-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 142, 255, 0.68) 30.401%, rgba(12, 114, 182, 0.32) 54.577%, rgba(6, 10, 12, 0) 73.282%))';
+
+/** Цвет информации с градиентом */
+export const dataOnDarkDataInfoGradientHover = 'var(--data-on-dark-data-info-gradient-hover, #FFFFFF)';
+
+/** Цвет информации с градиентом */
+export const dataOnDarkDataInfoGradientActive = 'var(--data-on-dark-data-info-gradient-active, #FFFFFF)';
 
 /** Желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellowHover = 'var(--data-on-dark-data-yellow-hover, #F4B22FFF)';
@@ -2414,6 +2494,46 @@ export const dataOnDarkDataGreenTransparent = 'var(--data-on-dark-data-green-tra
 
 export const dataOnDarkDataBlueTransparent = 'var(--data-on-dark-data-blue-transparent, #118CDF3D)';
 
+/** Цвет успеха с градиентом */
+export const dataOnLightDataPositiveGradient =
+    'var(--data-on-light-data-positive-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0%, rgba(0, 172, 123, 0.68) 30.401%, rgba(237, 248, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
+
+/** Цвет успеха с градиентом */
+export const dataOnLightDataPositiveGradientHover = 'var(--data-on-light-data-positive-gradient-hover, #FFFFFF)';
+
+/** Цвет успеха с градиентом */
+export const dataOnLightDataPositiveGradientActive = 'var(--data-on-light-data-positive-gradient-active, #FFFFFF)';
+
+/** Цвет предупреждения с градиентом */
+export const dataOnLightDataWarningGradient =
+    'var(--data-on-light-data-warning-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(250, 95, 5) 0%, rgba(253, 156, 104, 0.68) 30.401%, rgba(255, 246, 229, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
+
+/** Цвет предупреждения с градиентом */
+export const dataOnLightDataWarningGradientHover = 'var(--data-on-light-data-warning-gradient-hover, #FFFFFF)';
+
+/** Цвет предупреждения с градиентом */
+export const dataOnLightDataWarningGradientActive = 'var(--data-on-light-data-warning-gradient-active, #FFFFFF)';
+
+/** Цвет ошибки с градиентом */
+export const dataOnLightDataNegativeGradient =
+    'var(--data-on-light-data-negative-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 143, 154, 0.68) 30.401%, rgba(254, 226, 210, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
+
+/** Цвет ошибки с градиентом */
+export const dataOnLightDataNegativeGradientHover = 'var(--data-on-light-data-negative-gradient-hover, #FFFFFF)';
+
+/** Цвет ошибки с градиентом */
+export const dataOnLightDataNegativeGradientActive = 'var(--data-on-light-data-negative-gradient-active, #FFFFFF)';
+
+/** Цвет информации с градиентом */
+export const dataOnLightDataInfoGradient =
+    'var(--data-on-light-data-info-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 186, 255, 0.68) 30.401%, rgba(207, 236, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
+
+/** Цвет информации с градиентом */
+export const dataOnLightDataInfoGradientHover = 'var(--data-on-light-data-info-gradient-hover, #FFFFFF)';
+
+/** Цвет информации с градиентом */
+export const dataOnLightDataInfoGradientActive = 'var(--data-on-light-data-info-gradient-active, #FFFFFF)';
+
 /** Желтый цвет для данных на светлом фоне */
 export const dataOnLightDataYellow = 'var(--data-on-light-data-yellow, #F3A912)';
 
@@ -2512,6 +2632,46 @@ export const dataOnLightDataOrangeTransparent = 'var(--data-on-light-data-orange
 export const dataOnLightDataYellowLight = 'var(--data-on-light-data-yellow-light, #FFF6E5)';
 
 export const dataOnLightDataGreenLight = 'var(--data-on-light-data-green-light, #9EFAAF)';
+
+/** Цвет успеха с градиентом */
+export const dataInverseDataPositiveGradient =
+    'var(--data-inverse-data-positive-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0%, rgba(0, 172, 123, 0.68) 30.401%, rgba(237, 248, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
+
+/** Цвет успеха с градиентом */
+export const dataInverseDataPositiveGradientHover = 'var(--data-inverse-data-positive-gradient-hover, #FFFFFF)';
+
+/** Цвет успеха с градиентом */
+export const dataInverseDataPositiveGradientActive = 'var(--data-inverse-data-positive-gradient-active, #FFFFFF)';
+
+/** Цвет предупреждения с градиентом */
+export const dataInverseDataWarningGradient =
+    'var(--data-inverse-data-warning-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(250, 95, 5) 0%, rgba(253, 156, 104, 0.68) 30.401%, rgba(255, 246, 229, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
+
+/** Цвет предупреждения с градиентом */
+export const dataInverseDataWarningGradientHover = 'var(--data-inverse-data-warning-gradient-hover, #FFFFFF)';
+
+/** Цвет предупреждения с градиентом */
+export const dataInverseDataWarningGradientActive = 'var(--data-inverse-data-warning-gradient-active, #FFFFFF)';
+
+/** Цвет ошибки с градиентом */
+export const dataInverseDataNegativeGradient =
+    'var(--data-inverse-data-negative-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(255, 41, 62) 0%, rgba(255, 143, 154, 0.68) 30.401%, rgba(254, 226, 210, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
+
+/** Цвет ошибки с градиентом */
+export const dataInverseDataNegativeGradientHover = 'var(--data-inverse-data-negative-gradient-hover, #FFFFFF)';
+
+/** Цвет ошибки с градиентом */
+export const dataInverseDataNegativeGradientActive = 'var(--data-inverse-data-negative-gradient-active, #FFFFFF)';
+
+/** Цвет информации с градиентом */
+export const dataInverseDataInfoGradient =
+    'var(--data-inverse-data-info-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(17, 140, 223) 0%, rgba(82, 186, 255, 0.68) 30.401%, rgba(207, 236, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
+
+/** Цвет информации с градиентом */
+export const dataInverseDataInfoGradientHover = 'var(--data-inverse-data-info-gradient-hover, #FFFFFF)';
+
+/** Цвет информации с градиентом */
+export const dataInverseDataInfoGradientActive = 'var(--data-inverse-data-info-gradient-active, #FFFFFF)';
 
 /** Инвертированный желтый цвет для данных */
 export const dataInverseDataYellow = 'var(--data-inverse-data-yellow, #F3A912)';
