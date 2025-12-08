@@ -218,6 +218,7 @@ export const tokens = {
     indicatorLabelPlacementInnerRight: '--plasma-textfield__indicator-placement-inner-right',
     indicatorLabelPlacementOuterRight: '--plasma-textfield__indicator-placement-outer-right',
     indicatorLabelPlacementHintOuterRight: '--plasma-textfield__indicator-hint-placement-outer-right',
+
     clearIndicatorLabelPlacementInner: '--plasma-textfield__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
     clearIndicatorHintInnerRight: '--plasma-textfield__clear-indicator-hint-placement-inner-right',
