@@ -17,6 +17,8 @@ export const config = {
                 ${loaderTokens.spinnerColor}: var(--text-primary);
 
                 ${loaderTokens.overlayColor}: var(--overlay-soft);
+
+                ${loaderTokens.textColor}: var(--text-primary);
             `,
             secondary: css`
                 ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
@@ -26,6 +28,8 @@ export const config = {
                 ${loaderTokens.spinnerColor}: var(--text-secondary);
 
                 ${loaderTokens.overlayColor}: var(--overlay-soft);
+
+                ${loaderTokens.textColor}: var(--text-primary);
             `,
             accent: css`
                 ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
@@ -35,6 +39,8 @@ export const config = {
                 ${loaderTokens.spinnerColor}: var(--text-accent);
 
                 ${loaderTokens.overlayColor}: var(--overlay-soft);
+
+                ${loaderTokens.textColor}: var(--text-primary);
             `,
             positive: css`
                 ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
@@ -44,6 +50,8 @@ export const config = {
                 ${loaderTokens.spinnerColor}: var(--text-positive);
 
                 ${loaderTokens.overlayColor}: var(--overlay-soft);
+
+                ${loaderTokens.textColor}: var(--text-primary);
             `,
             warning: css`
                 ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
@@ -53,6 +61,8 @@ export const config = {
                 ${loaderTokens.spinnerColor}: var(--text-warning);
 
                 ${loaderTokens.overlayColor}: var(--overlay-soft);
+
+                ${loaderTokens.textColor}: var(--text-primary);
             `,
             negative: css`
                 ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
@@ -62,6 +72,8 @@ export const config = {
                 ${loaderTokens.spinnerColor}: var(--text-negative);
 
                 ${loaderTokens.overlayColor}: var(--overlay-soft);
+
+                ${loaderTokens.textColor}: var(--text-primary);
             `,
             info: css`
                 ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
@@ -71,6 +83,8 @@ export const config = {
                 ${loaderTokens.spinnerColor}: var(--text-info);
 
                 ${loaderTokens.overlayColor}: var(--overlay-soft);
+
+                ${loaderTokens.textColor}: var(--text-primary);
             `,
         },
         size: {
@@ -91,6 +105,24 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-h2-line-height);
 
                 ${loaderTokens.spinnerSize}: 8rem;
+
+                ${loaderTokens.textFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${loaderTokens.textFontSize}: var(--plasma-typo-body-l-font-size);
+                ${loaderTokens.textFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${loaderTokens.textFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${loaderTokens.textLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${loaderTokens.textLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${loaderTokens.textMarginLeft}: 1rem;
+                ${loaderTokens.textMarginTop}: 1rem;
+
+                ${loaderTokens.textFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${loaderTokens.textFontSize}: var(--plasma-typo-body-l-font-size);
+                ${loaderTokens.textFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${loaderTokens.textFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${loaderTokens.textLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${loaderTokens.textLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${loaderTokens.textMarginLeft}: 1rem;
+                ${loaderTokens.textMarginTop}: 1rem;
             `,
             xl: css`
                 ${loaderTokens.width}: 100%;
@@ -109,6 +141,15 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-h5-line-height);
 
                 ${loaderTokens.spinnerSize}: 5.5rem;
+
+                ${loaderTokens.textFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${loaderTokens.textFontSize}: var(--plasma-typo-body-l-font-size);
+                ${loaderTokens.textFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${loaderTokens.textFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${loaderTokens.textLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${loaderTokens.textLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${loaderTokens.textMarginLeft}: 1rem;
+                ${loaderTokens.textMarginTop}: 1rem;
             `,
             l: css`
                 ${loaderTokens.width}: 100%;
@@ -127,6 +168,15 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${loaderTokens.spinnerSize}: 3.5rem;
+
+                ${loaderTokens.textFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${loaderTokens.textFontSize}: var(--plasma-typo-body-l-font-size);
+                ${loaderTokens.textFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${loaderTokens.textFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${loaderTokens.textLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${loaderTokens.textLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${loaderTokens.textMarginLeft}: 1rem;
+                ${loaderTokens.textMarginTop}: 1rem;
             `,
             m: css`
                 ${loaderTokens.width}: 100%;
@@ -145,6 +195,15 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${loaderTokens.spinnerSize}: 3rem;
+
+                ${loaderTokens.textFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${loaderTokens.textFontSize}: var(--plasma-typo-body-m-font-size);
+                ${loaderTokens.textFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${loaderTokens.textFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${loaderTokens.textLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${loaderTokens.textLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${loaderTokens.textMarginLeft}: 0.75rem;
+                ${loaderTokens.textMarginTop}: 0.625rem;
             `,
             s: css`
                 ${loaderTokens.width}: 100%;
@@ -163,6 +222,15 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${loaderTokens.spinnerSize}: 2.25rem;
+
+                ${loaderTokens.textFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${loaderTokens.textFontSize}: var(--plasma-typo-body-s-font-size);
+                ${loaderTokens.textFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${loaderTokens.textFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${loaderTokens.textLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${loaderTokens.textLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${loaderTokens.textMarginLeft}: 0.5rem;
+                ${loaderTokens.textMarginTop}: 0.5rem;
             `,
             xs: css`
                 ${loaderTokens.width}: 100%;
@@ -181,6 +249,15 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${loaderTokens.spinnerSize}: 1.5rem;
+
+                ${loaderTokens.textFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${loaderTokens.textFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${loaderTokens.textFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${loaderTokens.textFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${loaderTokens.textLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${loaderTokens.textLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${loaderTokens.textMarginLeft}: 0.5rem;
+                ${loaderTokens.textMarginTop}: 0.5rem;
             `,
             xxs: css`
                 ${loaderTokens.width}: 100%;
@@ -199,6 +276,15 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-xxs-line-height);
 
                 ${loaderTokens.spinnerSize}: 1rem;
+
+                ${loaderTokens.textFontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${loaderTokens.textFontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${loaderTokens.textFontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${loaderTokens.textFontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${loaderTokens.textLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${loaderTokens.textLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${loaderTokens.textMarginLeft}: 0.5rem;
+                ${loaderTokens.textMarginTop}: 0.5rem;
             `,
         },
     },

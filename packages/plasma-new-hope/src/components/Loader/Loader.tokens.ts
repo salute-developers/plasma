@@ -1,5 +1,7 @@
 export const classes = {
     loaderOverlay: '--plasma-loader-overlay',
+    loaderHorizontal: '--plasma-loader-horizontal',
+    loaderVertical: '--plasma-loader-vertical',
 };
 
 export const tokens = {
@@ -28,6 +30,16 @@ export const tokens = {
 
     spinnerSize: '--plasma-loader-spinner-size',
     spinnerColor: '--plasma-loader-spinner-color',
+
+    textColor: '--plasma-loader-text-color',
+    textFontFamily: '--plasma-loader-text-font-family',
+    textFontSize: '--plasma-loader-text-font-size',
+    textFontStyle: '--plasma-loader-text-font-style',
+    textFontWeight: '--plasma-loader-text-font-weight',
+    textLetterSpacing: '--plasma-loader-text-letter-spacing',
+    textLineHeight: '--plasma-loader-text-line-height',
+    textMarginLeft: '--plasma-loader-text-margin-left',
+    textMarginTop: '--plasma-loader-text-margin-top',
 };
 
 export const privateTokens = {};

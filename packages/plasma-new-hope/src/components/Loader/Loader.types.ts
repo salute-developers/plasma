@@ -58,6 +58,15 @@ export type CustomLoaderProps = {
      * Контент в центре progress bar
      */
     children?: ReactNode;
+    /**
+     * Текст, отображаемый рядом с loader
+     */
+    text?: ReactNode;
+    /**
+     * Положение текста относительно loader
+     * @default bottom
+     */
+    textPosition?: 'right' | 'bottom';
 };
 
 export type LoaderProps = HTMLAttributes<HTMLDivElement> & CustomLoaderProps;
