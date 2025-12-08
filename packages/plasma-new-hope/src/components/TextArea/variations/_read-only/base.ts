@@ -45,7 +45,7 @@ export const base = css`
                     bottom: 0;
                     box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColorReadOnly});
                     border-radius: var(${tokens.borderRadius});
-                    opacity: var(${tokens.readOnlyOpacity});
+                    z-index: -1;
                 }
             }
 
