@@ -73,6 +73,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-negative-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-negative-active);
             `,
+            // TODO: add info view
         },
         size: {
             xl: css`

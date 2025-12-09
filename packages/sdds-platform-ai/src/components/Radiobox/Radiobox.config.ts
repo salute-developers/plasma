@@ -70,14 +70,6 @@ export const config = {
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
-            negative: css`
-                ${radioboxTokens.fillColor}: var(--text-negative);
-                ${radioboxTokens.ellipseColor}: var(--on-dark-text-primary);
-                ${radioboxTokens.descriptionColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBorderCheckedColor}: transparent;
-            `,
         },
         disabled: {
             true: css`

@@ -14,7 +14,7 @@ const meta: Meta<BreadcrumbsProps> = {
     component: Breadcrumbs,
     args: {
         view: 'default',
-        size: 'm',
+        size: 's',
     },
     argTypes: {
         ...disableProps(['separator']),
@@ -41,7 +41,7 @@ export const Default: StoryObj<BreadcrumbsProps> = {
 export const CustomShorter: StoryObj<BreadcrumbsProps> = {
     args: {
         view: 'default',
-        size: 'm',
+        size: 's',
     },
     render: (props: BreadcrumbsProps) => {
         const items = [

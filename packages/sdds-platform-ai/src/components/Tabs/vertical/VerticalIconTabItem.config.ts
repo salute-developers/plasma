@@ -3,7 +3,7 @@ import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'divider',
-        size: 'xs',
+        size: 'm',
     },
     variations: {
         view: {
@@ -29,34 +29,10 @@ export const config = {
             `,
         },
         size: {
-            xs: css`
-                ${tabsTokens.itemBorderRadius}: 0.375rem;
-                ${tabsTokens.itemPaddingOrientationVertical}: 0.5rem 0.625rem;
-                ${tabsTokens.itemContentGap}: 0.25rem;
-                ${tabsTokens.itemContentPadding}: 0.125rem;
-
-                ${tabsTokens.actionContentMarginLeft}: 0;
-            `,
-            s: css`
-                ${tabsTokens.itemBorderRadius}: 0.5rem;
-                ${tabsTokens.itemPaddingOrientationVertical}: 0.5rem 0.625rem;
-                ${tabsTokens.itemContentGap}: 0.25rem;
-                ${tabsTokens.itemContentPadding}: 0.125rem;
-
-                ${tabsTokens.actionContentMarginLeft}: 0.25rem;
-            `,
             m: css`
                 ${tabsTokens.itemBorderRadius}: 0.625rem;
                 ${tabsTokens.itemPaddingOrientationVertical}: 0.75rem 0.875rem;
                 ${tabsTokens.itemContentGap}: 0.375rem;
-                ${tabsTokens.itemContentPadding}: 0.125rem;
-
-                ${tabsTokens.actionContentMarginLeft}: 0.125rem;
-            `,
-            l: css`
-                ${tabsTokens.itemBorderRadius}: 0.75rem;
-                ${tabsTokens.itemPaddingOrientationVertical}: 1rem 1.125rem;
-                ${tabsTokens.itemContentGap}: 0.5rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;

@@ -31,28 +31,6 @@ export const config = {
                 ${toastTokens.closeIconColor}: var(--text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
             `,
-            /**
-             * @deprecated
-             * светлый и темный фон регулировать через `view` компонента `ViewContainer`
-             */
-            dark: css`
-                ${toastTokens.color}: var(--on-dark-text-primary);
-                ${toastTokens.background}: var(--on-dark-surface-solid-primary-brightness);
-
-                ${toastTokens.closeIconColor}: var(--on-dark-text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-secondary);
-            `,
-            /**
-             * @deprecated
-             * светлый и темный фон регулировать через `view` компонента `ViewContainer`
-             */
-            light: css`
-                ${toastTokens.color}: var(--on-light-text-primary);
-                ${toastTokens.background}: var(--on-light-surface-solid-primary-brightness);
-
-                ${toastTokens.closeIconColor}: var(--on-light-text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--on-light-text-secondary);
-            `,
         },
         size: {
             m: css`
