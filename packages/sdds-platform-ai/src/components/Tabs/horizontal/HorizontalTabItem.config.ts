@@ -3,7 +3,7 @@ import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'divider',
-        size: 'l',
+        size: 'm',
     },
     variations: {
         view: {
@@ -23,33 +23,6 @@ export const config = {
                 ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
-
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
-
-                ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
-
-                ${tabsTokens.itemCursor}: pointer;
-            `,
-            secondary: css`
-                ${tabsTokens.itemColor}: var(--text-primary);
-                ${tabsTokens.itemValueColor}: var(--text-secondary);
-                ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
-                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
-                ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
-                ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
-                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
-                ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
-                ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
-
-                ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
@@ -84,73 +57,8 @@ export const config = {
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
-            default: css`
-                ${tabsTokens.itemColor}: var(--text-primary);
-                ${tabsTokens.itemValueColor}: var(--text-secondary);
-                ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
-                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
-                ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--inverse-text-primary);
-                ${tabsTokens.itemSelectedValueColor}: var(--inverse-text-secondary);
-                ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
-                ${tabsTokens.itemSelectedColorHover}: var(--inverse-text-primary);
-                ${tabsTokens.itemSelectedValueColorHover}: var(--inverse-text-secondary);
-                ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
-                ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
-
-                ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
-
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
-
-                ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
-
-                ${tabsTokens.itemCursor}: pointer;
-            `,
         },
         size: {
-            xs: css`
-                ${tabsTokens.itemBorderRadius}: 0.375rem;
-                ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 2rem;
-                ${tabsTokens.itemPadding}: 0 0.125rem;
-                ${tabsTokens.itemPaddingPilled}: 0 0.375rem;
-                ${tabsTokens.itemMarginLeft}: 1.5rem;
-                ${tabsTokens.itemContentGap}: 0.25rem;
-                ${tabsTokens.itemContentPadding}: 0.125rem;
-
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${tabsTokens.actionContentMarginLeft}: 0;
-            `,
-            s: css`
-                ${tabsTokens.itemBorderRadius}: 0.5rem;
-                ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 2.5rem;
-                ${tabsTokens.itemPadding}: 0 0.125rem;
-                ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
-                ${tabsTokens.itemMarginLeft}: 1.5rem;
-                ${tabsTokens.itemContentGap}: 0.25rem;
-                ${tabsTokens.itemContentPadding}: 0.125rem;
-
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
-
-                ${tabsTokens.actionContentMarginLeft}: 0.125rem;
-            `,
             m: css`
                 ${tabsTokens.itemBorderRadius}: 0.625rem;
                 ${tabsTokens.itemWidth}: auto;
@@ -169,25 +77,6 @@ export const config = {
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tabsTokens.actionContentMarginLeft}: 0.25rem;
-            `,
-            l: css`
-                ${tabsTokens.itemBorderRadius}: 0.75rem;
-                ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 3.5rem;
-                ${tabsTokens.itemPadding}: 0 0.125rem;
-                ${tabsTokens.itemPaddingPilled}: 0 0.75rem;
-                ${tabsTokens.itemMarginLeft}: 1.5rem;
-                ${tabsTokens.itemContentGap}: 0.5rem;
-                ${tabsTokens.itemContentPadding}: 0.125rem;
-
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
             h5: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;

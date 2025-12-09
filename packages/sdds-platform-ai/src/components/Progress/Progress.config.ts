@@ -17,11 +17,6 @@ export const config = {
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-solid-tertiary);
                 ${progressTokens.valueColor}: var(--text-tertiary);
             `,
-            primary: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent);
-                ${progressTokens.valueColor}: var(--text-tertiary);
-            `,
             accent: css`
                 ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent-gradient);
@@ -32,7 +27,7 @@ export const config = {
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-info);
                 ${progressTokens.valueColor}: var(--text-tertiary);
             `,
-            success: css`
+            positive: css`
                 ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-positive);
                 ${progressTokens.valueColor}: var(--text-tertiary);
@@ -42,7 +37,7 @@ export const config = {
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-warning);
                 ${progressTokens.valueColor}: var(--text-tertiary);
             `,
-            error: css`
+            negative: css`
                 ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-negative);
                 ${progressTokens.valueColor}: var(--text-tertiary);

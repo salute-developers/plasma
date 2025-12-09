@@ -129,6 +129,34 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${buttonGroupTokens.buttonDefaultRadius}: 1rem;
+                ${buttonGroupTokens.buttonSegmentedRadius}: 0.5rem;
+                ${buttonGroupTokens.buttonSideRadius}: 1rem;
+
+                ${buttonGroupTokens.buttonHeight}: 4rem;
+                ${buttonGroupTokens.buttonPadding}: 1.75rem;
+                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
+                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
+            `,
+            l: css`
+                ${buttonGroupTokens.buttonDefaultRadius}: 0.875rem;
+                ${buttonGroupTokens.buttonSegmentedRadius}: 0.375rem;
+                ${buttonGroupTokens.buttonSideRadius}: 0.875rem;
+
+                ${buttonGroupTokens.buttonHeight}: 3.5rem;
+                ${buttonGroupTokens.buttonPadding}: 1.5rem;
+                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
+                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
+            `,
             m: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
                 ${buttonGroupTokens.buttonDefaultRadius}: 0.75rem;
@@ -143,6 +171,20 @@ export const config = {
                 ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
                 ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
+            `,
+            s: css`
+                ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
+                ${buttonGroupTokens.buttonSideRadius}: 0.625rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: 0.625rem;
+
+                ${buttonGroupTokens.buttonHeight}: 2.5rem;
+                ${buttonGroupTokens.buttonPadding}: 1rem;
+                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
+                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             xs: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.125rem;

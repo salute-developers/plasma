@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { Button } from '../Button';
+import { Button } from '../Button/Button';
 
 import { ButtonGroup } from './ButtonGroup';
 import { config } from './ButtonGroup.config';
