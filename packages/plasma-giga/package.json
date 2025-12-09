@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-giga",
-  "version": "0.325.0",
+  "version": "0.326.0-dev.0",
   "description": "Salute Design System / React UI kit for PLASMA GIGA web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "directory": "packages/plasma-giga"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.342.0",
+    "@salutejs/plasma-new-hope": "0.343.0-dev.0",
     "@salutejs/plasma-themes": "0.38.0",
     "@salutejs/plasma-typo": "0.42.0"
   },
@@ -59,10 +59,10 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.16.0",
-    "@salutejs/plasma-core": "1.210.0",
-    "@salutejs/plasma-cy-utils": "0.140.0",
-    "@salutejs/plasma-icons": "1.227.0",
-    "@salutejs/plasma-sb-utils": "0.210.0",
+    "@salutejs/plasma-core": "1.211.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.141.0-dev.0",
+    "@salutejs/plasma-icons": "1.228.0-dev.0",
+    "@salutejs/plasma-sb-utils": "0.211.0-dev.0",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
