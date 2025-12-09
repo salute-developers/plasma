@@ -1,8 +1,10 @@
 import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
-import { IconClockCircleOutline } from '@salutejs/plasma-icons';
+import { IconClockCircleOutline, IconLockOutline } from '@salutejs/plasma-icons';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+
+import { IconProps } from '../../../../plasma-new-hope/src/components/_Icon/IconRoot';
 
 import { TimePicker } from './TimePicker';
 import { config } from './TimePicker.config';
@@ -63,6 +65,17 @@ type StoryPropsDefault = ComponentProps<typeof TimePicker> & {
     enableContentRight: boolean;
 };
 
+const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    if (disabled) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    if (readOnly) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    return <IconClockCircleOutline size={iconSize} />;
+};
+
 const StoryDefault = ({ enableContentLeft, enableContentRight, size, dropdownWidth, ...rest }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -73,7 +86,7 @@ const StoryDefault = ({ enableContentLeft, enableContentRight, size, dropdownWid
             opened={isOpen}
             size={size}
             contentLeft={enableContentLeft ? <IconClockCircleOutline size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconClockCircleOutline size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? getIcon(size, rest.disabled, rest.readonly) : undefined}
             onToggle={(is) => {
                 setIsOpen(is);
                 onToggle(is);

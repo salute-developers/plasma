@@ -96,6 +96,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.titleCaptionLineHeight}: var(${comboboxTokens.textFieldTitleCaptionLineHeight});
 
     ${textFieldTokens.leftHelperColor}: var(${comboboxTokens.textFieldLeftHelperColor});
+    ${textFieldTokens.leftHelperColorFocus}: var(${comboboxTokens.textFieldLeftHelperColorFocus});
     ${textFieldTokens.leftHelperColorReadOnly}: var(${comboboxTokens.textFieldLeftHelperColorReadOnly});
     ${textFieldTokens.leftHelperOffset}: var(${comboboxTokens.textFieldLeftHelperOffset});
 

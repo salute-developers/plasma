@@ -711,6 +711,8 @@ export const config = {
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderWidth}: 0;
             `,
         },
     },

@@ -420,7 +420,9 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                     {hasHelper && (
                         <StyledHelpers className={styledHelpers} id={textareaHelperId}>
                             {isInnerLeftHelperPlacement && (leftHelper || helperText) && (
-                                <StyledLeftHelper>{leftHelper || helperText}</StyledLeftHelper>
+                                <StyledLeftHelper className={focused ? classes.leftHelperFocus : ''}>
+                                    {leftHelper || helperText}
+                                </StyledLeftHelper>
                             )}
                             {rightHelper && <StyledRightHelper data-root>{rightHelper}</StyledRightHelper>}
                         </StyledHelpers>

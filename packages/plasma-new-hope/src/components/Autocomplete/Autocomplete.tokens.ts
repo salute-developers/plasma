@@ -62,6 +62,7 @@ export const tokens = {
     textFieldContentSlotRightOpacityReadOnly: '--plasma-autocomplete-textfield-content-right-slot-opacity-readonly',
 
     textFieldLabelColor: '--plasma-autocomplete-textfield-label-color',
+    textFieldLeftHelperColorFocus: '--plasma-autocomplete-textfield-left-helper-color-focus',
     textFieldLabelColorReadOnly: '--plasma-autocomplete-textfield-label-color-readonly',
     textFieldLabelOffset: '--plasma-autocomplete-textfield-label-offset',
     textFieldClearLabelOffset: '--plasma-autocomplete-textfield-clear-label-offset',

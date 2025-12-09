@@ -27,6 +27,7 @@ export const classes = {
     requiredAlignRight: 'required-align-right',
     hasHeaderSlot: 'textarea-has-header-slot',
     styledContentWrapper: 'textarea-content-wrapper',
+    leftHelperFocus: 'textarea-left-helper-focus',
 };
 
 export const tokens = {
@@ -83,6 +84,8 @@ export const tokens = {
     optionalColor: '--plasma-textarea__optional-color',
     /** Цвет текста для левой подписи снизу */
     leftHelperColor: '--plasma-textarea-left-helper-color',
+    /** Цвет текста для левой подписи снизу в состоянии focus */
+    leftHelperColorFocus: '--plasma-textarea-left-helper-color-focus',
     /** Цвет текста для правой подписи снизу */
     rightHelperColor: '--plasma-textarea-right-helper-color',
     /** Цвета границы для всего компонента */

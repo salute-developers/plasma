@@ -248,6 +248,8 @@ export const config = {
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderWidth}: 0;
             `,
         },
     },

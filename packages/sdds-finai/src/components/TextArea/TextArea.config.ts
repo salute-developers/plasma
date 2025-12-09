@@ -11,8 +11,9 @@ export const config = {
                 ${textAreaTokens.inputWidth}: 100%;
                 ${textAreaTokens.inputHeight}: 7.312rem;
                 ${textAreaTokens.inputMinHeight}: 0.625rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
                 ${textAreaTokens.borderRadius}: 0.5rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 0.5rem 0.5rem 0 0;
+                ${textAreaTokens.borderRadiusWithHelpers}: 0.5rem 0.5rem 0.5rem 0.5rem;
                 ${textAreaTokens.inputPaddingTop}: 0.563rem;
                 ${textAreaTokens.inputPaddingRight}: 0.625rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 2.125rem;
@@ -80,8 +81,9 @@ export const config = {
                 ${textAreaTokens.inputWidth}: 100%;
                 ${textAreaTokens.inputHeight}: 7.187rem;
                 ${textAreaTokens.inputMinHeight}: 0.625rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
                 ${textAreaTokens.borderRadius}: 0.625rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0 0;
+                ${textAreaTokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0.625rem 0.625rem;
                 ${textAreaTokens.inputPaddingTop}: 0.688rem;
                 ${textAreaTokens.inputPaddingRight}: 0.875rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 3.125rem;
@@ -149,8 +151,9 @@ export const config = {
                 ${textAreaTokens.inputWidth}: 100%;
                 ${textAreaTokens.inputHeight}: 7rem;
                 ${textAreaTokens.inputMinHeight}: 1.125rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
                 ${textAreaTokens.borderRadius}: 0.75rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 0.75rem 0.75rem 0 0;
+                ${textAreaTokens.borderRadiusWithHelpers}: 0.75rem 0.75rem 0.75rem 0.75rem;
                 ${textAreaTokens.inputPaddingTop}: 0.875rem;
                 ${textAreaTokens.inputPaddingRight}: 1rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 3.375rem;
@@ -220,8 +223,9 @@ export const config = {
                 ${textAreaTokens.inputWidth}: 100%;
                 ${textAreaTokens.inputHeight}: 6.812rem;
                 ${textAreaTokens.inputMinHeight}: 1.625rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
                 ${textAreaTokens.borderRadius}: 0.875rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 0.875rem 0.875rem 0 0;
+                ${textAreaTokens.borderRadiusWithHelpers}: 0.875rem 0.875rem 0.875rem 0.875rem;
                 ${textAreaTokens.inputPaddingTop}: 1.063rem;
                 ${textAreaTokens.inputPaddingRight}: 1.125rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 3.625rem;
@@ -289,8 +293,9 @@ export const config = {
                 ${textAreaTokens.inputWidth}: 100%;
                 ${textAreaTokens.inputHeight}: 6.812rem;
                 ${textAreaTokens.inputMinHeight}: 1.625rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
                 ${textAreaTokens.borderRadius}: 1rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 1rem 1rem 0 0;
+                ${textAreaTokens.borderRadiusWithHelpers}: 1rem 1rem 1rem 1rem;
                 ${textAreaTokens.inputPaddingTop}: 1.313rem;
                 ${textAreaTokens.inputPaddingRight}: 1.25rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 3.5rem;
@@ -359,14 +364,13 @@ export const config = {
         },
         view: {
             default: css`
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${textAreaTokens.backgroundColor}: var(--surface-transparent-card);
+                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-card-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-card-active);
+                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${textAreaTokens.borderColor}: var(--outline-solid-primary);
+                ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
+                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
@@ -376,6 +380,7 @@ export const config = {
                 ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
                 ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
+                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
@@ -394,23 +399,23 @@ export const config = {
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             positive: css`
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-positive);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-positive-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-positive-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-positive);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-positive);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-positive-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-positive-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-positive);
+                ${textAreaTokens.backgroundColor}: var(--surface-transparent-positive);
+                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-positive-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-positive-active);
+                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${textAreaTokens.borderColor}: var(--outline-transparent-positive);
+                ${textAreaTokens.borderColorHover}: var(--outline-transparent-positive-hover);
+                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-positive);
                 ${textAreaTokens.clearPlaceholderColor}: var(--text-positive);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-positive);
+                ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-positive);
                 ${textAreaTokens.leftHelperColor}: var(--text-positive);
+                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
@@ -433,14 +438,13 @@ export const config = {
              * Использовать `default`
              */
             primary: css`
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${textAreaTokens.backgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${textAreaTokens.borderColor}: var(--outline-solid-primary);
+                ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
+                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
@@ -450,6 +454,7 @@ export const config = {
                 ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
                 ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
+                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
@@ -468,23 +473,23 @@ export const config = {
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             warning: css`
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-warning);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-warning-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-warning);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-warning);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-warning-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-warning);
+                ${textAreaTokens.backgroundColor}: var(--surface-transparent-warning);
+                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-warning-active);
+                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${textAreaTokens.borderColor}: var(--outline-transparent-warning);
+                ${textAreaTokens.borderColorHover}: var(--outline-transparent-warning-hover);
+                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-warning);
                 ${textAreaTokens.clearPlaceholderColor}: var(--text-warning);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-warning);
+                ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-warning);
                 ${textAreaTokens.leftHelperColor}: var(--text-warning);
+                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
@@ -503,23 +508,23 @@ export const config = {
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             negative: css`
-                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-negative);
-                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-negative-active);
-                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-negative);
-                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-negative);
-                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-negative-active);
-                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-negative);
+                ${textAreaTokens.backgroundColor}: var(--surface-transparent-negative);
+                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-negative-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-negative-active);
+                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${textAreaTokens.borderColor}: var(--outline-transparent-negative);
+                ${textAreaTokens.borderColorHover}: var(--outline-transparent-negative-hover);
+                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.clearInputColor}: var(--text-negative);
                 ${textAreaTokens.clearPlaceholderColor}: var(--text-negative);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-negative);
+                ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
                 ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${textAreaTokens.leftHelperColor}: var(--text-negative);
+                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
                 ${textAreaTokens.indicatorColor}: var(--surface-negative);
                 ${textAreaTokens.optionalColor}: var(--text-tertiary);
@@ -603,19 +608,23 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${textAreaTokens.readOnlyOpacity}: 0.1;
-                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-card);
                 ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
                 ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
-                ${textAreaTokens.contentSlotRightOpacityReadOnly}: 0.4;
+                ${textAreaTokens.contentSlotRightOpacityReadOnly}: 1;
+                ${textAreaTokens.rightContentColor}: var(--text-secondary);
+                ${textAreaTokens.backgroundColor}: var(--surface-transparent-card);
             `,
         },
         disabled: {
             true: css`
-                ${textAreaTokens.disabledOpacity}: 0.4;
+                ${textAreaTokens.disabledOpacity}: 1;
                 ${textAreaTokens.inputColorDisabled}: var(--text-secondary);
                 ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
                 ${textAreaTokens.titleCaptionColorReadOnly}: var(--text-secondary);
+                ${textAreaTokens.rightContentColor}: var(--text-secondary);
+                ${textAreaTokens.backgroundColor}: var(--surface-transparent-secondary);
+                ${textAreaTokens.borderColor}: transparent;
             `,
         },
     },

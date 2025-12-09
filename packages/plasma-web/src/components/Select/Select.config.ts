@@ -1002,6 +1002,8 @@ export const config = {
                 ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderWidth}: 0;
             `,
         },
     },

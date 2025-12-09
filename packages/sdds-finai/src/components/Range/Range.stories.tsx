@@ -1,8 +1,10 @@
+/* eslint-disable */
+
 import React, { ChangeEvent, ComponentProps, Dispatch, SetStateAction, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconSearch, IconSber, IconArrowRight } from '@salutejs/plasma-icons';
+import { IconLockOutline, IconSearch, IconSber, IconArrowRight } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton';
 
@@ -78,6 +80,27 @@ const getSizeForIcon = (size) => {
     return size === 'xs' ? 'xs' : 's';
 };
 
+const getIcon = (
+    content: JSX.Element,
+    type: 'right' | 'left',
+    size: string,
+    disabled?: boolean,
+    readOnly?: boolean,
+) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    if ((disabled || readOnly) && type === 'right') {
+        return (
+            <IconButton view="clear" size={size} disabled={readOnly}>
+                <IconLockOutline size={iconSize} color="var(--text-secondary)" />
+            </IconButton>
+        );
+    }
+    if ((disabled || readOnly) && type === 'left') {
+        return <IconLockOutline size={iconSize} color="inherit" />;
+    }
+    return content;
+};
+
 const ActionButton = ({ size, readOnly }) => {
     return (
         <IconButton view="clear" size={size} disabled={readOnly}>
@@ -116,8 +139,22 @@ const StoryDefault = ({
             size={size}
             firstValue={firstValue}
             secondValue={secondValue}
-            contentLeft={enableContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <ActionButton size={size} readOnly={rest.readOnly} /> : undefined}
+            contentLeft={
+                enableContentLeft
+                    ? getIcon(<IconSber color="inherit" size={iconSize} />, 'left', size, rest.disabled, rest.readOnly)
+                    : undefined
+            }
+            contentRight={
+                enableContentRight
+                    ? getIcon(
+                          <ActionButton size={size} readOnly={rest.readOnly} />,
+                          'right',
+                          size,
+                          rest.disabled,
+                          rest.readOnly,
+                      )
+                    : undefined
+            }
             firstTextfieldContentLeft={
                 enableFirstTextfieldContentLeft ? <IconSber color="inherit" size={iconSize} /> : undefined
             }

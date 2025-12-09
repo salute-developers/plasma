@@ -133,6 +133,7 @@ export const tokens = {
     itemPadding: '--plasma-time-picker-item-padding',
     itemBackgroundHover: '--plasma-time-picker-item-hover-background',
     itemBackgroundActive: '--plasma-time-picker-item-active-background',
+    itemFocusColor: '--plasma-time-picker-item-focus-color',
 
     itemFontFamily: '--plasma-time-picker-item-font-family',
     itemFontStyle: '--plasma-time-picker-item-font-style',
