@@ -153,6 +153,7 @@ export const tokens = {
     textFieldTitleCaptionLineHeight: '--plasma-combobox-new-textfield-title-caption-line-height',
 
     textFieldLeftHelperColor: '--plasma-combobox-new-textfield-left-helper-color',
+    textFieldLeftHelperColorFocus: '--plasma-combobox-new-textfield-left-helper-color-focus',
     textFieldLeftHelperColorReadOnly: '--plasma-combobox-new-textfield-left-helper-color-readonly',
     textFieldLeftHelperOffset: '--plasma-combobox-new-textfield-left-helper-offset',
 

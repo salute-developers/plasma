@@ -60,6 +60,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             placeholder,
             helperText,
             contentLeft,
+            contentRight,
             textBefore,
             textAfter,
             variant = 'normal',
@@ -552,18 +553,22 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         placeholder={placeholder}
                                         contentLeft={contentLeft}
                                         contentRight={
-                                            <IconArrowWrapper
-                                                disabled={disabled}
-                                                readOnly={readOnly}
-                                                onClick={handleClickArrow}
-                                                className={classes.comboboxTargetArrow}
-                                            >
-                                                <StyledArrow
-                                                    color="inherit"
-                                                    size={sizeToIconSize(size)}
-                                                    className={withArrowInverse}
-                                                />
-                                            </IconArrowWrapper>
+                                            contentRight || contentRight !== undefined ? (
+                                                contentRight
+                                            ) : (
+                                                <IconArrowWrapper
+                                                    disabled={disabled}
+                                                    readOnly={readOnly}
+                                                    onClick={handleClickArrow}
+                                                    className={classes.comboboxTargetArrow}
+                                                >
+                                                    <StyledArrow
+                                                        color="inherit"
+                                                        size={sizeToIconSize(size)}
+                                                        className={withArrowInverse}
+                                                    />
+                                                </IconArrowWrapper>
+                                            )
                                         }
                                         textBefore={textBefore}
                                         textAfter={textAfter}

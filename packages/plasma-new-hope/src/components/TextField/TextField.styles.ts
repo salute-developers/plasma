@@ -46,7 +46,7 @@ export const StyledChips = styled.div`
     user-select: none;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<{ hasFocus?: boolean }>`
     box-sizing: border-box;
     appearance: none;
     border: 0;
@@ -161,7 +161,13 @@ export const StyledContentRight = styled.div`
     }
 `;
 
-export const LeftHelper = styled.div``;
+export const LeftHelper = styled.div`
+    color: var(${tokens.leftHelperColor});
+
+    &.${classes.hasFocus} {
+        color: var(${tokens.leftHelperColorFocus});
+    }
+`;
 
 export const StyledTextBefore = styled.div<{ isHidden?: boolean }>`
     visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};

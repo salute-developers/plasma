@@ -14,6 +14,7 @@ export type TargetProps = Pick<
     | 'keepPlaceholder'
     | 'placeholder'
     | 'contentLeft'
+    | 'contentRight'
     | 'disabled'
     | 'readOnly'
     | 'renderValue'

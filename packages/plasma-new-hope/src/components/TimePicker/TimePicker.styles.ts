@@ -34,6 +34,7 @@ export const StyledTimePickerGrid = styled(TimePickerGrid)`
     ${timePickerGridTokens.itemPadding}: var(${tokens.itemPadding});
     ${timePickerGridTokens.itemBackgroundHover}: var(${tokens.itemBackgroundHover});
     ${timePickerGridTokens.itemBackgroundActive}: var(${tokens.itemBackgroundActive});
+    ${timePickerGridTokens.itemFocusColor}: var(${tokens.itemFocusColor});
 
     ${timePickerGridTokens.itemFontFamily}: var(${tokens.itemFontFamily});
     ${timePickerGridTokens.itemFontSize}: var(${tokens.itemFontSize});

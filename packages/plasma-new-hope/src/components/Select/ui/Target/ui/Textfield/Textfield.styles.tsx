@@ -208,8 +208,6 @@ export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: b
         ${textFieldTokens.chipBackgroundReadOnly}: var(${tokens.textFieldChipBackgroundReadOnly});
         ${textFieldTokens.chipBackgroundReadOnlyHover}: var(${tokens.textFieldChipBackgroundReadOnlyHover});
         ${textFieldTokens.chipOpacityReadonly}: var(${tokens.textFieldChipOpacityReadonly});
-
-        ${textFieldTokens.boxShadow}: none;
     }
 `;
 

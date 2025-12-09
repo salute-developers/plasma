@@ -39,9 +39,10 @@ export const config = {
             `,
             positive: css`
                 ${tokens.color}: var(--text-positive);
+                ${tokens.colorFocus}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-positive);
-                ${tokens.placeholderColorFocus}: var(--text-positive);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -51,12 +52,14 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-positive);
                 ${tokens.contentSlotColorHover}: var(--text-positive-hover);
                 ${tokens.contentSlotColorActive}: var(--text-positive-active);
+                ${tokens.contentSlotColorFocus}: var(--text-primary);
 
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
@@ -72,9 +75,10 @@ export const config = {
             `,
             warning: css`
                 ${tokens.color}: var(--text-warning);
+                ${tokens.colorFocus}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-warning);
-                ${tokens.placeholderColorFocus}: var(--text-warning);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -84,12 +88,14 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-warning);
                 ${tokens.contentSlotColorHover}: var(--text-warning-hover);
                 ${tokens.contentSlotColorActive}: var(--text-warning-active);
+                ${tokens.contentSlotColorFocus}: var(--text-primary);
 
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
@@ -105,9 +111,10 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: var(--text-negative);
+                ${tokens.colorFocus}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-negative);
-                ${tokens.placeholderColorFocus}: var(--text-negative);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -116,13 +123,14 @@ export const config = {
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
-                ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-negative);
                 ${tokens.contentSlotColorHover}: var(--text-negative-hover);
                 ${tokens.contentSlotColorActive}: var(--text-negative-active);
+                ${tokens.contentSlotColorFocus}: var(--text-primary);
 
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
@@ -297,6 +305,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+
+                ${tokens.dividerWidth}: 0.125rem;
             `,
             m: css`
                 ${tokens.height}: 3rem;
@@ -373,6 +383,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
+
+                ${tokens.dividerWidth}: 0.125rem;
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
@@ -449,6 +461,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
+
+                ${tokens.dividerWidth}: 0.125rem;
             `,
             xs: css`
                 ${tokens.height}: 2rem;
@@ -525,6 +539,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
+
+                ${tokens.dividerWidth}: 0.125rem;
             `,
         },
         labelPlacement: {
@@ -703,20 +719,24 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+                ${tokens.backgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary);
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.colorReadOnly}: var(--text-primary);
                 ${tokens.backgroundColorReadOnly}: transparent;
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.dividerColorReadOnly}: var(--surface-transparent-tertiary);
+                ${tokens.contentSlotRightOpacityReadOnly}: 1;
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
             `,
         },
     },
