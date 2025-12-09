@@ -14,7 +14,7 @@ type StoryProps = Omit<ComponentProps<typeof TextFieldGroup>, 'gap'> & {
 };
 type Story = StoryObj<StoryProps>;
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['m'];
 const orientationValues = ['horizontal', 'vertical'];
 const gapDefaultValues = ['dense', 'wide'];
 const gapSegmentedValues = ['none', 'dense'];
@@ -86,30 +86,6 @@ export const Default: Story = {
                         <TextField placeholder={`input #${i}`} />
                     ))}
             </TextFieldGroup>
-        );
-    },
-};
-
-export const CustomTextFields: Story = {
-    args: {
-        ...Default.args,
-        isCommonTextFieldStyles: false,
-    },
-    argTypes: {
-        ...Default.argTypes,
-        ...disableProps(['itemsCount']),
-    },
-    render: ({ gapDefaultShape, gapSegmentedShape, ...args }: StoryProps) => {
-        return (
-            <>
-                <h3>Группа TextField с разными размерами</h3>
-                <TextFieldGroup {...args} gap={(gapDefaultShape || gapSegmentedShape) as any}>
-                    <TextField placeholder="Размер l" size="l" />
-                    <TextField placeholder="Размер m" size="m" />
-                    <TextField placeholder="Размер s" size="s" />
-                    <TextField placeholder="Размер xs" size="xs" />
-                </TextFieldGroup>
-            </>
         );
     },
 };

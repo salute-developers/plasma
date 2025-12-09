@@ -266,7 +266,7 @@ const meta: Meta<StoryTextAreaProps> = {
     args: {
         id: 'example-textarea',
         view: 'default',
-        size: 's',
+        size: 'm',
         enableContentRight: true,
         enableHeader: false,
         label: 'Лейбл',
