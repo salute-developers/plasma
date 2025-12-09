@@ -33,27 +33,6 @@ export const config = {
             `,
         },
         size: {
-            l: css`
-                ${tokens.chipBorderRadius}: 0.75rem;
-                ${tokens.chipWidth}: auto;
-                ${tokens.chipHeight}: 3rem;
-                ${tokens.chipPadding}: 0 1rem;
-
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${tokens.chipLeftContentMarginLeft}: -0.125rem;
-                ${tokens.chipLeftContentMarginRight}: 0.5rem;
-                ${tokens.chipRightContentMarginLeft}: 0.5rem;
-                ${tokens.chipRightContentMarginRight}: -0.125rem;
-                ${tokens.chipClearContentMarginLeft}: 0.625rem;
-                ${tokens.chipClearContentMarginRight}: -0.25rem;
-                ${tokens.chipCloseIconSize}: 1.5rem;
-            `,
             m: css`
                 ${tokens.chipBorderRadius}: 0.625rem;
                 ${tokens.chipWidth}: auto;
@@ -75,47 +54,26 @@ export const config = {
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
                 ${tokens.chipCloseIconSize}: 1rem;
             `,
-            s: css`
-                ${tokens.chipBorderRadius}: 0.5rem;
-                ${tokens.chipWidth}: auto;
-                ${tokens.chipHeight}: 2rem;
-                ${tokens.chipPadding}: 0 0.875rem;
-
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
-
-                ${tokens.chipLeftContentMarginLeft}: -0.125rem;
-                ${tokens.chipLeftContentMarginRight}: 0.25rem;
-                ${tokens.chipRightContentMarginLeft}: 0.25rem;
-                ${tokens.chipRightContentMarginRight}: -0.125rem;
-                ${tokens.chipClearContentMarginLeft}: 0.375rem;
-                ${tokens.chipClearContentMarginRight}: -0.25rem;
-                ${tokens.chipCloseIconSize}: 1rem;
-            `,
-            xs: css`
+            xxs: css`
                 ${tokens.chipBorderRadius}: 0.375rem;
                 ${tokens.chipWidth}: auto;
-                ${tokens.chipHeight}: 1.5rem;
-                ${tokens.chipPadding}: 0 0.625rem;
+                ${tokens.chipHeight}: 1.25rem;
+                ${tokens.chipPadding}: 0 0.5rem;
 
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${tokens.chipFontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-xxs-line-height);
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
-                ${tokens.chipLeftContentMarginRight}: 0.25rem;
-                ${tokens.chipRightContentMarginLeft}: 0.25rem;
+                ${tokens.chipLeftContentMarginRight}: 0.125rem;
+                ${tokens.chipRightContentMarginLeft}: 0.125rem;
                 ${tokens.chipRightContentMarginRight}: -0.125rem;
                 ${tokens.chipClearContentMarginLeft}: 0.25rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
-                ${tokens.chipCloseIconSize}: 1rem;
+                ${tokens.chipCloseIconSize}: 0.75rem;
             `,
         },
         gap: {

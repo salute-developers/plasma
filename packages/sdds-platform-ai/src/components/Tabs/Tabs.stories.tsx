@@ -14,7 +14,7 @@ import { HorizontalTabItemProps, IconTabItem, IconTabItemProps, TabItem, Vertica
 const orientations = ['vertical', 'horizontal'];
 const clips = ['none', 'scroll', 'showAll'];
 const headerClips = ['none', 'scroll'];
-const sizes = ['xs', 's', 'm', 'l'] as const;
+const sizes = ['m'] as const;
 const headerSizes = ['h5', 'h4', 'h3', 'h2', 'h1'] as const;
 
 type Size = typeof sizes[number];
@@ -299,7 +299,7 @@ const StoryDefault = (props: HorizontalStoryTabsProps) => {
 
 export const Default: StoryObj<HorizontalStoryTabsProps> = {
     args: {
-        size: 'xs',
+        size: 'm',
         orientation: 'horizontal',
         disabled: false,
         hasDivider: true,

@@ -11,7 +11,7 @@ type StoryProps = ComponentProps<typeof ChipGroup> & { itemsCount?: number };
 type Story = StoryObj<StoryProps>;
 
 const views = ['default', 'accent', 'secondary'];
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['m', 'xxs'];
 const gapValues = ['dense', 'wide'];
 
 const meta: Meta<typeof ChipGroup> = {
@@ -84,9 +84,9 @@ export const CustomChips: Story = {
 
                 <h3>Группа Chip с разными размерами</h3>
                 <ChipGroup {...args}>
-                    <Chip text="Primary" view="default" size="l" hasClear={false} />
+                    <Chip text="Primary" view="default" size="xxs" hasClear={false} />
                     <Chip text="Secondary" view="secondary" size="m" hasClear={false} />
-                    <Chip text="Accent" view="accent" size="s" hasClear={false} />
+                    <Chip text="Accent" view="accent" size="xxs" hasClear={false} />
                 </ChipGroup>
             </>
         );

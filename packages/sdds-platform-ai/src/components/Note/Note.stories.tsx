@@ -73,7 +73,7 @@ const getIconSize = (size?: string, isScalable?: boolean) => {
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         view: 'default',
-        size: 'l',
+        size: 'm',
         width: 400,
         isHeight: false,
         stretch: false,
