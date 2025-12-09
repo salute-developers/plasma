@@ -84,4 +84,7 @@ module.exports = {
     'sdds-bizcom': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core'],
     },
+    'sdds-platform-ai': {
+        scope: [...commonScope, 'sdds-themes', 'plasma-core'],
+    },
 };
