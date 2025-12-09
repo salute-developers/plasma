@@ -16,7 +16,6 @@ export const base = css`
 
         ${ContentWrapper} {
             position: relative;
-            box-shadow: none;
             background: transparent;
 
             :before {

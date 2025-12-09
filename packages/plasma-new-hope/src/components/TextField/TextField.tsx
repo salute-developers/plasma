@@ -554,6 +554,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     aria-labelledby={labelId}
                                     aria-describedby={helperTextId}
                                     placeholder={innerPlaceholderValue}
+                                    hasFocus={hasFocus}
                                     className={cx(
                                         hasValueClass,
                                         keepPlaceholderClass,
@@ -618,7 +619,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                         </StyledContentRightWrapper>
                     </InputWrapper>
                     {leftHelper && (
-                        <LeftHelper data-root id={helperTextId}>
+                        <LeftHelper data-root id={helperTextId} className={hasFocus ? classes.hasFocus : undefined}>
                             {leftHelper}
                         </LeftHelper>
                     )}

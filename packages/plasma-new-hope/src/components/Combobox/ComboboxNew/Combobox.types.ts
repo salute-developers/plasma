@@ -160,6 +160,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     contentLeft?: React.ReactElement;
     /**
+     * Слот для контента справа.
+     */
+    contentRight?: React.ReactElement;
+    /**
      * Слот для вспомогательного текста справа.
      */
     textBefore?: string;

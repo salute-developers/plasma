@@ -257,6 +257,8 @@ export const config = {
                 ${selectTokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
                 ${selectTokens.textFieldLabelColorReadOnly}: var(--text-secondary);
                 ${selectTokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
+                ${selectTokens.textFieldBorderColor}: transparent;
+                ${selectTokens.textFieldBorderWidth}: 0;
             `,
         },
     },

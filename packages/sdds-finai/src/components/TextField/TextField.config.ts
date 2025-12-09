@@ -48,15 +48,16 @@ export const config = {
 
                 ${tokens.backgroundColor}: var(--surface-transparent-positive);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-positive-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
                 ${tokens.borderColor}: var(--outline-transparent-positive);
                 ${tokens.borderColorHover}: var(--outline-transparent-positive-hover);
-                ${tokens.borderColorFocus}: var(--outline-transparent-positive-active);
+                ${tokens.borderColorFocus}: var(--outline-accent);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -80,15 +81,16 @@ export const config = {
 
                 ${tokens.backgroundColor}: var(--surface-transparent-warning);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
+                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
                 ${tokens.borderColor}: var(--outline-transparent-warning);
                 ${tokens.borderColorHover}: var(--outline-transparent-warning-hover);
-                ${tokens.borderColorFocus}: var(--outline-transparent-warning-active);
+                ${tokens.borderColorFocus}: var(--outline-accent);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -112,15 +114,16 @@ export const config = {
 
                 ${tokens.backgroundColor}: var(--surface-transparent-negative);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-negative-active);
+                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
                 ${tokens.borderColor}: var(--outline-transparent-negative);
                 ${tokens.borderColorHover}: var(--outline-transparent-negative-hover);
-                ${tokens.borderColorFocus}: var(--outline-transparent-negative-active);
+                ${tokens.borderColorFocus}: var(--outline-accent);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -709,6 +712,9 @@ export const config = {
             true: css`
                 ${tokens.disabledOpacity}: 1;
                 ${tokens.backgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderColorHover}: transparent;
+                ${tokens.borderColorFocus}: transparent;
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotRightColorHover}: var(--text-secondary);
                 ${tokens.contentSlotRightColorActive}: var(--text-secondary);
@@ -716,8 +722,8 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.colorReadOnly}: var(--text-primary);
+                ${tokens.backgroundColor}: var(--surface-transparent-card);
                 ${tokens.backgroundColorReadOnly}: var(--surface-transparent-card);
                 ${tokens.borderColorReadOnly}: var(--outline-solid-primary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);

@@ -8,9 +8,13 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-primary);
+                ${tokens.background}: var(--surface-transparent-card);
                 ${tokens.backgroundError}: var(--surface-transparent-negative);
                 ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+
+                ${tokens.borderColor}: var(--outline-solid-primary);
+                ${tokens.borderColorError}: var(--outline-transparent-negative);
+                ${tokens.borderColorSuccess}: var(--outline-transparent-positive);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -29,14 +33,20 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
-                ${tokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.textFieldBackgroundColorHover}: var(--surface-transparent-card-hover);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card);
+                ${tokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
                 ${tokens.textFieldBackgroundErrorColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-card);
+                ${tokens.textFieldBorderColorErrorHover}: var(--outline-transparent-negative-hover);
+                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-accent);
                 ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
                 ${tokens.textFieldBackgroundSuccessColorHover}: var(--surface-transparent-positive-hover);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-card);
+                ${tokens.textFieldBorderColorSuccessHover}: var(--outline-transparent-positive-hover);
+                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-accent);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -47,6 +57,7 @@ export const config = {
         size: {
             xl: css`
                 ${tokens.borderRadius}: 1rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -77,6 +88,7 @@ export const config = {
                 ${tokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -100,6 +112,7 @@ export const config = {
             `,
             l: css`
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -137,6 +150,7 @@ export const config = {
                 ${tokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -153,6 +167,7 @@ export const config = {
             `,
             m: css`
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -190,6 +205,7 @@ export const config = {
                 ${tokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -206,6 +222,7 @@ export const config = {
             `,
             s: css`
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -243,6 +260,7 @@ export const config = {
                 ${tokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -259,6 +277,7 @@ export const config = {
             `,
             xs: css`
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -296,6 +315,7 @@ export const config = {
                 ${tokens.textFieldFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -313,22 +333,29 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+                ${tokens.textFieldBackgroundColor}: transparent;
+                ${tokens.background}: var(--surface-transparent-secondary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotColor}: var(--text-secondary);
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
+                ${tokens.background}: var(--surface-transparent-card);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
-                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.dividerOpacityReadOnly}: 0.4;
-                ${tokens.rightContentOpacityReadOnly}: 0.4;
+                ${tokens.rightContentOpacityReadOnly}: 1;
 
-                ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldBackgroundColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotColor}: var(--text-secondary);
             `,
         },
     },

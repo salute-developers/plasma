@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react';
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconPlasma } from '@salutejs/plasma-icons';
+import { IconPlasma, IconLockOutline } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Autocomplete } from './Autocomplete';
@@ -246,6 +246,17 @@ const meta: Meta<StoryProps> = {
 
 export default meta;
 
+const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    if (disabled) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    if (readOnly) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    return <IconPlasma size={iconSize} color="inherit" />;
+};
+
 const DefaultStory = (args: StoryProps) => {
     const { enableContentLeft, enableContentRight } = args;
 
@@ -257,7 +268,7 @@ const DefaultStory = (args: StoryProps) => {
                 {...args}
                 suggestions={suggestions}
                 contentLeft={enableContentLeft ? <IconPlasma size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlasma size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? getIcon(args.size, args.disabled, args.readOnly) : undefined}
             />
         </div>
     );

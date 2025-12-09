@@ -1,8 +1,10 @@
+/* eslint-disable */
+
 import React, { ComponentProps, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconSearch, IconCalendar } from '@salutejs/plasma-icons';
+import { IconSearch, IconCalendar, IconLockOutline } from '@salutejs/plasma-icons';
 
 import { IconButton } from '../IconButton/IconButton';
 
@@ -107,6 +109,38 @@ const EventNode = ({ dateValue, color }: { dateValue: string; color: string }) =
     );
 };
 
+const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    if (disabled) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    if (readOnly) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    return <IconSearch color="inherit" size={iconSize} />;
+};
+
+const getIconConent = (
+    content: JSX.Element,
+    size: string,
+    type: 'left' | 'right',
+    disabled?: boolean,
+    readOnly?: boolean,
+) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    if ((disabled || readOnly) && type === 'right') {
+        return (
+            <IconButton view="clear" size={size}>
+                <IconLockOutline size={iconSize} />
+            </IconButton>
+        );
+    }
+    if (disabled || readOnly) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    return content;
+};
+
 const eventColors = ['red', 'green', 'blue', 'purple'];
 
 const EventTooltipBody = ({ children }: PropsWithChildren) => {
@@ -204,7 +238,7 @@ const StoryDefault = ({
             valueError={valueError}
             valueSuccess={valueSuccess}
             contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconSearch color="inherit" size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? getIcon(size, rest.disabled, rest.readOnly) : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => {
@@ -333,8 +367,22 @@ const StoryRange = ({
             firstValueSuccess={firstValueSuccess}
             secondValueError={secondValueError}
             secondValueSuccess={secondValueSuccess}
-            contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
+            contentLeft={
+                enableContentLeft
+                    ? getIconConent(
+                          <IconCalendar color="inherit" size={iconSize} />,
+                          size,
+                          'left',
+                          rest.disabled,
+                          rest.readOnly,
+                      )
+                    : undefined
+            }
+            contentRight={
+                enableContentRight
+                    ? getIconConent(<ActionButton size={size} />, size, 'right', rest.disabled, rest.readOnly)
+                    : undefined
+            }
             firstTextfieldContentLeft={
                 enableFirstTextfieldContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined
             }

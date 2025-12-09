@@ -685,6 +685,9 @@ export const config = {
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
                 ${tokens.textFieldReadOnlyOpacity}: 0.1;
                 ${tokens.rangeReadOnlyOpacity}: 0.1;
+
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderWidth}: 0;
             `,
         },
     },

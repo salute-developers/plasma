@@ -250,6 +250,8 @@ export const config = {
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderWidth}: 0;
             `,
         },
     },

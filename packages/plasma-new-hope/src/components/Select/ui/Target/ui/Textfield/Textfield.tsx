@@ -21,6 +21,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             size,
             view,
             contentLeft,
+            contentRight,
             helperText,
             treeId,
             activeDescendantItemValue,
@@ -120,9 +121,13 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 placeholder={value instanceof Array && value.length ? '' : placeholder}
                 contentLeft={contentLeft as React.ReactElement}
                 contentRight={
-                    <IconArrowWrapper disabled={disabled} readOnly={readOnly}>
-                        <StyledArrow color="inherit" size={sizeToIconSize(size)} className={withArrowInverse} />
-                    </IconArrowWrapper>
+                    contentRight || contentRight !== undefined ? (
+                        contentRight
+                    ) : (
+                        <IconArrowWrapper disabled={disabled} readOnly={readOnly}>
+                            <StyledArrow color="inherit" size={sizeToIconSize(size)} className={withArrowInverse} />
+                        </IconArrowWrapper>
+                    )
                 }
                 onKeyDown={onKeyDown}
                 leftHelper={
