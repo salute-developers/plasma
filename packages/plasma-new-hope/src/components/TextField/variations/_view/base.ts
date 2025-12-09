@@ -71,11 +71,12 @@ export const base = css`
     &.${classes.hasDivider} {
         ${InputWrapper} {
             --plasma_private-textfield-divider-color: var(${String(tokens.dividerColor)});
+            --plasma_private-textfield-divider-width: var(${String(tokens.dividerWidth)});
 
             &:before {
                 content: '';
                 position: absolute;
-                height: 0.063rem;
+                height: var(--plasma_private-textfield-divider-width, 0.063rem);
                 width: 100%;
                 bottom: 0;
                 left: 0;

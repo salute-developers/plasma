@@ -39,6 +39,8 @@ export const tokens = {
     dividerColorHover: '--plasma-textfield-divider-color-hover',
     dividerColorFocus: '--plasma-textfield-divider-color-focus',
 
+    dividerWidth: '--plasma-textfield-divider-width',
+
     /** Цвета для read-only состояния */
     colorReadOnly: '--plasma-textfield-color-readonly',
     backgroundColorReadOnly: '--plasma-textfield-bg-color-readonly',

@@ -297,6 +297,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+
+                ${tokens.dividerWidth}: 0.125rem;
             `,
             m: css`
                 ${tokens.height}: 3rem;
@@ -373,6 +375,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
+
+                ${tokens.dividerWidth}: 0.125rem;
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
@@ -449,6 +453,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
+
+                ${tokens.dividerWidth}: 0.125rem;
             `,
             xs: css`
                 ${tokens.height}: 2rem;
@@ -525,6 +531,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
+
+                ${tokens.dividerWidth}: 0.125rem;
             `,
         },
         labelPlacement: {
@@ -703,7 +711,11 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+                ${tokens.backgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary);
             `,
         },
         readOnly: {
@@ -716,7 +728,8 @@ export const config = {
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.contentSlotRightOpacityReadOnly}: 1;
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
             `,
         },
     },
