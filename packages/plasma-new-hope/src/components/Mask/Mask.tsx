@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
-import type { FC } from 'react';
+import type { ForwardRefExoticComponent } from 'react';
 import maskInputCompose from '@salutejs/react-maskinput';
 
 import type { CustomInputProps, MaskProps } from './Mask.types';
@@ -23,7 +23,7 @@ const defaultFormatChars = [
     },
 ];
 
-export const composeMask = <T extends CustomInputProps>(InputComponent: FC<T>) => {
+export const composeMask = <T extends CustomInputProps>(InputComponent: ForwardRefExoticComponent<T>) => {
     const MaskedInput = maskInputCompose(InputComponent);
 
     return forwardRef<HTMLInputElement, T & MaskProps>(
