@@ -47,7 +47,7 @@ export const base = css`
             width: 100%;
         }
 
-        &.${classes.hasHint} {
+        &.${classes.hasHint}.${classes.clear} {
             ${StyledIndicator} {
                 &.${classes.innerLabelPlacement}.${classes.requiredAlignRight} {
                     inset: var(${tokens.clearIndicatorHintInnerRight});
