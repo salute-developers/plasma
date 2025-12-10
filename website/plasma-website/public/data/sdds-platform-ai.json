@@ -1,0 +1,103 @@
+{
+  "0.330.0": {
+    "date": "2025-12-10",
+    "core": [
+      {
+        "component": "Select",
+        "children": [
+          {
+            "text": "добавлен кастомный пример с функцией поиска и подсветки найденных элементов;",
+            "link": "https://github.com/salute-developers/plasma/pull/2361",
+            "id": 2361
+          }
+        ]
+      },
+      {
+        "component": "Tree",
+        "children": [
+          {
+            "text": "исправлена позиция полоски в режиме drag and drop при multiline;",
+            "link": "https://github.com/salute-developers/plasma/pull/2356",
+            "id": 2356
+          }
+        ]
+      },
+      {
+        "component": "Combobox",
+        "children": [
+          {
+            "text": "добавлено новое свойство `filterValue` для фильтрации вводимых значений;",
+            "link": "https://github.com/salute-developers/plasma/pull/2355",
+            "id": 2355
+          },
+          {
+            "text": "исправлен `cursor: pointer` у стрелочки раскрытия в режиме `readOnly`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2357",
+            "id": 2357
+          }
+        ]
+      },
+      {
+        "component": "TextField",
+        "children": [
+          {
+            "text": "вариант `clear` вынесен в отдельную конфигурацию и регулируется свойством `appearance`",
+            "link": "https://github.com/salute-developers/plasma/pull/2358",
+            "id": 2358
+          }
+        ]
+      },
+      {
+        "component": "Timepicker",
+        "children": [
+          {
+            "text": "Исправлено поведение `dropdownAlign`",
+            "link": "https://github.com/salute-developers/plasma/pull/2369",
+            "id": 2369
+          }
+        ]
+      },
+      {
+        "component": "Pagination",
+        "children": [
+          {
+            "text": "исправлено позиционирование `perPage` при отсутствии `helperText` и `quickJump`",
+            "link": "https://github.com/salute-developers/plasma/pull/2365",
+            "id": 2365
+          }
+        ]
+      },
+      {
+        "component": "Icons",
+        "children": [
+          {
+            "text": "добавлена альтернативная иконка для ресайза - `ResizeCorneredFill`",
+            "link": "https://github.com/salute-developers/plasma/pull/2371",
+            "id": 2371
+          }
+        ]
+      },
+      {
+        "component": "Calendar",
+        "children": [
+          {
+            "text": "актуализирована размерная сетка",
+            "link": "https://github.com/salute-developers/plasma/pull/2362",
+            "id": 2362
+          }
+        ]
+      },
+      {
+        "component": "TextArea",
+        "children": [
+          {
+            "text": "исправлен скролл текста для TextArea",
+            "link": "https://github.com/salute-developers/plasma/pull/2381",
+            "id": 2381
+          }
+        ]
+      }
+    ],
+    "lib": []
+  }
+}
