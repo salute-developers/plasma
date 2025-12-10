@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 
 import { withTheme, themesList, DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE } from './decoratorThemes';
 import { withToast } from './decoratorToast';
@@ -16,7 +16,6 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme for components',
-            defaultValue: 'b2b:light',
             toolbar: {
                 title: 'Theme',
                 items: themesList,
@@ -24,7 +23,6 @@ const preview: Preview = {
         },
         typoVersion: {
             description: 'Global typography version for components',
-            defaultValue: 'standard',
             toolbar: {
                 title: 'Typography version',
                 items: ['standard', 'old'],
@@ -32,13 +30,17 @@ const preview: Preview = {
         },
         viewContainer: {
             description: 'ViewContainer mode for components',
-            defaultValue: DEFAULT_MODE,
             toolbar: {
                 title: 'ViewContainer',
                 items: [DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE],
             },
         },
         ...reactStrictModePreviewOption,
+    },
+    initialGlobals: {
+        theme: 'b2b:light',
+        typoVersion: 'standard',
+        viewContainer: DEFAULT_MODE,
     },
     parameters: {
         docs: {
@@ -53,7 +55,7 @@ const preview: Preview = {
             },
         },
         viewport: {
-            viewports: {
+            options: {
                 '375': {
                     name: '375x812',
                     styles: {

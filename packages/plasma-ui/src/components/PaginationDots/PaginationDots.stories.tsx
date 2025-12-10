@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import styled from 'styled-components';
 import { IconChevronLeft, IconChevronRight } from '@salutejs/plasma-icons';
 

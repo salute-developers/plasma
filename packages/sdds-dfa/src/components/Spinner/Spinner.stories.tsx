@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, ComponentProps } from 'react';
 import styled, { css } from 'styled-components';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Button } from '../Button';

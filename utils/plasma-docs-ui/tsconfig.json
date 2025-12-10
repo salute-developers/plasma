@@ -1,12 +1,14 @@
 {
     "compilerOptions": {
         "target": "ES5",
-        "module": "CommonJS",
+        "module": "ESNext",
         "lib": ["dom", "dom.iterable", "esnext"],
         "jsx": "react",
         "declaration": true,
         "sourceMap": true,
         "importHelpers": false,
+        "typeRoots": ["node_modules/@types"],
+        "types": ["node"],
 
         /* Strict Type-Checking Options */
         "strict": true,
@@ -26,7 +28,7 @@
         "noFallthroughCasesInSwitch": true,
 
         /* Module Resolution Options */
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "esModuleInterop": true,
 
         /* Advanced Options */
@@ -34,5 +36,7 @@
         "forceConsistentCasingInFileNames": true,
         "outDir": "./lib",
         "rootDir": "./src"
-    }
+    },
+    "include": ["./src"],
+    "exclude": ["node_modules/*", "./lib"]
 }

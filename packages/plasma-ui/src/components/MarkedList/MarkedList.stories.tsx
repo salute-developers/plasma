@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconDone, IconLock } from '@salutejs/plasma-icons';
 import { accent, primary, tertiary } from '@salutejs/plasma-tokens';
 

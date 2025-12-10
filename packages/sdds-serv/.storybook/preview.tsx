@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 
 import storybookTheme from './theme';
 import { docsPage } from './docsPage';
@@ -39,6 +39,10 @@ const preview: Preview = {
         },
         ...reactStrictModePreviewOption,
     },
+    initialGlobals: {
+        theme: SDDS_SERV_LIGHT_THEME,
+        viewContainer: DEFAULT_MODE,
+    },
     parameters: {
         docs: {
             page: docsPage,
@@ -52,7 +56,7 @@ const preview: Preview = {
             },
         },
         viewport: {
-            viewports: {
+            options: {
                 '375': {
                     name: '375x812',
                     styles: {

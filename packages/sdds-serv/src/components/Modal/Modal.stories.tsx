@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import styled, { css } from 'styled-components';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../SSRProvider';

@@ -123,6 +123,8 @@ type ClearProps =
     | {
           /**
            * view применяется с clear-токенами
+           * @deprecated
+           * use `appearance="clear"` instead
            */
           clear?: boolean;
           /**
@@ -258,6 +260,12 @@ export type TextFieldPropsBase = {
     TextFieldChipProps;
 
 export type TextFieldProps = {
+    /**
+     * Стиль для UI конфигурации
+     * Влияет на выбор предустановленого набора токенов
+     * @default default
+     */
+    appearance?: 'default' | 'clear';
     /**
      * Размер контрола.
      */

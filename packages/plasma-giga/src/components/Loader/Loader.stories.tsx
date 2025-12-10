@@ -1,10 +1,9 @@
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import React, { ComponentProps, useEffect } from 'react';
 import { IconCross } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';
-import { PopupProvider } from '../Popup';
 
 import { config } from './Loader.config';
 
@@ -146,21 +145,14 @@ const LoaderContent = (args) => {
     }, [toggle, setProgress]);
 
     return (
-        <PopupProvider>
-            <div style={{ position: 'relative', width: '100%' }}>
-                <Button onClick={() => setToggle(true)}>Show Loader</Button>
-                {toggle && (
-                    <Loader
-                        size={args.spinnerSize ?? args.progressSize ?? 'm'}
-                        maxValue={100}
-                        value={progress}
-                        {...args}
-                    >
-                        {getContent(progress, args.progressSize)}
-                    </Loader>
-                )}
-            </div>
-        </PopupProvider>
+        <div style={{ position: 'relative', width: '100%' }}>
+            <Button onClick={() => setToggle(true)}>Show Loader</Button>
+            {toggle && (
+                <Loader size={args.spinnerSize ?? args.progressSize ?? 'm'} maxValue={100} value={progress} {...args}>
+                    {getContent(progress, args.progressSize)}
+                </Loader>
+            )}
+        </div>
     );
 };
 

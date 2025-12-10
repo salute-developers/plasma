@@ -10,11 +10,7 @@ describe('plasma-b2c: Button', () => {
     const Button = getComponent('Button') as typeof ButtonWeb;
 
     it('simple', () => {
-        mount(
-            <CypressTestDecorator>
-                <Button>Hello Plasma</Button>
-            </CypressTestDecorator>,
-        );
+        mount(<Button>Hello Plasma</Button>);
         cy.matchImageSnapshot();
     });
 

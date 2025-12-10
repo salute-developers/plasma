@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextField.tokens';
-import { Input, InputContainer, Label } from '../../TextField.styles';
+import { Input, InputContainer, Label, StyledIndicator } from '../../TextField.styles';
 
 export const base = css`
     &.${classes.outerLabelPlacement} {
@@ -47,8 +47,12 @@ export const base = css`
             width: 100%;
         }
 
-        &.${classes.clear} ${Label} {
-            color: var(${tokens.clearPlaceholderColor});
+        &.${classes.hasHint}.${classes.clear} {
+            ${StyledIndicator} {
+                &.${classes.innerLabelPlacement}.${classes.requiredAlignRight} {
+                    inset: var(${tokens.clearIndicatorHintInnerRight});
+                }
+            }
         }
     }
 `;

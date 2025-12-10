@@ -1,6 +1,8 @@
 build
 node_modules
 
+reorganize.js
+
 actions/versionate-docs/lib
 actions/versionate-docs/node_modules
 

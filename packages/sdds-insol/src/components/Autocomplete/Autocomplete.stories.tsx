@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 import * as React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';

@@ -18,7 +18,7 @@ export type CheckboxProps = ComponentProps<typeof CheckboxDefault>;
 /**
  * Флажок или чекбокс. Позволяет пользователю управлять параметром с двумя состояниями — ☑ включено и ☐ отключено.
  */
-export const Checkbox = createConditionalComponent<CheckboxProps>(CheckboxDefault, [
+export const Checkbox = createConditionalComponent<CheckboxProps, HTMLInputElement>(CheckboxDefault, [
     {
         conditions: { prop: 'appearance', value: 'outline' },
         component: CheckboxOutline,

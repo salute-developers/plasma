@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { IconArrowLeft, IconArrowUp } from '@salutejs/plasma-icons';
 import { BodyS } from '@salutejs/plasma-b2c';
+
+import { packageNameMap, verticalToNpmPackageMap } from '../../utils/constants';
 
 const StyledHeader = styled.header`
     position: fixed;
@@ -78,7 +80,7 @@ const StyledColumn = styled.div`
 `;
 
 const StyledSecond = styled.div`
-    grid-column: 2/-1;
+    grid-column: 2/9;
 `;
 
 const StyledHeadingAnchor = styled.a`
@@ -103,18 +105,65 @@ const StyledBodyS = styled(BodyS)`
     color: rgba(255, 255, 255, 0.96);
 `;
 
+const PlatformsList = styled.div`
+    display: flex;
+    grid-column: 9 / -1;
+`;
+
+const PlatformsItem = styled.button`
+    display: flex;
+    align-items: center;
+
+    padding: 7px 12px;
+
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(255, 255, 255, 0.56);
+
+    border: 0;
+    border-radius: 14px;
+    background-color: transparent;
+    cursor: pointer;
+
+    &.active,
+    &:hover {
+        color: #16181d;
+        background-color: #fff;
+    }
+`;
+
 export const PageHeader = ({
-    lib,
+    vertical,
     version,
+    platform,
     isScrolling = false,
     onScrollTop,
+    onChangePlatform,
 }: {
-    lib: string;
+    vertical: string;
     version: string;
+    platform: string;
     isScrolling?: boolean;
     onScrollTop?: () => void;
+    onChangePlatform?: (data: string) => void;
 }) => {
+    const [platforms, setPlatforms] = useState<Record<string, { route: string; title: string }>>({});
+
+    useEffect(() => {
+        const storage = JSON.parse(localStorage.getItem('CHANGELOG_DATA') || '{}');
+        const data = storage[vertical];
+
+        if (data) {
+            setPlatforms(data);
+        }
+    }, [vertical]);
+
     const url = isScrolling ? '' : '/';
+    // @ts-ignore
+    const packageName = verticalToNpmPackageMap[vertical];
+    // @ts-ignore
+    const slug = packageNameMap[packageName];
 
     const handleLinkClick = (e: any) => {
         if (isScrolling) {
@@ -145,10 +194,26 @@ export const PageHeader = ({
                 <StyledSecond>
                     <StyledHeadingAnchor href={url} onClick={handleLinkClick} className="trigger">
                         <StyledBodyS>
-                            {lib}: {version}
+                            {slug}: {version}
                         </StyledBodyS>
                     </StyledHeadingAnchor>
                 </StyledSecond>
+                <PlatformsList>
+                    {Object.entries(platforms).map(([item, { route, title }]) => {
+                        return (
+                            <PlatformsItem
+                                key={item}
+                                className={platform === item ? 'active' : undefined}
+                                onClick={() => {
+                                    onChangePlatform?.(route);
+                                }}
+                                type="button"
+                            >
+                                {title}
+                            </PlatformsItem>
+                        );
+                    })}
+                </PlatformsList>
             </StyledGrid>
         </StyledHeader>
     );

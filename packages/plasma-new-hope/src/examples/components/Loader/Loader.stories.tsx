@@ -1,11 +1,10 @@
 import React, { ComponentProps, useEffect } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../_helpers';
 import { IconCrossThin } from '../../../components/_Icon';
 import { Button } from '../Button/Button';
-import { PopupProvider } from '../Popup/Popup';
 
 import { Loader } from './Loader';
 import { config } from './Loader.config';
@@ -146,21 +145,14 @@ const LoaderContent = (args) => {
     }, [toggle, setProgress]);
 
     return (
-        <PopupProvider>
-            <div style={{ position: 'relative', width: '100%' }}>
-                <Button onClick={() => setToggle(true)}>Show Loader</Button>
-                {toggle && (
-                    <Loader
-                        size={args.spinnerSize ?? args.progressSize ?? 'm'}
-                        maxValue={100}
-                        value={progress}
-                        {...args}
-                    >
-                        {getContent(progress, args.progressSize)}
-                    </Loader>
-                )}
-            </div>
-        </PopupProvider>
+        <div style={{ position: 'relative', width: '100%' }}>
+            <Button onClick={() => setToggle(true)}>Show Loader</Button>
+            {toggle && (
+                <Loader size={args.spinnerSize ?? args.progressSize ?? 'm'} maxValue={100} value={progress} {...args}>
+                    {getContent(progress, args.progressSize)}
+                </Loader>
+            )}
+        </div>
     );
 };
 

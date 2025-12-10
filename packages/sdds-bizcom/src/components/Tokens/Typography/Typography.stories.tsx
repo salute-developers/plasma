@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import {
     sdds_bizcom__dark,
     sdds_bizcom__light,

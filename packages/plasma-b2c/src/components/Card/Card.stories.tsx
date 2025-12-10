@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import styled from 'styled-components';
 import { blackPrimary, surfaceSolid03, whitePrimary, whiteSecondary } from '@salutejs/plasma-tokens-b2c';
 import { IconStarFill } from '@salutejs/plasma-icons';

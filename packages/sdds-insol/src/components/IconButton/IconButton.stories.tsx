@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import styled from 'styled-components';
 import { IconClose } from '@salutejs/plasma-icons';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';

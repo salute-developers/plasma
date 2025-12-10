@@ -14,31 +14,29 @@ import {
 
 export const base = css`
     &[readonly] {
-        :not(&.${classes.clear}) {
-            ${InputWrapper} {
-                position: relative;
-                z-index: 0;
-                color: var(${tokens.colorReadOnly});
-                background: transparent;
-                box-shadow: none;
+        ${InputWrapper} {
+            position: relative;
+            z-index: 0;
+            color: var(${tokens.colorReadOnly});
+            background: transparent;
+            box-shadow: none;
 
-                :before {
-                    position: absolute;
-                    content: '';
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    border-radius: var(${tokens.borderRadius});
-                    background-color: var(${tokens.backgroundColorReadOnly});
-                    opacity: var(${tokens.readOnlyOpacity});
-                    box-shadow: inset 0 0 0 var(${String(tokens.borderWidth)}) var(${tokens.borderColorReadOnly});
-                    z-index: -1;
-                }
+            :before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: var(${tokens.borderRadius});
+                background-color: var(${tokens.backgroundColorReadOnly});
+                opacity: var(${tokens.readOnlyOpacity});
+                box-shadow: inset 0 0 0 var(${String(tokens.borderWidth)}) var(${tokens.borderColorReadOnly});
+                z-index: -1;
+            }
 
-                :hover {
-                    background-color: transparent;
-                }
+            :hover {
+                background-color: transparent;
             }
         }
 

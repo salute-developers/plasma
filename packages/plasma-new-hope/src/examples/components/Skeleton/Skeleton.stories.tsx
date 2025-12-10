@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { WithTheme, argTypesFromConfig } from '../../_helpers';
 import { mergeConfig } from '../../../engines';

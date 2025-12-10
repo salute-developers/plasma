@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import type { StoryObj, Meta } from '@storybook/react-vite';
+import { action } from 'storybook/actions';
 
 import { IconPlaceholder, InSpacingDecorator, disableProps } from '../../helpers';
 

@@ -164,19 +164,11 @@ export const treeRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, TreeProps>
 
                             const style: React.CSSProperties = {};
 
-                            switch (dropPosition) {
-                                case -1:
-                                    style.top = 0;
-                                    break;
-                                case 1:
-                                    style.bottom = 0;
-                                    break;
-                                default:
-                                    style.bottom = 0;
-                                    style.left = indent + offset;
-                                    break;
+                            if (dropPosition === 0) {
+                                style.left = indent + offset;
                             }
-                            return <Line style={style} left={left} />;
+
+                            return <Line style={style} left={left} dropPosition={dropPosition} variant={variant} />;
                         }}
                     />
                 </Root>

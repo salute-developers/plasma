@@ -2,7 +2,7 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { BodyS } from '../Typography';
 

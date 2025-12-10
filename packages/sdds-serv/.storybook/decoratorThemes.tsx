@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-vite';
 import { createGlobalStyle } from 'styled-components';
 import { sdds_serv__light, sdds_serv__dark } from '@salutejs/sdds-themes';
 

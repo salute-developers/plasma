@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { disableProps } from '../../helpers';
 import { InSpacing } from '../../helpers/StoryDecorators';

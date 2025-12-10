@@ -19,3 +19,5 @@ __exportStar(require("./SSRProvider"), exports);
 __exportStar(require("./StyleHelpers"), exports);
 __exportStar(require("./CypressDecorator"), exports);
 __exportStar(require("./CypressHelpers"), exports);
+__exportStar(require("./getConfigMatrix"), exports);
+__exportStar(require("./getTests"), exports);

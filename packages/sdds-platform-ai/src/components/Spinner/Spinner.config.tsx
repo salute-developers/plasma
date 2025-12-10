@@ -1,0 +1,31 @@
+import { css } from '@salutejs/plasma-new-hope/styled-components';
+
+// TODO: Добавить view info
+export const config = {
+    defaults: {
+        view: 'accent',
+        size: 'xxs',
+    },
+    variations: {
+        view: {
+            default: css`
+                --plasma-spinner-color: var(--text-primary);
+            `,
+            secondary: css`
+                --plasma-spinner-color: var(--text-secondary);
+            `,
+            accent: css`
+                --plasma-spinner-color: var(--text-accent);
+            `,
+            positive: css`
+                --plasma-spinner-color: var(--text-positive);
+            `,
+            warning: css`
+                --plasma-spinner-color: var(--text-warning);
+            `,
+            negative: css`
+                --plasma-spinner-color: var(--text-negative);
+            `,
+        },
+    },
+};

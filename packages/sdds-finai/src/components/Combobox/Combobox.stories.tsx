@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconDone } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
@@ -538,7 +538,7 @@ export const Multiple: StoryObj<StorySelectProps> = {
         },
     },
     args: {
-        chipClickArea: 'full',
+        chipClickArea: 'close-icon',
     },
     parameters: {
         controls: {

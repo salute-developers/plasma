@@ -45,56 +45,56 @@ export const config = {
                 ${calendarDoubleTokens.calendarContainerWidth}: 58.063rem;
                 ${calendarDoubleTokens.calendarContainerHeight}: 28.75rem;
 
-                ${calendarDoubleTokens.calendarYearsPadding}: 0 0.25rem;
+                ${calendarDoubleTokens.calendarYearsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.75rem;
 
-                ${calendarDoubleTokens.calendarYearFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${calendarDoubleTokens.calendarYearFontSize}: var(--plasma-typo-body-s-font-size);
-                ${calendarDoubleTokens.calendarYearFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${calendarDoubleTokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${calendarDoubleTokens.calendarYearFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${calendarDoubleTokens.calendarYearFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${calendarDoubleTokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${calendarDoubleTokens.calendarYearFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${calendarDoubleTokens.calendarYearFontSize}: var(--plasma-typo-body-m-font-size);
+                ${calendarDoubleTokens.calendarYearFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${calendarDoubleTokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${calendarDoubleTokens.calendarYearFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${calendarDoubleTokens.calendarYearFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${calendarDoubleTokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
 
-                ${calendarDoubleTokens.calendarQuartersPadding}: 0 0.25rem;
+                ${calendarDoubleTokens.calendarQuartersPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.75rem;
 
-                ${calendarDoubleTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${calendarDoubleTokens.calendarQuarterFontSize}: var(--plasma-typo-body-s-font-size);
-                ${calendarDoubleTokens.calendarQuarterFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${calendarDoubleTokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${calendarDoubleTokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${calendarDoubleTokens.calendarQuarterFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${calendarDoubleTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${calendarDoubleTokens.calendarQuarterFontSize}: var(--plasma-typo-body-m-font-size);
+                ${calendarDoubleTokens.calendarQuarterFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${calendarDoubleTokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${calendarDoubleTokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${calendarDoubleTokens.calendarQuarterFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
 
-                ${calendarDoubleTokens.calendarMonthsPadding}: 0 0.25rem;
+                ${calendarDoubleTokens.calendarMonthsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.75rem;
 
-                ${calendarDoubleTokens.calendarMonthFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${calendarDoubleTokens.calendarMonthFontSize}: var(--plasma-typo-body-s-font-size);
-                ${calendarDoubleTokens.calendarMonthFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${calendarDoubleTokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${calendarDoubleTokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${calendarDoubleTokens.calendarMonthFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${calendarDoubleTokens.calendarMonthFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${calendarDoubleTokens.calendarMonthFontSize}: var(--plasma-typo-body-m-font-size);
+                ${calendarDoubleTokens.calendarMonthFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${calendarDoubleTokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${calendarDoubleTokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${calendarDoubleTokens.calendarMonthFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
 
-                ${calendarDoubleTokens.calendarDaysPadding}: 0;
+                ${calendarDoubleTokens.calendarDaysPadding}: 0.375rem 0 0 0;
                 ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.75rem;
 
-                ${calendarDoubleTokens.calendarDayFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${calendarDoubleTokens.calendarDayFontSize}: var(--plasma-typo-body-s-font-size);
-                ${calendarDoubleTokens.calendarDayFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${calendarDoubleTokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${calendarDoubleTokens.calendarDayFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${calendarDoubleTokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${calendarDoubleTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${calendarDoubleTokens.calendarDayFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${calendarDoubleTokens.calendarDayFontSize}: var(--plasma-typo-body-m-font-size);
+                ${calendarDoubleTokens.calendarDayFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${calendarDoubleTokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${calendarDoubleTokens.calendarDayFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${calendarDoubleTokens.calendarDayFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${calendarDoubleTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
 
                 ${calendarDoubleTokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${calendarDoubleTokens.calendarEventItemBottom}: 0.5rem;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1.5rem;
 
-                ${calendarDoubleTokens.calendarHeaderArrowGap}: 0.5rem;
+                ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
                 ${calendarDoubleTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
 
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.25rem;
@@ -117,7 +117,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarContainerWidth}: 51.375rem;
                 ${calendarDoubleTokens.calendarContainerHeight}: 25rem;
 
-                ${calendarDoubleTokens.calendarYearsPadding}: 0 0.5rem;
+                ${calendarDoubleTokens.calendarYearsPadding}: 0.375rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarYearFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -128,7 +128,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarYearFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${calendarDoubleTokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
-                ${calendarDoubleTokens.calendarQuartersPadding}: 0 0.5rem;
+                ${calendarDoubleTokens.calendarQuartersPadding}: 0.375rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -139,7 +139,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarQuarterFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
-                ${calendarDoubleTokens.calendarMonthsPadding}: 0 0.5rem;
+                ${calendarDoubleTokens.calendarMonthsPadding}: 0.375rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarMonthFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -150,7 +150,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarMonthFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
-                ${calendarDoubleTokens.calendarDaysPadding}: 0;
+                ${calendarDoubleTokens.calendarDaysPadding}: 0.375rem 0 0 0;
                 ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarDayFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -166,7 +166,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarEventItemBottom}: 0.5rem;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1.5rem;
 
-                ${calendarDoubleTokens.calendarHeaderArrowGap}: 0.5rem;
+                ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
                 ${calendarDoubleTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
 
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
@@ -189,7 +189,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarContainerWidth}: 44.063rem;
                 ${calendarDoubleTokens.calendarContainerHeight}: 20.5rem;
 
-                ${calendarDoubleTokens.calendarYearsPadding}: 0 0.5rem;
+                ${calendarDoubleTokens.calendarYearsPadding}: 0.375rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.625rem;
 
                 ${calendarDoubleTokens.calendarYearFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -200,7 +200,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarYearFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${calendarDoubleTokens.calendarQuartersPadding}: 0 0.5rem;
+                ${calendarDoubleTokens.calendarQuartersPadding}: 0.375rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.625rem;
 
                 ${calendarDoubleTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -211,7 +211,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarQuarterFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${calendarDoubleTokens.calendarMonthsPadding}: 0 0.5rem;
+                ${calendarDoubleTokens.calendarMonthsPadding}: 0.375rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.625rem;
 
                 ${calendarDoubleTokens.calendarMonthFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -222,7 +222,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarMonthFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${calendarDoubleTokens.calendarDaysPadding}: 0;
+                ${calendarDoubleTokens.calendarDaysPadding}: 0.375rem 0 0 0;
                 ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.625rem;
 
                 ${calendarDoubleTokens.calendarDayFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -261,7 +261,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarContainerWidth}: 37.063rem;
                 ${calendarDoubleTokens.calendarContainerHeight}: 17rem;
 
-                ${calendarDoubleTokens.calendarYearsPadding}: 0 0.875rem;
+                ${calendarDoubleTokens.calendarYearsPadding}: 0.375rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarYearFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -272,7 +272,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarYearFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${calendarDoubleTokens.calendarQuartersPadding}: 0 0.875rem;
+                ${calendarDoubleTokens.calendarQuartersPadding}: 0.375rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -283,7 +283,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarQuarterFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${calendarDoubleTokens.calendarMonthsPadding}: 0 0.875rem;
+                ${calendarDoubleTokens.calendarMonthsPadding}: 0.375rem 0.5rem 0 0.5rem;
                 ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarMonthFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -294,7 +294,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarMonthFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${calendarDoubleTokens.calendarDaysPadding}: 0;
+                ${calendarDoubleTokens.calendarDaysPadding}: 0.375rem 0 0 0;
                 ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarDayFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -333,7 +333,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarContainerWidth}: 37.063rem;
                 ${calendarDoubleTokens.calendarContainerHeight}: 15.5rem;
 
-                ${calendarDoubleTokens.calendarYearsPadding}: 0 0.25rem;
+                ${calendarDoubleTokens.calendarYearsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.375rem;
 
                 ${calendarDoubleTokens.calendarYearFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -344,7 +344,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarYearFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${calendarDoubleTokens.calendarQuartersPadding}: 0 0.25rem;
+                ${calendarDoubleTokens.calendarQuartersPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.375rem;
 
                 ${calendarDoubleTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -355,7 +355,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarQuarterFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${calendarDoubleTokens.calendarMonthsPadding}: 0 0.25rem;
+                ${calendarDoubleTokens.calendarMonthsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.375rem;
 
                 ${calendarDoubleTokens.calendarMonthFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -366,8 +366,8 @@ export const config = {
                 ${calendarDoubleTokens.calendarMonthFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
-                ${calendarDoubleTokens.calendarDaysPadding}: 0;
-                ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.375rem;
+                ${calendarDoubleTokens.calendarDaysPadding}: 0.375rem 0 0 0;
+                ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.5rem;
 
                 ${calendarDoubleTokens.calendarDayFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${calendarDoubleTokens.calendarDayFontSize}: var(--plasma-typo-body-xs-font-size);

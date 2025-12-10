@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { FC } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { SSRProvider } from '../SSRProvider';
 import { actionWithPersistedEvent, InSpacingDecorator } from '../../helpers';

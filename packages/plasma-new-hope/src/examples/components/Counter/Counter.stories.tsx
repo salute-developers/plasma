@@ -1,5 +1,5 @@
 import { disableProps } from '@salutejs/plasma-sb-utils';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { WithTheme } from '../../_helpers';
 

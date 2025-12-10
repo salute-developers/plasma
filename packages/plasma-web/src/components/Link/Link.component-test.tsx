@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-describe('plasma-giga: Link', () => {
+describe('plasma-web: Link', () => {
     const Link = getComponent('Link');
 
     // TODO: why we need global styles on body ?

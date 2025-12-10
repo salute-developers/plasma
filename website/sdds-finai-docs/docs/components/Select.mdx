@@ -912,6 +912,113 @@ Select может выглядеть как Button и как Textfield. За э�
     </TabItem>
 </Tabs>
 
+## Поиск совпадений с функцией подсветки символов
+
+:::tips
+`Combobox` - уже имеет механизм поиска и фильтрацию из коробки.
+:::
+
+Данный пример показывает реализацию подсветки (highlighting) символов в найденных элементах в режиме `treeView`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Select, TextField } from '@salutejs/sdds-finai';
+import { IconCloseCircleOutline } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = [
+        {
+            value: 'beijing',
+            label: 'Пекин',
+        },
+        {
+            value: 'shanghai',
+            label: 'Шанхай',
+        },
+        {
+            value: 'tokyo',
+            label: 'Токио',
+        },
+        {
+            value: 'osaka',
+            label: 'Осака',
+        },
+        {
+            value: 'delhi',
+            label: 'Дели',
+        },
+        {
+            value: 'mumbai',
+            label: 'Мумбаи',
+        },
+        {
+            value: 'seoul',
+            label: 'Сеул',
+        },
+        {
+            value: 'busan',
+            label: 'Пусан',
+        },
+        {
+            value: 'bangkok',
+            label: 'Бангкок',
+        },
+        {
+            value: 'phuket',
+            label: 'Пхукет',
+        },
+    ];
+
+    const [textValue, setTextValue] = useState('');
+
+    function highlightText(label: string, highlight: string): React.ReactNode {
+        if (!highlight.trim()) return label;
+        const re = new RegExp('(' + highlight + ')', 'ig');
+        const parts = label.split(re);
+        return (
+            <>
+                {parts.map((part, i) =>
+                    part.toLowerCase() === highlight.toLowerCase() ? (
+                        <mark key={i} style={{ backgroundColor: '#ffeb3b' }}>
+                            {part}
+                        </mark>
+                    ) : (
+                        <span key={i}>{part}</span>
+                    ),
+                )}
+            </>
+        );
+    }
+
+    const renderItem = (item: SelectItemOption) => {
+        if (!textValue) return item.label;
+
+        return highlightText(item.label, textValue);
+    };
+
+    return (
+        <div style={{ display: 'flex', height: '400px' }}>
+            <div style={{ width: '300px' }}>
+                <Select
+                    multiselect
+                    variant="tight"
+                    placeholder="Placeholder"
+                    items={items}
+                    listMaxHeight="300px"
+                    renderItem={renderItem}
+                    onToggle={(open) => {
+                        if (open) {
+                            setTextValue("");
+                        }
+                    }}
+                    beforeList={<TextField placeholder="Введите 'Токио'" size="s" value={textValue} onChange={(e) => setTextValue(e.target.value)} contentRight={textValue && <IconCloseCircleOutline onClick={() => setTextValue("")} color="gray" size="xs" />} />}
+                />
+            </div>
+        </div>
+    );
+}
+```
+
 ## Клавиатурная навигация
 
 Данный компонент соответствует требования W3C: [Select](https://www.w3.org/WAI/ARIA/apg/patterns/Select/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).

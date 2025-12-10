@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { IconDisclosureRight } from '@salutejs/plasma-icons';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';

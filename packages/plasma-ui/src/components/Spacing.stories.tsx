@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { applySpacing, SpacingProps } from '@salutejs/plasma-core';
 
 import { Headline3, Body1, Body2, Footnote2, Caption } from './Typography';

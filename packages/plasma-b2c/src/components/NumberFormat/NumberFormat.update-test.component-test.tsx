@@ -31,7 +31,7 @@ describe('plasma-b2c: NumberFormat', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T2149] NumberFormat: thousandSeparator="/", decimalSeparator=",", decimalScale=2', () => {
+    it('[PLASMA-T2149] NumberFormat: thousandSeparator="backslash", decimalSeparator=",", decimalScale=2', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <NumberFormat thousandSeparator="/" decimalSeparator="," decimalScale={2} />
@@ -282,7 +282,7 @@ describe('plasma-b2c: NumberFormat', () => {
                     titleCaption="titleCaption"
                     placeholder="placeholder"
                     helperText="helperText"
-                    clear
+                    appearance="clear"
                 />
             </CypressTestDecoratorWithTypo>,
         );

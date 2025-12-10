@@ -99,6 +99,7 @@ export const Indicator = styled.div<{ hasCaption?: boolean }>`
     width: var(${tokens.indicatorSizeOuter});
     height: var(${tokens.indicatorSizeOuter});
     margin-top: var(${tokens.indicatorMarginTop});
+    z-index: 2;
 
     &.${classes.requiredAlignLeft} {
         position: absolute;

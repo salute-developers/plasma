@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconTrash, IconTrashFilled, IconPlus } from '@salutejs/plasma-icons';
 import { surfaceSolid01 } from '@salutejs/plasma-tokens-web';

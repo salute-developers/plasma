@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { action } from 'storybook/actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Link } from '../Link';

@@ -1,6 +1,6 @@
 import React from 'react';
-import { styled } from '@linaria/react';
-import type { Meta } from '@storybook/react';
+import styled from 'styled-components';
+import type { Meta } from '@storybook/react-vite';
 
 import { WithTheme } from '../../_helpers';
 

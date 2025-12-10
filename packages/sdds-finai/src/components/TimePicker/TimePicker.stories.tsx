@@ -1,6 +1,6 @@
 import React, { ComponentProps, useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import type { StoryObj, Meta } from '@storybook/react-vite';
+import { action } from 'storybook/actions';
 import { IconClockCircleOutline } from '@salutejs/plasma-icons';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 

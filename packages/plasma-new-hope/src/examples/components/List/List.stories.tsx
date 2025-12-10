@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta } from '@storybook/react';
-import { styled } from '@linaria/react';
+import type { Meta } from '@storybook/react-vite';
+import styled from 'styled-components';
 
 import { IconChevronLeft } from '../../../components/_Icon';
 import { WithTheme } from '../../_helpers';

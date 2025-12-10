@@ -15,7 +15,7 @@ export const ChipTransparent = component(mergedConfigTransparent);
 
 export type ChipProps = ComponentProps<typeof ChipDefault>;
 
-export const Chip = createConditionalComponent<ChipProps>(ChipDefault, [
+export const Chip = createConditionalComponent<ChipProps, HTMLButtonElement>(ChipDefault, [
     {
         conditions: { prop: 'appearance', value: 'transparent' },
         component: ChipTransparent,

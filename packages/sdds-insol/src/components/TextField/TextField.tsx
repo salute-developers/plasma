@@ -1,25 +1,22 @@
-import React from 'react';
-import type { ComponentProps, ForwardedRef } from 'react';
 import {
     textFieldConfig,
     component,
     mergeConfig,
-    DistributiveOmit,
-    fixedForwardRef,
+    createConditionalComponent,
 } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './TextField.config';
+import { config as clearConfig } from './TextField.clear.config';
 
-const mergedConfig = mergeConfig(textFieldConfig, config);
-const TextFieldComponent = component(mergedConfig);
+const mergedConfigDefault = mergeConfig(textFieldConfig, config);
+export const TextFieldDefault = component(mergedConfigDefault);
 
-type TextFieldProps = DistributiveOmit<ComponentProps<typeof TextFieldComponent>, 'hintTargetPlacement'>;
+const mergedConfigClear = mergeConfig(textFieldConfig, clearConfig);
+export const TextFieldClear = component(mergedConfigClear);
 
-const TexFieldWithTypes = (props: TextFieldProps, ref: ForwardedRef<HTMLInputElement>) => (
-    <TextFieldComponent ref={ref} {...(props as any)} />
-);
-
-/**
- * Поле ввода текста.
- */
-export const TextField = fixedForwardRef(TexFieldWithTypes);
+export const TextField = createConditionalComponent(TextFieldDefault, [
+    {
+        conditions: { prop: 'appearance', value: 'clear' },
+        component: TextFieldClear,
+    },
+]);

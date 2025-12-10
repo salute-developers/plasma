@@ -20,7 +20,7 @@ describe('plasma-giga: Image', () => {
         });
     });
 
-    it.only('[PLASMA-T1734] Image: base=div, ratio=1/1', () => {
+    it.only('[PLASMA-T1734] Image: base=div, ratio=1:1', () => {
         mount(
             <CypressTestDecorator>
                 <div style={{ maxWidth: '10rem' }}>
@@ -32,7 +32,7 @@ describe('plasma-giga: Image', () => {
         cy.matchImageSnapshot();
     });
 
-    it.only('[PLASMA-T1735] Image: base=div, ratio=1/2, width=400, height=400', () => {
+    it.only('[PLASMA-T1735] Image: base=div, ratio=1:2, width=400, height=400', () => {
         mount(
             <CypressTestDecorator>
                 <div style={{ maxWidth: '10rem' }}>
@@ -44,7 +44,7 @@ describe('plasma-giga: Image', () => {
         cy.matchImageSnapshot();
     });
 
-    it.only('[PLASMA-T1736] Image: base=img, ratio=3/4, width=350, height=250', () => {
+    it.only('[PLASMA-T1736] Image: base=img, ratio=3:4, width=350, height=250', () => {
         mount(
             <CypressTestDecorator>
                 <div style={{ maxWidth: '10rem' }}>
@@ -56,7 +56,7 @@ describe('plasma-giga: Image', () => {
         cy.matchImageSnapshot();
     });
 
-    it.only('[PLASMA-T1737] Image: base=img, ratio=16/9, width=200, height=200', () => {
+    it.only('[PLASMA-T1737] Image: base=img, ratio=16:9, width=200, height=200', () => {
         mount(
             <CypressTestDecorator>
                 <div style={{ maxWidth: '10rem' }}>

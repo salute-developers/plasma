@@ -1,5 +1,5 @@
 import React, { useState, ComponentProps, ReactNode } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconPlus } from '@salutejs/plasma-icons';
 import { accordionConfig } from '@salutejs/plasma-new-hope/styled-components';

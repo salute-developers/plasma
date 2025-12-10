@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-vite';
 import { createGlobalStyle } from 'styled-components';
 import { b2b as b2bTypo, link, linkHover, linkActive } from '@salutejs/plasma-tokens-b2b';
 import { plasma_web__light as b2bLight, plasma_web__dark as b2bDark } from '@salutejs/plasma-themes';

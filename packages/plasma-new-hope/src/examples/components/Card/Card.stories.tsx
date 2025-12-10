@@ -1,6 +1,6 @@
 import React from 'react';
 import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import styled from 'styled-components';
 
 import { WithTheme } from '../../_helpers';

@@ -1,7 +1,7 @@
 import { disableProps } from '@salutejs/plasma-sb-utils';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import React, { useState, useCallback } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { WithTheme } from '../../_helpers';
 import { Button } from '../Button/Button';

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import type { ComponentProps } from 'react';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../_helpers';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../components/SSRProvider';

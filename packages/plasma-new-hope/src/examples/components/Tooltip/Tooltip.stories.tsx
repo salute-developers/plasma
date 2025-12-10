@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { styled } from '@linaria/react';
-import type { StoryObj, Meta } from '@storybook/react';
+import styled from 'styled-components';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../_helpers';

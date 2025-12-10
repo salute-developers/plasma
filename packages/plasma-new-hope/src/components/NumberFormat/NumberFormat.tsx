@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef, useState } from 'react';
-import type { ChangeEvent, FC, ClipboardEvent } from 'react';
+import type { ChangeEvent, ClipboardEvent, ForwardRefExoticComponent } from 'react';
 import { NumericFormat, numericFormatter } from 'react-number-format';
 import type { NumberFormatValues, SourceInfo } from 'react-number-format';
 import { useForkRef } from '@salutejs/plasma-core';
@@ -10,7 +10,9 @@ import type {
     InputComponentOmittedProps,
 } from './NumberFormat.types';
 
-export const composeNumberFormat = <T extends InputComponentOmittedProps>(InputComponent: FC<T>) => {
+export const composeNumberFormat = <T extends InputComponentOmittedProps>(
+    InputComponent: ForwardRefExoticComponent<T>,
+) => {
     return forwardRef<HTMLInputElement, T & CustomNumberFormatProps & CustomNumericFormatProps>(
         (
             {

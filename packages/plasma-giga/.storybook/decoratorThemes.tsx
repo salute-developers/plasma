@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-vite';
 import { createGlobalStyle } from 'styled-components';
 import { plasma_giga__light, plasma_giga__dark } from '@salutejs/plasma-themes';
 

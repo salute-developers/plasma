@@ -1625,6 +1625,41 @@ describe('sdds-cs: Combobox', () => {
         cy.get('@onChange').its('lastCall.args.1').should('include', { value: 'item4', label: 'Item 4' });
     });
 
+    it('prop: filterValue', () => {
+        const handleChangeValue = cy.stub().as('onChangeValue');
+
+        const Component = () => {
+            const filterValue = (val: string) => {
+                return val !== '123';
+            };
+
+            return (
+                <CypressTestDecorator>
+                    <div style={{ width: '300px' }}>
+                        <Combobox
+                            id="combobox"
+                            onChangeValue={handleChangeValue}
+                            filterValue={filterValue}
+                            items={items}
+                        />
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').type('1');
+        cy.get('@onChangeValue').its('lastCall.args.0').should('equal', '1');
+        cy.get('#combobox').type('2');
+        cy.get('@onChangeValue').its('lastCall.args.0').should('equal', '12');
+        cy.get('#combobox').type('3');
+        cy.get('@onChangeValue').should('have.been.calledTwice');
+        cy.get('#combobox').type('{backspace}');
+        cy.get('@onChangeValue').its('lastCall.args.0').should('equal', '1');
+        cy.get('@onChangeValue').should('have.been.calledThrice');
+    });
+
     it('behavior: disabled unselected item', () => {
         const items = [
             {

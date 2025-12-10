@@ -5,8 +5,6 @@ import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import cypress from 'cypress';
 
-import { PopupBaseProvider } from '../PopupBase';
-
 import { Loader as LoaderB2C } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
@@ -14,7 +12,7 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
     <CypressTestDecorator>
         <StandardTypoStyle />
-        <PopupBaseProvider>{children}</PopupBaseProvider>
+        {children}
     </CypressTestDecorator>
 );
 

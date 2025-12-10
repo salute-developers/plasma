@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 
 import storybookTheme from './theme';
 import { docsPage } from './docsPage';
@@ -23,7 +23,6 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme for components',
-            defaultValue: SDDS_SCAN_LIGHT_THEME,
             toolbar: {
                 title: 'Theme',
                 items: [SDDS_SCAN_LIGHT_THEME, SDDS_SCAN_DARK_THEME],
@@ -31,13 +30,16 @@ const preview: Preview = {
         },
         viewContainer: {
             description: 'ViewContainer mode for components',
-            defaultValue: DEFAULT_MODE,
             toolbar: {
                 title: 'ViewContainer',
                 items: [DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE],
             },
         },
         ...reactStrictModePreviewOption,
+    },
+    initialGlobals: {
+        theme: SDDS_SCAN_LIGHT_THEME,
+        viewContainer: DEFAULT_MODE,
     },
     parameters: {
         docs: {
@@ -52,7 +54,7 @@ const preview: Preview = {
             },
         },
         viewport: {
-            viewports: {
+            options: {
                 '375': {
                     name: '375x812',
                     styles: {

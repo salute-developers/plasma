@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { WithTheme } from '../../_helpers';
 import { IconBlankTxtOutline, IconLock, IconTrash } from '../../../components/_Icon';
@@ -12,6 +12,7 @@ type StoryTreeProps = ComponentProps<typeof Tree>;
 const size = ['xs', 's', 'm', 'l'];
 const arrowPlacements = ['left', 'right'];
 const mode = ['default', 'radio'];
+const variant = ['normal', 'tight'];
 
 const meta: Meta<StoryTreeProps> = {
     title: 'Data Entry/Tree',
@@ -50,6 +51,10 @@ const meta: Meta<StoryTreeProps> = {
             control: 'select',
             options: mode,
         },
+        variant: {
+            control: 'select',
+            options: variant,
+        },
     },
     args: {
         size: 'm',
@@ -62,6 +67,7 @@ const meta: Meta<StoryTreeProps> = {
         height: undefined,
         hasIcon: true,
         mode: 'default',
+        variant: 'normal',
     },
 };
 

@@ -15,7 +15,8 @@
         "sdds-crm",
         "sdds-netology",
         "sdds-scan",
-        "sdds-bizcom"
+        "sdds-bizcom",
+        "sdds-platform-ai"
     ],
     "PACKAGES_TYPESENSE": [
         "plasma-b2c",

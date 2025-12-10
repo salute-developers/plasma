@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';

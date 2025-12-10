@@ -5,13 +5,13 @@ import { IconArrowDiagRightUp } from '@salutejs/plasma-icons';
 import { Menu, Product, ProductList, LinkItem, StickyNav, StickyNavItem, DraggableContainer } from '../components/main';
 import type { ProductProps } from '../components/main';
 import { currentYear, products, stickyNavSnapVariant, verticals, verticalsMap } from '../utils';
-import { useGitHubData } from '../hooks/useGitHubData';
+import { useMergedAllPlatformsData } from '../hooks/useMergedAllPlatformsData';
 import {
+    createChangelogLink,
     rootFontSize,
     sectionOffsetAccuracy,
     stickyNavItemMargin,
     topOffsetAfterScroll,
-    nativePlatformsMetaUrl,
 } from '../utils/constants';
 import { multipleMediaQuery } from '../mixins';
 import { PlasmaCopyrightText } from '../components';
@@ -390,7 +390,7 @@ export default function Home() {
         };
     }, []);
 
-    const { data: NATIVE_PRODUCTS } = useGitHubData(nativePlatformsMetaUrl);
+    const { data: ALL_PLATFORMS_DATA } = useMergedAllPlatformsData();
 
     return (
         <ScrollContainer ref={scrollContainerRef}>
@@ -454,7 +454,7 @@ export default function Home() {
                             }}
                             key={group}
                         >
-                            {currentProducts.map(({ title, href, web, key }) => (
+                            {currentProducts.map(({ title, href, key }) => (
                                 <Product
                                     key={group + title}
                                     title={title}
@@ -462,30 +462,33 @@ export default function Home() {
                                     iconRotation="topRightCorner"
                                     className="off-link-style"
                                 >
-                                    {[web]
-                                        .concat(Object.values(NATIVE_PRODUCTS[key] ?? {}))
+                                    {Object.entries(ALL_PLATFORMS_DATA[key] ?? {})
                                         .filter(Boolean)
-                                        .map((platform) => {
+                                        .map(([platform, data]) => {
                                             return (
                                                 <PlatformBlock className="platform-block">
-                                                    <PlatformTitle>{platform?.title}</PlatformTitle>
-                                                    <PlatformCommonLabel href={platform?.links?.changelog?.href}>
-                                                        <span className="platform-block-title">
-                                                            {platform?.version}
-                                                        </span>
+                                                    <PlatformTitle>{data?.title}</PlatformTitle>
+                                                    <PlatformCommonLabel
+                                                        href={createChangelogLink({
+                                                            version: data?.version || '',
+                                                            vertical: key,
+                                                            platform,
+                                                        })}
+                                                    >
+                                                        <span className="platform-block-title">{data?.version}</span>
                                                         <StyledHistory />
                                                     </PlatformCommonLabel>
-                                                    <PlatformCommonLabel href={platform?.links?.documentation?.href}>
+                                                    <PlatformCommonLabel href={data?.links?.documentation?.href}>
                                                         <span className="platform-block-title">Документация</span>
                                                         <StyledArrowTopRight size="xs" />
                                                     </PlatformCommonLabel>
-                                                    {platform?.links?.storybook && (
-                                                        <PlatformCommonLabel href={platform?.links?.storybook?.href}>
+                                                    {data?.links?.storybook && (
+                                                        <PlatformCommonLabel href={data?.links?.storybook?.href}>
                                                             <span className="platform-block-title">Сторибук</span>
                                                             <StyledArrowTopRight size="xs" />
                                                         </PlatformCommonLabel>
                                                     )}
-                                                    <PlatformTitle>{platform?.package}</PlatformTitle>
+                                                    <PlatformTitle>{data?.package}</PlatformTitle>
                                                 </PlatformBlock>
                                             );
                                         })}

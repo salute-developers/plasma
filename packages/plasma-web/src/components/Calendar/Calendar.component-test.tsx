@@ -243,6 +243,8 @@ describe('plasma-web: Calendar', () => {
     it('size', () => {
         mount(
             <>
+                <Demo baseValue={baseDate} size="xl" />
+                <PadMe />
                 <Demo baseValue={baseDate} size="l" />
                 <PadMe />
                 <Demo baseValue={baseDate} size="m" />

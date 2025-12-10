@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react-vite';
 import { ThemeColors, extractCanvasThemeColors } from '@salutejs/plasma-sb-utils';
 import { darkEva, darkJoy, darkSber, lightEva, lightJoy, lightSber } from '@salutejs/plasma-tokens';
 

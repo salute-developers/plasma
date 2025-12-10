@@ -10,14 +10,11 @@ export const config = {
         view: {
             default: css`
                 ${tokens.color}: var(--text-primary);
-                ${tokens.clearColor}: var(--text-primary);
                 ${tokens.backgroundColor}: var(--surface-solid-card);
                 ${tokens.backgroundColorFocus}: var(--surface-solid-card-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColor}: var(--text-secondary);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textBeforeColor}: var(--text-secondary);
                 ${tokens.textAfterColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -31,10 +28,6 @@ export const config = {
                 ${tokens.contentSlotRightColor}: var(--text-accent);
                 ${tokens.contentSlotRightColorHover}: var(--text-accent-minor);
                 ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
-
-                ${tokens.dividerColor}: var(--outline-solid-primary);
-                ${tokens.dividerColorHover}: var(--text-secondary);
-                ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
@@ -60,14 +53,11 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: var(--text-primary);
-                ${tokens.clearColor}: var(--text-negative);
                 ${tokens.backgroundColor}: var(--surface-solid-card);
                 ${tokens.backgroundColorFocus}: var(--surface-solid-card-active);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.clearPlaceholderColor}: var(--text-negative);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-negative);
                 ${tokens.textBeforeColor}: var(--text-secondary);
                 ${tokens.textAfterColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -75,9 +65,12 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
-                ${tokens.dividerColor}: var(--surface-negative);
-                ${tokens.dividerColorHover}: var(--surface-negative);
-                ${tokens.dividerColorFocus}: var(--surface-accent);
+                ${tokens.contentSlotColor}: var(--text-negative);
+                ${tokens.contentSlotColorHover}: var(--text-negative-hover);
+                ${tokens.contentSlotColorActive}: var(--text-negative-active);
+                ${tokens.contentSlotRightColor}: var(--text-accent);
+                ${tokens.contentSlotRightColorHover}: var(--text-accent-minor);
+                ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
                 ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
@@ -122,7 +115,6 @@ export const config = {
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.labelOffset}: 0.5rem;
-                ${tokens.clearLabelOffset}: 0.5rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -133,7 +125,6 @@ export const config = {
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.063rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -175,21 +166,15 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${tokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
             `,
         },
         labelPlacement: {
             outer: css``,
         },
-        clear: {
-            true: css``,
-        },
         hintView: {
-            // TODO: заменить тень на токен https://github.com/salute-developers/plasma/issues/1131
             default: css`
                 ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.tooltipBoxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);
+                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
                 ${tokens.tooltipColor}: var(--text-primary);
                 ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
             `,
@@ -264,7 +249,6 @@ export const config = {
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
-                ${tokens.dividerColorReadOnly}: var(--outline-solid-secondary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },

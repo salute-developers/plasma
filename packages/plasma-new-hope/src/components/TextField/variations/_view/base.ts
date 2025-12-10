@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../TextField.tokens';
+import { classes, tokens } from '../../TextField.tokens';
 import {
     Input,
     InputPlaceholder,
@@ -66,5 +66,40 @@ export const base = css`
 
     ${StyledTextAfter} {
         color: var(${tokens.textAfterColor});
+    }
+
+    &.${classes.hasDivider} {
+        ${InputWrapper} {
+            --plasma_private-textfield-divider-color: var(${String(tokens.dividerColor)});
+
+            &:before {
+                content: '';
+                position: absolute;
+                height: 0.063rem;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                background-color: var(--plasma_private-textfield-divider-color);
+                transition: background-color 0.1s ease-in;
+            }
+        }
+
+        &:not([readonly]) ${InputWrapper}:hover {
+            --plasma_private-textfield-divider-color: var(
+                ${tokens.dividerColorHover},
+                var(${String(tokens.dividerColor)})
+            );
+        }
+
+        &:not([readonly]) ${InputWrapper}:focus-within {
+            --plasma_private-textfield-divider-color: var(
+                ${tokens.dividerColorFocus},
+                var(${String(tokens.dividerColor)})
+            );
+
+            ${InputPlaceholder} {
+                color: var(${tokens.clearPlaceholderColorFocus});
+            }
+        }
     }
 `;

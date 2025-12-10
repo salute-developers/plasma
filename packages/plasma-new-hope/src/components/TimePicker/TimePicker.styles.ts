@@ -170,13 +170,15 @@ export const base = css`
     &.${classes.timePickerPlacementRight} {
         justify-content: flex-end;
     }
+
+    &.${classes.timePickerFixed} {
+        width: var(${tokens.timePickerWidth});
+    }
 `;
 
 export const StyledTimePicker = styled.div<{ width?: string | number }>`
     background: var(${tokens.timePickerBackground});
     border-radius: var(${tokens.timePickerBorderRadius});
-    width: ${({ width }) =>
-        (width === 'fullWidth' ? `var(${tokens.width})` : width) || `var(${tokens.timePickerWidth})`};
     display: flex;
     padding: var(${tokens.timePickerPadding});
     flex: 1 1 1;
