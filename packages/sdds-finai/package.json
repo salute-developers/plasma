@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-finai",
-  "version": "0.322.0-dev.0",
+  "version": "0.322.0",
   "description": "Salute Design System / React UI kit for SDDS FinAI web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -19,8 +19,8 @@
     "directory": "packages/sdds-fiai"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.343.0-dev.0",
-    "@salutejs/sdds-themes": "0.50.0-dev.0"
+    "@salutejs/plasma-new-hope": "0.343.0",
+    "@salutejs/sdds-themes": "0.50.0"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
@@ -36,10 +36,10 @@
     "@babel/preset-react": "7.24.1",
     "@babel/preset-typescript": "7.24.1",
     "@salutejs/plasma-colors": "0.16.0",
-    "@salutejs/plasma-core": "1.211.0-dev.0",
-    "@salutejs/plasma-cy-utils": "0.141.0-dev.0",
-    "@salutejs/plasma-icons": "1.228.0-dev.0",
-    "@salutejs/plasma-sb-utils": "0.211.0-dev.0",
+    "@salutejs/plasma-core": "1.211.0",
+    "@salutejs/plasma-cy-utils": "0.141.0",
+    "@salutejs/plasma-icons": "1.228.0",
+    "@salutejs/plasma-sb-utils": "0.211.0",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
