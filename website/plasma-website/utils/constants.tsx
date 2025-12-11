@@ -307,7 +307,7 @@ export const verticalToNpmPackageMap = {
     plasmaGigaApp: 'plasma-giga',
     plasmaStarDS: 'plasmaStarDS',
     plasmaHomeDS: 'plasmaHomeDS',
-    SDDSServ: 'sdds-serv',
+    SDDSService: 'sdds-serv',
     SDDSFinAI: 'sdds-finai',
     SDDSDFA: 'sdds-dfa',
     SDDSCS: 'sdds-cs',
