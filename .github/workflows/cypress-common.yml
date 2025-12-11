@@ -17,6 +17,11 @@ on:
       with-artifacts:
         type: boolean
         default: false
+      components:
+        description: 'Comma-separated list of components to test'
+        required: false
+        type: string
+        default: ''
 
 jobs:
   run:
@@ -61,7 +66,13 @@ jobs:
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
         run: |
-          npm run cy:${{ inputs.scope }}:run-ct
+          if [ -n "${{ inputs.components }}" ]; then
+            echo "Running Cypress for specific components: ${{ inputs.components }}"
+            npm run cy:${{ inputs.scope }}:run-ct --components="${{ inputs.components }}"
+          else
+            echo "Running Cypress for all components"
+            npm run cy:${{ inputs.scope }}:run-ct
+          fi
 
       - name: Reorganize diff artifacts
         if: ${{ failure() || inputs.with-artifacts }}

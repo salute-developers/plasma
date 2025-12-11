@@ -18,8 +18,35 @@ jobs:
     uses: ./.github/workflows/change-detection.yml
     secrets: inherit
 
-  cypress_plasma:
+  find_components:
     needs: state
+    if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
+    runs-on: ubuntu-latest
+    outputs:
+      components: ${{ steps.find-components.outputs.components }}
+    steps:
+      -   name: Checkout repository
+          uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+
+      -   name: Setup Node.js
+          uses: actions/setup-node@v6
+          with:
+              node-version-file: '.nvmrc'
+              cache: 'npm'
+
+      -   name: Install dependencies
+          run: |
+              cd .github/actions/find-changed-components
+              npm ci
+
+      - name: Find changed components
+        id: find-components
+        uses: ./.github/actions/find-changed-components
+
+  cypress_plasma:
+    needs: [state, find_components]
     if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
     strategy:
       fail-fast: false
@@ -33,10 +60,11 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
+      components: ${{ needs.find_components.outputs.components }}
     secrets: inherit
 
   cypress_sdds:
-    needs: state
+    needs: [state, find_components]
     if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
     strategy:
       fail-fast: false
@@ -47,4 +75,5 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
+      components: ${{ needs.find_components.outputs.components }}
     secrets: inherit
