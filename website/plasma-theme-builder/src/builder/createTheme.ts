@@ -44,13 +44,15 @@ export const getStateTokens = (
         return { defaultStateTokens, onDarkStateTokens, onLightStateTokens, inverseStateTokens };
     }
 
-    const getDefaultStateToken = getStateToken(sectionName, mode, tokens[mode].default);
+    let newMode = mode;
+    const getDefaultStateToken = getStateToken(sectionName, newMode, tokens[mode].default);
     defaultStateTokens = {
         [`${name}Hover`]: getDefaultStateToken('hover'),
         [`${name}Active`]: getDefaultStateToken('active'),
         ...(isBrightness ? { [`${name}Brightness`]: getDefaultStateToken('brightness') } : {}),
     };
 
+    newMode = 'dark';
     const getOnDarkStateToken = getStateToken(sectionName, mode, tokens[mode].onDark);
     onDarkStateTokens = {
         [`${name}Hover`]: getOnDarkStateToken('hover'),
@@ -58,6 +60,7 @@ export const getStateTokens = (
         ...(isBrightness ? { [`${name}Brightness`]: getOnDarkStateToken('brightness') } : {}),
     };
 
+    newMode = 'light';
     const getOnLightStateToken = getStateToken(sectionName, mode, tokens[mode].onLight);
     onLightStateTokens = {
         [`${name}Hover`]: getOnLightStateToken('hover'),
@@ -65,6 +68,7 @@ export const getStateTokens = (
         ...(isBrightness ? { [`${name}Brightness`]: getOnLightStateToken('brightness') } : {}),
     };
 
+    newMode = mode === 'light' ? 'dark' : 'light';
     const getInverseStateToken = getStateToken(sectionName, mode, tokens[mode].inverse);
     inverseStateTokens = {
         [`${name}Hover`]: getInverseStateToken('hover'),
