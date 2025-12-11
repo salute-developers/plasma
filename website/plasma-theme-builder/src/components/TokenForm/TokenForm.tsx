@@ -169,7 +169,22 @@ export const TokenForm = ({
                 enabled: enabled?.value,
             };
 
-            const getStateTokenFunc = getStateToken(sectionName, themeMode, data);
+            let mode = themeMode;
+            const subsectionName = subsection.value.toLocaleLowerCase();
+            if (
+                (themeMode === 'dark' && (subsectionName.includes('default') || subsectionName.includes('dark'))) ||
+                (themeMode === 'light' && (subsectionName.includes('inverse') || subsectionName.includes('dark')))
+            ) {
+                mode = 'dark';
+            }
+            if (
+                (themeMode === 'dark' && (subsectionName.includes('inverse') || subsectionName.includes('light'))) ||
+                (themeMode === 'light' && (subsectionName.includes('default') || subsectionName.includes('light')))
+            ) {
+                mode = 'light';
+            }
+
+            const getStateTokenFunc = getStateToken(sectionName, mode, data);
 
             return {
                 [`${tokenName}Hover`]: getStateTokenFunc('hover'),
