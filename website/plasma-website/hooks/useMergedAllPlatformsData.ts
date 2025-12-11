@@ -187,6 +187,8 @@ export const useMergedAllPlatformsData = (skipFetch = false) => {
 
     useEffect(() => {
         if (skipFetch) {
+            setLoading(false);
+
             return;
         }
 
