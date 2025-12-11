@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Button, ButtonProps } from '@salutejs/plasma-b2c';
-import { secondary, tertiary } from '@salutejs/plasma-tokens-b2c';
-import { link, linkHover, linkActive } from '@salutejs/plasma-b2c/tokens';
+import { secondary, tertiary, link, linkHover, linkActive } from '@salutejs/plasma-tokens-b2c';
 
 type FlatButtonProps = ButtonProps & {
     $disabled?: boolean;
