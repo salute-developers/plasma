@@ -23,6 +23,7 @@ import {
 } from './Range.styles';
 import { classes } from './Range.tokens';
 
+// changes to run tests
 export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
     forwardRef<RangeInputRefs, RangeProps>(
         (
