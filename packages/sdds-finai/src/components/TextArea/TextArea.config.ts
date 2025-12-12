@@ -603,8 +603,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${textAreaTokens.readOnlyOpacity}: 0.1;
-                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-card);
                 ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
                 ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
                 ${textAreaTokens.contentSlotRightOpacityReadOnly}: 1;

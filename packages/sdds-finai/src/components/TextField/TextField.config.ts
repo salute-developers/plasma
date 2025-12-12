@@ -716,8 +716,8 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.colorReadOnly}: var(--text-primary);
+                ${tokens.backgroundColor}: var(--surface-transparent-card);
                 ${tokens.backgroundColorReadOnly}: var(--surface-transparent-card);
                 ${tokens.borderColorReadOnly}: var(--outline-solid-primary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);

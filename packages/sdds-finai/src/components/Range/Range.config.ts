@@ -341,11 +341,11 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
+                ${tokens.background}: var(--surface-transparent-card);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
-                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.dividerOpacityReadOnly}: 0.4;
                 ${tokens.rightContentOpacityReadOnly}: 1;
 

@@ -720,14 +720,13 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.colorReadOnly}: var(--text-primary);
                 ${tokens.backgroundColorReadOnly}: transparent;
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.dividerColorReadOnly}: var(--surface-transparent-tertiary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 1;
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
             `,

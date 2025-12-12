@@ -348,7 +348,8 @@ export const config = {
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
 
                 ${tokens.textFieldColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);

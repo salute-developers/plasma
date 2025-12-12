@@ -994,9 +994,9 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.disclosureIconOpacityReadOnly}: 1;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);

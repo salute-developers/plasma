@@ -678,6 +678,7 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
+                ${tokens.background}: var(--surface-transparent-card);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
@@ -690,8 +691,6 @@ export const config = {
 
                 ${tokens.rightContentOpacityReadOnly}: 1;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 1;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
-                ${tokens.rangeReadOnlyOpacity}: 0.1;
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotRightColorHover}: var(--text-secondary);
                 ${tokens.contentSlotRightColorActive}: var(--text-secondary);
