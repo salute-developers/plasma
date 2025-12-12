@@ -8,9 +8,15 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-primary);
+                ${tokens.background}: var(--surface-transparent-card);
                 ${tokens.backgroundError}: var(--surface-transparent-negative);
                 ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+
+                ${tokens.borderColor}: var(--outline-solid-primary);
+                ${tokens.borderColorHover}: var(--outline-solid-primary-hover);
+                ${tokens.borderColorFocus}: var(--outline-accent);
+                ${tokens.borderColorError}: var(--outline-transparent-negative);
+                ${tokens.borderColorSuccess}: var(--outline-transparent-positive);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -46,8 +52,8 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
                 ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
@@ -100,6 +106,7 @@ export const config = {
             l: css`
                 ${tokens.width}: 26.5rem;
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -226,6 +233,7 @@ export const config = {
             m: css`
                 ${tokens.width}: 23rem;
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -352,6 +360,7 @@ export const config = {
             s: css`
                 ${tokens.width}: 19.5rem;
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -478,6 +487,7 @@ export const config = {
             xs: css`
                 ${tokens.width}: 19rem;
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -656,12 +666,19 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary);
+
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
+                ${tokens.background}: var(--surface-transparent-card);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
@@ -672,10 +689,11 @@ export const config = {
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
-                ${tokens.rightContentOpacityReadOnly}: 0.4;
-                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
-                ${tokens.rangeReadOnlyOpacity}: 0.1;
+                ${tokens.rightContentOpacityReadOnly}: 1;
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 1;
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary);
             `,
         },
     },
