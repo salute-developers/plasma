@@ -5,7 +5,7 @@ import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import cypress from 'cypress';
 
-import { Loader as LoaderB2C } from '.';
+import { Loader as LoaderWEB } from '.';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
@@ -16,8 +16,8 @@ const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
     </CypressTestDecorator>
 );
 
-describe('plasma-b2c: Loader', () => {
-    const Loader = getComponent('Loader') as typeof LoaderB2C;
+describe('plasma-web: Loader', () => {
+    const Loader = getComponent('Loader') as typeof LoaderWEB;
 
     const Demo = ({
         size = 'm',
