@@ -229,6 +229,7 @@ export const config = {
         chipView: {
             default: css`
                 ${selectTokens.textFieldChipColor}: var(--inverse-text-primary);
+                ${selectTokens.textFieldChipColorHover}: var(--inverse-text-primary);
                 ${selectTokens.textFieldChipBackground}: var(--surface-solid-default);
                 ${selectTokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
                 ${selectTokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
