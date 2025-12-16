@@ -1,7 +1,7 @@
-const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
-const { setOutput } = require('@actions/core');
+import { execSync } from 'child_process';
+import { readdirSync, statSync } from 'fs';
+import { join } from 'path';
+import { setOutput } from '@actions/core';
 
 const CORE_DIR = './packages/plasma-new-hope/src/components';
 const BASE_REF = process.env.GITHUB_BASE_REF || 'dev';
@@ -19,43 +19,42 @@ const getChangedFiles = () => {
 
 const getGitHubRebaseChanges = () => {
     try {
-        if (HEAD_SHA) {
-            // Получаем список коммитов в PR
-            const commitsCommand = `git log --oneline origin/${BASE_REF}..${HEAD_SHA} --pretty=format:"%H"`;
-            const commits = execSync(commitsCommand, { encoding: 'utf8' }).trim().split('\n');
-
-            console.log(`Найдено ${commits.length} коммитов в PR`);
-
-            // Собираем все измененные файлы по всем коммитам
-            const allChangedFiles = new Set();
-
-            for (const commit of commits) {
-                if (commit.trim()) {
-                    try {
-                        const changedFilesCommand = `git show --name-only --pretty=format: ${commit}`;
-                        const files = execSync(changedFilesCommand, { encoding: 'utf8' })
-                            .trim()
-                            .split('\n')
-                            .filter(Boolean);
-                        files.forEach((file) => allChangedFiles.add(file));
-                    } catch (error) {
-                        console.log(`Не удалось получить файлы для коммита ${commit}`);
-                    }
-                }
-            }
-
-            return Array.from(allChangedFiles);
+        if (!HEAD_SHA) {
+            return getGitHubFallbackChanges();
         }
 
-        // Резервный метод для GitHub
-        return getGitHubFallbackChanges();
+        // Получаем список коммитов в PR
+        const commitsCommand = `git log --oneline origin/${BASE_REF}..${HEAD_SHA} --pretty=format:"%H"`;
+        const commits = execSync(commitsCommand, { encoding: 'utf8' }).trim().split('\n');
+
+        console.log(`Найдено ${commits.length} коммитов в PR`);
+
+        // Собираем все измененные файлы по всем коммитам
+        const allChangedFiles = new Set();
+
+        for (const commit of commits) {
+            if (commit.trim()) {
+                try {
+                    const changedFilesCommand = `git show --name-only --pretty=format: ${commit}`;
+                    const files = execSync(changedFilesCommand, { encoding: 'utf8' })
+                        .trim()
+                        .split('\n')
+                        .filter(Boolean);
+                    files.forEach((file) => allChangedFiles.add(file));
+                } catch (error) {
+                    console.log(`Не удалось получить файлы для коммита ${commit}`);
+                }
+            }
+        }
+
+        return Array.from(allChangedFiles);
     } catch (error) {
         console.log('Метод GitHub rebase не сработал, используем резервный:', error.message);
         return getGitHubFallbackChanges();
     }
 };
 
-// Резервный метод для GitHub
+// Резервный метод для GitHub (выводит diff по файлам, если дифф по rebase не сработал)
 const getGitHubFallbackChanges = () => {
     try {
         const command = `git diff --name-only origin/${BASE_REF}...HEAD`;
@@ -72,9 +71,9 @@ const getGitHubFallbackChanges = () => {
 const getPackageNames = () => {
     try {
         const packagesDir = './packages';
-        return fs.readdirSync(packagesDir).filter((item) => {
-            const itemPath = path.join(packagesDir, item);
-            return fs.statSync(itemPath).isDirectory();
+        return readdirSync(packagesDir).filter((item) => {
+            const itemPath = join(packagesDir, item);
+            return statSync(itemPath).isDirectory();
         });
     } catch (error) {
         console.error('Ошибка при чтении директории packages:', error);
@@ -165,16 +164,12 @@ const findComponentsToTest = () => {
 };
 
 // Использование в GitHub Actions
-if (require.main === module) {
-    try {
-        const result = findComponentsToTest();
+try {
+    const result = findComponentsToTest();
 
-        // Устанавливаем выходные данные для GitHub Actions
-        setOutput('components', result.COMPONENTS.join(','));
-    } catch (error) {
-        console.error('❌ Ошибка при поиске компонентов:', error);
-        setOutput('components', '');
-    }
+    // Устанавливаем выходные данные для GitHub Actions
+    setOutput('components', result.COMPONENTS.join(','));
+} catch (error) {
+    console.error('❌ Ошибка при поиске компонентов:', error);
+    setOutput('components', '');
 }
-
-module.exports = findComponentsToTest;
