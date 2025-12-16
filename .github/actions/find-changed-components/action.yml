@@ -8,5 +8,5 @@ outputs:
   changed-components:
     description: 'Array of directly changed components in JSON format'
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'index.js'
