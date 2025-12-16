@@ -1,7 +1,8 @@
+import type { CSSProperties } from 'react';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
+import { component, mergeConfig } from 'src/engines';
 
-import { component, mergeConfig } from '../../engines';
 import { checkboxConfig, checkboxTokens } from '../Checkbox';
 import { dividerConfig, dividerTokens } from '../Divider';
 import { buttonConfig, buttonTokens } from '../Button';
@@ -23,8 +24,14 @@ const mergedLinkButtonConfig = mergeConfig(linkButtonConfig);
 const LinkButtonBase = component(mergedLinkButtonConfig);
 
 export const base = css`
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+`;
+
+export const ScrollableWrapper = styled.div<{ maxHeight: CSSProperties['maxHeight'] }>`
     overflow-y: auto;
+    max-height: ${({ maxHeight }) => maxHeight || 'none'};
 `;
 
 export const Table = styled.table<{ borderVariant: TableProps['borderVariant']; stickyHeader?: boolean }>`
@@ -58,7 +65,7 @@ export const Thead = styled.thead<{
     position: ${({ stickyHeader }) => (stickyHeader ? 'sticky' : 'static')};
     top: 0;
     background: ${({ stickyHeader }) => (stickyHeader ? 'var(--background-primary)' : 'transparent')};
-    z-index: 1;
+    z-index: 10;
     box-shadow: ${({ view, borderVariant }) =>
         // eslint-disable-next-line no-nested-ternary
         view === 'clear'
@@ -104,6 +111,7 @@ export const Th = styled.th<{ borderVariant: TableProps['borderVariant']; select
     border-bottom-width: 0;
     border-style: solid;
     border-color: ${({ borderVariant }) => (borderVariant === 'all' ? `var(${tokens.borderColor})` : 'transparent')};
+    box-sizing: border-box;
 
     &:hover {
         ${Resizer} {

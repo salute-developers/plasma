@@ -28,7 +28,7 @@
     "classnames": "^2.5.1",
     "contrast-ratio-checker": "^1.1.7",
     "next": "14.2.33",
-    "react": "^18.2.0",
+    "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "5.3.1"
   },
