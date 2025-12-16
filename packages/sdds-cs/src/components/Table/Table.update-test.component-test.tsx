@@ -367,7 +367,7 @@ describe('sdds-cs: Table', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('#table').scrollTo('bottom');
+        cy.get('.table-scrollable-container').scrollTo('bottom');
 
         cy.matchImageSnapshot();
     });
@@ -381,7 +381,7 @@ describe('sdds-cs: Table', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('#table').scrollTo('bottom');
+        cy.get('.table-scrollable-container').scrollTo('bottom');
 
         cy.matchImageSnapshot();
     });
