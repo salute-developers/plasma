@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { addFocus } from 'src/mixins';
 
 import { classes, tokens } from '../../TimePickerGrid.tokens';
 
@@ -18,7 +19,7 @@ export const StyledTimeItem = styled.div`
     border-radius: var(${tokens.itemBorderRadius});
     cursor: pointer;
     flex-shrink: 0;
-    overflow: auto;
+    outline: none;
 
     font-family: var(${tokens.itemFontFamily});
     font-size: var(${tokens.itemFontSize});
@@ -38,6 +39,13 @@ export const StyledTimeItem = styled.div`
         cursor: not-allowed;
         opacity: var(${tokens.disabledOpacity});
     }
+
+    ${addFocus({
+        outlineOffset: '0.0625rem',
+        outlineSize: '0.0625rem',
+        outlineRadius: `var(${tokens.itemBorderRadius})`,
+        outlineColor: `var(${tokens.itemFocusColor})`,
+    })}
 `;
 
 export const StyledTimeColumn = styled.div<{ height?: string | number }>`
