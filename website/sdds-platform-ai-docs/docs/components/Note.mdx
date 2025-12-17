@@ -1,0 +1,178 @@
+---
+id: note
+title: Note
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Note
+Компонент для отображения текста в виде информационных, предупреждающих, обычных подсказок.
+
+<Description name="Note" />
+<PropsTable name="Note" />
+
+## Примеры
+
+### Вид компонента
+Вид компонента задается с помощью свойства `view`:
+
+```tsx live
+import React from 'react';
+import { Note } from '@salutejs/sdds-platform-ai';
+import { IconSaluteOutline } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Note
+                title="Title"
+                text="Text"
+                view="default"
+                size="m"
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+            />
+            <Note
+                title="Title"
+                text="Text"
+                view="positive"
+                size="m"
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+            />
+            <Note
+                title="Title"
+                text="Text"
+                view="warning"
+                size="m"
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+            />
+            <Note
+                title="Title"
+                text="Text"
+                view="negative"
+                size="m"
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+            />
+            <Note
+                title="Title"
+                text="Text"
+                view="info"
+                size="m"
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+            />
+        </div>
+    );
+}
+```
+
+### Размер компонента
+Размер компонента задается с помощью свойства `size`.
+Так же можно указать собственную ширину и высоту с помощью `width` и `height` соответственно.
+Или же задать `stretch` чтобы `Note` занял всю доступную ширину и высоту.
+
+```tsx live
+import React from 'react';
+import { Note } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    return (
+        <div style={{ flexDirection: "column" }}>
+            <div style={{ display: "flex", gap: "1rem" }}>
+                <Note
+                    title="Title"
+                    text="Text"
+                    view="default"
+                    size="m"
+                />
+            </div>
+
+            <Note
+                title="Title"
+                text="Text"
+                view="default"
+                size="m"
+                width="400"
+                height="116"
+            />
+
+            <div style={{ width: "300px", height: "300px" }}>
+                <Note
+                    title="Title"
+                    text="Text"
+                    view="default"
+                    size="m"
+                    stretch
+                />
+            </div>
+        </div>
+    );
+}
+```
+
+### Размерность и положение `contentBefore`
+Размерность и положение `contentBefore` задается с помощью свойства `contentBeforeSizing`:
+
+```tsx live
+import React from 'react';
+import { Note } from '@salutejs/sdds-platform-ai';
+import { IconSaluteOutline } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Note
+                title="Title"
+                text="Text"
+                view="default"
+                size="m"
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+                contentBeforeSizing="fixed"
+            />
+            <Note
+                title="Title"
+                text="Text"
+                view="positive"
+                size="m"
+                contentBefore={<IconSaluteOutline size="s" color="inherit" />}
+                contentBeforeSizing="scalable"
+            />
+        </div>
+    );
+}
+```
+
+### hasClose и contolled вариант
+Свойство `hasClose` добавляет крестик в правом верхнем углу. При нажатии сработает функция `onCloseButtonClick`
+
+```tsx live
+import React from 'react';
+import { Note, Button } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+  const [state, setState] = useState(true);
+
+  return (
+    <div style={{height: '8rem', display: 'block'}}>
+      <Button
+        size="s"
+        style={{ marginBottom: "0.5rem" }}
+        onClick={() => setState(!state)}
+      >
+        Открыть
+      </Button>
+      {state && (
+        <Note
+          title="Ваш заголовок"
+          text="Пример с возможностью закрыть по control"
+          view="default"
+          size="m"
+          hasClose
+          onCloseButtonClick={() => {
+            setState(false);
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+```
