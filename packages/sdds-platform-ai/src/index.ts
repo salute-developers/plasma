@@ -5,6 +5,7 @@ export * from './components/AvatarGroup';
 export * from './components/Badge';
 export * from './components/Counter';
 export * from './components/Indicator';
+export * from './components/Card';
 export * from './components/Cell';
 export * from './components/Chip';
 export * from './components/ChipGroup';
@@ -14,7 +15,6 @@ export * from './components/InformationWrapper';
 export * from './components/List';
 export * from './components/Loader';
 export * from './components/Note';
-export * from './components/Rating';
 export * from './components/Spinner';
 export * from './components/Typography';
 
@@ -22,7 +22,6 @@ export * from './components/Typography';
 export * from './components/ButtonBase';
 export * from './components/Button';
 export * from './components/ButtonGroup';
-export * from './components/Calendar';
 export * from './components/Checkbox';
 export * from './components/EmbedIconButton';
 export * from './components/LinkButton';
@@ -39,6 +38,7 @@ export * from './components/Dropzone';
 // components group Data Entry (inputs)
 export * from './components/TextArea';
 export * from './components/TextField';
+export * from './components/TextFieldGroup';
 
 // components group Data Entry (dropdown)
 export * from './components/Combobox';
@@ -66,6 +66,7 @@ export * from './components/Pagination';
 // technical components group
 export * from './components/EmptyState';
 export * from './components/Grid';
+export * from './components/Flow';
 export * from './components/Overlay';
 export * from './components/Popover';
 export * from './components/Portal';
