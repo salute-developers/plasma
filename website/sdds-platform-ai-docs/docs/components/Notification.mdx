@@ -1,0 +1,228 @@
+---
+id: notification
+title: Notification
+---
+
+import { PropsTable } from '@site/src/components';
+
+# Notification
+
+Компонент группы Overlay, является всплывающим элементом поверх контента.
+
+## Быстрый старт
+
+Используйте комбинацию компонента `NotificationsProvider` и метода `addNotification` для вызова компонента `Notification`.
+
+:::info
+Notifications закрываются автоматически по истечению указанного `timeout` в миллисекундах или если передан `0` или `null` то будут висеть бесконечно.
+:::
+
+```tsx live
+import React, { useCallback } from 'react';
+import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    const handleShow = useCallback(() => {
+        addNotification({
+            id: 'incoming-call',
+            title: 'Входящий вызов',
+            children: 'Принять?',
+        }, 3000);
+    }, []);
+
+    const handleHide = useCallback(() => {
+        closeNotification('incoming-call');
+    }, []);
+
+    return (
+        <NotificationsProvider>
+            <ButtonGroup isCommonButtonStyles={false}>
+                <Button view="accent" text="Показать оповещение" onClick={handleShow} />
+                <Button view="secondary" text="Скрыть оповещение" onClick={handleHide} />
+            </ButtonGroup>
+        </NotificationsProvider>
+    );
+}
+```
+
+:::info
+`addNotification` возвращает сгенерированный или переданный `id`, по которому можно закрыть `Notification` через вызов `closeNotification`.
+:::
+
+```tsx
+import { addNotification, closeNotification } from '@salutejs/sdds-platform-ai';
+
+const NotificationID = addNotification({
+    id: 'incoming-call',
+    title: 'Входящий вызов',
+    children: 'Принять?',
+    onTimeoutClose: () => {
+        console.log("Callback, вызываемый при автоматическом закрытии по timeout.")
+    },
+}, 3000);
+
+
+closeNotification(NotificationID);
+```
+
+:::info
+`onTimeoutClose` - вызывается при автоматическом закрытии по timeout
+:::
+
+
+## NotificationsProvider
+
+:::tip
+`frame` - с помощью данного свойства можно указать через, id элемента или ref для него, в каком контейнере будет позиционирование(по умолчанию document).
+:::
+
+`NotificationsProvider` может использоваться как в корне приложения или по месту применения в любой части приложения.
+
+```tsx title="index.ts"
+import ReactDOM from 'react-dom';
+import { NotificationsProvider } from '@salutejs/sdds-platform-ai';
+
+import { App } from './App';
+
+ReactDOM.render(
+    <NotificationsProvider>
+        <App />
+    </NotificationsProvider>,
+    document.getElementById('root')
+);
+```
+
+```tsx title="app.tsx"
+export function App() {
+    return (
+        <NotificationsProvider>
+                ...
+        </NotificationsProvider>
+    );
+}
+```
+
+### Позиционирование
+
+С помощью свойства `placement` у компонента `NotificationsProvider` можно задать позиционирование для Notification.
+
+```ts
+type NotificationPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
+````
+
+И производные комбинации, например `bottom-left` или `top-right`.
+
+```tsx
+import { NotificationsProvider } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    return (
+        <NotificationsProvider placement="top-right">
+            ...
+        </NotificationsProvider>
+    );
+}
+```
+
+## Управлением внешним видом
+
+Регулируется свойством `view`.
+
+:::tip
+Используйте значение `inherit` для свойства `color`, чтобы цвет наследовался от `view` компонента `Notification`.
+
+```tsx
+//INFO: В данном случае значении цвета будет как во `view='positive'`
+addNotification({
+    view: 'positive',
+    icon: <IconBell color="inherit" size="xs" />,
+    ...
+}, 3000);
+```
+:::
+
+###  Переопределение цвета у заголовка и контентной части
+
+Для **переопределения** значений `color` текста контента `children` и заголовка `title` используйте свойства: `titleColor, textColor`.
+
+```tsx live
+import React, { useCallback } from 'react';
+import { IconBell } from '@salutejs/plasma-icons';
+import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    const handleShow = useCallback(() => {
+        // INFO: Настраиваем содержимое и внешний вид компонента Notification
+        addNotification({
+            id: 'incoming-call',
+            title: 'Входящий вызов',
+            icon: <IconBell color="inherit" size="xs" />,
+            children: 'Принять?',
+            view: 'positive',
+            textColor: 'black',
+            titleColor: 'blue'
+        }, 3000);
+    }, []);
+
+    const handleHide = useCallback(() => {
+        closeNotification('incoming-call');
+    }, []);
+
+    return (
+        <NotificationsProvider>
+            <ButtonGroup isCommonButtonStyles={false}>
+                <Button view="accent" text="Показать оповещение" onClick={handleShow} />
+                <Button view="secondary" text="Скрыть оповещение" onClick={handleHide} />
+            </ButtonGroup>
+        </NotificationsProvider>
+    );
+}
+```
+
+### Управление шириной уведомления
+
+Для управления шириной компонента доступны следующие свойства:
+
+- `width` — устанавливает ширину компонента.
+- `maxWidth` — устанавливает максимальную ширину компонента.
+
+Оба свойства принимает любые действительные CSS значения для [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width#syntax) и [maxWidth](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width#syntax)
+
+```tsx live
+import React, { useCallback } from 'react';
+import { IconBell } from '@salutejs/plasma-icons';
+import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    const handleShow = useCallback(() => {
+        addNotification({
+            id: 'incoming-call',
+            title: 'Входящий вызов',
+            icon: <IconBell color="inherit" size="xs" />,
+            children: 'Задача организации, в особенности же сплочённость команды профессионалов требует определения и уточнения глубокомысленных рассуждений.',
+            view: 'positive',
+            width: 'fit-content',
+            maxWidth: '30rem'
+        }, 3000);
+    }, []);
+
+    const handleHide = useCallback(() => {
+        closeNotification('incoming-call');
+    }, []);
+
+    return (
+        <NotificationsProvider>
+            <ButtonGroup isCommonButtonStyles={false}>
+                <Button view="accent" text="Показать оповещение" onClick={handleShow} />
+                <Button view="secondary" text="Скрыть оповещение" onClick={handleHide} />
+            </ButtonGroup>
+        </NotificationsProvider>
+    );
+}
+```
+
+## Notification props
+<PropsTable name="Notification" />
+
+## Notifications provider props
+<PropsTable name="NotificationsProvider" />

@@ -1,0 +1,58 @@
+---
+id: mixins
+title: Миксины
+---
+
+# Миксины (mixins)
+
+Раздел содержит функции, которые можно применять для стилизации компонент.
+
+## `applyPaper`
+
+Позволяет создать базовый стиль подложки для любого блока, со следующим набором свойств, значения которых доступны из темы `plasma_giga`:
+- backgroundColor - отвечает за цвет подложки в котором можно выбрать токены цветов и градиентов;
+- borderRadius - отвечает за скругление углов блока;
+- shadow - отвечает за применение стилей теней для блока;
+- styles - отвечает за все доступные css свойства.
+
+```tsx
+import { applyPaper } from '@salutejs/sdds-platform-ai';
+
+<div
+    style={applyPaper({
+        backgroundColor: 'surfaceAccent',
+        borderRadius: 'borderRadiusM',
+        shadow: 'shadowDownHardM',
+        styles: {
+            color: 'white',
+            width: '10rem',
+            height: '10rem',
+        },
+    })}
+>
+    Test card
+</div>
+```
+
+## `addScrollbar`
+
+:::caution
+Стилизация системного scrollbar возможна **только** в браузерах: Safari, Chrome и на базе Chromium!
+:::
+
+Позволяет изменить внешний вид системного scrollbar согласно цветовым токенам темы.
+
+###
+```tsx
+import { addScrollbar } from '@salutejs/sdds-platform-ai';
+
+type Size = 's' | 'm';
+
+const ScrollbarContainer = styled.div`
+    ${addScrollbar('s')};
+`;
+
+<ScrollbarContainer>
+    { children }
+</ScrollbarContainer>
+```
