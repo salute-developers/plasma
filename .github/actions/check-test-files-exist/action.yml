@@ -1,0 +1,20 @@
+name: 'Check Test Files Exist'
+description: 'Check test files exist in test-directory'
+inputs:
+  prefix:
+    description: 'Package prefix (plasma or sdds)'
+    required: true
+  scope:
+    description: 'Scope name (b2c/web/giga/cs/insol)'
+    required: true
+  components:
+    description: 'Comma-separated list of components to test'
+    required: false
+    default: ''
+outputs:
+  tests-exist:
+    description: 'Whether test files were found for any component'
+    value: ${{ steps.check.outputs.tests-exist }}
+runs:
+  using: 'node24'
+  main: 'index.js'
