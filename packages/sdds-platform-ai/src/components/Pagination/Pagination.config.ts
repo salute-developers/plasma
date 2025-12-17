@@ -4,7 +4,7 @@ export const config = {
     defaults: {
         view: 'clear',
         viewCurrentPage: 'secondary',
-        size: 'xs',
+        size: 'm',
     },
     variations: {
         view: {

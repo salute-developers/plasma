@@ -3,7 +3,7 @@ import { css, cardTokens as tokens } from '@salutejs/plasma-new-hope/styled-comp
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 'l',
     },
     variations: {
         view: {
