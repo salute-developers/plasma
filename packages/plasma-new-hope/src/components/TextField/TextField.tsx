@@ -77,7 +77,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 leftHelper,
                 enumerationType = 'plain',
                 requiredPlacement = 'right',
-                hasRequiredIndicator = true,
+                hasRequiredIndicator = false,
                 titleCaption,
                 chipView = 'default',
                 chipValidator,

@@ -39,7 +39,7 @@ export const timePickerRoot = (
                 keepPlaceholder,
                 required = false,
                 requiredPlacement = 'right',
-                hasRequiredIndicator = true,
+                hasRequiredIndicator = false,
                 placeholder,
                 contentLeft,
                 contentRight,

@@ -114,7 +114,7 @@ export type RequiredProps = {
     optionalText?: string;
     /**
      * Флаг наличия индикатора обязательности поля
-     * @default true
+     * @default false
      */
     hasRequiredIndicator?: boolean;
 };

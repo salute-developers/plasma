@@ -185,7 +185,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         dateShortcutsPlacement: 'left',
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         disabled: false,
         readOnly: false,
         textBefore: '',
