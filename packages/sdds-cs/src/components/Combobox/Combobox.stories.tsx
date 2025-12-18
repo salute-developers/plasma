@@ -131,7 +131,7 @@ const meta: Meta<StorySelectProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         emptyStateDescription: '',
         mode: 'default',
     },

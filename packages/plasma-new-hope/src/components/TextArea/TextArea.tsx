@@ -125,7 +125,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             disabled,
             required = false,
             requiredPlacement = 'right',
-            hasRequiredIndicator = true,
+            hasRequiredIndicator = false,
             optional = false,
             optionalText = 'optional',
             clear,

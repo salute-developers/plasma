@@ -57,7 +57,7 @@ export const createMeta = ({
             enableSecondTextfieldContentLeft: false,
             enableSecondTextfieldContentRight: false,
             required: false,
-            hasRequiredIndicator: true,
+            hasRequiredIndicator: false,
             requiredIndicatorPlacement: 'right',
             hasHint: true,
             hintText: 'Текст подсказки',

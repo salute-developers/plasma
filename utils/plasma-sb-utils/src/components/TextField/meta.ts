@@ -54,7 +54,7 @@ export const createMeta = ({
             optionalText: 'опционально',
             required: false,
             requiredPlacement: 'right',
-            hasRequiredIndicator: true,
+            hasRequiredIndicator: false,
             hasHint: true,
             hintText: 'Текст подсказки',
             hintTrigger: 'hover',

@@ -51,7 +51,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                 disabled = false,
                 required = false,
                 requiredIndicatorPlacement = 'right',
-                hasRequiredIndicator = true,
+                hasRequiredIndicator = false,
 
                 // hint
                 hintTrigger = 'hover',
