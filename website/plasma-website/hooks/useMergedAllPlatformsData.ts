@@ -81,6 +81,19 @@ const verticals: Record<
             },
         },
     },
+    SDDSPlatformAI: {
+        title: 'React',
+        package: '@salutejs/sdds-platform-ai',
+        version: PACKAGES_INFO['@salutejs/sdds-platform-ai'][0],
+        links: {
+            storybook: {
+                href: '/sdds-platform-ai-storybook/',
+            },
+            documentation: {
+                href: '/sdds-platform-ai/',
+            },
+        },
+    },
     SDDSDFA: {
         title: 'React',
         package: '@salutejs/sdds-dfa',

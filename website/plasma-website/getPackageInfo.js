@@ -41,4 +41,5 @@ module.exports = {
     '@salutejs/sdds-crm': getLatestReleaseVersion('sdds-crm'),
     '@salutejs/sdds-scan': getLatestReleaseVersion('sdds-scan'),
     '@salutejs/sdds-bizcom': getLatestReleaseVersion('sdds-bizcom'),
+    '@salutejs/sdds-platform-ai': getLatestReleaseVersion('sdds-platform-ai'),
 };
