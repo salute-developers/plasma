@@ -1,15 +1,17 @@
 import { css } from '@linaria/core';
+import { popoverClasses } from 'src/components/Popover';
+import { informationWrapperTokens } from 'src/components/InformationWrapper';
+import { Indicator } from 'src/components/InformationWrapper/InformationWrapper.styles';
 
 import { classes, tokens } from '../../Range.tokens';
 import {
-    StyledLabel,
-    LeftHelper,
     StyledContentLeft,
     StyledContentRight,
     StyledDivider,
     ContentWrapper,
-    StyledIndicator,
+    StyledContentRightWrapper,
 } from '../../Range.styles';
+import { InformationWrapperUI } from '../../ui';
 
 export const base = css`
     ${ContentWrapper} {
@@ -32,36 +34,6 @@ export const base = css`
         line-height: var(${tokens.dividerLineHeight});
     }
 
-    ${StyledLabel} {
-        margin-bottom: var(${tokens.labelOffset});
-        font-family: var(${tokens.labelFontFamily});
-        font-size: var(${tokens.labelFontSize});
-        font-style: var(${tokens.labelFontStyle});
-        font-weight: var(${tokens.labelFontWeight});
-        letter-spacing: var(${tokens.labelLetterSpacing});
-        line-height: var(${tokens.labelLineHeight});
-    }
-
-    ${StyledIndicator} {
-        width: var(${tokens.indicatorSize});
-        height: var(${tokens.indicatorSize});
-        inset: var(${tokens.indicatorPlacement});
-
-        &.${classes.requiredAlignRight} {
-            inset: var(${tokens.indicatorPlacementRight});
-        }
-
-        &.${classes.requiredOuterPlacement} {
-            width: var(${tokens.indicatorSizeOuter});
-            height: var(${tokens.indicatorSizeOuter});
-            inset: var(${tokens.indicatorOuterPlacement});
-
-            &.${classes.requiredAlignRight} {
-                inset: var(${tokens.indicatorOuterPlacementRight});
-            }
-        }
-    }
-
     ${StyledContentLeft} {
         margin: var(${tokens.leftContentMargin});
     }
@@ -70,14 +42,21 @@ export const base = css`
         margin: var(${tokens.rightContentMargin});
     }
 
-    ${LeftHelper} {
-        margin: var(${tokens.leftHelperOffset});
+    ${StyledContentRightWrapper} {
+        .${popoverClasses.wrapper} {
+            margin: var(${tokens.hintPlacementInnerMargin});
+        }
+    }
 
-        font-family: var(${tokens.leftHelperFontFamily});
-        font-size: var(${tokens.leftHelperFontSize});
-        font-style: var(${tokens.leftHelperFontStyle});
-        font-weight: var(${tokens.leftHelperFontWeight});
-        letter-spacing: var(${tokens.leftHelperLetterSpacing});
-        line-height: var(${tokens.leftHelperLineHeight});
+    ${InformationWrapperUI}.${classes.clearHasOuterHint} {
+        ${informationWrapperTokens.indicatorWithoutLabelInner}: var(${tokens.indicatorWithoutLabelOuterHint});
+    }
+
+    &.${classes.clear}.${classes.noCaptionAndLabel} {
+        ${InformationWrapperUI} ${Indicator} {
+            --plasma_private-translateY-without-title-caption: calc(-1 * var(${tokens.titleCaptionLineHeight}));
+
+            transform: translateY(var(--plasma_private-translateY-without-title-caption));
+        }
     }
 `;

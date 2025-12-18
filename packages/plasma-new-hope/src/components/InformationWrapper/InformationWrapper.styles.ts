@@ -38,6 +38,8 @@ export const LabelWrapper = styled.div<{ hasLabel: boolean; hasCaption: boolean 
     &.${classes.withoutLabel} {
         position: relative;
         margin-bottom: ${({ hasCaption }) => (hasCaption ? `var(${tokens.labelWrapperTitleCaptionOffset})` : '0')};
+        display: ${({ hasCaption }) => (hasCaption ? 'flex' : 'block')};
+        height: ${({ hasCaption }) => (hasCaption ? 'fit-content' : '0')};
     }
 `;
 
@@ -64,8 +66,12 @@ export const HintWrapper = styled.div<{ hasCaption?: boolean }>`
         z-index: 2;
         inset: var(${tokens.hintWithoutLabelPlacementOffset});
 
+        --plasma_private-translateY-without-title-caption: calc(-1 * var(${tokens.titleCaptionLineHeight}));
+
         transform: ${({ hasCaption }) =>
-            hasCaption ? `translateY(var(${tokens.labelWrapperTitleCaptionOffset}))` : 'translateY(0)'};
+            hasCaption
+                ? `translateY(var(${tokens.labelWrapperTitleCaptionOffset}))`
+                : 'translateY(var(--plasma_private-translateY-without-title-caption)'};
     }
 `;
 
