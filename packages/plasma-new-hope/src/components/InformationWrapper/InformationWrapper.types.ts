@@ -124,6 +124,10 @@ export type InformationWrapperProps = {
      * Компонент не активен
      */
     disabled?: boolean;
+    /**
+     * Компонент доступен только для чтения
+     */
+    readOnly?: boolean;
 } & HintProps &
     HTMLAttributes<HTMLDivElement>;
 
@@ -134,4 +138,5 @@ export type InformationWrapperRootProps = {
     hintSize?: string;
     labelPlacement?: string;
     disabled?: boolean;
+    readOnly?: boolean;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'size'>;

@@ -7,6 +7,7 @@ import { InformationWrapperProps, InformationWrapperRootProps } from './Informat
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
+import { base as readOnlyCSS } from './variations/_read-only/base';
 import { base as hintViewCSS } from './variations/_hint-view/base';
 import { base as hintSizeCSS } from './variations/_hint-size/base';
 import {
@@ -53,6 +54,7 @@ export const informationWrapperRoot = (Root: RootProps<HTMLDivElement, Informati
                 leftHelper,
                 rightHelper,
 
+                readOnly,
                 disabled,
 
                 ...rest
@@ -67,6 +69,7 @@ export const informationWrapperRoot = (Root: RootProps<HTMLDivElement, Informati
                     size={size}
                     view={view}
                     disabled={disabled}
+                    readOnly={readOnly}
                     {...(hintText && { hintView, hintSize })}
                     {...rest}
                 >
@@ -122,7 +125,7 @@ export const informationWrapperRoot = (Root: RootProps<HTMLDivElement, Informati
                             {children}
                             {hasHelpers && (
                                 <Helpers>
-                                    {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
+                                    {leftHelper && <LeftHelper className={classes.leftHelper}>{leftHelper}</LeftHelper>}
                                     {rightHelper && <RightHelper>{rightHelper}</RightHelper>}
                                 </Helpers>
                             )}
@@ -145,6 +148,10 @@ export const informationWrapperConfig = {
         },
         view: {
             css: viewCSS,
+        },
+        readOnly: {
+            css: readOnlyCSS,
+            attrs: true,
         },
         disabled: {
             css: disabledCSS,

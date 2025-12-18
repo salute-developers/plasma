@@ -75,8 +75,9 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.contentSlotRightColorHover}: var(${tokens.contentSlotRightColorHover});
     ${rangeTokens.contentSlotRightColorActive}: var(${tokens.contentSlotRightColorActive});
 
-    ${rangeTokens.labelOffset}: var(${tokens.labelOffset});
+    ${rangeTokens.labelWrapperOffset}: var(${tokens.labelOffset});
 
+    ${rangeTokens.labelWrapperOffset}: var(${tokens.labelWrapperOffset});
     ${rangeTokens.labelFontFamily}: var(${tokens.labelFontFamily});
     ${rangeTokens.labelFontStyle}: var(${tokens.labelFontStyle});
     ${rangeTokens.labelFontSize}: var(${tokens.labelFontSize});
@@ -84,13 +85,14 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.labelLetterSpacing}: var(${tokens.labelLetterSpacing});
     ${rangeTokens.labelLineHeight}: var(${tokens.labelLineHeight});
 
+    ${rangeTokens.indicatorWrapperGap}: var(${tokens.indicatorWrapperGap});
     ${rangeTokens.indicatorColor}: var(${tokens.indicatorColor});
-    ${rangeTokens.indicatorSize}: var(${tokens.indicatorSize});
+    ${rangeTokens.indicatorSizeInner}: var(${tokens.indicatorSizeInner});
     ${rangeTokens.indicatorSizeOuter}: var(${tokens.indicatorSizeOuter});
-    ${rangeTokens.indicatorPlacement}: var(${tokens.indicatorPlacement});
-    ${rangeTokens.indicatorOuterPlacement}: var(${tokens.indicatorOuterPlacement});
-    ${rangeTokens.indicatorPlacementRight}: var(${tokens.indicatorPlacementRight});
-    ${rangeTokens.indicatorOuterPlacementRight}: var(${tokens.indicatorOuterPlacementRight});
+    ${rangeTokens.indicatorMarginTop}: var(${tokens.indicatorMarginTop});
+    ${rangeTokens.indicatorOuterLeft}: var(${tokens.indicatorOuterLeft});
+    ${rangeTokens.indicatorWithoutLabelInner}: var(${tokens.indicatorWithoutLabelInner});
+    ${rangeTokens.indicatorWithoutLabelInnerLeft}: var(${tokens.indicatorWithoutLabelInnerLeft});
 
     ${rangeTokens.textFieldHeight}: var(${tokens.textFieldHeight});
     ${rangeTokens.textFieldBorderRadius}: var(${tokens.textFieldBorderRadius});
@@ -102,7 +104,7 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.textFieldLetterSpacing}: var(${tokens.textFieldLetterSpacing});
     ${rangeTokens.textFieldLineHeight}: var(${tokens.textFieldLineHeight});
 
-    ${rangeTokens.leftHelperOffset}: var(${tokens.leftHelperOffset});
+    ${rangeTokens.helpersPadding}: var(${tokens.leftHelperOffset});
     ${rangeTokens.leftHelperFontFamily}: var(${tokens.leftHelperFontFamily});
     ${rangeTokens.leftHelperFontStyle}: var(${tokens.leftHelperFontStyle});
     ${rangeTokens.leftHelperFontSize}: var(${tokens.leftHelperFontSize});
@@ -118,8 +120,6 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.textFieldTextAfterMargin}: var(${tokens.textFieldTextAfterMargin});
 
     ${rangeTokens.backgroundReadOnly}: var(${tokens.backgroundReadOnly});
-    ${rangeTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
-    ${rangeTokens.leftHelperColorReadOnly}: var(${tokens.leftHelperColorReadOnly});
     ${rangeTokens.dividerColorReadOnly}: var(${tokens.dividerColorReadOnly});
     ${rangeTokens.dividerOpacityReadOnly}: var(${tokens.dividerOpacityReadOnly});
 
@@ -133,6 +133,10 @@ export const base = css`
 
     .${popoverClasses.wrapper}, .${popoverClasses.target} {
         width: inherit;
+    }
+
+    .${popoverClasses.wrapper} {
+        display: grid;
     }
 
     &.${classes.datePickerstretched} {
