@@ -135,6 +135,16 @@ export const verticalsMap = [
         ],
     },
     {
+        key: 'SDDSPlatformAI',
+        title: 'SDDS Platform-AI',
+        package: '@salutejs/sdds-platform-ai',
+        group: 'СДДС',
+        items: [
+            { text: 'Сторибук', href: '/sdds-platform-ai-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Документация', href: '/sdds-platform-ai/', contentRight: <ArrowTopRight /> },
+        ],
+    },
+    {
         key: 'SDDSDFA',
         title: 'SDDS DFA',
         package: '@salutejs/sdds-dfa',
