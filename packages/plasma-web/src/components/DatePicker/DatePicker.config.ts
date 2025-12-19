@@ -130,7 +130,7 @@ export const config = {
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
-                ${tokens.indicatorOuterLeft}: -0.75rem
+                ${tokens.indicatorOuterLeft}: -0.75rem;
                 ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
                 ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
 
@@ -266,7 +266,7 @@ export const config = {
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.6875rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
-                ${tokens.indicatorOuterLeft}: -0.75rem
+                ${tokens.indicatorOuterLeft}: -0.75rem;
                 ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
                 ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
 
@@ -401,7 +401,7 @@ export const config = {
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
-                ${tokens.indicatorOuterLeft}: -0.75rem
+                ${tokens.indicatorOuterLeft}: -0.75rem;
                 ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
                 ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
 
