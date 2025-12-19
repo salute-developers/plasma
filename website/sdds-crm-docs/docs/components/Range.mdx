@@ -9,26 +9,267 @@ import TabItem from '@theme/TabItem';
 
 # Range
 <Description name="Range" />
-<PropsTable name="Range" exclude={['css']} />
 
-## Использование
-Компонент `Range` представляет собой два поля ввода какого-либо диапазона. К примеру диапазон цен или дат.
+### Быстрый старт
+
+<Tabs>
+    <TabItem value="uncontrolled" label="Uncontrolled" default>
+        ```tsx live
+        import React from 'react';
+        import { Range } from '@salutejs/sdds-crm';
+
+        export function App() {
+            return (
+                <div>
+                    <Range
+                        label="Диапазон значений"
+                        leftHelper="Введите два значения"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="controlled" label="Controlled">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Range } from '@salutejs/sdds-crm';
+
+        export function App() {
+            const [firstValue, setFirstValue] = useState('');
+            const [secondValue, setSecondValue] = useState('');
+
+            return (
+                <div>
+                    <Range
+                        firstValue={firstValue}
+                        secondValue={secondValue}
+                        label="Диапазон значений"
+                        leftHelper="Введите два значения"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                        onChangeFirstValue={(e) => {
+                            setFirstValue(e.target.value);
+                        }}
+                        onChangeSecondValue={(e) => {
+                            setSecondValue(e.target.value);
+                        }}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Управление внешним видом
+
+Внешний вид компонента зависит от свойств `appearance`, `size`:
+
+<Tabs>
+    <TabItem value="appearance" label="Appearance" default>
+        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasClearDivider`
+
+        ```tsx live
+        import React from 'react';
+        import { Range } from '@salutejs/sdds-crm';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
+                    <Range
+                        appearance="default"
+                        label="Appearance default"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                    />
+                    <Range
+                        appearance="clear"
+                        label="Appearance clear"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                    />
+                    <Range
+                        appearance="clear"
+                        hasClearDivider
+                        label="Appearance clear с разделителем"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React from 'react';
+        import { Range } from '@salutejs/sdds-crm';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <Range
+                        size="l"
+                        label="Size l"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                    />
+                    <Range
+                        size="m"
+                        label="Size m"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                    />
+                    <Range
+                        size="s"
+                        label="Size s"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                    />
+                    <Range
+                        size="xs"
+                        label="Size xs"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Варианты разделителя
+
+<Tabs>
+    <TabItem value="dash" label="Dash" default>
+        ```tsx live
+        import React from 'react';
+        import { Range } from '@salutejs/sdds-crm';
+
+        export function App() {
+            return (
+                <div>
+                    <Range
+                        label="Диапазон"
+                        leftHelper="Разделитель тире"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        dividerVariant="dash"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="icon" label="Icon">
+        ```tsx live
+        import React from 'react';
+        import { Range } from '@salutejs/sdds-crm';
+        import { IconSber } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div>
+                    <Range
+                        label="Диапазон"
+                        leftHelper="Иконка в качестве разделителя"
+                        firstPlaceholder="От"
+                        secondPlaceholder="До"
+                        firstTextfieldTextBefore="С"
+                        secondTextfieldTextBefore="ДО"
+                        dividerVariant="icon"
+                        dividerIcon={<IconSber size="s" />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="none" label="None">
+        При таком варианте свойства `firstTextfieldTextBefore` и `secondTextfieldTextBefore` становятся обязательными
+
+        ```tsx live
+        import React from 'react';
+        import { Range } from '@salutejs/sdds-crm';
+
+        export function App() {
+            return (
+                <div>
+                    <Range
+                        label="Диапазон времени"
+                        leftHelper="Без видимого разделителя"
+                        firstValue="10:00"
+                        secondValue="15:45"
+                        firstTextfieldTextBefore="С"
+                        secondTextfieldTextBefore="ДО"
+                        dividerVariant="none"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Валидация и состояния полей
+
+Индикация ошибки или успешного ввода осуществляется через свойства `firstValueError`, `secondValueError`, `firstValueSuccess`, `secondValueSuccess`:
 
 ```tsx live
-import React, {useState} from 'react';
-import { Range, Button } from '@salutejs/sdds-crm';
-import { IconSearch } from '@salutejs/plasma-icons';
+import React, { useState } from 'react';
+import { Range } from '@salutejs/sdds-crm';
 
 export function App() {
     const [firstValue, setFirstValue] = useState('');
     const [secondValue, setSecondValue] = useState('');
+    const [firstValueError, setFirstValueError] = useState(false);
+    const [secondValueError, setSecondValueError] = useState(false);
+    const [firstValueSuccess, setFirstValueSuccess] = useState(false);
+    const [secondValueSuccess, setSecondValueSuccess] = useState(false);
 
-    const ActionButton = () => {
-        return (
-            <Button view="clear" size="l">
-                <IconSearch size="s" />
-            </Button>
-        );
+    const validateRange = (first: string, second: string) => {
+        const num1 = Number(first);
+        const num2 = Number(second);
+        
+        setFirstValueError(false);
+        setSecondValueError(false);
+        setFirstValueSuccess(false);
+        setSecondValueSuccess(false);
+        
+        if (first && second) {
+            if (num1 >= num2) {
+                setFirstValueError(true);
+                setSecondValueError(true);
+            } else {
+                setFirstValueSuccess(true);
+                setSecondValueSuccess(true);
+            }
+        }
+    };
+
+    const handleFirstChange = (e) => {
+        const value = e.target.value;
+        setFirstValue(value);
+        validateRange(value, secondValue);
+    };
+
+    const handleSecondChange = (e) => {
+        const value = e.target.value;
+        setSecondValue(value);
+        validateRange(firstValue, value);
     };
 
     return (
@@ -36,26 +277,26 @@ export function App() {
             <Range
                 firstValue={firstValue}
                 secondValue={secondValue}
-                label="Лейбл"
-                leftHelper="Подсказка к полю"
-                firstPlaceholder="Заполните поле 1"
-                secondPlaceholder="Заполните поле 2"
-                contentRight={<ActionButton />}
+                label="Введите диапазон чисел"
+                leftHelper="Первое число должно быть меньше второго"
+                firstPlaceholder="Меньшее число"
+                secondPlaceholder="Большее число"
                 dividerVariant="dash"
-                onChangeFirstValue={(e) => {
-                    setFirstValue(e.target.value);
-                }}
-                onChangeSecondValue={(e) => {
-                    setSecondValue(e.target.value);
-                }}
+                firstValueError={firstValueError}
+                secondValueError={secondValueError}
+                firstValueSuccess={firstValueSuccess}
+                secondValueSuccess={secondValueSuccess}
+                onChangeFirstValue={handleFirstChange}
+                onChangeSecondValue={handleSecondChange}
             />
         </div>
     );
 }
 ```
 
-### Размер Range
-Размер Range задаётся с помощью свойства `size`:
+### Подсказки и дополнительные элементы
+Для вывода подсказки снизу от поля используйте свойство leftHelper,
+для подсказки в виде Tooltip - hintText, для подсказки сверху справа - titleCaption:
 
 ```tsx live
 import React from 'react';
@@ -63,44 +304,16 @@ import { Range } from '@salutejs/sdds-crm';
 
 export function App() {
     return (
-        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+        <div>
             <Range
-                view="default"
-                size="l"
-                label="Лейбл"
-                leftHelper="Подсказка к полю"
-                firstPlaceholder="Заполните поле 1"
-                secondPlaceholder="Заполните поле 2"
-                dividerVariant="dash"
-            />
-            
-            <Range
-                view="default"
-                size="m"
-                label="Лейбл"
-                leftHelper="Подсказка к полю"
-                firstPlaceholder="Заполните поле 1"
-                secondPlaceholder="Заполните поле 2"
-                dividerVariant="dash"
-            />
-
-            <Range
-                view="default"
-                size="s"
-                label="Лейбл"
-                leftHelper="Подсказка к полю"
-                firstPlaceholder="Заполните поле 1"
-                secondPlaceholder="Заполните поле 2"
-                dividerVariant="dash"
-            />
-
-            <Range
-                view="default"
-                size="xs"
-                label="Лейбл"
-                leftHelper="Подсказка к полю"
-                firstPlaceholder="Заполните поле 1"
-                secondPlaceholder="Заполните поле 2"
+                label="Диапазон значений"
+                leftHelper="Подсказка снизу слева"
+                titleCaption="Дополнительная информация"
+                hintText="Подсказка в виде тултипа"
+                hintView="default"
+                hintSize="m"
+                firstPlaceholder="От"
+                secondPlaceholder="До"
                 dividerVariant="dash"
             />
         </div>
@@ -108,214 +321,34 @@ export function App() {
 }
 ```
 
-### Вид разделителя
-Вид разделителя задается с помощью свойства `dividerVariant`:
-
-<Tabs>
-    <TabItem value="dash" label="Dash" default>
-        ```tsx live
-            import React from 'react';
-            import { Range } from '@salutejs/sdds-crm';
-
-            export function App() {
-                return (
-                    <div>
-                        <Range
-                            view="default"
-                            size="l"
-                            label="Лейбл"
-                            leftHelper="Подсказка к полю"
-                            firstPlaceholder="Заполните поле 1"
-                            secondPlaceholder="Заполните поле 2"
-                            dividerVariant="dash"
-                        />
-                    </div>
-                );
-            }
-        ```
-    </TabItem>
-
-    <TabItem value="none" label="None">
-        При таком варианте свойства `firstTextfieldTextBefore` и `secondTextfieldTextBefore` становятся обязательными:
-
-        ```tsx live
-            import React from 'react';
-            import { Range } from '@salutejs/sdds-crm';
-
-            export function App() {
-                return (
-                    <div>
-                        <Range
-                            view="default"
-                            size="l"
-                            label="Лейбл"
-                            firstValue="10:00"
-                            secondValue="15:45"
-                            leftHelper="Подсказка к полю"
-                            firstTextfieldTextBefore="С"
-                            secondTextfieldTextBefore="ДО"
-                            dividerVariant="none"
-                        />
-                    </div>
-                );
-            }
-        ```
-    </TabItem>
-
-    <TabItem value="icon" label="Icon">
-        При таком варианте свойства `dividerIcon` становится обязательным:
-
-        ```tsx live
-            import React from 'react';
-            import { Range } from '@salutejs/sdds-crm';
-            import { IconSber } from '@salutejs/plasma-icons';
-
-            export function App() {
-                return (
-                    <div>
-                        <Range
-                            view="default"
-                            size="l"
-                            label="Лейбл"
-                            firstValue="10:00"
-                            secondValue="15:45"
-                            leftHelper="Подсказка к полю"
-                            firstTextfieldTextBefore="С"
-                            secondTextfieldTextBefore="ДО"
-                            dividerVariant="icon"
-                            dividerIcon={<IconSber size="s" />}
-                        />
-                    </div>
-                );
-            }
-        ```
-    </TabItem>
-</Tabs>
-
-### Валидация и индикация успешного ввода
-За индикацию ошибки или успешного ввода отвечают `firstValueError`, `secondValueError`, `firstValueSuccess`, `secondValueSuccess`.
-В данном примере валидация происходит при нажатии клавиши `Enter` после ввода значений:
-
+Также доступны слоты для дополнительного контента:
 ```tsx live
-import React, {useState, ChangeEvent, Dispatch, SetStateAction} from 'react';
-import { Range, Button } from '@salutejs/sdds-crm';
-import { IconSearch } from '@salutejs/plasma-icons';
+import React from 'react';
+import { Range, IconButton } from '@salutejs/sdds-crm';
+import { IconSearch, IconPlasma } from '@salutejs/plasma-icons';
 
 export function App() {
-    const [firstValue, setFirstValue] = useState('');
-    const [secondValue, setSecondValue] = useState('');
-
-    const [firstValueError, setFirstValueError] = useState(false);
-    const [secondValueError, setSecondValueError] = useState(false);
-
-    const [firstValueSuccess, setFirstValueSuccess] = useState(false);
-    const [secondValueSuccess, setSecondValueSuccess] = useState(false);
-
-    const checkValue = (value: string) => /^([1-9][0-9]*|)$/.test(value);
-
-    const handleChangeValue = (
-        e: ChangeEvent<HTMLInputElement>,
-        setter: Dispatch<SetStateAction<string>>,
-        error: boolean,
-        errorSetter: Dispatch<SetStateAction<boolean>>,
-        success: boolean,
-        successSetter: Dispatch<SetStateAction<boolean>>,
-    ) => {
-        const { value } = e.target;
-        if (!checkValue(value)) {
-            return;
-        }
-
-        if (error) {
-            errorSetter(false);
-        }
-
-        if (success) {
-            successSetter(false);
-        }
-
-        setter(value);
-    };
-
-    const firstValueConstraint = (value: number) =>
-        value <= 0 || value >= 9 || (secondValue && value >= Number(secondValue) && !secondValueError);
-    const secondValueConstraint = (value: number) =>
-        value <= 0 || value > 10 || (firstValue && value <= Number(firstValue) && !firstValueError);
-
-    const handleCommitValue = (
-        value: string,
-        constraint: (currentValue: number) => boolean,
-        errorSetter: Dispatch<SetStateAction<boolean>>,
-        successSetter: Dispatch<SetStateAction<boolean>>,
-    ) => {
-        if (!value) {
-            return;
-        }
-
-        if (!checkValue(value)) {
-            return errorSetter(true);
-        }
-
-        if (constraint(Number(value))) {
-            return errorSetter(true);
-        }
-
-        successSetter(true);
-    };
-
-    const ActionButton = () => {
-        return (
-            <Button view="clear" size="l">
-                <IconSearch size="s" />
-            </Button>
-        );
-    };
+    const ActionButton = () => (
+        <IconButton view="clear" size="l">
+            <IconSearch size="s" />
+        </IconButton>
+    );
 
     return (
         <div>
             <Range
-                size="l"
-                view="default"
-                firstValue={firstValue}
-                secondValue={secondValue}
-                label="Введите кол-во товара"
-                leftHelper="Кол-во товара не может быть меньше 1 и превышать 10"
-                firstPlaceholder="1"
-                secondPlaceholder="5"
-                contentRight={<ActionButton />}
+                label="Диапазон с дополнительными элементами"
+                leftHelper="Используйте кнопку для поиска"
+                firstPlaceholder="От"
+                secondPlaceholder="До"
                 dividerVariant="dash"
-                firstValueError={firstValueError}
-                secondValueError={secondValueError}
-                firstValueSuccess={firstValueSuccess}
-                secondValueSuccess={secondValueSuccess}
-                onChangeFirstValue={(e) => {
-                    handleChangeValue(
-                        e,
-                        setFirstValue,
-                        firstValueError,
-                        setFirstValueError,
-                        firstValueSuccess,
-                        setFirstValueSuccess,
-                    );
-                }}
-                onChangeSecondValue={(e) => {
-                    handleChangeValue(
-                        e,
-                        setSecondValue,
-                        secondValueError,
-                        setSecondValueError,
-                        secondValueSuccess,
-                        setSecondValueSuccess,
-                    );
-                }}
-                onSearchFirstValue={(e) => {
-                    const { value } = e.target as HTMLInputElement;
-                    handleCommitValue(value, firstValueConstraint, setFirstValueError, setFirstValueSuccess);
-                }}
-                onSearchSecondValue={(e) => {
-                    const { value } = e.target as HTMLInputElement;
-                    handleCommitValue(value, secondValueConstraint, setSecondValueError, setSecondValueSuccess);
-                }}
+                contentLeft={<IconPlasma size="s" color="inherit" />}
+                contentRight={<ActionButton />}
+                firstTextfieldContentLeft={<IconPlasma size="s" color="inherit" />}
+                secondTextfieldContentRight={<IconPlasma size="s" color="inherit" />}
+                firstTextfieldTextAfter="руб."
+                secondTextfieldTextAfter="руб."
+                stretch
             />
         </div>
     );
@@ -324,40 +357,34 @@ export function App() {
 
 ### Обязательность поля
 :::tip
-Наличие индикатора регулируется свойством `hasRequiredIndicator`.
+Наличие индикатора регулируется свойством hasRequiredIndicator.
 :::
 
-Обязательность поля задаётся с помощью свойства `required`. 
-Если поле является обязательным, то у компонента появляется специальный индикатор. 
-Изменить расположение индикатора можно с помощью свойства `requiredPlacement`, которое принимает значения `left` и `right`. 
+Обязательность поля задаётся с помощью свойства required.
+Если поле является обязательным, то у компонента появляется специальный индикатор.
+Изменить расположение индикатора можно с помощью свойства requiredIndicatorPlacement, которое принимает значения left и right.
 
 ```tsx live
 import React from 'react';
-import { Range, IconButton } from '@salutejs/sdds-crm';
-import { IconDone } from '@salutejs/plasma-icons';
+import { Range } from '@salutejs/sdds-crm';
 
 export function App() {
-    const ActionButton = () => {
-        return (
-            <IconButton view="clear" size="l">
-                <IconDone size="s" />
-            </IconButton>
-        );
-    };
-
     return (
         <div>
             <Range
-                label="Лейбл"
-                leftHelper="Подсказка к полю"
-                placeholder="Введите время"
-                firstValue="10:00"
-                secondValue="15:45"
-                contentRight={<ActionButton />}
+                hasRequiredIndicator
                 required
-                requiredPlacement="right"
+                requiredIndicatorPlacement="right"
+                label="Обязательный диапазон"
+                leftHelper="Оба поля должны быть заполнены"
+                firstPlaceholder="От"
+                secondPlaceholder="До"
+                dividerVariant="dash"
             />
         </div>
     );
 }
 ```
+
+### Таблица свойств
+<PropsTable name="Range" exclude={['css']} />
