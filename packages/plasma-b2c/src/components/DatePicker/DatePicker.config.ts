@@ -121,14 +121,14 @@ export const config = {
                 ${tokens.indicatorWrapperGap}: 0.25rem;
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                
+
                 ${tokens.indicatorPlacement}: 0 0 0 0;
                 ${tokens.indicatorOuterPlacement}: 0.5rem auto auto -0.75rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
-                ${tokens.indicatorOuterLeft}: -0.75rem
+                ${tokens.indicatorOuterLeft}: -0.75rem;
                 ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
                 ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
 

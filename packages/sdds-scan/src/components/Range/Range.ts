@@ -1,10 +1,22 @@
-import { rangeConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    rangeConfig,
+    component,
+    mergeConfig,
+    createConditionalComponent,
+} from '@salutejs/plasma-new-hope/styled-components';
 
-import { config } from './Range.config';
+import { config as configDefault } from './Range.config';
+import { config as configClear } from './Range.clear.config';
 
-const mergedConfig = mergeConfig(rangeConfig, config);
+const mergedConfigDefault = mergeConfig(rangeConfig, configDefault);
+export const RangeDefault = component(mergedConfigDefault);
 
-/**
- * Компонент Range.
- */
-export const Range = component(mergedConfig);
+const mergedConfigClear = mergeConfig(rangeConfig, configClear);
+export const RangeClear = component(mergedConfigClear);
+
+export const Range = createConditionalComponent(RangeDefault, [
+    {
+        conditions: { prop: 'appearance', value: 'clear' },
+        component: RangeClear,
+    },
+]);
