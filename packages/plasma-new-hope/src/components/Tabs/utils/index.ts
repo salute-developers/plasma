@@ -1,5 +1,7 @@
 import { MutableRefObject } from 'react';
 
+const TOLERANCE = 1; // Погрешность для субпиксельного рендеринга
+
 const getIsFirstOverflowingTab = (
     item: MutableRefObject<HTMLElement | null>,
     maxScroll: number,
@@ -15,7 +17,7 @@ const getIsFirstOverflowingTab = (
         return;
     }
 
-    return currentOffset < maxScroll;
+    return currentOffset < maxScroll - TOLERANCE;
 };
 
 const getIsLastOverflowingTab = (
@@ -34,8 +36,9 @@ const getIsLastOverflowingTab = (
     }
 
     const additionalOffset = orientation === 'horizontal' ? item.current.offsetWidth : item.current.offsetHeight;
+    const itemRightEdge = currentOffset + additionalOffset;
 
-    return currentOffset + additionalOffset > minScroll;
+    return itemRightEdge > minScroll + TOLERANCE;
 };
 
 export const getFirstOverflowingTab = (
