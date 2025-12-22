@@ -67,6 +67,10 @@ export const config = {
                 ${skeletonTokens.lineHeight}: var(--plasma-typo-h5-line-height);
                 ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h5-font-size);
             `,
+            h6: css`
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h6-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h6-font-size);
+            `,
             textL: css`
                 ${skeletonTokens.lineHeight}: var(--plasma-typo-text-l-line-height);
                 ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-l-font-size);
