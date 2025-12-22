@@ -112,7 +112,7 @@ export type CustomHorizontalIconTabItemProps = {
     /**
      * Размер TabItem
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    size?: 'xs' | 's' | 'm' | 'l' | 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
     /**
      * Активен ли TabItem
      * @deprecated Используйте свойство `selected`
@@ -163,7 +163,7 @@ export type CustomHeaderTabItemProps = {
     /**
      * Размер TabItem
      */
-    size: 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    size: 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
     /**
      * Активен ли TabItem
      * @deprecated Используйте свойство `selected`

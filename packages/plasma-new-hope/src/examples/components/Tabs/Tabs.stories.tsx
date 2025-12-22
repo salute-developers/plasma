@@ -16,7 +16,7 @@ const orientations = ['vertical', 'horizontal'];
 const clips = ['none', 'scroll', 'showAll'];
 const headerClips = ['none', 'scroll'];
 const sizes = ['xs', 's', 'm', 'l'] as const;
-const headerSizes = ['h5', 'h4', 'h3', 'h2', 'h1'] as const;
+const headerSizes = ['h6', 'h5', 'h4', 'h3', 'h2', 'h1'] as const;
 
 type Size = typeof sizes[number];
 type HeaderSize = typeof headerSizes[number];

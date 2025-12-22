@@ -58,6 +58,16 @@ export const config = {
                 ${tokens.typoFontLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
                 ${tokens.typoFontLineHeight}: var(--plasma-typo-h5-line-height);
             `,
+            h6: css`
+                ${tokens.typoFontFamily}: var(--plasma-typo-h6-font-family);
+                ${tokens.typoFontSize}: var(--plasma-typo-h6-font-size);
+                ${tokens.typoFontStyle}: var(--plasma-typo-h6-font-style);
+                ${tokens.typoFontWeight}: var(--plasma-typo-h6-font-weight);
+                ${tokens.typoFontWeightBold}: var(--plasma-typo-h6-bold-font-weight);
+                ${tokens.typoFontWeightMedium}: var(--plasma-typo-h6-medium-font-weight);
+                ${tokens.typoFontLetterSpacing}: var(--plasma-typo-h6-letter-spacing);
+                ${tokens.typoFontLineHeight}: var(--plasma-typo-h6-line-height);
+            `,
         },
     },
 };
