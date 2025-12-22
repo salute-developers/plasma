@@ -15,6 +15,7 @@ import {
     H3,
     H4,
     H5,
+    H6,
     BodyL,
     BodyM,
     BodyS,
@@ -152,6 +153,16 @@ export const H: Story = {
             <H5 bold={false} isNumeric {...props}>
                 1234567890
             </H5>
+            <H6 bold={false} {...props}>
+                H6
+            </H6>
+            <H6 {...props}>H6 Bold</H6>
+            <H6 medium {...props}>
+                H6 Medium
+            </H6>
+            <H6 bold={false} isNumeric {...props}>
+                1234567890
+            </H6>
         </>
     ),
 };
