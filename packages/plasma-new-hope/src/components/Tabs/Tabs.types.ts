@@ -86,7 +86,7 @@ export type CustomHeaderTabsProps = {
     /**
      * Размер табов
      */
-    size: 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    size: 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
     /**
      * Уберет скругление с выбранной стороны и подвинет контейнер
      * @deprecated
