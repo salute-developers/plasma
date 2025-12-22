@@ -71,16 +71,16 @@ export const LinkButtonText = styled.span`
     }
 `;
 
-export const StyledContentLeft = styled.div`
+export const StyledContentLeft = styled.div<{ hasContent?: boolean }>`
     line-height: 0;
     color: var(${tokens.linkButtonIconColor});
 
-    margin: var(${tokens.linkButtonLeftContentMargin});
+    margin: ${({ hasContent }) => (hasContent ? `var(${tokens.linkButtonLeftContentMargin})` : '0')};
 `;
 
-export const StyledContentRight = styled.div`
+export const StyledContentRight = styled.div<{ hasContent?: boolean }>`
     line-height: 0;
     color: var(${tokens.linkButtonIconColor});
 
-    margin: var(${tokens.linkButtonRightContentMargin});
+    margin: ${({ hasContent }) => (hasContent ? `var(${tokens.linkButtonRightContentMargin})` : '0')};
 `;

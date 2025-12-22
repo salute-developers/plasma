@@ -47,6 +47,8 @@ export const linkButtonRoot = (Root: RootProps<HTMLAnchorElement, LinkButtonProp
             rel: target === '_blank' ? 'noopener noreferrer' : rel,
         };
 
+        const hasContent = Boolean(txt || children || additionalContent || contentRight);
+
         return (
             <Root
                 ref={ref}
@@ -64,10 +66,10 @@ export const linkButtonRoot = (Root: RootProps<HTMLAnchorElement, LinkButtonProp
                 {...rest}
             >
                 <LoadWrap isLoading={!disabled && isLoading} style={{ ...loadingCustomOpacity }}>
-                    {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
+                    {contentLeft && <StyledContentLeft hasContent={hasContent}>{contentLeft}</StyledContentLeft>}
                     {txt ? <LinkButtonText>{txt}</LinkButtonText> : children}
                     {additionalContent && <StyledAdditionalContent>{additionalContent}</StyledAdditionalContent>}
-                    {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                    {contentRight && <StyledContentRight hasContent={hasContent}>{contentRight}</StyledContentRight>}
                 </LoadWrap>
                 {!disabled && isLoading && <Loader>{loader || <StyledSpinner />}</Loader>}
             </Root>
