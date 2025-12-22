@@ -21,6 +21,8 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
+                ${tokens.timePickerShadow}: var(--shadow-down-soft-s);
+
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldBackgroundColorHover}: var(--surface-transparent-card-hover);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card-active);

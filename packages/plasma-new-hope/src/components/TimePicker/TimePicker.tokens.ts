@@ -121,6 +121,7 @@ export const tokens = {
 
     dropdownMarginTop: '--plasma-time-picker-dropdown-margin-top',
 
+    timePickerShadow: '--plasma-time-picker-ui-box-shadow',
     timePickerBackground: '--plasma-time-picker-ui-background',
     timePickerBorderRadius: '--plasma-time-picker-ui-border-radius',
     timePickerWidth: '--plasma-time-picker-ui-width',

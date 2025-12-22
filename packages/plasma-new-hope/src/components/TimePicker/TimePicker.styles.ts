@@ -3,7 +3,7 @@ import { css } from '@linaria/core';
 import { component, mergeConfig } from 'src/engines';
 
 import { textFieldConfig, textFieldTokens } from '../TextField';
-import { popoverClasses, popoverConfig } from '../Popover';
+import { popoverClasses, popoverConfig, popoverTokens } from '../Popover';
 import { timePickerGridConfig, timePickerGridTokens } from '../TimePickerGrid';
 
 import { classes, tokens } from './TimePicker.tokens';
@@ -17,7 +17,12 @@ const Popover = component(mergedPopoverConfig);
 const mergedTimePickerGrid = mergeConfig(timePickerGridConfig);
 const TimePickerGrid = component(mergedTimePickerGrid);
 
-export const StyledPopover = styled(Popover)``;
+export const StyledPopover = styled(Popover)`
+    .${popoverClasses.root} {
+        ${popoverTokens.boxShadow}: var(${tokens.timePickerShadow});
+        border-radius: var(${tokens.timePickerBorderRadius});
+    }
+`;
 
 export const StyledTimePickerGrid = styled(TimePickerGrid)`
     ${timePickerGridTokens.timePickerGridBackground}: var(${tokens.timePickerBackground});
