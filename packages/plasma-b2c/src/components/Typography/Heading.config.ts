@@ -95,3 +95,22 @@ export const configH5 = {
         },
     },
 };
+export const configH6 = {
+    defaults: {
+        size: 'h6',
+    },
+    variations: {
+        size: {
+            h6: css`
+                ${typographyTokens.typoFontFamily}: var(--plasma-typo-h6-font-family);
+                ${typographyTokens.typoFontSize}: var(--plasma-typo-h6-font-size);
+                ${typographyTokens.typoFontStyle}: var(--plasma-typo-h6-font-style);
+                ${typographyTokens.typoFontWeight}: var(--plasma-typo-h6-font-weight);
+                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-h6-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-h6-medium-font-weight);
+                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-h6-letter-spacing);
+                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-h6-line-height);
+            `,
+        },
+    },
+};
