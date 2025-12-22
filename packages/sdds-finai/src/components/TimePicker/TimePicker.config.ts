@@ -26,6 +26,8 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
+                ${tokens.timePickerShadow}: var(--shadow-down-soft-s);
+
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card);
                 ${tokens.textFieldBorderColor}: var(--outline-solid-primary);
