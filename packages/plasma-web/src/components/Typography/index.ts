@@ -12,6 +12,7 @@ export {
     H3,
     H4,
     H5,
+    H6,
     TextL,
     TextM,
     TextS,
