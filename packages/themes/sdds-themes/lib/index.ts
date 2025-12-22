@@ -3,11 +3,11 @@ import { generate } from '@salutejs/core-themes';
 generate([
     {
         name: 'sdds_serv',
-        version: '0.8.0',
+        version: 'latest',
     },
     {
         name: 'sdds_dfa',
-        version: '0.4.0',
+        version: 'latest',
     },
     {
         name: 'sdds_cs',
