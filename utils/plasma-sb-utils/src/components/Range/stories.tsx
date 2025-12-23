@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { IconPlasma, IconArrowRight, IconDisclosureRight } from '@salutejs/plasma-icons';
 
 type ActionButtonProps = {
+    appearance: 'default' | 'clear';
     buttonComponent: any;
     view?: string;
     size?: string;
@@ -23,9 +24,9 @@ const getIconSize = (size?: string) => {
     return size === 'xs' ? 'xs' : 's';
 };
 
-const ActionButton = ({ buttonComponent: IconButton, size, readOnly }: ActionButtonProps) => {
+const ActionButton = ({ appearance, buttonComponent: IconButton, size, readOnly }: ActionButtonProps) => {
     const iconButtonProps = {
-        view: 'clear',
+        view: appearance === 'clear' ? 'default' : 'clear',
         disabled: readOnly,
         size,
     };
@@ -74,6 +75,8 @@ export const createDefaultStory = (Range: any, IconButton: any, EmbedIconButton:
             secondValueError: secondInputView === 'negative',
         };
 
+        const embedIconButtonSize = appearance === 'clear' && size === 'xs' ? 's' : size;
+
         return (
             <Range
                 appearance={appearance}
@@ -86,7 +89,8 @@ export const createDefaultStory = (Range: any, IconButton: any, EmbedIconButton:
                     enableContentRight ? (
                         <ActionButton
                             buttonComponent={appearance === 'clear' ? EmbedIconButton : IconButton}
-                            size={size}
+                            appearance={appearance}
+                            size={embedIconButtonSize}
                             readOnly={rest.readOnly}
                         />
                     ) : undefined

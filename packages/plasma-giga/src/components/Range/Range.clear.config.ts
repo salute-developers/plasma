@@ -44,8 +44,8 @@ export const config = {
                 ${tokens.textFieldColorError}: var(--text-negative);
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-secondary);
-                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
                 ${tokens.textFieldBackgroundColorHover}: transparent;
@@ -426,7 +426,7 @@ export const config = {
                 ${tokens.indicatorMarginTop}: 0.125rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
                 ${tokens.indicatorWithoutLabelInner}: 1.875rem -0.75rem auto auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: 1.875rem auto auto -0.75rem;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 1.625rem auto auto -0.75rem;
                 ${tokens.indicatorWithoutLabelOuterHint}: 1.625rem -2rem auto auto;
             `,
         },

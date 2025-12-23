@@ -24,6 +24,8 @@ export const StyledContentLeft = styled.div`
 `;
 
 export const StyledContentRight = styled.div`
+    display: flex;
+    align-items: center;
     color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
 
     &:hover {
@@ -125,18 +127,25 @@ export const ContentWrapper = styled.div`
         z-index: -1;
     }
 
-    &.${classes.clear}.${classes.clearDivider} {
+    &.${classes.clear} {
         &:before {
-            content: '';
-            position: absolute;
-            top: unset;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            height: 1px;
-            box-shadow: unset;
-            background: var(${tokens.clearDividerColor});
+            display: none;
+        }
+
+        &.${classes.clearDivider} {
+            &:before {
+                display: block;
+                content: '';
+                position: absolute;
+                top: unset;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: -1;
+                height: 1px;
+                box-shadow: unset;
+                background: var(${tokens.clearDividerColor});
+            }
         }
     }
 `;
