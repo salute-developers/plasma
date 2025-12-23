@@ -3,6 +3,7 @@ import type { FC, PropsWithChildren } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+// TODO: нужно поменять на импорт из plasma-themes, когда исправим в TestDecorator подключение тем
 import { surfaceSolid02, surfaceSolid03 } from '@salutejs/plasma-tokens-web';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
