@@ -102,7 +102,7 @@
     "@salutejs/eslint-config-base": "0.4.0",
     "@salutejs/perftool": "0.29.0",
     "@salutejs/prettier-config": "0.3.0",
-    "@simonsmith/cypress-image-snapshot": "10.0.2",
+    "@simonsmith/cypress-image-snapshot": "10.0.3",
     "@storybook/addon-docs": "10.1.0",
     "@storybook/react": "10.1.0",
     "@storybook/react-vite": "10.1.0",
