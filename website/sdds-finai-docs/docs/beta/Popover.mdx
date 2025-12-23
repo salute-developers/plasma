@@ -25,6 +25,9 @@ Popover позволяет отображать всплывающее окно 
 
 ## Быстрый старт
 ```tsx live
+import * as Beta from '@salutejs/sdds-finai/beta';
+import { Button } from '@salutejs/sdds-finai';
+
 export function App() {
     return (
         <Beta.Popover target={<Button text="Target" />}>
@@ -43,6 +46,9 @@ export function App() {
     <TabItem value="trigger" label="Trigger" default>
         Свойство `trigger` принимает 3 значения: `click`, `hover` и `focus`. Поле опциональное, и `click` стоит по умолчанию.
         ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { Button } from '@salutejs/sdds-finai';
+
         export function App() {
             return (
                 <div style={{ display: 'flex' }}>
@@ -118,6 +124,8 @@ export function App() {
         ```
 
         ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+
         export function App() {
             const cells = [
                 { num: 1, color: '#e74c3c' },
