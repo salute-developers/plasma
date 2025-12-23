@@ -168,6 +168,43 @@ export function App() {
     </TabItem>
 </Tabs>
 
+## Стилизация всплывающего окна
+
+Компонент принимает такие свойства, как `style` и `className`, которые применяются к тэгу, оборачивающему выпадающее окно.
+Ниже приведен пример кастомизации цвета фона и текста с помощью `styled-components`.
+
+```tsx live
+import * as Beta from "@salutejs/sdds-finai/beta";
+import { Button } from "@salutejs/sdds-finai";
+import {
+  inverseTextPrimary,
+  inverseSurfaceSolidCardBrightness,
+} from "@salutejs/sdds-themes/tokens";
+import styled from "styled-components";
+
+export function App() {
+  const StyledAsTooltip = styled(Beta.Popover)`
+    --plasma-popover-background-color: ${inverseSurfaceSolidCardBrightness};
+    color: ${inverseTextPrimary};
+
+    ul, li {
+        padding: 0;
+        margin: 0;
+    }
+  `;
+
+  return (
+    <StyledAsTooltip target={<Button text="Target" />}>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </StyledAsTooltip>
+  );
+}
+
+```
 
 ## API
 <PropsTable name="PopoverBeta" />
