@@ -15,7 +15,7 @@ export default {
     output: [
         {
             preserveModules: true,
-            dir: 'es',
+            dir: 'dist/css/es',
             format: 'es',
             freeze: false,
             esModule: true,
@@ -25,7 +25,7 @@ export default {
         },
         {
             preserveModules: true,
-            dir: 'cjs',
+            dir: 'dist/css/cjs',
             format: 'cjs',
             freeze: false,
             esModule: true,

@@ -70,7 +70,7 @@ module.exports = {
                     position: 'right',
                 },
                 {
-                    href: `${baseUrl}search/`,
+                    href: `${baseUrl}ai-search/`,
                     label: 'AI-поиск',
                     position: 'right',
                 },

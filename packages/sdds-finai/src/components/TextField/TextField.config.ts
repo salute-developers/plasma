@@ -14,9 +14,12 @@ export const config = {
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.backgroundColor}: var(--surface-transparent-primary);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.backgroundColor}: var(--surface-transparent-card);
+                ${tokens.backgroundColorHover}: var(--surface-transparent-card-hover);
+                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${tokens.borderColor}: var(--outline-solid-primary);
+                ${tokens.borderColorHover}: var(--outline-solid-primary-hover);
+                ${tokens.borderColorFocus}: var(--outline-accent);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -45,12 +48,16 @@ export const config = {
 
                 ${tokens.backgroundColor}: var(--surface-transparent-positive);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-positive-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${tokens.borderColor}: var(--outline-transparent-positive);
+                ${tokens.borderColorHover}: var(--outline-transparent-positive-hover);
+                ${tokens.borderColorFocus}: var(--outline-accent);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -74,12 +81,16 @@ export const config = {
 
                 ${tokens.backgroundColor}: var(--surface-transparent-warning);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
+                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${tokens.borderColor}: var(--outline-transparent-warning);
+                ${tokens.borderColorHover}: var(--outline-transparent-warning-hover);
+                ${tokens.borderColorFocus}: var(--outline-accent);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -103,12 +114,16 @@ export const config = {
 
                 ${tokens.backgroundColor}: var(--surface-transparent-negative);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-negative-active);
+                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${tokens.borderColor}: var(--outline-transparent-negative);
+                ${tokens.borderColorHover}: var(--outline-transparent-negative-hover);
+                ${tokens.borderColorFocus}: var(--outline-accent);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -131,6 +146,7 @@ export const config = {
                 ${tokens.padding}: 1.3125rem 1.125rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 1rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
                 ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
@@ -210,7 +226,7 @@ export const config = {
                 ${tokens.padding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.875rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
@@ -288,7 +304,7 @@ export const config = {
                 ${tokens.padding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.75rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
@@ -366,7 +382,7 @@ export const config = {
                 ${tokens.padding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.625rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
@@ -444,7 +460,7 @@ export const config = {
                 ${tokens.padding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.5rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
                 ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
@@ -694,20 +710,30 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+                ${tokens.backgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderColorHover}: transparent;
+                ${tokens.borderColorFocus}: transparent;
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary);
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.colorReadOnly}: var(--text-primary);
-                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundColor}: var(--surface-transparent-card);
+                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.borderColorReadOnly}: var(--outline-solid-primary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary);
             `,
         },
     },

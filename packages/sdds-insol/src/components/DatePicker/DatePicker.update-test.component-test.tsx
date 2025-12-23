@@ -540,6 +540,7 @@ describe('sdds-insol: DatePickerRange', () => {
                         secondValueError
                         maskWithFormat
                         required
+                        hasRequiredIndicator
                         requiredPlacement="left"
                     />
                 </div>

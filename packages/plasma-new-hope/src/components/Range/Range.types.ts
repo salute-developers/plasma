@@ -8,6 +8,8 @@ import type {
     HTMLAttributes,
 } from 'react';
 
+import type { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
+
 export type TextfieldPrimitiveValue = string | number;
 
 export type RangeDividerVariants =
@@ -44,6 +46,90 @@ export type RangeInputRefs = {
     secondTextField: () => MutableRefObject<HTMLInputElement | null>;
 };
 
+type ClearProps =
+    | {
+          /**
+           * Стиль для UI конфигурации
+           * Влияет на выбор предустановленого набора токенов
+           * @default default
+           */
+          appearance?: 'default';
+          /**
+           * Отображение разделителя для `appearance='clear'`
+           */
+          hasClearDivider?: never;
+      }
+    | {
+          appearance?: 'clear';
+          hasClearDivider?: boolean;
+      };
+
+type HintProps =
+    | {
+          /**
+           * Текст тултипа
+           */
+          hintText: string;
+          /**
+           * Способ открытия тултипа - наведение или клик мышью
+           */
+          hintTrigger?: 'hover' | 'click';
+          /**
+           * Вид тултипа
+           */
+          hintView?: string;
+          /**
+           * Размер тултипа
+           */
+          hintSize?: string;
+          /**
+           * Иконка, рядом с которым произойдет вызов всплывающего окна.
+           * Если свойство не задано, применится иконка по умолчанию.
+           */
+          hintTargetIcon?: ReactNode;
+          /**
+           * Расположение иконки подсказки, когда отсутствует label
+           * или же он имеет labelPlacement='inner'.
+           * @default `outer`
+           */
+          hintTargetPlacement?: 'inner' | 'outer';
+          /**
+           * Направление раскрытия тултипа.
+           */
+          hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
+          /**
+           * Видимость стрелки (хвоста).
+           */
+          hintHasArrow?: boolean;
+          /**
+           * Отступ окна относительно элемента, у которого оно вызвано.
+           * @default
+           * [0, 8]
+           */
+          hintOffset?: [number, number];
+          /**
+           * Ширина окна (в rem).
+           */
+          hintWidth?: string;
+          /**
+           * Слот для контента слева, например `Icon`.
+           */
+          hintContentLeft?: ReactNode;
+      }
+    | {
+          hintTrigger?: never;
+          hintText?: never;
+          hintView?: never;
+          hintSize?: never;
+          hintTargetIcon?: never;
+          hintTargetPlacement?: never;
+          hintPlacement?: never;
+          hintHasArrow?: never;
+          hintOffset?: never;
+          hintWidth?: never;
+          hintContentLeft?: never;
+      };
+
 export type RangeInnerProps = {
     /**
      * Метка-подпись к элементу
@@ -53,6 +139,10 @@ export type RangeInnerProps = {
      * Вспомогательный текст снизу слева для поля ввода.
      */
     leftHelper?: string;
+    /**
+     * Метка-подпись к элементу справа
+     */
+    titleCaption?: ReactNode;
     /**
      * Слот для контента слева
      */
@@ -141,14 +231,14 @@ export type RangeInnerProps = {
      * Задает выравнивание индикатора обязательности поля
      * @default right
      */
-    requiredPlacement?: 'left' | 'right';
+    requiredIndicatorPlacement?: 'left' | 'right';
     /**
      * Флаг обязательности поля
      */
     required?: boolean;
     /**
      * Флаг наличия индикатора обязательности поля
-     * @default true
+     * @default false
      */
     hasRequiredIndicator?: boolean;
     /**
@@ -184,6 +274,17 @@ export type RangeInnerProps = {
      * Коллбэк, вызываемый при потере фокуса вторым полем ввода
      */
     onBlurSecondTextfield?: (event: FocusEvent<HTMLInputElement>) => void;
-} & RangeDividerVariants;
+} & RangeDividerVariants &
+    HintProps &
+    ClearProps;
 
 export type RangeProps = RangeInnerProps & HTMLAttributes<HTMLDivElement>;
+
+export type RangeRootProps = {
+    size?: string;
+    view?: string;
+    hintView?: string;
+    hintSize?: string;
+    readOnly?: boolean;
+    disabled?: boolean;
+} & Omit<HTMLAttributes<HTMLDivElement>, 'size'>;

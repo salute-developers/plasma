@@ -64,7 +64,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
 
     ${textFieldTokens.indicatorColor}: var(${tokens.indicatorColor});
-    ${textFieldTokens.indicatorSizeInner}: var(${tokens.indicatorSize});
+    ${textFieldTokens.indicatorSizeInner}: var(${tokens.indicatorSizeInner});
     ${textFieldTokens.indicatorSizeOuter}: var(${tokens.indicatorSizeOuter});
     ${textFieldTokens.indicatorLabelPlacementInner}: var(${tokens.indicatorPlacement});
     ${textFieldTokens.indicatorLabelPlacementOuter}: var(${tokens.indicatorOuterPlacement});

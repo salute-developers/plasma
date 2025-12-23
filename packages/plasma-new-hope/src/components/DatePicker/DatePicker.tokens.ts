@@ -53,6 +53,7 @@ export const tokens = {
     contentSlotRightColorActive: '--plasma-date-picker-content-right-slot-color-active',
 
     /** Токены лейбла */
+    labelWrapperOffset: '--plasma-date-picker-label-wrapper-offset',
     labelColor: '--plasma-date-picker__label-color',
     labelColorReadOnly: '--plasma-date-picker__label-color-readonly',
     labelOffset: '--plasma-date-picker__label-offset',
@@ -65,14 +66,20 @@ export const tokens = {
     labelLineHeight: '--plasma-date-picker__label-line-height',
 
     /** Токены индикатора */
+    indicatorWrapperGap: '--plasma-date-picker-indicator-wrapper-gap',
     indicatorColor: '--plasma-date-picker__indicator-color',
-
-    indicatorSize: '--plasma-date-picker__indicator-size',
+    indicatorSizeInner: '--plasma-date-picker__indicator-size',
     indicatorSizeOuter: '--plasma-date-picker__indicator-size-outer',
+
     indicatorPlacement: '--plasma-date-picker__indicator-placement',
     indicatorPlacementRight: '--plasma-date-picker__indicator-placement-right',
     indicatorOuterPlacement: '--plasma-date-picker__indicator-placement-outer',
     indicatorOuterPlacementRight: '--plasma-date-picker__indicator-placement-outer-right',
+
+    indicatorMarginTop: '--plasma-date-picker-indicator-margin-top',
+    indicatorOuterLeft: '--plasma-date-picker-indicator-outer-left',
+    indicatorWithoutLabelInner: '--plasma-date-picker-indicator-without-label-inner',
+    indicatorWithoutLabelInnerLeft: '--plasma-date-picker-indicator-without-label-inner-left',
 
     /* label-placement-inner */
     labelInnerFontFamily: '--plasma-date-picker-placement_inner__label-font-family',

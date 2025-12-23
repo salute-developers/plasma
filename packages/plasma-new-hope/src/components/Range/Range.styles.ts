@@ -9,6 +9,35 @@ import { classes, tokens } from './Range.tokens';
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
 
+export const StyledContentLeft = styled.div`
+    line-height: 0;
+
+    color: var(${tokens.contentSlotColor});
+
+    &:hover {
+        color: var(${tokens.contentSlotColorHover});
+    }
+
+    &:active {
+        color: var(${tokens.contentSlotColorActive});
+    }
+`;
+
+export const StyledContentRight = styled.div`
+    display: flex;
+    align-items: center;
+    color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
+
+    &:hover {
+        color: var(${tokens.contentSlotRightColorHover}, var(${tokens.contentSlotColorHover}));
+        cursor: pointer;
+    }
+
+    &:active {
+        color: var(${tokens.contentSlotRightColorActive}, var(${tokens.contentSlotColorActive}));
+    }
+`;
+
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`
     width: 100%;
@@ -16,6 +45,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${textFieldTokens.placeholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
+    ${textFieldTokens.clearPlaceholderColorFocus}: var(${tokens.textFieldClearPlaceholderColorFocus});
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
@@ -55,16 +85,8 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.textBeforeMargin}: var(${tokens.textFieldTextBeforeMargin});
     ${textFieldTokens.textAfterMargin}: var(${tokens.textFieldTextAfterMargin});
 
-    &.${classes.rangeValueError} {
-        ${textFieldTokens.color}: var(${tokens.textFieldColorError}, var(${tokens.textFieldColor}));
-        ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
-        ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
-        ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
-
-        ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorError});
-        ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
-        ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
-    }
+    ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorHover});
+    ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
 
     &.${classes.rangeValueSuccess} {
         ${textFieldTokens.color}: var(${tokens.textFieldColorSuccess}, var(${tokens.textFieldColor}));
@@ -76,26 +98,22 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorSuccessHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorSuccessFocus});
     }
+
+    &.${classes.rangeValueError} {
+        ${textFieldTokens.color}: var(${tokens.textFieldColorError}, var(${tokens.textFieldColor}));
+        ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
+        ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
+        ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
+
+        ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorError});
+        ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
+        ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
+    }
 `;
 
 export const base = css`
     width: fit-content;
 `;
-
-export const StyledLabel = styled.label``;
-
-export const StyledIndicatorWrapper = styled.div`
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-`;
-
-export const StyledIndicator = styled.div`
-    position: absolute;
-    border-radius: 50%;
-`;
-
-export const LeftHelper = styled.div``;
 
 export const ContentWrapper = styled.div`
     display: flex;
@@ -108,33 +126,34 @@ export const ContentWrapper = styled.div`
         inset: 0;
         z-index: -1;
     }
+
+    &.${classes.clear} {
+        &:before {
+            display: none;
+        }
+
+        &.${classes.clearDivider} {
+            &:before {
+                display: block;
+                content: '';
+                position: absolute;
+                top: unset;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: -1;
+                height: 1px;
+                box-shadow: unset;
+                background: var(${tokens.clearDividerColor});
+            }
+        }
+    }
 `;
 
 export const StyledDivider = styled.div``;
 
-export const StyledContentLeft = styled.div`
-    line-height: 0;
-
-    color: var(${tokens.contentSlotColor});
-
-    &:hover {
-        color: var(${tokens.contentSlotColorHover});
-    }
-
-    &:active {
-        color: var(${tokens.contentSlotColorActive});
-    }
-`;
-
-export const StyledContentRight = styled.div`
-    color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
-
-    &:hover {
-        color: var(${tokens.contentSlotRightColorHover}, var(${tokens.contentSlotColorHover}));
-        cursor: pointer;
-    }
-
-    &:active {
-        color: var(${tokens.contentSlotRightColorActive}, var(${tokens.contentSlotColorActive}));
-    }
+export const StyledContentRightWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
 `;

@@ -54,6 +54,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             listMaxHeight,
             listWidth,
             contentLeft,
+            contentRight,
             onScrollBottom,
             onScroll,
             chipView,
@@ -405,6 +406,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                 chipView={chipView}
                 disabled={disabled}
                 readOnly={readOnly}
+                hintView={hintView}
+                hintSize={hintSize}
                 id={id}
                 ref={rootRef}
                 {...(rest as any)}
@@ -461,6 +464,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                 labelPlacement={labelPlacement}
                                 size={size}
                                 contentLeft={contentLeft}
+                                contentRight={contentRight}
                                 disabled={disabled}
                                 readOnly={readOnly}
                                 renderValue={renderValue}

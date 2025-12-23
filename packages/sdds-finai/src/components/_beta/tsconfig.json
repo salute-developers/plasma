@@ -1,0 +1,9 @@
+{
+    "extends": "../../../tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "../../../dist/beta/types",
+        "rootDir": "."
+    },
+    "include": ["."],
+    "exclude": ["./**/*.stories.tsx"]
+}

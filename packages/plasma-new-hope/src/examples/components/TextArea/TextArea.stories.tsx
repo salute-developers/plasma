@@ -288,7 +288,7 @@ const meta: Meta<StoryTextAreaProps> = {
         optionalText: 'опционально',
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         clear: false,
         hasDivider: false,
         hasHint: true,

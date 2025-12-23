@@ -14,6 +14,7 @@ export type TextfieldProps = Pick<
     | 'size'
     | 'view'
     | 'contentLeft'
+    | 'contentRight'
     | 'helperText'
     | 'treeId'
     | 'activeDescendantItemValue'

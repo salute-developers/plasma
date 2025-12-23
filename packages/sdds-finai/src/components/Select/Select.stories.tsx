@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconPlasma } from '@salutejs/plasma-icons';
+import { IconPlasma, IconLockOutline } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import './style.css';
@@ -273,7 +273,7 @@ const meta: Meta<StorySelectProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         chipType: 'default',
         hasHint: false,
         hintText: 'Текст подсказки',
@@ -509,6 +509,18 @@ const items = [
     },
 ];
 
+const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    console.log(disabled, readOnly);
+    if (disabled) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    if (readOnly) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    return undefined;
+};
+
 const SingleStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
     const [value, setValue] = useState('');
 
@@ -520,6 +532,7 @@ const SingleStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentRight={getIcon(args.size, args.disabled, args.readOnly)}
             />
         </div>
     );
@@ -548,6 +561,7 @@ const MultiselectStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
                 value={value}
                 onChange={setValue}
                 contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentRight={getIcon(args.size, args.disabled, args.readOnly)}
             />
         </div>
     );
@@ -588,6 +602,7 @@ const PredefinedStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
                 value={valueSingle}
                 onChange={setValueSingle}
                 contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentRight={getIcon(args.size, args.disabled, args.readOnly)}
             />
 
             <br />
@@ -599,6 +614,7 @@ const PredefinedStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
                 value={valueMultiple}
                 onChange={setValueMultiple}
                 contentLeft={enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
+                contentRight={getIcon(args.size, args.disabled, args.readOnly)}
             />
         </div>
     );

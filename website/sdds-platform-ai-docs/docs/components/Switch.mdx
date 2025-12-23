@@ -1,0 +1,59 @@
+---
+id: switch
+title: Switch
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Switch
+<Description name="Switch" />
+<PropsTable name="Switch" include={['defaultChecked']} />
+
+## Использование
+Компонент `Switch` может содержать лейбл.
+
+```tsx live
+import React from 'react';
+import { Switch } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    return (
+        <Switch description="Описание переключателя" label="Переключатель" defaultChecked />
+    );
+}
+```
+
+## Примеры
+
+### Размер Switch
+Размер компонента задается с помощью свойства `size`.
+
+```tsx live
+import React from 'react';
+import { Switch } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    return (
+        <div>
+            <Switch size="s" description="Описание переключателя" label="Переключатель" defaultChecked />
+            <Switch size="m" description="Описание переключателя" label="Переключатель" defaultChecked />
+        </div>
+    );
+}
+```
+
+Размер переключателя задается с помощью свойства `toggleSize`.
+
+```tsx live
+import React from 'react';
+import { Switch } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    return (
+        <div style={{ alignItems: "center" }}>
+            <Switch toggleSize="s" label="Переключатель" defaultChecked />
+            <Switch toggleSize="l" label="Переключатель" defaultChecked />
+        </div>
+    );
+}
+```

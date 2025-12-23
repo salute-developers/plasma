@@ -8,9 +8,15 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-primary);
+                ${tokens.background}: var(--surface-transparent-card);
                 ${tokens.backgroundError}: var(--surface-transparent-negative);
                 ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+
+                ${tokens.borderColor}: var(--outline-solid-primary);
+                ${tokens.borderColorHover}: var(--outline-solid-primary-hover);
+                ${tokens.borderColorFocus}: var(--outline-accent);
+                ${tokens.borderColorError}: var(--outline-transparent-negative);
+                ${tokens.borderColorSuccess}: var(--outline-transparent-positive);
 
                 ${tokens.labelColor}: var(--text-primary);
 
@@ -20,12 +26,23 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.timePickerShadow}: var(--shadow-down-soft-s);
+
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card);
+                ${tokens.textFieldBorderColor}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-card);
+                ${tokens.textFieldBorderColorError}: var(--outline-transparent-negative);
+                ${tokens.textFieldBorderColorErrorHover}: var(--outline-transparent-negative-hover);
+                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-accent);
                 ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-card);
+                ${tokens.textFieldBorderColorSuccess}: var(--outline-transparent-positive);
+                ${tokens.textFieldBorderColorSuccessHover}: var(--outline-transparent-positive-hover);
+                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
@@ -48,6 +65,7 @@ export const config = {
             l: css`
                 ${tokens.width}: 20rem;
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: 0 0 0 1rem;
                 ${tokens.rightContentMargin}: 0;
@@ -115,6 +133,7 @@ export const config = {
             m: css`
                 ${tokens.width}: 20rem;
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: 0 0 0 0.875rem;
                 ${tokens.rightContentMargin}: 0;
@@ -182,6 +201,7 @@ export const config = {
             s: css`
                 ${tokens.width}: 20rem;
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: 0 0 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
@@ -249,6 +269,7 @@ export const config = {
             xs: css`
                 ${tokens.width}: 20rem;
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.leftContentMargin}: 0 0 0 0.5rem;
                 ${tokens.rightContentMargin}: 0;
@@ -316,17 +337,27 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary);
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.borderColor}: transparent;
             `,
         },
         readonly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
 
-                ${tokens.textFieldColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary);
             `,
         },
     },

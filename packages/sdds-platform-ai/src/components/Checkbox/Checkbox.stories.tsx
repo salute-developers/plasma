@@ -3,8 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
-import { Link } from '../Link';
-
 import { config } from './Checkbox.config';
 
 import { Checkbox } from '.';
@@ -73,13 +71,13 @@ type Story = StoryObj<CheckboxProps>;
 
 const englishDescription = (
     <div>
-        The most spoken language in the <Link href="/#">world</Link>
+        The most spoken language in the <a href="/#">world</a>
     </div>
 );
 
 const chineseLabel = (
     <div>
-        Chinese is the hardest <Link href="/#">language</Link>
+        Chinese is the hardest <a href="/#">language</a>
     </div>
 );
 

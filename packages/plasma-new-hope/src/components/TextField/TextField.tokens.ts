@@ -4,6 +4,7 @@ export const classes = {
     hasChips: 'has-chips',
     chipsWrapper: 'chips-wrapper',
     hasValue: 'has-value',
+    hasFocus: 'has-focus',
     keepPlaceholder: 'keep-placeholder',
     hasEmptyContentLeft: 'has-empty-content-left',
     hasEmptyContentRight: 'has-empty-content-right',
@@ -24,6 +25,7 @@ export const classes = {
 
 export const tokens = {
     color: '--plasma-textfield-color',
+    colorFocus: '--plasma-textfield-color-focus',
     clearColor: '--plasma-textfield-clear-color',
     boxShadow: '--plasma-textfield-box-shadow',
 
@@ -38,6 +40,8 @@ export const tokens = {
     dividerColor: '--plasma-textfield-divider-color',
     dividerColorHover: '--plasma-textfield-divider-color-hover',
     dividerColorFocus: '--plasma-textfield-divider-color-focus',
+
+    dividerWidth: '--plasma-textfield-divider-width',
 
     /** Цвета для read-only состояния */
     colorReadOnly: '--plasma-textfield-color-readonly',
@@ -78,6 +82,7 @@ export const tokens = {
     contentSlotColor: '--plasma-textfield-content-slot-color',
     contentSlotColorHover: '--plasma-textfield-content-slot-color-hover',
     contentSlotColorActive: '--plasma-textfield-content-slot-color-active',
+    contentSlotColorFocus: '--plasma-textfield-content-slot-color-focus',
 
     contentSlotRightColor: '--plasma-textfield-content-right-slot-color',
     contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
@@ -123,6 +128,7 @@ export const tokens = {
     titleCaptionLineHeight: '--plasma-textfield__title-caption-line-height',
 
     leftHelperColor: '--plasma-textfield__left-helper-color',
+    leftHelperColorFocus: '--plasma-textfield__left-helper-color-focus',
     leftHelperColorReadOnly: '--plasma-textfield__left-helper-color-readonly',
     leftHelperOffset: '--plasma-textfield__left-helper-offset',
 
@@ -218,6 +224,7 @@ export const tokens = {
     indicatorLabelPlacementInnerRight: '--plasma-textfield__indicator-placement-inner-right',
     indicatorLabelPlacementOuterRight: '--plasma-textfield__indicator-placement-outer-right',
     indicatorLabelPlacementHintOuterRight: '--plasma-textfield__indicator-hint-placement-outer-right',
+
     clearIndicatorLabelPlacementInner: '--plasma-textfield__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
     clearIndicatorHintInnerRight: '--plasma-textfield__clear-indicator-hint-placement-inner-right',

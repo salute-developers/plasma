@@ -1,0 +1,253 @@
+---
+id: popover
+title: Popover
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Popover
+<Description name="Popover" />
+<PropsTable name="Popover" />
+
+## Варианты использования `target`
+
+`target` может быть как ReactNode, так и RefObject:
+
+:::important Работа с фокусом элементов
+Свойство `isFocusTrapped` захватывает фокус внутри одного DOM элемента.
+
+Когда свойство имеет значение `true`, при нажатии `Tab` или `Shift + Tab` фокус будет перемещаться только внутри всплывающего окна.
+Если поверх текущего всплывающего окна открывается еще одно модальное окно, то фокус захватывает последнее модальное окно.
+После закрытия всплывающего окна, фокус может свободно перемещаться.
+
+Если установить значение `isFocusTrapped` в false, после открытия всплывающего фокус будет перемещен на первый элемент внутри всплывающего окна.
+Но при последующей навигации с помощью `Tab` или `Shift + Tab` фокус не будет зациклен внутри всплывающего окна и может покинуть его.
+:::
+
+<Tabs>
+    <TabItem value="reactNode" label="React Node" default>
+        ```tsx live
+        import React from 'react';
+        import styled from "styled-components";
+        import { surfaceSolidTertiary } from "@salutejs/sdds-themes/tokens";
+        import { Popover, Button } from '@salutejs/sdds-platform-ai';
+
+        export function App() {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            const StyledContent = styled.div`
+                background: ${surfaceSolidTertiary};
+                padding: 1rem;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            `;
+
+            return (
+                <section style={{width: '20rem', height: '15rem'}}>
+                    <Popover
+                        opened={isOpen}
+                        onToggle={(is) => setIsOpen(is)}
+                        role="presentation"
+                        id="popover"
+                        target={<Button>Target</Button>}
+                        offset={[0, 6]}
+                        placement='bottom'
+                        trigger='click'
+                        hasArrow
+                        closeOnOverlayClick
+                        closeOnEsc
+                        isFocusTrapped
+                    >
+                        <StyledContent>
+                            <>Content</>
+                            <Button onClick={() => setIsOpen(false)}>close</Button>
+                        </StyledContent>
+                    </Popover>
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="refObject" label="RefObject">
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import styled from "styled-components";
+        import { surfaceSolidTertiary } from "@salutejs/sdds-themes/tokens";
+        import { Popover, Button } from '@salutejs/sdds-platform-ai';
+
+        export function App() {
+            const [isOpen, setIsOpen] = useState(false);
+
+            const targetRef = useRef<HTMLButtonElement | null>(null);
+            const targetRef2 = useRef<HTMLButtonElement | null>(null);
+            const targetRef3 = useRef<HTMLButtonElement | null>(null);
+
+            const refs = [targetRef, targetRef2, targetRef3];
+
+            const [currRefIndex, setCurrentRefIndex] = useState(0);
+            const [currentRef, setCurrentRef] = useState(targetRef);
+
+            const changeRef = () => {
+                let ind = currRefIndex + 1;
+
+                if (ind > refs.length - 1) {
+                    setCurrentRefIndex(0);
+                    ind = 0;
+                }
+
+                setCurrentRefIndex(ind);
+                setCurrentRef(refs[ind]);
+            };
+
+            const StyledContent = styled.div`
+                background: ${surfaceSolidTertiary};
+                padding: 1rem;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            `;
+
+            return (
+                <>
+                    <Button ref={targetRef}>Target 0</Button>
+                    <Button style={{ margin: '0 5rem' }} onClick={changeRef}>
+                        Change targetAsRef to Target {currRefIndex + 1 > refs.length - 1 ? 0 : currRefIndex + 1}
+                    </Button>
+                    <Button ref={targetRef2}>Target 1</Button>
+                    <Popover
+                        opened={isOpen}
+                        onToggle={(is) => setIsOpen(is)}
+                        role="presentation"
+                        id="popover"
+                        target={currentRef}
+                        offset={[0, 6]}
+                        placement='bottom'
+                        trigger='click'
+                        hasArrow
+                        closeOnOverlayClick
+                        closeOnEsc
+                        isFocusTrapped
+                    >
+                        <StyledContent>
+                            <>Content</>
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                        </StyledContent>
+                    </Popover>
+
+                    <div style={{ padding: '5rem' }}>Current Target: {currRefIndex}</div>
+                    <Button ref={targetRef3}>Target 2</Button>
+                </>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Resizable
+
+Чтобы иметь возможность растягивать Popover, нужно настроить свойство `resizable`. Формат следующий:
+
+```tsx
+/**
+ * Настройка resizable-режима.
+ */
+resizable?:
+    |  boolean
+    |  {
+            /**
+            * Включение/выключение ресайза.
+            * @default false
+            */
+            disabled?: boolean;
+            /**
+            * Направления для ресайза.
+            */
+            directions?: ResizeDirections;
+            /**
+            * Начальный размер окна ресайза.
+            */
+            defaultSize?: { width?: number; height?: number };
+            /**
+            * Минимальная ширина ресайза в px.
+            */
+            minWidth?: number;
+            /**
+            * Минимальная высота ресайза в px.
+            */
+            minHeight?: number;
+            /**
+            * Максимальная ширина ресайза в px.
+            */
+            maxWidth?: number;
+            /**
+            * Максимальная высота ресайза в px.
+            */
+            maxHeight?: number;
+            /**
+            * Кастомные иконки ресайза.
+            */
+            icons?: {
+                topRight?: ReactNode;
+                bottomRight?: ReactNode;
+                bottomLeft?: ReactNode;
+                topLeft?: ReactNode;
+            };
+            /**
+            * Размер иконки ресайза.
+            * @default s
+            */
+            iconSize?: 'xs' | 's' | 'm';
+            /**
+            * Скрывать ли иконку для ресайза.
+            * @default false
+            */
+            hiddenIcons?: PopupPlacementMixed[];
+        };
+```
+
+Пример:
+
+```tsx live
+import React from 'react';
+import styled from "styled-components";
+import { surfaceSolidTertiary } from "@salutejs/sdds-themes/tokens";
+import { Popover, Button } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const StyledContent = styled.div`
+        background: ${surfaceSolidTertiary};
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        box-sizing: border-box;
+    `;
+
+    return (
+        <section style={{width: '20rem', height: '15rem'}}>
+            <Popover
+                opened={isOpen}
+                onToggle={(is) => setIsOpen(is)}
+                target={<Button>Target</Button>}
+                placement='bottom'
+                trigger='click'
+                resizable
+            >
+                <StyledContent>
+                    <>Content</>
+                    <Button onClick={() => setIsOpen(false)}>close</Button>
+                </StyledContent>
+            </Popover>
+        </section>
+    );
+}
+```

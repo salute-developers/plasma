@@ -17,6 +17,7 @@ import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readonlyCSS } from './variations/_readonly/base';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 
+// changes to start tests
 interface ActiveTime {
     hours?: number | null;
     minutes?: number | null;
@@ -38,7 +39,7 @@ export const timePickerRoot = (
                 keepPlaceholder,
                 required = false,
                 requiredPlacement = 'right',
-                hasRequiredIndicator = true,
+                hasRequiredIndicator = false,
                 placeholder,
                 contentLeft,
                 contentRight,

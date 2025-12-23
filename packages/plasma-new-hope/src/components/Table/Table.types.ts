@@ -130,6 +130,22 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChan
      * Сеттер свойств для строки
      */
     setRowProps?: (row: TableRowData) => HTMLAttributes<any> & ThHTMLAttributes<any>;
+    /**
+     * Слот для контента над таблицей.
+     */
+    topContent?: ReactNode;
+    /**
+     * Слот для контента под таблицей.
+     */
+    bottomContent?: ReactNode;
+    /**
+     * Слот для лоадинга под контентом.
+     */
+    loadingSlot?: ReactNode;
+    /**
+     * Обработчик сколла контента.
+     */
+    onScroll?: (e: React.UIEvent<HTMLElement>) => void;
 
     /**
      * Размер таблицы

@@ -20,6 +20,8 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
+                ${tokens.timePickerShadow}: var(--shadow-down-soft-s);
+
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);

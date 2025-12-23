@@ -175,7 +175,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         readOnly: false,
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         optional: false,
         optionalText: 'опционально',
     },

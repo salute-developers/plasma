@@ -85,6 +85,6 @@ module.exports = {
         scope: [...commonScope, 'sdds-themes', 'plasma-core'],
     },
     'sdds-platform-ai': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'sdds-platform-ai-docs', 'plasma-docs-ui'],
     },
 };

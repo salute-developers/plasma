@@ -42,6 +42,10 @@ type Target = LabelProps &
                    */
                   contentLeft?: React.ReactNode;
                   /**
+                   * Слот для контента справа.
+                   */
+                  contentRight?: React.ReactElement;
+                  /**
                    * Placeholder.
                    */
                   placeholder?: string;
@@ -73,6 +77,7 @@ type Target = LabelProps &
                   | 'black'
                   | 'white';
               contentLeft?: never;
+              contentRight?: never;
               placeholder?: never;
               helperText?: never;
               chipType?: never;

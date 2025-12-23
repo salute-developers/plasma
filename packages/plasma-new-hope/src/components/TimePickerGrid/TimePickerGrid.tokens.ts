@@ -23,6 +23,7 @@ export const tokens = {
     itemPadding: '--plasma-time-picker-grid-item-padding',
     itemBackgroundHover: '--plasma-time-picker-grid-item-hover-background',
     itemBackgroundActive: '--plasma-time-picker-grid-item-active-background',
+    itemFocusColor: '--plasma-time-picker-grid-item-focus-color',
 
     itemFontFamily: '--plasma-time-picker-grid-item-font-family',
     itemFontStyle: '--plasma-time-picker-grid-item-font-style',

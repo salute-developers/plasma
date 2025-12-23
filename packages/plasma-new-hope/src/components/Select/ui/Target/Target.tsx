@@ -17,6 +17,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             labelPlacement,
             size,
             contentLeft,
+            contentRight,
             disabled,
             readOnly,
             renderValue,
@@ -81,6 +82,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 size={size}
                 view={view}
                 contentLeft={contentLeft}
+                contentRight={contentRight}
                 helperText={helperText}
                 treeId={treeId}
                 activeDescendantItemValue={activeDescendantItemValue}

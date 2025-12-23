@@ -248,7 +248,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         leftHelper: 'Подсказка слева',
         enableLeftHelperIcon: true,
         rightHelper: 'Подсказка справа',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         requiredIndicatorPlacement: 'right',
         optional: false,
         optionalText: 'optional',

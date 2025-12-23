@@ -1,15 +1,9 @@
 import { css } from '@linaria/core';
+import { informationWrapperClasses } from 'src/components/InformationWrapper';
+import { textFieldTokens } from 'src/components/TextField';
 
 import { classes, tokens } from '../../Range.tokens';
-import {
-    StyledLabel,
-    LeftHelper,
-    StyledDivider,
-    ContentWrapper,
-    StyledIndicator,
-    StyledInput,
-} from '../../Range.styles';
-import { textFieldTokens } from '../../../TextField';
+import { StyledDivider, ContentWrapper, StyledInput, StyledContentLeft } from '../../Range.styles';
 
 export const base = css`
     ${ContentWrapper} {
@@ -39,28 +33,97 @@ export const base = css`
         }
     }
 
+    &.${classes.clear} {
+        .${classes.rangeSuccess} {
+            ${StyledContentLeft} {
+                color: var(${tokens.contentSlotColorSuccess});
+
+                &:hover {
+                    color: var(${tokens.contentSlotColorSuccessHover});
+                }
+
+                &:active {
+                    color: var(${tokens.contentSlotColorSuccessActive});
+                }
+            }
+
+            ${ContentWrapper}:before {
+                background: var(${tokens.textFieldDividerColorSuccess});
+            }
+
+            ${StyledInput} {
+                ${textFieldTokens.contentSlotColor}: var(${tokens.contentSlotColorSuccess});
+                ${textFieldTokens.contentSlotColorHover}: var(${tokens.contentSlotColorSuccessHover});
+                ${textFieldTokens.contentSlotColorActive}: var(${tokens.contentSlotColorSuccessActive});
+                
+                ${textFieldTokens.dividerColor}: transparent;
+                ${textFieldTokens.dividerColorHover}: transparent;
+                ${textFieldTokens.dividerColorFocus}: transparent;
+            }
+        }
+
+        ${StyledInput}.${classes.rangeValueSuccess} {
+            ${textFieldTokens.contentSlotColor}: var(${tokens.contentSlotColorSuccess});
+            ${textFieldTokens.contentSlotColorHover}: var(${tokens.contentSlotColorSuccessHover});
+            ${textFieldTokens.contentSlotColorActive}: var(${tokens.contentSlotColorSuccessActive});
+            
+            ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorSuccess});
+            ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorSuccess});
+            ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorSuccess});
+        }
+
+        .${classes.rangeError} {
+            ${StyledContentLeft} {
+                color: var(${tokens.contentSlotColorError});
+
+                &:hover {
+                    color: var(${tokens.contentSlotColorErrorHover});
+                }
+
+                &:active {
+                    color: var(${tokens.contentSlotColorErrorActive});
+                }
+            }
+
+            ${ContentWrapper}:before {
+                background: var(${tokens.textFieldDividerColorError});
+            }
+            
+            ${StyledInput} {
+                ${textFieldTokens.contentSlotColor}: var(${tokens.contentSlotColorError});
+                ${textFieldTokens.contentSlotColorHover}: var(${tokens.contentSlotColorErrorHover});
+                ${textFieldTokens.contentSlotColorActive}: var(${tokens.contentSlotColorErrorActive});
+                
+                ${textFieldTokens.dividerColor}: transparent;
+                ${textFieldTokens.dividerColorHover}: transparent;
+                ${textFieldTokens.dividerColorFocus}: transparent;
+            }
+        }
+            
+        ${StyledInput}.${classes.rangeValueError} {
+            ${textFieldTokens.contentSlotColor}: var(${tokens.contentSlotColorError});
+            ${textFieldTokens.contentSlotColorHover}: var(${tokens.contentSlotColorErrorHover});
+            ${textFieldTokens.contentSlotColorActive}: var(${tokens.contentSlotColorErrorActive});
+
+            ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorError});
+            ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorError});
+            ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorError});
+        }
+    }
+
     ${StyledDivider} {
         color: var(${tokens.dividerColor});
     }
 
-    ${StyledLabel} {
-        display: block;
-        color: var(${tokens.labelColor});
-    }
-
-    ${StyledIndicator} {
-        background-color: var(${tokens.indicatorColor});
-    }
-
-    ${LeftHelper} {
-        color: var(${tokens.leftHelperColor});
-
-        &.${classes.rangeError}, &.${classes.rangeValueError} {
-            color: var(${tokens.leftHelperColorError});
-        }
-
-        &.${classes.rangeSuccess}, &.${classes.rangeValueSuccess} {
+    .${classes.rangeSuccess}, .${classes.rangeValueSuccess} {
+        .${informationWrapperClasses.leftHelper} {
             color: var(${tokens.leftHelperColorSuccess});
+        }
+    }
+
+    .${classes.rangeError}, .${classes.rangeValueError} {
+        .${informationWrapperClasses.leftHelper} {
+            color: var(${tokens.leftHelperColorError});
         }
     }
 `;

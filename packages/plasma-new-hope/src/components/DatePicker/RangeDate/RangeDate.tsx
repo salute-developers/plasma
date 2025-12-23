@@ -77,7 +77,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
 
                 required,
                 requiredPlacement = 'right',
-                hasRequiredIndicator = true,
+                hasRequiredIndicator = false,
 
                 format = 'DD.MM.YYYY',
                 lang = 'ru',
@@ -464,7 +464,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         dividerVariant={dividerVariant}
                         label={label}
                         required={required}
-                        requiredPlacement={requiredPlacement}
+                        requiredIndicatorPlacement={requiredPlacement}
                         hasRequiredIndicator={hasRequiredIndicator}
                         disabled={disabled}
                         readOnly={!disabled && readOnly}

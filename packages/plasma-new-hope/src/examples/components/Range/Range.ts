@@ -1,7 +1,19 @@
-import { component, mergeConfig } from '../../../engines';
-import { rangeConfig } from '../../../components/Range';
+import { component, mergeConfig } from 'src/engines';
+import { createConditionalComponent } from 'src/utils';
+import { rangeConfig } from 'src/components/Range';
 
-import { config } from './Range.config';
+import { config as configDefault } from './Range.config';
+import { config as configClear } from './Range.clear.config';
 
-const mergedConfig = mergeConfig(rangeConfig, config);
-export const Range = component(mergedConfig);
+const mergedConfigDefault = mergeConfig(rangeConfig, configDefault);
+export const RangeDefault = component(mergedConfigDefault);
+
+const mergedConfigClear = mergeConfig(rangeConfig, configClear);
+export const RangeClear = component(mergedConfigClear);
+
+export const Range = createConditionalComponent(RangeDefault, [
+    {
+        conditions: { prop: 'appearance', value: 'clear' },
+        component: RangeClear,
+    },
+]);

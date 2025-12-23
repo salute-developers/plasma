@@ -58,22 +58,6 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0.375rem 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.5rem;
-
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
-
-                ${tokens.indicatorSize}: 0.375rem;
-                ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorPlacement}: 0 0 0 0;
-                ${tokens.indicatorOuterPlacement}: 0.3125rem auto auto -0.6875rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
-
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldBorderWidth}: 0.125rem;
@@ -85,18 +69,39 @@ export const config = {
                 ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.indicatorWrapperGap}: 0.25rem;
+                ${tokens.labelWrapperOffset}: 0.5rem;
+                ${tokens.labelWrapperTitleCaptionOffset}: 0.25rem;
+                ${tokens.contentGap}: 0.75rem;
+
+                ${tokens.indicatorSizeInner}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorMarginTop}: 0.25rem;
+                ${tokens.indicatorOuterLeft}: -0.75rem;
+                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+
+                ${tokens.helpersPadding}: 0.25rem 0 0 0;
+                ${tokens.helpersGap}: 0.25rem;
+
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.leftHelperFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-s-line-height);
-
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
-                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
             `,
         },
         disabled: {

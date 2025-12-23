@@ -22,6 +22,8 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
+                ${tokens.timePickerShadow}: var(--shadow-down-soft-s);
+
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
@@ -37,6 +39,7 @@ export const config = {
                 ${tokens.timePickerBackground}: var(--surface-solid-card);
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.itemBackgroundActive}: var(--surface-transparent-secondary);
+                ${tokens.itemFocusColor}: var(--surface-accent);
 
                 ${tokens.scrollbarColor}: var(--surface-transparent-tertiary);
                 ${tokens.scrollbarTrackColor}: var(--surface-transparent-primary);

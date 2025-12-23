@@ -146,7 +146,7 @@ const meta: Meta<StoryProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         virtual: false,
         flip: false,
     },

@@ -34,7 +34,7 @@ export const createChangelogLink = ({ vertical, version, platform = 'react' }: C
 };
 
 export const baseColorCode = '600';
-export const PACKAGES_INFO = (process.env.PACKAGES_INFO as unknown) as PackagesInfo;
+export const PACKAGES_INFO = JSON.parse(process.env.PACKAGES_INFO || '{}') as PackagesInfo;
 export const basePath = process.env.BASE_PATH || '';
 export const rootFontSize = 16;
 export const topOffsetAfterScroll = 35;
@@ -132,6 +132,16 @@ export const verticalsMap = [
                 contentLeft: <History />,
                 isMeta: false,
             },
+        ],
+    },
+    {
+        key: 'SDDSPlatformAI',
+        title: 'SDDS Platform-AI',
+        package: '@salutejs/sdds-platform-ai',
+        group: 'СДДС',
+        items: [
+            { text: 'Сторибук', href: '/sdds-platform-ai-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Документация', href: '/sdds-platform-ai/', contentRight: <ArrowTopRight /> },
         ],
     },
     {

@@ -9,6 +9,8 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 const Icon = () => <IconDownload color="inherit" />;
 
 type RangeDemoProps = {
+    appearance?: 'default' | 'clear';
+    hasClearDivider?: boolean;
     size?: string;
     disabled?: boolean;
     readOnly?: boolean;
@@ -33,6 +35,8 @@ describe('plasma-web: Range', () => {
     );
 
     const Demo = ({
+        appearance = 'default',
+        hasClearDivider,
         size = 'm',
         label,
         disabled,
@@ -45,6 +49,8 @@ describe('plasma-web: Range', () => {
     }: RangeDemoProps) => {
         return (
             <Range
+                appearance={appearance}
+                hasClearDivider={hasClearDivider}
                 size={size}
                 disabled={disabled}
                 readOnly={readOnly}
@@ -191,6 +197,49 @@ describe('plasma-web: Range', () => {
                 </div>
             </CypressTestDecoratorWithTypo>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] Range: appearance=clear, hasClearDivider', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo appearance="clear" />
+                <PadMe />
+                <Demo appearance="clear" hasClearDivider />
+            </CypressTestDecorator>,
+        );
+        cy.get('input').last().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] Range: appearance=clear, firstValueSuccess, secondValueSuccess', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo appearance="clear" firstValueSuccess hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" secondValueSuccess hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" firstValueSuccess secondValueSuccess hasClearDivider />
+            </CypressTestDecorator>,
+        );
+        cy.get('input').last().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] Range: appearance=clear, firstValueError, secondValueError', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo appearance="clear" firstValueError hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" secondValueError hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" firstValueError secondValueError hasClearDivider />
+            </CypressTestDecorator>,
+        );
+        cy.get('input').last().click();
 
         cy.matchImageSnapshot();
     });

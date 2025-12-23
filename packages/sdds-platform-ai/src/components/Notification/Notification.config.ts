@@ -278,22 +278,6 @@ export const config = {
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
             `,
         },
-        layout: {
-            horizontal: css`
-                ${notificationTokens.width}: 25rem;
-                ${notificationTokens.horizontalLayoutPadding}: 1rem 0.5rem 1rem 0.875rem;
-            `,
-            vertical: css`
-                ${notificationTokens.width}: 15rem;
-                ${notificationTokens.padding}: 0.375rem;
-            `,
-        },
-        closeIconType: {
-            default: css`
-                ${notificationTokens.closeIconButtonSize}: 1.5rem;
-                ${notificationTokens.closeIconSize}: 1.5rem;
-            `,
-        },
         size: {
             xs: css`
                 ${notificationTokens.closeIconTop}: 0.5rem;
@@ -308,6 +292,22 @@ export const config = {
                 ${notificationTokens.contentPaddingLeft}: 0.25rem;
 
                 ${notificationTokens.buttonsMarginLeft}: 0rem;
+            `,
+        },
+        layout: {
+            horizontal: css`
+                ${notificationTokens.width}: 25rem;
+                ${notificationTokens.horizontalLayoutPadding}: 1rem 0.5rem 1rem 0.875rem;
+            `,
+            vertical: css`
+                ${notificationTokens.width}: 15rem;
+                ${notificationTokens.padding}: 0.375rem;
+            `,
+        },
+        closeIconType: {
+            default: css`
+                ${notificationTokens.closeIconButtonSize}: 1.5rem;
+                ${notificationTokens.closeIconSize}: 1.5rem;
             `,
         },
     },

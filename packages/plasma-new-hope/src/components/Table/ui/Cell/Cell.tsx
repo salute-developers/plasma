@@ -3,7 +3,7 @@ import type { HTMLAttributes, TdHTMLAttributes } from 'react';
 import { flexRender, Cell as CellType } from '@tanstack/react-table';
 
 import { Resizer } from '../../Table.styles';
-import { SELECT_COLUMN_ID } from '../../Table';
+import { SELECT_COLUMN_ID } from '../../utils';
 import { TableProps, TableRowData } from '../../Table.types';
 
 import { Td } from './Cell.styles';

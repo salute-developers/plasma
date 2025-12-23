@@ -2,7 +2,7 @@ import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from 'storybook/actions';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconCalendar } from '@salutejs/plasma-icons';
+import { IconCalendar, IconLockOutline } from '@salutejs/plasma-icons';
 
 import { DateTimePicker } from './DateTimePicker';
 import { config } from './DateTimePicker.config';
@@ -32,6 +32,17 @@ const dateShortcuts = [
         label: 'Максимальная дата',
     },
 ];
+
+const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    if (disabled) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    if (readOnly) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    return <IconCalendar color="inherit" size={iconSize} />;
+};
 
 const meta: Meta = {
     title: 'Data Entry/DateTimePicker',
@@ -126,7 +137,7 @@ const StoryDefault = ({ enableContentLeft, enableContentRight, size, showShortcu
             opened={isOpen}
             size={size}
             contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
-            contentRight={enableContentRight ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? getIcon(size, rest.disabled, rest.readOnly) : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => {
@@ -187,7 +198,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         dateShortcutsPlacement: 'left',
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         disabled: false,
         readOnly: false,
         textBefore: '',

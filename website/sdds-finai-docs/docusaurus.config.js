@@ -137,6 +137,32 @@ const config = {
                             // Функция обрезки типов
                             return true;
                         },
+                        componentNameResolver: (exp, source) => {
+                            const filePath = source.fileName;
+
+                            let baseName = null;
+
+                            // 1. export const Button = ...
+                            if (typeof exp?.name === 'string') {
+                                baseName = exp.name;
+                            }
+
+                            // 2. export function Button() {}
+                            if (!baseName && exp?.name?.escapedText) {
+                                baseName = String(exp.name.escapedText);
+                            }
+
+                            // 3. fallback — имя файла
+                            if (!baseName) {
+                                baseName = path.basename(filePath).replace(/\.(ts|tsx)$/, '');
+                            }
+
+                            if (filePath.includes('/src/components/_beta/')) {
+                                return `${baseName}Beta`;
+                            }
+
+                            return baseName;
+                        },
                     }).parse(
                         await fg([
                             '../../packages/sdds-finai/src/**/*.{ts,tsx}',

@@ -28,7 +28,7 @@ export type DatePickerTextFieldProps = {
     required?: boolean;
     /**
      * Флаг наличия индикатора обязательности поля
-     * @default true
+     * @default false
      */
     hasRequiredIndicator?: boolean;
     /**

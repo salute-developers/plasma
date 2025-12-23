@@ -6,7 +6,6 @@ import { tokens } from './TimePickerGrid.tokens';
 export const base = css`
     display: flex;
     width: 100%;
-    height: 10rem;
 `;
 
 export const StyledTimePicker = styled.div<{ width?: string | number }>`

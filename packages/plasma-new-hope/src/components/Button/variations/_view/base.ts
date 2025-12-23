@@ -10,11 +10,14 @@ export const base = css`
         background: var(${tokens.buttonLoadingBackgroundColor});
     }
 
-    :hover {
-        color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
-        background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
+    // INFO: Чтобы не было "залипания" состояния на мобильных устройствах
+    @media (hover: hover) and (pointer: fine) {
+        :hover {
+            color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
+            background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
-        scale: var(${tokens.buttonScaleHover});
+            scale: var(${tokens.buttonScaleHover});
+        }
     }
 
     :active {

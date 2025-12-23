@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconDone } from '@salutejs/plasma-icons';
+import { IconDone, IconPlasma, IconLockOutline } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Combobox } from './Combobox';
@@ -249,7 +249,7 @@ const meta: Meta<StorySelectProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         hasHint: false,
         hintText: 'Текст подсказки',
         hintTrigger: 'hover',
@@ -485,6 +485,17 @@ const items = [
     },
 ];
 
+const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
+    const iconSize = size === 'xs' ? 'xs' : 's';
+    if (disabled) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    if (readOnly) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    return undefined;
+};
+
 const SingleStory = (args: StorySelectProps) => {
     const [value, setValue] = useState('');
 
@@ -495,7 +506,8 @@ const SingleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={<IconPlasma size="s" color="inherit" />}
+                contentRight={getIcon(args.size, args.disabled, args.readOnly)}
             />
         </div>
     );
@@ -521,7 +533,8 @@ const MultipleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={args.enableContentLeft ? <IconDone size="s" /> : undefined}
+                contentLeft={<IconPlasma size="s" color="inherit" />}
+                contentRight={getIcon(args.size, args.disabled, args.readOnly)}
             />
         </div>
     );
