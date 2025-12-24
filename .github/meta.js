@@ -110,7 +110,7 @@ module.exports = {
     },
     'sdds-platform-ai': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes', 'sdds-themes'],
         themes: 'sdds-themes',
     },
 };

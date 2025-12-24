@@ -1,0 +1,95 @@
+---
+id: intro
+title: Введение
+sidebar_position: 1
+slug: /
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+import ThemeSwitch from './_theme-switch/theme-switch.mdx';
+import ThemeTurnOn from './_theme-turn-on/theme-turn-on.mdx';
+
+import NextAppExample from './_examples/_init_next_app.mdx';
+import WepAppExample from './_examples/_init_web_app.mdx';
+
+# SDDS-PLATFORM-AI
+
+Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
+
+## Использование
+
+Библиотека реализована с помощью:
+- [typescript](https://www.typescriptlang.org/)
+- [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
+
+Однако их использование **необязательно**!
+
+### Установка зависимостей
+
+:::info
+Убедитесь, что у вас установлен ReactJS!
+:::
+
+```bash
+$ npm install --save @salutejs/sdds-platform-ai @salutejs/sdds-themes
+```
+
+Для работы со `styled-components`, необходимо установить
+
+```bash
+$ npm install --save styled-components@5.3.1
+```
+
+### Использование компонентов
+
+Все компоненты доступны напрямую из пакета
+
+```jsx
+import styled from 'styled-components';
+import { Button } from '@salutejs/sdds-platform-ai';
+import { textAccent } from '@salutejs/sdds-themes/tokens';
+
+export const App = () => {
+    const StyledP = styled.p`
+        color: ${textAccent};
+    `;
+
+    return (
+        <>
+            <Button>Hello, Plasma!</Button>
+
+            <StyledP>
+                Token usage example
+            </StyledP>
+        </>
+    );
+};
+```
+
+Так же библиотека поставляет компоненты собранные с помощью `styled-components`
+
+```js
+import { Button } from '@salutejs/sdds-platform-ai/styled-components';
+```
+
+## Подключение шрифтов
+
+Типографическая система основана на фирменных шрифтах.
+
+Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network).
+
+Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
+
+<Tabs>
+    <TabItem value="cra" label="html" default>
+        <WepAppExample />
+    </TabItem>
+    <TabItem value="next" label="NextJS">
+        <NextAppExample />
+    </TabItem>
+</Tabs>
+
+<ThemeTurnOn/>
+
+<ThemeSwitch/>

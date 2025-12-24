@@ -4,7 +4,7 @@ import { flexRender, Table, Cell as CellType } from '@tanstack/react-table';
 import { useOutsideClick } from 'src/hooks';
 
 import { Resizer } from '../../Table.styles';
-import { SELECT_COLUMN_ID } from '../../Table';
+import { SELECT_COLUMN_ID } from '../../utils';
 import { IconEditOutline, IconResetOutline, IconDoneCircleOutline } from '../../../_Icon';
 import { getIconSize } from '../HeadCell/HeadCell';
 import { classes } from '../../Table.tokens';

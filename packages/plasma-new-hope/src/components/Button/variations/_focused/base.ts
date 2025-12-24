@@ -3,10 +3,12 @@ import { css } from '@linaria/core';
 import { tokens } from '../../Button.tokens';
 import { addFocus } from '../../../../mixins';
 
-// TODO: focus-visible #711
-
 export const base = css`
     :focus {
+        outline: none;
+    }
+
+    :focus-visible {
         outline: none;
     }
 

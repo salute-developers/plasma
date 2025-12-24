@@ -3,14 +3,14 @@ import type { ComponentProps, FC, PropsWithChildren } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import cypress from 'cypress';
 
-import { Loader as LoaderB2C } from '.';
+import { Loader as LoaderGIGA } from '.';
 
 const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
     <CypressTestDecorator>{children}</CypressTestDecorator>
 );
 
-describe('plasma-b2c: Loader', () => {
-    const Loader = getComponent('Loader') as typeof LoaderB2C;
+describe('plasma-giga: Loader', () => {
+    const Loader = getComponent('Loader') as typeof LoaderGIGA;
 
     const Demo = ({
         size = 'm',

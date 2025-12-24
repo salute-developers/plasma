@@ -104,10 +104,10 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.5rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
+                ${tokens.labelWrapperOffset}: 0.5rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
@@ -115,12 +115,19 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.indicatorSize}: 0.375rem;
+                ${tokens.indicatorWrapperGap}: 0.25rem;
+                ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
+
                 ${tokens.indicatorPlacement}: 0 0 0 0;
                 ${tokens.indicatorOuterPlacement}: 0.3125rem auto auto -0.6875rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+
+                ${tokens.indicatorMarginTop}: 0.25rem;
+                ${tokens.indicatorOuterLeft}: -0.75rem;
+                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
 
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
@@ -248,6 +255,8 @@ export const config = {
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderWidth}: 0;
             `,
         },
     },

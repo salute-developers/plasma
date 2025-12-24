@@ -331,6 +331,10 @@ export const StyledLeftHelper = styled.span`
     line-height: var(${tokens.helpersLineHeight});
 
     color: var(${tokens.leftHelperColor});
+
+    &.${classes.leftHelperFocus} {
+        color: var(${tokens.leftHelperColorFocus});
+    }
 `;
 
 export const StyledRightHelper = styled(StyledLeftHelper)`

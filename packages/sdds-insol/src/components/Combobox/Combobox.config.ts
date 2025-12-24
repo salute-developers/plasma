@@ -978,6 +978,8 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderWidth}: 0;
             `,
         },
     },

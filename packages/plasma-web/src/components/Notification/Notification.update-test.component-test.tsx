@@ -4,8 +4,6 @@ import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/pl
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 
-import { addNotification, closeNotification } from './index';
-
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const NoAnimationStyle = createGlobalStyle`
@@ -22,6 +20,8 @@ const ButtonsWrapper = styled.div`
 
 describe('plasma-web: Notification', () => {
     const NotificationsProvider = getComponent('NotificationsProvider');
+    const addNotification = getComponent('addNotification');
+    const closeNotification = getComponent('closeNotification');
     const Button = getComponent('Button');
 
     const CypressTestDecoratorWithTypo: FC = ({ children }) => (

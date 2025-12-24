@@ -1,10 +1,15 @@
 export const classes = {
+    rangeInformationWrapper: 'range-information-wrapper',
     rangeError: 'range-error',
     rangeValueError: 'range-value-error',
     rangeSuccess: 'range-success',
     rangeValueSuccess: 'range-value-success',
     requiredAlignRight: 'required-align-right',
     requiredOuterPlacement: 'required-placement-outer',
+    noCaptionAndLabel: 'range-no-caption-label',
+    clear: 'range-clear',
+    clearDivider: 'range-clear-divider',
+    clearHasOuterHint: 'range-clear-has-outer-hint',
 };
 
 export const tokens = {
@@ -21,6 +26,8 @@ export const tokens = {
     shadow: '--plasma-range-shadow',
 
     /** Токены разделителя */
+    clearDividerColor: '--plasma-range-clear__divider-color',
+
     dividerColor: '--plasma-range__divider-color',
     dividerColorReadOnly: '--plasma-range__divider-color-readonly',
     dividerOpacityReadOnly: '--plasma-range__divider-opacity-readonly',
@@ -41,49 +48,104 @@ export const tokens = {
     contentSlotColorHover: '--plasma-textfield-content-slot-color-hover',
     contentSlotColorActive: '--plasma-textfield-content-slot-color-active',
 
+    contentSlotColorSuccess: '--plasma-textfield-content-slot-color-success',
+    contentSlotColorSuccessHover: '--plasma-textfield-content-slot-color-success-hover',
+    contentSlotColorSuccessActive: '--plasma-textfield-content-slot-color-success-active',
+
+    contentSlotColorError: '--plasma-textfield-content-slot-color-error',
+    contentSlotColorErrorHover: '--plasma-textfield-content-slot-color-error-hover',
+    contentSlotColorErrorActive: '--plasma-textfield-content-slot-color-error-active',
+
     contentSlotRightColor: '--plasma-textfield-content-right-slot-color',
     contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
     contentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
 
-    /** Токены лейбла */
-    labelColor: '--plasma-range__label-color',
-    labelColorReadOnly: '--plasma-range__label-color-readonly',
-    labelOffset: '--plasma-range__label-offset',
+    indicatorWrapperGap: '--plasma-range-info-wrapper-indicator-wrapper-gap',
+    labelWrapperOffset: '--plasma-range-info-wrapper-label-wrapper-offset',
+    labelWrapperTitleCaptionOffset: '--plasma-range-info-wrapper-label-wrapper-title-caption-offset',
+    labelFontFamily: '--plasma-range-info-wrapper-label-font-family',
+    labelFontStyle: '--plasma-range-info-wrapper-label-font-style',
+    labelFontSize: '--plasma-range-info-wrapper-label-font-size',
+    labelFontWeight: '--plasma-range-info-wrapper-label-font-weight',
+    labelLetterSpacing: '--plasma-range-info-wrapper-label-letter-spacing',
+    labelLineHeight: '--plasma-range-info-wrapper-label-line-height',
+    labelColor: '--plasma-range-info-wrapper-label-color',
 
-    labelFontFamily: '--plasma-range__label-font-family',
-    labelFontStyle: '--plasma-range__label-font-style',
-    labelFontSize: '--plasma-range__label-font-size',
-    labelFontWeight: '--plasma-range__label-font-weight',
-    labelLetterSpacing: '--plasma-range__label-letter-spacing',
-    labelLineHeight: '--plasma-range__label-line-height',
+    contentGap: '--plasma-range-info-wrapper-content-gap',
 
-    /** Токены индикатора */
-    indicatorColor: '--plasma-range__indicator-color',
+    titleCaptionOffset: '--plasma-range-info-wrapper-title-caption-offset',
+    titleCaptionColor: '--plasma-range-info-wrapper-title-caption-color',
+    titleCaptionFontFamily: '--plasma-range-info-wrapper-title-caption-font-family',
+    titleCaptionFontStyle: '--plasma-range-info-wrapper-title-caption-font-style',
+    titleCaptionFontSize: '--plasma-range-info-wrapper-title-caption-font-size',
+    titleCaptionFontWeight: '--plasma-range-info-wrapper-title-caption-font-weight',
+    titleCaptionLetterSpacing: '--plasma-range-info-wrapper-title-caption-letter-spacing',
+    titleCaptionLineHeight: '--plasma-range-info-wrapper-title-caption-line-height',
 
-    indicatorSize: '--plasma-range__indicator-size',
-    indicatorSizeOuter: '--plasma-range__indicator-size-outer',
-    indicatorPlacement: '--plasma-range__indicator-placement',
-    indicatorPlacementRight: '--plasma-range__indicator-placement-right',
-    indicatorOuterPlacement: '--plasma-range__indicator-placement-outer',
-    indicatorOuterPlacementRight: '--plasma-range__indicator-placement-outer-right',
+    /** Токены для tooltip */
+    hintMargin: '--plasma-range-info-wrapper-hint-margin',
+    hintTargetSize: '--plasma-range-info-wrapper-hint-target-size',
+    hintCustomIconTargetSize: '--plasma-range-info-wrapper-hint-custom-icon-target-size',
+    hintIconColor: '--plasma-range-info-wrapper-hint-icon-color',
+    hintWithoutLabelPlacementOffset: '--plasma-range-info-wrapper-hint-without-label-placement-offset',
+    hintPlacementInnerMargin: '--plasma-range-info-wrapper-hint-placement-inner-offset',
 
-    /** Токены вспомогательного текста */
-    leftHelperColor: '--plasma-range__left-helper-color',
-    leftHelperColorReadOnly: '--plasma-range__left-helper-color-readonly',
-    leftHelperOffset: '--plasma-range__left-helper-offset',
-    leftHelperColorError: '--plasma-range__left-helper-color-error',
-    leftHelperColorSuccess: '--plasma-range__left-helper-color-success',
+    tooltipBackgroundColor: '--plasma-range-info-wrapper-tooltip-background-color',
+    tooltipBoxShadow: '--plasma-range-info-wrapper-tooltip-box-shadow',
+    tooltipColor: '--plasma-range-info-wrapper-tooltip-color',
 
-    leftHelperFontFamily: '--plasma-range__left-helper-font-family',
-    leftHelperFontStyle: '--plasma-range__left-helper-font-style',
-    leftHelperFontSize: '--plasma-range__left-helper-font-size',
-    leftHelperFontWeight: '--plasma-range__left-helper-font-weight',
-    leftHelperLetterSpacing: '--plasma-range__left-helper-letter-spacing',
-    leftHelperLineHeight: '--plasma-range__left-helper-line-height',
+    tooltipPaddingTop: '--plasma-range-info-wrapper-tooltip-padding-top',
+    tooltipPaddingRight: '--plasma-range-info-wrapper-tooltip-padding-right',
+    tooltipPaddingBottom: '--plasma-range-info-wrapper-tooltip-padding-bottom',
+    tooltipPaddingLeft: '--plasma-range-info-wrapper-tooltip-padding-left',
+    tooltipMinHeight: '--plasma-range-info-wrapper-tooltip-min-height',
+    tooltipBorderRadius: '--plasma-range-info-wrapper-tooltip-border-radius',
+    tooltipTextFontFamily: '--plasma-range-info-wrapper-tooltip-text-font-family',
+    tooltipTextFontSize: '--plasma-range-info-wrapper-tooltip-text-font-size',
+    tooltipTextFontStyle: '--plasma-range-info-wrapper-tooltip-text-font-style',
+    tooltipTextFontWeight: '--plasma-range-info-wrapper-tooltip-text-font-weight',
+    tooltipTextFontLetterSpacing: '--plasma-range-info-wrapper-tooltip-text-font-letter-spacing',
+    tooltipTextFontLineHeight: '--plasma-range-info-wrapper-tooltip-text-font-line-height',
+    tooltipContentLeftMargin: '--plasma-range-info-wrapper-tooltip-content-left-margin',
+    tooltipArrowMaskWidth: '--plasma-range-info-wrapper-tooltip-arrow-mask-width',
+    tooltipArrowMaskHeight: '--plasma-range-info-wrapper-tooltip-arrow-mask-height',
+    tooltipArrowMaskImage: '--plasma-range-info-wrapper-tooltip-arrow-mask-image',
+    tooltipArrowHeight: '--plasma-range-info-wrapper-tooltip-arrow-height',
+    tooltipArrowEdgeMargin: '--plasma-range-info-wrapper-tooltip-arrow-edge-margin',
+    tooltipArrowBackground: '--plasma-range-info-wrapper-tooltip-arrow-background',
+
+    /** Токены для required indicator */
+    indicatorColor: '--plasma-range-info-wrapper-indicator-color',
+    indicatorSizeInner: '--plasma-range-info-wrapper-indicator-size-inner',
+    indicatorSizeOuter: '--plasma-range-info-wrapper-indicator-size-outer',
+    indicatorMarginTop: '--plasma-range-info-wrapper-indicator-margin-top',
+    indicatorOuterLeft: '--plasma-range-info-wrapper-indicator-outer-left',
+    indicatorWithoutLabelInner: '--plasma-range-info-wrapper-indicator-without-label-inner',
+    indicatorWithoutLabelInnerLeft: '--plasma-range-info-wrapper-indicator-without-label-inner-left',
+    indicatorWithoutLabelOuterHint: '--plasma-range-info-wrapper-indicator-without-label-outer-hint',
+
+    /** Токены для подписей снизу */
+    leftHelperColor: '--plasma-range-info-wrapper-left-helper-color',
+    leftHelperColorError: '--plasma-range-info-wrapper-left-helper--error',
+    leftHelperColorSuccess: '--plasma-range-info-wrapper-left-helper--success',
+
+    helpersPadding: '--plasma-range-info-wrapper-helpers-padding-top',
+    helpersGap: '--plasma-range-info-wrapper-helpers-gap',
+
+    leftHelperFontFamily: '--plasma-range-info-wrapper-left-helper-font-family',
+    leftHelperFontStyle: '--plasma-range-info-wrapper-left-helper-font-style',
+    leftHelperFontSize: '--plasma-range-info-wrapper-left-helper-font-size',
+    leftHelperFontWeight: '--plasma-range-info-wrapper-left-helper-font-weight',
+    leftHelperLetterSpacing: '--plasma-range-info-wrapper-left-helper-letter-spacing',
+    leftHelperLineHeight: '--plasma-range-info-wrapper-left-helper-line-height',
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-range-disabled-opacity',
     readOnlyOpacity: '--plasma-range-readonly-opacity',
+    labelColorReadOnly: '--plasma-range-info-wrapper-label-color-readonly',
+    titleCaptionColorReadOnly: '--plasma-range-info-wrapper-title-caption-color-readonly',
+    leftHelperColorReadOnly: '--plasma-range-info-wrapper-left-helper-color-readonly',
+    rightHelperColorReadOnly: '--plasma-range-info-wrapper-right-helper-color-readonly',
 
     /** Цвет обводки поля ввода при фокусе */
     focusColor: '--plasma-range-focus-color',
@@ -94,6 +156,7 @@ export const tokens = {
     textFieldColorSuccess: '--plasma-range-textfield-color-success',
     textFieldFocusColor: '--plasma-range-textfield-focus-color',
     textFieldPlaceholderColor: '--plasma-range-textfield-placeholder-color',
+    textFieldClearPlaceholderColorFocus: '--plasma-range-textfield-clear-placeholder-color-focus',
     textFieldCaretColor: '--plasma-range-textfield-caret-color',
 
     textFieldBackgroundColor: '--plasma-range-textfield-background-color',
@@ -139,4 +202,9 @@ export const tokens = {
     textFieldTextAfterColor: '--plasma-range-textfield__after-text-color',
     textFieldTextBeforeMargin: '--plasma-range-textfield__before-text-margin',
     textFieldTextAfterMargin: '--plasma-range-textfield__after-text-margin',
+
+    textFieldDividerColorSuccess: '--plasma-range-textfield__divider-color-success',
+    textFieldDividerColorError: '--plasma-range-textfield__divider-color-error',
+    textFieldDividerColorHover: '--plasma-range-textfield__divider-color-hover',
+    textFieldDividerColorFocus: '--plasma-range-textfield__divider-color-focus',
 };

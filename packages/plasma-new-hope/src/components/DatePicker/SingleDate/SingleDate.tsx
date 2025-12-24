@@ -36,7 +36,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 keepPlaceholder,
                 required = false,
                 requiredPlacement = 'right',
-                hasRequiredIndicator = true,
+                hasRequiredIndicator = false,
                 placeholder,
                 leftHelper,
                 contentLeft,

@@ -5,6 +5,7 @@ export const classes = {
     sortingDescIcon: 'sorting-desc-icon',
     filterIcon: 'filter-icon',
     resizeDivider: 'resize-divider',
+    scrollableContainer: 'table-scrollable-container',
 };
 
 export const tableTokens = {

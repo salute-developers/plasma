@@ -1,10 +1,12 @@
 import React from 'react';
 import { IconDownload, IconSearch } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
 const Icon = () => <IconDownload color="inherit" />;
 
 type RangeDemoProps = {
+    appearance?: 'default' | 'clear';
+    hasClearDivider?: boolean;
     size?: string;
     dividerVariant?: string;
     disabled?: boolean;
@@ -20,6 +22,8 @@ describe('plasma-giga: Range', () => {
     const IconButton = getComponent('IconButton');
 
     const Demo = ({
+        appearance = 'default',
+        hasClearDivider,
         size = 'l',
         dividerVariant = 'dash',
         disabled,
@@ -31,6 +35,8 @@ describe('plasma-giga: Range', () => {
     }: RangeDemoProps) => {
         return (
             <Range
+                appearance={appearance}
+                hasClearDivider={hasClearDivider}
                 size={size}
                 dividerVariant={dividerVariant}
                 disabled={disabled}
@@ -200,6 +206,49 @@ describe('plasma-giga: Range', () => {
         mount(
             <CypressTestDecorator>
                 <Demo />
+            </CypressTestDecorator>,
+        );
+        cy.get('input').last().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] Range: appearance=clear, hasClearDivider', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo appearance="clear" />
+                <PadMe />
+                <Demo appearance="clear" hasClearDivider />
+            </CypressTestDecorator>,
+        );
+        cy.get('input').last().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] Range: appearance=clear, firstValueSuccess, secondValueSuccess', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo appearance="clear" firstValueSuccess hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" secondValueSuccess hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" firstValueSuccess secondValueSuccess hasClearDivider />
+            </CypressTestDecorator>,
+        );
+        cy.get('input').last().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] Range: appearance=clear, firstValueError, secondValueError', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo appearance="clear" firstValueError hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" secondValueError hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" firstValueError secondValueError hasClearDivider />
             </CypressTestDecorator>,
         );
         cy.get('input').last().click();

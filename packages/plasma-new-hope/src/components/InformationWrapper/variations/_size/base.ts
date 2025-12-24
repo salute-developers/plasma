@@ -31,7 +31,6 @@ export const base = css`
     ${HintTargetWrapper} {
         width: var(${tokens.hintTargetSize});
         height: var(${tokens.hintTargetSize});
-        margin: var(${tokens.hintMargin});
     }
 
     ${TitleCaption} {

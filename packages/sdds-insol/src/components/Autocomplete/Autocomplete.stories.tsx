@@ -216,7 +216,7 @@ const meta: Meta<StoryProps> = {
         optional: false,
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         hasHint: false,
         hintText: 'Текст подсказки',
         hintTrigger: 'hover',

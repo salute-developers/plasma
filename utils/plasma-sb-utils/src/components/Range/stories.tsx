@@ -1,0 +1,136 @@
+import React, { useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { action } from '@storybook/addon-actions';
+import { IconPlasma, IconArrowRight, IconDisclosureRight } from '@salutejs/plasma-icons';
+
+type ActionButtonProps = {
+    appearance: 'default' | 'clear';
+    buttonComponent: any;
+    view?: string;
+    size?: string;
+    readOnly?: boolean;
+};
+
+const onChangeFirstValue = action('onChangeFirstValue');
+const onChangeSecondValue = action('onChangeSecondValue');
+const onSearchFirstValue = action('onSearchFirstValue');
+const onSearchSecondValue = action('onSearchSecondValue');
+const onFocusFirstTextfield = action('onFocusFirstTextfield');
+const onFocusSecondTextfield = action('onFocusSecondTextfield');
+const onBlurFirstTextfield = action('onBlurFirstTextfield');
+const onBlurSecondTextfield = action('onBlurSecondTextfield');
+
+const getIconSize = (size?: string) => {
+    return size === 'xs' ? 'xs' : 's';
+};
+
+const ActionButton = ({ appearance, buttonComponent: IconButton, size, readOnly }: ActionButtonProps) => {
+    const iconButtonProps = {
+        view: appearance === 'clear' ? 'default' : 'clear',
+        disabled: readOnly,
+        size,
+    };
+
+    return (
+        <IconButton {...iconButtonProps}>
+            <IconDisclosureRight color="inherit" size={getIconSize(size)} />
+        </IconButton>
+    );
+};
+
+export const createDefaultStory = (Range: any, IconButton: any, EmbedIconButton: any) => {
+    return ({
+        dividerVariant,
+        enableContentLeft,
+        enableContentRight,
+        firstTextfieldTextBefore,
+        secondTextfieldTextBefore,
+        enableFirstTextfieldContentLeft,
+        enableSecondTextfieldContentLeft,
+        enableFirstTextfieldContentRight,
+        enableSecondTextfieldContentRight,
+        size,
+        hasRequiredIndicator,
+        firstInputView,
+        secondInputView,
+        appearance,
+        ...rest
+    }: any) => {
+        const [firstValue, setFirstValue] = useState('');
+        const [secondValue, setSecondValue] = useState('');
+
+        const iconSize = getIconSize(size);
+        const showDividerIcon = dividerVariant === 'icon';
+        const showDefaultTextBefore = dividerVariant === 'none';
+
+        const dividerIconProps = {
+            dividerIcon: showDividerIcon ? <IconArrowRight color="inherit" size={iconSize} /> : null,
+            dividerVariant,
+        };
+
+        const inputsViews = {
+            firstValueSuccess: firstInputView === 'positive',
+            secondValueSuccess: secondInputView === 'positive',
+            firstValueError: firstInputView === 'negative',
+            secondValueError: secondInputView === 'negative',
+        };
+
+        const embedIconButtonSize = appearance === 'clear' && size === 'xs' ? 's' : size;
+
+        return (
+            <Range
+                appearance={appearance}
+                size={size}
+                hasRequiredIndicator={rest.required && hasRequiredIndicator}
+                firstValue={firstValue}
+                secondValue={secondValue}
+                contentLeft={enableContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined}
+                contentRight={
+                    enableContentRight ? (
+                        <ActionButton
+                            buttonComponent={appearance === 'clear' ? EmbedIconButton : IconButton}
+                            appearance={appearance}
+                            size={embedIconButtonSize}
+                            readOnly={rest.readOnly}
+                        />
+                    ) : undefined
+                }
+                firstTextfieldContentLeft={
+                    enableFirstTextfieldContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined
+                }
+                firstTextfieldContentRight={
+                    enableFirstTextfieldContentRight ? <IconPlasma color="inherit" size={iconSize} /> : undefined
+                }
+                secondTextfieldContentLeft={
+                    enableSecondTextfieldContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined
+                }
+                secondTextfieldContentRight={
+                    enableSecondTextfieldContentRight ? <IconPlasma color="inherit" size={iconSize} /> : undefined
+                }
+                firstTextfieldTextBefore={
+                    showDefaultTextBefore ? firstTextfieldTextBefore || 'С' : firstTextfieldTextBefore
+                }
+                secondTextfieldTextBefore={
+                    showDefaultTextBefore ? secondTextfieldTextBefore || 'ПО' : secondTextfieldTextBefore
+                }
+                onChangeFirstValue={(e: ChangeEvent<HTMLInputElement>) => {
+                    setFirstValue(e.target.value);
+                    onChangeFirstValue(e, e.target.value);
+                }}
+                onChangeSecondValue={(e: ChangeEvent<HTMLInputElement>) => {
+                    setSecondValue(e.target.value);
+                    onChangeSecondValue(e, e.target.value);
+                }}
+                onSearchFirstValue={onSearchFirstValue}
+                onSearchSecondValue={onSearchSecondValue}
+                onFocusFirstTextfield={onFocusFirstTextfield}
+                onFocusSecondTextfield={onFocusSecondTextfield}
+                onBlurFirstTextfield={onBlurFirstTextfield}
+                onBlurSecondTextfield={onBlurSecondTextfield}
+                {...inputsViews}
+                {...dividerIconProps}
+                {...rest}
+            />
+        );
+    };
+};

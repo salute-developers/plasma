@@ -815,6 +815,8 @@ export const config = {
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderWidth}: 0;
             `,
         },
     },

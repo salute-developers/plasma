@@ -9,7 +9,7 @@ import { chipViews } from './fixtures';
 type CreateStoriesProps = {
     component: any;
     componentConfig: any;
-    customIcon?: (size: string) => JSX.Element;
+    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element;
     title?: string;
     disablePropsList?: string[];
     defaultArgs?: {};

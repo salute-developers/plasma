@@ -883,6 +883,7 @@ export const config = {
         chipView: {
             default: css`
                 ${tokens.textFieldChipColor}: var(--inverse-text-primary);
+                ${tokens.textFieldChipColorHover}: var(--inverse-text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-solid-default);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
@@ -897,6 +898,7 @@ export const config = {
             `,
             secondary: css`
                 ${tokens.textFieldChipColor}: var(--text-primary);
+                ${tokens.textFieldChipColorHover}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
@@ -911,6 +913,7 @@ export const config = {
             `,
             accent: css`
                 ${tokens.textFieldChipColor}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipColorHover}: var(--on-dark-text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-accent);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--on-dark-text-secondary);
@@ -999,6 +1002,8 @@ export const config = {
                 ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderWidth}: 0;
             `,
         },
     },

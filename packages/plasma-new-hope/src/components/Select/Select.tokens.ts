@@ -171,6 +171,7 @@ export const tokens = {
     textFieldTitleCaptionLineHeight: '--plasma-select-textfield-title-caption-line-height',
 
     textFieldLeftHelperColor: '--plasma-select-textfield-left-helper-color',
+    textFieldLeftHelperColorFocus: '--plasma-select-textfield-left-helper-color-focus',
     textFieldLeftHelperColorReadOnly: '--plasma-select-textfield__left-helper-color-readonly',
     textFieldLeftHelperOffset: '--plasma-select-textfield-left-helper-offset',
 

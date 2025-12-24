@@ -1,8 +1,24 @@
 {
   "name": "@salutejs/sdds-platform-ai",
-  "version": "0.330.0",
+  "version": "0.331.0-dev.0",
   "description": "Salute Design System / React UI kit for SDDS PLATFORM-AI web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "exports": {
+    ".": {
+      "import": "./dist/css/es/index.js",
+      "require": "./dist/css/cjs/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./styled-components": {
+      "import": "./dist/styled-components/es/index.js",
+      "require": "./dist/styled-components/cjs/index.js",
+      "types": "./types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
   "license": "MIT",
   "keywords": [
     "design-system",
@@ -10,27 +26,14 @@
     "ui-kit",
     "react"
   ],
-  "files": [
-    "styled-components",
-    "components",
-    "mixins",
-    "types",
-    "es",
-    "tokens",
-    "index.d.ts",
-    "_virtual"
-  ],
-  "main": "index.js",
-  "module": "es/index.js",
-  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
     "directory": "packages/sdds-platform-ai"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.343.0",
-    "@salutejs/sdds-themes": "0.50.0"
+    "@salutejs/plasma-new-hope": "0.344.0-dev.0",
+    "@salutejs/sdds-themes": "0.51.0-dev.0"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
@@ -55,10 +58,10 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.16.0",
-    "@salutejs/plasma-core": "1.211.0",
-    "@salutejs/plasma-cy-utils": "0.141.0",
+    "@salutejs/plasma-core": "1.212.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.142.0-dev.0",
     "@salutejs/plasma-icons": "1.228.0",
-    "@salutejs/plasma-sb-utils": "0.211.0",
+    "@salutejs/plasma-sb-utils": "0.212.0-dev.0",
     "@storybook/addon-docs": "8.6.14",
     "@storybook/addon-essentials": "8.6.14",
     "@storybook/manager-api": "8.6.14",
@@ -88,17 +91,16 @@
     "preapi-report": "npm run generate:typings",
     "api-report": "npx api-extractor run --local",
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map && npm run prebuild:css",
-    "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
     "build": "npm run build:styled-components && npm run build:css",
     "postbuild": "npm run generate:typings",
-    "build:styled-components": "npm run build:styled-components:esm && npm run build:styled-components:cjs",
-    "build:styled-components:cjs": "swc ./src -d ./styled-components/cjs --strip-leading-paths -C module.type=commonjs --config-file ../../swc.config.json",
-    "build:styled-components:esm": "swc ./src -d ./styled-components/es --strip-leading-paths -C module.type=es6 --config-file ../../swc.config.json",
-    "build:css": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc rollup -c",
+    "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
+    "build:css": "rm -rf dist/css && rollup -c",
     "postbuild:css": "rm -rf src-css",
+    "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
+    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
     "pregenerate:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts && rm -f mixins/index.d.ts && rm -f tokens/index.d.ts",
-    "generate:typings": "tsc --outDir . --emitDeclarationOnly",
+    "generate:typings": "rm -rf types && tsc",
     "storybook": "npm run storybook:sc",
     "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",

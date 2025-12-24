@@ -1,6 +1,7 @@
 export const classes = {
     withoutLabel: 'info-wrapper-without-label',
     requiredAlignLeft: 'info-wrapper-required-align-left',
+    leftHelper: 'info-wrapper-left-helper',
 };
 
 export const tokens = {
@@ -15,11 +16,13 @@ export const tokens = {
     labelLetterSpacing: '--plasma-info-wrapper-label-letter-spacing',
     labelLineHeight: '--plasma-info-wrapper-label-line-height',
     labelColor: '--plasma-info-wrapper-label-color',
+    labelColorReadOnly: '--plasma-info-wrapper-label-color-readonly',
 
     contentGap: '--plasma-info-wrapper-content-gap',
 
     titleCaptionOffset: '--plasma-info-wrapper-title-caption-offset',
     titleCaptionColor: '--plasma-info-wrapper-title-caption-color',
+    titleCaptionColorReadOnly: '--plasma-info-wrapper-title-caption-color-readonly',
     titleCaptionFontFamily: '--plasma-info-wrapper-title-caption-font-family',
     titleCaptionFontStyle: '--plasma-info-wrapper-title-caption-font-style',
     titleCaptionFontSize: '--plasma-info-wrapper-title-caption-font-size',
@@ -73,6 +76,8 @@ export const tokens = {
     /** Токены для подписей снизу */
     leftHelperColor: '--plasma-info-wrapper-left-helper-color',
     rightHelperColor: '--plasma-info-wrapper-right-helper-color',
+    leftHelperColorReadOnly: '--plasma-info-wrapper-left-helper-color-readonly',
+    rightHelperColorReadOnly: '--plasma-info-wrapper-right-helper-color-readonly',
 
     helpersPadding: '--plasma-info-wrapper-helpers-padding-top',
     helpersGap: '--plasma-info-wrapper-helpers-gap',

@@ -14,17 +14,17 @@ import {
 import { useForkRef } from '@salutejs/plasma-core';
 import { RootProps } from 'src/engines';
 
+import { classes } from './Table.tokens';
+import { SELECT_COLUMN_ID } from './utils';
 import { HeadCell, Cell, EditableCell } from './ui';
 import { TableProps, TableRowData } from './Table.types';
-import { base, Table, Tr, Thead, StyledCheckbox, Tbody } from './Table.styles';
+import { base, Table, Tr, Thead, StyledCheckbox, Tbody, ScrollableWrapper } from './Table.styles';
 
 type ColumnSort = {
     id: string;
     desc: boolean;
 };
 type SortingState = ColumnSort[];
-
-export const SELECT_COLUMN_ID = 'SELECT_COLUMN_UNIQUE_ID';
 
 export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
     forwardRef<HTMLDivElement, TableProps>(
@@ -44,6 +44,10 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                 stickyHeader = false,
                 onCellUpdate,
                 setRowProps,
+                topContent,
+                bottomContent,
+                loadingSlot,
+                onScroll,
                 ...props
             },
             ref,
@@ -188,6 +192,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                 onRowSelectionChange: handleRowSelection,
                 columnResizeMode: 'onChange',
                 columnResizeDirection: 'ltr',
+                manualPagination: true,
                 meta: {
                     updateData: (rowId, columnId, value) => {
                         if (onCellUpdate) {
@@ -198,69 +203,73 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
             });
 
             return (
-                <Root
-                    ref={rootRef}
-                    data={data}
-                    columns={columns}
-                    view={view}
-                    size={size}
-                    style={{ maxHeight: maxHeight || 'none' }}
-                    {...props}
-                >
-                    <Table borderVariant={borderVariant} stickyHeader={stickyHeader}>
-                        <Thead view={view} borderVariant={borderVariant} stickyHeader={stickyHeader}>
-                            {table.getHeaderGroups().map((headerGroup) => (
-                                <Tr key={headerGroup.id}>
-                                    {headerGroup.headers.map((header) => (
-                                        <HeadCell
-                                            key={header.index}
-                                            header={header}
-                                            size={size}
-                                            borderVariant={borderVariant}
-                                            outerFiltered={outerFiltered}
-                                            tableContainerRef={tableContainerRef}
-                                        />
-                                    ))}
-                                </Tr>
-                            ))}
-                        </Thead>
+                <Root ref={rootRef} data={data} columns={columns} view={view} size={size} {...props}>
+                    {topContent}
 
-                        <Tbody>
-                            {table.getRowModel().rows.map((row) => (
-                                <Tr key={row.id} selected={row.getIsSelected()} {...setRowProps?.(row.original)}>
-                                    {row.getVisibleCells().map((cell) => {
-                                        const additionalProps =
-                                            cell?.column?.columnDef?.meta?.setCellProps?.(cell.row.original, cell.id) ||
-                                            {};
-
-                                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                        // @ts-ignore
-                                        return cell?.column?.columnDef?.meta?.enableEditing ? (
-                                            <EditableCell
-                                                key={cell.id}
+                    <ScrollableWrapper
+                        className={classes.scrollableContainer}
+                        onScroll={onScroll}
+                        maxHeight={maxHeight}
+                    >
+                        <Table borderVariant={borderVariant} stickyHeader={stickyHeader}>
+                            <Thead view={view} borderVariant={borderVariant} stickyHeader={stickyHeader}>
+                                {table.getHeaderGroups().map((headerGroup) => (
+                                    <Tr key={headerGroup.id}>
+                                        {headerGroup.headers.map((header) => (
+                                            <HeadCell
+                                                key={header.index}
+                                                header={header}
                                                 size={size}
-                                                cell={cell}
                                                 borderVariant={borderVariant}
-                                                table={table}
-                                                selected={row.getIsSelected()}
-                                                view={view}
-                                                additionalProps={additionalProps}
+                                                outerFiltered={outerFiltered}
+                                                tableContainerRef={tableContainerRef}
                                             />
-                                        ) : (
-                                            <Cell
-                                                key={cell.id}
-                                                cell={cell}
-                                                borderVariant={borderVariant}
-                                                selected={row.getIsSelected()}
-                                                view={view}
-                                                additionalProps={additionalProps}
-                                            />
-                                        );
-                                    })}
-                                </Tr>
-                            ))}
-                        </Tbody>
-                    </Table>
+                                        ))}
+                                    </Tr>
+                                ))}
+                            </Thead>
+
+                            <Tbody>
+                                {table.getRowModel().rows.map((row) => (
+                                    <Tr key={row.id} selected={row.getIsSelected()} {...setRowProps?.(row.original)}>
+                                        {row.getVisibleCells().map((cell) => {
+                                            const additionalProps =
+                                                cell?.column?.columnDef?.meta?.setCellProps?.(
+                                                    cell.row.original,
+                                                    cell.id,
+                                                ) || {};
+
+                                            return cell?.column?.columnDef?.meta?.enableEditing ? (
+                                                <EditableCell
+                                                    key={cell.id}
+                                                    size={size}
+                                                    cell={cell}
+                                                    borderVariant={borderVariant}
+                                                    table={table}
+                                                    selected={row.getIsSelected()}
+                                                    view={view}
+                                                    additionalProps={additionalProps}
+                                                />
+                                            ) : (
+                                                <Cell
+                                                    key={cell.id}
+                                                    cell={cell}
+                                                    borderVariant={borderVariant}
+                                                    selected={row.getIsSelected()}
+                                                    view={view}
+                                                    additionalProps={additionalProps}
+                                                />
+                                            );
+                                        })}
+                                    </Tr>
+                                ))}
+                            </Tbody>
+                        </Table>
+
+                        {loadingSlot}
+                    </ScrollableWrapper>
+
+                    {bottomContent}
                 </Root>
             );
         },

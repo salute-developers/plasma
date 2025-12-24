@@ -1,14 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens } from '../../Range.tokens';
-import {
-    ContentWrapper,
-    LeftHelper,
-    StyledContentLeft,
-    StyledContentRight,
-    StyledDivider,
-    StyledLabel,
-} from '../../Range.styles';
+import { ContentWrapper, StyledContentLeft, StyledContentRight, StyledDivider } from '../../Range.styles';
 
 export const base = css`
     &[readonly] {
@@ -16,7 +9,6 @@ export const base = css`
 
         ${ContentWrapper} {
             position: relative;
-            box-shadow: none;
             background: transparent;
 
             :before {
@@ -32,15 +24,6 @@ export const base = css`
                 opacity: var(${tokens.readOnlyOpacity});
                 z-index: -1;
             }
-        }
-
-        ${StyledLabel} {
-            display: block;
-            color: var(${tokens.labelColorReadOnly});
-        }
-
-        ${LeftHelper} {
-            color: var(${tokens.leftHelperColorReadOnly});
         }
 
         ${StyledDivider} {

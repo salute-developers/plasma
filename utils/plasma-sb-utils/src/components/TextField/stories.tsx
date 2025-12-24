@@ -15,12 +15,17 @@ const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
     return <IconComponent size={iconSize} color="inherit" />;
 };
 
-export const createDefaultStory = (TextField: any, customIcon?: (size: string) => JSX.Element) => {
+export const createDefaultStory = (
+    TextField: any,
+    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element,
+) => {
     return ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: any) => {
         const [text, setText] = useState('Значение поля');
-        const innerGetIcon = customIcon ? customIcon(rest.size) : getIcon(IconBellFill, rest.size);
+        const innerGetIcon = (type: 'left' | 'right') => {
+            return customIcon ? customIcon(rest.size, type, rest.disabled, readOnly) : getIcon(IconBellFill, rest.size);
+        };
 
-        const contentRight = enableContentRight || readOnly ? innerGetIcon : undefined;
+        const contentRight = enableContentRight || readOnly ? innerGetIcon('right') : undefined;
 
         return (
             <div
@@ -36,7 +41,7 @@ export const createDefaultStory = (TextField: any, customIcon?: (size: string) =
                     {...rest}
                     value={text}
                     readOnly={readOnly}
-                    contentLeft={enableContentLeft ? innerGetIcon : undefined}
+                    contentLeft={enableContentLeft ? innerGetIcon('left') : undefined}
                     contentRight={contentRight}
                     view={view}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +57,7 @@ export const createDefaultStory = (TextField: any, customIcon?: (size: string) =
                     {...rest}
                     label="Uncontrolled TextField"
                     defaultValue="Дефолтное значение"
-                    contentLeft={enableContentLeft ? innerGetIcon : undefined}
+                    contentLeft={enableContentLeft ? innerGetIcon('left') : undefined}
                     contentRight={contentRight}
                     view={view}
                     readOnly={readOnly}
@@ -65,12 +70,17 @@ export const createDefaultStory = (TextField: any, customIcon?: (size: string) =
     };
 };
 
-export const createChipsStory = (TextField: any, customIcon?: (size: string) => JSX.Element) => {
+export const createChipsStory = (
+    TextField: any,
+    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element,
+) => {
     return ({ enableContentLeft, enableContentRight, view, readOnly, ...rest }: any) => {
         const [text, setText] = useState('Значение поля');
-        const innerGetIcon = customIcon ? customIcon(rest.size) : getIcon(IconBellFill, rest.size);
+        const innerGetIcon = (type: 'left' | 'right') => {
+            return customIcon ? customIcon(rest.size, type, rest.disabled, readOnly) : getIcon(IconBellFill, rest.size);
+        };
 
-        const contentRight = enableContentRight || readOnly ? innerGetIcon : undefined;
+        const contentRight = enableContentRight || readOnly ? innerGetIcon('right') : undefined;
 
         const validateChip = (value: string) => (value === '1 value' ? { view: 'negative' } : {});
 
@@ -79,7 +89,7 @@ export const createChipsStory = (TextField: any, customIcon?: (size: string) => 
                 {...rest}
                 enumerationType="chip"
                 value={text}
-                contentLeft={enableContentLeft ? innerGetIcon : undefined}
+                contentLeft={enableContentLeft ? innerGetIcon('left') : undefined}
                 contentRight={contentRight}
                 view={view}
                 readOnly={readOnly}

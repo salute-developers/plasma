@@ -281,6 +281,8 @@ export const config = {
                 ${tokens.textFieldPadding}: 0;
                 ${tokens.textFieldLabelOffset}: 0.25rem;
                 ${tokens.textFieldLeftHelperOffset}: 0rem;
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderWidth}: 0;
             `,
         },
     },

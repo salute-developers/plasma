@@ -1,21 +1,15 @@
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { IconClose } from '@salutejs/plasma-icons';
-import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { createGlobalStyle } from 'styled-components';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 const Icon = () => <IconClose color="inherit" />;
-const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-describe('plasma-b2c: EmbedIconButton', () => {
+describe('sdds-insol: EmbedIconButton', () => {
     const EmbedIconButton = getComponent('EmbedIconButton');
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
-        <CypressTestDecorator>
-            <StandardTypoStyle />
-            {children}
-        </CypressTestDecorator>
+        <CypressTestDecorator>{children}</CypressTestDecorator>
     );
 
     it('[PLASMA-T1396] EmbedIconButton: size=l, view=default', () => {

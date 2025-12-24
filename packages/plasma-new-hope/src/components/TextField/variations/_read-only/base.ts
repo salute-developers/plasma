@@ -16,10 +16,8 @@ export const base = css`
     &[readonly] {
         ${InputWrapper} {
             position: relative;
-            z-index: 0;
             color: var(${tokens.colorReadOnly});
             background: transparent;
-            box-shadow: none;
 
             :before {
                 position: absolute;

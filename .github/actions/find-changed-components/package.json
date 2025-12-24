@@ -1,0 +1,12 @@
+{
+  "name": "find-changed-components",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.10.1"
+  }
+}

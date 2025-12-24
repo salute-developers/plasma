@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Th, Resizer } from '../../Table.styles';
 import { IconSwapVert, IconArrowDown, IconArrowUp } from '../../../_Icon';
-import { SELECT_COLUMN_ID } from '../../Table';
+import { SELECT_COLUMN_ID } from '../../utils';
 import { TableProps, TableRowData } from '../../Table.types';
 import { classes } from '../../Table.tokens';
 

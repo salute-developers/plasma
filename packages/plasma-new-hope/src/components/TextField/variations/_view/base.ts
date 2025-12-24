@@ -5,9 +5,9 @@ import {
     Input,
     InputPlaceholder,
     InputWrapper,
-    LeftHelper,
     StyledTextAfter,
     StyledTextBefore,
+    StyledContentLeft,
     TitleCaption,
 } from '../../TextField.styles';
 
@@ -47,17 +47,21 @@ export const base = css`
             var(${String(tokens.backgroundColor)})
         );
 
+        ${Input} {
+            color: var(${tokens.colorFocus});
+        }
+
         ${InputPlaceholder} {
             color: var(${tokens.placeholderColorFocus});
+        }
+
+        ${StyledContentLeft} {
+            color: var(${tokens.contentSlotColorFocus});
         }
     }
 
     ${TitleCaption} {
         color: var(${tokens.titleCaptionColor});
-    }
-
-    ${LeftHelper} {
-        color: var(${tokens.leftHelperColor});
     }
 
     ${StyledTextBefore} {
@@ -71,11 +75,12 @@ export const base = css`
     &.${classes.hasDivider} {
         ${InputWrapper} {
             --plasma_private-textfield-divider-color: var(${String(tokens.dividerColor)});
+            --plasma_private-textfield-divider-width: var(${String(tokens.dividerWidth)});
 
             &:before {
                 content: '';
                 position: absolute;
-                height: 0.063rem;
+                height: var(--plasma_private-textfield-divider-width, 0.063rem);
                 width: 100%;
                 bottom: 0;
                 left: 0;

@@ -1,0 +1,12 @@
+name: 'Find Changed Components'
+description: 'Find changed components in PR'
+outputs:
+  components:
+    description: 'Comma-separated list of changed components'
+  test-all:
+    description: 'Whether to run all tests'
+  changed-components:
+    description: 'Array of directly changed components in JSON format'
+runs:
+  using: 'node24'
+  main: 'index.js'

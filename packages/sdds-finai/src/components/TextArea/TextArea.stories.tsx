@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import styled from 'styled-components';
-import { IconBell, IconProps } from '@salutejs/plasma-icons';
+import { IconLockOutline, IconBell, IconProps } from '@salutejs/plasma-icons';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
@@ -36,9 +36,14 @@ const placements: Array<PopoverPlacement> = [
     'auto',
 ];
 
-const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
+const getIcon = (IconComponent: React.FC<IconProps>, size: string, disabled?: boolean, readOnly?: boolean) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
-
+    if (disabled) {
+        return <IconLockOutline size={iconSize} />;
+    }
+    if (readOnly) {
+        return <IconLockOutline size={iconSize} />;
+    }
     return <IconComponent size={iconSize} color="inherit" />;
 };
 
@@ -284,7 +289,7 @@ const meta: Meta<StoryTextAreaProps> = {
         optionalText: 'опционально',
         required: false,
         requiredPlacement: 'right',
-        hasRequiredIndicator: true,
+        hasRequiredIndicator: false,
         clear: false,
         hasDivider: false,
         hasHint: true,
@@ -322,7 +327,9 @@ const StoryDefault = (props: StoryTextAreaProps) => {
         <TextArea
             value={value}
             contentRight={
-                props.enableContentRight || props.readOnly ? getIcon(IconBell, props.size, props.readOnly) : undefined
+                props.enableContentRight || props.readOnly
+                    ? getIcon(IconBell, props.size, props.disabled, props.readOnly)
+                    : undefined
             }
             headerSlot={props.enableHeader && <StyledHeader>Дополнительный контент</StyledHeader>}
             onChange={(e) => {

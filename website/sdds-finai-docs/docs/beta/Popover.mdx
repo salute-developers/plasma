@@ -1,0 +1,210 @@
+---
+id: popover
+title: Popover
+---
+
+import { PropsTable, Badge } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Popover
+<Badge title="beta" description="Данный компонент входит в группу beta-компонентов" />
+
+:::caution Импорт beta-компонентов
+Импорт осуществляется из директории `@salutejs/sdds-finai/beta`<br />
+К примеру: <br />
+`import * as Beta from '@salutejs/sdds-finai/beta';` <br />
+`import { Popover } from '@salutejs/sdds-finai/beta';`
+:::
+
+## Описание
+
+Всплывающее окно, привязанное к целевому элементу (<i>target</i>), которое отображает дополнительный контент по клику, наведению или фокусу. Popover идеально подходит для отображения подсказок, контекстных меню и вспомогательных действий.
+
+Popover позволяет отображать всплывающее окно с настраиваемым контентом, позиционированием, триггерами (click, hover, focus), смещением, хвостиком, задержкой открытия/закрытия, ресайзом и стилевыми вариантами.
+
+## Быстрый старт
+```tsx live
+import * as Beta from '@salutejs/sdds-finai/beta';
+import { Button } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <Beta.Popover target={<Button text="Target" />}>
+            Content
+        </Beta.Popover>
+    );
+}
+```
+
+## Взаимодействие с компонентом
+Свойство `target` имеет тип `ReactElement`. Это цель для взаимодействия с всплывающим окном.
+Содержимое самого окна нужно класть в `children`. Также все содержимое `children` уже обернуто во `ViewContainer` внутри самого компонента.
+
+## Примеры
+<Tabs>
+    <TabItem value="trigger" label="Trigger" default>
+        Свойство `trigger` принимает 3 значения: `click`, `hover` и `focus`. Поле опциональное, и `click` стоит по умолчанию.
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { Button } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex' }}>
+                    <Beta.Popover target={<Button text="Click" />}>
+                        Click
+                    </Beta.Popover>
+                    <Beta.Popover trigger="hover" target={<Button text="Hover" />}>
+                        Hover
+                    </Beta.Popover>
+                    <Beta.Popover trigger="focus" target={<Button text="Focus" />}>
+                        Focus
+                    </Beta.Popover>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="resizable" label="Resizable">
+        Чтобы включить возможность растягивать Popover нужно настроить свойство `resizable`. Формат следующий:
+        ```tsx
+        resizable?:
+            | boolean
+            | {
+                  /**
+                   * Включение/выключение ресайза.
+                   * @default false
+                   */
+                  disabled?: boolean;
+                  /**
+                   * Направления для ресайза.
+                   */
+                  directions?: ResizeDirections;
+                  /**
+                   * Начальный размер окна ресайза.
+                   */
+                  defaultSize?: { width?: number; height?: number };
+                  /**
+                   * Минимальная ширина ресайза в px.
+                   */
+                  minWidth?: number;
+                  /**
+                   * Минимальная высота ресайза в px.
+                   */
+                  minHeight?: number;
+                  /**
+                   * Максимальная ширина ресайза в px.
+                   */
+                  maxWidth?: number;
+                  /**
+                   * Максимальная высота ресайза в px.
+                   */
+                  maxHeight?: number;
+                  /**
+                   * Кастомные иконки ресайза.
+                   */
+                  icons?: {
+                      topRight?: ReactNode;
+                      bottomRight?: ReactNode;
+                      bottomLeft?: ReactNode;
+                      topLeft?: ReactNode;
+                  };
+                  /**
+                   * Размер иконки ресайза.
+                   * @default s
+                   */
+                  iconSize?: 'xs' | 's' | 'm';
+                  /**
+                   * Скрывать ли иконку для ресайза.
+                   * @default false
+                   */
+                  hiddenIcons?: PlacementMixed[];
+              };
+        ```
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+
+        export function App() {
+            const cells = [
+                { num: 1, color: '#e74c3c' },
+                { num: 2, color: '#3498db' },
+                { num: 3, color: '#f1c40f' },
+                { num: 4, color: '#27ae60' },
+            ];
+
+            return (
+                <Beta.Popover resizable={{ defaultSize: {width: '300px', height: '300px'}, minWidth: '200px', minHeight: '200px', maxWidth: '500px', maxHeight: '500px' }} target={<Button text="Target" />}>
+                    <div
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1fr',
+                            gridTemplateRows: '1fr 1fr',
+                        }}
+                    >
+                        {cells.map(({ num, color }) => (
+                            <div
+                                key={num}
+                                style={{
+                                    background: color,
+                                    color: 'white',
+                                    fontSize: '2vw',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                {num}
+                            </div>
+                        ))}
+                    </div>
+                </Beta.Popover>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Стилизация всплывающего окна
+
+Компонент принимает такие свойства, как `style` и `className`, которые применяются к тэгу, оборачивающему выпадающее окно.
+Ниже приведен пример кастомизации цвета фона и текста с помощью `styled-components`.
+
+```tsx live
+import * as Beta from "@salutejs/sdds-finai/beta";
+import { Button } from "@salutejs/sdds-finai";
+import {
+  inverseTextPrimary,
+  inverseSurfaceSolidCardBrightness,
+} from "@salutejs/sdds-themes/tokens";
+import styled from "styled-components";
+
+export function App() {
+  const StyledAsTooltip = styled(Beta.Popover)`
+    --plasma-popover-background-color: ${inverseSurfaceSolidCardBrightness};
+    color: ${inverseTextPrimary};
+
+    ul, li {
+        padding: 0;
+        margin: 0;
+    }
+  `;
+
+  return (
+    <StyledAsTooltip target={<Button text="Target" />}>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </StyledAsTooltip>
+  );
+}
+
+```
+
+## API
+<PropsTable name="PopoverBeta" />

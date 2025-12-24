@@ -48,8 +48,8 @@ const StyledLineSkeleton = styled(LineSkeleton)`
 `;
 
 export const Header: FC<HeaderProps> = () => {
-    const PACKAGES_INFO: PackagesInfo = (process.env.PACKAGES_INFO as unknown) as PackagesInfo;
-    const [latestVersion, releaseDate] = PACKAGES_INFO['@salutejs/plasma-icons'];
+    const PACKAGES_INFO: PackagesInfo = JSON.parse(process.env.PACKAGES_INFO || '{}') as PackagesInfo;
+    const [latestVersion, releaseDate] = PACKAGES_INFO['@salutejs/plasma-icons'] || [];
 
     return (
         <StyledHeader>

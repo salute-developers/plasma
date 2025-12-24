@@ -494,7 +494,7 @@ describe('plasma-web: Table', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('#table').scrollTo('bottom');
+        cy.get('.table-scrollable-container').scrollTo('bottom');
 
         cy.matchImageSnapshot();
     });

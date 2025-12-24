@@ -1,0 +1,33 @@
+---
+id: progress
+title: Progress
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Progress
+<Description name="Progress" />
+<PropsTable name="Progress" exclude={['css']} />
+
+##Примеры
+
+### Вид прогресса
+Вид прогресса задается с помощью свойства `view`. Возможные значения свойства `view`:
++ `"default"` – по умолчанию;
++ `"secondary"` – вторичная;
++ `"accent"` – акцентная;
++ `"info"` – информирующая;
++ `"positive"` – успешное завершение;
++ `"warning"` – предупреждение;
++ `"negative"` – ошибка;
+
+```tsx live
+import React from 'react';
+import { Progress } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    return (
+        <Progress value={25} view="positive" displayValue />
+    );
+}
+```

@@ -7,3 +7,5 @@ export { withReactStrictMode, reactStrictModePreviewOption } from './ReactStrict
 export * from './Button';
 export * from './TextField';
 export * from './Calendar';
+export * from './Table';
+export * from './Range';

@@ -762,6 +762,8 @@ export const config = {
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderWidth}: 0;
             `,
         },
     },

@@ -143,11 +143,13 @@ export const baseContent = `
     color: var(${tokens.buttonColor});
     background: var(${tokens.buttonBackgroundColor});
 
-    :hover {
-        color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
-        background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
+    @media (hover: hover) and (pointer: fine) {
+        :hover {
+            color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
+            background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
-        scale: var(${tokens.buttonScaleHover});
+            scale: var(${tokens.buttonScaleHover});
+        }
     }
 
     :active {
@@ -173,7 +175,7 @@ export const baseContent = `
     /* TODO: #710 make it token API ? */
     --plasma_private-btn-outline-size: var(--plasma-button-outline-size, 0.0625rem);
 
-    :focus {
+    :focus-visible {
         outline: none;
     }
 
@@ -188,12 +190,14 @@ export const baseContent = `
         opacity: var(${tokens.buttonDisabledOpacity});
         cursor: not-allowed;
 
-        :hover,
-        :active {
-            scale: none;
+        @media (hover: hover) and (pointer: fine) {
+            :hover,
+            :active {
+                scale: none;
 
-            color: var(${tokens.buttonColor});
-            background: var(${tokens.buttonBackgroundColor});
+                color: var(${tokens.buttonColor});
+                background: var(${tokens.buttonBackgroundColor});
+            }
         }
     }
 

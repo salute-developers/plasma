@@ -14,9 +14,6 @@ import TabItem from '@theme/TabItem';
 ## Быстрый старт
 
 ```tsx live
-import React from 'react';
-import { Table } from '@salutejs/plasma-giga';
-
 export function App() {
     const data = [
         {
@@ -68,9 +65,6 @@ export function App() {
         Это render-prop, который в параметрах принимает значение ячейки `value`, объект строки, к которой принадлежит ячейка `row` и индекс этой строки `rowIndex`.
 
         ```tsx live
-        import React from 'react';
-        import { Table } from '@salutejs/plasma-giga';
-
         export function App() {
             const data = [
                 {
@@ -104,6 +98,9 @@ export function App() {
                 {
                     id: 'capital',
                     label: 'Столица',
+                    renderCell: () => {
+                        return <LineSkeleton />
+                    },
                 },
                 {
                     id: 'population',
@@ -119,10 +116,6 @@ export function App() {
     </TabItem>
     <TabItem value="allInOne" label="All in one">
         ```tsx live
-        import React from 'react';
-        import { Table, Button, ButtonGroup, IconButton, Dropdown } from '@salutejs/plasma-giga';
-        import { IconEditOutline } from '@salutejs/plasma-icons';
-
         export function App() {
             const rows = [
                 {
@@ -556,6 +549,340 @@ export function App() {
         }
         ```
     </TabItem>
+    <TabItem value="pagination" label="Pagination">
+        Для реализации постраничной навигации воспользуемся другим нашим компонентом - `Pagination`.
+        Его следует поместить в слот `bottomContent`, который находится под таблицей.
+
+        ```tsx live
+        export function App() {
+            const columnsPagination = [
+                {
+                    id: 'number',
+                    label: 'Номер',
+                },
+                {
+                    id: 'country',
+                    label: 'Страна',
+                },
+                {
+                    id: 'capital',
+                    label: 'Столица',
+                },
+                {
+                    id: 'population',
+                    label: 'Население, млн',
+                },
+            ];
+
+            const rowsPagination: any[] = [
+                { id: '1', number: 1, country: 'Россия', capital: 'Москва', population: 146 },
+                { id: '2', number: 2, country: 'Франция', capital: 'Париж', population: 67 },
+                { id: '3', number: 3, country: 'Германия', capital: 'Берлин', population: 83 },
+                { id: '4', number: 4, country: 'Италия', capital: 'Рим', population: 59 },
+                { id: '5', number: 5, country: 'Испания', capital: 'Мадрид', population: 47 },
+                { id: '6', number: 6, country: 'Португалия', capital: 'Лиссабон', population: 10 },
+                { id: '7', number: 7, country: 'Польша', capital: 'Варшава', population: 38 },
+                { id: '8', number: 8, country: 'Чехия', capital: 'Прага', population: 10.7 },
+                { id: '9', number: 9, country: 'Словакия', capital: 'Братислава', population: 5.4 },
+                { id: '10', number: 10, country: 'Венгрия', capital: 'Будапешт', population: 9.7 },
+                { id: '11', number: 11, country: 'Австрия', capital: 'Вена', population: 8.9 },
+                { id: '12', number: 12, country: 'Швейцария', capital: 'Берн', population: 8.6 },
+                { id: '13', number: 13, country: 'Бельгия', capital: 'Брюссель', population: 11.5 },
+                { id: '14', number: 14, country: 'Нидерланды', capital: 'Амстердам', population: 17.5 },
+                { id: '15', number: 15, country: 'Дания', capital: 'Копенгаген', population: 5.8 },
+                { id: '16', number: 16, country: 'Швеция', capital: 'Стокгольм', population: 10.3 },
+                { id: '17', number: 17, country: 'Норвегия', capital: 'Осло', population: 5.4 },
+                { id: '18', number: 18, country: 'Финляндия', capital: 'Хельсинки', population: 5.5 },
+                { id: '19', number: 19, country: 'Исландия', capital: 'Рейкьявик', population: 0.37 },
+                { id: '20', number: 20, country: 'Ирландия', capital: 'Дублин', population: 5 },
+                { id: '21', number: 21, country: 'Великобритания', capital: 'Лондон', population: 67 },
+                { id: '22', number: 22, country: 'Канада', capital: 'Оттава', population: 38 },
+                { id: '23', number: 23, country: 'США', capital: 'Вашингтон', population: 331 },
+                { id: '24', number: 24, country: 'Мексика', capital: 'Мехико', population: 128 },
+                { id: '25', number: 25, country: 'Бразилия', capital: 'Бразилиа', population: 213 },
+                { id: '26', number: 26, country: 'Аргентина', capital: 'Буэнос-Айрес', population: 45 },
+                { id: '27', number: 27, country: 'Чили', capital: 'Сантьяго', population: 19 },
+                { id: '28', number: 28, country: 'Перу', capital: 'Лима', population: 33 },
+                { id: '29', number: 29, country: 'Колумбия', capital: 'Богота', population: 51 },
+                { id: '30', number: 30, country: 'Венесуэла', capital: 'Каракас', population: 28 },
+                { id: '31', number: 31, country: 'Китай', capital: 'Пекин', population: 1410 },
+                { id: '32', number: 32, country: 'Япония', capital: 'Токио', population: 125 },
+                { id: '33', number: 33, country: 'Южная Корея', capital: 'Сеул', population: 52 },
+                { id: '34', number: 34, country: 'Северная Корея', capital: 'Пхеньян', population: 26 },
+                { id: '35', number: 35, country: 'Индия', capital: 'Нью-Дели', population: 1400 },
+                { id: '36', number: 36, country: 'Пакистан', capital: 'Исламабад', population: 230 },
+                { id: '37', number: 37, country: 'Бангладеш', capital: 'Дакка', population: 170 },
+                { id: '38', number: 38, country: 'Шри-Ланка', capital: 'Котте', population: 22 },
+                { id: '39', number: 39, country: 'Непал', capital: 'Катманду', population: 30 },
+                { id: '40', number: 40, country: 'Таиланд', capital: 'Бангкок', population: 70 },
+                { id: '41', number: 41, country: 'Вьетнам', capital: 'Ханой', population: 98 },
+                { id: '42', number: 42, country: 'Малайзия', capital: 'Куала-Лумпур', population: 33 },
+                { id: '43', number: 43, country: 'Сингапур', capital: 'Сингапур', population: 5.7 },
+                { id: '44', number: 44, country: 'Индонезия', capital: 'Джакарта', population: 275 },
+                { id: '45', number: 45, country: 'Филиппины', capital: 'Манила', population: 113 },
+                { id: '46', number: 46, country: 'Австралия', capital: 'Канберра', population: 26 },
+                { id: '47', number: 47, country: 'Новая Зеландия', capital: 'Веллингтон', population: 5 },
+                { id: '48', number: 48, country: 'Египет', capital: 'Каир', population: 110 },
+                { id: '49', number: 49, country: 'Марокко', capital: 'Рабат', population: 37 },
+                { id: '50', number: 50, country: 'Алжир', capital: 'Алжир', population: 45 },
+                { id: '51', number: 51, country: 'ЮАР', capital: 'Претория', population: 60 },
+                { id: '52', number: 52, country: 'Нигерия', capital: 'Абуджа', population: 227 },
+                { id: '53', number: 53, country: 'Кения', capital: 'Найроби', population: 55 },
+                { id: '54', number: 54, country: 'Эфиопия', capital: 'Аддис-Абеба', population: 126 },
+                { id: '55', number: 55, country: 'Гана', capital: 'Аккра', population: 34 },
+                { id: '56', number: 56, country: 'Турция', capital: 'Анкара', population: 85 },
+                { id: '57', number: 57, country: 'Иран', capital: 'Тегеран', population: 89 },
+                { id: '58', number: 58, country: 'Ирак', capital: 'Багдад', population: 43 },
+                { id: '59', number: 59, country: 'Саудовская Аравия', capital: 'Эр-Рияд', population: 36 },
+                { id: '60', number: 60, country: 'ОАЭ', capital: 'Абу-Даби', population: 10 },
+                { id: '61', number: 61, country: 'Израиль', capital: 'Иерусалим', population: 9.8 },
+                { id: '62', number: 62, country: 'Иордания', capital: 'Амман', population: 11 },
+                { id: '63', number: 63, country: 'Греция', capital: 'Афины', population: 10.3 },
+                { id: '64', number: 64, country: 'Болгария', capital: 'София', population: 6.8 },
+                { id: '65', number: 65, country: 'Румыния', capital: 'Бухарест', population: 19 },
+                { id: '66', number: 66, country: 'Хорватия', capital: 'Загреб', population: 4 },
+                { id: '67', number: 67, country: 'Сербия', capital: 'Белград', population: 6.7 },
+                { id: '68', number: 68, country: 'Словения', capital: 'Любляна', population: 2.1 },
+                { id: '69', number: 69, country: 'Литва', capital: 'Вильнюс', population: 2.8 },
+                { id: '70', number: 70, country: 'Латвия', capital: 'Рига', population: 1.9 },
+                { id: '71', number: 71, country: 'Эстония', capital: 'Таллин', population: 1.3 },
+                { id: '72', number: 72, country: 'Беларусь', capital: 'Минск', population: 9.2 },
+                { id: '73', number: 73, country: 'Украина', capital: 'Киев', population: 36 },
+                { id: '74', number: 74, country: 'Молдова', capital: 'Кишинёв', population: 2.6 },
+                { id: '75', number: 75, country: 'Грузия', capital: 'Тбилиси', population: 3.7 },
+                { id: '76', number: 76, country: 'Армения', capital: 'Ереван', population: 2.8 },
+                { id: '77', number: 77, country: 'Азербайджан', capital: 'Баку', population: 10.2 },
+                { id: '78', number: 78, country: 'Казахстан', capital: 'Астана', population: 20 },
+                { id: '79', number: 79, country: 'Узбекистан', capital: 'Ташкент', population: 36 },
+                { id: '80', number: 80, country: 'Туркменистан', capital: 'Ашхабад', population: 6 },
+                { id: '81', number: 81, country: 'Кыргызстан', capital: 'Бишкек', population: 7 },
+                { id: '82', number: 82, country: 'Таджикистан', capital: 'Душанбе', population: 10 },
+                { id: '83', number: 83, country: 'Монголия', capital: 'Улан-Батор', population: 3.4 },
+                { id: '84', number: 84, country: 'Афганистан', capital: 'Кабул', population: 41 },
+                { id: '85', number: 85, country: 'Сирия', capital: 'Дамаск', population: 22 },
+                { id: '86', number: 86, country: 'Ливан', capital: 'Бейрут', population: 5.5 },
+                { id: '87', number: 87, country: 'Катар', capital: 'Доха', population: 3 },
+                { id: '88', number: 88, country: 'Кувейт', capital: 'Эль-Кувейт', population: 4.5 },
+                { id: '89', number: 89, country: 'Оман', capital: 'Маскат', population: 4.6 },
+                { id: '90', number: 90, country: 'Йемен', capital: 'Сана', population: 34 },
+                { id: '91', number: 91, country: 'Чили', capital: 'Сантьяго', population: 19 },
+                { id: '92', number: 92, country: 'Парагвай', capital: 'Асунсьон', population: 7.5 },
+                { id: '93', number: 93, country: 'Уругвай', capital: 'Монтевидео', population: 3.5 },
+                { id: '94', number: 94, country: 'Боливия', capital: 'Сукре', population: 12 },
+                { id: '95', number: 95, country: 'Эквадор', capital: 'Кито', population: 18 },
+                { id: '96', number: 96, country: 'Куба', capital: 'Гавана', population: 11 },
+                { id: '97', number: 97, country: 'Доминикана', capital: 'Санто-Доминго', population: 11 },
+                { id: '98', number: 98, country: 'Гаити', capital: 'Порт-о-Пренс', population: 11.5 },
+                { id: '99', number: 99, country: 'Ямайка', capital: 'Кингстон', population: 3 },
+                { id: '100', number: 100, country: 'Панама', capital: 'Панама', population: 4.4 },
+            ];
+
+            const [perPage, setPerPage] = useState(10);
+            const [page, setPage] = useState(1);
+            const [data, setData] = useState([]);
+
+            const handleChange = (newPage: number, newPerPage: number) => {
+                setPage(newPerPage === perPage ? newPage : 1);
+                setPerPage(newPerPage);
+            };
+
+            useEffect(() => {
+                setData(rowsPagination.slice((page - 1) * perPage, page * perPage));
+            }, [page, perPage]);
+
+            return (
+                <div style={{ display: "block" }}>
+                    <Table
+                        data={data}
+                        columns={columnsPagination}
+                        bottomContent={
+                            <div style={{ padding: '10px', width: '100%', display: 'flex', justifyContent: 'center' }}>
+                                <Pagination
+                                    size="s"
+                                    value={page}
+                                    onChange={handleChange}
+                                    hasQuickJump={false}
+                                    count={rowsPagination.length}
+                                    perPage={perPage}
+                                    perPageList={[10, 20, 30]}
+                                />
+                            </div>
+                        }
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="infiniteLoading" label="Infinite Loading">
+        Пример иллюстрирует имитацию бесконечной подгрузки данных в таблицу.
+        Для визуального отображения загрузки поместим `LineSkeleton` в ячейку `loadingSlot`.
+
+        ```tsx live
+        export function App() {
+            const columnsPagination = [
+                {
+                    id: 'number',
+                    label: 'Номер',
+                },
+                {
+                    id: 'country',
+                    label: 'Страна',
+                },
+                {
+                    id: 'capital',
+                    label: 'Столица',
+                },
+                {
+                    id: 'population',
+                    label: 'Население, млн',
+                },
+            ];
+
+            const rowsPagination: any[] = [
+                { id: '1', number: 1, country: 'Россия', capital: 'Москва', population: 146 },
+                { id: '2', number: 2, country: 'Франция', capital: 'Париж', population: 67 },
+                { id: '3', number: 3, country: 'Германия', capital: 'Берлин', population: 83 },
+                { id: '4', number: 4, country: 'Италия', capital: 'Рим', population: 59 },
+                { id: '5', number: 5, country: 'Испания', capital: 'Мадрид', population: 47 },
+                { id: '6', number: 6, country: 'Португалия', capital: 'Лиссабон', population: 10 },
+                { id: '7', number: 7, country: 'Польша', capital: 'Варшава', population: 38 },
+                { id: '8', number: 8, country: 'Чехия', capital: 'Прага', population: 10.7 },
+                { id: '9', number: 9, country: 'Словакия', capital: 'Братислава', population: 5.4 },
+                { id: '10', number: 10, country: 'Венгрия', capital: 'Будапешт', population: 9.7 },
+                { id: '11', number: 11, country: 'Австрия', capital: 'Вена', population: 8.9 },
+                { id: '12', number: 12, country: 'Швейцария', capital: 'Берн', population: 8.6 },
+                { id: '13', number: 13, country: 'Бельгия', capital: 'Брюссель', population: 11.5 },
+                { id: '14', number: 14, country: 'Нидерланды', capital: 'Амстердам', population: 17.5 },
+                { id: '15', number: 15, country: 'Дания', capital: 'Копенгаген', population: 5.8 },
+                { id: '16', number: 16, country: 'Швеция', capital: 'Стокгольм', population: 10.3 },
+                { id: '17', number: 17, country: 'Норвегия', capital: 'Осло', population: 5.4 },
+                { id: '18', number: 18, country: 'Финляндия', capital: 'Хельсинки', population: 5.5 },
+                { id: '19', number: 19, country: 'Исландия', capital: 'Рейкьявик', population: 0.37 },
+                { id: '20', number: 20, country: 'Ирландия', capital: 'Дублин', population: 5 },
+                { id: '21', number: 21, country: 'Великобритания', capital: 'Лондон', population: 67 },
+                { id: '22', number: 22, country: 'Канада', capital: 'Оттава', population: 38 },
+                { id: '23', number: 23, country: 'США', capital: 'Вашингтон', population: 331 },
+                { id: '24', number: 24, country: 'Мексика', capital: 'Мехико', population: 128 },
+                { id: '25', number: 25, country: 'Бразилия', capital: 'Бразилиа', population: 213 },
+                { id: '26', number: 26, country: 'Аргентина', capital: 'Буэнос-Айрес', population: 45 },
+                { id: '27', number: 27, country: 'Чили', capital: 'Сантьяго', population: 19 },
+                { id: '28', number: 28, country: 'Перу', capital: 'Лима', population: 33 },
+                { id: '29', number: 29, country: 'Колумбия', capital: 'Богота', population: 51 },
+                { id: '30', number: 30, country: 'Венесуэла', capital: 'Каракас', population: 28 },
+                { id: '31', number: 31, country: 'Китай', capital: 'Пекин', population: 1410 },
+                { id: '32', number: 32, country: 'Япония', capital: 'Токио', population: 125 },
+                { id: '33', number: 33, country: 'Южная Корея', capital: 'Сеул', population: 52 },
+                { id: '34', number: 34, country: 'Северная Корея', capital: 'Пхеньян', population: 26 },
+                { id: '35', number: 35, country: 'Индия', capital: 'Нью-Дели', population: 1400 },
+                { id: '36', number: 36, country: 'Пакистан', capital: 'Исламабад', population: 230 },
+                { id: '37', number: 37, country: 'Бангладеш', capital: 'Дакка', population: 170 },
+                { id: '38', number: 38, country: 'Шри-Ланка', capital: 'Котте', population: 22 },
+                { id: '39', number: 39, country: 'Непал', capital: 'Катманду', population: 30 },
+                { id: '40', number: 40, country: 'Таиланд', capital: 'Бангкок', population: 70 },
+                { id: '41', number: 41, country: 'Вьетнам', capital: 'Ханой', population: 98 },
+                { id: '42', number: 42, country: 'Малайзия', capital: 'Куала-Лумпур', population: 33 },
+                { id: '43', number: 43, country: 'Сингапур', capital: 'Сингапур', population: 5.7 },
+                { id: '44', number: 44, country: 'Индонезия', capital: 'Джакарта', population: 275 },
+                { id: '45', number: 45, country: 'Филиппины', capital: 'Манила', population: 113 },
+                { id: '46', number: 46, country: 'Австралия', capital: 'Канберра', population: 26 },
+                { id: '47', number: 47, country: 'Новая Зеландия', capital: 'Веллингтон', population: 5 },
+                { id: '48', number: 48, country: 'Египет', capital: 'Каир', population: 110 },
+                { id: '49', number: 49, country: 'Марокко', capital: 'Рабат', population: 37 },
+                { id: '50', number: 50, country: 'Алжир', capital: 'Алжир', population: 45 },
+                { id: '51', number: 51, country: 'ЮАР', capital: 'Претория', population: 60 },
+                { id: '52', number: 52, country: 'Нигерия', capital: 'Абуджа', population: 227 },
+                { id: '53', number: 53, country: 'Кения', capital: 'Найроби', population: 55 },
+                { id: '54', number: 54, country: 'Эфиопия', capital: 'Аддис-Абеба', population: 126 },
+                { id: '55', number: 55, country: 'Гана', capital: 'Аккра', population: 34 },
+                { id: '56', number: 56, country: 'Турция', capital: 'Анкара', population: 85 },
+                { id: '57', number: 57, country: 'Иран', capital: 'Тегеран', population: 89 },
+                { id: '58', number: 58, country: 'Ирак', capital: 'Багдад', population: 43 },
+                { id: '59', number: 59, country: 'Саудовская Аравия', capital: 'Эр-Рияд', population: 36 },
+                { id: '60', number: 60, country: 'ОАЭ', capital: 'Абу-Даби', population: 10 },
+                { id: '61', number: 61, country: 'Израиль', capital: 'Иерусалим', population: 9.8 },
+                { id: '62', number: 62, country: 'Иордания', capital: 'Амман', population: 11 },
+                { id: '63', number: 63, country: 'Греция', capital: 'Афины', population: 10.3 },
+                { id: '64', number: 64, country: 'Болгария', capital: 'София', population: 6.8 },
+                { id: '65', number: 65, country: 'Румыния', capital: 'Бухарест', population: 19 },
+                { id: '66', number: 66, country: 'Хорватия', capital: 'Загреб', population: 4 },
+                { id: '67', number: 67, country: 'Сербия', capital: 'Белград', population: 6.7 },
+                { id: '68', number: 68, country: 'Словения', capital: 'Любляна', population: 2.1 },
+                { id: '69', number: 69, country: 'Литва', capital: 'Вильнюс', population: 2.8 },
+                { id: '70', number: 70, country: 'Латвия', capital: 'Рига', population: 1.9 },
+                { id: '71', number: 71, country: 'Эстония', capital: 'Таллин', population: 1.3 },
+                { id: '72', number: 72, country: 'Беларусь', capital: 'Минск', population: 9.2 },
+                { id: '73', number: 73, country: 'Украина', capital: 'Киев', population: 36 },
+                { id: '74', number: 74, country: 'Молдова', capital: 'Кишинёв', population: 2.6 },
+                { id: '75', number: 75, country: 'Грузия', capital: 'Тбилиси', population: 3.7 },
+                { id: '76', number: 76, country: 'Армения', capital: 'Ереван', population: 2.8 },
+                { id: '77', number: 77, country: 'Азербайджан', capital: 'Баку', population: 10.2 },
+                { id: '78', number: 78, country: 'Казахстан', capital: 'Астана', population: 20 },
+                { id: '79', number: 79, country: 'Узбекистан', capital: 'Ташкент', population: 36 },
+                { id: '80', number: 80, country: 'Туркменистан', capital: 'Ашхабад', population: 6 },
+                { id: '81', number: 81, country: 'Кыргызстан', capital: 'Бишкек', population: 7 },
+                { id: '82', number: 82, country: 'Таджикистан', capital: 'Душанбе', population: 10 },
+                { id: '83', number: 83, country: 'Монголия', capital: 'Улан-Батор', population: 3.4 },
+                { id: '84', number: 84, country: 'Афганистан', capital: 'Кабул', population: 41 },
+                { id: '85', number: 85, country: 'Сирия', capital: 'Дамаск', population: 22 },
+                { id: '86', number: 86, country: 'Ливан', capital: 'Бейрут', population: 5.5 },
+                { id: '87', number: 87, country: 'Катар', capital: 'Доха', population: 3 },
+                { id: '88', number: 88, country: 'Кувейт', capital: 'Эль-Кувейт', population: 4.5 },
+                { id: '89', number: 89, country: 'Оман', capital: 'Маскат', population: 4.6 },
+                { id: '90', number: 90, country: 'Йемен', capital: 'Сана', population: 34 },
+                { id: '91', number: 91, country: 'Чили', capital: 'Сантьяго', population: 19 },
+                { id: '92', number: 92, country: 'Парагвай', capital: 'Асунсьон', population: 7.5 },
+                { id: '93', number: 93, country: 'Уругвай', capital: 'Монтевидео', population: 3.5 },
+                { id: '94', number: 94, country: 'Боливия', capital: 'Сукре', population: 12 },
+                { id: '95', number: 95, country: 'Эквадор', capital: 'Кито', population: 18 },
+                { id: '96', number: 96, country: 'Куба', capital: 'Гавана', population: 11 },
+                { id: '97', number: 97, country: 'Доминикана', capital: 'Санто-Доминго', population: 11 },
+                { id: '98', number: 98, country: 'Гаити', capital: 'Порт-о-Пренс', population: 11.5 },
+                { id: '99', number: 99, country: 'Ямайка', capital: 'Кингстон', population: 3 },
+                { id: '100', number: 100, country: 'Панама', capital: 'Панама', population: 4.4 },
+            ];
+
+            const [data, setData] = useState([...rowsPagination.slice(0, 10)]);
+            const [loading, setLoading] = useState(false);
+
+            const itemsPerLoad = 10;
+
+            const handleScroll = (e: React.UIEvent<HTMLElement>) => {
+                const element = e.currentTarget;
+                const { scrollTop } = element;
+                const { clientHeight } = element;
+                const { scrollHeight } = element;
+
+                if (data.length < 100 && loading === false && scrollTop + clientHeight >= scrollHeight - 20) {
+                    setLoading(true);
+
+                    setTimeout(() => {
+                        setData([...data, ...rowsPagination.slice(data.length, data.length + itemsPerLoad)]);
+                        setLoading(false);
+                    }, 1000);
+                }
+            };
+
+            return (
+                <div style={{ display: "block" }}>
+                    <Table
+                        data={data}
+                        columns={columnsPagination}
+                        loadingSlot={
+                            loading ? (
+                                <div style={{ padding: '10px' }}>
+                                    <LineSkeleton />
+                                </div>
+                            ) : null
+                        }
+                        onScroll={handleScroll}
+                        maxHeight="400px"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Сценарии использования
@@ -564,9 +891,6 @@ export function App() {
 Для осуществления этой цели существует свойство `setRowProps`. Это функция, которая принимает объект строки `row` и возвращает объект атрибутов, которые будут прокинуты в тег `<tr>`.
 
 ```tsx live
-    import React from 'react';
-    import { Table } from '@salutejs/plasma-giga';
-
     export function App() {
         const data = [
             {
@@ -625,10 +949,6 @@ export function App() {
 Это можно осуществить или с помощью css, либо использовать свойство `setRowProps` для более гибкой настройки и сложных сценариев.
 
 ```tsx live
-    import React from 'react';
-    import { Table } from '@salutejs/plasma-giga';
-    import styled from 'styled-components'
-
     export function App() {
         const data = [
             {
