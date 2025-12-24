@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-b2c",
-  "version": "1.600.0-dev.0",
+  "version": "1.600.0",
   "description": "Salute Design System / React UI kit for business-related web applications.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "exports": {
@@ -55,9 +55,9 @@
     "atLeast": 99.97
   },
   "dependencies": {
-    "@salutejs/plasma-core": "1.212.0-dev.0",
-    "@salutejs/plasma-hope": "1.358.0-dev.0",
-    "@salutejs/plasma-new-hope": "0.344.0-dev.0",
+    "@salutejs/plasma-core": "1.212.0",
+    "@salutejs/plasma-hope": "1.358.0",
+    "@salutejs/plasma-new-hope": "0.344.0",
     "@salutejs/plasma-themes": "0.38.0",
     "@salutejs/plasma-tokens-b2c": "0.65.0",
     "@salutejs/plasma-tokens-web": "1.69.0",
@@ -84,9 +84,9 @@
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@salutejs/plasma-colors": "0.16.0",
-    "@salutejs/plasma-cy-utils": "0.142.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.142.0",
     "@salutejs/plasma-icons": "1.228.0",
-    "@salutejs/plasma-sb-utils": "0.212.0-dev.0",
+    "@salutejs/plasma-sb-utils": "0.212.0",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
