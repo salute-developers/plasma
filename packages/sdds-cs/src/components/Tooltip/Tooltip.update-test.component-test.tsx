@@ -10,7 +10,7 @@ describe('sdds-cs: Tooltip', () => {
     const Button = getComponent('Button') as typeof ButtonCS;
 
     const Demo = ({
-        size = 'm',
+        size = 's',
         placement = 'top',
         hasArrow = true,
     }: {
