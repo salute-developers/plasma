@@ -9,3 +9,4 @@ export * from './TextField';
 export * from './Calendar';
 export * from './Table';
 export * from './Range';
+export * from './DatePicker';
