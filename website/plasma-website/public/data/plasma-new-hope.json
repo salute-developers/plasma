@@ -1,4 +1,80 @@
 {
+  "0.344.0": {
+    "date": "2025-12-24",
+    "core": [
+      {
+        "component": "Select",
+        "children": [
+          {
+            "text": "токены для внутреннего `Chip` приведены в соответствие с макетами;",
+            "link": "https://github.com/salute-developers/plasma/pull/2388",
+            "id": 2388
+          }
+        ]
+      },
+      {
+        "component": "Table",
+        "children": [
+          {
+            "text": "добавлены свойства `topContent` и `bottomContent`, служащие в качестве ячеек для content в начале и конце таблицы\n\nдобавлено свойство `loadingSlot` для иконки загрузки;\n\nдобавлены пример с компонентом Paginations и бесконечным скроллом в документацию;",
+            "link": "https://github.com/salute-developers/plasma/pull/2390",
+            "id": 2390
+          }
+        ]
+      },
+      {
+        "component": "LinkButton",
+        "children": [
+          {
+            "text": "удалены лишние отступы для `left/rightContent` при отсутствии другого контента",
+            "link": "https://github.com/salute-developers/plasma/pull/2398",
+            "id": 2398
+          }
+        ]
+      },
+      {
+        "component": "Tabs",
+        "children": [
+          {
+            "text": "добавлена компенсация для субпиксельных вычислений при изменении масштаба viewport",
+            "link": "https://github.com/salute-developers/plasma/pull/2399",
+            "id": 2399
+          }
+        ]
+      },
+      {
+        "component": "TimePicker",
+        "children": [
+          {
+            "text": "добавлены тени для контейнера выпадающего `TimePickerGrid`",
+            "link": "https://github.com/salute-developers/plasma/pull/2401",
+            "id": 2401
+          }
+        ]
+      },
+      {
+        "component": "Button",
+        "children": [
+          {
+            "text": "выключен `:hover` на мобильных устройствах во избежания \"залипания\" состояния",
+            "link": "https://github.com/salute-developers/plasma/pull/2396",
+            "id": 2396
+          }
+        ]
+      },
+      {
+        "component": "Range",
+        "children": [
+          {
+            "text": "добавлен `appearance=\"clear\"`\n\nпереиспользован `InformationWrapper` для унификации отображения лейбла, подсказок и индикатора обязательности",
+            "link": "https://github.com/salute-developers/plasma/pull/2397",
+            "id": 2397
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.343.0": {
     "date": "2025-12-10",
     "core": [
