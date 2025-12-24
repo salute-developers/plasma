@@ -307,6 +307,7 @@ export const packageNameMap = {
     'sdds-netology': 'SDDS Netology',
     'sdds-insol': 'SDDS Insol',
     'sdds-bizcom': 'SDDS Bizcom',
+    'sdds-platform-ai': 'SDDS Platform-AI',
     plasmaStarDS: 'Plasma StarDS',
     plasmaHomeDS: 'Plasma HomeDS',
 };
@@ -326,4 +327,5 @@ export const verticalToNpmPackageMap = {
     SDDSNetology: 'sdds-netology',
     SDDSInsol: 'sdds-insol',
     SDDSBizcom: 'sdds-bizcom',
+    SDDSPlatformAI: 'sdds-platform-ai',
 };
