@@ -7,7 +7,6 @@ import {
     InputWrapper,
     StyledTextAfter,
     StyledTextBefore,
-    StyledContentLeft,
     TitleCaption,
 } from '../../TextField.styles';
 
@@ -53,10 +52,6 @@ export const base = css`
 
         ${InputPlaceholder} {
             color: var(${tokens.placeholderColorFocus});
-        }
-
-        ${StyledContentLeft} {
-            color: var(${tokens.contentSlotColorFocus});
         }
     }
 

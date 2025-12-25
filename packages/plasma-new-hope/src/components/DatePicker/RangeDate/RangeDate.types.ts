@@ -109,7 +109,17 @@ export type DatePickerRangeProps = DatePickerVariationProps &
     DatePickerRangeFieldProps &
     DatePickerCalendarProps &
     DatePickerDoublePopoverProps &
-    HTMLAttributes<HTMLDivElement>;
+    HTMLAttributes<HTMLDivElement> & {
+        /**
+         * Вид компонента
+         */
+        appearance?: 'default' | 'clear';
+        /**
+         * Флаг наличия разделителя для clear appearance
+         * @default false
+         */
+        hasClearDivider?: boolean;
+    };
 
 export type RootDatePickerRangeProps = {
     eventTooltipSize?: string;

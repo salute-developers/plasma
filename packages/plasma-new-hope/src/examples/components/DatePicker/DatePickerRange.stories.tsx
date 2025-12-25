@@ -2,7 +2,7 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getDatePickerRangeStories } from '@salutejs/plasma-sb-utils';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { IconButton } from '../IconButton/IconButton';
 import { EmbedIconButton } from '../EmbedIconButton/EmbedIconButton';

@@ -1,6 +1,19 @@
 import { disableProps, InSpacingDecorator } from '../../index';
 
-import { labelPlacements, requiredPlacements, formats, eventTooltipSizes, dividers } from './fixtures';
+import {
+    labelPlacements,
+    requiredPlacements,
+    formats,
+    eventTooltipSizes,
+    dividers,
+    appearances,
+    inputViews,
+    placements,
+    hintTriggers,
+    hintTargetPlacements,
+    hintSizes,
+    hintViews,
+} from './fixtures';
 
 type CreateMetaProps = {
     component: any;
@@ -12,6 +25,8 @@ type CreateMetaProps = {
 };
 
 const commonArgs = {
+    appearance: 'default',
+    hasClearDivider: false,
     size: 'l',
     view: 'default',
     label: 'Лейбл',
@@ -32,9 +47,37 @@ const commonArgs = {
     calendarContainerWidth: 0,
     calendarContainerHeight: 0,
     stretched: false,
+    enableContentLeft: true,
+    enableContentRight: true,
+    enableEventTooltip: false,
+    eventTooltipSize: 'm',
+    hasHint: false,
+    hintText: 'Текст подсказки',
+    hintTrigger: 'hover',
+    hintView: 'default',
+    hintSize: 'm',
+    hintTargetPlacement: 'outer',
+    hintPlacement: 'auto',
+    hintWidth: '10rem',
+    hintHasArrow: true,
 };
 
 const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) => ({
+    appearance: {
+        options: appearances,
+        control: {
+            type: 'select',
+        },
+    },
+    hasClearDivider: {
+        control: {
+            type: 'boolean',
+        },
+        if: {
+            arg: 'appearance',
+            eq: 'clear',
+        },
+    },
     view: {
         options: componentConfig.views,
         control: { type: 'select' },
@@ -66,7 +109,7 @@ const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) =
     lang: {
         options: ['ru', 'en'],
         control: {
-            type: 'inline-radio',
+            type: 'select',
         },
     },
     requiredPlacement: {
@@ -91,10 +134,97 @@ const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) =
             type: 'select',
         },
     },
+    eventTooltipSize: {
+        options: eventTooltipSizes,
+        control: {
+            type: 'select',
+        },
+        if: {
+            arg: 'enableEventTooltip',
+            truthy: true,
+        },
+    },
+
+    hintText: {
+        control: { type: 'text' },
+        if: {
+            arg: 'hasHint',
+            truthy: true,
+        },
+    },
+    hintView: {
+        options: hintViews,
+        control: {
+            type: 'select',
+        },
+        if: {
+            arg: 'hasHint',
+            truthy: true,
+        },
+    },
+    hintSize: {
+        options: hintSizes,
+        control: {
+            type: 'select',
+        },
+        if: {
+            arg: 'hasHint',
+            truthy: true,
+        },
+    },
+    hintTargetPlacement: {
+        options: hintTargetPlacements,
+        control: {
+            type: 'inline-radio',
+        },
+        if: {
+            arg: 'hasHint',
+            truthy: true,
+        },
+    },
+    hintTrigger: {
+        options: hintTriggers,
+        control: {
+            type: 'inline-radio',
+        },
+        if: {
+            arg: 'hasHint',
+            truthy: true,
+        },
+    },
+    hintPlacement: {
+        options: placements,
+        control: {
+            type: 'select',
+        },
+        if: {
+            arg: 'hasHint',
+            truthy: true,
+        },
+        mappers: placements,
+    },
+    hintHasArrow: {
+        control: { type: 'boolean' },
+        if: {
+            arg: 'hasHint',
+            truthy: true,
+        },
+    },
+    hintWidth: {
+        control: { type: 'text' },
+        if: {
+            arg: 'hasHint',
+            truthy: true,
+        },
+    },
     ...additionalArgTypes,
 });
 
 const commonDisabledArgs = [
+    'firstValueSuccess',
+    'secondValueSuccess',
+    'firstValueError',
+    'secondValueError',
     'contentLeft',
     'contentRight',
     'onToggle',
@@ -123,17 +253,12 @@ export const createMeta = ({
         component,
         args: {
             ...commonArgs,
+            inputView: 'default',
             placeholder: '30.05.2024',
             labelPlacement: 'outer',
             defaultDate: new Date(2024, 5, 14),
             maskWithFormat: true,
             textBefore: '',
-            enableContentLeft: true,
-            enableContentRight: true,
-            valueError: false,
-            valueSuccess: false,
-            enableEventTooltip: true,
-            eventTooltipSize: 'm',
             ...defaultArgs,
         },
         argTypes: {
@@ -146,14 +271,12 @@ export const createMeta = ({
             labelPlacement: {
                 options: labelPlacements,
                 control: {
-                    type: 'inline-radio',
-                },
-            },
-            eventTooltipSize: {
-                options: eventTooltipSizes,
-                control: {
                     type: 'select',
                 },
+            },
+            inputView: {
+                options: inputViews,
+                control: { type: 'select' },
             },
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },
@@ -174,6 +297,8 @@ export const createRangeMeta = ({
         component,
         args: {
             ...commonArgs,
+            firstInputView: 'default',
+            secondInputView: 'default',
             firstPlaceholder: '30.05.2024',
             secondPlaceholder: '04.06.2024',
             firstTextfieldTextBefore: '',
@@ -183,16 +308,10 @@ export const createRangeMeta = ({
             isDoubleCalendar: false,
             dividerVariant: 'dash',
             maskWithFormat: false,
-            enableContentLeft: true,
-            enableContentRight: true,
             enableFirstTextfieldContentLeft: false,
             enableFirstTextfieldContentRight: false,
             enableSecondTextfieldContentLeft: false,
             enableSecondTextfieldContentRight: false,
-            firstValueError: false,
-            firstValueSuccess: false,
-            secondValueError: false,
-            secondValueSuccess: false,
             ...defaultArgs,
         },
         argTypes: {
@@ -200,8 +319,16 @@ export const createRangeMeta = ({
             dividerVariant: {
                 options: dividers,
                 control: {
-                    type: 'inline-radio',
+                    type: 'select',
                 },
+            },
+            firstInputView: {
+                options: inputViews,
+                control: { type: 'select' },
+            },
+            secondInputView: {
+                options: inputViews,
+                control: { type: 'select' },
             },
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },
