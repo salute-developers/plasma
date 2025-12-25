@@ -2,6 +2,9 @@
 name: Create release PR and generate changelog
 
 on:
+  push:
+    branches:
+      - 'release_*'
   workflow_dispatch:
     inputs:
       from-tag:
@@ -14,7 +17,7 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      
+
     permissions:
       contents: read
       pull-requests: read
@@ -25,48 +28,48 @@ jobs:
         with:
           show-progress: false
           fetch-depth: 0
-      
+
       - name: Computed envs
         run: |
           echo "DATE=$(date +'%d.%m.%Y')" >> $GITHUB_ENV
           echo "FROM_TAG=$(git merge-base --fork-point origin/master)" >> $GITHUB_ENV
           echo "FILE=${{ github.workspace }}/changelog_artifacts.md" >> $GITHUB_ENV
-      
+
       - name: Build Changelog
         id: github_release
         uses: mikepenz/release-changelog-builder-action@v4.1.0
         with:
           fromTag: ${{ github.event.inputs.from-tag || env.FROM_TAG }}
           configuration: "./.github/changelog-builder-config.json"
-          
+
       - name: List pull request
         # List merged pull request into dev branch
         run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
-      
+
       - name: Create "changelog_artifacts.md"
         # Write multiple lines input stream
         run: |
           cat > ${{ env.FILE }} <<'EOF'
           ${{ steps.github_release.outputs.changelog }}
-        
+
       - name: Upload "changelog_artifacts.md"
         uses: actions/upload-artifact@master
         with:
           name: release-changelog-artifacts
           path: ${{ env.FILE }}
-          
+
       - name: Install dependencies
         run: |
           cd .github/actions/preprocessing-release-changelog
           npm ci
-          
+
       - name: Processing changelog data
         id: changelog
         uses: ./.github/actions/preprocessing-release-changelog
         with:
           data: |
             ${{ steps.github_release.outputs.changelog }}
-      
+
       - name: Create release PR
         run: |
           changelog='${{ steps.changelog.outputs.changelog }}'
@@ -81,7 +84,7 @@ jobs:
           script: |
             const prIds = process.env.PULL_REQUESTS_IDS.split(',').map(id => parseInt(id, 10));
             const ids = [];
-            
+
             for (const prId of prIds) {
               try {
                 const { data: pr } = await github.rest.pulls.get({
@@ -89,10 +92,10 @@ jobs:
                   repo: 'plasma',
                   pull_number: prId
                 });
-            
+
                 const jiraIdMatch = pr.title.toLocaleLowerCase().match(/plasma-\d+/);
                 const id = jiraIdMatch ? jiraIdMatch[0] : null;
-            
+
                 if (id) {
                   ids.push(id);
                 }
@@ -100,9 +103,9 @@ jobs:
                 console.error(`Error fetching PR #${prId}:`, error);
               }
             }
-            
+
             console.log('Found pull requests:', ids);
-            
+
             return ids;
 
       - name: Send MM
