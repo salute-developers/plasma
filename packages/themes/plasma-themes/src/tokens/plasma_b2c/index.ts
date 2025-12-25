@@ -406,7 +406,13 @@ export const inverseTextParagraph = 'var(--inverse-text-paragraph, #080808CC)';
 export const inverseTextPrimaryHover = 'var(--inverse-text-primary-hover, #08080893)';
 
 /** Инвертированный основной цвет текста */
+export const inverseTextPrimaryHoverBrightness = 'var(--inverse-text-primary-hover-brightness, #4E4E4EFF)';
+
+/** Инвертированный основной цвет текста */
 export const inverseTextPrimaryActive = 'var(--inverse-text-primary-active, #080808C4)';
+
+/** Инвертированный основной цвет текста */
+export const inverseTextPrimaryActiveBrightness = 'var(--inverse-text-primary-active-brightness, #343434FF)';
 
 /** Инвертированный вторичный цвет текста */
 export const inverseTextSecondaryHover = 'var(--inverse-text-secondary-hover, #080808FF)';
@@ -667,10 +673,19 @@ export const surfaceTransparentNegative = 'var(--surface-transparent-negative, #
 export const surfaceSolidDefault = 'var(--surface-solid-default, #F9F9F9)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию */
+export const surfaceSolidDefaultBrightness = 'var(--surface-solid-default-brightness, #F9F9F9FF)';
+
+/** Непрозрачный фон поверхности/контрола по умолчанию */
 export const surfaceSolidDefaultHover = 'var(--surface-solid-default-hover, #FFFFFFFF)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию */
+export const surfaceSolidDefaultHoverBrightness = 'var(--surface-solid-default-hover-brightness, #FFFFFFFF)';
+
+/** Непрозрачный фон поверхности/контрола по умолчанию */
 export const surfaceSolidDefaultActive = 'var(--surface-solid-default-active, #F5F5F5FF)';
+
+/** Непрозрачный фон поверхности/контрола по умолчанию */
+export const surfaceSolidDefaultActiveBrightness = 'var(--surface-solid-default-active-brightness, #F6F6F6FF)';
 
 /** dark surface default surfaceInfo */
 export const surfaceInfo = 'var(--surface-info, #3F81FD)';
@@ -3476,7 +3491,9 @@ export const viewContainer = {
         --inverse-text-tertiary: var(--on-light-text-tertiary);
         --inverse-text-paragraph: var(--on-light-text-paragraph);
         --inverse-text-primary-hover: var(--on-light-text-primary-hover);
+        --inverse-text-primary-hover-brightness: var(--on-light-text-primary-hover-brightness);
         --inverse-text-primary-active: var(--on-light-text-primary-active);
+        --inverse-text-primary-active-brightness: var(--on-light-text-primary-active-brightness);
         --inverse-text-secondary-hover: var(--on-light-text-secondary-hover);
         --inverse-text-secondary-active: var(--on-light-text-secondary-active);
         --inverse-text-tertiary-hover: var(--on-light-text-tertiary-hover);
@@ -3563,8 +3580,11 @@ export const viewContainer = {
         --surface-transparent-warning: var(--on-dark-surface-transparent-warning);
         --surface-transparent-negative: var(--on-dark-surface-transparent-negative);
         --surface-solid-default: var(--on-dark-surface-solid-default);
+        --surface-solid-default-brightness: var(--on-dark-surface-solid-default-brightness);
         --surface-solid-default-hover: var(--on-dark-surface-solid-default-hover);
+        --surface-solid-default-hover-brightness: var(--on-dark-surface-solid-default-hover-brightness);
         --surface-solid-default-active: var(--on-dark-surface-solid-default-active);
+        --surface-solid-default-active-brightness: var(--on-dark-surface-solid-default-active-brightness);
         --surface-info: var(--on-dark-surface-info);
         --surface-info-minor: var(--on-dark-surface-info-minor);
         --surface-transparent-info: var(--on-dark-surface-transparent-info);
@@ -3937,7 +3957,9 @@ export const viewContainer = {
         --inverse-text-warning: var(--on-dark-text-warning);
         --inverse-text-negative: var(--on-dark-text-negative);
         --inverse-text-primary-hover: var(--on-dark-text-primary-hover);
+        --inverse-text-primary-hover-brightness: var(--on-dark-text-primary-hover-brightness);
         --inverse-text-primary-active: var(--on-dark-text-primary-active);
+        --inverse-text-primary-active-brightness: var(--on-dark-text-primary-active-brightness);
         --inverse-text-secondary-hover: var(--on-dark-text-secondary-hover);
         --inverse-text-secondary-active: var(--on-dark-text-secondary-active);
         --inverse-text-tertiary-hover: var(--on-dark-text-tertiary-hover);
@@ -3972,6 +3994,7 @@ export const viewContainer = {
         --inverse-text-negative-minor: var(--on-dark-text-negative-minor);
         --inverse-text-info-minor: var(--on-dark-text-info-minor);
         --surface-solid-default: var(--on-light-surface-solid-default);
+        --surface-solid-default-brightness: var(--on-light-surface-solid-default-brightness);
         --surface-solid-primary: var(--on-light-surface-solid-primary);
         --surface-solid-primary-brightness: var(--on-light-surface-solid-primary-brightness);
         --surface-solid-secondary: var(--on-light-surface-solid-secondary);
@@ -4023,7 +4046,9 @@ export const viewContainer = {
         --surface-info-minor: var(--on-light-surface-info-minor);
         --surface-transparent-info: var(--on-light-surface-transparent-info);
         --surface-solid-default-hover: var(--on-light-surface-solid-default-hover);
+        --surface-solid-default-hover-brightness: var(--on-light-surface-solid-default-hover-brightness);
         --surface-solid-default-active: var(--on-light-surface-solid-default-active);
+        --surface-solid-default-active-brightness: var(--on-light-surface-solid-default-active-brightness);
         --surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --surface-solid-secondary-hover: var(--on-light-surface-solid-secondary-hover);
