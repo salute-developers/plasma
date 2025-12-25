@@ -15,10 +15,10 @@ const onChangeSecondValue = action('onChangeSecondValue');
 
 export const createDefaultStory = (DatePicker: any) => {
     return ({
+        appearance,
         enableContentLeft,
         enableContentRight,
-        valueError,
-        valueSuccess,
+        inputView,
         size,
         lang,
         format,
@@ -37,12 +37,16 @@ export const createDefaultStory = (DatePicker: any) => {
 
         const iconSize = getIconSize(size);
 
+        const inputViews = {
+            valueSuccess: inputView === 'positive',
+            valueError: inputView === 'negative',
+        };
+
         return (
             <DatePicker
                 opened={isOpen}
+                appearance={appearance}
                 size={size}
-                valueError={valueError}
-                valueSuccess={valueSuccess}
                 contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
                 contentRight={enableContentRight ? <IconSearch color="inherit" size={iconSize} /> : undefined}
                 onBlur={onBlur}
@@ -65,6 +69,8 @@ export const createDefaultStory = (DatePicker: any) => {
                 eventMonthList={eventMonthList}
                 eventQuarterList={eventQuarterList}
                 eventYearList={eventYearList}
+                autoComplete="off"
+                {...inputViews}
                 {...rest}
             />
         );
@@ -82,15 +88,15 @@ export const createRangeStory = (DatePickerRange: any, IconButton: any, EmbedIco
         enableSecondTextfieldContentLeft,
         enableFirstTextfieldContentRight,
         enableSecondTextfieldContentRight,
-        firstValueError,
-        firstValueSuccess,
-        secondValueError,
-        secondValueSuccess,
+        firstInputView,
+        secondInputView,
         size,
         lang,
         min,
         max,
         appearance,
+        enableEventTooltip,
+        eventTooltipSize,
         ...rest
     }: any) => {
         const rangeRef = useRef<any>(null);
@@ -107,15 +113,24 @@ export const createRangeStory = (DatePickerRange: any, IconButton: any, EmbedIco
             dividerVariant,
         };
 
+        const eventList = getBaseEvents('days', 5, enableEventTooltip);
+        const eventMonthList = getBaseEvents('months', 5, enableEventTooltip);
+        const eventQuarterList = getBaseEvents('quarters', 2, enableEventTooltip);
+        const eventYearList = getBaseEvents('years', 2, enableEventTooltip);
+
+        const inputsViews = {
+            firstValueSuccess: firstInputView === 'positive',
+            secondValueSuccess: secondInputView === 'positive',
+            firstValueError: firstInputView === 'negative',
+            secondValueError: secondInputView === 'negative',
+        };
+
         return (
             <DatePickerRange
-                size={size}
                 ref={rangeRef}
                 opened={isOpen}
-                firstValueError={firstValueError}
-                firstValueSuccess={firstValueSuccess}
-                secondValueError={secondValueError}
-                secondValueSuccess={secondValueSuccess}
+                appearance={appearance}
+                size={size}
                 contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
                 contentRight={
                     enableContentRight ? (
@@ -154,6 +169,16 @@ export const createRangeStory = (DatePickerRange: any, IconButton: any, EmbedIco
                 lang={lang}
                 min={min}
                 max={max}
+                autoComplete="off"
+                eventTooltipOptions={{
+                    bodyWrapper: EventTooltipBody,
+                    size: eventTooltipSize,
+                }}
+                eventList={eventList}
+                eventMonthList={eventMonthList}
+                eventQuarterList={eventQuarterList}
+                eventYearList={eventYearList}
+                {...inputsViews}
                 {...dividerIconProps}
                 {...rest}
             />

@@ -15,6 +15,8 @@ import { getFormattedDates } from '../utils';
 import type { DatePickerProps, RootDatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
+import { base as hintViewCSS } from './variations/_hint-view/base';
+import { base as hintSizeCSS } from './variations/_hint-size/base';
 import { base as eventTooltipSizeCSS } from './variations/_tooltip-size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
@@ -25,12 +27,29 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
         (
             {
                 className,
+                name,
+                autoComplete,
+
+                // controlled
+                value: outerValue,
                 opened = false,
 
-                value: outerValue,
                 defaultDate = '',
                 preserveInvalidOnBlur,
 
+                // variations
+                view,
+                size,
+                readOnly = false,
+                disabled = false,
+                appearance,
+                hasClearDivider,
+                stretched,
+
+                valueError,
+                valueSuccess,
+
+                // layout
                 label,
                 labelPlacement = 'outer',
                 keepPlaceholder,
@@ -43,14 +62,31 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 contentRight,
                 textBefore,
                 textAfter,
-                view,
-                size,
-                readOnly = false,
-                disabled = false,
-                name,
 
-                valueError,
-                valueSuccess,
+                // hint
+                hintTrigger = 'hover',
+                hintText,
+                hintView = 'default',
+                hintSize = 'm',
+                hintTargetIcon,
+                hintTargetPlacement = 'outer',
+                hintPlacement = 'auto',
+                hintHasArrow,
+                hintOffset = [0, 0],
+                hintWidth,
+                hintContentLeft,
+
+                // calendar-container
+                frame = 'document',
+                usePortal = false,
+                zIndex,
+                placement = ['top', 'bottom'],
+                closeOnOverlayClick = true,
+                closeOnEsc = true,
+                closeAfterDateSelect = true,
+                offset,
+
+                // calendar
                 format = 'DD.MM.YYYY',
                 lang = 'ru',
                 maskWithFormat,
@@ -69,18 +105,8 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 disabledYearList,
                 type = 'Days',
 
-                frame = 'document',
-                usePortal = false,
-                zIndex,
-                placement = ['top', 'bottom'],
-                closeOnOverlayClick = true,
-                closeOnEsc = true,
-                closeAfterDateSelect = true,
-                offset,
-
                 calendarContainerWidth,
                 calendarContainerHeight,
-                stretched,
 
                 onChangeValue,
                 onCommitDate,
@@ -89,7 +115,6 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 onBlur,
                 onChange,
 
-                autoComplete,
                 ...rest
             },
             ref,
@@ -252,6 +277,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                     handleToggle(false);
                 }
             };
+            console.log(hintText, hintTrigger, hintTargetIcon, hintPlacement, hintHasArrow, hintOffset, hintWidth);
 
             const DatePickerInput = (
                 <StyledInput
@@ -278,6 +304,23 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                     labelPlacement={labelPlacement}
                     keepPlaceholder={keepPlaceholder}
                     autoComplete={autoComplete}
+                    appearance={appearance}
+                    hasDivider={hasClearDivider}
+                    {...(hintText
+                        ? {
+                              hintText,
+                              hintView,
+                              hintSize,
+                              hintTrigger,
+                              hintTargetIcon,
+                              hintPlacement,
+                              hintHasArrow,
+                              hintOffset,
+                              hintWidth,
+                              hintContentLeft,
+                              hintTargetPlacement,
+                          }
+                        : { hintText: undefined })}
                 />
             );
 
@@ -300,6 +343,10 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                     readOnly={!disabled && readOnly}
                     ref={ref}
                     eventTooltipSize={eventTooltipOptions?.size}
+                    {...(hintText && {
+                        hintView,
+                        hintSize,
+                    })}
                     {...rest}
                 >
                     <StyledPopover
@@ -385,6 +432,12 @@ export const datePickerConfig = {
         },
         eventTooltipSize: {
             css: eventTooltipSizeCSS,
+        },
+        hintView: {
+            css: hintViewCSS,
+        },
+        hintSize: {
+            css: hintSizeCSS,
         },
         disabled: {
             css: disabledCSS,

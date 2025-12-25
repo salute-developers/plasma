@@ -46,12 +46,12 @@ export const base = css`
             height: 100%;
             width: 100%;
         }
-
-        &.${classes.hasHint}.${classes.clear} {
-            ${StyledIndicator} {
-                &.${classes.innerLabelPlacement}.${classes.requiredAlignRight} {
-                    inset: var(${tokens.clearIndicatorHintInnerRight});
-                }
+    }
+        
+    &.${classes.hasHint}.${classes.clear} {
+        ${StyledIndicator} {
+            &.${classes.innerLabelPlacement}.${classes.requiredAlignRight} {
+                inset: var(${tokens.clearIndicatorHintInnerRight});
             }
         }
     }

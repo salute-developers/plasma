@@ -1,8 +1,8 @@
-import type { HTMLAttributes, RefObject, SyntheticEvent } from 'react';
+import type { HTMLAttributes, ReactNode, RefObject, SyntheticEvent } from 'react';
 
 import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
 import type { DateInfo, DateType } from '../../Calendar/Calendar.types';
-import { LabelProps } from '../../TextField/TextField.types';
+import type { HintProps, LabelProps } from '../../TextField/TextField.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
 export type DatePickerPlacementVariation =
@@ -17,6 +17,10 @@ export type DatePickerPlacementVariation =
 export type DatePickerPlacement = DatePickerPlacementBasic | DatePickerPlacementVariation | 'auto';
 
 export type DatePickerTextFieldProps = {
+    /**
+     * Метка-подпись к элементу справа.
+     */
+    titleCaption?: ReactNode;
     /**
      * Задает выравнивание индикатора обязательности поля
      * @default right
@@ -171,6 +175,7 @@ export type DatePickerProps = DatePickerVariationProps &
     DatePickerTextFieldProps &
     DatePickerCalendarProps &
     DatePickerPopoverProps &
+    HintProps &
     Omit<HTMLAttributes<HTMLDivElement>, 'defaultValue'>;
 
 export type RootDatePickerProps = {

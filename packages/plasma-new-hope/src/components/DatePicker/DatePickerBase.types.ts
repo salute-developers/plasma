@@ -97,6 +97,15 @@ export type DatePickerCalendarProps = {
 
 export type DatePickerVariationProps = {
     /**
+     * Вид компонента
+     */
+    appearance?: 'default' | 'clear';
+    /**
+     * Флаг наличия разделителя для clear appearance
+     * @default false
+     */
+    hasClearDivider?: boolean;
+    /**
      * Размер контрола.
      */
     size?: string;

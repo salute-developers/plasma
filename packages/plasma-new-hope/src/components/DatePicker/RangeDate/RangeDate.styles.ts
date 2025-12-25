@@ -27,13 +27,17 @@ export const StyledRange = styled(Range)`
     
     ${rangeTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
 
+    ${rangeTokens.clearDividerColor}: var(${tokens.clearDividerColor});
     ${rangeTokens.dividerColor}: var(${tokens.dividerColor});
     ${rangeTokens.labelColor}: var(${tokens.labelColor});
     ${rangeTokens.leftHelperColor}: var(${tokens.leftHelperColor});
+    ${rangeTokens.leftHelperColorSuccess}: var(${tokens.leftHelperColorSuccess});
+    ${rangeTokens.leftHelperColorError}: var(${tokens.leftHelperColorError});
 
     ${rangeTokens.textFieldColor}: var(${tokens.textFieldColor});
     ${rangeTokens.textFieldPlaceholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${rangeTokens.textFieldPlaceholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
+    ${rangeTokens.textFieldClearPlaceholderColorFocus}: var(${tokens.textFieldClearPlaceholderColorFocus});
     ${rangeTokens.textFieldCaretColor}: var(${tokens.textFieldCaretColor});
 
     ${rangeTokens.textFieldBackgroundColorFocus}: var(${tokens.textFieldBackgroundColorFocus});
@@ -85,6 +89,15 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.labelLetterSpacing}: var(${tokens.labelLetterSpacing});
     ${rangeTokens.labelLineHeight}: var(${tokens.labelLineHeight});
 
+    ${rangeTokens.titleCaptionOffset}: var(${tokens.titleCaptionOffset});
+    ${rangeTokens.titleCaptionColor}: var(${tokens.titleCaptionColor});
+    ${rangeTokens.titleCaptionFontFamily}: var(${tokens.titleCaptionFontFamily});
+    ${rangeTokens.titleCaptionFontStyle}: var(${tokens.titleCaptionFontStyle});
+    ${rangeTokens.titleCaptionFontSize}: var(${tokens.titleCaptionFontSize});
+    ${rangeTokens.titleCaptionFontWeight}: var(${tokens.titleCaptionFontWeight});
+    ${rangeTokens.titleCaptionLetterSpacing}: var(${tokens.titleCaptionLetterSpacing});
+    ${rangeTokens.titleCaptionLineHeight}: var(${tokens.titleCaptionLineHeight});
+        
     ${rangeTokens.indicatorWrapperGap}: var(${tokens.indicatorWrapperGap});
     ${rangeTokens.indicatorColor}: var(${tokens.indicatorColor});
     ${rangeTokens.indicatorSizeInner}: var(${tokens.indicatorSizeInner});
@@ -93,6 +106,36 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.indicatorOuterLeft}: var(${tokens.indicatorOuterLeft});
     ${rangeTokens.indicatorWithoutLabelInner}: var(${tokens.indicatorWithoutLabelInner});
     ${rangeTokens.indicatorWithoutLabelInnerLeft}: var(${tokens.indicatorWithoutLabelInnerLeft});
+    ${rangeTokens.indicatorWithoutLabelOuterHint}: var(${tokens.indicatorWithoutLabelOuterHint});
+
+    ${rangeTokens.hintMargin}: var(${tokens.hintMargin});
+    ${rangeTokens.hintTargetSize}: var(${tokens.hintTargetSize});
+    ${rangeTokens.hintCustomIconTargetSize}: var(${tokens.hintCustomIconTargetSize});
+    ${rangeTokens.hintIconColor}: var(${tokens.hintIconColor});
+    ${rangeTokens.hintWithoutLabelPlacementOffset}: var(${tokens.hintWithoutLabelPlacementOffset});
+
+    ${rangeTokens.tooltipBackgroundColor}: var(${tokens.hintTooltipBackgroundColor});
+    ${rangeTokens.tooltipBoxShadow}: var(${tokens.hintTooltipBoxShadow});
+    ${rangeTokens.tooltipColor}: var(${tokens.hintTooltipColor});
+    ${rangeTokens.tooltipPaddingTop}: var(${tokens.hintTooltipPaddingTop});
+    ${rangeTokens.tooltipPaddingRight}: var(${tokens.hintTooltipPaddingRight});
+    ${rangeTokens.tooltipPaddingBottom}: var(${tokens.hintTooltipPaddingBottom});
+    ${rangeTokens.tooltipPaddingLeft}: var(${tokens.hintTooltipPaddingLeft});
+    ${rangeTokens.tooltipMinHeight}: var(${tokens.hintTooltipMinHeight});
+    ${rangeTokens.tooltipBorderRadius}: var(${tokens.hintTooltipBorderRadius});
+    ${rangeTokens.tooltipTextFontFamily}: var(${tokens.hintTooltipTextFontFamily});
+    ${rangeTokens.tooltipTextFontSize}: var(${tokens.hintTooltipTextFontSize});
+    ${rangeTokens.tooltipTextFontStyle}: var(${tokens.hintTooltipTextFontStyle});
+    ${rangeTokens.tooltipTextFontWeight}: var(${tokens.hintTooltipTextFontWeight});
+    ${rangeTokens.tooltipTextFontLetterSpacing}: var(${tokens.hintTooltipTextFontLetterSpacing});
+    ${rangeTokens.tooltipTextFontLineHeight}: var(${tokens.hintTooltipTextFontLineHeight});
+    ${rangeTokens.tooltipContentLeftMargin}: var(${tokens.hintTooltipContentLeftMargin});
+    ${rangeTokens.tooltipArrowMaskWidth}: var(${tokens.hintTooltipArrowMaskWidth});
+    ${rangeTokens.tooltipArrowMaskHeight}: var(${tokens.hintTooltipArrowMaskHeight});
+    ${rangeTokens.tooltipArrowMaskImage}: var(${tokens.hintTooltipArrowMaskImage});
+    ${rangeTokens.tooltipArrowHeight}: var(${tokens.hintTooltipArrowHeight});
+    ${rangeTokens.tooltipArrowEdgeMargin}: var(${tokens.hintTooltipArrowEdgeMargin});
+    ${rangeTokens.tooltipArrowBackground}: var(${tokens.hintTooltipArrowBackground});
 
     ${rangeTokens.textFieldHeight}: var(${tokens.textFieldHeight});
     ${rangeTokens.textFieldBorderRadius}: var(${tokens.textFieldBorderRadius});
@@ -122,6 +165,10 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.backgroundReadOnly}: var(${tokens.backgroundReadOnly});
     ${rangeTokens.dividerColorReadOnly}: var(${tokens.dividerColorReadOnly});
     ${rangeTokens.dividerOpacityReadOnly}: var(${tokens.dividerOpacityReadOnly});
+    ${rangeTokens.textFieldDividerColorSuccess}: var(${tokens.textFieldDividerColorSuccess});
+    ${rangeTokens.textFieldDividerColorError}: var(${tokens.textFieldDividerColorError});
+    ${rangeTokens.textFieldDividerColorHover}: var(${tokens.textFieldDividerColorHover});
+    ${rangeTokens.textFieldDividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
 
     ${rangeTokens.textFieldColorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${rangeTokens.textFieldBackgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
@@ -131,31 +178,22 @@ export const StyledRange = styled(Range)`
 export const base = css`
     display: inline-block;
 
-    .${popoverClasses.wrapper}, .${popoverClasses.target} {
-        width: inherit;
-    }
+    ${StyledPopover} {
+        .${popoverClasses.wrapper}, .${popoverClasses.target} {
+            width: inherit;
+        }
 
-    .${popoverClasses.wrapper} {
-        display: grid;
+        .${popoverClasses.wrapper} {
+            display: grid;
+        }
     }
 
     &.${classes.datePickerstretched} {
         width: 100%;
-
-        .${popoverClasses.root}, ${StyledRange} {
-            width: 100%;
+        ${StyledPopover} {
+            .${popoverClasses.root}, ${StyledRange} {
+                width: 100%;
+            }
         }
-    }
-`;
-
-export const LeftHelper = styled.div`
-    color: var(${tokens.leftHelperColor});
-
-    &.${classes.datePickerError} {
-        color: var(${tokens.leftHelperColorError});
-    }
-
-    &.${classes.datePickerSuccess} {
-        color: var(${tokens.leftHelperColorSuccess});
     }
 `;
