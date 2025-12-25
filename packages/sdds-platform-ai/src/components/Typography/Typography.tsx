@@ -25,6 +25,7 @@ import {
     configH3 as headingConfigH3Custom,
     configH4 as headingConfigH4Custom,
     configH5 as headingConfigH5Custom,
+    configH6 as headingConfigH6Custom,
 } from './Heading.config';
 import {
     configL as textConfigLCustom,
@@ -72,6 +73,9 @@ const Heading4Component = component(heading4Config);
 const heading5Config = mergeConfig(headingConfig, headingConfigH5Custom);
 const Heading5Component = component(heading5Config);
 
+const heading6Config = mergeConfig(headingConfig, headingConfigH6Custom);
+const Heading6Component = component(heading6Config);
+
 const textMConfig = mergeConfig(textConfig, textConfigMCustom);
 const TextMComponent = component(textMConfig);
 
@@ -99,6 +103,7 @@ export const H2 = Heading2Component;
 export const H3 = Heading3Component;
 export const H4 = Heading4Component;
 export const H5 = Heading5Component;
+export const H6 = Heading6Component;
 
 export const TextM = TextMComponent;
 export const TextL = TextLComponent;

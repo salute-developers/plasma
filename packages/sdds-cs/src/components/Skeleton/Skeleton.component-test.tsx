@@ -19,6 +19,7 @@ const textSizes = [
     'h3',
     'h4',
     'h5',
+    'h6',
     'textL',
     'textM',
     'textS',

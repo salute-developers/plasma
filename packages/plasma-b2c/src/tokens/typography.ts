@@ -15,6 +15,8 @@ export {
     h4Bold,
     h5,
     h5Bold,
+    h6,
+    h6Bold,
     bodyL,
     bodyLBold,
     bodyM,

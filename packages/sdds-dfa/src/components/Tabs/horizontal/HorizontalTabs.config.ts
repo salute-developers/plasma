@@ -59,6 +59,13 @@ export const config = {
                 ${tabsTokens.arrowInnerPadding}: 0rem;
                 ${tabsTokens.arrowOuterPadding}: 0.75rem;
             `,
+            h6: css`
+                ${tabsTokens.tabsBorderRadius}: 0.5rem;
+                ${tabsTokens.tabsWidth}: fit-content;
+                ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.25rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
+            `,
             h5: css`
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
                 ${tabsTokens.tabsWidth}: fit-content;

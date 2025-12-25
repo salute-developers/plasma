@@ -108,6 +108,7 @@ const getSizeForIconButton = (size) => {
             return 's';
         case 'xs':
         case 'h5':
+        case 'h6':
             return 'xs';
         default:
             return 'm';
