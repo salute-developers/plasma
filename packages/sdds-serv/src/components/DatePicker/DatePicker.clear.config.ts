@@ -8,21 +8,20 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-card);
-                ${tokens.backgroundError}: var(--surface-transparent-negative);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+                ${tokens.background}: transparent;
+                ${tokens.backgroundError}: transparent;
+                ${tokens.backgroundSuccess}: transparent;
 
-                ${tokens.borderColor}: var(--outline-solid-primary);
-                ${tokens.borderColorHover}: var(--outline-solid-primary-hover);
-                ${tokens.borderColorFocus}: var(--outline-accent);
-                ${tokens.borderColorError}: var(--outline-transparent-negative);
-                ${tokens.borderColorSuccess}: var(--outline-transparent-positive);
+                ${tokens.clearDividerColor}: var(--surface-transparent-tertiary);
 
-                ${tokens.dividerColor}: var(--text-primary);
+                ${tokens.dividerColor}: var(--surface-transparent-clear);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
+
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-primary);
                 ${tokens.contentSlotColorHover}: var(--text-primary-hover);
@@ -40,19 +39,60 @@ export const config = {
                 ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary-active);
 
+                ${tokens.contentSlotColorSuccess}: var(--text-positive);
+                ${tokens.contentSlotColorSuccessHover}: var(--text-positive-hover);
+                ${tokens.contentSlotColorSuccessActive}: var(--text-positive-active);
+
+                ${tokens.textFieldContentSlotColorSuccess}: var(--text-positive);
+                ${tokens.textFieldContentSlotColorSuccessHover}: var(--text-positive-hover);
+                ${tokens.textFieldContentSlotColorSuccessActive}: var(--text-positive-active);
+
+                ${tokens.contentSlotColorError}: var(--text-negative);
+                ${tokens.contentSlotColorErrorHover}: var(--text-negative-hover);
+                ${tokens.contentSlotColorErrorActive}: var(--text-negative-active);
+
+                ${tokens.textFieldContentSlotColorError}: var(--text-negative);
+                ${tokens.textFieldContentSlotColorErrorHover}: var(--text-negative-hover);
+                ${tokens.textFieldContentSlotColorErrorActive}: var(--text-negative-active);
+
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldColorSuccess}: var(--text-positive);
+                ${tokens.textFieldColorError}: var(--text-negative);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
+                ${tokens.focusColor}: var(--text-accent);
+
+                ${tokens.textFieldBackgroundColor}: transparent;
+                ${tokens.textFieldBackgroundColorFocus}: transparent;
+                ${tokens.textFieldBackgroundErrorColor}: transparent;
+                ${tokens.textFieldBackgroundErrorColorFocus}: transparent;
+                ${tokens.textFieldBackgroundSuccessColor}: transparent;
+                ${tokens.textFieldBackgroundSuccessColorFocus}: transparent;
+
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
                 ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentRightSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorSuccess}: var(--text-positive);
+                ${tokens.textFieldContentSlotColorSuccessHover}: var(--text-positive-hover);
+                ${tokens.textFieldContentSlotColorSuccessActive}: var(--text-positive-active);
+                ${tokens.textFieldContentSlotColorError}: var(--text-negative);
+                ${tokens.textFieldContentSlotColorErrorHover}: var(--text-negative-hover);
+                ${tokens.textFieldContentSlotColorErrorActive}: var(--text-negative-active);
+
+                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
+                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
+
+                ${tokens.textFieldDividerColorSuccess}: var(--surface-positive);
+                ${tokens.textFieldDividerColorError}: var(--surface-negative);
+                ${tokens.textFieldDividerColorHover}: var(--text-secondary);
+                ${tokens.textFieldDividerColorFocus}: var(--surface-accent);
 
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -62,25 +102,6 @@ export const config = {
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorColor}: var(--surface-negative);
-
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card);
-                ${tokens.textFieldBorderColor}: var(--outline-solid-primary);
-                ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-card);
-                ${tokens.textFieldBorderColorError}: var(--outline-transparent-negative);
-                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-accent);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-card);
-                ${tokens.textFieldBorderColorSuccess}: var(--outline-transparent-positive);
-                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-accent);
-
-                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
-                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-
-                ${tokens.focusColor}: var(--text-accent);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.calendarShadow}: var(--shadow-down-soft-s);
                 ${tokens.calendarSeparatorBackground}: var(--surface-transparent-secondary);
@@ -113,19 +134,17 @@ export const config = {
                 ${tokens.iconButtonBackgroundColorActive}: var(--surface-clear);
                 ${tokens.iconButtonFocusColor}: var(--surface-accent);
 
-                ${tokens.tooltipBackgroundColor}: var(--inverse-surface-solid-card-brightness);
+                ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
                 ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-s);
-                ${tokens.tooltipColor}: var(--inverse-text-primary);
-                ${tokens.tooltipArrowBackground}: var(--inverse-surface-solid-card-brightness);
+                ${tokens.tooltipColor}: var(--text-primary);
             `,
         },
         size: {
             l: css`
                 ${tokens.width}: 26.5rem;
                 ${tokens.borderRadius}: 0.875rem;
-                ${tokens.textFieldBorderWidth}: 0.125rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-l-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-l-font-size);
@@ -133,14 +152,14 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 1rem;
+                ${tokens.leftContentMargin}: 0 1.125rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
 
-                ${tokens.labelWrapperOffset}: 0.75rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
@@ -152,19 +171,36 @@ export const config = {
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
 
-                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorPlacement}: 1.5rem auto auto -0.875rem;
                 ${tokens.indicatorOuterPlacement}: 0.5rem auto auto -0.75rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorPlacementRight}: 1.5rem -0.875rem auto auto;
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 2.313rem -1.125rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 2.313rem auto auto -1.125rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 2.313rem -3.375rem auto auto;
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintWithoutLabelPlacementOffset}: 1.438rem -2.938rem auto auto;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
+
+                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
+
+                ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
-                ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
+                ${tokens.textFieldPadding}: 1.0625rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-l-font-size);
@@ -258,9 +294,8 @@ export const config = {
             m: css`
                 ${tokens.width}: 23rem;
                 ${tokens.borderRadius}: 0.75rem;
-                ${tokens.textFieldBorderWidth}: 0.125rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.25rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-m-font-size);
@@ -268,14 +303,14 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.875rem;
+                ${tokens.leftContentMargin}: 0 0.875rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.625rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
 
-                ${tokens.labelWrapperOffset}: 0.625rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
@@ -287,19 +322,36 @@ export const config = {
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
 
-                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorPlacement}: 1.25rem auto auto -0.875rem;
                 ${tokens.indicatorOuterPlacement}: 0.375rem auto auto -0.75rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorPlacementRight}: 1.25rem -0.875rem auto auto;
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 2.063rem -1rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 2.063rem auto auto -1rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 2.063rem -3.25rem auto auto;
+
+                ${tokens.hintMargin}: -0.688rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintWithoutLabelPlacementOffset}: 1.1875rem -2.813rem auto auto;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
+
+                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
+
+                ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
-                ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
+                ${tokens.textFieldPadding}: 0.875rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
@@ -393,9 +445,8 @@ export const config = {
             s: css`
                 ${tokens.width}: 19.5rem;
                 ${tokens.borderRadius}: 0.625rem;
-                ${tokens.textFieldBorderWidth}: 0.125rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.125rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-s-font-size);
@@ -403,14 +454,14 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.75rem;
+                ${tokens.leftContentMargin}: 0 0.75rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.5rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
-                ${tokens.labelWrapperOffset}: 0.5rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
@@ -422,19 +473,36 @@ export const config = {
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
 
-                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorPlacement}: 1.063rem auto auto -0.75rem;
                 ${tokens.indicatorOuterPlacement}: 0.3125rem auto auto -0.6875rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorPlacementRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 1.813rem -0.875rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 1.813rem auto auto -0.875rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 1.813rem -3.125rem auto auto;
+
+                ${tokens.hintMargin}: -0.688rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintWithoutLabelPlacementOffset}: 0.938rem -2.688rem auto auto;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
+
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+
+                ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
-                ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
+                ${tokens.textFieldPadding}: 0.6875rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
@@ -528,9 +596,8 @@ export const config = {
             xs: css`
                 ${tokens.width}: 19rem;
                 ${tokens.borderRadius}: 0.5rem;
-                ${tokens.textFieldBorderWidth}: 0.125rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 0.875rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -538,14 +605,14 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.5rem;
+                ${tokens.leftContentMargin}: 0 0.5rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.375rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
-                ${tokens.labelWrapperOffset}: 0.375rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -557,19 +624,36 @@ export const config = {
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
 
-                ${tokens.indicatorPlacement}: 0 0 0 0;
-                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.625rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.6875rem auto auto;
+                ${tokens.indicatorPlacement}: 0.813rem auto auto -0.625rem;
+                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 0.813rem -0.625rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.75rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.125rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.375rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.375rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 1.675rem -0.75rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 1.675rem auto auto -0.75rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 1.675rem -2rem auto auto;
+
+                ${tokens.hintMargin}: -0.688rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintWithoutLabelPlacementOffset}: 0.688rem -2.063rem auto auto;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.688rem;
+
+                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
-                ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
+                ${tokens.textFieldPadding}: 0.5625rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -713,38 +797,86 @@ export const config = {
                 ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
             `,
         },
+        hintView: {
+            default: css`
+                ${tokens.hintTooltipBackgroundColor}: var(--surface-solid-card-brightness);
+                ${tokens.hintTooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.hintTooltipColor}: var(--text-primary);
+                ${tokens.hintTooltipArrowBackground}: var(--surface-solid-card-brightness);
+            `,
+        },
+        hintSize: {
+            m: css`
+                ${tokens.hintTooltipPaddingTop}: 0.6875rem;
+                ${tokens.hintTooltipPaddingRight}: 0.875rem;
+                ${tokens.hintTooltipPaddingBottom}: 0.6875rem;
+                ${tokens.hintTooltipPaddingLeft}: 0.875rem;
+
+                ${tokens.hintTooltipMinHeight}: 2.5rem;
+                ${tokens.hintTooltipBorderRadius}: 0.625rem;
+
+                ${tokens.hintTooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.hintTooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.hintTooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.hintTooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.hintTooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.hintTooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.hintTooltipContentLeftMargin}: 0.375rem;
+
+                ${tokens.hintTooltipArrowMaskWidth}: 1.25rem;
+                ${tokens.hintTooltipArrowMaskHeight}: 1.25rem;
+                ${tokens.hintTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${tokens.hintTooltipArrowHeight}: 0.5rem;
+                ${tokens.hintTooltipArrowEdgeMargin}: 0.625rem;
+            `,
+            s: css`
+                ${tokens.hintTooltipPaddingTop}: 0.5rem;
+                ${tokens.hintTooltipPaddingRight}: 0.75rem;
+                ${tokens.hintTooltipPaddingBottom}: 0.5rem;
+                ${tokens.hintTooltipPaddingLeft}: 0.75rem;
+
+                ${tokens.hintTooltipMinHeight}: 2rem;
+                ${tokens.hintTooltipBorderRadius}: 0.5rem;
+
+                ${tokens.hintTooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.hintTooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.hintTooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.hintTooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.hintTooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.hintTooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.hintTooltipContentLeftMargin}: 0.25rem;
+
+                ${tokens.hintTooltipArrowMaskWidth}: 1rem;
+                ${tokens.hintTooltipArrowMaskHeight}: 1rem;
+                ${tokens.hintTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${tokens.hintTooltipArrowHeight}: 0.375rem;
+                ${tokens.hintTooltipArrowEdgeMargin}: 0.5625rem;
+            `,
+        },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 1;
-
-                ${tokens.contentSlotRightColor}: var(--text-secondary);
-                ${tokens.contentSlotRightColorHover}: var(--text-secondary);
-                ${tokens.contentSlotRightColorActive}: var(--text-secondary);
-
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
-                ${tokens.borderColor}: transparent;
-                ${tokens.background}: var(--surface-transparent-secondary);
+                ${tokens.disabledOpacity}: 0.4;
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
-                ${tokens.background}: var(--surface-transparent-card);
+                ${tokens.backgroundReadOnly}: transparent;
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
-                ${tokens.dividerColorReadOnly}: var(--text-primary);
+                ${tokens.dividerColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerOpacityReadOnly}: 0.4;
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
-                ${tokens.rightContentOpacityReadOnly}: 1;
-                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 1;
-                ${tokens.contentSlotRightColor}: var(--text-secondary);
-                ${tokens.contentSlotRightColorHover}: var(--text-secondary);
-                ${tokens.contentSlotRightColorActive}: var(--text-secondary);
+                ${tokens.rightContentOpacityReadOnly}: 0.4;
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.textFieldReadOnlyOpacity}: 0.1;
+                ${tokens.rangeReadOnlyOpacity}: 0.1;
             `,
         },
     },
