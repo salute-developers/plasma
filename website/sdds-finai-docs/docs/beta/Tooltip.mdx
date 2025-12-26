@@ -1,0 +1,71 @@
+---
+id: tooltip
+title: Tooltip
+---
+
+import { PropsTable, Badge } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Tooltip
+<Badge title="beta" description="Данный компонент входит в группу beta-компонентов" />
+
+:::caution Импорт beta-компонентов
+Импорт осуществляется из директории `@salutejs/sdds-finai/beta`<br />
+К примеру: <br />
+`import * as Beta from '@salutejs/sdds-finai/beta';` <br />
+`import { Tooltip } from '@salutejs/sdds-finai/beta';`
+:::
+
+## Описание
+
+`Tooltip` — это легковесное всплывающее окно, привязанное к целевому элементу (<i>target</i>), которое отображает краткую текстовую подсказку при наведении курсора, получении фокуса или клике.
+В отличие от более универсального `Popover`, `Tooltip` предназначен исключительно для поясняющих сообщений, меток или коротких инструкций.
+
+## Быстрый старт
+```tsx live
+import * as Beta from '@salutejs/sdds-finai/beta';
+import { Button } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <Beta.Tooltip target={<Button text="Target" />}>
+            Контент выпадающего окна
+        </Beta.Tooltip>
+    );
+}
+```
+
+## Взаимодействие с компонентом
+Свойство `target` имеет тип `ReactElement`. Это цель для взаимодействия с всплывающим окном.
+Контент всплывающего окна пробрасывается в `children`.
+
+## Примеры
+<Tabs>
+    <TabItem value="trigger" label="Trigger" default>
+        Свойство `trigger` принимает 3 значения: `click`, `hover` и `focus`. Поле опциональное, и `click` стоит по умолчанию.
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { Button } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex' }}>
+                    <Beta.Tooltip target={<Button text="Click" />}>
+                        Click
+                    </Beta.Tooltip>
+                    <Beta.Tooltip trigger="hover" target={<Button text="Hover" />}>
+                        Hover
+                    </Beta.Tooltip>
+                    <Beta.Tooltip trigger="focus" target={<Button text="Focus" />}>
+                        Focus
+                    </Beta.Tooltip>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## API
+<PropsTable name="TooltipBeta" />
