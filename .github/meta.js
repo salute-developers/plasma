@@ -113,4 +113,9 @@ module.exports = {
         required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes', 'sdds-themes'],
         themes: 'sdds-themes',
     },
+    'sdds-sber-os': {
+        scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes', 'sdds-themes'],
+        themes: 'sdds-themes',
+    },
 };
