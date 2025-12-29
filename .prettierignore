@@ -18,6 +18,7 @@ packages/sdds-finportal/api/
 packages/sdds-clfd-auto/api/
 packages/sdds-insol/api/
 packages/plasma-giga/api/
+packages/sdds-sber-os/api/
 
 utils/plasma-cy-utils/lib
 
