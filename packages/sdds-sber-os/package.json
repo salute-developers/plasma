@@ -1,0 +1,111 @@
+{
+  "name": "@salutejs/sdds-sber-os",
+  "version": "0.1.0",
+  "description": "Salute Design System / React UI kit for SDDS SBER OS web applications",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "exports": {
+    ".": {
+      "import": "./dist/css/es/index.js",
+      "require": "./dist/css/cjs/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./styled-components": {
+      "import": "./dist/styled-components/es/index.js",
+      "require": "./dist/styled-components/cjs/index.js",
+      "types": "./types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "design-system",
+    "react-components",
+    "ui-kit",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:salute-developers/plasma.git",
+    "directory": "packages/sdds-sber-os"
+  },
+  "dependencies": {
+    "@salutejs/plasma-new-hope": "0.344.0",
+    "@salutejs/sdds-themes": "0.51.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1",
+    "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.24.1",
+    "@babel/core": "7.24.4",
+    "@babel/plugin-transform-class-properties": "7.24.1",
+    "@babel/plugin-transform-react-constant-elements": "7.24.1",
+    "@babel/preset-env": "7.24.4",
+    "@babel/preset-react": "7.24.1",
+    "@babel/preset-typescript": "7.24.1",
+    "@ironkinoko/rollup-plugin-styles": "^4.0.3",
+    "@linaria/core": "5.0.2",
+    "@linaria/react": "5.0.3",
+    "@linaria/rollup": "5.0.4",
+    "@linaria/vite": "5.0.4",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@salutejs/plasma-colors": "0.16.0",
+    "@salutejs/plasma-core": "1.212.0",
+    "@salutejs/plasma-cy-utils": "0.142.0",
+    "@salutejs/plasma-icons": "1.228.0",
+    "@salutejs/plasma-sb-utils": "0.212.0",
+    "@types/node": "16.7.13",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/styled-components": "5.1.0",
+    "babel-loader": "8.2.2",
+    "babel-plugin-annotate-pure-calls": "0.4.0",
+    "babel-plugin-styled-components": "1.13.2",
+    "default-browser-id": "2.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "5.3.1",
+    "typescript-coverage-report": "0.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "npm run build:css && npm run build:styled-components",
+    "postbuild": "npm run generate:typings",
+    "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
+    "build:css": "rm -rf dist/css && rollup -c",
+    "postbuild:css": "rm -rf src-css",
+    "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
+    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "generate:typings": "rm -rf types && tsc",
+    "storybook": "npm run storybook:sc",
+    "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
+    "storybook:build": "storybook build -c .storybook -o build-sb",
+    "typescript-coverage": "npx typescript-coverage-report > /dev/null",
+    "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
+  },
+  "typeCoverage": {
+    "ignoreFiles": [
+      "src/**/*.component-test.tsx",
+      "src/**/*.stories.tsx",
+      "src/**/*.styles.ts"
+    ],
+    "atLeast": 99.9
+  },
+  "contributors": [
+    "salute.developers@gmail.com"
+  ],
+  "sideEffects": [
+    "*.css"
+  ]
+}
