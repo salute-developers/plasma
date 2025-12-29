@@ -42,4 +42,5 @@ module.exports = {
     '@salutejs/sdds-scan': getLatestReleaseVersion('sdds-scan'),
     '@salutejs/sdds-bizcom': getLatestReleaseVersion('sdds-bizcom'),
     '@salutejs/sdds-platform-ai': getLatestReleaseVersion('sdds-platform-ai'),
+    '@salutejs/sdds-sber-os': getLatestReleaseVersion('sdds-sber-os'),
 };
