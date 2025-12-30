@@ -1339,4 +1339,7 @@ export const iconSectionsSet = {
         rowHeightMinOutline: 'RowHeightMinOutline',
         rowHeightOutline: 'RowHeightOutline',
     },
+    Test: {
+        testSquare: 'TestSquare',
+    },
 };
