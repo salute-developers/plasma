@@ -32,7 +32,6 @@ import {
 import { classes } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { base as clearCSS } from './variations/_clear/base';
 import { base as readOnlyCSS } from './variations/_read-only/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as hintViewCSS } from './variations/_hint-view/base';
@@ -103,41 +102,25 @@ export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) =
 export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootProps>) =>
     forwardRef<HTMLTextAreaElement, TextAreaProps>((props, innerRef) => {
         const {
-            helperText,
-            status,
-            resize,
-            headerSlot,
-            rightHelper,
-            leftHelper,
-            leftHelperPlacement = 'inner',
-            contentRight,
-            autoResize = false,
-            minAuto = 0,
-            maxAuto,
+            id,
+            className,
+            style,
+
+            // layout
             label,
             labelPlacement = 'inner',
             titleCaption,
             placeholder,
-            defaultValue,
-            height,
-            width,
-            value,
-            disabled,
-            required = false,
+            leftHelper,
+            leftHelperPlacement = 'inner',
+            helperText,
+            rightHelper,
+            contentRight,
+            headerSlot,
             requiredPlacement = 'right',
             hasRequiredIndicator = false,
-            optional = false,
-            optionalText = 'optional',
-            clear,
-            hasDivider,
-            size,
-            view,
-            id,
-            style,
-            className,
-            readOnly,
-            rows,
-            cols,
+
+            // hint
             hintTrigger = 'hover',
             hintText,
             hintView = 'default',
@@ -148,8 +131,40 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             hintOffset = HINT_DEFAULT_OFFSET,
             hintWidth,
             hintContentLeft,
-            labelAriaHidden = false,
+
+            // variations
+            appearance,
+            status,
+            view,
+            size,
+            readOnly,
+            disabled,
+            required = false,
+            clear,
+            optional = false,
+            optionalText = 'optional',
+            hasDivider,
+
+            // controlled
+            value,
+            defaultValue,
+
+            // textarea-specific
+            resize,
+            autoResize = false,
+            minAuto = 0,
+            maxAuto,
+            height,
+            width,
+            rows,
+            cols,
+
+            // events
             onChange,
+
+            // additional
+            labelAriaHidden = false,
+
             ...rest
         } = props;
 
@@ -176,15 +191,15 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const hasOuterLabel = Boolean(label && labelPlacement === 'outer');
         const hasInnerLabel = Boolean(label && labelPlacement === 'inner' && size !== 'xs');
         const hasPlaceholderOptional = innerOptional && !hasOuterLabel;
-        const hasHeader = Boolean(headerSlot) && !clear;
+        const hasHeader = Boolean(headerSlot) && !(clear || appearance === 'clear');
 
         const overriddenView = status !== undefined ? fallbackStatusMap[status] : view;
         const textareaHelperId = id ? `${id}-helper` : undefined;
         const applyCustomWidth = resize !== 'horizontal' && resize !== 'both' && !cols;
         const placeholderLabel = hasInnerLabel ? label : placeholder;
-        const applyAutoResize = autoResize || Boolean(clear);
+        const applyAutoResize = autoResize || Boolean(clear || appearance === 'clear');
 
-        const clearClass = clear ? classes.clear : undefined;
+        const clearClass = clear || appearance === 'clear' ? classes.clear : undefined;
         const hasHintClass = hintText ? classes.hasHint : undefined;
         const hasRightContentClass = contentRight ? classes.hasRightContent : undefined;
         const hasDividerClass = hasDivider ? classes.hasDivider : undefined;
@@ -221,7 +236,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
         });
 
-        useAutoResize(applyAutoResize, outerRef, value || uncontrolledValue, minAuto, maxAuto, resize, hiddenRef);
+        useAutoResize(applyAutoResize, outerRef, value || uncontrolledValue, minAuto, maxAuto, resize, hiddenRef, size);
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
@@ -266,7 +281,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
 
         const optionalTextNode = innerOptional ? (
             <StyledOptionalText inheritFont={!hasOuterLabel}>
-                {Boolean(hasPlaceholderOptional ? placeholderLabel : label) && '\xa0'}
+                {Boolean(hasPlaceholderOptional && (placeholderLabel || label)) && '\xa0'}
                 {optionalText}
             </StyledOptionalText>
         ) : null;
@@ -458,10 +473,6 @@ export const textAreaConfig = {
         },
         view: {
             css: viewCSS,
-        },
-        clear: {
-            css: clearCSS,
-            attrs: true,
         },
         readOnly: {
             css: readOnlyCSS,

@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens, classes } from '../../TextArea.tokens';
-import { TitleCaption } from '../../TextArea.styles';
+import { StyledTextAreaWrapper, TitleCaption } from '../../TextArea.styles';
 
 const { styledContainer, styledTextAreaWrapper, styledHelpers } = classes;
 
@@ -66,5 +66,38 @@ export const base = css`
 
     &:active:${exclusionSelectors} .${styledTextAreaWrapper} + .${styledHelpers} {
         background-color: var(${tokens.helpersBackgroundColorActive});
+    }
+
+    &.${classes.hasDivider} {
+        ${StyledTextAreaWrapper} {
+            position: relative;
+
+            --plasma_private-textarea-divider-color: var(${tokens.dividerColor});
+
+            &:before {
+                content: '';
+                position: absolute;
+                height: 0.063rem;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                background-color: var(--plasma_private-textarea-divider-color);
+                transition: background-color 0.1s ease-in;
+            }
+        }
+
+        &:not([readonly]) ${StyledTextAreaWrapper}:hover {
+            --plasma_private-textarea-divider-color: var(
+                ${tokens.dividerColorHover},
+                var(${tokens.dividerColor})
+            );
+        }
+
+        &:not([readonly]) ${StyledTextAreaWrapper}:focus-within {
+            --plasma_private-textarea-divider-color: var(
+                ${tokens.dividerColorFocus},
+                var(${tokens.dividerColor})
+            );
+        }
     }
 `;
