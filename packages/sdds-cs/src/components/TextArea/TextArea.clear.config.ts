@@ -9,13 +9,13 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${textAreaTokens.borderColor}: var(--outline-solid-primary);
-                ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
-                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.backgroundColor}: var(--surface-solid-card);
-                ${textAreaTokens.backgroundColorHover}: var(--surface-solid-card-hover);
-                ${textAreaTokens.backgroundColorActive}: var(--surface-solid-card-active);
-                ${textAreaTokens.backgroundColorFocus}: var(--surface-solid-card);
+                ${textAreaTokens.borderColor}: transparent;
+                ${textAreaTokens.borderColorHover}: transparent;
+                ${textAreaTokens.borderColorFocus}: transparent;
+                ${textAreaTokens.backgroundColor}: transparent;
+                ${textAreaTokens.backgroundColorHover}: transparent;
+                ${textAreaTokens.backgroundColorActive}: transparent;
+                ${textAreaTokens.backgroundColorFocus}: transparent;
 
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
@@ -28,6 +28,8 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
 
                 ${textAreaTokens.rightContentColor}: var(--text-accent);
+                ${textAreaTokens.rightContentColorHover}: var(--text-accent-hover);
+                ${textAreaTokens.rightContentColorActive}: var(--text-accent-active);
 
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
                 ${textAreaTokens.optionalColor}: var(--text-secondary);
@@ -50,13 +52,13 @@ export const config = {
              * использовать `default`
              */
             primary: css`
-                ${textAreaTokens.borderColor}: var(--outline-solid-primary);
-                ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
-                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.backgroundColor}: var(--surface-solid-card);
-                ${textAreaTokens.backgroundColorHover}: var(--surface-solid-card-hover);
-                ${textAreaTokens.backgroundColorActive}: var(--surface-solid-card-active);
-                ${textAreaTokens.backgroundColorFocus}: var(--surface-solid-card);
+                ${textAreaTokens.borderColor}: transparent;
+                ${textAreaTokens.borderColorHover}: transparent;
+                ${textAreaTokens.borderColorFocus}: transparent;
+                ${textAreaTokens.backgroundColor}: transparent;
+                ${textAreaTokens.backgroundColorHover}: transparent;
+                ${textAreaTokens.backgroundColorActive}: transparent;
+                ${textAreaTokens.backgroundColorFocus}: transparent;
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
@@ -68,6 +70,8 @@ export const config = {
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
                 ${textAreaTokens.optionalColor}: var(--text-secondary);
                 ${textAreaTokens.rightContentColor}: var(--text-accent);
+                ${textAreaTokens.rightContentColorHover}: var(--text-accent-hover);
+                ${textAreaTokens.rightContentColorActive}: var(--text-accent-active);
 
                 ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-solid-default);
                 ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-solid-default-hover);
@@ -83,13 +87,13 @@ export const config = {
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
             negative: css`
-                ${textAreaTokens.borderColor}: var(--text-negative);
-                ${textAreaTokens.borderColorHover}: var(--text-negative-hover);
-                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.backgroundColor}: var(--surface-solid-card);
-                ${textAreaTokens.backgroundColorHover}: var(--surface-solid-card-hover);
-                ${textAreaTokens.backgroundColorActive}: var(--surface-solid-card-active);
-                ${textAreaTokens.backgroundColorFocus}: var(--surface-solid-card);
+                ${textAreaTokens.borderColor}: transparent;
+                ${textAreaTokens.borderColorHover}: transparent;
+                ${textAreaTokens.borderColorFocus}: transparent;
+                ${textAreaTokens.backgroundColor}: transparent;
+                ${textAreaTokens.backgroundColorHover}: transparent;
+                ${textAreaTokens.backgroundColorActive}: transparent;
+                ${textAreaTokens.backgroundColorFocus}: transparent;
 
                 ${textAreaTokens.inputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
@@ -102,6 +106,8 @@ export const config = {
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
 
                 ${textAreaTokens.rightContentColor}: var(--text-accent);
+                ${textAreaTokens.rightContentColorHover}: var(--text-accent-hover);
+                ${textAreaTokens.rightContentColorActive}: var(--text-accent-active);
 
                 ${textAreaTokens.indicatorColor}: var(--text-negative);
                 ${textAreaTokens.optionalColor}: var(--text-secondary);
@@ -128,23 +134,25 @@ export const config = {
                 ${textAreaTokens.borderRadius}: 0.75rem;
                 ${textAreaTokens.borderSize}: 0.125rem;
                 ${textAreaTokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0 0;
+
                 ${textAreaTokens.inputPaddingTop}: 0.688rem;
                 ${textAreaTokens.inputPaddingRight}: 0.875rem;
-                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.125rem;
+                ${textAreaTokens.inputPaddingRightWithRightContent}: 2rem;
+                ${textAreaTokens.inputPaddingBottom}: 0.688rem;
+                ${textAreaTokens.inputPaddingBottomWithHelpers}: 0.688rem;
+                ${textAreaTokens.inputPaddingLeft}: 0;
 
-                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
-                ${textAreaTokens.inputPaddingLeft}: 0.875rem;
-                ${textAreaTokens.helpersPaddingTop}: 0.75rem;
+                ${textAreaTokens.helpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.helpersPaddingRight}: 0;
+                ${textAreaTokens.helpersPaddingBottom}: 0;
+                ${textAreaTokens.helpersPaddingLeft}: 0;
+                ${textAreaTokens.helpersOffset}: 0;
 
-                ${textAreaTokens.helpersPaddingRight}: 0.875rem;
-                ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
-                ${textAreaTokens.helpersPaddingLeft}: 0.875rem;
-                ${textAreaTokens.helpersOffset}: 0rem;
-                ${textAreaTokens.rightContentTop}: 0.688rem;
-                ${textAreaTokens.rightContentRight}: 0.75rem;
-                ${textAreaTokens.rightContentHeight}: 1.25rem;
+                ${textAreaTokens.rightContentTop}: 0.5rem;
+                ${textAreaTokens.rightContentRight}: 0;
+                ${textAreaTokens.rightContentHeight}: 1.5rem;
 
-                ${textAreaTokens.labelMarginBottom}: 0.5rem;
+                ${textAreaTokens.labelMarginBottom}: 0.25rem;
 
                 ${textAreaTokens.labelOuterFontSize}: var(--plasma-typo-body-s-font-size);
                 ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -153,14 +161,17 @@ export const config = {
                 ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-s-line-height);
+
                 ${textAreaTokens.labelInnerTop}: 0.375rem;
                 ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
+
                 ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-m-font-size);
                 ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-m-line-height);
+
                 ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-s-font-size);
                 ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -170,11 +181,11 @@ export const config = {
 
                 ${textAreaTokens.indicatorSizeInner}: 0.375rem;
                 ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
-                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                /* stylelint-disable-next-line number-max-precision */
-                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
-                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.313rem auto auto -0.688rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.063rem -2.125rem auto auto;
 
                 ${textAreaTokens.scrollbarWidth}: 0.375rem;
                 ${textAreaTokens.scrollbarBorderWidth}: 0.125rem;
