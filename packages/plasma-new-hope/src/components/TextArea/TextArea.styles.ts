@@ -121,12 +121,20 @@ export const StyledContent = styled.div<{ hasHeader?: boolean }>`
     align-items: center;
     z-index: 1;
 
-    color: var(${tokens.rightContentColor}, var(${tokens.inputColor}));
+    color: var(${tokens.rightContentColor});
 
     top: ${({ hasHeader }) => (hasHeader ? `var(${tokens.inputPaddingTop})` : `var(${tokens.rightContentTop})`)};
     right: var(${tokens.rightContentRight});
 
     height: var(${tokens.rightContentHeight});
+
+    &:hover {
+        color: var(${tokens.rightContentColorHover});
+    }
+
+    &:active {
+        color: var(${tokens.rightContentColorActive});
+    }
 `;
 
 export const StyledHeaderSlot = styled.div`
@@ -333,7 +341,7 @@ export const StyledLeftHelper = styled.span`
     color: var(${tokens.leftHelperColor});
 
     &.${classes.leftHelperFocus} {
-        color: var(${tokens.leftHelperColorFocus});
+        color: var(${tokens.leftHelperColorFocus}, var(${tokens.leftHelperColor}));
     }
 `;
 
