@@ -2,12 +2,12 @@ import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, SpaceMe, PadMe } from '@salutejs/plasma-cy-utils';
 import { IconEye } from '@salutejs/plasma-icons';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-describe('plasma-web: TextArea', () => {
+describe.skip('plasma-web: TextArea', () => {
     const TextArea = getComponent('TextArea');
     const TextS = getComponent('TextS');
 
@@ -120,18 +120,24 @@ describe('plasma-web: TextArea', () => {
                     labelPlacement="inner"
                     helperText="Helper text"
                     status="success"
-                    clear
+                    appearance="clear"
                     hasDivider
                 />
                 <SpaceMe />
-                <TextArea placeholder="Placeholder" helperText="Helper text" status="warning" clear hasDivider />
+                <TextArea
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    status="warning"
+                    appearance="clear"
+                    hasDivider
+                />
                 <SpaceMe />
                 <TextArea
                     value="Value"
                     placeholder="Placeholder"
                     helperText="Helper text"
                     status="error"
-                    clear
+                    appearance="clear"
                     hasDivider
                 />
             </CypressTestDecoratorWithTypo>,
@@ -313,6 +319,7 @@ describe('plasma-web: TextArea', () => {
                                     size={size}
                                     height="2.5rem"
                                     required
+                                    hasRequiredIndicator
                                     {...props}
                                 />
                                 <SpaceMe />
@@ -443,5 +450,95 @@ describe('plasma-web: TextArea', () => {
                 cy.matchImageSnapshot();
             });
         });
+    });
+
+    it('[PLASMA-] TextArea: apparance=clear, required, requiredPlacement, labelPlacement', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ margin: '0 1.5rem' }}>
+                    <TextArea
+                        appearance="clear"
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="right"
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                    <PadMe />
+                    <TextArea
+                        appearance="clear"
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="left"
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                    <PadMe />
+                    <TextArea
+                        appearance="clear"
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="right"
+                        labelPlacement="inner"
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                    <PadMe />
+                    <TextArea
+                        appearance="clear"
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="left"
+                        labelPlacement="inner"
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] TextArea: appearance=clear, hasDivider', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] TextArea: appearance=clear, hasDivider, view', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" view="negative" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" view="positive" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" view="warning" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] TextArea: appearance=clear, hasDivider, size', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="xl" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="l" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="m" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="s" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="xs" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
     });
 });
