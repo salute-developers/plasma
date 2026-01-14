@@ -277,7 +277,6 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                     handleToggle(false);
                 }
             };
-            console.log(hintText, hintTrigger, hintTargetIcon, hintPlacement, hintHasArrow, hintOffset, hintWidth);
 
             const DatePickerInput = (
                 <StyledInput

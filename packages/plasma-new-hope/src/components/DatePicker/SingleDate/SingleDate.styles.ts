@@ -153,6 +153,10 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorSuccessFocus});
         
         ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorSuccess});
+
+        ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColorSuccess}, var(${tokens.textFieldContentSlotColor}));
+        ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorSuccessHover}, var(${tokens.textFieldContentSlotColorHover}));
+        ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorSuccessActive}, var(${tokens.textFieldContentSlotColorActive}));
     }
         
     &.${classes.datePickerError} {
@@ -166,6 +170,10 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
         
         ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorError});
+
+        ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColorError}, var(${tokens.textFieldContentSlotColor}));
+        ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorErrorHover}, var(${tokens.textFieldContentSlotColorHover}));
+        ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorErrorActive}, var(${tokens.textFieldContentSlotColorActive}));
     }
 `;
 

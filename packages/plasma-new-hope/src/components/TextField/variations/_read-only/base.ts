@@ -40,7 +40,9 @@ export const base = css`
 
         &.${classes.hasDivider} ${InputWrapper} {
             &:before {
-                background-color: var(${String(tokens.dividerColorReadOnly)});
+                top: unset;
+                background-color: var(${String(tokens.dividerColor)});
+                opacity: 1;
             }
         }
 

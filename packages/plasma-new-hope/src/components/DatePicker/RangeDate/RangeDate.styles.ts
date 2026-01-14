@@ -35,6 +35,8 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.leftHelperColorError}: var(${tokens.leftHelperColorError});
 
     ${rangeTokens.textFieldColor}: var(${tokens.textFieldColor});
+    ${rangeTokens.textFieldColorSuccess}: var(${tokens.textFieldColorSuccess});
+    ${rangeTokens.textFieldColorError}: var(${tokens.textFieldColorError});
     ${rangeTokens.textFieldPlaceholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${rangeTokens.textFieldPlaceholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
     ${rangeTokens.textFieldClearPlaceholderColorFocus}: var(${tokens.textFieldClearPlaceholderColorFocus});
@@ -75,9 +77,33 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.contentSlotColorHover}: var(${tokens.contentSlotColorHover});
     ${rangeTokens.contentSlotColorActive}: var(${tokens.contentSlotColorActive});
     
+    ${rangeTokens.contentSlotColorSuccess}: var(${tokens.contentSlotColorSuccess});
+    ${rangeTokens.contentSlotColorSuccessHover}: var(${tokens.contentSlotColorSuccessHover});
+    ${rangeTokens.contentSlotColorSuccessActive}: var(${tokens.contentSlotColorSuccessActive});
+    
+    ${rangeTokens.contentSlotColorError}: var(${tokens.contentSlotColorError});
+    ${rangeTokens.contentSlotColorErrorHover}: var(${tokens.contentSlotColorErrorHover});
+    ${rangeTokens.contentSlotColorErrorActive}: var(${tokens.contentSlotColorErrorActive});
+    
     ${rangeTokens.contentSlotRightColor}: var(${tokens.contentSlotRightColor});
     ${rangeTokens.contentSlotRightColorHover}: var(${tokens.contentSlotRightColorHover});
     ${rangeTokens.contentSlotRightColorActive}: var(${tokens.contentSlotRightColorActive});
+    
+    ${rangeTokens.textFieldContentSlotColor}: var(${tokens.textFieldContentSlotColor});
+    ${rangeTokens.textFieldContentSlotColorHover}: var(${tokens.textFieldContentSlotColorHover});
+    ${rangeTokens.textFieldContentSlotColorActive}: var(${tokens.textFieldContentSlotColorActive});
+    
+    ${rangeTokens.textFieldContentSlotColorSuccess}: var(${tokens.textFieldContentSlotColorSuccess});
+    ${rangeTokens.textFieldContentSlotColorSuccessHover}: var(${tokens.textFieldContentSlotColorSuccessHover});
+    ${rangeTokens.textFieldContentSlotColorSuccessActive}: var(${tokens.textFieldContentSlotColorSuccessActive});
+    
+    ${rangeTokens.textFieldContentSlotColorError}: var(${tokens.textFieldContentSlotColorError});
+    ${rangeTokens.textFieldContentSlotColorErrorHover}: var(${tokens.textFieldContentSlotColorErrorHover});
+    ${rangeTokens.textFieldContentSlotColorErrorActive}: var(${tokens.textFieldContentSlotColorErrorActive});
+    
+    ${rangeTokens.textFieldContentSlotRightColor}: var(${tokens.textFieldContentSlotRightColor});
+    ${rangeTokens.textFieldContentSlotRightColorHover}: var(${tokens.textFieldContentSlotRightColorHover});
+    ${rangeTokens.textFieldContentSlotRightColorActive}: var(${tokens.textFieldContentSlotRightColorActive});
 
     ${rangeTokens.labelWrapperOffset}: var(${tokens.labelOffset});
 
@@ -190,8 +216,11 @@ export const base = css`
 
     &.${classes.datePickerstretched} {
         width: 100%;
-        ${StyledPopover} {
-            .${popoverClasses.root}, ${StyledRange} {
+
+        & > .${popoverClasses.wrapper} {
+            width: 100%;
+
+            .${popoverClasses.target}, ${StyledRange} {
                 width: 100%;
             }
         }

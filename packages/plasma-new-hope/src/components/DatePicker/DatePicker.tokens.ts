@@ -51,6 +51,14 @@ export const tokens = {
     contentSlotColorHover: '--plasma-date-picker-content-slot-color-hover',
     contentSlotColorActive: '--plasma-date-picker-content-slot-color-active',
 
+    contentSlotColorSuccess: '--plasma-date-picker-content-slot-color-success',
+    contentSlotColorSuccessHover: '--plasma-date-picker-content-slot-color-success-hover',
+    contentSlotColorSuccessActive: '--plasma-date-picker-content-slot-color-success-active',
+
+    contentSlotColorError: '--plasma-date-picker-content-slot-color-error',
+    contentSlotColorErrorHover: '--plasma-date-picker-content-slot-color-error-hover',
+    contentSlotColorErrorActive: '--plasma-date-picker-content-slot-color-error-active',
+
     contentSlotRightColor: '--plasma-date-picker-content-right-slot-color',
     contentSlotRightColorHover: '--plasma-date-picker-content-right-slot-color-hover',
     contentSlotRightColorActive: '--plasma-date-picker-content-right-slot-color-active',
@@ -183,9 +191,15 @@ export const tokens = {
     textFieldTextAfterColor: '--plasma-date-picker-textfield__after-text-color',
     textFieldTextBeforeMargin: '--plasma-date-picker-textfield__before-text-margin',
     textFieldTextAfterMargin: '--plasma-date-picker-textfield__after-text-margin',
+
+    textFieldContentSlotRightColor: '--plasma-date-picker-textfield__content-right-color',
+    textFieldContentSlotRightColorHover: '--plasma-date-picker-textfield__content-right-color-hover',
+    textFieldContentSlotRightColorActive: '--plasma-date-picker-textfield__content-right-color-active',
+
     textFieldContentSlotColor: '--plasma-date-picker-textfield__content-color',
     textFieldContentSlotColorHover: '--plasma-date-picker-textfield__content-color-hover',
     textFieldContentSlotColorActive: '--plasma-date-picker-textfield__content-color-active',
+
     textFieldContentRightSlotColor: '--plasma-date-picker-textfield__content-right-color',
     textFieldContentRightSlotColorHover: '--plasma-date-picker-textfield__content-right-color-hover',
     textFieldContentRightSlotColorActive: '--plasma-date-picker-textfield__content-right-color-active',
