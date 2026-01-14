@@ -53,6 +53,7 @@ describe('plasma-giga: List Styled', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 560);
         cy.matchImageSnapshot();
     });
 

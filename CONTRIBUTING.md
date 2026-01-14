@@ -108,7 +108,7 @@ npm ci && npx lerna bootstrap
 В корне **monorepo** выполните команду (для остальных библиотек команды будут соответствующими):
 
 ```sh
-npm run cy:ui:run-ct
+npm run cy:ui:run
 ```
 
 #### Обновление скриншотов
@@ -116,7 +116,7 @@ npm run cy:ui:run-ct
 Если это необходимо, то для этого выполните команду:
 
 ```sh
-npm run cy:ui:run-ct-update-diffs
+npm run cy:ui:update
 ```
 
 -   добавьте их в commit;
@@ -126,7 +126,7 @@ npm run cy:ui:run-ct-update-diffs
 Выполните команду:
 
 ```sh
-npm run cy:ui:open-ct
+npm run cy:ui:open
 ```
 
 #### Запуск тестов с указанием компонента(-ов)
@@ -136,13 +136,13 @@ npm run cy:ui:open-ct
 Это поведение можно изменить указав что именно нужно запускать.
 
 ```sh
-npm run cy:ui:run-ct --components='component1, component2'
+npm run cy:ui:run --components='component1, component2'
 ```
 
 или
 
 ```sh
-npm run cy:web:run-ct-update-diffs --components='component1, component2'
+npm run cy:web:update --components='component1, component2'
 ```
 
 ## Commit step

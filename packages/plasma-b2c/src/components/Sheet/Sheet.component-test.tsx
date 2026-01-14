@@ -68,7 +68,7 @@ describe('plasma-b2c: Sheet', () => {
     });
 
     it('onTouchMove', () => {
-        cy.viewport('iphone-6');
+        cy.viewport(375, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -104,7 +104,7 @@ describe('plasma-b2c: Sheet', () => {
     });
 
     it('withoutOverlay', () => {
-        cy.viewport('iphone-6');
+        cy.viewport(375, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>

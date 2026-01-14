@@ -29,6 +29,8 @@ describe('plasma-giga: Note', () => {
     };
 
     it(':view', () => {
+        cy.viewport(500, 1196);
+
         mount(
             <CypressTestDecorator>
                 {views.map((view) => (
@@ -51,6 +53,8 @@ describe('plasma-giga: Note', () => {
     });
 
     it(':size', () => {
+        cy.viewport(500, 1116);
+
         mount(
             <CypressTestDecorator>
                 {sizes.map((size) => (

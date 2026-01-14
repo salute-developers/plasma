@@ -268,6 +268,8 @@ describe('sdds-insol: Note', () => {
     });
 
     it('[PLASMA-T2298] Note: size=l, view=default, longText', () => {
+        cy.viewport(500, 588);
+
         mount(
             <CypressTestDecorator>
                 <Note

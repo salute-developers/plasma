@@ -17,7 +17,7 @@ describe('plasma-b2c: TextArea', () => {
         rightHelper: 'Right helper',
     };
 
-    it('[PLASMA-T1580] TextArea: size=l, view=default, label, labelPlacement=inner, value, leftHelperText, rightHelperText, contentRight, required, requiredPlacement=left', () => {
+    it('[PLASMA-T1580] TextArea: size=l, view=default, label, labelPlacement=inner, value, leftHelperText, rightHelperText, contentRight, required, requiredPlacement=left, hasRequiredIndicator', () => {
         mount(
             <CypressTestDecorator>
                 <TextArea
@@ -286,7 +286,6 @@ describe('plasma-b2c: TextArea', () => {
                     contentRight={Icon}
                     required
                     requiredPlacement="right"
-                    hasRequiredIndicator={false}
                 />
             </CypressTestDecorator>,
         );

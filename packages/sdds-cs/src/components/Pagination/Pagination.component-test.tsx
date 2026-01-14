@@ -59,7 +59,6 @@ describe('sdds-cs: Pagination Styled', () => {
     });
 
     it('type:Default', () => {
-        cy.viewport(1000, 1000);
         mount(
             <CypressTestDecorator>
                 <Pagination type="default" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} count={count} />
@@ -93,11 +92,11 @@ describe('sdds-cs: Pagination Styled', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(1000, 599);
         cy.matchImageSnapshot();
     });
 
     it('type:Compact', () => {
-        cy.viewport(650, 1200);
         mount(
             <CypressTestDecorator>
                 <Pagination type="compact" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} count={count} />
@@ -131,6 +130,7 @@ describe('sdds-cs: Pagination Styled', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(650, 599);
         cy.matchImageSnapshot();
     });
 });
@@ -139,7 +139,6 @@ describe('sdds-cs: Pagination Slots', () => {
     const Pagination = getComponent('Pagination');
 
     it('minSlots', () => {
-        cy.viewport(1000, 500);
         mount(
             <CypressTestDecorator>
                 <Pagination slots={slots[0]} value={values[0]} count={count} />
@@ -162,6 +161,7 @@ describe('sdds-cs: Pagination Slots', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(1000, 528);
         cy.matchImageSnapshot();
     });
 

@@ -1,12 +1,5 @@
 {
-    "packages": [
-        "packages/*",
-        "packages/themes/*",
-        "utils/*",
-        "website/*-docs",
-        "website/plasma-website",
-        "actions/platform-test"
-    ],
+    "packages": ["packages/*", "packages/themes/*", "utils/*", "website/*-docs", "website/plasma-website"],
     "version": "independent",
     "ignoreChanges": ["*.md", "*.component-test.tsx", "package-lock.json"],
     "loglevel": "verbose",

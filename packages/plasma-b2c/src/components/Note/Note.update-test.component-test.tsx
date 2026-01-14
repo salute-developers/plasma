@@ -268,6 +268,8 @@ describe('plasma-b2c: Note', () => {
     });
 
     it('[PLASMA-T2298] Note: size=l, view=default, longText', () => {
+        cy.viewport(500, 848);
+
         mount(
             <CypressTestDecorator>
                 <Note

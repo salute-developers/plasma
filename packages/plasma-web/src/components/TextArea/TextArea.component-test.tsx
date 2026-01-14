@@ -300,10 +300,10 @@ describe.skip('plasma-web: TextArea', () => {
         const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
-            { labelPlacement: 'outer' },
-            { requiredPlacement: 'left', labelPlacement: 'outer' },
-            { labelPlacement: 'inner' },
-            { requiredPlacement: 'left', labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {
@@ -368,6 +368,7 @@ describe.skip('plasma-web: TextArea', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(500, 812);
         cy.matchImageSnapshot();
     });
 
@@ -391,6 +392,7 @@ describe.skip('plasma-web: TextArea', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(500, 812);
         cy.matchImageSnapshot();
     });
 
@@ -415,6 +417,7 @@ describe.skip('plasma-web: TextArea', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(500, 812);
         cy.matchImageSnapshot();
     });
 

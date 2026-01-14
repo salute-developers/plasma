@@ -27,13 +27,17 @@ Object.defineProperty(exports, "__esModule", {
 export const getWebpackConfig = () => {
     const babelOpts = { ...babelrc.env.cjs };
 
+    const cache = Boolean(process.env.WEBPACK_CACHE_ENABLED);
+
+    console.log('WEBPACK_CACHE_ENABLED', cache);
+
     return {
+        cache,
         mode: 'development',
-        entry: 'src/index.ts',
+        target: 'web',
         devtool: 'inline-source-map',
-        devServer: { contentBase: './public' },
         resolve: {
-            extensions: ['.wasm', '.ts', '.tsx', '.mjs', '.cjs', '.js', '.jsx', '.json', '.map'],
+            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
             modules: ['node_modules'],
             alias: {
                 'styled-components': resolveInsidePackage('styled-components'),
@@ -42,9 +46,13 @@ export const getWebpackConfig = () => {
                 '@salutejs/plasma-icons': resolveInsidePackage('@salutejs', 'plasma-icons'),
                 '@salutejs/plasma-cy-utils': resolveInsidePackage('@salutejs', 'plasma-cy-utils'),
             },
-        },
-        optimization: {
-            minimize: false,
+            fallback: {
+                crypto: false,
+                stream: false,
+                buffer: false,
+                path: false,
+                fs: false,
+            },
         },
         module: {
             rules: [
@@ -53,27 +61,27 @@ export const getWebpackConfig = () => {
                     use: ['style-loader', 'css-loader'],
                 },
                 {
-                    test: /\.tsx$|\.ts$/,
-                    exclude: [/node_modules/],
+                    test: /\.(ts|tsx)$/,
+                    exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
                         options: babelOpts,
                     },
                 },
                 {
-                    test: /\.svg$/,
-                    use: 'file-loader',
+                    test: /\.svg$/i,
+                    type: 'asset/resource',
                 },
                 {
-                    test: /\.(png|jpe?g)$/,
-                    use: [
-                        {
-                            loader: 'url-loader',
-                            options: {
-                                mimetype: 'image/png',
+                    test: /\.(png|jpe?g)$/i,
+                    type: 'asset',
+                    parser: {
+                        asset: {
+                            dataUrlCondition: {
+                                maxSize: 8 * 1024,
                             },
                         },
-                    ],
+                    },
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|otf)$/i,

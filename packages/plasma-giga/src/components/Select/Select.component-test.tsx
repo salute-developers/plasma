@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { IconLocation } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 
 const items = [
     {
@@ -529,7 +532,7 @@ describe('plasma-giga: Select', () => {
     };
 
     it('default', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 958);
 
         mount(<CommonComponent />);
 
@@ -537,7 +540,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: size l', () => {
-        cy.viewport(1000, 1200);
+        cy.viewport(1000, 1054);
 
         mount(<CommonComponent size="l" />);
 
@@ -545,7 +548,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: size m', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 958);
 
         mount(<CommonComponent size="m" />);
 
@@ -553,7 +556,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: size s', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 862);
 
         mount(<CommonComponent size="s" />);
 
@@ -561,15 +564,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: size xs', () => {
-        cy.viewport(1000, 1000);
-
-        mount(<CommonComponent size="xs" />);
-
-        cy.matchImageSnapshot();
-    });
-
-    it('prop: size xs', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 758);
 
         mount(<CommonComponent size="xs" />);
 
@@ -577,7 +572,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: labelPlacement', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 838);
 
         mount(
             <CommonComponent
@@ -591,7 +586,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: chipView secondary', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 838);
 
         mount(
             <CommonComponent
@@ -606,7 +601,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: chipView accent', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 838);
 
         mount(
             <CommonComponent
@@ -642,7 +637,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: contentLeft', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 958);
 
         mount(
             <CommonComponent
@@ -656,7 +651,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: isTargetAmount', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 958);
 
         mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
 
@@ -670,12 +665,13 @@ describe('plasma-giga: Select', () => {
             <CypressTestDecorator>
                 <div style={{ display: 'flex', gap: '30px' }}>
                     <div style={{ width: '200px' }}>
-                        <Select required items={items} label="Label" placeholder="Placeholder" />
+                        <Select required hasRequiredIndicator items={items} label="Label" placeholder="Placeholder" />
                     </div>
 
                     <div style={{ width: '200px' }}>
                         <Select
                             required
+                            hasRequiredIndicator
                             requiredPlacement="left"
                             items={items}
                             label="Label"
@@ -782,7 +778,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: renderValue', () => {
-        cy.viewport(400, 800);
+        cy.viewport(400, 599);
 
         const Component = () => {
             const [valueSingle, setValueSingle] = React.useState('paris');
@@ -1005,7 +1001,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: treeView, single mode', () => {
-        cy.viewport(400, 700);
+        cy.viewport(400, 599);
 
         const Component = () => {
             const [value, setValue] = useState('rio_de_janeiro');
@@ -1037,7 +1033,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('prop: treeView, multiple mode', () => {
-        cy.viewport(400, 700);
+        cy.viewport(400, 599);
 
         const Component = () => {
             const [value, setValue] = useState(['rio_de_janeiro']);
@@ -1708,7 +1704,7 @@ describe('plasma-giga: Select', () => {
     });
 
     it('snapshot: missing value in items', () => {
-        cy.viewport(1300, 200);
+        cy.viewport(1280, 200);
 
         const Component = () => {
             const [valueSingle, setValueSingle] = React.useState('minsk');

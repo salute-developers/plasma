@@ -334,6 +334,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 726);
         cy.matchImageSnapshot();
     });
 
@@ -357,6 +358,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 726);
         cy.matchImageSnapshot();
     });
 
@@ -381,6 +383,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 726);
         cy.matchImageSnapshot();
     });
 

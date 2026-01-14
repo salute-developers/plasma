@@ -219,6 +219,7 @@ describe('plasma-web: Calendar', () => {
             </>,
         );
 
+        cy.viewport(500, 1134);
         cy.matchImageSnapshot();
     });
 
@@ -235,7 +236,7 @@ describe('plasma-web: Calendar', () => {
             </>,
         );
 
-        cy.viewport(1200, 500);
+        cy.viewport(1200, 1134);
 
         cy.matchImageSnapshot();
     });
@@ -255,6 +256,7 @@ describe('plasma-web: Calendar', () => {
             </>,
         );
 
+        cy.viewport(500, 1772);
         cy.matchImageSnapshot();
     });
 
@@ -265,6 +267,7 @@ describe('plasma-web: Calendar', () => {
             </div>,
         );
 
+        cy.viewport(500, 656);
         cy.matchImageSnapshot();
     });
 
@@ -275,6 +278,7 @@ describe('plasma-web: Calendar', () => {
             </div>,
         );
 
+        cy.viewport(500, 656);
         cy.matchImageSnapshot();
     });
 
@@ -363,6 +367,7 @@ describe('plasma-web: Calendar', () => {
             </>,
         );
 
+        cy.viewport(500, 1134);
         cy.matchImageSnapshot();
     });
 
@@ -397,6 +402,7 @@ describe('plasma-web: Calendar', () => {
             </>,
         );
 
+        cy.viewport(500, 1134);
         cy.matchImageSnapshot();
     });
 
@@ -409,6 +415,7 @@ describe('plasma-web: Calendar', () => {
             </>,
         );
 
+        cy.viewport(500, 570);
         cy.matchImageSnapshot();
     });
 
