@@ -73,7 +73,6 @@ describe('sdds-insol: Pagination Styled', () => {
     });
 
     it('type:Default', () => {
-        cy.viewport(1000, 1000);
         mount(
             <CypressTestDecorator>
                 <Pagination
@@ -157,6 +156,7 @@ describe('sdds-insol: Pagination Styled', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(1000, 599);
         cy.matchImageSnapshot();
     });
 
@@ -168,7 +168,6 @@ describe('sdds-insol: Pagination Styled', () => {
             return true; // Для остальных ошибок тест упадет
         });
 
-        cy.viewport(650, 1200);
         mount(
             <CypressTestDecorator>
                 <Pagination
@@ -273,6 +272,7 @@ describe('sdds-insol: Pagination Styled', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(650, 1086);
         cy.matchImageSnapshot();
     });
 });

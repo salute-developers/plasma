@@ -420,12 +420,19 @@ describe('sdds-cs: Autocomplete', () => {
             <CypressTestDecorator>
                 <div style={{ display: 'flex', gap: '30px' }}>
                     <div style={{ width: '200px' }}>
-                        <Autocomplete required label="Label" placeholder="Placeholder" suggestions={suggestions} />
+                        <Autocomplete
+                            required
+                            hasRequiredIndicator
+                            label="Label"
+                            placeholder="Placeholder"
+                            suggestions={suggestions}
+                        />
                     </div>
 
                     <div style={{ width: '200px' }}>
                         <Autocomplete
                             required
+                            hasRequiredIndicator
                             requiredPlacement="left"
                             label="Label"
                             placeholder="Placeholder"
@@ -544,7 +551,7 @@ describe('sdds-cs: Autocomplete', () => {
     });
 
     it('prop: virtual dynamic height', () => {
-        cy.viewport(400, 600);
+        cy.viewport(400, 599);
 
         mount(
             <CypressTestDecorator>

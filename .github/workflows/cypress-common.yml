@@ -44,7 +44,7 @@ jobs:
           else
             echo "SCOPE={core,new-hope,typo,icons,cy-utils}" >> $GITHUB_ENV
           fi
-      
+
       - name: Install dependencies for check-test-files-exist
         if: ${{ inputs.components }}
         run: |
@@ -74,9 +74,9 @@ jobs:
           retry_on: error
           command: |
             if [ "${{ inputs.prefix }}" = "plasma" ]; then
-              npx lerna bootstrap --scope=@salutejs/${{ inputs.prefix }}-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes"
+              npx lerna bootstrap --scope=@salutejs/${{ inputs.prefix }}-${{env.SCOPE}} --scope="@salutejs/core-themes"
             else
-              npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test" --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
+              npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
             fi
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
@@ -84,10 +84,10 @@ jobs:
         run: |
           if [ -n "${{ inputs.components }}" ] && [ "${{ steps.check-test-files-exist.outputs.tests-exist }}" = "true" ]; then
             echo "Running Cypress for specific components: ${{ inputs.components }}"
-            npm run cy:${{ inputs.scope }}:run-ct --components="${{ inputs.components }}"
+            npm run cy:${{ inputs.scope }}:run --components="${{ inputs.components }}" --webpack_cache_enabled=true
           elif [ -z "${{ inputs.components }}" ]; then
             echo "Running Cypress for all components"
-            npm run cy:${{ inputs.scope }}:run-ct
+            npm run cy:${{ inputs.scope }}:run --webpack_cache_enabled=true
           else
               echo "Skipping Cypress: No test files found for specified components"
           fi

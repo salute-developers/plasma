@@ -82,7 +82,7 @@ describe('sdds-insol: Autocomplete', () => {
     });
 
     it('prop: size', () => {
-        cy.viewport(1500, 300);
+        cy.viewport(1280, 300);
 
         mount(
             <CypressTestDecorator>
@@ -477,18 +477,25 @@ describe('sdds-insol: Autocomplete', () => {
     });
 
     it('prop: required, requiredPlacement', () => {
-        cy.viewport(500, 100);
+        cy.viewport(500, 102);
 
         mount(
             <CypressTestDecorator>
                 <div style={{ display: 'flex', gap: '30px' }}>
                     <div style={{ width: '200px' }}>
-                        <Autocomplete required label="Label" placeholder="Placeholder" suggestions={suggestions} />
+                        <Autocomplete
+                            required
+                            hasRequiredIndicator
+                            label="Label"
+                            placeholder="Placeholder"
+                            suggestions={suggestions}
+                        />
                     </div>
 
                     <div style={{ width: '200px' }}>
                         <Autocomplete
                             required
+                            hasRequiredIndicator
                             requiredPlacement="left"
                             label="Label"
                             placeholder="Placeholder"
@@ -503,7 +510,7 @@ describe('sdds-insol: Autocomplete', () => {
     });
 
     it('prop: optional', () => {
-        cy.viewport(400, 100);
+        cy.viewport(400, 102);
 
         mount(
             <CypressTestDecorator>
@@ -607,7 +614,7 @@ describe('sdds-insol: Autocomplete', () => {
     });
 
     it('prop: virtual dynamic height', () => {
-        cy.viewport(400, 600);
+        cy.viewport(400, 599);
 
         mount(
             <CypressTestDecorator>

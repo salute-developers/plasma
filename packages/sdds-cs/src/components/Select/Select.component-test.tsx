@@ -531,7 +531,7 @@ describe('sdds-cs: Select', () => {
     };
 
     it('default', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 894);
 
         mount(<CommonComponent />);
 
@@ -539,7 +539,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: size l', () => {
-        cy.viewport(1000, 1200);
+        cy.viewport(1000, 678);
 
         mount(<CommonComponent size="l" />);
 
@@ -547,7 +547,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: size m', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 678);
 
         mount(<CommonComponent size="m" />);
 
@@ -555,7 +555,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: size s', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 894);
 
         mount(<CommonComponent size="s" />);
 
@@ -563,15 +563,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: size xs', () => {
-        cy.viewport(1000, 1000);
-
-        mount(<CommonComponent size="xs" />);
-
-        cy.matchImageSnapshot();
-    });
-
-    it('prop: size xs', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 628);
 
         mount(<CommonComponent size="xs" />);
 
@@ -579,7 +571,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: labelPlacement', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 782);
 
         mount(
             <CommonComponent
@@ -593,7 +585,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: chipView secondary', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 782);
 
         mount(
             <CommonComponent
@@ -608,7 +600,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: chipView accent', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 782);
 
         mount(
             <CommonComponent
@@ -644,7 +636,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: contentLeft', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 894);
 
         mount(
             <CommonComponent
@@ -658,7 +650,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: isTargetAmount', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 894);
 
         mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
 
@@ -672,12 +664,13 @@ describe('sdds-cs: Select', () => {
             <CypressTestDecorator>
                 <div style={{ display: 'flex', gap: '30px' }}>
                     <div style={{ width: '200px' }}>
-                        <Select required items={items} label="Label" placeholder="Placeholder" />
+                        <Select required hasRequiredIndicator items={items} label="Label" placeholder="Placeholder" />
                     </div>
 
                     <div style={{ width: '200px' }}>
                         <Select
                             required
+                            hasRequiredIndicator
                             requiredPlacement="left"
                             items={items}
                             label="Label"
@@ -784,7 +777,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('prop: renderValue', () => {
-        cy.viewport(400, 800);
+        cy.viewport(400, 599);
 
         const Component = () => {
             const [valueSingle, setValueSingle] = React.useState('paris');
@@ -1647,7 +1640,7 @@ describe('sdds-cs: Select', () => {
     });
 
     it('snapshot: missing value in items', () => {
-        cy.viewport(1300, 200);
+        cy.viewport(1280, 200);
 
         const Component = () => {
             const [valueSingle, setValueSingle] = React.useState('minsk');

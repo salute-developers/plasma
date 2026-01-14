@@ -83,7 +83,7 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('[PLASMA-T2338] DateTimePicker: size=m, required, requiredPlacement=right, valueError', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -106,7 +106,7 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('[PLASMA-T2345] DateTimePicker: size=s, required, requiredPlacement=left, valueSuccess', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -294,7 +294,7 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('[PLASMA-T2365] DateTimePicker: calendarContainerWidth, calendarContainerHeight', () => {
-        cy.viewport(600, 8000);
+        cy.viewport(600, 704);
 
         mount(
             <CypressTestDecoratorWithTypo>

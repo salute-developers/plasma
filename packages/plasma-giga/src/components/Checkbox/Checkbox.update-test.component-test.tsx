@@ -224,6 +224,8 @@ describe('plasma-giga: Checkbox', () => {
         );
 
         cy.get('input[type="checkbox"]').first().focus();
+
+        cy.viewport(500, 556);
         cy.matchImageSnapshot();
     });
 

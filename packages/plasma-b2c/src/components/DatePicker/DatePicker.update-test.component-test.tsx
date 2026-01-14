@@ -107,6 +107,7 @@ describe('plasma-b2c: DatePicker', () => {
                     maskWithFormat
                     required
                     requiredPlacement="left"
+                    hasRequiredIndicator
                     valueError
                 />
             </CypressTestDecoratorWithTypo>,
@@ -125,6 +126,7 @@ describe('plasma-b2c: DatePicker', () => {
                     lang="en"
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     valueSuccess
                 />
             </CypressTestDecoratorWithTypo>,
@@ -186,6 +188,7 @@ describe('plasma-b2c: DatePicker', () => {
                     enableContentRight
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     disabled
                 />
             </CypressTestDecoratorWithTypo>,
@@ -353,7 +356,7 @@ describe('plasma-b2c: DatePicker', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 656);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -519,7 +522,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     };
 
     it('[PLASMA-T1792] DatePickerRange: default, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -563,7 +566,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1795] DatePickerRange: input date, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -591,7 +594,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1798] DatePickerRange: size=l, multy props', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -620,6 +623,7 @@ describe('plasma-b2c: DatePickerRange', () => {
                         maskWithFormat
                         required
                         requiredPlacement="left"
+                        hasRequiredIndicator
                     />
                 </div>
             </CypressTestDecoratorWithTypo>,
@@ -691,6 +695,7 @@ describe('plasma-b2c: DatePickerRange', () => {
                     secondValueError
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                 />
             </CypressTestDecoratorWithTypo>,
         );
@@ -719,7 +724,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 656);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -755,7 +760,12 @@ describe('plasma-b2c: DatePickerRange', () => {
     it('[PLASMA-] DatePickerRange: hintText, required, requiredPlacement=right', () => {
         mount(
             <CypressTestDecorator>
-                <Demo hintText="Тестовый текст" required requiredPlacement="right" />
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    hintText="Тестовый текст"
+                    required
+                    requiredPlacement="right"
+                />
             </CypressTestDecorator>,
         );
         cy.get('input.textfield-input-text-ellipsis').last().click();

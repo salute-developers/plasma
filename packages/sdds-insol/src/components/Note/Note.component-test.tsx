@@ -29,6 +29,8 @@ describe('sdds-insol: Note', () => {
     };
 
     it(':view', () => {
+        cy.viewport(500, 1036);
+
         mount(
             <CypressTestDecorator>
                 {views.map((view) => (
@@ -51,6 +53,8 @@ describe('sdds-insol: Note', () => {
     });
 
     it(':size', () => {
+        cy.viewport(500, 1056);
+
         mount(
             <CypressTestDecorator>
                 {sizes.map((size) => (

@@ -40,6 +40,8 @@ describe('plasma-web: Note', () => {
     );
 
     it(':view', () => {
+        cy.viewport(500, 1156);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 {views.map((view) => (
@@ -62,6 +64,8 @@ describe('plasma-web: Note', () => {
     });
 
     it(':size', () => {
+        cy.viewport(500, 1116);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 {sizes.map((size) => (

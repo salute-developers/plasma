@@ -95,6 +95,7 @@ describe('sdds-cs: DatePicker', () => {
                     maskWithFormat
                     required
                     requiredPlacement="left"
+                    hasRequiredIndicator
                     valueError
                 />
             </CypressTestDecorator>,
@@ -112,6 +113,7 @@ describe('sdds-cs: DatePicker', () => {
                     lang="en"
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     valueSuccess
                 />
             </CypressTestDecorator>,
@@ -171,6 +173,7 @@ describe('sdds-cs: DatePicker', () => {
                     enableContentRight
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     disabled
                 />
             </CypressTestDecorator>,
@@ -337,7 +340,7 @@ describe('sdds-cs: DatePicker', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 656);
 
         mount(
             <CypressTestDecorator>
@@ -434,7 +437,7 @@ describe('sdds-cs: DatePickerRange', () => {
     };
 
     it('[PLASMA-T1792] DatePickerRange: default, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecorator>
@@ -478,7 +481,7 @@ describe('sdds-cs: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1795] DatePickerRange: input date, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecorator>
@@ -506,7 +509,7 @@ describe('sdds-cs: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1798] DatePickerRange: size=l, multy props', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecorator>
@@ -534,6 +537,7 @@ describe('sdds-cs: DatePickerRange', () => {
                         maskWithFormat
                         required
                         requiredPlacement="left"
+                        hasRequiredIndicator
                     />
                 </div>
             </CypressTestDecorator>,
@@ -603,6 +607,7 @@ describe('sdds-cs: DatePickerRange', () => {
                     secondValueError
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                 />
             </CypressTestDecorator>,
         );
@@ -631,7 +636,7 @@ describe('sdds-cs: DatePickerRange', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 656);
 
         mount(
             <CypressTestDecorator>

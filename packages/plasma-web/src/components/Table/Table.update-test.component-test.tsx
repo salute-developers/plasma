@@ -287,7 +287,7 @@ describe('plasma-web: Table', () => {
     const Table = getComponent('Table');
 
     it('[PLASMA-T2166] Table: size=l, view=default, borderVariant=all', () => {
-        cy.viewport(1200, 1000);
+        cy.viewport(1200, 599);
 
         mount(
             <CypressTestDecorator>
@@ -299,7 +299,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2167] Table: size=m, view=default, borderVariant=rows', () => {
-        cy.viewport(1500, 200);
+        cy.viewport(1280, 536);
 
         mount(
             <CypressTestDecorator>
@@ -311,7 +311,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2168] Table: size=s, view=default, borderVariant=header', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -323,7 +323,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2169] Table: size=l, view=clear, borderVariant=all', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -335,7 +335,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2170] Table: enableSelection', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 599);
 
         mount(
             <CypressTestDecorator>
@@ -347,7 +347,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2171] Table: without enableSelection', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 599);
 
         mount(
             <CypressTestDecorator>
@@ -359,7 +359,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2172] Table: with stickyHeader, maxHeight=400px', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -373,7 +373,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2173] Table: without stickyHeader, maxHeight=200px', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -387,7 +387,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2174] Table: maxHeight=0px', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -399,7 +399,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2263] Table: sorting', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -421,7 +421,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2264] Table: filtering', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -440,7 +440,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2265] Table: resizing', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -458,7 +458,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('[PLASMA-T2266] Table: editing', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>

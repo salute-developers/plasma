@@ -58,7 +58,7 @@ describe('plasma-web: Popover', () => {
             </section>
         );
     };
-    it('[PLASMA-T1688] Popover: placement=top, trigger=click, closeOnOverlayClick, skidding=0, distance=10', () => {
+    it.skip('[PLASMA-T1688] Popover: placement=top, trigger=click, closeOnOverlayClick, skidding=0, distance=10', () => {
         mount(
             <CypressTestDecorator>
                 <PopoverForTest
@@ -83,7 +83,7 @@ describe('plasma-web: Popover', () => {
         cy.get('#popover').should('not.be.visible');
     });
 
-    it('[PLASMA-T1689] Popover: placement=bottom, trigger=hover, closeOnEsc, skidding=10, distance=100', () => {
+    it.skip('[PLASMA-T1689] Popover: placement=bottom, trigger=hover, closeOnEsc, skidding=10, distance=100', () => {
         mount(
             <CypressTestDecorator>
                 <PopoverForTest

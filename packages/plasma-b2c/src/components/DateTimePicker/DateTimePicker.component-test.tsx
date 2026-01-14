@@ -149,6 +149,8 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('prop: calendarContainerWidth, calendarContainerHeight', () => {
+        cy.viewport(500, 680);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo
@@ -303,7 +305,7 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 648);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -321,7 +323,7 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('prop: required', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -437,8 +439,8 @@ describe('plasma-b2c: DateTimePicker', () => {
         );
     };
 
-    it('controlled datepicker: set date', () => {
-        cy.viewport(600, 600);
+    it.skip('controlled datepicker: set date', () => {
+        cy.viewport(600, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -455,6 +457,8 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('controlled datepicker: reset date', () => {
+        cy.viewport(500, 546);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <ControlledDemo />

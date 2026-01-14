@@ -62,7 +62,7 @@ jobs:
         uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npm run ${{ inputs.cmd }} -- --ignore="@salutejs/{*-docs,platform-test,plasma-website}"
+        run: npm run ${{ inputs.cmd }} -- --ignore="@salutejs/{*-docs,plasma-website}"
 
       - name: Check disk usage after bootstrap
         run: df -h

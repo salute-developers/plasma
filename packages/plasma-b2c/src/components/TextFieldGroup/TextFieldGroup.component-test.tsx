@@ -13,6 +13,8 @@ describe('plasma-b2c: TextFieldGroup', () => {
     ];
 
     it('_size', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecorator>
                 <TextFieldGroup size="l">{getTexFields()}</TextFieldGroup>
@@ -30,11 +32,12 @@ describe('plasma-b2c: TextFieldGroup', () => {
 
         cy.get('.m-group input').last().click();
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 
     it('_orientation', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecorator>
                 <TextFieldGroup orientation="horizontal">{getTexFields()}</TextFieldGroup>
@@ -43,7 +46,6 @@ describe('plasma-b2c: TextFieldGroup', () => {
             </CypressTestDecorator>,
         );
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 
@@ -63,6 +65,8 @@ describe('plasma-b2c: TextFieldGroup', () => {
     });
 
     it('_orientation: stretching - filled', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecorator>
                 <TextFieldGroup orientation="horizontal" stretching="filled">
@@ -77,11 +81,12 @@ describe('plasma-b2c: TextFieldGroup', () => {
 
         cy.get('.vertical-group input').first().click();
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 
     it('_shape', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecorator>
                 <TextFieldGroup shape="segmented" gap="none">
@@ -105,11 +110,12 @@ describe('plasma-b2c: TextFieldGroup', () => {
 
         cy.get('.segmented-group input').last().click();
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 
     it('custom text fields', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecorator>
                 <TextFieldGroup isCommonTextFieldStyles={false}>{getTexFields()}</TextFieldGroup>
@@ -120,7 +126,6 @@ describe('plasma-b2c: TextFieldGroup', () => {
             </CypressTestDecorator>,
         );
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 });

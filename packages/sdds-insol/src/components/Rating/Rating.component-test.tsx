@@ -142,6 +142,8 @@ describe('sdds-insol: Rating', () => {
                 ))}
             </CypressTestDecorator>,
         );
+
+        cy.viewport(500, 1601);
         cy.matchImageSnapshot();
     });
 });
