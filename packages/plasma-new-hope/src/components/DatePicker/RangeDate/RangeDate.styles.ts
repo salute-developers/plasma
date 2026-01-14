@@ -204,13 +204,12 @@ export const StyledRange = styled(Range)`
 export const base = css`
     display: inline-block;
 
-    ${StyledPopover} {
-        .${popoverClasses.wrapper}, .${popoverClasses.target} {
-            width: inherit;
-        }
+    & > .${popoverClasses.wrapper} {
+        display: grid;
+        width: inherit;
 
-        .${popoverClasses.wrapper} {
-            display: grid;
+        .${popoverClasses.target} {
+            width: inherit;
         }
     }
 

@@ -800,7 +800,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.hintTooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.hintTooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.hintTooltipBoxShadow}: var(--shadow-down-hard-m);
                 ${tokens.hintTooltipColor}: var(--text-primary);
                 ${tokens.hintTooltipArrowBackground}: var(--surface-solid-card-brightness);
             `,

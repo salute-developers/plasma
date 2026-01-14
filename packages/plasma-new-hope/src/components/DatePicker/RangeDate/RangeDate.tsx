@@ -469,7 +469,6 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     handleToggle(false);
                 }
             };
-            console.log(hintText, hintTrigger, hintTargetIcon, hintPlacement, hintHasArrow, hintOffset, hintWidth);
 
             const RangeComponent = (
                 <>
