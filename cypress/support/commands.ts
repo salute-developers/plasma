@@ -22,11 +22,15 @@ const baseSnapsDir = `${Cypress.env('snapshotsDir')}`;
 //     return `${baseSnapsDir}/components`;
 // };
 
+const isUpdateMode =
+    Cypress.env('updateSnapshots') || Cypress.env('UPDATE_SNAPSHOTS') || Cypress.env('CYPRESS_updateSnapshots');
+
 addMatchImageSnapshotCommand({
     customSnapshotsDir: `${baseSnapsDir}/${componentName}`,
     customDiffDir: `${baseSnapsDir}/${componentName}/__diff_output__`,
-    failureThreshold: Cypress.env('threshold'),
+    failureThreshold: isUpdateMode ? 0 : Cypress.env('threshold'),
     failureThresholdType: 'percent',
+    capture: 'viewport',
 });
 
 Cypress.Commands.overwrite('matchImageSnapshot', (originalFn, subject, options = {}) => {

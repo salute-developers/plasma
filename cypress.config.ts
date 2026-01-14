@@ -1,4 +1,4 @@
-import path from 'path';
+import * as path from 'path';
 import { defineConfig } from 'cypress';
 
 import { getWebpackConfig } from './cypress/webpack.config';
@@ -63,7 +63,7 @@ export default defineConfig({
         snapshotsDir,
         package: packageName,
         a11yCheck: false,
-        threshold: 0.005,
+        threshold: 0.005, // это 0.5%
         hasComponents: !!components,
         hasSpecGroup: !!specGroup,
     },
@@ -72,5 +72,7 @@ export default defineConfig({
         openMode: 0,
     },
     video: false,
+    viewportWidth: 500,
+    viewportHeight: 500,
     chromeWebSecurity: false,
 });

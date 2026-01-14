@@ -6,7 +6,6 @@
         "types": [
             "cypress",
             "@testing-library/cypress",
-            "@types/cypress-image-snapshot",
             "node",
             "cypress-axe",
             "cypress-real-events",

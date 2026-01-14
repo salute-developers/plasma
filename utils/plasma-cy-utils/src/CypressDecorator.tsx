@@ -35,7 +35,7 @@ const testPackagesThemes = {
     'sdds-insol': <ThemeINSOL />,
 };
 
-export const getComponent = function <T = PropsWithChildren<{}>>(componentName: string): React.FC<T> {
+export const getComponent = function <T = PropsWithChildren<any>>(componentName: string): React.FC<T> {
     const pkgName = Cypress.env('package') as string | undefined;
 
     if (!pkgName) {
