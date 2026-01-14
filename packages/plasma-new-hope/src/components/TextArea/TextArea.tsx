@@ -227,10 +227,19 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
         }, [outerRef]);
 
+        useLayoutEffect(() => {
+            if (!hiddenRef.current || !cols) {
+                return;
+            }
+
+            const { width: elementWidth } = hiddenRef.current.getBoundingClientRect();
+            setHelperWidth(`${elementWidth / ROOT_FONT_SIZE}rem`);
+        }, [cols]);
+
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth } = currentElement.style;
 
-            if (inlineWidth || cols) {
+            if (inlineWidth) {
                 const { width: elementWidth } = currentElement.getBoundingClientRect();
                 setHelperWidth(`${elementWidth / ROOT_FONT_SIZE}rem`);
             }
@@ -422,13 +431,14 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             data-tour
                             {...rest}
                         />
-                        {applyAutoResize && (
+                        {Boolean(applyAutoResize || cols) && (
                             <StyledHiddenTextArea
                                 aria-hidden
                                 ref={hiddenRef}
                                 hasContentRight={Boolean(contentRight)}
                                 value={value || uncontrolledValue || ' '}
                                 defaultValue={defaultValue}
+                                cols={cols}
                             />
                         )}
                     </StyledTextAreaWrapper>
