@@ -268,6 +268,7 @@ export const StyledTextArea = styled.textarea<{
 export const StyledHiddenTextArea = styled.textarea<{
     hasContentRight: boolean;
     resize?: string;
+    cols?: number;
 }>`
     max-height: none !important;
     min-height: var(${tokens.inputMinHeight}) !important;
@@ -277,7 +278,7 @@ export const StyledHiddenTextArea = styled.textarea<{
     z-index: -1000 !important;
     top: 0 !important;
     left: 0 !important;
-    right: 0.0625rem !important;
+    right: ${({ cols }) => (cols ? 'unset' : '0.0625rem !important')};
     border-width: 0;
     padding-right: ${({ hasContentRight }) =>
         hasContentRight
