@@ -44,21 +44,37 @@ export const tokens = {
     rightContentMargin: '--plasma-range__right-content-margin',
     rightContentOpacityReadOnly: '--plasma-range__right-content-opacity-readonly',
 
-    contentSlotColor: '--plasma-textfield-content-slot-color',
-    contentSlotColorHover: '--plasma-textfield-content-slot-color-hover',
-    contentSlotColorActive: '--plasma-textfield-content-slot-color-active',
+    contentSlotColor: '--plasma-range-content-slot-color',
+    contentSlotColorHover: '--plasma-range-content-slot-color-hover',
+    contentSlotColorActive: '--plasma-range-content-slot-color-active',
 
-    contentSlotColorSuccess: '--plasma-textfield-content-slot-color-success',
-    contentSlotColorSuccessHover: '--plasma-textfield-content-slot-color-success-hover',
-    contentSlotColorSuccessActive: '--plasma-textfield-content-slot-color-success-active',
+    contentSlotColorSuccess: '--plasma-range-content-slot-color-success',
+    contentSlotColorSuccessHover: '--plasma-range-content-slot-color-success-hover',
+    contentSlotColorSuccessActive: '--plasma-range-content-slot-color-success-active',
 
-    contentSlotColorError: '--plasma-textfield-content-slot-color-error',
-    contentSlotColorErrorHover: '--plasma-textfield-content-slot-color-error-hover',
-    contentSlotColorErrorActive: '--plasma-textfield-content-slot-color-error-active',
+    contentSlotColorError: '--plasma-range-content-slot-color-error',
+    contentSlotColorErrorHover: '--plasma-range-content-slot-color-error-hover',
+    contentSlotColorErrorActive: '--plasma-range-content-slot-color-error-active',
 
-    contentSlotRightColor: '--plasma-textfield-content-right-slot-color',
-    contentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
-    contentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
+    textFieldContentSlotColor: '--plasma-textfield-content-slot-color',
+    textFieldContentSlotColorHover: '--plasma-textfield-content-slot-color-hover',
+    textFieldContentSlotColorActive: '--plasma-textfield-content-slot-color-active',
+
+    textFieldContentSlotColorSuccess: '--plasma-textfield-content-slot-color-success',
+    textFieldContentSlotColorSuccessHover: '--plasma-textfield-content-slot-color-success-hover',
+    textFieldContentSlotColorSuccessActive: '--plasma-textfield-content-slot-color-success-active',
+
+    textFieldContentSlotColorError: '--plasma-textfield-content-slot-color-error',
+    textFieldContentSlotColorErrorHover: '--plasma-textfield-content-slot-color-error-hover',
+    textFieldContentSlotColorErrorActive: '--plasma-textfield-content-slot-color-error-active',
+
+    contentSlotRightColor: '--plasma-range-content-right-slot-color',
+    contentSlotRightColorHover: '--plasma-range-content-right-slot-color-hover',
+    contentSlotRightColorActive: '--plasma-range-content-right-slot-color-active',
+
+    textFieldContentSlotRightColor: '--plasma-textfield-content-right-slot-color',
+    textFieldContentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
+    textFieldContentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',
 
     indicatorWrapperGap: '--plasma-range-info-wrapper-indicator-wrapper-gap',
     labelWrapperOffset: '--plasma-range-info-wrapper-label-wrapper-offset',

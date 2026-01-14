@@ -52,9 +52,9 @@ export const base = css`
             }
 
             ${StyledInput} {
-                ${textFieldTokens.contentSlotColor}: var(${tokens.contentSlotColorSuccess});
-                ${textFieldTokens.contentSlotColorHover}: var(${tokens.contentSlotColorSuccessHover});
-                ${textFieldTokens.contentSlotColorActive}: var(${tokens.contentSlotColorSuccessActive});
+                ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColorSuccess});
+                ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorSuccessHover});
+                ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorSuccessActive});
                 
                 ${textFieldTokens.dividerColor}: transparent;
                 ${textFieldTokens.dividerColorHover}: transparent;
@@ -63,9 +63,9 @@ export const base = css`
         }
 
         ${StyledInput}.${classes.rangeValueSuccess} {
-            ${textFieldTokens.contentSlotColor}: var(${tokens.contentSlotColorSuccess});
-            ${textFieldTokens.contentSlotColorHover}: var(${tokens.contentSlotColorSuccessHover});
-            ${textFieldTokens.contentSlotColorActive}: var(${tokens.contentSlotColorSuccessActive});
+            ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColorSuccess});
+            ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorSuccessHover});
+            ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorSuccessActive});
             
             ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorSuccess});
             ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorSuccess});
@@ -90,9 +90,9 @@ export const base = css`
             }
             
             ${StyledInput} {
-                ${textFieldTokens.contentSlotColor}: var(${tokens.contentSlotColorError});
-                ${textFieldTokens.contentSlotColorHover}: var(${tokens.contentSlotColorErrorHover});
-                ${textFieldTokens.contentSlotColorActive}: var(${tokens.contentSlotColorErrorActive});
+                ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColorError});
+                ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorErrorHover});
+                ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorErrorActive});
                 
                 ${textFieldTokens.dividerColor}: transparent;
                 ${textFieldTokens.dividerColorHover}: transparent;
@@ -101,9 +101,9 @@ export const base = css`
         }
             
         ${StyledInput}.${classes.rangeValueError} {
-            ${textFieldTokens.contentSlotColor}: var(${tokens.contentSlotColorError});
-            ${textFieldTokens.contentSlotColorHover}: var(${tokens.contentSlotColorErrorHover});
-            ${textFieldTokens.contentSlotColorActive}: var(${tokens.contentSlotColorErrorActive});
+            ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColorError});
+            ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorErrorHover});
+            ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorErrorActive});
 
             ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorError});
             ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorError});

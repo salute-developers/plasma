@@ -145,6 +145,7 @@ export const ContentWrapper = styled.div`
                 height: 1px;
                 box-shadow: unset;
                 background: var(${tokens.clearDividerColor});
+                opacity: 1;
             }
         }
     }
