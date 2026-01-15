@@ -122,7 +122,7 @@ export type CalendarProps = {
      */
     dateShortcuts?: DateShortcutItem[];
     /**
-     * Ширина списока предустановленных дат
+     * Ширина списка предустановленных дат
      */
     dateShortcutsWidth?: CSSProperties['width'];
     /**

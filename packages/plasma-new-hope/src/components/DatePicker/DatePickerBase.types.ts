@@ -134,7 +134,7 @@ export type DatePickerCalendarProps = {
     stretched?: boolean;
 
     /**
-     * Ширина списока предустановленных дат
+     * Ширина списка предустановленных дат
      */
     dateShortcutsWidth?: CSSProperties['width'];
     /**

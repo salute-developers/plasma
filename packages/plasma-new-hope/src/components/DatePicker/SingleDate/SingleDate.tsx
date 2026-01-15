@@ -369,6 +369,8 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                         target={DatePickerInput}
                         preventOverflow={false}
                         zIndex={zIndex}
+                        innerWidth={calendarContainerWidthValue}
+                        innerHeight={calendarContainerHeightValue}
                     >
                         <Root
                             ref={calendarRootRef}
