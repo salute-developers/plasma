@@ -5,8 +5,6 @@ import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconSb } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-import { Button as ButtonB2C } from '../Button';
-
 import { DateTimePicker as DateTimePickerB2C } from '.';
 
 type DateTimePickerProps = ComponentProps<typeof DateTimePickerB2C> & {
@@ -18,7 +16,6 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-b2c: DateTimePicker', () => {
     const DateTimePicker = getComponent('DateTimePicker') as typeof DateTimePickerB2C;
-    const Button = getComponent('Button') as typeof ButtonB2C;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>

@@ -72,10 +72,14 @@ export const HintWrapper = styled.div<{ hasCaption?: boolean }>`
             hasCaption
                 ? `translateY(var(${tokens.labelWrapperTitleCaptionOffset}))`
 <<<<<<< HEAD
+<<<<<<< HEAD
                 : 'translateY(var(--plasma_private-translateY-without-title-caption)'};
 =======
                 : `translateY(var(${privateTokens.translateYWithoutTitle}))`};
 >>>>>>> d1246f74a (feat(plasma-new-hope): add shortcuts for DatePicker)
+=======
+                : 'translateY(var(--plasma_private-translateY-without-title-caption))'};
+>>>>>>> 17c76a57e (feat(plasma-*): add shortcuts to DatePicker)
     }
 `;
 
