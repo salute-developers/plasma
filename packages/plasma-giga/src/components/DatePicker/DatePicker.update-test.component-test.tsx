@@ -770,12 +770,12 @@ describe('plasma-giga: DatePickerRange', () => {
 
         mount(
             <CypressTestDecoratorWithTypo>
-<<<<<<< HEAD
-                <Demo dateShortcuts={dateShortcutsRange} dateShortcutsPlacement="left" />
-                <PadMe />
-                <Demo dateShortcuts={dateShortcutsRange} dateShortcutsPlacement="right" dateShortcutsWidth="18.5rem" />
-=======
-                <Demo dateShortcuts={dateShortcutsRange} dateShortcutsPlacement="left" dateShortcutsWidth="5rem" />
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    dateShortcuts={dateShortcutsRange}
+                    dateShortcutsPlacement="left"
+                    dateShortcutsWidth="5rem"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -801,8 +801,12 @@ describe('plasma-giga: DatePickerRange', () => {
 
         mount(
             <CypressTestDecoratorWithTypo>
-                <Demo dateShortcuts={dateShortcutsRange} dateShortcutsPlacement="right" dateShortcutsWidth="10rem" />
->>>>>>> d7e489122 (feat(plasma-*): add shortcuts to DatePicker)
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    dateShortcuts={dateShortcutsRange}
+                    dateShortcutsPlacement="right"
+                    dateShortcutsWidth="10rem"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 
