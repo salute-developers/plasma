@@ -439,6 +439,68 @@ describe('plasma-web: DatePicker', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('[PLASMA-] DatePicker: dateShortcuts, dateShortcutsPlacement=left, dateShortcutsWidth=5rem', () => {
+        const dateShortcuts = [
+            {
+                value: new Date(2024, 11, 14),
+                label: 'Дата по умолчанию',
+            },
+            {
+                value: new Date(2024, 11, 4),
+                label: '10 дней до даты по умолчанию',
+            },
+            {
+                value: new Date(2024, 11, 24),
+                label: '10 дней после даты по умолчанию',
+            },
+        ];
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    defaultDate={new Date(2024, 11, 1)}
+                    dateShortcuts={dateShortcuts}
+                    dateShortcutsPlacement="left"
+                    dateShortcutsWidth="5rem"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePicker: dateShortcuts, dateShortcutsPlacement=right, dateShortcutsWidth=10rem', () => {
+        const dateShortcuts = [
+            {
+                value: new Date(2024, 11, 14),
+                label: 'Дата по умолчанию',
+            },
+            {
+                value: new Date(2024, 11, 4),
+                label: '10 дней до даты по умолчанию',
+            },
+            {
+                value: new Date(2024, 11, 24),
+                label: '10 дней после даты по умолчанию',
+            },
+        ];
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    defaultDate={new Date(2024, 11, 1)}
+                    dateShortcuts={dateShortcuts}
+                    dateShortcutsPlacement="right"
+                    dateShortcutsWidth="10rem"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+        cy.matchImageSnapshot();
+    });
 });
 
 describe('plasma-web: DatePickerRange', () => {
@@ -852,6 +914,58 @@ describe('plasma-web: DatePickerRange', () => {
         cy.get('button.reset-btn').click();
         cy.get('input').first().click();
 
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePickerRange: dateShortcuts, dateShortcutsPlacement=left, dateShortcutsWidth=5rem', () => {
+        const dateShortcutsRange = [
+            {
+                value: [new Date(2024, 11, 14), new Date(2024, 11, 23)] as [Date, Date],
+                label: 'Промежуток в 10 дней',
+            },
+            {
+                value: [new Date(2024, 11, 1), new Date(2024, 11, 20)] as [Date, Date],
+                label: 'Промежуток в 20 дней',
+            },
+            {
+                value: [new Date(2024, 11, 5), undefined] as [Date, undefined],
+                label: 'Промежуток без конечой даты',
+            },
+        ];
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo dateShortcuts={dateShortcutsRange} dateShortcutsPlacement="left" dateShortcutsWidth="5rem" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePickerRange: dateShortcuts, dateShortcutsPlacement=right, dateShortcutsWidth=10rem', () => {
+        const dateShortcutsRange = [
+            {
+                value: [new Date(2024, 11, 14), new Date(2024, 11, 23)] as [Date, Date],
+                label: 'Промежуток в 10 дней',
+            },
+            {
+                value: [new Date(2024, 11, 1), new Date(2024, 11, 20)] as [Date, Date],
+                label: 'Промежуток в 20 дней',
+            },
+            {
+                value: [new Date(2024, 11, 5), undefined] as [Date, undefined],
+                label: 'Промежуток без конечой даты',
+            },
+        ];
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo dateShortcuts={dateShortcutsRange} dateShortcutsPlacement="right" dateShortcutsWidth="10rem" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 });
