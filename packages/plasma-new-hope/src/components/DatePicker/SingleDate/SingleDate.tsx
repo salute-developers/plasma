@@ -11,6 +11,7 @@ import { classes } from '../DatePicker.tokens';
 import { InputHidden, StyledCalendar } from '../DatePickerBase.styles';
 import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { getFormattedDates, invokeOnCommitDate } from '../utils';
+import { StyledShortcutList } from '../ui';
 
 import type { DatePickerProps, RootDatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -107,6 +108,10 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
 
                 calendarContainerWidth,
                 calendarContainerHeight,
+
+                dateShortcuts,
+                dateShortcutsPlacement = 'left',
+                dateShortcutsWidth,
 
                 onChangeValue,
                 onCommitDate,
@@ -376,6 +381,16 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                             readOnly={!disabled && readOnly}
                             onClick={handleCalendarRootClick}
                         >
+                            {dateShortcuts?.length ? (
+                                <StyledShortcutList
+                                    items={dateShortcuts}
+                                    setShortcutDate={onCalendarPick}
+                                    dateShortcutsWidth={dateShortcutsWidth}
+                                    calendarContainerHeight={calendarContainerHeight}
+                                    dateShortcutsPlacement={dateShortcutsPlacement}
+                                />
+                            ) : null}
+
                             <StyledCalendar
                                 className={cls({ [classes.datePickerCalendarstretched]: stretched })}
                                 innerWidth={calendarContainerWidthValue}

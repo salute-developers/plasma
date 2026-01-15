@@ -131,6 +131,10 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 calendarContainerWidth,
                 calendarContainerHeight,
 
+                dateShortcuts,
+                dateShortcutsPlacement = 'left',
+                dateShortcutsWidth,
+
                 onToggle,
 
                 onChange,
@@ -426,6 +430,11 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 onToggle: handleToggle,
             });
 
+            const handleShortcutDateSelect = (shortcutDate: [Date?, Date?]) => {
+                handleFirstCalendarPick(shortcutDate[0]);
+                handleSecondCalendarPick(shortcutDate[1]);
+            };
+
             const handleChangeStartOfRange = (chosenDate: Date, dateInfo?: DateInfo) => {
                 if (!fullDateEntered) {
                     handleFirstCalendarPick(chosenDate, dateInfo);
@@ -645,6 +654,10 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         onChangeStartOfRange={handleChangeStartOfRange}
                         onChangeValue={handleChangeCalendarValue}
                         setIsInnerOpen={setIsInnerOpen}
+                        dateShortcuts={dateShortcuts}
+                        dateShortcutsPlacement={dateShortcutsPlacement}
+                        dateShortcutsWidth={dateShortcutsWidth}
+                        onShortcutDateSelect={handleShortcutDateSelect}
                     />
                     <InputHidden
                         name={name}

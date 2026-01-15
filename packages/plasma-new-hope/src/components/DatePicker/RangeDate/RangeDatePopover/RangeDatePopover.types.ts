@@ -1,8 +1,17 @@
-import type { Dispatch, FC, PropsWithChildren, ReactNode, SetStateAction, MouseEventHandler } from 'react';
+import type {
+    Dispatch,
+    FC,
+    PropsWithChildren,
+    ReactNode,
+    SetStateAction,
+    MouseEventHandler,
+    CSSProperties,
+} from 'react';
 
 import type { DatePickerPopoverProps } from '../../SingleDate/SingleDate.types';
 import type { DateInfo, DateType } from '../../../Calendar/Calendar.types';
 import type { DatePickerCalendarProps } from '../../DatePickerBase.types';
+import type { DateShortcutItem } from '../RangeDate.types';
 
 export type RootWrapperProps = FC<
     PropsWithChildren &
@@ -13,7 +22,7 @@ export type RootWrapperProps = FC<
 >;
 
 export type RangeDatePopoverProps = DatePickerCalendarProps &
-    DatePickerPopoverProps & {
+    Omit<DatePickerPopoverProps, 'dateShortcuts'> & {
         rootWrapper: RootWrapperProps;
         onChangeValue: (values: [DateType, DateType], dateInfo?: DateInfo) => void;
         setIsInnerOpen: Dispatch<SetStateAction<boolean>>;
@@ -27,4 +36,8 @@ export type RangeDatePopoverProps = DatePickerCalendarProps &
         stretched?: boolean;
         readOnly?: boolean;
         disabled?: boolean;
+        dateShortcuts?: DateShortcutItem[];
+        dateShortcutsWidth?: CSSProperties['width'];
+        dateShortcutsPlacement?: 'right' | 'left';
+        onShortcutDateSelect?: (shortcutDate: [Date?, Date?]) => void;
     };

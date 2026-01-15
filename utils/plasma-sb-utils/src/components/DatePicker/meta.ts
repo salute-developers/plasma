@@ -13,6 +13,7 @@ import {
     hintTargetPlacements,
     hintSizes,
     hintViews,
+    shortcutsPlacements,
 } from './fixtures';
 
 type CreateMetaProps = {
@@ -60,6 +61,9 @@ const commonArgs = {
     hintPlacement: 'auto',
     hintWidth: '10rem',
     hintHasArrow: true,
+    hasShortcuts: false,
+    shortcutsWidth: '11.5rem',
+    shortcutsPlacement: 'left',
 };
 
 const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) => ({
@@ -216,6 +220,20 @@ const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) =
             arg: 'hasHint',
             truthy: true,
         },
+    },
+
+    shortcutsWidth: {
+        control: {
+            type: 'text',
+        },
+        if: { arg: 'hasShortcuts', truthy: true },
+    },
+    shortcutsPlacement: {
+        options: shortcutsPlacements,
+        control: {
+            type: 'select',
+        },
+        if: { arg: 'hasShortcuts', truthy: true },
     },
     ...additionalArgTypes,
 });
