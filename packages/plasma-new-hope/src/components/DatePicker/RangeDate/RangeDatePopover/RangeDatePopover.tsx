@@ -107,6 +107,8 @@ export const RangeDatePopover = ({
                 target={target}
                 preventOverflow={false}
                 zIndex={zIndex}
+                innerWidth={calendarContainerWidthValue}
+                innerHeight={calendarContainerHeightValue}
             >
                 <Root
                     ref={doubleCalendarRootRef}
@@ -167,6 +169,8 @@ export const RangeDatePopover = ({
             preventOverflow={false}
             closeOnEsc={closeOnEsc}
             zIndex={zIndex}
+            innerWidth={calendarContainerWidthValue}
+            innerHeight={calendarContainerHeightValue}
         >
             <Root
                 ref={calendarRootRef}
