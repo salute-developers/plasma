@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { IconPlasma, IconCalendar, IconSearch, IconArrowRight } from '@salutejs/plasma-icons';
 
 import { getBaseEvents, getIconSize, ActionButton, EventTooltipBody } from './helpers';
+import { dateShortcuts, dateShortcutsRange } from './fixtures';
 
 const onChangeValue = action('onChangeValue');
 const onCommitDate = action('onCommitDate');
@@ -26,6 +27,9 @@ export const createDefaultStory = (DatePicker: any) => {
         max,
         eventTooltipSize,
         enableEventTooltip,
+        hasShortcuts,
+        shortcutsPlacement,
+        shortcutsWidth,
         ...rest
     }: any) => {
         const [isOpen, setIsOpen] = useState(false);
@@ -70,6 +74,9 @@ export const createDefaultStory = (DatePicker: any) => {
                 eventQuarterList={eventQuarterList}
                 eventYearList={eventYearList}
                 autoComplete="off"
+                dateShortcutsPlacement={shortcutsPlacement}
+                dateShortcutsWidth={shortcutsWidth}
+                {...(hasShortcuts && { dateShortcuts })}
                 {...inputViews}
                 {...rest}
             />
@@ -97,6 +104,9 @@ export const createRangeStory = (DatePickerRange: any, IconButton: any, EmbedIco
         appearance,
         enableEventTooltip,
         eventTooltipSize,
+        hasShortcuts,
+        shortcutsPlacement,
+        shortcutsWidth,
         ...rest
     }: any) => {
         const rangeRef = useRef<any>(null);
@@ -178,6 +188,9 @@ export const createRangeStory = (DatePickerRange: any, IconButton: any, EmbedIco
                 eventMonthList={eventMonthList}
                 eventQuarterList={eventQuarterList}
                 eventYearList={eventYearList}
+                dateShortcutsPlacement={shortcutsPlacement}
+                dateShortcutsWidth={shortcutsWidth}
+                {...(hasShortcuts && { dateShortcuts: dateShortcutsRange })}
                 {...inputsViews}
                 {...dividerIconProps}
                 {...rest}

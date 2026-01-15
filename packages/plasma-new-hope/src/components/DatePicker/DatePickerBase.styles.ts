@@ -10,12 +10,6 @@ const mergedCalendarConfig = mergeConfig(calendarBaseConfig);
 const Calendar = component(mergedCalendarConfig);
 
 export const baseCalendarTokens = `
-    padding-top: var(${tokens.calendarPaddingTop});
-    box-shadow: var(${tokens.calendarShadow});
-    border-radius: var(${tokens.calendarBorderRadius});
-    margin-top: var(${tokens.calendarMarginTop});
-
-    ${calendarBaseTokens.calendarBackgroundColor}: var(${tokens.calendarBackgroundColor});
     ${calendarBaseTokens.calendarSelectedItemBackground}: var(${tokens.calendarSelectedItemBackground});
     ${calendarBaseTokens.calendarSelectedItemColor}: var(${tokens.calendarSelectedItemColor});
     ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(${tokens.calendarSelectableItemBackgroundHover});
@@ -42,9 +36,6 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.iconButtonBackgroundColorHover}: var(${tokens.iconButtonBackgroundColorHover});
     ${calendarBaseTokens.iconButtonColorActive}: var(${tokens.iconButtonColorActive});
     ${calendarBaseTokens.iconButtonBackgroundColorActive}: var(${tokens.iconButtonBackgroundColorActive});
-
-    ${calendarBaseTokens.calendarBorderWidth}: var(${tokens.calendarBorderWidth});
-    ${calendarBaseTokens.calendarBorderColor}: var(${tokens.calendarBorderColor});
 
     ${calendarBaseTokens.calendarYearsPadding}: var(${tokens.calendarYearsPadding});
     ${calendarBaseTokens.calendarYearItemBorderRadius}: var(${tokens.calendarYearItemBorderRadius});
@@ -136,10 +127,11 @@ export const baseCalendarTokens = `
 
 // NOTE: переопределение токенов Calendar
 export const StyledCalendar = styled(Calendar)<{ innerWidth?: string; innerHeight?: string }>`
-    ${baseCalendarTokens}
+    flex-shrink: ${({ innerWidth }) => (innerWidth && innerWidth !== '0' ? '1' : '0')};
+    width: ${({ innerWidth }) => (innerWidth && innerWidth !== '0' ? '100%' : `var(${tokens.calendarWidth})`)};
+    height: ${({ innerHeight }) => (innerHeight && innerHeight !== '0' ? '100%' : `var(${tokens.calendarHeight})`)};
 
-    width: ${({ innerWidth }) => innerWidth || `var(${tokens.calendarContainerWidth})`};
-    height: ${({ innerHeight }) => innerHeight || `var(${tokens.calendarContainerHeight})`};
+    ${baseCalendarTokens}
 `;
 
 export const InputHidden = styled.input`

@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction, ChangeEvent } from 'react';
+import type { Dispatch, SetStateAction, ChangeEvent, CSSProperties } from 'react';
 
 import type { CalendarStateType } from '../Calendar';
 import type { DateInfo, DateType, DisabledDay, EventDay, EventTooltipOptions } from '../Calendar/Calendar.types';
@@ -132,6 +132,16 @@ export type DatePickerCalendarProps = {
      * Растянуть поле ввода на всю доступную ширину
      */
     stretched?: boolean;
+
+    /**
+     * Ширина списока предустановленных дат
+     */
+    dateShortcutsWidth?: CSSProperties['width'];
+    /**
+     * Положение списка предустановленных дат
+     * @default 'left'
+     */
+    dateShortcutsPlacement?: 'right' | 'left';
 };
 
 export type DatePickerVariationProps = {

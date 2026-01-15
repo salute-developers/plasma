@@ -1,4 +1,5 @@
 import type { ChangeEvent, HTMLAttributes } from 'react';
+import type { DateShortcutItemBase } from 'src/components/DateTimePicker/DateTimePicker.types';
 
 import type { RangeInnerProps } from '../../Range/Range.types';
 import type { DatePickerCalendarProps, DatePickerVariationProps, FormattedDateValues } from '../DatePickerBase.types';
@@ -114,7 +115,11 @@ export type DatePickerRangeFieldProps = {
     onChange?: (event: { target: { value?: string; name?: string } }) => void;
 } & BaseRangeProps;
 
-export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placement'> & {
+export type DateShortcutItem = DateShortcutItemBase & {
+    value: [Date?, Date?];
+};
+
+export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placement' | 'dateShortcuts'> & {
     /**
      * Сторона открытия календаря относительно поля ввода.
      * @default
@@ -125,6 +130,11 @@ export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placeme
      * Отобразить двойной календарь
      */
     isDoubleCalendar?: boolean;
+    /**
+     * Список предустановленных дат,
+     * которые можно выбрать в выпадающем календаре
+     */
+    dateShortcuts?: DateShortcutItem[];
 };
 
 export type DatePickerRangeProps = DatePickerVariationProps &

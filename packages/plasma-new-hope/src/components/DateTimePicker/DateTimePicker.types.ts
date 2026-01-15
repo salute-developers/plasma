@@ -20,11 +20,7 @@ export type FormattedValues = {
     quarterInfo?: DateInfo;
 };
 
-export type DateShortcutItem = {
-    /**
-     *  Значение даты, которое будет установлено при выборе
-     */
-    value: Date;
+export type DateShortcutItemBase = {
     /**
      *  Подпись к предустановленной дате
      */
@@ -41,6 +37,13 @@ export type DateShortcutItem = {
      * Слот для контента справа
      */
     contentRight?: ReactNode;
+};
+
+export type DateShortcutItem = DateShortcutItemBase & {
+    /**
+     *  Значение даты, которое будет установлено при выборе
+     */
+    value: Date;
 };
 
 export type InputProps = {

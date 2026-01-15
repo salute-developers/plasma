@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import cls from 'classnames';
 
-import type { DateShortcutItem } from '../../DateTimePicker.types';
+import type { DateShortcutItemBase } from '../../DateTimePicker.types';
 import { classes } from '../../DateTimePicker.tokens';
 import { StyledSeparator } from '../Popover/Popover.styles';
 
@@ -14,23 +14,30 @@ import {
     StyledCell,
 } from './DateShortcutList.styles';
 
-type DateShortcutProps = {
-    items: DateShortcutItem[];
-    setShortcutDate: (externalDate: Date) => void;
+type DateShortcutProps<T = Date> = {
+    items: (DateShortcutItemBase & { value: T })[];
+    setShortcutDate: (externalDate: T) => void;
     dateShortcutsWidth?: CSSProperties['width'];
     dateShortcutsPlacement?: 'left' | 'right';
     calendarContainerHeight?: number | string;
+    className?: string;
+    style?: CSSProperties;
 };
 
-export const DateShortcutList = ({
+export const DateShortcutList = <T extends Date | [Date?, Date?]>({
     items,
     calendarContainerHeight,
     dateShortcutsPlacement,
     dateShortcutsWidth,
     setShortcutDate,
-}: DateShortcutProps) => {
+    ...rest
+}: DateShortcutProps<T>) => {
     return (
-        <ShortcutsWrapper innerHeight={calendarContainerHeight} dateShortcutsPlacement={dateShortcutsPlacement}>
+        <ShortcutsWrapper
+            innerHeight={calendarContainerHeight}
+            dateShortcutsPlacement={dateShortcutsPlacement}
+            {...rest}
+        >
             <StyledSeparator />
 
             <ShortcutList width={dateShortcutsWidth}>

@@ -28,3 +28,34 @@ export const placements = [
 
     'auto',
 ];
+export const shortcutsPlacements = ['left', 'right'];
+
+export const dateShortcuts = [
+    {
+        value: new Date(2024, 11, 14),
+        label: 'Дата по умолчанию',
+    },
+    {
+        value: new Date(2024, 11, 4),
+        label: '10 дней до даты по умолчанию',
+    },
+    {
+        value: new Date(2024, 11, 24),
+        label: '10 дней после даты по умолчанию',
+    },
+];
+
+export const dateShortcutsRange = [
+    {
+        value: [new Date(2024, 11, 14), new Date(2024, 11, 23)],
+        label: 'Промежуток в 10 дней',
+    },
+    {
+        value: [new Date(2024, 11, 1), new Date(2024, 11, 20)],
+        label: 'Промежуток в 20 дней',
+    },
+    {
+        value: [new Date(2024, 11, 5), undefined],
+        label: 'Промежуток без конечой даты',
+    },
+];
