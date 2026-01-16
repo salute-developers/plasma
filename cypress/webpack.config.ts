@@ -31,9 +31,8 @@ export const getWebpackConfig = () => {
         mode: 'development',
         entry: 'src/index.ts',
         devtool: 'inline-source-map',
-        devServer: { contentBase: './public' },
         resolve: {
-            extensions: ['.wasm', '.ts', '.tsx', '.mjs', '.cjs', '.js', '.jsx', '.json', '.map'],
+            extensions: ['.wasm', '.ts', '.tsx', '.mjs', '.cjs', '.js', '.jsx', '.json'],
             modules: ['node_modules'],
             alias: {
                 'styled-components': resolveInsidePackage('styled-components'),
@@ -53,27 +52,27 @@ export const getWebpackConfig = () => {
                     use: ['style-loader', 'css-loader'],
                 },
                 {
-                    test: /\.tsx$|\.ts$/,
-                    exclude: [/node_modules/],
+                    test: /\.(ts|tsx)$/,
+                    exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
                         options: babelOpts,
                     },
                 },
                 {
-                    test: /\.svg$/,
-                    use: 'file-loader',
+                    test: /\.svg$/i,
+                    type: 'asset/resource',
                 },
                 {
-                    test: /\.(png|jpe?g)$/,
-                    use: [
-                        {
-                            loader: 'url-loader',
-                            options: {
-                                mimetype: 'image/png',
+                    test: /\.(png|jpe?g)$/i,
+                    type: 'asset',
+                    parser: {
+                        asset: {
+                            dataUrlCondition: {
+                                maxSize: 8 * 1024, // 8kb (как url-loader)
                             },
                         },
-                    ],
+                    },
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|otf)$/i,
