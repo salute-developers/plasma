@@ -1,7 +1,11 @@
 import type { HTMLAttributes, ReactNode, RefObject, SyntheticEvent } from 'react';
 
-import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
-import type { DateInfo, DateType } from '../../Calendar/Calendar.types';
+import type {
+    DatePickerCalendarProps,
+    DatePickerVariationProps,
+    OnCommitDateCallbackUnion,
+} from '../DatePickerBase.types';
+import type { DateType } from '../../Calendar/Calendar.types';
 import type { HintProps, LabelProps } from '../../TextField/TextField.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
@@ -89,15 +93,16 @@ export type DatePickerTextFieldProps = {
     autoComplete?: string;
     /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре.
+     * @param value - значение даты
+     * @param {Object} formattedValues - набор значений в разных форматах
+     * @param formattedValues.error - статус ошибки валидации
+     * @param formattedValues.success - статус успешной валидации
+     * @param formattedValues.dateInfo - информация о дате (для кварталов и т.д.)
+     * @param formattedValues.originalDate - дата как экземпляр Date
+     * @param formattedValues.isoDate - дата в формате ISO
+     * @return void
      */
-    onCommitDate?: (
-        value: Date | string,
-        error?: boolean,
-        success?: boolean,
-        dateInfo?: DateInfo,
-        originalDate?: Date,
-        isoDate?: string,
-    ) => void;
+    onCommitDate?: OnCommitDateCallbackUnion;
     /**
      * Обработчик изменения значения.
      */

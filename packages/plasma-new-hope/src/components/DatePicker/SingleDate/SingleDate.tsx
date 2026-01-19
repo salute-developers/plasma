@@ -10,7 +10,7 @@ import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
 import { InputHidden, StyledCalendar } from '../DatePickerBase.styles';
 import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
-import { getFormattedDates } from '../utils';
+import { getFormattedDates, invokeOnCommitDate } from '../utils';
 
 import type { DatePickerProps, RootDatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -242,14 +242,17 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                     if (onCommitDate) {
                         const dateInfo = getQuarterInfo(correctDates.calendar);
 
-                        onCommitDate(
-                            correctDates.input,
-                            false,
-                            true,
-                            dateInfo,
-                            correctDates.calendar,
-                            correctDates.calendar.toISOString(),
-                        );
+                        invokeOnCommitDate({
+                            callback: onCommitDate,
+                            value: correctDates.input,
+                            formattedValues: {
+                                error: false,
+                                success: true,
+                                dateInfo,
+                                originalDate: correctDates.calendar,
+                                isoDate: correctDates.calendar.toISOString(),
+                            },
+                        });
                     }
 
                     if (onChange) {
