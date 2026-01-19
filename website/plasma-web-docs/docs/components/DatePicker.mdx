@@ -60,6 +60,46 @@ import TabItem from '@theme/TabItem';
         ```
     </TabItem>
     <TabItem value="controlled" label="Controlled">
+        :::info
+        Сигнатура вызова onCommitDate c 6 аргументами - deprecated
+        ```
+            export type OnCommitDateCallback = (
+                value: Date | string,
+                error?: boolean,
+                success?: boolean,
+                dateInfo?: DateInfo,
+                originalDate?: Date,
+                isoDate?: string,
+            ) => void;
+        ```
+        Используйте обновленную сигнатуру с 2мя аргументами
+        ```
+            export type FormattedDateValues = {
+                /**
+                * Статус ошибки валидации
+                */
+                error?: boolean;
+                /**
+                * Статус успешной валидации
+                */
+                success?: boolean;
+                /**
+                * Информация о дате (для кварталов и т.д.)
+                */
+                dateInfo?: DateInfo;
+                /**
+                * Дата как экземпляр Date
+                */
+                originalDate?: Date;
+                /**
+                * Дата в формате ISO
+                */
+                isoDate?: string;
+            };
+            
+            export type OnCommitDateCallback = (value: Date | string, formattedValues: FormattedDateValues) => void;
+        ```
+        :::
         ```tsx live
         import React, {useState} from 'react';
         import { DatePicker } from '@salutejs/plasma-web';
@@ -266,7 +306,9 @@ export function App() {
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
 
-    const handleCommitDate = (newDate: Date | string, dateError?: boolean, dateSuccess?: boolean) => {
+    const handleCommitDate = (newDate: Date | string, formattedValues: { error?: boolean; success?: boolean }) => {
+        const { error: dateError, success: dateSuccess } = formattedValues;
+
         if (dateError) {
             setError(true);
             return;
