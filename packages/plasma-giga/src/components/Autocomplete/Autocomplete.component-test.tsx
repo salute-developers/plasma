@@ -474,18 +474,25 @@ describe('plasma-giga: Autocomplete', () => {
     });
 
     it('prop: required, requiredPlacement', () => {
-        cy.viewport(500, 100);
+        cy.viewport(500, 106);
 
         mount(
             <CypressTestDecoratorWithTypo>
                 <div style={{ display: 'flex', gap: '30px' }}>
                     <div style={{ width: '200px' }}>
-                        <Autocomplete required label="Label" placeholder="Placeholder" suggestions={suggestions} />
+                        <Autocomplete
+                            required
+                            hasRequiredIndicator
+                            label="Label"
+                            placeholder="Placeholder"
+                            suggestions={suggestions}
+                        />
                     </div>
 
                     <div style={{ width: '200px' }}>
                         <Autocomplete
                             required
+                            hasRequiredIndicator
                             requiredPlacement="left"
                             label="Label"
                             placeholder="Placeholder"
@@ -500,7 +507,7 @@ describe('plasma-giga: Autocomplete', () => {
     });
 
     it('prop: optional', () => {
-        cy.viewport(400, 100);
+        cy.viewport(400, 106);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -604,7 +611,7 @@ describe('plasma-giga: Autocomplete', () => {
     });
 
     it('prop: virtual dynamic height', () => {
-        cy.viewport(400, 600);
+        cy.viewport(400, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
