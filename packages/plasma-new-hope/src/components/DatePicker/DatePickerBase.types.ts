@@ -5,6 +5,45 @@ import type { DateInfo, DateType, DisabledDay, EventDay, EventTooltipOptions } f
 
 import type { Langs } from './utils/dateHelper';
 
+export type FormattedDateValues = {
+    /**
+     * Статус ошибки валидации
+     */
+    error?: boolean;
+    /**
+     * Статус успешной валидации
+     */
+    success?: boolean;
+    /**
+     * Информация о дате (для кварталов и т.д.)
+     */
+    dateInfo?: DateInfo;
+    /**
+     * Дата как экземпляр Date
+     */
+    originalDate?: Date;
+    /**
+     * Дата в формате ISO
+     */
+    isoDate?: string;
+};
+
+/**
+ * @deprecated Используйте новую сигнатуру с объектом formattedValues
+ */
+export type OnCommitDateCallbackDeprecated = (
+    value: Date | string,
+    error?: boolean,
+    success?: boolean,
+    dateInfo?: DateInfo,
+    originalDate?: Date,
+    isoDate?: string,
+) => void;
+
+export type OnCommitDateCallback = (value: Date | string, formattedValues: FormattedDateValues) => void;
+
+export type OnCommitDateCallbackUnion = OnCommitDateCallback | OnCommitDateCallbackDeprecated;
+
 export type DatePickerCalendarProps = {
     /**
      * Формат даты.
@@ -151,14 +190,18 @@ export type UseDatePickerProps = {
         originalDate?: DateType,
         isoDate?: string,
     ) => void;
-    onCommitDate?: (
-        value: Date | string,
-        error?: boolean,
-        success?: boolean,
-        dateInfo?: DateInfo,
-        originalDate?: Date,
-        isoDate?: string,
-    ) => void;
+    /**
+     * Callback по нажатию Enter в поле ввода или выборе дня на календаре.
+     * @param value - значение даты
+     * @param {Object} formattedValues - набор значений в разных форматах
+     * @param formattedValues.error - статус ошибки валидации
+     * @param formattedValues.success - статус успешной валидации
+     * @param formattedValues.dateInfo - информация о дате (для кварталов и т.д.)
+     * @param formattedValues.originalDate - дата как экземпляр Date
+     * @param formattedValues.isoDate - дата в формате ISO
+     * @return void
+     */
+    onCommitDate?: OnCommitDateCallbackUnion;
     onChange?: (event: {
         target: {
             value?: string;

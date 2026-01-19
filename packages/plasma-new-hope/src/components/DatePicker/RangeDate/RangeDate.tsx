@@ -20,7 +20,7 @@ import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { InputHidden } from '../DatePickerBase.styles';
 import { getSortedValues } from '../../Calendar/utils';
 import type { DateInfo, DateType } from '../../Calendar/Calendar.types';
-import { getFormattedDates } from '../utils';
+import { getFormattedDates, invokeOnCommitDate } from '../utils';
 
 import type { DatePickerRangeProps, RootDatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -375,7 +375,17 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     if (onCommitFirstDate) {
                         const dateInfo = originalFirstDate ? getFirstQuarterInfo(originalFirstDate) : undefined;
 
-                        onCommitFirstDate(formattedFirstDate, false, true, dateInfo, originalFirstDate, isoFirstDate);
+                        invokeOnCommitDate({
+                            callback: onCommitFirstDate,
+                            value: formattedFirstDate,
+                            formattedValues: {
+                                error: false,
+                                success: true,
+                                dateInfo,
+                                originalDate: originalFirstDate,
+                                isoDate: isoFirstDate,
+                            },
+                        });
                     }
                 }
 
@@ -387,14 +397,17 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     if (onCommitSecondDate) {
                         const dateInfo = originalSecondDate ? getSecondQuarterInfo(originalSecondDate) : undefined;
 
-                        onCommitSecondDate(
-                            formattedSecondDate,
-                            false,
-                            true,
-                            dateInfo,
-                            originalSecondDate,
-                            isoSecondDate,
-                        );
+                        invokeOnCommitDate({
+                            callback: onCommitSecondDate,
+                            value: formattedSecondDate,
+                            formattedValues: {
+                                error: false,
+                                success: true,
+                                dateInfo,
+                                originalDate: originalSecondDate,
+                                isoDate: isoSecondDate,
+                            },
+                        });
                     }
                 }
 

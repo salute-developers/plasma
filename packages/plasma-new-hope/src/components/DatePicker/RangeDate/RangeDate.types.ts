@@ -1,7 +1,7 @@
 import type { ChangeEvent, HTMLAttributes } from 'react';
 
 import type { RangeInnerProps } from '../../Range/Range.types';
-import type { DatePickerCalendarProps, DatePickerVariationProps } from '../DatePickerBase.types';
+import type { DatePickerCalendarProps, DatePickerVariationProps, FormattedDateValues } from '../DatePickerBase.types';
 import type { DatePickerPopoverProps } from '../SingleDate/SingleDate.types';
 import type { DateInfo, DateType } from '../../Calendar/Calendar.types';
 
@@ -15,7 +15,11 @@ export type ChangeInstanceCallback = (
     originalDate?: DateType,
     isoDate?: string,
 ) => void;
-export type CommitInstanceCallback = (
+
+/**
+ * @deprecated Используйте новую сигнатуру с объектом formattedValues
+ */
+export type CommitInstanceCallbackDeprecated = (
     value: Date | string,
     error?: boolean,
     success?: boolean,
@@ -23,6 +27,10 @@ export type CommitInstanceCallback = (
     originalDate?: Date,
     isoDate?: string,
 ) => void;
+
+export type CommitInstanceCallbackNew = (value: Date | string, formattedValues: FormattedDateValues) => void;
+
+export type CommitInstanceCallback = CommitInstanceCallbackNew | CommitInstanceCallbackDeprecated;
 
 type BaseRangeProps = Omit<
     RangeInnerProps,
@@ -79,10 +87,26 @@ export type DatePickerRangeFieldProps = {
     onChangeSecondValue?: ChangeInstanceCallback;
     /**
      * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
+     * @param value - значение даты
+     * @param {Object} formattedValues - набор значений в разных форматах
+     * @param formattedValues.error - статус ошибки валидации
+     * @param formattedValues.success - статус успешной валидации
+     * @param formattedValues.dateInfo - информация о дате (для кварталов и т.д.)
+     * @param formattedValues.originalDate - дата как экземпляр Date
+     * @param formattedValues.isoDate - дата в формате ISO
+     * @return void
      */
     onCommitFirstDate?: CommitInstanceCallback;
     /**
-     * Callback по нажатию Enter в поле ввода или выборе дня на календаре для первой даты.
+     * Callback по нажатию Enter в поле ввода или выборе дня на календаре для второй даты.
+     * @param value - значение даты
+     * @param {Object} formattedValues - набор значений в разных форматах
+     * @param formattedValues.error - статус ошибки валидации
+     * @param formattedValues.success - статус успешной валидации
+     * @param formattedValues.dateInfo - информация о дате (для кварталов и т.д.)
+     * @param formattedValues.originalDate - дата как экземпляр Date
+     * @param formattedValues.isoDate - дата в формате ISO
+     * @return void
      */
     onCommitSecondDate?: CommitInstanceCallback;
     /**
