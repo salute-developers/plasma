@@ -618,7 +618,7 @@ describe('sdds-insol: Combobox', () => {
     };
 
     it('common: size xl', () => {
-        cy.viewport(1500, 1200);
+        cy.viewport(1280, 1010);
 
         mount(<ComboboxGroup size="xl" />);
 
@@ -626,7 +626,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('common: size l', () => {
-        cy.viewport(1500, 1200);
+        cy.viewport(1280, 938);
 
         mount(<ComboboxGroup size="l" />);
 
@@ -634,7 +634,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('common: size m', () => {
-        cy.viewport(1500, 1200);
+        cy.viewport(1280, 850);
 
         mount(<ComboboxGroup size="m" />);
 
@@ -642,7 +642,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('common: size s', () => {
-        cy.viewport(1500, 1200);
+        cy.viewport(1280, 778);
 
         mount(<ComboboxGroup size="s" iconSize="xs" />);
 
@@ -650,7 +650,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('common: size xs', () => {
-        cy.viewport(1500, 1200);
+        cy.viewport(1280, 706);
 
         mount(<ComboboxGroup size="xs" iconSize="xs" />);
 
@@ -658,7 +658,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('common: disabled', () => {
-        cy.viewport(1500, 1200);
+        cy.viewport(1280, 850);
 
         mount(<ComboboxGroup size="m" disabled />);
 
@@ -666,7 +666,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('common: readOnly', () => {
-        cy.viewport(1500, 1200);
+        cy.viewport(1280, 850);
 
         mount(<ComboboxGroup size="m" readOnly />);
 
@@ -674,10 +674,10 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('prop: variant', () => {
-        cy.viewport(1500, 800);
+        cy.viewport(1280, 730);
 
         mount(
-            <div style={{ display: 'grid', gridTemplateColumns: '300px 300px 300px 300px', gap: '300px 30px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '300px 300px 300px 300px', gap: '300px 20px' }}>
                 <Combobox size="l" variant="tight" items={items} label="Label" placeholder="Placeholder" alwaysOpened />
 
                 <Combobox size="m" variant="tight" items={items} label="Label" placeholder="Placeholder" alwaysOpened />
@@ -739,7 +739,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(600, 1600);
+        cy.viewport(600, 1570);
 
         const items = [{ value: 'item', label: 'Item' }];
 
@@ -1024,7 +1024,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('prop: virtual', () => {
-        cy.viewport(1500, 600);
+        cy.viewport(1280, 599);
 
         const itemsHuge = Array(100)
             .fill(1)
@@ -1297,11 +1297,18 @@ describe('sdds-insol: Combobox', () => {
         mount(
             <div style={{ display: 'flex', gap: '30px' }}>
                 <div style={{ width: '200px' }}>
-                    <Combobox required items={items} label="Label" placeholder="Placeholder" />
+                    <Combobox required hasRequiredIndicator items={items} label="Label" placeholder="Placeholder" />
                 </div>
 
                 <div style={{ width: '200px' }}>
-                    <Combobox required requiredPlacement="left" items={items} label="Label" placeholder="Placeholder" />
+                    <Combobox
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="left"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
                 </div>
             </div>,
         );
@@ -1568,7 +1575,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('prop: treeView, single mode', () => {
-        cy.viewport(400, 700);
+        cy.viewport(400, 608);
 
         const Component = () => {
             const [value, setValue] = useState('rio_de_janeiro');
@@ -1600,7 +1607,7 @@ describe('sdds-insol: Combobox', () => {
     });
 
     it('prop: treeView, multiple mode', () => {
-        cy.viewport(400, 700);
+        cy.viewport(400, 608);
 
         const Component = () => {
             const [value, setValue] = useState(['rio_de_janeiro']);
