@@ -39,7 +39,7 @@ export const App = () => {
 
     return (
         <>
-            <Button>Hello, SBER OS!</Button>
+            <Button>Hello, SDDS-OS!</Button>
             <StyledP>Token usage example</StyledP>
         </>
     );
@@ -172,7 +172,7 @@ const App = () => {
     return (
         <>
             <Theme />
-            <BodyL>Hello SBER OS</BodyL>
+            <BodyL>Hello SDDS-OS</BodyL>
             <Button text="This is themed button" />
         </>
     );
