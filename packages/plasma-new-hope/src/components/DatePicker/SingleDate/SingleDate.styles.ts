@@ -21,6 +21,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${textFieldTokens.placeholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
+    ${textFieldTokens.clearPlaceholderColorFocus}: var(${tokens.textFieldClearPlaceholderColorFocus});
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
@@ -37,6 +38,9 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.readOnlyOpacity}: var(${tokens.textFieldReadOnlyOpacity});
     ${textFieldTokens.borderColorReadOnly}: var(${tokens.textFieldBorderColorReadOnly});
     ${textFieldTokens.placeholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
+    ${textFieldTokens.dividerColor}: var(${tokens.clearDividerColor});
+    ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorHover});
 
     ${textFieldTokens.height}: var(${tokens.textFieldHeight});
     ${textFieldTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
@@ -63,6 +67,15 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.labelInnerLineHeight}: var(${tokens.labelInnerLineHeight});
     ${textFieldTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
 
+    ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${tokens.titleCaptionOffset});
+    ${textFieldTokens.titleCaptionColor}: var(${tokens.titleCaptionColor});
+    ${textFieldTokens.titleCaptionFontFamily}: var(${tokens.titleCaptionFontFamily});
+    ${textFieldTokens.titleCaptionFontStyle}: var(${tokens.titleCaptionFontStyle});
+    ${textFieldTokens.titleCaptionFontSize}: var(${tokens.titleCaptionFontSize});
+    ${textFieldTokens.titleCaptionFontWeight}: var(${tokens.titleCaptionFontWeight});
+    ${textFieldTokens.titleCaptionLetterSpacing}: var(${tokens.titleCaptionLetterSpacing});
+    ${textFieldTokens.titleCaptionLineHeight}: var(${tokens.titleCaptionLineHeight});
+    
     ${textFieldTokens.indicatorColor}: var(${tokens.indicatorColor});
     ${textFieldTokens.indicatorSizeInner}: var(${tokens.indicatorSizeInner});
     ${textFieldTokens.indicatorSizeOuter}: var(${tokens.indicatorSizeOuter});
@@ -70,6 +83,14 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.indicatorLabelPlacementOuter}: var(${tokens.indicatorOuterPlacement});
     ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${tokens.indicatorPlacementRight});
     ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${tokens.indicatorOuterPlacementRight});
+    ${textFieldTokens.clearIndicatorHintInnerRight}: var(${tokens.clearIndicatorHintInnerRight});
+
+    ${textFieldTokens.hintMargin}: var(${tokens.hintMargin});
+    ${textFieldTokens.hintTargetSize}: var(${tokens.hintTargetSize});
+    ${textFieldTokens.hintCustomIconTargetSize}: var(${tokens.hintCustomIconTargetSize});
+    ${textFieldTokens.hintIconColor}: var(${tokens.hintIconColor});
+    ${textFieldTokens.hintInnerLabelPlacementOffset}: var(${tokens.hintInnerLabelPlacementOffset});
+    ${textFieldTokens.clearHintInnerLabelPlacementOffset}: var(${tokens.clearHintInnerLabelPlacementOffset});
 
     ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});
@@ -98,16 +119,28 @@ export const StyledInput = styled(TextField)`
     
     ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${tokens.textFieldContentSlotRightOpacityReadOnly});
 
-    &.${classes.datePickerError} {
-        ${textFieldTokens.color}: var(${tokens.textFieldColorError}, var(${tokens.textFieldColor}));
-        ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
-        ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
-        ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
-        
-        ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorError});
-        ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
-        ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
-    }
+    ${textFieldTokens.tooltipPaddingTop} var(${tokens.hintTooltipPaddingTop});
+    ${textFieldTokens.tooltipPaddingRight} var(${tokens.hintTooltipPaddingRight});
+    ${textFieldTokens.tooltipPaddingBottom} var(${tokens.hintTooltipPaddingBottom});
+    ${textFieldTokens.tooltipPaddingLeft} var(${tokens.hintTooltipPaddingLeft});
+    ${textFieldTokens.tooltipMinHeight} var(${tokens.hintTooltipMinHeight});
+    ${textFieldTokens.tooltipBackgroundColor} var(${tokens.hintTooltipBackgroundColor});
+    ${textFieldTokens.tooltipBoxShadow} var(${tokens.hintTooltipBoxShadow});
+    ${textFieldTokens.tooltipBorderRadius} var(${tokens.hintTooltipBorderRadius});
+    ${textFieldTokens.tooltipColor} var(${tokens.hintTooltipColor});
+    ${textFieldTokens.tooltipTextFontFamily} var(${tokens.hintTooltipTextFontFamily});
+    ${textFieldTokens.tooltipTextFontSize} var(${tokens.hintTooltipTextFontSize});
+    ${textFieldTokens.tooltipTextFontStyle} var(${tokens.hintTooltipTextFontStyle});
+    ${textFieldTokens.tooltipTextFontWeight} var(${tokens.hintTooltipTextFontWeight});
+    ${textFieldTokens.tooltipTextFontLetterSpacing} var(${tokens.hintTooltipTextFontLetterSpacing});
+    ${textFieldTokens.tooltipTextFontLineHeight} var(${tokens.hintTooltipTextFontLineHeight});
+    ${textFieldTokens.tooltipContentLeftMargin} var(${tokens.hintTooltipContentLeftMargin});
+    ${textFieldTokens.tooltipArrowMaskWidth} var(${tokens.hintTooltipArrowMaskWidth});
+    ${textFieldTokens.tooltipArrowMaskHeight} var(${tokens.hintTooltipArrowMaskHeight});
+    ${textFieldTokens.tooltipArrowMaskImage} var(${tokens.hintTooltipArrowMaskImage});
+    ${textFieldTokens.tooltipArrowBackground} var(${tokens.hintTooltipArrowBackground});
+    ${textFieldTokens.tooltipArrowHeight} var(${tokens.hintTooltipArrowHeight});
+    ${textFieldTokens.tooltipArrowEdgeMargin} var(${tokens.hintTooltipArrowEdgeMargin});
 
     &.${classes.datePickerSuccess} {
         ${textFieldTokens.color}: var(${tokens.textFieldColorSuccess}, var(${tokens.textFieldColor}));
@@ -118,6 +151,29 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorSuccess});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorSuccessHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorSuccessFocus});
+        
+        ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorSuccess});
+
+        ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColorSuccess}, var(${tokens.textFieldContentSlotColor}));
+        ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorSuccessHover}, var(${tokens.textFieldContentSlotColorHover}));
+        ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorSuccessActive}, var(${tokens.textFieldContentSlotColorActive}));
+    }
+        
+    &.${classes.datePickerError} {
+        ${textFieldTokens.color}: var(${tokens.textFieldColorError}, var(${tokens.textFieldColor}));
+        ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
+        ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
+        ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
+        
+        ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorError});
+        ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
+        ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
+        
+        ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorError});
+
+        ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColorError}, var(${tokens.textFieldContentSlotColor}));
+        ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorErrorHover}, var(${tokens.textFieldContentSlotColorHover}));
+        ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorErrorActive}, var(${tokens.textFieldContentSlotColorActive}));
     }
 `;
 
@@ -140,11 +196,11 @@ export const base = css`
 export const LeftHelper = styled.div`
     color: var(${tokens.leftHelperColor});
 
-    &.${classes.datePickerError} {
-        color: var(${tokens.leftHelperColorError});
-    }
-
     &.${classes.datePickerSuccess} {
         color: var(${tokens.leftHelperColorSuccess});
+    }
+
+    &.${classes.datePickerError} {
+        color: var(${tokens.leftHelperColorError});
     }
 `;

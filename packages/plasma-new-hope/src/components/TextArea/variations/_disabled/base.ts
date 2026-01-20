@@ -22,6 +22,7 @@ export const base = css`
         ${StyledHelpers}, ${StyledPlaceholder}, ${StyledOutsideHelpersWrapper} {
             opacity: var(${tokens.disabledOpacity});
             cursor: not-allowed;
+            pointer-events: none;
 
             &:hover,
             &:active {

@@ -33,7 +33,7 @@ runs:
           git reset --hard
           npm i --silent ${{ env.OPTIONS }}
         command: |
-          npx lerna exec --no-private -- npm i --silent ${{ env.OPTIONS }} --ignore-scripts
+          npx lerna bootstrap --ignore-scripts
 
     - name: Root deps don't update correctly on first regeneration
       shell: bash

@@ -31,6 +31,7 @@ describe('plasma-hope: TextArea', () => {
                 minAuto={minAuto}
                 maxAuto={maxAuto}
                 resize={resize}
+                size="l"
             />
         );
     }

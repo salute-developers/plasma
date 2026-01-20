@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 import { IconEye } from '@salutejs/plasma-icons';
 
 describe('sdds-insol: TextArea', () => {
@@ -32,6 +32,7 @@ describe('sdds-insol: TextArea', () => {
                     rightHelper="Right helper"
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="left"
                 />
             </CypressTestDecorator>,
@@ -72,6 +73,7 @@ describe('sdds-insol: TextArea', () => {
                     placeholder="Placeholder"
                     rightHelper="Right helper"
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                 />
             </CypressTestDecorator>,
@@ -113,6 +115,7 @@ describe('sdds-insol: TextArea', () => {
                         rightHelper="Right helper"
                         contentRight={Icon}
                         required
+                        hasRequiredIndicator
                         requiredPlacement="left"
                         readOnly
                     />
@@ -155,6 +158,7 @@ describe('sdds-insol: TextArea', () => {
                     rightHelper="Right helper"
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                 />
             </CypressTestDecorator>,
@@ -197,6 +201,7 @@ describe('sdds-insol: TextArea', () => {
                     rightHelper="Right helper"
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="left"
                     disabled
                 />
@@ -238,6 +243,7 @@ describe('sdds-insol: TextArea', () => {
                     rightHelper="Right helper"
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                     focused
                 />
@@ -597,6 +603,94 @@ describe('sdds-insol: TextArea', () => {
                     helperText="Helper text"
                     headerSlot={<HeaderSlot />}
                 />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] TextArea: apparance=clear, required, requiredPlacement, labelPlacement', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ margin: '0 1.5rem' }}>
+                    <TextArea
+                        appearance="clear"
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="right"
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                    <PadMe />
+                    <TextArea
+                        appearance="clear"
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="left"
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                    <PadMe />
+                    <TextArea
+                        appearance="clear"
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="right"
+                        labelPlacement="inner"
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                    <PadMe />
+                    <TextArea
+                        appearance="clear"
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="left"
+                        labelPlacement="inner"
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                </div>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] TextArea: appearance=clear, hasDivider', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] TextArea: appearance=clear, hasDivider, view', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" view="negative" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" view="warning" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] TextArea: appearance=clear, hasDivider, size', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="xl" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="l" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="m" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="s" />
+                <PadMe />
+                <TextArea appearance="clear" hasDivider placeholder="Placeholder" size="xs" />
             </CypressTestDecorator>,
         );
 

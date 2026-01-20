@@ -224,6 +224,21 @@ export const verticalsMap = [
         ],
     },
     {
+        key: 'SDDSOS',
+        title: 'SDDS OS',
+        package: '@salutejs/sdds-os',
+        group: 'СДДС',
+        items: [
+            { text: 'Сторибук', href: '/sdds-os-storybook/', contentRight: <ArrowTopRight /> },
+            {
+                text: PACKAGES_INFO['@salutejs/sdds-os'][0],
+                href: `/changelog/?lib=sdds-os&version=${PACKAGES_INFO['@salutejs/sdds-os'][0]}`,
+                contentLeft: <History />,
+                isMeta: false,
+            },
+        ],
+    },
+    {
         key: 'SDDSNetology',
         title: 'SDDS Netology',
         package: '@salutejs/sdds-netology',
@@ -308,6 +323,7 @@ export const packageNameMap = {
     'sdds-insol': 'SDDS Insol',
     'sdds-bizcom': 'SDDS Bizcom',
     'sdds-platform-ai': 'SDDS Platform-AI',
+    'sddssber-os': 'SDDS OS',
     plasmaStarDS: 'Plasma StarDS',
     plasmaHomeDS: 'Plasma HomeDS',
 };
@@ -328,4 +344,5 @@ export const verticalToNpmPackageMap = {
     SDDSInsol: 'sdds-insol',
     SDDSBizcom: 'sdds-bizcom',
     SDDSPlatformAI: 'sdds-platform-ai',
+    SDDSOS: 'sdds-os',
 };

@@ -8,6 +8,8 @@ jobs:
     name: Publish RC version
     uses: ./.github/workflows/publish-common.yml
     with:
+      with-update-package-lock: true
+      commit-message: "Update package-lock.json files"
       auto-options: '--no-changelog'
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}

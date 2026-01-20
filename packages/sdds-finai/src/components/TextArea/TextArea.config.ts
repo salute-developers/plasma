@@ -6,362 +6,6 @@ export const config = {
         focused: 'true',
     },
     variations: {
-        size: {
-            xs: css`
-                ${textAreaTokens.inputWidth}: 100%;
-                ${textAreaTokens.inputHeight}: 7.312rem;
-                ${textAreaTokens.inputMinHeight}: 0.625rem;
-                ${textAreaTokens.borderSize}: 0.125rem;
-                ${textAreaTokens.borderRadius}: 0.5rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 0.5rem 0.5rem 0.5rem 0.5rem;
-                ${textAreaTokens.inputPaddingTop}: 0.563rem;
-                ${textAreaTokens.inputPaddingRight}: 0.625rem;
-                ${textAreaTokens.inputPaddingRightWithRightContent}: 2.125rem;
-                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 1.5rem;
-                ${textAreaTokens.inputPaddingBottom}: 0.563rem;
-                ${textAreaTokens.inputPaddingLeft}: 0.625rem;
-                ${textAreaTokens.helpersPaddingTop}: 0.5rem;
-                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
-                ${textAreaTokens.helpersPaddingRight}: 0.625rem;
-                ${textAreaTokens.helpersPaddingBottom}: 0.563rem;
-                ${textAreaTokens.helpersPaddingLeft}: 0.625rem;
-                ${textAreaTokens.helpersOffset}: 0rem;
-                ${textAreaTokens.rightContentTop}: 0.563rem;
-                ${textAreaTokens.rightContentRight}: 0.5rem;
-                ${textAreaTokens.rightContentHeight}: 1rem;
-                ${textAreaTokens.labelMarginBottom}: 0.375rem;
-                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
-                ${textAreaTokens.labelInnerTop}: 0rem;
-                ${textAreaTokens.labelInnerMarginBottom}: 0rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.indicatorSizeInner}: 0.375rem;
-                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
-                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
-                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.675rem auto auto;
-                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
-                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
-                ${textAreaTokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
-
-                ${textAreaTokens.scrollbarWidth}: 0.188rem;
-                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
-
-                ${textAreaTokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
-                ${textAreaTokens.hintTargetSize}: 2.375rem;
-                ${textAreaTokens.hintInnerLabelPlacementOffset}: -0.188rem -2.188rem auto auto;
-                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
-
-                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
-            `,
-            s: css`
-                ${textAreaTokens.inputWidth}: 100%;
-                ${textAreaTokens.inputHeight}: 7.187rem;
-                ${textAreaTokens.inputMinHeight}: 0.625rem;
-                ${textAreaTokens.borderSize}: 0.125rem;
-                ${textAreaTokens.borderRadius}: 0.625rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0.625rem 0.625rem;
-                ${textAreaTokens.inputPaddingTop}: 0.688rem;
-                ${textAreaTokens.inputPaddingRight}: 0.875rem;
-                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.125rem;
-                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 2rem;
-                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
-                ${textAreaTokens.inputPaddingLeft}: 0.875rem;
-                ${textAreaTokens.helpersPaddingTop}: 0.75rem;
-                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
-                ${textAreaTokens.helpersPaddingRight}: 0.875rem;
-                ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
-                ${textAreaTokens.helpersPaddingLeft}: 0.875rem;
-                ${textAreaTokens.helpersOffset}: 0rem;
-                ${textAreaTokens.rightContentTop}: 0.688rem;
-                ${textAreaTokens.rightContentRight}: 0.75rem;
-                ${textAreaTokens.rightContentHeight}: 1.25rem;
-                ${textAreaTokens.labelMarginBottom}: 0.5rem;
-                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.labelInnerTop}: 0.375rem;
-                ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-s-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.indicatorSizeInner}: 0.375rem;
-                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
-                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.675rem;
-                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
-                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
-                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
-
-                ${textAreaTokens.scrollbarWidth}: 0.188rem;
-                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
-
-                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
-                ${textAreaTokens.hintTargetSize}: 2.375rem;
-                ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
-                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.063rem auto auto;
-
-                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
-            `,
-            m: css`
-                ${textAreaTokens.inputWidth}: 100%;
-                ${textAreaTokens.inputHeight}: 7rem;
-                ${textAreaTokens.inputMinHeight}: 1.125rem;
-                ${textAreaTokens.borderSize}: 0.125rem;
-                ${textAreaTokens.borderRadius}: 0.75rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 0.75rem 0.75rem 0.75rem 0.75rem;
-                ${textAreaTokens.inputPaddingTop}: 0.875rem;
-                ${textAreaTokens.inputPaddingRight}: 1rem;
-                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.375rem;
-                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 2.125rem;
-                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
-                ${textAreaTokens.inputPaddingLeft}: 1rem;
-                ${textAreaTokens.helpersPaddingTop}: 0.75rem;
-                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
-                ${textAreaTokens.helpersPaddingRight}: 1rem;
-                ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
-                ${textAreaTokens.helpersPaddingLeft}: 1rem;
-                ${textAreaTokens.helpersOffset}: 0rem;
-                ${textAreaTokens.rightContentTop}: 0.875rem;
-                ${textAreaTokens.rightContentRight}: 0.875rem;
-                ${textAreaTokens.rightContentHeight}: 1.25rem;
-                ${textAreaTokens.labelMarginBottom}: 0.625rem;
-                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.labelInnerTop}: 0.375rem;
-                ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-m-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.indicatorSizeInner}: 0.5rem;
-                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
-                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                /* stylelint-disable-next-line number-max-precision */
-                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.4375rem auto auto -0.675rem;
-                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                /* stylelint-disable-next-line number-max-precision */
-                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.1875rem -0.625rem auto auto;
-                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
-                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
-                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
-
-                ${textAreaTokens.scrollbarWidth}: 0.188rem;
-                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
-
-                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
-                ${textAreaTokens.hintTargetSize}: 2.375rem;
-                ${textAreaTokens.hintInnerLabelPlacementOffset}:0.312rem -2.813rem auto auto;
-                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.063rem auto auto;
-
-                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
-            `,
-            l: css`
-                ${textAreaTokens.inputWidth}: 100%;
-                ${textAreaTokens.inputHeight}: 6.812rem;
-                ${textAreaTokens.inputMinHeight}: 1.625rem;
-                ${textAreaTokens.borderSize}: 0.125rem;
-                ${textAreaTokens.borderRadius}: 0.875rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 0.875rem 0.875rem 0.875rem 0.875rem;
-                ${textAreaTokens.inputPaddingTop}: 1.063rem;
-                ${textAreaTokens.inputPaddingRight}: 1.125rem;
-                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.625rem;
-                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 2.25rem;
-                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
-                ${textAreaTokens.inputPaddingLeft}: 1.125rem;
-                ${textAreaTokens.helpersPaddingTop}: 0.75rem;
-                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
-                ${textAreaTokens.helpersPaddingRight}: 1.125rem;
-                ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
-                ${textAreaTokens.helpersPaddingLeft}: 1.125rem;
-                ${textAreaTokens.helpersOffset}: 0rem;
-                ${textAreaTokens.rightContentTop}: 1.063rem;
-                ${textAreaTokens.rightContentRight}: 1rem;
-                ${textAreaTokens.rightContentHeight}: 1.25rem;
-                ${textAreaTokens.labelMarginBottom}: 0.75rem;
-                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.labelInnerTop}: 0.563rem;
-                ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-l-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.indicatorSizeInner}: 0.5rem;
-                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
-                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.675rem;
-                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
-                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
-                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
-
-                ${textAreaTokens.scrollbarWidth}: 0.188rem;
-                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
-
-                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
-                ${textAreaTokens.hintTargetSize}: 2.375rem;
-                ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
-                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: 0.562rem -2.063rem auto auto;
-
-                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
-            `,
-            xl: css`
-                ${textAreaTokens.inputWidth}: 100%;
-                ${textAreaTokens.inputHeight}: 6.812rem;
-                ${textAreaTokens.inputMinHeight}: 1.625rem;
-                ${textAreaTokens.borderSize}: 0.125rem;
-                ${textAreaTokens.borderRadius}: 1rem;
-                ${textAreaTokens.borderRadiusWithHelpers}: 1rem 1rem 1rem 1rem;
-                ${textAreaTokens.inputPaddingTop}: 1.313rem;
-                ${textAreaTokens.inputPaddingRight}: 1.25rem;
-                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.5rem;
-                ${textAreaTokens.clearInputPaddingRightWithRightContent}: 2.5rem;
-                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
-                ${textAreaTokens.inputPaddingLeft}: 1.25rem;
-                ${textAreaTokens.helpersPaddingTop}: 0.75rem;
-                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
-                ${textAreaTokens.helpersPaddingRight}: 1.25rem;
-                ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
-                ${textAreaTokens.helpersPaddingLeft}: 1.25rem;
-                ${textAreaTokens.helpersOffset}: 0rem;
-                ${textAreaTokens.rightContentTop}: 1.25rem;
-                ${textAreaTokens.rightContentRight}: 1.25rem;
-                ${textAreaTokens.rightContentHeight}: 1.5rem;
-                ${textAreaTokens.labelMarginBottom}: 0.75rem;
-                ${textAreaTokens.clearLabelMarginBottom}: 0.25rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.labelInnerTop}: 0.813rem;
-                ${textAreaTokens.labelInnerTopHelper}: -0.313rem;
-                ${textAreaTokens.labelInnerMarginBottom}: 0.25rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-l-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.indicatorSizeInner}: 0.5rem;
-                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
-                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.675rem;
-                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${textAreaTokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
-                ${textAreaTokens.clearIndicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
-                ${textAreaTokens.clearIndicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
-
-                ${textAreaTokens.scrollbarWidth}: 0.188rem;
-                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
-
-                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
-                ${textAreaTokens.hintTargetSize}: 2.375rem;
-                ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.751rem -2.938rem auto auto;
-                ${textAreaTokens.clearHintInnerLabelPlacementOffset}: 0.751rem -2.188rem auto auto;
-                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
-
-                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
-            `,
-        },
         view: {
             default: css`
                 ${textAreaTokens.backgroundColor}: var(--surface-transparent-card);
@@ -372,13 +16,11 @@ export const config = {
                 ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
                 ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
-                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
+
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
@@ -407,13 +49,12 @@ export const config = {
                 ${textAreaTokens.borderColorHover}: var(--outline-transparent-positive-hover);
                 ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.clearInputColor}: var(--text-positive);
-                ${textAreaTokens.clearPlaceholderColor}: var(--text-positive);
+
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-positive);
+
                 ${textAreaTokens.leftHelperColor}: var(--text-positive);
                 ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
@@ -438,21 +79,19 @@ export const config = {
              * Использовать `default`
              */
             primary: css`
-                ${textAreaTokens.backgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.backgroundColor}: var(--surface-transparent-card);
+                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-card-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-card-active);
                 ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
                 ${textAreaTokens.borderColor}: var(--outline-solid-primary);
                 ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
                 ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.clearInputColor}: var(--text-primary);
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
-                ${textAreaTokens.clearPlaceholderColor}: var(--text-secondary);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-tertiary);
+
                 ${textAreaTokens.leftHelperColor}: var(--text-secondary);
                 ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
@@ -481,13 +120,12 @@ export const config = {
                 ${textAreaTokens.borderColorHover}: var(--outline-transparent-warning-hover);
                 ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.clearInputColor}: var(--text-warning);
-                ${textAreaTokens.clearPlaceholderColor}: var(--text-warning);
+
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-warning);
+
                 ${textAreaTokens.leftHelperColor}: var(--text-warning);
                 ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
@@ -516,13 +154,12 @@ export const config = {
                 ${textAreaTokens.borderColorHover}: var(--outline-transparent-negative-hover);
                 ${textAreaTokens.borderColorFocus}: var(--outline-accent);
                 ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.clearInputColor}: var(--text-negative);
-                ${textAreaTokens.clearPlaceholderColor}: var(--text-negative);
+
                 ${textAreaTokens.inputColorFocus}: var(--text-primary);
                 ${textAreaTokens.inputCaretColor}: var(--text-accent);
                 ${textAreaTokens.placeholderColor}: var(--text-secondary);
                 ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
-                ${textAreaTokens.clearPlaceholderColorFocus}: var(--text-negative);
+
                 ${textAreaTokens.leftHelperColor}: var(--text-negative);
                 ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
                 ${textAreaTokens.rightHelperColor}: var(--text-secondary);
@@ -541,6 +178,341 @@ export const config = {
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
                 ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
+            `,
+        },
+        size: {
+            xl: css`
+                ${textAreaTokens.inputWidth}: 100%;
+                ${textAreaTokens.inputHeight}: 6.812rem;
+                ${textAreaTokens.inputMinHeight}: 1.625rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
+                ${textAreaTokens.borderRadius}: 1rem;
+                ${textAreaTokens.borderRadiusWithHelpers}: 1rem 1rem 1rem 1rem;
+                ${textAreaTokens.inputPaddingTop}: 1.313rem;
+                ${textAreaTokens.inputPaddingRight}: 1.25rem;
+                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.5rem;
+                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
+                ${textAreaTokens.inputPaddingLeft}: 1.25rem;
+                ${textAreaTokens.helpersPaddingTop}: 0.75rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.helpersPaddingRight}: 1.25rem;
+                ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
+                ${textAreaTokens.helpersPaddingLeft}: 1.25rem;
+                ${textAreaTokens.helpersOffset}: 0rem;
+                ${textAreaTokens.rightContentTop}: 1.25rem;
+                ${textAreaTokens.rightContentRight}: 1.25rem;
+                ${textAreaTokens.rightContentHeight}: 1.5rem;
+                ${textAreaTokens.labelMarginBottom}: 0.75rem;
+                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0.813rem;
+                ${textAreaTokens.labelInnerTopHelper}: -0.313rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0.25rem;
+                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
+                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.5rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.675rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${textAreaTokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
+
+                ${textAreaTokens.scrollbarWidth}: 0.188rem;
+                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.751rem -2.938rem auto auto;
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+            `,
+            l: css`
+                ${textAreaTokens.inputWidth}: 100%;
+                ${textAreaTokens.inputHeight}: 6.812rem;
+                ${textAreaTokens.inputMinHeight}: 1.625rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
+                ${textAreaTokens.borderRadius}: 0.875rem;
+                ${textAreaTokens.borderRadiusWithHelpers}: 0.875rem 0.875rem 0.875rem 0.875rem;
+                ${textAreaTokens.inputPaddingTop}: 1.063rem;
+                ${textAreaTokens.inputPaddingRight}: 1.125rem;
+                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.625rem;
+                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
+                ${textAreaTokens.inputPaddingLeft}: 1.125rem;
+                ${textAreaTokens.helpersPaddingTop}: 0.75rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.helpersPaddingRight}: 1.125rem;
+                ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
+                ${textAreaTokens.helpersPaddingLeft}: 1.125rem;
+                ${textAreaTokens.helpersOffset}: 0rem;
+                ${textAreaTokens.rightContentTop}: 1.063rem;
+                ${textAreaTokens.rightContentRight}: 1rem;
+                ${textAreaTokens.rightContentHeight}: 1.25rem;
+                ${textAreaTokens.labelMarginBottom}: 0.75rem;
+                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0.563rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
+                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
+                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.5rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.675rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
+
+                ${textAreaTokens.scrollbarWidth}: 0.188rem;
+                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+            `,
+            m: css`
+                ${textAreaTokens.inputWidth}: 100%;
+                ${textAreaTokens.inputHeight}: 7rem;
+                ${textAreaTokens.inputMinHeight}: 1.125rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
+                ${textAreaTokens.borderRadius}: 0.75rem;
+                ${textAreaTokens.borderRadiusWithHelpers}: 0.75rem 0.75rem 0.75rem 0.75rem;
+                ${textAreaTokens.inputPaddingTop}: 0.875rem;
+                ${textAreaTokens.inputPaddingRight}: 1rem;
+                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.375rem;
+                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
+                ${textAreaTokens.inputPaddingLeft}: 1rem;
+                ${textAreaTokens.helpersPaddingTop}: 0.75rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.helpersPaddingRight}: 1rem;
+                ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
+                ${textAreaTokens.helpersPaddingLeft}: 1rem;
+                ${textAreaTokens.helpersOffset}: 0rem;
+                ${textAreaTokens.rightContentTop}: 0.875rem;
+                ${textAreaTokens.rightContentRight}: 0.875rem;
+                ${textAreaTokens.rightContentHeight}: 1.25rem;
+                ${textAreaTokens.labelMarginBottom}: 0.625rem;
+                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0.375rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
+                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-m-font-size);
+                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.5rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                /* stylelint-disable-next-line number-max-precision */
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.4375rem auto auto -0.675rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                /* stylelint-disable-next-line number-max-precision */
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.1875rem -0.625rem auto auto;
+
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
+
+                ${textAreaTokens.scrollbarWidth}: 0.188rem;
+                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}:0.312rem -2.813rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+            `,
+            s: css`
+                ${textAreaTokens.inputWidth}: 100%;
+                ${textAreaTokens.inputHeight}: 7.187rem;
+                ${textAreaTokens.inputMinHeight}: 0.625rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
+                ${textAreaTokens.borderRadius}: 0.625rem;
+                ${textAreaTokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0.625rem 0.625rem;
+                ${textAreaTokens.inputPaddingTop}: 0.688rem;
+                ${textAreaTokens.inputPaddingRight}: 0.875rem;
+                ${textAreaTokens.inputPaddingRightWithRightContent}: 3.125rem;
+                ${textAreaTokens.inputPaddingBottom}: 0.75rem;
+                ${textAreaTokens.inputPaddingLeft}: 0.875rem;
+                ${textAreaTokens.helpersPaddingTop}: 0.75rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.helpersPaddingRight}: 0.875rem;
+                ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
+                ${textAreaTokens.helpersPaddingLeft}: 0.875rem;
+                ${textAreaTokens.helpersOffset}: 0rem;
+                ${textAreaTokens.rightContentTop}: 0.688rem;
+                ${textAreaTokens.rightContentRight}: 0.75rem;
+                ${textAreaTokens.rightContentHeight}: 1.25rem;
+                ${textAreaTokens.labelMarginBottom}: 0.5rem;
+                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0.375rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
+                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-s-font-size);
+                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.375rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.675rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
+
+                ${textAreaTokens.scrollbarWidth}: 0.188rem;
+                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+            `,
+            xs: css`
+                ${textAreaTokens.inputWidth}: 100%;
+                ${textAreaTokens.inputHeight}: 7.312rem;
+                ${textAreaTokens.inputMinHeight}: 0.625rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
+                ${textAreaTokens.borderRadius}: 0.5rem;
+                ${textAreaTokens.borderRadiusWithHelpers}: 0.5rem 0.5rem 0.5rem 0.5rem;
+                ${textAreaTokens.inputPaddingTop}: 0.563rem;
+                ${textAreaTokens.inputPaddingRight}: 0.625rem;
+                ${textAreaTokens.inputPaddingRightWithRightContent}: 2.125rem;
+                ${textAreaTokens.inputPaddingBottom}: 0.563rem;
+                ${textAreaTokens.inputPaddingLeft}: 0.625rem;
+                ${textAreaTokens.helpersPaddingTop}: 0.5rem;
+                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.helpersPaddingRight}: 0.625rem;
+                ${textAreaTokens.helpersPaddingBottom}: 0.563rem;
+                ${textAreaTokens.helpersPaddingLeft}: 0.625rem;
+                ${textAreaTokens.helpersOffset}: 0rem;
+                ${textAreaTokens.rightContentTop}: 0.563rem;
+                ${textAreaTokens.rightContentRight}: 0.5rem;
+                ${textAreaTokens.rightContentHeight}: 1rem;
+                ${textAreaTokens.labelMarginBottom}: 0.375rem;
+                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0rem;
+                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.indicatorSizeInner}: 0.375rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.675rem auto auto;
+
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
+
+                ${textAreaTokens.scrollbarWidth}: 0.188rem;
+                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: -0.188rem -2.188rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
         hintView: {
@@ -602,9 +574,6 @@ export const config = {
                 ${textAreaTokens.tooltipArrowHeight}: 0.375rem;
                 ${textAreaTokens.tooltipArrowEdgeMargin}: 0.563rem;
             `,
-        },
-        clear: {
-            true: css``,
         },
         readOnly: {
             true: css`

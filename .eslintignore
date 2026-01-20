@@ -54,6 +54,9 @@ packages/plasma-asdk/*
 packages/sdds-serv/*
 !packages/sdds-serv/src
 
+packages/sdds-sber-os/*
+!packages/sdds-sber-os/src
+
 packages/sdds-dfa/*
 !packages/sdds-dfa/src
 

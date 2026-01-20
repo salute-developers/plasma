@@ -33,9 +33,24 @@ export const config = {
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
 
-                ${tokens.contentSlotColor}: var(--text-secondary);
-                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
+
+                ${tokens.contentSlotColor}: var(--text-primary);
+                ${tokens.contentSlotColorHover}: var(--text-primary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-primary-active);
+
+                ${tokens.contentSlotRightColor}: var(--text-primary);
+                ${tokens.contentSlotRightColorHover}: var(--text-primary-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-primary-active);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary-active);
 
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
@@ -56,6 +71,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
 
                 ${tokens.focusColor}: var(--text-accent);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
             `,
         },
         size: {
@@ -77,7 +93,7 @@ export const config = {
                 ${tokens.textFieldHeight}: 4rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 1rem;
-                ${tokens.textFieldPadding}: 1.375rem 1.25rem 1.375rem 1.25rem;
+                ${tokens.textFieldPadding}: 1.375rem 1.25rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
@@ -150,7 +166,7 @@ export const config = {
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
-                ${tokens.textFieldPadding}: 1.188rem 1.125rem 1.188rem 1.125rem;
+                ${tokens.textFieldPadding}: 1.188rem 1.125rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
@@ -223,7 +239,7 @@ export const config = {
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
-                ${tokens.textFieldPadding}: 1.063rem 1rem 1.063rem 1rem;
+                ${tokens.textFieldPadding}: 1.063rem 1rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -296,7 +312,7 @@ export const config = {
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
-                ${tokens.textFieldPadding}: 0.813rem 0.75rem 0.813rem 0.75rem;
+                ${tokens.textFieldPadding}: 0.813rem 0.75rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -369,7 +385,7 @@ export const config = {
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
-                ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
+                ${tokens.textFieldPadding}: 0.5625rem 0.625rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);

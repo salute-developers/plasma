@@ -108,18 +108,24 @@ describe('plasma-b2c: TextArea', () => {
                     labelPlacement="inner"
                     helperText="Helper text"
                     status="success"
-                    clear
+                    appearance="clear"
                     hasDivider
                 />
                 <SpaceMe />
-                <TextArea placeholder="Placeholder" helperText="Helper text" status="warning" clear hasDivider />
+                <TextArea
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    status="warning"
+                    appearance="clear"
+                    hasDivider
+                />
                 <SpaceMe />
                 <TextArea
                     value="Value"
                     placeholder="Placeholder"
                     helperText="Helper text"
                     status="error"
-                    clear
+                    appearance="clear"
                     hasDivider
                 />
             </CypressTestDecorator>,
@@ -282,10 +288,10 @@ describe('plasma-b2c: TextArea', () => {
         const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
-            { required: true, labelPlacement: 'outer' },
-            { required: true, requiredPlacement: 'left', labelPlacement: 'outer' },
-            { required: true, labelPlacement: 'inner' },
-            { required: true, requiredPlacement: 'left', labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {
@@ -382,10 +388,10 @@ describe('plasma-b2c: TextArea', () => {
         const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
-            { required: true, labelPlacement: 'outer' },
-            { required: true, requiredPlacement: 'left', labelPlacement: 'outer' },
-            { required: true, labelPlacement: 'inner' },
-            { required: true, requiredPlacement: 'left', labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {

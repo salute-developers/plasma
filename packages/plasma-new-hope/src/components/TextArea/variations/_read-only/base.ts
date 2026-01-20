@@ -17,12 +17,20 @@ export const base = css`
 
         ${StyledContent} {
             opacity: var(${tokens.contentSlotRightOpacityReadOnly});
+
+            &:hover {
+                color: var(${tokens.rightContentColor});
+            }
+
+            &:active {
+                color: var(${tokens.rightContentColor});
+            }
         }
 
         &.${classes.clear} {
             ${StyledTextAreaWrapper} {
                 &:before {
-                    background-color: var(${tokens.dividerColorReadOnly});
+                    background-color: var(${tokens.dividerColor});
                 }
             }
         }

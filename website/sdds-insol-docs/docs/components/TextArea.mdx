@@ -4,35 +4,194 @@ title: TextArea
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # TextArea
 <Description name="TextArea" />
-<PropsTable name="TextArea" exclude={['$isFocused']} />
 
-## Использование
-Компонент `TextArea` может содержать иконку (или кнопку) справа.
-Для этого используйте свойство `contentRight`:
+### Быстрый старт
 
-```tsx live
-import React from 'react';
-import { TextArea } from '@salutejs/sdds-insol';
-import { IconDownload } from '@salutejs/plasma-icons';
+<Tabs>
+    <TabItem value="default" label="Uncontrolled" default>
+        ```tsx live
+        import React from 'react';
+        import { TextArea } from '@salutejs/sdds-insol';
+        import { IconDownload } from '@salutejs/plasma-icons';
 
-export function App() {
-    return (
-        <div>
-            <TextArea
-                placeholder="Положение иконки"
-                defaultValue="Справа"
-                contentRight={<IconDownload />}
-            />
-        </div>
-    );
-}
-```
+        export function App() {
+            return (
+                <div>
+                    <TextArea
+                        label="Uncontrolled TextArea"
+                        defaultValue="Дефолтное значение"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                        view="default"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="controlled" label="Controlled">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { TextArea } from '@salutejs/sdds-insol';
+        import { IconDownload } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const [text, setText] = useState('Значение поля');
+
+            return (
+                <div>
+                    <TextArea
+                        value={text}
+                        onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
+                            setText(e.target.value);
+                        }}
+                        label="Controlled TextArea"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                        view="default"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Управление внешним видом
+
+Внешний вид компонента зависит от свойств `appearance`, `view`, `size`:
+
+<Tabs>
+    <TabItem value="appearance" label="Appearance" default>
+        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasDivider`
+
+        ```tsx live
+        import React from 'react';
+        import { TextArea } from '@salutejs/sdds-insol';
+        import { IconDownload } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+                    <TextArea
+                        view="default"
+                        appearance="default"
+                        label="Appearance default"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        view="default"
+                        appearance="clear"
+                        label="Appearance clear"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        view="negative"
+                        appearance="clear"
+                        hasDivider
+                        label="Appearance clear"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="view" label="View">
+        ```tsx live
+        import React from 'react';
+        import { TextArea } from '@salutejs/sdds-insol';
+        import { IconDownload } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+                    <TextArea
+                        view="default"
+                        label="Status default"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        view="negative"
+                        label="Status negative"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        view="warning"
+                        label="Status warning"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        view="negative"
+                        label="Status negative"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React from 'react';
+        import { TextArea } from '@salutejs/sdds-insol';
+        import { IconDownload } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+                    <TextArea
+                        size="xl"
+                        label="Size xl"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        size="l"
+                        label="Size l"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        size="m"
+                        label="Size m"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        size="s"
+                        label="Size s"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        size="xs"
+                        label="Size xs"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
 
 ### Размеры компонента
-Высоту и ширину можно регулировать с помощью свойств `height` и `width`, 
+
+Высоту и ширину можно регулировать с помощью свойств `height` и `width`,
 указав значения в `rem` или соответствующие свойствам css значения.
 `height` и `width` отвечают за **всю** высоту и ширину компонента.
 
@@ -75,8 +234,9 @@ export function App() {
 ```
 
 ### Autoresize
+
 Также можно включить автоматическое регулирование высоты поля ввода по длине контента внутри (параметра `value`).
-Для этого необходимо использовать свойство `autoResize`. 
+Для этого необходимо использовать свойство `autoResize`.
 
 Свойства `minAuto`, `maxAuto` указываются в абсолютных единицах и отвечают за минимальное и максимальное количество строк.
 
@@ -104,36 +264,8 @@ export function App() {
 }
 ```
 
-### Clear
-На отображение TextArea влияют свойства `clear` и `hasDivider`.
-При этом `hasDivider` не может использоваться без `clear`.
-Свойства `minAuto`, `maxAuto`, `autoResize`, `rows` и `cols`, `height` и `width` игнорируются.
-Высота TextArea в таком случае регулируется по длине контента внутри:
+### Подсказки
 
-```tsx live
-import React from 'react';
-import { TextArea } from '@salutejs/sdds-insol';
-
-export function App() {
-    const [value, setValue] = React.useState('Значение');
-
-    return (
-        <div>
-            <TextArea
-                placeholder="Введите значение"
-                value={value}
-                onChange={(e) => {
-                    setValue(e.target.value);
-                }}
-                clear
-                hasDivider
-            />
-        </div>
-    );
-}
-```
-
-### Подсказка
 Для вывода подсказки снизу от поля используйте свойство `leftHelper` и/или `rightHelper`,
 для подсказки в виде Tooltip - `hintText`, для подсказки сверху справа - `titleCaption`:
 
@@ -159,17 +291,50 @@ export function App() {
 }
 ```
 
+### Обязательность поля
+
+:::tip
+Наличие индикатора регулируется свойством `hasRequiredIndicator`.
+:::
+
+Обязательность поля задаётся с помощью свойства `required`.
+Если поле является обязательным, то у компонента появляется специальный индикатор.
+Изменить расположение индикатора можно с помощью свойства `requiredPlacement`, которое принимает значения `left` и `right`.
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/sdds-insol';
+import { IconDownload } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                hasRequiredIndicator
+                required
+                requiredPlacement="right"
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите значение"
+                contentRight={<IconDownload />}
+            />
+        </div>
+    );
+}
+```
+
 ### Слот для контента над вводимым текстом
+
 Слот для контента над вводимым текстом задается с помощью свойства `headerSlot`:
 
 ```tsx live
 import React from 'react';
 import { TextArea, TextS } from '@salutejs/sdds-insol';
-import { surfaceTransparentTertiary } from '@salutejs/sdds-themes/tokens';
+import { surfaceSolid03 } from '@salutejs/plasma-tokens-b2c';
 
 export function App() {
     const HeaderSlot = () => (
-       <div style={{ margin: "0 0.75rem", padding: "0.5rem 0", borderBottom: `0.063rem solid ${surfaceTransparentTertiary}` }}>
+       <div style={{ margin: "0 0.75rem", padding: "0.5rem 0", borderBottom: `0.063rem solid ${surfaceSolid03}` }}>
            <TextS>Дополнительный контент</TextS>
        </div>
     )
@@ -181,6 +346,43 @@ export function App() {
                 placeholder="Введите значение"
                 defaultValue="Значение"
                 leftHelper="Подсказка снизу слева"
+            />
+        </div>
+    );
+}
+```
+
+### Таблица свойств
+<PropsTable name="TextArea" exclude={['$isFocused']} />
+
+### Clear (DEPRECATED)
+
+:::warning
+Свойство `clear` устарело. Используйте вместо этого `appearance="clear"`.
+:::
+
+На отображение TextArea влияют свойства `clear` и `hasDivider`.
+При этом `hasDivider` не может использоваться без `clear`.
+Свойства `minAuto`, `maxAuto`, `autoResize`, `rows` и `cols`, `height` и `width` игнорируются.
+Высота TextArea в таком случае регулируется по длине контента внутри:
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/sdds-insol';
+
+export function App() {
+    const [value, setValue] = React.useState('Значение');
+
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                clear
+                hasDivider
             />
         </div>
     );

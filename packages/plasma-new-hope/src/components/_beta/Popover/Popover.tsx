@@ -32,13 +32,13 @@ import { base, CloseButton, Wrapper } from './Popover.styles';
 import type { PopoverProps } from './Popover.types';
 
 /* Ширина хвостика */
-const ARROW_WIDTH = 20;
+export const ARROW_WIDTH = 20;
 /* Высота хвостика */
-const ARROW_HEIGHT = 8;
+export const ARROW_HEIGHT = 8;
 /* SVG хвостика */
-const ARROW_POLYGON = 'M20 20L0 20C8.88889 20.0001 10 12.5714 10 12C10 12.5714 11.3273 20.006 20 20Z';
+export const ARROW_POLYGON = 'M20 20L0 20C8.88889 20.0001 10 12.5714 10 12C10 12.5714 11.3273 20.006 20 20Z';
 /* Отступ хвостика по краям (чтобы избежать коллизии со скругленными углами) */
-const ARROW_PADDING = 16;
+export const ARROW_PADDING = 16;
 
 export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, 'target'>>) =>
     forwardRef<HTMLDivElement, PopoverProps>(

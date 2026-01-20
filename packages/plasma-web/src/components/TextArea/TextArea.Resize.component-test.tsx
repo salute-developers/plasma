@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-const LONG_TEXT = ' VERY LONG TEXT';
+const LONG_TEXT = ' VERY LONG TEXT{enter}';
 
-describe('plasma-hope: TextArea', () => {
+describe('plasma-web: TextArea', () => {
     const TextArea = getComponent('TextArea');
 
     /*
@@ -18,54 +18,40 @@ describe('plasma-hope: TextArea', () => {
         });
     });
 
-    function Demo({ minAuto, maxAuto, resize }) {
-        const [value, setValue] = React.useState('Default value');
-
-        return (
-            <TextArea
-                value={value}
-                onChange={(e) => {
-                    setValue(e.target.value);
-                }}
-                autoResize
-                minAuto={minAuto}
-                maxAuto={maxAuto}
-                resize={resize}
-            />
-        );
-    }
+    const Demo = ({ minAuto, maxAuto, resize }) => {
+        return <TextArea size="m" autoResize minAuto={minAuto} maxAuto={maxAuto} resize={resize} />;
+    };
 
     it('autoResize - basic', () => {
         mount(
             <CypressTestDecorator>
-                <Demo minAuto={0} maxAuto={10} />
+                <TextArea size="m" autoResize minAuto={2} maxAuto={7} />
             </CypressTestDecorator>,
         );
 
         cy.get('.textarea').type(LONG_TEXT.repeat(10));
-
         cy.matchImageSnapshot();
     });
 
     it('autoResize - minAuto', () => {
         mount(
             <CypressTestDecorator>
-                <Demo minAuto={5} maxAuto={10} />
+                <TextArea size="m" autoResize minAuto={5} />
             </CypressTestDecorator>,
         );
 
+        cy.get('.textarea').type(LONG_TEXT.repeat(4));
         cy.matchImageSnapshot();
     });
 
     it('autoResize - maxAuto', () => {
         mount(
             <CypressTestDecorator>
-                <Demo minAuto={0} maxAuto={3} />
+                <TextArea size="m" autoResize maxAuto={7} />
             </CypressTestDecorator>,
         );
 
         cy.get('.textarea').type(LONG_TEXT.repeat(10));
-
         cy.matchImageSnapshot();
     });
 

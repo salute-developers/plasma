@@ -689,4 +689,59 @@ describe('plasma-b2c: DatePickerRange', () => {
         cy.get('input').first().click();
         cy.get('#outer').click();
     });
+
+    it.skip('[PLASMA-] DatePickerRange: hintText, required, requiredPlacement=right', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo hintText="Тестовый текст" required requiredPlacement="right" />
+            </CypressTestDecorator>,
+        );
+        cy.get('input.textfield-input-text-ellipsis').last().click();
+        cy.get('svg').first().trigger('mouseover');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePickerRange: appearance=clear, hasClearDivider', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo appearance="clear" />
+                <PadMe />
+                <Demo appearance="clear" hasClearDivider />
+            </CypressTestDecorator>,
+        );
+        cy.get('input.textfield-input-text-ellipsis').last().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePickerRange: appearance=clear, firstValueSuccess, secondValueSuccess', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo appearance="clear" firstValueSuccess hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" secondValueSuccess hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" firstValueSuccess secondValueSuccess hasClearDivider />
+            </CypressTestDecorator>,
+        );
+        cy.get('input.textfield-input-text-ellipsis').last().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePickerRange: appearance=clear, firstValueError, secondValueError', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo appearance="clear" firstValueError hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" secondValueError hasClearDivider />
+                <PadMe />
+                <Demo appearance="clear" firstValueError secondValueError hasClearDivider />
+            </CypressTestDecorator>,
+        );
+        cy.get('input.textfield-input-text-ellipsis').last().click();
+
+        cy.matchImageSnapshot();
+    });
 });
