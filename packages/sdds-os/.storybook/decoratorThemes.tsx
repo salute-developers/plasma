@@ -26,8 +26,8 @@ const DocumentStyle = createGlobalStyle`
 `;
 /* stylelint-enable */
 
-export const SDDS_SBER_OS_LIGHT_THEME = 'sdds-sber-os:light';
-export const SDDS_SBER_OS_DARK_THEME = 'sdds-sber-os:dark';
+export const SDDS_SBER_OS_LIGHT_THEME = 'sdds-os:light';
+export const SDDS_SBER_OS_DARK_THEME = 'sdds-os:dark';
 export const DEFAULT_MODE = 'default';
 export const ON_DARK_MODE = 'onDark';
 export const ON_LIGHT_MODE = 'onLight';
