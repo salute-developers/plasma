@@ -17,7 +17,7 @@
         "sdds-scan",
         "sdds-bizcom",
         "sdds-platform-ai",
-        "sdds-sber-os"
+        "sdds-os"
     ],
     "PACKAGES_TYPESENSE": [
         "plasma-b2c",
