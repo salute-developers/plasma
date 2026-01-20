@@ -224,15 +224,15 @@ export const verticalsMap = [
         ],
     },
     {
-        key: 'SDDSSberOS',
-        title: 'SDDS Sber OS',
-        package: '@salutejs/sdds-sber-os',
+        key: 'SDDSOS',
+        title: 'SDDS OS',
+        package: '@salutejs/sdds-os',
         group: 'СДДС',
         items: [
-            { text: 'Сторибук', href: '/sdds-sber-os-storybook/', contentRight: <ArrowTopRight /> },
+            { text: 'Сторибук', href: '/sdds-os-storybook/', contentRight: <ArrowTopRight /> },
             {
-                text: PACKAGES_INFO['@salutejs/sdds-sber-os'][0],
-                href: `/changelog/?lib=sdds-sber-os&version=${PACKAGES_INFO['@salutejs/sdds-sber-os'][0]}`,
+                text: PACKAGES_INFO['@salutejs/sdds-os'][0],
+                href: `/changelog/?lib=sdds-os&version=${PACKAGES_INFO['@salutejs/sdds-os'][0]}`,
                 contentLeft: <History />,
                 isMeta: false,
             },
@@ -322,7 +322,7 @@ export const packageNameMap = {
     'sdds-netology': 'SDDS Netology',
     'sdds-insol': 'SDDS Insol',
     'sdds-bizcom': 'SDDS Bizcom',
-    'sddssber-os': 'SDDS Sber OS',
+    'sddssber-os': 'SDDS OS',
     plasmaStarDS: 'Plasma StarDS',
     plasmaHomeDS: 'Plasma HomeDS',
 };
@@ -342,5 +342,5 @@ export const verticalToNpmPackageMap = {
     SDDSNetology: 'sdds-netology',
     SDDSInsol: 'sdds-insol',
     SDDSBizcom: 'sdds-bizcom',
-    SDDSSberOS: 'sdds-sber-os',
+    SDDSOS: 'sdds-os',
 };

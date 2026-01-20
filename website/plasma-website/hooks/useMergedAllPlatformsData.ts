@@ -185,13 +185,13 @@ const verticals: Record<
             },
         },
     },
-    SDDSSberOS: {
+    SDDSOS: {
         title: 'React',
-        package: '@salutejs/sdds-sber-os',
-        version: PACKAGES_INFO['@salutejs/sdds-sber-os'][0],
+        package: '@salutejs/sdds-os',
+        version: PACKAGES_INFO['@salutejs/sdds-os'][0],
         links: {
             storybook: {
-                href: '/sdds-sber-os-storybook/',
+                href: '/sdds-os-storybook/',
             },
         },
     },
