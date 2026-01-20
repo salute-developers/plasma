@@ -87,7 +87,7 @@ module.exports = {
     'sdds-platform-ai': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'sdds-platform-ai-docs', 'plasma-docs-ui'],
     },
-    'sdds-sber-os': {
+    'sdds-os': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core'],
     },
 };
