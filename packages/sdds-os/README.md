@@ -1,4 +1,4 @@
-# SDDS-SBER-OS
+# SDDS-OS
 
 Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
 
@@ -14,7 +14,7 @@
 ### Установка зависимостей
 
 ```bash
-$ npm install --save @salutejs/sdds-sber-os @salutejs/sdds-themes
+$ npm install --save @salutejs/sdds-os @salutejs/sdds-themes
 ```
 
 Для работы со `styled-components`, необходимо установить
@@ -29,7 +29,7 @@ $ npm install --save styled-components@5.3.1
 
 ```jsx
 import styled from 'styled-components';
-import { Button } from '@salutejs/sdds-sber-os';
+import { Button } from '@salutejs/sdds-os';
 import { textAccent } from '@salutejs/sdds-themes/tokens';
 
 export const App = () => {
@@ -49,7 +49,7 @@ export const App = () => {
 Так же библиотека поставляет компоненты собранные с помощью `styled-components`
 
 ```js
-import { Button } from '@salutejs/sdds-sber-os/styled-components';
+import { Button } from '@salutejs/sdds-os/styled-components';
 ```
 
 ## Подключение шрифтов
@@ -85,13 +85,13 @@ import { Button } from '@salutejs/sdds-sber-os/styled-components';
 ```tsx
 import Head from 'next/head';
 
-import { H2, Button } from '@salutejs/sdds-sber-os';
+import { H2, Button } from '@salutejs/sdds-os';
 
 export default function Home() {
     return (
         <>
             <Head>
-                <title>Create Next App with sdds-sber-os components</title>
+                <title>Create Next App with sdds-os components</title>
                 <link
                     rel="stylesheet"
                     href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
@@ -142,7 +142,7 @@ export default function Home() {
 
 ```jsx
 import React from 'react';
-import { Button, BodyL } from '@salutejs/sdds-sber-os';
+import { Button, BodyL } from '@salutejs/sdds-os';
 
 import 'index.css';
 
@@ -163,7 +163,7 @@ export default App;
 ```jsx
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { Button, BodyL } from '@salutejs/sdds-sber-os/styled-components';
+import { Button, BodyL } from '@salutejs/sdds-os/styled-components';
 import { sdds_serv__light } from '@salutejs/sdds-themes';
 
 const Theme = createGlobalStyle(sdds_serv__light);
@@ -235,7 +235,7 @@ export default App;
 Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
 
 ```ts
-import { BodyL, DsplL, H3 } from '@salutejs/sdds-sber-os';
+import { BodyL, DsplL, H3 } from '@salutejs/sdds-os';
 ```
 
 ### Токены типографики на примере компонента `DsplL`

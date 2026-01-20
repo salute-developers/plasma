@@ -1,7 +1,7 @@
 {
-  "name": "@salutejs/sdds-sber-os",
+  "name": "@salutejs/sdds-os",
   "version": "0.2.0-dev.0",
-  "description": "Salute Design System / React UI kit for SDDS SBER OS web applications",
+  "description": "Salute Design System / React UI kit for SDDS OS web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "exports": {
     ".": {
@@ -29,7 +29,7 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
-    "directory": "packages/sdds-sber-os"
+    "directory": "packages/sdds-os"
   },
   "dependencies": {
     "@salutejs/plasma-new-hope": "0.345.0-dev.0",
