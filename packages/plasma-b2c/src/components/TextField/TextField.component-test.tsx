@@ -445,6 +445,8 @@ describe('plasma-b2c: TextField', () => {
     });
 
     it('_enumerationType:chip, _chipView, _chipValidator', () => {
+        cy.viewport(500, 778);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <TextField
@@ -541,6 +543,7 @@ describe('plasma-b2c: TextField', () => {
                                     label="Title"
                                     size={size}
                                     required
+                                    hasRequiredIndicator
                                     {...props}
                                 />
                                 <SpaceMe />

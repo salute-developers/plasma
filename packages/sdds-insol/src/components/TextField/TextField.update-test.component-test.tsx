@@ -20,6 +20,7 @@ describe('sdds-insol: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="left"
                 />
             </CypressTestDecorator>,
@@ -58,6 +59,7 @@ describe('sdds-insol: TextField', () => {
                     helperText="Helper text"
                     contentLeft={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                 />
             </CypressTestDecorator>,
@@ -96,6 +98,7 @@ describe('sdds-insol: TextField', () => {
                         contentLeft={Icon}
                         contentRight={Icon}
                         required
+                        hasRequiredIndicator
                         requiredPlacement="left"
                     />
                 </div>
@@ -136,6 +139,7 @@ describe('sdds-insol: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                     readOnly
                 />
@@ -177,6 +181,7 @@ describe('sdds-insol: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="left"
                     disabled
                 />
@@ -219,6 +224,7 @@ describe('sdds-insol: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                 />
             </CypressTestDecorator>,
@@ -265,6 +271,7 @@ describe('sdds-insol: TextField', () => {
                         contentLeft={Icon}
                         contentRight={Icon}
                         required
+                        hasRequiredIndicator
                         requiredPlacement="left"
                         appearance="clear"
                         hasDivider
@@ -307,6 +314,7 @@ describe('sdds-insol: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                     appearance="clear"
                     hasDivider
@@ -331,6 +339,7 @@ describe('sdds-insol: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                     appearance="clear"
                     hasDivider
@@ -354,6 +363,7 @@ describe('sdds-insol: TextField', () => {
                         contentLeft={Icon}
                         contentRight={Icon}
                         required
+                        hasRequiredIndicator
                         requiredPlacement="left"
                         appearance="clear"
                     />
