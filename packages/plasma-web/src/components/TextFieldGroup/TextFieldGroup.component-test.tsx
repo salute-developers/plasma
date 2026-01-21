@@ -25,6 +25,8 @@ describe('plasma-web: TextFieldGroup', () => {
     ];
 
     it('_size', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <TextFieldGroup size="l">{getTexFields()}</TextFieldGroup>
@@ -44,11 +46,12 @@ describe('plasma-web: TextFieldGroup', () => {
         cy.wait(100);
         cy.get('.m-group input').last().click();
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 
     it('_orientation', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <TextFieldGroup orientation="horizontal">{getTexFields()}</TextFieldGroup>
@@ -57,7 +60,6 @@ describe('plasma-web: TextFieldGroup', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 
@@ -77,6 +79,8 @@ describe('plasma-web: TextFieldGroup', () => {
     });
 
     it('_orientation: stretching - filled', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <TextFieldGroup orientation="horizontal" stretching="filled">
@@ -93,11 +97,12 @@ describe('plasma-web: TextFieldGroup', () => {
         cy.wait(100);
         cy.get('.vertical-group input').first().click();
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 
     it('_shape', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <TextFieldGroup shape="segmented" gap="none">
@@ -123,11 +128,12 @@ describe('plasma-web: TextFieldGroup', () => {
         cy.wait(100);
         cy.get('.segmented-group input').last().click();
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 
     it('custom text fields', () => {
+        cy.viewport(1280, 599);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <TextFieldGroup isCommonTextFieldStyles={false}>{getTexFields()}</TextFieldGroup>
@@ -138,7 +144,6 @@ describe('plasma-web: TextFieldGroup', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.viewport(1366, 768);
         cy.matchImageSnapshot();
     });
 });
