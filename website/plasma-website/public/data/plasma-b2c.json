@@ -1,4 +1,70 @@
 {
+  "1.601.0": {
+    "date": "2026-01-21",
+    "core": [
+      {
+        "component": "LinkButton",
+        "children": [
+          {
+            "text": "`hover` не применяется, когда `LinkButton` в состоянии `disabled`",
+            "link": "https://github.com/salute-developers/plasma/pull/2416",
+            "id": 2416
+          },
+          {
+            "text": "Добавлены токены `h6` во все темы вертикалей `plasma` и `sdds`",
+            "link": "https://github.com/salute-developers/plasma/pull/2422",
+            "id": 2422
+          }
+        ]
+      },
+      {
+        "component": "Combobox",
+        "children": [
+          {
+            "text": "исправлен баг, при котором коллбэк `onChangeValue` вызывался когда значение поля ввода не изменялось;",
+            "link": "https://github.com/salute-developers/plasma/pull/2408",
+            "id": 2408
+          }
+        ]
+      },
+      {
+        "component": "DatePicker",
+        "children": [
+          {
+            "text": "добавлен `appearance=clear`",
+            "link": "https://github.com/salute-developers/plasma/pull/2417",
+            "id": 2417
+          },
+          {
+            "text": "добавлен новый инстанс вызова onDateCommit с двумя аргументами\n\nинстанс с 6ю аргументами помечен как `deprecated`",
+            "link": "https://github.com/salute-developers/plasma/pull/2426",
+            "id": 2426
+          }
+        ]
+      },
+      {
+        "component": "Timepicker",
+        "children": [
+          {
+            "text": "Исправлено поведение с фокусом",
+            "link": "https://github.com/salute-developers/plasma/pull/2391",
+            "id": 2391
+          }
+        ]
+      },
+      {
+        "component": "TextArea",
+        "children": [
+          {
+            "text": "добавлен `appearance=clear`",
+            "link": "https://github.com/salute-developers/plasma/pull/2423",
+            "id": 2423
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "1.600.0": {
     "date": "2025-12-24",
     "core": [
