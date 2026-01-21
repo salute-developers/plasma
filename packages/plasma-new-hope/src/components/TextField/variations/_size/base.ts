@@ -23,18 +23,19 @@ export const base = css`
     ${Input} {
         width: 100%;
         font: inherit;
-        letter-spacing: inherit;
-        line-height: inherit;
+        letter-spacing: inherit;        
+        line-height: var(${tokens.lineHeight});
     }
 
     ${InputContainer} {
         width: 100%;
+        height: var(${tokens.lineHeight});
+
         font-family: var(${tokens.fontFamily});
         font-size: var(${tokens.fontSize});
         font-style: var(${tokens.fontStyle});
         font-weight: var(${tokens.fontWeight});
         letter-spacing: var(${tokens.letterSpacing});
-        line-height: var(${tokens.lineHeight});
     }
 
     ${InputWrapper} {
@@ -97,12 +98,13 @@ export const base = css`
     }
 
     ${StyledTextBefore}, ${StyledTextAfter} {
+        height: var(${tokens.lineHeight});
+    
         font-family: var(${tokens.fontFamily});
         font-size: var(${tokens.fontSize});
         font-style: var(${tokens.fontStyle});
         font-weight: var(${tokens.fontWeight});
         letter-spacing: var(${tokens.letterSpacing});
-        line-height: var(${tokens.lineHeight});
     }
 
     ${StyledTextBefore} {
