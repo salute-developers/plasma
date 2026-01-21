@@ -25,11 +25,11 @@ export const setupNodeEvents = (on: Cypress.PluginEvents, config: Cypress.Plugin
                 }
 
                 launchOptions.args.push(`--window-size=${windowSizeArg}`);
-                launchOptions.args.push('--disable-dev-shm-usage');
             } else {
                 launchOptions.args.push(`--window-size=3840,2160`);
-                launchOptions.args.push('--disable-dev-shm-usage');
             }
+
+            launchOptions.args.push('--disable-dev-shm-usage');
         }
 
         return launchOptions;

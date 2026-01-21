@@ -17,7 +17,7 @@
     "cy:clean": "rm -rf cypress/{results,reports,screenshots,videos}",
     "cy:accept-diffs": "docker run -it --rm -v $PWD:/e2e -w /e2e -e CYPRESS_updateSnapshots=true -e CYPRESS_BASE_URL=${PUBLIC_URL:-'http://host.docker.internal:6006'} cypress/included:13.17.0 run --browser chrome",
     "cy:open": "cypress open",
-    "cy:run": "CYPRESS_IMAGE=plasmadockerhub/cypress:15.9.0 && docker run --rm -v $PWD:/e2e -w /e2e --entrypoint=/bin/bash -e CYPRESS_CONFIG_FILE='cypress.config.ts' -e PACKAGE_NAME=$PACKAGE_NAME -e SPEC_GROUP=$SPEC_GROUP -e COMPONENTS=$COMPONENTS -e RETRIES=$RETRIES -e COVERAGE_DIR=cypress/${PACKAGE_NAME}-coverage -e COVERAGE=true -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots ${CYPRESS_IMAGE} -c 'node ./actions/platform-test/lib/index.js --config $CYPRESS_CONFIG_FILE --command run'",
+    "cy:run": "CYPRESS_IMAGE=plasmadockerhub/cypress:15.9.0 && docker run --memory=16g --memory-swap=16g --shm-size=4g --rm -v $PWD:/e2e -w /e2e -e NODE_OPTIONS='--max-old-space-size=16384' --entrypoint=/bin/bash -e CYPRESS_CONFIG_FILE='cypress.config.ts' -e PACKAGE_NAME=$PACKAGE_NAME -e SPEC_GROUP=$SPEC_GROUP -e COMPONENTS=$COMPONENTS -e RETRIES=$RETRIES -e COVERAGE_DIR=cypress/${PACKAGE_NAME}-coverage -e COVERAGE=true -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots ${CYPRESS_IMAGE} -c 'node ./actions/platform-test/lib/index.js --config $CYPRESS_CONFIG_FILE --command run'",
     "cy:b2c:run": "PACKAGE_NAME=plasma-b2c COMPONENTS=$npm_config_components npm run cy:run",
     "cy:b2c:run:a-d": "PACKAGE_NAME=plasma-b2c SPEC_GROUP='[A-D]' npm run cy:run",
     "cy:b2c:run:e-l": "PACKAGE_NAME=plasma-b2c SPEC_GROUP='[E-L]' npm run cy:run",

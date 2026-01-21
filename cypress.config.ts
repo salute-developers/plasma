@@ -50,6 +50,7 @@ const getTestMatch = () => {
 
 export default defineConfig({
     component: {
+        numTestsKeptInMemory: 5,
         specPattern: getTestMatch(),
         supportFile: supportFilePath,
         devServer: {

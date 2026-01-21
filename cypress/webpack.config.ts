@@ -45,7 +45,6 @@ export const getWebpackConfig = () => {
         optimization: {
             minimize: false,
         },
-        cache: false,
         module: {
             rules: [
                 {
