@@ -104,6 +104,7 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
 
+                ${tokens.labelOffset}: 0.5rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 

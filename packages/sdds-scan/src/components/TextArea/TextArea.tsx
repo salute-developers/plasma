@@ -1,11 +1,22 @@
-import { textAreaConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    textAreaConfig,
+    component,
+    mergeConfig,
+    createConditionalComponent,
+} from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './TextArea.config';
+import { config as clearConfig } from './TextArea.clear.config';
 
 const mergedConfig = mergeConfig(textAreaConfig, config);
-const TextAreaComponent = component(mergedConfig);
+export const TextAreaDefault = component(mergedConfig);
 
-/**
- * Поле ввода многострочного текста.
- */
-export const TextArea = TextAreaComponent;
+const mergedConfigClear = mergeConfig(textAreaConfig, clearConfig);
+export const TextAreaClear = component(mergedConfigClear);
+
+export const TextArea = createConditionalComponent(TextAreaDefault, [
+    {
+        conditions: { prop: 'appearance', value: 'clear' },
+        component: TextAreaClear,
+    },
+]);

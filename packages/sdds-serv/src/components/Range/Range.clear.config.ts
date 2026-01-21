@@ -24,20 +24,37 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
-                ${tokens.contentSlotColor}: var(--text-secondary);
-                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.contentSlotColor}: var(--text-primary);
+                ${tokens.contentSlotColorHover}: var(--text-primary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-primary-active);
 
-                ${tokens.contentSlotRightColor}: var(--text-secondary);
-                ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
-                ${tokens.contentSlotRightColorActive}: var(--text-secondary-active);
+                ${tokens.contentSlotRightColor}: var(--text-primary);
+                ${tokens.contentSlotRightColorHover}: var(--text-primary-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-primary-active);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary-active);
 
                 ${tokens.contentSlotColorSuccess}: var(--text-positive);
                 ${tokens.contentSlotColorSuccessHover}: var(--text-positive-hover);
                 ${tokens.contentSlotColorSuccessActive}: var(--text-positive-active);
+
+                ${tokens.textFieldContentSlotColorSuccess}: var(--text-positive);
+                ${tokens.textFieldContentSlotColorSuccessHover}: var(--text-positive-hover);
+                ${tokens.textFieldContentSlotColorSuccessActive}: var(--text-positive-active);
+
                 ${tokens.contentSlotColorError}: var(--text-negative);
                 ${tokens.contentSlotColorErrorHover}: var(--text-negative-hover);
                 ${tokens.contentSlotColorErrorActive}: var(--text-negative-active);
+
+                ${tokens.textFieldContentSlotColorError}: var(--text-negative);
+                ${tokens.textFieldContentSlotColorErrorHover}: var(--text-negative-hover);
+                ${tokens.textFieldContentSlotColorErrorActive}: var(--text-negative-active);
 
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldColorSuccess}: var(--text-positive);

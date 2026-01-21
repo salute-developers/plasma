@@ -5,7 +5,7 @@ import { QUARTER_NAMES } from 'src/components/Calendar/utils';
 import { classes } from '../DatePicker.tokens';
 import type { UseDatePickerProps } from '../DatePickerBase.types';
 import type { CalendarValueType, DateInfo } from '../../Calendar/Calendar.types';
-import { getFormattedDates, getMaskedDateOnInput } from '../utils';
+import { getFormattedDates, getMaskedDateOnInput, invokeOnCommitDate } from '../utils';
 
 export const useDatePicker = ({
     currentValue,
@@ -76,7 +76,17 @@ export const useDatePicker = ({
             const dateInfo = getQuarterInfo(originalDate);
 
             if (onCommitDate) {
-                onCommitDate(formattedDate, false, true, dateInfo, originalDate, isoDate);
+                invokeOnCommitDate({
+                    callback: onCommitDate,
+                    value: formattedDate,
+                    formattedValues: {
+                        error: false,
+                        success: true,
+                        dateInfo,
+                        originalDate,
+                        isoDate,
+                    },
+                });
             }
 
             setInnerDate(originalDate);
@@ -123,7 +133,17 @@ export const useDatePicker = ({
             setInnerDate(undefined);
 
             if (onCommitDate) {
-                onCommitDate('', false, true, undefined, undefined, '');
+                invokeOnCommitDate({
+                    callback: onCommitDate,
+                    value: '',
+                    formattedValues: {
+                        error: false,
+                        success: true,
+                        dateInfo: undefined,
+                        originalDate: undefined,
+                        isoDate: '',
+                    },
+                });
             }
 
             return;
@@ -143,7 +163,17 @@ export const useDatePicker = ({
             const dateInfo = getQuarterInfo(originalDate);
 
             if (onCommitDate) {
-                onCommitDate(formattedDate, false, true, dateInfo, originalDate, isoDate);
+                invokeOnCommitDate({
+                    callback: onCommitDate,
+                    value: formattedDate,
+                    formattedValues: {
+                        error: false,
+                        success: true,
+                        dateInfo,
+                        originalDate,
+                        isoDate,
+                    },
+                });
             }
         }
     };
@@ -164,7 +194,17 @@ export const useDatePicker = ({
                 onChange({ target: { value: '', originalDate: date, isoDate: '', name } });
             }
             if (onCommitDate) {
-                onCommitDate('', false, true, dateInfo, date || undefined, '');
+                invokeOnCommitDate({
+                    callback: onCommitDate,
+                    value: '',
+                    formattedValues: {
+                        error: false,
+                        success: true,
+                        dateInfo,
+                        originalDate: date || undefined,
+                        isoDate: '',
+                    },
+                });
             }
 
             return;
@@ -184,7 +224,17 @@ export const useDatePicker = ({
             onChange({ target: { value: formattedDate, originalDate: date, isoDate, name } });
         }
         if (onCommitDate) {
-            onCommitDate(formattedDate, false, true, dateInfo, date, isoDate);
+            invokeOnCommitDate({
+                callback: onCommitDate,
+                value: formattedDate,
+                formattedValues: {
+                    error: false,
+                    success: true,
+                    dateInfo,
+                    originalDate: date,
+                    isoDate,
+                },
+            });
         }
     };
 

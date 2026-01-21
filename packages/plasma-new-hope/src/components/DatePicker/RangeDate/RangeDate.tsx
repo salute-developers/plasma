@@ -20,15 +20,17 @@ import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { InputHidden } from '../DatePickerBase.styles';
 import { getSortedValues } from '../../Calendar/utils';
 import type { DateInfo, DateType } from '../../Calendar/Calendar.types';
-import { getFormattedDates } from '../utils';
+import { getFormattedDates, invokeOnCommitDate } from '../utils';
 
 import type { DatePickerRangeProps, RootDatePickerRangeProps } from './RangeDate.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
+import { base as hintViewCSS } from './variations/_hint-view/base';
+import { base as hintSizeCSS } from './variations/_hint-size/base';
 import { base as eventTooltipSizeCSS } from './variations/_tooltip-size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { LeftHelper, StyledRange, base } from './RangeDate.styles';
+import { StyledRange, base } from './RangeDate.styles';
 import { RangeDatePopover } from './RangeDatePopover/RangeDatePopover';
 import { RootWrapperProps } from './RangeDatePopover/RangeDatePopover.types';
 
@@ -37,8 +39,10 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
         (
             {
                 className,
+                name,
                 autoComplete,
 
+                // controlled
                 isDoubleCalendar = false,
                 opened = false,
 
@@ -47,23 +51,30 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 defaultSecondDate = '',
                 preserveInvalidOnBlur,
 
-                label,
-                leftHelper,
-                contentLeft,
-                contentRight,
+                // variations
                 view,
                 size,
                 readOnly = false,
                 disabled = false,
-                name,
-
-                dividerVariant = 'dash',
-                dividerIcon,
+                appearance,
+                hasClearDivider,
+                stretched,
 
                 firstValueError,
                 secondValueError,
                 firstValueSuccess,
                 secondValueSuccess,
+
+                // layout
+                required,
+                requiredPlacement = 'right',
+                hasRequiredIndicator = false,
+                label,
+                leftHelper,
+                contentLeft,
+                contentRight,
+                dividerVariant = 'dash',
+                dividerIcon,
                 firstPlaceholder,
                 secondPlaceholder,
                 firstTextfieldContentLeft,
@@ -75,10 +86,30 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 firstTextfieldTextAfter,
                 secondTextfieldTextAfter,
 
-                required,
-                requiredPlacement = 'right',
-                hasRequiredIndicator = false,
+                // hint
+                hintTrigger = 'hover',
+                hintText,
+                hintView = 'default',
+                hintSize = 'm',
+                hintTargetIcon,
+                hintTargetPlacement = 'outer',
+                hintPlacement = 'auto',
+                hintHasArrow,
+                hintOffset = [0, 0],
+                hintWidth,
+                hintContentLeft,
 
+                // calendar-container
+                frame = 'document',
+                usePortal = false,
+                zIndex,
+                placement = ['top', 'bottom'],
+                closeOnOverlayClick = true,
+                closeOnEsc = true,
+                closeAfterDateSelect = true,
+                offset,
+
+                // calendar
                 format = 'DD.MM.YYYY',
                 lang = 'ru',
                 maskWithFormat,
@@ -97,18 +128,8 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 disabledYearList,
                 type = 'Days',
 
-                frame = 'document',
-                usePortal = false,
-                zIndex,
-                placement = ['top', 'bottom'],
-                closeOnOverlayClick = true,
-                closeOnEsc = true,
-                closeAfterDateSelect = true,
-                offset,
-
                 calendarContainerWidth,
                 calendarContainerHeight,
-                stretched,
 
                 onToggle,
 
@@ -188,9 +209,6 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
             const fullDateEntered = Boolean(calendarFirstValue && calendarSecondValue);
 
             const [secondTextFieldClicked, setSecondTextFieldClicked] = useState(false);
-
-            const rangeErrorClass = firstValueError || secondValueError ? classes.datePickerError : undefined;
-            const rangeSuccessClass = firstValueSuccess || secondValueSuccess ? classes.datePickerSuccess : undefined;
 
             const handleInputChange = (value: string) => {
                 if (onChange) {
@@ -357,7 +375,17 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     if (onCommitFirstDate) {
                         const dateInfo = originalFirstDate ? getFirstQuarterInfo(originalFirstDate) : undefined;
 
-                        onCommitFirstDate(formattedFirstDate, false, true, dateInfo, originalFirstDate, isoFirstDate);
+                        invokeOnCommitDate({
+                            callback: onCommitFirstDate,
+                            value: formattedFirstDate,
+                            formattedValues: {
+                                error: false,
+                                success: true,
+                                dateInfo,
+                                originalDate: originalFirstDate,
+                                isoDate: isoFirstDate,
+                            },
+                        });
                     }
                 }
 
@@ -369,14 +397,17 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     if (onCommitSecondDate) {
                         const dateInfo = originalSecondDate ? getSecondQuarterInfo(originalSecondDate) : undefined;
 
-                        onCommitSecondDate(
-                            formattedSecondDate,
-                            false,
-                            true,
-                            dateInfo,
-                            originalSecondDate,
-                            isoSecondDate,
-                        );
+                        invokeOnCommitDate({
+                            callback: onCommitSecondDate,
+                            value: formattedSecondDate,
+                            formattedValues: {
+                                error: false,
+                                success: true,
+                                dateInfo,
+                                originalDate: originalSecondDate,
+                                isoDate: isoSecondDate,
+                            },
+                        });
                     }
                 }
 
@@ -458,11 +489,13 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     //@ts-ignore */}
                     <StyledRange
+                        size={size}
                         ref={rangeRef}
                         autoComplete={autoComplete}
                         dividerIcon={dividerIcon}
                         dividerVariant={dividerVariant}
                         label={label}
+                        leftHelper={leftHelper}
                         required={required}
                         requiredIndicatorPlacement={requiredPlacement}
                         hasRequiredIndicator={hasRequiredIndicator}
@@ -506,6 +539,19 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         onBlurFirstTextfield={(event) => handleBlur(event, onBlurFirstTextfield)}
                         onBlurSecondTextfield={(event) => handleBlur(event, onBlurSecondTextfield)}
                         onKeyDown={onKeyDown}
+                        appearance={appearance}
+                        hasClearDivider={hasClearDivider}
+                        hintText={hintText}
+                        hintView={hintView}
+                        hintSize={hintSize}
+                        hintTrigger={hintTrigger}
+                        hintTargetIcon={hintTargetIcon}
+                        hintPlacement={hintPlacement}
+                        hintTargetPlacement={hintTargetPlacement}
+                        hintHasArrow={hintHasArrow}
+                        hintOffset={hintOffset}
+                        hintWidth={hintWidth}
+                        hintContentLeft={hintContentLeft}
                     />
                 </>
             );
@@ -558,6 +604,10 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     className={cls(classes.datePickerRoot, className, { [classes.datePickerstretched]: stretched })}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
+                    {...(hintText && {
+                        hintView,
+                        hintSize,
+                    })}
                     {...rest}
                 >
                     <RangeDatePopover
@@ -596,9 +646,6 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         onChangeValue={handleChangeCalendarValue}
                         setIsInnerOpen={setIsInnerOpen}
                     />
-                    {leftHelper && (
-                        <LeftHelper className={cls(rangeErrorClass, rangeSuccessClass)}>{leftHelper}</LeftHelper>
-                    )}
                     <InputHidden
                         name={name}
                         type="hidden"
@@ -636,6 +683,12 @@ export const datePickerRangeConfig = {
         },
         eventTooltipSize: {
             css: eventTooltipSizeCSS,
+        },
+        hintView: {
+            css: hintViewCSS,
+        },
+        hintSize: {
+            css: hintSizeCSS,
         },
         disabled: {
             css: disabledCSS,

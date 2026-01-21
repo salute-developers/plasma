@@ -28,6 +28,7 @@ export const tokens = {
     borderColorReadOnly: '--plasma-date-picker_range-border-color-readonly',
 
     /** Токены разделителя */
+    clearDividerColor: '--plasma-date-picker-clear__divider-color',
     dividerColor: '--plasma-date-picker_range__divider-color',
     dividerColorReadOnly: '--plasma-date-picker_range__divider-color-readonly',
     dividerPadding: '--plasma-date-picker_range__divider-padding',
@@ -47,6 +48,14 @@ export const tokens = {
     contentSlotColor: '--plasma-date-picker-content-slot-color',
     contentSlotColorHover: '--plasma-date-picker-content-slot-color-hover',
     contentSlotColorActive: '--plasma-date-picker-content-slot-color-active',
+
+    contentSlotColorSuccess: '--plasma-date-picker-content-slot-color-success',
+    contentSlotColorSuccessHover: '--plasma-date-picker-content-slot-color-success-hover',
+    contentSlotColorSuccessActive: '--plasma-date-picker-content-slot-color-success-active',
+
+    contentSlotColorError: '--plasma-date-picker-content-slot-color-error',
+    contentSlotColorErrorHover: '--plasma-date-picker-content-slot-color-error-hover',
+    contentSlotColorErrorActive: '--plasma-date-picker-content-slot-color-error-active',
 
     contentSlotRightColor: '--plasma-date-picker-content-right-slot-color',
     contentSlotRightColorHover: '--plasma-date-picker-content-right-slot-color-hover',
@@ -80,6 +89,10 @@ export const tokens = {
     indicatorOuterLeft: '--plasma-date-picker-indicator-outer-left',
     indicatorWithoutLabelInner: '--plasma-date-picker-indicator-without-label-inner',
     indicatorWithoutLabelInnerLeft: '--plasma-date-picker-indicator-without-label-inner-left',
+    indicatorWithoutLabelOuterHint: '--plasma-date-picker-indicator-without-label-outer-hint',
+
+    /** Токены индикатора (удалить после перехода на InformationWrapper в Textfield) */
+    clearIndicatorHintInnerRight: '--plasma-date-picker__clear-indicator-hint-placement-inner-right',
 
     /* label-placement-inner */
     labelInnerFontFamily: '--plasma-date-picker-placement_inner__label-font-family',
@@ -106,6 +119,15 @@ export const tokens = {
     leftHelperLetterSpacing: '--plasma-date-picker__left-helper-letter-spacing',
     leftHelperLineHeight: '--plasma-date-picker__left-helper-line-height',
 
+    titleCaptionOffset: '--plasma-date-picker-title-caption-offset',
+    titleCaptionColor: '--plasma-date-picker-title-caption-color',
+    titleCaptionFontFamily: '--plasma-date-picker-title-caption-font-family',
+    titleCaptionFontStyle: '--plasma-date-picker-title-caption-font-style',
+    titleCaptionFontSize: '--plasma-date-picker-title-caption-font-size',
+    titleCaptionFontWeight: '--plasma-date-picker-title-caption-font-weight',
+    titleCaptionLetterSpacing: '--plasma-date-picker-title-caption-letter-spacing',
+    titleCaptionLineHeight: '--plasma-date-picker-title-caption-line-height',
+
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-date-picker-disabled-opacity',
 
@@ -118,9 +140,10 @@ export const tokens = {
     textFieldColor: '--plasma-date-picker-textfield-color',
     textFieldColorError: '--plasma-date-picker-textfield-color-error',
     textFieldColorSuccess: '--plasma-date-picker-textfield-color-success',
-    textFieldPlaceholderColorFocus: '--plasma-datepicker-textfield__placeholder-color-focus',
+    textFieldPlaceholderColorFocus: '--plasma-date-picker-textfield__placeholder-color-focus',
     textFieldFocusColor: '--plasma-date-picker-textfield-focus-color',
     textFieldPlaceholderColor: '--plasma-date-picker-textfield-placeholder-color',
+    textFieldClearPlaceholderColorFocus: '--plasma-date-picker-textfield-clear-placeholder-color-focus',
     textFieldCaretColor: '--plasma-date-picker-textfield-caret-color',
 
     textFieldBackgroundColor: '--plasma-date-picker-textfield-background-color',
@@ -166,13 +189,32 @@ export const tokens = {
     textFieldTextAfterColor: '--plasma-date-picker-textfield__after-text-color',
     textFieldTextBeforeMargin: '--plasma-date-picker-textfield__before-text-margin',
     textFieldTextAfterMargin: '--plasma-date-picker-textfield__after-text-margin',
+
+    textFieldContentSlotRightColor: '--plasma-date-picker-textfield__content-right-color',
+    textFieldContentSlotRightColorHover: '--plasma-date-picker-textfield__content-right-color-hover',
+    textFieldContentSlotRightColorActive: '--plasma-date-picker-textfield__content-right-color-active',
+
     textFieldContentSlotColor: '--plasma-date-picker-textfield__content-color',
     textFieldContentSlotColorHover: '--plasma-date-picker-textfield__content-color-hover',
     textFieldContentSlotColorActive: '--plasma-date-picker-textfield__content-color-active',
+
     textFieldContentRightSlotColor: '--plasma-date-picker-textfield__content-right-color',
     textFieldContentRightSlotColorHover: '--plasma-date-picker-textfield__content-right-color-hover',
     textFieldContentRightSlotColorActive: '--plasma-date-picker-textfield__content-right-color-active',
     textFieldContentSlotRightOpacityReadOnly: '--plasma-date-picker-textfield__content-right-readonly-opacity',
+
+    textFieldContentSlotColorSuccess: '--plasma-date-picker-textfield-content-slot-color-success',
+    textFieldContentSlotColorSuccessHover: '--plasma-date-picker-textfield-content-slot-color-success-hover',
+    textFieldContentSlotColorSuccessActive: '--plasma-date-picker-textfield-content-slot-color-success-active',
+
+    textFieldContentSlotColorError: '--plasma-date-picker-textfield-content-slot-color-error',
+    textFieldContentSlotColorErrorHover: '--plasma-date-picker-textfield-content-slot-color-error-hover',
+    textFieldContentSlotColorErrorActive: '--plasma-date-picker-textfield-content-slot-color-error-active',
+
+    textFieldDividerColorSuccess: '--plasma-date-picker-textfield__divider-color-success',
+    textFieldDividerColorError: '--plasma-date-picker-textfield__divider-color-error',
+    textFieldDividerColorHover: '--plasma-date-picker-textfield__divider-color-hover',
+    textFieldDividerColorFocus: '--plasma-date-picker-textfield__divider-color-focus',
 
     /** Токены календаря */
     calendarMarginTop: '--plasma-date-picker-calendar-margin-top',
@@ -277,26 +319,59 @@ export const tokens = {
     calendarDisabledOpacity: '--plasma-date-picker-calendar__disabled-opacity',
 
     /* Токены тултипа для событий */
-    tooltipPaddingTop: '--plasma-datepicker-calendar-tooltip-padding-top',
-    tooltipPaddingRight: '--plasma-datepicker-calendar-tooltip-padding-right',
-    tooltipPaddingBottom: '--plasma-datepicker-calendar-tooltip-padding-bottom',
-    tooltipPaddingLeft: '--plasma-datepicker-calendar-tooltip-padding-left',
-    tooltipMinHeight: '--plasma-datepicker-calendar-tooltip-min-height',
-    tooltipBackgroundColor: '--plasma-datepicker-calendar-tooltip-background-color',
-    tooltipBoxShadow: '--plasma-datepicker-calendar-tooltip-box-shadow',
-    tooltipBorderRadius: '--plasma-datepicker-calendar-tooltip-border-radius',
-    tooltipColor: '--plasma-datepicker-calendar-tooltip-color',
-    tooltipTextFontFamily: '--plasma-datepicker-calendar-tooltip-text-font-family',
-    tooltipTextFontSize: '--plasma-datepicker-calendar-tooltip-text-font-size',
-    tooltipTextFontStyle: '--plasma-datepicker-calendar-tooltip-text-font-style',
-    tooltipTextFontWeight: '--plasma-datepicker-calendar-tooltip-text-font-weight',
-    tooltipTextFontLetterSpacing: '--plasma-datepicker-calendar-tooltip-text-font-letter-spacing',
-    tooltipTextFontLineHeight: '--plasma-datepicker-calendar-tooltip-text-font-line-height',
-    tooltipContentLeftMargin: '--plasma-datepicker-calendar-tooltip-content-left-margin',
-    tooltipArrowMaskWidth: '--plasma-datepicker-calendar-tooltip-arrow-mask-width',
-    tooltipArrowMaskHeight: '--plasma-datepicker-calendar-tooltip-arrow-mask-height',
-    tooltipArrowMaskImage: '--plasma-datepicker-calendar-tooltip-arrow-mask-image',
-    tooltipArrowBackground: '--plasma-datepicker-calendar-tooltip-arrow-background',
-    tooltipArrowHeight: '--plasma-datepicker-calendar-tooltip-arrow-height',
-    tooltipArrowEdgeMargin: '--plasma-datepicker-calendar-tooltip-arrow-edge-margin',
+    tooltipPaddingTop: '--plasma-date-picker-calendar-tooltip-padding-top',
+    tooltipPaddingRight: '--plasma-date-picker-calendar-tooltip-padding-right',
+    tooltipPaddingBottom: '--plasma-date-picker-calendar-tooltip-padding-bottom',
+    tooltipPaddingLeft: '--plasma-date-picker-calendar-tooltip-padding-left',
+    tooltipMinHeight: '--plasma-date-picker-calendar-tooltip-min-height',
+    tooltipBackgroundColor: '--plasma-date-picker-calendar-tooltip-background-color',
+    tooltipBoxShadow: '--plasma-date-picker-calendar-tooltip-box-shadow',
+    tooltipBorderRadius: '--plasma-date-picker-calendar-tooltip-border-radius',
+    tooltipColor: '--plasma-date-picker-calendar-tooltip-color',
+    tooltipTextFontFamily: '--plasma-date-picker-calendar-tooltip-text-font-family',
+    tooltipTextFontSize: '--plasma-date-picker-calendar-tooltip-text-font-size',
+    tooltipTextFontStyle: '--plasma-date-picker-calendar-tooltip-text-font-style',
+    tooltipTextFontWeight: '--plasma-date-picker-calendar-tooltip-text-font-weight',
+    tooltipTextFontLetterSpacing: '--plasma-date-picker-calendar-tooltip-text-font-letter-spacing',
+    tooltipTextFontLineHeight: '--plasma-date-picker-calendar-tooltip-text-font-line-height',
+    tooltipContentLeftMargin: '--plasma-date-picker-calendar-tooltip-content-left-margin',
+    tooltipArrowMaskWidth: '--plasma-date-picker-calendar-tooltip-arrow-mask-width',
+    tooltipArrowMaskHeight: '--plasma-date-picker-calendar-tooltip-arrow-mask-height',
+    tooltipArrowMaskImage: '--plasma-date-picker-calendar-tooltip-arrow-mask-image',
+    tooltipArrowBackground: '--plasma-date-picker-calendar-tooltip-arrow-background',
+    tooltipArrowHeight: '--plasma-date-picker-calendar-tooltip-arrow-height',
+    tooltipArrowEdgeMargin: '--plasma-date-picker-calendar-tooltip-arrow-edge-margin',
+
+    /* токены для hint */
+    hintMargin: '--plasma-date-picker-info-wrapper-hint-margin',
+    hintTargetSize: '--plasma-date-picker-info-wrapper-hint-target-size',
+    hintCustomIconTargetSize: '--plasma-date-picker-info-wrapper-hint-custom-icon-target-size',
+    hintIconColor: '--plasma-date-picker-info-wrapper-hint-icon-color',
+    hintWithoutLabelPlacementOffset: '--plasma-date-picker-info-wrapper-hint-without-label-placement-offset',
+    hintPlacementInnerMargin: '--plasma-date-picker-info-wrapper-hint-placement-inner-offset',
+    hintInnerLabelPlacementOffset: '--plasma-date-picker_old_hint-inner-label-placement-offset',
+    clearHintInnerLabelPlacementOffset: '--plasma-date-picker_old_clear-hint-inner-label-placement-offset',
+
+    hintTooltipPaddingTop: '--plasma-date-picker-calendar-hint-tooltip-padding-top',
+    hintTooltipPaddingRight: '--plasma-date-picker-calendar-hint-tooltip-padding-right',
+    hintTooltipPaddingBottom: '--plasma-date-picker-calendar-hint-tooltip-padding-bottom',
+    hintTooltipPaddingLeft: '--plasma-date-picker-calendar-hint-tooltip-padding-left',
+    hintTooltipMinHeight: '--plasma-date-picker-calendar-hint-tooltip-min-height',
+    hintTooltipBackgroundColor: '--plasma-date-picker-calendar-hint-tooltip-background-color',
+    hintTooltipBoxShadow: '--plasma-date-picker-calendar-hint-tooltip-box-shadow',
+    hintTooltipBorderRadius: '--plasma-date-picker-calendar-hint-tooltip-border-radius',
+    hintTooltipColor: '--plasma-date-picker-calendar-hint-tooltip-color',
+    hintTooltipTextFontFamily: '--plasma-date-picker-calendar-hint-tooltip-text-font-family',
+    hintTooltipTextFontSize: '--plasma-date-picker-calendar-hint-tooltip-text-font-size',
+    hintTooltipTextFontStyle: '--plasma-date-picker-calendar-hint-tooltip-text-font-style',
+    hintTooltipTextFontWeight: '--plasma-date-picker-calendar-hint-tooltip-text-font-weight',
+    hintTooltipTextFontLetterSpacing: '--plasma-date-picker-calendar-hint-tooltip-text-font-letter-spacing',
+    hintTooltipTextFontLineHeight: '--plasma-date-picker-calendar-hint-tooltip-text-font-line-height',
+    hintTooltipContentLeftMargin: '--plasma-date-picker-calendar-hint-tooltip-content-left-margin',
+    hintTooltipArrowMaskWidth: '--plasma-date-picker-calendar-hint-tooltip-arrow-mask-width',
+    hintTooltipArrowMaskHeight: '--plasma-date-picker-calendar-hint-tooltip-arrow-mask-height',
+    hintTooltipArrowMaskImage: '--plasma-date-picker-calendar-hint-tooltip-arrow-mask-image',
+    hintTooltipArrowBackground: '--plasma-date-picker-calendar-hint-tooltip-arrow-background',
+    hintTooltipArrowHeight: '--plasma-date-picker-calendar-hint-tooltip-arrow-height',
+    hintTooltipArrowEdgeMargin: '--plasma-date-picker-calendar-hint-tooltip-arrow-edge-margin',
 };

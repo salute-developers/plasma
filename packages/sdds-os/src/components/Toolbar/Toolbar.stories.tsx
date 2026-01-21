@@ -1,0 +1,64 @@
+import React from 'react';
+import type { ComponentProps } from 'react';
+import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
+import type { StoryObj, Meta } from '@storybook/react-vite';
+import { IconEdit } from '@salutejs/plasma-icons';
+
+import { Button } from '../Button';
+
+import { Toolbar, ToolbarDivider } from './Toolbar';
+import { config } from './Toolbar.config';
+
+const orientations: Array<string> = ['vertical', 'horizontal'];
+const { sizes } = getConfigVariations(config);
+
+const ToolbarWrapper = (props: ComponentProps<typeof Toolbar>) => {
+    return (
+        <Toolbar {...props}>
+            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
+            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
+            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
+            <ToolbarDivider />
+            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
+            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
+        </Toolbar>
+    );
+};
+
+const meta: Meta<typeof Toolbar> = {
+    title: 'Overlay/Toolbar',
+    component: ToolbarWrapper,
+    decorators: [InSpacingDecorator],
+    argTypes: {
+        orientation: {
+            options: orientations,
+            control: {
+                type: 'select',
+            },
+        },
+        hasShadow: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    args: {
+        orientation: 'vertical',
+        hasShadow: true,
+        size: 'm',
+    },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Toolbar>;
+
+export const Default: Story = {
+    args: {},
+};

@@ -185,6 +185,16 @@ const verticals: Record<
             },
         },
     },
+    SDDSOS: {
+        title: 'React',
+        package: '@salutejs/sdds-os',
+        version: PACKAGES_INFO['@salutejs/sdds-os'][0],
+        links: {
+            storybook: {
+                href: '/sdds-os-storybook/',
+            },
+        },
+    },
 };
 
 export type VerticalKey = keyof typeof verticals;

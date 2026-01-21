@@ -28,6 +28,18 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-primary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-primary-active);
 
+                ${tokens.contentSlotRightColor}: var(--text-primary);
+                ${tokens.contentSlotRightColorHover}: var(--text-primary-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-primary-active);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary-active);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
@@ -123,6 +135,8 @@ export const config = {
 
                 ${tokens.leftContentMargin}: 0 0 0 1rem;
                 ${tokens.rightContentMargin}: 0;
+
+                ${tokens.labelOffset}: 0.75rem;
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
 
@@ -257,6 +271,7 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0 0 0.875rem;
                 ${tokens.rightContentMargin}: 0;
 
+                ${tokens.labelOffset}: 0.625rem;
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
 
@@ -391,6 +406,7 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
 
+                ${tokens.labelOffset}: 0.5rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
@@ -525,6 +541,7 @@ export const config = {
                 ${tokens.leftContentMargin}: 0 0 0 0.5rem;
                 ${tokens.rightContentMargin}: 0;
 
+                ${tokens.labelOffset}: 0.375rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 

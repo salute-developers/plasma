@@ -151,6 +151,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const closeAfterSelect = outerCloseAfterSelect ?? !multiple;
 
         const setTextValue = (newTextValue: string) => {
+            /* Если значение поля ввода не изменилось, то выходим из функции */
+            if (newTextValue === textValue) {
+                return;
+            }
+
             setTextValueState(newTextValue);
 
             if (onChangeValue) {

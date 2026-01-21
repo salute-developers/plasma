@@ -121,12 +121,20 @@ export const StyledContent = styled.div<{ hasHeader?: boolean }>`
     align-items: center;
     z-index: 1;
 
-    color: var(${tokens.rightContentColor}, var(${tokens.inputColor}));
+    color: var(${tokens.rightContentColor});
 
     top: ${({ hasHeader }) => (hasHeader ? `var(${tokens.inputPaddingTop})` : `var(${tokens.rightContentTop})`)};
     right: var(${tokens.rightContentRight});
 
     height: var(${tokens.rightContentHeight});
+
+    &:hover {
+        color: var(${tokens.rightContentColorHover});
+    }
+
+    &:active {
+        color: var(${tokens.rightContentColorActive});
+    }
 `;
 
 export const StyledHeaderSlot = styled.div`
@@ -260,6 +268,7 @@ export const StyledTextArea = styled.textarea<{
 export const StyledHiddenTextArea = styled.textarea<{
     hasContentRight: boolean;
     resize?: string;
+    cols?: number;
 }>`
     max-height: none !important;
     min-height: var(${tokens.inputMinHeight}) !important;
@@ -269,7 +278,7 @@ export const StyledHiddenTextArea = styled.textarea<{
     z-index: -1000 !important;
     top: 0 !important;
     left: 0 !important;
-    right: 0.0625rem !important;
+    right: ${({ cols }) => (cols ? 'unset' : '0.0625rem !important')};
     border-width: 0;
     padding-right: ${({ hasContentRight }) =>
         hasContentRight
@@ -333,7 +342,7 @@ export const StyledLeftHelper = styled.span`
     color: var(${tokens.leftHelperColor});
 
     &.${classes.leftHelperFocus} {
-        color: var(${tokens.leftHelperColorFocus});
+        color: var(${tokens.leftHelperColorFocus}, var(${tokens.leftHelperColor}));
     }
 `;
 

@@ -21,6 +21,8 @@ type OneOf<T, U, R, K> = Only<T, U, R, K> | Only<U, T, R, K> | Only<R, T, U, K> 
 type ClearProps = {
     /**
      * view применяется с clear-токенами
+     * @deprecated
+     * use `appearance="clear"` instead
      */
     clear?: true;
     /**
@@ -221,6 +223,12 @@ export type TextAreaPropsBase = {
 
 type TextAreaPropsExtends = TextAreaPropsBase & {
     /**
+     * Стиль для UI конфигурации
+     * Влияет на выбор предустановленного набора токенов
+     * @default default
+     */
+    appearance?: 'default' | 'clear';
+    /**
      * Размер контрола.
      */
     size?: string;
@@ -247,7 +255,6 @@ export type TextAreaRootProps = {
     view?: string;
     hintView?: string;
     hintSize?: string;
-    clear?: boolean;
     readOnly?: boolean;
     disabled?: boolean;
 } & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows' | 'cols' | 'required'>;
