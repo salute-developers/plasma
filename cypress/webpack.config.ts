@@ -27,7 +27,12 @@ Object.defineProperty(exports, "__esModule", {
 export const getWebpackConfig = () => {
     const babelOpts = { ...babelrc.env.cjs };
 
+    const cache = Boolean(process.env.WEBPACK_CACHE_ENABLED);
+
+    console.log('WEBPACK_CACHE_ENABLED', cache);
+
     return {
+        cache,
         mode: 'development',
         target: 'web',
         devtool: 'inline-source-map',
