@@ -8,7 +8,7 @@ const CORE_TESTS_DIR = 'plasma-new-hope';
 
 const supportFilePath = path.resolve(__dirname, 'cypress', 'support', 'index.ts');
 
-const { PACKAGE_NAME: packageName, COMPONENTS: components, RETRIES: retries = 5, SPEC_GROUP: specGroup } = process.env;
+const { PACKAGE_NAME: packageName, COMPONENTS: components, RETRIES: retries = 5 } = process.env;
 
 if (!packageName) {
     throw new Error('Provide PACKAGE env to cli command');
@@ -33,10 +33,6 @@ const getTestMatch = () => {
         : [];
 
     const searchDirs = `{${packageName},${CORE_TESTS_DIR}}`;
-
-    if (specGroup) {
-        return `**/${searchDirs}/'**/${specGroup}*.component-test.{ts,tsx}`;
-    }
 
     if (!componentMatchingDirs.length) {
         return `**/${searchDirs}/${baseTestMatch}`;
@@ -66,7 +62,6 @@ export default defineConfig({
         a11yCheck: false,
         threshold: 0.005, // это 0.5%
         hasComponents: !!components,
-        hasSpecGroup: !!specGroup,
     },
     retries: {
         runMode: retriesCount,
