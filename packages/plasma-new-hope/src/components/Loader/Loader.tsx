@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import cls from 'classnames';
 
 import type { RootProps } from '../../engines';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
@@ -13,6 +14,7 @@ import {
     StyledOverlay,
     StyledProgressBarCircular,
     StyledSpinner,
+    LoaderText,
 } from './Loader.styles';
 import { classes, tokens } from './Loader.tokens';
 
@@ -34,11 +36,30 @@ export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
             style,
             zIndex = DEFAULT_Z_INDEX,
             onOverlayClick,
+            text,
+            textPosition = 'bottom',
             ...rest
         } = props;
 
+        const isHorizontalLayout = text && textPosition === 'right';
+        const isVerticalLayout = text && textPosition === 'bottom';
+
+        const loaderClassName = [
+            isHorizontalLayout && classes.loaderHorizontal,
+            isVerticalLayout && classes.loaderVertical,
+        ]
+            .filter(Boolean)
+            .join(' ');
+
         const loaderContent = (
-            <Root ref={ref} view={view} size={size} className={className} style={style} {...rest}>
+            <Root
+                ref={ref}
+                view={view}
+                size={size}
+                className={cls(className, ...loaderClassName)}
+                style={style}
+                {...rest}
+            >
                 {type === 'spinner' ? (
                     <StyledSpinner size={size} view={view} />
                 ) : (
@@ -53,6 +74,7 @@ export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
                         {children}
                     </StyledProgressBarCircular>
                 )}
+                {text && <LoaderText className={cls(...loaderClassName)}>{text}</LoaderText>}
             </Root>
         );
 
