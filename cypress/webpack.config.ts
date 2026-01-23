@@ -29,10 +29,10 @@ export const getWebpackConfig = () => {
 
     return {
         mode: 'development',
-        entry: 'src/index.ts',
+        target: 'web',
         devtool: 'inline-source-map',
         resolve: {
-            extensions: ['.wasm', '.ts', '.tsx', '.mjs', '.cjs', '.js', '.jsx', '.json'],
+            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
             modules: ['node_modules'],
             alias: {
                 'styled-components': resolveInsidePackage('styled-components'),
@@ -41,9 +41,13 @@ export const getWebpackConfig = () => {
                 '@salutejs/plasma-icons': resolveInsidePackage('@salutejs', 'plasma-icons'),
                 '@salutejs/plasma-cy-utils': resolveInsidePackage('@salutejs', 'plasma-cy-utils'),
             },
-        },
-        optimization: {
-            minimize: false,
+            fallback: {
+                crypto: false,
+                stream: false,
+                buffer: false,
+                path: false,
+                fs: false,
+            },
         },
         module: {
             rules: [
@@ -69,7 +73,7 @@ export const getWebpackConfig = () => {
                     parser: {
                         asset: {
                             dataUrlCondition: {
-                                maxSize: 8 * 1024, // 8kb (как url-loader)
+                                maxSize: 8 * 1024,
                             },
                         },
                     },
