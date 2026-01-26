@@ -1,0 +1,21 @@
+name: Release Next Tag
+
+on:
+  push:
+    branches:
+      - next-insol
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    name: Publish feature version
+    uses: ./.github/workflows/publish-common.yml
+    with:
+      with-update-package-lock: true
+      auto-options: '--no-changelog'
+    secrets:
+      gh_token: ${{ secrets.GH_TOKEN }}
+      npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
