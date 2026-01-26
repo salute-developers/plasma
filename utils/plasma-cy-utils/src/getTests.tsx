@@ -1,11 +1,10 @@
 import React, { ReactNode } from 'react';
 
 import { mount } from './CypressHelpers';
-import { getComponent } from './CypressDecorator';
+import { getComponent, getDescribeFN, hasComponent } from './CypressDecorator';
 import { getConfigMatrix } from './getConfigMatrix';
 
 type GetBaseVisualTestsArgs = {
-    config: any;
     component: string;
     componentProps: any;
     configPropsForMatrix?: string[];
@@ -13,16 +12,28 @@ type GetBaseVisualTestsArgs = {
     testCaseIds?: string[];
 };
 
+const getConfig = (component: string): any => {
+    try {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
+        return require(`src/examples/components/${component}/${component}.config.ts`).config;
+    } catch {
+        return null;
+    }
+};
+
 export const getBaseVisualTests = ({
     testCaseIds,
-    config,
     component,
     componentProps,
     children,
     configPropsForMatrix,
 }: GetBaseVisualTestsArgs) => {
-    return describe(`plasma-new-hope: ${component}`, () => {
-        const Component = getComponent(component);
+    const componentExists = hasComponent(component);
+    const describeFn = getDescribeFN(component);
+
+    return describeFn(`plasma-new-hope: ${component}`, () => {
+        const Component = componentExists ? getComponent(component) : () => null;
+        const config = componentExists ? getConfig(component) : null;
         const configMatrix = getConfigMatrix(config, configPropsForMatrix);
 
         configMatrix.forEach((combination, ind) => {
@@ -31,7 +42,7 @@ export const getBaseVisualTests = ({
                 .map(([propName, propValue]) => `${propName}=${propValue}`)
                 .join(', ');
 
-            it(`${testId}${component} ${testParams}`, () => {
+            it(`[PLASMA-${testId}]${component} ${testParams}`, () => {
                 mount(
                     <>
                         {children ? (

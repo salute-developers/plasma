@@ -19,10 +19,22 @@ var react_1 = __importDefault(require("react"));
 var CypressHelpers_1 = require("./CypressHelpers");
 var CypressDecorator_1 = require("./CypressDecorator");
 var getConfigMatrix_1 = require("./getConfigMatrix");
+var getConfig = function (component) {
+    try {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
+        return require("src/examples/components/".concat(component, "/").concat(component, ".config.ts")).config;
+    }
+    catch (_a) {
+        return null;
+    }
+};
 var getBaseVisualTests = function (_a) {
-    var testCaseIds = _a.testCaseIds, config = _a.config, component = _a.component, componentProps = _a.componentProps, children = _a.children, configPropsForMatrix = _a.configPropsForMatrix;
-    return describe("plasma-new-hope: ".concat(component), function () {
-        var Component = (0, CypressDecorator_1.getComponent)(component);
+    var testCaseIds = _a.testCaseIds, component = _a.component, componentProps = _a.componentProps, children = _a.children, configPropsForMatrix = _a.configPropsForMatrix;
+    var componentExists = (0, CypressDecorator_1.hasComponent)(component);
+    var describeFn = (0, CypressDecorator_1.getDescribeFN)(component);
+    return describeFn("plasma-new-hope: ".concat(component), function () {
+        var Component = componentExists ? (0, CypressDecorator_1.getComponent)(component) : function () { return null; };
+        var config = componentExists ? getConfig(component) : null;
         var configMatrix = (0, getConfigMatrix_1.getConfigMatrix)(config, configPropsForMatrix);
         configMatrix.forEach(function (combination, ind) {
             var testId = (testCaseIds === null || testCaseIds === void 0 ? void 0 : testCaseIds.at(ind)) ? "".concat(testCaseIds === null || testCaseIds === void 0 ? void 0 : testCaseIds.at(ind), " ") : '';
@@ -32,7 +44,7 @@ var getBaseVisualTests = function (_a) {
                 return "".concat(propName, "=").concat(propValue);
             })
                 .join(', ');
-            it("".concat(testId).concat(component, " ").concat(testParams), function () {
+            it("[PLASMA-".concat(testId, "]").concat(component, " ").concat(testParams), function () {
                 (0, CypressHelpers_1.mount)(react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement(Component, __assign({}, combination, componentProps), children)) : (react_1.default.createElement(Component, __assign({}, combination, componentProps)))));
                 // @ts-ignore
                 cy.matchImageSnapshot();

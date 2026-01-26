@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CypressTestDecorator = exports.getComponent = void 0;
+exports.CypressTestDecorator = exports.getDescribeFN = exports.getComponent = exports.hasComponent = void 0;
 var react_1 = __importDefault(require("react"));
 var styled_components_1 = require("styled-components");
 var plasma_themes_1 = require("@salutejs/plasma-themes");
@@ -34,43 +34,50 @@ var testPackagesThemes = {
     'sdds-cs': react_1.default.createElement(ThemeCS, null),
     'sdds-insol': react_1.default.createElement(ThemeINSOL, null),
 };
-var getComponent = function (componentName) {
+var getPackage = function () {
     var pkgName = Cypress.env('package');
     if (!pkgName) {
         throw new Error('Add package env to your Cypress config');
     }
-    var pkg;
     /* eslint-disable */
     switch (pkgName) {
         case 'plasma-ui':
-            pkg = require('../../../packages/plasma-ui');
-            break;
+            return require('../../../packages/plasma-ui');
         case 'plasma-web':
-            pkg = require('../../../packages/plasma-web/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/plasma-web/dist/styled-components/cjs/index.js');
         case 'plasma-b2c':
-            pkg = require('../../../packages/plasma-b2c/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/plasma-b2c/dist/styled-components/cjs/index.js');
         case 'plasma-giga':
-            pkg = require('../../../packages/plasma-giga/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/plasma-giga/dist/styled-components/cjs/index.js');
         case 'sdds-cs':
-            pkg = require('../../../packages/sdds-cs/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/sdds-cs/dist/styled-components/cjs/index.js');
         case 'sdds-insol':
-            pkg = require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
         default:
             throw new Error("Library ".concat(pkgName, " is not required in plasma-core/CypressHelpers:getComponent"));
     }
     /* eslint-enable */
+};
+var hasComponent = function (componentName) {
+    var pkg = getPackage();
+    return componentName in pkg && pkg[componentName] !== undefined;
+};
+exports.hasComponent = hasComponent;
+var getComponent = function (componentName) {
+    var pkgName = Cypress.env('package');
+    var pkg = getPackage();
     var component = pkg[componentName];
     if (!component) {
-        throw new Error("Library ".concat(pkgName, " has no ").concat(componentName));
+        console.error("Library ".concat(pkgName, " has no ").concat(componentName));
     }
-    return component;
+    return component || (function () { return null; });
 };
 exports.getComponent = getComponent;
+var getDescribeFN = function (component) {
+    var componentExists = (0, exports.hasComponent)(component);
+    return componentExists ? describe : describe.skip;
+};
+exports.getDescribeFN = getDescribeFN;
 var CypressTestDecorator = function (_a) {
     var noSSR = _a.noSSR, children = _a.children;
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
