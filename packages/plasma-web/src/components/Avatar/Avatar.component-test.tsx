@@ -58,6 +58,8 @@ describe('plasma-web: Avatar', () => {
     });
 
     it('_size', () => {
+        cy.viewport(500, 562);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 {sizes.map((size) => (

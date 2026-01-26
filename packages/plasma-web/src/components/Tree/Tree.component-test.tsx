@@ -208,7 +208,7 @@ describe('plasma-web: Tree', () => {
     });
 
     it('prop: size', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 976);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -225,7 +225,7 @@ describe('plasma-web: Tree', () => {
     });
 
     it('prop: renderTitle', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -237,7 +237,7 @@ describe('plasma-web: Tree', () => {
     });
 
     it('prop: autoExpandParent', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -249,7 +249,7 @@ describe('plasma-web: Tree', () => {
     });
 
     it('prop: mode', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -265,7 +265,7 @@ describe('plasma-web: Tree', () => {
     });
 
     it('flow: controlled', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1000, 599);
 
         mount(<ControlledTree />);
 
@@ -291,7 +291,7 @@ describe('plasma-web: Tree', () => {
     });
 
     it('flow: thin block, multi-line title', () => {
-        cy.viewport(200, 500);
+        cy.viewport(200, 592);
 
         mount(
             <CypressTestDecoratorWithTypo>

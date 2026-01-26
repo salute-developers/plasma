@@ -51,7 +51,7 @@ cypress
 Для локального запуска тестов может потребоваться запускать тесты на одной платформе, например на Портале. Для пакета @salutejs/plasma-temple по умолчанию тесты запускаются для платформы `sberbox`
 
 ```sh
-$ TEST_PLATFORM=sberportal npm run cy:temple:open-ct
+$ TEST_PLATFORM=sberportal npm run cy:temple:open
 ```
 
 ### API
@@ -62,5 +62,5 @@ node actions/platform-test/lib/index.js
 # параметры
 --config { path/to/config/dir } # путь до директории конфигов относительно корня репозитория
 --platform { sberbox | sberportal | mobile } # платформа
---command { run-ct | open-ct } # команда тестирования
+--command { run | open } # команда тестирования
 ```

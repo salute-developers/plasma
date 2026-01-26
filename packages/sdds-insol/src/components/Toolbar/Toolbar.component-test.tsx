@@ -109,6 +109,7 @@ describe('sdds-insol: Toolbar', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 607);
         cy.matchImageSnapshot();
     });
 });

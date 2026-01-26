@@ -2,12 +2,12 @@ import { spawn } from 'child_process';
 
 import { log } from './helpers';
 
-export function spawnCyCommand(command: 'run-ct' | 'open-ct', args: ReadonlyArray<string>) {
+export function spawnCyCommand(command: 'run' | 'open', args: ReadonlyArray<string>) {
     log('spawn command', command);
     log('spawn args', args);
 
     return new Promise((resolve, reject) => {
-        const proc = spawn('cypress', [command, '--browser', 'chromium', ...args], {
+        const proc = spawn('cypress', [command, '--component', '--browser', 'chromium', ...args], {
             env: process.env,
             stdio: 'inherit',
             detached: false,

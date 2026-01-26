@@ -368,7 +368,7 @@ describe('plasma-web: Table', () => {
     const Table = getComponent('Table');
 
     it('basic', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -381,7 +381,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: size l', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 629);
 
         mount(
             <CypressTestDecorator>
@@ -394,7 +394,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: size m', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -407,7 +407,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: size s', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -420,7 +420,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: view clear', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -433,7 +433,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: borderVariant all', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -446,7 +446,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: borderVariant rows', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -459,7 +459,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: borderVariant header', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -472,7 +472,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: maxHeight', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -485,7 +485,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: stickyHeader', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -500,7 +500,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: enableSelection', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -513,7 +513,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('prop: renderCell', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -526,7 +526,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('feature: client sorting', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -549,7 +549,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('feature: client filtering', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -569,7 +569,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('feature: resizing', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -588,7 +588,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('feature: editing', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>
@@ -603,7 +603,7 @@ describe('plasma-web: Table', () => {
     });
 
     it('feature: custom nodes', () => {
-        cy.viewport(1500, 1000);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecorator>

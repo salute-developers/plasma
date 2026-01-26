@@ -46,6 +46,8 @@ describe('plasma-hope: UploadVisual', () => {
     });
 
     it('__maxCount', () => {
+        cy.viewport(500, 537);
+
         mount(
             <CypressTestDecorator>
                 <UploadVisual maxCount={12} items={items} />

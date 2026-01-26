@@ -1,10 +1,10 @@
 type LocalRunTests = {
-    command: 'open-ct';
+    command: 'open';
     platform: 'sberbox' | 'sberportal' | 'mobile';
 };
 
 type DockerRunTests = {
-    command: 'run-ct';
+    command: 'run';
     platform: never;
 };
 

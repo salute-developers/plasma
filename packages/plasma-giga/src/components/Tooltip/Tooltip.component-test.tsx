@@ -162,6 +162,7 @@ describe('plasma-giga: Tooltip', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 656);
         cy.matchImageSnapshot();
     });
 

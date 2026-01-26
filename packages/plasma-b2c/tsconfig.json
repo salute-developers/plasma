@@ -41,5 +41,11 @@
         }
     },
     "include": ["./src"],
-    "exclude": ["./src/__helpers", "./src/**/*.stories.tsx", "./src/**/*.component-test.tsx", "./src/**/*.perftest.tsx"]
+    "exclude": [
+        "./src/__helpers",
+        "./src/**/*.stories.tsx",
+        "./src/**/*.component-test.tsx",
+        "./src/**/*.perftest.tsx"
+    ],
+    "references": [{ "path": "./tsconfig.tests.json" }]
 }

@@ -27,7 +27,7 @@ export async function platfomTest() {
 
         invariant(files, `Cannot read configs files for ${process.env.PACKAGE_NAME}`);
 
-        if (command === 'open-ct') {
+        if (command === 'open') {
             const foundConf = files.find((file) => file.includes(platform));
 
             invariant(foundConf, `Cannot find config for platform ${platform}`);
