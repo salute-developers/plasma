@@ -114,6 +114,7 @@ describe('plasma-b2c: TimePicker', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
 
+        cy.viewport(500, 646);
         cy.matchImageSnapshot();
     });
 
@@ -130,6 +131,7 @@ describe('plasma-b2c: TimePicker', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
 
+        cy.viewport(500, 646);
         cy.matchImageSnapshot();
     });
 
@@ -146,6 +148,7 @@ describe('plasma-b2c: TimePicker', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
 
+        cy.viewport(500, 646);
         cy.matchImageSnapshot();
     });
 
@@ -183,6 +186,7 @@ describe('plasma-b2c: TimePicker', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
 
+        cy.viewport(500, 646);
         cy.matchImageSnapshot();
     });
 
@@ -200,6 +204,7 @@ describe('plasma-b2c: TimePicker', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
 
+        cy.viewport(500, 646);
         cy.matchImageSnapshot();
     });
 });
