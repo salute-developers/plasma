@@ -1,5 +1,9 @@
-import type { DateInfo } from '../../Calendar/Calendar.types';
-import type { FormattedDateValues, OnCommitDateCallbackUnion } from '../DatePickerBase.types';
+import type {
+    FormattedDateValues,
+    OnCommitDateCallback,
+    OnCommitDateCallbackDeprecated,
+    OnCommitDateCallbackUnion,
+} from '../DatePickerBase.types';
 
 type InvokeOnCommitDateArgs = {
     callback: OnCommitDateCallbackUnion;
@@ -15,18 +19,11 @@ type InvokeOnCommitDateArgs = {
 export const invokeOnCommitDate = ({ callback, value, formattedValues }: InvokeOnCommitDateArgs): void => {
     const { error, success, dateInfo, originalDate, isoDate } = formattedValues;
 
-    if (callback.length <= 2) {
+    if (typeof formattedValues === 'object' && formattedValues !== null) {
         // Новая сигнатура: (value, formattedValues) => void
-        (callback as (value: Date | string, formattedValues: FormattedDateValues) => void)(value, formattedValues);
+        (callback as OnCommitDateCallback)(value, formattedValues);
     } else {
         // Deprecated сигнатура: (value, error, success, dateInfo, originalDate, isoDate) => void
-        (callback as (
-            value: Date | string,
-            error?: boolean,
-            success?: boolean,
-            dateInfo?: DateInfo,
-            originalDate?: Date,
-            isoDate?: string,
-        ) => void)(value, error, success, dateInfo, originalDate, isoDate);
+        (callback as OnCommitDateCallbackDeprecated)(value, error, success, dateInfo, originalDate, isoDate);
     }
 };
