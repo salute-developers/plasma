@@ -109,6 +109,7 @@ describe('plasma-giga: Toolbar', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 607);
         cy.matchImageSnapshot();
     });
 });
