@@ -282,10 +282,10 @@ describe('plasma-b2c: TextArea', () => {
         const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
-            { required: true, labelPlacement: 'outer' },
-            { required: true, requiredPlacement: 'left', labelPlacement: 'outer' },
-            { required: true, labelPlacement: 'inner' },
-            { required: true, requiredPlacement: 'left', labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {
@@ -328,6 +328,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 726);
         cy.matchImageSnapshot();
     });
 
@@ -351,6 +352,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 726);
         cy.matchImageSnapshot();
     });
 
@@ -375,6 +377,7 @@ describe('plasma-b2c: TextArea', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 726);
         cy.matchImageSnapshot();
     });
 
@@ -382,10 +385,10 @@ describe('plasma-b2c: TextArea', () => {
         const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
         const cases = [
-            { required: true, labelPlacement: 'outer' },
-            { required: true, requiredPlacement: 'left', labelPlacement: 'outer' },
-            { required: true, labelPlacement: 'inner' },
-            { required: true, requiredPlacement: 'left', labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'outer' },
+            { required: true, hasRequiredIndicator: true, labelPlacement: 'inner' },
+            { required: true, hasRequiredIndicator: true, requiredPlacement: 'left', labelPlacement: 'inner' },
         ];
 
         sizes.forEach((size) => {

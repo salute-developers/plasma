@@ -21,7 +21,7 @@ describe('sdds-cs: TextArea', () => {
         rightHelper: 'Right helper',
     };
 
-    it('[PLASMA-T1580] TextArea: view=default, label, labelPlacement=inner, value, leftHelperText, rightHelperText, contentRight, required, requiredPlacement=left', () => {
+    it('[PLASMA-T1580] TextArea: view=default, label, labelPlacement=inner, value, leftHelperText, rightHelperText, contentRight, required, requiredPlacement=left, hasRequiredIndicator', () => {
         mount(
             <CypressTestDecorator>
                 <TextArea
@@ -35,6 +35,7 @@ describe('sdds-cs: TextArea', () => {
                     contentRight={Icon}
                     required
                     requiredPlacement="left"
+                    hasRequiredIndicator
                 />
             </CypressTestDecorator>,
         );
@@ -72,6 +73,7 @@ describe('sdds-cs: TextArea', () => {
                     rightHelper="Right helper"
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                 />
             </CypressTestDecorator>,
         );
@@ -111,6 +113,7 @@ describe('sdds-cs: TextArea', () => {
                         contentRight={Icon}
                         required
                         requiredPlacement="left"
+                        hasRequiredIndicator
                         readOnly
                     />
                 </div>
@@ -151,6 +154,7 @@ describe('sdds-cs: TextArea', () => {
                     contentRight={Icon}
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                 />
             </CypressTestDecorator>,
         );
@@ -190,6 +194,7 @@ describe('sdds-cs: TextArea', () => {
                     contentRight={Icon}
                     required
                     requiredPlacement="left"
+                    hasRequiredIndicator
                     disabled
                 />
             </CypressTestDecorator>,
@@ -229,6 +234,7 @@ describe('sdds-cs: TextArea', () => {
                     contentRight={Icon}
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     focused
                 />
             </CypressTestDecorator>,
