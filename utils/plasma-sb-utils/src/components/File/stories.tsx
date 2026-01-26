@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconPlasma, IconClose, IconRefresh } from '@salutejs/plasma-icons';
 
-export const createDefaultStory = (FileComponent: any) => ({ contentType, ...props }: any) => {
+export const createDefaultStory = (FileComponent: any) => ({ contentType, fileContainerWidth, ...props }: any) => {
     const iconSize = props.size === 'xs' || (props.isLoading && props.loaderType === 'circular') ? 'xs' : 's';
     const extraSmallIcon = props.size === 'xs' && props.isLoading && props.loaderType === 'circular';
 
@@ -28,5 +28,12 @@ export const createDefaultStory = (FileComponent: any) => ({ contentType, ...pro
         ...(contentType === 'image' && { thumbUrl: './images/320_320_9.jpg' }),
     };
 
-    return <FileComponent {...props} {...thumbProps} actionContent={getActionIcon()} />;
+    return (
+        <FileComponent
+            {...props}
+            {...thumbProps}
+            style={{ width: fileContainerWidth }}
+            actionContent={getActionIcon()}
+        />
+    );
 };
