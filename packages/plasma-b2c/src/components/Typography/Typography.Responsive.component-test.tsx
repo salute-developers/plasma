@@ -74,84 +74,84 @@ describe('plasma-core: ResponsiveTypography', () => {
     it('Body @375px', () => {
         mount(body);
 
-        cy.viewport(375, 667);
+        cy.viewport(375, 599);
         cy.matchImageSnapshot();
     });
 
     it('Body @758px', () => {
         mount(body);
 
-        cy.viewport(768, 1024);
+        cy.viewport(768, 599);
         cy.matchImageSnapshot();
     });
 
     it('Body @1366px', () => {
         mount(body);
 
-        cy.viewport(1366, 768);
+        cy.viewport(1280, 599);
         cy.matchImageSnapshot();
     });
 
     it('Dspl @375px', () => {
         mount(dspl);
 
-        cy.viewport(375, 667);
+        cy.viewport(375, 662);
         cy.matchImageSnapshot();
     });
 
     it('Dspl @768px', () => {
         mount(dspl);
 
-        cy.viewport(768, 1024);
+        cy.viewport(768, 612);
         cy.matchImageSnapshot();
     });
 
     it('Dspl @1366px', () => {
         mount(dspl);
 
-        cy.viewport(1366, 768);
+        cy.viewport(1280, 599);
         cy.matchImageSnapshot();
     });
 
     it('H @375px', () => {
         mount(headings);
 
-        cy.viewport(375, 667);
+        cy.viewport(375, 599);
         cy.matchImageSnapshot();
     });
 
     it('H @768px', () => {
         mount(headings);
 
-        cy.viewport(768, 1024);
+        cy.viewport(768, 599);
         cy.matchImageSnapshot();
     });
 
     it('H @1366px', () => {
         mount(headings);
 
-        cy.viewport(1366, 768);
+        cy.viewport(1280, 599);
         cy.matchImageSnapshot();
     });
 
     it('Text @375px', () => {
         mount(text);
 
-        cy.viewport(375, 667);
+        cy.viewport(375, 599);
         cy.matchImageSnapshot();
     });
 
     it('Text @768px', () => {
         mount(text);
 
-        cy.viewport(768, 1024);
+        cy.viewport(768, 599);
         cy.matchImageSnapshot();
     });
 
     it('Text @1366px', () => {
         mount(text);
 
-        cy.viewport(1366, 768);
+        cy.viewport(1280, 599);
         cy.matchImageSnapshot();
     });
 });
