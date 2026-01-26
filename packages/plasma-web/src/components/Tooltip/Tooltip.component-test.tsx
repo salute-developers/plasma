@@ -173,6 +173,7 @@ describe('plasma-web: Tooltip', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(500, 656);
         cy.matchImageSnapshot();
     });
 
