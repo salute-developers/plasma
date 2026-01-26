@@ -1,0 +1,331 @@
+---
+id: File
+title: File
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# File
+<Description name="File" />
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { File } from '@salutejs/sdds-dfa';
+import { IconPlasma } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <File
+                filename="Document.pdf"
+                description="12.55MB"
+                fileUrl="Document.pdf"
+                actionContent={<IconPlasma size="s" color="inherit" />}
+            />
+        </div>
+    );
+}
+```
+
+## Управление внешним видом
+
+Внешний вид компонента зависит от свойств `view` и `size`:
+
+<Tabs>
+    <TabItem value="view" label="View" default>
+        ```tsx live
+        import React from 'react';
+        import { File } from '@salutejs/sdds-dfa';
+        import { IconPlasma, IconRefresh } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <File
+                        view="default"
+                        filename="Document.pdf"
+                        description="12.55MB"
+                        fileUrl="Document.pdf"
+                        actionContent={<IconPlasma size="s" color="inherit" />}
+                    />
+                    <File
+                        view="negative"
+                        filename="Document.pdf"
+                        description="Ошибка загрузки"
+                        fileUrl="Document.pdf"
+                        actionContent={<IconRefresh size="s" color="inherit" />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React from 'react';
+        import { File } from '@salutejs/sdds-dfa';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <File
+                        size="xs"
+                        filename="Document.pdf"
+                        description="12.55MB"
+                        fileUrl="Document.pdf"
+                        actionContent={<IconPlasma size="xs" color="inherit" />}
+                    />
+                    <File
+                        size="s"
+                        filename="Document.pdf"
+                        description="12.55MB"
+                        fileUrl="Document.pdf"
+                        actionContent={<IconPlasma size="s" color="inherit" />}
+                    />
+                    <File
+                        size="m"
+                        filename="Document.pdf"
+                        description="12.55MB"
+                        fileUrl="Document.pdf"
+                        actionContent={<IconPlasma size="s" color="inherit" />}
+                    />
+                    <File
+                        size="l"
+                        filename="Document.pdf"
+                        description="12.55MB"
+                        fileUrl="Document.pdf"
+                        actionContent={<IconPlasma size="s" color="inherit" />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Миниатюра файла
+
+Компонент поддерживает несколько вариантов отображения миниатюры файла слева:
+
+<Tabs>
+    <TabItem value="fileUrl" label="Автоматическая иконка" default>
+        С помощью свойства `fileUrl` иконка определяется автоматически на основе расширения файла.
+
+        ```tsx live
+        import React from 'react';
+        import { File } from '@salutejs/sdds-dfa';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <File
+                        filename="Document.pdf"
+                        description="12.55MB"
+                        fileUrl="Document.pdf"
+                        actionContent={<IconPlasma size="s" color="inherit" />}
+                    />
+                    <File
+                        filename="Image.jpg"
+                        description="5.2MB"
+                        fileUrl="Image.jpg"
+                        actionContent={<IconPlasma size="s" color="inherit" />}
+                    />
+                    <File
+                        filename="Archive.zip"
+                        description="128MB"
+                        fileUrl="Archive.zip"
+                        actionContent={<IconPlasma size="s" color="inherit" />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="thumbUrl" label="Изображение">
+        С помощью свойства `thumbUrl` можно указать URL изображения для предпросмотра.
+
+        ```tsx live
+        import React from 'react';
+        import { File } from '@salutejs/sdds-dfa';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <File
+                    filename="Photo.jpg"
+                    description="5.2MB"
+                    thumbUrl="/sdds-dfa/images/320_320_9.jpg"
+                    actionContent={<IconPlasma size="s" color="inherit" />}
+                />
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="thumbIcon" label="Кастомная иконка">
+        С помощью свойства `thumbIcon` можно передать произвольную иконку.
+
+        ```tsx live
+        import React from 'react';
+        import { File } from '@salutejs/sdds-dfa';
+        import { IconPlasma, IconFolder } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <File
+                    filename="Document.pdf"
+                    description="12.55MB"
+                    thumbIcon={<IconFolder size="s" color="inherit" />}
+                    actionContent={<IconPlasma size="s" color="inherit" />}
+                />
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+:::caution
+Свойства `thumbIcon`, `thumbUrl` и `fileUrl` не могут быть использованы одновременно.
+:::
+
+## Расположение действия
+
+С помощью свойства `actionPlacement` можно изменить расположение кнопки действия:
+
+```tsx live
+import React from 'react';
+import { File } from '@salutejs/sdds-dfa';
+import { IconPlasma } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <File
+                filename="Document.pdf"
+                description="Действие справа"
+                fileUrl="Document.pdf"
+                actionPlacement="right"
+                actionContent={<IconPlasma size="s" color="inherit" />}
+            />
+            <File
+                filename="Document.pdf"
+                description="Действие слева"
+                actionPlacement="left"
+                actionContent={<IconPlasma size="s" color="inherit" />}
+            />
+        </div>
+    );
+}
+```
+
+## Состояние загрузки
+
+Компонент поддерживает отображение прогресса загрузки с помощью свойств `isLoading`, `loaderType` и `loaderValue`:
+
+<Tabs>
+    <TabItem value="circular" label="Circular" default>
+        ```tsx live
+        import React from 'react';
+        import { File } from '@salutejs/sdds-dfa';
+        import { IconClose } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <File
+                    filename="Document.pdf"
+                    description="Загрузка..."
+                    fileUrl="Document.pdf"
+                    isLoading
+                    loaderType="circular"
+                    loaderValue={45}
+                    actionContent={<IconClose size="xs" color="inherit" />}
+                    onCancel={() => console.log('Загрузка отменена')}
+                />
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="linear" label="Linear">
+        ```tsx live
+        import React from 'react';
+        import { File } from '@salutejs/sdds-dfa';
+        import { IconClose } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <File
+                    filename="Document.pdf"
+                    description="Загрузка..."
+                    fileUrl="Document.pdf"
+                    isLoading
+                    loaderType="linear"
+                    loaderValue={45}
+                    actionContent={<IconClose size="xs" color="inherit" />}
+                    onCancel={() => console.log('Загрузка отменена')}
+                />
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Ширина компонента
+
+Управлять шириной компонента можно с помощью свойств `fileContainerWidth` и `stretched`:
+
+```tsx live
+import React from 'react';
+import { File } from '@salutejs/sdds-dfa';
+import { IconPlasma } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <File
+                filename="Document.pdf"
+                description="Фиксированная ширина 15rem"
+                fileUrl="Document.pdf"
+                fileContainerWidth="15rem"
+                actionContent={<IconPlasma size="s" color="inherit" />}
+            />
+            <File
+                filename="Document.pdf"
+                description="Растянут на всю ширину"
+                fileUrl="Document.pdf"
+                stretched
+                actionContent={<IconPlasma size="s" color="inherit" />}
+            />
+        </div>
+    );
+}
+```
+
+## Неактивное состояние
+
+С помощью свойства `disabled` можно сделать компонент неактивным:
+
+```tsx live
+import React from 'react';
+import { File } from '@salutejs/sdds-dfa';
+import { IconPlasma } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <File
+            filename="Document.pdf"
+            description="12.55MB"
+            fileUrl="Document.pdf"
+            disabled
+            actionContent={<IconPlasma size="s" color="inherit" />}
+        />
+    );
+}
+```
+
+## Таблица свойств
+<PropsTable name="File" exclude={['css']} />
