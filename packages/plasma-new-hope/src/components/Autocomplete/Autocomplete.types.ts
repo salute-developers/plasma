@@ -124,7 +124,7 @@ export type AutocompleteProps<T extends SuggestionItemType = SuggestionItemType>
     TextFieldPropsBase,
     'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'
 > &
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required' | 'value' | 'defaultValue'>;
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required' | 'value' | 'defaultValue' | 'onScroll'>;
 
 export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
