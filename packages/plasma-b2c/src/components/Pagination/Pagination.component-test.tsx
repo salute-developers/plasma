@@ -50,7 +50,6 @@ describe('plasma-new-hope: Pagination Styled', () => {
     });
 
     it('_size', () => {
-        cy.viewport(1000, 1000);
         mount(
             <CypressTestDecoratorWithTypo>
                 <Pagination size="xs" value={values[1]} slots={slots[1]} count={count} />
@@ -63,6 +62,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(1000, 599);
         cy.matchImageSnapshot();
     });
 
@@ -97,7 +97,6 @@ describe('plasma-new-hope: Pagination Styled', () => {
     });
 
     it('type:Default', () => {
-        cy.viewport(1000, 1000);
         mount(
             <CypressTestDecoratorWithTypo>
                 <Pagination
@@ -181,6 +180,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(1000, 599);
         cy.matchImageSnapshot();
     });
 
@@ -192,7 +192,6 @@ describe('plasma-new-hope: Pagination Styled', () => {
             return true; // Для остальных ошибок тест упадет
         });
 
-        cy.viewport(650, 1200);
         mount(
             <CypressTestDecoratorWithTypo>
                 <Pagination
@@ -297,6 +296,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(650, 1086);
         cy.matchImageSnapshot();
     });
 });
