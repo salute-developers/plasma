@@ -282,7 +282,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
     IsMultiselect<T> &
     RequiredProps &
     HintProps &
-    Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue'>;
+    Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue' | 'onScroll'>;
 
 export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
