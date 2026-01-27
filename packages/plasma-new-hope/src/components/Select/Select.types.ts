@@ -258,7 +258,7 @@ export type SelectProps<K extends ItemOption = ItemOption> = BasicProps<K> &
     Target &
     Omit<
         ButtonHTMLAttributes<HTMLButtonElement>,
-        'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce' | 'name' | 'defaultValue'
+        'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce' | 'name' | 'defaultValue' | 'onScroll'
     >;
 
 export type { ItemOption as ItemOptionSelect };
@@ -485,7 +485,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @deprecated Скролл применится автоматически при использовании listMaxHeight.
          */
         listOverflow?: CSSProperties['overflow'];
-    } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
+    } & Omit<
+        ButtonHTMLAttributes<HTMLButtonElement>,
+        'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce' | 'onScroll'
+    >;
 
 export type { DropdownNode as DropdownNodeSelect };
 
