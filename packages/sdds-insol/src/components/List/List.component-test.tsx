@@ -53,6 +53,7 @@ describe('sdds-insol: List Styled', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 552);
         cy.matchImageSnapshot();
     });
 
