@@ -15,6 +15,7 @@ describe('plasma-core: ResponsiveTypography', () => {
     const H3 = getComponent('H3');
     const H4 = getComponent('H4');
     const H5 = getComponent('H5');
+    const H6 = getComponent('H6');
     const TextL = getComponent('TextL');
     const TextM = getComponent('TextM');
     const TextS = getComponent('TextS');
@@ -56,6 +57,8 @@ describe('plasma-core: ResponsiveTypography', () => {
             <H4>H4 Semibold</H4>
             <H5 bold={false}>H5</H5>
             <H5>H5 Semibold</H5>
+            <H6 bold={false}>H6</H6>
+            <H6>H6 Semibold</H6>
         </CypressTestDecorator>
     );
     const text = (

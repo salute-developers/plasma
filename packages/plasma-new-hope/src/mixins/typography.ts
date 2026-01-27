@@ -110,6 +110,20 @@ export const h5Bold = {
     'font-weight': 'var(--plasma-typo-h5-bold-font-weight)',
 };
 
+export const h6 = {
+    'font-family': 'var(--plasma-typo-h6-font-family)',
+    'font-size': 'var(--plasma-typo-h6-font-size)',
+    'font-style': 'var(--plasma-typo-h6-font-style)',
+    'font-weight': 'var(--plasma-typo-h6-font-weight)',
+    'letter-spacing': 'var(--plasma-typo-h6-letter-spacing)',
+    'line-height': 'var(--plasma-typo-h6-line-height)',
+};
+
+export const h6Bold = {
+    ...h6,
+    'font-weight': 'var(--plasma-typo-h6-bold-font-weight)',
+};
+
 export const bodyL = {
     'font-family': 'var(--plasma-typo-body-l-font-family)',
     'font-size': 'var(--plasma-typo-body-l-font-size)',

@@ -7,7 +7,7 @@ import { IconButton } from '../IconButton/IconButton';
 
 import { Accordion, AccordionItem } from '.';
 
-const sizes = ['l', 'm', 's', 'xs', 'h2', 'h3', 'h4', 'h5'] as const;
+const sizes = ['l', 'm', 's', 'xs', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 const stretching = ['filled', 'fixed'] as const;
 const types = ['arrow', 'sign', 'clear'] as const;
 
@@ -84,6 +84,7 @@ const getSizeForIconButton = (size) => {
             return 's';
         case 'xs':
         case 'h5':
+        case 'h6':
             return 'xs';
         default:
             return 'm';

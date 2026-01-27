@@ -22,7 +22,7 @@ type RatingDemoProps = {
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-const sizes = ['l', 'm', 's', 'xs', 'xxs', 'h1', 'h2', 'h3', 'h4', 'h5', 'displayL', 'displayM', 'displayS'];
+const sizes = ['l', 'm', 's', 'xs', 'xxs', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'displayL', 'displayM', 'displayS'];
 
 describe('plasma-b2c: Rating', () => {
     const Rating = getComponent('Rating');
