@@ -133,6 +133,8 @@ describe('plasma-web: Radiobox', () => {
         );
 
         cy.get('input[type="radio"]').first().focus();
+
+        cy.viewport(500, 556);
         cy.matchImageSnapshot();
     });
 
@@ -155,6 +157,8 @@ describe('plasma-web: Radiobox', () => {
         );
 
         cy.get('input[type="radio"]').first().focus();
+
+        cy.viewport(500, 595);
         cy.matchImageSnapshot();
     });
 });
