@@ -57,7 +57,7 @@ describe('sdds-insol: Sheet', () => {
     });
 
     it('onTouchMove', () => {
-        cy.viewport('iphone-6');
+        cy.viewport(375, 599);
 
         mount(
             <CypressTestDecorator>
@@ -93,7 +93,7 @@ describe('sdds-insol: Sheet', () => {
     });
 
     it('withoutOverlay', () => {
-        cy.viewport('iphone-6');
+        cy.viewport(375, 599);
 
         mount(
             <CypressTestDecorator>
