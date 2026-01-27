@@ -142,6 +142,8 @@ describe('plasma-b2c: Rating', () => {
                 ))}
             </CypressTestDecorator>,
         );
+
+        cy.viewport(500, 1633);
         cy.matchImageSnapshot();
     });
 });

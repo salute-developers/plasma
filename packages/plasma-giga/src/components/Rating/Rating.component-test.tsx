@@ -142,6 +142,8 @@ describe('plasma-giga: Rating', () => {
                 ))}
             </CypressTestDecorator>,
         );
+
+        cy.viewport(500, 1633);
         cy.matchImageSnapshot();
     });
 });
