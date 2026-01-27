@@ -279,6 +279,7 @@ describe('plasma-giga: Steps', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 516);
         cy.matchImageSnapshot();
     });
 
