@@ -48,6 +48,8 @@ describe('sddds-cs: Skeleton', () => {
                     ))}
                 </CypressTestDecorator>,
             );
+
+            cy.viewport(500, 696);
             cy.matchImageSnapshot();
         });
 
@@ -135,6 +137,8 @@ describe('sddds-cs: Skeleton', () => {
                     <Text size="bodyL" lines={20} />
                 </CypressTestDecorator>,
             );
+
+            cy.viewport(500, 536);
             cy.matchImageSnapshot();
         });
 
@@ -146,6 +150,8 @@ describe('sddds-cs: Skeleton', () => {
                     ))}
                 </CypressTestDecorator>,
             );
+
+            cy.viewport(500, 696);
             cy.matchImageSnapshot();
         });
 
