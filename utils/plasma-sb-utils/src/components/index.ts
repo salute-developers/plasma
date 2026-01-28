@@ -13,3 +13,4 @@ export * from './Range';
 export * from './DatePicker';
 export * from './TimePicker';
 export * from './File';
+export * from './Segment';
