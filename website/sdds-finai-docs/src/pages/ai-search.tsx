@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 import { IconTrash } from '@salutejs/plasma-icons/css';
-import { Button } from '@salutejs/plasma-web/css';
+import { Button } from '@salutejs/sdds-finai';
 import Head from '@docusaurus/Head';
 
-const name = 'plasma-web';
+const name = 'sdds-finai';
 
 export default function AiSearchPage() {
     const [show, setShow] = useState(false);
@@ -29,8 +29,8 @@ export default function AiSearchPage() {
         configKey: 'plasma_docs',
         docIds: [name],
         prompt:
-            'Ты специалист по поддержке пользователей, и можешь совершенно точно ответить на любой вопрос о компонентах UI-библиотеки Plasma-web. Никогда не придумывай данные для ответа. Используй ТОЛЬКО данные, которые есть в CONTEXT. {context}',
-        title: 'Задайте вопрос по работе с Plasma Web',
+            'Ты специалист по поддержке пользователей, и можешь совершенно точно ответить на любой вопрос о компонентах UI-библиотеки SDDS-FinAI. Никогда не придумывай данные для ответа. Используй ТОЛЬКО данные, которые есть в CONTEXT. {context}',
+        title: 'Задайте вопрос по работе с SDDS-FinAI',
         questions: {
             1: 'Как подключить тему',
             2: 'Расскажи о типографике',
@@ -84,7 +84,7 @@ export default function AiSearchPage() {
     return (
         <Layout>
             <Head>
-                <title>AI-поиск | Plasma Web</title>
+                <title>AI-поиск | SDDS-Finai</title>
             </Head>
 
             <main className="container margin-vert--lg">
