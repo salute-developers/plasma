@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
@@ -206,6 +206,36 @@ describe('plasma-b2c: Segment', () => {
 
         cy.get('button').contains('Segment 1').click();
         cy.get('button').contains('Segment 1').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] Segment: controlled change', () => {
+        const Controlled = () => {
+            const [selected, setSelected] = useState(['segment_1']);
+
+            const handleChangeSelected = (selectedSegnment: string) => {
+                setSelected([selectedSegnment]);
+            };
+
+            return (
+                <SegmentProvider selected={selected} onChangeSelected={handleChangeSelected}>
+                    <SegmentGroup view="default" filledBackground>
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
+                    </SegmentGroup>
+                </SegmentProvider>
+            );
+        };
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Controlled />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').contains('Segment 2').click();
 
         cy.matchImageSnapshot();
     });
