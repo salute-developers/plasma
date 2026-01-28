@@ -1,1750 +1,1747 @@
 {
-  "0.329.0": {
-    "date": "2026-01-28",
-    "core": [
-      {
-        "component": "DatePicker",
-        "children": [
-          {
-            "text": "исправлена ошибка типизации аргументов для `onCommitDate`"
-          }
-        ]
-      },
-      {
-        "component": "What/why changed",
-        "children": [
-          {
-            "text": "тип `OnCommitDateCallbackUnion` больше не используется, так как ts не может вывести конечный даже с `typeguard`\n\nстарая версия передачи аргумента поддерживается, но ts будет выводить ошибку"
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.328.0": {
-    "date": "2026-01-21",
-    "core": [
-      {
-        "component": "LinkButton",
-        "children": [
-          {
-            "text": "`hover` не применяется, когда `LinkButton` в состоянии `disabled`",
-            "link": "https://github.com/salute-developers/plasma/pull/2416",
-            "id": 2416
-          },
-          {
-            "text": "Добавлены токены `h6` во все темы вертикалей `plasma` и `sdds`",
-            "link": "https://github.com/salute-developers/plasma/pull/2422",
-            "id": 2422
-          }
-        ]
-      },
-      {
-        "component": "Combobox",
-        "children": [
-          {
-            "text": "исправлен баг, при котором коллбэк `onChangeValue` вызывался когда значение поля ввода не изменялось;",
-            "link": "https://github.com/salute-developers/plasma/pull/2408",
-            "id": 2408
-          }
-        ]
-      },
-      {
-        "component": "DatePicker",
-        "children": [
-          {
-            "text": "добавлен `appearance=clear`",
-            "link": "https://github.com/salute-developers/plasma/pull/2417",
-            "id": 2417
-          },
-          {
-            "text": "добавлен новый инстанс вызова onDateCommit с двумя аргументами\n\nинстанс с 6ю аргументами помечен как `deprecated`",
-            "link": "https://github.com/salute-developers/plasma/pull/2426",
-            "id": 2426
-          }
-        ]
-      },
-      {
-        "component": "Timepicker",
-        "children": [
-          {
-            "text": "Исправлено поведение с фокусом",
-            "link": "https://github.com/salute-developers/plasma/pull/2391",
-            "id": 2391
-          }
-        ]
-      },
-      {
-        "component": "TextArea",
-        "children": [
-          {
-            "text": "добавлен `appearance=clear`",
-            "link": "https://github.com/salute-developers/plasma/pull/2423",
-            "id": 2423
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.327.0": {
-    "date": "2025-12-24",
-    "core": [
-      {
-        "component": "Select",
-        "children": [
-          {
-            "text": "токены для внутреннего `Chip` приведены в соответствие с макетами;",
-            "link": "https://github.com/salute-developers/plasma/pull/2388",
-            "id": 2388
-          }
-        ]
-      },
-      {
-        "component": "Table",
-        "children": [
-          {
-            "text": "добавлены свойства `topContent` и `bottomContent`, служащие в качестве ячеек для content в начале и конце таблицы\n\nдобавлено свойство `loadingSlot` для иконки загрузки;\n\nдобавлены пример с компонентом Paginations и бесконечным скроллом в документацию;",
-            "link": "https://github.com/salute-developers/plasma/pull/2390",
-            "id": 2390
-          }
-        ]
-      },
-      {
-        "component": "LinkButton",
-        "children": [
-          {
-            "text": "удалены лишние отступы для `left/rightContent` при отсутствии другого контента",
-            "link": "https://github.com/salute-developers/plasma/pull/2398",
-            "id": 2398
-          }
-        ]
-      },
-      {
-        "component": "Tabs",
-        "children": [
-          {
-            "text": "добавлена компенсация для субпиксельных вычислений при изменении масштаба viewport",
-            "link": "https://github.com/salute-developers/plasma/pull/2399",
-            "id": 2399
-          }
-        ]
-      },
-      {
-        "component": "TimePicker",
-        "children": [
-          {
-            "text": "добавлены тени для контейнера выпадающего `TimePickerGrid`",
-            "link": "https://github.com/salute-developers/plasma/pull/2401",
-            "id": 2401
-          }
-        ]
-      },
-      {
-        "component": "Button",
-        "children": [
-          {
-            "text": "выключен `:hover` на мобильных устройствах во избежания \"залипания\" состояния",
-            "link": "https://github.com/salute-developers/plasma/pull/2396",
-            "id": 2396
-          }
-        ]
-      },
-      {
-        "component": "Range",
-        "children": [
-          {
-            "text": "добавлен `appearance=\"clear\"`\n\nпереиспользован `InformationWrapper` для унификации отображения лейбла, подсказок и индикатора обязательности",
-            "link": "https://github.com/salute-developers/plasma/pull/2397",
-            "id": 2397
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.326.0": {
-    "date": "2025-12-10",
-    "core": [
-      {
-        "component": "Select",
-        "children": [
-          {
-            "text": "добавлен кастомный пример с функцией поиска и подсветки найденных элементов;",
-            "link": "https://github.com/salute-developers/plasma/pull/2361",
-            "id": 2361
-          }
-        ]
-      },
-      {
-        "component": "Tree",
-        "children": [
-          {
-            "text": "исправлена позиция полоски в режиме drag and drop при multiline;",
-            "link": "https://github.com/salute-developers/plasma/pull/2356",
-            "id": 2356
-          }
-        ]
-      },
-      {
-        "component": "Combobox",
-        "children": [
-          {
-            "text": "добавлено новое свойство `filterValue` для фильтрации вводимых значений;",
-            "link": "https://github.com/salute-developers/plasma/pull/2355",
-            "id": 2355
-          },
-          {
-            "text": "исправлен `cursor: pointer` у стрелочки раскрытия в режиме `readOnly`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2357",
-            "id": 2357
-          }
-        ]
-      },
-      {
-        "component": "TextField",
-        "children": [
-          {
-            "text": "вариант `clear` вынесен в отдельную конфигурацию и регулируется свойством `appearance`",
-            "link": "https://github.com/salute-developers/plasma/pull/2358",
-            "id": 2358
-          }
-        ]
-      },
-      {
-        "component": "Timepicker",
-        "children": [
-          {
-            "text": "Исправлено поведение `dropdownAlign`",
-            "link": "https://github.com/salute-developers/plasma/pull/2369",
-            "id": 2369
-          }
-        ]
-      },
-      {
-        "component": "Pagination",
-        "children": [
-          {
-            "text": "исправлено позиционирование `perPage` при отсутствии `helperText` и `quickJump`",
-            "link": "https://github.com/salute-developers/plasma/pull/2365",
-            "id": 2365
-          }
-        ]
-      },
-      {
-        "component": "Icons",
-        "children": [
-          {
-            "text": "добавлена альтернативная иконка для ресайза - `ResizeCorneredFill`",
-            "link": "https://github.com/salute-developers/plasma/pull/2371",
-            "id": 2371
-          }
-        ]
-      },
-      {
-        "component": "Calendar",
-        "children": [
-          {
-            "text": "актуализирована размерная сетка",
-            "link": "https://github.com/salute-developers/plasma/pull/2362",
-            "id": 2362
-          }
-        ]
-      },
-      {
-        "component": "TextArea",
-        "children": [
-          {
-            "text": "исправлен скролл текста для TextArea",
-            "link": "https://github.com/salute-developers/plasma/pull/2381",
-            "id": 2381
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.325.0": {
-    "date": "2025-11-26",
-    "core": [
-      {
-        "component": "Infra",
-        "children": [
-          {
-            "text": "обновлена `node` до версии 24.11.0 (LTS);\n\nобновлен `npm` до версии 11.6.1;",
-            "link": "https://github.com/salute-developers/plasma/pull/2326",
-            "id": 2326
-          }
-        ]
-      },
-      {
-        "component": "TextField",
-        "children": [
-          {
-            "text": "добавлен механизм сокращение через троеточие для `placeholder`",
-            "link": "https://github.com/salute-developers/plasma/pull/2329",
-            "id": 2329
-          }
-        ]
-      },
-      {
-        "component": "TextField, Range, DatePicker, DateTimePicker",
-        "children": [
-          {
-            "text": "исправлены hover/active состояния для leftContent, rightContent",
-            "link": "https://github.com/salute-developers/plasma/pull/2336",
-            "id": 2336
-          }
-        ]
-      },
-      {
-        "component": "LinkButton",
-        "children": [
-          {
-            "text": "Добавлено производное состояние `active`",
-            "link": "https://github.com/salute-developers/plasma/pull/2331",
-            "id": 2331
-          }
-        ]
-      },
-      {
-        "component": "Mask",
-        "children": [
-          {
-            "text": "исправлена транзитивная ошибка в режиме `strict mode` (терялось значение маски при повторном рендере)",
-            "link": "https://github.com/salute-developers/plasma/pull/2332",
-            "id": 2332
-          }
-        ]
-      },
-      {
-        "component": "Sheet",
-        "children": [
-          {
-            "text": "Добавлен новый пропс \"hasScrollEvents\"",
-            "link": "https://github.com/salute-developers/plasma/pull/2342",
-            "id": 2342
-          }
-        ]
-      },
-      {
-        "component": "Loader",
-        "children": [
-          {
-            "text": "Добавлен новый компонент",
-            "link": "https://github.com/salute-developers/plasma/pull/2299",
-            "id": 2299
-          }
-        ]
-      },
-      {
-        "component": "TimePicker",
-        "children": [
-          {
-            "text": "Исправлено ошибка использовании свойства `usePortal`  в  компонентах группы `Overlay`",
-            "link": "https://github.com/salute-developers/plasma/pull/2352",
-            "id": 2352
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.323.0": {
-    "date": "2025-11-12",
-    "core": [
-      {
-        "component": "Mask",
-        "children": [
-          {
-            "text": "добавлено свойство `onKeyDown`",
-            "link": "https://github.com/salute-developers/plasma/pull/2319",
-            "id": 2319
-          }
-        ]
-      },
-      {
-        "component": "Tabs",
-        "children": [
-          {
-            "text": "исправлен `font-weight` для `TabItem`",
-            "link": "https://github.com/salute-developers/plasma/pull/2317",
-            "id": 2317
-          }
-        ]
-      },
-      {
-        "component": "DatePicker",
-        "children": [
-          {
-            "text": "удален вызов лишнего onDateCommit в DatePickerRange",
-            "link": "https://github.com/salute-developers/plasma/pull/2321",
-            "id": 2321
-          }
-        ]
-      },
-      {
-        "component": "Combobox",
-        "children": [
-          {
-            "text": "добавлено новое свойство `treeView`, отвечающее за отображение дерева в выпадающем списке;",
-            "link": "https://github.com/salute-developers/plasma/pull/2314",
-            "id": 2314
-          }
-        ]
-      },
-      {
-        "component": "Tree",
-        "children": [
-          {
-            "text": "исправлен баг, который возникал при использовании кастомных полей в `treeData`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2324",
-            "id": 2324
-          }
-        ]
-      },
-      {
-        "component": "DateTimePicker",
-        "children": [
-          {
-            "text": "добавлен новый компонент",
-            "link": "https://github.com/salute-developers/plasma/pull/2316",
-            "id": 2316
-          }
-        ]
-      },
-      {
-        "component": "Combobox, Select",
-        "children": [
-          {
-            "text": "исправлен баг в коллбэке `onChange`, при котором при работе с чипами в некоторых случаях не приходил второй параметр `Item`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2325",
-            "id": 2325
-          }
-        ]
-      },
-      {
-        "component": "Scrollbar",
-        "children": [
-          {
-            "text": "Добавлен новый mixin для кастомизации системного scroll",
-            "link": "https://github.com/salute-developers/plasma/pull/2254",
-            "id": 2254
-          }
-        ]
-      },
-      {
-        "component": "DatePicker, Range",
-        "children": [
-          {
-            "text": "добавлены цветовые токена для `contentLeft`, `contentRight`",
-            "link": "https://github.com/salute-developers/plasma/pull/2322",
-            "id": 2322
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.322.0": {
-    "date": "2025-10-29",
-    "core": [
-      {
-        "component": "Select",
-        "children": [
-          {
-            "text": "Добавлено новое свойство `treeView`, отвечающее за отображение дерева в выпадающем списке;",
-            "link": "https://github.com/salute-developers/plasma/pull/2286",
-            "id": 2286
-          }
-        ]
-      },
-      {
-        "component": "TextField, TextArea, Mask, NumberFormat",
-        "children": [
-          {
-            "text": "Добавлена возможность указать текст для индикатора опциональности",
-            "link": "https://github.com/salute-developers/plasma/pull/2290",
-            "id": 2290
-          }
-        ]
-      },
-      {
-        "component": "Calendar, DatePicker",
-        "children": [
-          {
-            "text": "Добавлена возможность вызвать всплывающую подсказку для событий в календаре",
-            "link": "https://github.com/salute-developers/plasma/pull/2289",
-            "id": 2289
-          }
-        ]
-      },
-      {
-        "component": "Combobox",
-        "children": [
-          {
-            "text": "Исправлен баг в single-режиме, при котором в некоторых случаях значение поля ввода не обновлялось после изменения `items`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2298",
-            "id": 2298
-          },
-          {
-            "text": "Тип свойства `emptyStateDescription` расширен до `ReactNode`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2293",
-            "id": 2293
-          }
-        ]
-      },
-      {
-        "component": "Typography",
-        "children": [
-          {
-            "text": "Обнулили значения по-умолчанию (браузерные) для свойств `padding/margin/border`",
-            "link": "https://github.com/salute-developers/plasma/pull/2302",
-            "id": 2302
-          }
-        ]
-      },
-      {
-        "component": "Attach",
-        "children": [
-          {
-            "text": "Добавлена возможность прикреплять несколько файлов\n\nИсправлена типизация для `callback onChange`",
-            "link": "https://github.com/salute-developers/plasma/pull/2288",
-            "id": 2288
-          }
-        ]
-      },
-      {
-        "component": "Tabs",
-        "children": [
-          {
-            "text": "Убраны внешние отступы у контейнера `Tabs`\n\nОтступы внутри `TabItem` приведены в соответствие с макетами\n\nСкорректировано отображение фокусной рамки",
-            "link": "https://github.com/salute-developers/plasma/pull/2297",
-            "id": 2297
-          }
-        ]
-      },
-      {
-        "component": "LinkButton",
-        "children": [
-          {
-            "text": "Добавлено состояние `hover` для текста",
-            "link": "https://github.com/salute-developers/plasma/pull/2304",
-            "id": 2304
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.321.0": {
-    "date": "2025-10-15",
-    "core": [
-      {
-        "component": "Combobox, Select",
-        "children": [
-          {
-            "text": "Исправлена некорректная работа компонента при асинхронной загрузке опций в режиме `multiple`",
-            "link": "https://github.com/salute-developers/plasma/pull/2268",
-            "id": 2268
-          }
-        ]
-      },
-      {
-        "component": "Chip, TextField, Select, Combobox",
-        "children": [
-          {
-            "text": "Добавлено состояние `hover` для крестика в `Chip`\n\nДобавлено свойство `chipClickArea`, которое определяет область нажатия",
-            "link": "https://github.com/salute-developers/plasma/pull/2237",
-            "id": 2237
-          }
-        ]
-      },
-      {
-        "component": "Tree",
-        "children": [
-          {
-            "text": "Исправлено некорректной поведение компонента при использование ключа `type` в объектах `treeData`",
-            "link": "https://github.com/salute-developers/plasma/pull/2267",
-            "id": 2267
-          }
-        ]
-      },
-      {
-        "component": "Modal",
-        "children": [
-          {
-            "text": "Исправлено переопределение overlay при использование свойства `hasBody`",
-            "link": "https://github.com/salute-developers/plasma/pull/2276",
-            "id": 2276
-          }
-        ]
-      },
-      {
-        "component": "Popup, Drawer",
-        "children": [
-          {
-            "text": "Добавлено новое свойство `positionFixed`, которое вне зависимости от `frame` устанавливает `position: fixed`",
-            "link": "https://github.com/salute-developers/plasma/pull/2277",
-            "id": 2277
-          }
-        ]
-      },
-      {
-        "component": "Slider",
-        "children": [
-          {
-            "text": "Исправлена транзитивная ошибка `_reactDom.default.findDOMNode is not a function` в библиотеки `react-draggable` при использование в связке с `React 19`",
-            "link": "https://github.com/salute-developers/plasma/pull/2282",
-            "id": 2282
-          }
-        ]
-      },
-      {
-        "component": "Table",
-        "children": [
-          {
-            "text": "Добавлены новые свойства `setCellProps` и `setRowProps` для настройки атрибутов в `cell` и `row` соответственно\n\nОбновлена документацию: новые примеры, улучшили структуру",
-            "link": "https://github.com/salute-developers/plasma/pull/2271",
-            "id": 2271
-          }
-        ]
-      },
-      {
-        "component": "Popover",
-        "children": [
-          {
-            "text": "Добавлен механизм resizable\n\nДобавлены новые `callback` для событий `onResizeStart`, `onResizeStop`",
-            "link": "https://github.com/salute-developers/plasma/pull/2281",
-            "id": 2281
-          }
-        ]
-      },
-      {
-        "component": "Icons",
-        "children": [
-          {
-            "text": "Добавлены новые иконки:  `DocumentAddOutline/Fill, FilterFunnelOffOutline/Fill, TargetOutline, OpenPanelFill, ClosePanelFill`",
-            "link": "https://github.com/salute-developers/plasma/pull/2284",
-            "id": 2284
-          }
-        ]
-      },
-      {
-        "component": "ProgressBarCircular",
-        "children": [
-          {
-            "text": "Добавлен новый компонент",
-            "link": "https://github.com/salute-developers/plasma/pull/2280",
-            "id": 2280
-          }
-        ]
-      }
-    ],
-    "lib": [
-      {
-        "component": "Popover, Modal",
-        "children": [
-          {
-            "text": "Добавлен новый раздел описывающий работу свойства `isFocusTrapped`",
-            "link": "https://github.com/salute-developers/plasma/pull/2273",
-            "id": 2273
-          }
-        ]
-      }
-    ]
-  },
-  "0.320.0": {
-    "date": "2025-10-01",
-    "core": [
-      {
-        "component": "Autocomplete, Combobox, Datepicker, Select, TextArea, TextField",
-        "children": [
-          {
-            "text": "изменен token для value на `--text-primary`\n\nизменен opacity для separator на `0.4`\n\nизменен opacity для `rightContent` на `0.4`",
-            "link": "https://github.com/salute-developers/plasma/pull/1906",
-            "id": 1906
-          }
-        ]
-      },
-      {
-        "component": "Modal",
-        "children": [
-          {
-            "text": "добавлена возможность отключать `focusTrap`",
-            "link": "https://github.com/salute-developers/plasma/pull/2244",
-            "id": 2244
-          }
-        ]
-      },
-      {
-        "component": "Tooltip",
-        "children": [
-          {
-            "text": "удален лишний `pointer-events` блокирующий click на содержимом компонента",
-            "link": "https://github.com/salute-developers/plasma/pull/2249",
-            "id": 2249
-          }
-        ]
-      },
-      {
-        "component": "Note",
-        "children": [
-          {
-            "text": "исправлена ошибка с некорректным переносом по буквам - правильно по словам\n\nрасширен `type` до ReactNode для свойств `title, text`",
-            "link": "https://github.com/salute-developers/plasma/pull/2247",
-            "id": 2247
-          }
-        ]
-      },
-      {
-        "component": "TimePicker",
-        "children": [
-          {
-            "text": "Добавлен новый компонент",
-            "link": "https://github.com/salute-developers/plasma/pull/2184",
-            "id": 2184
-          }
-        ]
-      },
-      {
-        "component": "Pagination",
-        "children": [
-          {
-            "text": "Убрано ограничение на минимальное количество слотов для элементов",
-            "link": "https://github.com/salute-developers/plasma/pull/2258",
-            "id": 2258
-          }
-        ]
-      },
-      {
-        "component": "Dropdown",
-        "children": [
-          {
-            "text": "добавлена возможность указывать beforeList во вложенные списки",
-            "link": "https://github.com/salute-developers/plasma/pull/2250",
-            "id": 2250
-          }
-        ]
-      },
-      {
-        "component": "Tree",
-        "children": [
-          {
-            "text": "добавлено свойство `singleLine`, отвечающее за перенес заголовка\n\nисправлено поведение сокращения текста при нехватке места",
-            "link": "https://github.com/salute-developers/plasma/pull/2253",
-            "id": 2253
-          }
-        ]
-      },
-      {
-        "component": "TextField, Select, Combobox, Dropdown, Autocomplete",
-        "children": [
-          {
-            "text": "Исправлен баг с открытием вложенных уровней при использовании свойства `portal`",
-            "link": "https://github.com/salute-developers/plasma/pull/2263",
-            "id": 2263
-          }
-        ]
-      },
-      {
-        "component": "Docs",
-        "children": [
-          {
-            "text": "Исправлено описание для свойства `isNumeric` в типографии",
-            "link": "https://github.com/salute-developers/plasma/pull/2264",
-            "id": 2264
-          }
-        ]
-      },
-      {
-        "component": "Avatar",
-        "children": [
-          {
-            "text": "Добавлен `customBorderRadius` для `fit` размера при `shape = rounded`",
-            "link": "https://github.com/salute-developers/plasma/pull/2262",
-            "id": 2262
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.319.1": {
-    "date": "2025-09-19",
-    "core": [
-      {
-        "component": "Avatar",
-        "children": [
-          {
-            "text": "Исправлен `type` для свойства `shape`"
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.319.0": {
-    "date": "2025-09-18",
-    "core": [
-      {
-        "component": "Drawer",
-        "children": [
-          {
-            "text": "исправлен баг, при котором `unmount` компонента не очищал свойство `overflow` у `body`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2208",
-            "id": 2208
-          },
-          {
-            "text": "добавлена возможность задавать кастомные анимации в компоненте",
-            "link": "https://github.com/salute-developers/plasma/pull/2222",
-            "id": 2222
-          }
-        ]
-      },
-      {
-        "component": "Autocomplete",
-        "children": [
-          {
-            "text": "добавлен дженерик для гибкой настройки `SuggestionItem`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2211",
-            "id": 2211
-          }
-        ]
-      },
-      {
-        "component": "Dropdown",
-        "children": [
-          {
-            "text": "в коллбэк `onHover` добавлен вторым аргументом `item` наведенного элемента;",
-            "link": "https://github.com/salute-developers/plasma/pull/2212",
-            "id": 2212
-          }
-        ]
-      },
-      {
-        "component": "Select, Combobox",
-        "children": [
-          {
-            "text": "добавлено свойство `mode` со значениями `default` и `radio`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2213",
-            "id": 2213
-          }
-        ]
-      },
-      {
-        "component": "Engine",
-        "children": [
-          {
-            "text": "добавлена проверка свойств на nullable значения. Например если значение для свойства типа `view` или `size` будет указано, как `undefined`, то применится значение по-умолчанию, взятое из конфигурации компонента.",
-            "link": "https://github.com/salute-developers/plasma/pull/2202",
-            "id": 2202
-          }
-        ]
-      },
-      {
-        "component": "CodeField",
-        "children": [
-          {
-            "text": "добавлена поддержка чтения OTP из смс\n\nисправлен `controlled` вариант компонента",
-            "link": "https://github.com/salute-developers/plasma/pull/2210",
-            "id": 2210
-          }
-        ]
-      },
-      {
-        "component": "Combobox, Select",
-        "children": [
-          {
-            "text": "переработана логика работы с disabled-элементами. Теперь взаимодействие с ними изнутри компонента невозможно;",
-            "link": "https://github.com/salute-developers/plasma/pull/2220",
-            "id": 2220
-          },
-          {
-            "text": "при закрытии выпадающего списка происходит скролл всех чипов в начало.",
-            "link": "https://github.com/salute-developers/plasma/pull/2231",
-            "id": 2231
-          }
-        ]
-      },
-      {
-        "component": "Combobox, Select, Dropdown",
-        "children": [
-          {
-            "text": "разработан функционал, позволяющий корректно позиционировать вложенные выпадающие списки в контейнерах со скроллом;",
-            "link": "https://github.com/salute-developers/plasma/pull/2205",
-            "id": 2205
-          }
-        ]
-      },
-      {
-        "component": "Range",
-        "children": [
-          {
-            "text": "добавлен размер `xl`",
-            "link": "https://github.com/salute-developers/plasma/pull/2227",
-            "id": 2227
-          }
-        ]
-      },
-      {
-        "component": "DatePicker",
-        "children": [
-          {
-            "text": "удален автофокус инпута при закрытии выпадающего календаря\n\nисправлен вызов `callback` внутри `onBlur`",
-            "link": "https://github.com/salute-developers/plasma/pull/2216",
-            "id": 2216
-          }
-        ]
-      },
-      {
-        "component": "Popover",
-        "children": [
-          {
-            "text": "исправлена генерация `id` портала",
-            "link": "https://github.com/salute-developers/plasma/pull/2216",
-            "id": 2216
-          }
-        ]
-      },
-      {
-        "component": "Pagination",
-        "children": [
-          {
-            "text": "Добавлен пропс `helperText`",
-            "link": "https://github.com/salute-developers/plasma/pull/2163",
-            "id": 2163
-          }
-        ]
-      },
-      {
-        "component": "Switch",
-        "children": [
-          {
-            "text": "Добавлен новый параметр `singleLine`, который влияет на перенос строки текста `label`",
-            "link": "https://github.com/salute-developers/plasma/pull/2224",
-            "id": 2224
-          }
-        ]
-      },
-      {
-        "component": "Tree",
-        "children": [
-          {
-            "text": "добавлен DragAndDrop",
-            "link": "https://github.com/salute-developers/plasma/pull/2214",
-            "id": 2214
-          }
-        ]
-      },
-      {
-        "component": "Attach",
-        "children": [
-          {
-            "text": "добавлен обработчик `onClick`\n\nдобавлена возможность скрывать кнопку после прикрепления файла, с помощью `hideButtonOnAttach`",
-            "link": "https://github.com/salute-developers/plasma/pull/2228",
-            "id": 2228
-          }
-        ]
-      },
-      {
-        "component": "Avatar",
-        "children": [
-          {
-            "text": "Добавлен новый параметр `shape`\n\nОбновлены тесты и документация",
-            "link": "https://github.com/salute-developers/plasma/pull/2209",
-            "id": 2209
-          }
-        ]
-      },
-      {
-        "component": "Skeleton",
-        "children": [
-          {
-            "text": "Добавлено новое значение для `view` - `lighter`",
-            "link": "https://github.com/salute-developers/plasma/pull/2238",
-            "id": 2238
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.318.0": {
-    "date": "2025-09-04",
-    "core": [
-      {
-        "component": "Autocomplete",
-        "children": [
-          {
-            "text": "Добавлен пример очистки поля ввода",
-            "link": "https://github.com/salute-developers/plasma/pull/2165",
-            "id": 2165
-          },
-          {
-            "text": "Добавлено опциональное свойство `flip`, при котором выпадающий список при недостатке места снизу может отобразиться вверху;",
-            "link": "https://github.com/salute-developers/plasma/pull/2199",
-            "id": 2199
-          }
-        ]
-      },
-      {
-        "component": "Popup",
-        "children": [
-          {
-            "text": "добавлено свойство `providerFrame`, которое определяет элемент, в который поместится контейнер Popupов",
-            "link": "https://github.com/salute-developers/plasma/pull/2151",
-            "id": 2151
-          }
-        ]
-      },
-      {
-        "component": "DatePicker",
-        "children": [
-          {
-            "text": "добавлена возможность передавать zIndex в выпадающий календарь",
-            "link": "https://github.com/salute-developers/plasma/pull/2181",
-            "id": 2181
-          },
-          {
-            "text": "размеры приведены в соответствие с макетами",
-            "link": "https://github.com/salute-developers/plasma/pull/2196",
-            "id": 2196
-          }
-        ]
-      },
-      {
-        "component": "Docs",
-        "children": [
-          {
-            "text": "в документацию добавлен поиск на базе `typesense`",
-            "link": "https://github.com/salute-developers/plasma/pull/2173",
-            "id": 2173
-          }
-        ]
-      },
-      {
-        "component": "Autocomplete, Combobox, Select",
-        "children": [
-          {
-            "text": "виртуализация теперь поддерживает работу с элементами с динамической высотой;",
-            "link": "https://github.com/salute-developers/plasma/pull/2183",
-            "id": 2183
-          }
-        ]
-      },
-      {
-        "component": "Carousel",
-        "children": [
-          {
-            "text": "добавлено свойство `defaultIndex`, которое отвечает за показ первого слайда по-умолчанию;",
-            "link": "https://github.com/salute-developers/plasma/pull/2175",
-            "id": 2175
-          }
-        ]
-      },
-      {
-        "component": "Combobox",
-        "children": [
-          {
-            "text": "свойство `renderValue` теперь работает и в одиночном режиме;",
-            "link": "https://github.com/salute-developers/plasma/pull/2172",
-            "id": 2172
-          }
-        ]
-      },
-      {
-        "component": "Tree",
-        "children": [
-          {
-            "text": "добавлено свойство `radioMode`, включающее поведение выбора элемента как у radio-checkbox;",
-            "link": "https://github.com/salute-developers/plasma/pull/2179",
-            "id": 2179
-          }
-        ]
-      },
-      {
-        "component": "Tooltip",
-        "children": [
-          {
-            "text": "добавлены свойства `mouseEnterDelay` и `mouseLeaveDelay` для задержки перед открытием/закрытием подсказки;",
-            "link": "https://github.com/salute-developers/plasma/pull/2186",
-            "id": 2186
-          }
-        ]
-      },
-      {
-        "component": "Tabs",
-        "children": [
-          {
-            "text": "добавлен `actionContent` в `TabItem`\n\nдобавлен `IconTabItem`",
-            "link": "https://github.com/salute-developers/plasma/pull/2177",
-            "id": 2177
-          }
-        ]
-      },
-      {
-        "component": "Chip",
-        "children": [
-          {
-            "text": "Добавлен размер `xxs` в `chip`",
-            "link": "https://github.com/salute-developers/plasma/pull/2194",
-            "id": 2194
-          }
-        ]
-      },
-      {
-        "component": "Attach",
-        "children": [
-          {
-            "text": "переработана документация компонента\n\nдобавлены примеры взаимодействия с формой",
-            "link": "https://github.com/salute-developers/plasma/pull/2167",
-            "id": 2167
-          }
-        ]
-      },
-      {
-        "component": "Drawer",
-        "children": [
-          {
-            "text": "Добавили поддержку css свойства scrollbar-gutter чтобы предотвратить дергания экрана из-за наличие scrollbar",
-            "link": "https://github.com/salute-developers/plasma/pull/2074",
-            "id": 2074
-          }
-        ]
-      },
-      {
-        "component": "Button",
-        "children": [
-          {
-            "text": "Добавлен новый параметр `AdditionalContent`",
-            "link": "https://github.com/salute-developers/plasma/pull/2195",
-            "id": 2195
-          }
-        ]
-      },
-      {
-        "component": "LinkButton",
-        "children": [
-          {
-            "text": "Добавлен новый параметр `AdditionalContent`",
-            "link": "https://github.com/salute-developers/plasma/pull/2195",
-            "id": 2195
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.317.0": {
-    "date": "2025-08-21",
-    "core": [
-      {
-        "component": "DatePicker",
-        "children": [
-          {
-            "text": "добавлено свойство `preserveInvalidOnBlur`, которое отключает сброс некорректных значений из поля ввода",
-            "link": "https://github.com/salute-developers/plasma/pull/2134",
-            "id": 2134
-          },
-          {
-            "text": "исправлен `controlled` вариант `DatePicker`",
-            "link": "https://github.com/salute-developers/plasma/pull/2148",
-            "id": 2148
-          }
-        ]
-      },
-      {
-        "component": "NumberFormat",
-        "children": [
-          {
-            "text": "добавлена поддержка `defaultValue`",
-            "link": "https://github.com/salute-developers/plasma/pull/2138",
-            "id": 2138
-          },
-          {
-            "text": "добавлена функция `numberFormatter`, которая приводит число к нужному формату",
-            "link": "https://github.com/salute-developers/plasma/pull/2137",
-            "id": 2137
-          }
-        ]
-      },
-      {
-        "component": "Pagination",
-        "children": [
-          {
-            "text": "исправлен `controlled` вариант",
-            "link": "https://github.com/salute-developers/plasma/pull/2141",
-            "id": 2141
-          },
-          {
-            "text": "отключено взаимодействие с текущей выбранной страницей;",
-            "link": "https://github.com/salute-developers/plasma/pull/2160",
-            "id": 2160
-          }
-        ]
-      },
-      {
-        "component": "NumberInput",
-        "children": [
-          {
-            "text": "расширен тип `value` до `number | string | undefined` для поддержки пустых значений",
-            "link": "https://github.com/salute-developers/plasma/pull/2135",
-            "id": 2135
-          }
-        ]
-      },
-      {
-        "component": "InformationWrapper",
-        "children": [
-          {
-            "text": "добавлен компонент-обертка для элементов формы",
-            "link": "https://github.com/salute-developers/plasma/pull/2065",
-            "id": 2065
-          }
-        ]
-      },
-      {
-        "component": "Dropdown, Combobox",
-        "children": [
-          {
-            "text": "исправлен баг в свойстве `alwaysOpened`, из-за которого приходилось делать двойные нажатия для открытия дочерних списков;",
-            "link": "https://github.com/salute-developers/plasma/pull/2152",
-            "id": 2152
-          }
-        ]
-      },
-      {
-        "component": "Modal, Popup",
-        "children": [
-          {
-            "text": "исправлен раздел документации связанный со свойством resizable",
-            "link": "https://github.com/salute-developers/plasma/pull/2158",
-            "id": 2158
-          }
-        ]
-      },
-      {
-        "component": "Switch",
-        "children": [
-          {
-            "text": "тип свойства `label` расширен до `ReactNode`",
-            "link": "https://github.com/salute-developers/plasma/pull/2157",
-            "id": 2157
-          }
-        ]
-      },
-      {
-        "component": "TextField",
-        "children": [
-          {
-            "text": "свойства, связанные с `chip` помечены как deprecated;",
-            "link": "https://github.com/salute-developers/plasma/pull/2133",
-            "id": 2133
-          }
-        ]
-      },
-      {
-        "component": "Spinner",
-        "children": [
-          {
-            "text": "свойство size теперь union type и может быть как string, так и number",
-            "link": "https://github.com/salute-developers/plasma/pull/2156",
-            "id": 2156
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.315.0": {
-    "date": "2025-08-07",
-    "core": [
-      {
-        "component": "EmbedIconButton",
-        "children": [
-          {
-            "text": "добавлен новый компонент",
-            "link": "https://github.com/salute-developers/plasma/pull/2093",
-            "id": 2093
-          }
-        ]
-      },
-      {
-        "component": "Combobox",
-        "children": [
-          {
-            "text": "исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;",
-            "link": "https://github.com/salute-developers/plasma/pull/2101",
-            "id": 2101
-          }
-        ]
-      },
-      {
-        "component": "Segment",
-        "children": [
-          {
-            "text": "добавлена логика задания максимальной ширины `SegmentItem` и обрезанию текста троеточием",
-            "link": "https://github.com/salute-developers/plasma/pull/2110",
-            "id": 2110
-          }
-        ]
-      },
-      {
-        "component": "Autocomplete",
-        "children": [
-          {
-            "text": "добавлено свойство `zIndex`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2114",
-            "id": 2114
-          }
-        ]
-      },
-      {
-        "component": "Tree",
-        "children": [
-          {
-            "text": "добавлено свойство `autoExpandParent`, которое отвечает за автоматическое раскрытие всех родителей у элемента;",
-            "link": "https://github.com/salute-developers/plasma/pull/2115",
-            "id": 2115
-          }
-        ]
-      },
-      {
-        "component": "Table",
-        "children": [
-          {
-            "text": "стало возможным добавлять сложные типы данных (объекты, массивы, функции) во входных данных `data`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2111",
-            "id": 2111
-          }
-        ]
-      },
-      {
-        "component": "Chip",
-        "children": [
-          {
-            "text": "добавлены токены отступов для `contentRight`",
-            "link": "https://github.com/salute-developers/plasma/pull/2112",
-            "id": 2112
-          }
-        ]
-      },
-      {
-        "component": "Skeleton",
-        "children": [
-          {
-            "text": "исправлена типизация пропсов внутри `withSkeleton`",
-            "link": "https://github.com/salute-developers/plasma/pull/2116",
-            "id": 2116
-          }
-        ]
-      },
-      {
-        "component": "Notification",
-        "children": [
-          {
-            "text": "Добавлена возможность указать пользовательскую иконку закрытия компонента",
-            "link": "https://github.com/salute-developers/plasma/pull/2126",
-            "id": 2126
-          }
-        ]
-      },
-      {
-        "component": "Attach",
-        "children": [
-          {
-            "text": "Добавлен новый параметр `customIcon`\n\nРасширены типы файлов с вшитыми иконками `docx` , `xlsx`",
-            "link": "https://github.com/salute-developers/plasma/pull/2123",
-            "id": 2123
-          }
-        ]
-      },
-      {
-        "component": "Tokens",
-        "children": [
-          {
-            "text": "Добавлена новая палитра `warmGray` с \"тёплыми\" оттенками серого",
-            "link": "https://github.com/salute-developers/plasma/pull/2127",
-            "id": 2127
-          }
-        ]
-      },
-      {
-        "component": "Accordion",
-        "children": [
-          {
-            "text": "Исправлены отступы в соответсвии с макетами",
-            "link": "https://github.com/salute-developers/plasma/pull/2122",
-            "id": 2122
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.314.2": {
-    "date": "2025-07-30",
-    "core": [
-      {
-        "component": "TextArea",
-        "children": [
-          {
-            "text": "Сделали свойство `labelAriaHidden` опциональным"
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.314.1": {
-    "date": "2025-07-28",
-    "core": [
-      {
-        "component": "Combobox",
-        "children": [
-          {
-            "text": "исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;"
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.314.0": {
-    "date": "2025-07-24",
-    "core": [
-      {
-        "component": "Button",
-        "children": [
-          {
-            "text": "Удалены неактуальные размеры: `xlr, lr, mr, sr, xsr`",
-            "link": "https://github.com/salute-developers/plasma/pull/2079",
-            "id": 2079
-          }
-        ]
-      },
-      {
-        "component": "Dropdown",
-        "children": [
-          {
-            "text": "Добавлен отступ между выпадающим списком и таргетом;",
-            "link": "https://github.com/salute-developers/plasma/pull/2085",
-            "id": 2085
-          }
-        ]
-      },
-      {
-        "component": "Icons",
-        "children": [
-          {
-            "text": "Удален лишний атрибут style со значением `mix-blend-mode` в иконках: `DislikeFill`, `LikeFill`",
-            "link": "https://github.com/salute-developers/plasma/pull/2090",
-            "id": 2090
-          }
-        ]
-      },
-      {
-        "component": "Chip",
-        "children": [
-          {
-            "text": "Исправлен цвет токена для иконки закрытия",
-            "link": "https://github.com/salute-developers/plasma/pull/2082",
-            "id": 2082
-          },
-          {
-            "text": "Убраны `scale` при `hover` и `active`",
-            "link": "https://github.com/salute-developers/plasma/pull/2089",
-            "id": 2089
-          }
-        ]
-      },
-      {
-        "component": "Heading",
-        "children": [
-          {
-            "text": "Добавлена поддержка a11y для aria role heading",
-            "link": "https://github.com/salute-developers/plasma/pull/2097",
-            "id": 2097
-          }
-        ]
-      },
-      {
-        "component": "Textarea",
-        "children": [
-          {
-            "text": "Добавлено новое свойство `labelAriaHidden` для управления `aria-hidden`",
-            "link": "https://github.com/salute-developers/plasma/pull/2097",
-            "id": 2097
-          }
-        ]
-      },
-      {
-        "component": "Note",
-        "children": [
-          {
-            "text": "Добавлена документация для свойства `hasClose`\n\nИсправлен баг связанный со свойством `text`\n\nДобавлена возможность многострочного текста",
-            "link": "https://github.com/salute-developers/plasma/pull/2098",
-            "id": 2098
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.312.0": {
-    "date": "2025-07-10",
-    "core": [
-      {
-        "component": "Tour",
-        "children": [
-          {
-            "text": "Добавлен в поставку новый компонент",
-            "link": "https://github.com/salute-developers/plasma/pull/2010",
-            "id": 2010
-          }
-        ]
-      },
-      {
-        "component": "DatePicker",
-        "children": [
-          {
-            "text": "Добавлена проверка при обновлении `value/defaultValue`, чтобы избежать коллизии при `mount/unmount`",
-            "link": "https://github.com/salute-developers/plasma/pull/2058",
-            "id": 2058
-          }
-        ]
-      },
-      {
-        "component": "useUniqId",
-        "children": [
-          {
-            "text": "Помечен как deprecated по причине устаревания и не актуальности. Рекомендуем использовать метод `safeUseId`",
-            "link": "https://github.com/salute-developers/plasma/pull/2053",
-            "id": 2053
-          }
-        ]
-      },
-      {
-        "component": "NumberFormat",
-        "children": [
-          {
-            "text": "Улучшен механизм копирование и вставки числа",
-            "link": "https://github.com/salute-developers/plasma/pull/2050",
-            "id": 2050
-          }
-        ]
-      },
-      {
-        "component": "Chip",
-        "children": [
-          {
-            "text": "изменен размер иконки `Close` для размера `XS`, стало `12x12`",
-            "link": "https://github.com/salute-developers/plasma/pull/2070",
-            "id": 2070
-          }
-        ]
-      },
-      {
-        "component": "Icons",
-        "children": [
-          {
-            "text": "добавлен `rest props` для IconRoot. Теперь есть возможность прокинуть `data-attrs` и другие атрибуты тега",
-            "link": "https://github.com/salute-developers/plasma/pull/2066",
-            "id": 2066
-          }
-        ]
-      },
-      {
-        "component": "Combobox",
-        "children": [
-          {
-            "text": "Добавлен токен для галочки и иконки в режиме `single`",
-            "link": "https://github.com/salute-developers/plasma/pull/2049",
-            "id": 2049
-          }
-        ]
-      },
-      {
-        "component": "Select",
-        "children": [
-          {
-            "text": "Добавлен токен для галочки и иконки в режиме `single`",
-            "link": "https://github.com/salute-developers/plasma/pull/2049",
-            "id": 2049
-          }
-        ]
-      },
-      {
-        "component": "TextArea",
-        "children": [
-          {
-            "text": "добавлено свойство `headerSlot`",
-            "link": "https://github.com/salute-developers/plasma/pull/2075",
-            "id": 2075
-          }
-        ]
-      }
-    ],
-    "lib": [
-      {
-        "component": "Docs",
-        "children": [
-          {
-            "text": "Исправлен UI документации, добавлено условие для переопределения token фона",
-            "link": "https://github.com/salute-developers/plasma/pull/2064",
-            "id": 2064
-          }
-        ]
-      }
-    ]
-  },
-  "0.310.1": {
-    "date": "2025-06-30",
-    "core": [
-      {
-        "component": "Radiobox",
-        "children": [
-          {
-            "text": "Исправлен `tsconfig` для корректной сборки `types`. (Hotfix)",
-            "link": "https://github.com/salute-developers/plasma/pull/2054",
-            "id": 2054
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.310.0": {
-    "date": "2025-06-26",
-    "core": [
-      {
-        "component": "Tree",
-        "children": [
-          {
-            "text": "исправлен баг, из-за которого в некоторых случаях не отображался цвет выделенного элемента;",
-            "link": "https://github.com/salute-developers/plasma/pull/2038",
-            "id": 2038
-          }
-        ]
-      },
-      {
-        "component": "Combobox",
-        "children": [
-          {
-            "text": "исправлен баг, из-за которого label в target не обновлялся при обновлении списка `items`;",
-            "link": "https://github.com/salute-developers/plasma/pull/2043",
-            "id": 2043
-          }
-        ]
-      },
-      {
-        "component": "Calendar",
-        "children": [
-          {
-            "text": "исправлен функционал по формированию ref на элементы календарной сетки\n\nДобавлена возможность динамически менять `type`",
-            "link": "https://github.com/salute-developers/plasma/pull/2024",
-            "id": 2024
-          }
-        ]
-      },
-      {
-        "component": "Popup, Modal, Drawer",
-        "children": [
-          {
-            "text": "массив элементов контекста Popup заменен на Map\n\nИсправлен импорт safeUseId",
-            "link": "https://github.com/salute-developers/plasma/pull/2022",
-            "id": 2022
-          }
-        ]
-      },
-      {
-        "component": "Carousel",
-        "children": [
-          {
-            "text": "появилась возможно настраивать отступ между слайдами через пропс `gap`",
-            "link": "https://github.com/salute-developers/plasma/pull/2018",
-            "id": 2018
-          }
-        ]
-      },
-      {
-        "component": "CodeInput",
-        "children": [
-          {
-            "text": "добавлен новый компонент",
-            "link": "https://github.com/salute-developers/plasma/pull/1973",
-            "id": 1973
-          }
-        ]
-      }
-    ],
-    "lib": []
-  },
-  "0.309.0": {
-    "date": "2025-06-11",
-    "core": [
-      {
-        "component": "Select, Combobox",
-        "children": [
-          {
-            "text": "добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;",
-            "link": "https://github.com/salute-developers/plasma/pull/1986",
-            "id": 1986
-          }
-        ]
-      },
-      {
-        "component": "Popover",
-        "children": [
-          {
-            "text": "добавлена обработка случая, когда frame передан как ID",
-            "link": "https://github.com/salute-developers/plasma/pull/2001",
-            "id": 2001
-          }
-        ]
-      },
-      {
-        "component": "Sheet",
-        "children": [
-          {
-            "text": "добавлена проверка `canUseDOM` перед использованием document",
-            "link": "https://github.com/salute-developers/plasma/pull/2014",
-            "id": 2014
-          }
-        ]
-      },
-      {
-        "component": "DatePicker",
-        "children": [
-          {
-            "text": "добавлено свойство `closeAfterDateSelect` в одиночный DatePicker",
-            "link": "https://github.com/salute-developers/plasma/pull/2012",
-            "id": 2012
-          }
-        ]
-      },
-      {
-        "component": "Notification",
-        "children": [
-          {
-            "text": "добавлен `type-cast` для корректной типизации",
-            "link": "https://github.com/salute-developers/plasma/pull/2015",
-            "id": 2015
-          }
-        ]
-      },
-      {
-        "component": "Carousel",
-        "children": [
-          {
-            "text": "добавлена элементы управления: пагинация, стрелочки",
-            "link": "https://github.com/salute-developers/plasma/pull/2013",
-            "id": 2013
-          }
-        ]
-      }
-    ],
-    "lib": []
-  }
+    "0.329.0": {
+        "date": "2026-01-28",
+        "core": [
+            {
+                "component": "DatePicker",
+                "children": [
+                    {
+                        "text": "исправлена ошибка типизации аргументов для `onCommitDate`"
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.328.0": {
+        "date": "2026-01-21",
+        "core": [
+            {
+                "component": "LinkButton",
+                "children": [
+                    {
+                        "text": "`hover` не применяется, когда `LinkButton` в состоянии `disabled`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2416",
+                        "id": 2416
+                    }
+                ]
+            },
+            {
+                "component": "H6",
+                "children": [
+                    {
+                        "text": "Добавлен типографический токен",
+                        "link": "https://github.com/salute-developers/plasma/pull/2422",
+                        "id": 2422
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "исправлен баг, при котором коллбэк `onChangeValue` вызывался когда значение поля ввода не изменялось;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2408",
+                        "id": 2408
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker",
+                "children": [
+                    {
+                        "text": "добавлен `appearance=clear`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2417",
+                        "id": 2417
+                    },
+                    {
+                        "text": "добавлен новый инстанс вызова onDateCommit с двумя аргументами\n\nинстанс с 6ю аргументами помечен как `deprecated`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2426",
+                        "id": 2426
+                    }
+                ]
+            },
+            {
+                "component": "Timepicker",
+                "children": [
+                    {
+                        "text": "Исправлено поведение с фокусом",
+                        "link": "https://github.com/salute-developers/plasma/pull/2391",
+                        "id": 2391
+                    }
+                ]
+            },
+            {
+                "component": "TextArea",
+                "children": [
+                    {
+                        "text": "добавлен `appearance=clear`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2423",
+                        "id": 2423
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.327.0": {
+        "date": "2025-12-24",
+        "core": [
+            {
+                "component": "Select",
+                "children": [
+                    {
+                        "text": "токены для внутреннего `Chip` приведены в соответствие с макетами;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2388",
+                        "id": 2388
+                    }
+                ]
+            },
+            {
+                "component": "Table",
+                "children": [
+                    {
+                        "text": "добавлены свойства `topContent` и `bottomContent`, служащие в качестве ячеек для content в начале и конце таблицы\n\nдобавлено свойство `loadingSlot` для иконки загрузки;\n\nдобавлены пример с компонентом Paginations и бесконечным скроллом в документацию;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2390",
+                        "id": 2390
+                    }
+                ]
+            },
+            {
+                "component": "LinkButton",
+                "children": [
+                    {
+                        "text": "удалены лишние отступы для `left/rightContent` при отсутствии другого контента",
+                        "link": "https://github.com/salute-developers/plasma/pull/2398",
+                        "id": 2398
+                    }
+                ]
+            },
+            {
+                "component": "Tabs",
+                "children": [
+                    {
+                        "text": "добавлена компенсация для субпиксельных вычислений при изменении масштаба viewport",
+                        "link": "https://github.com/salute-developers/plasma/pull/2399",
+                        "id": 2399
+                    }
+                ]
+            },
+            {
+                "component": "TimePicker",
+                "children": [
+                    {
+                        "text": "добавлены тени для контейнера выпадающего `TimePickerGrid`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2401",
+                        "id": 2401
+                    }
+                ]
+            },
+            {
+                "component": "Button",
+                "children": [
+                    {
+                        "text": "выключен `:hover` на мобильных устройствах во избежания \"залипания\" состояния",
+                        "link": "https://github.com/salute-developers/plasma/pull/2396",
+                        "id": 2396
+                    }
+                ]
+            },
+            {
+                "component": "Range",
+                "children": [
+                    {
+                        "text": "добавлен `appearance=\"clear\"`\n\nпереиспользован `InformationWrapper` для унификации отображения лейбла, подсказок и индикатора обязательности",
+                        "link": "https://github.com/salute-developers/plasma/pull/2397",
+                        "id": 2397
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.326.0": {
+        "date": "2025-12-10",
+        "core": [
+            {
+                "component": "Select",
+                "children": [
+                    {
+                        "text": "добавлен кастомный пример с функцией поиска и подсветки найденных элементов;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2361",
+                        "id": 2361
+                    }
+                ]
+            },
+            {
+                "component": "Tree",
+                "children": [
+                    {
+                        "text": "исправлена позиция полоски в режиме drag and drop при multiline;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2356",
+                        "id": 2356
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "добавлено новое свойство `filterValue` для фильтрации вводимых значений;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2355",
+                        "id": 2355
+                    },
+                    {
+                        "text": "исправлен `cursor: pointer` у стрелочки раскрытия в режиме `readOnly`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2357",
+                        "id": 2357
+                    }
+                ]
+            },
+            {
+                "component": "TextField",
+                "children": [
+                    {
+                        "text": "вариант `clear` вынесен в отдельную конфигурацию и регулируется свойством `appearance`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2358",
+                        "id": 2358
+                    }
+                ]
+            },
+            {
+                "component": "Timepicker",
+                "children": [
+                    {
+                        "text": "Исправлено поведение `dropdownAlign`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2369",
+                        "id": 2369
+                    }
+                ]
+            },
+            {
+                "component": "Pagination",
+                "children": [
+                    {
+                        "text": "исправлено позиционирование `perPage` при отсутствии `helperText` и `quickJump`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2365",
+                        "id": 2365
+                    }
+                ]
+            },
+            {
+                "component": "Icons",
+                "children": [
+                    {
+                        "text": "добавлена альтернативная иконка для ресайза - `ResizeCorneredFill`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2371",
+                        "id": 2371
+                    }
+                ]
+            },
+            {
+                "component": "Calendar",
+                "children": [
+                    {
+                        "text": "актуализирована размерная сетка",
+                        "link": "https://github.com/salute-developers/plasma/pull/2362",
+                        "id": 2362
+                    }
+                ]
+            },
+            {
+                "component": "TextArea",
+                "children": [
+                    {
+                        "text": "исправлен скролл текста для TextArea",
+                        "link": "https://github.com/salute-developers/plasma/pull/2381",
+                        "id": 2381
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.325.0": {
+        "date": "2025-11-26",
+        "core": [
+            {
+                "component": "Infra",
+                "children": [
+                    {
+                        "text": "обновлена `node` до версии 24.11.0 (LTS);\n\nобновлен `npm` до версии 11.6.1;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2326",
+                        "id": 2326
+                    }
+                ]
+            },
+            {
+                "component": "TextField",
+                "children": [
+                    {
+                        "text": "добавлен механизм сокращение через троеточие для `placeholder`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2329",
+                        "id": 2329
+                    }
+                ]
+            },
+            {
+                "component": "TextField, Range, DatePicker, DateTimePicker",
+                "children": [
+                    {
+                        "text": "исправлены hover/active состояния для leftContent, rightContent",
+                        "link": "https://github.com/salute-developers/plasma/pull/2336",
+                        "id": 2336
+                    }
+                ]
+            },
+            {
+                "component": "LinkButton",
+                "children": [
+                    {
+                        "text": "Добавлено производное состояние `active`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2331",
+                        "id": 2331
+                    }
+                ]
+            },
+            {
+                "component": "Mask",
+                "children": [
+                    {
+                        "text": "исправлена транзитивная ошибка в режиме `strict mode` (терялось значение маски при повторном рендере)",
+                        "link": "https://github.com/salute-developers/plasma/pull/2332",
+                        "id": 2332
+                    }
+                ]
+            },
+            {
+                "component": "Sheet",
+                "children": [
+                    {
+                        "text": "Добавлен новый пропс \"hasScrollEvents\"",
+                        "link": "https://github.com/salute-developers/plasma/pull/2342",
+                        "id": 2342
+                    }
+                ]
+            },
+            {
+                "component": "Loader",
+                "children": [
+                    {
+                        "text": "Добавлен новый компонент",
+                        "link": "https://github.com/salute-developers/plasma/pull/2299",
+                        "id": 2299
+                    }
+                ]
+            },
+            {
+                "component": "TimePicker",
+                "children": [
+                    {
+                        "text": "Исправлено ошибка использовании свойства `usePortal`  в  компонентах группы `Overlay`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2352",
+                        "id": 2352
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.323.0": {
+        "date": "2025-11-12",
+        "core": [
+            {
+                "component": "Mask",
+                "children": [
+                    {
+                        "text": "добавлено свойство `onKeyDown`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2319",
+                        "id": 2319
+                    }
+                ]
+            },
+            {
+                "component": "Tabs",
+                "children": [
+                    {
+                        "text": "исправлен `font-weight` для `TabItem`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2317",
+                        "id": 2317
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker",
+                "children": [
+                    {
+                        "text": "удален вызов лишнего onDateCommit в DatePickerRange",
+                        "link": "https://github.com/salute-developers/plasma/pull/2321",
+                        "id": 2321
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "добавлено новое свойство `treeView`, отвечающее за отображение дерева в выпадающем списке;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2314",
+                        "id": 2314
+                    }
+                ]
+            },
+            {
+                "component": "Tree",
+                "children": [
+                    {
+                        "text": "исправлен баг, который возникал при использовании кастомных полей в `treeData`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2324",
+                        "id": 2324
+                    }
+                ]
+            },
+            {
+                "component": "DateTimePicker",
+                "children": [
+                    {
+                        "text": "добавлен новый компонент",
+                        "link": "https://github.com/salute-developers/plasma/pull/2316",
+                        "id": 2316
+                    }
+                ]
+            },
+            {
+                "component": "Combobox, Select",
+                "children": [
+                    {
+                        "text": "исправлен баг в коллбэке `onChange`, при котором при работе с чипами в некоторых случаях не приходил второй параметр `Item`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2325",
+                        "id": 2325
+                    }
+                ]
+            },
+            {
+                "component": "Scrollbar",
+                "children": [
+                    {
+                        "text": "Добавлен новый mixin для кастомизации системного scroll",
+                        "link": "https://github.com/salute-developers/plasma/pull/2254",
+                        "id": 2254
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker, Range",
+                "children": [
+                    {
+                        "text": "добавлены цветовые токена для `contentLeft`, `contentRight`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2322",
+                        "id": 2322
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.322.0": {
+        "date": "2025-10-29",
+        "core": [
+            {
+                "component": "Select",
+                "children": [
+                    {
+                        "text": "Добавлено новое свойство `treeView`, отвечающее за отображение дерева в выпадающем списке;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2286",
+                        "id": 2286
+                    }
+                ]
+            },
+            {
+                "component": "TextField, TextArea, Mask, NumberFormat",
+                "children": [
+                    {
+                        "text": "Добавлена возможность указать текст для индикатора опциональности",
+                        "link": "https://github.com/salute-developers/plasma/pull/2290",
+                        "id": 2290
+                    }
+                ]
+            },
+            {
+                "component": "Calendar, DatePicker",
+                "children": [
+                    {
+                        "text": "Добавлена возможность вызвать всплывающую подсказку для событий в календаре",
+                        "link": "https://github.com/salute-developers/plasma/pull/2289",
+                        "id": 2289
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "Исправлен баг в single-режиме, при котором в некоторых случаях значение поля ввода не обновлялось после изменения `items`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2298",
+                        "id": 2298
+                    },
+                    {
+                        "text": "Тип свойства `emptyStateDescription` расширен до `ReactNode`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2293",
+                        "id": 2293
+                    }
+                ]
+            },
+            {
+                "component": "Typography",
+                "children": [
+                    {
+                        "text": "Обнулили значения по-умолчанию (браузерные) для свойств `padding/margin/border`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2302",
+                        "id": 2302
+                    }
+                ]
+            },
+            {
+                "component": "Attach",
+                "children": [
+                    {
+                        "text": "Добавлена возможность прикреплять несколько файлов\n\nИсправлена типизация для `callback onChange`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2288",
+                        "id": 2288
+                    }
+                ]
+            },
+            {
+                "component": "Tabs",
+                "children": [
+                    {
+                        "text": "Убраны внешние отступы у контейнера `Tabs`\n\nОтступы внутри `TabItem` приведены в соответствие с макетами\n\nСкорректировано отображение фокусной рамки",
+                        "link": "https://github.com/salute-developers/plasma/pull/2297",
+                        "id": 2297
+                    }
+                ]
+            },
+            {
+                "component": "LinkButton",
+                "children": [
+                    {
+                        "text": "Добавлено состояние `hover` для текста",
+                        "link": "https://github.com/salute-developers/plasma/pull/2304",
+                        "id": 2304
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.321.0": {
+        "date": "2025-10-15",
+        "core": [
+            {
+                "component": "Combobox, Select",
+                "children": [
+                    {
+                        "text": "Исправлена некорректная работа компонента при асинхронной загрузке опций в режиме `multiple`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2268",
+                        "id": 2268
+                    }
+                ]
+            },
+            {
+                "component": "Chip, TextField, Select, Combobox",
+                "children": [
+                    {
+                        "text": "Добавлено состояние `hover` для крестика в `Chip`\n\nДобавлено свойство `chipClickArea`, которое определяет область нажатия",
+                        "link": "https://github.com/salute-developers/plasma/pull/2237",
+                        "id": 2237
+                    }
+                ]
+            },
+            {
+                "component": "Tree",
+                "children": [
+                    {
+                        "text": "Исправлено некорректной поведение компонента при использование ключа `type` в объектах `treeData`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2267",
+                        "id": 2267
+                    }
+                ]
+            },
+            {
+                "component": "Modal",
+                "children": [
+                    {
+                        "text": "Исправлено переопределение overlay при использование свойства `hasBody`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2276",
+                        "id": 2276
+                    }
+                ]
+            },
+            {
+                "component": "Popup, Drawer",
+                "children": [
+                    {
+                        "text": "Добавлено новое свойство `positionFixed`, которое вне зависимости от `frame` устанавливает `position: fixed`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2277",
+                        "id": 2277
+                    }
+                ]
+            },
+            {
+                "component": "Slider",
+                "children": [
+                    {
+                        "text": "Исправлена транзитивная ошибка `_reactDom.default.findDOMNode is not a function` в библиотеки `react-draggable` при использование в связке с `React 19`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2282",
+                        "id": 2282
+                    }
+                ]
+            },
+            {
+                "component": "Table",
+                "children": [
+                    {
+                        "text": "Добавлены новые свойства `setCellProps` и `setRowProps` для настройки атрибутов в `cell` и `row` соответственно\n\nОбновлена документацию: новые примеры, улучшили структуру",
+                        "link": "https://github.com/salute-developers/plasma/pull/2271",
+                        "id": 2271
+                    }
+                ]
+            },
+            {
+                "component": "Popover",
+                "children": [
+                    {
+                        "text": "Добавлен механизм resizable\n\nДобавлены новые `callback` для событий `onResizeStart`, `onResizeStop`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2281",
+                        "id": 2281
+                    }
+                ]
+            },
+            {
+                "component": "Icons",
+                "children": [
+                    {
+                        "text": "Добавлены новые иконки:  `DocumentAddOutline/Fill, FilterFunnelOffOutline/Fill, TargetOutline, OpenPanelFill, ClosePanelFill`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2284",
+                        "id": 2284
+                    }
+                ]
+            },
+            {
+                "component": "ProgressBarCircular",
+                "children": [
+                    {
+                        "text": "Добавлен новый компонент",
+                        "link": "https://github.com/salute-developers/plasma/pull/2280",
+                        "id": 2280
+                    }
+                ]
+            }
+        ],
+        "lib": [
+            {
+                "component": "Popover, Modal",
+                "children": [
+                    {
+                        "text": "Добавлен новый раздел описывающий работу свойства `isFocusTrapped`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2273",
+                        "id": 2273
+                    }
+                ]
+            }
+        ]
+    },
+    "0.320.0": {
+        "date": "2025-10-01",
+        "core": [
+            {
+                "component": "Autocomplete, Combobox, Datepicker, Select, TextArea, TextField",
+                "children": [
+                    {
+                        "text": "изменен token для value на `--text-primary`\n\nизменен opacity для separator на `0.4`\n\nизменен opacity для `rightContent` на `0.4`",
+                        "link": "https://github.com/salute-developers/plasma/pull/1906",
+                        "id": 1906
+                    }
+                ]
+            },
+            {
+                "component": "Modal",
+                "children": [
+                    {
+                        "text": "добавлена возможность отключать `focusTrap`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2244",
+                        "id": 2244
+                    }
+                ]
+            },
+            {
+                "component": "Tooltip",
+                "children": [
+                    {
+                        "text": "удален лишний `pointer-events` блокирующий click на содержимом компонента",
+                        "link": "https://github.com/salute-developers/plasma/pull/2249",
+                        "id": 2249
+                    }
+                ]
+            },
+            {
+                "component": "Note",
+                "children": [
+                    {
+                        "text": "исправлена ошибка с некорректным переносом по буквам - правильно по словам\n\nрасширен `type` до ReactNode для свойств `title, text`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2247",
+                        "id": 2247
+                    }
+                ]
+            },
+            {
+                "component": "TimePicker",
+                "children": [
+                    {
+                        "text": "Добавлен новый компонент",
+                        "link": "https://github.com/salute-developers/plasma/pull/2184",
+                        "id": 2184
+                    }
+                ]
+            },
+            {
+                "component": "Pagination",
+                "children": [
+                    {
+                        "text": "Убрано ограничение на минимальное количество слотов для элементов",
+                        "link": "https://github.com/salute-developers/plasma/pull/2258",
+                        "id": 2258
+                    }
+                ]
+            },
+            {
+                "component": "Dropdown",
+                "children": [
+                    {
+                        "text": "добавлена возможность указывать beforeList во вложенные списки",
+                        "link": "https://github.com/salute-developers/plasma/pull/2250",
+                        "id": 2250
+                    }
+                ]
+            },
+            {
+                "component": "Tree",
+                "children": [
+                    {
+                        "text": "добавлено свойство `singleLine`, отвечающее за перенес заголовка\n\nисправлено поведение сокращения текста при нехватке места",
+                        "link": "https://github.com/salute-developers/plasma/pull/2253",
+                        "id": 2253
+                    }
+                ]
+            },
+            {
+                "component": "TextField, Select, Combobox, Dropdown, Autocomplete",
+                "children": [
+                    {
+                        "text": "Исправлен баг с открытием вложенных уровней при использовании свойства `portal`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2263",
+                        "id": 2263
+                    }
+                ]
+            },
+            {
+                "component": "Docs",
+                "children": [
+                    {
+                        "text": "Исправлено описание для свойства `isNumeric` в типографии",
+                        "link": "https://github.com/salute-developers/plasma/pull/2264",
+                        "id": 2264
+                    }
+                ]
+            },
+            {
+                "component": "Avatar",
+                "children": [
+                    {
+                        "text": "Добавлен `customBorderRadius` для `fit` размера при `shape = rounded`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2262",
+                        "id": 2262
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.319.1": {
+        "date": "2025-09-19",
+        "core": [
+            {
+                "component": "Avatar",
+                "children": [
+                    {
+                        "text": "Исправлен `type` для свойства `shape`"
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.319.0": {
+        "date": "2025-09-18",
+        "core": [
+            {
+                "component": "Drawer",
+                "children": [
+                    {
+                        "text": "исправлен баг, при котором `unmount` компонента не очищал свойство `overflow` у `body`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2208",
+                        "id": 2208
+                    },
+                    {
+                        "text": "добавлена возможность задавать кастомные анимации в компоненте",
+                        "link": "https://github.com/salute-developers/plasma/pull/2222",
+                        "id": 2222
+                    }
+                ]
+            },
+            {
+                "component": "Autocomplete",
+                "children": [
+                    {
+                        "text": "добавлен дженерик для гибкой настройки `SuggestionItem`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2211",
+                        "id": 2211
+                    }
+                ]
+            },
+            {
+                "component": "Dropdown",
+                "children": [
+                    {
+                        "text": "в коллбэк `onHover` добавлен вторым аргументом `item` наведенного элемента;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2212",
+                        "id": 2212
+                    }
+                ]
+            },
+            {
+                "component": "Select, Combobox",
+                "children": [
+                    {
+                        "text": "добавлено свойство `mode` со значениями `default` и `radio`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2213",
+                        "id": 2213
+                    }
+                ]
+            },
+            {
+                "component": "Engine",
+                "children": [
+                    {
+                        "text": "добавлена проверка свойств на nullable значения. Например если значение для свойства типа `view` или `size` будет указано, как `undefined`, то применится значение по-умолчанию, взятое из конфигурации компонента.",
+                        "link": "https://github.com/salute-developers/plasma/pull/2202",
+                        "id": 2202
+                    }
+                ]
+            },
+            {
+                "component": "CodeField",
+                "children": [
+                    {
+                        "text": "добавлена поддержка чтения OTP из смс\n\nисправлен `controlled` вариант компонента",
+                        "link": "https://github.com/salute-developers/plasma/pull/2210",
+                        "id": 2210
+                    }
+                ]
+            },
+            {
+                "component": "Combobox, Select",
+                "children": [
+                    {
+                        "text": "переработана логика работы с disabled-элементами. Теперь взаимодействие с ними изнутри компонента невозможно;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2220",
+                        "id": 2220
+                    },
+                    {
+                        "text": "при закрытии выпадающего списка происходит скролл всех чипов в начало.",
+                        "link": "https://github.com/salute-developers/plasma/pull/2231",
+                        "id": 2231
+                    }
+                ]
+            },
+            {
+                "component": "Combobox, Select, Dropdown",
+                "children": [
+                    {
+                        "text": "разработан функционал, позволяющий корректно позиционировать вложенные выпадающие списки в контейнерах со скроллом;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2205",
+                        "id": 2205
+                    }
+                ]
+            },
+            {
+                "component": "Range",
+                "children": [
+                    {
+                        "text": "добавлен размер `xl`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2227",
+                        "id": 2227
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker",
+                "children": [
+                    {
+                        "text": "удален автофокус инпута при закрытии выпадающего календаря\n\nисправлен вызов `callback` внутри `onBlur`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2216",
+                        "id": 2216
+                    }
+                ]
+            },
+            {
+                "component": "Popover",
+                "children": [
+                    {
+                        "text": "исправлена генерация `id` портала",
+                        "link": "https://github.com/salute-developers/plasma/pull/2216",
+                        "id": 2216
+                    }
+                ]
+            },
+            {
+                "component": "Pagination",
+                "children": [
+                    {
+                        "text": "Добавлен пропс `helperText`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2163",
+                        "id": 2163
+                    }
+                ]
+            },
+            {
+                "component": "Switch",
+                "children": [
+                    {
+                        "text": "Добавлен новый параметр `singleLine`, который влияет на перенос строки текста `label`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2224",
+                        "id": 2224
+                    }
+                ]
+            },
+            {
+                "component": "Tree",
+                "children": [
+                    {
+                        "text": "добавлен DragAndDrop",
+                        "link": "https://github.com/salute-developers/plasma/pull/2214",
+                        "id": 2214
+                    }
+                ]
+            },
+            {
+                "component": "Attach",
+                "children": [
+                    {
+                        "text": "добавлен обработчик `onClick`\n\nдобавлена возможность скрывать кнопку после прикрепления файла, с помощью `hideButtonOnAttach`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2228",
+                        "id": 2228
+                    }
+                ]
+            },
+            {
+                "component": "Avatar",
+                "children": [
+                    {
+                        "text": "Добавлен новый параметр `shape`\n\nОбновлены тесты и документация",
+                        "link": "https://github.com/salute-developers/plasma/pull/2209",
+                        "id": 2209
+                    }
+                ]
+            },
+            {
+                "component": "Skeleton",
+                "children": [
+                    {
+                        "text": "Добавлено новое значение для `view` - `lighter`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2238",
+                        "id": 2238
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.318.0": {
+        "date": "2025-09-04",
+        "core": [
+            {
+                "component": "Autocomplete",
+                "children": [
+                    {
+                        "text": "Добавлен пример очистки поля ввода",
+                        "link": "https://github.com/salute-developers/plasma/pull/2165",
+                        "id": 2165
+                    },
+                    {
+                        "text": "Добавлено опциональное свойство `flip`, при котором выпадающий список при недостатке места снизу может отобразиться вверху;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2199",
+                        "id": 2199
+                    }
+                ]
+            },
+            {
+                "component": "Popup",
+                "children": [
+                    {
+                        "text": "добавлено свойство `providerFrame`, которое определяет элемент, в который поместится контейнер Popupов",
+                        "link": "https://github.com/salute-developers/plasma/pull/2151",
+                        "id": 2151
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker",
+                "children": [
+                    {
+                        "text": "добавлена возможность передавать zIndex в выпадающий календарь",
+                        "link": "https://github.com/salute-developers/plasma/pull/2181",
+                        "id": 2181
+                    },
+                    {
+                        "text": "размеры приведены в соответствие с макетами",
+                        "link": "https://github.com/salute-developers/plasma/pull/2196",
+                        "id": 2196
+                    }
+                ]
+            },
+            {
+                "component": "Docs",
+                "children": [
+                    {
+                        "text": "в документацию добавлен поиск на базе `typesense`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2173",
+                        "id": 2173
+                    }
+                ]
+            },
+            {
+                "component": "Autocomplete, Combobox, Select",
+                "children": [
+                    {
+                        "text": "виртуализация теперь поддерживает работу с элементами с динамической высотой;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2183",
+                        "id": 2183
+                    }
+                ]
+            },
+            {
+                "component": "Carousel",
+                "children": [
+                    {
+                        "text": "добавлено свойство `defaultIndex`, которое отвечает за показ первого слайда по-умолчанию;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2175",
+                        "id": 2175
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "свойство `renderValue` теперь работает и в одиночном режиме;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2172",
+                        "id": 2172
+                    }
+                ]
+            },
+            {
+                "component": "Tree",
+                "children": [
+                    {
+                        "text": "добавлено свойство `radioMode`, включающее поведение выбора элемента как у radio-checkbox;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2179",
+                        "id": 2179
+                    }
+                ]
+            },
+            {
+                "component": "Tooltip",
+                "children": [
+                    {
+                        "text": "добавлены свойства `mouseEnterDelay` и `mouseLeaveDelay` для задержки перед открытием/закрытием подсказки;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2186",
+                        "id": 2186
+                    }
+                ]
+            },
+            {
+                "component": "Tabs",
+                "children": [
+                    {
+                        "text": "добавлен `actionContent` в `TabItem`\n\nдобавлен `IconTabItem`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2177",
+                        "id": 2177
+                    }
+                ]
+            },
+            {
+                "component": "Chip",
+                "children": [
+                    {
+                        "text": "Добавлен размер `xxs` в `chip`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2194",
+                        "id": 2194
+                    }
+                ]
+            },
+            {
+                "component": "Attach",
+                "children": [
+                    {
+                        "text": "переработана документация компонента\n\nдобавлены примеры взаимодействия с формой",
+                        "link": "https://github.com/salute-developers/plasma/pull/2167",
+                        "id": 2167
+                    }
+                ]
+            },
+            {
+                "component": "Drawer",
+                "children": [
+                    {
+                        "text": "Добавили поддержку css свойства scrollbar-gutter чтобы предотвратить дергания экрана из-за наличие scrollbar",
+                        "link": "https://github.com/salute-developers/plasma/pull/2074",
+                        "id": 2074
+                    }
+                ]
+            },
+            {
+                "component": "Button",
+                "children": [
+                    {
+                        "text": "Добавлен новый параметр `AdditionalContent`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2195",
+                        "id": 2195
+                    }
+                ]
+            },
+            {
+                "component": "LinkButton",
+                "children": [
+                    {
+                        "text": "Добавлен новый параметр `AdditionalContent`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2195",
+                        "id": 2195
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.317.0": {
+        "date": "2025-08-21",
+        "core": [
+            {
+                "component": "DatePicker",
+                "children": [
+                    {
+                        "text": "добавлено свойство `preserveInvalidOnBlur`, которое отключает сброс некорректных значений из поля ввода",
+                        "link": "https://github.com/salute-developers/plasma/pull/2134",
+                        "id": 2134
+                    },
+                    {
+                        "text": "исправлен `controlled` вариант `DatePicker`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2148",
+                        "id": 2148
+                    }
+                ]
+            },
+            {
+                "component": "NumberFormat",
+                "children": [
+                    {
+                        "text": "добавлена поддержка `defaultValue`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2138",
+                        "id": 2138
+                    },
+                    {
+                        "text": "добавлена функция `numberFormatter`, которая приводит число к нужному формату",
+                        "link": "https://github.com/salute-developers/plasma/pull/2137",
+                        "id": 2137
+                    }
+                ]
+            },
+            {
+                "component": "Pagination",
+                "children": [
+                    {
+                        "text": "исправлен `controlled` вариант",
+                        "link": "https://github.com/salute-developers/plasma/pull/2141",
+                        "id": 2141
+                    },
+                    {
+                        "text": "отключено взаимодействие с текущей выбранной страницей;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2160",
+                        "id": 2160
+                    }
+                ]
+            },
+            {
+                "component": "NumberInput",
+                "children": [
+                    {
+                        "text": "расширен тип `value` до `number | string | undefined` для поддержки пустых значений",
+                        "link": "https://github.com/salute-developers/plasma/pull/2135",
+                        "id": 2135
+                    }
+                ]
+            },
+            {
+                "component": "InformationWrapper",
+                "children": [
+                    {
+                        "text": "добавлен компонент-обертка для элементов формы",
+                        "link": "https://github.com/salute-developers/plasma/pull/2065",
+                        "id": 2065
+                    }
+                ]
+            },
+            {
+                "component": "Dropdown, Combobox",
+                "children": [
+                    {
+                        "text": "исправлен баг в свойстве `alwaysOpened`, из-за которого приходилось делать двойные нажатия для открытия дочерних списков;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2152",
+                        "id": 2152
+                    }
+                ]
+            },
+            {
+                "component": "Modal, Popup",
+                "children": [
+                    {
+                        "text": "исправлен раздел документации связанный со свойством resizable",
+                        "link": "https://github.com/salute-developers/plasma/pull/2158",
+                        "id": 2158
+                    }
+                ]
+            },
+            {
+                "component": "Switch",
+                "children": [
+                    {
+                        "text": "тип свойства `label` расширен до `ReactNode`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2157",
+                        "id": 2157
+                    }
+                ]
+            },
+            {
+                "component": "TextField",
+                "children": [
+                    {
+                        "text": "свойства, связанные с `chip` помечены как deprecated;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2133",
+                        "id": 2133
+                    }
+                ]
+            },
+            {
+                "component": "Spinner",
+                "children": [
+                    {
+                        "text": "свойство size теперь union type и может быть как string, так и number",
+                        "link": "https://github.com/salute-developers/plasma/pull/2156",
+                        "id": 2156
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.315.0": {
+        "date": "2025-08-07",
+        "core": [
+            {
+                "component": "EmbedIconButton",
+                "children": [
+                    {
+                        "text": "добавлен новый компонент",
+                        "link": "https://github.com/salute-developers/plasma/pull/2093",
+                        "id": 2093
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2101",
+                        "id": 2101
+                    }
+                ]
+            },
+            {
+                "component": "Segment",
+                "children": [
+                    {
+                        "text": "добавлена логика задания максимальной ширины `SegmentItem` и обрезанию текста троеточием",
+                        "link": "https://github.com/salute-developers/plasma/pull/2110",
+                        "id": 2110
+                    }
+                ]
+            },
+            {
+                "component": "Autocomplete",
+                "children": [
+                    {
+                        "text": "добавлено свойство `zIndex`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2114",
+                        "id": 2114
+                    }
+                ]
+            },
+            {
+                "component": "Tree",
+                "children": [
+                    {
+                        "text": "добавлено свойство `autoExpandParent`, которое отвечает за автоматическое раскрытие всех родителей у элемента;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2115",
+                        "id": 2115
+                    }
+                ]
+            },
+            {
+                "component": "Table",
+                "children": [
+                    {
+                        "text": "стало возможным добавлять сложные типы данных (объекты, массивы, функции) во входных данных `data`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2111",
+                        "id": 2111
+                    }
+                ]
+            },
+            {
+                "component": "Chip",
+                "children": [
+                    {
+                        "text": "добавлены токены отступов для `contentRight`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2112",
+                        "id": 2112
+                    }
+                ]
+            },
+            {
+                "component": "Skeleton",
+                "children": [
+                    {
+                        "text": "исправлена типизация пропсов внутри `withSkeleton`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2116",
+                        "id": 2116
+                    }
+                ]
+            },
+            {
+                "component": "Notification",
+                "children": [
+                    {
+                        "text": "Добавлена возможность указать пользовательскую иконку закрытия компонента",
+                        "link": "https://github.com/salute-developers/plasma/pull/2126",
+                        "id": 2126
+                    }
+                ]
+            },
+            {
+                "component": "Attach",
+                "children": [
+                    {
+                        "text": "Добавлен новый параметр `customIcon`\n\nРасширены типы файлов с вшитыми иконками `docx` , `xlsx`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2123",
+                        "id": 2123
+                    }
+                ]
+            },
+            {
+                "component": "Tokens",
+                "children": [
+                    {
+                        "text": "Добавлена новая палитра `warmGray` с \"тёплыми\" оттенками серого",
+                        "link": "https://github.com/salute-developers/plasma/pull/2127",
+                        "id": 2127
+                    }
+                ]
+            },
+            {
+                "component": "Accordion",
+                "children": [
+                    {
+                        "text": "Исправлены отступы в соответсвии с макетами",
+                        "link": "https://github.com/salute-developers/plasma/pull/2122",
+                        "id": 2122
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.314.2": {
+        "date": "2025-07-30",
+        "core": [
+            {
+                "component": "TextArea",
+                "children": [
+                    {
+                        "text": "Сделали свойство `labelAriaHidden` опциональным"
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.314.1": {
+        "date": "2025-07-28",
+        "core": [
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "исправлен баг, связанный с невозможностью получить актуальное значение поля ввода после ререндера;"
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.314.0": {
+        "date": "2025-07-24",
+        "core": [
+            {
+                "component": "Button",
+                "children": [
+                    {
+                        "text": "Удалены неактуальные размеры: `xlr, lr, mr, sr, xsr`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2079",
+                        "id": 2079
+                    }
+                ]
+            },
+            {
+                "component": "Dropdown",
+                "children": [
+                    {
+                        "text": "Добавлен отступ между выпадающим списком и таргетом;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2085",
+                        "id": 2085
+                    }
+                ]
+            },
+            {
+                "component": "Icons",
+                "children": [
+                    {
+                        "text": "Удален лишний атрибут style со значением `mix-blend-mode` в иконках: `DislikeFill`, `LikeFill`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2090",
+                        "id": 2090
+                    }
+                ]
+            },
+            {
+                "component": "Chip",
+                "children": [
+                    {
+                        "text": "Исправлен цвет токена для иконки закрытия",
+                        "link": "https://github.com/salute-developers/plasma/pull/2082",
+                        "id": 2082
+                    },
+                    {
+                        "text": "Убраны `scale` при `hover` и `active`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2089",
+                        "id": 2089
+                    }
+                ]
+            },
+            {
+                "component": "Heading",
+                "children": [
+                    {
+                        "text": "Добавлена поддержка a11y для aria role heading",
+                        "link": "https://github.com/salute-developers/plasma/pull/2097",
+                        "id": 2097
+                    }
+                ]
+            },
+            {
+                "component": "Textarea",
+                "children": [
+                    {
+                        "text": "Добавлено новое свойство `labelAriaHidden` для управления `aria-hidden`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2097",
+                        "id": 2097
+                    }
+                ]
+            },
+            {
+                "component": "Note",
+                "children": [
+                    {
+                        "text": "Добавлена документация для свойства `hasClose`\n\nИсправлен баг связанный со свойством `text`\n\nДобавлена возможность многострочного текста",
+                        "link": "https://github.com/salute-developers/plasma/pull/2098",
+                        "id": 2098
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.312.0": {
+        "date": "2025-07-10",
+        "core": [
+            {
+                "component": "Tour",
+                "children": [
+                    {
+                        "text": "Добавлен в поставку новый компонент",
+                        "link": "https://github.com/salute-developers/plasma/pull/2010",
+                        "id": 2010
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker",
+                "children": [
+                    {
+                        "text": "Добавлена проверка при обновлении `value/defaultValue`, чтобы избежать коллизии при `mount/unmount`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2058",
+                        "id": 2058
+                    }
+                ]
+            },
+            {
+                "component": "useUniqId",
+                "children": [
+                    {
+                        "text": "Помечен как deprecated по причине устаревания и не актуальности. Рекомендуем использовать метод `safeUseId`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2053",
+                        "id": 2053
+                    }
+                ]
+            },
+            {
+                "component": "NumberFormat",
+                "children": [
+                    {
+                        "text": "Улучшен механизм копирование и вставки числа",
+                        "link": "https://github.com/salute-developers/plasma/pull/2050",
+                        "id": 2050
+                    }
+                ]
+            },
+            {
+                "component": "Chip",
+                "children": [
+                    {
+                        "text": "изменен размер иконки `Close` для размера `XS`, стало `12x12`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2070",
+                        "id": 2070
+                    }
+                ]
+            },
+            {
+                "component": "Icons",
+                "children": [
+                    {
+                        "text": "добавлен `rest props` для IconRoot. Теперь есть возможность прокинуть `data-attrs` и другие атрибуты тега",
+                        "link": "https://github.com/salute-developers/plasma/pull/2066",
+                        "id": 2066
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "Добавлен токен для галочки и иконки в режиме `single`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2049",
+                        "id": 2049
+                    }
+                ]
+            },
+            {
+                "component": "Select",
+                "children": [
+                    {
+                        "text": "Добавлен токен для галочки и иконки в режиме `single`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2049",
+                        "id": 2049
+                    }
+                ]
+            },
+            {
+                "component": "TextArea",
+                "children": [
+                    {
+                        "text": "добавлено свойство `headerSlot`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2075",
+                        "id": 2075
+                    }
+                ]
+            }
+        ],
+        "lib": [
+            {
+                "component": "Docs",
+                "children": [
+                    {
+                        "text": "Исправлен UI документации, добавлено условие для переопределения token фона",
+                        "link": "https://github.com/salute-developers/plasma/pull/2064",
+                        "id": 2064
+                    }
+                ]
+            }
+        ]
+    },
+    "0.310.1": {
+        "date": "2025-06-30",
+        "core": [
+            {
+                "component": "Radiobox",
+                "children": [
+                    {
+                        "text": "Исправлен `tsconfig` для корректной сборки `types`. (Hotfix)",
+                        "link": "https://github.com/salute-developers/plasma/pull/2054",
+                        "id": 2054
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.310.0": {
+        "date": "2025-06-26",
+        "core": [
+            {
+                "component": "Tree",
+                "children": [
+                    {
+                        "text": "исправлен баг, из-за которого в некоторых случаях не отображался цвет выделенного элемента;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2038",
+                        "id": 2038
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "исправлен баг, из-за которого label в target не обновлялся при обновлении списка `items`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2043",
+                        "id": 2043
+                    }
+                ]
+            },
+            {
+                "component": "Calendar",
+                "children": [
+                    {
+                        "text": "исправлен функционал по формированию ref на элементы календарной сетки\n\nДобавлена возможность динамически менять `type`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2024",
+                        "id": 2024
+                    }
+                ]
+            },
+            {
+                "component": "Popup, Modal, Drawer",
+                "children": [
+                    {
+                        "text": "массив элементов контекста Popup заменен на Map\n\nИсправлен импорт safeUseId",
+                        "link": "https://github.com/salute-developers/plasma/pull/2022",
+                        "id": 2022
+                    }
+                ]
+            },
+            {
+                "component": "Carousel",
+                "children": [
+                    {
+                        "text": "появилась возможно настраивать отступ между слайдами через пропс `gap`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2018",
+                        "id": 2018
+                    }
+                ]
+            },
+            {
+                "component": "CodeInput",
+                "children": [
+                    {
+                        "text": "добавлен новый компонент",
+                        "link": "https://github.com/salute-developers/plasma/pull/1973",
+                        "id": 1973
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.309.0": {
+        "date": "2025-06-11",
+        "core": [
+            {
+                "component": "Select, Combobox",
+                "children": [
+                    {
+                        "text": "добавлена возможность использовать кнопку `Выбрать всё` внутри выпадающего списка;",
+                        "link": "https://github.com/salute-developers/plasma/pull/1986",
+                        "id": 1986
+                    }
+                ]
+            },
+            {
+                "component": "Popover",
+                "children": [
+                    {
+                        "text": "добавлена обработка случая, когда frame передан как ID",
+                        "link": "https://github.com/salute-developers/plasma/pull/2001",
+                        "id": 2001
+                    }
+                ]
+            },
+            {
+                "component": "Sheet",
+                "children": [
+                    {
+                        "text": "добавлена проверка `canUseDOM` перед использованием document",
+                        "link": "https://github.com/salute-developers/plasma/pull/2014",
+                        "id": 2014
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker",
+                "children": [
+                    {
+                        "text": "добавлено свойство `closeAfterDateSelect` в одиночный DatePicker",
+                        "link": "https://github.com/salute-developers/plasma/pull/2012",
+                        "id": 2012
+                    }
+                ]
+            },
+            {
+                "component": "Notification",
+                "children": [
+                    {
+                        "text": "добавлен `type-cast` для корректной типизации",
+                        "link": "https://github.com/salute-developers/plasma/pull/2015",
+                        "id": 2015
+                    }
+                ]
+            },
+            {
+                "component": "Carousel",
+                "children": [
+                    {
+                        "text": "добавлена элементы управления: пагинация, стрелочки",
+                        "link": "https://github.com/salute-developers/plasma/pull/2013",
+                        "id": 2013
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    }
 }
