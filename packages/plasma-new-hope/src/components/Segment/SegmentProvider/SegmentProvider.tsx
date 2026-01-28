@@ -18,29 +18,40 @@ export const useSegment = () => {
     return { selectedSegmentItems };
 };
 
-export const SegmentProvider: FC<SegmentProviderProps> = ({ children, defaultSelected, singleSelectedRequired }) => {
-    const [selectedSegmentItems, setSelectedSegmentItems] = useState<string[]>(defaultSelected || []);
+export const SegmentProvider: FC<SegmentProviderProps> = ({
+    children,
+    defaultSelected,
+    selected: outerSelected,
+    singleSelectedRequired,
+
+    onChangeSelected,
+}) => {
     const [selectionMode, setSelectionMode] = useState<SegmentSelectionMode>('single');
     const [disabledGroup, setDisabledGroup] = useState(false);
+
+    const [selectedSegmentItems, setSelectedSegmentItems] = useState<string[]>(defaultSelected || []);
+    const selected = outerSelected ?? selectedSegmentItems;
 
     const handleSelect = (label: string) => {
         if (selectionMode !== 'multiple') {
             setSelectedSegmentItems((prevSelected) =>
                 prevSelected.includes(label) && !singleSelectedRequired ? [] : [label],
             );
-
-            return;
+        } else {
+            setSelectedSegmentItems((prevSelected) =>
+                prevSelected.includes(label) && !singleSelectedRequired && prevSelected.length !== 1
+                    ? prevSelected.filter((item) => item !== label)
+                    : [...prevSelected, label],
+            );
         }
 
-        setSelectedSegmentItems((prevSelected) =>
-            prevSelected.includes(label) && !singleSelectedRequired && prevSelected.length !== 1
-                ? prevSelected.filter((item) => item !== label)
-                : [...prevSelected, label],
-        );
+        if (onChangeSelected) {
+            onChangeSelected(label);
+        }
     };
 
     const contextValue: SegmentContextType = {
-        selectedSegmentItems,
+        selectedSegmentItems: selected,
         setSelectedSegmentItems,
         handleSelect,
         selectionMode,

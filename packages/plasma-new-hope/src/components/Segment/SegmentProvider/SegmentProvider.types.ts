@@ -9,6 +9,15 @@ export type SegmentProviderProps = {
      */
     defaultSelected?: Array<string>;
     /**
+     * Выбранные сегменты.
+     * Передается массив value сегментов
+     */
+    selected?: Array<string>;
+    /**
+     * Обработчик изменения выюранных сегментов
+     */
+    onChangeSelected?: (selectedLabel: string) => void;
+    /**
      * Один сегмент должен быть обязательно выбран.
      */
     singleSelectedRequired?: boolean;
