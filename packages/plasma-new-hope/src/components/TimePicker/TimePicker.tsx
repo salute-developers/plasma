@@ -3,7 +3,7 @@ import cls from 'classnames';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import type { RootProps } from 'src/engines';
 import { useForkRef } from '@salutejs/plasma-core';
-import { getPlacements } from 'src/utils';
+import { getPlacements, getSizeValueFromProp } from 'src/utils';
 
 import { TimePickerGridChangeEvent } from '../TimePickerGrid/TimePickerGrid.types';
 
@@ -87,6 +87,9 @@ export const timePickerRoot = (
             const viewValue = outerValue ?? innerTime;
 
             const format = columnsQuantity === 3 ? 'HH:mm:ss' : 'HH:mm';
+
+            const dropdownWidthValue = dropdownWidth ? getSizeValueFromProp(dropdownWidth, 'rem') : undefined;
+            const dropdownHeightValue = dropdownHeight ? getSizeValueFromProp(dropdownHeight, 'rem') : undefined;
 
             useEffect(() => {
                 return () => {
@@ -248,14 +251,16 @@ export const timePickerRoot = (
                 />
             );
 
-            const getDropdownWidth = (): 'fixed' | 'fullWidth' | React.CSSProperties['width'] => {
-                if (dropdownWidth === 'fixed' || dropdownWidth === undefined) {
+            const getDropdownWidth = () => {
+                if (dropdownWidthValue === 'fixed' || dropdownWidthValue === undefined) {
                     return undefined;
                 }
-                if (dropdownWidth === 'fullWidth') {
-                    return rootWidth !== null ? `${rootWidth}px` : 'fullWidth';
+
+                if (dropdownWidthValue === 'fullWidth' && rootWidth !== null) {
+                    return `${rootWidth}px`;
                 }
-                return dropdownWidth as React.CSSProperties['width'];
+
+                return dropdownWidthValue;
             };
 
             return (
@@ -284,12 +289,14 @@ export const timePickerRoot = (
                         target={TimePickerInput}
                         preventOverflow={false}
                         align={dropdownAlign}
+                        innerHeight={dropdownHeightValue}
+                        innerWidth={getDropdownWidth()}
                     >
                         <Root
                             stretched={stretched}
                             view={view}
                             size={size}
-                            className={cls(classes.timePickerRoot, className, {
+                            className={cls(classes.timePickerGridRoot, className, {
                                 [classes.timePickerFullWidth]: dropdownWidth === 'fullWidth',
                                 [classes.timePickerFixed]: dropdownWidth !== 'fullWidth',
                             })}
@@ -298,15 +305,14 @@ export const timePickerRoot = (
                             {...rest}
                         >
                             <StyledTimePickerGrid
-                                value={viewValue}
-                                onChange={handleOnChange}
-                                dropdownHeight={dropdownHeight}
-                                dropdownWidth={getDropdownWidth()}
-                                format={format}
                                 view={view}
                                 size={size}
+                                format={format}
+                                dropdownHeight={dropdownHeightValue}
+                                dropdownWidth="fullWidth"
+                                value={viewValue}
+                                onChange={handleOnChange}
                                 disabled={disabled}
-                                width={getDropdownWidth()}
                             />
                         </Root>
                     </StyledPopover>

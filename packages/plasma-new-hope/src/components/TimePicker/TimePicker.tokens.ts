@@ -3,6 +3,7 @@ export const classes = {
     timePickerSuccess: 'plasma-time-picker-success',
     timePickerError: 'plasma-time-picker-error',
     timePickerRoot: 'plasma-time-picker-root',
+    timePickerGridRoot: 'plasma-time-picker-grid-root',
     timeColumnLabel: 'plasma-time-picker-column-label',
     timeItemActive: 'plasma-time-picker-item-active',
     timePickerFullWidth: 'plasma-time-picker-full-width',
