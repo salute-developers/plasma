@@ -1,4 +1,4 @@
-import type { ReactNode, RefObject } from 'react';
+import type { ReactNode, Ref } from 'react';
 
 import type { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
 
@@ -15,7 +15,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
      * Элемент, рядом с которым произойдет вызов всплывающего окна.
      */
-    target?: ReactNode | RefObject<HTMLElement>;
+    target?: ReactNode | Ref<HTMLElement>;
     /**
      * Направление раскрытия тултипа.
      */
