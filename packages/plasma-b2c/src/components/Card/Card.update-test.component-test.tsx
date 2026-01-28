@@ -62,6 +62,8 @@ describe('plasma-b2c: Card', () => {
         );
 
         cy.mockImage('img', 'images/320_320_0.jpg');
+
+        cy.viewport(500, 580);
         cy.matchImageSnapshot();
     });
 
