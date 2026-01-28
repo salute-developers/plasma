@@ -6,7 +6,7 @@ title: NumberInput
 import { PropsTable, Description } from '@site/src/components';
 
 # NumberInput
-Числовое поле. Поддерживает как ручной ввод, так и увеличение/уменьшение значения, 
+Числовое поле. Поддерживает как ручной ввод, так и увеличение/уменьшение значения,
 посредством нажатия соответствующих кнопок.
 
 ## NumberInput
@@ -18,13 +18,13 @@ import { PropsTable, Description } from '@site/src/components';
 ### Контролируемый NumberInput:
 
 ```tsx live
-import React from 'react';
+import React, { useState } from 'react';
 import { NumberInput } from '@salutejs/sdds-cs';
 
 export function App() {
-    const [value, setValue] = useState<number | string | undefined>(5);
-    
-    const handleChange = (_: any, newValue: number | string | undefined) => {
+    const [value, setValue] = useState(5);
+
+    const handleChange = (_, newValue) => {
         setValue(newValue);
     };
 
@@ -34,6 +34,7 @@ export function App() {
         </div>
     );
 }
+```
 
 ### Вид числового поля
 Вид числового поля задается с помощью свойства `view`:
@@ -117,7 +118,7 @@ export function App() {
 ```
 
 ### Кастомные иконки для кнопок
-Можно установить собственную иконку для кнопки используя 
+Можно установить собственную иконку для кнопки используя
 свойства `decrementIcon` и `incrementIcon` соответственно:
 
 ```tsx live
@@ -128,11 +129,11 @@ import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-ico
 export function App() {
     return (
         <div>
-            <NumberInput 
+            <NumberInput
                 value={5}
                 width={140}
-                incrementIcon={<IconVolumeLevel1Fill color="inherit"/>} 
-                decrementIcon={<IconVolumeLevel2Fill color="inherit"/>} 
+                incrementIcon={<IconVolumeLevel1Fill color="inherit"/>}
+                decrementIcon={<IconVolumeLevel2Fill color="inherit"/>}
             />
         </div>
     );
