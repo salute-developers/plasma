@@ -17,10 +17,14 @@ const Popover = component(mergedPopoverConfig);
 const mergedTimePickerGrid = mergeConfig(timePickerGridConfig);
 const TimePickerGrid = component(mergedTimePickerGrid);
 
-export const StyledPopover = styled(Popover)`
+export const StyledPopover = styled(Popover)<{ innerWidth?: string; innerHeight?: string }>`
     .${popoverClasses.root} {
         ${popoverTokens.boxShadow}: var(${tokens.timePickerShadow});
         border-radius: var(${tokens.timePickerBorderRadius});
+
+        width: ${({ innerWidth }) => innerWidth || `var(${tokens.timePickerWidth})`};
+        height: ${({ innerHeight }) => innerHeight || 'fit-content'};
+        overflow: hidden;
     }
 `;
 
@@ -169,26 +173,11 @@ export const base = css`
         }
     }
 
-    &.${classes.timePickerFullWidth} {
+    &.${classes.timePickerGridRoot} {
         width: 100%;
     }
 
     &.${classes.timePickerPlacementRight} {
         justify-content: flex-end;
     }
-
-    &.${classes.timePickerFixed} {
-        width: var(${tokens.timePickerWidth});
-    }
-`;
-
-export const StyledTimePicker = styled.div<{ width?: string | number }>`
-    background: var(${tokens.timePickerBackground});
-    border-radius: var(${tokens.timePickerBorderRadius});
-    display: flex;
-    padding: var(${tokens.timePickerPadding});
-    flex: 1 1 1;
-    gap: var(${tokens.scrollbarWidth});
-    box-sizing: border-box;
-    position: relative;
 `;

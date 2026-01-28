@@ -137,7 +137,7 @@ type BasicProps = {
     /**
      * Растягивание на всю ширину
      */
-    stretched: boolean;
+    stretched?: boolean;
 };
 
 export type TimePickerProps = BasicProps &
