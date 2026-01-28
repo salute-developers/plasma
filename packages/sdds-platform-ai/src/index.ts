@@ -34,6 +34,7 @@ export * from './components/Slider';
 // components group Data Entry (upload)
 export * from './components/Attach';
 export * from './components/Dropzone';
+export * from './components/File';
 
 // components group Data Entry (inputs)
 export * from './components/TextArea';

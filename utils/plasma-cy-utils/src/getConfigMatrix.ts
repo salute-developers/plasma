@@ -6,6 +6,10 @@ type GetConfigMatrixReturn = {
 };
 
 export const getConfigMatrix = <T = {}>(config: T, options?: string[]): GetConfigMatrixReturn[] => {
+    if (!config?.variations) {
+        return [];
+    }
+
     const { variations } = config;
 
     // Find the prop with the most values

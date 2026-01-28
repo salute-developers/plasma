@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 type GetBaseVisualTestsArgs = {
-    config: any;
     component: string;
+    componentProps: any;
     configPropsForMatrix?: string[];
     children?: ReactNode;
     testCaseIds?: string[];
 };
-export declare const getBaseVisualTests: ({ testCaseIds, config, component, children, configPropsForMatrix, }: GetBaseVisualTestsArgs) => Mocha.Suite;
+export declare const getBaseVisualTests: ({ testCaseIds, component, componentProps, children, configPropsForMatrix, }: GetBaseVisualTestsArgs) => void | Mocha.Suite;
 export {};
