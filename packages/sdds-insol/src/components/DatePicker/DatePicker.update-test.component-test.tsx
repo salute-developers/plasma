@@ -96,6 +96,7 @@ describe('sdds-insol: DatePicker', () => {
                     maskWithFormat
                     required
                     requiredPlacement="left"
+                    hasRequiredIndicator
                     valueError
                 />
             </CypressTestDecorator>,
@@ -114,6 +115,7 @@ describe('sdds-insol: DatePicker', () => {
                     lang="en"
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     valueSuccess
                 />
             </CypressTestDecorator>,
@@ -175,6 +177,7 @@ describe('sdds-insol: DatePicker', () => {
                     enableContentRight
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     disabled
                 />
             </CypressTestDecorator>,
@@ -343,7 +346,7 @@ describe('sdds-insol: DatePicker', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 648);
 
         mount(
             <CypressTestDecorator>
@@ -440,7 +443,7 @@ describe('sdds-insol: DatePickerRange', () => {
     };
 
     it('[PLASMA-T1792] DatePickerRange: default, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecorator>
@@ -484,7 +487,7 @@ describe('sdds-insol: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1795] DatePickerRange: input date, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecorator>
@@ -512,7 +515,7 @@ describe('sdds-insol: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1798] DatePickerRange: size=l, multy props', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecorator>
@@ -613,6 +616,7 @@ describe('sdds-insol: DatePickerRange', () => {
                     secondValueError
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                 />
             </CypressTestDecorator>,
         );
@@ -641,7 +645,7 @@ describe('sdds-insol: DatePickerRange', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 648);
 
         mount(
             <CypressTestDecorator>

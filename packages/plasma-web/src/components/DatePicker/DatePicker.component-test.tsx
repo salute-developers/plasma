@@ -140,6 +140,8 @@ describe('plasma-web: DatePicker', () => {
     });
 
     it('prop: calendarContainerWidth, calendarContainerHeight', () => {
+        cy.viewport(500, 680);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo
@@ -261,7 +263,7 @@ describe('plasma-web: DatePicker', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 648);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -279,18 +281,18 @@ describe('plasma-web: DatePicker', () => {
     });
 
     it('prop: required', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
                 <div style={{ padding: '1rem' }}>
-                    <Demo required label="Лейбл" />
+                    <Demo required hasRequiredIndicator label="Лейбл" />
                     <PadMe />
-                    <Demo required requiredPlacement="left" label="Лейбл" />
+                    <Demo required hasRequiredIndicator requiredPlacement="left" label="Лейбл" />
                     <PadMe />
-                    <Demo required />
+                    <Demo required hasRequiredIndicator />
                     <PadMe />
-                    <Demo required requiredPlacement="left" />
+                    <Demo required hasRequiredIndicator requiredPlacement="left" />
                 </div>
             </CypressTestDecoratorWithTypo>,
         );
@@ -396,6 +398,8 @@ describe('plasma-web: DatePicker', () => {
     };
 
     it('controlled datepicker: set date', () => {
+        cy.viewport(500, 544);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <ControlledDemo />
@@ -413,6 +417,8 @@ describe('plasma-web: DatePicker', () => {
     });
 
     it('controlled datepicker: reset date', () => {
+        cy.viewport(500, 544);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <ControlledDemo />
@@ -570,6 +576,8 @@ describe('plasma-web: DatePickerRange', () => {
     });
 
     it('prop: calendarContainerWidth, calendarContainerHeight', () => {
+        cy.viewport(500, 680);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo
@@ -691,7 +699,7 @@ describe('plasma-web: DatePickerRange', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 648);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -709,18 +717,18 @@ describe('plasma-web: DatePickerRange', () => {
     });
 
     it('prop: required', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
                 <div style={{ padding: '1rem' }}>
-                    <Demo required label="Лейбл" />
+                    <Demo required hasRequiredIndicator label="Лейбл" />
                     <PadMe />
-                    <Demo required requiredPlacement="left" label="Лейбл" />
+                    <Demo required hasRequiredIndicator requiredPlacement="left" label="Лейбл" />
                     <PadMe />
-                    <Demo required />
+                    <Demo required hasRequiredIndicator />
                     <PadMe />
-                    <Demo required requiredPlacement="left" />
+                    <Demo required hasRequiredIndicator requiredPlacement="left" />
                 </div>
             </CypressTestDecoratorWithTypo>,
         );
@@ -781,7 +789,7 @@ describe('plasma-web: DatePickerRange', () => {
     });
 
     it('prop: input date, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -822,6 +830,8 @@ describe('plasma-web: DatePickerRange', () => {
     };
 
     it('controlled datepicker: set date', () => {
+        cy.viewport(500, 544);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <ControlledDemo />
@@ -840,6 +850,8 @@ describe('plasma-web: DatePickerRange', () => {
     });
 
     it('controlled datepicker: reset date', () => {
+        cy.viewport(500, 544);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <ControlledDemo />

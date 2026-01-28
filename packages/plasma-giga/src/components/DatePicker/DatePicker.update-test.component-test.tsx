@@ -107,6 +107,7 @@ describe('plasma-giga: DatePicker', () => {
                     maskWithFormat
                     required
                     requiredPlacement="left"
+                    hasRequiredIndicator
                     valueError
                 />
             </CypressTestDecoratorWithTypo>,
@@ -125,6 +126,7 @@ describe('plasma-giga: DatePicker', () => {
                     lang="en"
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     valueSuccess
                 />
             </CypressTestDecoratorWithTypo>,
@@ -186,6 +188,7 @@ describe('plasma-giga: DatePicker', () => {
                     enableContentRight
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     disabled
                 />
             </CypressTestDecoratorWithTypo>,
@@ -353,7 +356,7 @@ describe('plasma-giga: DatePicker', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 648);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -457,7 +460,7 @@ describe('plasma-giga: DatePickerRange', () => {
     };
 
     it('[PLASMA-T1792] DatePickerRange: default, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -501,7 +504,7 @@ describe('plasma-giga: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1795] DatePickerRange: input date, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -529,7 +532,7 @@ describe('plasma-giga: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1798] DatePickerRange: size=l, multy props', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -558,6 +561,7 @@ describe('plasma-giga: DatePickerRange', () => {
                         maskWithFormat
                         required
                         requiredPlacement="left"
+                        hasRequiredIndicator
                     />
                 </div>
             </CypressTestDecoratorWithTypo>,
@@ -629,6 +633,7 @@ describe('plasma-giga: DatePickerRange', () => {
                     secondValueError
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                 />
             </CypressTestDecoratorWithTypo>,
         );
@@ -657,7 +662,7 @@ describe('plasma-giga: DatePickerRange', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 648);
 
         mount(
             <CypressTestDecoratorWithTypo>
