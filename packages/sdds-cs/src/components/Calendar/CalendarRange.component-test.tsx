@@ -95,6 +95,7 @@ describe('sdds-cs: CalendarRange', () => {
             </>,
         );
 
+        cy.viewport(500, 1134);
         cy.matchImageSnapshot({
             failureThreshold: 0.01,
             failureThresholdType: 'percent',
@@ -114,7 +115,7 @@ describe('sdds-cs: CalendarRange', () => {
             </>,
         );
 
-        cy.viewport(1200, 500);
+        cy.viewport(1200, 1134);
 
         cy.matchImageSnapshot();
     });
@@ -151,6 +152,7 @@ describe('sdds-cs: CalendarRange', () => {
             </>,
         );
 
+        cy.viewport(500, 570);
         cy.matchImageSnapshot({
             failureThreshold: 0.01,
             failureThresholdType: 'percent',
