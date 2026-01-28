@@ -5,7 +5,7 @@ import { component, mergeConfig } from '../../engines';
 import { tooltipConfig } from '../Tooltip';
 import { popoverClasses } from '../Popover';
 
-import { classes, tokens } from './InformationWrapper.tokens';
+import { classes, privateTokens, tokens } from './InformationWrapper.tokens';
 
 const mergedConfig = mergeConfig(tooltipConfig);
 const Tooltip = component(mergedConfig);
@@ -66,12 +66,12 @@ export const HintWrapper = styled.div<{ hasCaption?: boolean }>`
         z-index: 2;
         inset: var(${tokens.hintWithoutLabelPlacementOffset});
 
-        --plasma_private-translateY-without-title-caption: calc(-1 * var(${tokens.titleCaptionLineHeight}));
+        ${privateTokens.translateYWithoutTitle}: calc(-1 * var(${tokens.titleCaptionLineHeight}));
 
         transform: ${({ hasCaption }) =>
             hasCaption
                 ? `translateY(var(${tokens.labelWrapperTitleCaptionOffset}))`
-                : 'translateY(var(--plasma_private-translateY-without-title-caption)'};
+                : `translateY(var(${privateTokens.translateYWithoutTitle}))`};
     }
 `;
 

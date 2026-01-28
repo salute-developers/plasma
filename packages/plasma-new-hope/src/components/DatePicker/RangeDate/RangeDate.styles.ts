@@ -12,7 +12,25 @@ const Range = component(mergedRangeConfig);
 const mergedPopoverConfig = mergeConfig(popoverConfig);
 const Popover = component(mergedPopoverConfig);
 
-export const StyledPopover = styled(Popover)``;
+export const StyledPopover = styled(Popover)`
+    .${classes.datePickerRoot} {
+        box-sizing: border-box;
+
+        display: flex;
+        gap: var(${tokens.popoverGap});
+        border-radius: var(${tokens.popoverBorderRadius});
+        padding: var(${tokens.popoverPadding});
+
+        border: var(${tokens.calendarBorderWidth}) solid var(${tokens.calendarBorderColor});
+        background: var(${tokens.popoverBackgroundColor});
+        box-shadow: var(${tokens.popoverShadow});
+
+        overflow: hidden;
+
+        width: ${({ innerWidth }) => innerWidth || 'fit-content'};
+        height: ${({ innerHeight }) => innerHeight || 'fit-content'};
+    }
+`;
 
 // NOTE: переопределение токенов Range
 export const StyledRange = styled(Range)`
