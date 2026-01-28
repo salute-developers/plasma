@@ -28,9 +28,7 @@ export type CommitInstanceCallbackDeprecated = (
     isoDate?: string,
 ) => void;
 
-export type CommitInstanceCallbackNew = (value: Date | string, formattedValues: FormattedDateValues) => void;
-
-export type CommitInstanceCallback = CommitInstanceCallbackNew | CommitInstanceCallbackDeprecated;
+export type CommitInstanceCallback = (value: Date | string, formattedValues: FormattedDateValues) => void;
 
 type BaseRangeProps = Omit<
     RangeInnerProps,

@@ -1,10 +1,6 @@
 import type { HTMLAttributes, ReactNode, RefObject, SyntheticEvent } from 'react';
 
-import type {
-    DatePickerCalendarProps,
-    DatePickerVariationProps,
-    OnCommitDateCallbackUnion,
-} from '../DatePickerBase.types';
+import type { DatePickerCalendarProps, DatePickerVariationProps, OnCommitDateCallback } from '../DatePickerBase.types';
 import type { DateType } from '../../Calendar/Calendar.types';
 import type { HintProps, LabelProps } from '../../TextField/TextField.types';
 
@@ -102,7 +98,7 @@ export type DatePickerTextFieldProps = {
      * @param formattedValues.isoDate - дата в формате ISO
      * @return void
      */
-    onCommitDate?: OnCommitDateCallbackUnion;
+    onCommitDate?: OnCommitDateCallback;
     /**
      * Обработчик изменения значения.
      */

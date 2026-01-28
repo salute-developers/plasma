@@ -201,7 +201,7 @@ export type UseDatePickerProps = {
      * @param formattedValues.isoDate - дата в формате ISO
      * @return void
      */
-    onCommitDate?: OnCommitDateCallbackUnion;
+    onCommitDate?: OnCommitDateCallback;
     onChange?: (event: {
         target: {
             value?: string;
