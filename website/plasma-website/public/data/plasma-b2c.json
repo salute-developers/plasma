@@ -1,4 +1,26 @@
 {
+  "1.602.0": {
+    "date": "2026-01-28",
+    "core": [
+      {
+        "component": "DatePicker",
+        "children": [
+          {
+            "text": "исправлена ошибка типизации аргументов для `onCommitDate`"
+          }
+        ]
+      },
+      {
+        "component": "What/why changed",
+        "children": [
+          {
+            "text": "тип `OnCommitDateCallbackUnion` больше не используется, так как ts не может вывести конечный даже с `typeguard`\n\nстарая версия передачи аргумента поддерживается, но ts будет выводить ошибку"
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "1.601.0": {
     "date": "2026-01-21",
     "core": [
