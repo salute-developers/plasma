@@ -8,5 +8,6 @@ import { useUniqId } from '../hooks/useUniqId';
 const { useId } = React as any;
 
 export const IS_REACT_18 = ReactDOM.version.split('.')[0] === '18';
+export const IS_REACT_BELOW_18 = Number(ReactDOM.version.split('.')[0]) < 18;
 
-export const safeUseId: () => string = !IS_REACT_18 ? useUniqId : useId;
+export const safeUseId: () => string = IS_REACT_BELOW_18 ? useUniqId : useId;
