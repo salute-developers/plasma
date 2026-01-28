@@ -132,6 +132,8 @@ describe('plasma-web: Checkbox', () => {
         );
 
         cy.get('input[type="checkbox"]').first().focus();
+
+        cy.viewport(500, 556);
         cy.matchImageSnapshot();
     });
 
@@ -154,6 +156,8 @@ describe('plasma-web: Checkbox', () => {
         );
 
         cy.get('input[type="checkbox"]').first().focus();
+
+        cy.viewport(500, 595);
         cy.matchImageSnapshot();
     });
 
