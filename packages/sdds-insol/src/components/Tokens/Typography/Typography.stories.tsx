@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_insol__dark, sdds_insol__light } from '@salutejs/sdds-themes';
+import { sdds_insol_next__dark, sdds_insol_next__light } from '@salutejs/sdds-themes';
 import {
     InSpacingDecorator,
     getGroupedTypographyTokens,
@@ -49,8 +49,8 @@ const meta: Meta = {
 export default meta;
 
 const themes: Record<string, TypographyStructure> = {
-    'sdds-insol:light': getGroupedTypographyTokens(sdds_insol__light[0]),
-    'sdds-insol:dark': getGroupedTypographyTokens(sdds_insol__dark[0]),
+    'sdds-insol:light': getGroupedTypographyTokens(sdds_insol_next__light[0]),
+    'sdds-insol:dark': getGroupedTypographyTokens(sdds_insol_next__dark[0]),
 };
 
 type FontWeightControllerProps = {
