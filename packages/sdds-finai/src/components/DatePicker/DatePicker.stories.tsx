@@ -11,19 +11,20 @@ type DatePickerProps = ComponentProps<typeof DatePicker>;
 const { meta: META, Default } = getDatePickerStories({
     component: DatePicker,
     componentConfig: config,
+    disablePropsList: [
+        'appearance',
+        'hasClearDivider',
+        'view',
+        'hasHint',
+        'showShortcuts',
+        'dateShortcutsWidth',
+        'dateShortcutsPlacement',
+    ],
 });
 
 const meta: Meta<DatePickerProps> = {
     ...META,
     title: 'Data Entry/DatePicker',
-    disablePropsList: [
-        'view',
-        'appearance',
-        'hasClearDivider',
-        'showShortcuts',
-        'dateShortcutsWidth',
-        'dateShortcutsPlacement',
-    ],
 };
 
 export default meta;

@@ -45,7 +45,13 @@ export const config = {
                 ${tokens.textFieldBorderColorSuccess}: var(--outline-accent);
                 ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-accent);
                 ${tokens.textFieldBackgroundColor}: var(--surface-solid-card);
+
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+
+                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
+                ${tokens.contentSlotRightColor}: var(--text-accent);
+                ${tokens.contentSlotRightColorHover}: var(--text-accent-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-secondary);
                 ${tokens.textFieldTextAfterColor}: var(--text-secondary);
@@ -121,6 +127,11 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.embedIconButtonHeight}: 2.5rem;
+                ${tokens.embedIconButtonWidth}: 2.5rem;
+                ${tokens.embedIconButtonPadding}: 0.5rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
                 ${tokens.indicatorSizeInner}: 0.375rem;
