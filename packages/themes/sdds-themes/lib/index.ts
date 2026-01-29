@@ -26,6 +26,10 @@ generate([
         version: 'latest',
     },
     {
+        name: 'sdds_insol_next',
+        version: 'latest',
+    },
+    {
         name: 'sdds_scan',
         version: 'latest',
     },
