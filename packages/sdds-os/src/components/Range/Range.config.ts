@@ -22,9 +22,22 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
-                ${tokens.contentSlotColor}: var(--text-secondary);
-                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.contentSlotColor}: var(--text-primary);
+                ${tokens.contentSlotColorHover}: var(--text-primary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-primary-active);
+
+                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
+                ${tokens.contentSlotRightColor}: var(--text-primary);
+                ${tokens.contentSlotRightColorHover}: var(--text-primary-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-primary-active);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary-active);
 
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
@@ -84,6 +97,11 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.embedIconButtonHeight}: 3rem;
+                ${tokens.embedIconButtonWidth}: 3rem;
+                ${tokens.embedIconButtonPadding}: 0.75rem;
+                ${tokens.embedIconButtonRadius}: 0.75rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
                 ${tokens.labelWrapperOffset}: 0.625rem;
@@ -155,6 +173,11 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.embedIconButtonHeight}: 2.5rem;
+                ${tokens.embedIconButtonWidth}: 2.5rem;
+                ${tokens.embedIconButtonPadding}: 0.5rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
                 ${tokens.labelWrapperOffset}: 0.5rem;
