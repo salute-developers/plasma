@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_insol__dark, sdds_insol__light } from '@salutejs/sdds-themes/es/themes';
+import { sdds_insol_next__dark, sdds_insol_next__light } from '@salutejs/sdds-themes/es/themes';
 import { InSpacingDecorator, getGroupedTokens, upperFirstLetter } from '@salutejs/plasma-sb-utils';
 import type { GroupedTokens, TokenData } from '@salutejs/plasma-sb-utils';
 import { cx } from '@salutejs/plasma-new-hope';
@@ -43,8 +43,8 @@ const meta: Meta = {
 export default meta;
 
 const themes: Record<string, GroupedTokens> = {
-    'sdds-insol:light': getGroupedTokens(sdds_insol__light[0]),
-    'sdds-insol:dark': getGroupedTokens(sdds_insol__dark[0]),
+    'sdds-insol:light': getGroupedTokens(sdds_insol_next__light[0]),
+    'sdds-insol:dark': getGroupedTokens(sdds_insol_next__dark[0]),
 };
 
 const ColorTokenData: FC<ColorTokenDataProps> = ({
