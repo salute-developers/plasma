@@ -19,6 +19,7 @@ export const config = {
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
 
+                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
@@ -80,6 +81,11 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.embedIconButtonHeight}: 2.5rem;
+                ${tokens.embedIconButtonWidth}: 2.5rem;
+                ${tokens.embedIconButtonPadding}: 0.5rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
                 ${tokens.labelWrapperOffset}: 0.5rem;
