@@ -62,6 +62,12 @@ export const tokens = {
     contentSlotRightColorHover: '--plasma-date-picker-content-right-slot-color-hover',
     contentSlotRightColorActive: '--plasma-date-picker-content-right-slot-color-active',
 
+    embedIconButtonHeight: '--plasma-date-picker-embed-icon-button-height',
+    embedIconButtonWidth: '--plasma-date-picker-embed-icon-button-width',
+    embedIconButtonPadding: '--plasma-date-picker-embed-icon-button-padding',
+    embedIconButtonRadius: '--plasma-date-picker-embed-icon-button-radius',
+    embedIconButtonFocusColor: '--plasma-date-picker-embed-icon-button-focus-color',
+
     /** Токены лейбла */
     labelWrapperOffset: '--plasma-date-picker-label-wrapper-offset',
     labelColor: '--plasma-date-picker__label-color',

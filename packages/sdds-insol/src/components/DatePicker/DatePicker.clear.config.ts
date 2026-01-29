@@ -29,6 +29,7 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-primary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-primary-active);
 
+                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
                 ${tokens.contentSlotRightColor}: var(--text-primary);
                 ${tokens.contentSlotRightColorHover}: var(--text-primary-hover);
                 ${tokens.contentSlotRightColorActive}: var(--text-primary-active);
@@ -172,6 +173,11 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.embedIconButtonHeight}: 4rem;
+                ${tokens.embedIconButtonWidth}: 2.25rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.75rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -347,6 +353,11 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
+                ${tokens.embedIconButtonHeight}: 3.5rem;
+                ${tokens.embedIconButtonWidth}: 2.25rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.75rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
+
                 ${tokens.indicatorWrapperGap}: 0.25rem;
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -513,6 +524,11 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.embedIconButtonHeight}: 3rem;
+                ${tokens.embedIconButtonWidth}: 2.375rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.875rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
@@ -688,6 +704,11 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
+                ${tokens.embedIconButtonHeight}: 2.5rem;
+                ${tokens.embedIconButtonWidth}: 2.5rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.75rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
+
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
@@ -861,6 +882,11 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.embedIconButtonHeight}: 2rem;
+                ${tokens.embedIconButtonWidth}: 1.5rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.5rem;
+                ${tokens.embedIconButtonRadius}: 0.5rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
                 ${tokens.indicatorSizeInner}: 0.375rem;

@@ -107,6 +107,12 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.contentSlotRightColorHover}: var(${tokens.contentSlotRightColorHover});
     ${rangeTokens.contentSlotRightColorActive}: var(${tokens.contentSlotRightColorActive});
     
+    ${rangeTokens.embedIconButtonHeight}: var(${tokens.embedIconButtonHeight});
+    ${rangeTokens.embedIconButtonWidth}: var(${tokens.embedIconButtonWidth});
+    ${rangeTokens.embedIconButtonPadding}: var(${tokens.embedIconButtonPadding});
+    ${rangeTokens.embedIconButtonRadius}: var(${tokens.embedIconButtonRadius});
+    ${rangeTokens.embedIconButtonFocusColor}: var(${tokens.embedIconButtonFocusColor});
+    
     ${rangeTokens.textFieldContentSlotColor}: var(${tokens.textFieldContentSlotColor});
     ${rangeTokens.textFieldContentSlotColorHover}: var(${tokens.textFieldContentSlotColorHover});
     ${rangeTokens.textFieldContentSlotColorActive}: var(${tokens.textFieldContentSlotColorActive});
