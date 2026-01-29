@@ -115,52 +115,15 @@ export default function Home() {
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-### CSS
-
-Возможные дополнительные настройки bundle tools для проекта:
-
-<ul>
-    <li>
-        <a href="https://webpack.js.org/loaders/css-loader/">webpack + css</a>
-    </li>
-    <li>
-        <a href="https://vite.dev/guide/features.html#css-pre-processors">vite</a>
-    </li>
-</ul>
-
-В файле, где происходит подключение всех стилей, например `index.css`
-
-```css
-@import '@salutejs/sdss-themes/css/sdds_insol__light.css';
-```
-
-```jsx
-import React from 'react';
-import { Button, BodyL } from '@salutejs/sdds-insol';
-
-import 'index.css';
-
-const App = () => {
-    return (
-        <>
-            <BodyL>Hello SDDS</BodyL>
-            <Button text="This is themed button" />
-        </>
-    );
-};
-
-export default App;
-```
-
 ### Styled-components
 
 ```jsx
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Button, BodyL } from '@salutejs/sdds-insol';
-import { sdds_insol__light } from '@salutejs/sdds-themes';
+import { sdds_insol_next__light } from '@salutejs/sdds-themes';
 
-const Theme = createGlobalStyle(sdds_insol__light);
+const Theme = createGlobalStyle(sdds_insol_next__light);
 
 const App = () => {
     return (
@@ -191,7 +154,7 @@ export const backgroundPrimary = 'var(--background-primary, #000000)';
 Есть два пути импорта токенов:
 
 -   Из вертикали `@salutejs/sdds-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-insol` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
+-   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-insol_next` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
 
 ### Использование
 
