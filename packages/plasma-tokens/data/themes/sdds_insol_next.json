@@ -6781,11 +6781,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(87deg, #0EAB91 0%, #29CCB1 100%)",
+                        "origin": "linear-gradient(87deg, #1BA68C 0%, #31C2A7 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#0EAB91", "#29CCB1"],
+                            "colors": ["#1BA68C", "#31C2A7"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
@@ -6799,7 +6799,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#0EAB91", "#29CCB1"],
+                            "colors": ["#1BA68C", "#31C2A7"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
@@ -7272,11 +7272,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(87deg, #0EAB91 0%, #29CCB1 100%)",
+                        "origin": "linear-gradient(87deg, #1BA68C 0%, #31C2A7 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#0EAB91", "#29CCB1"],
+                            "colors": ["#1BA68C", "#31C2A7"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
@@ -7290,7 +7290,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#0EAB91", "#29CCB1"],
+                            "colors": ["#1BA68C", "#31C2A7"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
@@ -7763,11 +7763,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(87deg, #0EAB91 0%, #29CCB1 100%)",
+                        "origin": "linear-gradient(87deg, #1BA68C 0%, #31C2A7 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#0EAB91", "#29CCB1"],
+                            "colors": ["#1BA68C", "#31C2A7"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
@@ -7781,7 +7781,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#0EAB91", "#29CCB1"],
+                            "colors": ["#1BA68C", "#31C2A7"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
@@ -8258,11 +8258,11 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(87deg, #0EAB91 0%, #29CCB1 100%)",
+                        "origin": "linear-gradient(87deg, #1BA68C 0%, #31C2A7 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#0EAB91", "#29CCB1"],
+                            "colors": ["#1BA68C", "#31C2A7"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
@@ -8276,7 +8276,7 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#0EAB91", "#29CCB1"],
+                            "colors": ["#1BA68C", "#31C2A7"],
                             "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
