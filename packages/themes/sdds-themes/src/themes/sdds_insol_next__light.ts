@@ -882,7 +882,7 @@ export const sdds_insol_next__light = ([
   --inverse-text-accent-gradient: linear-gradient(45deg, #109C84FF 0%, #53F5DAFF 100%);
   --surface-accent-gradient-hover: #FFFFFFFF;
   --surface-accent-gradient-active: #FFFFFFFF;
-  --surface-accent-gradient: linear-gradient(87deg, #0EAB91FF 0%, #29CCB1FF 100%);
+  --surface-accent-gradient: linear-gradient(87deg, #1BA68CFF 0%, #31C2A7FF 100%);
   --surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --surface-skeleton-gradient-hover: #FFFFFFFF;
   --surface-skeleton-gradient-active: #FFFFFFFF;
@@ -891,7 +891,7 @@ export const sdds_insol_next__light = ([
   --surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --on-dark-surface-accent-gradient-hover: #FFFFFFFF;
   --on-dark-surface-accent-gradient-active: #FFFFFFFF;
-  --on-dark-surface-accent-gradient: linear-gradient(87deg, #0EAB91FF 0%, #29CCB1FF 100%);
+  --on-dark-surface-accent-gradient: linear-gradient(87deg, #1BA68CFF 0%, #31C2A7FF 100%);
   --on-dark-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --on-dark-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-dark-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -900,7 +900,7 @@ export const sdds_insol_next__light = ([
   --on-dark-surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --on-light-surface-accent-gradient-hover: #FFFFFFFF;
   --on-light-surface-accent-gradient-active: #FFFFFFFF;
-  --on-light-surface-accent-gradient: linear-gradient(87deg, #0EAB91FF 0%, #29CCB1FF 100%);
+  --on-light-surface-accent-gradient: linear-gradient(87deg, #1BA68CFF 0%, #31C2A7FF 100%);
   --on-light-surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --on-light-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-light-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -909,7 +909,7 @@ export const sdds_insol_next__light = ([
   --on-light-surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --inverse-surface-accent-gradient-hover: #FFFFFFFF;
   --inverse-surface-accent-gradient-active: #FFFFFFFF;
-  --inverse-surface-accent-gradient: linear-gradient(87deg, #0EAB91FF 0%, #29CCB1FF 100%);
+  --inverse-surface-accent-gradient: linear-gradient(87deg, #1BA68CFF 0%, #31C2A7FF 100%);
   --inverse-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --inverse-surface-skeleton-gradient-hover: #FFFFFFFF;
   --inverse-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -1514,12 +1514,12 @@ export const sdds_insol_next__light = ([
     --plasma-typo-dspl-s-bold-font-size: 4rem;
     --plasma-typo-dspl-s-bold-font-weight: 600;
     --plasma-typo-dspl-s-bold-line-height: 4rem;
-    --plasma-typo-h1-font-size: 3rem;
+    --plasma-typo-h1-font-size: 2.625rem;
     --plasma-typo-h1-font-weight: 400;
-    --plasma-typo-h1-line-height: 2.5rem;
-    --plasma-typo-h1-bold-font-size: 3rem;
+    --plasma-typo-h1-line-height: 2.625rem;
+    --plasma-typo-h1-bold-font-size: 2.625rem;
     --plasma-typo-h1-bold-font-weight: 600;
-    --plasma-typo-h1-bold-line-height: 2.5rem;
+    --plasma-typo-h1-bold-line-height: 2.625rem;
     --plasma-typo-h2-font-size: 2rem;
     --plasma-typo-h2-font-weight: 400;
     --plasma-typo-h2-line-height: 2rem;
@@ -1528,10 +1528,10 @@ export const sdds_insol_next__light = ([
     --plasma-typo-h2-bold-line-height: 2rem;
     --plasma-typo-h3-font-size: 1.5rem;
     --plasma-typo-h3-font-weight: 400;
-    --plasma-typo-h3-line-height: 2rem;
+    --plasma-typo-h3-line-height: 1.5rem;
     --plasma-typo-h3-bold-font-size: 1.5rem;
     --plasma-typo-h3-bold-font-weight: 600;
-    --plasma-typo-h3-bold-line-height: 2rem;
+    --plasma-typo-h3-bold-line-height: 1.5rem;
     --plasma-typo-h4-font-size: 1.25rem;
     --plasma-typo-h4-font-weight: 400;
     --plasma-typo-h4-line-height: 1.625rem;
