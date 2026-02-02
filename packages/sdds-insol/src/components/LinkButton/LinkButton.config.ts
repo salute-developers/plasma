@@ -73,6 +73,19 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-negative-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-negative-active);
             `,
+            info: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-info);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-info);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-info);
+                ${linkButtonTokens.linkButtonBackgroundColor}: rgba(255, 255, 255, 0.00);
+
+                ${linkButtonTokens.linkButtonColorHover}: var(--text-info-hover);
+                ${linkButtonTokens.linkButtonColorActive}: var(--text-info-active);
+                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-info-hover);
+                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-info-active);
+
+                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+            `,
         },
         size: {
             xl: css`
