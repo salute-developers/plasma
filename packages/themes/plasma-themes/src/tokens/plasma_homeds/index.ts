@@ -2566,6 +2566,38 @@ export const inverseSurfaceSkeletonDeepGradientHover = 'var(--inverse-surface-sk
 export const inverseSurfaceSkeletonDeepGradientActive =
     'var(--inverse-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
 
+/** dark overlay default overlayGradientUp */
+export const overlayGradientUp =
+    'var(--overlay-gradient-up, linear-gradient(0deg, #00000000 0%, #00000003 0.77%, #0000000A 1.54%, #00000014 2.31%, #00000026 3.08%, #0000003B 3.86%, #00000054 4.63%, #00000070 5.4%, #0000008F 6.17%, #000000AB 6.94%, #000000C4 7.71%, #000000D9 8.48%, #000000EB 9.25%, #000000F5 10.02%, #000000FC 10.8%, #000000FF 11.57%))';
+
+/** dark overlay default overlayGradientDown */
+export const overlayGradientDown =
+    'var(--overlay-gradient-down, linear-gradient(180deg, #00000000 0%, #00000003 0.95%, #0000000A 1.9%, #00000014 2.86%, #00000026 3.81%, #0000003B 4.76%, #00000054 5.71%, #00000070 6.67%, #0000008F 7.62%, #000000AB 8.57%, #000000C4 9.52%, #000000D9 10.48%, #000000EB 11.43%, #000000F5 12.38%, #000000FC 13.33%, #000000FF 14.29%))';
+
+/** dark overlay onDark overlayGradientUp */
+export const onDarkOverlayGradientUp =
+    'var(--on-dark-overlay-gradient-up, linear-gradient(0deg, #00000000 0%, #00000003 0.77%, #0000000A 1.54%, #00000014 2.31%, #00000026 3.08%, #0000003B 3.86%, #00000054 4.63%, #00000070 5.4%, #0000008F 6.17%, #000000AB 6.94%, #000000C4 7.71%, #000000D9 8.48%, #000000EB 9.25%, #000000F5 10.02%, #000000FC 10.8%, #000000FF 11.57%))';
+
+/** dark overlay onDark overlayGradientDown */
+export const onDarkOverlayGradientDown =
+    'var(--on-dark-overlay-gradient-down, linear-gradient(180deg, #00000000 0%, #00000003 0.95%, #0000000A 1.9%, #00000014 2.86%, #00000026 3.81%, #0000003B 4.76%, #00000054 5.71%, #00000070 6.67%, #0000008F 7.62%, #000000AB 8.57%, #000000C4 9.52%, #000000D9 10.48%, #000000EB 11.43%, #000000F5 12.38%, #000000FC 13.33%, #000000FF 14.29%))';
+
+/** dark overlay onLight overlayGradientUp */
+export const onLightOverlayGradientUp =
+    'var(--on-light-overlay-gradient-up, linear-gradient(0deg, #FFFFFF00 0%, #FFFFFF03 0.77%, #FFFFFF0A 1.54%, #FFFFFF14 2.31%, #FFFFFF26 3.08%, #FFFFFF3B 3.86%, #FFFFFF54 4.63%, #FFFFFF70 5.4%, #FFFFFF8F 6.17%, #FFFFFFAB 6.94%, #FFFFFFC4 7.71%, #FFFFFFD9 8.48%, #FFFFFFEB 9.25%, #FFFFFFF5 10.02%, #FFFFFFFC 10.8%, #FFFFFFFF 11.57%))';
+
+/** dark overlay onLight overlayGradientDown */
+export const onLightOverlayGradientDown =
+    'var(--on-light-overlay-gradient-down, linear-gradient(180deg, #FFFFFF00 0%, #FFFFFF03 0.95%, #FFFFFF0A 1.9%, #FFFFFF14 2.86%, #FFFFFF26 3.81%, #FFFFFF3B 4.76%, #FFFFFF54 5.71%, #FFFFFF70 6.67%, #FFFFFF8F 7.62%, #FFFFFFAB 8.57%, #FFFFFFC4 9.52%, #FFFFFFD9 10.48%, #FFFFFFEB 11.43%, #FFFFFFF5 12.38%, #FFFFFFFC 13.33%, #FFFFFFFF 14.29%))';
+
+/** dark overlay inverse overlayGradientUp */
+export const inverseOverlayGradientUp =
+    'var(--inverse-overlay-gradient-up, linear-gradient(0deg, #FFFFFF00 0%, #FFFFFF03 0.77%, #FFFFFF0A 1.54%, #FFFFFF14 2.31%, #FFFFFF26 3.08%, #FFFFFF3B 3.86%, #FFFFFF54 4.63%, #FFFFFF70 5.4%, #FFFFFF8F 6.17%, #FFFFFFAB 6.94%, #FFFFFFC4 7.71%, #FFFFFFD9 8.48%, #FFFFFFEB 9.25%, #FFFFFFF5 10.02%, #FFFFFFFC 10.8%, #FFFFFFFF 11.57%))';
+
+/** dark overlay inverse overlayGradientDown */
+export const inverseOverlayGradientDown =
+    'var(--inverse-overlay-gradient-down, linear-gradient(180deg, #FFFFFF00 0%, #FFFFFF03 0.95%, #FFFFFF0A 1.9%, #FFFFFF14 2.86%, #FFFFFF26 3.81%, #FFFFFF3B 4.76%, #FFFFFF54 5.71%, #FFFFFF70 6.67%, #FFFFFF8F 7.62%, #FFFFFFAB 8.57%, #FFFFFFC4 9.52%, #FFFFFFD9 10.48%, #FFFFFFEB 11.43%, #FFFFFFF5 12.38%, #FFFFFFFC 13.33%, #FFFFFFFF 14.29%))';
+
 /** Акцентный цвет обводки с градиентом */
 export const outlineAccentGradientHover = 'var(--outline-accent-gradient-hover, #CCCCCCFF)';
 
@@ -3674,6 +3706,10 @@ export const viewContainer = {
         --inverse-surface-skeleton-deep-gradient: var(--on-light-surface-skeleton-deep-gradient);
         --inverse-surface-skeleton-deep-gradient-hover: var(--on-light-surface-skeleton-deep-gradient-hover);
         --inverse-surface-skeleton-deep-gradient-active: var(--on-light-surface-skeleton-deep-gradient-active);
+        --overlay-gradient-up: var(--on-dark-overlay-gradient-up);
+        --overlay-gradient-down: var(--on-dark-overlay-gradient-down);
+        --inverse-overlay-gradient-up: var(--on-light-overlay-gradient-up);
+        --inverse-overlay-gradient-down: var(--on-light-overlay-gradient-down);
         --outline-accent-gradient-hover: var(--on-dark-outline-accent-gradient-hover);
         --outline-accent-gradient-active: var(--on-dark-outline-accent-gradient-active);
         --outline-accent-gradient: var(--on-dark-outline-accent-gradient);
@@ -4106,6 +4142,10 @@ export const viewContainer = {
         --inverse-surface-skeleton-deep-gradient: var(--on-dark-surface-skeleton-deep-gradient);
         --inverse-surface-skeleton-deep-gradient-hover: var(--on-dark-surface-skeleton-deep-gradient-hover);
         --inverse-surface-skeleton-deep-gradient-active: var(--on-dark-surface-skeleton-deep-gradient-active);
+        --overlay-gradient-up: var(--on-light-overlay-gradient-up);
+        --overlay-gradient-down: var(--on-light-overlay-gradient-down);
+        --inverse-overlay-gradient-up: var(--on-dark-overlay-gradient-up);
+        --inverse-overlay-gradient-down: var(--on-dark-overlay-gradient-down);
         --outline-accent-gradient-hover: var(--on-light-outline-accent-gradient-hover);
         --outline-accent-gradient-active: var(--on-light-outline-accent-gradient-active);
         --outline-accent-gradient: var(--on-light-outline-accent-gradient);
