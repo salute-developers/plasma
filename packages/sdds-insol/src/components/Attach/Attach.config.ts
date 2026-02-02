@@ -1,5 +1,8 @@
 import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+// INFO: Rounded radius. Should be removed after token will be added in theme
+const roundedRadius = '1000px';
+
 export const config = {
     defaults: {
         view: 'default',
@@ -181,7 +184,7 @@ export const config = {
 
                 ${attachTokens.moreIconColor}: var(--text-primary);
             `,
-            success: css`
+            positive: css`
                 ${attachTokens.buttonColor}: var(--on-dark-text-primary);
                 ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${attachTokens.buttonBackgroundColor}: var(--surface-positive);
@@ -267,7 +270,7 @@ export const config = {
 
                 ${attachTokens.moreIconColor}: var(--text-primary);
             `,
-            critical: css`
+            negative: css`
                 ${attachTokens.buttonColor}: var(--on-dark-text-primary);
                 ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${attachTokens.buttonBackgroundColor}: var(--surface-negative);
@@ -436,6 +439,50 @@ export const config = {
 
                 ${attachTokens.moreIconColor}: var(--text-primary);
             `,
+            green: css`
+                ${attachTokens.buttonColor}: var(--text-accent);
+                ${attachTokens.buttonValueColor}: var(--text-secondary);
+                ${attachTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
+
+                ${attachTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
+                ${attachTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+                ${attachTokens.buttonColorHover}: var(--text-accent-hover);
+                ${attachTokens.buttonColorActive}: var(--text-accent-active);
+
+                ${attachTokens.buttonDisabledOpacity}: 0.4;
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+
+                ${attachTokens.cellColor}: var(--text-primary);
+                ${attachTokens.cellLabelColor}: var(--text-secondary);
+                ${attachTokens.cellTitleColor}: var(--text-primary);
+                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellBackgroundColor}: transparent;
+
+                ${attachTokens.iconButtonColor}: var(--inverse-text-primary);
+                ${attachTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
+                ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
+                ${attachTokens.iconButtonColorHover}: var(--inverse-text-primary);
+                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${attachTokens.iconButtonColorActive}: var(--inverse-text-primary);
+                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-solid-default-active);
+
+                ${attachTokens.iconButtonDisabledOpacity}: 0.4;
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+
+                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
+                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
+                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+
+                ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+
+                ${attachTokens.moreIconColor}: var(--text-primary);
+            `,
         },
         helperTextView: {
             default: css`
@@ -456,13 +503,14 @@ export const config = {
                 ${attachTokens.buttonHeight}: 3.5rem;
                 ${attachTokens.buttonWidth}: 12.5rem;
                 ${attachTokens.buttonPadding}: 1.5rem;
-                ${attachTokens.buttonRadius}: 0.875rem;
-                ${attachTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${attachTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${attachTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${attachTokens.buttonRadius}: ${roundedRadius};
+
+                ${attachTokens.buttonFontFamily}: var(--plasma-typo-body-l-bold-font-family);
+                ${attachTokens.buttonFontSize}: var(--plasma-typo-body-l-bold-font-size);
+                ${attachTokens.buttonFontStyle}: var(--plasma-typo-body-l-bold-font-style);
                 ${attachTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${attachTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${attachTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${attachTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-bold-letter-spacing);
+                ${attachTokens.buttonLineHeight}: var(--plasma-typo-body-l-bold-line-height);
 
                 ${attachTokens.buttonSpinnerSize}: 1.375rem;
                 ${attachTokens.buttonSpinnerColor}: inherit;
@@ -506,6 +554,7 @@ export const config = {
                 ${attachTokens.iconButtonWidth}: 3.5rem;
                 ${attachTokens.iconButtonPadding}: 1.5rem;
                 ${attachTokens.iconButtonRadius}: 0.875rem;
+
                 ${attachTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${attachTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${attachTokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -520,6 +569,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
+
                 ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
