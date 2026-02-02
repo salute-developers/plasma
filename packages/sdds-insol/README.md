@@ -14,7 +14,7 @@
 ### Установка зависимостей
 
 ```bash
-$ npm install --save @salutejs/sdds-insol@next-insol @salutejs/sdds-themes
+$ npm install --save @salutejs/sdds-insol@next-insol @salutejs/sdds-themes@next-insol
 ```
 
 Для работы со `styled-components`, необходимо установить
