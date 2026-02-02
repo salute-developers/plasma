@@ -32,7 +32,7 @@ type CustomStoryTabsProps = {
 
 const contentLeftOptions = ['none', 'icon'];
 const contentRightOptions = ['none', 'counter', 'icon'];
-const labels = ['Label', 'Middle label', 'Very long label'];
+const labels = ['Label', 'Middle label', 'Disabled', 'Very long label'];
 
 const getContentLeft = (contentLeftOption: string, size: Size) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
@@ -78,18 +78,17 @@ const getIconSizes = (size: string) => {
     return sizeProp;
 };
 
-const StyledIconClose = styled(IconClose)`
+const StyledIconClose = styled(IconClose)<{ disabled?: boolean }>`
     color: var(--text-secondary);
 
     &:hover {
-        color: var(--text-primary);
+        color: ${({ disabled }) => (disabled ? 'var(--text-secondary)' : 'var(--text-primary)')};
     }
 `;
-
-const getAction = (hasAction: boolean, size: string) => {
+const getAction = (hasAction: boolean, size: string, disabled?: boolean) => {
     const sizeProp = getIconSizes(size);
 
-    return hasAction ? <StyledIconClose style={sizeProp} color="inherit" /> : undefined;
+    return hasAction ? <StyledIconClose style={sizeProp} disabled={disabled} color="inherit" /> : undefined;
 };
 
 const getIconContent = (size: string, CustomIcon?: ComponentType<IconProps>) => {
@@ -206,7 +205,6 @@ const StoryDefault = (props: HorizontalStoryTabsProps) => {
         disabled,
         view: 'divider',
         tabIndex: !disabled ? 0 : -1,
-        actionContent: getAction(hasAction, size as Size),
         size: size as Size,
     };
 
@@ -226,6 +224,8 @@ const StoryDefault = (props: HorizontalStoryTabsProps) => {
                                 {...(commonTabsItemProps as typeof orientation extends 'horizontal'
                                     ? Omit<HorizontalTabItemProps, 'value' | 'contentRight'>
                                     : Omit<VerticalTabItemProps, 'value' | 'contentRight'>)}
+                                {...(i === 2 ? { disabled: true } : { disabled })}
+                                actionContent={getAction(hasAction, size as Size, i === 2 || disabled)}
                                 {...(helperText !== ''
                                     ? { value: helperText }
                                     : { contentRight: getContentRight(contentRightOption, size as Size) })}
@@ -269,6 +269,8 @@ const StoryDefault = (props: HorizontalStoryTabsProps) => {
                                 selected={i === iconIndex}
                                 onClick={() => !disabled && setIconIndex(i)}
                                 {...(commonTabsItemProps as IconTabItemProps)}
+                                {...(i === 2 ? { disabled: true } : { disabled })}
+                                actionContent={getAction(hasAction, size as Size, i === 2 || disabled)}
                             >
                                 {getIconContent(size as Size)}
                             </IconTabItem>
@@ -367,11 +369,11 @@ const StoryHeaderDefault = (props: HorizontalStoryTabsProps) => {
                     selected={i === index}
                     onClick={() => !disabled && setIndex(i)}
                     tabIndex={!disabled ? 0 : -1}
-                    disabled={disabled}
+                    {...(i === 2 ? { disabled: true } : { disabled })}
                     value={helperText}
                     size={size as HeaderSize}
                     maxItemWidth={maxItemWidth}
-                    actionContent={getAction(hasAction, size as Size)}
+                    actionContent={getAction(hasAction, size as Size, i === 2 || disabled)}
                 >
                     {`${labels[i % labels.length]} ${i + 1}`}
                 </TabItem>
@@ -394,11 +396,11 @@ const StoryHeaderScroll = (props: HorizontalStoryTabsProps) => {
                     selected={i === index}
                     onClick={() => !disabled && setIndex(i)}
                     tabIndex={!disabled ? 0 : -1}
-                    disabled={disabled}
+                    {...(i === 2 ? { disabled: true } : { disabled })}
                     value={helperText}
                     size={size as HeaderSize}
                     maxItemWidth={maxItemWidth}
-                    actionContent={getAction(hasAction, size as Size)}
+                    actionContent={getAction(hasAction, size as Size, i === 2 || disabled)}
                 >
                     {`${labels[i % labels.length]} ${i + 1}`}
                 </TabItem>
