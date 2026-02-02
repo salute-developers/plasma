@@ -45,6 +45,9 @@ export const getWebpackConfig = () => {
                 'react-dom': resolveInsidePackage('react-dom'),
                 '@salutejs/plasma-icons': resolveInsidePackage('@salutejs', 'plasma-icons'),
                 '@salutejs/plasma-cy-utils': resolveInsidePackage('@salutejs', 'plasma-cy-utils'),
+                // Переопределение путей для тестов внутри plasma-new-hope
+                'src/examples/components': resolveModule(packsPath, process.env.PACKAGE_NAME, 'src', 'components')(),
+                'override/_Icon': resolveInsidePackage('@salutejs', 'plasma-icons'),
             },
             fallback: {
                 crypto: false,

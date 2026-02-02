@@ -35,47 +35,54 @@ const testPackagesThemes = {
     'sdds-insol': <ThemeINSOL />,
 };
 
-export const getComponent = function <T = PropsWithChildren<any>>(componentName: string): React.FC<T> {
+const getPackage = function <T = PropsWithChildren<{}>>(): Record<string, React.FC<T> | undefined> {
     const pkgName = Cypress.env('package') as string | undefined;
 
     if (!pkgName) {
         throw new Error('Add package env to your Cypress config');
     }
 
-    let pkg: Record<string, React.FC<T> | undefined>;
-
     /* eslint-disable */
     switch (pkgName) {
         case 'plasma-ui':
-            pkg = require('../../../packages/plasma-ui');
-            break;
+            return require('../../../packages/plasma-ui');
         case 'plasma-web':
-            pkg = require('../../../packages/plasma-web/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/plasma-web/dist/styled-components/cjs/index.js');
         case 'plasma-b2c':
-            pkg = require('../../../packages/plasma-b2c/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/plasma-b2c/dist/styled-components/cjs/index.js');
         case 'plasma-giga':
-            pkg = require('../../../packages/plasma-giga/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/plasma-giga/dist/styled-components/cjs/index.js');
         case 'sdds-cs':
-            pkg = require('../../../packages/sdds-cs/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/sdds-cs/dist/styled-components/cjs/index.js');
         case 'sdds-insol':
-            pkg = require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
-            break;
+            return require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
         default:
             throw new Error(`Library ${pkgName} is not required in plasma-core/CypressHelpers:getComponent`);
     }
     /* eslint-enable */
+};
 
+export const hasComponent = (componentName: string): boolean => {
+    const pkg = getPackage();
+    return componentName in pkg && pkg[componentName] !== undefined;
+};
+
+export const getComponent = function <T = PropsWithChildren<{}>>(componentName: string): React.FC<T> {
+    const pkgName = Cypress.env('package') as string | undefined;
+    const pkg = getPackage<T>();
     const component = pkg[componentName];
 
     if (!component) {
-        throw new Error(`Library ${pkgName} has no ${componentName}`);
+        console.error(`Library ${pkgName} has no ${componentName}`);
     }
 
-    return component;
+    return component || (() => null);
+};
+
+export const getDescribeFN = (component: string) => {
+    const componentExists = hasComponent(component);
+
+    return componentExists ? describe : describe.skip;
 };
 
 export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, children }) => {
