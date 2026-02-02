@@ -36,7 +36,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
-            success: css`
+            positive: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-positive);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
@@ -50,7 +50,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-warning-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-warning-active);
             `,
-            critical: css`
+            negative: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-negative);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
@@ -77,6 +77,13 @@ export const config = {
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary-active);
+            `,
+            green: css`
+                ${iconButtonTokens.iconButtonColor}: var(--text-accent);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
+                ${iconButtonTokens.iconButtonColorHover}: var(--text-accent-hover);
+                ${iconButtonTokens.iconButtonColorActive}: var(--text-accent-active);
             `,
         },
         size: {
