@@ -2,14 +2,15 @@ import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import styled from 'styled-components';
 import { IconClose } from '@salutejs/plasma-icons';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
+import { config } from './IconButton.config';
 import { IconButton } from './IconButton';
 
 type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
 
-const views = ['default', 'accent', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
-const sizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+const { views, sizes } = getConfigVariations(config);
+
 const pins = [
     'square-square',
     'square-clear',
@@ -28,7 +29,7 @@ const meta: Meta<StoryButtonProps> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         view: {
@@ -62,16 +63,13 @@ export default meta;
 
 const getSizeForIcon = (size) => {
     const map = {
-        mr: 's',
-        lr: 's',
         m: 's',
         l: 's',
         xl: 's',
-        sr: 'xs',
         s: 'xs',
-        xsr: 'xs',
         xxs: 'xs',
     };
+
     if (map[size]) {
         return map[size];
     }
