@@ -78,13 +78,13 @@ export const config = {
             xl: css`
                 ${linkButtonTokens.linkButtonHeight}: 4rem;
                 ${linkButtonTokens.linkButtonPadding}: 1.25rem 0;
-                ${linkButtonTokens.linkButtonRadius}: 1rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-l-font-style);
+
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-l-bold-font-family);
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-l-bold-font-size);
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-l-bold-font-style);
                 ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-l-bold-letter-spacing);
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-l-bold-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1.5rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
@@ -97,13 +97,13 @@ export const config = {
             l: css`
                 ${linkButtonTokens.linkButtonHeight}: 3.5rem;
                 ${linkButtonTokens.linkButtonPadding}: 1rem 0;
-                ${linkButtonTokens.linkButtonRadius}: 0.875rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-l-font-style);
+
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-l-bold-font-family);
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-l-bold-font-size);
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-l-bold-font-style);
                 ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-l-bold-letter-spacing);
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-l-bold-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1.375rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
