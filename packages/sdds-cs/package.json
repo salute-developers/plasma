@@ -82,7 +82,7 @@
     "prepare": "npm run build",
     "build": "npm run build:styled-components && npm run build:emotion",
     "postbuild": "npm run generate:typings",
-    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && ./scripts/replace-st_emotion.sh",
+    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && node ./scripts/replaceStyledComponentsToEmotion.js",
     "build:emotion": "rm -rf dist/emotion && npm run build:emotion:esm && npm run build:emotion:cjs",
     "build:emotion:cjs": "swc ./src-emotion -d ./dist/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
     "build:emotion:esm": "swc ./src-emotion -d ./dist/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",

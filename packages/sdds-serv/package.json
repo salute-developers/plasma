@@ -100,7 +100,7 @@
     "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
     "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
     "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && ./scripts/replace-st_emotion.sh",
+    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && node ./scripts/replaceStyledComponentsToEmotion.js",
     "build:emotion": "rm -rf dist/emotion && npm run build:emotion:esm && npm run build:emotion:cjs",
     "build:emotion:cjs": "swc ./src-emotion -d ./dist/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
     "build:emotion:esm": "swc ./src-emotion -d ./dist/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
