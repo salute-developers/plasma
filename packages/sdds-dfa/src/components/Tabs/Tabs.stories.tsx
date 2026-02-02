@@ -32,7 +32,7 @@ type CustomStoryTabsProps = {
 
 const contentLeftOptions = ['none', 'icon'];
 const contentRightOptions = ['none', 'counter', 'icon'];
-const labels = ['Label', 'Middle label', 'Very long label'];
+const labels = ['Label', 'Middle label', 'Disabled', 'Very long label'];
 
 const getContentLeft = (contentLeftOption: string, size: Size) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
@@ -226,6 +226,7 @@ const StoryDefault = (props: HorizontalStoryTabsProps) => {
                                 {...(commonTabsItemProps as typeof orientation extends 'horizontal'
                                     ? Omit<HorizontalTabItemProps, 'value' | 'contentRight'>
                                     : Omit<VerticalTabItemProps, 'value' | 'contentRight'>)}
+                                {...(i === 2 ? { disabled: true } : {})}
                                 {...(helperText !== ''
                                     ? { value: helperText }
                                     : { contentRight: getContentRight(contentRightOption, size as Size) })}
@@ -269,6 +270,7 @@ const StoryDefault = (props: HorizontalStoryTabsProps) => {
                                 selected={i === iconIndex}
                                 onClick={() => !disabled && setIconIndex(i)}
                                 {...(commonTabsItemProps as IconTabItemProps)}
+                                {...(i === 2 ? { disabled: true } : {})}
                             >
                                 {getIconContent(size as Size)}
                             </IconTabItem>

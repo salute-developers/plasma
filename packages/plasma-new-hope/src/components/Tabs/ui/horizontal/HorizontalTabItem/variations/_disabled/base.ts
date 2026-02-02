@@ -5,6 +5,7 @@ import { classes, tokens } from '../../../../../tokens';
 export const base = css`
     &[disabled] {
         cursor: not-allowed;
+        opacity: var(${tokens.disabledOpacity});
 
         &:hover {
             color: var(${tokens.itemColor});

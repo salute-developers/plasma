@@ -27,7 +27,7 @@ type CustomStoryTabsProps = {
 
 const contentLeftOptions = ['none', 'icon'];
 const contentRightOptions = ['none', 'counter', 'icon'];
-const labels = ['Label', 'Middle label', 'Very long label'];
+const labels = ['Label', 'Middle label', 'Disabled', 'Very long label'];
 
 const getContentLeft = (contentLeftOption: string, size: Size) => {
     const iconSize = 's';
