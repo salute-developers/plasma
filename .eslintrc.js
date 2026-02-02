@@ -40,7 +40,11 @@ module.exports = {
         ], // NOTE: If you want a type meaning "empty object", you probably want `Record<string, never>` instead
 
         '@typescript-eslint/no-empty-interface': 'off',
-        '@typescript-eslint/ban-ts-comment': 'warn',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        'no-void': ['error', { allowAsStatement: true }],
+        'wrap-iife': 'off',
+        'func-call-spacing': 'off',
+        'no-spaced-func': 'off',
     },
     settings: {
         react: {
