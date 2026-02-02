@@ -28,22 +28,16 @@ export const textParagraphHover = 'var(--text-paragraph-hover, #F5F5F57A)';
 export const textParagraphActive = 'var(--text-paragraph-active, #F5F5F5A3)';
 
 /** Акцентный цвет */
-export const textAccent = 'var(--text-accent, #C46BFF)';
+export const textAccentHover = 'var(--text-accent-hover, #B9A9F9FF)';
 
 /** Акцентный цвет */
-export const textAccentHover = 'var(--text-accent-hover, #E4BDFFFF)';
-
-/** Акцентный цвет */
-export const textAccentActive = 'var(--text-accent-active, #B84DFFFF)';
+export const textAccentActive = 'var(--text-accent-active, #633FF3FF)';
 
 /** Акцентный минорный цвет */
-export const textAccentMinor = 'var(--text-accent-minor, #722BA1)';
+export const textAccentMinorHover = 'var(--text-accent-minor-hover, #412AA7FF)';
 
 /** Акцентный минорный цвет */
-export const textAccentMinorHover = 'var(--text-accent-minor-hover, #FFFFFFFF)';
-
-/** Акцентный минорный цвет */
-export const textAccentMinorActive = 'var(--text-accent-minor-active, #8933C1FF)';
+export const textAccentMinorActive = 'var(--text-accent-minor-active, #281966FF)';
 
 /** Цвет успеха */
 export const textPositive = 'var(--text-positive, #24B23E)';
@@ -129,6 +123,12 @@ export const textTertiary = 'var(--text-tertiary, #F5F5F547)';
 /** Сплошной наборный текст */
 export const textParagraph = 'var(--text-paragraph, #F5F5F5CC)';
 
+/** Акцентный цвет */
+export const textAccent = 'var(--text-accent, #7B5CF5FF)';
+
+/** Акцентный минорный цвет */
+export const textAccentMinor = 'var(--text-accent-minor, #2F1E77FF)';
+
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimaryHover = 'var(--on-dark-text-primary-hover, #F5F5F593)';
 
@@ -157,22 +157,16 @@ export const onDarkTextParagraphHover = 'var(--on-dark-text-paragraph-hover, #F5
 export const onDarkTextParagraphActive = 'var(--on-dark-text-paragraph-active, #F5F5F5A3)';
 
 /** Акцентный цвет на темном фоне */
-export const onDarkTextAccent = 'var(--on-dark-text-accent, #C46BFF)';
+export const onDarkTextAccentHover = 'var(--on-dark-text-accent-hover, #B9A9F9FF)';
 
 /** Акцентный цвет на темном фоне */
-export const onDarkTextAccentHover = 'var(--on-dark-text-accent-hover, #E4BDFFFF)';
-
-/** Акцентный цвет на темном фоне */
-export const onDarkTextAccentActive = 'var(--on-dark-text-accent-active, #B84DFFFF)';
+export const onDarkTextAccentActive = 'var(--on-dark-text-accent-active, #633FF3FF)';
 
 /** Акцентный минорный цвет на темном фоне */
-export const onDarkTextAccentMinor = 'var(--on-dark-text-accent-minor, #722BA1)';
+export const onDarkTextAccentMinorHover = 'var(--on-dark-text-accent-minor-hover, #412AA7FF)';
 
 /** Акцентный минорный цвет на темном фоне */
-export const onDarkTextAccentMinorHover = 'var(--on-dark-text-accent-minor-hover, #FFFFFFFF)';
-
-/** Акцентный минорный цвет на темном фоне */
-export const onDarkTextAccentMinorActive = 'var(--on-dark-text-accent-minor-active, #8933C1FF)';
+export const onDarkTextAccentMinorActive = 'var(--on-dark-text-accent-minor-active, #281966FF)';
 
 /** Цвет успеха на темном фоне */
 export const onDarkTextPositive = 'var(--on-dark-text-positive, #24B23E)';
@@ -258,6 +252,12 @@ export const onDarkTextTertiary = 'var(--on-dark-text-tertiary, #F5F5F547)';
 /** Сплошной наборный текст на темном фоне */
 export const onDarkTextParagraph = 'var(--on-dark-text-paragraph, #F5F5F5CC)';
 
+/** Акцентный цвет на темном фоне */
+export const onDarkTextAccent = 'var(--on-dark-text-accent, #7B5CF5FF)';
+
+/** Акцентный минорный цвет на темном фоне */
+export const onDarkTextAccentMinor = 'var(--on-dark-text-accent-minor, #2F1E77FF)';
+
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimary = 'var(--on-light-text-primary, #171717F5)';
 
@@ -298,22 +298,16 @@ export const onLightTextParagraphHover = 'var(--on-light-text-paragraph-hover, #
 export const onLightTextParagraphActive = 'var(--on-light-text-paragraph-active, #171717A3)';
 
 /** Акцентный цвет на светлом фоне */
-export const onLightTextAccent = 'var(--on-light-text-accent, #AD42F5)';
+export const onLightTextAccentHover = 'var(--on-light-text-accent-hover, #8977DAFF)';
 
 /** Акцентный цвет на светлом фоне */
-export const onLightTextAccentHover = 'var(--on-light-text-accent-hover, #CF90F9FF)';
-
-/** Акцентный цвет на светлом фоне */
-export const onLightTextAccentActive = 'var(--on-light-text-accent-active, #A125F4FF)';
+export const onLightTextAccentActive = 'var(--on-light-text-accent-active, #412CA0FF)';
 
 /** Акцентный минорный цвет на светлом фоне */
-export const onLightTextAccentMinor = 'var(--on-light-text-accent-minor, #D39CF7)';
+export const onLightTextAccentMinorHover = 'var(--on-light-text-accent-minor-hover, #B7A3FFFF)';
 
 /** Акцентный минорный цвет на светлом фоне */
-export const onLightTextAccentMinorHover = 'var(--on-light-text-accent-minor-hover, #F4E7FDFF)';
-
-/** Акцентный минорный цвет на светлом фоне */
-export const onLightTextAccentMinorActive = 'var(--on-light-text-accent-minor-active, #C680F5FF)';
+export const onLightTextAccentMinorActive = 'var(--on-light-text-accent-minor-active, #7752FFFF)';
 
 /** Цвет успеха на светлом фоне */
 export const onLightTextPositive = 'var(--on-light-text-positive, #108E26)';
@@ -387,6 +381,12 @@ export const onLightTextInfoMinorHover = 'var(--on-light-text-info-minor-hover, 
 /** Минорный цвет информации на светлом фоне */
 export const onLightTextInfoMinorActive = 'var(--on-light-text-info-minor-active, #33ADFFFF)';
 
+/** Акцентный цвет на светлом фоне */
+export const onLightTextAccent = 'var(--on-light-text-accent, #4B32B8FF)';
+
+/** Акцентный минорный цвет на светлом фоне */
+export const onLightTextAccentMinor = 'var(--on-light-text-accent-minor, #967AFFFF)';
+
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimary = 'var(--inverse-text-primary, #171717F5)';
 
@@ -427,22 +427,16 @@ export const inverseTextParagraphHover = 'var(--inverse-text-paragraph-hover, #1
 export const inverseTextParagraphActive = 'var(--inverse-text-paragraph-active, #171717A3)';
 
 /** Инвертированный акцентный цвет */
-export const inverseTextAccent = 'var(--inverse-text-accent, #AD42F5)';
+export const inverseTextAccentHover = 'var(--inverse-text-accent-hover, #8977DAFF)';
 
 /** Инвертированный акцентный цвет */
-export const inverseTextAccentHover = 'var(--inverse-text-accent-hover, #CF90F9FF)';
-
-/** Инвертированный акцентный цвет */
-export const inverseTextAccentActive = 'var(--inverse-text-accent-active, #A125F4FF)';
+export const inverseTextAccentActive = 'var(--inverse-text-accent-active, #412CA0FF)';
 
 /** Инвертированный минорный акцентный цвет */
-export const inverseTextAccentMinor = 'var(--inverse-text-accent-minor, #D39CF7)';
+export const inverseTextAccentMinorHover = 'var(--inverse-text-accent-minor-hover, #B7A3FFFF)';
 
 /** Инвертированный минорный акцентный цвет */
-export const inverseTextAccentMinorHover = 'var(--inverse-text-accent-minor-hover, #F4E7FDFF)';
-
-/** Инвертированный минорный акцентный цвет */
-export const inverseTextAccentMinorActive = 'var(--inverse-text-accent-minor-active, #C680F5FF)';
+export const inverseTextAccentMinorActive = 'var(--inverse-text-accent-minor-active, #7752FFFF)';
 
 /** Инвертированный цвет успеха */
 export const inverseTextPositive = 'var(--inverse-text-positive, #108E26)';
@@ -515,6 +509,12 @@ export const inverseTextInfoMinorHover = 'var(--inverse-text-info-minor-hover, #
 
 /** Инвертированный минорный цвет информации */
 export const inverseTextInfoMinorActive = 'var(--inverse-text-info-minor-active, #33ADFFFF)';
+
+/** Инвертированный акцентный цвет */
+export const inverseTextAccent = 'var(--inverse-text-accent, #4B32B8FF)';
+
+/** Инвертированный минорный акцентный цвет */
+export const inverseTextAccentMinor = 'var(--inverse-text-accent-minor, #967AFFFF)';
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimary = 'var(--surface-solid-primary, #171717)';
@@ -625,31 +625,22 @@ export const surfaceClearHover = 'var(--surface-clear-hover, #FFFFFFFF)';
 export const surfaceClearActive = 'var(--surface-clear-active, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола */
-export const surfaceAccent = 'var(--surface-accent, #B559F3)';
+export const surfaceAccentHover = 'var(--surface-accent-hover, #6C50DCFF)';
 
 /** Акцентный фон поверхности/контрола */
-export const surfaceAccentHover = 'var(--surface-accent-hover, #C275F5FF)';
-
-/** Акцентный фон поверхности/контрола */
-export const surfaceAccentActive = 'var(--surface-accent-active, #B14FF3FF)';
+export const surfaceAccentActive = 'var(--surface-accent-active, #5737D7FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinor = 'var(--surface-accent-minor, #36154C)';
+export const surfaceAccentMinorHover = 'var(--surface-accent-minor-hover, #211556FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinorHover = 'var(--surface-accent-minor-hover, #41195CFF)';
-
-/** Акцентный минорный непрозрачный фон поверхности/контрола */
-export const surfaceAccentMinorActive = 'var(--surface-accent-minor-active, #301344FF)';
+export const surfaceAccentMinorActive = 'var(--surface-accent-minor-active, #170F3EFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccent = 'var(--surface-transparent-accent, #B559F333)';
+export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-hover, #5E3FD952)';
 
 /** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-hover, #B558F352)';
-
-/** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccentActive = 'var(--surface-transparent-accent-active, #B558F324)';
+export const surfaceTransparentAccentActive = 'var(--surface-transparent-accent-active, #5E3FD924)';
 
 /** Цвет фона поверхности/контрола успех */
 export const surfacePositive = 'var(--surface-positive, #1A9E32)';
@@ -758,6 +749,15 @@ export const surfaceTransparentInfoHover = 'var(--surface-transparent-info-hover
 
 /** Прозрачный цвет фона поверхности/контрола информация */
 export const surfaceTransparentInfoActive = 'var(--surface-transparent-info-active, #118CDF24)';
+
+/** Акцентный фон поверхности/контрола */
+export const surfaceAccent = 'var(--surface-accent, #5F41D9FF)';
+
+/** Акцентный минорный непрозрачный фон поверхности/контрола */
+export const surfaceAccentMinor = 'var(--surface-accent-minor, #1B1147FF)';
+
+/** Прозрачный акцентный фон поверхности/контрола */
+export const surfaceTransparentAccent = 'var(--surface-transparent-accent, #5F41D933)';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary, #171717)';
@@ -868,31 +868,22 @@ export const onDarkSurfaceClearHover = 'var(--on-dark-surface-clear-hover, #FFFF
 export const onDarkSurfaceClearActive = 'var(--on-dark-surface-clear-active, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #B559F3)';
+export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #6C50DCFF)';
 
 /** Акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #C275F5FF)';
-
-/** Акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #B14FF3FF)';
+export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #5737D7FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #36154C)';
+export const onDarkSurfaceAccentMinorHover = 'var(--on-dark-surface-accent-minor-hover, #211556FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinorHover = 'var(--on-dark-surface-accent-minor-hover, #41195CFF)';
-
-/** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceAccentMinorActive = 'var(--on-dark-surface-accent-minor-active, #301344FF)';
+export const onDarkSurfaceAccentMinorActive = 'var(--on-dark-surface-accent-minor-active, #170F3EFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, #B559F333)';
+export const onDarkSurfaceTransparentAccentHover = 'var(--on-dark-surface-transparent-accent-hover, #5E3FD952)';
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentAccentHover = 'var(--on-dark-surface-transparent-accent-hover, #B558F352)';
-
-/** Прозрачный акцентный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentAccentActive = 'var(--on-dark-surface-transparent-accent-active, #B558F324)';
+export const onDarkSurfaceTransparentAccentActive = 'var(--on-dark-surface-transparent-accent-active, #5E3FD924)';
 
 /** Цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfacePositive = 'var(--on-dark-surface-positive, #1A9E32)';
@@ -1002,6 +993,15 @@ export const onDarkSurfaceTransparentInfoHover = 'var(--on-dark-surface-transpar
 /** Прозрачный цвет фона поверхности/контрола информация на темном фоне */
 export const onDarkSurfaceTransparentInfoActive = 'var(--on-dark-surface-transparent-info-active, #118CDF24)';
 
+/** Акцентный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #5F41D9FF)';
+
+/** Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #1B1147FF)';
+
+/** Прозрачный акцентный фон поверхности/контрола на темном фоне */
+export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, #5F41D933)';
+
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary, #F5F5F5)';
 
@@ -1106,31 +1106,22 @@ export const onLightSurfaceClearHover = 'var(--on-light-surface-clear-hover, #FF
 export const onLightSurfaceClearActive = 'var(--on-light-surface-clear-active, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #B559F3)';
+export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #6C50DCFF)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #C275F5FF)';
-
-/** Акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #B14FF3FF)';
+export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active, #502ED6FF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #F4E3FF)';
+export const onLightSurfaceAccentMinorHover = 'var(--on-light-surface-accent-minor-hover, #D3C7FFFF)';
 
 /** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinorHover = 'var(--on-light-surface-accent-minor-hover, #F9F0FFFF)';
-
-/** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceAccentMinorActive = 'var(--on-light-surface-accent-minor-active, #F1DBFFFF)';
+export const onLightSurfaceAccentMinorActive = 'var(--on-light-surface-accent-minor-active, #CFC2FFFF)';
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, #B559F31F)';
+export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-transparent-accent-hover, #5E3FD92E)';
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-transparent-accent-hover, #B558F33D)';
-
-/** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentAccentActive = 'var(--on-light-surface-transparent-accent-active, #B558F30F)';
+export const onLightSurfaceTransparentAccentActive = 'var(--on-light-surface-transparent-accent-active, #5E3FD933)';
 
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositive = 'var(--on-light-surface-positive, #1A9E32)';
@@ -1246,6 +1237,15 @@ export const onLightSurfaceTransparentPrimary = 'var(--on-light-surface-transpar
 /** Вторичный прозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentSecondary = 'var(--on-light-surface-transparent-secondary, #0808080F)';
 
+/** Акцентный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #5F41D9FF)';
+
+/** Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #DAD0FFFF)';
+
+/** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
+export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, #5F41D91F)';
+
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimary = 'var(--inverse-surface-solid-primary, #F5F5F5)';
 
@@ -1350,31 +1350,22 @@ export const inverseSurfaceClearHover = 'var(--inverse-surface-clear-hover, #FFF
 export const inverseSurfaceClearActive = 'var(--inverse-surface-clear-active, #FFFFFFFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #B559F3)';
+export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #6C50DCFF)';
 
 /** Инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceAccentHover = 'var(--inverse-surface-accent-hover, #C275F5FF)';
-
-/** Инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #B14FF3FF)';
+export const inverseSurfaceAccentActive = 'var(--inverse-surface-accent-active, #502ED6FF)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #F4E3FF)';
+export const inverseSurfaceAccentMinorHover = 'var(--inverse-surface-accent-minor-hover, #D3C7FFFF)';
 
 /** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinorHover = 'var(--inverse-surface-accent-minor-hover, #F9F0FFFF)';
-
-/** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
-export const inverseSurfaceAccentMinorActive = 'var(--inverse-surface-accent-minor-active, #F1DBFFFF)';
+export const inverseSurfaceAccentMinorActive = 'var(--inverse-surface-accent-minor-active, #CFC2FFFF)';
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, #B559F31F)';
+export const inverseSurfaceTransparentAccentHover = 'var(--inverse-surface-transparent-accent-hover, #5E3FD92E)';
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceTransparentAccentHover = 'var(--inverse-surface-transparent-accent-hover, #B558F33D)';
-
-/** Прозрачный инвертированный акцентный фон поверхности/контрола */
-export const inverseSurfaceTransparentAccentActive = 'var(--inverse-surface-transparent-accent-active, #B558F30F)';
+export const inverseSurfaceTransparentAccentActive = 'var(--inverse-surface-transparent-accent-active, #5E3FD933)';
 
 /** Инвертированный цвет фона поверхности/контрола успех */
 export const inverseSurfacePositive = 'var(--inverse-surface-positive, #1A9E32)';
@@ -1489,6 +1480,15 @@ export const inverseSurfaceTransparentPrimary = 'var(--inverse-surface-transpare
 
 /** Инвертированный вторичный прозрачный фон поверхности/контрола */
 export const inverseSurfaceTransparentSecondary = 'var(--inverse-surface-transparent-secondary, #0808080F)';
+
+/** Инвертированный акцентный фон поверхности/контрола */
+export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #5F41D9FF)';
+
+/** Инвертированный акцентный минорный непрозрачный фон поверхности/контрола */
+export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #DAD0FFFF)';
+
+/** Прозрачный инвертированный акцентный фон поверхности/контрола */
+export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, #5F41D91F)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #080808)';
@@ -1611,31 +1611,22 @@ export const outlineClearHover = 'var(--outline-clear-hover, #FFFFFFFF)';
 export const outlineClearActive = 'var(--outline-clear-active, #FFFFFFFF)';
 
 /** Акцентный цвет обводки */
-export const outlineAccent = 'var(--outline-accent, #C46BFF)';
+export const outlineAccentHover = 'var(--outline-accent-hover, #B9A9F9FF)';
 
 /** Акцентный цвет обводки */
-export const outlineAccentHover = 'var(--outline-accent-hover, #E4BDFFFF)';
-
-/** Акцентный цвет обводки */
-export const outlineAccentActive = 'var(--outline-accent-active, #B84DFFFF)';
+export const outlineAccentActive = 'var(--outline-accent-active, #633FF3FF)';
 
 /** Акцентный минорный непрозрачный цвет обводки */
-export const outlineAccentMinor = 'var(--outline-accent-minor, #722BA1)';
+export const outlineAccentMinorHover = 'var(--outline-accent-minor-hover, #412AA7FF)';
 
 /** Акцентный минорный непрозрачный цвет обводки */
-export const outlineAccentMinorHover = 'var(--outline-accent-minor-hover, #FFFFFFFF)';
-
-/** Акцентный минорный непрозрачный цвет обводки */
-export const outlineAccentMinorActive = 'var(--outline-accent-minor-active, #8933C1FF)';
+export const outlineAccentMinorActive = 'var(--outline-accent-minor-active, #281966FF)';
 
 /** Прозрачный акцентный цвет обводки */
-export const outlineTransparentAccent = 'var(--outline-transparent-accent, #C46BFF47)';
+export const outlineTransparentAccentHover = 'var(--outline-transparent-accent-hover, #7B5CF5B3)';
 
 /** Прозрачный акцентный цвет обводки */
-export const outlineTransparentAccentHover = 'var(--outline-transparent-accent-hover, #C46BFFFF)';
-
-/** Прозрачный акцентный цвет обводки */
-export const outlineTransparentAccentActive = 'var(--outline-transparent-accent-active, #C46BFF56)';
+export const outlineTransparentAccentActive = 'var(--outline-transparent-accent-active, #7B5CF52B)';
 
 /** Цвет обводки успех */
 export const outlinePositive = 'var(--outline-positive, #24B23E)';
@@ -1745,6 +1736,15 @@ export const outlineTransparentInfoHover = 'var(--outline-transparent-info-hover
 /** Прозрачный цвет обводки информация */
 export const outlineTransparentInfoActive = 'var(--outline-transparent-info-active, #199AF056)';
 
+/** Акцентный цвет обводки */
+export const outlineAccent = 'var(--outline-accent, #7B5CF5FF)';
+
+/** Акцентный минорный непрозрачный цвет обводки */
+export const outlineAccentMinor = 'var(--outline-accent-minor, #2F1E77FF)';
+
+/** Прозрачный акцентный цвет обводки */
+export const outlineTransparentAccent = 'var(--outline-transparent-accent, #7B5CF547)';
+
 /** Основной непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidPrimary = 'var(--on-dark-outline-solid-primary, #262626)';
 
@@ -1818,31 +1818,22 @@ export const onDarkOutlineClearHover = 'var(--on-dark-outline-clear-hover, #FFFF
 export const onDarkOutlineClearActive = 'var(--on-dark-outline-clear-active, #FFFFFFFF)';
 
 /** Акцентный цвет обводки на темном фоне */
-export const onDarkOutlineAccent = 'var(--on-dark-outline-accent, #C46BFF)';
+export const onDarkOutlineAccentHover = 'var(--on-dark-outline-accent-hover, #B9A9F9FF)';
 
 /** Акцентный цвет обводки на темном фоне */
-export const onDarkOutlineAccentHover = 'var(--on-dark-outline-accent-hover, #E4BDFFFF)';
-
-/** Акцентный цвет обводки на темном фоне */
-export const onDarkOutlineAccentActive = 'var(--on-dark-outline-accent-active, #B84DFFFF)';
+export const onDarkOutlineAccentActive = 'var(--on-dark-outline-accent-active, #633FF3FF)';
 
 /** Акцентный минорный непрозрачный цвет обводки на темном фоне */
-export const onDarkOutlineAccentMinor = 'var(--on-dark-outline-accent-minor, #722BA1)';
+export const onDarkOutlineAccentMinorHover = 'var(--on-dark-outline-accent-minor-hover, #412AA7FF)';
 
 /** Акцентный минорный непрозрачный цвет обводки на темном фоне */
-export const onDarkOutlineAccentMinorHover = 'var(--on-dark-outline-accent-minor-hover, #FFFFFFFF)';
-
-/** Акцентный минорный непрозрачный цвет обводки на темном фоне */
-export const onDarkOutlineAccentMinorActive = 'var(--on-dark-outline-accent-minor-active, #8933C1FF)';
+export const onDarkOutlineAccentMinorActive = 'var(--on-dark-outline-accent-minor-active, #281966FF)';
 
 /** Прозрачный акцентный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentAccent = 'var(--on-dark-outline-transparent-accent, #C46BFF47)';
+export const onDarkOutlineTransparentAccentHover = 'var(--on-dark-outline-transparent-accent-hover, #7B5CF5B3)';
 
 /** Прозрачный акцентный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentAccentHover = 'var(--on-dark-outline-transparent-accent-hover, #C46BFFFF)';
-
-/** Прозрачный акцентный цвет обводки на темном фоне */
-export const onDarkOutlineTransparentAccentActive = 'var(--on-dark-outline-transparent-accent-active, #C46BFF56)';
+export const onDarkOutlineTransparentAccentActive = 'var(--on-dark-outline-transparent-accent-active, #7B5CF52B)';
 
 /** Цвет обводки успех на темном фоне */
 export const onDarkOutlinePositive = 'var(--on-dark-outline-positive, #24B23E)';
@@ -1952,6 +1943,15 @@ export const onDarkOutlineTransparentInfoHover = 'var(--on-dark-outline-transpar
 /** Прозрачный цвет обводки информация на темном фоне */
 export const onDarkOutlineTransparentInfoActive = 'var(--on-dark-outline-transparent-info-active, #199AF056)';
 
+/** Акцентный цвет обводки на темном фоне */
+export const onDarkOutlineAccent = 'var(--on-dark-outline-accent, #7B5CF5FF)';
+
+/** Акцентный минорный непрозрачный цвет обводки на темном фоне */
+export const onDarkOutlineAccentMinor = 'var(--on-dark-outline-accent-minor, #2F1E77FF)';
+
+/** Прозрачный акцентный цвет обводки на темном фоне */
+export const onDarkOutlineTransparentAccent = 'var(--on-dark-outline-transparent-accent, #7B5CF547)';
+
 /** Основной непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidPrimary = 'var(--on-light-outline-solid-primary, #DDDDDD)';
 
@@ -2026,31 +2026,22 @@ export const onLightOutlineClearHover = 'var(--on-light-outline-clear-hover, #FF
 export const onLightOutlineClearActive = 'var(--on-light-outline-clear-active, #FFFFFFFF)';
 
 /** Акцентный цвет обводки на светлом фоне */
-export const onLightOutlineAccent = 'var(--on-light-outline-accent, #AD42F5)';
+export const onLightOutlineAccentHover = 'var(--on-light-outline-accent-hover, #8977DAFF)';
 
 /** Акцентный цвет обводки на светлом фоне */
-export const onLightOutlineAccentHover = 'var(--on-light-outline-accent-hover, #CF90F9FF)';
-
-/** Акцентный цвет обводки на светлом фоне */
-export const onLightOutlineAccentActive = 'var(--on-light-outline-accent-active, #A125F4FF)';
+export const onLightOutlineAccentActive = 'var(--on-light-outline-accent-active, #412CA0FF)';
 
 /** Акцентный минорный непрозрачный цвет обводки на светлом фоне */
-export const onLightOutlineAccentMinor = 'var(--on-light-outline-accent-minor, #D39CF7)';
+export const onLightOutlineAccentMinorHover = 'var(--on-light-outline-accent-minor-hover, #B7A3FFFF)';
 
 /** Акцентный минорный непрозрачный цвет обводки на светлом фоне */
-export const onLightOutlineAccentMinorHover = 'var(--on-light-outline-accent-minor-hover, #F4E7FDFF)';
-
-/** Акцентный минорный непрозрачный цвет обводки на светлом фоне */
-export const onLightOutlineAccentMinorActive = 'var(--on-light-outline-accent-minor-active, #C680F5FF)';
+export const onLightOutlineAccentMinorActive = 'var(--on-light-outline-accent-minor-active, #7752FFFF)';
 
 /** Прозрачный акцентный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentAccent = 'var(--on-light-outline-transparent-accent, #AD42F533)';
+export const onLightOutlineTransparentAccentHover = 'var(--on-light-outline-transparent-accent-hover, #4B32B81F)';
 
 /** Прозрачный акцентный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentAccentHover = 'var(--on-light-outline-transparent-accent-hover, #AD42F5FF)';
-
-/** Прозрачный акцентный цвет обводки на светлом фоне */
-export const onLightOutlineTransparentAccentActive = 'var(--on-light-outline-transparent-accent-active, #AD42F53D)';
+export const onLightOutlineTransparentAccentActive = 'var(--on-light-outline-transparent-accent-active, #4B32B852)';
 
 /** Цвет обводки успех на светлом фоне */
 export const onLightOutlinePositive = 'var(--on-light-outline-positive, #108E26)';
@@ -2160,6 +2151,15 @@ export const onLightOutlineTransparentInfoHover = 'var(--on-light-outline-transp
 /** Прозрачный цвет обводки информация на светлом фоне */
 export const onLightOutlineTransparentInfoActive = 'var(--on-light-outline-transparent-info-active, #0B7ECB3D)';
 
+/** Акцентный цвет обводки на светлом фоне */
+export const onLightOutlineAccent = 'var(--on-light-outline-accent, #4B32B8FF)';
+
+/** Акцентный минорный непрозрачный цвет обводки на светлом фоне */
+export const onLightOutlineAccentMinor = 'var(--on-light-outline-accent-minor, #967AFFFF)';
+
+/** Прозрачный акцентный цвет обводки на светлом фоне */
+export const onLightOutlineTransparentAccent = 'var(--on-light-outline-transparent-accent, #4B32B833)';
+
 /** Инвертированный основной непрозрачный цвет обводки */
 export const inverseOutlineSolidPrimary = 'var(--inverse-outline-solid-primary, #DDDDDD)';
 
@@ -2234,31 +2234,22 @@ export const inverseOutlineClearHover = 'var(--inverse-outline-clear-hover, #FFF
 export const inverseOutlineClearActive = 'var(--inverse-outline-clear-active, #FFFFFFFF)';
 
 /** Инвертированный акцентный цвет обводки */
-export const inverseOutlineAccent = 'var(--inverse-outline-accent, #AD42F5)';
+export const inverseOutlineAccentHover = 'var(--inverse-outline-accent-hover, #8977DAFF)';
 
 /** Инвертированный акцентный цвет обводки */
-export const inverseOutlineAccentHover = 'var(--inverse-outline-accent-hover, #CF90F9FF)';
-
-/** Инвертированный акцентный цвет обводки */
-export const inverseOutlineAccentActive = 'var(--inverse-outline-accent-active, #A125F4FF)';
+export const inverseOutlineAccentActive = 'var(--inverse-outline-accent-active, #412CA0FF)';
 
 /** Инвертированный акцентный минорный непрозрачный цвет обводки */
-export const inverseOutlineAccentMinor = 'var(--inverse-outline-accent-minor, #D39CF7)';
+export const inverseOutlineAccentMinorHover = 'var(--inverse-outline-accent-minor-hover, #B7A3FFFF)';
 
 /** Инвертированный акцентный минорный непрозрачный цвет обводки */
-export const inverseOutlineAccentMinorHover = 'var(--inverse-outline-accent-minor-hover, #F4E7FDFF)';
-
-/** Инвертированный акцентный минорный непрозрачный цвет обводки */
-export const inverseOutlineAccentMinorActive = 'var(--inverse-outline-accent-minor-active, #C680F5FF)';
+export const inverseOutlineAccentMinorActive = 'var(--inverse-outline-accent-minor-active, #7752FFFF)';
 
 /** Прозрачный инвертированный акцентный цвет обводки */
-export const inverseOutlineTransparentAccent = 'var(--inverse-outline-transparent-accent, #AD42F533)';
+export const inverseOutlineTransparentAccentHover = 'var(--inverse-outline-transparent-accent-hover, #4B32B81F)';
 
 /** Прозрачный инвертированный акцентный цвет обводки */
-export const inverseOutlineTransparentAccentHover = 'var(--inverse-outline-transparent-accent-hover, #AD42F5FF)';
-
-/** Прозрачный инвертированный акцентный цвет обводки */
-export const inverseOutlineTransparentAccentActive = 'var(--inverse-outline-transparent-accent-active, #AD42F53D)';
+export const inverseOutlineTransparentAccentActive = 'var(--inverse-outline-transparent-accent-active, #4B32B852)';
 
 /** Инвертированный цвет обводки успех */
 export const inverseOutlinePositive = 'var(--inverse-outline-positive, #108E26)';
@@ -2368,6 +2359,15 @@ export const inverseOutlineTransparentInfoHover = 'var(--inverse-outline-transpa
 /** Прозрачный инвертированный цвет обводки информация */
 export const inverseOutlineTransparentInfoActive = 'var(--inverse-outline-transparent-info-active, #0B7ECB3D)';
 
+/** Инвертированный акцентный цвет обводки */
+export const inverseOutlineAccent = 'var(--inverse-outline-accent, #4B32B8FF)';
+
+/** Инвертированный акцентный минорный непрозрачный цвет обводки */
+export const inverseOutlineAccentMinor = 'var(--inverse-outline-accent-minor, #967AFFFF)';
+
+/** Прозрачный инвертированный акцентный цвет обводки */
+export const inverseOutlineTransparentAccent = 'var(--inverse-outline-transparent-accent, #4B32B833)';
+
 /** Желтый цвет для данных */
 export const dataYellow = 'var(--data-yellow, #F3A912)';
 
@@ -2404,6 +2404,56 @@ export const inverseDataYellowMinor = 'var(--inverse-data-yellow-minor, #FFD37A)
 /** Инвертированный прозрачный желтый цвет для данных */
 export const inverseDataYellowTransparent = 'var(--inverse-data-yellow-transparent, #F3A9128F)';
 
+/** Акцентный цвет с градиентом */
+export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #858585FF)';
+
+/** Акцентный цвет с градиентом */
+export const textAccentGradientActive = 'var(--text-accent-gradient-active, #666666FF)';
+
+/** Акцентный цвет с градиентом */
+export const textAccentGradient =
+    'var(--text-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
+
+/** Акцентный цвет с градиентом на темном фоне */
+export const onDarkTextAccentGradientHover = 'var(--on-dark-text-accent-gradient-hover, #858585FF)';
+
+/** Акцентный цвет с градиентом на темном фоне */
+export const onDarkTextAccentGradientActive = 'var(--on-dark-text-accent-gradient-active, #666666FF)';
+
+/** Акцентный цвет с градиентом на темном фоне */
+export const onDarkTextAccentGradient =
+    'var(--on-dark-text-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
+
+/** Акцентный цвет с градиентом на светлом фоне */
+export const onLightTextAccentGradientHover = 'var(--on-light-text-accent-gradient-hover, #CCCCCCFF)';
+
+/** Акцентный цвет с градиентом на светлом фоне */
+export const onLightTextAccentGradientActive = 'var(--on-light-text-accent-gradient-active, #E6E6E6FF)';
+
+/** Акцентный цвет с градиентом на светлом фоне */
+export const onLightTextAccentGradient =
+    'var(--on-light-text-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
+
+/** Инвертированный акцентный цвет с градиентом */
+export const inverseTextAccentGradientHover = 'var(--inverse-text-accent-gradient-hover, #CCCCCCFF)';
+
+/** Инвертированный акцентный цвет с градиентом */
+export const inverseTextAccentGradientActive = 'var(--inverse-text-accent-gradient-active, #E6E6E6FF)';
+
+/** Инвертированный акцентный цвет с градиентом */
+export const inverseTextAccentGradient =
+    'var(--inverse-text-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
+
+/** Акцентный фон поверхности/контрола с градиентом */
+export const surfaceAccentGradientHover = 'var(--surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом */
+export const surfaceAccentGradientActive = 'var(--surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом */
+export const surfaceAccentGradient =
+    'var(--surface-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
+
 /** Фон для скелетона */
 export const surfaceSkeletonGradient =
     'var(--surface-skeleton-gradient, linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%))';
@@ -2423,6 +2473,16 @@ export const surfaceSkeletonDeepGradientHover = 'var(--surface-skeleton-deep-gra
 
 /** Яркий фон для скелетона */
 export const surfaceSkeletonDeepGradientActive = 'var(--surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом на темном фоне */
+export const onDarkSurfaceAccentGradientHover = 'var(--on-dark-surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом на темном фоне */
+export const onDarkSurfaceAccentGradientActive = 'var(--on-dark-surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом на темном фоне */
+export const onDarkSurfaceAccentGradient =
+    'var(--on-dark-surface-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
 
 /** Фон для скелетона */
 export const onDarkSurfaceSkeletonGradient =
@@ -2444,6 +2504,16 @@ export const onDarkSurfaceSkeletonDeepGradientHover = 'var(--on-dark-surface-ske
 /** Яркий фон для скелетона */
 export const onDarkSurfaceSkeletonDeepGradientActive =
     'var(--on-dark-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
+export const onLightSurfaceAccentGradientHover = 'var(--on-light-surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
+export const onLightSurfaceAccentGradientActive = 'var(--on-light-surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
+export const onLightSurfaceAccentGradient =
+    'var(--on-light-surface-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
 
 /** Фон для скелетона */
 export const onLightSurfaceSkeletonGradient =
@@ -2467,6 +2537,16 @@ export const onLightSurfaceSkeletonDeepGradientHover =
 export const onLightSurfaceSkeletonDeepGradientActive =
     'var(--on-light-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
 
+/** Инвертированный акцентный фон поверхности/контрола с градиентом */
+export const inverseSurfaceAccentGradientHover = 'var(--inverse-surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Инвертированный акцентный фон поверхности/контрола с градиентом */
+export const inverseSurfaceAccentGradientActive = 'var(--inverse-surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Инвертированный акцентный фон поверхности/контрола с градиентом */
+export const inverseSurfaceAccentGradient =
+    'var(--inverse-surface-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
+
 /** Фон для скелетона */
 export const inverseSurfaceSkeletonGradient =
     'var(--inverse-surface-skeleton-gradient, linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%))';
@@ -2487,6 +2567,46 @@ export const inverseSurfaceSkeletonDeepGradientHover = 'var(--inverse-surface-sk
 /** Яркий фон для скелетона */
 export const inverseSurfaceSkeletonDeepGradientActive =
     'var(--inverse-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
+/** Акцентный цвет обводки с градиентом */
+export const outlineAccentGradientHover = 'var(--outline-accent-gradient-hover, #858585FF)';
+
+/** Акцентный цвет обводки с градиентом */
+export const outlineAccentGradientActive = 'var(--outline-accent-gradient-active, #666666FF)';
+
+/** Акцентный цвет обводки с градиентом */
+export const outlineAccentGradient =
+    'var(--outline-accent-gradient, linear-gradient(45.00deg,rgb(95,65,217)0%,rgb(167,77,231)100%))';
+
+/** Акцентный цвет обводки с градиентом на темном фоне */
+export const onDarkOutlineAccentGradientHover = 'var(--on-dark-outline-accent-gradient-hover, #858585FF)';
+
+/** Акцентный цвет обводки с градиентом на темном фоне */
+export const onDarkOutlineAccentGradientActive = 'var(--on-dark-outline-accent-gradient-active, #666666FF)';
+
+/** Акцентный цвет обводки с градиентом на темном фоне */
+export const onDarkOutlineAccentGradient =
+    'var(--on-dark-outline-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
+
+/** Акцентный цвет обводки с градиентом на светлом фоне */
+export const onLightOutlineAccentGradientHover = 'var(--on-light-outline-accent-gradient-hover, #CCCCCCFF)';
+
+/** Акцентный цвет обводки с градиентом на светлом фоне */
+export const onLightOutlineAccentGradientActive = 'var(--on-light-outline-accent-gradient-active, #E6E6E6FF)';
+
+/** Акцентный цвет обводки с градиентом на светлом фоне */
+export const onLightOutlineAccentGradient =
+    'var(--on-light-outline-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
+
+/** Инвертированный акцентный цвет обводки с градиентом */
+export const inverseOutlineAccentGradientHover = 'var(--inverse-outline-accent-gradient-hover, #CCCCCCFF)';
+
+/** Инвертированный акцентный цвет обводки с градиентом */
+export const inverseOutlineAccentGradientActive = 'var(--inverse-outline-accent-gradient-active, #E6E6E6FF)';
+
+/** Инвертированный акцентный цвет обводки с градиентом */
+export const inverseOutlineAccentGradient =
+    'var(--inverse-outline-accent-gradient, linear-gradient(45.00deg, #5F41D9FF 0%, rgb(167,77,231)100% undefined))';
 
 /** shadow down soft s */
 export const shadowDownSoftS = 'var(--shadow-down-soft-s, 0px 4px 14px -4px #08080814,0px 1px 4px -1px #0000000A)';
@@ -3141,10 +3261,8 @@ export const viewContainer = {
         --text-tertiary-active: var(--on-dark-text-tertiary-active);
         --text-paragraph-hover: var(--on-dark-text-paragraph-hover);
         --text-paragraph-active: var(--on-dark-text-paragraph-active);
-        --text-accent: var(--on-dark-text-accent);
         --text-accent-hover: var(--on-dark-text-accent-hover);
         --text-accent-active: var(--on-dark-text-accent-active);
-        --text-accent-minor: var(--on-dark-text-accent-minor);
         --text-accent-minor-hover: var(--on-dark-text-accent-minor-hover);
         --text-accent-minor-active: var(--on-dark-text-accent-minor-active);
         --text-positive: var(--on-dark-text-positive);
@@ -3175,6 +3293,8 @@ export const viewContainer = {
         --text-secondary: var(--on-dark-text-secondary);
         --text-tertiary: var(--on-dark-text-tertiary);
         --text-paragraph: var(--on-dark-text-paragraph);
+        --text-accent: var(--on-dark-text-accent);
+        --text-accent-minor: var(--on-dark-text-accent-minor);
         --inverse-text-primary: var(--on-light-text-primary);
         --inverse-text-primary-hover: var(--on-light-text-primary-hover);
         --inverse-text-primary-active: var(--on-light-text-primary-active);
@@ -3188,10 +3308,8 @@ export const viewContainer = {
         --inverse-text-paragraph: var(--on-light-text-paragraph);
         --inverse-text-paragraph-hover: var(--on-light-text-paragraph-hover);
         --inverse-text-paragraph-active: var(--on-light-text-paragraph-active);
-        --inverse-text-accent: var(--on-light-text-accent);
         --inverse-text-accent-hover: var(--on-light-text-accent-hover);
         --inverse-text-accent-active: var(--on-light-text-accent-active);
-        --inverse-text-accent-minor: var(--on-light-text-accent-minor);
         --inverse-text-accent-minor-hover: var(--on-light-text-accent-minor-hover);
         --inverse-text-accent-minor-active: var(--on-light-text-accent-minor-active);
         --inverse-text-positive: var(--on-light-text-positive);
@@ -3218,6 +3336,8 @@ export const viewContainer = {
         --inverse-text-info-minor: var(--on-light-text-info-minor);
         --inverse-text-info-minor-hover: var(--on-light-text-info-minor-hover);
         --inverse-text-info-minor-active: var(--on-light-text-info-minor-active);
+        --inverse-text-accent: var(--on-light-text-accent);
+        --inverse-text-accent-minor: var(--on-light-text-accent-minor);
         --surface-solid-primary: var(--on-dark-surface-solid-primary);
         --surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
@@ -3254,13 +3374,10 @@ export const viewContainer = {
         --surface-clear: var(--on-dark-surface-clear);
         --surface-clear-hover: var(--on-dark-surface-clear-hover);
         --surface-clear-active: var(--on-dark-surface-clear-active);
-        --surface-accent: var(--on-dark-surface-accent);
         --surface-accent-hover: var(--on-dark-surface-accent-hover);
         --surface-accent-active: var(--on-dark-surface-accent-active);
-        --surface-accent-minor: var(--on-dark-surface-accent-minor);
         --surface-accent-minor-hover: var(--on-dark-surface-accent-minor-hover);
         --surface-accent-minor-active: var(--on-dark-surface-accent-minor-active);
-        --surface-transparent-accent: var(--on-dark-surface-transparent-accent);
         --surface-transparent-accent-hover: var(--on-dark-surface-transparent-accent-hover);
         --surface-transparent-accent-active: var(--on-dark-surface-transparent-accent-active);
         --surface-positive: var(--on-dark-surface-positive);
@@ -3299,6 +3416,9 @@ export const viewContainer = {
         --surface-transparent-info: var(--on-dark-surface-transparent-info);
         --surface-transparent-info-hover: var(--on-dark-surface-transparent-info-hover);
         --surface-transparent-info-active: var(--on-dark-surface-transparent-info-active);
+        --surface-accent: var(--on-dark-surface-accent);
+        --surface-accent-minor: var(--on-dark-surface-accent-minor);
+        --surface-transparent-accent: var(--on-dark-surface-transparent-accent);
         --inverse-surface-solid-primary: var(--on-light-surface-solid-primary);
         --inverse-surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
@@ -3333,13 +3453,10 @@ export const viewContainer = {
         --inverse-surface-clear: var(--on-light-surface-clear);
         --inverse-surface-clear-hover: var(--on-light-surface-clear-hover);
         --inverse-surface-clear-active: var(--on-light-surface-clear-active);
-        --inverse-surface-accent: var(--on-light-surface-accent);
         --inverse-surface-accent-hover: var(--on-light-surface-accent-hover);
         --inverse-surface-accent-active: var(--on-light-surface-accent-active);
-        --inverse-surface-accent-minor: var(--on-light-surface-accent-minor);
         --inverse-surface-accent-minor-hover: var(--on-light-surface-accent-minor-hover);
         --inverse-surface-accent-minor-active: var(--on-light-surface-accent-minor-active);
-        --inverse-surface-transparent-accent: var(--on-light-surface-transparent-accent);
         --inverse-surface-transparent-accent-hover: var(--on-light-surface-transparent-accent-hover);
         --inverse-surface-transparent-accent-active: var(--on-light-surface-transparent-accent-active);
         --inverse-surface-positive: var(--on-light-surface-positive);
@@ -3380,6 +3497,9 @@ export const viewContainer = {
         --inverse-surface-transparent-info-active: var(--on-light-surface-transparent-info-active);
         --inverse-surface-transparent-primary: var(--on-light-surface-transparent-primary);
         --inverse-surface-transparent-secondary: var(--on-light-surface-transparent-secondary);
+        --inverse-surface-accent: var(--on-light-surface-accent);
+        --inverse-surface-accent-minor: var(--on-light-surface-accent-minor);
+        --inverse-surface-transparent-accent: var(--on-light-surface-transparent-accent);
         --background-primary: var(--dark-background-primary);
         --inverse-background-primary: var(--light-background-primary);
         --overlay-soft: var(--on-dark-overlay-soft);
@@ -3412,13 +3532,10 @@ export const viewContainer = {
         --outline-clear: var(--on-dark-outline-clear);
         --outline-clear-hover: var(--on-dark-outline-clear-hover);
         --outline-clear-active: var(--on-dark-outline-clear-active);
-        --outline-accent: var(--on-dark-outline-accent);
         --outline-accent-hover: var(--on-dark-outline-accent-hover);
         --outline-accent-active: var(--on-dark-outline-accent-active);
-        --outline-accent-minor: var(--on-dark-outline-accent-minor);
         --outline-accent-minor-hover: var(--on-dark-outline-accent-minor-hover);
         --outline-accent-minor-active: var(--on-dark-outline-accent-minor-active);
-        --outline-transparent-accent: var(--on-dark-outline-transparent-accent);
         --outline-transparent-accent-hover: var(--on-dark-outline-transparent-accent-hover);
         --outline-transparent-accent-active: var(--on-dark-outline-transparent-accent-active);
         --outline-positive: var(--on-dark-outline-positive);
@@ -3457,6 +3574,9 @@ export const viewContainer = {
         --outline-transparent-info: var(--on-dark-outline-transparent-info);
         --outline-transparent-info-hover: var(--on-dark-outline-transparent-info-hover);
         --outline-transparent-info-active: var(--on-dark-outline-transparent-info-active);
+        --outline-accent: var(--on-dark-outline-accent);
+        --outline-accent-minor: var(--on-dark-outline-accent-minor);
+        --outline-transparent-accent: var(--on-dark-outline-transparent-accent);
         --inverse-outline-solid-primary: var(--on-light-outline-solid-primary);
         --inverse-outline-solid-primary-hover: var(--on-light-outline-solid-primary-hover);
         --inverse-outline-solid-primary-active: var(--on-light-outline-solid-primary-active);
@@ -3481,13 +3601,10 @@ export const viewContainer = {
         --inverse-outline-clear: var(--on-light-outline-clear);
         --inverse-outline-clear-hover: var(--on-light-outline-clear-hover);
         --inverse-outline-clear-active: var(--on-light-outline-clear-active);
-        --inverse-outline-accent: var(--on-light-outline-accent);
         --inverse-outline-accent-hover: var(--on-light-outline-accent-hover);
         --inverse-outline-accent-active: var(--on-light-outline-accent-active);
-        --inverse-outline-accent-minor: var(--on-light-outline-accent-minor);
         --inverse-outline-accent-minor-hover: var(--on-light-outline-accent-minor-hover);
         --inverse-outline-accent-minor-active: var(--on-light-outline-accent-minor-active);
-        --inverse-outline-transparent-accent: var(--on-light-outline-transparent-accent);
         --inverse-outline-transparent-accent-hover: var(--on-light-outline-transparent-accent-hover);
         --inverse-outline-transparent-accent-active: var(--on-light-outline-transparent-accent-active);
         --inverse-outline-positive: var(--on-light-outline-positive);
@@ -3526,24 +3643,45 @@ export const viewContainer = {
         --inverse-outline-transparent-info: var(--on-light-outline-transparent-info);
         --inverse-outline-transparent-info-hover: var(--on-light-outline-transparent-info-hover);
         --inverse-outline-transparent-info-active: var(--on-light-outline-transparent-info-active);
+        --inverse-outline-accent: var(--on-light-outline-accent);
+        --inverse-outline-accent-minor: var(--on-light-outline-accent-minor);
+        --inverse-outline-transparent-accent: var(--on-light-outline-transparent-accent);
         --data-yellow: var(--on-dark-data-yellow);
         --data-yellow-minor: var(--on-dark-data-yellow-minor);
         --data-yellow-transparent: var(--on-dark-data-yellow-transparent);
         --inverse-data-yellow: var(--on-light-data-yellow);
         --inverse-data-yellow-minor: var(--on-light-data-yellow-minor);
         --inverse-data-yellow-transparent: var(--on-light-data-yellow-transparent);
+        --text-accent-gradient-hover: var(--on-dark-text-accent-gradient-hover);
+        --text-accent-gradient-active: var(--on-dark-text-accent-gradient-active);
+        --text-accent-gradient: var(--on-dark-text-accent-gradient);
+        --inverse-text-accent-gradient-hover: var(--on-light-text-accent-gradient-hover);
+        --inverse-text-accent-gradient-active: var(--on-light-text-accent-gradient-active);
+        --inverse-text-accent-gradient: var(--on-light-text-accent-gradient);
+        --surface-accent-gradient-hover: var(--on-dark-surface-accent-gradient-hover);
+        --surface-accent-gradient-active: var(--on-dark-surface-accent-gradient-active);
+        --surface-accent-gradient: var(--on-dark-surface-accent-gradient);
         --surface-skeleton-gradient: var(--on-dark-surface-skeleton-gradient);
         --surface-skeleton-gradient-hover: var(--on-dark-surface-skeleton-gradient-hover);
         --surface-skeleton-gradient-active: var(--on-dark-surface-skeleton-gradient-active);
         --surface-skeleton-deep-gradient: var(--on-dark-surface-skeleton-deep-gradient);
         --surface-skeleton-deep-gradient-hover: var(--on-dark-surface-skeleton-deep-gradient-hover);
         --surface-skeleton-deep-gradient-active: var(--on-dark-surface-skeleton-deep-gradient-active);
+        --inverse-surface-accent-gradient-hover: var(--on-light-surface-accent-gradient-hover);
+        --inverse-surface-accent-gradient-active: var(--on-light-surface-accent-gradient-active);
+        --inverse-surface-accent-gradient: var(--on-light-surface-accent-gradient);
         --inverse-surface-skeleton-gradient: var(--on-light-surface-skeleton-gradient);
         --inverse-surface-skeleton-gradient-hover: var(--on-light-surface-skeleton-gradient-hover);
         --inverse-surface-skeleton-gradient-active: var(--on-light-surface-skeleton-gradient-active);
         --inverse-surface-skeleton-deep-gradient: var(--on-light-surface-skeleton-deep-gradient);
         --inverse-surface-skeleton-deep-gradient-hover: var(--on-light-surface-skeleton-deep-gradient-hover);
         --inverse-surface-skeleton-deep-gradient-active: var(--on-light-surface-skeleton-deep-gradient-active);
+        --outline-accent-gradient-hover: var(--on-dark-outline-accent-gradient-hover);
+        --outline-accent-gradient-active: var(--on-dark-outline-accent-gradient-active);
+        --outline-accent-gradient: var(--on-dark-outline-accent-gradient);
+        --inverse-outline-accent-gradient-hover: var(--on-light-outline-accent-gradient-hover);
+        --inverse-outline-accent-gradient-active: var(--on-light-outline-accent-gradient-active);
+        --inverse-outline-accent-gradient: var(--on-light-outline-accent-gradient);
       `,
     light: `
         --text-primary: var(--on-light-text-primary);
@@ -3559,10 +3697,8 @@ export const viewContainer = {
         --text-paragraph: var(--on-light-text-paragraph);
         --text-paragraph-hover: var(--on-light-text-paragraph-hover);
         --text-paragraph-active: var(--on-light-text-paragraph-active);
-        --text-accent: var(--on-light-text-accent);
         --text-accent-hover: var(--on-light-text-accent-hover);
         --text-accent-active: var(--on-light-text-accent-active);
-        --text-accent-minor: var(--on-light-text-accent-minor);
         --text-accent-minor-hover: var(--on-light-text-accent-minor-hover);
         --text-accent-minor-active: var(--on-light-text-accent-minor-active);
         --text-positive: var(--on-light-text-positive);
@@ -3589,6 +3725,8 @@ export const viewContainer = {
         --text-info-minor: var(--on-light-text-info-minor);
         --text-info-minor-hover: var(--on-light-text-info-minor-hover);
         --text-info-minor-active: var(--on-light-text-info-minor-active);
+        --text-accent: var(--on-light-text-accent);
+        --text-accent-minor: var(--on-light-text-accent-minor);
         --inverse-text-primary-hover: var(--on-dark-text-primary-hover);
         --inverse-text-primary-active: var(--on-dark-text-primary-active);
         --inverse-text-primary-brightness: var(--on-dark-text-primary-brightness);
@@ -3598,10 +3736,8 @@ export const viewContainer = {
         --inverse-text-tertiary-active: var(--on-dark-text-tertiary-active);
         --inverse-text-paragraph-hover: var(--on-dark-text-paragraph-hover);
         --inverse-text-paragraph-active: var(--on-dark-text-paragraph-active);
-        --inverse-text-accent: var(--on-dark-text-accent);
         --inverse-text-accent-hover: var(--on-dark-text-accent-hover);
         --inverse-text-accent-active: var(--on-dark-text-accent-active);
-        --inverse-text-accent-minor: var(--on-dark-text-accent-minor);
         --inverse-text-accent-minor-hover: var(--on-dark-text-accent-minor-hover);
         --inverse-text-accent-minor-active: var(--on-dark-text-accent-minor-active);
         --inverse-text-positive: var(--on-dark-text-positive);
@@ -3632,6 +3768,8 @@ export const viewContainer = {
         --inverse-text-secondary: var(--on-dark-text-secondary);
         --inverse-text-tertiary: var(--on-dark-text-tertiary);
         --inverse-text-paragraph: var(--on-dark-text-paragraph);
+        --inverse-text-accent: var(--on-dark-text-accent);
+        --inverse-text-accent-minor: var(--on-dark-text-accent-minor);
         --surface-solid-primary: var(--on-light-surface-solid-primary);
         --surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
@@ -3666,13 +3804,10 @@ export const viewContainer = {
         --surface-clear: var(--on-light-surface-clear);
         --surface-clear-hover: var(--on-light-surface-clear-hover);
         --surface-clear-active: var(--on-light-surface-clear-active);
-        --surface-accent: var(--on-light-surface-accent);
         --surface-accent-hover: var(--on-light-surface-accent-hover);
         --surface-accent-active: var(--on-light-surface-accent-active);
-        --surface-accent-minor: var(--on-light-surface-accent-minor);
         --surface-accent-minor-hover: var(--on-light-surface-accent-minor-hover);
         --surface-accent-minor-active: var(--on-light-surface-accent-minor-active);
-        --surface-transparent-accent: var(--on-light-surface-transparent-accent);
         --surface-transparent-accent-hover: var(--on-light-surface-transparent-accent-hover);
         --surface-transparent-accent-active: var(--on-light-surface-transparent-accent-active);
         --surface-positive: var(--on-light-surface-positive);
@@ -3713,6 +3848,9 @@ export const viewContainer = {
         --surface-transparent-info-active: var(--on-light-surface-transparent-info-active);
         --surface-transparent-primary: var(--on-light-surface-transparent-primary);
         --surface-transparent-secondary: var(--on-light-surface-transparent-secondary);
+        --surface-accent: var(--on-light-surface-accent);
+        --surface-transparent-accent: var(--on-light-surface-transparent-accent);
+        --surface-accent-minor: var(--on-light-surface-accent-minor);
         --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
@@ -3749,13 +3887,10 @@ export const viewContainer = {
         --inverse-surface-clear: var(--on-dark-surface-clear);
         --inverse-surface-clear-hover: var(--on-dark-surface-clear-hover);
         --inverse-surface-clear-active: var(--on-dark-surface-clear-active);
-        --inverse-surface-accent: var(--on-dark-surface-accent);
         --inverse-surface-accent-hover: var(--on-dark-surface-accent-hover);
         --inverse-surface-accent-active: var(--on-dark-surface-accent-active);
-        --inverse-surface-accent-minor: var(--on-dark-surface-accent-minor);
         --inverse-surface-accent-minor-hover: var(--on-dark-surface-accent-minor-hover);
         --inverse-surface-accent-minor-active: var(--on-dark-surface-accent-minor-active);
-        --inverse-surface-transparent-accent: var(--on-dark-surface-transparent-accent);
         --inverse-surface-transparent-accent-hover: var(--on-dark-surface-transparent-accent-hover);
         --inverse-surface-transparent-accent-active: var(--on-dark-surface-transparent-accent-active);
         --inverse-surface-positive: var(--on-dark-surface-positive);
@@ -3794,6 +3929,9 @@ export const viewContainer = {
         --inverse-surface-transparent-info: var(--on-dark-surface-transparent-info);
         --inverse-surface-transparent-info-hover: var(--on-dark-surface-transparent-info-hover);
         --inverse-surface-transparent-info-active: var(--on-dark-surface-transparent-info-active);
+        --inverse-surface-accent: var(--on-dark-surface-accent);
+        --inverse-surface-transparent-accent: var(--on-dark-surface-transparent-accent);
+        --inverse-surface-accent-minor: var(--on-dark-surface-accent-minor);
         --background-primary: var(--light-background-primary);
         --inverse-background-primary: var(--dark-background-primary);
         --overlay-soft: var(--on-light-overlay-soft);
@@ -3826,13 +3964,10 @@ export const viewContainer = {
         --outline-clear: var(--on-light-outline-clear);
         --outline-clear-hover: var(--on-light-outline-clear-hover);
         --outline-clear-active: var(--on-light-outline-clear-active);
-        --outline-accent: var(--on-light-outline-accent);
         --outline-accent-hover: var(--on-light-outline-accent-hover);
         --outline-accent-active: var(--on-light-outline-accent-active);
-        --outline-accent-minor: var(--on-light-outline-accent-minor);
         --outline-accent-minor-hover: var(--on-light-outline-accent-minor-hover);
         --outline-accent-minor-active: var(--on-light-outline-accent-minor-active);
-        --outline-transparent-accent: var(--on-light-outline-transparent-accent);
         --outline-transparent-accent-hover: var(--on-light-outline-transparent-accent-hover);
         --outline-transparent-accent-active: var(--on-light-outline-transparent-accent-active);
         --outline-positive: var(--on-light-outline-positive);
@@ -3871,6 +4006,9 @@ export const viewContainer = {
         --outline-transparent-info: var(--on-light-outline-transparent-info);
         --outline-transparent-info-hover: var(--on-light-outline-transparent-info-hover);
         --outline-transparent-info-active: var(--on-light-outline-transparent-info-active);
+        --outline-accent: var(--on-light-outline-accent);
+        --outline-transparent-accent: var(--on-light-outline-transparent-accent);
+        --outline-accent-minor: var(--on-light-outline-accent-minor);
         --inverse-outline-solid-primary: var(--on-dark-outline-solid-primary);
         --inverse-outline-solid-primary-hover: var(--on-dark-outline-solid-primary-hover);
         --inverse-outline-solid-primary-active: var(--on-dark-outline-solid-primary-active);
@@ -3895,13 +4033,10 @@ export const viewContainer = {
         --inverse-outline-clear: var(--on-dark-outline-clear);
         --inverse-outline-clear-hover: var(--on-dark-outline-clear-hover);
         --inverse-outline-clear-active: var(--on-dark-outline-clear-active);
-        --inverse-outline-accent: var(--on-dark-outline-accent);
         --inverse-outline-accent-hover: var(--on-dark-outline-accent-hover);
         --inverse-outline-accent-active: var(--on-dark-outline-accent-active);
-        --inverse-outline-accent-minor: var(--on-dark-outline-accent-minor);
         --inverse-outline-accent-minor-hover: var(--on-dark-outline-accent-minor-hover);
         --inverse-outline-accent-minor-active: var(--on-dark-outline-accent-minor-active);
-        --inverse-outline-transparent-accent: var(--on-dark-outline-transparent-accent);
         --inverse-outline-transparent-accent-hover: var(--on-dark-outline-transparent-accent-hover);
         --inverse-outline-transparent-accent-active: var(--on-dark-outline-transparent-accent-active);
         --inverse-outline-positive: var(--on-dark-outline-positive);
@@ -3940,23 +4075,44 @@ export const viewContainer = {
         --inverse-outline-transparent-info: var(--on-dark-outline-transparent-info);
         --inverse-outline-transparent-info-hover: var(--on-dark-outline-transparent-info-hover);
         --inverse-outline-transparent-info-active: var(--on-dark-outline-transparent-info-active);
+        --inverse-outline-accent: var(--on-dark-outline-accent);
+        --inverse-outline-transparent-accent: var(--on-dark-outline-transparent-accent);
+        --inverse-outline-accent-minor: var(--on-dark-outline-accent-minor);
         --data-yellow: var(--on-light-data-yellow);
         --data-yellow-minor: var(--on-light-data-yellow-minor);
         --data-yellow-transparent: var(--on-light-data-yellow-transparent);
         --inverse-data-yellow: var(--on-dark-data-yellow);
         --inverse-data-yellow-minor: var(--on-dark-data-yellow-minor);
         --inverse-data-yellow-transparent: var(--on-dark-data-yellow-transparent);
+        --text-accent-gradient-hover: var(--on-light-text-accent-gradient-hover);
+        --text-accent-gradient-active: var(--on-light-text-accent-gradient-active);
+        --text-accent-gradient: var(--on-light-text-accent-gradient);
+        --inverse-text-accent-gradient-hover: var(--on-dark-text-accent-gradient-hover);
+        --inverse-text-accent-gradient-active: var(--on-dark-text-accent-gradient-active);
+        --inverse-text-accent-gradient: var(--on-dark-text-accent-gradient);
+        --surface-accent-gradient-hover: var(--on-light-surface-accent-gradient-hover);
+        --surface-accent-gradient-active: var(--on-light-surface-accent-gradient-active);
+        --surface-accent-gradient: var(--on-light-surface-accent-gradient);
         --surface-skeleton-gradient: var(--on-light-surface-skeleton-gradient);
         --surface-skeleton-gradient-hover: var(--on-light-surface-skeleton-gradient-hover);
         --surface-skeleton-gradient-active: var(--on-light-surface-skeleton-gradient-active);
         --surface-skeleton-deep-gradient: var(--on-light-surface-skeleton-deep-gradient);
         --surface-skeleton-deep-gradient-hover: var(--on-light-surface-skeleton-deep-gradient-hover);
         --surface-skeleton-deep-gradient-active: var(--on-light-surface-skeleton-deep-gradient-active);
+        --inverse-surface-accent-gradient-hover: var(--on-dark-surface-accent-gradient-hover);
+        --inverse-surface-accent-gradient-active: var(--on-dark-surface-accent-gradient-active);
+        --inverse-surface-accent-gradient: var(--on-dark-surface-accent-gradient);
         --inverse-surface-skeleton-gradient: var(--on-dark-surface-skeleton-gradient);
         --inverse-surface-skeleton-gradient-hover: var(--on-dark-surface-skeleton-gradient-hover);
         --inverse-surface-skeleton-gradient-active: var(--on-dark-surface-skeleton-gradient-active);
         --inverse-surface-skeleton-deep-gradient: var(--on-dark-surface-skeleton-deep-gradient);
         --inverse-surface-skeleton-deep-gradient-hover: var(--on-dark-surface-skeleton-deep-gradient-hover);
         --inverse-surface-skeleton-deep-gradient-active: var(--on-dark-surface-skeleton-deep-gradient-active);
+        --outline-accent-gradient-hover: var(--on-light-outline-accent-gradient-hover);
+        --outline-accent-gradient-active: var(--on-light-outline-accent-gradient-active);
+        --outline-accent-gradient: var(--on-light-outline-accent-gradient);
+        --inverse-outline-accent-gradient-hover: var(--on-dark-outline-accent-gradient-hover);
+        --inverse-outline-accent-gradient-active: var(--on-dark-outline-accent-gradient-active);
+        --inverse-outline-accent-gradient: var(--on-dark-outline-accent-gradient);
       `,
 };
