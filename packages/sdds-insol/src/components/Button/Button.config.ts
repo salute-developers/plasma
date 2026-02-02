@@ -123,6 +123,16 @@ export const config = {
                 ${buttonTokens.buttonColorHover}: var(--on-light-text-primary-hover);
                 ${buttonTokens.buttonColorActive}: var(--on-light-text-primary-active);
             `,
+            green: css`
+                ${buttonTokens.buttonColor}: var(--text-accent);
+                ${buttonTokens.buttonTextColor}: var(--text-accent);
+                ${buttonTokens.buttonIconColor}: var(--text-accent);
+                ${buttonTokens.buttonValueColor}: var(--text-secondary);
+                ${buttonTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonColorHover}: var(--text-accent-hover);
+                ${buttonTokens.buttonColorActive}: var(--text-accent-active);
+            `,
         },
         size: {
             xl: css`
