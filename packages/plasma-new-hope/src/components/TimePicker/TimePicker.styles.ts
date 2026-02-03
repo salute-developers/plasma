@@ -3,7 +3,7 @@ import { css } from '@linaria/core';
 import { component, mergeConfig } from 'src/engines';
 
 import { textFieldConfig, textFieldTokens } from '../TextField';
-import { popoverClasses, popoverConfig, popoverTokens } from '../Popover';
+import { popoverClasses, popoverConfig } from '../Popover';
 import { timePickerGridConfig, timePickerGridTokens } from '../TimePickerGrid';
 
 import { classes, tokens } from './TimePicker.tokens';
@@ -19,20 +19,17 @@ const TimePickerGrid = component(mergedTimePickerGrid);
 
 export const StyledPopover = styled(Popover)`
     .${popoverClasses.root} {
-        ${popoverTokens.boxShadow}: var(${tokens.timePickerShadow});
-        border-radius: var(${tokens.timePickerBorderRadius});
+        overflow: hidden;
+        width: 100%;
     }
 `;
 
-export const StyledTimePickerGrid = styled(TimePickerGrid)`
-    ${timePickerGridTokens.timePickerGridBackground}: var(${tokens.timePickerBackground});
-    ${timePickerGridTokens.timePickerGridBorderRadius}: var(${tokens.timePickerBorderRadius});
-    ${timePickerGridTokens.timePickerGridWidth}: var(${tokens.timePickerWidth});
-    ${timePickerGridTokens.timePickerGridPadding}: var(${tokens.timePickerPadding});
-
+export const StyledTimePickerGrid = styled(TimePickerGrid)<{
+    columns: number;
+    innerWidth?: string | number;
+    innerHeight?: string | number;
+}>`
     ${timePickerGridTokens.disabledOpacity}: var(${tokens.disabledOpacity});
-
-    ${timePickerGridTokens.columnHeight}: var(${tokens.columnHeight});
 
     ${timePickerGridTokens.itemHeight}: var(${tokens.itemHeight});
     ${timePickerGridTokens.itemBorderRadius}: var(${tokens.itemBorderRadius});
@@ -52,6 +49,14 @@ export const StyledTimePickerGrid = styled(TimePickerGrid)`
     ${timePickerGridTokens.scrollbarColor}: var(${tokens.scrollbarColor});
     ${timePickerGridTokens.scrollbarTrackColor}: var(${tokens.scrollbarTrackColor});
     ${timePickerGridTokens.scrollbarMargin}: var(${tokens.scrollbarMargin});
+
+    background: var(${tokens.timePickerBackground});
+    border-radius: var(${tokens.timePickerBorderRadius});
+    padding: var(${tokens.timePickerPadding});
+    box-shadow: var(${tokens.timePickerShadow});
+    
+    width: ${({ innerWidth }) => innerWidth || `var(${tokens.timePickerWidth})`};
+    height: ${({ innerHeight }) => innerHeight || `var(${tokens.columnHeight})`};
 `;
 
 // NOTE: переопределение токенов TextField
@@ -169,26 +174,12 @@ export const base = css`
         }
     }
 
-    &.${classes.timePickerFullWidth} {
+    &.${classes.timePickerGridRoot} {
         width: 100%;
+        height: 100%;
     }
 
     &.${classes.timePickerPlacementRight} {
         justify-content: flex-end;
     }
-
-    &.${classes.timePickerFixed} {
-        width: var(${tokens.timePickerWidth});
-    }
-`;
-
-export const StyledTimePicker = styled.div<{ width?: string | number }>`
-    background: var(${tokens.timePickerBackground});
-    border-radius: var(${tokens.timePickerBorderRadius});
-    display: flex;
-    padding: var(${tokens.timePickerPadding});
-    flex: 1 1 1;
-    gap: var(${tokens.scrollbarWidth});
-    box-sizing: border-box;
-    position: relative;
 `;

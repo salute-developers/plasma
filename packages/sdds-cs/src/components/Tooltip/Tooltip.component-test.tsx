@@ -166,6 +166,7 @@ describe('sdds-cs: Tooltip', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 640);
         cy.matchImageSnapshot();
     });
 

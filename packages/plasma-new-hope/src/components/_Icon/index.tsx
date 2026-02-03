@@ -51,3 +51,6 @@ export { IconDoneCircleOutline } from './Icons/IconDoneCircleOutline';
 export { IconTrash } from './Icons/IconTrash';
 export { IconResizeDiagonal } from './Icons/IconResizeDiagonal';
 export { IconDotsHorizontalOutline } from './Icons/IconDotsHorizontalOutline';
+export { IconDownload } from './Icons/IconDownload';
+export { IconPlasma } from './Icons/IconPlasma';
+export { IconRefresh } from './Icons/IconRefresh';

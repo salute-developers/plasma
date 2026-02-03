@@ -1,0 +1,11 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "composite": true,
+        "strict": false,
+        "noImplicitAny": false,
+        "types": ["cypress", "node", "cypress-real-events", "@simonsmith/cypress-image-snapshot/types"]
+    },
+    "include": ["./src/**/*.component-test.tsx"],
+    "exclude": []
+}

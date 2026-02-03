@@ -406,7 +406,7 @@ type Items = Array<{
             const handleScroll = async (e) => {
                 if (isInfiniteLoading) return;
 
-                if (e.target.scrollTop + e.target.offsetHeight + 10 > e.target.scrollHeight) {
+                if (e.currentTarget.scrollTop + e.currentTarget.offsetHeight + 10 > e.currentTarget.scrollHeight) {
                     setIsInfiniteLoading(true);
 
                     const res = await getData();

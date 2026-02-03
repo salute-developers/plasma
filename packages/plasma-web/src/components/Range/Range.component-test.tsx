@@ -135,6 +135,8 @@ describe('plasma-web: Range', () => {
     });
 
     it('_size', () => {
+        cy.viewport(500, 538);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo label="Лейбл" size="xl" />
@@ -163,6 +165,8 @@ describe('plasma-web: Range', () => {
     });
 
     it('_error & _success', () => {
+        cy.viewport(500, 642);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo label="Лейбл" firstValueError />
@@ -182,7 +186,7 @@ describe('plasma-web: Range', () => {
     });
 
     it('_required', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -204,9 +208,9 @@ describe('plasma-web: Range', () => {
     it('[PLASMA-] Range: appearance=clear, hasClearDivider', () => {
         mount(
             <CypressTestDecorator>
-                <Demo appearance="clear" />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" />
                 <PadMe />
-                <Demo appearance="clear" hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" hasClearDivider />
             </CypressTestDecorator>,
         );
         cy.get('input').last().click();
@@ -217,11 +221,17 @@ describe('plasma-web: Range', () => {
     it('[PLASMA-] Range: appearance=clear, firstValueSuccess, secondValueSuccess', () => {
         mount(
             <CypressTestDecorator>
-                <Demo appearance="clear" firstValueSuccess hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" firstValueSuccess hasClearDivider />
                 <PadMe />
-                <Demo appearance="clear" secondValueSuccess hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" secondValueSuccess hasClearDivider />
                 <PadMe />
-                <Demo appearance="clear" firstValueSuccess secondValueSuccess hasClearDivider />
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    appearance="clear"
+                    firstValueSuccess
+                    secondValueSuccess
+                    hasClearDivider
+                />
             </CypressTestDecorator>,
         );
         cy.get('input').last().click();
@@ -232,11 +242,17 @@ describe('plasma-web: Range', () => {
     it('[PLASMA-] Range: appearance=clear, firstValueError, secondValueError', () => {
         mount(
             <CypressTestDecorator>
-                <Demo appearance="clear" firstValueError hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" firstValueError hasClearDivider />
                 <PadMe />
-                <Demo appearance="clear" secondValueError hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" secondValueError hasClearDivider />
                 <PadMe />
-                <Demo appearance="clear" firstValueError secondValueError hasClearDivider />
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    appearance="clear"
+                    firstValueError
+                    secondValueError
+                    hasClearDivider
+                />
             </CypressTestDecorator>,
         );
         cy.get('input').last().click();

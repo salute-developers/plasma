@@ -78,6 +78,8 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const openClass = innerIsOpen && shouldRender ? classes.open : undefined;
             const animatedClass = animated ? classes.animate : undefined;
 
+            const isMobileDevice = typeof window !== 'undefined' ? window.matchMedia('(hover: none)').matches : false;
+
             const offsetInner = usePopoverOffset({
                 handleRef: targetRef,
                 placement: placement as string,
@@ -143,7 +145,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const onClick = useCallback<React.MouseEventHandler>(
                 (event) => {
                     event.persist();
-                    if (trigger === 'click') {
+                    if (trigger === 'click' || (trigger === 'hover' && isMobileDevice)) {
                         const targetIsPopover = event.target === popoverRef.current;
                         const rootHasTarget = popoverRef.current?.contains(event.target as Element);
 
@@ -175,6 +177,10 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
 
             const onFocus = useCallback<React.FocusEventHandler>(
                 (event) => {
+                    if (isMobileDevice) {
+                        return;
+                    }
+
                     if (trigger === 'hover') {
                         onToggle?.(true, event);
                     }
@@ -184,6 +190,10 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
 
             const onBlur = useCallback<React.FocusEventHandler>(
                 (event) => {
+                    if (isMobileDevice) {
+                        return;
+                    }
+
                     if (trigger === 'hover') {
                         onToggle?.(false, event);
                     }

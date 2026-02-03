@@ -222,6 +222,8 @@ describe('sdds-insol: Select', () => {
     const Select = getComponent('Select');
 
     it('[PLASMA-T2328] Select: treeView, arrowPlacement=left', () => {
+        cy.viewport(500, 504);
+
         mount(
             <CypressTestDecorator>
                 <Select id="select" label="Label" items={items} placeholder="Placeholder" treeView />
@@ -233,6 +235,8 @@ describe('sdds-insol: Select', () => {
     });
 
     it('[PLASMA-T2329] Select: treeView, arrowPlacement=right', () => {
+        cy.viewport(500, 504);
+
         mount(
             <CypressTestDecorator>
                 <Select
@@ -251,6 +255,8 @@ describe('sdds-insol: Select', () => {
     });
 
     it('[PLASMA-T2330] Multiselect: treeView, arrowPlacement=left', () => {
+        cy.viewport(500, 504);
+
         mount(
             <CypressTestDecorator>
                 <Select id="select" label="Label" items={items} multiselect placeholder="Placeholder" treeView />
@@ -262,6 +268,8 @@ describe('sdds-insol: Select', () => {
     });
 
     it('[PLASMA-T2331] Multiselect: treeView, multiSelect arrowPlacement=right', () => {
+        cy.viewport(500, 504);
+
         mount(
             <CypressTestDecorator>
                 <Select

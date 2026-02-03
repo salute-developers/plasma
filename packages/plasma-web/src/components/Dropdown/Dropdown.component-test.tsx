@@ -346,7 +346,7 @@ describe('plasma-web: Dropdown', () => {
     });
 
     it('prop: size', () => {
-        cy.viewport(1300, 500);
+        cy.viewport(1280, 916);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -375,7 +375,7 @@ describe('plasma-web: Dropdown', () => {
     });
 
     it('prop: size, variant', () => {
-        cy.viewport(1300, 500);
+        cy.viewport(1280, 916);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -440,7 +440,8 @@ describe('plasma-web: Dropdown', () => {
         cy.get('[id$="north_america"]').click();
     });
 
-    it('prop: trigger', () => {
+    // TODO: в cypress 15 снапшоты не работают с hover. Нужно переписывать тест.
+    it.skip('prop: trigger', () => {
         cy.viewport(1000, 500);
 
         mount(
@@ -460,7 +461,7 @@ describe('plasma-web: Dropdown', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 712);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -482,7 +483,7 @@ describe('plasma-web: Dropdown', () => {
     });
 
     it('prop: placement, alwaysOpened', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 712);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -502,7 +503,7 @@ describe('plasma-web: Dropdown', () => {
     });
 
     it('prop: nested dropdown placement', () => {
-        cy.viewport(1600, 1200);
+        cy.viewport(1280, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>

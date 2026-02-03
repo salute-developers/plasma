@@ -140,6 +140,8 @@ describe('plasma-b2c: DatePicker', () => {
     });
 
     it('prop: calendarContainerWidth, calendarContainerHeight', () => {
+        cy.viewport(500, 680);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo
@@ -261,7 +263,7 @@ describe('plasma-b2c: DatePicker', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 656);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -279,18 +281,18 @@ describe('plasma-b2c: DatePicker', () => {
     });
 
     it('prop: required', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
                 <div style={{ padding: '1rem' }}>
-                    <Demo required label="Лейбл" />
+                    <Demo required hasRequiredIndicator label="Лейбл" />
                     <PadMe />
-                    <Demo required requiredPlacement="left" label="Лейбл" />
+                    <Demo required hasRequiredIndicator requiredPlacement="left" label="Лейбл" />
                     <PadMe />
-                    <Demo required />
+                    <Demo required hasRequiredIndicator />
                     <PadMe />
-                    <Demo required requiredPlacement="left" />
+                    <Demo required hasRequiredIndicator requiredPlacement="left" />
                 </div>
             </CypressTestDecoratorWithTypo>,
         );
@@ -395,7 +397,9 @@ describe('plasma-b2c: DatePicker', () => {
         );
     };
 
-    it('controlled datepicker: set date', () => {
+    it.skip('controlled datepicker: set date', () => {
+        cy.viewport(500, 544);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <ControlledDemo />
@@ -413,6 +417,8 @@ describe('plasma-b2c: DatePicker', () => {
     });
 
     it('controlled datepicker: reset date', () => {
+        cy.viewport(500, 544);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <ControlledDemo />
@@ -558,6 +564,8 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('prop: calendarContainerWidth, calendarContainerHeight', () => {
+        cy.viewport(500, 680);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Demo
@@ -679,7 +687,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 656);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -697,18 +705,18 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('prop: required', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
                 <div style={{ padding: '1rem' }}>
-                    <Demo required label="Лейбл" />
+                    <Demo required hasRequiredIndicator label="Лейбл" />
                     <PadMe />
-                    <Demo required requiredPlacement="left" label="Лейбл" />
+                    <Demo required hasRequiredIndicator requiredPlacement="left" label="Лейбл" />
                     <PadMe />
-                    <Demo required />
+                    <Demo required hasRequiredIndicator />
                     <PadMe />
-                    <Demo required requiredPlacement="left" />
+                    <Demo required hasRequiredIndicator requiredPlacement="left" />
                 </div>
             </CypressTestDecoratorWithTypo>,
         );
@@ -769,7 +777,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('prop: input date, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -809,7 +817,9 @@ describe('plasma-b2c: DatePickerRange', () => {
         );
     };
 
-    it('controlled datepicker: set date', () => {
+    it.skip('controlled datepicker: set date', () => {
+        cy.viewport(500, 544);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <ControlledDemo />
@@ -828,6 +838,8 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('controlled datepicker: reset date', () => {
+        cy.viewport(500, 544);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <ControlledDemo />

@@ -4,6 +4,7 @@ on:
     pull_request_target:
         branches:
             - dev
+            - next-insol
     pull_request:
         branches:
             - master

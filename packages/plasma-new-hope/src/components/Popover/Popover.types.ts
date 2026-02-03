@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode, RefObject, SyntheticEvent } from 'react';
+import type { HTMLAttributes, ReactNode, RefObject, SyntheticEvent, Ref } from 'react';
 import { Placement as PopoverPlacement, ComputedPlacement as PopoverPlacementBasic } from '@popperjs/core';
 
 import { ResizableProps } from '../_Resizable';
@@ -40,7 +40,7 @@ export type CustomPopoverProps = {
     /**
      * Элемент или ref на элемент, рядом с которым произойдет вызов всплывающего окна.
      */
-    target?: ReactNode | RefObject<HTMLElement>;
+    target?: ReactNode | Ref<HTMLElement>;
     /**
      * Есть ли стрелка над элементом.
      */

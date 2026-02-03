@@ -114,6 +114,7 @@ describe('plasma-giga: TimePicker', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
 
+        cy.viewport(500, 646);
         cy.matchImageSnapshot();
     });
 
@@ -130,6 +131,7 @@ describe('plasma-giga: TimePicker', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
 
+        cy.viewport(500, 646);
         cy.matchImageSnapshot();
     });
 
@@ -145,6 +147,20 @@ describe('plasma-giga: TimePicker', () => {
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
+
+        cy.viewport(500, 646);
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] TimePicker: dropdownWidth=35rem, dropdownHeight=10rem', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo dropdownWidth="35rem" dropdownHeight="10rem" value="14:30" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+        cy.get('.popover-root').should('be.visible');
 
         cy.matchImageSnapshot();
     });
@@ -183,6 +199,7 @@ describe('plasma-giga: TimePicker', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
 
+        cy.viewport(500, 646);
         cy.matchImageSnapshot();
     });
 
@@ -200,6 +217,7 @@ describe('plasma-giga: TimePicker', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
 
+        cy.viewport(500, 646);
         cy.matchImageSnapshot();
     });
 });

@@ -107,6 +107,7 @@ describe('plasma-b2c: DatePicker', () => {
                     maskWithFormat
                     required
                     requiredPlacement="left"
+                    hasRequiredIndicator
                     valueError
                 />
             </CypressTestDecoratorWithTypo>,
@@ -125,6 +126,7 @@ describe('plasma-b2c: DatePicker', () => {
                     lang="en"
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     valueSuccess
                 />
             </CypressTestDecoratorWithTypo>,
@@ -186,6 +188,7 @@ describe('plasma-b2c: DatePicker', () => {
                     enableContentRight
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                     disabled
                 />
             </CypressTestDecoratorWithTypo>,
@@ -353,7 +356,7 @@ describe('plasma-b2c: DatePicker', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 656);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -397,6 +400,68 @@ describe('plasma-b2c: DatePicker', () => {
 
         cy.get('input').first().click();
 
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePicker: dateShortcuts, dateShortcutsPlacement=left, dateShortcutsWidth=5rem', () => {
+        const dateShortcuts = [
+            {
+                value: new Date(2024, 11, 14),
+                label: 'Дата по умолчанию',
+            },
+            {
+                value: new Date(2024, 11, 4),
+                label: '10 дней до даты по умолчанию',
+            },
+            {
+                value: new Date(2024, 11, 24),
+                label: '10 дней после даты по умолчанию',
+            },
+        ];
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    defaultDate={new Date(2024, 11, 1)}
+                    dateShortcuts={dateShortcuts}
+                    dateShortcutsPlacement="left"
+                    dateShortcutsWidth="5rem"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePicker: dateShortcuts, dateShortcutsPlacement=right, dateShortcutsWidth=10rem', () => {
+        const dateShortcuts = [
+            {
+                value: new Date(2024, 11, 14),
+                label: 'Дата по умолчанию',
+            },
+            {
+                value: new Date(2024, 11, 4),
+                label: '10 дней до даты по умолчанию',
+            },
+            {
+                value: new Date(2024, 11, 24),
+                label: '10 дней после даты по умолчанию',
+            },
+        ];
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    defaultDate={new Date(2024, 11, 1)}
+                    dateShortcuts={dateShortcuts}
+                    dateShortcutsPlacement="right"
+                    dateShortcutsWidth="10rem"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 });
@@ -457,7 +522,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     };
 
     it('[PLASMA-T1792] DatePickerRange: default, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -501,7 +566,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1795] DatePickerRange: input date, double calendar', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -529,7 +594,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('[PLASMA-T1798] DatePickerRange: size=l, multy props', () => {
-        cy.viewport(900, 800);
+        cy.viewport(900, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -558,6 +623,7 @@ describe('plasma-b2c: DatePickerRange', () => {
                         maskWithFormat
                         required
                         requiredPlacement="left"
+                        hasRequiredIndicator
                     />
                 </div>
             </CypressTestDecoratorWithTypo>,
@@ -629,6 +695,7 @@ describe('plasma-b2c: DatePickerRange', () => {
                     secondValueError
                     required
                     requiredPlacement="right"
+                    hasRequiredIndicator
                 />
             </CypressTestDecoratorWithTypo>,
         );
@@ -657,7 +724,7 @@ describe('plasma-b2c: DatePickerRange', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 656);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -690,10 +757,15 @@ describe('plasma-b2c: DatePickerRange', () => {
         cy.get('#outer').click();
     });
 
-    it.skip('[PLASMA-] DatePickerRange: hintText, required, requiredPlacement=right', () => {
+    it('[PLASMA-] DatePickerRange: hintText, required, requiredPlacement=right', () => {
         mount(
             <CypressTestDecorator>
-                <Demo hintText="Тестовый текст" required requiredPlacement="right" />
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    hintText="Тестовый текст"
+                    required
+                    requiredPlacement="right"
+                />
             </CypressTestDecorator>,
         );
         cy.get('input.textfield-input-text-ellipsis').last().click();
@@ -705,9 +777,9 @@ describe('plasma-b2c: DatePickerRange', () => {
     it('[PLASMA-] DatePickerRange: appearance=clear, hasClearDivider', () => {
         mount(
             <CypressTestDecorator>
-                <Demo appearance="clear" />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" />
                 <PadMe />
-                <Demo appearance="clear" hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" hasClearDivider />
             </CypressTestDecorator>,
         );
         cy.get('input.textfield-input-text-ellipsis').last().click();
@@ -718,11 +790,17 @@ describe('plasma-b2c: DatePickerRange', () => {
     it('[PLASMA-] DatePickerRange: appearance=clear, firstValueSuccess, secondValueSuccess', () => {
         mount(
             <CypressTestDecorator>
-                <Demo appearance="clear" firstValueSuccess hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" firstValueSuccess hasClearDivider />
                 <PadMe />
-                <Demo appearance="clear" secondValueSuccess hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" secondValueSuccess hasClearDivider />
                 <PadMe />
-                <Demo appearance="clear" firstValueSuccess secondValueSuccess hasClearDivider />
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    appearance="clear"
+                    firstValueSuccess
+                    secondValueSuccess
+                    hasClearDivider
+                />
             </CypressTestDecorator>,
         );
         cy.get('input.textfield-input-text-ellipsis').last().click();
@@ -733,15 +811,83 @@ describe('plasma-b2c: DatePickerRange', () => {
     it('[PLASMA-] DatePickerRange: appearance=clear, firstValueError, secondValueError', () => {
         mount(
             <CypressTestDecorator>
-                <Demo appearance="clear" firstValueError hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" firstValueError hasClearDivider />
                 <PadMe />
-                <Demo appearance="clear" secondValueError hasClearDivider />
+                <Demo renderFromDate={new Date(2024, 11, 14)} appearance="clear" secondValueError hasClearDivider />
                 <PadMe />
-                <Demo appearance="clear" firstValueError secondValueError hasClearDivider />
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    appearance="clear"
+                    firstValueError
+                    secondValueError
+                    hasClearDivider
+                />
             </CypressTestDecorator>,
         );
         cy.get('input.textfield-input-text-ellipsis').last().click();
 
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePickerRange: dateShortcuts, dateShortcutsPlacement=left, dateShortcutsWidth=5rem', () => {
+        const dateShortcutsRange = [
+            {
+                value: [new Date(2024, 11, 14), new Date(2024, 11, 23)] as [Date, Date],
+                label: 'Промежуток в 10 дней',
+            },
+            {
+                value: [new Date(2024, 11, 1), new Date(2024, 11, 20)] as [Date, Date],
+                label: 'Промежуток в 20 дней',
+            },
+            {
+                value: [new Date(2024, 11, 5), undefined] as [Date, undefined],
+                label: 'Промежуток без конечой даты',
+            },
+        ];
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    dateShortcuts={dateShortcutsRange}
+                    dateShortcutsPlacement="left"
+                    dateShortcutsWidth="5rem"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] DatePickerRange: dateShortcuts, dateShortcutsPlacement=right, dateShortcutsWidth=10rem', () => {
+        const dateShortcutsRange = [
+            {
+                value: [new Date(2024, 11, 14), new Date(2024, 11, 23)] as [Date, Date],
+                label: 'Промежуток в 10 дней',
+            },
+            {
+                value: [new Date(2024, 11, 1), new Date(2024, 11, 20)] as [Date, Date],
+                label: 'Промежуток в 20 дней',
+            },
+            {
+                value: [new Date(2024, 11, 5), undefined] as [Date, undefined],
+                label: 'Промежуток без конечой даты',
+            },
+        ];
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo
+                    renderFromDate={new Date(2024, 11, 14)}
+                    dateShortcuts={dateShortcutsRange}
+                    dateShortcutsPlacement="right"
+                    dateShortcutsWidth="10rem"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 });

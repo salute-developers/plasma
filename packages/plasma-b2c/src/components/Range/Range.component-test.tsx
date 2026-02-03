@@ -118,6 +118,8 @@ describe('plasma-b2c: Range', () => {
     });
 
     it('_size', () => {
+        cy.viewport(500, 538);
+
         mount(
             <CypressTestDecorator>
                 <Demo label="Лейбл" size="xl" />
@@ -146,6 +148,8 @@ describe('plasma-b2c: Range', () => {
     });
 
     it('_error & _success', () => {
+        cy.viewport(500, 642);
+
         mount(
             <CypressTestDecorator>
                 <Demo label="Лейбл" firstValueError />
@@ -165,7 +169,7 @@ describe('plasma-b2c: Range', () => {
     });
 
     it('_required', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecorator>

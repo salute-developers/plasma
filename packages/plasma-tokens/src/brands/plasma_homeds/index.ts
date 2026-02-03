@@ -1589,6 +1589,12 @@ export const overlayHard = 'var(--overlay-hard, #080808F5)';
 /** Цвет фона паранжи размытый */
 export const overlayBlur = 'var(--overlay-blur, #08080847)';
 
+export const overlayGradientUp =
+    'var(--overlay-gradient-up, linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.01) 0.77%, rgba(0, 0, 0, 0.04) 1.54%, rgba(0, 0, 0, 0.08) 2.31%, rgba(0, 0, 0, 0.15) 3.08%, rgba(0, 0, 0, 0.23) 3.86%, rgba(0, 0, 0, 0.33) 4.63%, rgba(0, 0, 0, 0.44) 5.4%, rgba(0, 0, 0, 0.56) 6.17%, rgba(0, 0, 0, 0.67) 6.94%, rgba(0, 0, 0, 0.77) 7.71%, rgba(0, 0, 0, 0.85) 8.48%, rgba(0, 0, 0, 0.92) 9.25%, rgba(0, 0, 0, 0.96) 10.02%, rgba(0, 0, 0, 0.99) 10.8%, rgb(0, 0, 0) 11.57%))';
+
+export const overlayGradientDown =
+    'var(--overlay-gradient-down, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.01) 0.95%, rgba(0, 0, 0, 0.04) 1.9%, rgba(0, 0, 0, 0.08) 2.86%, rgba(0, 0, 0, 0.15) 3.81%, rgba(0, 0, 0, 0.23) 4.76%, rgba(0, 0, 0, 0.33) 5.71%, rgba(0, 0, 0, 0.44) 6.67%, rgba(0, 0, 0, 0.56) 7.62%, rgba(0, 0, 0, 0.67) 8.57%, rgba(0, 0, 0, 0.77) 9.52%, rgba(0, 0, 0, 0.85) 10.48%, rgba(0, 0, 0, 0.92) 11.43%, rgba(0, 0, 0, 0.96) 12.38%, rgba(0, 0, 0, 0.99) 13.33%, rgb(0, 0, 0) 14.29%))';
+
 /** Цвет фона паранжи светлый на темном фоне */
 export const onDarkOverlaySoft = 'var(--on-dark-overlay-soft, #0808088F)';
 
@@ -1597,6 +1603,12 @@ export const onDarkOverlayHard = 'var(--on-dark-overlay-hard, #080808F5)';
 
 /** Цвет фона паранжи размытый на темном фоне */
 export const onDarkOverlayBlur = 'var(--on-dark-overlay-blur, #08080847)';
+
+export const onDarkOverlayGradientUp =
+    'var(--on-dark-overlay-gradient-up, linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.01) 0.77%, rgba(0, 0, 0, 0.04) 1.54%, rgba(0, 0, 0, 0.08) 2.31%, rgba(0, 0, 0, 0.15) 3.08%, rgba(0, 0, 0, 0.23) 3.86%, rgba(0, 0, 0, 0.33) 4.63%, rgba(0, 0, 0, 0.44) 5.4%, rgba(0, 0, 0, 0.56) 6.17%, rgba(0, 0, 0, 0.67) 6.94%, rgba(0, 0, 0, 0.77) 7.71%, rgba(0, 0, 0, 0.85) 8.48%, rgba(0, 0, 0, 0.92) 9.25%, rgba(0, 0, 0, 0.96) 10.02%, rgba(0, 0, 0, 0.99) 10.8%, rgb(0, 0, 0) 11.57%))';
+
+export const onDarkOverlayGradientDown =
+    'var(--on-dark-overlay-gradient-down, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.01) 0.95%, rgba(0, 0, 0, 0.04) 1.9%, rgba(0, 0, 0, 0.08) 2.86%, rgba(0, 0, 0, 0.15) 3.81%, rgba(0, 0, 0, 0.23) 4.76%, rgba(0, 0, 0, 0.33) 5.71%, rgba(0, 0, 0, 0.44) 6.67%, rgba(0, 0, 0, 0.56) 7.62%, rgba(0, 0, 0, 0.67) 8.57%, rgba(0, 0, 0, 0.77) 9.52%, rgba(0, 0, 0, 0.85) 10.48%, rgba(0, 0, 0, 0.92) 11.43%, rgba(0, 0, 0, 0.96) 12.38%, rgba(0, 0, 0, 0.99) 13.33%, rgb(0, 0, 0) 14.29%))';
 
 /** Цвет фона паранжи светлый на светлом фоне */
 export const onLightOverlaySoft = 'var(--on-light-overlay-soft, #F9F9F98F)';
@@ -1607,6 +1619,12 @@ export const onLightOverlayHard = 'var(--on-light-overlay-hard, #F9F9F9F5)';
 /** Цвет фона паранжи размытый на светлом фоне */
 export const onLightOverlayBlur = 'var(--on-light-overlay-blur, #F9F9F947)';
 
+export const onLightOverlayGradientUp =
+    'var(--on-light-overlay-gradient-up, linear-gradient(0deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.01) 0.77%, rgba(255, 255, 255, 0.04) 1.54%, rgba(255, 255, 255, 0.08) 2.31%, rgba(255, 255, 255, 0.15) 3.08%, rgba(255, 255, 255, 0.23) 3.86%, rgba(255, 255, 255, 0.33) 4.63%, rgba(255, 255, 255, 0.44) 5.4%, rgba(255, 255, 255, 0.56) 6.17%, rgba(255, 255, 255, 0.67) 6.94%, rgba(255, 255, 255, 0.77) 7.71%, rgba(255, 255, 255, 0.85) 8.48%, rgba(255, 255, 255, 0.92) 9.25%, rgba(255, 255, 255, 0.96) 10.02%, rgba(255, 255, 255, 0.99) 10.8%, rgb(255, 255, 255) 11.57%))';
+
+export const onLightOverlayGradientDown =
+    'var(--on-light-overlay-gradient-down, linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.01) 0.95%, rgba(255, 255, 255, 0.04) 1.9%, rgba(255, 255, 255, 0.08) 2.86%, rgba(255, 255, 255, 0.15) 3.81%, rgba(255, 255, 255, 0.23) 4.76%, rgba(255, 255, 255, 0.33) 5.71%, rgba(255, 255, 255, 0.44) 6.67%, rgba(255, 255, 255, 0.56) 7.62%, rgba(255, 255, 255, 0.67) 8.57%, rgba(255, 255, 255, 0.77) 9.52%, rgba(255, 255, 255, 0.85) 10.48%, rgba(255, 255, 255, 0.92) 11.43%, rgba(255, 255, 255, 0.96) 12.38%, rgba(255, 255, 255, 0.99) 13.33%, rgb(255, 255, 255) 14.29%))';
+
 /** Инвертированный цвет фона паранжи светлый */
 export const inverseOverlaySoft = 'var(--inverse-overlay-soft, #F9F9F98F)';
 
@@ -1615,6 +1633,12 @@ export const inverseOverlayHard = 'var(--inverse-overlay-hard, #F9F9F9F5)';
 
 /** Инвертированный цвет фона паранжи размытый */
 export const inverseOverlayBlur = 'var(--inverse-overlay-blur, #F9F9F947)';
+
+export const inverseOverlayGradientUp =
+    'var(--inverse-overlay-gradient-up, linear-gradient(0deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.01) 0.77%, rgba(255, 255, 255, 0.04) 1.54%, rgba(255, 255, 255, 0.08) 2.31%, rgba(255, 255, 255, 0.15) 3.08%, rgba(255, 255, 255, 0.23) 3.86%, rgba(255, 255, 255, 0.33) 4.63%, rgba(255, 255, 255, 0.44) 5.4%, rgba(255, 255, 255, 0.56) 6.17%, rgba(255, 255, 255, 0.67) 6.94%, rgba(255, 255, 255, 0.77) 7.71%, rgba(255, 255, 255, 0.85) 8.48%, rgba(255, 255, 255, 0.92) 9.25%, rgba(255, 255, 255, 0.96) 10.02%, rgba(255, 255, 255, 0.99) 10.8%, rgb(255, 255, 255) 11.57%))';
+
+export const inverseOverlayGradientDown =
+    'var(--inverse-overlay-gradient-down, linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.01) 0.95%, rgba(255, 255, 255, 0.04) 1.9%, rgba(255, 255, 255, 0.08) 2.86%, rgba(255, 255, 255, 0.15) 3.81%, rgba(255, 255, 255, 0.23) 4.76%, rgba(255, 255, 255, 0.33) 5.71%, rgba(255, 255, 255, 0.44) 6.67%, rgba(255, 255, 255, 0.56) 7.62%, rgba(255, 255, 255, 0.67) 8.57%, rgba(255, 255, 255, 0.77) 9.52%, rgba(255, 255, 255, 0.85) 10.48%, rgba(255, 255, 255, 0.92) 11.43%, rgba(255, 255, 255, 0.96) 12.38%, rgba(255, 255, 255, 0.99) 13.33%, rgb(255, 255, 255) 14.29%))';
 
 /** Основной непрозрачный цвет обводки */
 export const outlineSolidPrimary = 'var(--outline-solid-primary, #262626)';

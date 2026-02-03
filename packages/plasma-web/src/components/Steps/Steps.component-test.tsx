@@ -290,6 +290,7 @@ describe('plasma-web: Steps', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(500, 516);
         cy.matchImageSnapshot();
     });
 

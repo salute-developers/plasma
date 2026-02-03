@@ -188,7 +188,6 @@ import TabItem from '@theme/TabItem';
     </TabItem>
     <TabItem value="size" label="Size">
         Размер `DatePicker` задаётся с помощью свойства `size`.
-        Возможные значения свойства: `"l"`, `"m"`, `"s"`, `"xs"`.
 
         ```tsx live
         import React from 'react';
@@ -196,7 +195,7 @@ import TabItem from '@theme/TabItem';
         import { IconDone } from '@salutejs/plasma-icons';
 
         export function App() {
-            const sizes = ['l', 'm', 's', 'xs']
+            const sizes = ['xl', 'l', 'm', 's', 'xs']
 
             return (
                 <div style=\{{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -737,7 +736,7 @@ import { DatePicker } from {{ package }};
         import { IconDone } from '@salutejs/plasma-icons';
 
         export function App() {
-            const sizes = ['l', 'm', 's', 'xs']
+            const sizes = ['xl', 'l', 'm', 's', 'xs']
 
             const ActionButton = () => {
                 return (

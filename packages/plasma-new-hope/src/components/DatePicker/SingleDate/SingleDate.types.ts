@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode, RefObject, SyntheticEvent } from 'react';
+import type { DateShortcutItem } from 'src/components/DateTimePicker/DateTimePicker.types';
 
 import type { DatePickerCalendarProps, DatePickerVariationProps, OnCommitDateCallback } from '../DatePickerBase.types';
 import type { DateType } from '../../Calendar/Calendar.types';
@@ -166,6 +167,11 @@ export type DatePickerPopoverProps = {
      * Закрыть календарь после выбора дат
      */
     closeAfterDateSelect?: boolean;
+    /**
+     * Список предустановленных дат,
+     * которые можно выбрать в выпадающем календаре
+     */
+    dateShortcuts?: DateShortcutItem[];
     /**
      * Событие сворачивания/разворачивания календаря.
      */

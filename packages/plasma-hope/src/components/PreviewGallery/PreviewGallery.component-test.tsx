@@ -233,6 +233,7 @@ describe('plasma-hope: PreviewGallery utils', () => {
         expect(arrayItemRemoving(itemsExamples, 123)).to.deep.eq(itemsExamples);
         expect(arrayItemSelecting(itemsExamples, 123)).to.deep.eq(itemsExamples);
 
+        cy.viewport(500, 523);
         cy.matchImageSnapshot();
     });
 

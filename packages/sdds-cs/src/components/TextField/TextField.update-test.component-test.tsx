@@ -18,6 +18,7 @@ describe('sdds-cs: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="left"
                 />
             </CypressTestDecorator>,
@@ -53,6 +54,7 @@ describe('sdds-cs: TextField', () => {
                     leftHelper="Helper text"
                     contentLeft={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                 />
             </CypressTestDecorator>,
@@ -82,6 +84,7 @@ describe('sdds-cs: TextField', () => {
                         contentLeft={Icon}
                         contentRight={Icon}
                         required
+                        hasRequiredIndicator
                         requiredPlacement="left"
                     />
                 </div>
@@ -119,6 +122,7 @@ describe('sdds-cs: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                     readOnly
                 />
@@ -156,6 +160,7 @@ describe('sdds-cs: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="left"
                     disabled
                 />
@@ -195,6 +200,7 @@ describe('sdds-cs: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                 />
             </CypressTestDecorator>,
@@ -236,6 +242,7 @@ describe('sdds-cs: TextField', () => {
                         contentLeft={Icon}
                         contentRight={Icon}
                         required
+                        hasRequiredIndicator
                         requiredPlacement="left"
                         appearance="clear"
                         hasDivider
@@ -276,6 +283,7 @@ describe('sdds-cs: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                     appearance="clear"
                     hasDivider
@@ -298,6 +306,7 @@ describe('sdds-cs: TextField', () => {
                     contentLeft={Icon}
                     contentRight={Icon}
                     required
+                    hasRequiredIndicator
                     requiredPlacement="right"
                     appearance="clear"
                     hasDivider
@@ -319,6 +328,7 @@ describe('sdds-cs: TextField', () => {
                         contentLeft={Icon}
                         contentRight={Icon}
                         required
+                        hasRequiredIndicator
                         requiredPlacement="left"
                         appearance="clear"
                     />

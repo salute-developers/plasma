@@ -272,7 +272,8 @@ describe('sdds-cs: Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1630] Dropdown: size=s, variant=tight, placement=bottom, trigger=hover, without Arrow, closeOnOverlayClick', () => {
+    // TODO: в cypress 15 снапшоты не работают с hover. Нужно переписывать тест.
+    it.skip('[PLASMA-T1630] Dropdown: size=s, variant=tight, placement=bottom, trigger=hover, without Arrow, closeOnOverlayClick', () => {
         cy.viewport(1000, 400);
 
         mount(
