@@ -137,11 +137,11 @@ export const config = {
                 ${buttonTokens.buttonTextColor}: var(--text-accent);
                 ${buttonTokens.buttonIconColor}: var(--text-accent);
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-card);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
 
-                ${buttonTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-card-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-card-active);
             `,
         },
         size: {
