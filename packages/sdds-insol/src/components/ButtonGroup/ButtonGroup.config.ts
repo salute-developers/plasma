@@ -133,9 +133,9 @@ export const config = {
                 ${buttonGroupTokens.buttonIconColor}: var(--text-accent);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
 
-                ${buttonGroupTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-card);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-solid-card-hover);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-solid-card-active);
 
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
             `,
