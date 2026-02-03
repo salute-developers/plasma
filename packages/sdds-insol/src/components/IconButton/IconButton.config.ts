@@ -10,80 +10,103 @@ export const config = {
         view: {
             default: css`
                 ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-default-active);
+
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--inverse-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--inverse-text-primary-active);
             `,
             accent: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-secondary);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             clear: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             positive: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-positive);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-positive-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-positive-active);
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             warning: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-warning);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-warning-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-warning-active);
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             negative: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-negative);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-negative-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-negative-active);
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             dark: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-transparent-deep);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
+
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
             `,
             black: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-solid-default);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
+
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
             `,
             white: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-light-text-primary);
+
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary-active);
             `,
             green: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-accent);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--text-accent-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--text-accent-active);
             `,
         },
         size: {
