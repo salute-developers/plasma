@@ -443,9 +443,9 @@ export const config = {
                 ${attachTokens.buttonColor}: var(--text-accent);
                 ${attachTokens.buttonValueColor}: var(--text-secondary);
 
-                ${attachTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
-                ${attachTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${attachTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+                ${attachTokens.buttonBackgroundColor}: var(--surface-solid-card);
+                ${attachTokens.buttonBackgroundColorHover}: var(--surface-solid-card-hover);
+                ${attachTokens.buttonBackgroundColorActive}: var(--surface-solid-card-active);
 
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
 
@@ -460,9 +460,9 @@ export const config = {
 
                 ${attachTokens.iconButtonColor}: var(--text-accent);
 
-                ${attachTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+                ${attachTokens.iconButtonBackgroundColor}: var(--surface-solid-card);
+                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-solid-card-hover);
+                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-solid-card-active);
 
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
 
