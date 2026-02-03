@@ -102,9 +102,9 @@ export const config = {
             green: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-accent);
 
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-card);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-card-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-card-active);
 
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
