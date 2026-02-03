@@ -12,6 +12,7 @@ export const config = {
                 ${embedIconButtonTokens.embedIconButtonColor}: var(--text-primary);
                 ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
+
                 ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-primary-hover);
                 ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-primary-active);
             `,
@@ -19,6 +20,7 @@ export const config = {
                 ${embedIconButtonTokens.embedIconButtonColor}: var(--text-accent);
                 ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
+
                 ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-accent-hover);
                 ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-accent-active);
             `,
@@ -26,6 +28,7 @@ export const config = {
                 ${embedIconButtonTokens.embedIconButtonColor}: var(--text-secondary);
                 ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
+
                 ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-secondary-hover);
                 ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-secondary-active);
             `,
@@ -33,6 +36,7 @@ export const config = {
                 ${embedIconButtonTokens.embedIconButtonColor}: var(--text-positive);
                 ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
+
                 ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-positive-hover);
                 ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-positive-active);
             `,
@@ -40,6 +44,7 @@ export const config = {
                 ${embedIconButtonTokens.embedIconButtonColor}: var(--text-warning);
                 ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
+
                 ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-warning-hover);
                 ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-warning-active);
             `,
@@ -47,6 +52,7 @@ export const config = {
                 ${embedIconButtonTokens.embedIconButtonColor}: var(--text-negative);
                 ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
+
                 ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-negative-hover);
                 ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-negative-active);
             `,
@@ -54,6 +60,7 @@ export const config = {
                 ${embedIconButtonTokens.embedIconButtonColor}: var(--text-info);
                 ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
+
                 ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-info-hover);
                 ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-info-active);
             `,
