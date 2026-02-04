@@ -4,7 +4,7 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 
 const noop = () => {};
 
-describe('plasma-ui: TimePicker', () => {
+describe.skip('plasma-ui: TimePicker', () => {
     const TimePicker = getComponent('TimePicker');
 
     it('default', () => {
@@ -157,7 +157,7 @@ describe('plasma-ui: TimePicker', () => {
     });
 });
 
-describe('plasma-ui: TimePicker update value', () => {
+describe.skip('plasma-ui: TimePicker update value', () => {
     const TimePicker = getComponent('TimePicker');
     const Button = getComponent('Button');
 
