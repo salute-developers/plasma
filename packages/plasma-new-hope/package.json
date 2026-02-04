@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-new-hope",
-  "version": "0.346.1-dev.0",
+  "version": "0.347.0",
   "description": "Salute Design System blueprint",
   "exports": {
     ".": {
@@ -92,9 +92,9 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
-    "@salutejs/plasma-cy-utils": "0.144.0-dev.0",
-    "@salutejs/plasma-sb-utils": "0.214.0-dev.0",
-    "@salutejs/plasma-themes": "0.40.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.144.0",
+    "@salutejs/plasma-sb-utils": "0.214.0",
+    "@salutejs/plasma-themes": "0.40.0",
     "@types/lodash": "^4.14.191",
     "@types/lodash.chunk": "4.2.9",
     "@types/lodash.throttle": "4.1.6",
@@ -122,7 +122,7 @@
     "@linaria/react": "5.0.3",
     "@popperjs/core": "2.11.8",
     "@salutejs/input-core": "2.1.2",
-    "@salutejs/plasma-core": "1.214.0-dev.0",
+    "@salutejs/plasma-core": "1.214.0",
     "@salutejs/react-maskinput": "3.3.2",
     "@tanstack/react-table": "8.21.2",
     "@tanstack/react-virtual": "3.13.2",
