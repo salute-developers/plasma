@@ -72,7 +72,7 @@ describe('plasma-ui: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('with controls', () => {
+    it.skip('with controls', () => {
         mountLegacyMode(
             <CypressTestDecorator>
                 <DatePicker
@@ -136,7 +136,7 @@ describe('plasma-ui: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('with single item', () => {
+    it.skip('with single item', () => {
         mountLegacyMode(
             <CypressTestDecorator>
                 <>

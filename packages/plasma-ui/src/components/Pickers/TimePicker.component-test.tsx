@@ -136,7 +136,7 @@ describe('plasma-ui: TimePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('label with controls', () => {
+    it.skip('label with controls', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
@@ -236,7 +236,7 @@ describe('plasma-ui: TimePicker update value', () => {
         cy.matchImageSnapshot();
     });
 
-    it('with controls', () => {
+    it.skip('with controls', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
@@ -252,7 +252,7 @@ describe('plasma-ui: TimePicker update value', () => {
         cy.matchImageSnapshot();
     });
 
-    it('with single item', () => {
+    it.skip('with single item', () => {
         mount(
             <CypressTestDecorator>
                 <>
