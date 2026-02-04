@@ -1,9 +1,9 @@
 import React, { forwardRef, useRef, useState, useEffect } from 'react';
 import cls from 'classnames';
-import type { ChangeEvent, KeyboardEvent } from 'react';
+import type { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
 import type { RootProps } from 'src/engines';
 import { useForkRef } from '@salutejs/plasma-core';
-import { getPlacements } from 'src/utils';
+import { getPlacements, getSizeValueFromProp } from 'src/utils';
 
 import { TimePickerGridChangeEvent } from '../TimePickerGrid/TimePickerGrid.types';
 
@@ -67,6 +67,8 @@ export const timePickerRoot = (
             ref,
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
+            const timeGridRootRef = useRef<HTMLDivElement | null>(null);
+
             const rootRef = useRef<HTMLDivElement | null>(null);
             const rootForkRef = useForkRef(rootRef, ref);
 
@@ -87,6 +89,9 @@ export const timePickerRoot = (
             const viewValue = outerValue ?? innerTime;
 
             const format = columnsQuantity === 3 ? 'HH:mm:ss' : 'HH:mm';
+
+            const dropdownWidthValue = dropdownWidth ? getSizeValueFromProp(dropdownWidth, 'rem') : undefined;
+            const dropdownHeightValue = dropdownHeight ? getSizeValueFromProp(dropdownHeight, 'rem') : undefined;
 
             useEffect(() => {
                 return () => {
@@ -215,6 +220,20 @@ export const timePickerRoot = (
                 handleKeyDown(e);
             };
 
+            const handleTimeGridRootClick = (event: MouseEvent<HTMLDivElement>) => {
+                if (disabled || readonly) {
+                    return;
+                }
+
+                if (isInnerOpen && stretched && event.target === timeGridRootRef?.current) {
+                    setIsInnerOpen(false);
+
+                    if (onToggle) {
+                        onToggle(false, event);
+                    }
+                }
+            };
+
             const { onKeyDown: onKeyDownNavigation } = useKeyNavigation({
                 isCalendarOpen: isInnerOpen,
                 format,
@@ -248,14 +267,16 @@ export const timePickerRoot = (
                 />
             );
 
-            const getDropdownWidth = (): 'fixed' | 'fullWidth' | React.CSSProperties['width'] => {
-                if (dropdownWidth === 'fixed' || dropdownWidth === undefined) {
+            const getDropdownWidth = () => {
+                if (dropdownWidthValue === 'fixed' || dropdownWidthValue === undefined) {
                     return undefined;
                 }
-                if (dropdownWidth === 'fullWidth') {
-                    return rootWidth !== null ? `${rootWidth}px` : 'fullWidth';
+
+                if (dropdownWidthValue === 'fullWidth' && rootWidth !== null) {
+                    return `${rootWidth}px`;
                 }
-                return dropdownWidth as React.CSSProperties['width'];
+
+                return dropdownWidthValue;
             };
 
             return (
@@ -283,30 +304,33 @@ export const timePickerRoot = (
                         isFocusTrapped={false}
                         target={TimePickerInput}
                         preventOverflow={false}
-                        align={dropdownAlign}
                     >
                         <Root
+                            ref={timeGridRootRef}
                             stretched={stretched}
                             view={view}
                             size={size}
-                            className={cls(classes.timePickerRoot, className, {
+                            className={cls(classes.timePickerGridRoot, className, {
+                                [classes.timePickerPlacementRight]: dropdownAlign === 'right',
                                 [classes.timePickerFullWidth]: dropdownWidth === 'fullWidth',
                                 [classes.timePickerFixed]: dropdownWidth !== 'fullWidth',
                             })}
                             disabled={disabled}
                             readonly={readonly}
-                            {...rest}
+                            onClick={handleTimeGridRootClick}
                         >
                             <StyledTimePickerGrid
-                                value={viewValue}
-                                onChange={handleOnChange}
-                                dropdownHeight={dropdownHeight}
-                                dropdownWidth={getDropdownWidth()}
-                                format={format}
                                 view={view}
                                 size={size}
+                                format={format}
+                                columns={columnsQuantity}
+                                innerWidth={getDropdownWidth()}
+                                innerHeight={dropdownHeightValue}
+                                dropdownHeight="100%"
+                                dropdownWidth="fullWidth"
+                                value={viewValue}
+                                onChange={handleOnChange}
                                 disabled={disabled}
-                                width={getDropdownWidth()}
                             />
                         </Root>
                     </StyledPopover>

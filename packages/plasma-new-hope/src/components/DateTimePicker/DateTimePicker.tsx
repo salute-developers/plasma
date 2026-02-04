@@ -272,7 +272,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                             {dateShortcuts?.length ? (
                                 <DateShortcutList
                                     items={dateShortcuts}
-                                    setShortcutDate={updateExternalDate}
+                                    setShortcutDate={handleCalendarPick}
                                     dateShortcutsWidth={dateShortcutsWidth}
                                     calendarContainerHeight={calendarContainerHeight}
                                     dateShortcutsPlacement={dateShortcutsPlacement}

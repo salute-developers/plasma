@@ -5,6 +5,7 @@ import { getPlacements, getSizeValueFromProp } from 'src/utils';
 
 import { StyledPopover } from '../RangeDate.styles';
 import { classes } from '../../DatePicker.tokens';
+import { StyledShortcutList } from '../../ui';
 
 import type { RangeDatePopoverProps } from './RangeDatePopover.types';
 import { StyledCalendar, StyledCalendarDouble } from './RangeDatePopover.styles';
@@ -50,6 +51,11 @@ export const RangeDatePopover = ({
 
     disabled,
     readOnly,
+
+    dateShortcuts,
+    dateShortcutsPlacement = 'left',
+    dateShortcutsWidth,
+    onShortcutDateSelect,
 
     setIsInnerOpen,
     onChangeValue,
@@ -101,12 +107,24 @@ export const RangeDatePopover = ({
                 target={target}
                 preventOverflow={false}
                 zIndex={zIndex}
+                innerWidth={calendarContainerWidthValue}
+                innerHeight={calendarContainerHeightValue}
             >
                 <Root
                     ref={doubleCalendarRootRef}
                     className={cls(classes.datePickerRoot, { [classes.datePickerstretched]: stretched })}
                     onClick={handleCalendarRootClick}
                 >
+                    {dateShortcuts?.length && onShortcutDateSelect ? (
+                        <StyledShortcutList
+                            items={dateShortcuts}
+                            setShortcutDate={onShortcutDateSelect}
+                            dateShortcutsWidth={dateShortcutsWidth}
+                            calendarContainerHeight={calendarContainerHeight}
+                            dateShortcutsPlacement={dateShortcutsPlacement}
+                        />
+                    ) : null}
+
                     <StyledCalendarDouble
                         className={cls({ [classes.datePickerCalendarstretched]: stretched })}
                         innerWidth={calendarContainerWidthValue}
@@ -151,12 +169,24 @@ export const RangeDatePopover = ({
             preventOverflow={false}
             closeOnEsc={closeOnEsc}
             zIndex={zIndex}
+            innerWidth={calendarContainerWidthValue}
+            innerHeight={calendarContainerHeightValue}
         >
             <Root
                 ref={calendarRootRef}
                 className={cls(classes.datePickerRoot, { [classes.datePickerstretched]: stretched })}
                 onClick={handleCalendarRootClick}
             >
+                {dateShortcuts?.length && onShortcutDateSelect ? (
+                    <StyledShortcutList
+                        items={dateShortcuts}
+                        setShortcutDate={onShortcutDateSelect}
+                        dateShortcutsWidth={dateShortcutsWidth}
+                        calendarContainerHeight={calendarContainerHeight}
+                        dateShortcutsPlacement={dateShortcutsPlacement}
+                    />
+                ) : null}
+
                 <StyledCalendar
                     className={cls({ [classes.datePickerCalendarstretched]: stretched })}
                     innerWidth={calendarContainerWidthValue}

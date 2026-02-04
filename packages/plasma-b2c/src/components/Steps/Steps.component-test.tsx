@@ -289,6 +289,7 @@ describe('plasma-b2c: Steps', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(500, 516);
         cy.matchImageSnapshot();
     });
 

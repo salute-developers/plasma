@@ -6,11 +6,11 @@ title: List
 import { PropsTable } from '@site/src/components';
 
 # List
-Компонент ячейки.
+Компонент списка
 
 <PropsTable name="List" />
 
-Компонент представляет собой спсиок состоящий из `ListItem`.
+Компонент представляет собой список состоящий из `ListItem`.
 
 ListItem представляет собой простой компонент с текстом и иконкой
 
@@ -31,7 +31,7 @@ export function App() {
             <List view="default" size="s" variant="normal">
                 <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 1</ListItem>
                 <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 2</ListItem>
-                <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />} disabled>
+                <ListItem disabled contentRight={<IconChevronRight color="inherit" size="xs" />}>
                     Test Item 3
                 </ListItem>
                 <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 4</ListItem>

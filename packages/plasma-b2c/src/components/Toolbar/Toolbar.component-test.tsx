@@ -16,7 +16,7 @@ const ExampleButton = (props: ComponentProps<typeof IconButton>) => (
     </IconButton>
 );
 
-describe('plasma-web: Toolbar', () => {
+describe('plasma-b2c: Toolbar', () => {
     const Toolbar = getComponent('Toolbar');
     const ToolbarDivider = getComponent('ToolbarDivider');
 
@@ -120,6 +120,7 @@ describe('plasma-web: Toolbar', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(500, 607);
         cy.matchImageSnapshot();
     });
 });

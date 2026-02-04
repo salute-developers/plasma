@@ -5,8 +5,6 @@ import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconSb } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-import { Button as ButtonB2C } from '../Button';
-
 import { DateTimePicker as DateTimePickerB2C } from '.';
 
 type DateTimePickerProps = ComponentProps<typeof DateTimePickerB2C> & {
@@ -18,7 +16,6 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-b2c: DateTimePicker', () => {
     const DateTimePicker = getComponent('DateTimePicker') as typeof DateTimePickerB2C;
-    const Button = getComponent('Button') as typeof ButtonB2C;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
@@ -86,7 +83,7 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('[PLASMA-T2338] DateTimePicker: size=m, required, requiredPlacement=right, valueError', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -109,7 +106,7 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('[PLASMA-T2345] DateTimePicker: size=s, required, requiredPlacement=left, valueSuccess', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecoratorWithTypo>
@@ -297,7 +294,7 @@ describe('plasma-b2c: DateTimePicker', () => {
     });
 
     it('[PLASMA-T2365] DateTimePicker: calendarContainerWidth, calendarContainerHeight', () => {
-        cy.viewport(600, 8000);
+        cy.viewport(600, 704);
 
         mount(
             <CypressTestDecoratorWithTypo>

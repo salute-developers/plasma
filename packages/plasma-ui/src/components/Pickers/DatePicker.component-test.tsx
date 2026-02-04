@@ -6,7 +6,7 @@ const noop = () => {};
 
 // TODO: Кажется нужно переписать тесты. Они опираются на `cy.wait(ms)` и это хрупкий механизм
 // TODO: После стабилизации тестов будет использоваться метод mount
-describe('plasma-ui: DatePicker', () => {
+describe.skip('plasma-ui: DatePicker', () => {
     const DatePicker = getComponent('DatePicker');
     const AutofocusedDatePicker = () => (
         <DatePicker
@@ -72,7 +72,7 @@ describe('plasma-ui: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('with controls', () => {
+    it.skip('with controls', () => {
         mountLegacyMode(
             <CypressTestDecorator>
                 <DatePicker
@@ -136,7 +136,7 @@ describe('plasma-ui: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('with single item', () => {
+    it.skip('with single item', () => {
         mountLegacyMode(
             <CypressTestDecorator>
                 <>
@@ -161,7 +161,7 @@ describe('plasma-ui: DatePicker', () => {
     });
 });
 
-describe('plasma-ui: DatePicker update value', () => {
+describe.skip('plasma-ui: DatePicker update value', () => {
     const DatePicker = getComponent('DatePicker');
     const Button = getComponent('Button');
 

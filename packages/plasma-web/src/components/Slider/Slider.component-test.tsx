@@ -125,6 +125,8 @@ describe('plasma-web: Slider', () => {
                 <Slider label="Text" value={50} min={0} max={100} showCurrentValue={false} />
             </CypressTestDecoratorWithTypo>,
         );
+
+        cy.viewport(500, 534);
         cy.matchImageSnapshot();
     });
 

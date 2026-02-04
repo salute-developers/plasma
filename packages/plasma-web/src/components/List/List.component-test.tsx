@@ -65,6 +65,7 @@ describe('plasma-web: List Styled', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(500, 560);
         cy.matchImageSnapshot();
     });
 

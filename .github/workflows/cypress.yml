@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - dev
+      - next-insol
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
@@ -55,7 +56,7 @@ jobs:
         # Важно что бы массив был со значениями, где `""` экранируются, например -> ["\"b2c\""]
         # Можно для этого использовать JSON.stringify()
         scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_PLASMA }}
-        
+
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
@@ -70,7 +71,7 @@ jobs:
       fail-fast: false
       matrix:
         scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_SDDS }}
-        
+
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}

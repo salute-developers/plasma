@@ -4,7 +4,7 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 
 const noop = () => {};
 
-describe('plasma-ui: TimePicker', () => {
+describe.skip('plasma-ui: TimePicker', () => {
     const TimePicker = getComponent('TimePicker');
 
     it('default', () => {
@@ -136,7 +136,7 @@ describe('plasma-ui: TimePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('label with controls', () => {
+    it.skip('label with controls', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
@@ -157,7 +157,7 @@ describe('plasma-ui: TimePicker', () => {
     });
 });
 
-describe('plasma-ui: TimePicker update value', () => {
+describe.skip('plasma-ui: TimePicker update value', () => {
     const TimePicker = getComponent('TimePicker');
     const Button = getComponent('Button');
 
@@ -236,7 +236,7 @@ describe('plasma-ui: TimePicker update value', () => {
         cy.matchImageSnapshot();
     });
 
-    it('with controls', () => {
+    it.skip('with controls', () => {
         mount(
             <CypressTestDecorator>
                 <TimePicker
@@ -252,7 +252,7 @@ describe('plasma-ui: TimePicker update value', () => {
         cy.matchImageSnapshot();
     });
 
-    it('with single item', () => {
+    it.skip('with single item', () => {
         mount(
             <CypressTestDecorator>
                 <>

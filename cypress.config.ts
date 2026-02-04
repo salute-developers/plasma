@@ -1,4 +1,4 @@
-import path from 'path';
+import * as path from 'path';
 import { defineConfig } from 'cypress';
 
 import { getWebpackConfig } from './cypress/webpack.config';
@@ -8,7 +8,7 @@ const CORE_TESTS_DIR = 'plasma-new-hope';
 
 const supportFilePath = path.resolve(__dirname, 'cypress', 'support', 'index.ts');
 
-const { PACKAGE_NAME: packageName, COMPONENTS: components, RETRIES: retries = 5, SPEC_GROUP: specGroup } = process.env;
+const { PACKAGE_NAME: packageName, COMPONENTS: components, RETRIES: retries = 5 } = process.env;
 
 if (!packageName) {
     throw new Error('Provide PACKAGE env to cli command');
@@ -34,10 +34,6 @@ const getTestMatch = () => {
 
     const searchDirs = `{${packageName},${CORE_TESTS_DIR}}`;
 
-    if (specGroup) {
-        return `**/${searchDirs}/'**/${specGroup}*.component-test.{ts,tsx}`;
-    }
-
     if (!componentMatchingDirs.length) {
         return `**/${searchDirs}/${baseTestMatch}`;
     }
@@ -50,6 +46,7 @@ const getTestMatch = () => {
 
 export default defineConfig({
     component: {
+        numTestsKeptInMemory: 5,
         specPattern: getTestMatch(),
         supportFile: supportFilePath,
         devServer: {
@@ -63,14 +60,15 @@ export default defineConfig({
         snapshotsDir,
         package: packageName,
         a11yCheck: false,
-        threshold: 0.005,
+        threshold: 0.005, // это 0.5%
         hasComponents: !!components,
-        hasSpecGroup: !!specGroup,
     },
     retries: {
         runMode: retriesCount,
         openMode: 0,
     },
     video: false,
+    viewportWidth: 500,
+    viewportHeight: 500,
     chromeWebSecurity: false,
 });

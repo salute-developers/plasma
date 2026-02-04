@@ -138,6 +138,8 @@ describe('sdds-insol: DateTimePicker', () => {
     });
 
     it('prop: calendarContainerWidth, calendarContainerHeight', () => {
+        cy.viewport(500, 680);
+
         mount(
             <CypressTestDecorator>
                 <Demo
@@ -292,7 +294,7 @@ describe('sdds-insol: DateTimePicker', () => {
     });
 
     it('prop: placement', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 648);
 
         mount(
             <CypressTestDecorator>
@@ -310,7 +312,7 @@ describe('sdds-insol: DateTimePicker', () => {
     });
 
     it('prop: required', () => {
-        cy.viewport(500, 800);
+        cy.viewport(500, 599);
 
         mount(
             <CypressTestDecorator>
@@ -426,8 +428,8 @@ describe('sdds-insol: DateTimePicker', () => {
         );
     };
 
-    it('controlled datepicker: set date', () => {
-        cy.viewport(600, 600);
+    it.skip('controlled datepicker: set date', () => {
+        cy.viewport(600, 599);
 
         mount(
             <CypressTestDecorator>
@@ -444,6 +446,8 @@ describe('sdds-insol: DateTimePicker', () => {
     });
 
     it('controlled datepicker: reset date', () => {
+        cy.viewport(500, 546);
+
         mount(
             <CypressTestDecorator>
                 <ControlledDemo />

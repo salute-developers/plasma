@@ -120,6 +120,7 @@ describe('plasma-web: Toolbar', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
+        cy.viewport(500, 607);
         cy.matchImageSnapshot();
     });
 });

@@ -1,41 +1,25 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { IconMic } from '@salutejs/plasma-icons';
+import type { Meta } from '@storybook/react-vite';
+import { getSegmentStories } from '@salutejs/plasma-sb-utils';
+import styled from 'styled-components';
+import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { Counter } from '../Counter/Counter';
 
-import { SegmentItem, SegmentGroup } from './Segment';
+import { config } from './SegmentGroup.config';
+import { SegmentProvider, SegmentItem, SegmentGroup, useSegment } from './Segment';
 
-import { SegmentProvider } from '.';
-
-const contentLeftOptions = ['none', 'icon'];
-const contentRightOptions = ['none', 'text', 'counter', 'icon'];
+type SegmentGroupProps = ComponentProps<typeof SegmentGroup>;
 
 const segmentItemViews = ['default', 'secondary'];
 
-type CustomStoryProps = {
-    itemQuantity: number;
-    contentLeft: string;
-    contentRight: string;
-    maxItemWidth: string;
-    segmentItemView?: 'default' | 'secondary';
-    singleSelectedRequired?: boolean;
-};
-
-type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStoryProps;
-
-const getContentLeft = (contentLeftOption: string) => {
-    return contentLeftOption === 'icon' ? <IconMic size="xs" color="inherit" /> : undefined;
-};
-
-const getContentRight = (contentRightOption: string) => {
+const getContentRight = (contentRightOption: string, size: string, _?: string, isSelected?: boolean) => {
     switch (contentRightOption) {
         case 'icon':
-            return <IconMic size="xs" color="inherit" />;
+            return <IconPlasma size="xs" color="inherit" />;
         case 'counter':
-            return <Counter size="s" count={1} view="positive" />;
+            return <Counter size="s" count={1} view={isSelected ? 'accent' : 'positive'} />;
         case 'text':
             return 'Text';
         default:
@@ -43,125 +27,33 @@ const getContentRight = (contentRightOption: string) => {
     }
 };
 
-const meta: Meta<StorySegmentProps> = {
-    title: 'Data Entry/Segment',
-    decorators: [InSpacingDecorator],
-    component: SegmentGroup,
-    argTypes: {
-        ...disableProps(['filledBackground', 'view', 'selectionMode', 'clip', 'size']),
-        stretch: {
-            control: {
-                type: 'boolean',
-            },
-            if: { arg: 'orientation', eq: 'horizontal' },
-        },
-        maxItemWidth: {
-            control: {
-                type: 'text',
-            },
-            if: { arg: 'stretch', truthy: false },
-        },
-        orientation: {
-            options: ['horizontal', 'vertical'],
-            control: {
-                type: 'select',
-            },
-        },
-        selectionMode: {
-            options: ['single', 'multiple'],
-            control: {
-                type: 'select',
-            },
-        },
+const { meta: META, Default } = getSegmentStories({
+    SegmentGroup,
+    SegmentItem,
+    SegmentProvider,
+    useSegment,
+    componentConfig: config,
+    CounterComponent: Counter,
+    customGetContentRight: getContentRight,
+    disablePropsList: ['filledBackground'],
+    additionalArgTypes: {
         segmentItemView: {
             options: segmentItemViews,
             control: {
                 type: 'select',
             },
         },
-        contentLeft: {
-            options: contentLeftOptions,
-            control: {
-                type: 'select',
-            },
-        },
-        contentRight: {
-            options: contentRightOptions,
-            control: {
-                type: 'select',
-            },
-        },
     },
+    defaultArgs: {
+        size: 'xs',
+    },
+});
+
+const meta: Meta<SegmentGroupProps> = {
+    ...META,
+    title: 'Data Entry/Segment',
 };
 
 export default meta;
 
-const StoryDefault = (props: StorySegmentProps) => {
-    const {
-        singleSelectedRequired,
-        disabled,
-        itemQuantity,
-        size,
-        stretch,
-        orientation,
-        maxItemWidth,
-        segmentItemView,
-        contentLeft: contentLeftOption,
-        contentRight: contentRightOption,
-        ...args
-    } = props;
-    const items = Array(itemQuantity).fill(0);
-    const isVertical = orientation === 'vertical';
-
-    return (
-        <SegmentProvider singleSelectedRequired={singleSelectedRequired}>
-            <SegmentGroup
-                stretch={stretch}
-                disabled={disabled}
-                clip={false}
-                size={size}
-                orientation={orientation}
-                {...args}
-            >
-                {items.map((_, i) => (
-                    <SegmentItem
-                        view={segmentItemView}
-                        label={`Label ${i}`}
-                        value={`label_${i}`}
-                        size={size}
-                        key={`label_${i}`}
-                        maxItemWidth={maxItemWidth}
-                        contentLeft={getContentLeft(contentLeftOption)}
-                        contentRight={getContentRight(contentRightOption)}
-                        {...args}
-                    >
-                        {`Label${i + 1}`}
-                    </SegmentItem>
-                ))}
-            </SegmentGroup>
-        </SegmentProvider>
-    );
-};
-
-export const Default: StoryObj<StorySegmentProps> = {
-    args: {
-        itemQuantity: 8,
-        size: 'xs',
-        segmentItemView: 'default',
-        selectionMode: 'single',
-        pilled: false,
-        filledBackground: false,
-        hasBackground: false,
-        disabled: false,
-        stretch: false,
-        maxItemWidth: '',
-        singleSelectedRequired: false,
-        orientation: 'horizontal',
-        contentRight: 'none',
-        contentLeft: 'none',
-    },
-    argTypes: {
-        ...disableProps(['filledBackground', 'view', 'selectionMode', 'clip']),
-    },
-    render: (args: StorySegmentProps) => <StoryDefault {...args} />,
-};
+export { Default };

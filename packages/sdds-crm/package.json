@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-crm",
-  "version": "0.333.0",
+  "version": "0.333.1-dev.0",
   "description": "Salute Design System / React UI kit for SDDS CRM web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "exports": {
@@ -32,8 +32,8 @@
     "directory": "packages/sdds-crm"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.346.0",
-    "@salutejs/sdds-themes": "0.52.0"
+    "@salutejs/plasma-new-hope": "0.346.1-dev.0",
+    "@salutejs/sdds-themes": "0.53.0-dev.0"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
@@ -57,10 +57,10 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.16.0",
-    "@salutejs/plasma-core": "1.213.0",
-    "@salutejs/plasma-cy-utils": "0.143.0",
+    "@salutejs/plasma-core": "1.214.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.144.0-dev.0",
     "@salutejs/plasma-icons": "1.228.0",
-    "@salutejs/plasma-sb-utils": "0.213.0",
+    "@salutejs/plasma-sb-utils": "0.214.0-dev.0",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",

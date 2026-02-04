@@ -4,6 +4,10 @@ export const classes = {
     leftHelper: 'info-wrapper-left-helper',
 };
 
+export const privateTokens = {
+    translateYWithoutTitle: '--plasma_private-translateY-without-title-caption',
+};
+
 export const tokens = {
     /** Токены для label */
     indicatorWrapperGap: '--plasma-info-wrapper-indicator-wrapper-gap',

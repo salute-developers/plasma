@@ -47,6 +47,11 @@ const config = {
                     label: 'GitHub',
                     position: 'right',
                 },
+                {
+                    href: `${baseUrl}ai-search/`,
+                    label: 'AI-поиск',
+                    position: 'right',
+                },
             ],
         },
         footer: {

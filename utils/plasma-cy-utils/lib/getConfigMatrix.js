@@ -4,6 +4,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getConfigMatrix = void 0;
 var getConfigMatrix = function (config, options) {
+    if (!(config === null || config === void 0 ? void 0 : config.variations)) {
+        return [];
+    }
     var variations = config.variations;
     // Find the prop with the most values
     var maxLength = Object.values(variations).reduce(function (max, values) { return Math.max(max, Object.keys(values).length); }, 0);

@@ -86,6 +86,7 @@ describe('plasma-core: Typography', () => {
             </CypressTestDecorator>,
         );
 
+        cy.viewport(500, 598);
         cy.matchImageSnapshot();
     });
 

@@ -42,6 +42,8 @@ describe('plasma-core: Image', () => {
     });
 
     it('_ratio', () => {
+        cy.viewport(500, 1800);
+
         const ratios = Object.keys({
             '1 / 1': '100',
             '1/1': '100',

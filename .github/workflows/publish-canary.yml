@@ -3,6 +3,7 @@ name: Release
 on:
   pull_request:
     branches:
+      - next-insol
       - master
   pull_request_target:
     branches:
