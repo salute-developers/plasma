@@ -14,14 +14,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Set options
-      shell: bash
-      run: |
-        echo "OPTIONS=--no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps" >> "$GITHUB_ENV"
-
     - name: Sync package-lock's root  level
       shell: bash
-      run: npm i --silent ${{ env.OPTIONS }}
+      run: npm i --silent --no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps
 
     - name: Sync package-lock files
       uses: nick-fields/retry@v2.9.0
@@ -31,15 +26,11 @@ runs:
         max_attempts: 3
         on_retry_command: |
           git reset --hard
-          npm i --silent ${{ env.OPTIONS }}
+          npx lerna clean -y
+          npx lerna bootstrap --ignore-scripts
         command: |
           npx lerna clean -y
           npx lerna bootstrap --ignore-scripts
-
-    - name: Root deps don't update correctly on first regeneration
-      shell: bash
-      run: |
-        npm i ${{ env.OPTIONS }}
 
     - name: Extract branch name
       id: branch
