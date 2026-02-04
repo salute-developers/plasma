@@ -304,7 +304,6 @@ export const timePickerRoot = (
                         isFocusTrapped={false}
                         target={TimePickerInput}
                         preventOverflow={false}
-                        align={dropdownAlign}
                     >
                         <Root
                             ref={timeGridRootRef}
@@ -312,6 +311,7 @@ export const timePickerRoot = (
                             view={view}
                             size={size}
                             className={cls(classes.timePickerGridRoot, className, {
+                                [classes.timePickerPlacementRight]: dropdownAlign === 'right',
                                 [classes.timePickerFullWidth]: dropdownWidth === 'fullWidth',
                                 [classes.timePickerFixed]: dropdownWidth !== 'fullWidth',
                             })}

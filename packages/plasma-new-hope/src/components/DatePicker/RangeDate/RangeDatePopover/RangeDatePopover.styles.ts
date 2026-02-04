@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { calendarDoubleConfig, withRange, calendarBaseConfig } from 'src/components/Calendar';
+import { calendarDoubleConfig, withRange, calendarBaseConfig, calendarBaseTokens } from 'src/components/Calendar';
 import type { CalendarDoubleProps, CalendarBaseProps } from 'src/components/Calendar';
 import { component, mergeConfig } from 'src/engines';
 
@@ -24,8 +24,9 @@ export const StyledCalendarDouble = styled(CalendarDoubleRange)<{ innerWidth?: s
         width: ${({ innerWidth }) =>
             innerWidth && innerWidth !== '0' ? '100%' : `var(${privateTokens.calendarDoubleWidth})`};
         height: ${({ innerHeight }) => (innerHeight && innerHeight !== '0' ? '100%' : `var(${tokens.calendarHeight})`)};
-    
+        
         ${baseCalendarTokens}
+        ${calendarBaseTokens.calendarSeparatorBackground}: var(${tokens.popoverSeparatorBackground});
 `;
 
 export const StyledCalendar = styled(CalendarRange)<{ innerWidth?: string; innerHeight?: string }>`
