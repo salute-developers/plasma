@@ -69,10 +69,10 @@ describe('sdds-insol: Attach', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1546] Attach: view=success, hasAttachment=false', () => {
+    it('[PLASMA-T1546] Attach: view=positive, hasAttachment=false', () => {
         mount(
             <CypressTestDecorator>
-                <Attach view="success" size="l" hasAttachment={false} />
+                <Attach view="positive" size="l" hasAttachment={false} />
             </CypressTestDecorator>,
         );
 
@@ -95,10 +95,10 @@ describe('sdds-insol: Attach', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1548] Attach: view=critical, flow=vertical', () => {
+    it('[PLASMA-T1548] Attach: view=negative, flow=vertical', () => {
         mount(
             <CypressTestDecorator>
-                <Attach view="critical" size="l" flow="vertical" fileFormat="all" />
+                <Attach view="negative" size="l" flow="vertical" fileFormat="all" />
             </CypressTestDecorator>,
         );
 
