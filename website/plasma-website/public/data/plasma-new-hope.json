@@ -1,4 +1,95 @@
 {
+  "0.347.0": {
+    "date": "2026-02-04",
+    "core": [
+      {
+        "component": "DatePicker",
+        "children": [
+          {
+            "text": "добавлены свойства для управления предустановленными датами\n\nактуализирована сетка выпадающего календаря согласно макетам",
+            "link": "https://github.com/salute-developers/plasma/pull/2424",
+            "id": 2424
+          }
+        ]
+      },
+      {
+        "component": "Modal",
+        "children": [
+          {
+            "text": "исправлен баг в режиме `draggable`, при котором драг срабатывал одновременно на несколько открытых модальных окон, вложенных друг в друга;",
+            "link": "https://github.com/salute-developers/plasma/pull/2430",
+            "id": 2430
+          }
+        ]
+      },
+      {
+        "component": "Popover, Tooltip",
+        "children": [
+          {
+            "text": "исправлено поведение открыти/закрытия при `hover=true` в мобильных браузерах;",
+            "link": "https://github.com/salute-developers/plasma/pull/2447",
+            "id": 2447
+          },
+          {
+            "text": "исправлена типизация свойства `target`, теперь она принимает полноценный `React.Ref<T>`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2433",
+            "id": 2433
+          }
+        ]
+      },
+      {
+        "component": "Radiobox",
+        "children": [
+          {
+            "text": "исправлены некорректные название токенов",
+            "link": "https://github.com/salute-developers/plasma/pull/2438",
+            "id": 2438
+          }
+        ]
+      },
+      {
+        "component": "List",
+        "children": [
+          {
+            "text": "Добавлена обработка состояния `disabled` для `onClick`",
+            "link": "https://github.com/salute-developers/plasma/pull/2439",
+            "id": 2439
+          }
+        ]
+      },
+      {
+        "component": "TimePicker",
+        "children": [
+          {
+            "text": "исправлено поведение при передаче пользовательских высоты и ширины для выпадающего `TimeGrid`",
+            "link": "https://github.com/salute-developers/plasma/pull/2442",
+            "id": 2442
+          }
+        ]
+      },
+      {
+        "component": "File",
+        "children": [
+          {
+            "text": "добавлен новый компонент File",
+            "link": "https://github.com/salute-developers/plasma/pull/2431",
+            "id": 2431
+          }
+        ]
+      },
+      {
+        "component": "Segment",
+        "children": [
+          {
+            "text": "добавлена возможность управлять состоянием выбранных элементов в Segment",
+            "link": "https://github.com/salute-developers/plasma/pull/2443",
+            "id": 2443
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.346.0": {
     "date": "2026-01-28",
     "core": [
