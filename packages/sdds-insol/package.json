@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-insol",
-  "version": "0.335.0",
+  "version": "0.331.0-next-insol.0",
   "description": "Salute Design System / React UI kit for SDDS INSOL web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "exports": {
@@ -32,8 +32,8 @@
     "directory": "packages/sdds-insol"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.352.0",
-    "@salutejs/sdds-themes": "0.56.0"
+    "@salutejs/plasma-new-hope": "0.348.0-next-insol.0",
+    "@salutejs/sdds-themes": "0.54.0-next-insol.0"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
@@ -58,10 +58,10 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.16.0",
-    "@salutejs/plasma-core": "1.217.0",
-    "@salutejs/plasma-cy-utils": "0.147.0",
-    "@salutejs/plasma-icons": "1.229.0",
-    "@salutejs/plasma-sb-utils": "0.217.0",
+    "@salutejs/plasma-core": "1.215.0-next-insol.0",
+    "@salutejs/plasma-cy-utils": "0.145.0-next-insol.0",
+    "@salutejs/plasma-icons": "1.228.0",
+    "@salutejs/plasma-sb-utils": "0.215.0-next-insol.0",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
