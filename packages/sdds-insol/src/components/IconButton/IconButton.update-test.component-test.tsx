@@ -79,10 +79,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1525] IconButton: size=l, view=success, pin=square-square', () => {
+    it('[PLASMA-T1525] IconButton: size=l, view=positive, pin=square-square', () => {
         mount(
             <CypressTestDecorator>
-                <IconButton view="success" size="l" pin="square-square">
+                <IconButton view="positive" size="l" pin="square-square">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecorator>,
@@ -91,10 +91,10 @@ describe('plasma-b2c: IconButton', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1526] IconButton: size=m, view=critical, pin=square-clear', () => {
+    it('[PLASMA-T1526] IconButton: size=m, view=negative, pin=square-clear', () => {
         mount(
             <CypressTestDecorator>
-                <IconButton view="critical" size="m" pin="square-clear">
+                <IconButton view="negative" size="m" pin="square-clear">
                     <Icon size="s" />
                 </IconButton>
             </CypressTestDecorator>,
