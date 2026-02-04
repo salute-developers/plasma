@@ -115,7 +115,7 @@
     "tsc-alias": "1.8.16"
   },
   "dependencies": {
-    "@floating-ui/dom": "1.7.4",
+    "@floating-ui/dom": "1.7.5",
     "@floating-ui/react": "0.27.16",
     "@floating-ui/react-dom": "2.1.6",
     "@linaria/core": "5.0.2",
