@@ -8,10 +8,6 @@ on:
           required: true
           default: 'next-insol'
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   publish:
     name: Publish feature version
