@@ -63,12 +63,12 @@ describe('sdds-insol: Button', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1343] Button: size=l, view=success contentLeft, contentRight, contentPlacing=default, stretching=auto, pin=square-square', () => {
+    it('[PLASMA-T1343] Button: size=l, view=positive contentLeft, contentRight, contentPlacing=default, stretching=auto, pin=square-square', () => {
         mount(
             <CypressTestDecorator>
                 <Button
                     text="Button_stretching_auto"
-                    view="success"
+                    view="positive"
                     size="l"
                     contentLeft={<Icon />}
                     contentRight={<Icon />}
@@ -81,12 +81,12 @@ describe('sdds-insol: Button', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1344] Button: size=m, view=critical, contentLeft, value, contentPlacing=relaxed, stretching=filled, pin=square-clear', () => {
+    it('[PLASMA-T1344] Button: size=m, view=negative, contentLeft, value, contentPlacing=relaxed, stretching=filled, pin=square-clear', () => {
         mount(
             <CypressTestDecorator>
                 <Button
                     text="Button_stretching_filled"
-                    view="critical"
+                    view="negative"
                     size="m"
                     contentLeft={<Icon />}
                     contentPlacing="relaxed"
