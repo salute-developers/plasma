@@ -11,24 +11,27 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 
 export const listRoot = (Root: RootProps<HTMLUListElement, ListProps>) =>
-    forwardRef<HTMLUListElement, ListProps>(({ size, view, disabled, variant, className, children }, outerRootRef) => {
-        return (
-            <Root
-                ref={outerRootRef}
-                size={size}
-                view={view}
-                disabled={disabled}
-                className={cls(
-                    classes.listRoot,
-                    className,
-                    variant === 'tight' ? classes.tightListItem : '',
-                    disabled ? classes.disabledList : '',
-                )}
-            >
-                {children}
-            </Root>
-        );
-    });
+    forwardRef<HTMLUListElement, ListProps>(
+        ({ size, view, disabled, variant, className, children, ...rest }, outerRootRef) => {
+            return (
+                <Root
+                    ref={outerRootRef}
+                    size={size}
+                    view={view}
+                    disabled={disabled}
+                    className={cls(
+                        classes.listRoot,
+                        className,
+                        variant === 'tight' ? classes.tightListItem : '',
+                        disabled ? classes.disabledList : '',
+                    )}
+                    {...rest}
+                >
+                    {children}
+                </Root>
+            );
+        },
+    );
 
 export const listConfig = {
     name: 'List',
