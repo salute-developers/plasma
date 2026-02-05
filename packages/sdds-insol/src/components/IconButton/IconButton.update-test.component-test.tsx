@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconClose } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 
 const Icon = () => <IconClose color="inherit" />;
 
@@ -157,6 +157,62 @@ describe('plasma-b2c: IconButton', () => {
                 <IconButton view="default" size="l" pin="circle-circle">
                     <Icon size="s" />
                 </IconButton>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] IconButton: views, appearance=outline', () => {
+        const outlineViews = ['default', 'accent', 'secondary', 'positive', 'warning', 'negative'];
+
+        mount(
+            <CypressTestDecorator>
+                {outlineViews.map((view) => (
+                    <>
+                        <IconButton appearance="outline" view={view} size="l">
+                            <Icon size="s" />
+                        </IconButton>
+                        <SpaceMe />
+                    </>
+                ))}
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] IconButton: sizes, appearance=outline', () => {
+        const outlineSizes = ['xl', 'l', 'm', 's', 'xs', 'xxs'];
+
+        mount(
+            <CypressTestDecorator>
+                {outlineSizes.map((size) => (
+                    <>
+                        <IconButton appearance="outline" size={size} view="default">
+                            <Icon size="s" />
+                        </IconButton>
+                        <SpaceMe />
+                    </>
+                ))}
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] IconButton: isLoading, disabled, appearance=outline', () => {
+        mount(
+            <CypressTestDecorator>
+                <>
+                    <IconButton appearance="outline" view="default" isLoading>
+                        <Icon size="s" />
+                    </IconButton>
+                    <SpaceMe />
+                    <IconButton appearance="outline" view="default" disabled>
+                        <Icon size="s" />
+                    </IconButton>
+                </>
             </CypressTestDecorator>,
         );
 
