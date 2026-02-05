@@ -81,8 +81,8 @@ export const config = {
                 ${badgeTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${badgeTokens.fontSize}: var(--plasma-typo-body-s-font-size);
                 ${badgeTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${badgeTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${badgeTokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-s-bold-letter-spacing);
                 ${badgeTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
@@ -100,8 +100,8 @@ export const config = {
                 ${badgeTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${badgeTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
                 ${badgeTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xs-bold-letter-spacing);
                 ${badgeTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
@@ -119,8 +119,8 @@ export const config = {
                 ${badgeTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${badgeTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${badgeTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xxs-bold-font-weight);
+                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-bold-letter-spacing);
                 ${badgeTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
 
                 ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
@@ -138,8 +138,8 @@ export const config = {
                 ${badgeTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${badgeTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${badgeTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xxs-bold-font-weight);
+                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-bold-letter-spacing);
                 ${badgeTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
 
                 ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
