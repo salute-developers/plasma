@@ -678,7 +678,7 @@ export const iconSectionsSet = {
         openPanelFill: 'OpenPanelFill',
         targetOutline: 'TargetOutline',
         trafficLightOutline: 'TrafficLightOutline',
-        bankOutline: 'BankOutline',
+        bankFill: 'BankFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
