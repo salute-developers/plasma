@@ -142,11 +142,13 @@ export const baseContent = `
 
     color: var(${tokens.buttonColor});
     background: var(${tokens.buttonBackgroundColor});
+    box-shadow: inset 0 0 0 0.063rem var(${tokens.buttonBorderColor}, inset 0 0 0 0 transparent);
 
     @media (hover: hover) and (pointer: fine) {
         :hover {
             color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
             background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
+            box-shadow: inset 0 0 0 0.063rem var(${tokens.buttonBorderColorHover}, inset 0 0 0 0 transparent);
 
             scale: var(${tokens.buttonScaleHover});
         }
@@ -155,6 +157,7 @@ export const baseContent = `
     :active {
         color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
         background: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
+        box-shadow: inset 0 0 0 0.063rem var(${tokens.buttonBorderColorActive}, inset 0 0 0 0 transparent);
 
         scale: var(${tokens.buttonScaleActive});
     }
