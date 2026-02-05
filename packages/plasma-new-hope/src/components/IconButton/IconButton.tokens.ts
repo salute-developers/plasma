@@ -1,11 +1,14 @@
 export const tokens = {
     iconButtonColor: '--plasma-icon-button-color',
     iconButtonBackgroundColor: '--plasma-icon-button-background-color',
+    iconButtonBorderColor: '--plasma-icon-button-border-color',
     iconButtonLoadingBackgroundColor: '--plasma-icon-button-loading-background-color',
     iconButtonColorHover: '--plasma-icon-button-color-hover',
     iconButtonBackgroundColorHover: '--plasma-icon-button-background-color-hover',
+    iconButtonBorderColorHover: '--plasma-icon-button-border-color-hover',
     iconButtonColorActive: '--plasma-icon-button-color-active',
     iconButtonBackgroundColorActive: '--plasma-icon-button-background-color-active',
+    iconButtonBorderColorActive: '--plasma-icon-button-border-color-active',
 
     iconButtonScaleHover: '--plasma-icon-button-scale-hover',
     iconButtonScaleActive: '---plasma-icon-button-scale-active',
