@@ -1,11 +1,27 @@
-import { iconButtonConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    iconButtonConfig,
+    component,
+    mergeConfig,
+    createConditionalComponent,
+} from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './IconButton.config';
+import { config as outlineConfig } from './IconButton.outline.config';
 
-const mergedConfig = mergeConfig(iconButtonConfig, config);
-const IconButtonComponent = component(mergedConfig);
+const mergedConfigDefault = mergeConfig(iconButtonConfig, config);
+const IconButtonDefault = component(mergedConfigDefault);
+
+const mergedConfigOutline = mergeConfig(iconButtonConfig, outlineConfig);
+const IconButtonOutline = component(mergedConfigOutline);
+
+type OutlineIconButtonProps = typeof IconButtonDefault;
 
 /**
  * Кнопка с иконкой.
  */
-export const IconButton = IconButtonComponent;
+export const IconButton = createConditionalComponent(IconButtonDefault, [
+    {
+        conditions: { prop: 'appearance', value: 'outline' },
+        component: IconButtonOutline as OutlineIconButtonProps,
+    },
+]);
