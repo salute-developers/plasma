@@ -16,10 +16,13 @@ export const tokens = {
     buttonIconColor: '--plasma-button-icon-color',
     buttonValueColor: '--plasma-button-value-color',
     buttonBackgroundColor: '--plasma-button-background-color',
+    buttonBorderColor: '--plasma-button-border-color',
     buttonColorHover: '--plasma-button-color-hover',
     buttonBackgroundColorHover: '--plasma-button-background-color-hover',
+    buttonBorderColorHover: '--plasma-button-border-color-hover',
     buttonColorActive: '--plasma-button-color-active',
     buttonBackgroundColorActive: '--plasma-button-background-color-active',
+    buttonBorderColorActive: '--plasma-button-border-color-active',
     buttonLoadingBackgroundColor: '--plasma-button-loading-background-color',
 
     buttonScaleHover: '--plasma-button-scale-hover',
