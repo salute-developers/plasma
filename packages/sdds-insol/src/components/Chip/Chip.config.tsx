@@ -112,8 +112,8 @@ export const config = {
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-l-font-size);
                 ${chipTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-l-bold-letter-spacing);
                 ${chipTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
@@ -134,8 +134,8 @@ export const config = {
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-m-font-size);
                 ${chipTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-m-bold-letter-spacing);
                 ${chipTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
@@ -156,8 +156,8 @@ export const config = {
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-s-font-size);
                 ${chipTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-s-bold-letter-spacing);
                 ${chipTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
@@ -178,8 +178,8 @@ export const config = {
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
                 ${chipTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xs-bold-letter-spacing);
                 ${chipTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
@@ -200,8 +200,8 @@ export const config = {
                 ${chipTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${chipTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${chipTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-xxs-bold-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xxs-bold-letter-spacing);
                 ${chipTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
