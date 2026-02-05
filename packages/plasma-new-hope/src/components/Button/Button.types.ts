@@ -92,6 +92,12 @@ type CustomButtonProps = {
      */
     pin?: Pin;
     /**
+     * Стиль для UI конфигурации
+     * Влияет на выбор предустановленного набора токенов
+     * @default default
+     */
+    appearance?: 'default' | 'outline';
+    /**
      * Вид кнопки
      */
     view?: string;

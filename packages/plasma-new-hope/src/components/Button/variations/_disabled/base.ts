@@ -19,6 +19,7 @@ export const base = css`
 
             color: var(${tokens.buttonColor});
             background: var(${tokens.buttonBackgroundColor});
+            box-shadow: inset 0 0 0 0.063rem var(${tokens.buttonBorderColor}, inset 0 0 0 0 transparent);
         }
     }
 `;
