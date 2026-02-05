@@ -5,12 +5,19 @@ import { IconClose } from '@salutejs/plasma-icons';
 import { disableProps, InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { config } from './IconButton.config';
+import { config as configOutline } from './IconButton.outline.config';
 import { IconButton } from './IconButton';
 
-type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
+type StoryButtonProps = ComponentProps<typeof IconButton> & {
+    viewOutline: string;
+    contentType: string;
+    isLoading: boolean;
+};
 
 const { views, sizes } = getConfigVariations(config);
+const { views: viewsOutline } = getConfigVariations(configOutline);
 
+const appearances = ['default', 'outline'];
 const pins = [
     'square-square',
     'square-clear',
@@ -26,14 +33,36 @@ const meta: Meta<StoryButtonProps> = {
     title: 'Data Entry/IconButton',
     decorators: [InSpacingDecorator],
     argTypes: {
-        size: {
-            options: sizes,
+        appearance: {
+            options: appearances,
             control: {
                 type: 'select',
             },
         },
         view: {
+            name: 'view',
             options: views,
+            control: {
+                type: 'select',
+            },
+            if: {
+                arg: 'appearance',
+                eq: 'default',
+            },
+        },
+        viewOutline: {
+            name: 'view',
+            options: viewsOutline,
+            control: {
+                type: 'select',
+            },
+            if: {
+                arg: 'appearance',
+                eq: 'outline',
+            },
+        },
+        size: {
+            options: sizes,
             control: {
                 type: 'select',
             },
@@ -86,18 +115,20 @@ const StyledIconClose = styled(IconClose)<{ customSize?: string }>`
         `}
 `;
 
-export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
+export const Default: StoryObj<StoryButtonProps> = {
     args: {
         children: <IconClose />,
+        appearance: 'default',
         view: 'default',
+        viewOutline: 'default',
         size: 'm',
         disabled: false,
         focused: true,
         isLoading: false,
     },
     argTypes: { ...disableProps(['children']) },
-    render: (args) => (
-        <IconButton {...args}>
+    render: ({ viewOutline, view, ...args }: StoryButtonProps) => (
+        <IconButton view={args.appearance === 'default' ? view : viewOutline} {...args}>
             <StyledIconClose
                 color="inherit"
                 customSize={args.size === 'm' ? '1.25rem' : undefined}
