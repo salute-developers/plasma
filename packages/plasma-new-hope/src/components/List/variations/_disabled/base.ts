@@ -8,6 +8,12 @@ export const base = css`
         ${StyledListItem} {
             cursor: not-allowed;
             opacity: var(${tokens.listDisabledOpacity});
+
+            &:hover {
+                background: var(${tokens.listItemBackground});
+                border-color: var(${tokens.listItemBorderColor});
+                color: var(${tokens.listItemColor});
+            }
         }
     }
 `;

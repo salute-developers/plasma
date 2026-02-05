@@ -41,7 +41,7 @@ export const StyledListItem = styled.li`
     line-height: var(${tokens.listItemLineHeight});
     letter-spacing: var(${tokens.listItemLetterSpacing});
 
-    &:hover {
+    &:not(.${classes.disabledListItem}):hover {
         background: var(${tokens.listItemBackgroundHover});
         border-color: var(${tokens.listItemBorderColorHover});
         color: var(${tokens.listItemColorHover});
