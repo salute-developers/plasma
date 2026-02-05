@@ -670,3 +670,60 @@ export function App() {
     );
 }
 ```
+
+## Асинхронная загрузка элементов
+Для настройки асинхронной загрузки узлов дерева предусмотрены свойства: `loadData`, `onLoadData` и `isLeaf`.
+Один из вариантов реализации этого механизма представлен ниже.
+
+```tsx live
+export function App() {
+    const [treeData, setTreeData] = React.useState([
+        { title: 'Открыть для загрузки', key: '0' },
+        { title: 'Конечный элемент', key: '1', isLeaf: true },
+    ]);
+
+    interface DataNode {
+        title: string;
+        key: string;
+        isLeaf?: boolean;
+        children?: DataNode[];
+    }
+
+    // Носит иллюстрационный характер и должно настраиваться в индивидуальном порядке на стороне пользователя.
+    const updateTreeData = (list: DataNode[], key: React.Key, children: DataNode[]): DataNode[] =>
+        list.map((node) => {
+            if (node.key === key) {
+                return {
+                    ...node,
+                    children,
+                };
+            }
+
+            if (node.children) {
+                return {
+                    ...node,
+                    children: updateTreeData(node.children, key, children),
+                };
+            }
+
+            return node;
+        });
+
+    return <Tree loadData={({ key, children }) =>
+        new Promise<void>((resolve) => {
+            if (children) {
+                resolve();
+                return;
+            }
+
+            setTimeout(() => {
+                setTreeData((origin) =>
+                    updateTreeData(origin, key, [{ title: 'Загруженный элемент', key: `${ key }-0` }]),
+                );
+
+                resolve();
+            }, 2000);
+        })} items={ treeData }/>;
+}
+
+```

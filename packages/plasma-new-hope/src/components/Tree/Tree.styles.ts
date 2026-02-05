@@ -1,10 +1,15 @@
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
+import { spinnerConfig, spinnerTokens } from 'src/components/Spinner';
+import { component, mergeConfig } from 'src/engines';
 
 import { IconDisclosureRightCentered, IconFolder } from '../_Icon';
 
 import { TreeProps } from './Tree.types';
-import { treeTokens as tokens, classes } from './Tree.tokens';
+import { treeTokens as tokens, classes, treeTokens } from './Tree.tokens';
+
+const mergedConfig = mergeConfig(spinnerConfig);
+const Spinner = component(mergedConfig);
 
 export const IconArrowWrapper = styled.div`
     line-height: 0;
@@ -166,10 +171,6 @@ export const base = css`
         background-image: none;
     }
     .rc-tree .rc-tree-treenode span.rc-tree-icon_loading {
-        margin-right: 2px;
-        vertical-align: top;
-        background: url('data:image/gif;base64,R0lGODlhEAAQAKIGAMLY8YSx5HOm4Mjc88/g9Ofw+v///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgAGACwAAAAAEAAQAAADMGi6RbUwGjKIXCAA016PgRBElAVlG/RdLOO0X9nK61W39qvqiwz5Ls/rRqrggsdkAgAh+QQFCgAGACwCAAAABwAFAAADD2hqELAmiFBIYY4MAutdCQAh+QQFCgAGACwGAAAABwAFAAADD1hU1kaDOKMYCGAGEeYFCQAh+QQFCgAGACwKAAIABQAHAAADEFhUZjSkKdZqBQG0IELDQAIAIfkEBQoABgAsCgAGAAUABwAAAxBoVlRKgyjmlAIBqCDCzUoCACH5BAUKAAYALAYACgAHAAUAAAMPaGpFtYYMAgJgLogA610JACH5BAUKAAYALAIACgAHAAUAAAMPCAHWFiI4o1ghZZJB5i0JACH5BAUKAAYALAAABgAFAAcAAAMQCAFmIaEp1motpDQySMNFAgA7')
-            no-repeat scroll 0 0 transparent;
     }
     .rc-tree .rc-tree-treenode span.rc-tree-switcher.rc-tree-switcher-noop {
         flex: none;
@@ -355,12 +356,16 @@ export const base = css`
     }
 
     .rc-tree .rc-tree-treenode span.rc-tree-switcher {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: var(${tokens.switcherSize});
         height: var(${tokens.switcherSize});
         margin: var(${tokens.switcherMargin});
         line-height: 0;
         vertical-align: 0;
         background: transparent;
+        flex: none;
     }
 
     .rc-tree.${classes.treeInverted} .rc-tree-treenode span.rc-tree-switcher {
@@ -463,4 +468,9 @@ export const base = css`
     .rc-tree-indent-unit {
         width: var(${tokens.itemIndent});
     }
+`;
+
+export const SpinnerStyled = styled(Spinner)`
+    ${spinnerTokens.size}: 100%;
+    ${spinnerTokens.color}: var(${treeTokens.arrowColor});
 `;
