@@ -18,26 +18,11 @@ jobs:
       fail-fast: false
       matrix:
         scope: [web,b2c,ui,giga]
-    
+
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
-      with-artifacts: true
-    secrets: inherit
-  
-  cypress_plasma-react-17:
-    if: ${{ startsWith(github.head_ref, 'release') }}
-    strategy:
-      fail-fast: false
-      matrix:
-        scope: [web,b2c,ui,giga]
-    
-    uses: ./.github/workflows/cypress-common.yml
-    with:
-      scope: ${{ matrix.scope }}
-      prefix: "plasma"
-      with-react-17: true
       with-artifacts: true
     secrets: inherit
 
@@ -47,25 +32,10 @@ jobs:
       fail-fast: false
       matrix:
         scope: [cs,insol]
-    
+
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
-      with-artifacts: true
-    secrets: inherit
-  
-  cypress_sdds-react-17:
-    if: ${{ startsWith(github.head_ref, 'release') }}
-    strategy:
-      fail-fast: false
-      matrix:
-        scope: [cs,insol]
-    
-    uses: ./.github/workflows/cypress-common.yml
-    with:
-      scope: ${{ matrix.scope }}
-      prefix: "sdds"
-      with-react-17: true
       with-artifacts: true
     secrets: inherit
