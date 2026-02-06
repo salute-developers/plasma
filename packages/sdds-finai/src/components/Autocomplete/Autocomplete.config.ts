@@ -591,7 +591,8 @@ export const config = {
                 ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary);
-                ${tokens.textFieldBorderColor}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderWidth}: 0.125rem;
             `,
         },
     },

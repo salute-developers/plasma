@@ -2,7 +2,6 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getDatePickerRangeStories } from '@salutejs/plasma-sb-utils';
-import styled from 'styled-components';
 
 import { IconButton } from '../IconButton/IconButton';
 
@@ -16,11 +15,9 @@ const { meta: META, Range } = getDatePickerRangeStories({
     componentConfig: config,
     iconButton: IconButton,
     embedIconButton: IconButton,
-});
-
-const meta: Meta<DatePickerRangeProps> = {
-    ...META,
-    title: 'Data Entry/DatePicker',
+    defaultArgs: {
+        size: 's',
+    },
     disablePropsList: [
         'view',
         'size',
@@ -30,6 +27,11 @@ const meta: Meta<DatePickerRangeProps> = {
         'dateShortcutsWidth',
         'dateShortcutsPlacement',
     ],
+});
+
+const meta: Meta<DatePickerRangeProps> = {
+    ...META,
+    title: 'Data Entry/DatePicker',
 };
 
 export default meta;
