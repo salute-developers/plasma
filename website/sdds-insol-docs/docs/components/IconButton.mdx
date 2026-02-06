@@ -68,19 +68,7 @@ export function App() {
 ```
 
 ### Вид кнопки
-Вид кнопки задается с помощью свойства `view`.
-
-Возможные значения свойства `view`:
-+ `"default"` – по умолчанию;
-+ `"accent"` – акцентная;
-+ `"secondary"` – вторичная;
-+ `"clear"` – без цветового сопровождения.
-+ `"success"` – успешное завершение;
-+ `"warning"` – предупреждение;
-+ `"critical"` – ошибка;
-+ `"dark"` – темная;
-+ `"black"` – черная;
-+ `"white"` – белая.
+Вид кнопки задается с помощью свойства `view` и `appearance`:
 
 ```tsx live
 import React from 'react';
@@ -89,37 +77,59 @@ import { IconClose } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            <IconButton size="s" view="default">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="accent">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="secondary">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="clear">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="success">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="warning">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="critical">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="dark">
-                <IconClose  color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="black">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="s" view="white">
-                <IconClose color="inherit" />
-            </IconButton>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <IconButton size="s" view="default">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="accent">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="secondary">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="clear">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="positive">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="warning">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="negative">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="dark">
+                    <IconClose  color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="black">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="white">
+                    <IconClose color="inherit" />
+                </IconButton>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <IconButton appearance="outline" size="s" view="default">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton appearance="outline" size="s" view="accent">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton appearance="outline" size="s" view="secondary">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton appearance="outline" size="s" view="positive">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton appearance="outline" size="s" view="warning">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton appearance="outline" size="s" view="negative">
+                    <IconClose color="inherit" />
+                </IconButton>
+            </div>
         </div>
     );
 }
