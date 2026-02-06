@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-giga",
-  "version": "0.332.0-next-insol.0",
+  "version": "0.333.0-next-insol.0",
   "description": "Salute Design System / React UI kit for PLASMA GIGA web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "exports": {
@@ -32,7 +32,7 @@
     "directory": "packages/plasma-giga"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.349.0-next-insol.0",
+    "@salutejs/plasma-new-hope": "0.350.0-next-insol.0",
     "@salutejs/plasma-themes": "0.40.0",
     "@salutejs/plasma-typo": "0.42.0"
   },
