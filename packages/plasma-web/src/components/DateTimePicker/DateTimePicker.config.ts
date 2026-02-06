@@ -915,11 +915,13 @@ export const config = {
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-primary);
 
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
+                ${tokens.textFieldReadOnlyOpacity}: 1;
+                ${tokens.textFieldBorderWidth}: 0.063rem;
             `,
         },
     },
