@@ -8,7 +8,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.linkColor}: var(--text-primary);
                 ${tokens.linkColorHover}: var(--text-primary-hover);
                 ${tokens.linkColorActive}: var(--text-primary-active);
@@ -18,7 +18,7 @@ export const config = {
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             secondary: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.linkColor}: var(--text-secondary);
                 ${tokens.linkColorHover}: var(--text-secondary-hover);
                 ${tokens.linkColorActive}: var(--text-secondary-active);
@@ -28,7 +28,7 @@ export const config = {
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             tertiary: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.linkColor}: var(--text-tertiary);
                 ${tokens.linkColorHover}: var(--text-tertiary-hover);
                 ${tokens.linkColorActive}: var(--text-tertiary-active);
@@ -38,7 +38,7 @@ export const config = {
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             paragraph: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.linkColor}: var(--text-paragraph);
                 ${tokens.linkColorHover}: var(--text-paragraph-hover);
                 ${tokens.linkColorActive}: var(--text-paragraph-active);
@@ -48,7 +48,7 @@ export const config = {
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             accent: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.linkColor}: var(--text-accent);
                 ${tokens.linkColorHover}: var(--text-accent-hover);
                 ${tokens.linkColorActive}: var(--text-accent-active);
@@ -58,7 +58,7 @@ export const config = {
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             positive: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.linkColor}: var(--text-positive);
                 ${tokens.linkColorHover}: var(--text-positive-hover);
                 ${tokens.linkColorActive}: var(--text-positive-active);
@@ -68,7 +68,7 @@ export const config = {
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             warning: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.linkColor}: var(--text-warning);
                 ${tokens.linkColorHover}: var(--text-warning-hover);
                 ${tokens.linkColorActive}: var(--text-warning-active);
@@ -78,7 +78,7 @@ export const config = {
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             negative: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.linkColor}: var(--text-negative);
                 ${tokens.linkColorHover}: var(--text-negative-hover);
                 ${tokens.linkColorActive}: var(--text-negative-active);
@@ -88,7 +88,7 @@ export const config = {
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             clear: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.linkColor}:inherit;
                 ${tokens.linkColorHover}: inherit;
                 ${tokens.linkColorActive}: inherit;
