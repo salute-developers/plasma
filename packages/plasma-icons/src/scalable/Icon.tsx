@@ -1250,6 +1250,7 @@ export const iconSectionsSet = {
         printerOutline: 'PrinterOutline',
         sbDotFill: 'SbDotFill',
         sbDotOutline: 'SbDotOutline',
+        sbboxTopOutline: 'SbboxTopOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',
