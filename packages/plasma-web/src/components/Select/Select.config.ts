@@ -1003,7 +1003,7 @@ export const config = {
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.textFieldBorderColor}: transparent;
-                ${tokens.textFieldBorderWidth}: 0;
+                ${tokens.textFieldBorderWidth}: 0.063rem;
             `,
         },
     },

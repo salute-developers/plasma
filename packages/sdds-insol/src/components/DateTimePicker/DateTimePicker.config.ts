@@ -917,11 +917,10 @@ export const config = {
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-secondary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
             `,
         },
     },

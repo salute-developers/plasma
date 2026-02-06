@@ -278,9 +278,11 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.backgroundReadOnly}: var(--surface-clear);
-                ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.borderColorReadOnly}: var(--outline-solid-primary);
+
+                ${tokens.labelColor}: var(--text-primary);
+                ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
-                ${tokens.labelColor}: var(--text-secondary);
 
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerOpacityReadOnly}: 0.4;

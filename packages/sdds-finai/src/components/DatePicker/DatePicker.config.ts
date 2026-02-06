@@ -806,7 +806,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
@@ -814,13 +814,15 @@ export const config = {
                 ${tokens.dividerOpacityReadOnly}: 0.4;
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderWidth}: 0.125rem;
 
                 ${tokens.rightContentOpacityReadOnly}: 0.4;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
-                ${tokens.rangeReadOnlyOpacity}: 0.1;
             `,
         },
     },

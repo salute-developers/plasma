@@ -519,10 +519,12 @@ export const config = {
             true: css`
                 ${tokens.backgroundReadOnly}: var(--surface-clear);
                 ${tokens.borderColorReadOnly}: var(--surface-transparent-primary);
+
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
-                ${tokens.readOnlyOpacity}: 0.1;
+                ${tokens.readOnlyOpacity}: 1;
                 ${tokens.dividerOpacityReadOnly}: 0.4;
                 ${tokens.rightContentOpacityReadOnly}: 0.4;
 
