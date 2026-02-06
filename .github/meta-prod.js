@@ -10,6 +10,9 @@ const commonScope = [
 ];
 
 module.exports = {
+    'plasma-homeds': {
+        scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-docs-ui', 'plasma-giga-docs'],
+    },
     'plasma-giga': {
         scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-docs-ui', 'plasma-giga-docs'],
     },

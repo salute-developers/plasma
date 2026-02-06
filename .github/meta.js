@@ -9,6 +9,11 @@ const commonScope = [
 ];
 
 module.exports = {
+    'plasma-homeds': {
+        scope: [...commonScope, 'plasma-themes', 'plasma-new-hope'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
+        themes: 'plasma-themes',
+    },
     'plasma-giga': {
         scope: [...commonScope, 'plasma-themes', 'plasma-new-hope'],
         required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
