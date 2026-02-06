@@ -172,7 +172,7 @@ export const LeftHelper = styled.div`
     color: var(${tokens.leftHelperColor});
 
     &.${classes.hasFocus} {
-        color: var(${tokens.leftHelperColorFocus});
+        color: var(${tokens.leftHelperColorFocus}, var(${tokens.leftHelperColor}));
     }
 `;
 
