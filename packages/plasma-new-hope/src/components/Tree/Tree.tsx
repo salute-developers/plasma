@@ -14,6 +14,7 @@ import {
     Title,
     ContentRight,
     Line,
+    SpinnerStyled,
 } from './Tree.styles';
 import { sizeToIconSize, traverseTree } from './utils';
 import { classes } from './Tree.tokens';
@@ -61,6 +62,8 @@ export const treeRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, TreeProps>
                 onDragEnd,
                 onDrop,
                 allowDrop,
+                loadData,
+                onLoadData,
             },
             ref,
         ) => {
@@ -94,6 +97,8 @@ export const treeRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, TreeProps>
             return (
                 <Root view={view} size={size} variant={variant} ref={ref} items={items}>
                     <Tree
+                        loadData={loadData}
+                        onLoad={onLoadData}
                         height={height}
                         itemHeight={itemHeight}
                         virtual={virtual}
@@ -116,6 +121,10 @@ export const treeRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, TreeProps>
                         switcherIcon={(node) => {
                             if (node.isLeaf) {
                                 return null;
+                            }
+
+                            if (node.loading) {
+                                return <SpinnerStyled />;
                             }
 
                             return (

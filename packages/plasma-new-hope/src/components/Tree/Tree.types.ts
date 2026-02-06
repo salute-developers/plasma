@@ -50,6 +50,11 @@ interface ExpandInfo {
     nativeEvent: MouseEvent;
 }
 
+interface LoadInfo {
+    event: 'load';
+    node: EventDataNode;
+}
+
 export type TreeItem = {
     /**
      * Уникальный идентификатор элемента.
@@ -84,6 +89,11 @@ export type TreeItem = {
      * Контент справа.
      */
     contentRight?: ReactNode;
+    /**
+     * Определяет, является ли элемент конечным узлом дерева.
+     * Полезно для асинхронной подгрузки элементов.
+     */
+    isLeaf?: boolean;
 };
 
 export interface TreeProps
@@ -251,6 +261,14 @@ export interface TreeProps
      * Разрешать ли сброс draggable-элемента на текущем target-элементе.
      */
     allowDrop?: (options: AllowDropOptions) => boolean;
+    /**
+     * Функция для асинхронной подгрузки данных.
+     */
+    loadData?: (treeNode: EventDataNode) => Promise<any>;
+    /**
+     * Функция обратного вызова, вызываемая при загрузке элемента дерева.
+     */
+    onLoadData?: (loadedKeys: Key[], info: LoadInfo) => void;
 
     /**
      * Размер дерева.
