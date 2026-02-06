@@ -23,6 +23,11 @@ export const classes = {
     readOnlyInput: 'textfield-readonly-input',
 };
 
+export const privateTokens = {
+    borderColor: '--plasma_private-textfield-border-color',
+    backgroundColor: ' --plasma_private-textfield-bg-color',
+};
+
 export const tokens = {
     color: '--plasma-textfield-color',
     colorFocus: '--plasma-textfield-color-focus',

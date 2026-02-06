@@ -42,6 +42,7 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.borderColor}: var(${tokens.borderColor});
     ${rangeTokens.borderColorError}: var(${tokens.borderColorError});
     ${rangeTokens.borderColorSuccess}: var(${tokens.borderColorSuccess});
+    ${rangeTokens.borderColorReadOnly}: var(${tokens.borderColorReadOnly});
     
     ${rangeTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
 
