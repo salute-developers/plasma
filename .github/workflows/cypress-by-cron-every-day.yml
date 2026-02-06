@@ -16,7 +16,6 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
-      with-react-17: true
     secrets: inherit
 
   cypress_sdds:
@@ -30,5 +29,4 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
-      with-react-17: true
     secrets: inherit
