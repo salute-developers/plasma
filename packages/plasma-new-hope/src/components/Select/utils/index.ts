@@ -9,3 +9,4 @@ export { getView } from './getView';
 export { getPlacement } from './getPlacement';
 export { getFallbackPlacements } from './getFallbackPlacements';
 export { getItemId } from './getItemId';
+export { mapCheckedVariants } from './mapCheckedVariants';

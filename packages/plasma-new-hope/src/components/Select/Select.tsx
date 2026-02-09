@@ -62,6 +62,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             portal,
             renderValue,
             renderItem,
+            renderSelectionIcon,
             status,
             onItemSelect,
             separator,
@@ -433,6 +434,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         handleItemClick,
                         variant,
                         renderItem,
+                        renderSelectionIcon,
                         treeId,
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore

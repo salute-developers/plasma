@@ -1129,6 +1129,97 @@ describe('plasma-giga: Select', () => {
         cy.get('@onChange').its('lastCall.args.1').should('include', { value: 'item4', label: 'Item 4' });
     });
 
+    it('prop: renderSelectionIcon single', () => {
+        cy.viewport(1000, 400);
+
+        const Component = () => {
+            const [value, setValue] = useState('bogota');
+
+            const renderSelectionIcon = (selected: boolean | 'indeterminate') => {
+                if (selected === true) {
+                    return <div style={{ width: '10px', height: '10px', borderRadius: '100%', background: 'red' }} />;
+                }
+
+                if (selected === 'indeterminate') {
+                    return <div style={{ width: '10px', height: '10px', background: 'blue' }} />;
+                }
+
+                return null;
+            };
+
+            return (
+                <CypressTestDecorator>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="select"
+                                label="Single"
+                                value={value}
+                                onChange={setValue}
+                                items={items}
+                                renderSelectionIcon={renderSelectionIcon}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+        cy.contains('Южная Америка').click();
+        cy.contains('Колумбия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: renderSelectionIcon multiple', () => {
+        cy.viewport(1000, 400);
+
+        const Component = () => {
+            const [value, setValue] = useState(['bogota']);
+
+            const renderSelectionIcon = (selected: boolean | 'indeterminate') => {
+                if (selected === true) {
+                    return <div style={{ width: '10px', height: '10px', borderRadius: '100%', background: 'red' }} />;
+                }
+
+                if (selected === 'indeterminate') {
+                    return <div style={{ width: '10px', height: '10px', background: 'blue' }} />;
+                }
+
+                return null;
+            };
+
+            return (
+                <CypressTestDecorator>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="select"
+                                label="Multiple"
+                                multiselect
+                                value={value}
+                                onChange={setValue}
+                                items={items}
+                                renderSelectionIcon={renderSelectionIcon}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecorator>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+        cy.contains('Южная Америка').click();
+        cy.contains('Колумбия').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 

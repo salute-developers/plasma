@@ -5,7 +5,8 @@ import { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
 
 export type PathMapType = Map<string, number>;
 export type FocusedToValueMapType = Map<string, ItemOptionTransformed>;
-export type ValueToCheckedMapType = Map<ItemOptionTransformed['value'], boolean | 'done' | 'dot' | 'indeterminate'>;
+export type CheckedType = boolean | 'done' | 'dot' | 'indeterminate';
+export type ValueToCheckedMapType = Map<ItemOptionTransformed['value'], CheckedType>;
 export type ValueToItemMapType = Map<ItemOptionTransformed['value'], ItemOptionTransformed>;
 export type ValueToPathMapType = Map<string, string[]>;
 

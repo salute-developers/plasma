@@ -337,6 +337,61 @@ Select может выглядеть как Button и как Textfield. За э�
         }
         ```
     </TabItem>
+    <TabItem value="renderSelectionIcon" label="Render icon">
+        `renderSelectionIcon` - свойство для кастомной настройки иконки выбора элемента. Принимает коллбэк с один параметром: `selected`.
+
+        ```tsx live
+        export function App() {
+            const [value, setValue] = useState('brazil');
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            const renderSelectionIcon = (selected: boolean | 'indeterminate') => {
+                if (selected === true) {
+                    return <div style={{ width: '10px', height: '10px', borderRadius: '100%', background: 'red' }} />;
+                }
+
+                if (selected === 'indeterminate') {
+                    return <div style={{ width: '10px', height: '10px', background: 'blue' }} />;
+                }
+
+                return null;
+            };
+
+            return (
+                <div style={{ height: '300px' }}>
+                   <div style={{ width: '400px' }}>
+                        <Select
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                            renderSelectionIcon={renderSelectionIcon}
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
     <TabItem value="portal" label="Portal">
         Иногда возникает необходимость вынесения выпадающего списка на уровни выше в DOM. К примеру, когда у родительского блока имеется скролл, и список будет обрезаться, чего хотелось бы избежать.\
         Для такой реализации имеется пропс `portal`, который принимает либо `ref` либо `id` html-тега.\
