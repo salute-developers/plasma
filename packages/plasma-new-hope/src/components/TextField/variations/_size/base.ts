@@ -43,6 +43,10 @@ export const base = css`
         border-radius: var(${tokens.borderRadius});
         padding: var(${tokens.padding});
 
+        &:after {
+            border-radius: var(${tokens.borderRadius});
+        }
+
         &.${classes.hasChips} {
             padding-top: var(${tokens.paddingWithChips});
             padding-bottom: var(${tokens.paddingWithChips});

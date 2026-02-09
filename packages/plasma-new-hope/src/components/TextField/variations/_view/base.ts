@@ -46,6 +46,10 @@ export const base = css`
             var(${String(tokens.backgroundColor)})
         );
 
+        &:after {
+            box-shadow: var(${tokens.boxShadowSecondary}, inset 0 0 0 0 transparent);
+        }
+
         ${Input} {
             color: var(${tokens.colorFocus});
         }
