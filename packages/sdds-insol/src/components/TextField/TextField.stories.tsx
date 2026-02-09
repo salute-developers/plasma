@@ -31,6 +31,9 @@ const { meta: META, Default, Chips } = getTextFieldStories({
     component: TextField,
     componentConfig: config,
     customIcon,
+    defaultArgs: {
+        size: 'xl',
+    },
 });
 
 const meta: Meta<TextFieldProps> = {
