@@ -3,25 +3,34 @@ import { css, textFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 'l',
         labelPlacement: 'outer',
         chipView: 'secondary',
     },
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-primary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColor}: var(--text-secondary);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.backgroundColor}: var(--surface-transparent-card);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-card-active);
                 ${tokens.caretColor}: var(--text-accent);
+                ${tokens.focusColor}: var(--text-accent);
+
+                ${tokens.color}: var(--text-primary);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.backgroundColor}: var(--surface-solid-card);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-card);
+
+                ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
+                ${tokens.borderColor}: var(--outline-transparent-primary);
+                ${tokens.borderColorFocus}: var(--outline-solid-secondary);
+                ${tokens.borderColorHover}: var(--outline-transparent-primary-hover);
+
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -29,31 +38,31 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
-                ${tokens.dividerColorHover}: var(--text-secondary);
-                ${tokens.dividerColorFocus}: var(--surface-accent);
-
-                ${tokens.focusColor}: var(--text-accent);
-                ${tokens.borderColor}: var(--outline-clear);
-                ${tokens.borderColorFocus}: var(--outline-solid-secondary);
-                ${tokens.borderColorHover}: var(--outline-clear);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
-                ${tokens.boxShadow}: var(--shadow-down-soft-s);
             `,
             positive: css`
-                ${tokens.color}: color-mix(in oklab, var(--text-positive) 70%, transparent);
-                ${tokens.clearPlaceholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.backgroundColor}: var(--surface-transparent-card);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-card-active);
                 ${tokens.caretColor}: var(--text-accent);
+                ${tokens.focusColor}: var(--text-accent);
+
+                ${tokens.color}: var(--text-positive);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.backgroundColor}: var(--surface-solid-card);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-card);
+
+                ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
+                ${tokens.borderColor}: var(--outline-positive-minor);
+                ${tokens.borderColorFocus}: var--outline-positive-minor-active);
+                ${tokens.borderColorHover}: var--outline-positive-minor-hover);
+
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.labelColor}: var(--text-primary);
-                ${tokens.leftHelperColor}: color-mix(in oklab, var(--text-positive) 70%, transparent);
+                ${tokens.leftHelperColor}: var(--text-positive);
+                ${tokens.leftHelperColorFocus}: var(--text-positive);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -61,31 +70,31 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.dividerColor}: var(--surface-positive);
-                ${tokens.dividerColorHover}: var(--surface-positive);
-                ${tokens.dividerColorFocus}: var(--surface-accent);
-
-                ${tokens.focusColor}: var(--text-accent);
-                ${tokens.borderColor}: var(--outline-positive-minor);
-                ${tokens.borderColorFocus}: var(--outline-positive-minor-active);
-                ${tokens.borderColorHover}: var(--outline-positive-minor-hover);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
-                ${tokens.boxShadow}: var(--shadow-down-soft-s);
             `,
             warning: css`
-                ${tokens.color}: color-mix(in oklab, var(--text-warning) 70%, transparent);
-                ${tokens.clearPlaceholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.backgroundColor}: var(--surface-transparent-card);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-card-active);
                 ${tokens.caretColor}: var(--text-accent);
+                ${tokens.focusColor}: var(--text-accent);
+
+                ${tokens.color}: var(--text-warning);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.backgroundColor}: var(--surface-solid-card);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-card);
+
+                ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
+                ${tokens.borderColor}: var(--outline-warning-minor);
+                ${tokens.borderColorFocus}: var--outline-warning-minor-active);
+                ${tokens.borderColorHover}: var--outline-warning-minor-hover);
+
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.labelColor}: var(--text-primary);
-                ${tokens.leftHelperColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
+                ${tokens.leftHelperColor}: var(--text-warning);
+                ${tokens.leftHelperColorFocus}: var(--text-warning);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -93,31 +102,31 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.dividerColor}: var(--surface-warning);
-                ${tokens.dividerColorHover}: var(--surface-warning);
-                ${tokens.dividerColorFocus}: var(--surface-accent);
-
-                ${tokens.focusColor}: var(--text-accent);
-                ${tokens.borderColor}: var(--outline-warning-minor);
-                ${tokens.borderColorFocus}: var(--outline-warning-minor-active);
-                ${tokens.borderColorHover}: var(--outline-warning-minor-hover);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
-                ${tokens.boxShadow}: var(--shadow-down-soft-s);
             `,
             negative: css`
-                ${tokens.color}: color-mix(in oklab, var(--text-negative) 70%, transparent);
-                ${tokens.clearPlaceholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.clearPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.backgroundColor}: var(--surface-transparent-card);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-card-active);
                 ${tokens.caretColor}: var(--text-accent);
+                ${tokens.focusColor}: var(--text-accent);
+
+                ${tokens.color}: var(--text-negative);
                 ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.backgroundColor}: var(--surface-solid-card);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-card);
+
+                ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
+                ${tokens.borderColor}: var(--outline-negative-minor);
+                ${tokens.borderColorFocus}: var--outline-negative-minor-active);
+                ${tokens.borderColorHover}: var--outline-negative-minor-hover);
+
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
+
                 ${tokens.labelColor}: var(--text-primary);
-                ${tokens.leftHelperColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
+                ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.leftHelperColorFocus}: var(--text-negative);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -125,17 +134,8 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.dividerColor}: var(--surface-negative);
-                ${tokens.dividerColorHover}: var(--surface-negative);
-                ${tokens.dividerColorFocus}: var(--surface-accent);
-
-                ${tokens.focusColor}: var(--text-accent);
-                ${tokens.borderColor}: var(--outline-negative-minor);
-                ${tokens.borderColorFocus}: var(--outline-negative-minor-active);
-                ${tokens.borderColorHover}: var(--outline-negative-minor-hover);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
-                ${tokens.boxShadow}: var(--shadow-down-soft-s);
             `,
         },
         size: {
@@ -149,21 +149,21 @@ export const config = {
                 ${tokens.leftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
                 ${tokens.rightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelOffset}: 0.75rem;
                 ${tokens.clearLabelOffset}: 0.25rem;
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -200,12 +200,12 @@ export const config = {
                 ${tokens.chipClearContentMarginLeft}: 0.625rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1.5rem;
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.chipFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -234,21 +234,21 @@ export const config = {
                 ${tokens.leftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
                 ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelOffset}: 0.75rem;
                 ${tokens.clearLabelOffset}: 0.25rem;
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -280,12 +280,12 @@ export const config = {
                 ${tokens.chipClearContentMarginLeft}: 0.625rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1.25rem;
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.chipFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -741,6 +741,7 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
+                ${tokens.backgroundColor}: var(--surface-transparent-primary);
                 ${tokens.borderColor}: transparent;
                 ${tokens.color}: var(--text-primary);
                 ${tokens.placeholderColor}: var(--text-primary);
@@ -764,6 +765,7 @@ export const config = {
                 ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.borderColor}: transparent;
                 ${tokens.borderWidth}: 0;
+                ${tokens.boxShadowSecondary}: none;
             `,
         },
     },
