@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import styled from 'styled-components';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
+
+import { config } from './Switch.config';
 
 import { Switch } from '.';
 import type { SwitchProps } from '.';
@@ -10,6 +12,8 @@ import type { SwitchProps } from '.';
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
+
+const { sizes } = getConfigVariations(config);
 
 const meta: Meta<SwitchProps> = {
     title: 'Data Entry/Switch',
@@ -31,9 +35,11 @@ const meta: Meta<SwitchProps> = {
             control: { type: 'select' },
         },
         size: {
+            options: sizes,
             control: { type: 'select' },
         },
         toggleSize: {
+            options: ['l', 's'],
             control: { type: 'select' },
         },
         ...disableProps([
