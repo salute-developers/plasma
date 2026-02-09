@@ -1,10 +1,10 @@
 import React, { useRef, FC, useContext } from 'react';
+import { cx, isEmpty } from 'src/utils';
+import { useDidMountEffect } from 'src/hooks';
 
-import { sizeToIconSize, getItemId } from '../../../../utils';
+import { sizeToIconSize, getItemId, mapCheckedVariants } from '../../../../utils';
 import { classes } from '../../../../Combobox.tokens';
-import { cx, isEmpty } from '../../../../../../../utils';
 import { Context } from '../../../../Combobox.context';
-import { useDidMountEffect } from '../../../../../../../hooks';
 
 import { ItemProps } from './Item.types';
 import {
@@ -44,12 +44,14 @@ export const Item: FC<ItemProps> = ({
         handleItemClick,
         variant,
         renderItem,
+        renderSelectionIcon,
         treeId,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         _checkboxAppearance,
     } = useContext(Context);
 
+    const checkedValue = checked.get(item.value) || false;
     const disabledClassName = disabled ? classes.dropdownItemIsDisabled : undefined;
 
     const focusedClass =
@@ -98,25 +100,29 @@ export const Item: FC<ItemProps> = ({
             aria-expanded={ariaExpanded}
             aria-level={ariaLevel}
             aria-label={ariaLabel}
-            aria-selected={Boolean(checked.get(item.value))}
+            aria-selected={Boolean(checkedValue)}
         >
             <IconWrapper variant={variant}>
-                {multiple && (
-                    <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
-                        <StyledCheckbox
-                            disabled={disabled}
-                            checked={Boolean(checked.get(item.value))}
-                            indeterminate={checked.get(item.value) === 'indeterminate'}
-                            onChange={handleChange}
-                            appearance={_checkboxAppearance ?? 'default'}
-                        />
-                    </StyledCheckboxWrapper>
-                )}
-
-                {!multiple && checked.get(item.value) === 'dot' && <StyledIndicator size="s" view="default" />}
-
-                {!multiple && checked.get(item.value) === 'done' && (
-                    <StyledIconDone size={sizeToIconSize(size, variant)} color="inherit" />
+                {renderSelectionIcon ? (
+                    renderSelectionIcon(mapCheckedVariants(checkedValue, multiple))
+                ) : (
+                    <>
+                        {multiple && (
+                            <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
+                                <StyledCheckbox
+                                    disabled={disabled}
+                                    checked={Boolean(checkedValue)}
+                                    indeterminate={checkedValue === 'indeterminate'}
+                                    onChange={handleChange}
+                                    appearance={_checkboxAppearance ?? 'default'}
+                                />
+                            </StyledCheckboxWrapper>
+                        )}
+                        {!multiple && checkedValue === 'dot' && <StyledIndicator size="s" view="default" />}
+                        {!multiple && checkedValue === 'done' && (
+                            <StyledIconDone size={sizeToIconSize(size, variant)} color="inherit" />
+                        )}
+                    </>
                 )}
             </IconWrapper>
 

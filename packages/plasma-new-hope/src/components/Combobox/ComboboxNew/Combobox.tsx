@@ -70,6 +70,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             listWidth,
             portal,
             renderItem,
+            renderSelectionIcon,
             view,
             size,
             labelPlacement,
@@ -525,6 +526,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             handleItemClick,
                             variant,
                             renderItem,
+                            renderSelectionIcon,
                             treeId,
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
