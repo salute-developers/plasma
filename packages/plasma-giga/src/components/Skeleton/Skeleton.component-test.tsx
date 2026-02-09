@@ -48,7 +48,7 @@ describe('plasma-core: Skeleton', () => {
                 </CypressTestDecorator>,
             );
 
-            cy.viewport(500, 524);
+            cy.viewport(500, 550);
             cy.matchImageSnapshot();
         });
 
@@ -148,7 +148,7 @@ describe('plasma-core: Skeleton', () => {
                 </CypressTestDecorator>,
             );
 
-            cy.viewport(500, 524);
+            cy.viewport(500, 550);
             cy.matchImageSnapshot();
         });
 
