@@ -17,12 +17,14 @@ export const config = {
                 ${switchTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
                 ${switchTokens.fontSize}: var(--plasma-typo-body-s-font-size);
                 ${switchTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+
                 ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
@@ -33,12 +35,14 @@ export const config = {
                 ${switchTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
                 ${switchTokens.fontSize}: var(--plasma-typo-body-m-font-size);
                 ${switchTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+
                 ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
-                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
@@ -49,12 +53,14 @@ export const config = {
                 ${switchTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
                 ${switchTokens.fontSize}: var(--plasma-typo-body-l-font-size);
                 ${switchTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+
                 ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
-                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
