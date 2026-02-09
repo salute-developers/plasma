@@ -1,18 +1,15 @@
 name: Release Next Tag
 
 on:
-  push:
-    branches:
-      - next-insol
+  workflow_dispatch:
 
 jobs:
   publish:
     name: Publish feature version
-    if: ${{ github.actor == 'github-merge-queue[bot]' }}
     uses: ./.github/workflows/publish-common.yml
     with:
       with-update-package-lock: true
       auto-options: '--no-changelog'
     secrets:
-      gh_token: ${{ secrets.GH_TOKEN }}
+      gh_token: ${{ secrets.GH_TOKENS_SDDS }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
