@@ -33,6 +33,8 @@ export const tokens = {
     backgroundColorHover: '--plasma-textfield-bg-color-hover',
     backgroundColorFocus: '--plasma-textfield-bg-color-focus',
 
+    boxShadowSecondary: '--plasma-textfield-box-shadow-secondary',
+
     borderColor: '--plasma-textfield-border-color',
     borderColorHover: '--plasma-textfield-border-color-hover',
     borderColorFocus: '--plasma-textfield-border-color-focus',

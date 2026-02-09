@@ -15,6 +15,13 @@ export const InputWrapper = styled.div`
     display: flex;
     align-items: center;
     box-sizing: border-box;
+
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        inset: 0;
+    }
 `;
 
 export const InputLabelWrapper = styled.div`
