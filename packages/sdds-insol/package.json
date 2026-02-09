@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-insol",
-  "version": "0.333.0-next-insol.0",
+  "version": "0.333.1-next-insol.0",
   "description": "Salute Design System / React UI kit for SDDS INSOL web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "exports": {
