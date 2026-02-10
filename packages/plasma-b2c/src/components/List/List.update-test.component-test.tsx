@@ -100,4 +100,17 @@ describe('plasma-b2c: List', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('[PLASMA-] List: focused ListItem', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo size="xl" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('li').first().focus();
+        cy.get('li').first().should('be.focused');
+
+        cy.matchImageSnapshot();
+    });
 });
