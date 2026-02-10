@@ -88,4 +88,17 @@ describe('sdds-insol: List', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('[PLASMA-] List: focused ListItem', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo size="xl" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('li').first().focus();
+        cy.get('li').first().should('be.focused');
+
+        cy.matchImageSnapshot();
+    });
 });

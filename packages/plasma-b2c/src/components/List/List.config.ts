@@ -14,6 +14,7 @@ export const config = {
                 ${listTokens.listItemBackgroundHover}: var(--surface-transparent-secondary);
                 ${listTokens.listItemBorderColor}: transparent;
                 ${listTokens.listItemBorderColorHover}: transparent;
+                ${listTokens.listItemFocusColor}: var(--surface-accent);
                 ${listTokens.listDisabledOpacity}: 0.4;
             `,
         },
