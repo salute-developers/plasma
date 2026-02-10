@@ -71,7 +71,7 @@ export type DropzoneProps = {
      * Функция, вызываемая при выборе файлов
      */
     onChoseFiles?: FileProcessHandler;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'title'>;
 
 export type DropzoneRootProps = {
     view?: string;
