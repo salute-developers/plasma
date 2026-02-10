@@ -113,4 +113,30 @@ describe('plasma-b2c: List', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('[PLASMA-] List: cannot focus ListItem if disabled ListItem', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo size="xl" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('ul').press('Tab').press('Tab').press('Tab');
+        cy.get('li').eq(2).should('not.be.focused');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] List: cannot focus ListItem if disabled List', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo size="xl" disabled />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('ul').press('Tab');
+        cy.get('li').first().should('not.be.focused');
+
+        cy.matchImageSnapshot();
+    });
 });
