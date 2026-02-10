@@ -36,5 +36,7 @@ export const tokens = {
     listItemLetterSpacing: '--plasma-list-item-letter-spacing',
     listItemLineHeight: '--plasma-list-item-line-height',
 
+    listItemFocusColor: '--plasma-list-item-focus-color',
+
     listDisabledOpacity: '--plasma-list-disabled-opacity',
 };
