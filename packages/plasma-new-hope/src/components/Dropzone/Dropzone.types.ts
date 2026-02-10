@@ -1,4 +1,5 @@
-import type { InputHTMLAttributes, DragEvent, ReactNode, HTMLAttributes } from 'react';
+import type { DragEvent, ReactNode } from 'react';
+import type { HTMLAttributesWithoutDraggable, InputHTMLAttributesWithoutDraggable } from 'src/engines/types';
 
 export type FileArgs = {
     acceptedFiles: File[];
@@ -9,7 +10,7 @@ export type FileArgs = {
 export type ValidatorReturnType = Promise<FileArgs>;
 export type FileProcessHandler = (files: FileArgs) => Promise<void> | void;
 
-export type DropzoneProps = {
+export type DropzoneProps = InputHTMLAttributesWithoutDraggable<HTMLInputElement, 'title' | 'size'> & {
     /**
      * Позволяет выбирать несколько файлов для загрузки
      */
@@ -71,10 +72,10 @@ export type DropzoneProps = {
      * Функция, вызываемая при выборе файлов
      */
     onChoseFiles?: FileProcessHandler;
-} & InputHTMLAttributes<HTMLInputElement>;
+};
 
-export type DropzoneRootProps = {
+export type DropzoneRootProps = HTMLAttributesWithoutDraggable<HTMLDivElement> & {
     view?: string;
     size?: string;
     disabled?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+};

@@ -9,22 +9,29 @@ import type {
     HTMLAttributesWithoutOnChange,
     HTMLAttributesWithoutOnChangeAndDefaultValue,
     HTMLAttributesWithoutDraggable,
+    InputHTMLAttributesWithoutDraggable,
 } from './types';
 
 export const mergeConfig = <
     Tag extends HTMLTagList,
     VariantList extends Variants,
     VariantsProps extends PropsType<VariantList>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     LayoutPropsBase extends
         | React.HTMLAttributes<HTMLElement>
         | HTMLAttributesWithoutOnChange<HTMLElement>
         | HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>
-        | HTMLAttributesWithoutDraggable<HTMLElement>,
+        | HTMLAttributesWithoutDraggable<HTMLElement>
+        | InputHTMLAttributesWithoutDraggable<HTMLInputElement>
+        | Record<string, any>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     LayoutPropsUser extends
         | React.HTMLAttributes<HTMLElement>
         | HTMLAttributesWithoutOnChange<HTMLElement>
         | HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>
         | HTMLAttributesWithoutDraggable<HTMLElement>
+        | InputHTMLAttributesWithoutDraggable<HTMLInputElement>
+        | Record<string, any>
         | undefined = undefined
 >(
     baseConfig: ComponentConfig<Tag, Variants, PropsType & LayoutPropsBase, LayoutPropsBase>,
@@ -87,6 +94,9 @@ export function component<
         | HTMLAttributesWithoutOnChange<HTMLElement>
         | HTMLAttributesWithoutOnChangeAndDefaultValue<HTMLElement>
         | HTMLAttributesWithoutDraggable<HTMLElement>
+        | InputHTMLAttributesWithoutDraggable<HTMLInputElement>
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        | Record<string, any>
 >(
     config: ComponentConfig<Tag, VariantList, VariantsProps, LayoutProps>,
 ): React.FunctionComponent<VariantsProps & LayoutProps> {
