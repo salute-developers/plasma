@@ -101,4 +101,30 @@ describe('sdds-insol: List', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('[PLASMA-] List: cannot focus ListItem if disabled ListItem', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo size="xl" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('ul').press('Tab').press('Tab').press('Tab');
+        cy.get('li').eq(2).should('not.be.focused');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('[PLASMA-] List: cannot focus ListItem if disabled List', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo size="xl" disabled />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('li').press('Tab');
+        cy.get('li').first().should('not.be.focused');
+
+        cy.matchImageSnapshot();
+    });
 });
