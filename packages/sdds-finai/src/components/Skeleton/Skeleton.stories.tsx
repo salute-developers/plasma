@@ -53,7 +53,7 @@ const Default: StoryObj = {
         },
     },
     args: {
-        roundness: '16',
+        roundness: '4',
         customGradientColor: '',
     },
 };
@@ -79,7 +79,13 @@ export const Line: StoryObj<StoryLineSkeletonProps> = {
         view: 'default',
         ...Default.args,
     },
-    render: (args) => <LineSkeleton {...args} />,
+    render: (args) => {
+        return (
+            <div style={{ backgroundColor: 'white', padding: '16px' }}>
+                <LineSkeleton {...args} />
+            </div>
+        );
+    },
 };
 
 export const Text: StoryObj<StoryTextSkeletonProps> = {
