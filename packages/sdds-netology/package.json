@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-netology",
-  "version": "0.337.0-next-insol.0",
+  "version": "0.338.0-next-insol.0",
   "description": "Salute Design System / React UI kit for SDDS NETOLOGY web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "exports": {
@@ -32,7 +32,7 @@
     "directory": "packages/sdds-netology"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.350.0-next-insol.0",
+    "@salutejs/plasma-new-hope": "0.351.0-next-insol.0",
     "@salutejs/plasma-themes": "0.40.0"
   },
   "peerDependencies": {
