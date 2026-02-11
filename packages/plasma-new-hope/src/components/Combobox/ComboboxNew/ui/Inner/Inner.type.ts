@@ -12,5 +12,7 @@ export type InnerProps = {
     dispatchPath: Dispatch<PathAction>;
     index: number;
     listWidth: ComboboxProps['listWidth'];
+    shift: ComboboxProps['shift'];
+    flip: ComboboxProps['flip'];
     portal?: RefObject<HTMLElement>;
 };

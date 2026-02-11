@@ -270,6 +270,16 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * @default left
      */
     arrowPlacement?: 'left' | 'right';
+    /**
+     * Коррекция placement, если выпадающий список находится за пределами экрана.
+     * @default false
+     */
+    flip?: boolean;
+    /**
+     * Смещение выпадающего списка при соприкосновении с границами экрана.
+     * @default false
+     */
+    shift?: boolean;
 
     /**
      * @deprecated Использовать listMaxHeight.
@@ -295,6 +305,8 @@ export type FloatingPopoverProps = {
     opened: boolean;
     placement: Placement;
     isInner: boolean;
+    shift: ComboboxProps['shift'];
+    flip: ComboboxProps['flip'];
     onToggle?: (opened: boolean) => void;
     portal?: ComboboxProps['portal'];
     listWidth?: ComboboxProps['listWidth'];
