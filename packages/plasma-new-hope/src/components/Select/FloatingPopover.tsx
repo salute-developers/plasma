@@ -6,26 +6,37 @@ import {
     FloatingPortal,
     offset as offsetMiddleware,
     autoUpdate,
+    limitShift,
 } from '@floating-ui/react';
 import React, { forwardRef } from 'react';
 import { safeUseId } from 'src/utils';
 
-import { getPlacement, getFallbackPlacements } from './utils';
+import { getPlacement } from './utils';
 import type { FloatingPopoverProps } from './Select.types';
 
 // TODO: #2003
 const LIST_PADDING = 2;
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, listWidth, zIndex, isInner, offset }, ref) => {
+    (
+        {
+            target,
+            children,
+            opened,
+            onToggle,
+            placement,
+            portal,
+            listWidth,
+            zIndex,
+            isInner,
+            offset,
+            shift: outsideShift = false,
+            flip: outsideFlip = false,
+        },
+        ref,
+    ) => {
         const { refs, floatingStyles } = useFloating({
-            whileElementsMounted(referenceEl, floatingEl, update) {
-                return autoUpdate(referenceEl, floatingEl, update, {
-                    ancestorScroll: false,
-                    ancestorResize: false,
-                    layoutShift: false,
-                });
-            },
+            whileElementsMounted: autoUpdate,
             placement: getPlacement(placement),
             open: opened,
             middleware: [
@@ -33,8 +44,11 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     mainAxis: isInner ? LIST_PADDING * 2 : offset?.[1] || 0,
                     alignmentAxis: isInner ? -LIST_PADDING : offset?.[0] || 0,
                 }),
-                flip({ fallbackPlacements: getFallbackPlacements(placement) }),
-                shift(),
+                outsideShift &&
+                    shift({
+                        limiter: limitShift(),
+                    }),
+                outsideFlip && flip(),
                 size({
                     apply({ rects, elements }) {
                         Object.assign(elements.floating.style, {

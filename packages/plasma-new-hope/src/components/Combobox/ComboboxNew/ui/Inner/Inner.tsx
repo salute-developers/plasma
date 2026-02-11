@@ -1,16 +1,25 @@
 import React, { useRef } from 'react';
 import type { FC } from 'react';
-import { safeUseId } from 'src/utils';
+import { safeUseId, isEmpty } from 'src/utils';
 
 import { FloatingPopover } from '../../FloatingPopover';
-import { isEmpty } from '../../../../../utils';
 import { Ul, ListWrapper } from '../../Combobox.styles';
 
 import type { ItemOptionTransformed } from './ui/Item/Item.types';
 import { Item } from './ui';
 import { InnerProps } from './Inner.type';
 
-export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, index, listWidth, portal }) => {
+export const Inner: FC<InnerProps> = ({
+    item,
+    currentLevel,
+    path,
+    dispatchPath,
+    index,
+    listWidth,
+    portal,
+    shift,
+    flip,
+}) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
             dispatchPath({ type: 'changed_on_level', value: item.value.toString(), level: currentLevel + 1 });
@@ -47,6 +56,8 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                 }
                 isInner
                 portal={portal}
+                shift={shift}
+                flip={flip}
             >
                 <ListWrapper listWidth={listWidth} ref={listWrapperRef}>
                     <Ul role="group" id={listId} virtual={false} listMaxHeight={item?.listMaxHeight}>
@@ -60,6 +71,8 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                                 index={innerIndex}
                                 listWidth={listWidth}
                                 portal={listWrapperRef}
+                                shift={shift}
+                                flip={flip}
                             />
                         ))}
                     </Ul>

@@ -1229,6 +1229,53 @@ describe('plasma-web: Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: shift', () => {
+        cy.viewport(400, 400);
+
+        const Component = () => {
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div
+                        style={{
+                            width: '200vw',
+                        }}
+                    >
+                        <div style={{ width: '300px' }}>
+                            <Select id="select" placeholder="Placeholder" items={items} shift />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+        cy.window().scrollTo(200, 0);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: flip', () => {
+        cy.viewport(400, 400);
+
+        const Component = () => {
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select id="select" placeholder="Placeholder" items={items} flip placement="top" />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 

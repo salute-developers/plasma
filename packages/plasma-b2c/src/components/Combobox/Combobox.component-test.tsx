@@ -1814,6 +1814,53 @@ describe('plasma-b2c: Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: shift', () => {
+        cy.viewport(400, 400);
+
+        const Component = () => {
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div
+                        style={{
+                            width: '200vw',
+                        }}
+                    >
+                        <div style={{ width: '300px' }}>
+                            <Combobox id="combobox" placeholder="Placeholder" items={items} shift />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click();
+        cy.window().scrollTo(200, 0);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: flip', () => {
+        cy.viewport(400, 400);
+
+        const Component = () => {
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Combobox id="combobox" placeholder="Placeholder" items={items} flip placement="top" />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('behavior: disabled unselected item', () => {
         const items = [
             {

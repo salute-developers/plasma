@@ -229,6 +229,16 @@ export interface BasicProps<K extends ItemOption> {
      * @default default
      */
     mode?: 'default' | 'radio';
+    /**
+     * Коррекция placement, если выпадающий список находится за пределами экрана.
+     * @default false
+     */
+    flip?: boolean;
+    /**
+     * Смещение выпадающего списка при соприкосновении с границами экрана.
+     * @default false
+     */
+    shift?: boolean;
 
     /**
      * Размер компонента.
@@ -457,6 +467,16 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default default
          */
         mode?: 'default' | 'radio';
+        /**
+         * Коррекция placement, если выпадающий список находится за пределами экрана.
+         * @default false
+         */
+        flip?: boolean;
+        /**
+         * Смещение выпадающего списка при соприкосновении с границами экрана.
+         * @default false
+         */
+        shift?: boolean;
 
         /**
          * Размер компонента.
@@ -510,6 +530,8 @@ export type FloatingPopoverProps = {
     onToggle: (opened: boolean) => void;
     placement: NonNullable<MergedSelectProps['placement']>;
     isInner: boolean;
+    shift: MergedSelectProps['shift'];
+    flip: MergedSelectProps['flip'];
     portal?: MergedSelectProps['portal'];
     listWidth?: MergedSelectProps['listWidth'];
     zIndex?: DropdownProps['zIndex'];
