@@ -130,8 +130,11 @@ export const createTypographyTokens = (
     themeName?: string,
 ) => {
     // TODO: Удалить после добавление брейкпоинтов в токены
+
     const breakpoints =
         themeName === 'sdds_insol' || themeName === 'sdds_insol_next' ? webBreakpoints_FOR_SDDS_INSOL : webBreakpoints;
+
+    console.log(breakpoints);
     type ScreenList = Record<keyof typeof breakpoints, string>;
 
     const screenList = getScreenList(breakpoints) as ScreenList;
