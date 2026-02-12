@@ -65,7 +65,7 @@ export const base = css`
         }
 
         ${TitleCaption} {
-            color: var(${tokens.titleCaptionColorReadOnly});
+            color: var(${tokens.titleCaptionColorReadOnly}, var(${tokens.titleCaptionColor}));
         }
 
         ${LeftHelper} {
