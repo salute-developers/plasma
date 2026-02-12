@@ -9,7 +9,8 @@ export const generateThemes = (srcDir: string, themeName: string, themeContent: 
     const themesDir = path.join(srcDir, 'themes');
 
     // TODO: Удалить после добавление брейкпоинтов в токены
-    const breakpoints = themeName === 'sdds_insol' ? webBreakpoints_FOR_SDDS_INSOL : webBreakpoints;
+    const breakpoints =
+        themeName === 'sdds_insol' || themeName === 'sdds_insol_next' ? webBreakpoints_FOR_SDDS_INSOL : webBreakpoints;
     const breakpointsSelectors = Object.entries(breakpoints).map(([key, value]) =>
         getBreakpointSelector(themeContent.dark.typographyTokens[key], value.from, value.to),
     );
