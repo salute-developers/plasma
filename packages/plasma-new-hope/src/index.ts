@@ -90,6 +90,7 @@ export * from './components/TimePicker';
 export * from './components/DateTimePicker';
 export * from './components/Loader';
 export * from './components/File';
+export * from './components/TextFieldSlider';
 
 export * from './components/_beta/Popover';
 export * from './components/_beta/Tooltip';

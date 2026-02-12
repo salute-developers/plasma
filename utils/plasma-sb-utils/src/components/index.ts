@@ -6,6 +6,7 @@ export { ThemeColors } from './ThemeColors';
 export { withReactStrictMode, reactStrictModePreviewOption } from './ReactStrictModeDecorator';
 export * from './Button';
 export * from './TextField';
+export * from './TextFieldSlider';
 export * from './TextArea';
 export * from './Calendar';
 export * from './Table';
