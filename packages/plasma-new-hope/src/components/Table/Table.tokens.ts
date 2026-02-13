@@ -6,6 +6,15 @@ export const classes = {
     filterIcon: 'filter-icon',
     resizeDivider: 'resize-divider',
     scrollableContainer: 'table-scrollable-container',
+
+    root: 'table__root-element',
+    table: 'table__table-element',
+    headerWrapper: 'table__header-wrapper-element',
+    headerRow: 'table__header-row-element',
+    headerCell: 'table__header-cell-element',
+    bodyWrapper: 'table__body-wrapper-element',
+    bodyRow: 'table__body-row-element',
+    bodyCell: 'table__body-cell-element',
 };
 
 export const tableTokens = {

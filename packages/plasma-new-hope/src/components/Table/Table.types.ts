@@ -146,6 +146,47 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChan
      * Обработчик сколла контента.
      */
     onScroll?: (e: React.UIEvent<HTMLElement>) => void;
+    /**
+     * Возможность указать className для различных семантических узлов внутри компонента.
+     */
+    classNames?: {
+        /**
+         * Корневой верхнеуровневый контейнер.
+         */
+        root?: string;
+        /**
+         * Элемент со стилями таблицы, такими как font-size, width, border и тд.
+         */
+        table?: string;
+        header?: {
+            /**
+             * Элемент шапки таблицы.
+             */
+            wrapper?: string;
+            /**
+             * Элемент строки шапки таблицы.
+             */
+            row?: string;
+            /**
+             * Элемент ячейки шапки таблицы.
+             */
+            cell?: string;
+        };
+        body?: {
+            /**
+             * Элемент главного контейнера с контентом.
+             */
+            wrapper?: string;
+            /**
+             * Элемент строки основного контента таблицы.
+             */
+            row?: string;
+            /**
+             * Элемент ячейки основного контента таблицы.
+             */
+            cell?: string;
+        };
+    };
 
     /**
      * Размер таблицы
