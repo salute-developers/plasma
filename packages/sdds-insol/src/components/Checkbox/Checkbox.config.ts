@@ -5,7 +5,6 @@ export const config = {
         view: 'accent',
         size: 'm',
         focused: 'true',
-        appearance: 'outline',
     },
     variations: {
         size: {
@@ -33,25 +32,29 @@ export const config = {
             `,
             m: css`
                 ${checkboxTokens.margin}: 0;
+
                 ${checkboxTokens.triggerPadding}: 0.125rem;
                 ${checkboxTokens.triggerSize}: 1rem;
                 ${checkboxTokens.triggerBorderRadius}: 0.3125rem;
                 ${checkboxTokens.triggerBorderWidth}: 0.0625rem;
-                ${checkboxTokens.contentTopOffset}: 0.125rem;
+
                 ${checkboxTokens.contentLeftOffset}: 0.75rem;
-                ${checkboxTokens.descriptionMarginTop}: 0.125rem;
+
                 ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${checkboxTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${checkboxTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${checkboxTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+
                 ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
                 ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${checkboxTokens.descriptionMarginTop}: 0.125rem;
             `,
             l: css`
                 ${checkboxTokens.margin}: 0;
@@ -78,22 +81,27 @@ export const config = {
         },
         view: {
             accent: css`
-                ${checkboxTokens.fillColor}: transparent;
-                ${checkboxTokens.iconColor}: var(--outline-accent);
+                ${checkboxTokens.fillColor}: var(--surface-accent);
+
+                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.labelColor}: var(--text-primary);
+
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
+
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--outline-transparent-tertiary);
-                ${checkboxTokens.triggerBorderCheckedColor}: var(--outline-accent);
+                ${checkboxTokens.triggerBorderColor}: var(--outline-transparent-secondary);
+                ${checkboxTokens.triggerBorderCheckedColor}: var(--surface-accent);
             `,
             negative: css`
-                ${checkboxTokens.fillColor}: transparent;
-                ${checkboxTokens.iconColor}: var(--outline-negative);
+                ${checkboxTokens.fillColor}: var(--surface-negative);
+
+                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
+
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--outline-negative);
-                ${checkboxTokens.triggerBorderCheckedColor}: var(--outline-negative);
+                ${checkboxTokens.triggerBorderCheckedColor}: var(--surface-negative);
             `,
         },
         disabled: {
