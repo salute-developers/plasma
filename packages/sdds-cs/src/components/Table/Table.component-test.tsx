@@ -595,4 +595,30 @@ describe('sdds-cs: Table', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('semantic DOM', () => {
+        mount(
+            <CypressTestDecorator>
+                <Table
+                    data={rows}
+                    columns={columnsBasic}
+                    classNames={{
+                        root: 'root-class',
+                        table: 'table-class',
+                        header: { wrapper: 'header-wrapper-class', row: 'header-row-class', cell: 'header-cell-class' },
+                        body: { wrapper: 'body-wrapper-class', row: 'body-row-class', cell: 'body-cell-class' },
+                    }}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('.table__root-element').should('be.visible').should('have.class', 'root-class');
+        cy.get('.table__table-element').should('be.visible').should('have.class', 'table-class');
+        cy.get('.table__header-wrapper-element').should('be.visible').should('have.class', 'header-wrapper-class');
+        cy.get('.table__header-row-element').should('be.visible').should('have.class', 'header-row-class');
+        cy.get('.table__header-cell-element').should('be.visible').should('have.class', 'header-cell-class');
+        cy.get('.table__body-wrapper-element').should('be.visible').should('have.class', 'body-wrapper-class');
+        cy.get('.table__body-row-element').should('be.visible').should('have.class', 'body-row-class');
+        cy.get('.table__body-cell-element').should('be.visible').should('have.class', 'body-cell-class');
+    });
 });

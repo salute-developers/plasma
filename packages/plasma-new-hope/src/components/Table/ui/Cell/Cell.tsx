@@ -14,9 +14,10 @@ type Props = {
     borderVariant: TableProps['borderVariant'];
     view: TableProps['view'];
     additionalProps: HTMLAttributes<any> & TdHTMLAttributes<any>;
+    className: string | undefined;
 };
 
-export const Cell: React.FC<Props> = ({ cell, borderVariant, selected, view, additionalProps }) => {
+export const Cell: React.FC<Props> = ({ cell, borderVariant, selected, view, additionalProps, className }) => {
     const renderCell = cell.column.columnDef.meta?.renderCell;
 
     return (
@@ -26,6 +27,7 @@ export const Cell: React.FC<Props> = ({ cell, borderVariant, selected, view, add
             selectionCell={cell.column.id === SELECT_COLUMN_ID}
             selected={selected}
             view={view}
+            className={className}
             {...additionalProps}
         >
             {renderCell

@@ -20,9 +20,17 @@ type Props = {
     header: Header<TableRowData, unknown>;
     outerFiltered: TableProps['filtered'];
     tableContainerRef: React.RefObject<HTMLDivElement>;
+    className: string | undefined;
 };
 
-export const HeadCell: React.FC<Props> = ({ header, size, borderVariant, outerFiltered, tableContainerRef }) => {
+export const HeadCell: React.FC<Props> = ({
+    header,
+    size,
+    borderVariant,
+    outerFiltered,
+    tableContainerRef,
+    className,
+}) => {
     const { filters } = header?.column?.columnDef?.meta || {};
 
     return (
@@ -32,6 +40,7 @@ export const HeadCell: React.FC<Props> = ({ header, size, borderVariant, outerFi
             borderVariant={borderVariant}
             selectionCell={header.column.id === SELECT_COLUMN_ID}
             style={header.column.id !== SELECT_COLUMN_ID ? { width: header.getSize() } : undefined}
+            className={className}
         >
             {header.isPlaceholder ? null : (
                 <>
