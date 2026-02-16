@@ -3,7 +3,7 @@ import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components'
 export const config = {
     defaults: {
         view: 'clear',
-        size: 'xs',
+        size: 'xl',
     },
     variations: {
         view: {
