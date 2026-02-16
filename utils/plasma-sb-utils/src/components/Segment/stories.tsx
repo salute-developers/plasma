@@ -40,56 +40,61 @@ export const createDefaultStory = ({
         contentRightOption,
         maxItemWidth,
         hasBackground,
+        pilled,
         args,
     }: any) => {
         const { selectedSegmentItems } = useSegment();
 
         return (
-            <SegmentGroup
-                stretch={stretch}
-                disabled={disabled}
-                clip={false}
-                size={size}
-                orientation={orientation}
-                hasBackground={hasBackground}
-                {...args}
-            >
-                {items.map((_: any, i: number) => (
-                    <SegmentItem
-                        view={segmentItemView}
-                        label={`Label ${i}`}
-                        value={`label_${i}`}
-                        size={size}
-                        key={`label_${i}`}
-                        contentLeft={
-                            customGetContentLeft
-                                ? customGetContentLeft(contentLeftOption, size)
-                                : getContentLeft({
-                                      contentLeftOption,
-                                      size,
-                                  })
-                        }
-                        contentRight={
-                            customGetContentRight
-                                ? customGetContentRight(
-                                      contentRightOption,
-                                      size,
-                                      segmentItemView,
-                                      selectedSegmentItems.includes(`label_${i}`),
-                                  )
-                                : getContentRight({
-                                      contentRightOption,
-                                      size,
-                                      CounterComponent,
-                                  })
-                        }
-                        maxItemWidth={maxItemWidth}
-                        {...args}
-                    >
-                        {`Label${i + 1}`}
-                    </SegmentItem>
-                ))}
-            </SegmentGroup>
+            <div style={{ padding: '16px' }}>
+                <SegmentGroup
+                    stretch={stretch}
+                    disabled={disabled}
+                    clip={false}
+                    size={size}
+                    orientation={orientation}
+                    hasBackground={hasBackground}
+                    pilled={pilled}
+                    {...args}
+                >
+                    {items.map((_: any, i: number) => (
+                        <SegmentItem
+                            view={segmentItemView}
+                            label={`Label ${i}`}
+                            value={`label_${i}`}
+                            size={size}
+                            key={`label_${i}`}
+                            contentLeft={
+                                customGetContentLeft
+                                    ? customGetContentLeft(contentLeftOption, size)
+                                    : getContentLeft({
+                                          contentLeftOption,
+                                          size,
+                                      })
+                            }
+                            contentRight={
+                                customGetContentRight
+                                    ? customGetContentRight(
+                                          contentRightOption,
+                                          size,
+                                          segmentItemView,
+                                          selectedSegmentItems.includes(`label_${i}`),
+                                      )
+                                    : getContentRight({
+                                          contentRightOption,
+                                          size,
+                                          CounterComponent,
+                                      })
+                            }
+                            maxItemWidth={maxItemWidth}
+                            pilled={pilled}
+                            {...args}
+                        >
+                            {`Label${i + 1}`}
+                        </SegmentItem>
+                    ))}
+                </SegmentGroup>
+            </div>
         );
     };
 
