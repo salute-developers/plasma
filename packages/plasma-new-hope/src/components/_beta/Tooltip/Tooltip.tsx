@@ -43,6 +43,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 style,
                 size,
                 view,
+                portal,
                 ...rest
             },
             outerRootRef,
@@ -96,7 +97,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     </Slot>
 
                     {opened && (
-                        <FloatingPortal>
+                        <FloatingPortal root={portal}>
                             <Root
                                 ref={refs.setFloating}
                                 size={size}

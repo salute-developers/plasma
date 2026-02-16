@@ -50,6 +50,10 @@ export type BasicTooltipProps = {
      * @default 1000
      */
     zIndex?: number;
+    /**
+     * Портал для всплывающего контента.
+     */
+    portal?: React.RefObject<HTMLElement | null>;
 
     /**
      * Вид компонента.
