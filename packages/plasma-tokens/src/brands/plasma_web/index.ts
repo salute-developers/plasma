@@ -1804,6 +1804,15 @@ export const outlineSolidDefaultHover = 'var(--outline-solid-default-hover, #C7C
 
 export const outlineSolidDefaultActive = 'var(--outline-solid-default-active, #E0E0E0FF)';
 
+/** Цвет состояния readOnly */
+export const outlineReadOnly = 'var(--outline-read-only, rgba(255, 255, 255, 0.12))';
+
+/** Цвет состояния readOnly */
+export const outlineReadOnlyHover = 'var(--outline-read-only-hover, rgba(255, 255, 255, 0.3))';
+
+/** Цвет состояния readOnly */
+export const outlineReadOnlyActive = 'var(--outline-read-only-active, rgba(255, 255, 255, 0.07))';
+
 /** Основной непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidPrimaryHover = 'var(--on-dark-outline-solid-primary-hover, #303030FF)';
 
@@ -2004,6 +2013,15 @@ export const onDarkOutlineSolidDefault = 'var(--on-dark-outline-solid-default, #
 export const onDarkOutlineSolidDefaultHover = 'var(--on-dark-outline-solid-default-hover, #C7C7C7FF)';
 
 export const onDarkOutlineSolidDefaultActive = 'var(--on-dark-outline-solid-default-active, #E0E0E0FF)';
+
+/** Цвет состояния readOnly */
+export const onDarkOutlineReadOnly = 'var(--on-dark-outline-read-only, rgba(255, 255, 255, 0.12))';
+
+/** Цвет состояния readOnly */
+export const onDarkOutlineReadOnlyHover = 'var(--on-dark-outline-read-only-hover, rgba(255, 255, 255, 0.3))';
+
+/** Цвет состояния readOnly */
+export const onDarkOutlineReadOnlyActive = 'var(--on-dark-outline-read-only-active, rgba(255, 255, 255, 0.07))';
 
 /** Основной непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidPrimaryHover = 'var(--on-light-outline-solid-primary-hover, #E8E8E8FF)';
@@ -2206,6 +2224,15 @@ export const onLightOutlineSolidDefault = 'var(--on-light-outline-solid-default,
 export const onLightOutlineSolidDefaultHover = 'var(--on-light-outline-solid-default-hover, #FFFFFFFF)';
 
 export const onLightOutlineSolidDefaultActive = 'var(--on-light-outline-solid-default-active, #C7C7C7FF)';
+
+/** Цвет состояния readOnly */
+export const onLightOutlineReadOnly = 'var(--on-light-outline-read-only, rgba(8, 8, 8, 0.1))';
+
+/** Цвет состояния readOnly */
+export const onLightOutlineReadOnlyHover = 'var(--on-light-outline-read-only-hover, rgba(8, 8, 8, 0.3))';
+
+/** Цвет состояния readOnly */
+export const onLightOutlineReadOnlyActive = 'var(--on-light-outline-read-only-active, rgba(8, 8, 8, 0.2))';
 
 /** Инвертированный основной непрозрачный цвет обводки */
 export const inverseOutlineSolidPrimaryHover = 'var(--inverse-outline-solid-primary-hover, #ABABABFF)';
@@ -2415,6 +2442,15 @@ export const inverseOutlineSolidDefault = 'var(--inverse-outline-solid-default, 
 export const inverseOutlineSolidDefaultHover = 'var(--inverse-outline-solid-default-hover, #FFFFFFFF)';
 
 export const inverseOutlineSolidDefaultActive = 'var(--inverse-outline-solid-default-active, #C7C7C7FF)';
+
+/** Цвет состояния readOnly */
+export const inverseOutlineReadOnly = 'var(--inverse-outline-read-only, rgba(8, 8, 8, 0.1))';
+
+/** Цвет состояния readOnly */
+export const inverseOutlineReadOnlyHover = 'var(--inverse-outline-read-only-hover, rgba(8, 8, 8, 0.3))';
+
+/** Цвет состояния readOnly */
+export const inverseOutlineReadOnlyActive = 'var(--inverse-outline-read-only-active, rgba(8, 8, 8, 0.2))';
 
 /** Желтый цвет для данных */
 export const dataDefaultDataYellow = 'var(--data-default-data-yellow, #F3A912)';

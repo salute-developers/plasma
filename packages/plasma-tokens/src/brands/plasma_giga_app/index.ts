@@ -700,6 +700,15 @@ export const surfaceClearHover = 'var(--surface-clear-hover, #FFFFFF00)';
 /** Фон поверхности/контрола без заливки */
 export const surfaceClearActive = 'var(--surface-clear-active, #FFFFFF00)';
 
+/** Фон только для чтения */
+export const surfaceReadOnly = 'var(--surface-read-only, rgba(255, 255, 255, 0.02))';
+
+/** Фон только для чтения при наведении */
+export const surfaceReadOnlyHover = 'var(--surface-read-only-hover, rgba(255, 255, 255, 0.06))';
+
+/** Фон только для чтения при нажатии */
+export const surfaceReadOnlyActive = 'var(--surface-read-only-active, rgba(255, 255, 255, 0))';
+
 /** Осн. непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary, #171717)';
 
@@ -908,6 +917,15 @@ export const onDarkSurfaceNegativeHover = 'var(--on-dark-surface-negative-hover,
 
 /** Цвет фона поверхности/контрола ошибка на темном фоне */
 export const onDarkSurfaceNegativeActive = 'var(--on-dark-surface-negative-active, #FF1F35FF)';
+
+/** Фон только для чтения на темном фоне */
+export const onDarkSurfaceReadOnly = 'var(--on-dark-surface-read-only, rgba(255, 255, 255, 0.02))';
+
+/** Фон только для чтения при наведении на темном фоне */
+export const onDarkSurfaceReadOnlyHover = 'var(--on-dark-surface-read-only-hover, rgba(255, 255, 255, 0.06))';
+
+/** Фон только для чтения при нажатии на темном фоне */
+export const onDarkSurfaceReadOnlyActive = 'var(--on-dark-surface-read-only-active, rgba(255, 255, 255, 0))';
 
 /** Непр. фон поверхности/контрола по умолчанию на светлом фоне */
 export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #080808)';
@@ -1120,6 +1138,15 @@ export const onLightSurfaceTransparentDeepHover = 'var(--on-light-surface-transp
 
 export const onLightSurfaceTransparentDeepActive = 'var(--on-light-surface-transparent-deep-active, #08080894)';
 
+/** Фон только для чтения на светлом фоне */
+export const onLightSurfaceReadOnly = 'var(--on-light-surface-read-only, rgba(8, 8, 8, 0.01))';
+
+/** Фон только для чтения при наведении на светлом фоне */
+export const onLightSurfaceReadOnlyHover = 'var(--on-light-surface-read-only-hover, rgba(8, 8, 8, 0.02))';
+
+/** Фон только для чтения при нажатии на светлом фоне */
+export const onLightSurfaceReadOnlyActive = 'var(--on-light-surface-read-only-active, rgba(8, 8, 8, 0.03))';
+
 /** Инвертированный осн. непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryBrightness = 'var(--inverse-surface-solid-primary-brightness, #FFFFFFFF)';
 
@@ -1328,6 +1355,15 @@ export const inverseSurfaceTransparentInfo = 'var(--inverse-surface-transparent-
 export const inverseSurfaceTransparentInfoHover = 'var(--inverse-surface-transparent-info-hover, #2A72F83D)';
 
 export const inverseSurfaceTransparentInfoActive = 'var(--inverse-surface-transparent-info-active, #2A72F80F)';
+
+/** Инвертированный фон только для чтения */
+export const inverseSurfaceReadOnly = 'var(--inverse-surface-read-only, rgba(8, 8, 8, 0.01))';
+
+/** Инвертированный фон только для чтения при наведении */
+export const inverseSurfaceReadOnlyHover = 'var(--inverse-surface-read-only-hover, rgba(8, 8, 8, 0.02))';
+
+/** Инвертированный фон только для чтения при нажатии */
+export const inverseSurfaceReadOnlyActive = 'var(--inverse-surface-read-only-active, rgba(8, 8, 8, 0.03))';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #080808)';
