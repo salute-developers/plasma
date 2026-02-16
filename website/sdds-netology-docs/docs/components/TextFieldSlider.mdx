@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ```tsx live
 import React from 'react';
-import { TextFieldSlider } from '@salutejs/{{ package }}';
+import { TextFieldSlider } from '@salutejs/sdds-netology';
 
 export function App() {
     return (
@@ -39,30 +39,37 @@ export function App() {
     <TabItem value="view" label="View" default>
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
-                <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
                     <TextFieldSlider
                         view="default"
                         min={0}
                         max={100}
-                        value={50}
+                        defaultValue={50}
                         hasScale
                     />
                     <TextFieldSlider
                         view="positive"
                         min={0}
                         max={100}
-                        value={75}
+                        defaultValue={75}
                         hasScale
                     />
                     <TextFieldSlider
                         view="warning"
                         min={0}
                         max={100}
-                        value={25}
+                        defaultValue={25}
+                        hasScale
+                    />
+                    <TextFieldSlider
+                        view="negative"
+                        min={0}
+                        max={100}
+                        defaultValue={25}
                         hasScale
                     />
                 </div>
@@ -73,11 +80,11 @@ export function App() {
     <TabItem value="size" label="Size">
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
-                <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
                     <TextFieldSlider
                         size="xs"
                         min={0}
@@ -119,11 +126,11 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { TextFieldSlider } from '@salutejs/{{ package }}';
+import { TextFieldSlider } from '@salutejs/sdds-netology';
 
 export function App() {
     return (
-        <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
             <TextFieldSlider
                 min={0}
                 max={100}
@@ -148,11 +155,11 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { TextFieldSlider } from '@salutejs/{{ package }}';
+import { TextFieldSlider } from '@salutejs/sdds-netology';
 
 export function App() {
     return (
-        <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
             <TextFieldSlider
                 min={0}
                 max={10000}
@@ -185,11 +192,11 @@ export function App() {
 
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
-                <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
                     <TextFieldSlider
                         min={0}
                         max={100}
@@ -218,11 +225,11 @@ export function App() {
 
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
-                <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
                     <TextFieldSlider
                         min={0}
                         max={100000}
@@ -251,11 +258,11 @@ export function App() {
 
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
-                <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
                     <TextFieldSlider
                         min={0}
                         max={100}
@@ -287,11 +294,11 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { TextFieldSlider } from '@salutejs/{{ package }}';
+import { TextFieldSlider } from '@salutejs/sdds-netology';
 
 export function App() {
     return (
-        <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
             <TextFieldSlider
                 min={0}
                 max={100}
@@ -323,7 +330,7 @@ export function App() {
 
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
@@ -345,7 +352,7 @@ export function App() {
 
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
@@ -357,7 +364,7 @@ export function App() {
                         hasScale
                         textBefore="от"
                         textAfter="до"
-                        style=\{{ width: '222px' }}
+                        style={{ width: '222px' }}
                     />
                 </div>
             );
@@ -369,7 +376,7 @@ export function App() {
 
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
         import { IconPlasma, IconClose } from '@salutejs/plasma-icons';
 
         export function App() {
@@ -396,11 +403,11 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { TextFieldSlider } from '@salutejs/{{ package }}';
+import { TextFieldSlider } from '@salutejs/sdds-netology';
 
 export function App() {
     return (
-        <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
             <TextFieldSlider
                 min={0}
                 max={100}
@@ -432,7 +439,7 @@ export function App() {
     <TabItem value="disabled" label="Disabled" default>
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
@@ -453,7 +460,7 @@ export function App() {
     <TabItem value="readOnly" label="ReadOnly">
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
@@ -481,13 +488,13 @@ export function App() {
     <TabItem value="controlled" label="Контролируемый" default>
         ```tsx live
         import React, { useState } from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             const [value, setValue] = useState(50);
 
             return (
-                <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
                     <TextFieldSlider
                         min={0}
                         max={100}
@@ -504,7 +511,7 @@ export function App() {
     <TabItem value="uncontrolled" label="Неконтролируемый">
         ```tsx live
         import React from 'react';
-        import { TextFieldSlider } from '@salutejs/{{ package }}';
+        import { TextFieldSlider } from '@salutejs/sdds-netology';
 
         export function App() {
             return (
@@ -530,13 +537,13 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { TextFieldSlider } from '@salutejs/{{ package }}';
+import { TextFieldSlider } from '@salutejs/sdds-netology';
 
 export function App() {
     const [log, setLog] = useState('');
 
     return (
-        <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
             <TextFieldSlider
                 min={0}
                 max={100}
@@ -559,7 +566,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { TextFieldSlider } from '@salutejs/{{ package }}';
+import { TextFieldSlider } from '@salutejs/sdds-netology';
 
 export function App() {
     return (
