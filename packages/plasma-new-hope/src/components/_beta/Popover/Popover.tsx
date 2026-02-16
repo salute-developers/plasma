@@ -67,6 +67,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                 style,
                 size,
                 view,
+                portal,
                 ...rest
             },
             outerRootRef,
@@ -131,7 +132,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                     </Slot>
 
                     {opened && (
-                        <FloatingPortal>
+                        <FloatingPortal root={portal}>
                             <FloatingFocusManager context={context}>
                                 <Root
                                     ref={refs.setFloating}
