@@ -225,7 +225,7 @@ export const timePickerRoot = (
                     return;
                 }
 
-                if (isInnerOpen && stretched && event.target === timeGridRootRef?.current) {
+                if (isInnerOpen && event.target === timeGridRootRef?.current) {
                     setIsInnerOpen(false);
 
                     if (onToggle) {

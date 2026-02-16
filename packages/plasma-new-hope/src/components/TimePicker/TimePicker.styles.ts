@@ -19,7 +19,6 @@ const TimePickerGrid = component(mergedTimePickerGrid);
 
 export const StyledPopover = styled(Popover)`
     .${popoverClasses.root} {
-        overflow: hidden;
         width: 100%;
     }
 `;
@@ -130,11 +129,17 @@ export const StyledInput = styled(TextField)`
     
     ${textFieldTokens.textBeforeColor}: var(${tokens.textFieldTextBeforeColor});
     ${textFieldTokens.textAfterColor}: var(${tokens.textFieldTextAfterColor});
+
     ${textFieldTokens.textBeforeMargin}: var(${tokens.textFieldTextBeforeMargin});
     ${textFieldTokens.textAfterMargin}: var(${tokens.textFieldTextAfterMargin});
+
     ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColor}, var(${tokens.textFieldColor}));
+    ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorHover}, var(${tokens.textFieldColor}));
+    ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorActive}, var(${tokens.textFieldColor}));
+
     ${textFieldTokens.contentSlotRightColor}: var(${tokens.textFieldContentRightSlotColor}, var(${textFieldTokens.contentSlotColor}));
     ${textFieldTokens.contentSlotRightColorHover}: var(${tokens.textFieldContentRightSlotColorHover}, var(${textFieldTokens.contentSlotRightColor}));
+    ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${tokens.textFieldContentSlotRightOpacityReadOnly}, var(${textFieldTokens.contentSlotRightColor}));
 
     &.${classes.timePickerError} {
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
