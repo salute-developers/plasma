@@ -1143,6 +1143,7 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
             `,
         },
         readOnly: {
