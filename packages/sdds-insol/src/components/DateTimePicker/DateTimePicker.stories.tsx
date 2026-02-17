@@ -104,7 +104,7 @@ const meta: Meta = {
                 truthy: true,
             },
         },
-        ...disableProps(['view']),
+        ...disableProps(['view', 'offset']),
     },
 };
 
@@ -198,6 +198,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         calendarContainerWidth: 0,
         calendarContainerHeight: 0,
         stretched: false,
+        offset: [0, 6],
     },
     render: (args) => <StoryDefault {...args} />,
 };
