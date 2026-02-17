@@ -4,8 +4,8 @@ import storybookTheme from './theme';
 import { docsPage } from './docsPage';
 import {
     withTheme,
-    SDDS_SERV_LIGHT_THEME,
-    SDDS_SERV_DARK_THEME,
+    SDDS_PLATFORM_AI_DARK_THEME,
+    SDDS_PLATFORM_AI_LIGHT_THEME,
     DEFAULT_MODE,
     ON_DARK_MODE,
     ON_LIGHT_MODE,
@@ -23,10 +23,10 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme for components',
-            defaultValue: SDDS_SERV_LIGHT_THEME,
+            defaultValue: SDDS_PLATFORM_AI_LIGHT_THEME,
             toolbar: {
                 title: 'Theme',
-                items: [SDDS_SERV_LIGHT_THEME, SDDS_SERV_DARK_THEME],
+                items: [SDDS_PLATFORM_AI_LIGHT_THEME, SDDS_PLATFORM_AI_DARK_THEME],
             },
         },
         viewContainer: {
