@@ -32,6 +32,37 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${tokens.itemHeight}: 4rem;
+                ${tokens.itemBackgroundExtraOffset}: 1.25rem;
+                ${tokens.itemPaddingTop}: 1.25rem;
+                ${tokens.itemPaddingRight}: 1.125rem;
+                ${tokens.itemPaddingBottom}: 1.25rem;
+                ${tokens.itemPaddingLeft}: 1.125rem;
+                ${tokens.itemPaddingTightTop}: 1rem;
+                ${tokens.itemPaddingTightRight}: 1.125rem;
+                ${tokens.itemPaddingTightBottom}: 1rem;
+                ${tokens.itemPaddingTightLeft}: 1.125rem;
+                ${tokens.itemIndent}: 2rem;
+                ${tokens.itemBorderRadius}: 1rem;
+                ${tokens.itemTop}: 0.25rem;
+                ${tokens.itemBottom}: 0.25rem;
+                ${tokens.iconFolderMargin}: 0 0.5rem 0 0;
+                ${tokens.switcherMargin}: 0 0.5rem 0 0;
+                ${tokens.switcherMarginInverted}: 0 0 0 0.5rem;
+                ${tokens.switcherSize}: 1.5rem;
+                ${tokens.checkboxMargin}: 0 0.5rem 0 0;
+                ${tokens.checkboxSize}: 1.5rem;
+                ${tokens.checkboxInnerSize}: 1.25rem;
+                ${tokens.checkboxBorderRadius}: 0.375rem;
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+            `,
             l: css`
                 ${tokens.itemHeight}: 3.5rem;
                 ${tokens.itemBackgroundExtraOffset}: 1rem;
