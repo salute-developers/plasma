@@ -1,6 +1,6 @@
 import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { sdds_serv__dark, sdds_serv__light } from '@salutejs/sdds-themes/es/themes';
+import { sdds_platform_ai__dark, sdds_platform_ai__light } from '@salutejs/sdds-themes/es/themes';
 import { InSpacingDecorator, getGroupedCornerRadiusTokens } from '@salutejs/plasma-sb-utils';
 import type { GroupedNumberTokens } from '@salutejs/plasma-sb-utils';
 
@@ -24,8 +24,8 @@ const meta: Meta = {
 export default meta;
 
 const themes: Record<string, GroupedNumberTokens> = {
-    'sdds-serv:light': getGroupedCornerRadiusTokens(sdds_serv__light[0]),
-    'sdds-serv:dark': getGroupedCornerRadiusTokens(sdds_serv__dark[0]),
+    'sdds-platform-ai:light': getGroupedCornerRadiusTokens(sdds_platform_ai__light[0]),
+    'sdds-platform-ai:dark': getGroupedCornerRadiusTokens(sdds_platform_ai__dark[0]),
 };
 
 const StoryDemo = ({ context }) => {
