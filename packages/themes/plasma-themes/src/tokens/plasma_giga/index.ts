@@ -759,6 +759,15 @@ export const surfaceTransparentAccent = 'var(--surface-transparent-accent, #52F2
 /** Прозрачный фон для карточек */
 export const surfaceTransparentCard = 'var(--surface-transparent-card, #EDFFFD0D)';
 
+/** Фон только для чтения */
+export const surfaceReadOnly = 'var(--surface-read-only, #FFFFFF05)';
+
+/** Фон только для чтения при наведении */
+export const surfaceReadOnlyHover = 'var(--surface-read-only-hover, #FFFFFF0F)';
+
+/** Фон только для чтения при нажатии */
+export const surfaceReadOnlyActive = 'var(--surface-read-only-active, #FFFFFF00)';
+
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #121212FF)';
 
@@ -992,6 +1001,15 @@ export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent
 
 /** Прозрачный фон для карточек на темном фоне */
 export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, #EDFFFD0D)';
+
+/** Фон только для чтения на темном фоне */
+export const onDarkSurfaceReadOnly = 'var(--on-dark-surface-read-only, #FFFFFF05)';
+
+/** Фон только для чтения при наведении на темном фоне */
+export const onDarkSurfaceReadOnlyHover = 'var(--on-dark-surface-read-only-hover, #FFFFFF0F)';
+
+/** Фон только для чтения при нажатии на темном фоне */
+export const onDarkSurfaceReadOnlyActive = 'var(--on-dark-surface-read-only-active, #FFFFFF00)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F7F7F7FF)';
@@ -1228,6 +1246,15 @@ export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, #00AC7B1F)';
 
+/** Фон только для чтения на светлом фоне */
+export const onLightSurfaceReadOnly = 'var(--on-light-surface-read-only, #08080803)';
+
+/** Фон только для чтения при наведении на светлом фоне */
+export const onLightSurfaceReadOnlyHover = 'var(--on-light-surface-read-only-hover, #08080805)';
+
+/** Фон только для чтения при нажатии на светлом фоне */
+export const onLightSurfaceReadOnlyActive = 'var(--on-light-surface-read-only-active, #08080808)';
+
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F7F7F7FF)';
 
@@ -1462,6 +1489,15 @@ export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #D
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
 export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, #00AC7B1F)';
+
+/** Инвертированный фон только для чтения */
+export const inverseSurfaceReadOnly = 'var(--inverse-surface-read-only, #08080803)';
+
+/** Инвертированный фон только для чтения при наведении */
+export const inverseSurfaceReadOnlyHover = 'var(--inverse-surface-read-only-hover, #08080805)';
+
+/** Инвертированный фон только для чтения при нажатии */
+export const inverseSurfaceReadOnlyActive = 'var(--inverse-surface-read-only-active, #08080808)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #242326FF)';
@@ -3396,6 +3432,9 @@ export const viewContainer = {
         --surface-accent-minor: var(--on-dark-surface-accent-minor);
         --surface-transparent-accent: var(--on-dark-surface-transparent-accent);
         --surface-transparent-card: var(--on-dark-surface-transparent-card);
+        --surface-read-only: var(--on-dark-surface-read-only);
+        --surface-read-only-hover: var(--on-dark-surface-read-only-hover);
+        --surface-read-only-active: var(--on-dark-surface-read-only-active);
         --inverse-surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --inverse-surface-solid-primary-brightness: var(--on-light-surface-solid-primary-brightness);
@@ -3474,6 +3513,9 @@ export const viewContainer = {
         --inverse-surface-accent: var(--on-light-surface-accent);
         --inverse-surface-accent-minor: var(--on-light-surface-accent-minor);
         --inverse-surface-transparent-accent: var(--on-light-surface-transparent-accent);
+        --inverse-surface-read-only: var(--on-light-surface-read-only);
+        --inverse-surface-read-only-hover: var(--on-light-surface-read-only-hover);
+        --inverse-surface-read-only-active: var(--on-light-surface-read-only-active);
         --background-primary: var(--dark-background-primary);
         --inverse-background-primary: var(--light-background-primary);
         --overlay-soft: var(--on-dark-overlay-soft);
@@ -3828,6 +3870,9 @@ export const viewContainer = {
         --surface-accent: var(--on-light-surface-accent);
         --surface-accent-minor: var(--on-light-surface-accent-minor);
         --surface-transparent-accent: var(--on-light-surface-transparent-accent);
+        --surface-read-only: var(--on-light-surface-read-only);
+        --surface-read-only-hover: var(--on-light-surface-read-only-hover);
+        --surface-read-only-active: var(--on-light-surface-read-only-active);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --inverse-surface-solid-primary-brightness: var(--on-dark-surface-solid-primary-brightness);
@@ -3906,6 +3951,9 @@ export const viewContainer = {
         --inverse-surface-accent-minor: var(--on-dark-surface-accent-minor);
         --inverse-surface-transparent-accent: var(--on-dark-surface-transparent-accent);
         --inverse-surface-transparent-card: var(--on-dark-surface-transparent-card);
+        --inverse-surface-read-only: var(--on-dark-surface-read-only);
+        --inverse-surface-read-only-hover: var(--on-dark-surface-read-only-hover);
+        --inverse-surface-read-only-active: var(--on-dark-surface-read-only-active);
         --background-primary: var(--light-background-primary);
         --inverse-background-primary: var(--dark-background-primary);
         --overlay-soft: var(--on-light-overlay-soft);
