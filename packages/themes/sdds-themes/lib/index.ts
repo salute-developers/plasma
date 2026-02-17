@@ -45,4 +45,8 @@ generate([
         name: 'sdds_finai',
         version: 'latest',
     },
+    {
+        name: 'sdds_platform_ai',
+        version: 'latest',
+    },
 ]);
