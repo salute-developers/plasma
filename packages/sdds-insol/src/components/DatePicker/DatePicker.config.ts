@@ -55,10 +55,13 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
-                ${tokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
-                ${tokens.textFieldBorderColorHover}: var(--outline-clear);
+                ${tokens.textFieldBoxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
 
+                ${tokens.borderColor}: var(--outline-transparent-primary);
+                ${tokens.borderColorHover}: var(--outline-transparent-primary-hover);
                 ${tokens.borderColorFocus}: var(--outline-solid-secondary);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
+                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-primary-hover);
 
                 ${tokens.borderColorSuccess}: var(--outline-positive-minor);
                 ${tokens.textFieldBorderColorSuccess}: var(--outline-positive-minor);
@@ -70,14 +73,14 @@ export const config = {
                 ${tokens.textFieldBorderColorErrorFocus}: var(--outline-negative-minor-active);
                 ${tokens.textFieldBorderColorErrorHover}: var(--outline-negative-minor-hover);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-clear);
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-card);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-card);
                 ${tokens.textFieldColorError}: var(--text-negative);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-clear);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-solid-card);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-solid-card);
                 ${tokens.textFieldColorSuccess}: var(--text-positive);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-clear);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-solid-card);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-solid-card);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -283,13 +286,13 @@ export const config = {
                 ${tokens.calendarHeaderPadding}: 0 0 0 1rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
-                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
-                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h4-font-style);
-                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h4-line-height);
-                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
+                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h3-font-family);
+                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h3-font-size);
+                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h3-font-style);
+                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h3-letter-spacing);
+                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h3-line-height);
+                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h3-font-weight);
+                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h3-bold-font-weight);
 
                 ${tokens.iconButtonHeight}: 4rem;
                 ${tokens.iconButtonWidth}: 4rem;
@@ -466,13 +469,13 @@ export const config = {
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
-                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
-                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h4-font-style);
-                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h4-line-height);
-                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
+                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h3-font-family);
+                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h3-font-size);
+                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h3-font-style);
+                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h3-letter-spacing);
+                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h3-line-height);
+                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h3-font-weight);
+                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h3-bold-font-weight);
 
                 ${tokens.iconButtonHeight}: 3.5rem;
                 ${tokens.iconButtonWidth}: 3.5rem;

@@ -11,6 +11,10 @@ type DatePickerProps = ComponentProps<typeof DatePicker>;
 const { meta: META, Default } = getDatePickerStories({
     component: DatePicker,
     componentConfig: config,
+    defaultArgs: {
+        offset: [0, 6],
+    },
+    disablePropsList: ['offset'],
 });
 
 const meta: Meta<DatePickerProps> = {
