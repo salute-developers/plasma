@@ -35,6 +35,8 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
                 target="button-like"
                 size={size}
                 listWidth={listWidth}
+                flip
+                shift
             />
         </SelectPerPageRoot>
     );

@@ -6,3 +6,4 @@ export { sizeToIconSize } from './sizeToIconSize';
 export { filterItems, defaultFilter } from './filterItems';
 export { getItemId } from './getItemId';
 export { getTextValue } from './getTextValue';
+export { mapCheckedVariants } from './mapCheckedVariants';

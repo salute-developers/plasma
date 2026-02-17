@@ -219,6 +219,28 @@ export const config = {
                 ${accordionTokens.accordionItemTextLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
+            h6: css`
+                ${accordionTokens.accordionItemPaddingVertical}: 1.25rem;
+                ${accordionTokens.accordionItemPaddingHorizontal}: 1.375rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 1.375rem;
+                ${accordionTokens.accordionItemGap}: 0.25rem;
+                ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
+                ${accordionTokens.accordionGap}: 1.25rem;
+
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h6-font-family);
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h6-font-size);
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-h6-font-style);
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-h6-font-weight);
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-h6-letter-spacing);
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-h6-line-height);
+
+                ${accordionTokens.accordionItemTextFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${accordionTokens.accordionItemTextFontSize}: var(--plasma-typo-body-m-font-size);
+                ${accordionTokens.accordionItemTextFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${accordionTokens.accordionItemTextFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${accordionTokens.accordionItemTextLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-m-line-height);
+            `,
         },
     },
 };

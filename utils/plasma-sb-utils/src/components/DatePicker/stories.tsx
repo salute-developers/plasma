@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { IconPlasma, IconCalendar, IconSearch, IconArrowRight } from '@salutejs/plasma-icons';
 
-import { getBaseEvents, getIconSize, ActionButton, EventTooltipBody } from './helpers';
+import { getBaseEvents, getIconSize, EventTooltipBody } from './helpers';
 import { dateShortcuts, dateShortcutsRange } from './fixtures';
 
 const onChangeValue = action('onChangeValue');
@@ -84,7 +84,7 @@ export const createDefaultStory = (DatePicker: any) => {
     };
 };
 
-export const createRangeStory = (DatePickerRange: any, IconButton: any, EmbedIconButton: any) => {
+export const createRangeStory = (DatePickerRange: any) => {
     return ({
         dividerVariant,
         enableContentLeft,
@@ -116,7 +116,6 @@ export const createRangeStory = (DatePickerRange: any, IconButton: any, EmbedIco
         const showDefaultTextBefore = dividerVariant === 'none';
 
         const iconSize = getIconSize(size);
-        const embedIconButtonSize = appearance === 'clear' && size === 'xs' ? 's' : size;
 
         const dividerIconProps = {
             dividerIcon: showDividerIcon ? <IconArrowRight color="inherit" size={iconSize} /> : null,
@@ -142,16 +141,7 @@ export const createRangeStory = (DatePickerRange: any, IconButton: any, EmbedIco
                 appearance={appearance}
                 size={size}
                 contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
-                contentRight={
-                    enableContentRight ? (
-                        <ActionButton
-                            buttonComponent={appearance === 'clear' ? EmbedIconButton : IconButton}
-                            appearance={appearance}
-                            size={embedIconButtonSize}
-                            readOnly={rest.readOnly}
-                        />
-                    ) : undefined
-                }
+                contentRight={enableContentRight ? <IconSearch color="inherit" size={getIconSize(size)} /> : undefined}
                 firstTextfieldContentLeft={
                     enableFirstTextfieldContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined
                 }

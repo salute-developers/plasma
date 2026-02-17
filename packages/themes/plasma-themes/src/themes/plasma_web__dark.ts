@@ -582,6 +582,9 @@ export const plasma_web__dark = ([
   --outline-solid-default: #F9F9F9;
   --outline-solid-default-hover: #C7C7C7FF;
   --outline-solid-default-active: #E0E0E0FF;
+  --outline-read-only: #FFFFFF1F;
+  --outline-read-only-hover: #FFFFFF4D;
+  --outline-read-only-active: #FFFFFF12;
   --on-dark-outline-solid-primary-hover: #303030FF;
   --on-dark-outline-solid-primary-active: #212121FF;
   --on-dark-outline-solid-secondary-hover: #595959FF;
@@ -650,6 +653,9 @@ export const plasma_web__dark = ([
   --on-dark-outline-solid-default: #F9F9F9;
   --on-dark-outline-solid-default-hover: #C7C7C7FF;
   --on-dark-outline-solid-default-active: #E0E0E0FF;
+  --on-dark-outline-read-only: #FFFFFF1F;
+  --on-dark-outline-read-only-hover: #FFFFFF4D;
+  --on-dark-outline-read-only-active: #FFFFFF12;
   --on-light-outline-solid-primary-hover: #E8E8E8FF;
   --on-light-outline-solid-primary-active: #D9D9D9FF;
   --on-light-outline-solid-secondary-hover: #9E9E9EFF;
@@ -718,6 +724,9 @@ export const plasma_web__dark = ([
   --on-light-outline-solid-default: #080808;
   --on-light-outline-solid-default-hover: #FFFFFFFF;
   --on-light-outline-solid-default-active: #C7C7C7FF;
+  --on-light-outline-read-only: #0808081A;
+  --on-light-outline-read-only-hover: #0808084D;
+  --on-light-outline-read-only-active: #08080833;
   --inverse-outline-solid-primary-hover: #ABABABFF;
   --inverse-outline-solid-primary-active: #C4C4C4FF;
   --inverse-outline-solid-secondary-hover: #FFFFFFFF;
@@ -789,6 +798,9 @@ export const plasma_web__dark = ([
   --inverse-outline-solid-default: #080808;
   --inverse-outline-solid-default-hover: #FFFFFFFF;
   --inverse-outline-solid-default-active: #C7C7C7FF;
+  --inverse-outline-read-only: #0808081A;
+  --inverse-outline-read-only-hover: #0808084D;
+  --inverse-outline-read-only-active: #08080833;
   --data-yellow: #F3A912;
   --data-yellow-hover: #F4B22FFF;
   --data-yellow-active: #EDA20CFF;

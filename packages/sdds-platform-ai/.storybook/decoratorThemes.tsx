@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react';
 import { createGlobalStyle } from 'styled-components';
-import { sdds_serv__light, sdds_serv__dark } from '@salutejs/sdds-themes';
+import { sdds_platform_ai__dark, sdds_platform_ai__light } from '@salutejs/sdds-themes';
 
 import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
 
@@ -26,15 +26,15 @@ const DocumentStyle = createGlobalStyle`
 `;
 /* stylelint-enable */
 
-export const SDDS_SERV_LIGHT_THEME = 'sdds-serv:light';
-export const SDDS_SERV_DARK_THEME = 'sdds-serv:dark';
+export const SDDS_PLATFORM_AI_LIGHT_THEME = 'sdds-platform-ai:light';
+export const SDDS_PLATFORM_AI_DARK_THEME = 'sdds-platform-ai:dark';
 export const DEFAULT_MODE = 'default';
 export const ON_DARK_MODE = 'onDark';
 export const ON_LIGHT_MODE = 'onLight';
 
 const themes = {
-    [SDDS_SERV_LIGHT_THEME]: createGlobalStyle(sdds_serv__light),
-    [SDDS_SERV_DARK_THEME]: createGlobalStyle(sdds_serv__dark),
+    [SDDS_PLATFORM_AI_LIGHT_THEME]: createGlobalStyle(sdds_platform_ai__light),
+    [SDDS_PLATFORM_AI_DARK_THEME]: createGlobalStyle(sdds_platform_ai__dark),
 };
 
 type ViewType = {

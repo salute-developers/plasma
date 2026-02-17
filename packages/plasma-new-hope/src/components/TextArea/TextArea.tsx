@@ -437,6 +437,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                 ref={hiddenRef}
                                 hasContentRight={Boolean(contentRight)}
                                 value={value || uncontrolledValue || ' '}
+                                onChange={() => {}}
                                 defaultValue={defaultValue}
                                 cols={cols}
                             />

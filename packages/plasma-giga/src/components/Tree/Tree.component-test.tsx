@@ -78,6 +78,54 @@ describe('plasma-giga: Tree', () => {
         );
     };
 
+    const AsyncTree: FC<any> = () => {
+        const [treeData, setTreeData] = React.useState([
+            { title: 'Открыть для загрузки', key: '0' },
+            { title: 'Конечный элемент', key: '1', isLeaf: true },
+        ]);
+
+        const updateTreeData = (list: any, key: React.Key, children: any): any =>
+            list.map((node) => {
+                if (node.key === key) {
+                    return {
+                        ...node,
+                        children,
+                    };
+                }
+
+                if (node.children) {
+                    return {
+                        ...node,
+                        children: updateTreeData(node.children, key, children),
+                    };
+                }
+
+                return node;
+            });
+
+        const loadData = ({ key, children }) =>
+            new Promise<void>((resolve) => {
+                if (children) {
+                    resolve();
+                    return;
+                }
+
+                setTimeout(() => {
+                    setTreeData((origin) =>
+                        updateTreeData(origin, key, [{ title: 'Загруженный элемент', key: `${key}-0` }]),
+                    );
+
+                    resolve();
+                }, 100);
+            });
+
+        return (
+            <CypressTestDecorator>
+                <Tree loadData={loadData} items={treeData} />
+            </CypressTestDecorator>
+        );
+    };
+
     it('default', () => {
         cy.viewport(500, 500);
 
@@ -310,5 +358,20 @@ describe('plasma-giga: Tree', () => {
 
         cy.get('span[title=1]').should('exist');
         cy.get('span[title=999]').should('not.exist');
+    });
+
+    it('flow: async loading', () => {
+        mount(<AsyncTree />);
+
+        cy.contains('Загруженный элемент').should('not.exist');
+        cy.get('.rc-tree-switcher').first().click();
+        cy.contains('Загруженный элемент').should('not.exist');
+
+        cy.matchImageSnapshot();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+
+        cy.contains('Загруженный элемент').should('exist');
     });
 });

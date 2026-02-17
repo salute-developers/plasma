@@ -5,22 +5,17 @@ on:
     branches:
       - master
 
-concurrency:
-  # New commit on branch cancels running workflows of the same branch
-  group: ${{ github.workflow }}-${{ github.head_ref }}
-  cancel-in-progress: true
-
 jobs:
   publish:
     name: Release
     uses: ./.github/workflows/publish-common.yml
     with:
-      with-update-package-lock: true
+      with-update-package-lock: false
       auto-options: '--no-changelog'
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
-  
+
   changelog:
     runs-on: ubuntu-latest
     needs: [publish]
@@ -33,7 +28,7 @@ jobs:
           show-progress: false
           fetch-depth: 0
           ref: master
-      
+
       - name: Get associated pull request by commit
         id: data
         uses: actions/github-script@v7
@@ -45,26 +40,26 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
             });
-            
+
             const data = res?.data[0].body || '';
-            
+
             return data;
-      
+
       - name: Install dependencies
         run: |
           cd .github/actions/write-changelog
           npm ci
-      
+
       - name: Write changelog
         uses: ./.github/actions/write-changelog
         with:
           data: ${{ steps.data.outputs.result }}
-      
+
       - name: Extract branch name
         id: branch
         shell: bash
         run: echo "BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_OUTPUT
-        
+
       - name: Commit & Push changelog files
         uses: actions-js/push@master
         with:
@@ -73,7 +68,7 @@ jobs:
           branch: ${{ steps.branch.outputs.BRANCH }}
           author_name: Salute Frontend Team
           author_email: salute.developers@gmail.com
-          
+
   add_comment:
     name: 'Add comments to merged pull requests'
     runs-on: ubuntu-latest
@@ -87,7 +82,7 @@ jobs:
           show-progress: false
           fetch-depth: 10
           ref: master
-          
+
       - name: Extract commit message
         env:
           COMMIT_SHA: ${{ github.sha }}
@@ -97,7 +92,7 @@ jobs:
           echo "COMMIT_MESSAGE<<EOF" >> $GITHUB_ENV
           echo "$COMMIT_MESSAGE" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-      
+
       - name: Create comment with version
         id: comment
         uses: actions/github-script@v7
@@ -109,7 +104,7 @@ jobs:
             if (!process.env.DATA || !process.env.DATA.length) {
               console.log('Empty DATA')
             }
-            
+
             const DATA = process.env.DATA
                 .replace(/.*Bump independent versions.*\n?/g, '')
                 .replace(/.*docs.*\n?/g, '')
@@ -119,15 +114,15 @@ jobs:
                 .trim()
                 .split('\n')
                 .map(line => line.trim());
-            
+
             const comment = `
               This PR is included in version:
-            
+
               ${DATA.join('\n')}
             `
-            
+
             return comment;
-      
+
       - name: Get pull requests id's
         id: ids
         uses: actions/github-script@v7
@@ -138,23 +133,23 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
             });
-            
+
             const data = res?.data[0].body || '';
-            
+
             const prRegex = /\[PR\]\(https:\/\/github\.com\/[^\/]+\/[^\/]+\/pull\/(\d+)\)/g;
-            
+
             const matches = Array.from(data.matchAll(prRegex));
-            
+
             const ids = matches.map(match => parseInt(match[1], 10));
-            
+
             return ids;
-      
+
       - name: Add comments to pull request by ID
         uses: actions/github-script@v7
         with:
           script: |
             const listID = ${{ steps.ids.outputs.result }};
-            
+
             for (const id of listID) {
               await github.rest.issues.createComment({
                   owner: context.repo.owner,

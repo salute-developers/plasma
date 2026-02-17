@@ -23,6 +23,11 @@ export const classes = {
     readOnlyInput: 'textfield-readonly-input',
 };
 
+export const privateTokens = {
+    borderColor: '--plasma_private-textfield-border-color',
+    backgroundColor: ' --plasma_private-textfield-bg-color',
+};
+
 export const tokens = {
     color: '--plasma-textfield-color',
     colorFocus: '--plasma-textfield-color-focus',
@@ -32,6 +37,8 @@ export const tokens = {
     backgroundColor: '--plasma-textfield-bg-color',
     backgroundColorHover: '--plasma-textfield-bg-color-hover',
     backgroundColorFocus: '--plasma-textfield-bg-color-focus',
+
+    boxShadowSecondary: '--plasma-textfield-box-shadow-secondary',
 
     borderColor: '--plasma-textfield-border-color',
     borderColorHover: '--plasma-textfield-border-color-hover',

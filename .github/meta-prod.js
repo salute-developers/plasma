@@ -10,6 +10,9 @@ const commonScope = [
 ];
 
 module.exports = {
+    'plasma-homeds': {
+        scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-docs-ui', 'plasma-giga-docs'],
+    },
     'plasma-giga': {
         scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-docs-ui', 'plasma-giga-docs'],
     },
@@ -71,9 +74,6 @@ module.exports = {
     },
     'sdds-insol': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-insol-docs'],
-    },
-    'sdds-crm': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-crm-docs'],
     },
     'sdds-netology': {
         scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-netology-docs'],

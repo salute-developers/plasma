@@ -23,12 +23,13 @@ export const base = css`
     ${Input} {
         width: 100%;
         font: inherit;
-        letter-spacing: inherit;
-        line-height: inherit;
+        letter-spacing: inherit;        
+        line-height: var(${tokens.lineHeight});
     }
 
     ${InputContainer} {
         width: 100%;
+
         font-family: var(${tokens.fontFamily});
         font-size: var(${tokens.fontSize});
         font-style: var(${tokens.fontStyle});
@@ -41,6 +42,10 @@ export const base = css`
         height: var(${tokens.height});
         border-radius: var(${tokens.borderRadius});
         padding: var(${tokens.padding});
+
+        &:after {
+            border-radius: var(${tokens.borderRadius});
+        }
 
         &.${classes.hasChips} {
             padding-top: var(${tokens.paddingWithChips});
@@ -97,6 +102,8 @@ export const base = css`
     }
 
     ${StyledTextBefore}, ${StyledTextAfter} {
+        align-self: end;
+
         font-family: var(${tokens.fontFamily});
         font-size: var(${tokens.fontSize});
         font-style: var(${tokens.fontStyle});

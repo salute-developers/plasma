@@ -8,8 +8,6 @@ import { createDefaultStory } from './stories';
 type CreateStoriesProps = {
     component: any;
     componentConfig: any;
-    iconButton: any;
-    embedIconButton: any;
     title?: string;
     disablePropsList?: string[];
     defaultArgs?: {};
@@ -18,7 +16,7 @@ type CreateStoriesProps = {
 };
 
 export const getRangeStories = (config: CreateStoriesProps) => {
-    const { component, componentConfig, iconButton, embedIconButton, ...rest } = config;
+    const { component, componentConfig, ...rest } = config;
 
     const rangeConfig = getConfigVariations(componentConfig);
 
@@ -28,7 +26,7 @@ export const getRangeStories = (config: CreateStoriesProps) => {
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component, iconButton, embedIconButton);
+    const DefaultStoryComponent = createDefaultStory(component);
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,

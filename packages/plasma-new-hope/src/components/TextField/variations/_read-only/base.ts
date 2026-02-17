@@ -18,6 +18,7 @@ export const base = css`
             position: relative;
             color: var(${tokens.colorReadOnly});
             background: transparent;
+            box-shadow: none;
 
             :before {
                 position: absolute;
@@ -28,20 +29,27 @@ export const base = css`
                 bottom: 0;
                 border-radius: var(${tokens.borderRadius});
                 background-color: var(${tokens.backgroundColorReadOnly});
+                box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorReadOnly}),
+                    var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
                 opacity: var(${tokens.readOnlyOpacity});
-                box-shadow: inset 0 0 0 var(${String(tokens.borderWidth)}) var(${tokens.borderColorReadOnly});
                 z-index: -1;
             }
 
-            :hover {
+            &:hover {
                 background-color: transparent;
+                box-shadow: none;
+            }
+
+            &:focus-within {
+                background-color: transparent;
+                box-shadow: none;
             }
         }
 
         &.${classes.hasDivider} ${InputWrapper} {
             &:before {
                 top: unset;
-                background-color: var(${String(tokens.dividerColor)});
+                background-color: var(${tokens.dividerColor});
                 opacity: 1;
             }
         }
@@ -57,7 +65,7 @@ export const base = css`
         }
 
         ${TitleCaption} {
-            color: var(${tokens.titleCaptionColorReadOnly});
+            color: var(${tokens.titleCaptionColorReadOnly}, var(${tokens.titleCaptionColor}));
         }
 
         ${LeftHelper} {
@@ -65,7 +73,7 @@ export const base = css`
         }
 
         ${StyledContentLeft}:hover {
-            color: var(--private_content-slot-color);
+            color: var(${tokens.contentSlotColor});
         }
          
         ${StyledContentRight} {

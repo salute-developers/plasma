@@ -9,7 +9,7 @@ import { ratingClasses } from '../../../components/Rating';
 import { Rating } from './Rating';
 
 const views = ['default', 'accent'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs', 'h1', 'h2', 'h3', 'h4', 'h5', 'displayL', 'displayM', 'displayS'];
+const sizes = ['l', 'm', 's', 'xs', 'xxs', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'displayL', 'displayM', 'displayS'];
 const scorePrecision = [1, 2];
 const valuePlacements = ['before', 'after'];
 const iconsCount = [1, 5, 10];

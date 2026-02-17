@@ -114,8 +114,13 @@ export const tokens = {
     textFieldTextBeforeMargin: '--plasma-time-picker-textfield__before-text-margin',
     textFieldTextAfterMargin: '--plasma-time-picker-textfield__after-text-margin',
     textFieldContentSlotColor: '--plasma-time-picker-textfield__content-color',
+    textFieldContentSlotColorHover: '--plasma-time-picker-textfield__content-color-hover',
+    textFieldContentSlotColorActive: '--plasma-time-picker-textfield__content-color-active',
     textFieldContentRightSlotColor: '--plasma-time-picker-textfield__content-right-color',
     textFieldContentRightSlotColorHover: '--plasma-time-picker-textfield__content-right-color-hover',
+    textFieldContentSlotRightOpacityReadOnly: '--plasma-time-picker-textfield-right-content-opacity-readonly',
+
+    readOnlyOpacity: '--plasma-time-picker-textfield-readonly-opacity',
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-time-picker-disabled-opacity',

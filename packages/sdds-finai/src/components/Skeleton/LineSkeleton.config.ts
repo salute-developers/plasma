@@ -1,5 +1,7 @@
 import { css, skeletonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+// INFO: у нас нет централизованного, через theme, способа задавать токен для skeleton gradient
+// INFO: поэтому сейчас константа. Changelog от 12.12.2025
 export const config = {
     defaults: {
         size: 'bodyM',
@@ -8,10 +10,10 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient, var(--surface-skeleton-gradient));
+                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient, linear-gradient(270.00deg, rgb(232, 238, 242) 0.538%,rgb(255, 255, 255) 51.426%,rgb(232, 238, 242) 100%));
             `,
             lighter: css`
-                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient-lighter, var(--surface-skeleton-deep-gradient));
+                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient-lighter, linear-gradient(90.00deg, rgb(192, 203, 211) 1.601%,rgba(247, 249, 251, 0.5) 51.511%,rgb(192, 203, 211) 99.846%));
             `,
         },
         size: {
@@ -66,6 +68,10 @@ export const config = {
             h5: css`
                 ${skeletonTokens.lineHeight}: var(--plasma-typo-h5-line-height);
                 ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h5-font-size);
+            `,
+            h6: css`
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h6-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h6-font-size);
             `,
             textL: css`
                 ${skeletonTokens.lineHeight}: var(--plasma-typo-text-l-line-height);

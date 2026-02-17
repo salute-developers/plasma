@@ -5,10 +5,8 @@ import { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
 
 export type PathMapType = Map<string | number, number>;
 export type FocusedToValueMapType = Map<string, MergedDropdownNodeTransformed>;
-export type ValueToCheckedMapType = Map<
-    MergedDropdownNodeTransformed['value'],
-    boolean | 'done' | 'dot' | 'indeterminate'
->;
+export type CheckedType = boolean | 'done' | 'dot' | 'indeterminate';
+export type ValueToCheckedMapType = Map<MergedDropdownNodeTransformed['value'], CheckedType>;
 export type ValueToItemMapType = Map<MergedDropdownNodeTransformed['value'], MergedDropdownNodeTransformed>;
 export type ValueToPathMapType = Map<string, string[]>;
 

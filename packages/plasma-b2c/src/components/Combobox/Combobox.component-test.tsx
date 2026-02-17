@@ -1740,6 +1740,127 @@ describe('plasma-b2c: Combobox', () => {
         cy.get('@onChangeValue').should('have.been.calledThrice');
     });
 
+    it('prop: renderSelectionIcon', () => {
+        cy.viewport(1200, 400);
+
+        const Component = () => {
+            const [singleValue1, setSingleValue1] = useState('bogota');
+            const [singleValue2, setSingleValue2] = useState('north_america');
+            const [multipleValue1, setMultipleValue1] = useState(['bogota']);
+            const [multipleValue2, setMultipleValue2] = useState(['north_america']);
+
+            const renderSelectionIcon = (selected: boolean | 'indeterminate') => {
+                if (selected === true) {
+                    return <div style={{ width: '10px', height: '10px', borderRadius: '100%', background: 'red' }} />;
+                }
+
+                if (selected === 'indeterminate') {
+                    return <div style={{ width: '10px', height: '10px', background: 'blue' }} />;
+                }
+
+                return null;
+            };
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Combobox
+                                label="Single"
+                                alwaysOpened
+                                value={singleValue1}
+                                onChange={setSingleValue1}
+                                items={items}
+                                renderSelectionIcon={renderSelectionIcon}
+                            />
+                        </div>
+                        <div style={{ width: '300px' }}>
+                            <Combobox
+                                label="Single"
+                                alwaysOpened
+                                value={singleValue2}
+                                onChange={setSingleValue2}
+                                items={items}
+                                renderSelectionIcon={renderSelectionIcon}
+                            />
+                        </div>
+                        <div style={{ width: '300px' }}>
+                            <Combobox
+                                label="Multiple"
+                                alwaysOpened
+                                value={multipleValue1}
+                                onChange={setMultipleValue1}
+                                items={items}
+                                renderSelectionIcon={renderSelectionIcon}
+                            />
+                        </div>
+                        <div style={{ width: '300px' }}>
+                            <Combobox
+                                label="Multiple"
+                                alwaysOpened
+                                value={multipleValue2}
+                                onChange={setMultipleValue2}
+                                items={items}
+                                renderSelectionIcon={renderSelectionIcon}
+                            />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: shift', () => {
+        cy.viewport(400, 400);
+
+        const Component = () => {
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div
+                        style={{
+                            width: '200vw',
+                        }}
+                    >
+                        <div style={{ width: '300px' }}>
+                            <Combobox id="combobox" placeholder="Placeholder" items={items} shift />
+                        </div>
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click();
+        cy.window().scrollTo(200, 0);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: flip', () => {
+        cy.viewport(400, 400);
+
+        const Component = () => {
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Combobox id="combobox" placeholder="Placeholder" items={items} flip placement="top" />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('behavior: disabled unselected item', () => {
         const items = [
             {

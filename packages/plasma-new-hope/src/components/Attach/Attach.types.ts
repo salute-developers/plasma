@@ -150,4 +150,7 @@ export type AttachButtonProps = (
 ) &
     ButtonProps;
 
-export type AttachProps = InputHTMLAttributes<HTMLInputElement> & ButtonProps & BaseAttachProps & AttachButtonProps;
+export type AttachProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> &
+    ButtonProps &
+    BaseAttachProps &
+    AttachButtonProps;

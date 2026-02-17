@@ -1186,6 +1186,18 @@
                 "surfaceClearActive": {
                     "value": "#FFFFFF00",
                     "comment": "Фон поверхности/контрола без заливки"
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.02)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.06)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "onDark": {
@@ -1542,6 +1554,18 @@
                     "value": "#00000000",
                     "comment": "Фон поверхности/контрола без заливки на темном фоне",
                     "enabled": false
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.02)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.06)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "onLight": {
@@ -1898,6 +1922,18 @@
                 "surfaceTransparentDeepActive": {
                     "value": "#08080894",
                     "comment": ""
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.01)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.02)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.03)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "inverse": {
@@ -2320,6 +2356,18 @@
                 "surfaceTransparentInfoActive": {
                     "value": "#2A72F80F",
                     "comment": ""
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.01)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.02)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.03)",
+                    "comment": "Цвет состояния readOnly"
                 }
             }
         },
@@ -5012,6 +5060,18 @@
                 "surfaceTransparentDeepActive": {
                     "value": "#080808AD",
                     "comment": ""
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.01)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.02)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.03)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "onDark": {
@@ -5368,6 +5428,18 @@
                 "surfaceTransparentDeepActive": {
                     "value": "#FFFFFFAD",
                     "comment": ""
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.02)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.06)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "onLight": {
@@ -5724,6 +5796,18 @@
                 "surfaceTransparentDeepActive": {
                     "value": "#080808AD",
                     "comment": ""
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.01)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.02)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.03)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "inverse": {
@@ -6122,6 +6206,18 @@
                 "surfaceTransparentInfoActive": {
                     "value": "#2A72F829",
                     "comment": ""
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.02)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.06)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0)",
+                    "comment": "Цвет состояния readOnly"
                 }
             }
         },

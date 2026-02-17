@@ -9,6 +9,11 @@ const commonScope = [
 ];
 
 module.exports = {
+    'plasma-homeds': {
+        scope: [...commonScope, 'plasma-themes', 'plasma-new-hope'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
+        themes: 'plasma-themes',
+    },
     'plasma-giga': {
         scope: [...commonScope, 'plasma-themes', 'plasma-new-hope'],
         required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
@@ -86,11 +91,6 @@ module.exports = {
     'sdds-insol': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
         required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'sdds-themes'],
-        themes: 'sdds-themes',
-    },
-    'sdds-crm': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
         themes: 'sdds-themes',
     },
     'sdds-netology': {

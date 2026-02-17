@@ -243,4 +243,13 @@ export const config = {
             filled: css``,
         },
     },
+    intersections: [
+        {
+            gap: 'dense',
+            shape: 'default',
+            style: css`
+                ${buttonGroupTokens.buttonGroupItemsGap}: 0.25rem;
+            `,
+        },
+    ],
 };

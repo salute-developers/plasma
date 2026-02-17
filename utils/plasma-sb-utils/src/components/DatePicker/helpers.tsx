@@ -1,13 +1,4 @@
 import React, { PropsWithChildren } from 'react';
-import { IconSearch } from '@salutejs/plasma-icons';
-
-type ActionButtonProps = {
-    appearance: 'default' | 'clear';
-    buttonComponent: any;
-    view?: string;
-    size?: string;
-    readOnly?: boolean;
-};
 
 type EventNodeProps = {
     dateValue: string;
@@ -87,18 +78,4 @@ export const getBaseEvents = (
 
 export const getIconSize = (size?: string) => {
     return size === 'xs' ? 'xs' : 's';
-};
-
-export const ActionButton = ({ appearance, buttonComponent: IconButton, size, readOnly }: ActionButtonProps) => {
-    const iconButtonProps = {
-        view: appearance === 'clear' ? 'default' : 'clear',
-        disabled: readOnly,
-        size,
-    };
-
-    return (
-        <IconButton {...iconButtonProps}>
-            <IconSearch color="inherit" size={getIconSize(size)} />
-        </IconButton>
-    );
 };

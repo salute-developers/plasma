@@ -576,8 +576,8 @@ export const config = {
         },
         readOnly: {
             true: css`
+                ${tokens.textFieldReadOnlyOpacity}: 1;
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-primary);
@@ -586,7 +586,7 @@ export const config = {
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.textFieldBorderColor}: transparent;
-                ${tokens.textFieldBorderWidth}: 0;
+                ${tokens.textFieldBorderWidth}: 0.063rem;
             `,
         },
     },

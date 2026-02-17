@@ -70,6 +70,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             listWidth,
             portal,
             renderItem,
+            renderSelectionIcon,
             view,
             size,
             labelPlacement,
@@ -93,6 +94,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             onToggle,
             mode = 'default',
             chipClickArea = 'full',
+            shift,
+            flip,
             // @ts-ignore
             _offset,
             ...rest
@@ -525,6 +528,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             handleItemClick,
                             variant,
                             renderItem,
+                            renderSelectionIcon,
                             treeId,
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
@@ -611,6 +615,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             )}
                             zIndex={zIndex}
                             isInner={false}
+                            shift={shift}
+                            flip={flip}
                         >
                             <Root
                                 size={size}
@@ -674,6 +680,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                                 index={index}
                                                                 listWidth={listWidth}
                                                                 portal={listWrapperRef}
+                                                                shift={shift}
+                                                                flip={flip}
                                                             />
                                                         ))
                                                     )}

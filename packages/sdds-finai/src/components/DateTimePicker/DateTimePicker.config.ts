@@ -488,9 +488,8 @@ export const config = {
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
-                ${tokens.textFieldBorderColor}: var(--outline-solid-primary);
-                ${tokens.textFieldBorderColorHover}: var(--outline-solid-primary);
-                ${tokens.textFieldBorderColorFocus}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderWidth}: 0.125rem;
             `,
         },
     },

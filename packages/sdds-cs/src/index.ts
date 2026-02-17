@@ -66,6 +66,7 @@ export * from './components/ToastNew';
 export * from './components/Carousel';
 export * from './components/Tour';
 export * from './components/Rating';
+export * from './components/TimePicker';
 
 export * from './mixins';
 export * from './tokens';

@@ -115,6 +115,13 @@ export const config = {
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
+            h6: css`
+                ${tabsTokens.itemBorderRadius}: 0.375rem;
+                ${tabsTokens.itemPadding}: 0rem;
+                ${tabsTokens.itemContentGap}: 0.625rem;
+
+                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
+            `,
             h5: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
                 ${tabsTokens.itemPadding}: 0rem;
