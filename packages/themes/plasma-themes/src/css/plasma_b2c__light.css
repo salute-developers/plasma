@@ -254,6 +254,9 @@
   --surface-clear-active: #FFFFFF00;
   --surface-transparent-deep-hover: #0808088F;
   --surface-transparent-deep-active: #080808AD;
+  --surface-read-only: #08080803;
+  --surface-read-only-hover: #08080805;
+  --surface-read-only-active: #08080808;
   --on-dark-surface-solid-primary: #171717;
   --on-dark-surface-solid-primary-brightness: #262626FF;
   --on-dark-surface-solid-secondary: #262626;
@@ -332,6 +335,9 @@
   --on-dark-surface-negative-active: #FF142CFF;
   --on-dark-surface-transparent-deep-hover: #FFFFFF8F;
   --on-dark-surface-transparent-deep-active: #FFFFFFAD;
+  --on-dark-surface-read-only: #FFFFFF05;
+  --on-dark-surface-read-only-hover: #FFFFFF0F;
+  --on-dark-surface-read-only-active: #FFFFFF00;
   --on-light-surface-solid-default: #080808;
   --on-light-surface-solid-primary: #F5F5F5;
   --on-light-surface-solid-primary-brightness: #FFFFFFFF;
@@ -410,6 +416,9 @@
   --on-light-surface-negative-active: #ED0C23FF;
   --on-light-surface-transparent-deep-hover: #0808088F;
   --on-light-surface-transparent-deep-active: #080808AD;
+  --on-light-surface-read-only: #08080803;
+  --on-light-surface-read-only-hover: #08080805;
+  --on-light-surface-read-only-active: #08080808;
   --inverse-surface-solid-default: #FFFFFFFF;
   --inverse-surface-solid-primary: #171717;
   --inverse-surface-solid-primary-brightness: #262626FF;
@@ -485,6 +494,9 @@
   --inverse-surface-transparent-info: #2A72F81F;
   --inverse-surface-transparent-info-hover: #2A72F80A;
   --inverse-surface-transparent-info-active: #2A72F829;
+  --inverse-surface-read-only: #FFFFFF05;
+  --inverse-surface-read-only-hover: #FFFFFF0F;
+  --inverse-surface-read-only-active: #FFFFFF00;
   --background-primary: #F9F9F9;
   --background-primary-brightness: #F9F9F9FF;
   --dark-background-primary: #080808;
