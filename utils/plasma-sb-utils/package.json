@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-sb-utils",
-  "version": "0.216.1-next-insol.0",
+  "version": "0.216.2-next-insol.0",
   "description": "Code shared between ui libraries.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",

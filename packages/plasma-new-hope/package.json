@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-new-hope",
-  "version": "0.351.1-next-insol.0",
+  "version": "0.351.2-next-insol.0",
   "description": "Salute Design System blueprint",
   "exports": {
     ".": {
@@ -93,7 +93,7 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-cy-utils": "0.146.1-next-insol.0",
-    "@salutejs/plasma-sb-utils": "0.216.1-next-insol.0",
+    "@salutejs/plasma-sb-utils": "0.216.2-next-insol.0",
     "@salutejs/plasma-themes": "0.40.1-next-insol.0",
     "@types/lodash": "^4.14.191",
     "@types/lodash.chunk": "4.2.9",
