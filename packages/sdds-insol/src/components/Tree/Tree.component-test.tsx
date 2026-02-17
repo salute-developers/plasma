@@ -245,11 +245,12 @@ describe('sdds-insol: Tree', () => {
     });
 
     it('prop: size', () => {
-        cy.viewport(1000, 1000);
+        cy.viewport(1500, 1200);
 
         mount(
             <CypressTestDecorator>
-                <div style={{ display: 'grid', gridTemplateColumns: '500px 500px', gridRow: '500px 500px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '500px 500px 500px', gridRow: '700px 500px' }}>
+                    <Tree items={treeData} checkable defaultExpandAll size="xl" />
                     <Tree items={treeData} checkable defaultExpandAll size="l" />
                     <Tree items={treeData} checkable defaultExpandAll size="m" />
                     <Tree items={treeData} checkable defaultExpandAll size="s" />
