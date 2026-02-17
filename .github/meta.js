@@ -93,11 +93,6 @@ module.exports = {
         required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'sdds-themes'],
         themes: 'sdds-themes',
     },
-    'sdds-crm': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
-        themes: 'sdds-themes',
-    },
     'sdds-netology': {
         scope: [...commonScope, 'plasma-themes', 'plasma-new-hope'],
         required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
