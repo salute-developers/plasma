@@ -23,6 +23,7 @@ export const StyledInput = styled(TextField)`
     
     ${textFieldTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
     ${textFieldTokens.borderRadius}: var(${tokens.textFieldBorderRadius});
+    ${textFieldTokens.boxShadowSecondary}: var(${tokens.textFieldBoxShadowSecondary});
     ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColor});
     ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorHover});
     ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
