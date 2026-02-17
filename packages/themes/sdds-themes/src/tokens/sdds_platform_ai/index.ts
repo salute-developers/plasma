@@ -3846,8 +3846,8 @@ export const viewContainer = {
         --text-primary: var(--on-light-text-primary);
         --text-secondary: var(--on-light-text-secondary);
         --text-tertiary: var(--on-light-text-tertiary);
-        --text-accent: var(--on-light-text-accent);
         --text-promo: var(--on-light-text-promo);
+        --text-accent: var(--on-light-text-accent);
         --inverse-text-primary-hover: var(--on-dark-text-primary-hover);
         --inverse-text-primary-active: var(--on-dark-text-primary-active);
         --inverse-text-primary: var(--on-dark-text-primary);
