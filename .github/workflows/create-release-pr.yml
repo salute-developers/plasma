@@ -10,6 +10,9 @@ on:
             from-tag:
                 description: ''
                 required: false
+            to-tag:
+                description: ''
+                required: true
 
 jobs:
     release-pr:
@@ -43,6 +46,8 @@ jobs:
               uses: mikepenz/release-changelog-builder-action@v4.1.0
               with:
                   fromTag: ${{ github.event.inputs.from-tag || env.FROM_TAG }}
+                  toTag: ${{ github.event.inputs.to-tag }}
+                  ignorePreReleases: true
                   configuration: './.github/changelog-builder-config.json'
 
             - name: List pull request
