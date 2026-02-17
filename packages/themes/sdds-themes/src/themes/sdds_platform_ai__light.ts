@@ -13,8 +13,8 @@ export const sdds_platform_ai__light = ([
   --text-paragraph-hover: #1717177A;
   --text-paragraph-active: #171717A3;
   --text-paragraph: #171717CC;
-  --text-accent-hover: #A0F8DFFF;
-  --text-accent-active: #2EEFB9FF;
+  --text-accent-hover: #E2FDAFFF;
+  --text-accent-active: #B6FB37FF;
   --text-accent-minor-hover: #47DC62FF;
   --text-accent-minor-active: #21B03CFF;
   --text-promo-hover: #A0F8DFFF;
@@ -47,8 +47,8 @@ export const sdds_platform_ai__light = ([
   --text-primary: #260F42FF;
   --text-secondary: #260F42B3;
   --text-tertiary: #260F4266;
-  --text-accent: #52F2C5;
   --text-promo: #52F2C5;
+  --text-accent: #C5FC5F;
   --on-dark-text-primary-hover: #F5F5F593;
   --on-dark-text-primary-active: #F5F5F5C4;
   --on-dark-text-primary: #F5F5F5F5;

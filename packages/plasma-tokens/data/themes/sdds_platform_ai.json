@@ -5856,11 +5856,11 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccentHover": {
-                    "value": "#A0F8DFFF",
+                    "value": "#E2FDAFFF",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentActive": {
-                    "value": "#2EEFB9FF",
+                    "value": "#B6FB37FF",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentGradientHover": {
@@ -6113,14 +6113,14 @@
                     "value": "#260f4266",
                     "comment": "Третичный цвет текста"
                 },
-                "textAccent": {
-                    "value": "[general.arctic.200]",
-                    "comment": "Акцентный цвет"
-                },
                 "textPromo": {
                     "value": "[general.arctic.200]",
                     "comment": "Промо цвет",
                     "enabled": true
+                },
+                "textAccent": {
+                    "value": "[general.spring.150]",
+                    "comment": "Акцентный цвет"
                 }
             },
             "onDark": {
