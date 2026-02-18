@@ -30,6 +30,10 @@ export const base = css`
     &:focus-within:not([readonly]) .${styledTextAreaWrapper} {
         background-color: var(${tokens.inputBackgroundColorFocus});
         box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.inputBorderColorFocus});
+
+        &:after {
+            box-shadow: var(${tokens.boxShadowSecondary}, inset 0 0 0 0 transparent);
+        }
     }
 
     &:focus-within:not([readonly]) .${styledContainer} {

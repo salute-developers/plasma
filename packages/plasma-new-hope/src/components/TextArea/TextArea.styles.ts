@@ -106,6 +106,13 @@ export const StyledTextAreaWrapper = styled.div<{
 
     border-radius: ${({ hasHelper }) =>
         hasHelper ? `var(${tokens.borderRadiusWithHelpers})` : `var(${tokens.borderRadius})`};
+
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        inset: 0;
+    }
 `;
 
 export const StyledContentWrapper = styled.div<{ hasHeader: boolean }>`
