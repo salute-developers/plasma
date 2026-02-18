@@ -680,6 +680,7 @@ export const iconSectionsSet = {
         trafficLightOutline: 'TrafficLightOutline',
         bankFill: 'BankFill',
         bankOutline: 'BankOutline',
+        curlyBrace: 'CurlyBrace',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
