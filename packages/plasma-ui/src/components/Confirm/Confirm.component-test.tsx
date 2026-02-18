@@ -256,12 +256,12 @@ describe('Confirm', () => {
                 </CypressTestDecorator>,
             );
 
-            cy.get('#show').click();
+            cy.get('#show').click({ force: true });
 
             cy.contains(dismissText).click();
             cy.get('@onDismissAction').should('have.been.calledOnce');
 
-            cy.get('#show').click();
+            cy.get('#show').click({ force: true });
 
             cy.contains(dismissText).click();
             cy.get('@onDismissAction').should('have.been.calledTwice');
