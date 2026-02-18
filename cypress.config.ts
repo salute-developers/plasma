@@ -54,6 +54,7 @@ export default defineConfig({
             bundler: 'webpack',
             webpackConfig: getWebpackConfig(),
         },
+        justInTimeCompile: false,
         setupNodeEvents,
     },
     env: {
