@@ -4,6 +4,7 @@ import { css } from '@linaria/core';
 import type { RootProps } from '../../engines/types';
 
 import { base as viewCSS } from './_view/base';
+import { base as sizeCSS } from './_size/base';
 import { base as disabledCSS } from './_disabled/base';
 import { base as focusedCSS } from './_focused/base';
 import { LinkProps } from './Link.types';
@@ -48,6 +49,9 @@ export const linkConfig = {
     variations: {
         view: {
             css: viewCSS,
+        },
+        size: {
+            css: sizeCSS,
         },
         disabled: {
             css: disabledCSS,

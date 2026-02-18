@@ -20,6 +20,7 @@ export const tokens = {
     descriptionLineHeight: '--plasma-radiobox-description-line-height',
 
     fillColor: '--plasma-radiobox-fill-color',
+    labelColor: '--plasma-radiobox-label-color',
     descriptionColor: '--plasma-radiobox-description-color',
     triggerBorderWidth: '--plasma-radiobox-trigger-border-width',
     triggerBorderColor: '--plasma-radiobox-trigger-border-color',
