@@ -10,6 +10,10 @@ type TextAreaProps = ComponentProps<typeof TextArea>;
 const { meta: META, Default } = getTextAreaStories({
     component: TextArea,
     componentConfig: config,
+    defaultArgs: {
+        size: 'xl',
+    },
+    disablePropsList: ['appearance', 'hasDivider', 'clear'],
 });
 
 const meta: Meta<TextAreaProps> = {
