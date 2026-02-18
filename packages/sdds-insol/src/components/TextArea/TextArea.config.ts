@@ -3,18 +3,20 @@ import { css, textAreaTokens as tokens } from '@salutejs/plasma-new-hope/styled-
 export const config = {
     defaults: {
         view: 'default',
+        size: 'xl',
         focused: 'true',
     },
     variations: {
         view: {
             default: css`
-                ${tokens.borderColor}: var(--outline-clear);
+                ${tokens.borderColor}: var(--outline-transparent-primary);
                 ${tokens.borderColorFocus}: var(--outline-solid-secondary);
-                ${tokens.borderColorHover}: var(--outline-clear);
-                ${tokens.backgroundColor}: var(--surface-transparent-card);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-card-hover);
-                ${tokens.backgroundColorActive}: var(--surface-transparent-card-active);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
+                ${tokens.borderColorHover}: var(--outline-transparent-primary-hover);
+
+                ${tokens.backgroundColor}: var(--surface-solid-card);
+                ${tokens.backgroundColorHover}: var(--surface-solid-card);
+                ${tokens.backgroundColorActive}: var(--surface-solid-card);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-card);
 
                 ${tokens.labelOuterColor}: var(--text-primary);
                 ${tokens.inputColor}: var(--text-primary);
@@ -44,16 +46,17 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
-                ${tokens.boxShadow}: var(--shadow-down-soft-s);
+                ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
             `,
             warning: css`
                 ${tokens.borderColor}: var(--outline-warning-minor);
                 ${tokens.borderColorFocus}: var(--outline-warning-minor-active);
                 ${tokens.borderColorHover}: var(--outline-warning-minor-hover);
-                ${tokens.backgroundColor}: var(--surface-transparent-card);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-card-hover);
-                ${tokens.backgroundColorActive}: var(--surface-transparent-card-active);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
+
+                ${tokens.backgroundColor}: var(--surface-solid-card);
+                ${tokens.backgroundColorHover}: var(--surface-solid-card);
+                ${tokens.backgroundColorActive}: var(--surface-solid-card);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-card);
 
                 ${tokens.labelOuterColor}: var(--text-primary);
                 ${tokens.inputColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
@@ -83,16 +86,17 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
-                ${tokens.boxShadow}: var(--shadow-down-soft-s);
+                ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
             `,
             negative: css`
                 ${tokens.borderColor}: var(--outline-negative-minor);
                 ${tokens.borderColorFocus}: var(--outline-negative-minor-active);
                 ${tokens.borderColorHover}: var(--outline-negative-minor-hover);
-                ${tokens.backgroundColor}: var(--surface-transparent-card);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-card-hover);
-                ${tokens.backgroundColorActive}: var(--surface-transparent-card-active);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-card);
+
+                ${tokens.backgroundColor}: var(--surface-solid-card);
+                ${tokens.backgroundColorHover}: var(--surface-solid-card);
+                ${tokens.backgroundColorActive}: var(--surface-solid-card);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-card);
 
                 ${tokens.labelOuterColor}: var(--text-primary);
                 ${tokens.inputColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
@@ -122,7 +126,7 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
-                ${tokens.boxShadow}: var(--shadow-down-soft-s);
+                ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
             `,
         },
         size: {
@@ -163,12 +167,12 @@ export const config = {
                 ${tokens.labelInnerTopHelper}: -0.313rem;
                 ${tokens.labelInnerMarginBottom}: 0.25rem;
 
-                ${tokens.inputFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.inputFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.inputFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.inputFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.inputLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.inputLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.inputFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.inputLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.inputLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -237,12 +241,12 @@ export const config = {
                 ${tokens.labelInnerTopHelper}: -0.313rem;
                 ${tokens.labelInnerMarginBottom}: 0.125rem;
 
-                ${tokens.inputFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.inputFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.inputFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.inputFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.inputLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.inputLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.inputFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.inputLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.inputLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -562,35 +566,43 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.borderColor}: transparent;
-                ${tokens.borderColorHover}: transparent;
-                ${tokens.borderColorFocus}: transparent;
-                ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.boxShadow}: none;
                 ${tokens.disabledOpacity}: 0.4;
-                ${tokens.inputColorDisabled}: var(--text-secondary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+
+                ${tokens.borderColor}: var(--outline-transparent-clear);
+                ${tokens.borderColorHover}: var(--outline-transparent-clear);
+                ${tokens.borderColorFocus}: var(--outline-transparent-clear);
+
+                ${tokens.backgroundColor}: var(--surface-transparent-primary);
+                ${tokens.helpersBackgroundColor}: var(--surface-transparent-primary);
+
+                ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.inputColorDisabled}: var(--text-primary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
-                ${tokens.boxShadow}: inset 0 0 0 0 transparent;
+                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
             `,
         },
         readOnly: {
             true: css`
                 ${tokens.readOnlyOpacity}: 1;
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
+
+                ${tokens.borderColor}: var(--outline-transparent-clear);
+                ${tokens.borderColorHover}: var(--outline-transparent-clear);
+                ${tokens.borderColorFocus}: var(--outline-transparent-clear);
+
+                ${tokens.inputBackgroundColor}: var(--surface-solid-secondary);
                 ${tokens.backgroundColorReadOnly}: var(--surface-solid-secondary);
-                ${tokens.inputColorReadOnly}: var(--text-primary);
+                ${tokens.helpersBackgroundColor}: var(--surface-solid-secondary);
 
                 ${tokens.leftHelperColor}: var(--text-secondary);
-                ${tokens.inputBackgroundColor}: var(--surface-solid-secondary);
-                ${tokens.helpersBackgroundColor}: var(--surface-solid-secondary);
-                ${tokens.borderColor}: transparent;
-                ${tokens.borderColorHover}: transparent;
-                ${tokens.borderColorFocus}: transparent;
+                ${tokens.inputColorReadOnly}: var(--text-primary);
                 ${tokens.inputColor}: var(--text-primary);
                 ${tokens.inputColorFocus}: var(--text-primary);
                 ${tokens.placeholderColorFocus}: var(--text-primary);
                 ${tokens.labelOuterColor}: var(--text-primary);
-                ${tokens.boxShadow}: inset 0 0 0 0 transparent;
+
+                ${tokens.boxShadow}: none;
             `,
         },
     },
