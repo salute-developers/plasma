@@ -28,7 +28,8 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
      */
     size?: keyof typeof sizes;
     /**
-     * Статус компонента: заполнен успешно / с ошибкой.
+     * Статус компонента: заполнен успешно / с предупреждением / с ошибкой.
+     * @deprecated использовать вместо этого свойство `view`
      */
     status?: keyof typeof statuses;
     /**
