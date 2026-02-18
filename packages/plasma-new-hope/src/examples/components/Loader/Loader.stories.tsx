@@ -69,7 +69,6 @@ const meta: Meta<StoryPropsDefault> = {
             control: {
                 type: 'boolean',
             },
-            description: 'Наличие overlay на фоне',
         },
         overlayColor: {
             control: {
@@ -84,7 +83,6 @@ const meta: Meta<StoryPropsDefault> = {
             control: {
                 type: 'boolean',
             },
-            description: 'Применить blur эффект к overlay',
             if: {
                 arg: 'hasOverlay',
                 eq: true,
@@ -94,10 +92,23 @@ const meta: Meta<StoryPropsDefault> = {
             control: {
                 type: 'text',
             },
-            description: 'Z-index для loader и overlay',
             if: {
                 arg: 'hasOverlay',
                 eq: true,
+            },
+        },
+        text: {
+            control: {
+                type: 'text',
+            },
+        },
+        textPosition: {
+            options: ['bottom', 'right'],
+            control: {
+                type: 'radio',
+            },
+            if: {
+                arg: 'text',
             },
         },
     },
@@ -164,6 +175,51 @@ export const Default: StoryObj<StoryPropsDefault> = {
         hasOverlay: false,
         type: 'spinner',
         hasTrack: true,
+        text: '',
+        textPosition: 'bottom',
+    },
+    render: ({ ...args }) => {
+        return <LoaderContent {...args} />;
+    },
+};
+
+export const WithTextBottom: StoryObj<StoryPropsDefault> = {
+    args: {
+        view: 'default',
+        spinnerSize: 'm',
+        hasOverlay: false,
+        type: 'spinner',
+        text: 'Загрузка данных...',
+        textPosition: 'bottom',
+    },
+    render: ({ ...args }) => {
+        return <LoaderContent {...args} />;
+    },
+};
+
+export const WithTextRight: StoryObj<StoryPropsDefault> = {
+    args: {
+        view: 'default',
+        spinnerSize: 's',
+        hasOverlay: false,
+        type: 'spinner',
+        text: 'Загрузка...',
+        textPosition: 'right',
+    },
+    render: ({ ...args }) => {
+        return <LoaderContent {...args} />;
+    },
+};
+
+export const WithTextProgress: StoryObj<StoryPropsDefault> = {
+    args: {
+        view: 'default',
+        progressSize: 'l',
+        hasOverlay: false,
+        type: 'progress',
+        hasTrack: true,
+        text: 'Обработка файлов',
+        textPosition: 'bottom',
     },
     render: ({ ...args }) => {
         return <LoaderContent {...args} />;
