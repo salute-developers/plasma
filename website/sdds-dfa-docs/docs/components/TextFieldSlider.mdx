@@ -1,0 +1,587 @@
+---
+id: TextFieldSlider
+title: TextFieldSlider
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# TextFieldSlider
+<Description name="TextFieldSlider" />
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <TextFieldSlider
+                min={0}
+                max={100}
+                step={1}
+                defaultValue={50}
+                hasScale
+            />
+        </div>
+    );
+}
+```
+
+## Управление внешним видом
+
+Внешний вид компонента зависит от свойств `view` и `size`:
+
+<Tabs>
+    <TabItem value="view" label="View" default>
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <TextFieldSlider
+                        view="default"
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                    />
+                    <TextFieldSlider
+                        view="positive"
+                        min={0}
+                        max={100}
+                        defaultValue={75}
+                        hasScale
+                    />
+                    <TextFieldSlider
+                        view="warning"
+                        min={0}
+                        max={100}
+                        defaultValue={25}
+                        hasScale
+                    />
+                    <TextFieldSlider
+                        view="negative"
+                        min={0}
+                        max={100}
+                        defaultValue={25}
+                        hasScale
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <TextFieldSlider
+                        size="xs"
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                    />
+                    <TextFieldSlider
+                        size="s"
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                    />
+                    <TextFieldSlider
+                        size="m"
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                    />
+                    <TextFieldSlider
+                        size="l"
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Шкала значений
+
+С помощью свойства `hasScale` можно отобразить минимальное и максимальное значения под слайдером:
+
+```tsx live
+import React from 'react';
+import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <TextFieldSlider
+                min={0}
+                max={100}
+                defaultValue={50}
+                titleCaption="Без шкалы"
+            />
+            <TextFieldSlider
+                min={0}
+                max={100}
+                defaultValue={50}
+                hasScale
+                titleCaption="Со шкалой"
+            />
+        </div>
+    );
+}
+```
+
+## Шаг изменения
+
+С помощью свойства `step` можно задать шаг изменения значения:
+
+```tsx live
+import React from 'react';
+import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <TextFieldSlider
+                min={0}
+                max={10000}
+                step={500}
+                defaultValue={5000}
+                hasScale
+                titleCaption="Шаг 500"
+            />
+            <TextFieldSlider
+                min={0}
+                max={100}
+                step={0.1}
+                defaultValue={50.5}
+                decimalScale={1}
+                hasScale
+                titleCaption="Шаг 0.1"
+            />
+        </div>
+    );
+}
+```
+
+## Форматирование чисел
+
+Компонент поддерживает форматирование чисел с настройкой разделителей, количества знаков после запятой и стиля группировки:
+
+<Tabs>
+    <TabItem value="decimalScale" label="Знаки после запятой" default>
+        С помощью свойства `decimalScale` можно указать количество знаков после запятой:
+
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        step={0.01}
+                        defaultValue={50.555}
+                        decimalScale={2}
+                        hasScale
+                        titleCaption="2 знака после запятой"
+                    />
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        step={0.001}
+                        defaultValue={50.555}
+                        decimalScale={3}
+                        hasScale
+                        titleCaption="3 знака после запятой"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="thousandSeparator" label="Разделитель тысяч">
+        С помощью свойства `thousandSeparator` можно настроить разделитель тысяч:
+
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <TextFieldSlider
+                        min={0}
+                        max={100000}
+                        step={1000}
+                        defaultValue={50000}
+                        thousandSeparator=" "
+                        hasScale
+                        titleCaption="Пробел"
+                    />
+                    <TextFieldSlider
+                        min={0}
+                        max={100000}
+                        step={1000}
+                        defaultValue={50000}
+                        thousandSeparator=","
+                        hasScale
+                        titleCaption="Запятая"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="fixedDecimalScale" label="Фиксированные нули">
+        С помощью свойства `fixedDecimalScale` можно добавить нули до заданного количества знаков после запятой:
+
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        decimalScale={2}
+                        fixedDecimalScale
+                        hasScale
+                        titleCaption="50.00"
+                    />
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        defaultValue={50.5}
+                        decimalScale={2}
+                        fixedDecimalScale
+                        hasScale
+                        titleCaption="50.50"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Ручка слайдера
+
+С помощью свойства `hasPointer` можно управлять отображением ручки слайдера:
+
+```tsx live
+import React from 'react';
+import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <TextFieldSlider
+                min={0}
+                max={100}
+                defaultValue={50}
+                hasPointer={true}
+                hasScale
+                titleCaption="С ручкой (по умолчанию)"
+            />
+            <TextFieldSlider
+                min={0}
+                max={100}
+                defaultValue={50}
+                hasPointer={false}
+                hasScale
+                titleCaption="Без ручки"
+            />
+        </div>
+    );
+}
+```
+
+## Дополнительный контент
+
+Компонент поддерживает добавление различного контента к полю ввода:
+
+<Tabs>
+    <TabItem value="titleCaption" label="Подпись" default>
+        С помощью свойства `titleCaption` можно добавить подпись к компоненту:
+
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                        titleCaption="Объём"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="textBeforeAfter" label="Вспомогательный текст">
+        С помощью свойств `textBefore` и `textAfter` можно добавить вспомогательный текст:
+
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                        textBefore="от"
+                        textAfter="до"
+                        style={{ width: '222px' }}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="contentLeftRight" label="Слоты контента">
+        С помощью свойств `contentLeft` и `contentRight` можно добавить произвольный контент:
+
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+        import { IconPlasma, IconClose } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                        contentLeft={<IconPlasma size="s" color="inherit" />}
+                        contentRight={<IconClose size="s" color="inherit" />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Индикаторы обязательности
+
+Компонент поддерживает отображение индикаторов обязательности или опциональности:
+
+```tsx live
+import React from 'react';
+import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <TextFieldSlider
+                min={0}
+                max={100}
+                defaultValue={50}
+                hasScale
+                required
+                hasRequiredIndicator
+                titleCaption="Обязательное поле"
+            />
+            <TextFieldSlider
+                min={0}
+                max={100}
+                defaultValue={50}
+                hasScale
+                optional
+                optionalText="опционально"
+                titleCaption="Опциональное поле"
+            />
+        </div>
+    );
+}
+```
+
+## Состояния
+
+Компонент поддерживает различные состояния с помощью свойств `disabled` и `readOnly`:
+
+<Tabs>
+    <TabItem value="disabled" label="Disabled" default>
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                        disabled
+                        titleCaption="Неактивный компонент"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="readOnly" label="ReadOnly">
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        hasScale
+                        readOnly
+                        titleCaption="Только для чтения"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Контролируемый режим
+
+Компонент может работать как в контролируемом, так и в неконтролируемом режиме:
+
+<Tabs>
+    <TabItem value="controlled" label="Контролируемый" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            const [value, setValue] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        value={value}
+                        onChange={(event, values) => setValue(values.raw)}
+                        hasScale
+                        titleCaption={`Текущее значение: ${value}`}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="uncontrolled" label="Неконтролируемый">
+        ```tsx live
+        import React from 'react';
+        import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        defaultValue={50}
+                        onChange={(event, values) => console.log('Value changed:', values)}
+                        hasScale
+                        titleCaption="Неконтролируемый компонент"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Обработка событий
+
+Компонент предоставляет различные колбэки для обработки изменений:
+
+```tsx live
+import React, { useState } from 'react';
+import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [log, setLog] = useState('');
+
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <TextFieldSlider
+                min={0}
+                max={100}
+                defaultValue={50}
+                hasScale
+                onChange={(event, values) => setLog(`onChange: ${values.formatted}`)}
+                onChangeTextField={(values) => setLog(`onChangeTextField: ${values.formatted}`)}
+                onChangeSlider={(values) => setLog(`onChangeSlider: ${values.formatted}`)}
+                titleCaption="Измените значение"
+            />
+            <div>Последнее событие: {log}</div>
+        </div>
+    );
+}
+```
+
+## Валидация
+
+Компонент автоматически валидирует введенные значения. При попытке ввести значение больше максимального или меньше минимального, отображается анимация ошибки и значение возвращается к границе диапазона:
+
+```tsx live
+import React from 'react';
+import { TextFieldSlider } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div>
+            <TextFieldSlider
+                min={10}
+                max={90}
+                defaultValue={50}
+                hasScale
+                titleCaption="Попробуйте ввести 5 или 100"
+            />
+        </div>
+    );
+}
+```
+
+## Таблица свойств
+<PropsTable name="TextFieldSlider" exclude={['css']} />

@@ -11,12 +11,15 @@ export const mappingOverride = `
 
     ${buttonTokens.buttonColor}: var(${tokens.iconButtonColor});
     ${buttonTokens.buttonBackgroundColor}: var(${tokens.iconButtonBackgroundColor});
+    ${buttonTokens.buttonBorderColor}: var(${tokens.iconButtonBorderColor});
 
     ${buttonTokens.buttonColorHover}: var(${tokens.iconButtonColorHover});
     ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.iconButtonBackgroundColorHover});
+    ${buttonTokens.buttonBorderColorHover}: var(${tokens.iconButtonBorderColorHover});
 
     ${buttonTokens.buttonColorActive}: var(${tokens.iconButtonColorActive});
     ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.iconButtonBackgroundColorActive});
+    ${buttonTokens.buttonBorderColorActive}: var(${tokens.iconButtonBorderColorActive});
 
     ${buttonTokens.buttonLoadingBackgroundColor}: var(${tokens.iconButtonLoadingBackgroundColor});
 

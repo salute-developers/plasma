@@ -236,14 +236,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -256,14 +250,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -542,14 +530,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -562,14 +544,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -832,14 +808,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -852,14 +822,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1154,14 +1118,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1174,14 +1132,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1647,14 +1599,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -1667,14 +1613,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -1739,6 +1679,18 @@
                 "surfaceTransparentCard": {
                     "value": "#edfffd0d",
                     "comment": "Прозрачный фон для карточек"
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.02)",
+                    "comment": "Фон только для чтения"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.06)",
+                    "comment": "Фон только для чтения при наведении"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0)",
+                    "comment": "Фон только для чтения при нажатии"
                 }
             },
             "onDark": {
@@ -2153,14 +2105,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2173,14 +2119,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2245,6 +2185,18 @@
                 "surfaceTransparentCard": {
                     "value": "#edfffd0d",
                     "comment": "Прозрачный фон для карточек на темном фоне"
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.02)",
+                    "comment": "Фон только для чтения на темном фоне"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.06)",
+                    "comment": "Фон только для чтения при наведении на темном фоне"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0)",
+                    "comment": "Фон только для чтения при нажатии на темном фоне"
                 }
             },
             "onLight": {
@@ -2659,14 +2611,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2679,14 +2625,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2751,6 +2691,18 @@
                 "surfaceTransparentAccent": {
                     "value": "#00ac7b1f",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.01)",
+                    "comment": "Фон только для чтения на светлом фоне"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.02)",
+                    "comment": "Фон только для чтения при наведении на светлом фоне"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.03)",
+                    "comment": "Фон только для чтения при нажатии на светлом фоне"
                 }
             },
             "inverse": {
@@ -3165,14 +3117,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3185,14 +3131,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3257,6 +3197,18 @@
                 "surfaceTransparentAccent": {
                     "value": "#00ac7b1f",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.01)",
+                    "comment": "Инвертированный фон только для чтения"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.02)",
+                    "comment": "Инвертированный фон только для чтения при наведении"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.03)",
+                    "comment": "Инвертированный фон только для чтения при нажатии"
                 }
             }
         },
@@ -5311,14 +5263,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5331,14 +5277,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5617,14 +5557,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5637,14 +5571,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5923,14 +5851,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -5943,14 +5865,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6229,14 +6145,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6249,14 +6159,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6722,14 +6626,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -6742,14 +6640,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -6814,6 +6706,18 @@
                 "surfaceTransparentAccent": {
                     "value": "#00ac7b1f",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.01)",
+                    "comment": "Фон только для чтения"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.02)",
+                    "comment": "Фон только для чтения при наведении"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.03)",
+                    "comment": "Фон только для чтения при нажатии"
                 }
             },
             "onDark": {
@@ -7228,14 +7132,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7248,14 +7146,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7320,6 +7212,18 @@
                 "surfaceTransparentCard": {
                     "value": "#edfffd0d",
                     "comment": "Прозрачный фон для карточек на темном фоне"
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.02)",
+                    "comment": "Фон только для чтения на темном фоне"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.06)",
+                    "comment": "Фон только для чтения при наведении на темном фоне"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0)",
+                    "comment": "Фон только для чтения при нажатии на темном фоне"
                 }
             },
             "onLight": {
@@ -7734,14 +7638,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7754,14 +7652,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7826,6 +7718,18 @@
                 "surfaceAccentMinor": {
                     "value": "[general.arctic.100]",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.01)",
+                    "comment": "Фон только для чтения на светлом фоне"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.02)",
+                    "comment": "Фон только для чтения при наведении на светлом фоне"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.03)",
+                    "comment": "Фон только для чтения при нажатии на светлом фоне"
                 }
             },
             "inverse": {
@@ -8320,6 +8224,18 @@
                 "surfaceTransparentCard": {
                     "value": "#edfffd0d",
                     "comment": "Инвертированный прозрачный фон для карточек"
+                },
+                "surfaceReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.02)",
+                    "comment": "Инвертированный фон только для чтения"
+                },
+                "surfaceReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.06)",
+                    "comment": "Инвертированный фон только для чтения при наведении"
+                },
+                "surfaceReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0)",
+                    "comment": "Инвертированный фон только для чтения при нажатии"
                 }
             }
         },

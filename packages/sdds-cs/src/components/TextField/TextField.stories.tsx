@@ -15,6 +15,7 @@ const { meta: META, Default } = getTextFieldStories({
         hasHint: false,
     },
     disablePropsList: [
+        'labelPlacement',
         'hasHint',
         'hintText',
         'hintTrigger',

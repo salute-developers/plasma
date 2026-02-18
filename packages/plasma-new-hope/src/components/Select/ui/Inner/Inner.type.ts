@@ -12,5 +12,7 @@ export type InnerProps = {
     dispatchPath: Dispatch<PathAction>;
     index: number;
     listWidth: SelectProps['listWidth'];
+    shift: SelectProps['shift'];
+    flip: SelectProps['flip'];
     portal?: RefObject<HTMLElement>;
 };

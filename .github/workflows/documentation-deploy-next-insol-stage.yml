@@ -1,0 +1,14 @@
+name: Deploy documentations [Feature]
+
+on:
+    workflow_dispatch:
+
+jobs:
+    run:
+        name: Deploy documentations [Feature]
+        uses: ./.github/workflows/documentation-deploy-common.yml
+        with:
+            path: 'next-insol'
+            ref: 'next-insol'
+            docusaurusURLPrefix: 'next-insol'
+        secrets: inherit

@@ -7,3 +7,4 @@ export type { TextareaHTMLAttributes } from './TextareaHTMLAttributes';
 export type { DistributiveOmit } from './DistributiveOmit';
 export type { DistributivePick } from './DistributivePick';
 export type { MakeNever } from './MakeNever';
+export type { SafeExtract } from './SafeExtract';

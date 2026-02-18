@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { addFocus } from 'src/mixins';
 
 import { tokens, classes } from '../List.tokens';
 import { cellConfig, cellTokens } from '../../Cell';
@@ -28,6 +29,8 @@ export const StyledListItem = styled.li`
     background: var(${tokens.listItemBackground});
     border: var(${tokens.listItemBorderWidth}) solid var(${tokens.listItemBorderColor});
 
+    outline: none;
+
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -41,7 +44,7 @@ export const StyledListItem = styled.li`
     line-height: var(${tokens.listItemLineHeight});
     letter-spacing: var(${tokens.listItemLetterSpacing});
 
-    &:hover {
+    &:not(.${classes.disabledListItem}):hover {
         background: var(${tokens.listItemBackgroundHover});
         border-color: var(${tokens.listItemBorderColorHover});
         color: var(${tokens.listItemColorHover});
@@ -51,4 +54,11 @@ export const StyledListItem = styled.li`
         cursor: not-allowed;
         opacity: var(${tokens.listDisabledOpacity});
     }
+
+    ${addFocus({
+        outlineOffset: '0.063rem',
+        outlineSize: '0.063rem',
+        outlineColor: `var(${tokens.listItemFocusColor})`,
+        outlineRadius: `var(${tokens.listItemBorderRadius})`,
+    })};
 `;

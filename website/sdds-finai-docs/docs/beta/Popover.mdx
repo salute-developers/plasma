@@ -166,6 +166,27 @@ export function App() {
         }
         ```
     </TabItem>
+    <TabItem value="portal" label="Portal">
+        Для настройки расположения всплывающего окна в DOM используется свойство `portal`. Особенно полезно при взаимодействии со scrollable-контейнерами.\
+        По-умолчанию блок с выпадающим контентом рендерится на самом верхнем уровне перед тегом `</body>`.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { Button } from '@salutejs/sdds-finai';
+
+        export function App() {
+            const ref = useRef<HTMLDivElement>(null);
+
+            return (
+                <div style={{ margin: '100px 0', height: '200px', overflow: 'auto', background: 'lightgreen' }}>
+                    <div ref={ref} style={{ position: 'relative', height: '1000px' }}>
+                        <Beta.Popover portal={ref} target={<Button text="Target" />}>Content</Popover>
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Стилизация всплывающего окна

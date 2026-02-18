@@ -1,12 +1,13 @@
 import type { CSSProperties, ButtonHTMLAttributes, ChangeEventHandler, Dispatch } from 'react';
 import * as React from 'react';
+import { SafeExtract } from 'src/types';
 
 import { RequiredProps, HintProps, LabelProps } from '../../TextField/TextField.types';
 import { DropdownProps } from '../../Dropdown/Dropdown.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType } from './hooks/getPathMaps';
+import type { ValueToCheckedMapType, CheckedType } from './hooks/getPathMaps';
 
 export type SelectAllProps = {
     checked?: boolean;
@@ -194,9 +195,13 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     portal?: string | React.RefObject<HTMLElement>;
     /**
-     * Callback для кастомной настройки айтема в выпадающем списке.
+     * Callback для кастомной настройки элемента в выпадающем списке.
      */
     renderItem?: (item: T) => React.ReactNode;
+    /**
+     * Callback для кастомной настройки иконки выбранного элемента.
+     */
+    renderSelectionIcon?: (selected: boolean | SafeExtract<CheckedType, 'indeterminate'>) => React.ReactNode;
     /**
      * Функция фильтрации элементов.
      */
@@ -265,6 +270,16 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * @default left
      */
     arrowPlacement?: 'left' | 'right';
+    /**
+     * Коррекция placement, если выпадающий список находится за пределами экрана.
+     * @default false
+     */
+    flip?: boolean;
+    /**
+     * Смещение выпадающего списка при соприкосновении с границами экрана.
+     * @default false
+     */
+    shift?: boolean;
 
     /**
      * @deprecated Использовать listMaxHeight.
@@ -290,6 +305,8 @@ export type FloatingPopoverProps = {
     opened: boolean;
     placement: Placement;
     isInner: boolean;
+    shift: ComboboxProps['shift'];
+    flip: ComboboxProps['flip'];
     onToggle?: (opened: boolean) => void;
     portal?: ComboboxProps['portal'];
     listWidth?: ComboboxProps['listWidth'];
@@ -306,6 +323,7 @@ export type ItemContext = {
     handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
     variant: ComboboxProps['variant'];
     renderItem: ComboboxProps['renderItem'];
+    renderSelectionIcon: ComboboxProps['renderSelectionIcon'];
     treeId: string;
     treePath: TreePathState;
     dispatchTreePath: Dispatch<TreePathAction>;

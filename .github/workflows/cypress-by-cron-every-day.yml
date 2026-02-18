@@ -6,7 +6,7 @@ on:
 
 jobs:
   cypress_plasma:
-    name: "Cypress with React 17 for plasma packages"
+    name: "Cypress for plasma packages"
     strategy:
       fail-fast: false
       matrix:
@@ -16,11 +16,10 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
-      with-react-17: true
     secrets: inherit
 
   cypress_sdds:
-    name: "Cypress with React 17 for sdds packages"
+    name: "Cypress for sdds packages"
     strategy:
       fail-fast: false
       matrix:
@@ -30,5 +29,4 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
-      with-react-17: true
     secrets: inherit

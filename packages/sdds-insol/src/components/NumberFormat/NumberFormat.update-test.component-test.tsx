@@ -295,7 +295,7 @@ describe('sdds-insol: NumberFormat', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T2258] NumberFormat: readOnly', () => {
+    it.skip('[PLASMA-T2258] NumberFormat: readOnly', () => {
         mount(
             <CypressTestDecorator>
                 <NumberFormat

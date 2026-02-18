@@ -3893,6 +3893,18 @@
                 "outlineSolidDefaultActive": {
                     "value": "#E0E0E0FF",
                     "comment": ""
+                },
+                "outlineReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.3)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0.07)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "onDark": {
@@ -4365,6 +4377,18 @@
                 "outlineSolidDefaultActive": {
                     "value": "#E0E0E0FF",
                     "comment": ""
+                },
+                "outlineReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.3)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0.07)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "onLight": {
@@ -4837,6 +4861,18 @@
                 "outlineSolidDefaultActive": {
                     "value": "#C7C7C7FF",
                     "comment": ""
+                },
+                "outlineReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.1)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.3)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.2)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "inverse": {
@@ -5309,6 +5345,18 @@
                 "outlineSolidDefaultActive": {
                     "value": "#C7C7C7FF",
                     "comment": ""
+                },
+                "outlineReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.1)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.3)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.2)",
+                    "comment": "Цвет состояния readOnly"
                 }
             }
         },
@@ -9346,6 +9394,18 @@
                 "outlineSolidDefaultActive": {
                     "value": "#C7C7C7FF",
                     "comment": ""
+                },
+                "outlineReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.1)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.3)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.2)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "onDark": {
@@ -9818,6 +9878,18 @@
                 "outlineSolidDefaultActive": {
                     "value": "#C7C7C7FF",
                     "comment": ""
+                },
+                "outlineReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.3)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0.07)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "onLight": {
@@ -10290,6 +10362,18 @@
                 "outlineSolidDefaultActive": {
                     "value": "#303030FF",
                     "comment": ""
+                },
+                "outlineReadOnly": {
+                    "value": "rgba(8, 8, 8, 0.1)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyHover": {
+                    "value": "rgba(8, 8, 8, 0.3)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyActive": {
+                    "value": "rgba(8, 8, 8, 0.2)",
+                    "comment": "Цвет состояния readOnly"
                 }
             },
             "inverse": {
@@ -10762,6 +10846,18 @@
                 "outlineSolidDefaultActive": {
                     "value": "#303030FF",
                     "comment": ""
+                },
+                "outlineReadOnly": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyHover": {
+                    "value": "rgba(255, 255, 255, 0.3)",
+                    "comment": "Цвет состояния readOnly"
+                },
+                "outlineReadOnlyActive": {
+                    "value": "rgba(255, 255, 255, 0.07)",
+                    "comment": "Цвет состояния readOnly"
                 }
             }
         },

@@ -1739,6 +1739,15 @@ export const outlineSolidDefaultHover = 'var(--outline-solid-default-hover, #C7C
 /** dark outline default outlineSolidDefaultActive */
 export const outlineSolidDefaultActive = 'var(--outline-solid-default-active, #E0E0E0FF)';
 
+/** Цвет состояния readOnly */
+export const outlineReadOnly = 'var(--outline-read-only, #FFFFFF1F)';
+
+/** Цвет состояния readOnly */
+export const outlineReadOnlyHover = 'var(--outline-read-only-hover, #FFFFFF4D)';
+
+/** Цвет состояния readOnly */
+export const outlineReadOnlyActive = 'var(--outline-read-only-active, #FFFFFF12)';
+
 /** Основной непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidPrimaryHover = 'var(--on-dark-outline-solid-primary-hover, #303030FF)';
 
@@ -1942,6 +1951,15 @@ export const onDarkOutlineSolidDefaultHover = 'var(--on-dark-outline-solid-defau
 
 /** dark outline onDark outlineSolidDefaultActive */
 export const onDarkOutlineSolidDefaultActive = 'var(--on-dark-outline-solid-default-active, #E0E0E0FF)';
+
+/** Цвет состояния readOnly */
+export const onDarkOutlineReadOnly = 'var(--on-dark-outline-read-only, #FFFFFF1F)';
+
+/** Цвет состояния readOnly */
+export const onDarkOutlineReadOnlyHover = 'var(--on-dark-outline-read-only-hover, #FFFFFF4D)';
+
+/** Цвет состояния readOnly */
+export const onDarkOutlineReadOnlyActive = 'var(--on-dark-outline-read-only-active, #FFFFFF12)';
 
 /** Основной непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidPrimaryHover = 'var(--on-light-outline-solid-primary-hover, #E8E8E8FF)';
@@ -2147,6 +2165,15 @@ export const onLightOutlineSolidDefaultHover = 'var(--on-light-outline-solid-def
 
 /** dark outline onLight outlineSolidDefaultActive */
 export const onLightOutlineSolidDefaultActive = 'var(--on-light-outline-solid-default-active, #C7C7C7FF)';
+
+/** Цвет состояния readOnly */
+export const onLightOutlineReadOnly = 'var(--on-light-outline-read-only, #0808081A)';
+
+/** Цвет состояния readOnly */
+export const onLightOutlineReadOnlyHover = 'var(--on-light-outline-read-only-hover, #0808084D)';
+
+/** Цвет состояния readOnly */
+export const onLightOutlineReadOnlyActive = 'var(--on-light-outline-read-only-active, #08080833)';
 
 /** Инвертированный основной непрозрачный цвет обводки */
 export const inverseOutlineSolidPrimaryHover = 'var(--inverse-outline-solid-primary-hover, #ABABABFF)';
@@ -2361,6 +2388,15 @@ export const inverseOutlineSolidDefaultHover = 'var(--inverse-outline-solid-defa
 
 /** dark outline inverse outlineSolidDefaultActive */
 export const inverseOutlineSolidDefaultActive = 'var(--inverse-outline-solid-default-active, #C7C7C7FF)';
+
+/** Цвет состояния readOnly */
+export const inverseOutlineReadOnly = 'var(--inverse-outline-read-only, #0808081A)';
+
+/** Цвет состояния readOnly */
+export const inverseOutlineReadOnlyHover = 'var(--inverse-outline-read-only-hover, #0808084D)';
+
+/** Цвет состояния readOnly */
+export const inverseOutlineReadOnlyActive = 'var(--inverse-outline-read-only-active, #08080833)';
 
 /** Желтый цвет для данных */
 export const dataYellow = 'var(--data-yellow, #F3A912)';
@@ -3607,6 +3643,9 @@ export const viewContainer = {
         --outline-solid-default: var(--on-dark-outline-solid-default);
         --outline-solid-default-hover: var(--on-dark-outline-solid-default-hover);
         --outline-solid-default-active: var(--on-dark-outline-solid-default-active);
+        --outline-read-only: var(--on-dark-outline-read-only);
+        --outline-read-only-hover: var(--on-dark-outline-read-only-hover);
+        --outline-read-only-active: var(--on-dark-outline-read-only-active);
         --inverse-outline-solid-primary-hover: var(--on-light-outline-solid-primary-hover);
         --inverse-outline-solid-primary-active: var(--on-light-outline-solid-primary-active);
         --inverse-outline-solid-secondary-hover: var(--on-light-outline-solid-secondary-hover);
@@ -3678,6 +3717,9 @@ export const viewContainer = {
         --inverse-outline-solid-default: var(--on-light-outline-solid-default);
         --inverse-outline-solid-default-hover: var(--on-light-outline-solid-default-hover);
         --inverse-outline-solid-default-active: var(--on-light-outline-solid-default-active);
+        --inverse-outline-read-only: var(--on-light-outline-read-only);
+        --inverse-outline-read-only-hover: var(--on-light-outline-read-only-hover);
+        --inverse-outline-read-only-active: var(--on-light-outline-read-only-active);
         --data-yellow: var(--on-dark-data-yellow);
         --data-yellow-hover: var(--on-dark-data-yellow-hover);
         --data-yellow-active: var(--on-dark-data-yellow-active);
@@ -4051,6 +4093,9 @@ export const viewContainer = {
         --outline-solid-default: var(--on-light-outline-solid-default);
         --outline-solid-default-hover: var(--on-light-outline-solid-default-hover);
         --outline-solid-default-active: var(--on-light-outline-solid-default-active);
+        --outline-read-only: var(--on-light-outline-read-only);
+        --outline-read-only-hover: var(--on-light-outline-read-only-hover);
+        --outline-read-only-active: var(--on-light-outline-read-only-active);
         --inverse-outline-solid-primary-hover: var(--on-dark-outline-solid-primary-hover);
         --inverse-outline-solid-primary-active: var(--on-dark-outline-solid-primary-active);
         --inverse-outline-solid-secondary-hover: var(--on-dark-outline-solid-secondary-hover);
@@ -4122,6 +4167,9 @@ export const viewContainer = {
         --inverse-outline-solid-default: var(--on-dark-outline-solid-default);
         --inverse-outline-solid-default-hover: var(--on-dark-outline-solid-default-hover);
         --inverse-outline-solid-default-active: var(--on-dark-outline-solid-default-active);
+        --inverse-outline-read-only: var(--on-dark-outline-read-only);
+        --inverse-outline-read-only-hover: var(--on-dark-outline-read-only-hover);
+        --inverse-outline-read-only-active: var(--on-dark-outline-read-only-active);
         --data-yellow: var(--on-light-data-yellow);
         --data-yellow-hover: var(--on-light-data-yellow-hover);
         --data-yellow-active: var(--on-light-data-yellow-active);

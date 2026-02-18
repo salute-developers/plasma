@@ -8,8 +8,6 @@ import { createDefaultStory, createRangeStory } from './stories';
 type CreateDatePickerStoriesProps = {
     component: any;
     componentConfig: any;
-    iconButton?: any;
-    embedIconButton?: any;
     title?: string;
     disablePropsList?: string[];
     defaultArgs?: {};
@@ -41,7 +39,7 @@ export const getDatePickerStories = (config: CreateDatePickerStoriesProps) => {
 };
 
 export const getDatePickerRangeStories = (config: CreateDatePickerStoriesProps) => {
-    const { component, componentConfig, iconButton, embedIconButton, ...rest } = config;
+    const { component, componentConfig, ...rest } = config;
 
     const datePickerRangeConfig = getConfigVariations(componentConfig);
 
@@ -51,7 +49,7 @@ export const getDatePickerRangeStories = (config: CreateDatePickerStoriesProps) 
         ...rest,
     });
 
-    const RangeStoryComponent = createRangeStory(component, iconButton, embedIconButton);
+    const RangeStoryComponent = createRangeStory(component);
 
     const Range = {
         render: (args: any) => <RangeStoryComponent {...args} />,

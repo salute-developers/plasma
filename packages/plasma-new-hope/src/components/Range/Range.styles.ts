@@ -5,6 +5,7 @@ import { component, mergeConfig } from '../../engines';
 import { textFieldConfig, textFieldTokens } from '../TextField';
 
 import { classes, tokens } from './Range.tokens';
+import { EmbedIconButtonUI } from './ui';
 
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
@@ -23,20 +24,7 @@ export const StyledContentLeft = styled.div`
     }
 `;
 
-export const StyledContentRight = styled.div`
-    display: flex;
-    align-items: center;
-    color: var(${tokens.contentSlotRightColor}, var(${tokens.contentSlotColor}));
-
-    &:hover {
-        color: var(${tokens.contentSlotRightColorHover}, var(${tokens.contentSlotColorHover}));
-        cursor: pointer;
-    }
-
-    &:active {
-        color: var(${tokens.contentSlotRightColorActive}, var(${tokens.contentSlotColorActive}));
-    }
-`;
+export const StyledContentRight = styled(EmbedIconButtonUI)``;
 
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`

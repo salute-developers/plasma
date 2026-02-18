@@ -1,6 +1,6 @@
 export type Breakpoint = 'small' | 'medium' | 'large';
 type TypographyCategory = 'dspl' | 'body' | 'header' | 'text';
-type TypographySize = 'l' | 'm' | 's' | 'xs' | 'xxs' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+type TypographySize = 'l' | 'm' | 's' | 'xs' | 'xxs' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export type TypographyWeight = 'normal' | 'bold';
 
 type TypographyRootProperties = {

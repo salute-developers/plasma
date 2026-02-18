@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta } from '@storybook/react-vite';
 import styled from 'styled-components';
+import { action } from 'storybook/actions';
 
 import { IconChevronLeft } from '../../../components/_Icon';
 import { WithTheme } from '../../_helpers';
@@ -10,6 +11,9 @@ import { List, ListItem } from './List';
 const ChevronRight = styled(IconChevronLeft)`
     transform: rotate(180deg);
 `;
+
+const onKeyDown = action('onKeyDown');
+const onKeyListDown = action('onKeyListDown');
 
 const meta: Meta<typeof List> = {
     title: 'Data Display/List',
@@ -48,13 +52,19 @@ export const Default: Story = {
     },
     render: ({ view, size, ...rest }: StoryProps) => {
         return (
-            <List view={view} size={size} {...rest}>
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />}>Test Item 1</ListItem>
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />}>Test Item 2</ListItem>
+            <List view={view} size={size} onKeyDown={onKeyListDown} {...rest}>
+                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
+                    Test Item 1
+                </ListItem>
+                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
+                    Test Item 2
+                </ListItem>
                 <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} disabled>
                     Test Item 3
                 </ListItem>
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />}>Test Item 4</ListItem>
+                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
+                    Test Item 4
+                </ListItem>
             </List>
         );
     },

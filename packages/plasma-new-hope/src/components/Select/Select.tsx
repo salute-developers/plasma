@@ -62,6 +62,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             portal,
             renderValue,
             renderItem,
+            renderSelectionIcon,
             status,
             onItemSelect,
             separator,
@@ -77,6 +78,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             chipType,
             multiselect,
             mode = 'default',
+            shift,
+            flip,
             chipClickArea,
             // @ts-ignore
             _offset,
@@ -433,6 +436,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         handleItemClick,
                         variant,
                         renderItem,
+                        renderSelectionIcon,
                         treeId,
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
@@ -485,6 +489,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         )}
                         zIndex={zIndex}
                         isInner={false}
+                        shift={shift}
+                        flip={flip}
                     >
                         <Root
                             view={view}
@@ -538,6 +544,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                                     index={index}
                                                     listWidth={listWidth}
                                                     portal={listWrapperRef}
+                                                    shift={shift}
+                                                    flip={flip}
                                                 />
                                             ))
                                         )}

@@ -17,6 +17,7 @@ const textSizes = [
     'h3',
     'h4',
     'h5',
+    'h6',
     'textL',
     'textM',
     'textS',
@@ -47,7 +48,7 @@ describe('plasma-core: Skeleton', () => {
                 </CypressTestDecorator>,
             );
 
-            cy.viewport(500, 524);
+            cy.viewport(500, 550);
             cy.matchImageSnapshot();
         });
 
@@ -147,7 +148,7 @@ describe('plasma-core: Skeleton', () => {
                 </CypressTestDecorator>,
             );
 
-            cy.viewport(500, 524);
+            cy.viewport(500, 550);
             cy.matchImageSnapshot();
         });
 

@@ -2,11 +2,17 @@ import React, { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { IconChevronRight } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
+import { action } from '@storybook/addon-actions';
 import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { config } from './List.config';
 
 import { List, ListItem } from '.';
+
+type StoryPropsDefault = ComponentProps<typeof List>;
+
+const onKeyDown = action('onKeyDown');
+const onKeyListDown = action('onKeyListDown');
 
 const { views } = getConfigVariations(config);
 
@@ -30,28 +36,34 @@ const meta: Meta<typeof List> = {
                 type: 'select',
             },
         },
-        ...disableProps(['view']),
+        ...disableProps(['view', 'size']),
     },
 };
 
 export default meta;
 
-export const Default: StoryObj<typeof List> = {
+export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         view: 'default',
         size: 'm',
         variant: 'normal',
         disabled: false,
     },
-    render: ({ view, size, ...rest }: ComponentProps<typeof List>) => {
+    render: ({ view, size, ...rest }) => {
         return (
-            <List view={view} size={size} {...rest}>
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />}>Test Item 1</ListItem>
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />}>Test Item 2</ListItem>
+            <List view={view} size={size} onKeyDown={onKeyListDown} {...rest}>
+                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
+                    Test Item 1
+                </ListItem>
+                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
+                    Test Item 2
+                </ListItem>
                 <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} disabled>
                     Test Item 3
                 </ListItem>
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />}>Test Item 4</ListItem>
+                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
+                    Test Item 4
+                </ListItem>
             </List>
         );
     },

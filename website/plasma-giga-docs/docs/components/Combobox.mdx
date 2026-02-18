@@ -587,6 +587,61 @@ type Items = Array<{
         }
         ```
     </TabItem>
+    <TabItem value="renderSelectionIcon" label="Render icon">
+        `renderSelectionIcon` - свойство для кастомной настройки иконки выбора элемента. Принимает коллбэк с одним параметром: `selected`.
+
+        ```tsx live
+        export function App() {
+            const [value, setValue] = useState('brazil');
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            const renderSelectionIcon = (selected: boolean | 'indeterminate') => {
+                if (selected === true) {
+                    return <div style={{ width: '10px', height: '10px', borderRadius: '100%', background: 'red' }} />;
+                }
+
+                if (selected === 'indeterminate') {
+                    return <div style={{ width: '10px', height: '10px', background: 'blue' }} />;
+                }
+
+                return null;
+            };
+
+            return (
+                <div style={{ height: '300px' }}>
+                   <div style={{ width: '400px' }}>
+                        <Combobox
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                            renderSelectionIcon={renderSelectionIcon}
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Взаимодействие с disabled-элементами

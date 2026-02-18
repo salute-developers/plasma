@@ -3,14 +3,6 @@ import type { ChangeEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 import { IconPlasma, IconArrowRight, IconDisclosureRight } from '@salutejs/plasma-icons';
 
-type ActionButtonProps = {
-    appearance: 'default' | 'clear';
-    buttonComponent: any;
-    view?: string;
-    size?: string;
-    readOnly?: boolean;
-};
-
 const onChangeFirstValue = action('onChangeFirstValue');
 const onChangeSecondValue = action('onChangeSecondValue');
 const onSearchFirstValue = action('onSearchFirstValue');
@@ -24,21 +16,7 @@ const getIconSize = (size?: string) => {
     return size === 'xs' ? 'xs' : 's';
 };
 
-const ActionButton = ({ appearance, buttonComponent: IconButton, size, readOnly }: ActionButtonProps) => {
-    const iconButtonProps = {
-        view: appearance === 'clear' ? 'default' : 'clear',
-        disabled: readOnly,
-        size,
-    };
-
-    return (
-        <IconButton {...iconButtonProps}>
-            <IconDisclosureRight color="inherit" size={getIconSize(size)} />
-        </IconButton>
-    );
-};
-
-export const createDefaultStory = (Range: any, IconButton: any, EmbedIconButton: any) => {
+export const createDefaultStory = (Range: any) => {
     return ({
         dividerVariant,
         enableContentLeft,
@@ -75,8 +53,6 @@ export const createDefaultStory = (Range: any, IconButton: any, EmbedIconButton:
             secondValueError: secondInputView === 'negative',
         };
 
-        const embedIconButtonSize = appearance === 'clear' && size === 'xs' ? 's' : size;
-
         return (
             <Range
                 appearance={appearance}
@@ -86,14 +62,7 @@ export const createDefaultStory = (Range: any, IconButton: any, EmbedIconButton:
                 secondValue={secondValue}
                 contentLeft={enableContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined}
                 contentRight={
-                    enableContentRight ? (
-                        <ActionButton
-                            buttonComponent={appearance === 'clear' ? EmbedIconButton : IconButton}
-                            appearance={appearance}
-                            size={embedIconButtonSize}
-                            readOnly={rest.readOnly}
-                        />
-                    ) : undefined
+                    enableContentRight ? <IconDisclosureRight color="inherit" size={getIconSize(size)} /> : undefined
                 }
                 firstTextfieldContentLeft={
                     enableFirstTextfieldContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined

@@ -35,6 +35,7 @@ type Props = {
     selected: boolean;
     table: Table<TableRowData>;
     additionalProps: HTMLAttributes<any> & TdHTMLAttributes<any>;
+    className: string | undefined;
 };
 
 export const EditableCell: React.FC<Props> = ({
@@ -45,6 +46,7 @@ export const EditableCell: React.FC<Props> = ({
     table,
     selected,
     additionalProps,
+    className,
 }) => {
     const [value, setValue] = useState<string>(cell.getValue() as string);
     const [editingMode, setEditingMode] = useState(false);
@@ -114,6 +116,7 @@ export const EditableCell: React.FC<Props> = ({
             selected={selected}
             view={view}
             ref={ref}
+            className={className}
             {...additionalProps}
         >
             <InnerWrapper>

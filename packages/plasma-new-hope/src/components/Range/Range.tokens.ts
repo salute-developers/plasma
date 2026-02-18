@@ -72,6 +72,12 @@ export const tokens = {
     contentSlotRightColorHover: '--plasma-range-content-right-slot-color-hover',
     contentSlotRightColorActive: '--plasma-range-content-right-slot-color-active',
 
+    embedIconButtonHeight: '--plasma-range-embed-icon-button-height',
+    embedIconButtonWidth: '--plasma-range-embed-icon-button-width',
+    embedIconButtonPadding: '--plasma-range-embed-icon-button-padding',
+    embedIconButtonRadius: '--plasma-range-embed-icon-button-radius',
+    embedIconButtonFocusColor: '--plasma-range-embed-icon-button-focus-color',
+
     textFieldContentSlotRightColor: '--plasma-textfield-content-right-slot-color',
     textFieldContentSlotRightColorHover: '--plasma-textfield-content-right-slot-color-hover',
     textFieldContentSlotRightColorActive: '--plasma-textfield-content-right-slot-color-active',

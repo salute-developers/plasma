@@ -1,5 +1,7 @@
 import type { CSSProperties, ButtonHTMLAttributes, SyntheticEvent, ChangeEventHandler, Dispatch } from 'react';
 import React from 'react';
+import { SafeExtract } from 'src/types';
+import type { CheckedType } from 'src/components/Combobox/ComboboxNew/hooks/getPathMaps';
 
 import type { RequiredProps, LabelProps, HintProps } from '../TextField/TextField.types';
 import { DropdownProps } from '../Dropdown/Dropdown.types';
@@ -190,6 +192,10 @@ export interface BasicProps<K extends ItemOption> {
      */
     renderItem?: (item: K) => React.ReactNode;
     /**
+     * Callback для кастомной настройки иконки выбранного элемента.
+     */
+    renderSelectionIcon?: (selected: boolean | SafeExtract<CheckedType, 'indeterminate'>) => React.ReactNode;
+    /**
      * Закрывать ли выпадающий список после выбора элемента.
      * @default если single, то true; если multiple, то false
      */
@@ -223,6 +229,16 @@ export interface BasicProps<K extends ItemOption> {
      * @default default
      */
     mode?: 'default' | 'radio';
+    /**
+     * Коррекция placement, если выпадающий список находится за пределами экрана.
+     * @default false
+     */
+    flip?: boolean;
+    /**
+     * Смещение выпадающего списка при соприкосновении с границами экрана.
+     * @default false
+     */
+    shift?: boolean;
 
     /**
      * Размер компонента.
@@ -272,6 +288,7 @@ export type ItemContext = {
     handleItemClick: (item: MergedDropdownNodeTransformed, e: React.MouseEvent<HTMLElement>) => void;
     variant: MergedSelectProps['variant'];
     renderItem: MergedSelectProps['renderItem'];
+    renderSelectionIcon: MergedSelectProps['renderSelectionIcon'];
     treeId: string;
     treePath: TreePathState;
     dispatchTreePath: Dispatch<TreePathAction>;
@@ -413,6 +430,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          */
         renderItem?: (item: K) => React.ReactNode;
         /**
+         * Callback для кастомной настройки иконки выбранного элемента.
+         */
+        renderSelectionIcon?: (selected: boolean | SafeExtract<CheckedType, 'indeterminate'>) => React.ReactNode;
+        /**
          * Закрывать ли выпадающий список после выбора элемента.
          * @default если single, то true; если multiple, то false
          */
@@ -446,6 +467,16 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default default
          */
         mode?: 'default' | 'radio';
+        /**
+         * Коррекция placement, если выпадающий список находится за пределами экрана.
+         * @default false
+         */
+        flip?: boolean;
+        /**
+         * Смещение выпадающего списка при соприкосновении с границами экрана.
+         * @default false
+         */
+        shift?: boolean;
 
         /**
          * Размер компонента.
@@ -499,6 +530,8 @@ export type FloatingPopoverProps = {
     onToggle: (opened: boolean) => void;
     placement: NonNullable<MergedSelectProps['placement']>;
     isInner: boolean;
+    shift: MergedSelectProps['shift'];
+    flip: MergedSelectProps['flip'];
     portal?: MergedSelectProps['portal'];
     listWidth?: MergedSelectProps['listWidth'];
     zIndex?: DropdownProps['zIndex'];

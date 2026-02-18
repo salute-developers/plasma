@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { classes, tokens } from '../../TextField.tokens';
+import { classes, privateTokens, tokens } from '../../TextField.tokens';
 import {
     Input,
     InputPlaceholder,
@@ -12,22 +12,23 @@ import {
 
 export const base = css`
     ${InputWrapper} {
-        --plasma_private-textfield-border-color: var(${String(tokens.borderColor)});
-        --plasma_private-textfield-bg-color: var(${String(tokens.backgroundColor)});
+        ${privateTokens.borderColor}: var(${tokens.borderColor});
+        ${privateTokens.backgroundColor}: var(${tokens.backgroundColor});
 
         color: var(${tokens.color});
-        background-color: var(--plasma_private-textfield-bg-color);
-        box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(--plasma_private-textfield-border-color),
+        background-color: var(${privateTokens.backgroundColor});
+        box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${privateTokens.borderColor}),
             var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
         caret-color: var(${tokens.caretColor});
 
         transition: background-color 0.1s ease-in, color 0.1s ease-in, box-shadow 0.1s ease-in;
     }
-    ${InputWrapper}:hover {
-        --plasma_private-textfield-border-color: var(${tokens.borderColorHover}, var(${String(tokens.borderColor)}));
-        --plasma_private-textfield-bg-color: var(
+
+    &:not([readonly]) ${InputWrapper}:hover {
+        ${privateTokens.borderColor}: var(${tokens.borderColorHover}, var(${tokens.borderColor}));
+        ${privateTokens.backgroundColor}: var(
             ${tokens.backgroundColorHover},
-            var(${String(tokens.backgroundColor)})
+            var(${tokens.backgroundColor}))
         );
     }
 
@@ -39,12 +40,16 @@ export const base = css`
         color: var(${tokens.placeholderColor});
     }
 
-    ${InputWrapper}:focus-within {
-        --plasma_private-textfield-border-color: var(${tokens.borderColorFocus}, var(${String(tokens.borderColor)}));
-        --plasma_private-textfield-bg-color: var(
+    &:not([readonly]) ${InputWrapper}:focus-within {
+        ${privateTokens.borderColor}: var(${tokens.borderColorFocus}, var(${tokens.borderColor}));
+        ${privateTokens.backgroundColor}: var(
             ${tokens.backgroundColorFocus},
-            var(${String(tokens.backgroundColor)})
+            var(${tokens.backgroundColor})
         );
+
+        &:after {
+            box-shadow: var(${tokens.boxShadowSecondary}, inset 0 0 0 0 transparent);
+        }
 
         ${Input} {
             color: var(${tokens.colorFocus});
@@ -69,8 +74,8 @@ export const base = css`
 
     &.${classes.hasDivider} {
         ${InputWrapper} {
-            --plasma_private-textfield-divider-color: var(${String(tokens.dividerColor)});
-            --plasma_private-textfield-divider-width: var(${String(tokens.dividerWidth)});
+            --plasma_private-textfield-divider-color: var(${tokens.dividerColor});
+            --plasma_private-textfield-divider-width: var(${tokens.dividerWidth});
 
             &:before {
                 content: '';
@@ -87,14 +92,14 @@ export const base = css`
         &:not([readonly]) ${InputWrapper}:hover {
             --plasma_private-textfield-divider-color: var(
                 ${tokens.dividerColorHover},
-                var(${String(tokens.dividerColor)})
+                var(${tokens.dividerColor})
             );
         }
 
         &:not([readonly]) ${InputWrapper}:focus-within {
             --plasma_private-textfield-divider-color: var(
                 ${tokens.dividerColorFocus},
-                var(${String(tokens.dividerColor)})
+                var(${tokens.dividerColor})
             );
 
             ${InputPlaceholder} {

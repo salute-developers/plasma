@@ -300,6 +300,37 @@ export const config = {
                 ${tokens.singleIconSizeMedium}: 1.25rem;
                 ${tokens.singleIconSizeSmall}: 1rem;
             `,
+            h6: css`
+                ${tokens.gap}: 0.25rem;
+
+                ${tokens.fontFamily}: var(--plasma-typo-h6-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-h6-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-h6-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-h6-bold-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-h6-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-h6-line-height);
+
+                ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.contentGap}: 0.625rem;
+                ${tokens.singleIconContentGap}: 0.25rem;
+                ${tokens.starsWrapperGap}: 0.125rem;
+
+                ${tokens.iconMarginBottom}: 0.125rem;
+                ${tokens.iconSizeLarge}: 1.25rem;
+                ${tokens.iconSizeMedium}: 1.25rem;
+                ${tokens.iconSizeSmall}: 1rem;
+
+                ${tokens.singleIconMarginBottom}: 0.125rem;
+                ${tokens.singleIconSizeLarge}: 1.25rem;
+                ${tokens.singleIconSizeMedium}: 1.25rem;
+                ${tokens.singleIconSizeSmall}: 1rem;
+            `,
             displayL: css`
                 ${tokens.gap}: 0.375rem;
 

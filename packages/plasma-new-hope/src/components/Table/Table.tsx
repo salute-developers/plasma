@@ -13,6 +13,7 @@ import {
 } from '@tanstack/react-table';
 import { useForkRef } from '@salutejs/plasma-core';
 import { RootProps } from 'src/engines';
+import cls from 'classnames';
 
 import { classes } from './Table.tokens';
 import { SELECT_COLUMN_ID } from './utils';
@@ -48,6 +49,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                 bottomContent,
                 loadingSlot,
                 onScroll,
+                classNames,
                 ...props
             },
             ref,
@@ -203,7 +205,15 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
             });
 
             return (
-                <Root ref={rootRef} data={data} columns={columns} view={view} size={size} {...props}>
+                <Root
+                    ref={rootRef}
+                    data={data}
+                    columns={columns}
+                    view={view}
+                    size={size}
+                    className={cls(props.className, classNames?.root, classes.root)}
+                    {...props}
+                >
                     {topContent}
 
                     <ScrollableWrapper
@@ -211,10 +221,22 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                         onScroll={onScroll}
                         maxHeight={maxHeight}
                     >
-                        <Table borderVariant={borderVariant} stickyHeader={stickyHeader}>
-                            <Thead view={view} borderVariant={borderVariant} stickyHeader={stickyHeader}>
+                        <Table
+                            borderVariant={borderVariant}
+                            stickyHeader={stickyHeader}
+                            className={cls(classNames?.table, classes.table)}
+                        >
+                            <Thead
+                                view={view}
+                                borderVariant={borderVariant}
+                                stickyHeader={stickyHeader}
+                                className={cls(classNames?.header?.wrapper, classes.headerWrapper)}
+                            >
                                 {table.getHeaderGroups().map((headerGroup) => (
-                                    <Tr key={headerGroup.id}>
+                                    <Tr
+                                        key={headerGroup.id}
+                                        className={cls(classNames?.header?.row, classes.headerRow)}
+                                    >
                                         {headerGroup.headers.map((header) => (
                                             <HeadCell
                                                 key={header.index}
@@ -223,15 +245,21 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                                                 borderVariant={borderVariant}
                                                 outerFiltered={outerFiltered}
                                                 tableContainerRef={tableContainerRef}
+                                                className={cls(classNames?.header?.cell, classes.headerCell)}
                                             />
                                         ))}
                                     </Tr>
                                 ))}
                             </Thead>
 
-                            <Tbody>
+                            <Tbody className={cls(classNames?.body?.wrapper, classes.bodyWrapper)}>
                                 {table.getRowModel().rows.map((row) => (
-                                    <Tr key={row.id} selected={row.getIsSelected()} {...setRowProps?.(row.original)}>
+                                    <Tr
+                                        key={row.id}
+                                        selected={row.getIsSelected()}
+                                        className={cls(classNames?.body?.row, classes.bodyRow)}
+                                        {...setRowProps?.(row.original)}
+                                    >
                                         {row.getVisibleCells().map((cell) => {
                                             const additionalProps =
                                                 cell?.column?.columnDef?.meta?.setCellProps?.(
@@ -249,6 +277,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                                                     selected={row.getIsSelected()}
                                                     view={view}
                                                     additionalProps={additionalProps}
+                                                    className={cls(classNames?.body?.cell, classes.bodyCell)}
                                                 />
                                             ) : (
                                                 <Cell
@@ -258,6 +287,7 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
                                                     selected={row.getIsSelected()}
                                                     view={view}
                                                     additionalProps={additionalProps}
+                                                    className={cls(classNames?.body?.cell, classes.bodyCell)}
                                                 />
                                             );
                                         })}
