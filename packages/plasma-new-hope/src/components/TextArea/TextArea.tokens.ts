@@ -41,6 +41,8 @@ export const tokens = {
     inputBackgroundColorActive: '--plasma-textarea-input-background-color-active',
     inputBackgroundColorFocus: '--plasma-textarea-input-background-color-focus',
 
+    boxShadowSecondary: '--plasma-textarea-box-shadow-secondary',
+
     inputBorderColor: '--plasma-textarea-input-border-color',
     inputBorderColorHover: '--plasma-textarea-input-border-color-hover',
     inputBorderColorActive: '--plasma-textarea-input-border-color-active',
