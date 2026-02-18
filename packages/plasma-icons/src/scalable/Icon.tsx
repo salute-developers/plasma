@@ -682,6 +682,7 @@ export const iconSectionsSet = {
         bankOutline: 'BankOutline',
         curlyBrace: 'CurlyBrace',
         brackets: 'Brackets',
+        commit: 'Commit',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
