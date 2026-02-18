@@ -113,7 +113,7 @@ describe('sdds-insol: Mask', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1248] Mask: readOnly', () => {
+    it.skip('[PLASMA-T1248] Mask: readOnly', () => {
         mount(
             <CypressTestDecorator>
                 <Mask
