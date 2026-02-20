@@ -7,6 +7,7 @@ import { useFocusTrap } from '../../hooks';
 import { cx, safeUseId } from '../../utils';
 import { Portal } from '../Portal';
 import { Resizable } from '../_Resizable';
+import { Slot } from '../_Slot/Slot';
 
 import { base as viewCSS } from './variations/_view/base';
 import type { PopoverPlacement, PopoverProps } from './Popover.types';
@@ -318,7 +319,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                             onResizeStart={onResizeStart}
                                             onResizeEnd={onResizeEnd}
                                         >
-                                            {children}
+                                            <Slot className={classes.popoverChildRootBlock}>{children}</Slot>
                                         </Resizable>
                                     </StyledPopover>
                                 </Root>

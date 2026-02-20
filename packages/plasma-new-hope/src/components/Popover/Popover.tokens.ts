@@ -6,6 +6,7 @@ export const classes = {
     targetAsRef: 'popover-target-as-ref',
     open: 'popover-open',
     animate: 'popover-animate',
+    popoverChildRootBlock: 'popover-child-root-block',
 };
 
 export const tokens = {
