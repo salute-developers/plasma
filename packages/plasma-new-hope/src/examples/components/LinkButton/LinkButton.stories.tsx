@@ -2,6 +2,7 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { getConfigVariations } from '@salutejs/plasma-sb-utils';
+import { action } from 'storybook/actions';
 
 import { IconMic } from '../../../components/_Icon';
 import { WithTheme } from '../../_helpers';
@@ -11,6 +12,8 @@ import { LinkButton } from './LinkButton';
 import { config } from './LinkButton.config';
 
 const { views, sizes } = getConfigVariations(config);
+
+const onClick = action('onClick');
 
 const sizeMap = {
     xxs: '0.75rem', // 12px
@@ -69,6 +72,7 @@ const StoryDefault = ({ enableContentLeft, enableContentRight, enableCounter, si
                 enableContentRight ? <IconMic sizeCustomValue={sizeMap[iconSize]} color="inherit" /> : undefined
             }
             size={size}
+            onClick={onClick}
             {...rest}
         />
     );
