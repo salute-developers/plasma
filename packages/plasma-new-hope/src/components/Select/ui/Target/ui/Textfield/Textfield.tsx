@@ -109,7 +109,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             <StyledTextField
                 ref={ref}
                 inputWrapperRef={inputWrapperRef}
-                readOnly
+                readOnly={readOnly}
                 className={readOnly ? classes.readOnly : undefined}
                 value={getValue()}
                 size={size}
@@ -152,6 +152,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 opened={opened}
                 // TODO: #1547
                 _forceChipManipulationWithReadonly={!readOnly}
+                _interaction_disabled
                 {...requiredProps}
                 {...hintProps}
             />

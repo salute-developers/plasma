@@ -250,14 +250,13 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${selectTokens.disclosureIconOpacityReadOnly}: 0.4;
                 ${selectTokens.textFieldColorReadOnly}: var(--text-primary);
                 ${selectTokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
                 ${selectTokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${selectTokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
-                ${selectTokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
                 ${selectTokens.textFieldLabelColorReadOnly}: var(--text-secondary);
-                ${selectTokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
+                ${selectTokens.disclosureIconOpacityReadOnly}: 0.4;
+                ${selectTokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
                 ${selectTokens.textFieldBorderColor}: transparent;
                 ${selectTokens.textFieldBorderWidth}: 0;
             `,
