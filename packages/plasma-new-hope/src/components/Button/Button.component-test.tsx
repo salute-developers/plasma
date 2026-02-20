@@ -1,52 +1,112 @@
-/**
- * NOTE:
- * общие тесты (клики, клавиатурная навигация, тд.)
- */
+import React, { useState } from 'react';
+import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
+// @ts-ignore
+import { IconPlasma } from 'override/_Icon';
 
-// ПРИМЕР:
-// import React, { useState } from 'react';
-// import {
-//     mount,
-//     getComponent,
-//     getBaseVisualTests,
-// } from '@salutejs/plasma-cy-utils';
-// import { mount, getComponent } from '@salutejs/plasma-cy-utils';
+import type { ButtonProps } from './Button.types';
 
-// import { ButtonProps } from './Button.types';
-// import { config } from './Button.config';
+const componentExists = hasComponent('Button');
+const describeFn = getDescribeFN('Button');
 
-/**
- * NOTE:
- * пример вызова базовых тестов с помощью генерации матрицы пропсов (импорт нужных частей закоменчен)
- * getBaseVisualTests({ config, component: 'Button', children: 'Hello Plasma', configPropsForMatrix: ['view', 'size'] })
- */
+const Icon = <IconPlasma size="s" color="inherit" />;
+const buttonProps = {
+    text: 'Button',
+};
 
-// describe('plasma-new-hope: Button', () => {
-//     const Button = getComponent<ButtonProps>('Button');
+getBaseVisualTests({
+    component: 'Button',
+    componentProps: buttonProps,
+    configPropsForMatrix: ['view', 'size', 'stretching'],
+});
 
-//     const ButtonClick = () => {
-//         const [clickedTimes, setClickedTimes] = useState(0);
+describeFn('Button', () => {
+    const Button = componentExists ? getComponent<ButtonProps>('Button') : () => null;
 
-//         return (
-//             <>
-//                 <Button
-//                     text="Button_view_default_size_l"
-//                     view="default"
-//                     size="l"
-//                     onClick={() => setClickedTimes((prevClicked) => prevClicked++)}
-//                 >
-//                     Hello Plasma
-//                 </Button>
-//                 <span id="result">{clickedTimes}</span>
-//             </>
-//         );
-//     };
+    it('with loader', () => {
+        mount(<Button isLoading />);
 
-//     it('click', () => {
-//         mount(<ButtonClick />);
+        cy.matchImageSnapshot();
+    });
 
-//         cy.get('#result').contains('0');
-//         cy.get('button').click();
-//         cy.get('#result').contains('1');
-//     });
-// });
+    it('with value', () => {
+        mount(<Button value="Value" text="Button" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('with content', () => {
+        mount(
+            <>
+                <Button text="contentLeft" contentLeft={Icon} />
+                <PadMe />
+                <Button text="contentRight" contentRight={Icon} />
+                <PadMe />
+                <Button text="contentLeft, contentRight" contentLeft={Icon} contentRight={Icon} />
+            </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('contentPlacing', () => {
+        mount(
+            <>
+                <Button value="Value" contentPlacing="default" text="default" />
+                <PadMe />
+                <Button value="Value" contentPlacing="relaxed" text="relaxed" />
+                <PadMe />
+                <Button value="Value" contentPlacing="default" stretching="filled" text="default, filled" />
+                <PadMe />
+                <Button value="Value" contentPlacing="relaxed" stretching="filled" text="relaxed, filled" />
+            </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('pin', () => {
+        mount(
+            <>
+                <Button pin="square-square" text="square-square" />
+                <PadMe />
+                <Button pin="square-clear" text="square-clear" />
+                <PadMe />
+                <Button pin="clear-square" text="clear-square" />
+                <PadMe />
+                <Button pin="clear-clear" text="clear-clear" />
+                <PadMe />
+                <Button pin="clear-circle" text="clear-circle" />
+                <PadMe />
+                <Button pin="circle-clear" text="circle-clear" />
+                <PadMe />
+                <Button pin="circle-circle" text="circle-circle" />
+            </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('disabled', () => {
+        mount(<Button disabled text="disabled" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('focused', () => {
+        mount(<Button text="focused" />);
+
+        cy.get('body').tab().focused().trigger('keydown', { code: 'Tab' });
+        cy.get('button').should('be.focused');
+
+        cy.matchImageSnapshot();
+    });
+
+    it.skip('as', () => {
+        // INFO: Почему и как может сломаться?
+        // https://plasma.sberdevices.ru/ui/types/as-and-forwardedas/#forwardedas
+
+        mount(<Button as="a">Hello Plasma</Button>);
+
+        cy.get('[type="button"]').first().should('have.prop', 'tagName').should('eq', 'A');
+    });
+});

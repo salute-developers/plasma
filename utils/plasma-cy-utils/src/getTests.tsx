@@ -22,7 +22,6 @@ const getConfig = (component: string): any => {
 };
 
 export const getBaseVisualTests = ({
-    testCaseIds,
     component,
     componentProps,
     children,
@@ -31,18 +30,17 @@ export const getBaseVisualTests = ({
     const componentExists = hasComponent(component);
     const describeFn = getDescribeFN(component);
 
-    return describeFn(`plasma-new-hope: ${component}`, () => {
+    return describeFn(`${component}`, () => {
         const Component = componentExists ? getComponent(component) : () => null;
         const config = componentExists ? getConfig(component) : null;
         const configMatrix = getConfigMatrix(config, configPropsForMatrix);
 
-        configMatrix.forEach((combination, ind) => {
-            const testId = testCaseIds?.at(ind) ? `${testCaseIds?.at(ind)} ` : '';
+        configMatrix.forEach((combination) => {
             const testParams = Object.entries(combination)
                 .map(([propName, propValue]) => `${propName}=${propValue}`)
                 .join(', ');
 
-            it(`[PLASMA-${testId}]${component} ${testParams}`, () => {
+            it(`${testParams}`, () => {
                 mount(
                     <>
                         {children ? (
