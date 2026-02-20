@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import type { MouseEvent } from 'react';
 
 import type { RootProps } from '../../engines';
 
@@ -34,6 +35,7 @@ export const linkButtonRoot = (Root: RootProps<HTMLAnchorElement, LinkButtonProp
             rel,
             style,
             additionalContent,
+            onClick,
             ...rest
         } = props;
 
@@ -49,6 +51,18 @@ export const linkButtonRoot = (Root: RootProps<HTMLAnchorElement, LinkButtonProp
 
         const hasContent = Boolean(txt || children || additionalContent || contentRight);
 
+        const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+            if (disabled || isLoading) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+
+            if (onClick) {
+                onClick(e);
+            }
+        };
+
         return (
             <Root
                 ref={ref}
@@ -62,6 +76,7 @@ export const linkButtonRoot = (Root: RootProps<HTMLAnchorElement, LinkButtonProp
                     }),
                     ...style,
                 }}
+                onClick={handleClick}
                 {...linkProps}
                 {...rest}
             >
