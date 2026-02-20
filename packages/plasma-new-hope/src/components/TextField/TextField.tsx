@@ -133,6 +133,10 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 _onEnterDisabled,
                 // @ts-ignore
                 _forceChipManipulationWithReadonly,
+                /** Внутреннее свойство _interaction_disabled нужно для компонента Select,
+                 * в режиме textfield-like, чтобы запретить взаимодействие с компонентом. */
+                // @ts-ignore
+                _interaction_disabled = false,
 
                 ...rest
             },
@@ -247,7 +251,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             };
 
             const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-                if (disabled || readOnly) {
+                if (disabled || readOnly || _interaction_disabled) {
                     return;
                 }
 
@@ -268,7 +272,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
             };
 
             const handlePaste: ClipboardEventHandler<HTMLInputElement> = (event) => {
-                if (disabled || readOnly) {
+                if (disabled || readOnly || _interaction_disabled) {
                     return;
                 }
 
@@ -305,12 +309,13 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 onChange,
                 onEnterDisabled: _onEnterDisabled,
                 onChipCloseClick: _onChipCloseClick,
+                _interaction_disabled,
             });
 
             const onChipClick = (event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation();
 
             const handleInputFocus = () => {
-                if (readOnly || disabled || !inputRef?.current) {
+                if (readOnly || disabled || !inputRef?.current || _interaction_disabled) {
                     return;
                 }
 
@@ -562,7 +567,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                         readOnly && classes.readOnlyInput,
                                     )}
                                     disabled={disabled}
-                                    readOnly={!disabled && readOnly}
+                                    readOnly={!disabled && (readOnly || _interaction_disabled)}
                                     onInput={handleInput}
                                     onChange={handleChange}
                                     onKeyDown={handleOnKeyDown}

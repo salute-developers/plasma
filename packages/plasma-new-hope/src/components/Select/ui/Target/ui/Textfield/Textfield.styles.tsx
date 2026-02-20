@@ -183,32 +183,6 @@ export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: b
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
     ${textFieldTokens.boxShadow}: ${({ disabled }) => (disabled ? 'none' : `var(${tokens.textFieldBoxShadow})`)};
-
-    /* TODO: #1544 */
-
-    & div.input-wrapper:focus-within {
-        background-color: var(${tokens.textFieldBackgroundColorFocus});
-    }
-
-    /* TextField изначально в readOnly состоянии */
-
-    &.${classes.readOnly} {
-        ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
-        ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
-        ${textFieldTokens.placeholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
-        ${textFieldTokens.dividerColorReadOnly}: var(${tokens.textFieldDividerColorReadOnly});
-        ${textFieldTokens.leftHelperColorReadOnly}: var(${tokens.textFieldLeftHelperColorReadOnly});
-        ${textFieldTokens.labelColorReadOnly}: var(${tokens.textFieldLabelColorReadOnly});
-        ${textFieldTokens.titleCaptionColorReadOnly}: var(${tokens.textFieldTitleCaptionColorReadOnly});
-        ${textFieldTokens.borderColorReadOnly}: var(${tokens.textFieldBorderColorReadOnly});
-        ${textFieldTokens.readOnlyOpacity}: var(${tokens.textFieldReadOnlyOpacity});
-
-        ${textFieldTokens.chipColorReadOnly}: var(${tokens.textFieldChipColorReadOnly});
-        ${textFieldTokens.chipColorReadOnlyHover}: var(${tokens.textFieldChipColorReadOnlyHover});
-        ${textFieldTokens.chipBackgroundReadOnly}: var(${tokens.textFieldChipBackgroundReadOnly});
-        ${textFieldTokens.chipBackgroundReadOnlyHover}: var(${tokens.textFieldChipBackgroundReadOnlyHover});
-        ${textFieldTokens.chipOpacityReadonly}: var(${tokens.textFieldChipOpacityReadonly});
-    }
 `;
 
 export const IconArrowWrapper = styled.div<{ disabled?: boolean; readOnly?: boolean }>`

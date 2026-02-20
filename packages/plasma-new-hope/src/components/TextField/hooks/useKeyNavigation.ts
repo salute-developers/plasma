@@ -32,13 +32,14 @@ export const useKeyNavigation = ({
     onSearch,
     onEnterDisabled = false,
     onChipCloseClick,
+    _interaction_disabled,
 }: UseKeyNavigationProps & NewChipExtraProps) => {
     const [activeChipIndex, setActiveChipIndex] = useState(-1);
 
     const handleInputKeydown = (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
         const { value } = event.target as HTMLInputElement;
 
-        if (disabled || readOnly) {
+        if (disabled || readOnly || _interaction_disabled) {
             return;
         }
 
