@@ -19,7 +19,7 @@ getBaseVisualTests({
     configPropsForMatrix: ['view', 'size', 'stretching'],
 });
 
-describeFn('plasma-new-hope: Button', () => {
+describeFn('Button', () => {
     const Button = componentExists ? getComponent<ButtonProps>('Button') : () => null;
 
     it('with loader', () => {
