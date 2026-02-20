@@ -13,8 +13,8 @@ export const classes = {
 
 export const tokens = {
     borderRadius: '--plasma-select-border-radius',
-    margin: '--plasma-select-margin',
     padding: '--plasma-select-padding',
+    margin: '--plasma-select-margin',
 
     fontFamily: '--plasma-select-font-family',
     fontSize: '--plasma-select-font-size',
@@ -67,14 +67,6 @@ export const tokens = {
 
     targetHeight: '--plasma-select-target-height',
 
-    dividerMarginTop: '--plasma-select-divider-margin-top',
-    dividerMarginTopTight: '--plasma-select-divider-margin-top-tight',
-    dividerMarginRight: '--plasma-select-divider-margin-right',
-    dividerMarginBottom: '--plasma-select-divider-margin-bottom',
-    dividerMarginBottomTight: '--plasma-select-divider-margin-bottom-tight',
-    dividerMarginLeft: '--plasma-select-divider-margin-left',
-    dividerColor: '--plasma-select-divider-color',
-
     // Токены для Button
     buttonColor: '--plasma-select-button-color',
     buttonColorHover: '--plasma-select-button-color-hover',
@@ -107,7 +99,6 @@ export const tokens = {
     textFieldBackgroundColorReadOnly: '--plasma-select-textfield-bg-color-readonly',
     textFieldBorderColorReadOnly: '--plasma-select-textfield-border-color-readonly',
     textFieldPlaceholderColorReadOnly: '--plasma-select-textfield__placeholder-color-readonly',
-    textFieldDividerColorReadOnly: '--plasma-select-textfield-divider-color-readonly',
 
     textFieldHeight: '--plasma-select-textfield-height',
     textFieldBorderWidth: '--plasma-select-textfield-border-width',
@@ -274,6 +265,14 @@ export const tokens = {
     disclosureIconSize: '--plasma-select-disclosure-icon-size',
     disclosureIconMargin: '--plasma-select-disclosure-icon-margin',
     disclosureIconOpacityReadOnly: '--plasma-select-disclosure-icon-opacity-readonly',
+
+    dividerMarginTop: '--plasma-select-divider-margin-top',
+    dividerMarginTopTight: '--plasma-select-divider-margin-top-tight',
+    dividerMarginRight: '--plasma-select-divider-margin-right',
+    dividerMarginBottom: '--plasma-select-divider-margin-bottom',
+    dividerMarginBottomTight: '--plasma-select-divider-margin-bottom-tight',
+    dividerMarginLeft: '--plasma-select-divider-margin-left',
+    dividerColor: '--plasma-select-divider-color',
 };
 
 export const constants = {

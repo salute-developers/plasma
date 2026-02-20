@@ -978,15 +978,15 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.disclosureIconOpacityReadOnly}: 0.4;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldReadOnlyOpacity}: 0.1;
+                ${tokens.disclosureIconOpacityReadOnly}: 0.4;
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
+
+                ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
             `,
         },
     },
