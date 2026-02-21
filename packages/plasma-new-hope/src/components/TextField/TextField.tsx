@@ -454,7 +454,6 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     <InputWrapper
                         // Ref для внутреннего использования. Не отдается наружу.
                         ref={(rest as any).inputWrapperRef}
-                        // TODO: #1544, и после убрать classes.inputWrapper
                         className={cx(
                             withHasChips,
                             wrapperWithoutLeftContent,

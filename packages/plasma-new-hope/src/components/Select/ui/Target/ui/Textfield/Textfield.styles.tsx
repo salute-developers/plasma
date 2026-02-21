@@ -11,8 +11,8 @@ const TextField = component(mergedConfig);
 export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: boolean }>`
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
-    ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColor});
-    ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
+    ${textFieldTokens.borderColor}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColor})`};
     ${textFieldTokens.labelColor}: var(${tokens.textFieldLabelColor});
     ${textFieldTokens.leftHelperColor}: var(${tokens.textFieldLeftHelperColor});
 
@@ -25,8 +25,12 @@ export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: b
     ${textFieldTokens.labelColorReadOnly}: var(${tokens.textFieldLabelColor});
     ${textFieldTokens.borderColorReadOnly}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColor})`};
+    ${textFieldTokens.readOnlyOpacity}: var(${tokens.textFieldReadOnlyOpacity});
 
-    ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
+    ${textFieldTokens.placeholderColor}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.placeholderColorFocus}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
 
     ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorHover});
     ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
