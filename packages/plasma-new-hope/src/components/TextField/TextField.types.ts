@@ -312,4 +312,5 @@ export interface UseKeyNavigationProps {
     updateChips: (newChips: Array<ChipValues>, newValues: Array<TextFieldPrimitiveValue>) => void;
     onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    _interaction_disabled?: boolean;
 }

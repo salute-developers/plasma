@@ -357,6 +357,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             treeView,
             valueToPathMap,
             items: transformedItems,
+            readOnly,
         });
 
         // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
