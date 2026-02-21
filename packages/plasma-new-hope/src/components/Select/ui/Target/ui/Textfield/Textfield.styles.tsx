@@ -10,7 +10,8 @@ const TextField = component(mergedConfig);
 
 export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: boolean }>`
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
-    ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
+    ${textFieldTokens.backgroundColor}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColor})`};
     ${textFieldTokens.borderColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColor})`};
     ${textFieldTokens.labelColor}: var(${tokens.textFieldLabelColor});
