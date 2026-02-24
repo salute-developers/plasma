@@ -12,4 +12,6 @@ import { TextField } from '../TextField/TextField';
  */
 type NumberFormatProps = CustomNumberFormatProps & ComponentProps<typeof TextField>;
 
-export const NumberFormat = composeNumberFormat(TextField) as ForwardRefExoticComponent<NumberFormatProps>;
+export const NumberFormat = composeNumberFormat(
+    TextField as ForwardRefExoticComponent<ComponentProps<typeof TextField>>,
+) as ForwardRefExoticComponent<NumberFormatProps>;
