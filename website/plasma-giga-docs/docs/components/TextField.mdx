@@ -7,6 +7,8 @@ import { PropsTable, Description } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+import CleaningLogicExample from '../_examples/_textfield/_cleaning-logic.mdx'
+
 # TextField
 <Description name="TextField" />
 
@@ -232,9 +234,9 @@ export function App() {
 Наличие индикатора регулируется свойством `hasRequiredIndicator`.
 :::
 
-Обязательность поля задаётся с помощью свойства `required`. 
-Если поле является обязательным, то у компонента появляется специальный индикатор. 
-Изменить расположение индикатора можно с помощью свойства `requiredPlacement`, которое принимает значения `left` и `right`. 
+Обязательность поля задаётся с помощью свойства `required`.
+Если поле является обязательным, то у компонента появляется специальный индикатор.
+Изменить расположение индикатора можно с помощью свойства `requiredPlacement`, которое принимает значения `left` и `right`.
 
 ```tsx live
 import React from 'react';
@@ -258,6 +260,14 @@ export function App() {
     );
 }
 ```
+
+### Расширенные примеры
+
+<Tabs>
+    <TabItem value="cleaning logic" label="Cleaning logic">
+        <CleaningLogicExample />
+    </TabItem>
+</Tabs>
 
 ### Таблица свойств
 <PropsTable name="TextField" exclude={['css']} />

@@ -1,0 +1,34 @@
+```tsx live
+import React, { useState } from "react";
+import { IconClose } from "@salutejs/plasma-icons";
+import { TextField, EmbedIconButton } from '@salutejs/sdds-netology';
+
+export function App() {
+const [text, setName] = useState('');
+
+  return (
+    <div>
+      <TextField
+        value={text}
+        label="Введите имя"
+        placeholder="Например, Алексей"
+        onChange={(e) => {
+            setName(e.target.value);
+        }}
+        defaultValue=""
+        contentRight={
+          (text && !!text.length) && <EmbedIconButton
+            size="s"
+            view="secondary"
+            onClick={() => {
+              setName("");
+            }}
+          >
+            <IconClose color="inherit" size="s" />
+          </EmbedIconButton>
+        }
+      />
+    </div>
+  );
+}
+```

@@ -1,7 +1,7 @@
 ```tsx live
 import React, { useState } from "react";
 import { IconClose } from "@salutejs/plasma-icons";
-import { Autocomplete, IconButton } from '@salutejs/sdds-serv';
+import { Autocomplete, EmbedIconButton } from '@salutejs/sdds-serv';
 
 export function App() {
   const [value, setValue] = useState("");
@@ -23,15 +23,15 @@ export function App() {
         placeholder="Placeholder"
         leftHelper="Введите имя Алексей"
         contentRight={
-          <IconButton
-            size="xs"
-            view="clear"
+          (value && !!value.length) && <EmbedIconButton
+            size="s"
+            view="secondary"
             onClick={() => {
               setValue("");
             }}
           >
-            <IconClose color="inherit" size="xs" />
-          </IconButton>
+            <IconClose color="inherit" size="s" />
+          </EmbedIconButton>
         }
        onChange={(e) => setValue(e.target.value)}
        onSuggestionSelect={(e) => setValue(e.label)}
