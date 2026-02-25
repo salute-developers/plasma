@@ -278,7 +278,7 @@ export default function ChangelogPage() {
         const platform = router.query.platform as string;
 
         const InvalidVertical = !vertical || !listAllVerticals.includes(vertical);
-        const InvalidPlatform = !platform || !['React', 'viewSystem', 'composeUi'].includes(platform);
+        const InvalidPlatform = !platform || !['React', 'viewSystem', 'composeUi', 'swiftui'].includes(platform);
 
         if (InvalidVertical || InvalidPlatform) {
             return;
@@ -453,7 +453,7 @@ export default function ChangelogPage() {
                                 <StyledTextXS>{releaseDate}</StyledTextXS>
                             </StyledSectionHeader>
 
-                            {!!lib.length && (
+                            {lib && !!lib.length && (
                                 <ChangelogListContent
                                     list={lib}
                                     heading="Обновления в библиотеке"
@@ -461,7 +461,7 @@ export default function ChangelogPage() {
                                 />
                             )}
 
-                            {!!core.length && (
+                            {core && !!core.length && (
                                 <ChangelogListContent
                                     list={core}
                                     heading="Функциональные изменения в компонентах"
