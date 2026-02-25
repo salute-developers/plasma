@@ -2,7 +2,7 @@ import { css, skeletonTokens } from '@salutejs/plasma-new-hope/styled-components
 
 export const config = {
     defaults: {
-        size: 'body1',
+        size: 'bodyL',
         view: 'default',
     },
     variations: {

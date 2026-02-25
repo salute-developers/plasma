@@ -64,13 +64,15 @@ describe('plasma-core: Skeleton', () => {
     });
 
     describe('RectSkeleton', () => {
-        const RectSkeleton = getComponent('RectSkeleton');
-        const Rect = withNoAnimation(RectSkeleton);
+        const Rect = getComponent('RectSkeleton');
+
+        // NOTE: RectSkeleton doesn't start animation and snaps are empty
+        // const Rect = withNoAnimation(RectSkeleton);
 
         it('simple', () => {
             mount(
                 <CypressTestDecorator>
-                    <Rect width="12rem" height="8rem" />
+                    <Rect width="12rem" height="8rem" roundness={16} />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -79,11 +81,11 @@ describe('plasma-core: Skeleton', () => {
         it('_size', () => {
             mount(
                 <CypressTestDecorator>
-                    <Rect width="12rem" height="8rem" />
+                    <Rect width="12rem" height="8rem" roundness={16} />
                     <SpaceMe />
-                    <Rect width={128} height={128} />
+                    <Rect width={128} height={128} roundness={16} />
                     <SpaceMe />
-                    <Rect height="8rem" />
+                    <Rect height="8rem" roundness={16} />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -111,7 +113,7 @@ describe('plasma-core: Skeleton', () => {
         it('simple', () => {
             mount(
                 <CypressTestDecorator>
-                    <Text size="body1" />
+                    <Text size="bodyL" />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -120,11 +122,11 @@ describe('plasma-core: Skeleton', () => {
         it('__lines', () => {
             mount(
                 <CypressTestDecorator>
-                    <Text size="body1" lines={0} />
-                    <Text size="body1" lines={1} />
-                    <Text size="body1" lines={2} />
-                    <Text size="body1" lines={3} />
-                    <Text size="body1" lines={4} />
+                    <Text size="bodyL" lines={0} />
+                    <Text size="bodyL" lines={1} />
+                    <Text size="bodyL" lines={2} />
+                    <Text size="bodyL" lines={3} />
+                    <Text size="bodyL" lines={4} />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -132,7 +134,7 @@ describe('plasma-core: Skeleton', () => {
         it('__lines:20', () => {
             mount(
                 <CypressTestDecorator>
-                    <Text size="body1" lines={20} />
+                    <Text size="bodyL" lines={20} />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -155,7 +157,7 @@ describe('plasma-core: Skeleton', () => {
                 <CypressTestDecorator>
                     {roundnessKeys.map((roundness) => (
                         <>
-                            <Text size="body1" key={roundness} roundness={roundness} />
+                            <Text size="bodyL" key={roundness} roundness={roundness} />
                             <PadMe key={roundness} />
                         </>
                     ))}
@@ -167,8 +169,8 @@ describe('plasma-core: Skeleton', () => {
         it(':width', () => {
             mount(
                 <CypressTestDecorator>
-                    <Text size="body1" lines={3} width={50} />
-                    <Text size="body1" lines={3} width="2rem" />
+                    <Text size="bodyL" lines={3} width={50} />
+                    <Text size="bodyL" lines={3} width="2rem" />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
