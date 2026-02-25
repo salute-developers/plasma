@@ -96,8 +96,10 @@ describe('plasma-core: Skeleton', () => {
     });
 
     describe('RectSkeleton', () => {
-        const RectSkeleton = getComponent('RectSkeleton');
-        const Rect = withNoAnimation(RectSkeleton);
+        const Rect = getComponent('RectSkeleton');
+
+        // NOTE: RectSkeleton doesn't start animation and snaps are empty
+        // const Rect = withNoAnimation(RectSkeleton);
 
         it('simple', () => {
             mount(
