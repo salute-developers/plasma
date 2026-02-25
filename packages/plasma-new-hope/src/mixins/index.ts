@@ -7,7 +7,7 @@ export * from './applyHyphens';
 export * from './addFocus';
 export * from './typography';
 export * from './applyRoundness';
-export * from './applySkeletonGradient';
+export * from './applySkeletonAnimation';
 export * from './applyHidden';
 export * from './createApplyPaperMixin';
 export * from './addScrollbar';
