@@ -8,6 +8,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 import CleaningLogicExample from '../_examples/_textfield/_cleaning-logic.mdx'
+import UncontrolledExample from '../_examples/_textfield/_uncontrolled.mdx'
+import ControlledExample from '../_examples/_textfield/_controlled.mdx'
+import AppearanceExample from '../_examples/_textfield/_appearance.mdx'
+import ViewExample from '../_examples/_textfield/_view.mdx'
+import SizeExample from '../_examples/_textfield/_size.mdx'
 
 # TextField
 <Description name="TextField" />
@@ -16,52 +21,10 @@ import CleaningLogicExample from '../_examples/_textfield/_cleaning-logic.mdx'
 
 <Tabs>
     <TabItem value="default" label="Uncontrolled" default>
-        ```tsx live
-        import React, {useState} from 'react';
-        import { TextField } from '@salutejs/sdds-serv';
-        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
-
-        export function App() {
-            return (
-                <div>
-                    <TextField
-                        label="Uncontrolled TextField"
-                        defaultValue="Дефолтное значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                        view="default"
-                    />
-                </div>
-            );
-        }
-        ```
+        <UncontrolledExample />
     </TabItem>
     <TabItem value="controlled" label="Controlled">
-        ```tsx live
-        import React, {useState} from 'react';
-        import { DateTimePicker } from '@salutejs/sdds-serv';
-        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
-
-        export function App() {
-            const [text, setText] = useState('Значение поля');
-
-            return (
-                <div>
-                    <TextField
-                        value={text}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                            setText(e.target.value);
-                        }}
-                        label="Uncontrolled TextField"
-                        defaultValue="Дефолтное значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                        view="default"
-                    />
-                </div>
-            );
-        }
-        ```
+        <ControlledExample />
     </TabItem>
 </Tabs>
 
@@ -71,141 +34,22 @@ import CleaningLogicExample from '../_examples/_textfield/_cleaning-logic.mdx'
 
 <Tabs>
     <TabItem value="appearance" label="Appearance" default>
-        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasDivider`
+        :::tip
+         Для `appearance="clear"`есть возможность отобразить разделитель с помощью `hasDivider`
+        :::
 
-        ```tsx live
-        import React, {useState} from 'react';
-        import { TextField } from '@salutejs/sdds-serv';
-        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
-
-        export function App() {
-            return (
-                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
-                    <TextField
-                        view="default"
-                        appearance="default"
-                        label="Appearance default"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        view="default"
-                        appearance="clear"
-                        label="Appearance clear"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        view="positive"
-                        appearance="clear"
-                        hasDivider
-                        label="Appearance clear"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                </div>
-            );
-        }
-        ```
+        <AppearanceExample/>
     </TabItem>
     <TabItem value="view" label="View">
-        ```tsx live
-        import React, {useState} from 'react';
-        import { TextField } from '@salutejs/sdds-serv';
-        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
-
-        export function App() {
-            return (
-                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
-                    <TextField
-                        view="default"
-                        label="View default"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        view="positive"
-                        label="View positive"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        view="warning"
-                        label="View warning"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        view="negative"
-                        label="View negative"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                </div>
-            );
-        }
-        ```
+        <ViewExample />
     </TabItem>
     <TabItem value="size" label="Size">
-        ```tsx live
-        import React, {useState} from 'react';
-        import { TextField } from '@salutejs/sdds-serv';
-        import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
-
-        export function App() {
-            return (
-                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
-                    <TextField
-                        size="xl"
-                        label="Size xl"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        size="l"
-                        label="Size l"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        size="m"
-                        label="Size m"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        size="s"
-                        label="Size s"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        size="xs"
-                        label="Size xs"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                </div>
-            );
-        }
-        ```
+        <SizeExample />
     </TabItem>
 </Tabs>
 
 ### Подсказки
-Для вывода подсказки снизу от поля используйте свойство `leftHelper`,
+Для вывода подсказки снизу от поля, используйте свойство `leftHelper`,
 для подсказки в виде Tooltip - `hintText`, для подсказки сверху справа - `titleCaption`:
 
 ```tsx live

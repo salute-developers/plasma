@@ -1,0 +1,37 @@
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-serv';
+import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+            <TextField
+                view="default"
+                appearance="default"
+                label="Appearance default"
+                placeholder="Введите значение"
+                contentLeft={<IconBellFill size="s" color="inherit" />}
+                contentRight={<IconDone size="s" color="inherit" />}
+            />
+            <TextField
+                view="default"
+                appearance="clear"
+                label="Appearance clear"
+                placeholder="Введите значение"
+                contentLeft={<IconBellFill size="s" color="inherit" />}
+                contentRight={<IconDone size="s" color="inherit" />}
+            />
+            <TextField
+                view="positive"
+                appearance="clear"
+                hasDivider
+                label="Appearance clear"
+                placeholder="Введите значение"
+                contentLeft={<IconBellFill size="s" color="inherit" />}
+                contentRight={<IconDone size="s" color="inherit" />}
+            />
+        </div>
+    );
+}
+```
