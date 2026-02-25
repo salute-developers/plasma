@@ -1,0 +1,25 @@
+```tsx live
+import React, {useState} from 'react';
+import { TextField } from '@salutejs/sdds-serv';
+import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [text, setText] = useState('Значение поля');
+
+    return (
+        <div>
+            <TextField
+                value={text}
+                onChange={(e) => {
+                    setText(e.target.value);
+                }}
+                label="Uncontrolled TextField"
+                defaultValue="Дефолтное значение"
+                contentLeft={<IconBellFill size="s" color="inherit" />}
+                contentRight={<IconDone size="s" color="inherit" />}
+                view="default"
+            />
+        </div>
+    );
+}
+```

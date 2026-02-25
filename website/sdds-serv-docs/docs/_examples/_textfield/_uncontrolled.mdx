@@ -1,0 +1,19 @@
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/sdds-serv';
+import { IconBellFill, IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                label="Uncontrolled TextField"
+                defaultValue="Дефолтное значение"
+                contentLeft={<IconBellFill size="s" color="inherit" />}
+                contentRight={<IconDone size="s" color="inherit" />}
+                view="default"
+            />
+        </div>
+    );
+}
+```
