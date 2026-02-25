@@ -54,3 +54,4 @@ export { IconDotsHorizontalOutline } from './Icons/IconDotsHorizontalOutline';
 export { IconDownload } from './Icons/IconDownload';
 export { IconPlasma } from './Icons/IconPlasma';
 export { IconRefresh } from './Icons/IconRefresh';
+export { IconSendOutline } from './Icons/IconSendOutline';
