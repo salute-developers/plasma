@@ -86,8 +86,6 @@ MyComponent/
         └── base.ts
 ```
 
-> **Примечание:** В вариациях могут присутствовать файлы `tokens.json` — они опциональны и используются для документирования, не влияют на работу компонента.
-
 **В вертикали** (`packages/sdds-serv/src/components/MyComponent/`):
 
 ```
@@ -147,9 +145,8 @@ export const tokens = {
 
 ```typescript
 // tokens.ts — объявление ключа
-padding: '--sdds-core-component-name-padding',
-    // MyComponent.config.ts (вертикаль) — присвоение значения
-    `${tokens.padding}: 0.75rem;`;
+padding: '--sdds-core-component-name-padding'// MyComponent.config.ts (вертикаль) — присвоение значения
+`${tokens.padding}: 0.75rem;`;
 ```
 
 ---
@@ -286,12 +283,12 @@ export const base = css`
 
 ---
 
-### 5. Создайте layout и конфигурацию
+### 5. Создайте layout и конфигурацию в ядре
 
 Файл `MyComponent.tsx` — содержит layout-функцию (JSX-структуру) и конфигурацию компонента.
 
--   **`RootProps<RefElement, Props>`** — тип из `../../engines`, описывающий корневой React-компонент, который engine создаёт на основе конфигурации. Первый параметр — тип HTML-элемента (должен соответствовать `tag` в конфигурации), второй — тип пропсов компонента.
--   **`classnames(...classes)`** — утилита из `../../utils`. Объединяет строки и условные классы: `classnames('a', false && 'b', 'c')` → `'a c'`.
+-   **`RootProps<RefElement, Props>`** — тип из `src/engines`, описывающий корневой React-компонент, который engine создаёт на основе конфигурации. Первый параметр — тип HTML-элемента (должен соответствовать `tag` в конфигурации), второй — тип пропсов компонента.
+-   **`classnames(...classes)`** — утилита из `src/utils`. Объединяет строки и условные классы: `classnames('a', false && 'b', 'c')` → `'a c'`.
 
 ```tsx
 import React, { forwardRef } from 'react';
@@ -578,17 +575,6 @@ export const privateTokens = {
 -   Начинаются с `--sdds-core_private-`
 -   Не переопределяются в вертикалях
 -   Используются для динамических значений, вычисляемых в runtime
-
-### Использование тем
-
-```ts
-// Токен компонента → переменная темы
-`
-${tokens.backgroundColor}: var(--surface-accent);
-${tokens.color}: var(--text-primary);
-${tokens.titleFontFamily}: var(--plasma-typo-body-m-font-family);
-`;
-```
 
 ---
 
