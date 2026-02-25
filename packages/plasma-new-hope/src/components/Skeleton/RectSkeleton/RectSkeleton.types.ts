@@ -1,6 +1,7 @@
 import type { HTMLAttributes } from 'react';
+import type { SkeletonGradientProps } from 'src/mixins';
 
-import type { Roundness, SkeletonGradientProps } from '../../../mixins';
+import type { SkeletonBaseProps } from '../Skeleton.types';
 
 type CustomSkeletonRectProps = {
     /**
@@ -11,21 +12,15 @@ type CustomSkeletonRectProps = {
      * Высота скелетона
      */
     height: string | number;
-    /**
-     * Значение градиента скелетона
-     */
-    customGradientColor?: string;
-    /**
-     * Скругленность
-     */
-    roundness?: Roundness;
-};
+} & SkeletonBaseProps;
 
 export type StyledRectProps = {
     roundness: string;
     gradientColor: string;
     width: string;
     height: string;
+    customFadeInColor?: string;
+    customFadeOutColor?: string;
 };
 
 export type RectSkeletonProps = HTMLAttributes<HTMLDivElement> & CustomSkeletonRectProps & SkeletonGradientProps;

@@ -1,8 +1,8 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
+import { applyRoundness, applySkeletonPulseGradient, applySkeletonShimmerGradient } from 'src/mixins';
 
-import { applyRoundness, applySkeletonGradient } from '../../../mixins';
-import { tokens } from '../tokens';
+import { classes, privateTokens, tokens } from '../tokens';
 
 import type { StyledVisibleLineProps } from './LineSkeleton.types';
 
@@ -19,9 +19,26 @@ export const StyledVisibleLine = styled.div<StyledVisibleLineProps>`
 
     width: 100%;
 
-    --plasma_private-line-skeleton-roundness: ${({ roundness }) => roundness};
-    ${applyRoundness('var(--plasma_private-line-skeleton-roundness)')};
+    ${privateTokens.lineSkeletonRoundness}: ${({ roundness }) => roundness};
+    ${applyRoundness(`var(${privateTokens.lineSkeletonRoundness})`)};
 
-    --plasma_private-line-skeleton-gradient: ${({ gradientColor }) => gradientColor || `var(${tokens.gradientColor})`};
-    ${applySkeletonGradient('var(--plasma_private-line-skeleton-gradient)')};
+    &.${classes.shimmerAnimation} {
+        ${privateTokens.lineSkeletonGradient}: ${({ gradientColor }) =>
+            gradientColor || `var(${tokens.gradientColor})`};
+
+        ${applySkeletonShimmerGradient(`var(${privateTokens.lineSkeletonGradient})`, tokens.shimmerDuration)};
+    }
+
+    &.${classes.pulseAnimation} {
+        ${privateTokens.skeletonFadeInColor}: ${({ customFadeInColor }) =>
+            customFadeInColor || `var(${tokens.fadeInColor})`};
+        ${privateTokens.skeletonFadeOutColor}: ${({ customFadeOutColor }) =>
+            customFadeOutColor || `var(${tokens.fadeOutColor})`};
+
+        ${applySkeletonPulseGradient(
+            privateTokens.skeletonFadeInColor,
+            privateTokens.skeletonFadeOutColor,
+            tokens.pulseDuration,
+        )};
+    }
 `;
