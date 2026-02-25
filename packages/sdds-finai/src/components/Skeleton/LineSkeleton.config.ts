@@ -11,9 +11,13 @@ export const config = {
         view: {
             default: css`
                 ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient, linear-gradient(270.00deg, rgb(232, 238, 242) 0.538%,rgb(255, 255, 255) 51.426%,rgb(232, 238, 242) 100%));
+                ${skeletonTokens.fadeInColor}: var(--surface-transparent-secondary);
+                ${skeletonTokens.fadeOutColor}: var(--surface-transparent-tertiary);
             `,
             lighter: css`
                 ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient-lighter, linear-gradient(90.00deg, rgb(192, 203, 211) 1.601%,rgba(247, 249, 251, 0.5) 51.511%,rgb(192, 203, 211) 99.846%));
+                ${skeletonTokens.fadeInColor}: var(--surface-transparent-secondary);
+                ${skeletonTokens.fadeOutColor}: var(--surface-transparent-tertiary);
             `,
         },
         size: {
