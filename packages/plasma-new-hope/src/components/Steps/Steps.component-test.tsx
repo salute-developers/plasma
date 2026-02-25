@@ -196,7 +196,7 @@ const VerticalWrapper = styled.div`
     height: 400px;
 `;
 
-describeFn('plasma-new-hope: Steps', () => {
+describeFn('Steps', () => {
     const Steps = componentExists ? getComponent<StepsProps>('Steps') : () => null;
     const simpleItems = getItems({ simple: true });
     const simpleBulletItems = simpleItems.map((item) => ({ ...item, indicator: undefined }));
