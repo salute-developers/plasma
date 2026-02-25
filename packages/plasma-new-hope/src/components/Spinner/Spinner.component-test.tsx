@@ -14,7 +14,7 @@ getBaseVisualTests({
     configPropsForMatrix: ['view'],
 });
 
-describeFn('plasma-new-hope: Spinner', () => {
+describeFn('Spinner', () => {
     const Spinner = componentExists ? getComponent<SpinnerProps>('Spinner') : () => null;
     const Spin = styled(Spinner)`
         animation: none;
