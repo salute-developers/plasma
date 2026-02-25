@@ -66,8 +66,10 @@ describe('sddds-cs: Skeleton', () => {
     });
 
     describe('RectSkeleton', () => {
-        const RectSkeleton = getComponent('RectSkeleton') as typeof RectSkeletonCS;
-        const Rect = withNoAnimation(RectSkeleton);
+        const Rect = getComponent('RectSkeleton') as typeof RectSkeletonCS;
+
+        // NOTE: RectSkeleton doesn't start animation and snaps are empty
+        // const Rect = withNoAnimation(RectSkeleton);
 
         it('simple', () => {
             mount(
