@@ -1,91 +1,33 @@
-import React from 'react';
-import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
+import type { Meta } from '@storybook/react-vite';
+import { getSkeletonStories } from '@salutejs/plasma-sb-utils';
 
-import { WithTheme, argTypesFromConfig } from '../../_helpers';
 import { mergeConfig } from '../../../engines';
 import { lineSkeletonConfig } from '../../../components/Skeleton';
-import type { WithSkeletonProps } from '../../../components/Skeleton';
 import { radiuses } from '../../../mixins';
 import { Button as BasicButton } from '../Button/Button';
 
 import { config as lineSkeletonCustomConfig } from './LineSkeleton.config';
 import { LineSkeleton, TextSkeleton, RectSkeleton, withSkeleton } from './Skeleton';
 
-type StoryLineSkeletonProps = ComponentProps<typeof LineSkeleton>;
-type StoryTextSkeletonProps = ComponentProps<typeof TextSkeleton>;
-type StoryRectSkeletonProps = ComponentProps<typeof RectSkeleton>;
-type BasicButtonProps = ComponentProps<typeof BasicButton>;
+const mergedLineSkeletonConfig = mergeConfig(lineSkeletonConfig, lineSkeletonCustomConfig);
+
+const { meta: META, Line, Text, Rect, Button } = getSkeletonStories({
+    components: {
+        LineSkeleton,
+        TextSkeleton,
+        RectSkeleton,
+        withSkeleton,
+        Button: BasicButton,
+    },
+    lineSkeletonConfig: mergedLineSkeletonConfig,
+    radiuses,
+});
 
 const meta: Meta = {
+    ...META,
     title: 'Data Display/Skeleton',
-    decorators: [WithTheme],
 };
 
 export default meta;
 
-const roundnessKeys = Object.keys(radiuses).map((r) => String(r));
-
-const Default: StoryObj = {
-    argTypes: {
-        roundness: {
-            options: roundnessKeys,
-            control: {
-                type: 'select',
-            },
-        },
-    },
-    args: {
-        roundness: '16',
-        customGradientColor: '',
-    },
-};
-
-export const Line: StoryObj<StoryLineSkeletonProps> = {
-    argTypes: {
-        ...argTypesFromConfig(mergeConfig(lineSkeletonConfig, lineSkeletonCustomConfig)),
-        ...Default.argTypes,
-    },
-    args: {
-        size: 'bodyM',
-        view: 'default',
-        ...Default.args,
-    },
-    render: (args) => <LineSkeleton {...args} />,
-};
-
-export const Text: StoryObj<StoryTextSkeletonProps> = {
-    argTypes: {
-        ...argTypesFromConfig(mergeConfig(lineSkeletonConfig, lineSkeletonCustomConfig)),
-        ...Default.argTypes,
-    },
-    args: {
-        size: 'bodyM',
-        lines: 5,
-        width: '',
-        ...Default.args,
-    },
-    render: (args) => <TextSkeleton {...args} />,
-};
-
-export const Rect: StoryObj<StoryRectSkeletonProps> = {
-    argTypes: {
-        ...Default.argTypes,
-    },
-    args: {
-        width: '4rem',
-        height: '4rem',
-        lighter: false,
-        ...Default.args,
-    },
-    render: (args) => <RectSkeleton {...args} />,
-};
-
-const ButtonSkeleton = withSkeleton<BasicButtonProps & WithSkeletonProps>(BasicButton);
-
-export const Button: StoryObj = {
-    args: {
-        skeleton: true,
-    },
-    render: (args) => <ButtonSkeleton view="default" text="test" {...args} />,
-};
+export { Line, Text, Rect, Button };
