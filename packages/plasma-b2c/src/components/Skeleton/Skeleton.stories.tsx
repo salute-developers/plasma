@@ -1,149 +1,32 @@
-import React from 'react';
-import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getSkeletonStories } from '@salutejs/plasma-sb-utils';
 import { radiuses } from '@salutejs/plasma-core';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import { lineSkeletonConfig, mergeConfig, withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 
 import { Button as BasicButton } from '../Button/Button';
-import type { WithSkeletonProps } from '../../hocs';
-import { withSkeleton } from '../../hocs';
 
-import { LineSkeleton, TextSkeleton, RectSkeleton } from '.';
+import { config as lineSkeletonCustomConfig } from './LineSkeleton.config';
+import { LineSkeleton, TextSkeleton, RectSkeleton } from './Skeleton';
 
-type StoryLineSkeletonProps = ComponentProps<typeof LineSkeleton>;
-type StoryTextSkeletonProps = ComponentProps<typeof TextSkeleton>;
-type StoryRectSkeletonProps = ComponentProps<typeof RectSkeleton>;
-type BasicButtonProps = ComponentProps<typeof BasicButton>;
+const mergedLineSkeletonConfig = mergeConfig(lineSkeletonConfig, lineSkeletonCustomConfig);
+
+const { meta: META, Line, Text, Rect, Button } = getSkeletonStories({
+    components: {
+        LineSkeleton,
+        TextSkeleton,
+        RectSkeleton,
+        withSkeleton,
+        Button: BasicButton,
+    },
+    lineSkeletonConfig: mergedLineSkeletonConfig,
+    radiuses,
+});
 
 const meta: Meta = {
+    ...META,
     title: 'Data Display/Skeleton',
-    decorators: [InSpacingDecorator],
 };
 
 export default meta;
 
-const roundnessKeys = Object.keys(radiuses).map((r) => String(r));
-const textSizes = [
-    'display1',
-    'display2',
-    'display3',
-    'headline1',
-    'headline2',
-    'headline3',
-    'headline4',
-    'body1',
-    'body2',
-    'body3',
-    'paragraph1',
-    'paragraph2',
-    'footnote1',
-    'footnote2',
-    'button1',
-    'button2',
-    'caption',
-    'underline',
-    'bodyL',
-    'bodyM',
-    'bodyS',
-    'bodyXS',
-    'bodyXXS',
-    'dsplL',
-    'dsplM',
-    'dsplS',
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'h5',
-    'h6',
-    'textL',
-    'textM',
-    'textS',
-    'textXS',
-];
-
-const Default: StoryObj = {
-    argTypes: {
-        roundness: {
-            options: roundnessKeys,
-            control: {
-                type: 'select',
-            },
-        },
-    },
-    args: {
-        roundness: '16',
-        customGradientColor: '',
-    },
-};
-
-export const Line: StoryObj<StoryLineSkeletonProps> = {
-    argTypes: {
-        size: {
-            options: textSizes,
-            control: {
-                type: 'select',
-            },
-        },
-        view: {
-            options: ['default', 'lighter'],
-            control: {
-                type: 'select',
-            },
-        },
-        ...Default.argTypes,
-    },
-    args: {
-        size: 'body1',
-        view: 'default',
-        ...Default.args,
-    },
-    render: (args) => <LineSkeleton {...args} />,
-};
-
-export const Text: StoryObj<StoryTextSkeletonProps> = {
-    argTypes: {
-        size: {
-            options: textSizes,
-            control: {
-                type: 'select',
-            },
-        },
-        view: {
-            options: ['default', 'lighter'],
-            control: {
-                type: 'select',
-            },
-        },
-        ...Default.argTypes,
-    },
-    args: {
-        size: 'body1',
-        lines: 5,
-        width: '',
-        ...Default.args,
-    },
-    render: (args) => <TextSkeleton {...args} />,
-};
-
-export const Rect: StoryObj<StoryRectSkeletonProps> = {
-    argTypes: {
-        ...Default.argTypes,
-    },
-    args: {
-        width: '4rem',
-        height: '4rem',
-        lighter: false,
-        ...Default.args,
-    },
-    render: (args) => <RectSkeleton {...args} />,
-};
-
-const ButtonSkeleton = withSkeleton<BasicButtonProps & WithSkeletonProps>(BasicButton);
-
-export const Button: StoryObj = {
-    args: {
-        skeleton: true,
-    },
-    render: (args) => <ButtonSkeleton text="test" {...args} />,
-};
+export { Line, Text, Rect, Button };
