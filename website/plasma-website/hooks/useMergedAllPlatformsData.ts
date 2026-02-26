@@ -45,6 +45,19 @@ const verticals: Record<
             },
         },
     },
+    plasmaHomeDS: {
+        title: 'React',
+        package: '@salutejs/plasma-homeds',
+        version: PACKAGES_INFO['@salutejs/plasma-homeds'][0],
+        links: {
+            storybook: {
+                href: '/homeds-storybook/',
+            },
+            documentation: {
+                href: '/homeds/',
+            },
+        },
+    },
     plasmaGigaApp: {
         title: 'React',
         package: '@salutejs/plasma-giga',
@@ -120,19 +133,6 @@ const verticals: Record<
             },
             documentation: {
                 href: '/sdds-cs/',
-            },
-        },
-    },
-    SDDSCRM: {
-        title: 'React',
-        package: '@salutejs/sdds-crm',
-        version: PACKAGES_INFO['@salutejs/sdds-crm'][0],
-        links: {
-            storybook: {
-                href: '/sdds-crm-storybook/',
-            },
-            documentation: {
-                href: '/sdds-crm/',
             },
         },
     },
