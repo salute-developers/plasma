@@ -308,7 +308,7 @@ export const packageNameMap = {
     'sdds-platform-ai': 'SDDS Platform-AI',
     'sddssber-os': 'SDDS OS',
     plasmaStarDS: 'Plasma StarDS',
-    plasmaHomeDS: 'Plasma HomeDS',
+    'plasma-homeds': 'Plasma HomeDS',
 };
 
 export const verticalToNpmPackageMap = {
@@ -316,7 +316,7 @@ export const verticalToNpmPackageMap = {
     plasmaSDMid: 'plasma-web',
     plasmaGigaApp: 'plasma-giga',
     plasmaStarDS: 'plasmaStarDS',
-    plasmaHomeDS: 'plasmaHomeDS',
+    plasmaHomeDS: 'plasma-homeds',
     SDDSService: 'sdds-serv',
     SDDSFinAI: 'sdds-finai',
     SDDSDFA: 'sdds-dfa',
