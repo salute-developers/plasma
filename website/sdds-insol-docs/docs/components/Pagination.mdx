@@ -4,124 +4,291 @@ title: Pagination
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Pagination
-
-Pagination может отображаться в разных размерах и может содержать select с выбором количества элементов на странице и быстрый выбор страницы
-
-## Pagination
 <Description name="Pagination" />
+
+## Быстрый старт
+
+Свойство `slots` задаёт максимальное количество кнопок страниц, которые отображаются одновременно.
+Свойство `count` задаёт общее количество элементов (или страниц, если `hasPerPage` не указан):
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div>
+            <Pagination slots={9} count={2000} hasPerPage perPage={20} />
+        </div>
+    );
+}
+```
+
+## Управление внешним видом
+
+Внешний вид компонента зависит от свойств `view` и `size`:
+
+<Tabs>
+    <TabItem value="view" label="View" default>
+        Вид кнопок пагинации задается с помощью свойства `view`:
+
+        - `"default"` — основная;
+        - `"secondary"` — вторичная;
+        - `"clear"` — чистая.
+
+        ```tsx live
+        import React from 'react';
+        import { Pagination } from '@salutejs/sdds-insol';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <Pagination size="xs" view="default" slots={9} count={200} />
+                    <Pagination size="xs" view="secondary" slots={9} count={200} />
+                    <Pagination size="xs" view="clear" slots={9} count={200} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        Размер задается с помощью свойства `size`. Возможные значения: `"l"`, `"m"`, `"s"`, `"xs"`:
+
+        ```tsx live
+        import React from 'react';
+        import { Pagination } from '@salutejs/sdds-insol';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <Pagination size="l" slots={9} count={200} />
+                    <Pagination size="m" slots={9} count={200} />
+                    <Pagination size="s" slots={9} count={200} />
+                    <Pagination size="xs" slots={9} count={200} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Вид активной страницы
+
+С помощью свойства `viewCurrentPage` можно задать отдельный вид для кнопки текущей активной страницы:
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <Pagination size="xs" viewCurrentPage="default" slots={9} count={200} />
+            <Pagination size="xs" viewCurrentPage="secondary" slots={9} count={200} />
+            <Pagination size="xs" viewCurrentPage="clear" slots={9} count={200} />
+        </div>
+    );
+}
+```
+
+## Тип
+
+С помощью свойства `type` можно выбрать тип отображения компонента:
+
+- `"default"` — обычный, с отображением номеров страниц;
+- `"compact"` — компактный, показывает только текущую страницу.
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <Pagination size="xs" type="default" slots={9} count={200} hasPerPage />
+            <Pagination size="xs" type="compact" slots={9} count={200} hasPerPage />
+        </div>
+    );
+}
+```
+
+## Форма кнопок
+
+С помощью свойства `pilled` можно переключить кнопки в круглую форму:
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <Pagination size="xs" pilled={false} slots={9} count={200} />
+            <Pagination size="xs" pilled={true} slots={9} count={200} />
+        </div>
+    );
+}
+```
+
+## Количество элементов на странице
+
+С помощью свойства `hasPerPage` можно включить выпадающий список выбора количества элементов на странице. Начальное значение задаётся свойством `perPage`:
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <Pagination size="xs" slots={9} count={200} hasPerPage={false} />
+            <Pagination size="xs" slots={9} count={200} hasPerPage perPage={20} />
+        </div>
+    );
+}
+```
+
+## Быстрый переход на страницу
+
+С помощью свойства `hasQuickJump` можно включить поле быстрого перехода на произвольную страницу:
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <Pagination size="xs" slots={9} count={200} hasQuickJump={false} />
+            <Pagination size="xs" slots={9} count={200} hasQuickJump />
+        </div>
+    );
+}
+```
+
+## Вспомогательный текст
+
+С помощью свойства `helperText` можно добавить произвольный текст рядом с пагинацией.
+Свойство `singleLine` ограничивает текст одной строкой с многоточием:
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <Pagination size="xs" slots={9} count={200} helperText="Страница 1 из 10" />
+            <Pagination
+                size="xs"
+                slots={9}
+                count={200}
+                helperText="Очень длинный вспомогательный текст, который может не поместиться в одну строку"
+                singleLine
+            />
+        </div>
+    );
+}
+```
+
+## Навигационные кнопки
+
+С помощью свойств `leftContent` и `rightContent` можно разместить произвольный контент по бокам от блока страниц.
+Например, кнопки навигации к первой, предыдущей, следующей и последней страницам:
+
+```tsx live
+import React, { useState } from 'react';
+import { Pagination, IconButton } from '@salutejs/sdds-insol';
+import {
+    IconDoubleDisclosureLeft,
+    IconDisclosureLeftOutline,
+    IconDisclosureRightOutline,
+    IconDoubleDisclosureRight,
+} from '@salutejs/plasma-icons';
+
+export function App() {
+    const count = 2000;
+    const perPage = 20;
+    const [page, setPage] = useState(1);
+
+    const lastPage = Math.ceil(count / perPage);
+
+    const leftContent = (
+        <>
+            <IconButton view="clear" size="xs" onClick={() => setPage(1)}>
+                <IconDoubleDisclosureLeft color="inherit" size="xs" />
+            </IconButton>
+            <IconButton view="clear" size="xs" onClick={() => setPage((p) => Math.max(1, p - 1))}>
+                <IconDisclosureLeftOutline color="inherit" size="xs" />
+            </IconButton>
+        </>
+    );
+
+    const rightContent = (
+        <>
+            <IconButton view="clear" size="xs" onClick={() => setPage((p) => Math.min(lastPage, p + 1))}>
+                <IconDisclosureRightOutline color="inherit" size="xs" />
+            </IconButton>
+            <IconButton view="clear" size="xs" onClick={() => setPage(lastPage)}>
+                <IconDoubleDisclosureRight color="inherit" size="xs" />
+            </IconButton>
+        </>
+    );
+
+    return (
+        <div>
+            <Pagination
+                size="xs"
+                slots={9}
+                count={count}
+                perPage={perPage}
+                value={page}
+                leftContent={leftContent}
+                rightContent={rightContent}
+                onChange={(newPage) => newPage !== undefined && setPage(newPage)}
+            />
+        </div>
+    );
+}
+```
+
+## Контролируемый режим
+
+Компонент поддерживает контролируемый режим через свойства `value` и `perPage`.
+Колбэк `onChange` вызывается с новым номером страницы и текущим количеством элементов на странице:
+
+```tsx live
+import React, { useState } from 'react';
+import { Pagination } from '@salutejs/sdds-insol';
+
+export function App() {
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(20);
+
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <Pagination
+                size="xs"
+                slots={9}
+                count={2000}
+                value={page}
+                perPage={perPage}
+                hasPerPage
+                hasQuickJump
+                onChange={(newPage, newPerPage) => {
+                    if (newPage !== undefined) setPage(newPage);
+                    if (newPerPage !== undefined) setPerPage(newPerPage);
+                }}
+            />
+            <div>Страница: {page}, элементов на странице: {perPage}</div>
+        </div>
+    );
+}
+```
+
+## Таблица свойств
 <PropsTable name="Pagination" exclude={['css', 'focused']} />
-
-## Использование
-Компонент `Pagination` должен содержать параметр slots. Он обозначает количество кнопок в Pagination
-
-Также компонент имеет параметр hasPerPage, логика работы такова:
-Если указан только параметр count, то он равен кол-ву страниц
-Если указан параметр hasPerPage или perPage, то count делится на perPage
-
-```tsx live
-import React from 'react';
-import { Pagination } from '@salutejs/sdds-insol';
-
-export function App() {
-    return (
-        <div style={{display: "flex", "flex-direction": "column"}}>
-            <div>
-                <Pagination slots={7} count={200} />
-            </div>
-            <div>
-                <Pagination slots={9} count={200} hasPerPage={true} perPage={20} />
-            </div>
-            <div>
-                <Pagination slots={9} count={200} hasPerPage={true} />
-            </div>
-            <div>
-                <Pagination slots={9} count={200} hasPerPage={false} />
-            </div>
-        </div>
-    );
-}
-```
-
-## Примеры
-
-### Размер Pagination
-Размер Pagination задается с помощью свойства `size`. Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`:
-
-```tsx live
-import React from 'react';
-import { Pagination } from '@salutejs/sdds-insol';
-
-export function App() {
-    return (
-        <div style={{display: "flex", "flex-direction": "column"}}>
-            <Pagination size="l" slots={9} count={200} hasPerPage={true} helperText="Helper Text" />
-            <Pagination size="m" slots={9} count={200} hasPerPage={true} helperText="Helper Text" />
-            <Pagination size="s" slots={9} count={200} hasPerPage={true} helperText="Helper Text" />
-            <Pagination size="xs" slots={9} count={200} hasPerPage={true} helperText="Helper Text" />
-        </div>
-    );
-}
-```
-
-### Вид Pagination
-Вид Pagination задается с помощью свойства `view`. Возможные значения свойства `view`:
-+ `"default"` – основная;
-+ `"secondary"` – вторичная;
-+ `"clear"` – чистая;
-
-```tsx live
-import React from 'react';
-import { Pagination } from '@salutejs/sdds-insol';
-
-export function App() {
-    return (
-        <div style={{display: "flex", "flex-direction": "column"}}>
-            <Pagination size="xs" view="default" slots={9} count={200} hasPerPage={true} />
-            <Pagination size="xs" view="secondary" slots={9} count={200} hasPerPage={true} />
-            <Pagination size="xs" view="clear" slots={9} count={200} hasPerPage={true} />
-        </div>
-    );
-}
-```
-
-### Вид активной кнопки Pagination
-Вид Pagination задается с помощью свойства `viewCurrentPage`. Возможные значения свойства `viewCurrentPage`:
-+ `"default"` – основная;
-+ `"secondary"` – вторичная;
-+ `"clear"` – чистая;
-
-```tsx live
-import React from 'react';
-import { Pagination } from '@salutejs/sdds-insol';
-
-export function App() {
-    return (
-        <div style={{display: "flex", "flex-direction": "column"}}>
-            <Pagination size="xs" viewCurrentPage="default" slots={9} count={200} hasPerPage={true} />
-            <Pagination size="xs" viewCurrentPage="secondary" slots={9} count={200} hasPerPage={true} />
-            <Pagination size="xs" viewCurrentPage="clear" slots={9} count={200} hasPerPage={true} />
-        </div>
-    );
-}
-```
-
-### Типы Pagination
-Тип Pagination задается с помощью свойства `type`. Возможные значения свойства `type`:
-+ `"default"` – обычная;
-+ `"compact"` – компактная;
-
-```tsx live
-import React from 'react';
-import { Pagination } from '@salutejs/sdds-insol';
-
-export function App() {
-    return (
-        <div style={{display: "flex", "flex-direction": "column"}}>
-            <Pagination size="xs" type="default" slots={9} count={200} hasPerPage={true} />
-            <Pagination size="xs" type="compact" slots={9} count={200} hasPerPage={true} />
-        </div>
-    );
-}
-```
