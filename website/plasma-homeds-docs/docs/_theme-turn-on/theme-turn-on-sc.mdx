@@ -1,0 +1,20 @@
+```jsx
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { Button, BodyL } from '@salutejs/plasma-homeds';
+import { plasma_homeds__light } from '@salutejs/plasma-themes';
+
+const Theme = createGlobalStyle(plasma_homeds__light);
+
+const App = () => {
+    return (
+        <>
+            <Theme />
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
