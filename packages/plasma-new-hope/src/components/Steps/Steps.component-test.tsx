@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
 import styled, { createGlobalStyle } from 'styled-components';
-
 // @ts-ignore
-import { IconMic } from '../../../../plasma-icons';
+import { IconMic } from 'override/_Icon';
 
 import type { StepsProps } from './Steps.types';
 import type { StepItemProps } from './ui';
