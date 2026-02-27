@@ -1,170 +1,25 @@
-import React, { useState, useCallback } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { action } from 'storybook/actions';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getPaginationStories } from '@salutejs/plasma-sb-utils';
 
-import { Button } from '../Button';
+import { IconButton } from '../IconButton/IconButton';
 
 import { Pagination } from './Pagination';
+import { config } from './Pagination.config';
 
-const meta: Meta<typeof Pagination> = {
+type PaginationProps = ComponentProps<typeof Pagination>;
+
+const { meta: META, Default } = getPaginationStories({
+    component: Pagination,
+    componentConfig: config,
+    additionalComponents: { IconButton },
+});
+
+const meta: Meta<PaginationProps> = {
+    ...META,
     title: 'Navigation/Pagination',
-    decorators: [InSpacingDecorator],
-    argTypes: {
-        size: {
-            options: ['xs', 's', 'm', 'l'],
-            control: {
-                type: 'select',
-            },
-        },
-        type: {
-            options: ['default', 'compact'],
-            control: {
-                type: 'select',
-            },
-        },
-        view: {
-            options: ['clear', 'default', 'secondary'],
-            control: {
-                type: 'select',
-            },
-        },
-        slots: {
-            control: {
-                type: 'range',
-                min: 1,
-                max: 15,
-            },
-        },
-        viewCurrentPage: {
-            options: ['clear', 'default', 'secondary'],
-            control: {
-                type: 'select',
-            },
-        },
-        ...disableProps(['contentLeft', 'contentRight']),
-    },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Pagination>;
-
-const PaginationDefault = (args) => {
-    const [pageValue, setPageValue] = useState(1);
-    const [perPageValue, setPerPageValue] = useState(20);
-
-    const handleChangePage = useCallback(
-        (page: number) => {
-            setPageValue(page);
-            action('onChangePageValue')(page);
-        },
-        [pageValue, setPageValue],
-    );
-
-    const handleChangePerpage = useCallback(
-        (perPage: number) => {
-            setPerPageValue(perPage);
-            action('onChangePerPageValue')(perPage);
-        },
-        [perPageValue, setPerPageValue],
-    );
-
-    return (
-        <>
-            <Pagination
-                {...args}
-                value={pageValue}
-                perPage={perPageValue}
-                onChangePageValue={handleChangePage}
-                onChangePerPageValue={handleChangePerpage}
-            />
-        </>
-    );
-};
-
-export const Default: Story = {
-    args: {
-        count: 2000,
-        slots: 9,
-        type: 'default',
-        view: 'clear',
-        viewCurrentPage: 'secondary',
-        size: 'xs',
-        hasQuickJump: true,
-        hasPerPage: true,
-        pilled: false,
-        square: true,
-        listWidth: '5rem',
-        helperText: 'HelperText',
-        singleLine: false,
-    },
-    render: (args) => <PaginationDefault {...args} />,
-};
-
-const PaginationContent = (args) => {
-    const [pageValue, setPageValue] = useState(1);
-    const [perPageValue, setPerPageValue] = useState(20);
-
-    const handleChangePage = useCallback(
-        (page: number) => {
-            setPageValue(page);
-            action('onChangePageValue')(page);
-        },
-        [pageValue, setPageValue],
-    );
-
-    const handleChangePerpage = useCallback(
-        (perPage: number) => {
-            setPerPageValue(perPage);
-            action('onChangePerPageValue')(perPage);
-        },
-        [perPageValue, setPerPageValue],
-    );
-
-    return (
-        <>
-            <Pagination
-                {...args}
-                value={pageValue}
-                perPage={perPageValue}
-                leftContent={
-                    <Button
-                        onClick={() => {
-                            setPageValue(pageValue - 1);
-                        }}
-                    >
-                        Prev
-                    </Button>
-                }
-                rightContent={
-                    <Button
-                        onClick={() => {
-                            setPageValue(pageValue + 1);
-                        }}
-                    >
-                        Next
-                    </Button>
-                }
-                onChangePageValue={handleChangePage}
-                onChangePerPageValue={handleChangePerpage}
-            />
-        </>
-    );
-};
-
-export const Content: Story = {
-    args: {
-        count: 2000,
-        slots: 9,
-        type: 'default',
-        view: 'clear',
-        viewCurrentPage: 'secondary',
-        size: 'xs',
-        hasQuickJump: true,
-        hasPerPage: true,
-        pilled: false,
-        square: true,
-    },
-    render: (args) => <PaginationContent {...args} />,
-};
+export { Default };
