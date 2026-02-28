@@ -34,15 +34,16 @@ export const config = {
             `,
             'accent-gradient': css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
+
                 ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
+
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent-gradient);
+
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-gradient-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-gradient-active);
             `,
             secondary: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
