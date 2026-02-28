@@ -11,13 +11,14 @@ export const config = {
                 ${accordionTokens.accordionWidth}: 20rem;
                 ${accordionTokens.accordionItemPadding}: var(${accordionTokens.accordionItemPaddingVertical}) var(${accordionTokens.accordionItemPaddingHorizontal});
                 ${accordionTokens.accordionItemBackground}: var(--surface-transparent-card);
-                ${accordionTokens.accordionItemShadow}: var(--shadow-down-soft-s);
+
                 ${accordionTokens.accordionItemTitleColor}: var(--text-primary);
                 ${accordionTokens.accordionItemOpenedTitleColor}: var(--text-accent);
                 ${accordionTokens.accordionItemTextColor}: var(--text-primary);
                 ${accordionTokens.accordionItemIconColor}: var(--text-primary);
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionBackground}: var(--surface-clear);
+
                 ${accordionTokens.accordionItemBorderBottom}: 0;
                 ${accordionTokens.accordionItemPaddingHorizontalLeft}: var(${accordionTokens.accordionItemPaddingHorizontal});
             `,
@@ -154,8 +155,9 @@ export const config = {
             `,
             h3: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1.5rem;
-                ${accordionTokens.accordionItemPaddingHorizontal}: 1.625rem;
+                ${accordionTokens.accordionItemPaddingHorizontal}: 1.5rem;
                 ${accordionTokens.accordionItemBodyPaddingBottom}: 1.5rem;
+
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemIconSize}: 1.5rem;
                 ${accordionTokens.accordionItemBorderRadius}: 1.125rem;
@@ -176,22 +178,23 @@ export const config = {
                 ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             h4: css`
-                ${accordionTokens.accordionItemPaddingVertical}: 1.438rem;
-                ${accordionTokens.accordionItemPaddingHorizontal}: 1.5rem;
+                ${accordionTokens.accordionItemPaddingVertical}: 1rem;
+                ${accordionTokens.accordionItemPaddingHorizontal}: 1rem;
                 ${accordionTokens.accordionItemBodyPaddingBottom}: 1.5rem;
+
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 1rem;
                 ${accordionTokens.accordionGap}: 1.5rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h4-font-family);
-                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h4-font-size);
-                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-h4-font-style);
-                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-h4-line-height);
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-text-m-font-size);
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-text-m-font-style);
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-text-m-font-weight);
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-text-m-letter-spacing);
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-text-m-line-height);
 
                 ${accordionTokens.accordionItemTextFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${accordionTokens.accordionItemTextFontSize}: var(--plasma-typo-body-l-font-size);
+                ${accordionTokens.accordionItemTextFontSize}: var(--plasma-typo-text-slim-font-size);
                 ${accordionTokens.accordionItemTextFontStyle}: var(--plasma-typo-body-l-font-style);
                 ${accordionTokens.accordionItemTextFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${accordionTokens.accordionItemTextLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
