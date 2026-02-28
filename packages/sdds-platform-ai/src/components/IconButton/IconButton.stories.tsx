@@ -28,7 +28,7 @@ const meta: Meta<StoryButtonProps> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         view: {
