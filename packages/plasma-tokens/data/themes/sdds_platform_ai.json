@@ -7568,41 +7568,6 @@
                     "comment": "Прозрачный акцентный фон поверхности/контрола",
                     "enabled": true
                 },
-                "surfaceAccentGradient": {
-                    "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(197, 252, 95) 100%, rgb(82, 242, 197) 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["rgb(197, 252, 95)", "rgb(82, 242, 197)"],
-                            "locations": [1, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": ["rgb(197, 252, 95)", "rgb(82, 242, 197)"],
-                            "locations": [1, 1],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
-                    "comment": "Акцентный фон поверхности/контрола с градиентом",
-                    "enabled": true
-                },
                 "surfaceSolidDefault": {
                     "value": "#260f42",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию",
@@ -7621,6 +7586,41 @@
                 "surfaceSolidSecondary": {
                     "value": "#efeff5",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(116.10deg, rgb(82, 242, 197) 3.78%, rgb(197, 252, 95) 96.048%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["rgb(82, 242, 197)", "rgb(197, 252, 95)"],
+                            "locations": [0.04, 0.96],
+                            "startPoint": {
+                                "x": 0.05,
+                                "y": 0.28
+                            },
+                            "endPoint": {
+                                "x": 0.95,
+                                "y": 0.72
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["rgb(82, 242, 197)", "rgb(197, 252, 95)"],
+                            "locations": [0.04, 0.96],
+                            "startPoint": {
+                                "x": 0.05,
+                                "y": 0.28
+                            },
+                            "endPoint": {
+                                "x": 0.95,
+                                "y": 0.72
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
                 }
             },

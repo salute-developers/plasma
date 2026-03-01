@@ -3,6 +3,7 @@
   "version": "0.340.0-next-insol.0",
   "description": "Salute Design System / React UI kit for SDDS CRM web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "private": true,
   "exports": {
     ".": {
       "import": "./dist/css/es/index.js",

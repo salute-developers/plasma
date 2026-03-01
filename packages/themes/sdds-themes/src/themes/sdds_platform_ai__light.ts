@@ -855,7 +855,7 @@ export const sdds_platform_ai__light = ([
   --inverse-text-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
   --surface-accent-gradient-hover: #FFFFFFFF;
   --surface-accent-gradient-active: #FFFFFFFF;
-  --surface-accent-gradient: linear-gradient(45.00deg, #C5FC5FFF 100%, #52F2C5FF 100%);
+  --surface-accent-gradient: linear-gradient(116.10deg, #52F2C5FF 3.78%, #C5FC5FFF 96.048%);
   --surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --surface-skeleton-gradient-hover: #FFFFFFFF;
   --surface-skeleton-gradient-active: #FFFFFFFF;

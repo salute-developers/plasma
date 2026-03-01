@@ -177,22 +177,6 @@ export const verticalsMap = [
         ],
     },
     {
-        key: 'SDDSCRM',
-        title: 'SDDS CRM',
-        package: '@salutejs/sdds-crm',
-        group: 'СДДС',
-        items: [
-            { text: 'Сторибук', href: '/sdds-crm-storybook/', contentRight: <ArrowTopRight /> },
-            { text: 'Документация', href: '/sdds-crm/', contentRight: <ArrowTopRight /> },
-            {
-                text: PACKAGES_INFO['@salutejs/sdds-crm'][0],
-                href: `/changelog/?lib=sdds-crm&version=${PACKAGES_INFO['@salutejs/sdds-crm'][0]}`,
-                contentLeft: <History />,
-                isMeta: false,
-            },
-        ],
-    },
-    {
         key: 'SDDSScan',
         title: 'SDDS Scan',
         package: '@salutejs/sdds-scan',
@@ -317,7 +301,6 @@ export const packageNameMap = {
     'sdds-finai': 'SDDS FinAI',
     'sdds-dfa': 'SDDS DFA',
     'sdds-cs': 'SDDS CS',
-    'sdds-crm': 'SDDS CRM',
     'sdds-scan': 'SDDS Scan',
     'sdds-netology': 'SDDS Netology',
     'sdds-insol': 'SDDS Insol',
@@ -338,7 +321,6 @@ export const verticalToNpmPackageMap = {
     SDDSFinAI: 'sdds-finai',
     SDDSDFA: 'sdds-dfa',
     SDDSCS: 'sdds-cs',
-    SDDSCRM: 'sdds-crm',
     SDDSScan: 'sdds-scan',
     SDDSNetology: 'sdds-netology',
     SDDSInsol: 'sdds-insol',

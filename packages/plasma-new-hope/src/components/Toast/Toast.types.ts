@@ -7,7 +7,7 @@ export type ToastControllerProps = {
     /**
      * Текстовая надпись
      */
-    text?: string;
+    text?: ReactNode;
     /**
      * Слот для контента слева, например `Icon`
      */
@@ -108,7 +108,7 @@ export type CustomToastProps = {
      */
     textColor?: string;
     /**
-     * Колбек при нажатии на кнопку закрытия.
+     * Callback при нажатии на кнопку закрытия.
      */
     onCloseButtonClick?: () => void;
 };
