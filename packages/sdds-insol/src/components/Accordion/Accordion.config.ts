@@ -10,7 +10,9 @@ export const config = {
             default: css`
                 ${accordionTokens.accordionWidth}: 20rem;
                 ${accordionTokens.accordionItemPadding}: var(${accordionTokens.accordionItemPaddingVertical}) var(${accordionTokens.accordionItemPaddingHorizontal});
-                ${accordionTokens.accordionItemBackground}: var(--surface-transparent-card);
+                ${accordionTokens.accordionItemBackground}: var(--surface-clear);
+                ${accordionTokens.accordionItemBackgroundHover}: var(--surface-solid-card);
+                ${accordionTokens.accordionItemOpenedBackground}: var(--surface-solid-card);
 
                 ${accordionTokens.accordionItemTitleColor}: var(--text-primary);
                 ${accordionTokens.accordionItemOpenedTitleColor}: var(--text-accent);
@@ -180,7 +182,7 @@ export const config = {
             h4: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1rem;
-                ${accordionTokens.accordionItemBodyPaddingBottom}: 1.5rem;
+                ${accordionTokens.accordionItemBodyPaddingBottom}: 1rem;
 
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 1rem;
