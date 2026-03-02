@@ -10,6 +10,9 @@ type StoryProps = ComponentProps<typeof Tree>;
 const { meta: META, Default, DragAndDrop, AsyncLoading } = getTreeStories({
     component: Tree,
     componentConfig: config,
+    defaultArgs: {
+        size: 's',
+    },
 });
 
 const meta: Meta<StoryProps> = {
