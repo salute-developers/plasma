@@ -17,6 +17,8 @@ export const tokens = {
     accordionBackground: '--plasma-accordion-background',
 
     accordionItemBackground: '--plasma-accordion-item-background',
+    accordionItemBackgroundHover: '--plasma-accordion-item-background-hover',
+    accordionItemOpenedBackground: '--plasma-accordion-item-opened-background',
     accordionItemShadow: '--plasma-accordion-item-shadow',
     accordionItemBorderRadius: '--plasma-accordion-item-border-radius',
     accordionItemPadding: '--plasma-accordion-item-padding',
