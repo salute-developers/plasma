@@ -150,7 +150,13 @@ export const StyledAccordionItem = styled.div`
         cursor: not-allowed;
     }
 
+    &:hover:not(.${classes.accordionItemOpened}) {
+        background: var(${tokens.accordionItemBackgroundHover});
+    }
+
     &.${classes.accordionItemOpened} {
+        background: var(${tokens.accordionItemOpenedBackground}, var(${tokens.accordionItemBackground}));
+
         ${StyledArrow} {
             color: var(${tokens.accordionItemOpenedTitleColor}, var(${tokens.accordionItemIconColor}));
         }
