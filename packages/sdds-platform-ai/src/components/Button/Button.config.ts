@@ -1,11 +1,5 @@
 import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-// accent какие hover/ buttonValueColor color???
-// применять градиент для color text
-// не понятно что нужно менять в white/black view
-// XL когда иконка слева PL 26 вместо 28??
-// Добавить в сторю свойства loader для замены Spinner
-// С Таней обсудить M размер отступы когда contentLeft/Right
 export const config = {
     defaults: {
         view: 'default',
@@ -33,9 +27,6 @@ export const config = {
 
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent-gradient);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
@@ -46,12 +37,10 @@ export const config = {
 
                 ${buttonTokens.buttonBackgroundColor}: transparent;
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
 
                 ${buttonTokens.buttonBorderColor}: var(--outline-solid-default);
-                ${buttonTokens.buttonBorderColorHover}: var(--outline-solid-default-hover);
-                ${buttonTokens.buttonBorderColorActive}: var(--outline-solid-default-active);
+                ${buttonTokens.buttonBorderColorHover}: var(--outline-solid-default);
+                ${buttonTokens.buttonBorderColorActive}: var(--outline-solid-default);
             `,
             clear: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
@@ -114,18 +103,18 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-default);
 
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
             `,
             white: css`
                 ${buttonTokens.buttonColor}: var(--on-light-text-primary);
+                ${buttonTokens.buttonColorHover}: var(--on-light-text-primary-hover);
+                ${buttonTokens.buttonColorActive}: var(--on-light-text-primary-active);
+
                 ${buttonTokens.buttonTextColor}: var(--on-light-text-primary);
                 ${buttonTokens.buttonIconColor}: var(--on-light-text-primary);
                 ${buttonTokens.buttonValueColor}: var(--on-light-text-secondary);
+
                 ${buttonTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-light-text-primary-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-light-text-primary-active);
             `,
         },
         size: {
