@@ -21,7 +21,7 @@ export const config = {
                 ${tokens.backgroundColor}: var(--surface-transparent-primary);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.caretColor}: var(--text-accent-gradient);
+                ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
