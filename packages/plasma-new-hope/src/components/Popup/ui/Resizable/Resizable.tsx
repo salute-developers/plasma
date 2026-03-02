@@ -19,11 +19,19 @@ export const Resizable: FC<PropsWithChildren<{
         if (resizableContainer?.current && resizableContainer.current.resizable) {
             resizableContainer.current.resizable.classList.toggle(classes.resizableContainerNoSelect);
         }
+
+        if (resizable?.onResizeStart) {
+            resizable.onResizeStart(resizableContainer);
+        }
     };
 
     const handleResizeStop = () => {
         if (resizableContainer?.current && resizableContainer.current.resizable) {
             resizableContainer.current.resizable.classList.toggle(classes.resizableContainerNoSelect);
+        }
+
+        if (resizable?.onResizeEnd) {
+            resizable.onResizeEnd(resizableContainer);
         }
     };
 
