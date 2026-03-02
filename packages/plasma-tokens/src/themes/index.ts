@@ -56,6 +56,8 @@ export { sdds_platform_ai__dark, darkSdds_platform_ai } from './sdds_platform_ai
 export { sdds_platform_ai__light, lightSdds_platform_ai } from './sdds_platform_ai__light';
 export { sdds_procom__dark, darkSdds_procom } from './sdds_procom__dark';
 export { sdds_procom__light, lightSdds_procom } from './sdds_procom__light';
+export { sdds_sbcom__dark, darkSdds_sbcom } from './sdds_sbcom__dark';
+export { sdds_sbcom__light, lightSdds_sbcom } from './sdds_sbcom__light';
 export { sdds_scan__dark, darkSdds_scan } from './sdds_scan__dark';
 export { sdds_scan__light, lightSdds_scan } from './sdds_scan__light';
 export { sdds_serv__dark, darkSdds_serv } from './sdds_serv__dark';
