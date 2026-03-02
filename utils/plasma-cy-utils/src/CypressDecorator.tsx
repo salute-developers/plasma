@@ -53,7 +53,7 @@ const getPackage = function <T = PropsWithChildren<{}>>(): Record<string, React.
         case 'plasma-giga':
             return require('../../../packages/plasma-giga/dist/styled-components/cjs/index.js');
         case 'sdds-cs':
-            return require('../../../packages/sdds-cs/dist/styled-components/cjs/index.js');
+            return require('../../../packages/sdds-cs/dist/emotion/cjs/index.js');
         case 'sdds-insol':
             return require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
         default:
