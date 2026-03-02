@@ -769,13 +769,10 @@ export const surfaceInfoMinorHover = 'var(--surface-info-minor-hover, #10344CFF)
 export const surfaceInfoMinorActive = 'var(--surface-info-minor-active, #0A2333FF)';
 
 /** Прозрачный цвет фона поверхности/контрола успех */
-export const surfaceTransparentPositive = 'var(--surface-transparent-positive, #1A9E3233)';
+export const surfaceTransparentPositiveHover = 'var(--surface-transparent-positive-hover, #109D863D)';
 
 /** Прозрачный цвет фона поверхности/контрола успех */
-export const surfaceTransparentPositiveHover = 'var(--surface-transparent-positive-hover, #1A9E3252)';
-
-/** Прозрачный цвет фона поверхности/контрола успех */
-export const surfaceTransparentPositiveActive = 'var(--surface-transparent-positive-active, #1A9E3224)';
+export const surfaceTransparentPositiveActive = 'var(--surface-transparent-positive-active, #109D860F)';
 
 /** Прозрачный цвет фона поверхности/контрола предупреждение */
 export const surfaceTransparentWarning = 'var(--surface-transparent-warning, #FA5F0533)';
@@ -806,6 +803,9 @@ export const surfaceTransparentInfoActive = 'var(--surface-transparent-info-acti
 
 /** Акцентный фон поверхности/контрола с градиентом */
 export const surfaceAccentGradient = 'var(--surface-accent-gradient, linear-gradient(45deg, #15B015 0%, #04C6C9 100%))';
+
+/** Прозрачный цвет фона поверхности/контрола успех */
+export const surfaceTransparentPositive = 'var(--surface-transparent-positive, #109C841F)';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary, #13181B)';
