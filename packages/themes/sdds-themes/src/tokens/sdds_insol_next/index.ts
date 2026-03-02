@@ -724,13 +724,10 @@ export const surfaceInfoMinorHover = 'var(--surface-info-minor-hover, #10344CFF)
 export const surfaceInfoMinorActive = 'var(--surface-info-minor-active, #0A2333FF)';
 
 /** Прозрачный цвет фона поверхности/контрола успех */
-export const surfaceTransparentPositive = 'var(--surface-transparent-positive, #1A9E3233)';
+export const surfaceTransparentPositiveHover = 'var(--surface-transparent-positive-hover, #109D863D)';
 
 /** Прозрачный цвет фона поверхности/контрола успех */
-export const surfaceTransparentPositiveHover = 'var(--surface-transparent-positive-hover, #1A9E3252)';
-
-/** Прозрачный цвет фона поверхности/контрола успех */
-export const surfaceTransparentPositiveActive = 'var(--surface-transparent-positive-active, #1A9E3224)';
+export const surfaceTransparentPositiveActive = 'var(--surface-transparent-positive-active, #109D860F)';
 
 /** Прозрачный цвет фона поверхности/контрола предупреждение */
 export const surfaceTransparentWarning = 'var(--surface-transparent-warning, #FA5F0533)';
@@ -758,6 +755,9 @@ export const surfaceTransparentInfoHover = 'var(--surface-transparent-info-hover
 
 /** Прозрачный цвет фона поверхности/контрола информация */
 export const surfaceTransparentInfoActive = 'var(--surface-transparent-info-active, #118CDF24)';
+
+/** Прозрачный цвет фона поверхности/контрола успех */
+export const surfaceTransparentPositive = 'var(--surface-transparent-positive, #109C841F)';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary, #13181B)';
@@ -3576,7 +3576,6 @@ export const viewContainer = {
         --surface-info-minor: var(--on-dark-surface-info-minor);
         --surface-info-minor-hover: var(--on-dark-surface-info-minor-hover);
         --surface-info-minor-active: var(--on-dark-surface-info-minor-active);
-        --surface-transparent-positive: var(--on-dark-surface-transparent-positive);
         --surface-transparent-positive-hover: var(--on-dark-surface-transparent-positive-hover);
         --surface-transparent-positive-active: var(--on-dark-surface-transparent-positive-active);
         --surface-transparent-warning: var(--on-dark-surface-transparent-warning);
@@ -3588,6 +3587,7 @@ export const viewContainer = {
         --surface-transparent-info: var(--on-dark-surface-transparent-info);
         --surface-transparent-info-hover: var(--on-dark-surface-transparent-info-hover);
         --surface-transparent-info-active: var(--on-dark-surface-transparent-info-active);
+        --surface-transparent-positive: var(--on-dark-surface-transparent-positive);
         --inverse-surface-solid-primary: var(--on-light-surface-solid-primary);
         --inverse-surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
@@ -4035,15 +4035,15 @@ export const viewContainer = {
         --surface-transparent-secondary: var(--on-light-surface-transparent-secondary);
         --surface-transparent-tertiary: var(--on-light-surface-transparent-tertiary);
         --surface-transparent-deep: var(--on-light-surface-transparent-deep);
+        --surface-info: var(--on-light-surface-info);
+        --surface-info-minor: var(--on-light-surface-info-minor);
+        --surface-transparent-info: var(--on-light-surface-transparent-info);
         --surface-accent: var(--on-light-surface-accent);
         --surface-accent-minor: var(--on-light-surface-accent-minor);
         --surface-transparent-accent: var(--on-light-surface-transparent-accent);
-        --surface-positive: var(--on-light-surface-positive);
-        --surface-info: var(--on-light-surface-info);
-        --surface-positive-minor: var(--on-light-surface-positive-minor);
-        --surface-info-minor: var(--on-light-surface-info-minor);
         --surface-transparent-positive: var(--on-light-surface-transparent-positive);
-        --surface-transparent-info: var(--on-light-surface-transparent-info);
+        --surface-positive: var(--on-light-surface-positive);
+        --surface-positive-minor: var(--on-light-surface-positive-minor);
         --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
@@ -4116,15 +4116,15 @@ export const viewContainer = {
         --inverse-surface-transparent-negative-active: var(--on-dark-surface-transparent-negative-active);
         --inverse-surface-transparent-info-hover: var(--on-dark-surface-transparent-info-hover);
         --inverse-surface-transparent-info-active: var(--on-dark-surface-transparent-info-active);
+        --inverse-surface-info: var(--on-dark-surface-info);
+        --inverse-surface-info-minor: var(--on-dark-surface-info-minor);
+        --inverse-surface-transparent-info: var(--on-dark-surface-transparent-info);
         --inverse-surface-accent: var(--on-dark-surface-accent);
         --inverse-surface-accent-minor: var(--on-dark-surface-accent-minor);
         --inverse-surface-transparent-accent: var(--on-dark-surface-transparent-accent);
-        --inverse-surface-positive: var(--on-dark-surface-positive);
-        --inverse-surface-info: var(--on-dark-surface-info);
-        --inverse-surface-positive-minor: var(--on-dark-surface-positive-minor);
-        --inverse-surface-info-minor: var(--on-dark-surface-info-minor);
         --inverse-surface-transparent-positive: var(--on-dark-surface-transparent-positive);
-        --inverse-surface-transparent-info: var(--on-dark-surface-transparent-info);
+        --inverse-surface-positive: var(--on-dark-surface-positive);
+        --inverse-surface-positive-minor: var(--on-dark-surface-positive-minor);
         --background-primary: var(--light-background-primary);
         --inverse-background-primary: var(--dark-background-primary);
         --overlay-soft: var(--on-light-overlay-soft);
@@ -4193,15 +4193,15 @@ export const viewContainer = {
         --outline-transparent-negative-active: var(--on-light-outline-transparent-negative-active);
         --outline-transparent-info-hover: var(--on-light-outline-transparent-info-hover);
         --outline-transparent-info-active: var(--on-light-outline-transparent-info-active);
-        --outline-accent: var(--on-light-outline-accent);
-        --outline-accent-minor: var(--on-light-outline-accent-minor);
-        --outline-transparent-accent: var(--on-light-outline-transparent-accent);
-        --outline-positive: var(--on-light-outline-positive);
         --outline-info: var(--on-light-outline-info);
-        --outline-positive-minor: var(--on-light-outline-positive-minor);
         --outline-info-minor: var(--on-light-outline-info-minor);
-        --outline-transparent-positive: var(--on-light-outline-transparent-positive);
         --outline-transparent-info: var(--on-light-outline-transparent-info);
+        --outline-accent: var(--on-light-outline-accent);
+        --outline-transparent-accent: var(--on-light-outline-transparent-accent);
+        --outline-transparent-positive: var(--on-light-outline-transparent-positive);
+        --outline-positive: var(--on-light-outline-positive);
+        --outline-accent-minor: var(--on-light-outline-accent-minor);
+        --outline-positive-minor: var(--on-light-outline-positive-minor);
         --inverse-outline-solid-primary: var(--on-dark-outline-solid-primary);
         --inverse-outline-solid-primary-hover: var(--on-dark-outline-solid-primary-hover);
         --inverse-outline-solid-primary-active: var(--on-dark-outline-solid-primary-active);
@@ -4262,15 +4262,15 @@ export const viewContainer = {
         --inverse-outline-transparent-primary: var(--on-dark-outline-transparent-primary);
         --inverse-outline-transparent-secondary: var(--on-dark-outline-transparent-secondary);
         --inverse-outline-transparent-tertiary: var(--on-dark-outline-transparent-tertiary);
+        --inverse-outline-info: var(--on-dark-outline-info);
+        --inverse-outline-info-minor: var(--on-dark-outline-info-minor);
+        --inverse-outline-transparent-info: var(--on-dark-outline-transparent-info);
         --inverse-outline-accent: var(--on-dark-outline-accent);
         --inverse-outline-accent-minor: var(--on-dark-outline-accent-minor);
         --inverse-outline-transparent-accent: var(--on-dark-outline-transparent-accent);
-        --inverse-outline-positive: var(--on-dark-outline-positive);
-        --inverse-outline-info: var(--on-dark-outline-info);
-        --inverse-outline-positive-minor: var(--on-dark-outline-positive-minor);
-        --inverse-outline-info-minor: var(--on-dark-outline-info-minor);
         --inverse-outline-transparent-positive: var(--on-dark-outline-transparent-positive);
-        --inverse-outline-transparent-info: var(--on-dark-outline-transparent-info);
+        --inverse-outline-positive: var(--on-dark-outline-positive);
+        --inverse-outline-positive-minor: var(--on-dark-outline-positive-minor);
         --data-yellow: var(--on-light-data-yellow);
         --data-yellow-hover: var(--on-light-data-yellow-hover);
         --data-yellow-active: var(--on-light-data-yellow-active);
