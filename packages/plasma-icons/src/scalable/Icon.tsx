@@ -1288,6 +1288,7 @@ export const iconSectionsSet = {
         sbCost: 'SbCost',
         gigaFill: 'GigaFill',
         gigaOutline: 'GigaOutline',
+        langFlow: 'LangFlow',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
