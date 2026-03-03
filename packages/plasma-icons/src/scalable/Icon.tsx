@@ -1325,6 +1325,7 @@ export const iconSectionsSet = {
         verificationFill: 'VerificationFill',
         verificationOutline: 'VerificationOutline',
         attention: 'Attention',
+        equals: 'Equals',
     },
     Weather: {
         beachUmbrellaFill: 'BeachUmbrellaFill',
