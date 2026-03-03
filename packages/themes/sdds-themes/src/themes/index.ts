@@ -24,3 +24,5 @@ export { sdds_finai__dark } from './sdds_finai__dark';
 export { sdds_finai__light } from './sdds_finai__light';
 export { sdds_platform_ai__dark } from './sdds_platform_ai__dark';
 export { sdds_platform_ai__light } from './sdds_platform_ai__light';
+export { sdds_sbcom__dark } from './sdds_sbcom__dark';
+export { sdds_sbcom__light } from './sdds_sbcom__light';
