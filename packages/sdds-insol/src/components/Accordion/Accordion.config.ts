@@ -47,7 +47,7 @@ export const config = {
                 ${accordionTokens.accordionItemBodyPaddingBottom}: 1.125rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
-                ${accordionTokens.accordionGap}: 1rem;
+                ${accordionTokens.accordionGap}: 0.125rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-body-l-font-size);
@@ -70,7 +70,7 @@ export const config = {
 
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.75rem;
-                ${accordionTokens.accordionGap}: 0.875rem;
+                ${accordionTokens.accordionGap}: 0.125rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-body-m-font-size);
@@ -93,7 +93,7 @@ export const config = {
 
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.625rem;
-                ${accordionTokens.accordionGap}: 0.75rem;
+                ${accordionTokens.accordionGap}: 0.125rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-body-s-font-size);
@@ -116,7 +116,8 @@ export const config = {
 
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
-                ${accordionTokens.accordionGap}: 0.75rem;
+
+                ${accordionTokens.accordionGap}: 0.125rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -139,7 +140,8 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemIconSize}: 1.5rem;
                 ${accordionTokens.accordionItemBorderRadius}: 1.25rem;
-                ${accordionTokens.accordionGap}: 1.5rem;
+
+                ${accordionTokens.accordionGap}: 0.5rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h2-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h2-font-size);
@@ -163,7 +165,7 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemIconSize}: 1.5rem;
                 ${accordionTokens.accordionItemBorderRadius}: 1.125rem;
-                ${accordionTokens.accordionGap}: 1.5rem;
+                ${accordionTokens.accordionGap}: 0.5rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h3-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h3-font-size);
@@ -186,7 +188,7 @@ export const config = {
 
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 1rem;
-                ${accordionTokens.accordionGap}: 1.5rem;
+                ${accordionTokens.accordionGap}: 0.25rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-text-m-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-text-m-font-size);
@@ -208,7 +210,8 @@ export const config = {
                 ${accordionTokens.accordionItemBodyPaddingBottom}: 1.375rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
-                ${accordionTokens.accordionGap}: 1.25rem;
+
+                ${accordionTokens.accordionGap}: 0.125rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h5-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h5-font-size);
@@ -230,7 +233,8 @@ export const config = {
                 ${accordionTokens.accordionItemBodyPaddingBottom}: 1.375rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
-                ${accordionTokens.accordionGap}: 1.25rem;
+
+                ${accordionTokens.accordionGap}: 0.125rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h6-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h6-font-size);
