@@ -695,6 +695,7 @@ export const iconSectionsSet = {
         pressure1: 'Pressure1',
         airQuality: 'AirQuality',
         formaldehyde: 'Formaldehyde',
+        cO2: 'CO2',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
