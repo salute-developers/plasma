@@ -690,6 +690,7 @@ export const iconSectionsSet = {
         flaskOutline: 'FlaskOutline',
         thermometerOutline: 'ThermometerOutline',
         thermometerFill: 'ThermometerFill',
+        pressure2.5: 'Pressure2.5',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
