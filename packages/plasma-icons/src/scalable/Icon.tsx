@@ -1287,6 +1287,7 @@ export const iconSectionsSet = {
         telegramFill: 'TelegramFill',
         sbCost: 'SbCost',
         gigaFill: 'GigaFill',
+        gigaOutline: 'GigaOutline',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
