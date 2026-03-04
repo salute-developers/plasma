@@ -13,6 +13,8 @@ import {
 } from '../../TextField.styles';
 
 export const base = css`
+    isolation: isolate;
+    
     &[readonly] {
         ${InputWrapper} {
             position: relative;
@@ -75,7 +77,7 @@ export const base = css`
         ${StyledContentLeft}:hover {
             color: var(${tokens.contentSlotColor});
         }
-         
+
         ${StyledContentRight} {
             opacity: var(${tokens.contentSlotRightOpacityReadOnly});
         }
