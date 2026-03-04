@@ -1,6 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { BodyXS } from '@salutejs/plasma-b2c';
 import { whitePrimary } from '@salutejs/plasma-tokens-b2c';
+
+import { multipleMediaQuery } from '../../../mixins';
 
 export const SideNavigation = styled.div`
     text-decoration: none;
@@ -8,6 +10,10 @@ export const SideNavigation = styled.div`
     top: 11.5rem;
     right: 4rem;
     height: calc(100% - 11.5rem - 4rem);
+
+    ${multipleMediaQuery(['M', 'S'])(css`
+        display: none;
+    `)}
 `;
 
 export const Icon = styled.div`
