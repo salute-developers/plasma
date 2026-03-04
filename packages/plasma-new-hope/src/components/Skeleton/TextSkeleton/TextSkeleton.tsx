@@ -20,6 +20,9 @@ export const textSkeleton = <T extends LineSkeletonProps>(
     roundness,
     customGradientColor,
     lighter,
+    animationType = 'shimmer',
+    customFadeInColor,
+    customFadeOutColor,
     size = 'bodyM',
     view = 'default',
     ...props
@@ -70,8 +73,11 @@ export const textSkeleton = <T extends LineSkeletonProps>(
                         size={size}
                         view={view}
                         roundness={roundness}
-                        customGradientColor={customGradientColor}
+                        animationType={animationType}
                         lighter={lighter}
+                        customGradientColor={customGradientColor}
+                        customFadeInColor={customFadeInColor}
+                        customFadeOutColor={customFadeOutColor}
                         style={{ width: fixedWidth || `${linesWidth[i]}%` }}
                     />
                 );

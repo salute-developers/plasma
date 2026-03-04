@@ -6,5 +6,5 @@ type GetBaseVisualTestsArgs = {
     children?: ReactNode;
     testCaseIds?: string[];
 };
-export declare const getBaseVisualTests: ({ testCaseIds, component, componentProps, children, configPropsForMatrix, }: GetBaseVisualTestsArgs) => void | Mocha.Suite;
+export declare const getBaseVisualTests: ({ component, componentProps, children, configPropsForMatrix, }: GetBaseVisualTestsArgs) => void | Mocha.Suite;
 export {};

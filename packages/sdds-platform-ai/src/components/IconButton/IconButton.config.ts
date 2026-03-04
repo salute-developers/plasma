@@ -10,81 +10,95 @@ export const config = {
         view: {
             default: css`
                 ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-default-active);
+
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--inverse-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--inverse-text-primary-active);
             `,
             accent: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
+                ${iconButtonTokens.iconButtonColor}: var(--text-primary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent-gradient);
+
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-secondary);
+
+                ${iconButtonTokens.iconButtonBackgroundColor}: transparent;
+
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+
+                ${iconButtonTokens.iconButtonBorderColor}: var(--text-primary);
+                ${iconButtonTokens.iconButtonBorderColorHover}: var(--text-primary);
+                ${iconButtonTokens.iconButtonBorderColorActive}: var(--text-primary);
             `,
             clear: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             positive: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-positive);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-positive-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-positive-active);
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             warning: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-warning);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-warning-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-warning-active);
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             negative: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-negative);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-negative-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-negative-active);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             dark: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
+                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-transparent-deep);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
             `,
             black: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-solid-default);
+                ${iconButtonTokens.iconButtonColor}: var(--text-accent);
+
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
             `,
             white: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-light-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary-hover);
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary-active);
+
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
         },
         size: {
             xl: css`
                 ${iconButtonTokens.iconButtonHeight}: 4rem;
-                ${iconButtonTokens.iconButtonWidth}: 4rem;
-                ${iconButtonTokens.iconButtonPadding}: 1.75rem;
-                ${iconButtonTokens.iconButtonRadius}: 1rem;
+                ${iconButtonTokens.iconButtonWidth}: 4.25rem;
+                ${iconButtonTokens.iconButtonPadding}: 1.375rem;
+                ${iconButtonTokens.iconButtonRadius}: 1.75rem;
+
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -100,6 +114,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 3.5rem;
                 ${iconButtonTokens.iconButtonPadding}: 1.5rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.875rem;
+
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -112,9 +127,10 @@ export const config = {
             `,
             m: css`
                 ${iconButtonTokens.iconButtonHeight}: 3rem;
-                ${iconButtonTokens.iconButtonWidth}: 3rem;
-                ${iconButtonTokens.iconButtonPadding}: 1.25rem;
-                ${iconButtonTokens.iconButtonRadius}: 0.75rem;
+                ${iconButtonTokens.iconButtonWidth}: 3.25rem;
+                ${iconButtonTokens.iconButtonPadding}: 0.875rem;
+                ${iconButtonTokens.iconButtonRadius}: 1.25rem;
+
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-m-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -127,9 +143,11 @@ export const config = {
             `,
             s: css`
                 ${iconButtonTokens.iconButtonHeight}: 2.5rem;
-                ${iconButtonTokens.iconButtonWidth}: 2.5rem;
+                ${iconButtonTokens.iconButtonWidth}: 2.75rem;
+
                 ${iconButtonTokens.iconButtonPadding}: 1rem;
-                ${iconButtonTokens.iconButtonRadius}: 0.625rem;
+                ${iconButtonTokens.iconButtonRadius}: 1.125rem;
+
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-s-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -155,7 +173,6 @@ export const config = {
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
-            // TODO: add xxs size
         },
         disabled: {
             true: css`

@@ -7,9 +7,13 @@ import { config } from './TextField.config';
 
 type TextFieldProps = ComponentProps<typeof TextField>;
 
-const { meta: META, Default, Chips } = getTextFieldStories({
+const { meta: META, Default } = getTextFieldStories({
     component: TextField,
     componentConfig: config,
+    defaultArgs: {
+        labelPlacement: 'inner',
+    },
+    disablePropsList: ['appearance', 'clear', 'hasDivider', 'labelPlacement'],
 });
 
 const meta: Meta<TextFieldProps> = {
@@ -19,4 +23,4 @@ const meta: Meta<TextFieldProps> = {
 
 export default meta;
 
-export { Default, Chips };
+export { Default };

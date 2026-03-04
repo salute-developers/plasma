@@ -45,6 +45,7 @@ type Props = {
     treeView: boolean;
     valueToPathMap: Map<string, string[]>;
     items: MergedDropdownNodeTransformed[];
+    readOnly: boolean;
 };
 
 type ReturnedProps = {
@@ -66,6 +67,7 @@ export const useKeyNavigation = ({
     treeView,
     valueToPathMap,
     items,
+    readOnly,
 }: Props): ReturnedProps => {
     if (treeView) {
         return keyboardNavigationTree({
@@ -82,6 +84,7 @@ export const useKeyNavigation = ({
             treeView,
             valueToPathMap,
             items,
+            readOnly,
         });
     }
 
@@ -99,6 +102,7 @@ export const useKeyNavigation = ({
         treeView,
         valueToPathMap,
         items,
+        readOnly,
     });
 };
 
@@ -111,11 +115,16 @@ const keyboardNavigationDefault = ({
     focusedToValueMap,
     handleListToggle,
     handlePressDown,
+    readOnly,
 }: Props): ReturnedProps => {
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
     const currentLength: number = pathMap.get(path?.[focusedPath.length - 1]) || 0;
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+        if (readOnly) {
+            return;
+        }
+
         switch (event.code) {
             case keys.ArrowUp: {
                 if (focusedPath.length) {
@@ -346,6 +355,7 @@ const keyboardNavigationTree = ({
     dispatchTreePath,
     valueToPathMap,
     items,
+    readOnly,
 }: Props): ReturnedProps => {
     const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
@@ -370,6 +380,10 @@ const keyboardNavigationTree = ({
     };
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+        if (readOnly) {
+            return;
+        }
+
         switch (event.code) {
             case keys.ArrowUp: {
                 /**

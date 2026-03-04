@@ -7070,12 +7070,12 @@
                     "enabled": false
                 },
                 "surfacePositiveHover": {
-                    "value": "#0DA00DFF",
+                    "value": "#91DC04FF",
                     "comment": "Цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
                 "surfacePositiveActive": {
-                    "value": "#0A7B0AFF",
+                    "value": "#76B404FF",
                     "comment": "Цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
@@ -7090,12 +7090,12 @@
                     "enabled": true
                 },
                 "surfaceNegativeHover": {
-                    "value": "#F54254FF",
+                    "value": "#FF6675FF",
                     "comment": "Цвет фона поверхности/контрола ошибка",
                     "enabled": true
                 },
                 "surfaceNegativeActive": {
-                    "value": "#ED0C23FF",
+                    "value": "#FF293EFF",
                     "comment": "Цвет фона поверхности/контрола ошибка",
                     "enabled": true
                 },
@@ -7234,16 +7234,6 @@
                     "comment": "Акцентный фон поверхности/контрола",
                     "enabled": true
                 },
-                "surfacePositive": {
-                    "value": "[general.herbal.600]",
-                    "comment": "Цвет фона поверхности/контрола успех",
-                    "enabled": true
-                },
-                "surfaceNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Цвет фона поверхности/контрола ошибка",
-                    "enabled": true
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(11,140,11,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола",
@@ -7297,6 +7287,16 @@
                 "surfaceNegativeMinor": {
                     "value": "[general.red.100]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка",
+                    "enabled": true
+                },
+                "surfacePositive": {
+                    "value": "[general.spring.300]",
+                    "comment": "Цвет фона поверхности/контрола успех",
+                    "enabled": true
+                },
+                "surfaceNegative": {
+                    "value": "[general.red.400]",
+                    "comment": "Цвет фона поверхности/контрола ошибка",
                     "enabled": true
                 }
             },
@@ -7607,12 +7607,12 @@
                     "enabled": false
                 },
                 "surfacePositiveHover": {
-                    "value": "#0DAF0DFF",
+                    "value": "#91DC04FF",
                     "comment": "Цвет фона поверхности/контрола успех на темном фоне",
                     "enabled": true
                 },
                 "surfacePositiveActive": {
-                    "value": "#0A8A0AFF",
+                    "value": "#7DBE04FF",
                     "comment": "Цвет фона поверхности/контрола успех на темном фоне",
                     "enabled": true
                 },
@@ -7627,12 +7627,12 @@
                     "enabled": true
                 },
                 "surfaceNegativeHover": {
-                    "value": "#FF5263FF",
+                    "value": "#FF5C6CFF",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне",
                     "enabled": true
                 },
                 "surfaceNegativeActive": {
-                    "value": "#FF142CFF",
+                    "value": "#FF3347FF",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне",
                     "enabled": true
                 },
@@ -7766,16 +7766,6 @@
                     "comment": "Акцентный фон поверхности/контрола на темном фоне",
                     "enabled": true
                 },
-                "surfacePositive": {
-                    "value": "[general.herbal.500]",
-                    "comment": "Цвет фона поверхности/контрола успех на темном фоне",
-                    "enabled": true
-                },
-                "surfaceNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне",
-                    "enabled": true
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(12,156,12,0.2)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне",
@@ -7839,6 +7829,16 @@
                 "surfaceNegativeMinor": {
                     "value": "[general.red.900]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на темном фоне",
+                    "enabled": true
+                },
+                "surfacePositive": {
+                    "value": "[general.spring.300]",
+                    "comment": "Цвет фона поверхности/контрола успех на темном фоне",
+                    "enabled": true
+                },
+                "surfaceNegative": {
+                    "value": "[general.red.400]",
+                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне",
                     "enabled": true
                 }
             },
@@ -8154,12 +8154,12 @@
                     "enabled": false
                 },
                 "surfacePositiveHover": {
-                    "value": "#0DA00DFF",
+                    "value": "#91DC04FF",
                     "comment": "Цвет фона поверхности/контрола успех на светлом фоне",
                     "enabled": true
                 },
                 "surfacePositiveActive": {
-                    "value": "#0A7B0AFF",
+                    "value": "#76B404FF",
                     "comment": "Цвет фона поверхности/контрола успех на светлом фоне",
                     "enabled": true
                 },
@@ -8174,12 +8174,12 @@
                     "enabled": true
                 },
                 "surfaceNegativeHover": {
-                    "value": "#F54254FF",
+                    "value": "#FF6675FF",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне",
                     "enabled": true
                 },
                 "surfaceNegativeActive": {
-                    "value": "#ED0C23FF",
+                    "value": "#FF293EFF",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне",
                     "enabled": true
                 },
@@ -8318,16 +8318,6 @@
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне",
                     "enabled": true
                 },
-                "surfacePositive": {
-                    "value": "[general.herbal.600]",
-                    "comment": "Цвет фона поверхности/контрола успех на светлом фоне",
-                    "enabled": true
-                },
-                "surfaceNegative": {
-                    "value": "[general.red.600]",
-                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне",
-                    "enabled": true
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(11,140,11,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне",
@@ -8381,6 +8371,16 @@
                 "surfaceNegativeMinor": {
                     "value": "[general.red.100]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
+                    "enabled": true
+                },
+                "surfacePositive": {
+                    "value": "[general.spring.300]",
+                    "comment": "Цвет фона поверхности/контрола успех на светлом фоне",
+                    "enabled": true
+                },
+                "surfaceNegative": {
+                    "value": "[general.red.400]",
+                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне",
                     "enabled": true
                 }
             },
@@ -8696,12 +8696,12 @@
                     "enabled": false
                 },
                 "surfacePositiveHover": {
-                    "value": "#0DAF0DFF",
+                    "value": "#91DC04FF",
                     "comment": "Инвертированный цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
                 "surfacePositiveActive": {
-                    "value": "#0A8A0AFF",
+                    "value": "#7DBE04FF",
                     "comment": "Инвертированный цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
@@ -8716,12 +8716,12 @@
                     "enabled": true
                 },
                 "surfaceNegativeHover": {
-                    "value": "#FF5263FF",
+                    "value": "#FF5C6CFF",
                     "comment": "Инвертированный цвет фона поверхности/контрола ошибка",
                     "enabled": true
                 },
                 "surfaceNegativeActive": {
-                    "value": "#FF142CFF",
+                    "value": "#FF3347FF",
                     "comment": "Инвертированный цвет фона поверхности/контрола ошибка",
                     "enabled": true
                 },
@@ -8860,16 +8860,6 @@
                     "comment": "Инвертированный акцентный фон поверхности/контрола",
                     "enabled": true
                 },
-                "surfacePositive": {
-                    "value": "[general.herbal.500]",
-                    "comment": "Инвертированный цвет фона поверхности/контрола успех",
-                    "enabled": true
-                },
-                "surfaceNegative": {
-                    "value": "[general.red.500]",
-                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка",
-                    "enabled": true
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(12,156,12,0.2)",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола",
@@ -8923,6 +8913,16 @@
                 "surfaceSolidTertiary": {
                     "value": "[general.coolGray.700]",
                     "comment": "Инвертированный третичный непрозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfacePositive": {
+                    "value": "[general.spring.300]",
+                    "comment": "Инвертированный цвет фона поверхности/контрола успех",
+                    "enabled": true
+                },
+                "surfaceNegative": {
+                    "value": "[general.red.400]",
+                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка",
                     "enabled": true
                 }
             }

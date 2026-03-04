@@ -680,6 +680,9 @@ export const iconSectionsSet = {
         trafficLightOutline: 'TrafficLightOutline',
         bankFill: 'BankFill',
         bankOutline: 'BankOutline',
+        curlyBrace: 'CurlyBrace',
+        brackets: 'Brackets',
+        commit: 'Commit',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
@@ -1262,6 +1265,8 @@ export const iconSectionsSet = {
         handPointerOutline: 'HandPointerOutline',
         handTapFill: 'HandTapFill',
         handTapOutline: 'HandTapOutline',
+        brainOutline: 'BrainOutline',
+        brainFill: 'BrainFill',
     },
     Logo: {
         catalogFill: 'CatalogFill',

@@ -171,6 +171,8 @@ export const tokens = {
     textFieldBackgroundSuccessColorHover: '--plasma-date-picker-textfield-background-color-success-hover',
     textFieldBackgroundSuccessColorFocus: '--plasma-date-picker-textfield-background-color-success-focus',
 
+    textFieldBoxShadowSecondary: '--plasma-date-picker-textfield-box-shadow-secondary',
+
     textFieldBorderColor: '--plasma-date-picker-textfield-border-color',
     textFieldBorderColorHover: '--plasma-date-picker-textfield-border-color-hover',
     textFieldBorderColorFocus: '--plasma-date-picker-textfield-border-color-focus',

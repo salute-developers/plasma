@@ -2301,8 +2301,6 @@ export const viewContainer = {
         --surface-solid-card-brightness: var(--on-light-surface-solid-card-brightness);
         --surface-solid-default: var(--on-light-surface-solid-default);
         --surface-accent: var(--on-light-surface-accent);
-        --surface-positive: var(--on-light-surface-positive);
-        --surface-negative: var(--on-light-surface-negative);
         --surface-transparent-accent: var(--on-light-surface-transparent-accent);
         --surface-clear: var(--on-light-surface-clear);
         --surface-warning: var(--on-light-surface-warning);
@@ -2313,6 +2311,8 @@ export const viewContainer = {
         --surface-solid-primary: var(--on-light-surface-solid-primary);
         --surface-solid-secondary: var(--on-light-surface-solid-secondary);
         --surface-negative-minor: var(--on-light-surface-negative-minor);
+        --surface-positive: var(--on-light-surface-positive);
+        --surface-negative: var(--on-light-surface-negative);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --inverse-surface-solid-secondary-hover: var(--on-dark-surface-solid-secondary-hover);
@@ -2347,8 +2347,6 @@ export const viewContainer = {
         --inverse-surface-solid-card: var(--on-dark-surface-solid-card);
         --inverse-surface-solid-card-brightness: var(--on-dark-surface-solid-card-brightness);
         --inverse-surface-accent: var(--on-dark-surface-accent);
-        --inverse-surface-positive: var(--on-dark-surface-positive);
-        --inverse-surface-negative: var(--on-dark-surface-negative);
         --inverse-surface-transparent-accent: var(--on-dark-surface-transparent-accent);
         --inverse-surface-solid-default: var(--on-dark-surface-solid-default);
         --inverse-surface-clear: var(--on-dark-surface-clear);
@@ -2360,6 +2358,8 @@ export const viewContainer = {
         --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
         --inverse-surface-solid-secondary: var(--on-dark-surface-solid-secondary);
         --inverse-surface-solid-tertiary: var(--on-dark-surface-solid-tertiary);
+        --inverse-surface-positive: var(--on-dark-surface-positive);
+        --inverse-surface-negative: var(--on-dark-surface-negative);
         --background-primary-brightness: var(--light-background-primary-brightness);
         --background-primary: var(--light-background-primary);
         --inverse-background-primary: var(--dark-background-primary);

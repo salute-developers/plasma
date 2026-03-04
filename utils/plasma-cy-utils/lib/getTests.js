@@ -29,22 +29,21 @@ var getConfig = function (component) {
     }
 };
 var getBaseVisualTests = function (_a) {
-    var testCaseIds = _a.testCaseIds, component = _a.component, componentProps = _a.componentProps, children = _a.children, configPropsForMatrix = _a.configPropsForMatrix;
+    var component = _a.component, componentProps = _a.componentProps, children = _a.children, configPropsForMatrix = _a.configPropsForMatrix;
     var componentExists = (0, CypressDecorator_1.hasComponent)(component);
     var describeFn = (0, CypressDecorator_1.getDescribeFN)(component);
-    return describeFn("plasma-new-hope: ".concat(component), function () {
+    return describeFn("".concat(component), function () {
         var Component = componentExists ? (0, CypressDecorator_1.getComponent)(component) : function () { return null; };
         var config = componentExists ? getConfig(component) : null;
         var configMatrix = (0, getConfigMatrix_1.getConfigMatrix)(config, configPropsForMatrix);
-        configMatrix.forEach(function (combination, ind) {
-            var testId = (testCaseIds === null || testCaseIds === void 0 ? void 0 : testCaseIds.at(ind)) ? "".concat(testCaseIds === null || testCaseIds === void 0 ? void 0 : testCaseIds.at(ind), " ") : '';
+        configMatrix.forEach(function (combination) {
             var testParams = Object.entries(combination)
                 .map(function (_a) {
                 var propName = _a[0], propValue = _a[1];
                 return "".concat(propName, "=").concat(propValue);
             })
                 .join(', ');
-            it("[PLASMA-".concat(testId, "]").concat(component, " ").concat(testParams), function () {
+            it("".concat(testParams), function () {
                 (0, CypressHelpers_1.mount)(react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement(Component, __assign({}, combination, componentProps), children)) : (react_1.default.createElement(Component, __assign({}, combination, componentProps)))));
                 // @ts-ignore
                 cy.matchImageSnapshot();

@@ -7,18 +7,8 @@ import { IconButton } from './IconButton';
 
 type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
 
-const views = ['default', 'accent', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
-const sizes = ['xl', 'l', 'm', 's', 'xs'];
-const pins = [
-    'square-square',
-    'square-clear',
-    'clear-square',
-    'clear-clear',
-    'clear-circle',
-    'circle-clear',
-    'circle-circle',
-    '',
-];
+const views = ['default', 'accent', 'secondary', 'warning', 'negative', 'clear', 'dark'];
+const sizes = ['l', 'm', 's', 'xs'];
 
 const meta: Meta<StoryButtonProps> = {
     title: 'Data Entry/IconButton',
@@ -27,7 +17,7 @@ const meta: Meta<StoryButtonProps> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         view: {
@@ -36,14 +26,8 @@ const meta: Meta<StoryButtonProps> = {
                 type: 'select',
             },
         },
-        pin: {
-            options: pins,
-            control: {
-                type: 'select',
-            },
-            table: { defaultValue: { summary: 'bottom' } },
-        },
         ...disableProps([
+            'pin',
             'focused',
             'children',
             'theme',
@@ -59,22 +43,8 @@ const meta: Meta<StoryButtonProps> = {
 
 export default meta;
 
-const getSizeForIcon = (size) => {
-    const map = {
-        mr: 's',
-        lr: 's',
-        xlr: 's',
-        m: 's',
-        l: 's',
-        xl: 's',
-        sr: 's',
-        xsr: 'xs',
-    };
-    if (map[size]) {
-        return map[size];
-    }
-
-    return size;
+const getSizeForIcon = (size: string) => {
+    return size === 'xs' ? 'xs' : 's';
 };
 
 export const Default: StoryObj<ComponentProps<typeof IconButton>> = {

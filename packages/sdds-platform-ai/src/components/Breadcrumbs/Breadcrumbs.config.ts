@@ -11,18 +11,20 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsColor}: var(--text-primary);
                 ${breadcrumbsTokens.breadcrumbsColorText}: var(--text-primary);
                 ${breadcrumbsTokens.breadcrumbsColorSeparator}: var(--text-primary);
-                ${breadcrumbsTokens.breadcrumbsOpacity}: 0.4;
+
                 ${breadcrumbsTokens.breadcrumbsFocusOutlineColor}: var(--surface-accent);
+
+                ${breadcrumbsTokens.breadcrumbsOpacity}: 0.4;
             `,
         },
         size: {
             s: css`
-                ${breadcrumbsTokens.breadcrumbsGap}: 0.25rem;
+                ${breadcrumbsTokens.breadcrumbsGap}: 0;
 
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${breadcrumbsTokens.breadcrumbsFontSize}: var(--plasma-typo-body-s-font-size);
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-s-bold-weight);
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: var(--plasma-typo-body-s-line-height);
             `,

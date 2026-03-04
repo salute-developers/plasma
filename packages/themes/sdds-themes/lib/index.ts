@@ -49,4 +49,8 @@ generate([
         name: 'sdds_platform_ai',
         version: 'latest',
     },
+    {
+        name: 'sdds_sbcom',
+        version: 'latest',
+    },
 ]);

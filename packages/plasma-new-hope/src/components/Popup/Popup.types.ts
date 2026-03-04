@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, RefObject } from 'react';
+import { ResizableType } from 'src/components/_Resizable';
 
 export type PopupPlacementBasic = 'center' | 'top' | 'bottom' | 'right' | 'left';
 export type PopupPlacementMixed = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
@@ -125,6 +126,14 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
                * @default false
                */
               hiddenIcons?: PopupPlacementMixed[];
+              /**
+               * Обработчик начала ресайза.
+               */
+              onResizeStart?: (resizableContainer?: RefObject<ResizableType>) => void;
+              /**
+               * Обработчик остановки ресайза.
+               */
+              onResizeEnd?: (resizableContainer?: RefObject<ResizableType>) => void;
           };
 }
 export interface PopupAnimationInfo {

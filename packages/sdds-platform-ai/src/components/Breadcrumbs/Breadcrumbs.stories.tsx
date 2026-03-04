@@ -12,10 +12,6 @@ type BreadcrumbsProps = ComponentProps<typeof Breadcrumbs>;
 const meta: Meta<BreadcrumbsProps> = {
     title: 'Navigation/Breadcrumbs',
     component: Breadcrumbs,
-    args: {
-        view: 'default',
-        size: 's',
-    },
     argTypes: {
         ...disableProps(['separator']),
     },
@@ -34,15 +30,15 @@ export const Default: StoryObj<BreadcrumbsProps> = {
         ],
     },
     render: (props: BreadcrumbsProps) => {
-        return <Breadcrumbs {...props} />;
+        return (
+            <div style={{ padding: '16px' }}>
+                <Breadcrumbs {...props} />
+            </div>
+        );
     },
 };
 
 export const CustomShorter: StoryObj<BreadcrumbsProps> = {
-    args: {
-        view: 'default',
-        size: 's',
-    },
     render: (props: BreadcrumbsProps) => {
         const items = [
             { title: 'Home', href: '/' },

@@ -4,13 +4,52 @@ title: Skeleton
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Skeleton
 Набор компонентов для создания скелетов загрузки (placeholders).
 
+### Тип анимации
+
+Тип анимации задаётся с помощью свойства `animationType`.
+
+| Значение  | Описание                        |
+|-----------|---------------------------------|
+| `shimmer` | Бегущий градиент (по умолчанию) |
+| `pulse`   | Пульсация фона                  |
+
+<Tabs>
+    <TabItem value="shimmer" label="shimmer" default>
+        ```tsx live
+        import React from 'react';
+        import { LineSkeleton } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <LineSkeleton size="h3" animationType="shimmer" />
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="pulse" label="pulse">
+        ```tsx live
+        import React from 'react';
+        import { LineSkeleton } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <LineSkeleton size="h3" animationType="pulse" />
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ## LineSkeleton
 <Description name="LineSkeleton" />
-<PropsTable name="LineSkeleton" />
+
+### Быстрый старт
 
 ```tsx live
 import React from 'react';
@@ -23,9 +62,14 @@ export function App() {
 }
 ```
 
+### Props
+
+<PropsTable name="LineSkeleton" />
+
 ## RectSkeleton
 <Description name="RectSkeleton" />
-<PropsTable name="RectSkeleton" />
+
+### Быстрый старт
 
 ```tsx live
 import React from 'react';
@@ -38,9 +82,14 @@ export function App() {
 }
 ```
 
+### Props
+
+<PropsTable name="RectSkeleton" />
+
 ## TextSkeleton
 <Description name="TextSkeleton" />
-<PropsTable name="TextSkeleton" />
+
+### Быстрый старт
 
 ```tsx live
 import React from 'react';
@@ -52,7 +101,17 @@ export function App() {
     );
 }
 ```
-## На примере карточки
+
+### Props
+
+<PropsTable name="TextSkeleton" />
+
+## withSkeleton
+
+HOC `withSkeleton` позволяет применить анимацию скелетона к любому компоненту.
+При `skeleton={true}` заменяется фоновый цвет компонента, добавляется градиент, а текст становится прозрачным.
+
+### Быстрый старт
 
 ```tsx live
 import React from 'react';
@@ -76,16 +135,17 @@ export function App() {
 }
 ```
 
-## Доступность
-При использовании hook `withSkeleton` необходимо воспользоваться атрибутами WAI ARIA. Пример с кнопкой:
+### Доступность
+
+При использовании `withSkeleton` необходимо воспользоваться атрибутами WAI ARIA. Пример с кнопкой:
 
 ```tsx
 import React, { useState } from 'react';
-import { Button } from '@salutejs/sdds-finai';
+import { Button, withSkeleton } from '@salutejs/sdds-finai';
 
 const ButtonSkeleton = withSkeleton(Button);
 
-export default function App () {
+export default function App() {
     const [skeleton, setSkeleton] = useState(false);
 
     return (
@@ -100,4 +160,4 @@ export default function App () {
 }
 ```
 
-Таким образом, при `skeleton=true` и `aria-busy=true` screen-reader будет оповещать о соответствующем статусе компонента.
+При `skeleton={true}` и `aria-busy={true}` screen-reader оповещает пользователя о соответствующем статусе компонента.

@@ -36,13 +36,6 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
-            success: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-positive);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-positive-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-positive-active);
-            `,
             warning: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-warning);
@@ -50,7 +43,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-warning-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-warning-active);
             `,
-            critical: css`
+            negative: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-negative);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
@@ -58,48 +51,19 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-negative-active);
             `,
             dark: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-transparent-deep);
+                ${iconButtonTokens.iconButtonColor}: var(--text-primary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-secondary);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
-            `,
-            black: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-solid-default);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
-            `,
-            white: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-light-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary-active);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-secondary-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-secondary-active);
             `,
         },
         size: {
-            xl: css`
-                ${iconButtonTokens.iconButtonHeight}: 4rem;
-                ${iconButtonTokens.iconButtonWidth}: 4rem;
-                ${iconButtonTokens.iconButtonPadding}: 1.75rem;
-                ${iconButtonTokens.iconButtonRadius}: 1rem;
-                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${iconButtonTokens.iconButtonSpinnerSize}: 1.5rem;
-                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
-            `,
             l: css`
                 ${iconButtonTokens.iconButtonHeight}: 3.5rem;
                 ${iconButtonTokens.iconButtonWidth}: 3.5rem;
                 ${iconButtonTokens.iconButtonPadding}: 1.5rem;
-                ${iconButtonTokens.iconButtonRadius}: 0.875rem;
+                ${iconButtonTokens.iconButtonRadius}: 50%;
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -114,7 +78,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonHeight}: 3rem;
                 ${iconButtonTokens.iconButtonWidth}: 3rem;
                 ${iconButtonTokens.iconButtonPadding}: 1.25rem;
-                ${iconButtonTokens.iconButtonRadius}: 0.75rem;
+                ${iconButtonTokens.iconButtonRadius}: 50%;
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-m-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -129,7 +93,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonHeight}: 2.5rem;
                 ${iconButtonTokens.iconButtonWidth}: 2.5rem;
                 ${iconButtonTokens.iconButtonPadding}: 1rem;
-                ${iconButtonTokens.iconButtonRadius}: 0.625rem;
+                ${iconButtonTokens.iconButtonRadius}: 50%;
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-s-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -144,7 +108,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonHeight}: 2rem;
                 ${iconButtonTokens.iconButtonWidth}: 2rem;
                 ${iconButtonTokens.iconButtonPadding}: 0.75rem;
-                ${iconButtonTokens.iconButtonRadius}: 0.5rem;
+                ${iconButtonTokens.iconButtonRadius}: 50%;
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);

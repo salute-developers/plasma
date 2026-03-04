@@ -4,8 +4,11 @@ import { PACKAGES_INFO } from '../utils';
 import { createChangelogLink } from '../utils/constants';
 import type { ChangelogItem } from '../utils/constants';
 
-const nativePlatformsMetaUrl =
+const androidPlatformsMetaUrl =
     'https://raw.githubusercontent.com/salute-developers/plasma-android/main/tokens/summary.json';
+
+const iosPlatformsMetaUrl =
+    'https://raw.githubusercontent.com/salute-developers/plasma-ios/refs/heads/main/summary.json';
 
 const verticals: Record<
     string,
@@ -39,6 +42,19 @@ const verticals: Record<
             },
             documentation: {
                 href: '/web/',
+            },
+        },
+    },
+    plasmaHomeDS: {
+        title: 'React',
+        package: '@salutejs/plasma-homeds',
+        version: PACKAGES_INFO['@salutejs/plasma-homeds'][0],
+        links: {
+            storybook: {
+                href: '/homeds-storybook/',
+            },
+            documentation: {
+                href: '/homeds/',
             },
         },
     },
@@ -120,19 +136,6 @@ const verticals: Record<
             },
         },
     },
-    SDDSCRM: {
-        title: 'React',
-        package: '@salutejs/sdds-crm',
-        version: PACKAGES_INFO['@salutejs/sdds-crm'][0],
-        links: {
-            storybook: {
-                href: '/sdds-crm-storybook/',
-            },
-            documentation: {
-                href: '/sdds-crm/',
-            },
-        },
-    },
     SDDSScan: {
         title: 'React',
         package: '@salutejs/sdds-scan',
@@ -198,9 +201,12 @@ const verticals: Record<
 };
 
 export type VerticalKey = keyof typeof verticals;
-export type Platforms = 'web' | 'viewSystem' | 'composeUi';
+export type Platforms = 'web' | 'viewSystem' | 'composeUi' | 'swiftui';
 
-export type AllPlatformsData = Record<VerticalKey, Record<'web' | 'viewSystem' | 'composeUi', ChangelogItem>>;
+export type AllPlatformsData = Record<
+    VerticalKey,
+    Record<'web' | 'viewSystem' | 'composeUi' | 'swiftui', ChangelogItem>
+>;
 
 // INFO: Хук объединяет данные о вертикалях и пакетах как нативной платформы так и web
 export const useMergedAllPlatformsData = (skipFetch = false) => {
@@ -220,28 +226,35 @@ export const useMergedAllPlatformsData = (skipFetch = false) => {
                 setLoading(true);
                 setError(null);
 
-                const response = await fetch(nativePlatformsMetaUrl);
+                const androidPlatformsResponse = await fetch(androidPlatformsMetaUrl);
+                const iosPlatformsResponse = await fetch(iosPlatformsMetaUrl);
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                if (!androidPlatformsResponse.ok) {
+                    throw new Error(`HTTP error! status: ${androidPlatformsResponse.status}`);
                 }
 
-                const fetchNativePlatformsData = await response.json();
+                if (!iosPlatformsResponse.ok) {
+                    throw new Error(`HTTP error! status: ${iosPlatformsResponse.status}`);
+                }
+
+                const androidPlatformsData = await androidPlatformsResponse.json();
+                const iosPlatformsData = await iosPlatformsResponse.json();
 
                 const verticalsIncludeWebPlatform = Object.keys(verticals);
-                const verticalsAll = verticalsIncludeWebPlatform.concat(Object.keys(fetchNativePlatformsData));
+                const verticalsAll = verticalsIncludeWebPlatform
+                    .concat(Object.keys(androidPlatformsData))
+                    .concat(Object.keys(iosPlatformsData));
 
                 const result: AllPlatformsData = Array.from(new Set(verticalsAll)).reduce((acc, key) => {
-                    if (!verticalsIncludeWebPlatform.includes(key)) {
-                        return {
-                            ...acc,
-                            [key]: fetchNativePlatformsData[key],
-                        };
-                    }
+                    const webPlatform = verticalsIncludeWebPlatform.includes(key) ? { React: verticals[key] } : {};
 
                     return {
                         ...acc,
-                        [key]: { React: verticals[key], ...fetchNativePlatformsData[key] },
+                        [key]: {
+                            ...webPlatform,
+                            ...androidPlatformsData[key],
+                            ...iosPlatformsData[key],
+                        },
                     };
                 }, {});
 

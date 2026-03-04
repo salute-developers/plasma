@@ -47,6 +47,8 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundColorHover});
     ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundColorFocus});
     
+    ${textFieldTokens.boxShadowSecondary}: var(${tokens.textFieldBoxShadowSecondary});
+
     ${textFieldTokens.borderColor}: var(${tokens.borderColor});
     ${textFieldTokens.borderColorHover}: var(${tokens.borderColorHover});
     ${textFieldTokens.borderColorFocus}: var(${tokens.borderColorFocus});

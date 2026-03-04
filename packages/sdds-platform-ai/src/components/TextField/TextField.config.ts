@@ -46,6 +46,7 @@ export const config = {
                 ${tokens.clearColor}: var(--text-positive);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
+
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
                 ${tokens.clearPlaceholderColor}: var(--text-positive);
                 ${tokens.clearPlaceholderColorFocus}: var(--text-positive);
@@ -143,7 +144,7 @@ export const config = {
                 ${tokens.height}: 3rem;
                 ${tokens.padding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderRadius}: 1.25rem;
                 ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: -0.125rem 0.25rem -0.125rem -0.125rem;
@@ -160,8 +161,9 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.labelOffset}: 0.625rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.clearLabelOffset}: 0.25rem;
+
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -193,14 +195,15 @@ export const config = {
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
 
-                ${tokens.chipGap}: 0.25rem;
-                ${tokens.chipBorderRadius}: 0.375rem;
+                ${tokens.chipGap}: 0.125rem;
+                ${tokens.chipBorderRadius}: 1rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2.25rem;
-                ${tokens.chipPadding}: 0 0.625rem 0 0.875rem;
+                ${tokens.chipPadding}: 0 0.375rem 0 0.5rem;
                 ${tokens.chipClearContentMarginLeft}: 0.5rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1.25rem;
+
                 ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);

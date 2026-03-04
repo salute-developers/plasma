@@ -223,10 +223,6 @@ export const base = css`
     .rc-tree:not(.rc-tree-show-line) .rc-tree-treenode .rc-tree-switcher-noop {
         background: none;
     }
-    .rc-tree.rc-tree-show-line .rc-tree-treenode:not(:last-child) > ul {
-        background: url('data:image/gif;base64,R0lGODlhCQACAIAAAMzMzP///yH5BAEAAAEALAAAAAAJAAIAAAIEjI9pUAA7') 0 0
-            repeat-y;
-    }
     .rc-tree.rc-tree-show-line .rc-tree-treenode:not(:last-child) > .rc-tree-switcher-noop {
         background-position: -56px -18px;
     }

@@ -16,3 +16,5 @@ export * from './TimePicker';
 export * from './File';
 export * from './Segment';
 export { getTreeStories } from './Tree';
+export * from './Skeleton';
+export { getPaginationStories } from './Pagination';

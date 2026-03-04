@@ -19,30 +19,35 @@ export const config = {
                 ${buttonTokens.buttonColorActive}: var(--inverse-text-primary-active);
             `,
             accent: css`
-                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonColor}: var(--text-primary);
+                ${buttonTokens.buttonTextColor}: var(--text-primary);
+                ${buttonTokens.buttonIconColor}: var(--text-primary);
+
                 ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
+
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-accent-gradient);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
                 ${buttonTokens.buttonTextColor}: var(--text-primary);
                 ${buttonTokens.buttonIconColor}: var(--text-primary);
+
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+
+                ${buttonTokens.buttonBackgroundColor}: transparent;
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+
+                ${buttonTokens.buttonBorderColor}: var(--outline-solid-default);
+                ${buttonTokens.buttonBorderColorHover}: var(--outline-solid-default);
+                ${buttonTokens.buttonBorderColorActive}: var(--outline-solid-default);
             `,
             clear: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
                 ${buttonTokens.buttonTextColor}: var(--text-primary);
                 ${buttonTokens.buttonIconColor}: var(--text-primary);
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
+
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
@@ -89,24 +94,27 @@ export const config = {
                 ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
             `,
             black: css`
-                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonColor}: var(--text-accent);
+                ${buttonTokens.buttonTextColor}: var(--text-accent);
+                ${buttonTokens.buttonIconColor}: var(--text-accent);
+
                 ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--on-light-surface-solid-default);
+
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-default);
+
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
             `,
             white: css`
                 ${buttonTokens.buttonColor}: var(--on-light-text-primary);
+                ${buttonTokens.buttonColorHover}: var(--on-light-text-primary-hover);
+                ${buttonTokens.buttonColorActive}: var(--on-light-text-primary-active);
+
                 ${buttonTokens.buttonTextColor}: var(--on-light-text-primary);
                 ${buttonTokens.buttonIconColor}: var(--on-light-text-primary);
                 ${buttonTokens.buttonValueColor}: var(--on-light-text-secondary);
+
                 ${buttonTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-light-text-primary-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-light-text-primary-active);
             `,
         },
         size: {
@@ -114,7 +122,7 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 4rem;
                 ${buttonTokens.buttonWidth}: 12.5rem;
                 ${buttonTokens.buttonPadding}: 1.75rem;
-                ${buttonTokens.buttonRadius}: 1rem;
+                ${buttonTokens.buttonRadius}: 2rem;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -125,8 +133,8 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 1.5rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.625rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.625rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.5rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.375rem;
@@ -155,8 +163,8 @@ export const config = {
             m: css`
                 ${buttonTokens.buttonHeight}: 3rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
-                ${buttonTokens.buttonPadding}: 1.25rem;
-                ${buttonTokens.buttonRadius}: 0.75rem;
+                ${buttonTokens.buttonPadding}: 1.5rem;
+                ${buttonTokens.buttonRadius}: 1.5rem;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -167,8 +175,8 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.375rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
@@ -177,7 +185,7 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 2.5rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonPadding}: 1rem;
-                ${buttonTokens.buttonRadius}: 0.625rem;
+                ${buttonTokens.buttonRadius}: 1.375rem;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -188,8 +196,8 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.125rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.125rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
