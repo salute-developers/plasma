@@ -683,6 +683,7 @@ export const iconSectionsSet = {
         curlyBrace: 'CurlyBrace',
         brackets: 'Brackets',
         commit: 'Commit',
+        pressure2_5: 'Pressure2_5',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
