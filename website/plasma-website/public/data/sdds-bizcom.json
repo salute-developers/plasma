@@ -1,4 +1,75 @@
 {
+  "0.341.0": {
+    "date": "2026-03-04",
+    "core": [
+      {
+        "component": "Toast",
+        "children": [
+          {
+            "text": "расширен тип для свойства `text` до `ReactNode`",
+            "link": "https://github.com/salute-developers/plasma/pull/2528",
+            "id": 2528
+          }
+        ]
+      },
+      {
+        "component": "LinkButton",
+        "children": [
+          {
+            "text": "исправлено поведение нажатия в состоянии `disabled`",
+            "link": "https://github.com/salute-developers/plasma/pull/2525",
+            "id": 2525
+          }
+        ]
+      },
+      {
+        "component": "Tree",
+        "children": [
+          {
+            "text": "добавлен размер `xl`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2516",
+            "id": 2516
+          },
+          {
+            "text": "исправлена сборка компонента для `emotion`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2522",
+            "id": 2522
+          }
+        ]
+      },
+      {
+        "component": "Skeleton",
+        "children": [
+          {
+            "text": "анимация задается с помощью свойства `animationType`\n\nдобавлена дополнительная анимация `pulse`",
+            "link": "https://github.com/salute-developers/plasma/pull/2537",
+            "id": 2537
+          }
+        ]
+      },
+      {
+        "component": "Popup, Modal",
+        "children": [
+          {
+            "text": "добавлено 2 resize обработчик: `onResizeStart` и `onResizeEnd`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2554",
+            "id": 2554
+          }
+        ]
+      },
+      {
+        "component": "Pagination",
+        "children": [
+          {
+            "text": "исправлены примеры и документация для пагинации",
+            "link": "https://github.com/salute-developers/plasma/pull/2543",
+            "id": 2543
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.340.0": {
     "date": "2026-02-18",
     "core": [
