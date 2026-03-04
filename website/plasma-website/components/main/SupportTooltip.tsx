@@ -13,6 +13,7 @@ const Root = styled(BodyS)`
     display: inline-flex;
 
     width: auto;
+    max-width: 100%;
     padding: 0.5rem;
 
     border: 0.063rem solid ${primary};
@@ -20,6 +21,12 @@ const Root = styled(BodyS)`
     border-top-right-radius: 0;
 
     transition: opacity 0.2s ease-in;
+
+    ${multipleMediaQuery(['S'])(css`
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    `)}
 `;
 
 const StyledIconTelegram = styled(IconTelegram)``;
@@ -48,6 +55,7 @@ const StyledLink = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-width: 0;
 
     /* TODO: https://github.com/salute-developers/plasma/issues/279 */
     &:visited {
