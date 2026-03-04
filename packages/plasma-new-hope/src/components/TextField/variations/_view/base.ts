@@ -26,10 +26,7 @@ export const base = css`
 
     &:not([readonly]) ${InputWrapper}:hover {
         ${privateTokens.borderColor}: var(${tokens.borderColorHover}, var(${tokens.borderColor}));
-        ${privateTokens.backgroundColor}: var(
-            ${tokens.backgroundColorHover},
-            var(${tokens.backgroundColor}))
-        );
+        ${privateTokens.backgroundColor}: var(${tokens.backgroundColorHover}, var(${tokens.backgroundColor}));
     }
 
     ${Input} {
