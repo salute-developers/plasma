@@ -689,6 +689,7 @@ export const iconSectionsSet = {
         planetDashOutline: 'PlanetDashOutline',
         flaskOutline: 'FlaskOutline',
         thermometerOutline: 'ThermometerOutline',
+        thermometerFill: 'ThermometerFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
