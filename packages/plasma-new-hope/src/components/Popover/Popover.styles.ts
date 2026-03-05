@@ -53,6 +53,7 @@ export const StyledPopover = styled.div<Pick<PopoverProps, 'zIndex'>>`
     visibility: hidden;
 
     box-shadow: var(${tokens.boxShadow});
+    border-radius: inherit;
 
     &.${classes.animate} {
         transition: opacity 0.2s ease-in-out, transform 0s ease-in-out, visibility 0.2s;
