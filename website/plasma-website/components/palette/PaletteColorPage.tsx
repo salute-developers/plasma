@@ -29,6 +29,12 @@ const ColorWrapper = styled.div<{ background: string }>`
     background: ${({ background }) => background};
     z-index: 99;
     transition: 400ms;
+
+    @media (max-width: 768px) {
+        position: relative;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
 `;
 
 const ColorPalette = styled.div`
@@ -39,6 +45,12 @@ const ColorPalette = styled.div`
     padding: 0.125rem;
     display: flex;
     gap: 0.125rem;
+
+    @media (max-width: 768px) {
+        height: calc(100vh - 14rem);
+        min-height: 14rem;
+        padding-top: 3.5rem;
+    }
 `;
 
 const ColorItem = styled.div<{ color: string; colorText: boolean }>`
@@ -120,6 +132,18 @@ const ColorItem = styled.div<{ color: string; colorText: boolean }>`
         width: calc(100% / 7.5);
         color: ${({ colorText }) => (colorText ? 'rgba(255, 255, 255,1)' : 'rgba(0, 0, 0, 1)')};
     }
+
+    @media (max-width: 768px) {
+        position: static;
+        font-size: 0.625rem;
+        padding-left: 0.25rem;
+        padding-bottom: 0.25rem;
+
+        &.selected {
+            width: auto;
+            flex: 1;
+        }
+    }
 `;
 
 const ColorItemText = styled.div<{ direction: string }>`
@@ -133,6 +157,16 @@ const ColorItemText = styled.div<{ direction: string }>`
     ${({ direction }) => direction}: 0.5rem;
     z-index: 9998;
     transition: 200ms;
+
+    @media (max-width: 768px) {
+        height: auto;
+        font-size: 1.5rem;
+        bottom: 1rem;
+        left: 1rem;
+        right: auto;
+        top: auto;
+        max-width: calc(100% - 2rem);
+    }
 `;
 
 const ColorIndex = styled.div<{ colorText: boolean; direction: string }>`
@@ -151,6 +185,13 @@ const ColorIndex = styled.div<{ colorText: boolean; direction: string }>`
         visibility: visible;
         transition-delay: 0s;
     }
+
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+        height: auto;
+        gap: 0.75rem;
+        flex-direction: row;
+    }
 `;
 
 const ColorItemWrapperText = styled.div`
@@ -166,6 +207,15 @@ const ColorItemWrapperIconCopy = styled(IconCopyOutline)`
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s, visibility 0s linear 0.2s;
+
+    @media (max-width: 768px) {
+        scale: 1.2;
+    }
+
+    @media (hover: none) {
+        opacity: 0.4;
+        visibility: visible;
+    }
 `;
 
 const TextReadableWrapper = styled.div`
@@ -174,6 +224,14 @@ const TextReadableWrapper = styled.div`
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 7.5rem 7.5rem;
+
+    @media (max-width: 768px) {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        row-gap: 1rem;
+        padding: 1.5rem 0 2rem;
+    }
 `;
 
 export const PaletteColorPage: React.FC<{
@@ -223,7 +281,7 @@ export const PaletteColorPage: React.FC<{
 
     return (
         <ColorWrapper background={selectedColor}>
-            <Header text={`${color[0].toUpperCase() + color.slice(1)} ${code}`} link="/palette/" />
+            <Header text={`${color[0].toUpperCase() + color.slice(1)} ${code}`} link="/palette/" dark={!colorText} />
             <ColorPalette>
                 {colorCodes.map((code) => (
                     <ColorItem
