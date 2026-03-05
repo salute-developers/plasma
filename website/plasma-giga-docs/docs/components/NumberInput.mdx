@@ -4,18 +4,13 @@ title: NumberInput
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # NumberInput
-Числовое поле. Поддерживает как ручной ввод, так и увеличение/уменьшение значения,
-посредством нажатия соответствующих кнопок.
-
-## NumberInput
 <Description name="NumberInput" />
-<PropsTable name="NumberInput" />
 
-## Примеры
-
-### Контролируемый NumberInput:
+## Быстрый старт
 
 ```tsx live
 import React, { useState } from 'react';
@@ -24,211 +19,431 @@ import { NumberInput } from '@salutejs/plasma-giga';
 export function App() {
     const [value, setValue] = useState(5);
 
-    const handleChange = (_, newValue) => {
-        setValue(newValue);
-    };
-
-    return (
-        <div>
-            <NumberInput value={value} onChange={handleChange} width={188} />
-        </div>
-    );
-}
-```
-
-### Вид числового поля
-Вид числового поля задается с помощью свойства `view`:
-
-```tsx live
-import React from 'react';
-import { NumberInput } from '@salutejs/plasma-giga';
-
-export function App() {
-    return (
-        <div>
-            <NumberInput width={188} view="default" />
-            <NumberInput width={188} view="secondary" />
-            <NumberInput width={188} view="accent" />
-            <NumberInput width={188} view="clear" />
-        </div>
-    );
-}
-```
-
-### Модификация вида числового поля
-Числовое поле может иметь различные отступы внутри, влияющие на форму. Задается с помощью свойства `segmentation`:
-
-```tsx live
-import React from 'react';
-import { NumberInput } from '@salutejs/plasma-giga';
-
-export function App() {
-    return (
-        <div>
-            <NumberInput width={188} view="default" segmentation="default" />
-            <NumberInput width={188} view="default" segmentation="segmented" />
-            <NumberInput width={188} view="default" segmentation="solid" />
-        </div>
-    );
-}
-```
-
-### Граница числового поля
-Граница числового поля задается с помощью свойства `shape`:
-
-```tsx live
-import React from 'react';
-import { NumberInput } from '@salutejs/plasma-giga';
-
-export function App() {
-    return (
-        <div>
-            <NumberInput width={188} view="default" segmentation="default" shape="cornered" />
-            <NumberInput width={188} view="default" segmentation="solid" shape="cornered" />
-            <NumberInput width={188} view="default" segmentation="default" shape="pilled" />
-            <NumberInput width={188} view="default" segmentation="solid" shape="pilled" />
-        </div>
-    );
-}
-```
-
-### Размер числового поля
-Размер числового поля задается с помощью свойства `size`:
-
-```tsx live
-import React from 'react';
-import { NumberInput } from '@salutejs/plasma-giga';
-
-export function App() {
-    return (
-        <div>
-            <NumberInput width={188} size="l" />
-            <NumberInput width={188} size="m" />
-            <NumberInput width={188} size="s" />
-            <NumberInput width={188} size="xs" />
-        </div>
-    );
-}
-```
-
-### Состояние загрузки числового поля
-Состояние загрузки числового поля определяется свойством `isLoading`:
-
-```tsx live
-import React from 'react';
-import { NumberInput } from '@salutejs/plasma-giga';
-
-export function App() {
-    return (
-        <div>
-            <NumberInput size="l" width={188} isLoading />
-        </div>
-    );
-}
-```
-
-### Ручной ввод
-Режим ручного ввода включается свойством `isManualInput`:
-
-```tsx live
-import React from 'react';
-import { NumberInput } from '@salutejs/plasma-giga';
-
-export function App() {
-    return (
-        <div>
-            <NumberInput size="l" width={188} isManualInput />
-        </div>
-    );
-}
-```
-
-### Кастомные иконки для кнопок
-Можно установить собственную иконку для кнопки используя
-свойства `decrementIcon` и `incrementIcon` соответственно:
-
-```tsx live
-import React from 'react';
-import { NumberInput } from '@salutejs/plasma-giga';
-import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';
-
-export function App() {
     return (
         <div>
             <NumberInput
-                size="l"
-                incrementIcon={<IconVolumeLevel2Fill color="inherit"/>}
-                decrementIcon={<IconVolumeLevel1Fill color="inherit"/>}
+                value={value}
+                min={0}
+                max={10}
                 width={188}
+                onChange={(_, newValue) => setValue(newValue)}
             />
         </div>
     );
 }
 ```
 
-### Кастомные кнопки увеличения/уменьшения значения
-Можно установить собственные кнопки используя свойства `customDecrementButton` и `customIncrementButton`.
-В таком случае нужно определить функции по уменьшению/увелечению значения в поле.
+## Управление внешним видом
+
+Внешний вид компонента зависит от свойств `view` и `size`:
+
+<Tabs>
+    <TabItem value="view" label="View" default>
+        ```tsx live
+        import React from 'react';
+        import { NumberInput } from '@salutejs/plasma-giga';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <NumberInput value={5} width={188} view="default" />
+                    <NumberInput value={5} width={188} view="secondary" />
+                    <NumberInput value={5} width={188} view="accent" />
+                    <NumberInput value={5} width={188} view="clear" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React from 'react';
+        import { NumberInput } from '@salutejs/plasma-giga';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <NumberInput value={5} width={188} size="l" />
+                    <NumberInput value={5} width={188} size="m" />
+                    <NumberInput value={5} width={188} size="s" />
+                    <NumberInput value={5} width={188} size="xs" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Форма компонента
+
+Форма задается с помощью свойств `segmentation` и `shape`:
+
+<Tabs>
+    <TabItem value="segmentation" label="Segmentation" default>
+        С помощью свойства `segmentation` можно изменить отступы между кнопками и полем ввода:
+
+        ```tsx live
+        import React from 'react';
+        import { NumberInput } from '@salutejs/plasma-giga';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <NumberInput value={5} width={188} segmentation="default" />
+                    <NumberInput value={5} width={188} segmentation="segmented" />
+                    <NumberInput value={5} width={188} segmentation="solid" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="shape" label="Shape">
+        С помощью свойства `shape` можно изменить скругление углов:
+
+        ```tsx live
+        import React from 'react';
+        import { NumberInput } from '@salutejs/plasma-giga';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <NumberInput value={5} width={188} shape="cornered" />
+                    <NumberInput value={5} width={188} shape="pilled" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Ограничения значений
+
+С помощью свойств `min`, `max` и `step` можно задать допустимый диапазон и шаг изменения:
 
 ```tsx live
-import React, {useState} from 'react';
-import { NumberInput, IconButton } from '@salutejs/plasma-giga';
-import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';
+import React, { useState } from 'react';
+import { NumberInput } from '@salutejs/plasma-giga';
 
 export function App() {
-    const [currentValue, setCurrentValue] = useState(0);
-
-    const min = 0;
-    const max = 10;
-    const step = 2
-
-    const handleIncrement = () => {
-        const diffValue = Number(currentValue) + step;
-        const resValue = currentValue >= max ? max : diffValue;
-
-        setCurrentValue(resValue);
-    };
-
-    const handleDecrement = () => {
-        const diffValue = Number(currentValue) - step;
-        const resValue = currentValue <= min ? min : diffValue;
-
-        setCurrentValue(resValue);
-    };
-
-    const CustomIncrementButton = () => (
-        <IconButton
-            view={currentValue !== max ? "accent" : "critical"}
-            size="l"
-            disabled={currentValue === max}
-            onClick={handleIncrement}
-        >
-            <IconVolumeLevel2Fill color="inherit"/>
-        </IconButton>
-    )
-
-    const CustomDecrementButton = () => (
-        <IconButton
-            view={currentValue !== min ? "accent" : "critical"}
-            size="l"
-            disabled={currentValue === min}
-            onClick={handleDecrement}
-        >
-            <IconVolumeLevel1Fill color="inherit"/>
-        </IconButton>
-    )
+    const [value, setValue] = useState(5);
 
     return (
-        <div>
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
             <NumberInput
-                value={currentValue}
-                step={step}
-                size="l"
-                customIncrementButton={<CustomIncrementButton />}
-                customDecrementButton={<CustomDecrementButton />}
+                value={value}
+                min={0}
+                max={10}
+                step={2}
                 width={188}
+                onChange={(_, newValue) => setValue(newValue)}
             />
         </div>
     );
 }
 ```
+
+## Точность вычислений
+
+С помощью свойства `precision` можно задать количество знаков после запятой:
+
+```tsx live
+import React, { useState } from 'react';
+import { NumberInput } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [value, setValue] = useState(5);
+
+    return (
+        <div>
+            <NumberInput
+                value={value}
+                min={0}
+                max={10}
+                step={0.1}
+                precision={2}
+                width={188}
+                onChange={(_, newValue) => setValue(newValue)}
+            />
+        </div>
+    );
+}
+```
+
+## Вспомогательный текст
+
+С помощью свойств `textBefore` и `textAfter` можно добавить текст слева и справа от числа:
+
+```tsx live
+import React, { useState } from 'react';
+import { NumberInput } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [value, setValue] = useState(5);
+
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <NumberInput
+                value={value}
+                width={220}
+                textBefore="от"
+                onChange={(_, newValue) => setValue(newValue)}
+            />
+            <NumberInput
+                value={value}
+                width={220}
+                textAfter="шт."
+                onChange={(_, newValue) => setValue(newValue)}
+            />
+            <NumberInput
+                value={value}
+                width={220}
+                textBefore="$"
+                textAfter="USD"
+                onChange={(_, newValue) => setValue(newValue)}
+            />
+        </div>
+    );
+}
+```
+
+## Ручной ввод
+
+Свойство `isManualInput` разрешает редактировать значение непосредственно в поле ввода:
+
+```tsx live
+import React, { useState } from 'react';
+import { NumberInput } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [value, setValue] = useState(5);
+
+    return (
+        <div>
+            <NumberInput
+                value={value}
+                min={0}
+                max={10}
+                width={188}
+                isManualInput
+                onChange={(_, newValue) => setValue(newValue)}
+            />
+        </div>
+    );
+}
+```
+
+## Отображение без значения
+
+Свойство `displayWithoutValue` управляет тем, что показывается, когда значение не задано:
+- `'input'` — отображается весь компонент (по умолчанию);
+- `'increment'` — отображается только кнопка увеличения;
+- `'decrement'` — отображается только кнопка уменьшения.
+
+```tsx live
+import React, { useState } from 'react';
+import { NumberInput } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [value, setValue] = useState(undefined);
+
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <NumberInput
+                value={value}
+                min={0}
+                max={10}
+                displayWithoutValue="input"
+                onChange={(_, newValue) => setValue(newValue)}
+            />
+            <NumberInput
+                value={value}
+                min={0}
+                max={10}
+                displayWithoutValue="increment"
+                onChange={(_, newValue) => setValue(newValue)}
+            />
+            <NumberInput
+                value={value}
+                min={0}
+                max={10}
+                displayWithoutValue="decrement"
+                onChange={(_, newValue) => setValue(newValue)}
+            />
+        </div>
+    );
+}
+```
+
+## Поведение при достижении границ
+
+Свойство `limitBehavior` управляет поведением кнопок при достижении значений `min`/`max`:
+- `'disabled'` — кнопка становится неактивной (по умолчанию);
+- `'hidden'` — кнопка скрывается, поле ввода растягивается.
+
+<Tabs>
+    <TabItem value="disabled" label="Disabled" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { NumberInput } from '@salutejs/plasma-giga';
+
+        export function App() {
+            const [value, setValue] = useState(0);
+
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <NumberInput
+                        value={value}
+                        min={0}
+                        max={10}
+                        width={188}
+                        limitBehavior="disabled"
+                        onChange={(_, newValue) => setValue(newValue)}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="hidden" label="Hidden">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { NumberInput } from '@salutejs/plasma-giga';
+
+        export function App() {
+            const [value, setValue] = useState(0);
+
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <NumberInput
+                        value={value}
+                        min={0}
+                        max={10}
+                        width={188}
+                        limitBehavior="hidden"
+                        onChange={(_, newValue) => setValue(newValue)}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Пользовательские кнопки
+
+Кнопки увеличения и уменьшения можно кастомизировать:
+
+<Tabs>
+    <TabItem value="icons" label="Иконки" default>
+        С помощью свойств `decrementIcon` и `incrementIcon` можно заменить иконки кнопок:
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { NumberInput } from '@salutejs/plasma-giga';
+        import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const [value, setValue] = useState(5);
+
+            return (
+                <div>
+                    <NumberInput
+                        value={value}
+                        min={0}
+                        max={10}
+                        size="l"
+                        width={188}
+                        decrementIcon={<IconVolumeLevel1Fill color="inherit" />}
+                        incrementIcon={<IconVolumeLevel2Fill color="inherit" />}
+                        onChange={(_, newValue) => setValue(newValue)}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="custom" label="Кастомные кнопки">
+        С помощью свойств `customDecrementButton` и `customIncrementButton` можно полностью заменить кнопки.
+        В этом случае логику изменения значения нужно реализовать самостоятельно:
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { NumberInput, IconButton } from '@salutejs/plasma-giga';
+        import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const [value, setValue] = useState(0);
+            const min = 0;
+            const max = 10;
+            const step = 2;
+
+            return (
+                <div>
+                    <NumberInput
+                        value={value}
+                        step={step}
+                        size="l"
+                        width={188}
+                        customDecrementButton={
+                            <IconButton
+                                size="l"
+                                view={value <= min ? 'critical' : 'accent'}
+                                disabled={value <= min}
+                                onClick={() => setValue(Math.max(min, value - step))}
+                            >
+                                <IconVolumeLevel1Fill color="inherit" />
+                            </IconButton>
+                        }
+                        customIncrementButton={
+                            <IconButton
+                                size="l"
+                                view={value >= max ? 'critical' : 'accent'}
+                                disabled={value >= max}
+                                onClick={() => setValue(Math.min(max, value + step))}
+                            >
+                                <IconVolumeLevel2Fill color="inherit" />
+                            </IconButton>
+                        }
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Состояния
+
+<Tabs>
+    <TabItem value="disabled" label="Disabled" default>
+        ```tsx live
+        import React from 'react';
+        import { NumberInput } from '@salutejs/plasma-giga';
+
+        export function App() {
+            return (
+                <div>
+                    <NumberInput value={5} width={188} disabled />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="loading" label="Loading">
+        ```tsx live
+        import React from 'react';
+        import { NumberInput } from '@salutejs/plasma-giga';
+
+        export function App() {
+            return (
+                <div>
+                    <NumberInput value={5} size="l" width={188} isLoading />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Таблица свойств
+<PropsTable name="NumberInput" exclude={['css']} />
