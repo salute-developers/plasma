@@ -686,6 +686,7 @@ export const iconSectionsSet = {
         brackets: 'Brackets',
         commit: 'Commit',
         planetOutline: 'PlanetOutline',
+        planetDashOutline: 'PlanetDashOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
