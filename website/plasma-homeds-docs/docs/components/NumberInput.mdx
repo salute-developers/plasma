@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ```tsx live
 import React, { useState } from 'react';
-import { NumberInput } from '@salutejs/sdds-finai';
+import { NumberInput } from '@salutejs/plasma-homeds';
 
 export function App() {
     const [value, setValue] = useState(5);
@@ -33,21 +33,46 @@ export function App() {
 }
 ```
 
-## Внешний вид
+## Управление внешним видом
 
-```tsx live
-import React from 'react';
-import { NumberInput } from '@salutejs/sdds-finai';
+Внешний вид компонента зависит от свойств `view` и `size`:
 
-export function App() {
-    return (
-        <div>
-            <NumberInput value={5} width={188} />
-        </div>
-    );
-}
-```
+<Tabs>
+    <TabItem value="view" label="View" default>
+        ```tsx live
+        import React from 'react';
+        import { NumberInput } from '@salutejs/plasma-homeds';
 
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <NumberInput value={5} width={188} view="default" />
+                    <NumberInput value={5} width={188} view="secondary" />
+                    <NumberInput value={5} width={188} view="accent" />
+                    <NumberInput value={5} width={188} view="clear" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React from 'react';
+        import { NumberInput } from '@salutejs/plasma-homeds';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                    <NumberInput value={5} width={188} size="l" />
+                    <NumberInput value={5} width={188} size="m" />
+                    <NumberInput value={5} width={188} size="s" />
+                    <NumberInput value={5} width={188} size="xs" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
 
 ## Форма компонента
 
@@ -59,7 +84,7 @@ export function App() {
 
         ```tsx live
         import React from 'react';
-        import { NumberInput } from '@salutejs/sdds-finai';
+        import { NumberInput } from '@salutejs/plasma-homeds';
 
         export function App() {
             return (
@@ -77,7 +102,7 @@ export function App() {
 
         ```tsx live
         import React from 'react';
-        import { NumberInput } from '@salutejs/sdds-finai';
+        import { NumberInput } from '@salutejs/plasma-homeds';
 
         export function App() {
             return (
@@ -97,7 +122,7 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { NumberInput } from '@salutejs/sdds-finai';
+import { NumberInput } from '@salutejs/plasma-homeds';
 
 export function App() {
     const [value, setValue] = useState(5);
@@ -123,7 +148,7 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { NumberInput } from '@salutejs/sdds-finai';
+import { NumberInput } from '@salutejs/plasma-homeds';
 
 export function App() {
     const [value, setValue] = useState(5);
@@ -150,7 +175,7 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { NumberInput } from '@salutejs/sdds-finai';
+import { NumberInput } from '@salutejs/plasma-homeds';
 
 export function App() {
     const [value, setValue] = useState(5);
@@ -187,7 +212,7 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { NumberInput } from '@salutejs/sdds-finai';
+import { NumberInput } from '@salutejs/plasma-homeds';
 
 export function App() {
     const [value, setValue] = useState(5);
@@ -216,7 +241,7 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { NumberInput } from '@salutejs/sdds-finai';
+import { NumberInput } from '@salutejs/plasma-homeds';
 
 export function App() {
     const [value, setValue] = useState(undefined);
@@ -259,7 +284,7 @@ export function App() {
     <TabItem value="disabled" label="Disabled" default>
         ```tsx live
         import React, { useState } from 'react';
-        import { NumberInput } from '@salutejs/sdds-finai';
+        import { NumberInput } from '@salutejs/plasma-homeds';
 
         export function App() {
             const [value, setValue] = useState(0);
@@ -282,7 +307,7 @@ export function App() {
     <TabItem value="hidden" label="Hidden">
         ```tsx live
         import React, { useState } from 'react';
-        import { NumberInput } from '@salutejs/sdds-finai';
+        import { NumberInput } from '@salutejs/plasma-homeds';
 
         export function App() {
             const [value, setValue] = useState(0);
@@ -314,7 +339,7 @@ export function App() {
 
         ```tsx live
         import React, { useState } from 'react';
-        import { NumberInput } from '@salutejs/sdds-finai';
+        import { NumberInput } from '@salutejs/plasma-homeds';
         import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';
 
         export function App() {
@@ -343,7 +368,7 @@ export function App() {
 
         ```tsx live
         import React, { useState } from 'react';
-        import { NumberInput, IconButton } from '@salutejs/sdds-finai';
+        import { NumberInput, IconButton } from '@salutejs/plasma-homeds';
         import { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';
 
         export function App() {
@@ -393,7 +418,7 @@ export function App() {
     <TabItem value="disabled" label="Disabled" default>
         ```tsx live
         import React from 'react';
-        import { NumberInput } from '@salutejs/sdds-finai';
+        import { NumberInput } from '@salutejs/plasma-homeds';
 
         export function App() {
             return (
@@ -407,7 +432,7 @@ export function App() {
     <TabItem value="loading" label="Loading">
         ```tsx live
         import React from 'react';
-        import { NumberInput } from '@salutejs/sdds-finai';
+        import { NumberInput } from '@salutejs/plasma-homeds';
 
         export function App() {
             return (
