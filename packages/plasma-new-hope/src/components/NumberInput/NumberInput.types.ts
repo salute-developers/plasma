@@ -96,6 +96,18 @@ export type NumberInputProps = {
      */
     isManualInput?: boolean;
     /**
+     * Отображение компонента при отсутствии значения.
+     * @default 'input'
+     */
+    displayWithoutValue?: 'input' | 'increment' | 'decrement';
+    /**
+     * Поведение кнопок при достижении крайних значений (min/max).
+     * 'disabled' — кнопка становится неактивной (по умолчанию).
+     * 'hidden' — кнопка скрывается, поле ввода растягивается.
+     * @default 'disabled'
+     */
+    limitBehavior?: 'disabled' | 'hidden';
+    /**
      * Вызывается при изменении значения.
      */
     onChange?: (event: SyntheticEvent<HTMLInputElement> | null, value: number | string | undefined) => void;
