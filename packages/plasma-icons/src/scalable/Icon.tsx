@@ -687,6 +687,7 @@ export const iconSectionsSet = {
         commit: 'Commit',
         planetOutline: 'PlanetOutline',
         planetDashOutline: 'PlanetDashOutline',
+        flaskOutline: 'FlaskOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
