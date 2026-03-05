@@ -1261,6 +1261,7 @@ export const iconSectionsSet = {
         sbDotFill: 'SbDotFill',
         sbDotOutline: 'SbDotOutline',
         notebookDownloadOutline: 'NotebookDownloadOutline',
+        notebookDownloadFill: 'NotebookDownloadFill',
     },
     Senses: {
         handActionFill: 'HandActionFill',
