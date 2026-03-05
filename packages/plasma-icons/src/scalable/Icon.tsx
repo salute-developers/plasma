@@ -697,6 +697,7 @@ export const iconSectionsSet = {
         formaldehyde: 'Formaldehyde',
         cO2: 'CO2',
         dropsGroupOutline: 'DropsGroupOutline',
+        gas: 'Gas',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
