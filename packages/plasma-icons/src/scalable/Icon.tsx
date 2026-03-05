@@ -684,6 +684,7 @@ export const iconSectionsSet = {
         brackets: 'Brackets',
         commit: 'Commit',
         dropsGroupFill: 'DropsGroupFill',
+        gas: 'Gas',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
