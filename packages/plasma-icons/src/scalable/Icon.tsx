@@ -691,6 +691,7 @@ export const iconSectionsSet = {
         thermometerOutline: 'ThermometerOutline',
         thermometerFill: 'ThermometerFill',
         pressure2_5: 'Pressure2_5',
+        pressure10: 'Pressure10',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
