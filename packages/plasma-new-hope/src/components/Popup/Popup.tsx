@@ -5,7 +5,7 @@ import { canUseDOM, cx, safeUseId } from 'src/utils';
 
 import { Portal } from '../Portal';
 
-import { Draggable, Resizable } from './ui';
+import { Resizable } from './ui';
 import type { PopupPlacementBasic, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
 import { PopupRoot } from './PopupRoot';
 import { usePopup } from './hooks';
@@ -140,6 +140,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                     <PopupRoot
                         id={innerId}
                         ref={innerRef}
+                        draggable={draggable}
                         position={handlePosition(placement, offset)}
                         zIndex={zIndex}
                         frame={frame}
@@ -147,11 +148,9 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                         setVisible={setVisible}
                         {...rest}
                     >
-                        <Draggable draggable={draggable}>
-                            <Resizable resizable={outerResizable} placement={placement}>
-                                {children}
-                            </Resizable>
-                        </Draggable>
+                        <Resizable resizable={outerResizable} placement={placement}>
+                            {children}
+                        </Resizable>
                     </PopupRoot>
                 </Root>
             );
