@@ -8,8 +8,6 @@ import { WithTheme } from '../../_helpers';
 
 import { Popover, PopoverPlacement } from './Popover';
 
-import './style.css';
-
 const placements: Array<PopoverPlacement> = [
     'top',
     'top-start',
@@ -113,7 +111,7 @@ type StoryPopoverProps = ComponentProps<typeof Popover> & {
 const StyledContent = styled.div`
     background: var(--surface-solid-tertiary);
     padding: 1rem;
-    border-radius: var(--popover-border-radius);
+    border-radius: 20px;
 
     display: flex;
     flex-direction: column;
@@ -137,6 +135,7 @@ const StoryDefault = (args: StoryPopoverProps) => {
             id="popover"
             target={<Button>Target</Button>}
             offset={[skidding, distance]}
+            style={{ 'border-radius': '20px' }}
             {...args}
         >
             <StyledContent>
