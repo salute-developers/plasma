@@ -257,6 +257,7 @@ export const iconSectionsSet = {
         wifiDefault: 'WifiDefault',
         wifiLock: 'WifiLock',
         wifiMedium: 'WifiMedium',
+        wifiLow: 'WifiLow',
     },
     Arrows: {
         arrowBarDown: 'ArrowBarDown',
