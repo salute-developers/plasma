@@ -693,6 +693,7 @@ export const iconSectionsSet = {
         pressure2_5: 'Pressure2_5',
         pressure10: 'Pressure10',
         pressure1: 'Pressure1',
+        airQuality: 'AirQuality',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
