@@ -685,6 +685,7 @@ export const iconSectionsSet = {
         commit: 'Commit',
         dropsGroupFill: 'DropsGroupFill',
         gas: 'Gas',
+        smoke: 'Smoke',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
