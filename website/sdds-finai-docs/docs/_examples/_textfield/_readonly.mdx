@@ -1,0 +1,19 @@
+```tsx live
+import React from "react";
+import { IconLockOutline } from '@salutejs/plasma-icons';
+import { TextField } from '@salutejs/sdds-finai';
+
+export function App() {
+  const isReadOnly = true;
+
+  return (
+      <TextField
+        label="Введите имя"
+        placeholder="Например, Алексей"
+        readOnly={isReadOnly}
+        defaultValue=""
+        contentRight={isReadOnly && <IconLockOutline color="inherit" size="s" />}
+      />
+  );
+}
+```
