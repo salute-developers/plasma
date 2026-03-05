@@ -13,6 +13,10 @@ export const classes = {
     loading: 'number-input-loading',
     focused: 'number-input-focused',
     manualInput: 'manual-input-number-input',
+    decrementHidden: 'number-input-decrement-hidden',
+    incrementHidden: 'number-input-increment-hidden',
+    onlyIncrementShown: 'number-input-only-increment-shown',
+    onlyDecrementShown: 'number-input-only-decrement-shown',
 };
 
 export const privateTokens = {
