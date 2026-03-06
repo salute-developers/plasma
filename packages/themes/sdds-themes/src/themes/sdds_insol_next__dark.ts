@@ -234,8 +234,8 @@ export const sdds_insol_next__dark = ([
   --surface-negative-minor-active: #410B11FF;
   --surface-info-minor-hover: #134271FF;
   --surface-info-minor-active: #0F3357FF;
-  --surface-transparent-positive-hover: #109D863D;
-  --surface-transparent-positive-active: #109D860F;
+  --surface-transparent-positive-hover: #109D8652;
+  --surface-transparent-positive-active: #109D8624;
   --surface-transparent-warning: #FA5F0533;
   --surface-transparent-warning-hover: #FA5F0552;
   --surface-transparent-warning-active: #FA5F0524;
@@ -244,7 +244,6 @@ export const sdds_insol_next__dark = ([
   --surface-transparent-negative-active: #FF293E24;
   --surface-transparent-info-hover: #166EC552;
   --surface-transparent-info-active: #166EC524;
-  --surface-transparent-positive: #109C841F;
   --surface-solid-primary: #13181B;
   --surface-solid-secondary: #23292D;
   --surface-accent: #109C84FF;
@@ -256,6 +255,7 @@ export const sdds_insol_next__dark = ([
   --surface-warning-minor: #3D1D0A;
   --surface-info-minor: #10375EFF;
   --surface-transparent-info: #166DC433;
+  --surface-transparent-positive: #109C8433;
   --on-dark-surface-solid-primary-hover: #171D21FF;
   --on-dark-surface-solid-primary-active: #0F1315FF;
   --on-dark-surface-solid-primary-brightness: #20282DFF;
@@ -316,9 +316,8 @@ export const sdds_insol_next__dark = ([
   --on-dark-surface-negative-minor-active: #410B11FF;
   --on-dark-surface-info-minor-hover: #134271FF;
   --on-dark-surface-info-minor-active: #0F3357FF;
-  --on-dark-surface-transparent-positive: #1A9E3233;
-  --on-dark-surface-transparent-positive-hover: #1A9E3252;
-  --on-dark-surface-transparent-positive-active: #1A9E3224;
+  --on-dark-surface-transparent-positive-hover: #109D8652;
+  --on-dark-surface-transparent-positive-active: #109D8624;
   --on-dark-surface-transparent-warning: #FA5F0533;
   --on-dark-surface-transparent-warning-hover: #FA5F0552;
   --on-dark-surface-transparent-warning-active: #FA5F0524;
@@ -337,6 +336,7 @@ export const sdds_insol_next__dark = ([
   --on-dark-surface-positive-minor: #0A3D35FF;
   --on-dark-surface-info-minor: #10375EFF;
   --on-dark-surface-transparent-info: #166DC433;
+  --on-dark-surface-transparent-positive: #109C8433;
   --on-light-surface-solid-primary: #F2F5F8;
   --on-light-surface-solid-primary-hover: #EEF2F6FF;
   --on-light-surface-solid-primary-active: #EBF0F4FF;
