@@ -70,13 +70,13 @@ export const hasComponent = (componentName: string): boolean => {
 export const getComponent = function <T = PropsWithChildren<{}>>(componentName: string): React.FC<T> {
     const pkgName = Cypress.env('package') as string | undefined;
     const pkg = getPackage<T>();
-    const component = pkg[componentName];
+    const component = pkg[componentName] as React.FC<T>;
 
     if (!component) {
         console.error(`Library ${pkgName} has no ${componentName}`);
     }
 
-    return component || (() => null);
+    return component;
 };
 
 export const getDescribeFN = (component: string) => {
@@ -91,6 +91,10 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
 
     if (pkgName === 'plasma-ui') {
         const DeviceThemeProvider = getComponent('DeviceThemeProvider');
+
+        if (!DeviceThemeProvider) {
+            return <>{children}</>;
+        }
 
         return (
             <DeviceThemeProvider>

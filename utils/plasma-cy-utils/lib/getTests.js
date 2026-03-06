@@ -29,11 +29,14 @@ var getConfig = function (component) {
     }
 };
 var getBaseVisualTests = function (_a) {
-    var component = _a.component, componentProps = _a.componentProps, children = _a.children, configPropsForMatrix = _a.configPropsForMatrix;
+    var component = _a.component, componentProps = _a.componentProps, children = _a.children, actionBeforeSnapshot = _a.actionBeforeSnapshot, configPropsForMatrix = _a.configPropsForMatrix, propsForName = _a.propsForName;
     var componentExists = (0, CypressDecorator_1.hasComponent)(component);
     var describeFn = (0, CypressDecorator_1.getDescribeFN)(component);
     return describeFn("".concat(component), function () {
-        var Component = componentExists ? (0, CypressDecorator_1.getComponent)(component) : function () { return null; };
+        var Component = componentExists ? (0, CypressDecorator_1.getComponent)(component) : null;
+        if (!Component) {
+            return;
+        }
         var config = componentExists ? getConfig(component) : null;
         var configMatrix = (0, getConfigMatrix_1.getConfigMatrix)(config, configPropsForMatrix);
         configMatrix.forEach(function (combination) {
@@ -43,8 +46,10 @@ var getBaseVisualTests = function (_a) {
                 return "".concat(propName, "=").concat(propValue);
             })
                 .join(', ');
-            it("".concat(testParams), function () {
+            var testName = propsForName ? "".concat(testParams, " ").concat(propsForName) : testParams;
+            it("".concat(testName), function () {
                 (0, CypressHelpers_1.mount)(react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement(Component, __assign({}, combination, componentProps), children)) : (react_1.default.createElement(Component, __assign({}, combination, componentProps)))));
+                actionBeforeSnapshot && actionBeforeSnapshot();
                 // @ts-ignore
                 cy.matchImageSnapshot();
             });
