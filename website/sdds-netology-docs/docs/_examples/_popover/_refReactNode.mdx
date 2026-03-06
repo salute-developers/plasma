@@ -1,0 +1,47 @@
+```tsx live
+import React, { useState } from 'react';
+import styled from "styled-components";
+import { surfaceSolidTertiary } from "@salutejs/sdds-themes/tokens";
+import { Popover, Button, H4, ButtonGroup } from '@salutejs/sdds-netology';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const StyledContent = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 1rem;
+
+        background-color: ${surfaceSolidTertiary};
+    `;
+
+    return (
+        <section style={{ display: 'flex', width: "100%", "justify-content": 'center', height: '16rem' }}>
+            <Popover
+                opened={isOpen}
+                onToggle={(is) => setIsOpen(is)}
+                role="presentation"
+                id="popover"
+                target={<Button>Target</Button>}
+                offset={[0, 6]}
+                placement='bottom'
+                trigger='click'
+                hasArrow
+                closeOnOverlayClick
+                closeOnEsc
+                isFocusTrapped
+            >
+                <StyledContent>
+                    <H4>Заголовок H4</H4>
+                    <ButtonGroup style={{ "justify-content": 'flex-end', paddingTop: '24px' }} isCommonButtonStyles={false} gap="wide">
+                        <Button view="accent" onClick={() => setIsOpen(false)}>Принять</Button>
+                        <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                    </ButtonGroup>
+                </StyledContent>
+            </Popover>
+        </section>
+    );
+}
+```
