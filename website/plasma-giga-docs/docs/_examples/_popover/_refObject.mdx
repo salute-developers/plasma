@@ -1,0 +1,80 @@
+```tsx live
+import React, { useRef, useState } from 'react';
+import styled from "styled-components";
+import { surfaceSolidTertiary } from "@salutejs/plasma-themes/tokens";
+import { Popover, Button, H4, ButtonGroup } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    // INFO: Type ref HTMLButtonElement | null
+    const targetRef = useRef(null);
+    const targetRef2 = useRef(null);
+    const targetRef3 = useRef(null);
+
+    const refs = [targetRef, targetRef2, targetRef3];
+
+    const [currRefIndex, setCurrentRefIndex] = useState(0);
+    const [currentRef, setCurrentRef] = useState(targetRef);
+
+    const changeRef = () => {
+        let ind = currRefIndex + 1;
+
+        if (ind > refs.length - 1) {
+            setCurrentRefIndex(0);
+            ind = 0;
+        }
+
+        setCurrentRefIndex(ind);
+        setCurrentRef(refs[ind]);
+    };
+
+    const StyledContent = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 1rem;
+        background-color: ${surfaceSolidTertiary};
+    `;
+
+    return (
+        <section style={{ display: 'flex', width: "100%", "justify-content": 'center', height: '16rem' }}>
+            <Popover
+                opened={isOpen}
+                onToggle={(is) => setIsOpen(is)}
+                role="presentation"
+                id="popover"
+                target={currentRef}
+                offset={[0, 6]}
+                placement='bottom'
+                trigger='click'
+                hasArrow
+                closeOnOverlayClick
+                closeOnEsc
+                isFocusTrapped
+            >
+                <StyledContent>
+                    <H4>Заголовок H4</H4>
+                    <ButtonGroup style={{ "justify-content": 'flex-end', paddingTop: '24px' }} isCommonButtonStyles={false} gap="wide">
+                        <Button view="accent" onClick={() => setIsOpen(false)}>Принять</Button>
+                        <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                    </ButtonGroup>
+                </StyledContent>
+            </Popover>
+
+            <Button onClick={changeRef}>
+                Change targetAsRef to Target {currRefIndex + 1 > refs.length - 1 ? 0 : currRefIndex + 1}
+            </Button>
+
+            <div style={{ padding: '5rem' }}>Current Target: {currRefIndex}</div>
+
+            <ButtonGroup style={{ "justify-content": 'flex-end' }} isCommonButtonStyles={false} gap="wide">
+                <Button ref={targetRef}>Target 0</Button>
+                <Button view="secondary" ref={targetRef2}>Target 1</Button>
+                <Button view="accent" ref={targetRef3}>Target 2</Button>
+            </ButtonGroup>
+        </>
+    );
+}
+```
