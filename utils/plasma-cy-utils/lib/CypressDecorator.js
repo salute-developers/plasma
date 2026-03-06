@@ -70,7 +70,7 @@ var getComponent = function (componentName) {
     if (!component) {
         console.error("Library ".concat(pkgName, " has no ").concat(componentName));
     }
-    return component || (function () { return null; });
+    return component;
 };
 exports.getComponent = getComponent;
 var getDescribeFN = function (component) {
@@ -84,6 +84,9 @@ var CypressTestDecorator = function (_a) {
     var pkgName = Cypress.env('package');
     if (pkgName === 'plasma-ui') {
         var DeviceThemeProvider = (0, exports.getComponent)('DeviceThemeProvider');
+        if (!DeviceThemeProvider) {
+            return react_1.default.createElement(react_1.default.Fragment, null, children);
+        }
         return (react_1.default.createElement(DeviceThemeProvider, null,
             react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
                 react_1.default.createElement(ThemeStyle, null),

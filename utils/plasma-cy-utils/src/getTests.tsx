@@ -9,7 +9,9 @@ type GetBaseVisualTestsArgs = {
     componentProps: any;
     configPropsForMatrix?: string[];
     children?: ReactNode;
+    actionBeforeSnapshot?: () => void;
     testCaseIds?: string[];
+    propsForName?: string[];
 };
 
 const getConfig = (component: string): any => {
@@ -25,13 +27,19 @@ export const getBaseVisualTests = ({
     component,
     componentProps,
     children,
+    actionBeforeSnapshot,
     configPropsForMatrix,
+    propsForName,
 }: GetBaseVisualTestsArgs) => {
     const componentExists = hasComponent(component);
     const describeFn = getDescribeFN(component);
 
     return describeFn(`${component}`, () => {
-        const Component = componentExists ? getComponent(component) : () => null;
+        const Component = componentExists ? getComponent(component) : null;
+        if (!Component) {
+            return;
+        }
+
         const config = componentExists ? getConfig(component) : null;
         const configMatrix = getConfigMatrix(config, configPropsForMatrix);
 
@@ -40,7 +48,9 @@ export const getBaseVisualTests = ({
                 .map(([propName, propValue]) => `${propName}=${propValue}`)
                 .join(', ');
 
-            it(`${testParams}`, () => {
+            const testName = propsForName ? `${testParams} ${propsForName}` : testParams;
+
+            it(`${testName}`, () => {
                 mount(
                     <>
                         {children ? (
@@ -52,6 +62,8 @@ export const getBaseVisualTests = ({
                         )}
                     </>,
                 );
+
+                actionBeforeSnapshot && actionBeforeSnapshot();
 
                 // @ts-ignore
                 cy.matchImageSnapshot();
