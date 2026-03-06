@@ -52,8 +52,6 @@ export const StyledPopover = styled.div<Pick<PopoverProps, 'zIndex'>>`
     opacity: 0;
     visibility: hidden;
 
-    box-shadow: var(${tokens.boxShadow});
-
     &.${classes.animate} {
         transition: opacity 0.2s ease-in-out, transform 0s ease-in-out, visibility 0.2s;
     }
@@ -193,5 +191,9 @@ export const StyledPopover = styled.div<Pick<PopoverProps, 'zIndex'>>`
             left: calc(-1 * var(${tokens.arrowHeight}));
             bottom: 0;
         }
+    }
+
+    & .${classes.popoverChildRootBlock} {
+        box-shadow: var(${tokens.boxShadow});
     }
 `;
