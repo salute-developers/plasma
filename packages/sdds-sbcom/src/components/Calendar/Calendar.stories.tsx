@@ -6,7 +6,7 @@ import { Tabs } from '../Tabs/Tabs';
 import { TabItem } from '../Tabs/TabItem';
 import { H3 } from '../Typography';
 
-import { config } from './CalendarBase.config';
+import { config } from './Calendar.config';
 import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoubleRange } from './Calendar';
 
 type ButtonProps = ComponentProps<typeof Calendar>;
