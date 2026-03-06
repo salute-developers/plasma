@@ -188,6 +188,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: b
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
     ${textFieldTokens.boxShadow}: ${({ disabled }) => (disabled ? 'none' : `var(${tokens.textFieldBoxShadow})`)};
+    ${textFieldTokens.boxShadowSecondary}: var(${tokens.textFieldBoxShadowSecondary});
 `;
 
 export const IconArrowWrapper = styled.div<{ disabled?: boolean; readOnly?: boolean }>`
