@@ -109,11 +109,11 @@ export const StyledIconDone = styled(IconDone)`
 
 export const DisclosureIconWrapper = styled.div<{ visibility: CSSProperties['visibility'] }>`
     line-height: 0;
-    color: var(${tokens.disclosureIconColor});
+    color: var(${tokens.disclosureNestedIconColor}, var(${tokens.disclosureIconColor}));
     visibility: ${({ visibility }) => visibility || 'visible'};
 
     &:hover {
-        color: var(${tokens.disclosureIconColorHover});
+        color: var(${tokens.disclosureNestedIconColorHover}, var(${tokens.disclosureIconColorHover}));
     }
 `;
 

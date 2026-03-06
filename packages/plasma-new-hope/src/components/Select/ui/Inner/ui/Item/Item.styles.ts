@@ -93,10 +93,10 @@ export const StyledIconDone = styled(IconDone)`
 export const DisclosureIconWrapper = styled.div`
     margin: var(${tokens.disclosureIconMargin});
     line-height: 0;
-    color: var(${tokens.disclosureIconColor});
+    color: var(${tokens.disclosureNestedIconColor}, var(${tokens.disclosureIconColor}));
 
     &:hover {
-        color: var(${tokens.disclosureIconColorHover});
+        color: var(${tokens.disclosureNestedIconColorHover}, var(${tokens.disclosureIconColorHover}));
     }
 `;
 
