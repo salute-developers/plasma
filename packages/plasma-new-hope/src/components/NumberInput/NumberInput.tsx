@@ -44,6 +44,8 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                 customDecrementButton,
                 decrementIcon,
                 isManualInput,
+                displayWithoutValue = 'input',
+                limitBehavior = 'disabled',
                 onChange,
                 onIncrement,
                 onDecrement,
@@ -80,14 +82,28 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
             const isMinValue = (currentValue: number) => min !== undefined && currentValue <= min;
             const isMaxValue = (currentValue: number) => max !== undefined && currentValue >= max;
 
+            const isValueEmpty = (value === '' || value === undefined) && !isManualInput;
+            const onlyShowIncrement = isValueEmpty && displayWithoutValue === 'increment';
+            const onlyShowDecrement = isValueEmpty && displayWithoutValue === 'decrement';
+
+            const decrementAtLimit = isNumber(value) && value !== '' && isMinValue(Number(value)) && !isAnimationRun;
+            const incrementAtLimit = isNumber(value) && value !== '' && isMaxValue(Number(value)) && !isAnimationRun;
+
             const decrementButtonDisabled =
-                (isNumber(value) && value !== '' && isMinValue(Number(value)) && !isAnimationRun) || isLoading
+                (decrementAtLimit && limitBehavior !== 'hidden') || isLoading
                     ? classes.actionButtonDecrementDisabled
                     : undefined;
             const incrementButtonDisabled =
-                (isNumber(value) && value !== '' && isMaxValue(Number(value)) && !isAnimationRun) || isLoading
+                (incrementAtLimit && limitBehavior !== 'hidden') || isLoading
                     ? classes.actionButtonIncrementDisabled
                     : undefined;
+
+            const decrementHiddenClass =
+                decrementAtLimit && limitBehavior === 'hidden' ? classes.decrementHidden : undefined;
+            const incrementHiddenClass =
+                incrementAtLimit && limitBehavior === 'hidden' ? classes.incrementHidden : undefined;
+            const onlyIncrementShownClass = onlyShowIncrement ? classes.onlyIncrementShown : undefined;
+            const onlyDecrementShownClass = onlyShowDecrement ? classes.onlyDecrementShown : undefined;
 
             const handleDecrement = () => {
                 if (isLoading || disabled || isAnimationRun) {
@@ -131,6 +147,32 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                 }
             };
 
+            const decrementButton = customDecrementButton || (
+                <ActionButton
+                    className={cx(
+                        classes.actionButtonDecrement,
+                        decrementButtonDisabled,
+                        solidViewClass,
+                        segmentedViewClass,
+                    )}
+                    icon={decrementIcon || <IconMinus color="inherit" size={actionIconSize} />}
+                    onClick={handleDecrement}
+                />
+            );
+
+            const incrementButton = customIncrementButton || (
+                <ActionButton
+                    className={cx(
+                        classes.actionButtonIncrement,
+                        incrementButtonDisabled,
+                        solidViewClass,
+                        segmentedViewClass,
+                    )}
+                    icon={incrementIcon || <IconPlus color="inherit" size={actionIconSize} />}
+                    onClick={handleIncrement}
+                />
+            );
+
             return (
                 <Root
                     view={view}
@@ -149,6 +191,10 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                         disabledClass,
                         loadingClass,
                         focusedClass,
+                        decrementHiddenClass,
+                        incrementHiddenClass,
+                        onlyIncrementShownClass,
+                        onlyDecrementShownClass,
                     )}
                     style={
                         {
@@ -157,50 +203,30 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                         } as CSSProperties
                     }
                 >
-                    {customDecrementButton || (
-                        <ActionButton
-                            className={cx(
-                                classes.actionButtonDecrement,
-                                decrementButtonDisabled,
-                                solidViewClass,
-                                segmentedViewClass,
-                            )}
-                            icon={decrementIcon || <IconMinus color="inherit" size={actionIconSize} />}
-                            onClick={handleDecrement}
+                    {!onlyShowIncrement && decrementButton}
+                    {!onlyShowIncrement && !onlyShowDecrement && (
+                        <NumberInput
+                            ref={ref}
+                            segmentation={segmentation}
+                            value={value}
+                            precision={precision}
+                            min={min}
+                            max={max}
+                            isManualInput={isManualInput}
+                            textBefore={textBefore}
+                            textAfter={textAfter}
+                            isLoading={isLoading}
+                            loader={loader}
+                            disabled={disabled}
+                            isInputFocused={isInputFocused}
+                            setIsInputFocused={setIsInputFocused}
+                            setIsAnimationRun={setIsAnimationRun}
+                            setInnerValue={setInnerValue}
+                            onChange={onChange}
+                            {...rest}
                         />
                     )}
-                    <NumberInput
-                        ref={ref}
-                        segmentation={segmentation}
-                        value={value}
-                        precision={precision}
-                        min={min}
-                        max={max}
-                        isManualInput={isManualInput}
-                        textBefore={textBefore}
-                        textAfter={textAfter}
-                        isLoading={isLoading}
-                        loader={loader}
-                        disabled={disabled}
-                        isInputFocused={isInputFocused}
-                        setIsInputFocused={setIsInputFocused}
-                        setIsAnimationRun={setIsAnimationRun}
-                        setInnerValue={setInnerValue}
-                        onChange={onChange}
-                        {...rest}
-                    />
-                    {customIncrementButton || (
-                        <ActionButton
-                            className={cx(
-                                classes.actionButtonIncrement,
-                                incrementButtonDisabled,
-                                solidViewClass,
-                                segmentedViewClass,
-                            )}
-                            icon={incrementIcon || <IconPlus color="inherit" size={actionIconSize} />}
-                            onClick={handleIncrement}
-                        />
-                    )}
+                    {!onlyShowDecrement && incrementButton}
                 </Root>
             );
         },
