@@ -1648,11 +1648,11 @@
                     "comment": "Минорный цвет фона поверхности/контрола информация"
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#109D863D",
+                    "value": "#109D8652",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#109D860F",
+                    "value": "#109D8624",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentWarning": {
@@ -1686,10 +1686,6 @@
                 "surfaceTransparentInfoActive": {
                     "value": "#166EC524",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация"
-                },
-                "surfaceTransparentPositive": {
-                    "value": "#109C841F",
-                    "comment": "Прозрачный цвет фона поверхности/контрола успех"
                 },
                 "surfaceSolidPrimary": {
                     "value": "[general.coolGray.950]",
@@ -1781,6 +1777,10 @@
                 "surfaceTransparentInfo": {
                     "value": "#166dc433",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "#109c8433",
+                    "comment": "Прозрачный цвет фона поверхности/контрола успех"
                 }
             },
             "onDark": {
@@ -2154,16 +2154,12 @@
                     "value": "#0F3357FF",
                     "comment": "Минорный цвет фона поверхности/контрола информация на темном фоне"
                 },
-                "surfaceTransparentPositive": {
-                    "value": "[general.green.500][-0.80]",
-                    "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
-                },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#1A9E3252",
+                    "value": "#109D8652",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#1A9E3224",
+                    "value": "#109D8624",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceTransparentWarning": {
@@ -2284,6 +2280,10 @@
                 "surfaceTransparentInfo": {
                     "value": "#166dc433",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на темном фоне"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "#109c8433",
+                    "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
                 }
             },
             "onLight": {
