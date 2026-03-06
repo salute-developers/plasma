@@ -259,9 +259,14 @@ export const tokens = {
     textFieldFocusColor: '--plasma-select-textfield-focus-color',
 
     textFieldBoxShadow: '--plasma-select-textfield-box-shadow',
+    textFieldBoxShadowSecondary: '--plasma-select-textfield-box-shadow-secondary',
 
     disclosureIconColor: '--plasma-select-disclosure-icon-color',
     disclosureIconColorHover: '--plasma-select-disclosure-icon-color-hover',
+
+    disclosureNestedIconColor: '--plasma-select-disclosure-nested-icon-color',
+    disclosureNestedIconColorHover: '--plasma-select-disclosure-nested-icon-color-hover',
+
     disclosureIconSize: '--plasma-select-disclosure-icon-size',
     disclosureIconMargin: '--plasma-select-disclosure-icon-margin',
     disclosureIconOpacityReadOnly: '--plasma-select-disclosure-icon-opacity-readonly',
