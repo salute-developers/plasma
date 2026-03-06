@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
@@ -21,7 +21,8 @@ const getIconSize = (size?: string) => {
     return size === 'xs' || size === 's' ? 'xs' : 's';
 };
 
-const { views, sizes } = getConfigVariations(config);
+const { views } = getConfigVariations(config);
+const sizes = ['xl', 'l'];
 
 const labelPlacement = ['inner', 'outer'];
 const chip = ['default', 'secondary', 'accent'];
@@ -252,19 +253,20 @@ const meta: Meta<StorySelectProps> = {
             },
             if: { arg: 'treeView', truthy: true },
         },
+        ...disableProps(['variant']),
     },
     args: {
         target: 'textfield-like',
+        size: 'xl',
+        view: 'default',
+        enableContentLeft: false,
+        isTargetAmount: false,
         label: 'Label',
+        variant: 'normal',
         labelPlacement: 'outer',
         placeholder: 'Placeholder',
         helperText: 'Helper text',
-        size: 'm',
-        view: 'default',
         chipView: 'secondary',
-        enableContentLeft: false,
-        isTargetAmount: false,
-        variant: 'normal',
         disabled: false,
         readOnly: false,
         optional: false,
@@ -512,7 +514,7 @@ const SingleStory = ({ enableContentLeft, ...args }: StorySelectProps) => {
         <div style={{ width: '300px' }}>
             <Select
                 {...args}
-                _checkboxAppearance="outline"
+                _checkboxAppearance="default"
                 items={items}
                 value={value}
                 onChange={setValue}
