@@ -54,8 +54,8 @@ export const config = {
 
                 ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
                 ${tokens.borderColor}: var(--outline-positive-minor);
-                ${tokens.borderColorFocus}: var--outline-positive-minor-active);
-                ${tokens.borderColorHover}: var--outline-positive-minor-hover);
+                ${tokens.borderColorFocus}: var(--outline-positive-minor-active);
+                ${tokens.borderColorHover}: var(--outline-positive-minor-hover);
 
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -86,8 +86,8 @@ export const config = {
 
                 ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
                 ${tokens.borderColor}: var(--outline-warning-minor);
-                ${tokens.borderColorFocus}: var--outline-warning-minor-active);
-                ${tokens.borderColorHover}: var--outline-warning-minor-hover);
+                ${tokens.borderColorFocus}: var(--outline-warning-minor-active);
+                ${tokens.borderColorHover}: var(--outline-warning-minor-hover);
 
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -118,8 +118,8 @@ export const config = {
 
                 ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
                 ${tokens.borderColor}: var(--outline-negative-minor);
-                ${tokens.borderColorFocus}: var--outline-negative-minor-active);
-                ${tokens.borderColorHover}: var--outline-negative-minor-hover);
+                ${tokens.borderColorFocus}: var(--outline-negative-minor-active);
+                ${tokens.borderColorHover}: var(--outline-negative-minor-hover);
 
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
