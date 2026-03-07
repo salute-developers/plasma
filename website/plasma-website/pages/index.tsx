@@ -77,6 +77,8 @@ const PlatformBlock = styled.div`
 
     ${multipleMediaQuery(['S'])(css`
         padding-left: 1.25rem;
+        flex-wrap: wrap;
+        gap: 0.25rem 0.75rem;
     `)}
 `;
 
@@ -87,6 +89,10 @@ const PlatformTitle = styled.span`
     font-size: 12px;
     line-height: 14px;
     text-decoration: none;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 `;
 
 const PlatformCommonLabel = styled.a`

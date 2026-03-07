@@ -20,6 +20,8 @@ const DocumentStyle = createGlobalStyle`
 
         margin: 0;
         padding: 0;
+
+        overflow-x: hidden;
     }
 
     /* stylelint-disable-next-line selector-nested-pattern */

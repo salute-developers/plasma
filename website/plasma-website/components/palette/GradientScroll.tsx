@@ -68,33 +68,34 @@ export const GradientScroll: React.FC<{
     colors: string[];
     scrollRef: React.RefObject<HTMLDivElement>;
 }> = ({ hsl, colors, scrollRef }) => {
-    const [scrollPosition, setScrollPosition] = useState(1);
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [isWindowScroll, setIsWindowScroll] = useState(false);
 
-    const scrollHeight = scrollRef?.current?.scrollHeight ?? 0;
-    const clientHeight = scrollRef?.current?.clientHeight ?? 0;
+    const scrollHeight = isWindowScroll ? document.documentElement.scrollHeight : scrollRef?.current?.scrollHeight ?? 0;
+    const clientHeight = isWindowScroll ? window.innerHeight : scrollRef?.current?.clientHeight ?? 0;
 
-    const heightAllScroll = clientHeight - fixPadding;
-    const heightScroll = heightAllScroll / (scrollHeight / clientHeight);
-    const topScroll = heightAllScroll * (scrollPosition / scrollHeight) + 2;
+    const hasScrollableArea = scrollHeight > 0 && clientHeight > fixPadding;
 
-    const handlerScroll = () => {
-        if (scrollRef.current) {
-            const { scrollTop } = scrollRef.current;
-            setScrollPosition(scrollTop);
-        }
-    };
+    const heightAllScroll = hasScrollableArea ? clientHeight - fixPadding : 0;
+    const heightScroll =
+        hasScrollableArea && scrollHeight > clientHeight ? heightAllScroll / (scrollHeight / clientHeight) : 0;
+    const topScroll = hasScrollableArea && scrollHeight > 0 ? heightAllScroll * (scrollPosition / scrollHeight) + 2 : 0;
 
     useEffect(() => {
-        if (scrollRef?.current) {
-            scrollRef.current.addEventListener('scroll', handlerScroll);
-            handlerScroll();
+        const refEl = scrollRef?.current;
 
-            return () => {
-                if (scrollRef.current) {
-                    scrollRef.current.removeEventListener('scroll', handlerScroll);
-                }
-            };
+        if (refEl && refEl.scrollHeight > refEl.clientHeight) {
+            const handler = () => setScrollPosition(refEl.scrollTop);
+            refEl.addEventListener('scroll', handler);
+            handler();
+            return () => refEl.removeEventListener('scroll', handler);
         }
+
+        setIsWindowScroll(true);
+        const handler = () => setScrollPosition(window.scrollY);
+        window.addEventListener('scroll', handler, { passive: true });
+        handler();
+        return () => window.removeEventListener('scroll', handler);
     }, []);
 
     return (
