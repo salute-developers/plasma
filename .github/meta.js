@@ -21,7 +21,7 @@ module.exports = {
     },
     'plasma-asdk': {
         scope: [...commonScope, 'plasma-tokens-b2b', 'plasma-typo', 'plasma-themes', 'plasma-new-hope'],
-        required: ['plasma-core'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
         themes: 'plasma-themes',
     },
     'plasma-b2c': {
