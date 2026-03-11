@@ -85,6 +85,11 @@ export const getDescribeFN = (component: string) => {
     return componentExists ? describe : describe.skip;
 };
 
+export const skipForPackages = (packages: string[]) => {
+    const pkgName = Cypress.env('package') as string;
+    return packages.includes(pkgName) ? it.skip : it;
+};
+
 export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, children }) => {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const pkgName = Cypress.env('package') as string;
