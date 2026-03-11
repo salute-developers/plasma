@@ -1,4 +1,4 @@
-name: Release INSOL next branch
+name: Release SBCOM next branch
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
       branch:
           description: "Branch for next tag"
           required: true
-          default: 'next-insol'
+          default: 'next-sbcom'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -14,8 +14,8 @@ concurrency:
 
 jobs:
   publish:
-    name: Publish feature version
-    if: github.ref == 'refs/heads/next-insol'
+    name: Release SBCOM next branch
+    if: github.ref == 'refs/heads/next-sbcom'
     uses: ./.github/workflows/publish-common.yml
     with:
       auto-options: '--no-changelog'
