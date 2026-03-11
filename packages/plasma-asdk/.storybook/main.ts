@@ -1,10 +1,11 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
+import path from 'path';
 
 const config: StorybookConfig = {
     staticDirs: ['public'],
     stories: ['../src/**/*.stories.tsx', '../README.mdx'],
-    addons: ['@storybook/addon-essentials'],
+    addons: ['@storybook/addon-docs'],
     framework: {
         name: '@storybook/react-vite',
         options: {},
@@ -13,7 +14,6 @@ const config: StorybookConfig = {
         disableTelemetry: true,
     },
     docs: {
-        autodocs: false,
         defaultName: 'Docs',
     },
     typescript: {
@@ -24,10 +24,28 @@ const config: StorybookConfig = {
             base: '',
             resolve: {
                 dedupe: ['react', 'react-dom', 'styled-components'],
+                preserveSymlinks: true,
+                alias: {
+                    '@salutejs/plasma-sb-utils': path.resolve('../../utils/plasma-sb-utils/src'),
+                },
             },
             build: {
                 sourcemap: false,
             },
+            plugins: [
+                /* Plugin that fixes a bug in Storybook@10 - https://github.com/storybookjs/storybook/issues/21716 */
+                {
+                    name: 'fix-mdx-react-shim',
+                    enforce: 'pre',
+                    resolveId(source) {
+                        if (source.startsWith('file://') && source.includes('mdx-react-shim.js')) {
+                            // Convert file:///... path to normal filesystem path for Vite
+                            return new URL(source).pathname;
+                        }
+                        return null;
+                    },
+                },
+            ],
         });
     },
 };
