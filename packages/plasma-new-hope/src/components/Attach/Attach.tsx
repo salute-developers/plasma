@@ -108,7 +108,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             }
 
             if (onClear) {
-                onClear();
+                onClear(filesInfo[fileKey]);
             }
 
             setFilesInfo((prevFileInfo) => {

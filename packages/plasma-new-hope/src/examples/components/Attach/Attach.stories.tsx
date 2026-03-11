@@ -1,7 +1,8 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { getConfigVariations } from '@salutejs/plasma-sb-utils';
+import { action } from 'storybook/actions';
+import { getConfigVariations, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../_helpers';
 import { IconMic } from '../../../components/_Icon';
@@ -17,6 +18,8 @@ const fileFormatOptions = ['all', '.doc', '.xls', '.pdf', '.csv', '.txt'];
 const placements = ['auto', 'top', 'right', 'bottom', 'left'];
 const triggers = ['click', 'hover'];
 const buttonTypeVariant = ['button', 'iconButton'];
+
+const onClear = action('onClear');
 
 type StoryAttachProps = ComponentProps<typeof Attach> & {
     trigger: string;
@@ -116,6 +119,7 @@ const meta: Meta<StoryAttachProps> = {
         listWidth: {
             control: { type: 'text' },
         },
+        ...disableProps(['onClear']),
     },
     args: {
         size: 'm',
@@ -141,6 +145,8 @@ const meta: Meta<StoryAttachProps> = {
         trigger: 'click',
         listWidth: '300px',
         closeOnOverlayClick: true,
+
+        onClear,
     },
 };
 
