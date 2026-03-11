@@ -1,10 +1,9 @@
-import React from 'react';
+import type { ReactNode, HTMLAttributes } from 'react';
+import { AsProps } from 'src/types';
 
-import { AsProps } from '../../types';
-
-export interface PriceProps extends React.HTMLAttributes<HTMLSpanElement>, AsProps {
+export interface PriceProps extends HTMLAttributes<HTMLSpanElement>, AsProps {
     /**
-     * Значение контрола.
+     * Значение для control.
      */
     children: number;
     /**
@@ -14,9 +13,11 @@ export interface PriceProps extends React.HTMLAttributes<HTMLSpanElement>, AsPro
     locale?: string;
     /**
      * Валюта.
+     * Принимает ISO 4217 код валюты.
+     * @see rub
      * @default `rub`
      */
-    currency?: 'rub' | 'usd' | 'eur' | 'inr';
+    currency?: 'rub' | 'usd' | 'eur' | 'inr' | string;
     /**
      * Перечеркнутый текст (старая цена, например).
      * @default false
@@ -31,7 +32,7 @@ export interface PriceProps extends React.HTMLAttributes<HTMLSpanElement>, AsPro
      * Указывает регулярность платежа, идет после цены.
      * Например - 990Р / день.
      */
-    periodicity?: React.ReactNode;
+    periodicity?: ReactNode;
     /**
      * Перечеркнутый текст (старая цена, например).
      * @deprecated

@@ -6,16 +6,14 @@ import { WithTheme } from '../../_helpers';
 
 import { Price } from './Price';
 
-const currencies = ['rub', 'usd', 'eur', 'inr'];
-
 const meta: Meta<typeof Price> = {
     title: 'Data Display/Price',
     decorators: [WithTheme],
     argTypes: {
         currency: {
-            options: currencies,
+            description: 'ISO 4217 код валюты (например, rub, usd, eur, gbp, cny)',
             control: {
-                type: 'inline-radio',
+                type: 'text',
             },
         },
         ...disableProps(['value', 'theme', 'as', 'forwardedAs']),
