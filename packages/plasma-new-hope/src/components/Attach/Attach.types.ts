@@ -129,7 +129,7 @@ export type BaseAttachProps = {
     /**
      * Callback при удалении прикрепленного файла
      */
-    onClear?: () => void;
+    onClear?: (fileInfo: FileInfo) => void;
 } & FlowProps;
 
 export type AttachButtonProps = (
