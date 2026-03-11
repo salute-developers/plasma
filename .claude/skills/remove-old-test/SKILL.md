@@ -9,11 +9,15 @@ disable-model-invocation: true
 The user provides a component name. Run the following two commands using the Bash tool:
 
 ```bash
-rm -rf cypress/snapshots/**/{ComponentName}/*
+rm -rf cypress/snapshots/**/ComponentName/*
 ```
 
 ```bash
 rm ./packages/!(plasma-new-hope)/**/ComponentName.component-test.tsx
+```
+
+```bash
+rm ./packages/**/ComponentName.update-test.component-test.tsx
 ```
 
 Replace `{ComponentName}` with the actual component name from `$ARGUMENTS`.
