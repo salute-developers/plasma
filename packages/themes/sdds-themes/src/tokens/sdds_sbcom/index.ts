@@ -2033,7 +2033,7 @@ export const onDarkOutlineTransparentSurface =
 
 /** dark outline onLight outlineTransparentSurface */
 export const onLightOutlineTransparentSurface =
-    'var(--on-light-outline-transparent-surface, linear-gradient(135.00deg, #FFFFFFFF 0%, #FFFFFF29 66.734%, #FFFFFFCC 100%))';
+    'var(--on-light-outline-transparent-surface, linear-gradient(135.00deg, #FFFFFFFF 0%, #FFFFFF29 36.746%, #FFFFFF29 66.734%, #FFFFFFCC 100%))';
 
 /** dark outline inverse outlineTransparentSurface */
 export const inverseOutlineTransparentSurface =
@@ -2144,66 +2144,6 @@ export const spacing40x = 'var(--spacing-40x, 5rem)';
 
 /** spacing 60x */
 export const spacing60x = 'var(--spacing-60x, 7.5rem)';
-
-/** typography s display-l-bold */
-export const dsplLBold = {
-    fontFamily: 'var(--plasma-typo-dspl-l-bold-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-bold-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-bold-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-bold-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-bold-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-bold-line-height)',
-};
-
-/** typography s display-l-medium */
-export const dsplLMedium = {
-    fontFamily: 'var(--plasma-typo-dspl-l-medium-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-medium-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-medium-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-medium-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-medium-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-medium-line-height)',
-};
-
-/** typography s display-l */
-export const dsplL = {
-    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
-};
-
-/** typography s display-m-bold */
-export const dsplMBold = {
-    fontFamily: 'var(--plasma-typo-dspl-m-bold-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-m-bold-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-m-bold-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-m-bold-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-m-bold-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-m-bold-line-height)',
-};
-
-/** typography s display-m-medium */
-export const dsplMMedium = {
-    fontFamily: 'var(--plasma-typo-dspl-m-medium-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-m-medium-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-m-medium-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-m-medium-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-m-medium-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-m-medium-line-height)',
-};
-
-/** typography s display-m */
-export const dsplM = {
-    fontFamily: 'var(--plasma-typo-dspl-m-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-m-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-m-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-m-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-m-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-m-line-height)',
-};
 
 /** typography s display-s-bold */
 export const dsplSBold = {
@@ -2355,66 +2295,6 @@ export const h4 = {
     lineHeight: 'var(--plasma-typo-h4-line-height)',
 };
 
-/** typography s header-h5-bold */
-export const h5Bold = {
-    fontFamily: 'var(--plasma-typo-h5-bold-font-family)',
-    fontSize: 'var(--plasma-typo-h5-bold-font-size)',
-    fontStyle: 'var(--plasma-typo-h5-bold-font-style)',
-    fontWeight: 'var(--plasma-typo-h5-bold-font-weight)',
-    letterSpacing: 'var(--plasma-typo-h5-bold-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-h5-bold-line-height)',
-};
-
-/** typography s header-h5-medium */
-export const h5Medium = {
-    fontFamily: 'var(--plasma-typo-h5-medium-font-family)',
-    fontSize: 'var(--plasma-typo-h5-medium-font-size)',
-    fontStyle: 'var(--plasma-typo-h5-medium-font-style)',
-    fontWeight: 'var(--plasma-typo-h5-medium-font-weight)',
-    letterSpacing: 'var(--plasma-typo-h5-medium-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-h5-medium-line-height)',
-};
-
-/** typography s header-h5 */
-export const h5 = {
-    fontFamily: 'var(--plasma-typo-h5-font-family)',
-    fontSize: 'var(--plasma-typo-h5-font-size)',
-    fontStyle: 'var(--plasma-typo-h5-font-style)',
-    fontWeight: 'var(--plasma-typo-h5-font-weight)',
-    letterSpacing: 'var(--plasma-typo-h5-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-h5-line-height)',
-};
-
-/** typography s header-h6 */
-export const h6 = {
-    fontFamily: 'var(--plasma-typo-h6-font-family)',
-    fontSize: 'var(--plasma-typo-h6-font-size)',
-    fontStyle: 'var(--plasma-typo-h6-font-style)',
-    fontWeight: 'var(--plasma-typo-h6-font-weight)',
-    letterSpacing: 'var(--plasma-typo-h6-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-h6-line-height)',
-};
-
-/** typography s header-h6-medium */
-export const h6Medium = {
-    fontFamily: 'var(--plasma-typo-h6-medium-font-family)',
-    fontSize: 'var(--plasma-typo-h6-medium-font-size)',
-    fontStyle: 'var(--plasma-typo-h6-medium-font-style)',
-    fontWeight: 'var(--plasma-typo-h6-medium-font-weight)',
-    letterSpacing: 'var(--plasma-typo-h6-medium-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-h6-medium-line-height)',
-};
-
-/** typography s header-h6-bold */
-export const h6Bold = {
-    fontFamily: 'var(--plasma-typo-h6-bold-font-family)',
-    fontSize: 'var(--plasma-typo-h6-bold-font-size)',
-    fontStyle: 'var(--plasma-typo-h6-bold-font-style)',
-    fontWeight: 'var(--plasma-typo-h6-bold-font-weight)',
-    letterSpacing: 'var(--plasma-typo-h6-bold-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-h6-bold-line-height)',
-};
-
 /** typography s body-l-bold */
 export const bodyLBold = {
     fontFamily: 'var(--plasma-typo-body-l-bold-font-family)',
@@ -2563,126 +2443,6 @@ export const bodyXXS = {
     fontWeight: 'var(--plasma-typo-body-xxs-font-weight)',
     letterSpacing: 'var(--plasma-typo-body-xxs-letter-spacing)',
     lineHeight: 'var(--plasma-typo-body-xxs-line-height)',
-};
-
-/** typography s text-l-bold */
-export const textLBold = {
-    fontFamily: 'var(--plasma-typo-text-l-bold-font-family)',
-    fontSize: 'var(--plasma-typo-text-l-bold-font-size)',
-    fontStyle: 'var(--plasma-typo-text-l-bold-font-style)',
-    fontWeight: 'var(--plasma-typo-text-l-bold-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-l-bold-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-l-bold-line-height)',
-};
-
-/** typography s text-l-medium */
-export const textLMedium = {
-    fontFamily: 'var(--plasma-typo-text-l-medium-font-family)',
-    fontSize: 'var(--plasma-typo-text-l-medium-font-size)',
-    fontStyle: 'var(--plasma-typo-text-l-medium-font-style)',
-    fontWeight: 'var(--plasma-typo-text-l-medium-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-l-medium-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-l-medium-line-height)',
-};
-
-/** typography s text-l */
-export const textL = {
-    fontFamily: 'var(--plasma-typo-text-l-font-family)',
-    fontSize: 'var(--plasma-typo-text-l-font-size)',
-    fontStyle: 'var(--plasma-typo-text-l-font-style)',
-    fontWeight: 'var(--plasma-typo-text-l-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-l-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-l-line-height)',
-};
-
-/** typography s text-m-bold */
-export const textMBold = {
-    fontFamily: 'var(--plasma-typo-text-m-bold-font-family)',
-    fontSize: 'var(--plasma-typo-text-m-bold-font-size)',
-    fontStyle: 'var(--plasma-typo-text-m-bold-font-style)',
-    fontWeight: 'var(--plasma-typo-text-m-bold-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-m-bold-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-m-bold-line-height)',
-};
-
-/** typography s text-m-medium */
-export const textMMedium = {
-    fontFamily: 'var(--plasma-typo-text-m-medium-font-family)',
-    fontSize: 'var(--plasma-typo-text-m-medium-font-size)',
-    fontStyle: 'var(--plasma-typo-text-m-medium-font-style)',
-    fontWeight: 'var(--plasma-typo-text-m-medium-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-m-medium-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-m-medium-line-height)',
-};
-
-/** typography s text-m */
-export const textM = {
-    fontFamily: 'var(--plasma-typo-text-m-font-family)',
-    fontSize: 'var(--plasma-typo-text-m-font-size)',
-    fontStyle: 'var(--plasma-typo-text-m-font-style)',
-    fontWeight: 'var(--plasma-typo-text-m-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-m-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-m-line-height)',
-};
-
-/** typography s text-s-bold */
-export const textSBold = {
-    fontFamily: 'var(--plasma-typo-text-s-bold-font-family)',
-    fontSize: 'var(--plasma-typo-text-s-bold-font-size)',
-    fontStyle: 'var(--plasma-typo-text-s-bold-font-style)',
-    fontWeight: 'var(--plasma-typo-text-s-bold-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-s-bold-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-s-bold-line-height)',
-};
-
-/** typography s text-s-medium */
-export const textSMedium = {
-    fontFamily: 'var(--plasma-typo-text-s-medium-font-family)',
-    fontSize: 'var(--plasma-typo-text-s-medium-font-size)',
-    fontStyle: 'var(--plasma-typo-text-s-medium-font-style)',
-    fontWeight: 'var(--plasma-typo-text-s-medium-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-s-medium-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-s-medium-line-height)',
-};
-
-/** typography s text-s */
-export const textS = {
-    fontFamily: 'var(--plasma-typo-text-s-font-family)',
-    fontSize: 'var(--plasma-typo-text-s-font-size)',
-    fontStyle: 'var(--plasma-typo-text-s-font-style)',
-    fontWeight: 'var(--plasma-typo-text-s-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-s-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-s-line-height)',
-};
-
-/** typography s text-xs-bold */
-export const textXSBold = {
-    fontFamily: 'var(--plasma-typo-text-xs-bold-font-family)',
-    fontSize: 'var(--plasma-typo-text-xs-bold-font-size)',
-    fontStyle: 'var(--plasma-typo-text-xs-bold-font-style)',
-    fontWeight: 'var(--plasma-typo-text-xs-bold-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-xs-bold-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-xs-bold-line-height)',
-};
-
-/** typography s text-xs-medium */
-export const textXSMedium = {
-    fontFamily: 'var(--plasma-typo-text-xs-medium-font-family)',
-    fontSize: 'var(--plasma-typo-text-xs-medium-font-size)',
-    fontStyle: 'var(--plasma-typo-text-xs-medium-font-style)',
-    fontWeight: 'var(--plasma-typo-text-xs-medium-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-xs-medium-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-xs-medium-line-height)',
-};
-
-/** typography s text-xs */
-export const textXS = {
-    fontFamily: 'var(--plasma-typo-text-xs-font-family)',
-    fontSize: 'var(--plasma-typo-text-xs-font-size)',
-    fontStyle: 'var(--plasma-typo-text-xs-font-style)',
-    fontWeight: 'var(--plasma-typo-text-xs-font-weight)',
-    letterSpacing: 'var(--plasma-typo-text-xs-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-text-xs-line-height)',
 };
 
 export const viewContainer = {
