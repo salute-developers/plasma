@@ -148,15 +148,15 @@ export const config = {
             m: css`
                 ${linkButtonTokens.linkButtonHeight}: 3rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.75rem 0;
-                ${linkButtonTokens.linkButtonRadius}: 0.75rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-m-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${linkButtonTokens.linkButtonSpinnerSize}: 1.375rem;
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-m-bold-font-family);
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-m-bold-font-size);
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-m-bold-font-style);
+                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-m-bold-letter-spacing);
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-m-bold-line-height);
+
+                ${linkButtonTokens.linkButtonSpinnerSize}: 1.5rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
 
                 ${linkButtonTokens.linkButtonTextPadding}: 0.125rem 0;
@@ -167,15 +167,15 @@ export const config = {
             s: css`
                 ${linkButtonTokens.linkButtonHeight}: 2.5rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.5rem 0;
-                ${linkButtonTokens.linkButtonRadius}: 0.625rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-s-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${linkButtonTokens.linkButtonSpinnerSize}: 1.375rem;
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-s-bold-font-family);
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-s-bold-font-size);
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-s-bold-font-style);
+                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-s-bold-letter-spacing);
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-s-bold-line-height);
+
+                ${linkButtonTokens.linkButtonSpinnerSize}: 1.5rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
 
                 ${linkButtonTokens.linkButtonTextPadding}: 0.063rem 0;
@@ -186,13 +186,13 @@ export const config = {
             xs: css`
                 ${linkButtonTokens.linkButtonHeight}: 2rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.5rem 0;
-                ${linkButtonTokens.linkButtonRadius}: 0.5rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-bold-font-family);
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-bold-font-size);
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-bold-font-style);
                 ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-bold-letter-spacing);
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-bold-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
@@ -205,13 +205,13 @@ export const config = {
             xxs: css`
                 ${linkButtonTokens.linkButtonHeight}: 1.5rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.375rem 0;
-                ${linkButtonTokens.linkButtonRadius}: 0.375rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-bold-font-family);
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-bold-font-size);
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-bold-font-style);
                 ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-bold-letter-spacing);
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-bold-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 0.75rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;

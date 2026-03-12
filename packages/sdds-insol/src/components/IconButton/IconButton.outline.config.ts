@@ -15,11 +15,11 @@ export const config = {
                 ${iconButtonTokens.iconButtonBorderColorHover}: var(--outline-solid-default-hover);
                 ${iconButtonTokens.iconButtonBorderColorActive}: var(--outline-solid-default-active);
 
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
 
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-clear);
             `,
             accent: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-accent);
@@ -28,11 +28,11 @@ export const config = {
                 ${iconButtonTokens.iconButtonBorderColorHover}: var(--outline-accent-hover);
                 ${iconButtonTokens.iconButtonBorderColorActive}: var(--outline-accent-active);
 
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
 
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-clear);
             `,
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-secondary);
@@ -41,11 +41,11 @@ export const config = {
                 ${iconButtonTokens.iconButtonBorderColorHover}: var(--outline-solid-primary-hover);
                 ${iconButtonTokens.iconButtonBorderColorActive}: var(--outline-solid-primary-active);
 
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
 
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-clear);
             `,
             positive: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-positive);
@@ -54,11 +54,11 @@ export const config = {
                 ${iconButtonTokens.iconButtonBorderColorHover}: var(--outline-positive-hover);
                 ${iconButtonTokens.iconButtonBorderColorActive}: var(--outline-positive-active);
 
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
 
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-clear);
             `,
             warning: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-warning);
@@ -67,11 +67,11 @@ export const config = {
                 ${iconButtonTokens.iconButtonBorderColorHover}: var(--outline-warning-hover);
                 ${iconButtonTokens.iconButtonBorderColorActive}: var(--outline-warning-active);
 
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
 
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-clear);
             `,
             negative: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-negative);
@@ -80,11 +80,11 @@ export const config = {
                 ${iconButtonTokens.iconButtonBorderColorHover}: var(--outline-negative-hover);
                 ${iconButtonTokens.iconButtonBorderColorActive}: var(--outline-negative-active);
 
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-clear);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
 
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-clear);
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-clear);
             `,
         },
         size: {
@@ -123,6 +123,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 3rem;
                 ${iconButtonTokens.iconButtonPadding}: 0.75rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.75rem;
+
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-m-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -130,7 +131,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${iconButtonTokens.iconButtonSpinnerSize}: 1.375rem;
+                ${iconButtonTokens.iconButtonSpinnerSize}: 1.5rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
             s: css`
@@ -145,7 +146,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${iconButtonTokens.iconButtonSpinnerSize}: 1rem;
+                ${iconButtonTokens.iconButtonSpinnerSize}: 1.5rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
             xs: css`
@@ -153,6 +154,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 2rem;
                 ${iconButtonTokens.iconButtonPadding}: 0.5rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.5rem;
+
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -168,6 +170,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 1.5rem;
                 ${iconButtonTokens.iconButtonPadding}: 0.375rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.375rem;
+
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
