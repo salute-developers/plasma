@@ -95,7 +95,7 @@ const getSizeForIcon = (size) => {
         m: 's',
         l: 's',
         xl: 's',
-        s: 'xs',
+        s: 's',
         xxs: 'xs',
     };
 

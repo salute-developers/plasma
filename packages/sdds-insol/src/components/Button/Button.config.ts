@@ -159,6 +159,8 @@ export const config = {
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-bold-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-l-bold-line-height);
 
+                ${buttonTokens.buttonValueFontWeight}: var(--plasma-typo-body-l-font-weight);
+
                 ${buttonTokens.buttonSpinnerSize}: 1.5rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
@@ -181,11 +183,13 @@ export const config = {
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-bold-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-l-bold-line-height);
 
+                ${buttonTokens.buttonValueFontWeight}: var(--plasma-typo-body-l-font-weight);
+
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.625rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.625rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.5rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.5rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.375rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.375rem;
@@ -194,19 +198,22 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 3rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonPadding}: 1.25rem;
-                ${buttonTokens.buttonRadius}: 0.75rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
 
-                ${buttonTokens.buttonSpinnerSize}: 1.375rem;
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-bold-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-bold-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-bold-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-bold-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-bold-line-height);
+
+                ${buttonTokens.buttonValueFontWeight}: var(--plasma-typo-body-m-font-weight);
+
+                ${buttonTokens.buttonSpinnerSize}: 1.5rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.5rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.375rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
@@ -215,19 +222,22 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 2.5rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonPadding}: 1rem;
-                ${buttonTokens.buttonRadius}: 0.625rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
 
-                ${buttonTokens.buttonSpinnerSize}: 1.375rem;
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-s-bold-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-s-bold-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-s-bold-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-bold-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-s-bold-line-height);
+
+                ${buttonTokens.buttonValueFontWeight}: var(--plasma-typo-body-s-font-weight);
+
+                ${buttonTokens.buttonSpinnerSize}: 1.5rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.5rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.375rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
@@ -236,19 +246,22 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 2rem;
                 ${buttonTokens.buttonWidth}: 10rem;
                 ${buttonTokens.buttonPadding}: 0.75rem;
-                ${buttonTokens.buttonRadius}: 0.5rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
+
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-bold-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-bold-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-bold-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-bold-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-bold-line-height);
+
+                ${buttonTokens.buttonValueFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${buttonTokens.buttonSpinnerSize}: 1rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.125rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
@@ -257,19 +270,22 @@ export const config = {
                 ${buttonTokens.buttonHeight}: 1.5rem;
                 ${buttonTokens.buttonWidth}: 8.75rem;
                 ${buttonTokens.buttonPadding}: 0.625rem;
-                ${buttonTokens.buttonRadius}: 0.375rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${buttonTokens.buttonRadius}: ${roundedRadius};
+
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-bold-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-bold-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-bold-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-bold-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-bold-line-height);
+
+                ${buttonTokens.buttonValueFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${buttonTokens.buttonSpinnerSize}: 0.75rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.375rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.375rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.125rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
