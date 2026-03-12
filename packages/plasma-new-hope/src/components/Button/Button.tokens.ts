@@ -45,8 +45,10 @@ export const tokens = {
     buttonRightContentMargin: '--plasma-button-right-content-margin',
     buttonRightContentAlignSelf: '--plasma-button-right-content-align-self',
     buttonAdditionalContentMargin: '--plasma-button-additional-content-margin',
-    buttonValueMargin: '--plasma-button-value-margin',
     buttonAdditionalContentMarginRightWidthValue: '--plasma-button-additional-content-margin-right-width-value',
+
+    buttonValueMargin: '--plasma-button-value-margin',
+    buttonValueFontWeight: '--plasma-button-value-font-weight',
 
     buttonDisabledOpacity: '--plasma-button-disabled-opacity',
     buttonFocusColor: '--plasma-button-focus-color',
