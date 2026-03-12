@@ -46,5 +46,4 @@ export const base = css`
         letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
         line-height: var(--plasma-typo-body-xs-line-height);
     }
-}
 `;
