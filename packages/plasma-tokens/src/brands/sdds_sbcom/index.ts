@@ -1699,7 +1699,7 @@ export const onLightOutlineSolidDefaultHover = 'var(--on-light-outline-solid-def
 export const onLightOutlineSolidDefaultActive = 'var(--on-light-outline-solid-default-active, #C4BEBAFF)';
 
 export const onLightOutlineTransparentSurface =
-    'var(--on-light-outline-transparent-surface, linear-gradient(135.00deg, rgb(255, 255, 255) 0%,rgba(255, 255, 255, 0.16) 36.746%, rgba(255, 255, 255, 0.16) 66.734%, rgba(255, 255, 255, 0.8) 100%))';
+    'var(--on-light-outline-transparent-surface, linear-gradient(135.00deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.16) 36.746%, rgba(255, 255, 255, 0.16) 66.734%, rgba(255, 255, 255, 0.8) 100%))';
 
 export const onLightOutlineTransparentSurfaceHover = 'var(--on-light-outline-transparent-surface-hover, #CCCCCCFF)';
 
