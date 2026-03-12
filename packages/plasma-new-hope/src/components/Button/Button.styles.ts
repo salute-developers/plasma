@@ -40,11 +40,11 @@ export const StyledAdditionalContent = styled.div`
 `;
 
 export const ButtonValue = styled.span`
-    color: var(${tokens.buttonValueColor});
-
+    min-width: 4ch;
     margin: var(${tokens.buttonValueMargin});
 
-    min-width: 4ch;
+    color: var(${tokens.buttonValueColor});
+    font-weight: var(${tokens.buttonValueFontWeight});
 
     ${applyEllipsis()}
 `;
