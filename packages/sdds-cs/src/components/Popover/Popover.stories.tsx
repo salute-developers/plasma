@@ -8,8 +8,6 @@ import { Button } from '../Button/Button';
 
 import { Popover } from './Popover';
 
-import './style.css';
-
 const meta: Meta<typeof Popover> = {
     title: 'Overlay/Popover',
     decorators: [InSpacingDecorator],
@@ -100,7 +98,7 @@ type StoryPopoverProps = ComponentProps<typeof Popover> & {
 const StyledContent = styled.div`
     background: var(--surface-solid-card);
     padding: 1rem;
-    border-radius: var(--popover-border-radius);
+    border-radius: 20px;
 
     display: flex;
     flex-direction: column;
@@ -124,6 +122,7 @@ const StoryDefault = (args: StoryPopoverProps) => {
             target={<Button>Target</Button>}
             hasArrow
             offset={[skidding, distance]}
+            style={{ 'border-radius': '20px' }}
             {...args}
         >
             <StyledContent>
@@ -176,6 +175,7 @@ const StoryResizable = (args: StoryPopoverProps) => {
                 maxHeight: resizableMaxHeight,
                 iconSize: resizableIconSize,
             }}
+            style={{ 'border-radius': '20px' }}
             {...args}
         >
             <StyledContent>
