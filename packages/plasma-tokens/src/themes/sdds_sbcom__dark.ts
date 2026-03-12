@@ -589,7 +589,7 @@ export const sdds_sbcom__dark = {
         '--on-light-outline-solid-default-hover': '#ADA39FFF',
         '--on-light-outline-solid-default-active': '#C4BEBAFF',
         '--on-light-outline-transparent-surface':
-            'linear-gradient(135.00deg, rgb(255, 255, 255) 0%,rgba(255, 255, 255, 0.16) 36.746%, rgba(255, 255, 255, 0.16) 66.734%, rgba(255, 255, 255, 0.8) 100%)',
+            'linear-gradient(135.00deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.16) 36.746%, rgba(255, 255, 255, 0.16) 66.734%, rgba(255, 255, 255, 0.8) 100%)',
         '--on-light-outline-transparent-surface-hover': '#CCCCCCFF',
         '--on-light-outline-transparent-surface-active': '#E6E6E6FF',
         '--on-light-outline-solid-default': '#DDD9D7',

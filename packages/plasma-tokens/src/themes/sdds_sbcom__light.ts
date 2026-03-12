@@ -543,7 +543,7 @@ export const sdds_sbcom__light = {
         '--outline-solid-default': '#DDD9D7FF',
         '--outline-transparent-primary': '#15110F3D',
         '--outline-transparent-surface':
-            'linear-gradient(135.00deg, rgb(255, 255, 255) 0%,rgba(255, 255, 255, 0.16) 36.746%, rgba(255, 255, 255, 0.16) 66.734%, rgba(255, 255, 255, 0.8) 100%)',
+            'linear-gradient(135.00deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.16) 36.746%, rgba(255, 255, 255, 0.16) 66.734%, rgba(255, 255, 255, 0.8) 100%)',
         '--outline-positive': '#239322FF',
         '--outline-warning': '#C55200FF',
         '--outline-negative': '#DD272EFF',
@@ -589,7 +589,7 @@ export const sdds_sbcom__light = {
         '--on-light-outline-solid-default-hover': '#ADA39FFF',
         '--on-light-outline-solid-default-active': '#C4BEBAFF',
         '--on-light-outline-transparent-surface':
-            'linear-gradient(135.00deg, rgb(255, 255, 255) 0%,rgba(255, 255, 255, 0.16) 36.746%, rgba(255, 255, 255, 0.16) 66.734%, rgba(255, 255, 255, 0.8) 100%)',
+            'linear-gradient(135.00deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.16) 36.746%, rgba(255, 255, 255, 0.16) 66.734%, rgba(255, 255, 255, 0.8) 100%)',
         '--on-light-outline-transparent-surface-hover': '#CCCCCCFF',
         '--on-light-outline-transparent-surface-active': '#E6E6E6FF',
         '--on-light-outline-clear': '#00000000',
