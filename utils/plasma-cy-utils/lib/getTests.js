@@ -28,17 +28,37 @@ var getConfig = function (component) {
         return null;
     }
 };
+/**
+ * Генерирует базовые визуальные тесты для компонента.
+ * Генерирует describe-блок с именем компонента, внутри которого будет
+ * сгенерирован тест-кейс для каждого варианта комбинации пропов из
+ * конфига.
+ * Каждый тест-кейс будет сгенерирован с именем, соответствующим
+ * значению пропов, указанных в конфиге.
+ * Внутри каждого тест-кейса будет смонтирован компонент с указанными
+ * пропами, а также с указанными дочерними элементами.
+ * Перед снятием скриншота будет выполнено указанное действие.
+ * @param {string} component - имя компонента, используется для поиска конфига и регистрации describe-блока.
+ * @param {any} componentProps - пропсы, которые будут переданы компоненту в каждом тест-кейсе.
+ * @param {ReactNode} children - дочерние элементы, передаваемые внутрь компонента.
+ * @param {() => void} actionBeforeSnapshot - действие, выполняемое перед снятием скриншота.
+ * @param {string[]} configPropsForMatrix - список пропов из конфига, которые войдут в матрицу.
+ * @param {Record<string, string[]>} excludePropsValues - значения пропов, исключаемые из матрицы.
+ * @param {string[]} propsForName - пропсы, значения которых включаются в имя теста.
+ * @param {string[]} packagesForSkip - список пакетов, для которых тесты будут пропущены через describe.skip.
+ */
 var getBaseVisualTests = function (_a) {
-    var component = _a.component, componentProps = _a.componentProps, children = _a.children, actionBeforeSnapshot = _a.actionBeforeSnapshot, configPropsForMatrix = _a.configPropsForMatrix, propsForName = _a.propsForName;
+    var component = _a.component, componentProps = _a.componentProps, children = _a.children, actionBeforeSnapshot = _a.actionBeforeSnapshot, configPropsForMatrix = _a.configPropsForMatrix, excludePropsValues = _a.excludePropsValues, propsForName = _a.propsForName, packagesForSkip = _a.packagesForSkip;
     var componentExists = (0, CypressDecorator_1.hasComponent)(component);
-    var describeFn = (0, CypressDecorator_1.getDescribeFN)(component);
+    var pkgName = Cypress.env('package');
+    var describeFn = (packagesForSkip === null || packagesForSkip === void 0 ? void 0 : packagesForSkip.includes(pkgName)) ? describe.skip : (0, CypressDecorator_1.getDescribeFN)(component);
     return describeFn("".concat(component), function () {
         var Component = componentExists ? (0, CypressDecorator_1.getComponent)(component) : null;
         if (!Component) {
             return;
         }
         var config = componentExists ? getConfig(component) : null;
-        var configMatrix = (0, getConfigMatrix_1.getConfigMatrix)(config, configPropsForMatrix);
+        var configMatrix = (0, getConfigMatrix_1.getConfigMatrix)(config, configPropsForMatrix, excludePropsValues);
         configMatrix.forEach(function (combination) {
             var testParams = Object.entries(combination)
                 .map(function (_a) {
