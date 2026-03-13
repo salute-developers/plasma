@@ -218,24 +218,23 @@ module.exports = {
                     };
                 },
                 async contentLoaded({ content, actions }) {
-                    // Генерация массива типов
-                    const names = [];
-                    content
-                        .filter((module) => {
-                            const result =
-                                !names.includes(module.displayName) &&
-                                /^[A-Z]/.test(module.displayName) &&
-                                (module.props || module.description) &&
-                                module.displayName !== 'Default';
+                    const components = new Map();
 
-                            if (result) {
-                                names.push(module.displayName);
-                                return true;
-                            }
+                    content.forEach((module) => {
+                        const { displayName, description, props } = module;
 
-                            return false;
-                        })
-                        .forEach(async (component) =>
+                        if (
+                            /^[A-Z]/.test(displayName) &&
+                            displayName !== 'Default' &&
+                            (props || description) &&
+                            !components.has(displayName)
+                        ) {
+                            components.set(displayName, module);
+                        }
+                    });
+
+                    await Promise.all(
+                        [...components.values()].map((component) =>
                             actions.createData(
                                 `${component.displayName}.json`,
                                 JSON.stringify({
@@ -249,7 +248,8 @@ module.exports = {
                                     description: component.description,
                                 }),
                             ),
-                        );
+                        ),
+                    );
                 },
             };
         },
