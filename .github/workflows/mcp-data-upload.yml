@@ -1,0 +1,96 @@
+name: Upload plasma-web MCP data
+
+on:
+    workflow_dispatch:
+
+jobs:
+    upload-mcp-data:
+        runs-on: ubuntu-22.04
+        steps:
+            -   uses: actions/checkout@v4
+                with:
+                    show-progress: false
+
+            -   name: Prepare environment
+                uses: ./.github/actions/prepare-environment
+
+            -   name: Read plasma-web version
+                run: |
+                    echo "PLASMA_WEB_VERSION=$(node -p "require('./packages/plasma-web/package.json').version")" >> $GITHUB_ENV
+                    echo "S3_TARGET_VERSION_PATH=s3://${{ secrets.AWS_S3_BUCKET_2 }}/mcp/plasma-web/$(node -p "require('./packages/plasma-web/package.json').version")/" >> $GITHUB_ENV
+                    echo "S3_TARGET_LATEST_PATH=s3://${{ secrets.AWS_S3_BUCKET_2 }}/mcp/plasma-web/latest/" >> $GITHUB_ENV
+
+            -   name: Lerna bootstrap
+                run: npx lerna bootstrap
+
+            -   name: Build plasma-web-docs
+                env:
+                    NODE_OPTIONS: "--max_old_space_size=10240"
+                run: npm run build --prefix="./website/plasma-web-docs" -- --no-minify
+
+            -   name: Generate index
+                run: npm run generate-index --prefix="./website/plasma-web-docs"
+
+            -   name: Generate MCP data
+                run: npm run generate-mcp-data --prefix="./website/plasma-web-docs"
+
+            -   name: Install s3cmd
+                run: pip3 install s3cmd
+
+            -   name: Clean target S3 path
+                run: |
+                    s3cmd \
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }} \
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+                    --host ${{ secrets.AWS_ENDPOINT }} \
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }} \
+                    --bucket-location ${{ secrets.AWS_REGION }} \
+                    --signature-v2 \
+                    del \
+                    --recursive \
+                    --force \
+                    ${{ env.S3_TARGET_VERSION_PATH }}
+
+            -   name: Upload MCP data to versioned s3 path
+                run: >
+                    s3cmd
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    --host ${{ secrets.AWS_ENDPOINT }}
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }}
+                    --bucket-location ${{ secrets.AWS_REGION }}
+                    --signature-v2
+                    --delete-removed
+                    --no-mime-magic
+                    sync
+                    ./website/plasma-web-docs/mcpData/
+                    ${{ env.S3_TARGET_VERSION_PATH }}
+
+            -   name: Clean latest S3 path
+                run: |
+                    s3cmd \
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }} \
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+                    --host ${{ secrets.AWS_ENDPOINT }} \
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }} \
+                    --bucket-location ${{ secrets.AWS_REGION }} \
+                    --signature-v2 \
+                    del \
+                    --recursive \
+                    --force \
+                    ${{ env.S3_TARGET_LATEST_PATH }}
+
+            -   name: Upload MCP data to latest s3 path
+                run: >
+                    s3cmd
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    --host ${{ secrets.AWS_ENDPOINT }}
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }}
+                    --bucket-location ${{ secrets.AWS_REGION }}
+                    --signature-v2
+                    --delete-removed
+                    --no-mime-magic
+                    sync
+                    ./website/plasma-web-docs/mcpData/
+                    ${{ env.S3_TARGET_LATEST_PATH }}

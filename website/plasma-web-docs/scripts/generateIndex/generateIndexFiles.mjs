@@ -12,22 +12,31 @@ import generateMdxLink from './generateMdxLink.mjs';
 import getValidMdxPaths from './getValidMdxPaths.mjs';
 
 const EXCLUDED_BY_DEFAULT = ['forwardedAs', 'as', 'theme', 'ref'];
+const MDX_IMPORT_REGEX = /import\s+[\s\S]*?\s+from\s+['"]([^'"]+\.mdx?)['"]/g;
+
+function getTreeFromMdx(mdxContent) {
+    return unified().use(remarkParse).use(remarkMdx).parse(mdxContent);
+}
+
+function getMdxGroup(mdxPath) {
+    const relativePath = path.relative(config.pathToDocs, mdxPath);
+    const pathSegments = relativePath.split(path.sep);
+
+    return pathSegments.length > 1 ? pathSegments[0] : path.basename(mdxPath, '.mdx');
+}
 
 async function extractContentWithCode(mdxContent) {
     try {
         const { content, data: frontmatter } = matter(mdxContent);
-
-        const tree = unified().use(remarkParse).use(remarkMdx).parse(content);
+        const tree = getTreeFromMdx(content);
 
         let textContent = '';
-        const codeBlocks = [];
 
         visit(tree, (node) => {
             if (node.type === 'text') {
                 textContent += `${node.value} `;
             } else if (node.type === 'code') {
                 const codeBlock = `\`\`\`${node.lang || ''}\n${node.value}\n\`\`\``;
-                codeBlocks.push(codeBlock);
                 textContent += `${codeBlock}\n\n`;
             } else if (node.type === 'inlineCode') {
                 textContent += `\`${node.value}\` `;
@@ -45,7 +54,7 @@ async function extractContentWithCode(mdxContent) {
                 }
 
                 const hashes = '#'.repeat(node.depth);
-                textContent += `${hashes} `;
+                textContent += `${hashes} ${headingText} `;
             } else if (node.type === 'mdxJsxFlowElement' || node.type === 'mdxJsxTextElement') {
                 if (node.name === 'PropsTable') {
                     const propsTableData = { name: '', exclude: [], include: [] };
@@ -61,7 +70,7 @@ async function extractContentWithCode(mdxContent) {
 
                     const componentTypesFolder = path.join(
                         fileURLToPath(import.meta.url),
-                        '../../.docusaurus/docusaurus-plugin-react-docgen-typescript/default',
+                        '../../../.docusaurus/docusaurus-plugin-react-docgen-typescript/default',
                     );
                     const componentTypePath = path.join(componentTypesFolder, `${propsTableData.name}.json`);
 
@@ -98,24 +107,89 @@ async function extractContentWithCode(mdxContent) {
         return {
             content: textContent.trim(),
             frontmatter,
-            codeBlocks,
         };
     } catch (error) {
         console.error('Error processing MDX:', error);
 
-        return { content: '', frontmatter: {}, codeBlocks: [] };
+        return { content: '', frontmatter: {} };
     }
+}
+
+function resolveImportedMdxPaths(mdxContent, mdxPath) {
+    const { content } = matter(mdxContent);
+    const tree = getTreeFromMdx(content);
+    const importedPaths = [];
+
+    visit(tree, 'mdxjsEsm', (node) => {
+        const importStatement = node.value || '';
+
+        for (const match of importStatement.matchAll(MDX_IMPORT_REGEX)) {
+            const importPath = match[1];
+
+            if (!importPath.startsWith('.')) {
+                continue;
+            }
+
+            const resolvedPath = path.resolve(path.dirname(mdxPath), importPath);
+
+            if (fs.existsSync(resolvedPath)) {
+                importedPaths.push(resolvedPath);
+            }
+        }
+    });
+
+    return importedPaths;
+}
+
+const importedContentCache = new Map();
+
+async function collectImportedMdxContent(mdxPath, visited = new Set()) {
+    if (importedContentCache.has(mdxPath)) {
+        return importedContentCache.get(mdxPath);
+    }
+
+    const currentVisited = new Set(visited);
+    const collectedContent = [];
+    const mdxContent = fs.readFileSync(mdxPath, 'utf8');
+    const importedPaths = resolveImportedMdxPaths(mdxContent, mdxPath);
+
+    for (const importedPath of importedPaths) {
+        if (currentVisited.has(importedPath)) {
+            continue;
+        }
+
+        currentVisited.add(importedPath);
+
+        const importedMdxContent = fs.readFileSync(importedPath, 'utf8');
+        const { content } = await extractContentWithCode(importedMdxContent);
+
+        if (content) {
+            collectedContent.push(content);
+        }
+
+        const nestedImportedContent = await collectImportedMdxContent(importedPath, currentVisited);
+
+        if (nestedImportedContent) {
+            collectedContent.push(nestedImportedContent);
+        }
+    }
+
+    const aggregatedContent = collectedContent.filter(Boolean).join('\n\n');
+    importedContentCache.set(mdxPath, aggregatedContent);
+
+    return aggregatedContent;
 }
 
 async function mdxToJson(mdxPath) {
     try {
-        const mdxContent = await fs.readFileSync(mdxPath);
+        const mdxContent = fs.readFileSync(mdxPath, 'utf8');
         const { content, frontmatter } = await extractContentWithCode(mdxContent);
+        const importedContent = await collectImportedMdxContent(mdxPath, new Set([mdxPath]));
 
         const componentName = frontmatter.id;
 
         return {
-            pageContent: content,
+            pageContent: [content, importedContent].filter(Boolean).join('\n\n'),
             metadata: {
                 heading: {
                     depth: 1,
@@ -124,6 +198,7 @@ async function mdxToJson(mdxPath) {
                 source: {
                     url: generateMdxLink(mdxPath, componentName, config.baseUrl),
                 },
+                category: getMdxGroup(mdxPath),
                 productId: config.productId,
             },
         };
@@ -144,7 +219,7 @@ export default async function generateIndexFiles() {
     }
 
     // Генерация JSON нужна исключительно для отладки.
-    // const outputFilename = 'output.json';
-    // const outputPath = path.join(process.cwd(), outputFilename);
-    // await fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
+    const outputFilename = 'index.json';
+    const outputPath = path.join(process.cwd(), outputFilename);
+    await fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
 }

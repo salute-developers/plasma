@@ -19,4 +19,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-output.json
+/mcpData
+index.json
