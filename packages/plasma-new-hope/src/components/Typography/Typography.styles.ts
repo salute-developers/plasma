@@ -7,6 +7,8 @@ export const base = css`
     margin: 0;
     padding: 0;
 
+    border: 0;
+
     font-family: var(${tokens.typoFontFamily});
     font-size: var(${tokens.typoFontSize});
     font-style: var(${tokens.typoFontStyle});
@@ -14,18 +16,16 @@ export const base = css`
     line-height: var(${tokens.typoFontLineHeight});
     font-weight: var(${tokens.typoFontWeight});
 
-    border: 0;
+    &.${classes.typoMedium} {
+        font-weight: var(${tokens.typoFontWeightMedium});
+    }
 
     &.${classes.typoBold} {
         font-weight: var(${tokens.typoFontWeightBold});
     }
 
-    &.${classes.typoMedium} {
-        font-weight: var(${tokens.typoFontWeightMedium});
-    }
-
-    &.${classes.typoWithNoWrap} {
-        white-space: nowrap;
+    &.${classes.typoExtraBold} {
+        font-weight: var(${tokens.typoFontWeightExtraBold}, var(${tokens.typoFontWeight}));
     }
 
     &.${classes.typoIsNumeric} {
@@ -34,6 +34,10 @@ export const base = css`
 
     &.${classes.typoIsItalic} {
         font-style: italic;
+    }
+
+    &.${classes.typoWithNoWrap} {
+        white-space: nowrap;
     }
 
     ${applyHyphensNormal};

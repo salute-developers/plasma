@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react';
+import type { SpacingProps } from 'src/mixins';
 
 import { AsProps } from '../..';
-import type { SpacingProps } from '../../mixins/applySpacing';
 
 export interface BoldProps {
     /**
@@ -9,6 +9,7 @@ export interface BoldProps {
      */
     bold?: boolean;
     medium?: never | false;
+    extraBold?: never | false;
 }
 
 export interface MediumProps {
@@ -17,7 +18,19 @@ export interface MediumProps {
      */
     medium?: boolean;
     bold?: never | false;
+    extraBold?: never | false;
 }
+
+export interface ExtraBoldProps {
+    /**
+     * Жирное начертание.
+     */
+    extraBold?: boolean;
+    bold?: never | false;
+    medium?: never | false;
+}
+
+type FontWeightProps = MediumProps | BoldProps | ExtraBoldProps;
 
 export type FontProps = {
     /**
@@ -45,6 +58,6 @@ export type FontProps = {
      */
     isItalic?: boolean;
 } & SpacingProps &
-    (BoldProps | MediumProps) &
+    FontWeightProps &
     AsProps &
     HTMLAttributes<HTMLDivElement>;
