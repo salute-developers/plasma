@@ -40,6 +40,10 @@ export type FontProps = {
      * Делает цифровые значения моноширинным.
      */
     isNumeric?: boolean;
+    /**
+     * Определяет стиль шрифта как italic
+     */
+    isItalic?: boolean;
 } & SpacingProps &
     (BoldProps | MediumProps) &
     AsProps &

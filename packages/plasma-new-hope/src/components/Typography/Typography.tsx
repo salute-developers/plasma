@@ -20,6 +20,7 @@ export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean; typ
             medium,
             color,
             isNumeric,
+            isItalic,
             className,
             style,
             ...rest
@@ -40,6 +41,7 @@ export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean; typ
                     bold && classes.typoBold,
                     medium && classes.typoMedium,
                     isNumeric && classes.typoIsNumeric,
+                    isItalic && classes.typoIsItalic,
                     className,
                 )}
                 style={{ color, ...style, ...applySpacing(rest) }}
