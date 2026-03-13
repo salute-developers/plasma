@@ -3,8 +3,8 @@ import path, { dirname } from 'path';
 
 const config = {
     baseUrl: 'https://plasma.sberdevices.ru/web/',
-    pathToDocs: path.join(dirname(fileURLToPath(import.meta.url)), '../docs'),
-    exclude: ['changelog.mdx'],
+    pathToDocs: path.join(dirname(fileURLToPath(import.meta.url)), '../../docs'),
+    exclude: ['changelog.mdx', '_examples'],
     productId: 'plasma-web',
     qdrantConfig: {
         collectionName: 'plasma-docs',
