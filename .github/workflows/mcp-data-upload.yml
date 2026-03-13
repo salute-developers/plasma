@@ -1,11 +1,18 @@
-name: Upload plasma-web MCP data
+name: Upload MCP data
 
 on:
     workflow_dispatch:
 
 jobs:
     upload-mcp-data:
+        name: Upload ${{ matrix.package_name }} MCP data
         runs-on: ubuntu-22.04
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    -   package_name: plasma-web
+                    -   package_name: plasma-giga
         steps:
             -   uses: actions/checkout@v4
                 with:
@@ -14,25 +21,26 @@ jobs:
             -   name: Prepare environment
                 uses: ./.github/actions/prepare-environment
 
-            -   name: Read plasma-web version
+            -   name: Read ${{ matrix.package_name }} version
                 run: |
-                    echo "PLASMA_WEB_VERSION=$(node -p "require('./packages/plasma-web/package.json').version")" >> $GITHUB_ENV
-                    echo "S3_TARGET_VERSION_PATH=s3://${{ secrets.AWS_S3_BUCKET_2 }}/mcp/plasma-web/$(node -p "require('./packages/plasma-web/package.json').version")/" >> $GITHUB_ENV
-                    echo "S3_TARGET_LATEST_PATH=s3://${{ secrets.AWS_S3_BUCKET_2 }}/mcp/plasma-web/latest/" >> $GITHUB_ENV
+                    PACKAGE_VERSION=$(node -p "require('./packages/${{ matrix.package_name }}/package.json').version")
+                    echo "PACKAGE_VERSION=$PACKAGE_VERSION" >> $GITHUB_ENV
+                    echo "S3_TARGET_VERSION_PATH=s3://${{ secrets.AWS_S3_BUCKET_2 }}/mcp/${{ matrix.package_name }}/$PACKAGE_VERSION/" >> $GITHUB_ENV
+                    echo "S3_TARGET_LATEST_PATH=s3://${{ secrets.AWS_S3_BUCKET_2 }}/mcp/${{ matrix.package_name }}/latest/" >> $GITHUB_ENV
 
             -   name: Lerna bootstrap
                 run: npx lerna bootstrap
 
-            -   name: Build plasma-web-docs
+            -   name: Build ${{ matrix.package_name }}-docs
                 env:
                     NODE_OPTIONS: "--max_old_space_size=10240"
-                run: npm run build --prefix="./website/plasma-web-docs" -- --no-minify
+                run: npm run build --prefix="./website/${{ matrix.package_name }}-docs" -- --no-minify
 
             -   name: Generate index
-                run: npm run generate-index --prefix="./website/plasma-web-docs"
+                run: npm run generate-index --prefix="./website/${{ matrix.package_name }}-docs"
 
             -   name: Generate MCP data
-                run: npm run generate-mcp-data --prefix="./website/plasma-web-docs"
+                run: npm run generate-mcp-data --prefix="./website/${{ matrix.package_name }}-docs"
 
             -   name: Install s3cmd
                 run: pip3 install s3cmd
@@ -63,7 +71,7 @@ jobs:
                     --delete-removed
                     --no-mime-magic
                     sync
-                    ./website/plasma-web-docs/mcpData/
+                    ./website/${{ matrix.package_name }}-docs/mcpData/
                     ${{ env.S3_TARGET_VERSION_PATH }}
 
             -   name: Clean latest S3 path
@@ -92,5 +100,5 @@ jobs:
                     --delete-removed
                     --no-mime-magic
                     sync
-                    ./website/plasma-web-docs/mcpData/
+                    ./website/${{ matrix.package_name }}-docs/mcpData/
                     ${{ env.S3_TARGET_LATEST_PATH }}
