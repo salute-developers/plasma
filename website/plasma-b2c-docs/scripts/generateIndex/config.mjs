@@ -2,10 +2,10 @@ import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 
 const config = {
-    baseUrl: 'https://plasma.sberdevices.ru/sdds-finai/',
-    pathToDocs: path.join(dirname(fileURLToPath(import.meta.url)), '../docs'),
-    exclude: ['changelog.mdx', '_examples', '_theme-switch', '_theme-turn-on'],
-    productId: 'sdds-finai',
+    baseUrl: 'https://plasma.sberdevices.ru/giga/',
+    pathToDocs: path.join(dirname(fileURLToPath(import.meta.url)), '../../docs'),
+    exclude: ['_examples', '_theme-switch', '_theme-turn-on', '_utils', 'tokens.mdx'],
+    productId: 'plasma-giga',
     qdrantConfig: {
         collectionName: 'plasma-docs',
         payloadSchema: ['metadata.productId', 'metadata.source.url'],

@@ -1,6 +1,9 @@
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
 import config from './config.mjs';
 
-const LIB_NAME = 'sdds-finai-docs';
+const LIB_NAME = path.basename(path.resolve(dirname(fileURLToPath(import.meta.url)), '../..'));
 const DOCS_PATH = `${LIB_NAME}/docs`;
 
 export default (absolutePath = '', componentName = '', baseUrl = '/') => {
@@ -8,13 +11,14 @@ export default (absolutePath = '', componentName = '', baseUrl = '/') => {
         return config.baseUrl;
     }
 
-    const docsIndex = absolutePath.indexOf(LIB_NAME);
+    const normalizedAbsolutePath = absolutePath.replace(/\\/g, '/');
+    const docsIndex = normalizedAbsolutePath.indexOf(DOCS_PATH);
 
     if (docsIndex === -1) {
         return absolutePath;
     }
 
-    let relativePath = absolutePath.substring(docsIndex + DOCS_PATH.length);
+    let relativePath = normalizedAbsolutePath.substring(docsIndex + DOCS_PATH.length);
 
     relativePath = relativePath.replace(/^[\\/]+|[\\/]+$/g, '');
 

@@ -415,10 +415,17 @@ function toOutputItem(item: InputItem): OutputFile {
     });
 }
 
+function getPackageManifestPath(): string {
+    const docsPackageName = path.basename(path.resolve(__dirname, '../..'));
+    const packageName = docsPackageName.replace(/-docs$/, '');
+
+    return path.join(__dirname, `../../../../packages/${packageName}/package.json`);
+}
+
 function main(): void {
     const inputPath = path.join(__dirname, '../../index.json');
     const tokensInputPath = path.join(__dirname, '../../tokens.ts');
-    const plasmaWebPackagePath = path.join(__dirname, '../../../../packages/plasma-web/package.json');
+    const packageManifestPath = getPackageManifestPath();
     const outputDir = path.join(__dirname, '../..', 'mcpData');
 
     const rawInput = fs.readFileSync(inputPath, 'utf8');
@@ -427,9 +434,9 @@ function main(): void {
         throw new Error('index.json must contain an array');
     }
 
-    const rawPlasmaWebPackage = fs.readFileSync(plasmaWebPackagePath, 'utf8');
-    const parsedPlasmaWebPackage = JSON.parse(rawPlasmaWebPackage) as { version?: unknown };
-    const plasmaWebVersion = asString(parsedPlasmaWebPackage.version);
+    const rawPackageManifest = fs.readFileSync(packageManifestPath, 'utf8');
+    const parsedPackageManifest = JSON.parse(rawPackageManifest) as { version?: unknown };
+    const packageVersion = asString(parsedPackageManifest.version);
 
     // Rebuild output from scratch on every run.
     if (fs.existsSync(outputDir)) {
@@ -522,7 +529,7 @@ function main(): void {
 
     const manifest = ManifestSchema.parse({
         builtAt: new Date().toISOString(),
-        version: plasmaWebVersion,
+        version: packageVersion,
         source: {
             repo: 'https://github.com/salute-developers/plasma',
         },

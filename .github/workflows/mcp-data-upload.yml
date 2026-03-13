@@ -12,7 +12,9 @@ jobs:
             matrix:
                 include:
                     -   package_name: plasma-web
+                    -   package_name: plasma-b2c
                     -   package_name: plasma-giga
+                    -   package_name: sdds-finai
         steps:
             -   uses: actions/checkout@v4
                 with:
