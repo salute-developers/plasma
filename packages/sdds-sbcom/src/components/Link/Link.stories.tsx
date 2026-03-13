@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { TextM } from '../Typography';
+import { DsplS } from '../Typography';
 
 import { Link } from '.';
 
@@ -46,12 +46,12 @@ export const Default: StoryObj<StoryLinkProps> = {
         focused: true,
     },
     render: ({ text, ...props }) => (
-        <TextM>
+        <DsplS>
             Скачайте{' '}
             <Link target="_blank" {...props}>
                 {text}
             </Link>
             .
-        </TextM>
+        </DsplS>
     ),
 };
