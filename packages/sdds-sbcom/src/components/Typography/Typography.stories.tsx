@@ -39,7 +39,9 @@ export const Dspl: Story = {
             <DsplS isItalic={enableFontStyleItalic} {...rest}>
                 DsplS Bold
             </DsplS>
-            <DsplS isItalic={enableFontStyleItalic}>DsplS Extra Bold</DsplS>
+            <DsplS isItalic={enableFontStyleItalic} extraBold {...rest}>
+                DsplS Extra Bold
+            </DsplS>
             <DsplS isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </DsplS>
@@ -50,52 +52,64 @@ export const Dspl: Story = {
 export const H: Story = {
     render: ({ enableFontStyleItalic, ...rest }) => (
         <>
-            <H1 style={enableFontStyleItalic && { 'font-style': 'italic' }} bold={false} {...rest}>
+            <H1 isItalic={enableFontStyleItalic} bold={false} {...rest}>
                 H1
             </H1>
-            <H1 style={enableFontStyleItalic && { 'font-style': 'italic' }} {...rest}>
-                H1 Bold
-            </H1>
-            <H1 style={enableFontStyleItalic && { 'font-style': 'italic' }} medium {...rest}>
+            <H1 isItalic={enableFontStyleItalic} medium {...rest}>
                 H1 Medium
             </H1>
-            <H1 style={enableFontStyleItalic && { 'font-style': 'italic' }} bold={false} isNumeric {...rest}>
+            <H1 isItalic={enableFontStyleItalic} {...rest}>
+                H1 Bold
+            </H1>
+            <H1 isItalic={enableFontStyleItalic} extraBold {...rest}>
+                H1 Extra Bold
+            </H1>
+            <H1 isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </H1>
-            <H2 style={enableFontStyleItalic && { 'font-style': 'italic' }} bold={false} {...rest}>
+            <H2 isItalic={enableFontStyleItalic} bold={false} {...rest}>
                 H2
             </H2>
-            <H2 style={enableFontStyleItalic && { 'font-style': 'italic' }} {...rest}>
-                H2 Bold
-            </H2>
-            <H2 style={enableFontStyleItalic && { 'font-style': 'italic' }} medium {...rest}>
+            <H2 isItalic={enableFontStyleItalic} medium {...rest}>
                 H2 Medium
             </H2>
-            <H2 style={enableFontStyleItalic && { 'font-style': 'italic' }} bold={false} isNumeric {...rest}>
+            <H2 isItalic={enableFontStyleItalic} {...rest}>
+                H2 Bold
+            </H2>
+            <H2 isItalic={enableFontStyleItalic} extraBold {...rest}>
+                H2 Extra Bold
+            </H2>
+            <H2 isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </H2>
-            <H3 style={enableFontStyleItalic && { 'font-style': 'italic' }} bold={false} {...rest}>
+            <H3 isItalic={enableFontStyleItalic} bold={false} {...rest}>
                 H3
             </H3>
-            <H3 style={enableFontStyleItalic && { 'font-style': 'italic' }} {...rest}>
-                H3 Bold
-            </H3>
-            <H3 style={enableFontStyleItalic && { 'font-style': 'italic' }} medium {...rest}>
+            <H3 isItalic={enableFontStyleItalic} medium {...rest}>
                 H3 Medium
             </H3>
-            <H3 style={enableFontStyleItalic && { 'font-style': 'italic' }} bold={false} isNumeric {...rest}>
+            <H3 isItalic={enableFontStyleItalic} {...rest}>
+                H3 Bold
+            </H3>
+            <H3 isItalic={enableFontStyleItalic} extraBold {...rest}>
+                H3 Extra Bold
+            </H3>
+            <H3 isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </H3>
-            <H4 style={enableFontStyleItalic && { 'font-style': 'italic' }} bold={false} {...rest}>
+            <H4 isItalic={enableFontStyleItalic} bold={false} {...rest}>
                 H4
             </H4>
-            <H4 style={enableFontStyleItalic && { 'font-style': 'italic' }} {...rest}>
-                H4 Bold
-            </H4>
-            <H4 style={enableFontStyleItalic && { 'font-style': 'italic' }} medium {...rest}>
+            <H4 isItalic={enableFontStyleItalic} medium {...rest}>
                 H4 Medium
             </H4>
-            <H4 style={enableFontStyleItalic && { 'font-style': 'italic' }} bold={false} isNumeric {...rest}>
+            <H4 isItalic={enableFontStyleItalic} {...rest}>
+                H4 Bold
+            </H4>
+            <H4 isItalic={enableFontStyleItalic} extraBold {...rest}>
+                H4 Extra Bold
+            </H4>
+            <H4 isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </H4>
         </>
@@ -105,64 +119,79 @@ export const H: Story = {
 export const Body: Story = {
     render: ({ enableFontStyleItalic, ...rest }) => (
         <>
-            <BodyL style={enableFontStyleItalic && { 'font-style': 'italic' }} {...rest}>
+            <BodyL isItalic={enableFontStyleItalic} {...rest}>
                 BodyL
             </BodyL>
-            <BodyL style={enableFontStyleItalic && { 'font-style': 'italic' }} medium {...rest}>
+            <BodyL isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyL Medium
             </BodyL>
-            <BodyL style={enableFontStyleItalic && { 'font-style': 'italic' }} bold {...rest}>
+            <BodyL isItalic={enableFontStyleItalic} bold {...rest}>
                 BodyL Bold
             </BodyL>
-            <BodyL style={enableFontStyleItalic && { 'font-style': 'italic' }} isNumeric {...rest}>
+            <BodyL isItalic={enableFontStyleItalic} extraBold {...rest}>
+                BodyL Extra Bold
+            </BodyL>
+            <BodyL isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyL>
-            <BodyM style={enableFontStyleItalic && { 'font-style': 'italic' }} {...rest}>
+            <BodyM isItalic={enableFontStyleItalic} {...rest}>
                 BodyM
             </BodyM>
-            <BodyM style={enableFontStyleItalic && { 'font-style': 'italic' }} bold {...rest}>
-                BodyM Bold
-            </BodyM>
-            <BodyM style={enableFontStyleItalic && { 'font-style': 'italic' }} medium {...rest}>
+            <BodyM isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyM Medium
             </BodyM>
-            <BodyM style={enableFontStyleItalic && { 'font-style': 'italic' }} isNumeric {...rest}>
+            <BodyM isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyM Bold
+            </BodyM>
+            <BodyM isItalic={enableFontStyleItalic} extraBold bold {...rest}>
+                BodyM Extra Bold
+            </BodyM>
+            <BodyM isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyM>
-            <BodyS style={enableFontStyleItalic && { 'font-style': 'italic' }} {...rest}>
+            <BodyS isItalic={enableFontStyleItalic} {...rest}>
                 BodyS
             </BodyS>
-            <BodyS style={enableFontStyleItalic && { 'font-style': 'italic' }} bold {...rest}>
-                BodyS Bold
-            </BodyS>
-            <BodyS style={enableFontStyleItalic && { 'font-style': 'italic' }} medium {...rest}>
+            <BodyS isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyS Medium
             </BodyS>
-            <BodyS style={enableFontStyleItalic && { 'font-style': 'italic' }} isNumeric {...rest}>
+            <BodyS isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyS Bold
+            </BodyS>
+            <BodyS isItalic={enableFontStyleItalic} extraBold {...rest}>
+                BodyS Extra Bold
+            </BodyS>
+            <BodyS isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyS>
-            <BodyXS style={enableFontStyleItalic && { 'font-style': 'italic' }} {...rest}>
+            <BodyXS isItalic={enableFontStyleItalic} {...rest}>
                 BodyXS
             </BodyXS>
-            <BodyXS style={enableFontStyleItalic && { 'font-style': 'italic' }} bold {...rest}>
-                BodyXS Bold
-            </BodyXS>
-            <BodyXS style={enableFontStyleItalic && { 'font-style': 'italic' }} medium {...rest}>
+            <BodyXS isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyXS Medium
             </BodyXS>
-            <BodyXS style={enableFontStyleItalic && { 'font-style': 'italic' }} isNumeric {...rest}>
+            <BodyXS isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyXS Bold
+            </BodyXS>
+            <BodyXS isItalic={enableFontStyleItalic} extraBold {...rest}>
+                BodyXS Extra Bold
+            </BodyXS>
+            <BodyXS isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyXS>
-            <BodyXXS style={enableFontStyleItalic && { 'font-style': 'italic' }} {...rest}>
+            <BodyXXS isItalic={enableFontStyleItalic} {...rest}>
                 BodyXXS
             </BodyXXS>
-            <BodyXXS style={enableFontStyleItalic && { 'font-style': 'italic' }} bold {...rest}>
-                BodyXXS Bold
-            </BodyXXS>
-            <BodyXXS style={enableFontStyleItalic && { 'font-style': 'italic' }} medium {...rest}>
+            <BodyXXS isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyXXS Medium
             </BodyXXS>
-            <BodyXXS style={enableFontStyleItalic && { 'font-style': 'italic' }} isNumeric {...rest}>
+            <BodyXXS isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyXXS Bold
+            </BodyXXS>
+            <BodyXXS isItalic={enableFontStyleItalic} extraBold {...rest}>
+                BodyXXS Extra Bold
+            </BodyXXS>
+            <BodyXXS isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyXXS>
         </>
