@@ -1,6 +1,5 @@
 import { css } from '@linaria/core';
-
-import { applyHyphens, applyHyphensNormal } from '../../mixins';
+import { applyHyphens, applyHyphensNormal } from 'src/mixins';
 
 import { classes, tokens } from './tokens';
 
@@ -31,6 +30,10 @@ export const base = css`
 
     &.${classes.typoIsNumeric} {
         font-variant-numeric: tabular-nums;
+    }
+
+    &.${classes.typoIsItalic} {
+        font-style: italic;
     }
 
     ${applyHyphensNormal};
