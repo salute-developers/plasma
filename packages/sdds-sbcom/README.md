@@ -7,7 +7,6 @@
 Библиотека реализована с помощью:
 
 -   [typescript](https://www.typescriptlang.org/)
--   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
 
 Однако их использование **необязательно**!
 
@@ -17,26 +16,14 @@
 $ npm install --save @salutejs/sdds-sbcom @salutejs/sdds-themes
 ```
 
-Для работы со `styled-components`, необходимо установить
-
-```bash
-$ npm install --save styled-components@5.3.1
-```
-
 ### Использование компонентов
 
 Все компоненты доступны напрямую из пакета
 
 ```jsx
-import styled from 'styled-components';
 import { Button } from '@salutejs/sdds-sbcom';
-import { textAccent } from '@salutejs/sdds-themes/tokens';
 
 export const App = () => {
-    const StyledP = styled.p`
-        color: ${textAccent};
-    `;
-
     return (
         <>
             <Button>Hello, sbcom!</Button>
@@ -44,12 +31,6 @@ export const App = () => {
         </>
     );
 };
-```
-
-Так же библиотека поставляет компоненты собранные с помощью `styled-components`
-
-```js
-import { Button } from '@salutejs/sdds-sbcom/styled-components';
 ```
 
 ## Подключение шрифтов
@@ -65,14 +46,13 @@ import { Button } from '@salutejs/sdds-sbcom/styled-components';
 Добавить внутрь тега `head`.
 
 ```html
-<html>
+<html lang="ru">
     <head>
-        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
         <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
             rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
         />
-        <title>Wep App</title>
+        <title>...</title>
     </head>
     <body>
         ...
@@ -91,14 +71,10 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Create Next App with sdds-sbcom components</title>
+                <title>Next App with sdds-sbcom components</title>
                 <link
+                    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
                     rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
-                />
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
                 />
             </Head>
             <div>
@@ -121,23 +97,10 @@ export default function Home() {
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-### CSS
-
-Возможные дополнительные настройки bundle tools для проекта:
-
-<ul>
-    <li>
-        <a href="https://webpack.js.org/loaders/css-loader/">webpack + css</a>
-    </li>
-    <li>
-        <a href="https://vite.dev/guide/features.html#css-pre-processors">vite</a>
-    </li>
-</ul>
-
 В файле, где происходит подключение всех стилей, например `index.css`
 
-```css
-@import '@salutejs/sdss-themes/css/sdds_sbcom__dark.css';
+```css index.css
+@import '@salutejs/sdss-themes/css/sdds_sbcom__light.css';
 ```
 
 ```jsx
@@ -158,27 +121,76 @@ const App = () => {
 export default App;
 ```
 
-### Styled-components
+## Переключение темы
 
 ```jsx
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { Button, BodyL } from '@salutejs/sdds-sbcom/styled-components';
-import { sdds_sbcom__light } from '@salutejs/sdds-themes';
+import React, { useLayoutEffect, useState } from 'react';
+import { Switch } from '@salutejs/sdds-sbcom';
 
-const Theme = createGlobalStyle(sdds_sbcom__light);
+import './index.css';
 
 const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    useLayoutEffect(() => {
+        document.documentElement.className = theme;
+    }, [theme]);
+
     return (
-        <>
-            <Theme />
-            <BodyL>Hello sbcom</BodyL>
-            <Button text="This is themed button" />
-        </>
+        <div className="wrapper">
+            <Switch
+                label={`app theme: ${theme}`}
+                onChange={() => {
+                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                }}
+            />
+        </div>
     );
 };
 
 export default App;
+```
+
+В файле, где происходит подключение всех стилей, например `index.css`
+
+```css
+@import '@salutejs/sdss-themes/css/sdds_sbcom__light.css';
+```
+
+### Возможные дополнительные настройки в проекте для работы с css:
+
+Возможные дополнительные настройки bundle tools для проекта:
+
+<ul>
+    <li>
+        <a href="https://webpack.js.org/loaders/css-loader/">webpack + css</a>
+    </li>
+    <li>
+        <a href="https://vite.dev/guide/features.html#css-pre-processors">vite</a>
+    </li>
+</ul>
+
+## Советы при работе с NextJS
+
+Next не разрешает импорт CSS из сторонних модулей, поэтому важно не забыть добавить наши библиотеки в `next.config.js` следующим образом:
+
+```js
+const nextConfig = {
+    reactStrictMode: true,
+    transpilePackages: ['@salutejs/sdds-sbcom', '@salutejs/plasma-new-hope', '@salutejs/plasma-icons'],
+};
+```
+
+**RSC - React Server Components (App router)**
+
+Библиотека поддерживает работу с **RSC** только при **явном использовании** директивы **'use client'**.
+
+```ts
+'use client'
+
+import { Button } from '@salutejs/sdds-sbcom';
+
+...
 ```
 
 ## Токены
@@ -197,38 +209,7 @@ export const backgroundPrimary = 'var(--background-primary, #000000)';
 Есть два пути импорта токенов:
 
 -   Из вертикали `@salutejs/sdds-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-serv` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
-
-### Использование
-
-```jsx
-import React from 'react';
-import styled from 'styled-components';
-import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
-
-const AppStyled = styled.div`
-    padding: 2rem;
-    color: ${textAccent};
-    background-color: ${backgroundPrimary};
-`;
-
-const Container = styled.div`
-    ${textL};
-    margin: 1rem;
-`;
-
-const App = () => {
-    return (
-        <AppStyled>
-            <Container>
-                <span>Hello world</span>
-            </Container>
-        </AppStyled>
-    );
-};
-
-export default App;
-```
+-   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-sbcom` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
 
 ## Типографика
 
