@@ -16,8 +16,9 @@ export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean; typ
             children,
             breakWord,
             noWrap,
-            bold = defaultArgs?.defaultBold,
             medium,
+            bold = defaultArgs?.defaultBold,
+            extraBold,
             color,
             isNumeric,
             isItalic,
@@ -31,6 +32,14 @@ export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean; typ
         const isHeading = defaultArgs?.type === 'heading';
         const ariaHeadingLevel = isHeading ? size?.split('')[1] : null;
 
+        // Порядок определяет приоритет: extraBold и medium перебивают дефолтный bold
+        // TODO: Нужно менять поведение, не должен быть bold по-умолчанию
+        const fontWeightClass = [
+            extraBold && classes.typoExtraBold,
+            medium && classes.typoMedium,
+            bold && classes.typoBold,
+        ].find(Boolean);
+
         return (
             <Root
                 size={size}
@@ -38,8 +47,7 @@ export const typographyRootCompose = (defaultArgs?: { defaultBold?: boolean; typ
                 className={cx(
                     noWrap && classes.typoWithNoWrap,
                     breakWord && classes.typoWithBreakWord,
-                    bold && classes.typoBold,
-                    medium && classes.typoMedium,
+                    fontWeightClass,
                     isNumeric && classes.typoIsNumeric,
                     isItalic && classes.typoIsItalic,
                     className,
