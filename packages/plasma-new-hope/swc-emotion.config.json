@@ -11,7 +11,7 @@
             "styled-components": ["node_modules/styled-components"]
         },
         "experimental": {
-            "plugins": [["@swc/plugin-emotion", {}]]
+            "plugins": [["@swc/plugin-emotion", { "sourceMap": false }]]
         }
     },
     "exclude": [".*\\.stories.tsx$", ".*\\.component-test.tsx$"]

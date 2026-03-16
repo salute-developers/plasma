@@ -1,6 +1,9 @@
 import React from 'react';
-import { MenuItemProps } from 'src/components/NavigationDrawer/ui/MenuItem/MenuItem.types';
 import cls from 'classnames';
+
+import { classes } from '../../NavigationDrawer.tokens';
+
+import { MenuItemProps } from './MenuItem.types';
 import {
     ExtraCounter,
     IconWrapper,
@@ -9,9 +12,8 @@ import {
     RightContentWrapper,
     ContentLeftWrapper,
     Label,
-} from 'src/components/NavigationDrawer/ui/MenuItem/MenuItem.styles';
-import { classes } from 'src/components/NavigationDrawer/NavigationDrawer.tokens';
-import { Link } from 'src/examples/components/Link/Link';
+    Link,
+} from './MenuItem.styles';
 
 export const MenuItem: React.FC<MenuItemProps> = (props) => {
     const {
