@@ -125,47 +125,6 @@ export const config = {
             `,
         },
         size: {
-            l: css`
-                ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-l-font-size);
-                ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${paginationTokens.buttonHeight}: 3.5rem;
-                ${paginationTokens.buttonWidth}: 3rem;
-                ${paginationTokens.buttonWidthShorter}: 2.25rem;
-                ${paginationTokens.paginationInputWidth}: 4rem;
-                ${paginationTokens.buttonRadius}: 0.875rem;
-                ${paginationTokens.paginationIconSize}: 1.2rem;
-                ${paginationTokens.paginationIconDoubleSize}: 1.45rem;
-                ${paginationTokens.buttonArrowMargin}: 0 -0.125rem 0 0.5rem;
-
-                ${paginationTokens.selectHeight}: auto;
-                ${paginationTokens.selectPaddingTop}: 0.125rem;
-                ${paginationTokens.selectPaddingRight}: 0.125rem;
-                ${paginationTokens.selectPaddingBottom}: 0.125rem;
-                ${paginationTokens.selectPaddingLeft}: 0.125rem;
-
-                ${paginationTokens.selectItemHeight}: 1.5rem;
-                ${paginationTokens.selectItemPadding}: 1rem 1rem 1rem 1rem;
-                ${paginationTokens.selectItemContentLeftWidth}: 1.875rem;
-                ${paginationTokens.selectItemBackground}: transparent;
-
-                ${paginationTokens.selectTargetArrowRight}: 1rem;
-                ${paginationTokens.selectTargetPadding}: 1.5rem 0 1.5rem;
-                ${paginationTokens.selectTargetInnerTop}: 0.5rem;
-                ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
-
-                ${paginationTokens.inputBorderRadius}: 0.875rem;
-                ${paginationTokens.inputWidth}: 4rem;
-                ${paginationTokens.inputHeight}: 3.5rem;
-                ${paginationTokens.inputPadding}: 0 0.625rem;
-                ${paginationTokens.inputBorderWidth}: 0.0625rem;
-
-                ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
-            `,
             m: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-m-font-size);
@@ -243,47 +202,6 @@ export const config = {
                 ${paginationTokens.inputBorderRadius}: 0.625rem;
                 ${paginationTokens.inputWidth}: 3rem;
                 ${paginationTokens.inputHeight}: 2.5rem;
-                ${paginationTokens.inputPadding}: 0 0.625rem;
-                ${paginationTokens.inputBorderWidth}: 0.0625rem;
-
-                ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
-            `,
-            xs: css`
-                ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${paginationTokens.buttonHeight}: 2rem;
-                ${paginationTokens.paginationInputWidth}: 2.5rem;
-                ${paginationTokens.buttonRadius}: 0.5rem;
-                ${paginationTokens.buttonWidth}: 2rem;
-                ${paginationTokens.buttonWidthShorter}: 1.5rem;
-                ${paginationTokens.paginationIconSize}: 0.75rem;
-                ${paginationTokens.paginationIconDoubleSize}: 1rem;
-                ${paginationTokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
-
-                ${paginationTokens.selectHeight}: auto;
-                ${paginationTokens.selectPaddingTop}: 0.125rem;
-                ${paginationTokens.selectPaddingRight}: 0.125rem;
-                ${paginationTokens.selectPaddingBottom}: 0.125rem;
-                ${paginationTokens.selectPaddingLeft}: 0.125rem;
-
-                ${paginationTokens.selectItemHeight}: 1rem;
-                ${paginationTokens.selectItemPadding}: 0.5rem 0.5rem 0.5rem 0.5rem;
-                ${paginationTokens.selectItemContentLeftWidth}: 1.25rem;
-                ${paginationTokens.selectItemBackground}: transparent;
-
-                ${paginationTokens.selectTargetArrowRight}: 0.5rem;
-                ${paginationTokens.selectTargetPadding}: 0.75rem 0 0.75rem;
-                ${paginationTokens.selectTargetInnerTop}: 0.5rem;
-                ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
-
-                ${paginationTokens.inputBorderRadius}: 0.5rem;
-                ${paginationTokens.inputWidth}: 2.5rem;
-                ${paginationTokens.inputHeight}: 2rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 

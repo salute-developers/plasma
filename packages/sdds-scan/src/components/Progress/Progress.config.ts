@@ -53,6 +53,15 @@ export const config = {
 
                 ${progressTokens.valueMarginLeft}: 0.5rem;
             `,
+            s: css`
+                ${progressTokens.trackHeight}: 0.25rem;
+                ${progressTokens.trackBorderRadius}: 0.125rem;
+
+                ${progressTokens.progressFilledHeight}: 0.375rem;
+                ${progressTokens.progressFilledBorderRadius}: 0.375rem;
+
+                ${progressTokens.valueMarginLeft}: 0.5rem;
+            `,
         },
     },
 };

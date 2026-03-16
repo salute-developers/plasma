@@ -68,6 +68,12 @@ const meta: Meta<StoryAttachProps> = {
             },
             if: { arg: 'buttonType', eq: 'button' },
         },
+        helperTextView: {
+            options: ['default', 'negative'],
+            control: {
+                type: 'select',
+            },
+        },
         enableContentLeft: {
             control: {
                 type: 'boolean',
@@ -120,8 +126,8 @@ const meta: Meta<StoryAttachProps> = {
         ...disableProps(['onClear']),
     },
     args: {
-        size: 'm',
-        view: 'accent',
+        size: 's',
+        view: 'default',
         width: '400px',
 
         fileFormat: 'all',

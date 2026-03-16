@@ -3,14 +3,14 @@ import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'divider',
-        size: 'l',
+        size: 'm',
     },
     variations: {
         view: {
             divider: css`
                 ${tabsTokens.arrowColor}: var(--text-secondary);
                 ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
+                ${tabsTokens.arrowColorActive}: var(--text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
@@ -41,13 +41,6 @@ export const config = {
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 0rem;
                 ${tabsTokens.arrowOuterPadding}: 0.625rem;
-            `,
-            l: css`
-                ${tabsTokens.tabsBorderRadius}: 0.75rem;
-                ${tabsTokens.tabsWidth}: fit-content;
-                ${tabsTokens.tabsHeight}: auto;
-                ${tabsTokens.arrowInnerPadding}: 0rem;
-                ${tabsTokens.arrowOuterPadding}: 0.75rem;
             `,
         },
         stretch: {

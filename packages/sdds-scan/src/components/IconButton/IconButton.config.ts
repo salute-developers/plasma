@@ -36,7 +36,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
-            success: css`
+            positive: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-positive);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
@@ -50,7 +50,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-warning-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-warning-active);
             `,
-            critical: css`
+            negative: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-negative);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
@@ -80,36 +80,6 @@ export const config = {
             `,
         },
         size: {
-            xl: css`
-                ${iconButtonTokens.iconButtonHeight}: 4rem;
-                ${iconButtonTokens.iconButtonWidth}: 4rem;
-                ${iconButtonTokens.iconButtonPadding}: 1.75rem;
-                ${iconButtonTokens.iconButtonRadius}: 1rem;
-                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${iconButtonTokens.iconButtonSpinnerSize}: 1.5rem;
-                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
-            `,
-            l: css`
-                ${iconButtonTokens.iconButtonHeight}: 3.5rem;
-                ${iconButtonTokens.iconButtonWidth}: 3.5rem;
-                ${iconButtonTokens.iconButtonPadding}: 1.5rem;
-                ${iconButtonTokens.iconButtonRadius}: 0.875rem;
-                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${iconButtonTokens.iconButtonSpinnerSize}: 1.375rem;
-                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
-            `,
             m: css`
                 ${iconButtonTokens.iconButtonHeight}: 3rem;
                 ${iconButtonTokens.iconButtonWidth}: 3rem;

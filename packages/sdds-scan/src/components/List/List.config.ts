@@ -19,23 +19,6 @@ export const config = {
             `,
         },
         size: {
-            xs: css`
-                ${listTokens.listItemPaddingTop}: 0.5rem;
-                ${listTokens.listItemPaddingLeft}: 0.5rem;
-                ${listTokens.listItemPaddingRight}: 0.5rem;
-                ${listTokens.listItemPaddingBottom}: 0.5rem;
-                ${listTokens.listItemBorderRadius}: 0.5rem;
-                ${listTokens.listItemBorderWidth}: 0rem;
-                ${listTokens.listItemGap}: 0.375rem;
-                ${listTokens.listItemTightDifference}: 0.25rem;
-
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-xs-line-height);
-            `,
             s: css`
                 ${listTokens.listItemPaddingTop}: 0.689rem;
                 ${listTokens.listItemPaddingLeft}: 0.75rem;
@@ -76,23 +59,6 @@ export const config = {
                 ${listTokens.listItemPaddingRight}: 1rem;
                 ${listTokens.listItemPaddingBottom}: 1rem;
                 ${listTokens.listItemBorderRadius}: 0.875rem;
-                ${listTokens.listItemBorderWidth}: 0rem;
-                ${listTokens.listItemGap}: 0.5rem;
-                ${listTokens.listItemTightDifference}: 0.25rem;
-
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-l-line-height);
-            `,
-            xl: css`
-                ${listTokens.listItemPaddingTop}: 1.3125rem;
-                ${listTokens.listItemPaddingLeft}: 1.125rem;
-                ${listTokens.listItemPaddingRight}: 1.125rem;
-                ${listTokens.listItemPaddingBottom}: 1.3125rem;
-                ${listTokens.listItemBorderRadius}: 1rem;
                 ${listTokens.listItemBorderWidth}: 0rem;
                 ${listTokens.listItemGap}: 0.5rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
