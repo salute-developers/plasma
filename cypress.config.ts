@@ -32,7 +32,7 @@ const getTestMatch = () => {
               })
         : [];
 
-    const searchDirs = `{${packageName},${CORE_TESTS_DIR}}`;
+    const searchDirs = packageName === 'plasma-ui' ? packageName : `{${packageName},${CORE_TESTS_DIR}}`;
 
     if (!componentMatchingDirs.length) {
         return `**/${searchDirs}/${baseTestMatch}`;
