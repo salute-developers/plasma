@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 
-import { iconButtonConfig } from '../../../components/IconButton';
+import { embedIconButtonConfig } from '../../../components/EmbedIconButton';
 import { mergeConfig } from '../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../_helpers';
 import { IconChevronLeft } from '../../../components/_Icon';
@@ -15,7 +15,7 @@ const meta: Meta<typeof EmbedIconButton> = {
     decorators: [WithTheme],
     component: EmbedIconButton,
     argTypes: {
-        ...argTypesFromConfig(mergeConfig(iconButtonConfig, config)),
+        ...argTypesFromConfig(mergeConfig(embedIconButtonConfig, config)),
         ...disableProps(['focused']),
     },
 };
