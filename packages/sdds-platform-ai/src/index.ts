@@ -17,6 +17,7 @@ export * from './components/Loader';
 export * from './components/Note';
 export * from './components/Spinner';
 export * from './components/Typography';
+export * from './components/Rating';
 
 // components group Data Entry
 export * from './components/ButtonBase';
