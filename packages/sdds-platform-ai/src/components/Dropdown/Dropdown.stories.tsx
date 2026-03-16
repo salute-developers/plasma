@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconLocation } from '@salutejs/plasma-icons';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Button } from '../Button';
 

@@ -1,6 +1,6 @@
 import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 import { IconBellFill, IconProps } from '@salutejs/plasma-icons';

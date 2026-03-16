@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { addNotification } from '@salutejs/plasma-new-hope';
 import type { NotificationIconPlacement } from '@salutejs/plasma-new-hope';
 
