@@ -31,6 +31,7 @@ export * from './components/Radiobox';
 export * from './components/Segment';
 export * from './components/Switch';
 export * from './components/Slider';
+export * from './components/DateTimePicker';
 
 // components group Data Entry (upload)
 export * from './components/Attach';
