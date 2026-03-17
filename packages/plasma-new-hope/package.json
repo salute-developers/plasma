@@ -122,7 +122,6 @@
     "@linaria/react": "5.0.3",
     "@popperjs/core": "2.11.8",
     "@salutejs/input-core": "2.1.2",
-    "@salutejs/plasma-core": "1.221.0",
     "@salutejs/react-maskinput": "3.3.2",
     "@tanstack/react-table": "8.21.2",
     "@tanstack/react-virtual": "3.13.2",
