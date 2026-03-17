@@ -395,13 +395,10 @@ export default function ChangelogPage() {
     }
 
     const version = router.query?.version as string;
+    const versionExists = !!changeLogData.data[version];
 
-    if (!changeLogData.data[version]) {
-        return <Page404 />;
-    }
-
-    const { core = [], lib = [] } = changeLogData.data[version];
-    const releaseDate = getFormattedDate({ date: changeLogData.data[version].date });
+    const { core = [], lib = [] } = versionExists ? changeLogData.data[version] : { core: [], lib: [] };
+    const releaseDate = versionExists ? getFormattedDate({ date: changeLogData.data[version].date }) : '';
 
     return (
         <>
@@ -436,9 +433,9 @@ export default function ChangelogPage() {
                             version={navigationVersions.previousVersion}
                         />
                     )}
-                    <SubgridContainer hasVersionList={hasVersionList}>
+                    <SubgridContainer hasVersionList={hasVersionList || !versionExists}>
                         <VersionListContainer>
-                            {hasVersionList && (
+                            {(hasVersionList || !versionExists) && (
                                 <VersionsList
                                     currentVersion={version}
                                     onClick={handleVersionChange}
@@ -447,26 +444,34 @@ export default function ChangelogPage() {
                             )}
                         </VersionListContainer>
 
-                        <ContentContainer hasVersionList={hasVersionList}>
-                            <StyledSectionHeader>
-                                <ChangelogH1>{version}</ChangelogH1>
-                                <StyledTextXS>{releaseDate}</StyledTextXS>
-                            </StyledSectionHeader>
+                        <ContentContainer hasVersionList={hasVersionList || !versionExists}>
+                            {versionExists ? (
+                                <>
+                                    <StyledSectionHeader>
+                                        <ChangelogH1>{version}</ChangelogH1>
+                                        <StyledTextXS>{releaseDate}</StyledTextXS>
+                                    </StyledSectionHeader>
 
-                            {lib && !!lib.length && (
-                                <ChangelogListContent
-                                    list={lib}
-                                    heading="Обновления в библиотеке"
-                                    releaseDate={releaseDate || ''}
-                                />
-                            )}
+                                    {lib && !!lib.length && (
+                                        <ChangelogListContent
+                                            list={lib}
+                                            heading="Обновления в библиотеке"
+                                            releaseDate={releaseDate || ''}
+                                        />
+                                    )}
 
-                            {core && !!core.length && (
-                                <ChangelogListContent
-                                    list={core}
-                                    heading="Функциональные изменения в компонентах"
-                                    releaseDate={releaseDate || ''}
-                                />
+                                    {core && !!core.length && (
+                                        <ChangelogListContent
+                                            list={core}
+                                            heading="Функциональные изменения в компонентах"
+                                            releaseDate={releaseDate || ''}
+                                        />
+                                    )}
+                                </>
+                            ) : (
+                                <StyledSectionHeader>
+                                    <ChangelogH1>{`Версия ${version} не найдена`}</ChangelogH1>
+                                </StyledSectionHeader>
                             )}
                         </ContentContainer>
                     </SubgridContainer>
