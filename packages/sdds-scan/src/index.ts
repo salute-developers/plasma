@@ -75,7 +75,6 @@ export * from './components/Spinner';
 export * from './components/SSRProvider';
 export * from './components/EmptyState';
 export * from './components/ViewContainer';
-export * from './components/NumberFormat';
 export * from './components/Loader';
 
 // INFO: Disabled components
