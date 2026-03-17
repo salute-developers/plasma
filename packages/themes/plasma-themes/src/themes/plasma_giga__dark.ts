@@ -182,9 +182,9 @@ export const plasma_giga__dark = ([
   --surface-solid-secondary-active: #141414FF;
   --surface-solid-tertiary-hover: #303030FF;
   --surface-solid-tertiary-active: #212121FF;
-  --surface-solid-card-hover: #1C1C1CFF;
-  --surface-solid-card-active: #121212FF;
-  --surface-solid-card-brightness: #262626FF;
+  --surface-solid-card-hover: #303030FF;
+  --surface-solid-card-active: #212121FF;
+  --surface-solid-card-brightness: #363636FF;
   --surface-solid-default-hover: #FFFFFFFF;
   --surface-solid-default-active: #FFFFFFFF;
   --surface-transparent-primary-hover: #FFFFFF1C;
@@ -236,7 +236,6 @@ export const plasma_giga__dark = ([
   --surface-solid-primary: #0D0D0DFF;
   --surface-solid-secondary: #191919FF;
   --surface-solid-tertiary: #262626;
-  --surface-solid-card: #171717;
   --surface-solid-default: #FFFFFFFF;
   --surface-transparent-card: #FFFFFF1F;
   --surface-transparent-primary: #FFFFFF0D;
@@ -256,6 +255,7 @@ export const plasma_giga__dark = ([
   --surface-accent: #52F2C5;
   --surface-accent-minor: #0E5944;
   --surface-transparent-accent: #52F2C533;
+  --surface-solid-card: #262626;
   --on-dark-surface-solid-primary-hover: #121212FF;
   --on-dark-surface-solid-primary-active: #080808FF;
   --on-dark-surface-solid-primary-brightness: #1C1C1CFF;
@@ -263,9 +263,9 @@ export const plasma_giga__dark = ([
   --on-dark-surface-solid-secondary-active: #141414FF;
   --on-dark-surface-solid-tertiary-hover: #303030FF;
   --on-dark-surface-solid-tertiary-active: #212121FF;
-  --on-dark-surface-solid-card-hover: #1C1C1CFF;
-  --on-dark-surface-solid-card-active: #121212FF;
-  --on-dark-surface-solid-card-brightness: #262626FF;
+  --on-dark-surface-solid-card-hover: #303030FF;
+  --on-dark-surface-solid-card-active: #212121FF;
+  --on-dark-surface-solid-card-brightness: #363636FF;
   --on-dark-surface-solid-default-hover: #FFFFFFFF;
   --on-dark-surface-solid-default-active: #FFFFFFFF;
   --on-dark-surface-transparent-primary-hover: #FFFFFF1C;
@@ -312,7 +312,6 @@ export const plasma_giga__dark = ([
   --on-dark-surface-transparent-negative-active: #FF293E24;
   --on-dark-surface-transparent-info-hover: #3F82FD52;
   --on-dark-surface-transparent-info-active: #3F82FD24;
-  --on-dark-surface-solid-card: #171717;
   --on-dark-surface-solid-primary: #0D0D0DFF;
   --on-dark-surface-solid-secondary: #191919FF;
   --on-dark-surface-solid-tertiary: #262626;
@@ -334,6 +333,7 @@ export const plasma_giga__dark = ([
   --on-dark-surface-accent: #52F2C5;
   --on-dark-surface-accent-minor: #0E5944;
   --on-dark-surface-transparent-accent: #52F2FF33;
+  --on-dark-surface-solid-card: #262626;
   --on-light-surface-solid-primary-hover: #F7F7F7FF;
   --on-light-surface-solid-primary-active: #EDEDEDFF;
   --on-light-surface-solid-primary-brightness: #FFFFFFFF;
