@@ -1,5 +1,6 @@
 // Overlay
 export * from './components/Drawer';
+export * from './components/Popup';
 export * from './components/Modal';
 export * from './components/Notification';
 export * from './components/Progress';
@@ -76,6 +77,7 @@ export * from './components/SSRProvider';
 export * from './components/EmptyState';
 export * from './components/ViewContainer';
 export * from './components/Loader';
+export * from './components/Skeleton';
 
 // INFO: Disabled components
 // export * from './components/Flow';
@@ -86,14 +88,14 @@ export * from './components/Loader';
 // export * from './components/Sheet';
 // export * from './components/Slider';
 // export * from './components/Steps';
-// export * from './components/Skeleton';
+
 // export * from './components/Tree';
 // export * from './components/CodeInput';
 // export * from './components/Carousel';
 // export * from './components/Tour';
 // export * from './components/TimePicker';
 // export * from './components/DateTimePicker';
-// export * from './components/Popup';
+
 // export * from './components/Overlay';
 
 export * from './mixins';

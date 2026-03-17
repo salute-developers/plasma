@@ -170,42 +170,6 @@ export const config = {
 
                 ${tabsTokens.actionContentMarginLeft}: 0.25rem;
             `,
-            l: css`
-                ${tabsTokens.itemBorderRadius}: 0.75rem;
-                ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 3.5rem;
-                ${tabsTokens.itemPadding}: 0 0.125rem;
-                ${tabsTokens.itemPaddingPilled}: 0 0.75rem;
-                ${tabsTokens.itemMarginLeft}: 1.5rem;
-                ${tabsTokens.itemContentGap}: 0.5rem;
-                ${tabsTokens.itemContentPadding}: 0.125rem;
-
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${tabsTokens.actionContentMarginLeft}: 0.125rem;
-            `,
-            h6: css`
-                ${tabsTokens.itemBorderRadius}: 0.375rem;
-                ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 3rem;
-                ${tabsTokens.itemPadding}: 0 0.125rem;
-                ${tabsTokens.itemMarginLeft}: 1.5rem;
-                ${tabsTokens.itemContentGap}: 0.625rem;
-
-                ${tabsTokens.fontFamily}: var(--plasma-typo-h6-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-h6-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-h6-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h6-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-h6-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-h6-line-height);
-
-                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
-            `,
             h5: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
                 ${tabsTokens.itemWidth}: auto;
