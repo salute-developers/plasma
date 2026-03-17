@@ -1,9 +1,8 @@
 import React, { forwardRef, useState, useReducer, useMemo, useLayoutEffect, useRef } from 'react';
 import type { ChangeEvent, ForwardedRef, MouseEvent } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
 import { safeUseId, isEmpty } from 'src/utils';
 import { RootProps } from 'src/engines';
-import { useOutsideClick, useDidMountLayoutEffect } from 'src/hooks';
+import { useOutsideClick, useDidMountLayoutEffect, useForkRef } from 'src/hooks';
 
 import { sizeToIconSize } from '../../Select/utils';
 

@@ -1,9 +1,8 @@
 import React, { forwardRef, useEffect, useMemo, useRef } from 'react';
-import { useForkRef, extractTextFrom } from '@salutejs/plasma-core';
-import { safeUseId } from 'src/utils';
-
-import type { RootProps } from '../../engines/types';
-import { cx } from '../../utils';
+import { extractTextFrom } from '@salutejs/plasma-core';
+import { safeUseId, cx } from 'src/utils';
+import type { RootProps } from 'src/engines';
+import { useForkRef } from 'src/hooks';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';

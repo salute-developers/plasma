@@ -1,10 +1,7 @@
 import React, { Children, forwardRef, useEffect, useRef, useState } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
-import { safeUseId } from 'src/utils';
-
-import { RootProps } from '../../../engines';
-import { cx, getPlacements } from '../../../utils';
-import { useDidMountEffect, useForceUpdate } from '../../../hooks';
+import { safeUseId, cx, getPlacements } from 'src/utils';
+import type { RootProps } from 'src/engines';
+import { useDidMountEffect, useForceUpdate, useForkRef } from 'src/hooks';
 
 import { getChildren, getNewSelected, getValues } from './utils';
 import { useKeyNavigation } from './hooks';

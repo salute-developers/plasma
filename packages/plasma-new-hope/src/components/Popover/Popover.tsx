@@ -1,10 +1,9 @@
 import React, { useRef, useCallback, useEffect, useState, forwardRef, isValidElement } from 'react';
 import { usePopper } from 'react-popper';
-import { useForkRef } from '@salutejs/plasma-core';
+import type { RootProps } from 'src/engines';
+import { useFocusTrap, useForkRef } from 'src/hooks';
+import { cx, safeUseId } from 'src/utils';
 
-import type { RootProps } from '../../engines/types';
-import { useFocusTrap } from '../../hooks';
-import { cx, safeUseId } from '../../utils';
 import { Portal } from '../Portal';
 import { Resizable } from '../_Resizable';
 
