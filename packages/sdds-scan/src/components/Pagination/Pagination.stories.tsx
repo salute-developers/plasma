@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getPaginationStories } from '@salutejs/plasma-sb-utils';
 
-import { IconButton } from '../IconButton/IconButton';
+import { IconButton } from '../IconButton';
 
 import { Pagination } from './Pagination';
 import { config } from './Pagination.config';
@@ -13,6 +13,9 @@ const { meta: META, Default } = getPaginationStories({
     component: Pagination,
     componentConfig: config,
     additionalComponents: { IconButton },
+    defaultArgs: {
+        size: 'm',
+    },
 });
 
 const meta: Meta<PaginationProps> = {

@@ -14,7 +14,7 @@ const meta: Meta<typeof Indicator> = {
             },
         },
         size: {
-            options: ['l', 'm', 's'],
+            options: ['m', 's'],
             control: {
                 type: 'select',
             },

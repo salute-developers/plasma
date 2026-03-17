@@ -6,7 +6,7 @@ import { IconSaluteOutline } from '@salutejs/plasma-icons';
 import { Note } from './Note';
 
 const views = ['default', 'positive', 'warning', 'negative', 'info'];
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['m', 's'];
 const contentBeforeSizes = ['fixed', 'scalable'];
 
 const meta: Meta<typeof Note> = {
@@ -72,7 +72,7 @@ const getIconSize = (size?: string, isScalable?: boolean) => {
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         view: 'default',
-        size: 'l',
+        size: 'm',
         width: 400,
         isHeight: false,
         stretch: false,

@@ -19,7 +19,7 @@ const meta: Meta<StoryProps> = {
     args: {
         description: 'Описание',
         buttonText: 'Кнопка',
-        size: 'l',
+        size: 'm',
         enableIcon: true,
     },
     argTypes: {

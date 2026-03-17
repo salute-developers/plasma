@@ -10,6 +10,9 @@ type NumberInputProps = ComponentProps<typeof NumberInput>;
 const { meta: META, Default, DisplayWithoutValue } = getNumberInputStories({
     component: NumberInput,
     componentConfig: config,
+    defaultArgs: {
+        size: 'm',
+    },
 });
 
 const meta: Meta<NumberInputProps> = {

@@ -15,7 +15,7 @@ import { Notification, NotificationsProvider, NotificationPlacement } from './No
 
 const titles = ['Выполнено', 'Внимание', 'Ошибка'];
 const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
-const size = ['xs', 'xxs'];
+const size = ['xs'];
 const iconPlacement = ['top', 'left'];
 const notificationsPlacements = [
     'center',
