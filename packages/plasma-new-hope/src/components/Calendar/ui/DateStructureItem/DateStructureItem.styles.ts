@@ -1,10 +1,10 @@
 import { styled } from '@linaria/react';
-import { FocusProps } from '@salutejs/plasma-core';
 import { popoverClasses } from 'src/components/Popover';
+import type { FocusProps } from 'src/mixins';
+import { addFocus } from 'src/mixins';
 
 import type { DateStructureProps } from '../../Calendar.types';
 import { classes, innerTokens, tokens } from '../../Calendar.tokens';
-import { addFocus } from '../../../../mixins';
 import { addActive, addSelected, flexCenter } from '../../mixins';
 
 const inRange = () => `
