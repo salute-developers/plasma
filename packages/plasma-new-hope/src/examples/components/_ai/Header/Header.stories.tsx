@@ -12,7 +12,10 @@ import { config } from './Header.config';
 const { views, sizes } = getConfigVariations(config);
 const textAligns = ['start', 'center'] as const;
 
-type HeaderStoryProps = ComponentProps<typeof Header>;
+type HeaderStoryProps = ComponentProps<typeof Header> & {
+    hasActionBefore?: boolean;
+    hasActionAfter?: boolean;
+};
 
 const meta: Meta<HeaderStoryProps> = {
     title: 'AI Kit/Header',
@@ -40,6 +43,8 @@ const meta: Meta<HeaderStoryProps> = {
         description: 'SubTitle',
         textAlign: 'start',
         hasDivider: false,
+        hasActionBefore: true,
+        hasActionAfter: true,
     },
 };
 
@@ -64,7 +69,7 @@ const getButtonSize = (size?: string) => {
     }
 };
 
-const StoryDefault = ({ size, ...rest }: HeaderStoryProps) => {
+const StoryDefault = ({ size, hasActionBefore, hasActionAfter, ...rest }: HeaderStoryProps) => {
     const iconSize = size === 'xs' || size === 's' || size === 'h5' ? 'xs' : 's';
 
     return (
@@ -73,14 +78,18 @@ const StoryDefault = ({ size, ...rest }: HeaderStoryProps) => {
                 {...rest}
                 size={size}
                 actionBefore={
-                    <IconButton view="clear" size={getButtonSize(size)}>
-                        <IconPlasma size={iconSize} color="inherit" />
-                    </IconButton>
+                    hasActionBefore ? (
+                        <IconButton view="clear" size={getButtonSize(size)}>
+                            <IconPlasma size={iconSize} color="inherit" />
+                        </IconButton>
+                    ) : null
                 }
                 actionAfter={
-                    <IconButton view="clear" size={getButtonSize(size)}>
-                        <IconClose size={iconSize} color="inherit" />
-                    </IconButton>
+                    hasActionAfter ? (
+                        <IconButton view="clear" size={getButtonSize(size)}>
+                            <IconClose size={iconSize} color="inherit" />
+                        </IconButton>
+                    ) : null
                 }
             />
         </div>
