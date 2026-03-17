@@ -1,11 +1,10 @@
 import React, { FC, ForwardRefExoticComponent, RefAttributes, useMemo } from 'react';
 import { useStoreon } from 'storeon/react';
 import { styled } from '@linaria/react';
-import { popupBaseRootClass } from '@salutejs/plasma-core';
+import { component } from 'src/engines';
+import { cx } from 'src/utils';
 
-import { PopupProvider, popupConfig } from '../Popup';
-import { component } from '../../engines';
-import { cx } from '../../utils';
+import { PopupProvider, popupConfig, popupClasses } from '../Popup';
 
 import { NotificationsState, NotificationsEvents, closeNotification } from './NotificationsStore';
 import { NotificationPortalProps, NotificationProps } from './Notification.types';
@@ -16,7 +15,7 @@ import { classes } from './Notification.tokens';
 const Popup = component(popupConfig);
 
 const StyledPopup = styled(Popup)`
-    & > .${popupBaseRootClass} {
+    & > .${popupClasses.root} {
         overflow: hidden;
     }
 `;
