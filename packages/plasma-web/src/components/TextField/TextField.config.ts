@@ -53,8 +53,8 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.borderColor}: var(--surface-positive);
-                ${tokens.borderColorHover}: var(--surface-positive);
+                ${tokens.borderColor}: var(--outline-positive);
+                ${tokens.borderColorHover}: var(--outline-positive-hover);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
                 ${tokens.dividerColor}: var(--surface-positive);
@@ -83,8 +83,8 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.borderColor}: var(--surface-warning);
-                ${tokens.borderColorHover}: var(--surface-warning);
+                ${tokens.borderColor}: var(--outline-warning);
+                ${tokens.borderColorHover}: var(--outline-warning-hover);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
                 ${tokens.dividerColor}: var(--surface-warning);
@@ -113,8 +113,8 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.borderColor}: var(--surface-negative);
-                ${tokens.borderColorHover}: var(--surface-negative);
+                ${tokens.borderColor}: var(--outline-negative);
+                ${tokens.borderColorHover}: var(--outline-negative-hover);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
                 ${tokens.dividerColor}: var(--surface-negative);
@@ -704,12 +704,12 @@ export const config = {
                 ${tokens.readOnlyOpacity}: 1;
                 ${tokens.colorReadOnly}: var(--text-primary);
                 ${tokens.backgroundColorReadOnly}: var(--surface-clear);
-                ${tokens.borderColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.borderColorReadOnly}: var(--outline-read-only);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.dividerColorReadOnly}: var(--outline-read-only);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
                 ${tokens.borderColor}: transparent;
                 ${tokens.borderWidth}: 0.063rem;
