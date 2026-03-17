@@ -101,7 +101,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
             },
         },
         size: {
-            options: ['xs', 'xxs'],
+            options: ['xs'],
             control: {
                 type: 'select',
             },
