@@ -1,14 +1,14 @@
-import React from 'react';
-import { RadioGroup as Base } from '@salutejs/plasma-core';
+import React, { forwardRef } from 'react';
+import type { ReactNode } from 'react';
 
 interface RadioGroupProps {
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
-export const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(({ children, ...rest }, ref) => {
+export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(({ children, ...rest }, ref) => {
     return (
-        <Base ref={ref} {...rest}>
+        <div role="radiogroup" ref={ref} {...rest}>
             {children}
-        </Base>
+        </div>
     );
 });

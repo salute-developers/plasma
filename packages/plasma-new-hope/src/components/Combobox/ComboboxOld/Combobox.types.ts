@@ -1,5 +1,5 @@
 import { MouseEvent, MutableRefObject, SyntheticEvent } from 'react';
-import { InputHTMLAttributes } from '@salutejs/plasma-core';
+import type { InputHTMLAttributes } from 'src/types';
 
 export type DropdownPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
 export type DropdownPlacement = DropdownPlacementBasic | 'auto';
@@ -117,6 +117,7 @@ export interface ControlledRefs {
 
 export interface UseFocusControllerProps {
     controlledRefs: ControlledRefs;
+    updateFocused: (value: boolean) => void;
     opened?: boolean;
     hasValue?: boolean;
     textContent?: string;
@@ -126,7 +127,6 @@ export interface UseFocusControllerProps {
     closedWithoutChanges?: MutableRefObject<boolean>;
     readOnly?: boolean;
     updateSearch?: (value?: string, opened?: boolean) => void;
-    updateFocused: (value: boolean) => void;
     onChipClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -141,11 +141,11 @@ export interface ControlledSelectRefs {
 export interface UseKeyNavigationProps {
     controlledRefs: ControlledSelectRefs;
     opened: boolean;
+    updateValue: (item: HTMLElement, event: SyntheticEvent | Event) => void;
+    updateOpened: (value: boolean, event: SyntheticEvent | Event) => void;
     valueType?: ValueType;
     componentType?: ComponentType;
     value?: ComboboxPrimitiveValue | ComboboxPrimitiveValue[];
     search?: string;
     enumerationType?: EnumerationType;
-    updateValue: (item: HTMLElement, event: SyntheticEvent | Event) => void;
-    updateOpened: (value: boolean, event: SyntheticEvent | Event) => void;
 }
