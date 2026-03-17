@@ -2,7 +2,7 @@ import React, { forwardRef, useRef, useState } from 'react';
 import type { ChangeEvent, ClipboardEvent, ForwardRefExoticComponent } from 'react';
 import { NumericFormat, numericFormatter } from 'react-number-format';
 import type { NumberFormatValues, SourceInfo } from 'react-number-format';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
 
 import type {
     CustomNumberFormatProps,

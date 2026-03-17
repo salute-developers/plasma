@@ -11,7 +11,7 @@ import {
     Table as TableType,
     Row,
 } from '@tanstack/react-table';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
 import { RootProps } from 'src/engines';
 import cls from 'classnames';
 

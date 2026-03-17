@@ -1,8 +1,7 @@
 import React, { forwardRef, useCallback, useMemo } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
 import { safeUseId } from 'src/utils';
 import { RootProps, component } from 'src/engines';
-import { useFocusTrap } from 'src/hooks';
+import { useFocusTrap, useForkRef } from 'src/hooks';
 import { IconClose } from 'src/components/_Icon';
 
 import { popupConfig, usePopupContext } from '../Popup';

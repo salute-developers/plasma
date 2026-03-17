@@ -2,10 +2,10 @@ import React, { forwardRef, useRef, useState, useEffect } from 'react';
 import cls from 'classnames';
 import type { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
 import type { RootProps } from 'src/engines';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
 import { getPlacements, getSizeValueFromProp } from 'src/utils';
 
-import { TimePickerGridChangeEvent } from '../TimePickerGrid/TimePickerGrid.types';
+import type { TimePickerGridChangeEvent } from '../TimePickerGrid/TimePickerGrid.types';
 
 import { processTimeInput, delimiter } from './utils';
 import { TimePickerProps } from './TimePicker.types';

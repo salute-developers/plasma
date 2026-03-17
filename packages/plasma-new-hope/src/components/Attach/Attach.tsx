@@ -1,8 +1,8 @@
 import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { ChangeEvent, MouseEvent, PropsWithChildren } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
 import { RootProps } from 'src/engines';
 import { cx } from 'src/utils';
+import { useForkRef } from 'src/hooks';
 
 import { AttachProps, FileInfo } from './Attach.types';
 import { base as sizeCSS } from './variations/_size/base';

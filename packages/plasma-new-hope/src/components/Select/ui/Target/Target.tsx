@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import type { MutableRefObject } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
 
 import type { TargetProps } from './Target.types';
 import { Button, Textfield } from './ui';
