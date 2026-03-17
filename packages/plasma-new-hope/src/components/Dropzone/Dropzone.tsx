@@ -1,8 +1,7 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, CSSProperties, DragEvent, MouseEvent } from 'react';
-import { useResizeObserver } from '@salutejs/plasma-core';
 import { canUseDOM, cx, getSizeValueFromProp } from 'src/utils';
-import { useForkRef } from 'src/hooks';
+import { useForkRef, useResizeObserver } from 'src/hooks';
 import { IconArrowBarDown } from 'src/components/_Icon';
 import type { RootProps } from 'src/engines';
 

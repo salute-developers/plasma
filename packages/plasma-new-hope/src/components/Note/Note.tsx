@@ -1,10 +1,9 @@
 import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { useResizeObserver } from '@salutejs/plasma-core';
-
-import { canUseDOM, cx, getSizeValueFromProp } from '../../utils';
-import type { RootProps } from '../../engines';
-import { IconCrossThin } from '../_Icon/Icons/IconCrossThin';
+import { canUseDOM, cx, getSizeValueFromProp } from 'src/utils';
+import { useResizeObserver } from 'src/hooks';
+import type { RootProps } from 'src/engines';
+import { IconCrossThin } from 'src/components/_Icon';
 
 import type { NoteProps } from './Note.types';
 import { base as viewCSS } from './variations/_view/base';
