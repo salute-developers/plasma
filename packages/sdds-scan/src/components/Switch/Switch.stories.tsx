@@ -31,10 +31,16 @@ const meta: Meta<SwitchProps> = {
             control: { type: 'select' },
         },
         size: {
-            control: { type: 'select' },
+            options: ['s', 'm', 'l'],
+            control: {
+                type: 'select',
+            },
         },
         toggleSize: {
-            control: { type: 'select' },
+            options: ['s', 'l'],
+            control: {
+                type: 'select',
+            },
         },
         ...disableProps([
             'id',
@@ -64,6 +70,8 @@ const meta: Meta<SwitchProps> = {
         description: 'Description',
         labelPosition: 'before',
         singleLine: true,
+        size: 'm',
+        toggleSize: 'l',
     },
 };
 

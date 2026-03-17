@@ -239,7 +239,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
     },
     args: {
         id: 'example-form-item',
-        size: 'l',
+        size: 'm',
         view: 'default',
         componentContent: 'Placeholder',
         label: 'Лейбл',
