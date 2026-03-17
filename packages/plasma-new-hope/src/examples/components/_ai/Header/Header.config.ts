@@ -156,7 +156,7 @@ export const config = {
                 ${tokens.descriptionLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             h3: css`
-                ${tokens.padding}: 0.5rem;
+                ${tokens.padding}: 0.5rem 0;
                 ${tokens.gap}: 0;
                 ${tokens.borderRadius}: 0;
                 ${tokens.contentGap}: 0.5rem;
@@ -177,7 +177,7 @@ export const config = {
                 ${tokens.descriptionLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             h4: css`
-                ${tokens.padding}: 0.5rem;
+                ${tokens.padding}: 0.5rem 0;
                 ${tokens.gap}: 0;
                 ${tokens.borderRadius}: 0;
                 ${tokens.contentGap}: 0.375rem;
