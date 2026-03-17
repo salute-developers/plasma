@@ -63,6 +63,41 @@ export const config = {
                 ${tabsTokens.arrowInnerPadding}: 0rem;
                 ${tabsTokens.arrowOuterPadding}: 0.625rem;
             `,
+            h5: css`
+                ${tabsTokens.tabsBorderRadius}: 0.5rem;
+                ${tabsTokens.tabsWidth}: fit-content;
+                ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.25rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
+            `,
+            h4: css`
+                ${tabsTokens.tabsBorderRadius}: 0.5rem;
+                ${tabsTokens.tabsWidth}: fit-content;
+                ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.25rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
+            `,
+            h3: css`
+                ${tabsTokens.tabsBorderRadius}: 0.625rem;
+                ${tabsTokens.tabsWidth}: fit-content;
+                ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.375rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
+            `,
+            h2: css`
+                ${tabsTokens.tabsBorderRadius}: 0.75rem;
+                ${tabsTokens.tabsWidth}: fit-content;
+                ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.5rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
+            `,
+            h1: css`
+                ${tabsTokens.tabsBorderRadius}: 0.75rem;
+                ${tabsTokens.tabsWidth}: fit-content;
+                ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 1rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
+            `,
         },
         stretch: {
             true: css`

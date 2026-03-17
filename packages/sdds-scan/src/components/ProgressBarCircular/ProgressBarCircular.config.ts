@@ -79,7 +79,7 @@ export const config = {
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-l-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-l-body-font-weight);
+                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${progressBarCircularTokens.contentLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
@@ -92,7 +92,7 @@ export const config = {
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-m-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-m-body-font-weight);
+                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${progressBarCircularTokens.contentLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
@@ -105,7 +105,7 @@ export const config = {
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-s-body-font-weight);
+                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${progressBarCircularTokens.contentLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
@@ -118,7 +118,7 @@ export const config = {
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-xs-body-font-weight);
+                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${progressBarCircularTokens.contentLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
@@ -131,7 +131,7 @@ export const config = {
                 ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-xxs-font-size);
                 ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-xxs-body-font-weight);
+                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-xxs-font-weight);
                 ${progressBarCircularTokens.contentLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
                 ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-xxs-line-height);
             `,
