@@ -1,4 +1,70 @@
 {
+  "1.614.0": {
+    "date": "2026-03-18",
+    "core": [
+      {
+        "component": "TextField",
+        "children": [
+          {
+            "text": "расширены примеры документации",
+            "link": "https://github.com/salute-developers/plasma/pull/2575",
+            "id": 2575
+          }
+        ]
+      },
+      {
+        "component": "NumberInput",
+        "children": [
+          {
+            "text": "добавлено свойство  `displayWithoutValue` для отображения компонента без значения\n\nдобавлено свойство `limitBehavior` для управления поведением кнопок при достижении граничных значений",
+            "link": "https://github.com/salute-developers/plasma/pull/2594",
+            "id": 2594
+          }
+        ]
+      },
+      {
+        "component": "Sheet",
+        "children": [
+          {
+            "text": "добавлена функция cleanup для корректной работы с глобальным `body.style.overflowY`",
+            "link": "https://github.com/salute-developers/plasma/pull/2583",
+            "id": 2583
+          }
+        ]
+      },
+      {
+        "component": "Price",
+        "children": [
+          {
+            "text": "расширили `type` для свойства `currency` до `string`, что бы можно было указать валидное значение из `ISO 4217` (а не только из предустановленного списка)",
+            "link": "https://github.com/salute-developers/plasma/pull/2580",
+            "id": 2580
+          }
+        ]
+      },
+      {
+        "component": "Attach",
+        "children": [
+          {
+            "text": "добавлен аргумент для `callback` `onClear`",
+            "link": "https://github.com/salute-developers/plasma/pull/2588",
+            "id": 2588
+          }
+        ]
+      },
+      {
+        "component": "Popover",
+        "children": [
+          {
+            "text": "улучшены примеры документации\n\nдобавлен пример как избежать потерю скругления между компонентом и slot контейнером\n\nдобавлено наследование для `border-radius` на уровне `popover.style`",
+            "link": "https://github.com/salute-developers/plasma/pull/2582",
+            "id": 2582
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "1.612.0": {
     "date": "2026-03-05",
     "core": [
