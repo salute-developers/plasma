@@ -2,6 +2,32 @@ import type { CSSProperties, HTMLAttributes, RefObject, SyntheticEvent } from 'r
 
 import type { LabelProps } from '../TextField/TextField.types';
 
+export type Placement =
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
+
+export type TimePickerFloatingPopoverProps = {
+    target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
+    children: React.ReactNode;
+    opened: boolean;
+    onToggle: () => void;
+    placement: Placement;
+    portal?: string | React.RefObject<HTMLElement>;
+    offset?: [number, number];
+    zIndex?: React.CSSProperties['zIndex'];
+    disableFlip?: boolean;
+};
+
 export type TimePickerChangeEvent = {
     value?: string;
     timeValues: {
@@ -76,6 +102,11 @@ export type TimePickerPopoverProps = {
      */
     opened?: boolean;
     /**
+     * Сторона открытия TimePicker относительно поля ввода.
+     * @default bottom
+     */
+    placement?: Placement;
+    /**
      * Отступ поповера относительно поля ввода
      */
     offset?: [number, number];
@@ -92,6 +123,10 @@ export type TimePickerPopoverProps = {
      */
     closeOnEsc?: boolean;
     /**
+     * Отключить автоматическое переворачивание дропдауна при нехватке места
+     */
+    disableFlip?: boolean;
+    /**
      * Использовать портал для рендера
      */
     usePortal?: boolean;
@@ -104,6 +139,7 @@ export type TimePickerPopoverProps = {
 type BasicProps = {
     /**
      * Выравнивание выпадающего списка
+     * @deprecated использовать `placement="bottom-right"`
      */
     dropdownAlign?: 'left' | 'right';
     /**

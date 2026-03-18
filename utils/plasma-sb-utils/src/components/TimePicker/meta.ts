@@ -1,6 +1,6 @@
 import { disableProps, InSpacingDecorator } from '../../index';
 
-import { labelPlacements, columnsQuantities, dropdownAligns, dropdownWidths, requiredPlacements } from './fixtures';
+import { labelPlacements, columnsQuantities, dropdownWidths, requiredPlacements, placements } from './fixtures';
 
 type CreateMetaProps = {
     component: any;
@@ -10,86 +10,6 @@ type CreateMetaProps = {
     additionalArgTypes?: {};
     disablePropsList?: string[];
 };
-
-const commonArgs = {
-    view: 'default',
-    size: 'l',
-    columnsQuantity: 3,
-    label: 'Лейбл',
-    labelPlacement: 'outer',
-    placeholder: '00:00:00',
-    textBefore: '',
-    textAfter: '',
-    enableContentLeft: true,
-    enableContentRight: true,
-    dropdownAlign: 'left',
-    dropdownWidth: 'fixed',
-    dropdownHeight: '30rem',
-    stretched: false,
-    required: false,
-    requiredPlacement: 'right',
-    hasRequiredIndicator: false,
-    disabled: false,
-    readonly: false,
-};
-
-const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) => ({
-    view: {
-        options: componentConfig.views,
-        control: {
-            type: 'select',
-        },
-    },
-    size: {
-        options: componentConfig.sizes,
-        control: {
-            type: 'select',
-        },
-    },
-    labelPlacement: {
-        options: labelPlacements,
-        control: {
-            type: 'select',
-        },
-    },
-    columnsQuantity: {
-        options: columnsQuantities,
-        control: {
-            type: 'select',
-        },
-    },
-    dropdownAlign: {
-        options: dropdownAligns,
-        control: {
-            type: 'select',
-        },
-    },
-    dropdownWidth: {
-        options: dropdownWidths,
-        control: {
-            type: 'select',
-        },
-    },
-    requiredPlacement: {
-        options: requiredPlacements,
-        control: {
-            type: 'select',
-        },
-        if: { arg: 'required', truthy: true },
-    },
-    hasRequiredIndicator: {
-        control: {
-            type: 'boolean',
-        },
-        if: {
-            arg: 'required',
-            truthy: true,
-        },
-    },
-    ...additionalArgTypes,
-});
-
-const commonDisabledArgs = ['view', 'contentLeft', 'contentRight', 'onToggle'];
 
 export const createMeta = ({
     component,
@@ -104,12 +24,120 @@ export const createMeta = ({
         decorators: [InSpacingDecorator],
         component,
         args: {
-            ...commonArgs,
+            view: 'default',
+            size: 'l',
+            disabled: false,
+            readonly: false,
+            label: 'Лейбл',
+            labelPlacement: 'outer',
+            placeholder: '00:00:00',
+            textBefore: '',
+            textAfter: '',
+            enableContentLeft: true,
+            enableContentRight: true,
+            stretched: false,
+            required: false,
+            requiredPlacement: 'right',
+            hasRequiredIndicator: false,
+            placement: 'bottom-start',
+            columnsQuantity: 3,
+            dropdownWidth: 'fixed',
+            dropdownHeight: '30rem',
+            disableFlip: true,
             ...defaultArgs,
         },
         argTypes: {
-            ...getCommonArgTypes(componentConfig, additionalArgTypes),
-            ...disableProps([...commonDisabledArgs, ...disablePropsList]),
+            view: {
+                options: componentConfig.views,
+                control: { type: 'select' },
+                table: { category: 'variation' },
+            },
+            size: {
+                options: componentConfig.sizes,
+                control: { type: 'select' },
+                table: { category: 'variation' },
+            },
+            disabled: {
+                control: { type: 'boolean' },
+                table: { category: 'variation' },
+            },
+            readonly: {
+                control: { type: 'boolean' },
+                table: { category: 'variation' },
+            },
+            label: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
+            },
+            labelPlacement: {
+                options: labelPlacements,
+                control: { type: 'select' },
+                table: { category: 'layout' },
+            },
+            placeholder: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
+            },
+            textBefore: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
+            },
+            textAfter: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
+            },
+            enableContentLeft: {
+                control: { type: 'boolean' },
+                table: { category: 'layout' },
+            },
+            enableContentRight: {
+                control: { type: 'boolean' },
+                table: { category: 'layout' },
+            },
+            stretched: {
+                control: { type: 'boolean' },
+                table: { category: 'layout' },
+            },
+            required: {
+                control: { type: 'boolean' },
+                table: { category: 'form-related' },
+            },
+            requiredPlacement: {
+                options: requiredPlacements,
+                control: { type: 'select' },
+                if: { arg: 'required', truthy: true },
+                table: { category: 'form-related' },
+            },
+            hasRequiredIndicator: {
+                control: { type: 'boolean' },
+                if: { arg: 'required', truthy: true },
+                table: { category: 'form-related' },
+            },
+            placement: {
+                options: placements,
+                control: { type: 'select' },
+                table: { category: 'dropdown' },
+            },
+            columnsQuantity: {
+                options: columnsQuantities,
+                control: { type: 'select' },
+                table: { category: 'dropdown' },
+            },
+            dropdownWidth: {
+                options: dropdownWidths,
+                control: { type: 'select' },
+                table: { category: 'dropdown' },
+            },
+            dropdownHeight: {
+                control: { type: 'text' },
+                table: { category: 'dropdown' },
+            },
+            disableFlip: {
+                control: { type: 'boolean' },
+                table: { category: 'dropdown' },
+            },
+            ...additionalArgTypes,
+            ...disableProps(['view', 'contentLeft', 'contentRight', 'onToggle', 'dropdownAlign', ...disablePropsList]),
         },
     };
 };
