@@ -30,10 +30,11 @@ export const priceRoot = (Root: RootProps<HTMLSpanElement, Omit<PriceProps, 'chi
             outerRootRef,
         ) => {
             const strokedClass = stroked || stroke ? classes.stroked : undefined;
+            const hasCurrency = currency && currency.length === 3;
 
             return (
                 <Root view={view} ref={outerRootRef} className={cx(strokedClass, className)} {...rest}>
-                    {formatCurrency({ value: children, locale, currency, minimumFractionDigits })}
+                    {hasCurrency && formatCurrency({ value: children, locale, currency, minimumFractionDigits })}
                     {periodicity && <StyledPeriodicity>{periodicity}</StyledPeriodicity>}
                 </Root>
             );

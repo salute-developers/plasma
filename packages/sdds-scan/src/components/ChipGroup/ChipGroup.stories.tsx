@@ -11,7 +11,7 @@ type StoryProps = ComponentProps<typeof ChipGroup> & { itemsCount?: number };
 type Story = StoryObj<StoryProps>;
 
 const views = ['default', 'accent', 'secondary'];
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['l', 'm', 's'];
 const gapValues = ['dense', 'wide'];
 
 const meta: Meta<typeof ChipGroup> = {

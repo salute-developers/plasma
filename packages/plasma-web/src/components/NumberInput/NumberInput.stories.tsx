@@ -1,108 +1,22 @@
-import React, { useState, ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { action } from 'storybook/actions';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getNumberInputStories } from '@salutejs/plasma-sb-utils';
 
 import { NumberInput } from './NumberInput';
+import { config } from './NumberInput.config';
 
-const onChange = action('onChange');
-const onDecrement = action('onDecrement');
-const onIncrement = action('onIncrement');
+type NumberInputProps = ComponentProps<typeof NumberInput>;
 
-const views = ['default', 'secondary', 'accent', 'clear'];
-const sizes = ['l', 'm', 's', 'xs'];
-const shapes = ['cornered', 'pilled'];
-const inputBackgroundTypes = ['fill', 'clear'];
-const segmentation = ['default', 'segmented', 'solid'];
-
-const meta: Meta<typeof NumberInput> = {
-    title: 'Data Entry/NumberInput',
+const { meta: META, Default, DisplayWithoutValue } = getNumberInputStories({
     component: NumberInput,
-    decorators: [InSpacingDecorator],
-    argTypes: {
-        min: {
-            control: {
-                type: 'number',
-            },
-        },
-        max: {
-            control: {
-                type: 'number',
-            },
-        },
-        view: {
-            options: views,
-            control: {
-                type: 'select',
-            },
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        shape: {
-            options: shapes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        inputBackgroundType: {
-            options: inputBackgroundTypes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        segmentation: {
-            options: segmentation,
-            control: {
-                type: 'select',
-            },
-        },
-    },
+    componentConfig: config,
+});
+
+const meta: Meta<NumberInputProps> = {
+    ...META,
+    title: 'Data Entry/NumberInput',
 };
 
 export default meta;
 
-type StoryPropsDefault = ComponentProps<typeof NumberInput>;
-
-const StoryDefault = (args: StoryPropsDefault) => {
-    const [value, setValue] = useState<number | string | undefined>(5);
-
-    const handleChange = (_: any, newValue: number | string | undefined) => {
-        setValue(newValue);
-        onChange(newValue);
-    };
-
-    return (
-        <NumberInput
-            {...args}
-            value={value}
-            onChange={handleChange}
-            onDecrement={onDecrement}
-            onIncrement={onIncrement}
-        />
-    );
-};
-
-export const Default: StoryObj<StoryPropsDefault> = {
-    args: {
-        view: 'default',
-        size: 'l',
-        shape: 'cornered',
-        inputBackgroundType: 'fill',
-        segmentation: 'default',
-        min: 0,
-        max: 9,
-        precision: 2,
-        step: 1,
-        width: 188,
-        isManualInput: false,
-        textBefore: '',
-        textAfter: '',
-        isLoading: false,
-        disabled: false,
-    },
-    render: StoryDefault,
-};
+export { Default, DisplayWithoutValue };

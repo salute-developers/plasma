@@ -6,6 +6,14 @@ export const config = {
         size: 'm',
     },
     variations: {
+        view: {
+            // TODO заменить тень на токен https://github.com/salute-developers/plasma/issues/1131
+            default: css`
+                ${tooltipTokens.backgroundColor}: var(--surface-solid-card-brightness);
+                ${tooltipTokens.boxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);
+                ${tooltipTokens.color}: var(--text-primary);
+            `,
+        },
         size: {
             s: css`
                 ${tooltipTokens.paddingTop}: 0.5rem;
@@ -56,14 +64,6 @@ export const config = {
                 ${tooltipTokens.arrowHeight}: 0.5rem;
                 ${tooltipTokens.arrowEdgeMargin}: 0.625rem;
                 ${tooltipTokens.arrowBackground}: var(--surface-solid-card-brightness);
-            `,
-        },
-        view: {
-            // TODO заменить тень на токен https://github.com/salute-developers/plasma/issues/1131
-            default: css`
-                ${tooltipTokens.backgroundColor}: var(--surface-solid-card-brightness);
-                ${tooltipTokens.boxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);
-                ${tooltipTokens.color}: var(--text-primary);
             `,
         },
     },

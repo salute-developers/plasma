@@ -25,10 +25,10 @@ export const config = {
                 ${buttonTokens.buttonTextColor}: var(--text-accent);
                 ${buttonTokens.buttonIconColor}: var(--text-accent);
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-primary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-secondary);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-primary-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-secondary-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-secondary-active);
             `,
             clear: css`
                 ${buttonTokens.buttonColor}: var(--text-accent);

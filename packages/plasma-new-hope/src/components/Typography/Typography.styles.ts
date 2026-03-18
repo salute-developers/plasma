@@ -1,12 +1,13 @@
 import { css } from '@linaria/core';
-
-import { applyHyphens, applyHyphensNormal } from '../../mixins';
+import { applyHyphens, applyHyphensNormal } from 'src/mixins';
 
 import { classes, tokens } from './tokens';
 
 export const base = css`
     margin: 0;
     padding: 0;
+
+    border: 0;
 
     font-family: var(${tokens.typoFontFamily});
     font-size: var(${tokens.typoFontSize});
@@ -15,22 +16,28 @@ export const base = css`
     line-height: var(${tokens.typoFontLineHeight});
     font-weight: var(${tokens.typoFontWeight});
 
-    border: 0;
+    &.${classes.typoMedium} {
+        font-weight: var(${tokens.typoFontWeightMedium});
+    }
 
     &.${classes.typoBold} {
         font-weight: var(${tokens.typoFontWeightBold});
     }
 
-    &.${classes.typoMedium} {
-        font-weight: var(${tokens.typoFontWeightMedium});
-    }
-
-    &.${classes.typoWithNoWrap} {
-        white-space: nowrap;
+    &.${classes.typoExtraBold} {
+        font-weight: var(${tokens.typoFontWeightExtraBold}, var(${tokens.typoFontWeight}));
     }
 
     &.${classes.typoIsNumeric} {
         font-variant-numeric: tabular-nums;
+    }
+
+    &.${classes.typoIsItalic} {
+        font-style: italic;
+    }
+
+    &.${classes.typoWithNoWrap} {
+        white-space: nowrap;
     }
 
     ${applyHyphensNormal};

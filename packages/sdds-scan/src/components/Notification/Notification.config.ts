@@ -309,20 +309,6 @@ export const config = {
 
                 ${notificationTokens.buttonsMarginLeft}: 0rem;
             `,
-            xxs: css`
-                ${notificationTokens.closeIconTop}: 0.8125rem;
-                ${notificationTokens.closeIconRight}: 1rem;
-
-                ${notificationTokens.padding}: 0.5625rem 1rem 1rem 1rem;
-                ${notificationTokens.textboxPaddingTopWithTopIcon}: 0.1875rem;
-
-                ${notificationTokens.contentPaddingTop}: 0.25rem;
-                ${notificationTokens.contentPaddingRight}: 0rem;
-                ${notificationTokens.contentPaddingBottom}: 0rem;
-                ${notificationTokens.contentPaddingLeft}: 0rem;
-
-                ${notificationTokens.buttonsMarginLeft}: 2rem;
-            `,
         },
     },
 };

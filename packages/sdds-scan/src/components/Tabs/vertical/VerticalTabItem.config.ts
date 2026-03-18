@@ -3,7 +3,7 @@ import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'divider',
-        size: 'l',
+        size: 'm',
     },
     variations: {
         view: {
@@ -95,26 +95,6 @@ export const config = {
                 ${tabsTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
-
-                ${tabsTokens.actionContentMarginLeft}: 0.125rem;
-            `,
-            l: css`
-                ${tabsTokens.itemBorderRadius}: 0.75rem;
-                ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 3.5rem;
-                ${tabsTokens.itemPadding}: 0 0.875rem;
-                ${tabsTokens.itemPaddingPilled}: 0 0.75rem;
-                ${tabsTokens.itemPaddingOrientationVertical}: 1rem 1.5rem;
-                ${tabsTokens.itemMarginLeft}: 1.25rem;
-                ${tabsTokens.itemContentGap}: 0.5rem;
-                ${tabsTokens.itemContentPadding}: 0.125rem;
-
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,

@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { IconChevronRight } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { config } from './List.config';

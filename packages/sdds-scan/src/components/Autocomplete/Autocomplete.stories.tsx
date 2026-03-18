@@ -7,7 +7,7 @@ import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Autocomplete } from './Autocomplete';
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['m', 's'];
 const views = ['default', 'positive', 'warning', 'negative'];
 const labelPlacements = ['outer', 'inner'];
 const hintViews = ['default'];
@@ -213,7 +213,7 @@ const meta: Meta<StoryProps> = {
     },
     args: {
         view: 'default',
-        size: 'l',
+        size: 'm',
         labelPlacement: 'outer',
         disabled: false,
         readOnly: false,

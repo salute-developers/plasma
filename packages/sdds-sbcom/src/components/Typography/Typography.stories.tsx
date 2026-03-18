@@ -2,30 +2,11 @@ import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import {
-    DsplL,
-    DsplM,
-    DsplS,
-    H1,
-    H2,
-    H3,
-    H4,
-    H5,
-    H6,
-    BodyL,
-    BodyM,
-    BodyS,
-    BodyXS,
-    BodyXXS,
-    TextL,
-    TextM,
-    TextS,
-    TextXS,
-} from '.';
+import { DsplS, H1, H2, H3, H4, BodyL, BodyM, BodyS, BodyXS, BodyXXS } from '.';
 
 const meta: Meta = {
     title: 'Data Display/Typography',
-    component: DsplL,
+    component: DsplS,
     argTypes: {
         ...disableProps(['size', 'bold', 'medium', 'as', 'forwardedAs', 'isNumeric']),
         color: {
@@ -37,6 +18,7 @@ const meta: Meta = {
     args: {
         noWrap: false,
         breakWord: true,
+        enableFontStyleItalic: false,
     },
     decorators: [InSpacingDecorator],
 };
@@ -46,36 +28,21 @@ export default meta;
 type Story = StoryObj;
 
 export const Dspl: Story = {
-    render: (props) => (
+    render: ({ enableFontStyleItalic, ...rest }) => (
         <>
-            <DsplL bold={false} {...props}>
-                DsplL
-            </DsplL>
-            <DsplL {...props}>DsplL Bold</DsplL>
-            <DsplL medium {...props}>
-                DsplL Medium
-            </DsplL>
-            <DsplL bold={false} isNumeric {...props}>
-                1234567890
-            </DsplL>
-            <DsplM bold={false} {...props}>
-                DsplM
-            </DsplM>
-            <DsplM {...props}>DsplM Bold</DsplM>
-            <DsplM medium {...props}>
-                DsplM Medium
-            </DsplM>
-            <DsplM bold={false} isNumeric {...props}>
-                1234567890
-            </DsplM>
-            <DsplS bold={false} {...props}>
+            <DsplS isItalic={enableFontStyleItalic} bold={false} {...rest}>
                 DsplS
             </DsplS>
-            <DsplS {...props}>DsplS Bold</DsplS>
-            <DsplS medium {...props}>
+            <DsplS isItalic={enableFontStyleItalic} medium {...rest}>
                 DsplS Medium
             </DsplS>
-            <DsplS bold={false} isNumeric {...props}>
+            <DsplS isItalic={enableFontStyleItalic} {...rest}>
+                DsplS Bold
+            </DsplS>
+            <DsplS isItalic={enableFontStyleItalic} extraBold {...rest}>
+                DsplS Extra Bold
+            </DsplS>
+            <DsplS isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </DsplS>
         </>
@@ -83,172 +50,150 @@ export const Dspl: Story = {
 };
 
 export const H: Story = {
-    render: (props) => (
+    render: ({ enableFontStyleItalic, ...rest }) => (
         <>
-            <H1 bold={false} {...props}>
+            <H1 isItalic={enableFontStyleItalic} bold={false} {...rest}>
                 H1
             </H1>
-            <H1 {...props}>H1 Bold</H1>
-            <H1 medium {...props}>
+            <H1 isItalic={enableFontStyleItalic} medium {...rest}>
                 H1 Medium
             </H1>
-            <H1 bold={false} isNumeric {...props}>
+            <H1 isItalic={enableFontStyleItalic} {...rest}>
+                H1 Bold
+            </H1>
+            <H1 isItalic={enableFontStyleItalic} extraBold {...rest}>
+                H1 Extra Bold
+            </H1>
+            <H1 isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </H1>
-            <H2 bold={false} {...props}>
+            <H2 isItalic={enableFontStyleItalic} bold={false} {...rest}>
                 H2
             </H2>
-            <H2 {...props}>H2 Bold</H2>
-            <H2 medium {...props}>
+            <H2 isItalic={enableFontStyleItalic} medium {...rest}>
                 H2 Medium
             </H2>
-            <H2 bold={false} isNumeric {...props}>
+            <H2 isItalic={enableFontStyleItalic} {...rest}>
+                H2 Bold
+            </H2>
+            <H2 isItalic={enableFontStyleItalic} extraBold {...rest}>
+                H2 Extra Bold
+            </H2>
+            <H2 isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </H2>
-            <H3 bold={false} {...props}>
+            <H3 isItalic={enableFontStyleItalic} bold={false} {...rest}>
                 H3
             </H3>
-            <H3 {...props}>H3 Bold</H3>
-            <H3 medium {...props}>
+            <H3 isItalic={enableFontStyleItalic} medium {...rest}>
                 H3 Medium
             </H3>
-            <H3 bold={false} isNumeric {...props}>
+            <H3 isItalic={enableFontStyleItalic} {...rest}>
+                H3 Bold
+            </H3>
+            <H3 isItalic={enableFontStyleItalic} extraBold {...rest}>
+                H3 Extra Bold
+            </H3>
+            <H3 isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </H3>
-            <H4 bold={false} {...props}>
+            <H4 isItalic={enableFontStyleItalic} bold={false} {...rest}>
                 H4
             </H4>
-            <H4 {...props}>H4 Bold</H4>
-            <H4 medium {...props}>
+            <H4 isItalic={enableFontStyleItalic} medium {...rest}>
                 H4 Medium
             </H4>
-            <H4 bold={false} isNumeric {...props}>
+            <H4 isItalic={enableFontStyleItalic} {...rest}>
+                H4 Bold
+            </H4>
+            <H4 isItalic={enableFontStyleItalic} extraBold {...rest}>
+                H4 Extra Bold
+            </H4>
+            <H4 isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </H4>
-            <H5 bold={false} {...props}>
-                H5
-            </H5>
-            <H5 {...props}>H5 Bold</H5>
-            <H5 medium {...props}>
-                H5 Medium
-            </H5>
-            <H5 bold={false} isNumeric {...props}>
-                1234567890
-            </H5>
-            <H6 bold={false} {...props}>
-                H6
-            </H6>
-            <H6 {...props}>H6 Bold</H6>
-            <H6 medium {...props}>
-                H6 Medium
-            </H6>
-            <H6 bold={false} isNumeric {...props}>
-                1234567890
-            </H6>
         </>
     ),
 };
 
 export const Body: Story = {
-    render: (props) => (
+    render: ({ enableFontStyleItalic, ...rest }) => (
         <>
-            <BodyL {...props}>BodyL</BodyL>
-            <BodyL bold {...props}>
-                BodyL Bold
+            <BodyL isItalic={enableFontStyleItalic} {...rest}>
+                BodyL
             </BodyL>
-            <BodyL medium {...props}>
+            <BodyL isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyL Medium
             </BodyL>
-            <BodyL isNumeric {...props}>
+            <BodyL isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyL Bold
+            </BodyL>
+            <BodyL isItalic={enableFontStyleItalic} extraBold {...rest}>
+                BodyL Extra Bold
+            </BodyL>
+            <BodyL isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyL>
-            <BodyM {...props}>BodyM</BodyM>
-            <BodyM bold {...props}>
-                BodyM Bold
+            <BodyM isItalic={enableFontStyleItalic} {...rest}>
+                BodyM
             </BodyM>
-            <BodyM medium {...props}>
+            <BodyM isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyM Medium
             </BodyM>
-            <BodyM isNumeric {...props}>
+            <BodyM isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyM Bold
+            </BodyM>
+            <BodyM isItalic={enableFontStyleItalic} extraBold bold {...rest}>
+                BodyM Extra Bold
+            </BodyM>
+            <BodyM isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyM>
-            <BodyS {...props}>BodyS</BodyS>
-            <BodyS bold {...props}>
-                BodyS Bold
+            <BodyS isItalic={enableFontStyleItalic} {...rest}>
+                BodyS
             </BodyS>
-            <BodyS medium {...props}>
+            <BodyS isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyS Medium
             </BodyS>
-            <BodyS isNumeric {...props}>
+            <BodyS isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyS Bold
+            </BodyS>
+            <BodyS isItalic={enableFontStyleItalic} extraBold {...rest}>
+                BodyS Extra Bold
+            </BodyS>
+            <BodyS isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyS>
-            <BodyXS {...props}>BodyXS</BodyXS>
-            <BodyXS bold {...props}>
-                BodyXS Bold
+            <BodyXS isItalic={enableFontStyleItalic} {...rest}>
+                BodyXS
             </BodyXS>
-            <BodyXS medium {...props}>
+            <BodyXS isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyXS Medium
             </BodyXS>
-            <BodyXS isNumeric {...props}>
+            <BodyXS isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyXS Bold
+            </BodyXS>
+            <BodyXS isItalic={enableFontStyleItalic} extraBold {...rest}>
+                BodyXS Extra Bold
+            </BodyXS>
+            <BodyXS isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyXS>
-            <BodyXXS {...props}>BodyXXS</BodyXXS>
-            <BodyXXS bold {...props}>
-                BodyXXS Bold
+            <BodyXXS isItalic={enableFontStyleItalic} {...rest}>
+                BodyXXS
             </BodyXXS>
-            <BodyXXS medium {...props}>
+            <BodyXXS isItalic={enableFontStyleItalic} medium {...rest}>
                 BodyXXS Medium
             </BodyXXS>
-            <BodyXXS isNumeric {...props}>
+            <BodyXXS isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyXXS Bold
+            </BodyXXS>
+            <BodyXXS isItalic={enableFontStyleItalic} extraBold {...rest}>
+                BodyXXS Extra Bold
+            </BodyXXS>
+            <BodyXXS isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyXXS>
-        </>
-    ),
-};
-
-export const Text: Story = {
-    render: (props) => (
-        <>
-            <TextL {...props}>TextL</TextL>
-            <TextL bold {...props}>
-                TextL Bold
-            </TextL>
-            <TextL medium {...props}>
-                TextL Medium
-            </TextL>
-            <TextL isNumeric {...props}>
-                1234567890
-            </TextL>
-            <TextM {...props}>TextM</TextM>
-            <TextM bold {...props}>
-                TextM Bold
-            </TextM>
-            <TextM medium {...props}>
-                TextM Medium
-            </TextM>
-            <TextM isNumeric {...props}>
-                1234567890
-            </TextM>
-            <TextS {...props}>TextS</TextS>
-            <TextS bold {...props}>
-                TextS Bold
-            </TextS>
-            <TextS medium {...props}>
-                TextS Medium
-            </TextS>
-            <TextS isNumeric {...props}>
-                1234567890
-            </TextS>
-            <TextXS {...props}>TextXS</TextXS>
-            <TextXS bold {...props}>
-                TextXS Bold
-            </TextXS>
-            <TextXS medium {...props}>
-                TextXS Medium
-            </TextXS>
-            <TextXS isNumeric {...props}>
-                1234567890
-            </TextXS>
         </>
     ),
 };

@@ -9,9 +9,9 @@ const meta: Meta<typeof Price> = {
     decorators: [InSpacingDecorator],
     argTypes: {
         currency: {
-            options: ['rub', 'usd', 'eur', 'inr'],
+            description: 'ISO 4217 код валюты (например, rub, usd, eur, gbp, cny)',
             control: {
-                type: 'inline-radio',
+                type: 'text',
             },
         },
         ...disableProps(['children', 'theme', 'as', 'forwardedAs']),

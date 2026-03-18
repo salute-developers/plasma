@@ -96,27 +96,6 @@ export const config = {
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
                 ${tokens.chipCloseIconSize}: 1rem;
             `,
-            xs: css`
-                ${tokens.chipBorderRadius}: 0.375rem;
-                ${tokens.chipWidth}: auto;
-                ${tokens.chipHeight}: 1.5rem;
-                ${tokens.chipPadding}: 0 0.625rem;
-
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${tokens.chipLeftContentMarginLeft}: -0.125rem;
-                ${tokens.chipLeftContentMarginRight}: 0.25rem;
-                ${tokens.chipRightContentMarginLeft}: 0.25rem;
-                ${tokens.chipRightContentMarginRight}: -0.125rem;
-                ${tokens.chipClearContentMarginLeft}: 0.25rem;
-                ${tokens.chipClearContentMarginRight}: -0.25rem;
-                ${tokens.chipCloseIconSize}: 1rem;
-            `,
         },
         gap: {
             dense: css`

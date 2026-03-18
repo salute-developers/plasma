@@ -2,6 +2,7 @@ import { counterConfig, counterTokens } from 'src/components/Counter';
 import { styled } from '@linaria/react';
 import { component, mergeConfig } from 'src/engines';
 import { indicatorTokens, indicatorConfig } from 'src/components/Indicator';
+import { linkConfig } from 'src/components/Link';
 import { applyEllipsis } from 'src/mixins';
 
 import { tokens } from '../../NavigationDrawer.tokens';
@@ -13,6 +14,9 @@ const indicatorMergedConfig = mergeConfig(indicatorConfig);
 const Indicator: React.FunctionComponent<React.HTMLAttributes<HTMLDivElement>> = component(
     indicatorMergedConfig,
 ) as never;
+
+const mergedLinkConfig = mergeConfig(linkConfig);
+export const Link = component(mergedLinkConfig);
 
 export const ExtraCounter = styled(Counter)`
     margin: auto;

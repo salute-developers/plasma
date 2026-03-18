@@ -14,7 +14,7 @@ type StoryProps = Omit<ComponentProps<typeof TextFieldGroup>, 'gap'> & {
 };
 type Story = StoryObj<StoryProps>;
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['m', 's'];
 const orientationValues = ['horizontal', 'vertical'];
 const gapDefaultValues = ['dense', 'wide'];
 const gapSegmentedValues = ['none', 'dense'];

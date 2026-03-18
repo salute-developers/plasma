@@ -8,7 +8,7 @@ module.exports = function rc() {
     const plugins = [['npm', npmOptions], 'conventional-commits'];
 
     return {
-        prereleaseBranches: ['dev', 'next-insol'],
+        prereleaseBranches: ['dev', 'next-insol', 'next-sbcom', 'next-platform-ai'],
         plugins,
     };
 };

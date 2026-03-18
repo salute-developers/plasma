@@ -1,7 +1,12 @@
-name: Release Next Tag
+name: Release INSOL next branch
 
 on:
   workflow_dispatch:
+    inputs:
+      branch:
+          description: "Branch for next tag"
+          required: true
+          default: 'next-insol'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -10,10 +15,10 @@ concurrency:
 jobs:
   publish:
     name: Publish feature version
+    if: github.ref == 'refs/heads/next-insol'
     uses: ./.github/workflows/publish-common.yml
     with:
-      with-update-package-lock: true
       auto-options: '--no-changelog'
     secrets:
-      gh_token: ${{ secrets.GH_TOKENS_SDDS }}
+      gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}

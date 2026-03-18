@@ -120,38 +120,6 @@ export const config = {
             `,
         },
         size: {
-            l: css`
-                ${tokens.rootMinWidth}: 11.75rem;
-                ${tokens.iconButtonHeight}: 3.5rem;
-                ${tokens.iconButtonWidth}: 3.5rem;
-                ${tokens.iconButtonPadding}: 1.5rem;
-                ${tokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.iconButtonFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.iconButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tokens.iconButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.iconButtonLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${tokens.iconButtonRadius}: 0.875rem;
-                ${tokens.iconButtonSegmentationRadius}: 0.375rem;
-
-                ${tokens.inputWrapperMargin}: 0 0.125rem;
-                ${tokens.inputWrapperBorderRadius}: 0.875rem;
-                ${tokens.textWrapperHeight}: 3.5rem;
-                ${tokens.textWrapperPadding}: 1.063rem 1.125rem;
-
-                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${tokens.textBeforeMarginRight}: 0.25rem;
-                ${tokens.textAfterMarginLeft}: 0.25rem;
-
-                ${tokens.loaderSpinnerSize}: 1.375rem;
-            `,
             m: css`
                 ${tokens.rootMinWidth}: 10.25rem;
                 ${tokens.iconButtonHeight}: 3rem;
@@ -215,38 +183,6 @@ export const config = {
                 ${tokens.textAfterMarginLeft}: 0.25rem;
 
                 ${tokens.loaderSpinnerSize}: 1.375rem;
-            `,
-            xs: css`
-                ${tokens.rootMinWidth}: 6.875rem;
-                ${tokens.iconButtonHeight}: 2rem;
-                ${tokens.iconButtonWidth}: 2rem;
-                ${tokens.iconButtonPadding}: 0.75rem;
-                ${tokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.iconButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${tokens.iconButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.iconButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${tokens.iconButtonRadius}: 0.5rem;
-                ${tokens.iconButtonSegmentationRadius}: 0.125rem;
-
-                ${tokens.inputWrapperMargin}: 0 0.125rem;
-                ${tokens.inputWrapperBorderRadius}: 0.5rem;
-                ${tokens.textWrapperHeight}: 2rem;
-                ${tokens.textWrapperPadding}: 0.563rem 0.625rem;
-
-                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${tokens.textBeforeMarginRight}: 0.25rem;
-                ${tokens.textAfterMarginLeft}: 0.25rem;
-
-                ${tokens.loaderSpinnerSize}: 1rem;
             `,
         },
         shape: {

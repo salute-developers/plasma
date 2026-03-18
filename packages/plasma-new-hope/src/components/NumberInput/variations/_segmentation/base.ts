@@ -124,7 +124,7 @@ export const base = css`
         ${StyledSpinner} {
             ${spinnerTokens.color}: var(${tokens.loaderSpinnerColorSolid});
         }
-    
+
         ${Input} {
             caret-color: var(${tokens.caretColorSolid}, var(${tokens.caretColor}));
 
@@ -132,9 +132,77 @@ export const base = css`
                 color: var(${tokens.colorSolid});
             }
         }
-    
+
         ${AdditionalText} {
             color: var(${tokens.additionalTextColorSolid});
+        }
+    }
+
+    &.${classes.decrementHidden} {
+        ${StyledIconButton}.${classes.actionButtonDecrement} {
+            display: none;
+        }
+
+        ${InputWrapper} {
+            border-top-left-radius: var(${tokens.iconButtonRadius});
+            border-bottom-left-radius: var(${tokens.iconButtonRadius});
+        }
+
+        &.${classes.solidView} {
+            &:before {
+                left: 0;
+                transform: none;
+                width: calc(100% - var(${tokens.iconButtonWidth}));
+                box-shadow: var(${privateTokens.topBoxShadow}), var(${privateTokens.bottomBoxShadow}),
+                    var(${privateTokens.leftBoxShadow});
+                border-top-left-radius: var(${tokens.iconButtonRadius});
+                border-bottom-left-radius: var(${tokens.iconButtonRadius});
+            }
+        }
+    }
+
+    &.${classes.incrementHidden} {
+        ${StyledIconButton}.${classes.actionButtonIncrement} {
+            display: none;
+        }
+
+        ${InputWrapper} {
+            border-top-right-radius: var(${tokens.iconButtonRadius});
+            border-bottom-right-radius: var(${tokens.iconButtonRadius});
+        }
+
+        &.${classes.solidView} {
+            &:before {
+                left: var(${tokens.iconButtonWidth});
+                transform: none;
+                width: calc(100% - var(${tokens.iconButtonWidth}));
+                box-shadow: var(${privateTokens.topBoxShadow}), var(${privateTokens.bottomBoxShadow}),
+                    var(${privateTokens.rightBoxShadow});
+                border-top-right-radius: var(${tokens.iconButtonRadius});
+                border-bottom-right-radius: var(${tokens.iconButtonRadius});
+            }
+        }
+    }
+
+    &.${classes.onlyIncrementShown} {
+        ${StyledIconButton}.${classes.actionButtonIncrement} {
+            border-radius: var(${tokens.iconButtonRadius});
+            width: 100%;
+        }
+
+        &.${classes.solidView}:before {
+            display: none;
+        }
+    }
+
+    &.${classes.onlyDecrementShown} {
+        ${StyledIconButton}.${classes.actionButtonDecrement} {
+            border-radius: var(${tokens.iconButtonRadius});
+            width: 100%;
+        }
+
+        &.${classes.solidView}:before {
+            display: none;
         }
     }
 `;

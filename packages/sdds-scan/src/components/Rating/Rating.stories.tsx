@@ -7,7 +7,7 @@ import { ratingClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { Rating } from './Rating';
 
 const views = ['default', 'accent'];
-const sizes = ['l', 'm', 's', 'xs', 'xxs', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'displayL', 'displayM', 'displayS'];
+const sizes = ['m', 's'];
 const scorePrecision = [1, 2];
 const valuePlacements = ['before', 'after'];
 const iconsCount = [1, 5, 10];
@@ -81,7 +81,7 @@ type StoryPropsDefault = ComponentProps<typeof Rating> & {
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         view: 'default',
-        size: 'l',
+        size: 'm',
         hasValue: true,
         value: 3.8,
         precision: 1,
@@ -102,7 +102,7 @@ export const CustomIcons: StoryObj<StoryPropsDefault> = {
     },
     args: {
         view: 'default',
-        size: 'l',
+        size: 'm',
         hasValue: true,
         value: 3.8,
         precision: 1,

@@ -154,7 +154,8 @@
     "url-loader": "4.1.1",
     "vite": "5.4.21",
     "webpack": "5.104.1",
-    "webpack-dev-server": "5.2.3"
+    "webpack-dev-server": "5.2.3",
+    "zod": "4.3.6"
   },
   "dependencies": {
     "babel-plugin-annotate-pure-calls": "0.4.0",

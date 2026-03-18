@@ -41,48 +41,6 @@ export const config = {
             `,
         },
         size: {
-            l: css`
-                ${tokens.embedIconButtonHeight}: 2.5rem;
-                ${tokens.embedIconButtonWidth}: 2.5rem;
-                ${tokens.embedIconButtonPadding}: 0.5rem;
-                ${tokens.embedIconButtonRadius}: 0.625rem;
-
-                ${tokens.cellHeight}: 2.5rem;
-                ${tokens.cellTextboxGap}: 0.125rem;
-                ${tokens.cellGap}: 0.75rem;
-                ${tokens.cellPaddingRightContent}: 0.75rem;
-
-                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${tokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${tokens.progressBarCircularSize}: 36;
-                ${tokens.progressBarCircularHeight}: 2.25rem;
-                ${tokens.progressBarCircularWidth}: 2.25rem;
-
-                ${tokens.progressBarCircularStrokeWidth}: 0.125rem;
-                ${tokens.progressBarCircularStrokeSize}: 2;
-
-                ${tokens.progressTrackHeight}: 0.25rem;
-                ${tokens.progressTrackBorderRadius}: 0.125rem;
-                ${tokens.progressFilledHeight}: 0.25rem;
-                ${tokens.progressFilledBorderRadius}: 0.375rem;
-
-                ${tokens.progressLinearGap}: 0.5rem;
-
-                ${tokens.fileThumbSize}: 2.5rem;
-                ${tokens.fileThumbRadius}: 0.625rem;
-            `,
             m: css`
                 ${tokens.embedIconButtonHeight}: 2.5rem;
                 ${tokens.embedIconButtonWidth}: 2.5rem;
@@ -165,48 +123,6 @@ export const config = {
                 ${tokens.progressLinearGap}: 0.5rem;
 
                 ${tokens.fileThumbSize}: 2.25rem;
-                ${tokens.fileThumbRadius}: 0.625rem;
-            `,
-            xs: css`
-                ${tokens.embedIconButtonHeight}: 2rem;
-                ${tokens.embedIconButtonWidth}: 2rem;
-                ${tokens.embedIconButtonPadding}: 0.5rem;
-                ${tokens.embedIconButtonRadius}: 0.5rem;
-
-                ${tokens.cellHeight}: 2rem;
-                ${tokens.cellTextboxGap}: 0.125rem;
-                ${tokens.cellGap}: 0.375rem;
-                ${tokens.cellPaddingRightContent}: 0.375rem;
-
-                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${tokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${tokens.progressBarCircularSize}: 24;
-                ${tokens.progressBarCircularHeight}: 1.5rem;
-                ${tokens.progressBarCircularWidth}: 1.5rem;
-
-                ${tokens.progressBarCircularStrokeWidth}: 0.125rem;
-                ${tokens.progressBarCircularStrokeSize}: 2;
-
-                ${tokens.progressTrackHeight}: 0.25rem;
-                ${tokens.progressTrackBorderRadius}: 0.125rem;
-                ${tokens.progressFilledHeight}: 0.25rem;
-                ${tokens.progressFilledBorderRadius}: 0.375rem;
-
-                ${tokens.progressLinearGap}: 0.5rem;
-
-                ${tokens.fileThumbSize}: 1.75rem;
                 ${tokens.fileThumbRadius}: 0.625rem;
             `,
         },

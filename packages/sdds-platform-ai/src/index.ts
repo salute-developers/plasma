@@ -17,6 +17,7 @@ export * from './components/Loader';
 export * from './components/Note';
 export * from './components/Spinner';
 export * from './components/Typography';
+export * from './components/Rating';
 
 // components group Data Entry
 export * from './components/ButtonBase';
@@ -30,6 +31,7 @@ export * from './components/Radiobox';
 export * from './components/Segment';
 export * from './components/Switch';
 export * from './components/Slider';
+export * from './components/DateTimePicker';
 
 // components group Data Entry (upload)
 export * from './components/Attach';

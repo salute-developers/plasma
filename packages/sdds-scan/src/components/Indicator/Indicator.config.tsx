@@ -33,9 +33,6 @@ export const config = {
             `,
         },
         size: {
-            l: css`
-                ${tokens.size}: 0.75rem;
-            `,
             m: css`
                 ${tokens.size}: 0.5rem;
             `,

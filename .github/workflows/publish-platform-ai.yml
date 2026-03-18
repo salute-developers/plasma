@@ -1,0 +1,24 @@
+name: Release PLATFORM-AI next branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+          description: "Branch for next tag"
+          required: true
+          default: 'next-platform-ai'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    name: Release PLATFORM-AI next branch
+    if: github.ref == 'refs/heads/next-platform-ai'
+    uses: ./.github/workflows/publish-common.yml
+    with:
+      auto-options: '--no-changelog'
+    secrets:
+      gh_token: ${{ secrets.GH_TOKEN }}
+      npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}

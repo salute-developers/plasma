@@ -8,7 +8,7 @@ const stories = ['../src/**/*.stories.tsx', '../README.mdx'];
 const config: StorybookConfig = {
     staticDirs: ['public'],
     stories,
-    addons: ['@storybook/addon-essentials'],
+    addons: ['@storybook/addon-docs'],
     framework: {
         name: '@storybook/react-vite',
         options: {},
@@ -37,6 +37,18 @@ const config: StorybookConfig = {
                 sourcemap: false,
             },
             plugins: [
+                /* Plugin that fixes a bug in Storybook@10 - https://github.com/storybookjs/storybook/issues/21716 */
+                {
+                    name: 'fix-mdx-react-shim',
+                    enforce: 'pre',
+                    resolveId(source) {
+                        if (source.startsWith('file://') && source.includes('mdx-react-shim.js')) {
+                            // Convert file:///... path to normal filesystem path for Vite
+                            return new URL(source).pathname;
+                        }
+                        return null;
+                    },
+                },
                 linaria({
                     exclude: ['../../../'],
                     displayName: true,
