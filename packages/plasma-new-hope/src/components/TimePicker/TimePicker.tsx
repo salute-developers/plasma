@@ -1,16 +1,17 @@
 import React, { forwardRef, useRef, useState, useEffect } from 'react';
 import cls from 'classnames';
-import type { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
+import type { ChangeEvent, KeyboardEvent, MouseEvent, MutableRefObject, RefObject } from 'react';
 import type { RootProps } from 'src/engines';
-import { useForkRef } from 'src/hooks';
-import { getPlacements, getSizeValueFromProp } from 'src/utils';
+import { useForkRef, useOutsideClick } from 'src/hooks';
+import { getSizeValueFromProp } from 'src/utils';
 
 import type { TimePickerGridChangeEvent } from '../TimePickerGrid/TimePickerGrid.types';
 
 import { processTimeInput, delimiter } from './utils';
 import { TimePickerProps } from './TimePicker.types';
-import { base, StyledInput, StyledTimePickerGrid, StyledPopover } from './TimePicker.styles';
+import { base, StyledInput, StyledTimePickerGrid } from './TimePicker.styles';
 import { classes } from './TimePicker.tokens';
+import { FloatingPopover } from './FloatingPopover';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
@@ -36,6 +37,7 @@ export const timePickerRoot = (
                 value: outerValue,
                 label,
                 labelPlacement = 'outer',
+                placement = 'bottom',
                 keepPlaceholder,
                 required = false,
                 requiredPlacement = 'right',
@@ -53,6 +55,7 @@ export const timePickerRoot = (
                 usePortal = false,
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
+                disableFlip,
                 offset,
                 stretched,
                 dropdownAlign = 'left',
@@ -68,6 +71,7 @@ export const timePickerRoot = (
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
             const timeGridRootRef = useRef<HTMLDivElement | null>(null);
+            const floatingPopoverRef = useRef<HTMLDivElement | null>(null);
 
             const rootRef = useRef<HTMLDivElement | null>(null);
             const rootForkRef = useForkRef(rootRef, ref);
@@ -129,7 +133,7 @@ export const timePickerRoot = (
             }, [disabled, readonly]);
 
             useEffect(() => {
-                if (dropdownWidth === 'fullWidth' && rootRef.current) {
+                if (rootRef.current) {
                     const width = rootRef.current.offsetWidth;
                     setRootWidth(width);
                 }
@@ -149,6 +153,15 @@ export const timePickerRoot = (
 
                 onToggle?.(newState);
             };
+
+            useOutsideClick(() => {
+                if (!isInnerOpen || !closeOnOverlayClick) {
+                    return;
+                }
+
+                setIsInnerOpen(false);
+                onToggle?.(false);
+            }, [floatingPopoverRef, timeGridRootRef]);
 
             const handleOnChange = (event: TimePickerGridChangeEvent) => {
                 if (!event) {
@@ -215,7 +228,7 @@ export const timePickerRoot = (
                 }
             };
 
-            const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+            const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
                 onKeyDownNavigation(e);
                 handleKeyDown(e);
             };
@@ -243,40 +256,25 @@ export const timePickerRoot = (
                 onToggle: handleToggle,
             });
 
-            const TimePickerInput = (
-                <StyledInput
-                    ref={inputRef}
-                    value={viewValue}
-                    size={size}
-                    disabled={disabled}
-                    readOnly={readonly}
-                    placeholder={placeholder}
-                    contentLeft={contentLeft}
-                    contentRight={contentRight}
-                    textBefore={textBefore}
-                    textAfter={textAfter}
-                    onChange={handleInputChange}
-                    onFocus={onFocus}
-                    onKeyDown={handleOnKeyDown}
-                    required={required}
-                    requiredPlacement={requiredPlacement}
-                    hasRequiredIndicator={hasRequiredIndicator}
-                    label={label}
-                    labelPlacement={labelPlacement}
-                    keepPlaceholder={keepPlaceholder}
-                />
-            );
+            const getActualWidth = () => {
+                if (!rootWidth) {
+                    return 'fit-content';
+                }
 
-            const getDropdownWidth = () => {
                 if (dropdownWidthValue === 'fixed' || dropdownWidthValue === undefined) {
                     return undefined;
                 }
 
-                if (dropdownWidthValue === 'fullWidth' && rootWidth !== null) {
+                if (dropdownWidth === 'fullWidth') {
                     return `${rootWidth}px`;
                 }
 
-                return dropdownWidthValue;
+                if (String(dropdownWidth)?.includes('%') && typeof dropdownWidth === 'string') {
+                    const widthValue = (rootWidth / 100) * parseFloat(dropdownWidth.replace('%', ''));
+                    return `${widthValue}px`;
+                }
+
+                return String(dropdownWidth || 'fit-content');
             };
 
             return (
@@ -292,18 +290,40 @@ export const timePickerRoot = (
                     ref={rootForkRef}
                     {...rest}
                 >
-                    <StyledPopover
+                    <FloatingPopover
+                        ref={floatingPopoverRef}
                         opened={isInnerOpen}
-                        usePortal={usePortal}
-                        frame={frame}
                         onToggle={handleToggle}
                         offset={offset}
-                        placement={getPlacements(dropdownAlign === 'left' ? 'bottom-start' : 'bottom-end', false)}
-                        trigger="click"
-                        closeOnOverlayClick={closeOnOverlayClick}
-                        isFocusTrapped={false}
-                        target={TimePickerInput}
-                        preventOverflow={false}
+                        placement={placement}
+                        disableFlip={disableFlip}
+                        portal={
+                            usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined
+                        }
+                        target={(referenceRef) => (
+                            <StyledInput
+                                ref={inputRef}
+                                inputWrapperRef={referenceRef as MutableRefObject<HTMLDivElement>}
+                                value={viewValue}
+                                size={size}
+                                disabled={disabled}
+                                readOnly={readonly}
+                                placeholder={placeholder}
+                                contentLeft={contentLeft}
+                                contentRight={contentRight}
+                                textBefore={textBefore}
+                                textAfter={textAfter}
+                                onChange={handleInputChange}
+                                onFocus={onFocus}
+                                onKeyDown={handleOnKeyDown}
+                                required={required}
+                                requiredPlacement={requiredPlacement}
+                                hasRequiredIndicator={hasRequiredIndicator}
+                                label={label}
+                                labelPlacement={labelPlacement}
+                                keepPlaceholder={keepPlaceholder}
+                            />
+                        )}
                     >
                         <Root
                             ref={timeGridRootRef}
@@ -324,7 +344,7 @@ export const timePickerRoot = (
                                 size={size}
                                 format={format}
                                 columns={columnsQuantity}
-                                innerWidth={getDropdownWidth()}
+                                innerWidth={getActualWidth()}
                                 innerHeight={dropdownHeightValue}
                                 dropdownHeight="100%"
                                 dropdownWidth="fullWidth"
@@ -333,7 +353,7 @@ export const timePickerRoot = (
                                 disabled={disabled}
                             />
                         </Root>
-                    </StyledPopover>
+                    </FloatingPopover>
                 </Root>
             );
         },
