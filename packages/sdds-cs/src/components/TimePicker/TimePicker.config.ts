@@ -3,7 +3,7 @@ import { timePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/style
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 's',
     },
     variations: {
         view: {
@@ -67,6 +67,7 @@ export const config = {
         },
         size: {
             s: css`
+                ${tokens.width}: 17.625rem;
                 ${tokens.dropdownMarginTop}: 0.125rem;
 
                 ${tokens.labelOffset}: 0.5rem;
