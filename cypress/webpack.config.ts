@@ -27,8 +27,10 @@ Object.defineProperty(exports, "__esModule", {
 export const getWebpackConfig = () => {
     const babelOpts = { ...babelrc.env.cjs };
 
+    const browser = process.env.BROWSER || 'chromium';
     const cache = Boolean(process.env.WEBPACK_CACHE_ENABLED);
 
+    console.log('BROWSER', browser);
     console.log('WEBPACK_CACHE_ENABLED', cache);
 
     return {

@@ -10,6 +10,9 @@ declare global {
         interface Chainable {
             waitForResources(...resources: resourceOrOption[]): Chainable;
         }
+        interface Chainable {
+            pressKey(key: string, currentElem?: string): Chainable;
+        }
     }
 }
 
