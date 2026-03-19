@@ -39,6 +39,8 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
             className,
             singleLine = false,
             'aria-label': ariaLabelExternal,
+            onChange,
+            onClick,
             ...rest
         } = props;
 
@@ -50,6 +52,16 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                 inputRef.current.indeterminate = Boolean(indeterminate);
             }
         }, [inputRef, indeterminate]);
+
+        const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
+            if (indeterminate && !onChange) {
+                e.preventDefault();
+            }
+
+            if (onClick) {
+                onClick(e);
+            }
+        };
 
         const uniqId = safeUseId();
         const uniqLabelId = `label-${uniqId}`;
@@ -99,6 +111,8 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                     aria-label={ariaLabel}
                     aria-describedby={uniqDescriptionId}
                     tabIndex={canFocused}
+                    onChange={onChange}
+                    onClick={handleClick}
                 />
                 <StyledContentWrapper htmlFor={checkboxId} className={singleLineClass}>
                     <StyledTriggerWrapper>
