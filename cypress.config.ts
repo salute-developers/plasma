@@ -45,6 +45,7 @@ const getTestMatch = () => {
 };
 
 export default defineConfig({
+    experimentalWebKitSupport: true,
     component: {
         numTestsKeptInMemory: 5,
         specPattern: getTestMatch(),

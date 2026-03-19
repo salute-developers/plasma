@@ -4,7 +4,7 @@ import 'cypress-file-upload';
 const { name } = Cypress.spec;
 
 const componentName = name.split('.').at(0);
-const baseSnapsDir = `${Cypress.env('snapshotsDir')}`;
+const baseSnapsDir = `${Cypress.env('snapshotsDir')}${Cypress.browser.name}`;
 
 // const getSnapshotPath = () => {
 //     if (Cypress.env('hasSpecGroup')) {
