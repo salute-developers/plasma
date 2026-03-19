@@ -63,7 +63,7 @@ const findTestFiles = () => {
     foundTests = checkPackageForTestFiles(primaryPackageDir, components);
 
     // Проверяем наличие тест-файлов в основной директории  (plasma-new-hope)
-    if (!foundTests) {
+    if (!foundTests && `${prefix}-${scope}` !== 'plasma-ui') {
         const newHopeDir = join(process.cwd(), 'packages', 'plasma-new-hope', 'src', 'components');
         foundTests = checkPackageForTestFiles(newHopeDir, components);
     }
