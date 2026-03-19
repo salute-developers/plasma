@@ -37,7 +37,7 @@ export const timePickerRoot = (
                 value: outerValue,
                 label,
                 labelPlacement = 'outer',
-                placement = 'bottom',
+                placement = 'bottom-start',
                 keepPlaceholder,
                 required = false,
                 requiredPlacement = 'right',
