@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests } from '@salutejs/plasma-cy-utils';
 // @ts-ignore
-import { IconLocation } from 'override/_Icon';
+import { IconLocation, IconPlasma } from 'override/_Icon';
 
 import type { SelectProps } from './Select.types';
 
@@ -1796,6 +1796,384 @@ describeFn('Select', () => {
         );
         cy.get('#select').click();
         cy.contains('div', 'Южная Америка').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('Select: closeAfterSelect', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    label="Label"
+                    items={items}
+                    labelPlacement="inner"
+                    helperText="Helper text"
+                    contentLeft={<IconPlasma />}
+                    variant="normal"
+                    required
+                    hasRequiredIndicator
+                    requiredPlacement="left"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('Select: without closeAfterSelect', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="positive"
+                    target="textfield-like"
+                    label="Label"
+                    items={items}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="tight"
+                    optional
+                    closeAfterSelect={false}
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('Select: required=left, noLabel', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    target="textfield-like"
+                    label=""
+                    items={items}
+                    labelPlacement="inner"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    required
+                    hasRequiredIndicator
+                    requiredPlacement="left"
+                />
+            </>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('Select: optional, innerLabel', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    label="Label"
+                    items={items}
+                    labelPlacement="inner"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="tight"
+                    optional
+                />
+            </>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('Select: disabled', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    label="Label"
+                    items={items}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    disabled
+                />
+            </>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, chipView=default, chipType=default', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    target="textfield-like"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    chipView="default"
+                    chipType="default"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click({ force: true });
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, chipView=secondary, chipType=default', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    chipView="secondary"
+                    chipType="default"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, chipView=accent, chipType=default', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    chipView="accent"
+                    chipType="default"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, chipView=default, isTargetAmount', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    chipView="default"
+                    chipType="default"
+                    isTargetAmount
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, chipView=default, chipType=text', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    chipView="default"
+                    chipType="text"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, chipView=default, chipType=text, isTargetAmount', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    chipView="default"
+                    chipType="text"
+                    isTargetAmount
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, button-like', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    target="button-like"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, button-like, isTargetAmount', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    target="button-like"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    isTargetAmount
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, selectAllOptions', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    items={items}
+                    multiselect
+                    selectAllOptions={{
+                        label: 'Выбрать всё',
+                    }}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: selectAllSticky', () => {
+        cy.viewport(400, 300);
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    items={items}
+                    multiselect
+                    listMaxHeight="180px"
+                    selectAllOptions={{
+                        label: 'Выбрать всё',
+                        sticky: true,
+                    }}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('Азия').scrollIntoView();
+        cy.matchImageSnapshot();
+    });
+
+    it('Select: readOnly', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    label="Label"
+                    items={items}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    readOnly
+                />
+            </>,
+        );
         cy.matchImageSnapshot();
     });
 });
