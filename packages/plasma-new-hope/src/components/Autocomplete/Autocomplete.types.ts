@@ -109,6 +109,14 @@ export type AutocompleteProps<T extends SuggestionItemType = SuggestionItemType>
      * @default false
      */
     flip?: boolean;
+    /**
+     * ClassName для внешней обертки компонента.
+     */
+    rootClassName?: string;
+    /**
+     * Style для внешней обертки компонента.
+     */
+    rootStyle?: CSSProperties;
 
     /**
      * Размер контрола.
