@@ -8,13 +8,10 @@ var react_1 = __importDefault(require("react"));
 var styled_components_1 = require("styled-components");
 var plasma_themes_1 = require("@salutejs/plasma-themes");
 var sdds_themes_1 = require("@salutejs/sdds-themes");
-// plasma-web
-var typo_1 = require("@salutejs/plasma-tokens-web/typo");
-var themes_1 = require("@salutejs/plasma-tokens-web/themes");
 // plasma-ui
-var themes_2 = require("@salutejs/plasma-tokens/themes");
+var themes_1 = require("@salutejs/plasma-tokens/themes");
 // plasma-b2c
-var themes_3 = require("@salutejs/plasma-tokens-b2c/themes");
+var themes_2 = require("@salutejs/plasma-tokens-b2c/themes");
 var plasma_typo_1 = require("@salutejs/plasma-typo");
 var SSRProvider_1 = require("./SSRProvider");
 var NormalizeCSSDecorator_1 = require("./NormalizeCSSDecorator");
@@ -22,17 +19,16 @@ var NormalizeCSSDecorator_1 = require("./NormalizeCSSDecorator");
 var ThemeGIGA = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_giga__light);
 var ThemeCS = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_cs__light);
 var ThemeINSOL = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_insol__light);
-// TODO: better naming
-var TypoThemeStyle = (0, styled_components_1.createGlobalStyle)(typo_1.web);
-var WebLightThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_1.light);
+var ThemeWEB = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_web__light);
 var StandardTypoStyle = (0, styled_components_1.createGlobalStyle)(plasma_typo_1.standard);
 var CompatibleTypoStyle = (0, styled_components_1.createGlobalStyle)(plasma_typo_1.compatible);
-var ColorB2CStyle = (0, styled_components_1.createGlobalStyle)(themes_3.dark);
-var ThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_2.darkSber);
+var ColorB2CStyle = (0, styled_components_1.createGlobalStyle)(themes_2.dark);
+var ThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_1.darkSber);
 var testPackagesThemes = {
     'plasma-giga': react_1.default.createElement(ThemeGIGA, null),
     'sdds-cs': react_1.default.createElement(ThemeCS, null),
     'sdds-insol': react_1.default.createElement(ThemeINSOL, null),
+    'plasma-web': react_1.default.createElement(ThemeWEB, null),
 };
 var getPackage = function () {
     var pkgName = Cypress.env('package');
@@ -97,13 +93,6 @@ var CypressTestDecorator = function (_a) {
                 react_1.default.createElement(ThemeStyle, null),
                 children)));
     }
-    if (pkgName === 'plasma-web') {
-        return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
-            react_1.default.createElement(NormalizeCSSDecorator_1.NormalizeCSSDecorator, null),
-            react_1.default.createElement(TypoThemeStyle, null),
-            react_1.default.createElement(WebLightThemeStyle, null),
-            children));
-    }
     if (pkgName === 'plasma-b2c') {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
             react_1.default.createElement(NormalizeCSSDecorator_1.NormalizeCSSDecorator, null),
@@ -112,7 +101,7 @@ var CypressTestDecorator = function (_a) {
             react_1.default.createElement(ColorB2CStyle, null),
             children));
     }
-    if (['plasma-giga', 'sdds-cs', 'sdds-insol'].includes(pkgName)) {
+    if (['plasma-giga', 'sdds-cs', 'sdds-insol', 'plasma-web'].includes(pkgName)) {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
             react_1.default.createElement(NormalizeCSSDecorator_1.NormalizeCSSDecorator, null),
             testPackagesThemes[pkgName],
