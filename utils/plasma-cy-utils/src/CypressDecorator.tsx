@@ -1,11 +1,8 @@
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { plasma_giga__light } from '@salutejs/plasma-themes';
+import { plasma_giga__light, plasma_web__light } from '@salutejs/plasma-themes';
 import { sdds_cs__light, sdds_insol__light } from '@salutejs/sdds-themes';
-// plasma-web
-import { web } from '@salutejs/plasma-tokens-web/typo';
-import { light as webLight } from '@salutejs/plasma-tokens-web/themes';
 // plasma-ui
 import { darkSber } from '@salutejs/plasma-tokens/themes';
 // plasma-b2c
@@ -19,10 +16,7 @@ import { NormalizeCSSDecorator } from './NormalizeCSSDecorator';
 const ThemeGIGA = createGlobalStyle(plasma_giga__light);
 const ThemeCS = createGlobalStyle(sdds_cs__light);
 const ThemeINSOL = createGlobalStyle(sdds_insol__light);
-
-// TODO: better naming
-const TypoThemeStyle = createGlobalStyle(web);
-const WebLightThemeStyle = createGlobalStyle(webLight);
+const ThemeWEB = createGlobalStyle(plasma_web__light);
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
@@ -33,6 +27,7 @@ const testPackagesThemes = {
     'plasma-giga': <ThemeGIGA />,
     'sdds-cs': <ThemeCS />,
     'sdds-insol': <ThemeINSOL />,
+    'plasma-web': <ThemeWEB />,
 };
 
 const getPackage = function <T = PropsWithChildren<{}>>(): Record<string, React.FC<T> | undefined> {
@@ -111,17 +106,6 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
         );
     }
 
-    if (pkgName === 'plasma-web') {
-        return (
-            <SSRProvider noSSR={noSSR}>
-                <NormalizeCSSDecorator />
-                <TypoThemeStyle />
-                <WebLightThemeStyle />
-                {children}
-            </SSRProvider>
-        );
-    }
-
     if (pkgName === 'plasma-b2c') {
         return (
             <SSRProvider noSSR={noSSR}>
@@ -134,7 +118,7 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
         );
     }
 
-    if (['plasma-giga', 'sdds-cs', 'sdds-insol'].includes(pkgName)) {
+    if (['plasma-giga', 'sdds-cs', 'sdds-insol', 'plasma-web'].includes(pkgName)) {
         return (
             <SSRProvider noSSR={noSSR}>
                 <NormalizeCSSDecorator />
