@@ -6,4 +6,5 @@ export declare const getComponent: <T = {
 }>(componentName: string) => React.FC<T>;
 export declare const getDescribeFN: (component: string) => Mocha.PendingSuiteFunction;
 export declare const skipForPackages: (packages: string[]) => Mocha.PendingTestFunction;
+export declare const skipForBrowser: (browsers: string[], customIt: Mocha.TestFunction) => Mocha.PendingTestFunction;
 export declare const CypressTestDecorator: FC<PropsWithChildren<any>>;
