@@ -121,7 +121,8 @@ describe('plasma-web: List', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('ul').press('Tab').press('Tab').press('Tab');
+        cy.get('li').first().focus();
+        cy.pressKey('Tab').pressKey('Tab');
         cy.get('li').eq(2).should('not.be.focused');
 
         cy.matchImageSnapshot();
@@ -134,7 +135,7 @@ describe('plasma-web: List', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('ul').press('Tab');
+        cy.pressKey('Tab', 'ul');
         cy.get('li').first().should('not.be.focused');
 
         cy.matchImageSnapshot();

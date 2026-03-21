@@ -245,10 +245,6 @@ const itemsWithBeforeList = [
 ];
 
 describe('sdds-cs: Dropdown', () => {
-    beforeEach(() => {
-        cy.get('body').realMouseMove(0, 0);
-    });
-
     const Dropdown = getComponent('Dropdown') as typeof DropdownCS;
     const Button = getComponent('Button') as typeof ButtonCS;
 

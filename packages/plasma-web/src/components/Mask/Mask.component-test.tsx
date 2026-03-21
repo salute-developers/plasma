@@ -115,14 +115,19 @@ describe('plasma-web: Mask', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('input').realClick({ position: 'topLeft' }).type('06');
+        cy.get('input')
+            .click()
+            .then(($el) => {
+                $el[0].setSelectionRange(0, 0);
+            })
+            .trigger('selectionchange')
+            .type('06');
         cy.get('input').should('have.value', '06/__/____');
         cy.get('input').type('14');
         cy.get('input').should('have.value', '06/14/____');
         cy.get('input').type('{backspace}');
         cy.get('input').should('have.value', '06/1_/____');
         cy.get('input').type('42023');
-        cy.get('body').realHover({ position: 'topLeft' });
 
         cy.matchImageSnapshot();
     });

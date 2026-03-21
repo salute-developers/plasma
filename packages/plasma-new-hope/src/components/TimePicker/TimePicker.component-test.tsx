@@ -23,7 +23,7 @@ const itSkip = skipForPackages(['plasma-b2c', 'plasma-web']);
 
 const openTimePicker = () => {
     cy.viewport(580, 800);
-    cy.get('input').first().realClick();
+    cy.get('input').first().click();
 };
 
 getBaseVisualTests({

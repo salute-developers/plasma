@@ -36,6 +36,26 @@ addMatchImageSnapshotCommand({
 Cypress.Commands.overwrite('matchImageSnapshot', (originalFn, subject, options = {}) => {
     const sanitizedName = Cypress.currentTest.title.replace('/', 'backslash');
 
+    if (Cypress.browser.family === 'webkit') {
+        /**
+         * Исправление ошибки WebKit FOIT:
+         * текст становится невидимым до тех пор, пока не загрузятся пользовательские шрифты.
+         * fonts.ready резолвится слишком рано, потому что WebKit анализирует @font-face и
+         * заполняет document.fonts в рамках рендеринга, а не синхронно.
+         * 1. Ждем завершения рендеринга, чтобы document.fonts был полностью заполнен
+         */
+        cy.window().then((win) => new Cypress.Promise((resolve) => win.requestAnimationFrame(resolve)));
+
+        /**
+         * 2. Инициируем явный вызов load() для каждого объявленного шрифта
+         */
+        cy.document().then((doc) => {
+            const fontLoads: Promise<FontFace>[] = [];
+            doc.fonts.forEach((f) => fontLoads.push(f.load()));
+            return Promise.all([...fontLoads, doc.fonts.ready]);
+        });
+    }
+
     if (typeof options === 'string') {
         return originalFn(subject, options, { specFileRelativeToRoot: '' });
     }
@@ -177,5 +197,31 @@ Cypress.Commands.add('waitForFocusElement', { prevSubject: 'element' }, (subject
 
     if (specsUa === 'sberbox') {
         cy.wrap(subject, { timeout }).should('be.visible').should('be.focused');
+    }
+});
+
+/**
+ * Cross-browser key press: uses cy.realPress in Chromium, cy.trigger in WebKit
+ * (WebKit does not support Chrome DevTools Protocol required by cypress-real-events)
+ */
+declare global {
+    // eslint-disable-next-line @typescript-eslint/no-namespace
+    namespace Cypress {
+        interface Chainable {
+            pressKey(key: string): Chainable<void>;
+        }
+    }
+}
+
+Cypress.Commands.add('pressKey', (key: string, currentElem?: string) => {
+    if (Cypress.browser.family === 'webkit') {
+        if (currentElem) {
+            cy.get(currentElem).trigger('keydown', { key, code: key, bubbles: true, cancelable: true });
+            return;
+        }
+
+        cy.focused().trigger('keydown', { key, code: key, bubbles: true, cancelable: true });
+    } else {
+        cy.realPress(key as Parameters<Cypress.Chainable['realPress']>[0]);
     }
 });

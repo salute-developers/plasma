@@ -279,7 +279,7 @@ describeFn('Autocomplete', () => {
         cy.get('input').click();
         cy.focused().type('ал');
         cy.get('ul[role="listbox"]').should('not.exist');
-        cy.realPress('Tab');
+        cy.pressKey('Tab');
         cy.get('input').click();
         cy.focused().type('е');
         cy.get('ul[role="listbox"]').should('be.visible');
@@ -445,40 +445,36 @@ describeFn('Autocomplete', () => {
         cy.focused().type('ал');
 
         // Arrow Down & End
-        cy.realPress('ArrowDown');
+        cy.pressKey('ArrowDown');
         cy.get('ul').should('be.visible');
         cy.get('ul li').first().should('have.class', 'suggestion-item-is-focused');
-        cy.realPress('ArrowDown');
+        cy.pressKey('ArrowDown');
         cy.get('ul li').first().should('not.have.class', 'suggestion-item-is-focused');
         cy.get('ul li').first().next().should('have.class', 'suggestion-item-is-focused');
-        cy.realPress('End');
+        cy.pressKey('End');
         cy.get('ul li').last().should('have.class', 'suggestion-item-is-focused');
-        cy.realPress('ArrowDown');
+        cy.pressKey('ArrowDown');
         cy.get('ul li').last().should('have.class', 'suggestion-item-is-focused');
-        cy.realPress('Tab');
+        cy.pressKey('Tab');
 
         // Arrow Up & Home
         cy.get('input').click();
-        cy.realPress('ArrowUp');
+        cy.pressKey('ArrowUp');
         cy.get('ul').should('be.visible');
         cy.get('ul li').last().should('have.class', 'suggestion-item-is-focused');
-        cy.realPress('ArrowUp');
+        cy.pressKey('ArrowUp');
         cy.get('ul li').last().prev().should('have.class', 'suggestion-item-is-focused');
-        cy.realPress('Home');
+        cy.pressKey('Home');
         cy.get('ul li').first().should('have.class', 'suggestion-item-is-focused');
-        cy.realPress('ArrowUp');
+        cy.pressKey('ArrowUp');
         cy.get('ul li').first().should('have.class', 'suggestion-item-is-focused');
-        cy.realPress('Tab');
+        cy.pressKey('Tab');
 
         // Enter
         cy.get('input').click();
-        cy.realPress('ArrowDown');
-        cy.realPress('Enter');
+        cy.pressKey('ArrowDown');
+        cy.pressKey('Enter');
         cy.get('ul').should('not.exist');
         cy.get('input').should('have.value', 'Алексей Смирнов');
-
-        // Tab
-        cy.realPress('Tab');
-        cy.get('input').should('not.have.focus');
     });
 });

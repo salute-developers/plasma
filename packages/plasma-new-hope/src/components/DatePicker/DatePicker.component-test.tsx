@@ -22,7 +22,7 @@ const matchImageSnapshotWithTreshold = () =>
         failureThresholdType: 'percent',
     });
 
-const openDatePicker = () => cy.get('input').first().realClick();
+const openDatePicker = () => cy.get('input').first().click();
 
 getBaseVisualTests({
     component: 'DatePicker',
@@ -106,7 +106,7 @@ describeFn('DatePicker', () => {
     it('stretch', () => {
         mount(<Demo defaultDate={new Date(2023, 5, 14)} stretched />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
@@ -117,21 +117,21 @@ describeFn('DatePicker', () => {
             <Demo defaultDate={new Date(2023, 5, 14)} calendarContainerWidth="35rem" calendarContainerHeight="40rem" />,
         );
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
     it('defaultDate, enableContentLeft, enableContentRight', () => {
         mount(<Demo defaultDate={new Date(2023, 5, 14)} enableContentLeft enableContentRight />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
     it('renderFromDate', () => {
         mount(<Demo renderFromDate={new Date(2023, 5, 14)} />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
@@ -162,7 +162,7 @@ describeFn('DatePicker', () => {
             </>,
         );
 
-        cy.get('#demo input').realClick();
+        cy.get('#demo input').first().click();
         cy.matchImageSnapshot();
     });
 
@@ -269,7 +269,7 @@ describeFn('DatePicker', () => {
 
         cy.get('input').first().click().type('14.06.2023');
         cy.get('.popover-root').should('be.visible');
-        cy.realPress('Enter');
+        cy.pressKey('Enter');
 
         cy.matchImageSnapshot();
     });
@@ -555,14 +555,14 @@ describeFnRange('DatePickerRange', () => {
             </>,
         );
 
-        cy.get('#demo input').first().realClick();
+        cy.get('#demo input').first().click();
         matchImageSnapshotWithTreshold();
     });
 
     it('stretch', () => {
         mount(<Demo defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} stretched />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
@@ -578,7 +578,7 @@ describeFnRange('DatePickerRange', () => {
             />,
         );
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
@@ -595,14 +595,14 @@ describeFnRange('DatePickerRange', () => {
             />,
         );
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
     it('renderFromDate', () => {
         mount(<Demo renderFromDate={new Date(2023, 5, 14)} />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
@@ -651,7 +651,7 @@ describeFnRange('DatePickerRange', () => {
             </>,
         );
 
-        cy.get('#demo input').first().realClick();
+        cy.get('#demo input').first().click();
         cy.matchImageSnapshot();
     });
 
@@ -735,7 +735,7 @@ describeFnRange('DatePickerRange', () => {
         mount(<Demo enableContentRight />);
 
         cy.get('input').first().click().type('14.06.2023');
-        cy.realPress('Enter');
+        cy.pressKey('Enter');
         cy.focused().type('17.06.2023');
 
         cy.matchImageSnapshot();
@@ -745,9 +745,8 @@ describeFnRange('DatePickerRange', () => {
         mount(<Demo enableContentRight />);
 
         cy.get('input').first().click().type('14.06.2023');
-        cy.realPress('Enter');
+        cy.pressKey('Enter');
         cy.get('body').find('[data-day="17"]').first().click();
-        cy.realPress('Escape');
         cy.get('.input-wrapper input').last().click();
         cy.get('body').find('[data-day="27"]').first().click();
 
@@ -763,7 +762,7 @@ describeFnRange('DatePickerRange', () => {
         mount(<Demo isDoubleCalendar enableContentRight />);
 
         cy.get('input').first().click().type('14.06.2023');
-        cy.realPress('Enter');
+        cy.pressKey('Enter');
         cy.focused().type('17.07.2023');
 
         cy.matchImageSnapshot();
