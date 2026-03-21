@@ -559,13 +559,13 @@ describe('sdds-insol: Table', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('th').contains('Население').realHover();
-        cy.get('.resize-divider').trigger('mousedown');
+        cy.get('th').contains('Население').trigger('mouseover');
+        cy.get('.resize-divider').trigger('mousedown', { force: true });
         cy.get('.resize-divider').trigger('mouseup', 50, 0, { force: true });
 
         cy.matchImageSnapshot();
 
-        cy.get('body').realHover({ position: 'bottomRight' });
+        cy.get('body').trigger('mouseover', { position: 'bottomRight' });
     });
 
     it('feature: editing', () => {

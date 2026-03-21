@@ -241,9 +241,9 @@ describe('plasma-b2c: ModalBase', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('button').contains('Open modal A').type('{enter}');
-        cy.get('button').contains('Open modal B').type('{enter}');
-        cy.get('button').contains('Close B').type('{enter}');
+        cy.get('button').first().click();
+        cy.get('button').contains('Open modal B').click();
+        cy.get('button').contains('Close B').click();
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal B');
         });
@@ -254,7 +254,7 @@ describe('plasma-b2c: ModalBase', () => {
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal B');
         });
-        cy.get('button').contains('Close A').type('{enter}');
+        cy.get('button').contains('Close A').click();
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal A');
         });

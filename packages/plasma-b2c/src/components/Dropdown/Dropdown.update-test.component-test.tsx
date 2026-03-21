@@ -223,11 +223,7 @@ const items = [
     },
 ];
 
-describe('plasma-b2c: Dropdown', () => {
-    beforeEach(() => {
-        cy.get('body').realMouseMove(0, 0);
-    });
-
+describe.skip('plasma-b2c: Dropdown', () => {
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
 

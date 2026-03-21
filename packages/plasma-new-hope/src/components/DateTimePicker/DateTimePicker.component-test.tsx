@@ -11,7 +11,7 @@ const describeFn = getDescribeFN('DateTimePicker');
 
 const openDateTimePicker = () => {
     cy.viewport(750, 700);
-    cy.get('input').first().realClick();
+    cy.get('input').first().click();
 };
 
 getBaseVisualTests({
@@ -89,7 +89,7 @@ describeFn('DateTimePicker', () => {
             </>,
         );
 
-        cy.get('#demo').first().realClick();
+        cy.get('#demo').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -98,7 +98,7 @@ describeFn('DateTimePicker', () => {
         cy.viewport(750, 700);
         mount(<Demo defaultDate={new Date(2023, 5, 14, 0, 0, 0)} stretched />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -107,7 +107,7 @@ describeFn('DateTimePicker', () => {
         cy.viewport(750, 700);
         mount(<Demo defaultDate={new Date(2023, 5, 14)} enableContentLeft enableContentRight />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
@@ -115,7 +115,7 @@ describeFn('DateTimePicker', () => {
         cy.viewport(750, 700);
         mount(<Demo renderFromDate={new Date(2023, 5, 14, 0, 0, 0)} />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -148,7 +148,7 @@ describeFn('DateTimePicker', () => {
             </>,
         );
 
-        cy.get('#demo').realClick();
+        cy.get('#demo').click();
 
         cy.matchImageSnapshot();
     });
@@ -233,7 +233,7 @@ describeFn('DateTimePicker', () => {
             </>,
         );
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot({
             failureThreshold: 0.02,
             failureThresholdType: 'percent',
@@ -282,7 +282,7 @@ describeFn('DateTimePicker', () => {
 
         cy.get('input').first().click().type('14.06.2023');
         cy.get('.popover-root').should('be.visible');
-        cy.realPress('Enter');
+        cy.pressKey('Enter');
 
         cy.matchImageSnapshot();
     });

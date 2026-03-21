@@ -43,10 +43,6 @@ const customItems = [
 ];
 
 describe('plasma-giga: Breadcrumbs', () => {
-    beforeEach(() => {
-        cy.get('body').realMouseMove(0, 0);
-    });
-
     const Breadcrumbs = getComponent('Breadcrumbs') as typeof BreadcrumbsComponent;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
@@ -105,7 +101,7 @@ describe('plasma-giga: Breadcrumbs', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('span').contains('...').realHover();
+        cy.get('span').contains('...').trigger('mouseover');
 
         cy.matchImageSnapshot();
     });

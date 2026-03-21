@@ -62,7 +62,7 @@ describe('plasma-core: Switch', () => {
         );
 
         cy.matchImageSnapshot();
-        cy.get('#switch').realClick();
+        cy.get('#switch').click();
         cy.matchImageSnapshot('clicked');
     });
 
@@ -74,7 +74,7 @@ describe('plasma-core: Switch', () => {
         );
 
         cy.matchImageSnapshot();
-        cy.get('#switch').realMouseDown();
+        cy.get('#switch').click();
         cy.matchImageSnapshot('mouseDown_pressed');
     });
 });

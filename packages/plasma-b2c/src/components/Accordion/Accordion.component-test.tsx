@@ -29,6 +29,7 @@ describe('plasma-web: Accordion', () => {
                 </Accordion>
             </CypressTestDecoratorWithTypo>,
         );
+
         cy.matchImageSnapshot();
     });
 

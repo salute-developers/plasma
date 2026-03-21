@@ -134,6 +134,7 @@ describe('plasma-web: useFocusTrap', () => {
     });
 
     it('check blur and focus', () => {
+        cy.viewport(800, 500);
         mount(
             <CypressTestDecorator>
                 <ModalsProvider>
@@ -166,7 +167,7 @@ describe('plasma-web: useFocusTrap', () => {
         });
 
         // проверка элемента при закрытии
-        cy.get('button').contains('Close B').type('{enter}');
+        cy.get('button').contains('Close B').click();
         cy.focused().should(($p) => {
             expect($p).to.contain('Show buttons B');
         });

@@ -241,10 +241,6 @@ const itemsWithBeforeList = [
 ];
 
 describe('sdds-insol: Dropdown', () => {
-    beforeEach(() => {
-        cy.get('body').realMouseMove(0, 0);
-    });
-
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
 
