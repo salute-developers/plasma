@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CypressTestDecorator = exports.skipForPackages = exports.getDescribeFN = exports.getComponent = exports.hasComponent = void 0;
+exports.CypressTestDecorator = exports.skipForBrowser = exports.skipForPackages = exports.getDescribeFN = exports.getComponent = exports.hasComponent = void 0;
 var react_1 = __importDefault(require("react"));
 var styled_components_1 = require("styled-components");
 var plasma_themes_1 = require("@salutejs/plasma-themes");
@@ -79,6 +79,11 @@ var skipForPackages = function (packages) {
     return packages.includes(pkgName) ? it.skip : it;
 };
 exports.skipForPackages = skipForPackages;
+var skipForBrowser = function (browsers, customIt) {
+    var browserName = Cypress.browser.family;
+    return browsers.includes(browserName) ? it.skip : customIt;
+};
+exports.skipForBrowser = skipForBrowser;
 var CypressTestDecorator = function (_a) {
     var noSSR = _a.noSSR, children = _a.children;
     // eslint-disable-next-line @typescript-eslint/no-use-before-define

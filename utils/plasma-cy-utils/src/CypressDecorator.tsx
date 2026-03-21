@@ -85,6 +85,11 @@ export const skipForPackages = (packages: string[]) => {
     return packages.includes(pkgName) ? it.skip : it;
 };
 
+export const skipForBrowser = (browsers: string[], customIt: Mocha.TestFunction) => {
+    const browserName = Cypress.browser.family as string;
+    return browsers.includes(browserName) ? it.skip : customIt;
+};
+
 export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, children }) => {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const pkgName = Cypress.env('package') as string;
