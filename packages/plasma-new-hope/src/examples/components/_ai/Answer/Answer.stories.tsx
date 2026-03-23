@@ -33,48 +33,58 @@ const meta: Meta<StoryProps> = {
     },
     argTypes: {
         storyContainerWidth: {
+            description: 'Ширина контейнера стори (только для демонстрации)',
             control: { type: 'number' },
         },
         view: {
+            description: 'Вид компонента',
             options: views,
             control: { type: 'select' },
             table: { category: 'variation' },
         },
         size: {
+            description: 'Размер компонента',
             options: sizes,
             control: { type: 'select' },
             table: { category: 'variation' },
         },
         title: {
+            description: 'Заголовок ответа',
             control: 'text',
             table: { category: 'content-related' },
         },
         contentVariant: {
+            description: 'Вариант контента для демонстрации',
             options: contentVariants,
             control: { type: 'select' },
             table: { category: 'content-related' },
         },
         isLoading: {
+            description: 'Состояние загрузки',
             control: { type: 'boolean' },
             table: { category: 'loading-related' },
             if: { arg: 'isError', truthy: false },
         },
         loaderTitle: {
+            description: 'Заголовок при загрузке',
             control: 'text',
             table: { category: 'loading-related' },
             if: { arg: 'isError', truthy: false },
         },
         isError: {
+            description: 'Состояние ошибки',
             control: { type: 'boolean' },
             table: { category: 'error-related' },
             if: { arg: 'isLoading', truthy: false },
         },
         errorTitle: {
+            description: 'Заголовок при ошибке',
             control: 'text',
             table: { category: 'error-related' },
             if: { arg: 'isLoading', truthy: false },
         },
         errorDescription: {
+            description: 'Подпись при ошибке',
             control: 'text',
             table: { category: 'error-related' },
             if: { arg: 'isLoading', truthy: false },
@@ -275,7 +285,7 @@ const contentVariantMap = {
 const StoryDefault = ({ storyContainerWidth, contentVariant, ...args }: StoryProps) => {
     return (
         <div style={{ width: `${storyContainerWidth}px`, maxWidth: '100%' }}>
-            <Answer {...args} content={contentVariantMap[contentVariant]} footer={<Footer size={args.size} />} />
+            <Answer {...args} content={contentVariantMap[contentVariant]} footer={<Footer size={args.size ?? 'm'} />} />
         </div>
     );
 };
