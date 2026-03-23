@@ -1,0 +1,46 @@
+name: Deploy storybook build ai-components
+
+on:
+    workflow_dispatch:
+
+jobs:
+    deploy-artifacts:
+        name: Deploy storybook artifacts
+        runs-on: ubuntu-22.04
+        steps:
+            -   uses: actions/checkout@v4
+                with:
+                    ref: dev
+                    show-progress: false
+
+            -   name: Prepare environment
+                uses: ./.github/actions/prepare-environment
+
+            -   name: Lerna bootstrap
+                run: npx lerna bootstrap --scope="@salutejs/{plasma-icons,plasma-sb-utils,plasma-tokens,plasma-tokens-utils,core-themes,plasma-typo,plasma-new-hope,plasma-colors,plasma-themes}"
+
+            -   name: Prepare directory
+                run: mkdir -p s3_local_storybook_build
+
+            -   name: Build ai-components storybook
+                run: |
+                    npm run storybook:build:ai-components --prefix="./packages/plasma-new-hope"
+                    cp -R ./packages/plasma-new-hope/ai-components-build-sb ./s3_local_storybook_build/ai-components-storybook
+
+            -   name: Install s3cmd
+                run: pip3 install s3cmd
+
+            -   name: s3 upload ai-components storybook
+                run: >
+                    s3cmd
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    --host ${{ secrets.AWS_ENDPOINT }}
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }}
+                    --bucket-location ${{ secrets.AWS_REGION }}
+                    --signature-v2
+                    --delete-removed
+                    --no-mime-magic
+                    sync
+                    ./s3_local_storybook_build/ai-components-storybook/
+                    s3://${{ secrets.AWS_S3_BUCKET_2 }}/ai-components-storybook/
