@@ -9,9 +9,11 @@ const __dirname = dirname(__filename);
 
 const USE_STYLED_COMPONENTS = process.env.USE_STYLED_COMPONENTS || false;
 const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
+const USE_AI_COMPONENTS = process.env.USE_AI_COMPONENTS || false;
 
 const storyMap = {
     linaria: ['../src/**/*.stories.tsx'],
+    ai: ['../src/examples/components/_ai/**/*.stories.tsx'],
     'styled-components': ['../src-sc/**/*.stories.tsx'],
     emotion: ['../src-emotion/**/*.stories.tsx'],
 };
@@ -20,6 +22,8 @@ const stories = [];
 
 if (USE_STYLED_COMPONENTS) {
     stories.push(...storyMap['styled-components']);
+} else if (USE_AI_COMPONENTS) {
+    stories.push(...storyMap['ai']);
 } else if (USE_EMOTION_COMPONENTS) {
     stories.push(...storyMap['emotion']);
 } else {
