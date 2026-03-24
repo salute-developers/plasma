@@ -7,6 +7,13 @@ import type { SelectProps } from './Select.types';
 
 const componentExists = hasComponent('Select');
 const describeFn = getDescribeFN('Select');
+const openMultiSelect = () => {
+    cy.get('#select').click();
+    cy.contains('div', 'Северная Америка').click();
+    cy.contains('div', 'Южная Америка').click();
+    cy.get('#select [id$="south_america"] .checkbox-trigger').click({ force: true });
+    cy.matchImageSnapshot();
+};
 
 const items = [
     {
@@ -252,6 +259,26 @@ getBaseVisualTests({
     },
     configPropsForMatrix: ['view', 'size'],
     propsForName: ['target=button-like'],
+});
+
+const multiSelectComponentProps = {
+    items,
+    id: 'select',
+    label: 'Label',
+    multiselect: true,
+};
+
+getBaseVisualTests({
+    component: 'Select',
+    componentProps: {
+        ...multiSelectComponentProps,
+    },
+    excludePropsValues: {
+        view: ['accent', 'secondary', 'clear', 'dark', 'black', 'white'],
+    },
+    configPropsForMatrix: ['chipView'],
+    propsForName: ['multiselect'],
+    actionBeforeSnapshot: openMultiSelect,
 });
 
 describeFn('Select', () => {
@@ -1799,7 +1826,7 @@ describeFn('Select', () => {
         cy.matchImageSnapshot();
     });
 
-    it('Select: closeAfterSelect', () => {
+    it('closeAfterSelect', () => {
         mount(
             <>
                 <Select
@@ -1823,7 +1850,7 @@ describeFn('Select', () => {
         cy.matchImageSnapshot();
     });
 
-    it('Select: without closeAfterSelect', () => {
+    it('without closeAfterSelect', () => {
         mount(
             <>
                 <Select
@@ -1846,7 +1873,7 @@ describeFn('Select', () => {
         cy.matchImageSnapshot();
     });
 
-    it('Select: required=left, noLabel', () => {
+    it('required=left, noLabel', () => {
         mount(
             <>
                 <Select
@@ -1867,7 +1894,7 @@ describeFn('Select', () => {
         cy.matchImageSnapshot();
     });
 
-    it('Select: optional, innerLabel', () => {
+    it('optional, innerLabel', () => {
         mount(
             <>
                 <Select
@@ -1885,7 +1912,7 @@ describeFn('Select', () => {
         cy.matchImageSnapshot();
     });
 
-    it('Select: disabled', () => {
+    it('disabled', () => {
         mount(
             <>
                 <Select
@@ -1902,82 +1929,6 @@ describeFn('Select', () => {
                 />
             </>,
         );
-        cy.matchImageSnapshot();
-    });
-
-    it('MultiSelect: view=default, chipView=default, chipType=default', () => {
-        mount(
-            <>
-                <Select
-                    id="select"
-                    view="default"
-                    label="Label"
-                    target="textfield-like"
-                    items={items}
-                    multiselect
-                    labelPlacement="outer"
-                    placeholder="Placeholder"
-                    helperText="Helper text"
-                    variant="normal"
-                    chipView="default"
-                    chipType="default"
-                />
-            </>,
-        );
-        cy.get('#select').click();
-        cy.contains('div', 'Северная Америка').click();
-        cy.contains('div', 'Южная Америка').click();
-        cy.get('#select [id$="south_america"] .checkbox-trigger').click({ force: true });
-        cy.matchImageSnapshot();
-    });
-
-    it('MultiSelect: view=default, chipView=secondary, chipType=default', () => {
-        mount(
-            <>
-                <Select
-                    id="select"
-                    view="default"
-                    label="Label"
-                    items={items}
-                    multiselect
-                    labelPlacement="outer"
-                    placeholder="Placeholder"
-                    helperText="Helper text"
-                    variant="normal"
-                    chipView="secondary"
-                    chipType="default"
-                />
-            </>,
-        );
-        cy.get('#select').click();
-        cy.contains('div', 'Северная Америка').click();
-        cy.contains('div', 'Южная Америка').click();
-        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
-        cy.matchImageSnapshot();
-    });
-
-    it('MultiSelect: view=default, chipView=accent, chipType=default', () => {
-        mount(
-            <>
-                <Select
-                    id="select"
-                    view="default"
-                    label="Label"
-                    items={items}
-                    multiselect
-                    labelPlacement="outer"
-                    placeholder="Placeholder"
-                    helperText="Helper text"
-                    variant="normal"
-                    chipView="accent"
-                    chipType="default"
-                />
-            </>,
-        );
-        cy.get('#select').click();
-        cy.contains('div', 'Северная Америка').click();
-        cy.contains('div', 'Южная Америка').click();
-        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
         cy.matchImageSnapshot();
     });
 
@@ -2157,7 +2108,7 @@ describeFn('Select', () => {
         cy.matchImageSnapshot();
     });
 
-    it('Select: readOnly', () => {
+    it('readOnly', () => {
         mount(
             <>
                 <Select
