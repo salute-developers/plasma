@@ -1,7 +1,20 @@
 import { execSync } from 'child_process';
 import { readdirSync, statSync } from 'fs';
 import { join } from 'path';
-import { setOutput } from '@actions/core';
+import { getInput, setOutput } from '@actions/core';
+
+const FORCE_RUN_KEYWORD = '[run-all-cypress]';
+const FORCE_RUN_LABEL = 'run-all-cypress';
+
+const prTitle = getInput('pr-title') || '';
+const prLabels = getInput('pr-labels') || '';
+
+const isForceRun =
+    prTitle.includes(FORCE_RUN_KEYWORD) ||
+    prLabels
+        .split(',')
+        .map((l) => l.trim())
+        .includes(FORCE_RUN_LABEL);
 
 const CORE_DIR = './packages/plasma-new-hope/src/components';
 const BASE_REF = process.env.GITHUB_BASE_REF || 'dev';
@@ -137,6 +150,11 @@ const findDependentComponents = (changedComponents) => {
 
 // Основной метод
 const findComponentsToTest = () => {
+    if (isForceRun) {
+        console.log('🚀 Обнаружен флаг принудительного запуска. Запускаем все тесты.');
+        return { COMPONENTS: [], TEST_ALL: true };
+    }
+
     console.log('🔍 Поиск измененных компонентов...');
 
     const changedFiles = getChangedFiles();
@@ -169,6 +187,7 @@ try {
 
     // Устанавливаем выходные данные для GitHub Actions
     setOutput('components', result.COMPONENTS.join(','));
+    setOutput('test-all', String(Boolean(result.TEST_ALL)));
 } catch (error) {
     console.error('❌ Ошибка при поиске компонентов:', error);
     setOutput('components', '');

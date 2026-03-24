@@ -28,6 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       components: ${{ steps.find-components.outputs.components }}
+      test-all: ${{ steps.find-components.outputs.test-all }}
     steps:
       -   name: Checkout repository
           uses: actions/checkout@v4
@@ -48,6 +49,9 @@ jobs:
       - name: Find changed components
         id: find-components
         uses: ./.github/actions/find-changed-components
+        with:
+          pr-title: ${{ github.event.pull_request.title }}
+          pr-labels: ${{ join(github.event.pull_request.labels.*.name, ',') }}
 
   cypress_plasma:
     needs: [state, find_components]
@@ -59,12 +63,15 @@ jobs:
         # Важно что бы массив был со значениями, где `""` экранируются, например -> ["\"b2c\""]
         # Можно для этого использовать JSON.stringify()
         scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_PLASMA }}
+        browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
+      browser: ${{ matrix.browser }}
       components: ${{ needs.find_components.outputs.components }}
+      test-all: ${{ needs.find_components.outputs.test-all }}
     secrets: inherit
 
   cypress_sdds:
@@ -74,42 +81,13 @@ jobs:
       fail-fast: false
       matrix:
         scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_SDDS }}
+        browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
+      browser: ${{ matrix.browser }}
       components: ${{ needs.find_components.outputs.components }}
-    secrets: inherit
-
-  cypress_plasma_webkit:
-    needs: [state, find_components]
-    if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
-    strategy:
-      fail-fast: false
-      matrix:
-        scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_PLASMA }}
-
-    uses: ./.github/workflows/cypress-common.yml
-    with:
-      scope: ${{ matrix.scope }}
-      prefix: "plasma"
-      browser: "webkit"
-      components: ${{ needs.find_components.outputs.components }}
-    secrets: inherit
-
-  cypress_sdds_webkit:
-    needs: [state, find_components]
-    if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
-    strategy:
-      fail-fast: false
-      matrix:
-        scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_SDDS }}
-
-    uses: ./.github/workflows/cypress-common.yml
-    with:
-      scope: ${{ matrix.scope }}
-      prefix: "sdds"
-      browser: "webkit"
-      components: ${{ needs.find_components.outputs.components }}
+      test-all: ${{ needs.find_components.outputs.test-all }}
     secrets: inherit
