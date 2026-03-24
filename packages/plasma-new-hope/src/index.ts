@@ -92,6 +92,7 @@ export * from './components/Loader';
 export * from './components/File';
 export * from './components/TextFieldSlider';
 export * from './components/_ai/Input';
+export * from './components/_ai/Markdown';
 
 export * from './components/_beta/Popover';
 export * from './components/_beta/Tooltip';
