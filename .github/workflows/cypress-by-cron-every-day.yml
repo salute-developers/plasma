@@ -30,3 +30,31 @@ jobs:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
     secrets: inherit
+
+  cypress_plasma_webkit:
+    name: "Cypress webkit for plasma packages"
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [web,b2c,ui,giga]
+
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      prefix: "plasma"
+      browser: "webkit"
+    secrets: inherit
+
+  cypress_sdds_webkit:
+    name: "Cypress webkit for sdds packages"
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [cs,insol]
+
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      prefix: "sdds"
+      browser: "webkit"
+    secrets: inherit
