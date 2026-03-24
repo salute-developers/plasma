@@ -18,11 +18,13 @@ jobs:
       fail-fast: false
       matrix:
         scope: [web,b2c,ui,giga]
+        browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
+      browser: ${{ matrix.browser }}
       with-artifacts: true
     secrets: inherit
 
@@ -32,40 +34,12 @@ jobs:
       fail-fast: false
       matrix:
         scope: [cs,insol]
+        browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
-      with-artifacts: true
-    secrets: inherit
-
-  cypress_plasma_webkit:
-    if: ${{ startsWith(github.head_ref, 'release') }}
-    strategy:
-      fail-fast: false
-      matrix:
-        scope: [web,b2c,ui,giga]
-
-    uses: ./.github/workflows/cypress-common.yml
-    with:
-      scope: ${{ matrix.scope }}
-      prefix: "plasma"
-      browser: "webkit"
-      with-artifacts: true
-    secrets: inherit
-
-  cypress_sdds_webkit:
-    if: ${{ startsWith(github.head_ref, 'release') }}
-    strategy:
-      fail-fast: false
-      matrix:
-        scope: [cs,insol]
-
-    uses: ./.github/workflows/cypress-common.yml
-    with:
-      scope: ${{ matrix.scope }}
-      prefix: "sdds"
-      browser: "webkit"
+      browser: ${{ matrix.browser }}
       with-artifacts: true
     secrets: inherit

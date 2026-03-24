@@ -1,10 +1,19 @@
 name: 'Find Changed Components'
 description: 'Find changed components in PR'
+inputs:
+  pr-title:
+    description: 'PR title — checked for [run-all-cypress] keyword'
+    required: false
+    default: ''
+  pr-labels:
+    description: 'Comma-separated list of PR labels — checked for run-all-cypress label'
+    required: false
+    default: ''
 outputs:
   components:
     description: 'Comma-separated list of changed components'
   test-all:
-    description: 'Whether to run all tests'
+    description: 'Whether to run all tests (true when no changes detected or force-run flag is set)'
   changed-components:
     description: 'Array of directly changed components in JSON format'
 runs:

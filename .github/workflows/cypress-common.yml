@@ -24,6 +24,11 @@ on:
         required: false
         type: string
         default: ''
+      test-all:
+        description: 'When true, skip component filtering and run all components'
+        required: false
+        type: string
+        default: 'false'
 
 jobs:
   run:
@@ -35,7 +40,7 @@ jobs:
       COVERAGE: true
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: ./.github/actions/prepare-environment
 
@@ -48,13 +53,13 @@ jobs:
           fi
 
       - name: Install dependencies for check-test-files-exist
-        if: ${{ inputs.components }}
+        if: ${{ inputs.components && inputs.test-all != 'true' }}
         run: |
             cd .github/actions/check-test-files-exist
             npm ci
 
       - name: Check test files exist
-        if: ${{ inputs.components }}
+        if: ${{ inputs.components && inputs.test-all != 'true' }}
         id: check-test-files-exist
         uses: ./.github/actions/check-test-files-exist
         with:
@@ -63,7 +68,7 @@ jobs:
           components: ${{ inputs.components }}
 
       - name: Lerna bootstrap
-        if: ${{ (inputs.components == '' || steps.check-test-files-exist.outputs.tests-exist == 'true') }}
+        if: ${{ (inputs.test-all == 'true' || steps.check-test-files-exist.outputs.tests-exist == 'true') }}
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 45
@@ -80,7 +85,10 @@ jobs:
         if: ${{ success() }}
         run: |
           BROWSER_SUFFIX="${{ inputs.browser != '' && format(':{0}', inputs.browser) || '' }}"
-          if [ -n "${{ inputs.components }}" ] && [ "${{ steps.check-test-files-exist.outputs.tests-exist }}" = "true" ]; then
+          if [ "${{ inputs.test-all }}" = "true" ]; then
+            echo "Force run: running all components"
+            npm run cy:${{ inputs.scope }}:run${BROWSER_SUFFIX} --webpack_cache_enabled=true
+          elif [ -n "${{ inputs.components }}" ] && [ "${{ steps.check-test-files-exist.outputs.tests-exist }}" = "true" ]; then
             echo "Running Cypress for specific components: ${{ inputs.components }}"
             npm run cy:${{ inputs.scope }}:run${BROWSER_SUFFIX} --components="${{ inputs.components }}" --webpack_cache_enabled=true
           elif [ -z "${{ inputs.components }}" ]; then
