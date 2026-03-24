@@ -19,6 +19,11 @@ on:
         required: false
         type: string
         default: ''
+      browser:
+        description: 'Browser to run tests (leave empty for default chromium, or "webkit")'
+        required: false
+        type: string
+        default: ''
 
 jobs:
   run:
@@ -74,12 +79,13 @@ jobs:
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
         run: |
+          BROWSER_SUFFIX="${{ inputs.browser != '' && format(':{0}', inputs.browser) || '' }}"
           if [ -n "${{ inputs.components }}" ] && [ "${{ steps.check-test-files-exist.outputs.tests-exist }}" = "true" ]; then
             echo "Running Cypress for specific components: ${{ inputs.components }}"
-            npm run cy:${{ inputs.scope }}:run --components="${{ inputs.components }}" --webpack_cache_enabled=true
+            npm run cy:${{ inputs.scope }}:run${BROWSER_SUFFIX} --components="${{ inputs.components }}" --webpack_cache_enabled=true
           elif [ -z "${{ inputs.components }}" ]; then
             echo "Running Cypress for all components"
-            npm run cy:${{ inputs.scope }}:run --webpack_cache_enabled=true
+            npm run cy:${{ inputs.scope }}:run${BROWSER_SUFFIX} --webpack_cache_enabled=true
           else
               echo "Skipping Cypress: No test files found for specified components"
           fi
@@ -110,6 +116,6 @@ jobs:
         if: ${{ failure() || inputs.with-artifacts }}
         uses: actions/upload-artifact@v4
         with:
-          name: Failures_Tests_Artifact_${{ inputs.scope }}_
+          name: Failures_Tests_Artifact_${{ inputs.scope }}${{ inputs.browser != '' && format('_{0}', inputs.browser) || '' }}_
           path: /tmp/artifacts/
           overwrite: true

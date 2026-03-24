@@ -81,3 +81,35 @@ jobs:
       prefix: "sdds"
       components: ${{ needs.find_components.outputs.components }}
     secrets: inherit
+
+  cypress_plasma_webkit:
+    needs: [state, find_components]
+    if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_PLASMA }}
+
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      prefix: "plasma"
+      browser: "webkit"
+      components: ${{ needs.find_components.outputs.components }}
+    secrets: inherit
+
+  cypress_sdds_webkit:
+    needs: [state, find_components]
+    if: ${{ fromJSON(needs.state.outputs.STATE).HAS_PACKAGES_CYPRESS_RUN }}
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_SDDS }}
+
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      prefix: "sdds"
+      browser: "webkit"
+      components: ${{ needs.find_components.outputs.components }}
+    secrets: inherit
