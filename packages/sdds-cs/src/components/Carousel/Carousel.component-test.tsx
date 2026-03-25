@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CypressTestDecorator, getComponent, mount } from '@salutejs/plasma-cy-utils';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const StyledCard = styled.div`
     display: flex;

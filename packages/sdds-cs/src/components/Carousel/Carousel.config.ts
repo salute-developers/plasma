@@ -1,4 +1,4 @@
-import { css, carouselNewTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css, carouselNewTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

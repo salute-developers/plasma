@@ -1,4 +1,4 @@
-import { timePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
+import { timePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

@@ -4,7 +4,7 @@ import {
     verticalTabItemConfig,
     component,
     mergeConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 
 import { config as horizontalConfig } from './horizontal/HorizontalTabItem.config';
 import { config as verticalConfig } from './vertical/VerticalTabItem.config';

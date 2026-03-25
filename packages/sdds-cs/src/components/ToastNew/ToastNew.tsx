@@ -4,7 +4,7 @@ import {
     showToast as showToastOriginal,
     ShowToastPlasmaOptions,
     toastContainerConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 import { ComponentProps } from 'react';
 
 import { config } from './ToastNew.config';

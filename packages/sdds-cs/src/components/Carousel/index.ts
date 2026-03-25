@@ -1,2 +1,2 @@
-export { CarouselItem } from '@salutejs/plasma-new-hope/styled-components';
+export { CarouselItem } from '@salutejs/plasma-new-hope/emotion';
 export { Carousel } from './Carousel';

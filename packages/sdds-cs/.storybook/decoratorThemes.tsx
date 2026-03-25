@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react-vite';
-import { createGlobalStyle } from 'styled-components';
+import { Global, css } from '@emotion/react';
 import { sdds_cs__light } from '@salutejs/sdds-themes';
 
 // import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
 
-const DocumentStyle = createGlobalStyle`
+const documentCss = css`
     html:root {
         min-height: 100vh;
         background-color: var(--surface-solid-card);
@@ -31,7 +31,7 @@ export const DEFAULT_MODE = 'default';
 export const ON_LIGHT_MODE = 'onLight';
 
 const themes = {
-    [SDDS_CS_LIGHT_THEME]: createGlobalStyle(sdds_cs__light),
+    [SDDS_CS_LIGHT_THEME]: css(sdds_cs__light),
 };
 
 type ViewType = {
@@ -59,12 +59,11 @@ export const withTheme: Decorator = (Story, context) => {
     const theme = context.globals.theme;
     // const viewContainerType = viewMap[context.globals.viewContainer];
 
-    const Theme = themes[theme];
-
     return (
         <div>
-            <Theme />
-            <DocumentStyle />
+            <Global styles={themes[theme]} />
+            <Global styles={documentCss} />
+
             <Story {...context} />
         </div>
     );

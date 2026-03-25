@@ -1,4 +1,4 @@
-import { timePickerConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { timePickerConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './TimePicker.config';
 

@@ -5,7 +5,7 @@ import {
     textSkeleton,
     RectSkeleton,
     withSkeleton,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 
 import { config as lineSkeletonCustomConfig } from './LineSkeleton.config';
 

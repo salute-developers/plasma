@@ -1,4 +1,4 @@
-import { css } from '@salutejs/plasma-new-hope/styled-components';
+import { css } from '@salutejs/plasma-new-hope/emotion';
 import { viewContainer } from '@salutejs/sdds-themes/tokens/sdds_cs';
 
 export const config = {

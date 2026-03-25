@@ -2,7 +2,7 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getSegmentStories } from '@salutejs/plasma-sb-utils';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { Counter } from '../Counter/Counter';

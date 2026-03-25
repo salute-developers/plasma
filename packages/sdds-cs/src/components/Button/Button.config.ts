@@ -1,4 +1,4 @@
-import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css, buttonTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

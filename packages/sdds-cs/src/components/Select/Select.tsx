@@ -1,4 +1,4 @@
-import { selectConfig, component, mergeConfig, fixedForwardRef } from '@salutejs/plasma-new-hope/styled-components';
+import { selectConfig, component, mergeConfig, fixedForwardRef } from '@salutejs/plasma-new-hope/emotion';
 import type {
     SelectProps as SelectPropsNewHope,
     ItemOptionSelect,

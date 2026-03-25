@@ -1,5 +1,5 @@
 import type { ComponentProps, ForwardRefExoticComponent } from 'react';
-import { composeNumberFormat } from '@salutejs/plasma-new-hope/styled-components';
+import { composeNumberFormat } from '@salutejs/plasma-new-hope/emotion';
 import type { CustomNumberFormatProps } from '@salutejs/plasma-new-hope';
 
 import { TextField } from '../TextField/TextField';
