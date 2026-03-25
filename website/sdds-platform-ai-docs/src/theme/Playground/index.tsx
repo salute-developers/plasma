@@ -5,7 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { usePrismTheme, useColorMode } from '@docusaurus/theme-common';
 import { PlaygroundPreview } from '@salutejs/plasma-docs-ui';
-import { sdds_serv__dark, sdds_serv__light } from '@salutejs/sdds-themes';
+import { sdds_platform_ai__dark, sdds_platform_ai__light } from '@salutejs/sdds-themes';
 import { standard } from '@salutejs/plasma-typo';
 import Translate from '@docusaurus/Translate';
 import clsx from 'clsx';
@@ -15,8 +15,8 @@ import { CodeSandbox } from '../../components';
 import styles from './styles.module.css';
 
 // Именно в этом файле подключаются/управляются темы/токены
-const LightTheme = createGlobalStyle(sdds_serv__light);
-const DarkTheme = createGlobalStyle(sdds_serv__dark);
+const LightTheme = createGlobalStyle(sdds_platform_ai__light);
+const DarkTheme = createGlobalStyle(sdds_platform_ai__dark);
 
 const StyledWrap = styled.div`
     width: fit-content;

@@ -19,12 +19,12 @@ const sberdevicesDependencies = Object.entries(packageJson.dependencies)
 const indexSource = `import React from "react";
 import ReactDOM from "react-dom";
 import styled, { createGlobalStyle } from "styled-components";
-import { sdds_serv__light } from "@salutejs/sdds-themes";
+import { sdds_platform_ai__light } from "@salutejs/sdds-themes";
 
 import { App } from "./App";
 import "./style.css";
 
-const Theme = createGlobalStyle(sdds_serv__light);
+const Theme = createGlobalStyle(sdds_platform_ai__light);
 
 const StyledPreview = styled.div\`
     padding: 1rem; 
@@ -55,7 +55,7 @@ export const CodeSandbox: FC<{ source: string }> = ({ source }) => {
                     <StyledText>Open in CodeSandbox</StyledText>
                 </>
             }
-            sandboxName="plasma-web-example"
+            sandboxName="sdds-platform-ai-example"
             dependencies={sberdevicesDependencies}
             indexSource={indexSource}
         />

@@ -30,10 +30,10 @@ import { Button } from '@salutejs/sdds-platform-ai';
 
 ```tsx
 import type { AppProps } from "next/app";
-import { sdds_serv__light } from '@salutejs/sdds-themes';
+import { sdds_platform_ai__light } from '@salutejs/sdds-themes';
 import { createGlobalStyle } from "styled-components";
 
-const PlasmaTheme = createGlobalStyle(sdds_serv__light);
+const PlasmaTheme = createGlobalStyle(sdds_platform_ai__light);
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -50,7 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ```tsx
 import type { AppProps } from "next/app";
-import '@salutejs/sdds-themes/css/sdds_serv__dark.css';
+import '@salutejs/sdds-themes/css/sdds_platform_ai__dark.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
