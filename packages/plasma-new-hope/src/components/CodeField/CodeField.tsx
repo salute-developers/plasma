@@ -151,6 +151,29 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 }
 
                 const rawSymbol = event.currentTarget.value;
+
+                // На мобильных устройствах вставка вызывает onChange по 1 символу
+                if (rawSymbol.length > 1) {
+                    const newCode = [...code];
+                    const pastedData = (fieldPattern
+                        ? rawSymbol
+                              .split('')
+                              .map((symb) => symb.match(fieldPattern)?.[0] || '')
+                              .filter(Boolean)
+                        : rawSymbol.split('')
+                    ).slice(0, codeLength - index);
+
+                    pastedData.forEach((element, i) => {
+                        newCode[index + i] = element;
+                    });
+
+                    const activeIndex = Math.min(index + pastedData.length, codeLength - 1);
+                    inputRefs.current[activeIndex]?.focus();
+                    codeSetter(newCode);
+
+                    return;
+                }
+
                 const symbol = rawSymbol.charAt(rawSymbol.length - 1);
                 const newCode = [...code];
 
@@ -292,7 +315,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                             {[...Array(parts)].map((_, partIndex) => (
                                 <Fragment key={partIndex}>
                                     <CodeGroup role="group">
-                                        {[...Array(codeLength / parts)].map((_, i) => {
+                                        {[...Array(codeLength / parts)].map((_item, i) => {
                                             const inputCorrectIndex = i + (codeLength / parts) * partIndex;
 
                                             return (
