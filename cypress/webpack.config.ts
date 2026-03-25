@@ -25,7 +25,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 export const getWebpackConfig = () => {
-    const babelOpts = { ...babelrc.env.cjs };
+    const babelOpts = { ...babelrc.env.cjs, plugins: ['@emotion/babel-plugin'] };
 
     const browser = process.env.BROWSER || 'chromium';
     const cache = Boolean(process.env.WEBPACK_CACHE_ENABLED);

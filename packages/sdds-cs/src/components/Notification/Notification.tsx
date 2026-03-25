@@ -6,7 +6,7 @@ import {
     NotificationsProvider as Provider,
     component,
     mergeConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Notification.config';
 

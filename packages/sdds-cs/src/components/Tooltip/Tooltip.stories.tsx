@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { IconPlasma } from '@salutejs/plasma-icons';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';

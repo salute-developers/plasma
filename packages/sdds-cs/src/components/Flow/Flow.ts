@@ -1,4 +1,4 @@
-import { flowConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { flowConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Flow.config';
 

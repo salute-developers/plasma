@@ -1,4 +1,4 @@
-import { priceConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { priceConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Price.config';
 

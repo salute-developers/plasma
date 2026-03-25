@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from '@emotion/styled';
+import { Global, css } from '@emotion/react';
 import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 
@@ -7,12 +8,16 @@ import { Button as ButtonCS } from '../Button';
 
 import { NotificationsProvider as NotificationsProviderCS } from '.';
 
-const NoAnimationStyle = createGlobalStyle`
-    /* stylelint-disable-next-line selector-max-id, selector-max-universal */
-    * {
-        animation-duration: 0 !important;
-    }
-`;
+const NoAnimationStyle = () => (
+    <Global
+        styles={css`
+            /* stylelint-disable-next-line selector-max-id, selector-max-universal */
+            * {
+                animation-duration: 0s !important;
+            }
+        `}
+    />
+);
 
 const ButtonsWrapper = styled.div`
     display: flex;

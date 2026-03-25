@@ -1,4 +1,4 @@
-import { css, gridTokens, getBaseGridView } from '@salutejs/plasma-new-hope/styled-components';
+import { css, gridTokens, getBaseGridView } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

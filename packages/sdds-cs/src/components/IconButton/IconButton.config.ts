@@ -1,4 +1,4 @@
-import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {
@@ -18,12 +18,12 @@ export const config = {
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-accent);
                 ${iconButtonTokens.iconButtonColorHover}: var(--text-accent-minor);
-                
+
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-secondary);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-secondary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-secondary-active);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                
+
                 ${iconButtonTokens.iconButtonColorActive}: var(--text-accent-active);
             `,
             clear: css`

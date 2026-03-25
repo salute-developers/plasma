@@ -1,10 +1,5 @@
 import React, { ComponentProps } from 'react';
-import {
-    horizontalTabsConfig,
-    verticalTabsConfig,
-    component,
-    mergeConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+import { horizontalTabsConfig, verticalTabsConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config as horizontalConfig } from './horizontal/HorizontalTabs.config';
 import { config as verticalConfig } from './vertical/VerticalTabs.config';

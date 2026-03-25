@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { Flow } from './Flow';
 

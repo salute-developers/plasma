@@ -1,12 +1,6 @@
 import React, { ComponentProps, useCallback, MouseEvent, forwardRef } from 'react';
-import {
-    buttonConfig,
-    component,
-    mergeConfig,
-    buttonClasses,
-    buttonTokens,
-} from '@salutejs/plasma-new-hope/styled-components';
-import styled from 'styled-components';
+import { buttonConfig, component, mergeConfig, buttonClasses, buttonTokens } from '@salutejs/plasma-new-hope/emotion';
+import styled from '@emotion/styled';
 
 import { config } from './Button.config';
 
@@ -39,6 +33,7 @@ export const Button = forwardRef<Omit<HTMLButtonElement, 'value'>, ButtonProps>(
             [isLoading, onClick],
         );
 
+        // @ts-ignore
         return <StyledButton value={value} ref={ref} onClick={handleClick} isLoading={isLoading} {...props} />;
     },
 );

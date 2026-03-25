@@ -1,4 +1,4 @@
-import { modalConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { modalConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 
 import { config } from './Modal.config';

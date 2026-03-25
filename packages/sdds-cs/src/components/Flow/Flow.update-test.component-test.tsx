@@ -1,6 +1,6 @@
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { Flow as FlowCS } from '.';
 

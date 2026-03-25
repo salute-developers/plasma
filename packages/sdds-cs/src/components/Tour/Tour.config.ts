@@ -1,4 +1,4 @@
-import { tourTokens, css } from '@salutejs/plasma-new-hope/styled-components';
+import { tourTokens, css } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

@@ -1,4 +1,4 @@
-import { tourConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { tourConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Tour.config';
 
