@@ -1,0 +1,58 @@
+---
+id: dropzone
+title: Dropzone
+---
+
+import { PropsTable } from '@site/src/components';
+
+# Dropzone
+Компонент для загрузки файлов, без отображения индикации загрузки.
+
+Компонент не предполагает наличия валидации. Эту логику можно задать с помощью callback `validator`.
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { Dropzone } from '@salutejs/sdds-finai';
+
+export function App() {
+    const onDragEnter = () => {
+        console.log("onDragEnter")
+    }
+
+    const onDragLeave = () => {
+        console.log("onDragLeave")
+    }
+
+    const onDrop = () => {
+        console.log("onDrop")
+    }
+
+    const onChange = () => {
+        console.log("onChange")
+    }
+
+    const onChoseFiles = () => {
+        console.log("onChoseFiles")
+    }
+
+    return (
+        <Dropzone
+            iconPlacement="top"
+            width="240"
+            title="Click to upload"
+            description="or drag and drop files here"
+            onDragEnter={onDragEnter}
+            onDragLeave={onDragLeave}
+            onDrop={onDrop}
+            onChange={onChange}
+            onChoseFiles={onChoseFiles}
+        />
+    );
+}
+```
+
+## API
+
+<PropsTable name="Dropzone"  exclude={['css']} />
