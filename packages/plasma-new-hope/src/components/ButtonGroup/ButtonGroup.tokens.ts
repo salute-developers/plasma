@@ -4,8 +4,8 @@ export const classes = {
 
     buttonGroupOverrideStyles: 'button-group-override-styles',
 
-    horizontal: 'button-group-orienation-horizontal',
-    vertical: 'button-group-orienation-vertical',
+    horizontal: 'button-group-orientation-horizontal',
+    vertical: 'button-group-orientation-vertical',
 
     none: 'button-group-gap-none',
     dense: 'button-group-gap-dense',
@@ -48,4 +48,8 @@ export const tokens = {
     buttonFontWeight: '--plasma-button-group-item-font-weight',
     buttonLetterSpacing: '--plasma-button-group-item-letter-spacing',
     buttonLineHeight: '--plasma-button-group-item-line-height',
+
+    buttonBorderColor: '--plasma-button-group-item-border-color',
+    buttonBorderColorHover: '--plasma-button-group-item-border-color-hover',
+    buttonBorderColorActive: '--plasma-button-group-item-border-color-active',
 };
