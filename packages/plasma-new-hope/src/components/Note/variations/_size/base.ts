@@ -37,11 +37,12 @@ export const base = css`
     ${ContentWrapper} {
         width: var(${privateTokens.contentWidthWithOffset});
         gap: var(${tokens.contentGap});
+        min-height: var(${tokens.fixedContentBeforeHeight});
     }
 
     ${Title}, ${TitleHelper} {
         width: 100%;
-        min-height: var(${tokens.titleLineHeight});
+        min-height: var(${tokens.fixedContentBeforeHeight});
 
         font-family: var(${tokens.titleFontFamily});
         font-size: var(${tokens.titleFontSize});
@@ -52,6 +53,7 @@ export const base = css`
     }
 
     ${Text}, ${TextHelper} {
+        min-height: var(${tokens.fixedContentBeforeHeight});
         font-family: var(${tokens.textFontFamily});
         font-size: var(${tokens.textFontSize});
         font-style: var(${tokens.textFontStyle});

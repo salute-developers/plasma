@@ -28,6 +28,8 @@ export const ContentWrapper = styled.div`
 export const Title = styled.div<{ hasClose?: boolean }>`
     padding-right: ${({ hasClose }) => (hasClose ? `var(${tokens.titlePaddingRight})` : 0)};
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
 `;
 
 export const TitleHelper = styled.div`
@@ -35,13 +37,18 @@ export const TitleHelper = styled.div`
     position: absolute;
     z-index: -9999;
     opacity: 0;
+    top: 0;
+    left: 0;
 `;
 
 export const Text = styled.span`
-    display: block;
+    display: flex;
+    align-items: center;
     position: relative;
 `;
 export const TextHelper = styled.span`
+    display: flex;
+    align-items: center;
     visibility: hidden;
     position: absolute;
     z-index: -9999;

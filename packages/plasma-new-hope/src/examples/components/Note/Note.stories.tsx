@@ -76,6 +76,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         size: 'l',
         isHeight: false,
         width: 400,
+        height: 400,
         stretch: false,
         title: 'Title',
         text: 'Text',
@@ -84,7 +85,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         hasClose: true,
     },
     render: ({ enableContentBefore, ...args }) => (
-        <div style={{ height: '100vh' }}>
+        <div style={{ height: 'calc(100vh - 2rem)' }}>
             <Note
                 contentBefore={
                     enableContentBefore && (
