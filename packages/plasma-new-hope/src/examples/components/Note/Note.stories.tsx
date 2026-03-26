@@ -1,102 +1,22 @@
-import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-
-import { WithTheme } from '../../_helpers';
-import { IconSaluteOutline16 } from '../../../components/_Icon';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getNoteStories } from '@salutejs/plasma-sb-utils';
 
 import { Note } from './Note';
+import { config } from './Note.config';
 
-const views = ['default', 'positive', 'warning', 'negative', 'info'];
-const sizes = ['l', 'm', 's', 'xs'];
-const contentBeforeSizes = ['fixed', 'scalable'];
+type NoteProps = ComponentProps<typeof Note>;
 
-const meta: Meta<typeof Note> = {
-    title: 'Data Display/Note',
+const { meta: META, Default } = getNoteStories({
     component: Note,
-    decorators: [WithTheme],
-    argTypes: {
-        view: {
-            options: views,
-            control: {
-                type: 'select',
-            },
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'select',
-            },
-        },
-        contentBeforeSizing: {
-            options: contentBeforeSizes,
-            control: {
-                type: 'inline-radio',
-            },
-            if: { arg: 'enableContentBefore', truthy: true },
-            defaultValue: 'fixed',
-        },
-        isHeight: {
-            control: {
-                type: 'boolean',
-            },
-        },
-        height: {
-            control: {
-                type: 'number',
-            },
-            if: {
-                arg: 'isHeight',
-                truthy: true,
-            },
-        },
-    },
+    componentConfig: config,
+});
+
+const meta: Meta<NoteProps> = {
+    ...(META as any),
+    title: 'Data Display/Note',
 };
 
 export default meta;
 
-type StoryPropsDefault = {
-    enableContentBefore: boolean;
-} & ComponentProps<typeof Note>;
-
-const getIconSize = (size?: string, isScalable?: boolean) => {
-    if (isScalable) {
-        return 'm';
-    }
-
-    if (size === 'l' || size === 'm') {
-        return 's';
-    }
-
-    return 'xs';
-};
-
-export const Default: StoryObj<StoryPropsDefault> = {
-    args: {
-        view: 'default',
-        size: 'l',
-        isHeight: false,
-        width: 400,
-        height: 400,
-        stretch: false,
-        title: 'Title',
-        text: 'Text',
-        enableContentBefore: true,
-        contentBeforeSizing: 'fixed',
-        hasClose: true,
-    },
-    render: ({ enableContentBefore, ...args }) => (
-        <div style={{ height: 'calc(100vh - 2rem)' }}>
-            <Note
-                contentBefore={
-                    enableContentBefore && (
-                        <IconSaluteOutline16
-                            size={getIconSize(args.size, args.contentBeforeSizing === 'scalable')}
-                            color="inherit"
-                        />
-                    )
-                }
-                {...args}
-            />
-        </div>
-    ),
-};
+export { Default };
