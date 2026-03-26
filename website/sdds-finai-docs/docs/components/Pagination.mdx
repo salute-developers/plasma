@@ -56,7 +56,7 @@ export function App() {
         ```
     </TabItem>
     <TabItem value="size" label="Size">
-        Размер задается с помощью свойства `size`. Возможные значения: `"l"`, `"m"`, `"s"`, `"xs"`:
+        Размер задается с помощью свойства `size`. Возможные значения: `"s"`, `"xs"`:
 
         ```tsx live
         import React from 'react';
@@ -65,8 +65,6 @@ export function App() {
         export function App() {
             return (
                 <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-                    <Pagination size="l" slots={9} count={200} />
-                    <Pagination size="m" slots={9} count={200} />
                     <Pagination size="s" slots={9} count={200} />
                     <Pagination size="xs" slots={9} count={200} />
                 </div>
