@@ -7,82 +7,8 @@ export const config = {
     },
     variations: {
         size: {
-            xl: css`
-                ${tokens.padding}: 0.125rem;
-                ${tokens.width}: 17.5rem;
-                ${tokens.borderRadius}: 1rem;
-
-                ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 1.25rem 1.125rem;
-                ${tokens.itemPaddingTight}: 1rem 1.125rem;
-                ${tokens.itemBorderRadius}: 1rem;
-
-                ${tokens.dividerMarginTop}: 0.625rem;
-                ${tokens.dividerMarginRight}: 1.25rem;
-                ${tokens.dividerMarginBottom}: 0.625rem;
-                ${tokens.dividerMarginLeft}: 1.25rem;
-                ${tokens.dividerMarginTopTight}: 0.5rem;
-                ${tokens.dividerMarginBottomTight}: 0.5rem;
-
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.itemFontWeightBold}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${tokens.cellPadding}: 0rem;
-                ${tokens.cellPaddingLeftContent}: 0rem;
-                ${tokens.cellPaddingContent}: 0rem;
-                ${tokens.cellPaddingRightContent}: 0rem;
-                ${tokens.cellTextboxGap}: 0.125rem;
-                ${tokens.cellGap}: 0.5rem;
-                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
-            `,
-            l: css`
-                ${tokens.padding}: 0.125rem;
-                ${tokens.width}: 17.5rem;
-                ${tokens.borderRadius}: 0.875rem;
-
-                ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 1rem 1.125rem;
-                ${tokens.itemPaddingTight}: 0.75rem 1.125rem;
-                ${tokens.itemBorderRadius}: 0.75rem;
-
-                ${tokens.dividerMarginTop}: 0.5rem;
-                ${tokens.dividerMarginRight}: 1.125rem;
-                ${tokens.dividerMarginBottom}: 0.5rem;
-                ${tokens.dividerMarginLeft}: 1.125rem;
-                ${tokens.dividerMarginTopTight}: 0.375rem;
-                ${tokens.dividerMarginBottomTight}: 0.375rem;
-
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.itemFontWeightBold}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${tokens.cellPadding}: 0rem;
-                ${tokens.cellPaddingLeftContent}: 0rem;
-                ${tokens.cellPaddingContent}: 0rem;
-                ${tokens.cellPaddingRightContent}: 0rem;
-                ${tokens.cellTextboxGap}: 0.125rem;
-                ${tokens.cellGap}: 0.375rem;
-                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
-            `,
             m: css`
-                ${tokens.padding}: 0.125rem;
+                ${tokens.padding}: 0.25rem;
                 ${tokens.width}: 15rem;
                 ${tokens.borderRadius}: 0.75rem;
 
@@ -119,7 +45,7 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
-                ${tokens.padding}: 0.125rem;
+                ${tokens.padding}: 0.25rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
 
@@ -156,7 +82,7 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             xs: css`
-                ${tokens.padding}: 0.125rem;
+                ${tokens.padding}: 0.25rem;
                 ${tokens.width}: 10rem;
                 ${tokens.borderRadius}: 0.5rem;
 
