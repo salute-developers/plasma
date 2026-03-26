@@ -7,7 +7,7 @@ import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Autocomplete } from './Autocomplete';
 
-const sizes = ['l', 'm', 's', 'xs'];
+const sizes = ['s', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
 const labelPlacements = ['outer', 'inner'];
 const hintViews = ['default'];
@@ -213,7 +213,7 @@ const meta: Meta<StoryProps> = {
     },
     args: {
         view: 'default',
-        size: 'l',
+        size: 's',
         labelPlacement: 'outer',
         disabled: false,
         readOnly: false,
@@ -248,12 +248,15 @@ export default meta;
 
 const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
+
     if (disabled) {
         return <IconLockOutline size={iconSize} />;
     }
+
     if (readOnly) {
         return <IconLockOutline size={iconSize} />;
     }
+
     return <IconPlasma size={iconSize} color="inherit" />;
 };
 
