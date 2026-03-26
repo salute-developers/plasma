@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-homeds",
-  "version": "0.339.0",
+  "version": "0.340.0-next-platform-ai.0",
   "description": "Salute Design System / React UI kit for PLASMA-HOMEDS web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "exports": {
@@ -27,8 +27,8 @@
     "directory": "packages/plasma-homeds"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.356.0",
-    "@salutejs/plasma-themes": "0.45.0"
+    "@salutejs/plasma-new-hope": "0.357.0-next-platform-ai.0",
+    "@salutejs/plasma-themes": "0.46.0-next-platform-ai.0"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
@@ -53,10 +53,10 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.16.0",
-    "@salutejs/plasma-core": "1.221.0",
-    "@salutejs/plasma-cy-utils": "0.151.0",
-    "@salutejs/plasma-icons": "1.233.0",
-    "@salutejs/plasma-sb-utils": "0.221.0",
+    "@salutejs/plasma-core": "1.222.0-next-platform-ai.0",
+    "@salutejs/plasma-cy-utils": "0.152.0-next-platform-ai.0",
+    "@salutejs/plasma-icons": "1.234.0-next-platform-ai.0",
+    "@salutejs/plasma-sb-utils": "0.222.0-next-platform-ai.0",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
