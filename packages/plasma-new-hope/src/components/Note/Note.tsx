@@ -74,7 +74,9 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                 const contentHeight = contentWrapperRef.current.offsetHeight;
                 const titleHeight = titleHelperRef.current?.offsetHeight || 0;
 
-                const contentGap = Number(window.getComputedStyle(contentWrapperRef.current).rowGap.replace('px', ''));
+                const contentGap = titleHeight
+                    ? Number(window.getComputedStyle(contentWrapperRef.current).rowGap.replace('px', '')) || 0
+                    : 0;
 
                 const textAvailableHeight = contentHeight - titleHeight - contentGap;
 
@@ -104,11 +106,7 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
 
             useLayoutEffect(() => {
                 setTruncatedText();
-            }, [text, contentBefore, contentBeforeSizing, stretch]);
-
-            useEffect(() => {
-                setTruncatedText();
-            }, [text]);
+            }, [text, title, contentBefore, contentBeforeSizing, stretch]);
 
             useEffect(() => {
                 if (!contentBeforeRef?.current) {
