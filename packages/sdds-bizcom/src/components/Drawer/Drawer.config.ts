@@ -1,3 +1,9 @@
+import {
+    overlayBlur,
+    overlaySoft,
+    surfaceSolidCard,
+    surfaceTransparentPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_bizcom';
 import { css, drawerTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,11 +14,11 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${drawerTokens.background}: var(--surface-solid-card);
+                ${drawerTokens.background}: ${surfaceSolidCard};
                 ${drawerTokens.shadow}: 0 3.75rem 7rem -0.5rem rgba(0, 0, 0, 0.08);
-                ${drawerTokens.contentBackgroundColor}: var(--surface-transparent-primary);
-                ${drawerTokens.drawerOverlayWithBlurColor}: var(--overlay-blur);
-                ${drawerTokens.drawerOverlayColor}: var(--overlay-soft);
+                ${drawerTokens.contentBackgroundColor}: ${surfaceTransparentPrimary};
+                ${drawerTokens.drawerOverlayWithBlurColor}: ${overlayBlur};
+                ${drawerTokens.drawerOverlayColor}: ${overlaySoft};
             `,
         },
         size: {
