@@ -1,3 +1,4 @@
+import { bodyL, bodyM, bodyS, bodyXS } from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { emptyStateTokens as tokens } from '../../../components/EmptyState';
@@ -15,12 +16,12 @@ export const config = {
                 ${tokens.descriptionMargin}: 0 0 1rem 0;
                 ${tokens.buttonMargin}: -1rem 0 0 0;
                 ${tokens.buttonHeight}: 3.5rem;
-                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.fontLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.fontFamily}: ${bodyL.fontFamily};
+                ${tokens.fontSize}: ${bodyL.fontSize};
+                ${tokens.fontStyle}: ${bodyL.fontStyle};
+                ${tokens.fontWeight}: ${bodyL.fontWeight};
+                ${tokens.fontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.fontLineHeight}: ${bodyL.lineHeight};
             `,
             m: css`
                 ${tokens.borderRadius}: 0.75rem;
@@ -29,12 +30,12 @@ export const config = {
                 ${tokens.descriptionMargin}: 0 0 0.875rem 0;
                 ${tokens.buttonMargin}: -0.875rem 0 0 0;
                 ${tokens.buttonHeight}: 3rem;
-                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fontFamily}: ${bodyM.fontFamily};
+                ${tokens.fontSize}: ${bodyM.fontSize};
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyM.fontWeight};
+                ${tokens.fontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.fontLineHeight}: ${bodyM.lineHeight};
             `,
             s: css`
                 ${tokens.borderRadius}: 0.625rem;
@@ -43,12 +44,12 @@ export const config = {
                 ${tokens.descriptionMargin}: 0 0 0.625rem 0;
                 ${tokens.buttonMargin}: -0.625rem 0 0 0;
                 ${tokens.buttonHeight}: 2.5rem;
-                ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.fontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.fontFamily}: ${bodyS.fontFamily};
+                ${tokens.fontSize}: ${bodyS.fontSize};
+                ${tokens.fontStyle}: ${bodyS.fontStyle};
+                ${tokens.fontWeight}: ${bodyS.fontWeight};
+                ${tokens.fontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.fontLineHeight}: ${bodyS.lineHeight};
             `,
             xs: css`
                 ${tokens.borderRadius}: 0.5rem;
@@ -57,12 +58,12 @@ export const config = {
                 ${tokens.descriptionMargin}: 0 0 0.5rem 0;
                 ${tokens.buttonMargin}: -0.5rem 0 0 0;
                 ${tokens.buttonHeight}: 2rem;
-                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fontSize}: ${bodyXS.fontSize};
+                ${tokens.fontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fontLineHeight}: ${bodyXS.lineHeight};
             `,
         },
     },

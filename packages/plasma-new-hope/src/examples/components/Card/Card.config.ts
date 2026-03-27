@@ -1,3 +1,4 @@
+import { surfaceSolidCard } from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { cardTokens as tokens } from '../../../components/Card';
@@ -10,7 +11,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.solidBackground}: var(--surface-solid-card);
+                ${tokens.solidBackground}: ${surfaceSolidCard};
             `,
         },
         size: {

@@ -1,3 +1,23 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    bodyXXS,
+    shadowDownSoftS,
+    surfaceAccent,
+    surfaceSolidCard,
+    surfaceTransparentPrimary,
+    surfaceTransparentPrimaryActive,
+    surfaceTransparentPrimaryHover,
+    surfaceTransparentSecondary,
+    surfaceTransparentSecondaryActive,
+    surfaceTransparentSecondaryHover,
+    surfaceTransparentTertiary,
+    textAccent,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { comboboxOldTokens as comboboxTokens } from '../../../../components/Combobox';
@@ -18,7 +38,7 @@ export const config = {
                 ${comboboxTokens.paddingBottom}: 0.125rem;
                 ${comboboxTokens.paddingLeft}: 0.125rem;
 
-                ${comboboxTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${comboboxTokens.dividerColor}: ${surfaceTransparentTertiary};
                 ${comboboxTokens.dividerHeight}: 0.063rem;
                 ${comboboxTokens.dividerMarginTop}: 0;
                 ${comboboxTokens.dividerMarginRight}: 0.5rem;
@@ -33,12 +53,12 @@ export const config = {
                 ${comboboxTokens.itemPaddingLeft}: 0.375rem;
                 ${comboboxTokens.itemBorderRadius}: 0.375rem;
                 ${comboboxTokens.itemContentLeftWidth}: 1.25rem;
-                ${comboboxTokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${comboboxTokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${comboboxTokens.itemFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${comboboxTokens.itemFontWeightBold}: var(--plasma-typo-body-xs-font-weight);
-                ${comboboxTokens.itemFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${comboboxTokens.itemFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${comboboxTokens.itemFontFamily}: ${bodyXS.fontFamily};
+                ${comboboxTokens.itemFontSize}: ${bodyXS.fontSize};
+                ${comboboxTokens.itemFontStyle}: ${bodyXS.fontStyle};
+                ${comboboxTokens.itemFontWeightBold}: ${bodyXS.fontWeight};
+                ${comboboxTokens.itemFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${comboboxTokens.itemFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${comboboxTokens.chipGap}: 0.25rem;
                 ${comboboxTokens.chipBorderRadius}: 0.125rem;
@@ -48,12 +68,12 @@ export const config = {
                 ${comboboxTokens.chipClearContentMarginLeft}: 0.25rem;
                 ${comboboxTokens.chipClearContentMarginRight}: 0rem;
                 ${comboboxTokens.chipCloseIconSize}: 0.75rem;
-                ${comboboxTokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${comboboxTokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${comboboxTokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${comboboxTokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${comboboxTokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${comboboxTokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${comboboxTokens.chipFontFamily}: ${bodyXS.fontFamily};
+                ${comboboxTokens.chipFontSize}: ${bodyXS.fontSize};
+                ${comboboxTokens.chipFontStyle}: ${bodyXS.fontStyle};
+                ${comboboxTokens.chipFontWeight}: ${bodyXS.fontWeight};
+                ${comboboxTokens.chipLetterSpacing}: ${bodyXS.letterSpacing};
+                ${comboboxTokens.chipLineHeight}: ${bodyXS.lineHeight};
 
                 ${comboboxTokens.targetArrowRight}: 0.5rem;
                 ${comboboxTokens.targetHeight}: 2rem;
@@ -64,18 +84,18 @@ export const config = {
                 ${comboboxTokens.targetPaddingWithInput}: 0 2.625rem 0 0.625rem;
                 ${comboboxTokens.targetInnerTop}: 0.5rem;
                 ${comboboxTokens.targetLabelInnerTop}: 0.375rem;
-                ${comboboxTokens.targetFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${comboboxTokens.targetFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${comboboxTokens.targetFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${comboboxTokens.targetFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${comboboxTokens.targetLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${comboboxTokens.targetLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${comboboxTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${comboboxTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${comboboxTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${comboboxTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${comboboxTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${comboboxTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${comboboxTokens.targetFontFamily}: ${bodyXS.fontFamily};
+                ${comboboxTokens.targetFontSize}: ${bodyXS.fontSize};
+                ${comboboxTokens.targetFontStyle}: ${bodyXS.fontStyle};
+                ${comboboxTokens.targetFontWeight}: ${bodyXS.fontWeight};
+                ${comboboxTokens.targetLetterSpacing}: ${bodyXS.letterSpacing};
+                ${comboboxTokens.targetLineHeight}: ${bodyXS.lineHeight};
+                ${comboboxTokens.targetLabelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${comboboxTokens.targetLabelInnerFontSize}: ${bodyXS.fontSize};
+                ${comboboxTokens.targetLabelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${comboboxTokens.targetLabelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${comboboxTokens.targetLabelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${comboboxTokens.targetLabelInnerLineHeight}: ${bodyXS.lineHeight};
             `,
             s: css`
                 ${comboboxTokens.width}: 100%;
@@ -86,7 +106,7 @@ export const config = {
                 ${comboboxTokens.paddingBottom}: 0.125rem;
                 ${comboboxTokens.paddingLeft}: 0.125rem;
 
-                ${comboboxTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${comboboxTokens.dividerColor}: ${surfaceTransparentTertiary};
                 ${comboboxTokens.dividerHeight}: 0.063rem;
                 ${comboboxTokens.dividerMarginTop}: 0;
                 ${comboboxTokens.dividerMarginRight}: 0.75rem;
@@ -101,12 +121,12 @@ export const config = {
                 ${comboboxTokens.itemPaddingLeft}: 0.75rem;
                 ${comboboxTokens.itemBorderRadius}: 0.5rem;
                 ${comboboxTokens.itemContentLeftWidth}: 1.75rem;
-                ${comboboxTokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${comboboxTokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
-                ${comboboxTokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${comboboxTokens.itemFontWeightBold}: var(--plasma-typo-body-s-font-weight);
-                ${comboboxTokens.itemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${comboboxTokens.itemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${comboboxTokens.itemFontFamily}: ${bodyS.fontFamily};
+                ${comboboxTokens.itemFontSize}: ${bodyS.fontSize};
+                ${comboboxTokens.itemFontStyle}: ${bodyS.fontStyle};
+                ${comboboxTokens.itemFontWeightBold}: ${bodyS.fontWeight};
+                ${comboboxTokens.itemFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${comboboxTokens.itemFontLineHeight}: ${bodyS.lineHeight};
 
                 ${comboboxTokens.chipGap}: 0.25rem;
                 ${comboboxTokens.chipBorderRadius}: 0.25rem;
@@ -116,12 +136,12 @@ export const config = {
                 ${comboboxTokens.chipClearContentMarginLeft}: 0.375rem;
                 ${comboboxTokens.chipClearContentMarginRight}: 0rem;
                 ${comboboxTokens.chipCloseIconSize}: 0.75rem;
-                ${comboboxTokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${comboboxTokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
-                ${comboboxTokens.chipFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${comboboxTokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${comboboxTokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${comboboxTokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${comboboxTokens.chipFontFamily}: ${bodyS.fontFamily};
+                ${comboboxTokens.chipFontSize}: ${bodyS.fontSize};
+                ${comboboxTokens.chipFontStyle}: ${bodyS.fontStyle};
+                ${comboboxTokens.chipFontWeight}: ${bodyS.fontWeight};
+                ${comboboxTokens.chipLetterSpacing}: ${bodyS.letterSpacing};
+                ${comboboxTokens.chipLineHeight}: ${bodyS.lineHeight};
 
                 ${comboboxTokens.targetArrowRight}: 0.75rem;
                 ${comboboxTokens.targetHeight}: 2.5rem;
@@ -132,18 +152,18 @@ export const config = {
                 ${comboboxTokens.targetPaddingWithInput}: 0 3.125rem 0 0.625rem;
                 ${comboboxTokens.targetInnerTop}: 0.5rem;
                 ${comboboxTokens.targetLabelInnerTop}: 0.375rem;
-                ${comboboxTokens.targetFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${comboboxTokens.targetFontSize}: var(--plasma-typo-body-s-font-size);
-                ${comboboxTokens.targetFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${comboboxTokens.targetFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${comboboxTokens.targetLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${comboboxTokens.targetLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${comboboxTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${comboboxTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${comboboxTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${comboboxTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${comboboxTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${comboboxTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${comboboxTokens.targetFontFamily}: ${bodyS.fontFamily};
+                ${comboboxTokens.targetFontSize}: ${bodyS.fontSize};
+                ${comboboxTokens.targetFontStyle}: ${bodyS.fontStyle};
+                ${comboboxTokens.targetFontWeight}: ${bodyS.fontWeight};
+                ${comboboxTokens.targetLetterSpacing}: ${bodyS.letterSpacing};
+                ${comboboxTokens.targetLineHeight}: ${bodyS.lineHeight};
+                ${comboboxTokens.targetLabelInnerFontFamily}: ${bodyXXS.fontFamily};
+                ${comboboxTokens.targetLabelInnerFontSize}: ${bodyXXS.fontSize};
+                ${comboboxTokens.targetLabelInnerFontStyle}: ${bodyXXS.fontStyle};
+                ${comboboxTokens.targetLabelInnerFontWeight}: ${bodyXXS.fontWeight};
+                ${comboboxTokens.targetLabelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${comboboxTokens.targetLabelInnerLineHeight}: ${bodyXXS.lineHeight};
             `,
             m: css`
                 ${comboboxTokens.width}: 100%;
@@ -154,7 +174,7 @@ export const config = {
                 ${comboboxTokens.paddingBottom}: 0.125rem;
                 ${comboboxTokens.paddingLeft}: 0.125rem;
 
-                ${comboboxTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${comboboxTokens.dividerColor}: ${surfaceTransparentTertiary};
                 ${comboboxTokens.dividerHeight}: 0.063rem;
                 ${comboboxTokens.dividerMarginTop}: 0;
                 ${comboboxTokens.dividerMarginRight}: 0.875rem;
@@ -169,12 +189,12 @@ export const config = {
                 ${comboboxTokens.itemPaddingLeft}: 0.875rem;
                 ${comboboxTokens.itemBorderRadius}: 0.625rem;
                 ${comboboxTokens.itemContentLeftWidth}: 1.75rem;
-                ${comboboxTokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${comboboxTokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${comboboxTokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${comboboxTokens.itemFontWeightBold}: var(--plasma-typo-body-m-font-weight);
-                ${comboboxTokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${comboboxTokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${comboboxTokens.itemFontFamily}: ${bodyM.fontFamily};
+                ${comboboxTokens.itemFontSize}: ${bodyM.fontSize};
+                ${comboboxTokens.itemFontStyle}: ${bodyM.fontStyle};
+                ${comboboxTokens.itemFontWeightBold}: ${bodyM.fontWeight};
+                ${comboboxTokens.itemFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${comboboxTokens.itemFontLineHeight}: ${bodyM.lineHeight};
 
                 ${comboboxTokens.chipGap}: 0.25rem;
                 ${comboboxTokens.chipBorderRadius}: 0.375rem;
@@ -184,12 +204,12 @@ export const config = {
                 ${comboboxTokens.chipClearContentMarginLeft}: 0.5rem;
                 ${comboboxTokens.chipClearContentMarginRight}: 0rem;
                 ${comboboxTokens.chipCloseIconSize}: 1rem;
-                ${comboboxTokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${comboboxTokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
-                ${comboboxTokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${comboboxTokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${comboboxTokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${comboboxTokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${comboboxTokens.chipFontFamily}: ${bodyM.fontFamily};
+                ${comboboxTokens.chipFontSize}: ${bodyM.fontSize};
+                ${comboboxTokens.chipFontStyle}: ${bodyM.fontStyle};
+                ${comboboxTokens.chipFontWeight}: ${bodyM.fontWeight};
+                ${comboboxTokens.chipLetterSpacing}: ${bodyM.letterSpacing};
+                ${comboboxTokens.chipLineHeight}: ${bodyM.lineHeight};
 
                 ${comboboxTokens.targetArrowRight}: 0.875rem;
                 ${comboboxTokens.targetHeight}: 3rem;
@@ -200,18 +220,18 @@ export const config = {
                 ${comboboxTokens.targetPaddingWithInput}: 0 3.375rem 0 0.625rem;
                 ${comboboxTokens.targetInnerTop}: 0.5rem;
                 ${comboboxTokens.targetLabelInnerTop}: 0.375rem;
-                ${comboboxTokens.targetFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${comboboxTokens.targetFontSize}: var(--plasma-typo-body-m-font-size);
-                ${comboboxTokens.targetFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${comboboxTokens.targetFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${comboboxTokens.targetLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${comboboxTokens.targetLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${comboboxTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${comboboxTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${comboboxTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${comboboxTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${comboboxTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${comboboxTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${comboboxTokens.targetFontFamily}: ${bodyM.fontFamily};
+                ${comboboxTokens.targetFontSize}: ${bodyM.fontSize};
+                ${comboboxTokens.targetFontStyle}: ${bodyM.fontStyle};
+                ${comboboxTokens.targetFontWeight}: ${bodyM.fontWeight};
+                ${comboboxTokens.targetLetterSpacing}: ${bodyM.letterSpacing};
+                ${comboboxTokens.targetLineHeight}: ${bodyM.lineHeight};
+                ${comboboxTokens.targetLabelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${comboboxTokens.targetLabelInnerFontSize}: ${bodyXS.fontSize};
+                ${comboboxTokens.targetLabelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${comboboxTokens.targetLabelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${comboboxTokens.targetLabelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${comboboxTokens.targetLabelInnerLineHeight}: ${bodyXS.lineHeight};
             `,
             l: css`
                 ${comboboxTokens.width}: 100%;
@@ -222,7 +242,7 @@ export const config = {
                 ${comboboxTokens.paddingBottom}: 0.125rem;
                 ${comboboxTokens.paddingLeft}: 0.125rem;
 
-                ${comboboxTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${comboboxTokens.dividerColor}: ${surfaceTransparentTertiary};
                 ${comboboxTokens.dividerHeight}: 0.063rem;
                 ${comboboxTokens.dividerMarginTop}: 0;
                 ${comboboxTokens.dividerMarginRight}: 1rem;
@@ -237,12 +257,12 @@ export const config = {
                 ${comboboxTokens.itemPaddingLeft}: 1rem;
                 ${comboboxTokens.itemBorderRadius}: 0.75rem;
                 ${comboboxTokens.itemContentLeftWidth}: 1.875rem;
-                ${comboboxTokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${comboboxTokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${comboboxTokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${comboboxTokens.itemFontWeightBold}: var(--plasma-typo-body-l-font-weight);
-                ${comboboxTokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${comboboxTokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${comboboxTokens.itemFontFamily}: ${bodyL.fontFamily};
+                ${comboboxTokens.itemFontSize}: ${bodyL.fontSize};
+                ${comboboxTokens.itemFontStyle}: ${bodyL.fontStyle};
+                ${comboboxTokens.itemFontWeightBold}: ${bodyL.fontWeight};
+                ${comboboxTokens.itemFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${comboboxTokens.itemFontLineHeight}: ${bodyL.lineHeight};
 
                 ${comboboxTokens.chipGap}: 0.25rem;
                 ${comboboxTokens.chipBorderRadius}: 0.5rem;
@@ -252,12 +272,12 @@ export const config = {
                 ${comboboxTokens.chipClearContentMarginLeft}: 0.625rem;
                 ${comboboxTokens.chipClearContentMarginRight}: 0rem;
                 ${comboboxTokens.chipCloseIconSize}: 1rem;
-                ${comboboxTokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${comboboxTokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
-                ${comboboxTokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${comboboxTokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${comboboxTokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${comboboxTokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${comboboxTokens.chipFontFamily}: ${bodyM.fontFamily};
+                ${comboboxTokens.chipFontSize}: ${bodyM.fontSize};
+                ${comboboxTokens.chipFontStyle}: ${bodyM.fontStyle};
+                ${comboboxTokens.chipFontWeight}: ${bodyM.fontWeight};
+                ${comboboxTokens.chipLetterSpacing}: ${bodyM.letterSpacing};
+                ${comboboxTokens.chipLineHeight}: ${bodyM.lineHeight};
 
                 ${comboboxTokens.targetArrowRight}: 1rem;
                 ${comboboxTokens.targetHeight}: 3.5rem;
@@ -268,54 +288,54 @@ export const config = {
                 ${comboboxTokens.targetPaddingWithInput}: 0 3.625rem 0 0.625rem;
                 ${comboboxTokens.targetInnerTop}: 0.5rem;
                 ${comboboxTokens.targetLabelInnerTop}: 0.375rem;
-                ${comboboxTokens.targetFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${comboboxTokens.targetFontSize}: var(--plasma-typo-body-l-font-size);
-                ${comboboxTokens.targetFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${comboboxTokens.targetFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${comboboxTokens.targetLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${comboboxTokens.targetLineHeight}: var(--plasma-typo-body-l-line-height);
-                ${comboboxTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${comboboxTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-s-font-size);
-                ${comboboxTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${comboboxTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${comboboxTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${comboboxTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${comboboxTokens.targetFontFamily}: ${bodyL.fontFamily};
+                ${comboboxTokens.targetFontSize}: ${bodyL.fontSize};
+                ${comboboxTokens.targetFontStyle}: ${bodyL.fontStyle};
+                ${comboboxTokens.targetFontWeight}: ${bodyL.fontWeight};
+                ${comboboxTokens.targetLetterSpacing}: ${bodyL.letterSpacing};
+                ${comboboxTokens.targetLineHeight}: ${bodyL.lineHeight};
+                ${comboboxTokens.targetLabelInnerFontFamily}: ${bodyS.fontFamily};
+                ${comboboxTokens.targetLabelInnerFontSize}: ${bodyS.fontSize};
+                ${comboboxTokens.targetLabelInnerFontStyle}: ${bodyS.fontStyle};
+                ${comboboxTokens.targetLabelInnerFontWeight}: ${bodyS.fontWeight};
+                ${comboboxTokens.targetLabelInnerLetterSpacing}: ${bodyS.letterSpacing};
+                ${comboboxTokens.targetLabelInnerLineHeight}: ${bodyS.lineHeight};
             `,
         },
         view: {
             default: css`
-                ${comboboxTokens.targetColor}: var(--text-primary);
-                ${comboboxTokens.targetLabelColor}: var(--text-secondary);
-                ${comboboxTokens.targetArrowColor}: var(--text-secondary);
-                ${comboboxTokens.targetBackgroundColor}: var(--surface-transparent-primary);
-                ${comboboxTokens.targetBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${comboboxTokens.targetBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${comboboxTokens.targetBackgroundColorOpen}: var(--surface-transparent-secondary);
+                ${comboboxTokens.targetColor}: ${textPrimary};
+                ${comboboxTokens.targetLabelColor}: ${textSecondary};
+                ${comboboxTokens.targetArrowColor}: ${textSecondary};
+                ${comboboxTokens.targetBackgroundColor}: ${surfaceTransparentPrimary};
+                ${comboboxTokens.targetBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
+                ${comboboxTokens.targetBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${comboboxTokens.targetBackgroundColorOpen}: ${surfaceTransparentSecondary};
 
-                ${comboboxTokens.background}: var(--surface-solid-card);
-                ${comboboxTokens.boxShadow}: var(--shadow-down-soft-s);
+                ${comboboxTokens.background}: ${surfaceSolidCard};
+                ${comboboxTokens.boxShadow}: ${shadowDownSoftS};
 
                 ${comboboxTokens.itemBackground}: transparent;
-                ${comboboxTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${comboboxTokens.itemBackgroundSelectedHover}: var(--surface-transparent-secondary);
-                ${comboboxTokens.itemColor}: var(--text-primary);
-                ${comboboxTokens.itemContentLeftColor}: var(--text-accent);
+                ${comboboxTokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${comboboxTokens.itemBackgroundSelectedHover}: ${surfaceTransparentSecondary};
+                ${comboboxTokens.itemColor}: ${textPrimary};
+                ${comboboxTokens.itemContentLeftColor}: ${textAccent};
 
-                ${comboboxTokens.chipCloseIconColor}: var(--text-secondary);
-                ${comboboxTokens.chipColor}: var(--text-primary);
-                ${comboboxTokens.chipBackground}: var(--surface-transparent-secondary);
-                ${comboboxTokens.chipColorHover}: var(--text-primary);
-                ${comboboxTokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${comboboxTokens.chipColorActive}: var(--text-primary);
-                ${comboboxTokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${comboboxTokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
-                ${comboboxTokens.chipColorReadOnly}: var(--text-primary);
-                ${comboboxTokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${comboboxTokens.chipColorReadOnlyHover}: var(--text-primary);
+                ${comboboxTokens.chipCloseIconColor}: ${textSecondary};
+                ${comboboxTokens.chipColor}: ${textPrimary};
+                ${comboboxTokens.chipBackground}: ${surfaceTransparentSecondary};
+                ${comboboxTokens.chipColorHover}: ${textPrimary};
+                ${comboboxTokens.chipBackgroundHover}: ${surfaceTransparentSecondaryHover};
+                ${comboboxTokens.chipColorActive}: ${textPrimary};
+                ${comboboxTokens.chipBackgroundActive}: ${surfaceTransparentSecondaryActive};
+                ${comboboxTokens.chipBackgroundReadOnly}: ${surfaceTransparentSecondary};
+                ${comboboxTokens.chipColorReadOnly}: ${textPrimary};
+                ${comboboxTokens.chipBackgroundReadOnlyHover}: ${surfaceTransparentSecondary};
+                ${comboboxTokens.chipColorReadOnlyHover}: ${textPrimary};
                 ${comboboxTokens.chipOpacityReadonly}: 0.72;
 
                 ${comboboxTokens.disabledOpacity}: 0.4;
-                ${comboboxTokens.focusColor}: var(--surface-accent);
+                ${comboboxTokens.focusColor}: ${surfaceAccent};
             `,
         },
     },

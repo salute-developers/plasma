@@ -1,3 +1,11 @@
+import {
+    bodyXS,
+    surfaceSolidCard,
+    surfaceSolidPrimary,
+    surfaceTransparentPrimary,
+    surfaceTransparentTertiary,
+    textSecondary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { tokens } from '../../../../components/_ai/Container/Container.tokens';
@@ -10,18 +18,18 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.contentScrollTrackColor}: var(--surface-transparent-primary);
-                ${tokens.contentScrollThumbColor}: var(--surface-transparent-tertiary);
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.contentScrollTrackColor}: ${surfaceTransparentPrimary};
+                ${tokens.contentScrollThumbColor}: ${surfaceTransparentTertiary};
 
-                ${tokens.footerCaptionColor}: var(--text-secondary);
+                ${tokens.footerCaptionColor}: ${textSecondary};
             `,
             secondary: css`
-                ${tokens.backgroundColor}: var(--surface-solid-primary);
-                ${tokens.contentScrollTrackColor}: var(--surface-transparent-primary);
-                ${tokens.contentScrollThumbColor}: var(--surface-transparent-tertiary);
+                ${tokens.backgroundColor}: ${surfaceSolidPrimary};
+                ${tokens.contentScrollTrackColor}: ${surfaceTransparentPrimary};
+                ${tokens.contentScrollThumbColor}: ${surfaceTransparentTertiary};
 
-                ${tokens.footerCaptionColor}: var(--text-secondary);
+                ${tokens.footerCaptionColor}: ${textSecondary};
             `,
         },
         size: {
@@ -38,12 +46,12 @@ export const config = {
                 ${tokens.footerCaptionMarginTop}: 0.5rem;
                 ${tokens.footerBlur}: 1rem;
 
-                ${tokens.footerCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.footerCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.footerCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.footerCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.footerCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.footerCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.footerCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.footerCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.footerCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.footerCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.footerCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.footerCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
             l: css`
                 ${tokens.contentPadding}: 1.75rem;
@@ -58,12 +66,12 @@ export const config = {
                 ${tokens.footerCaptionMarginTop}: 0.5rem;
                 ${tokens.footerBlur}: 1rem;
 
-                ${tokens.footerCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.footerCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.footerCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.footerCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.footerCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.footerCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.footerCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.footerCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.footerCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.footerCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.footerCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.footerCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
             m: css`
                 ${tokens.contentPadding}: 1.5rem;
@@ -78,12 +86,12 @@ export const config = {
                 ${tokens.footerCaptionMarginTop}: 0.375rem;
                 ${tokens.footerBlur}: 0.625rem;
 
-                ${tokens.footerCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.footerCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.footerCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.footerCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.footerCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.footerCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.footerCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.footerCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.footerCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.footerCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.footerCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.footerCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
             s: css`
                 ${tokens.contentPadding}: 1.25rem;
@@ -98,12 +106,12 @@ export const config = {
                 ${tokens.footerCaptionMarginTop}: 0.375rem;
                 ${tokens.footerBlur}: 0.625rem;
 
-                ${tokens.footerCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.footerCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.footerCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.footerCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.footerCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.footerCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.footerCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.footerCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.footerCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.footerCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.footerCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.footerCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
             xs: css`
                 ${tokens.contentPadding}: 1rem;
@@ -118,12 +126,12 @@ export const config = {
                 ${tokens.footerCaptionMarginTop}: 0.25rem;
                 ${tokens.footerBlur}: 0.625rem;
 
-                ${tokens.footerCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.footerCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.footerCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.footerCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.footerCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.footerCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.footerCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.footerCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.footerCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.footerCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.footerCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.footerCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
         },
     },
