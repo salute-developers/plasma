@@ -161,6 +161,7 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
+                ${tokens.labelPadding}: 0 0 0 1rem;
                 ${tokens.labelOffset}: 0.25rem;
                 ${tokens.clearLabelOffset}: 0.25rem;
 
