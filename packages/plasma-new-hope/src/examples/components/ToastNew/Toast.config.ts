@@ -1,3 +1,9 @@
+import {
+    bodyXS,
+    surfaceSolidCardBrightness,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { toastNewTokens as toastTokens } from '../../../components/Toast/ToastNew';
@@ -10,11 +16,11 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.color}: ${textPrimary};
+                ${toastTokens.background}: ${surfaceSolidCardBrightness};
 
-                ${toastTokens.closeIconColor}: var(--text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+                ${toastTokens.closeIconColor}: ${textSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
             `,
         },
         size: {
@@ -27,12 +33,12 @@ export const config = {
                 ${toastTokens.closeIconMargin}: -0.0625rem -0.25rem -0.0625rem 0.5rem;
                 ${toastTokens.contentLeftMargin}: -0.0625rem 0.375rem -0.0625rem -0.125rem;
 
-                ${toastTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${toastTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${toastTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${toastTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${toastTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${toastTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${toastTokens.fontFamily}: ${bodyXS.fontFamily};
+                ${toastTokens.fontSize}: ${bodyXS.fontSize};
+                ${toastTokens.fontStyle}: ${bodyXS.fontStyle};
+                ${toastTokens.fontWeight}: ${bodyXS.fontWeight};
+                ${toastTokens.letterSpacing}: ${bodyXS.letterSpacing};
+                ${toastTokens.lineHeight}: ${bodyXS.lineHeight};
             `,
         },
         pilled: {

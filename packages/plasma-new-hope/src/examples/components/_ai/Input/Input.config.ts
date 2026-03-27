@@ -1,3 +1,20 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    onDarkTextPrimary,
+    surfaceAccent,
+    surfaceAccentActive,
+    surfaceAccentHover,
+    surfaceSolidCardBrightness,
+    surfaceTransparentPrimary,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textSecondary,
+    textTertiary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 import { inputTokens as tokens } from 'src/components/_ai/Input';
 
@@ -9,25 +26,25 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-primary);
-                ${tokens.focusColor}: var(--surface-accent);
-                ${tokens.fileBackground}: var(--surface-solid-card-brightness);
-                ${tokens.fileEmbedIconButtonColor}: var(--text-primary);
-                ${tokens.fileEmbedIconButtonColorHover}: var(--text-primary-hover);
-                ${tokens.fileEmbedIconButtonColorActive}: var(--text-primary-active);
-                ${tokens.fileCellTitleColor}: var(--text-primary);
-                ${tokens.fileCellSubtitleColor}: var(--text-secondary);
-                ${tokens.textareaColor}: var(--text-primary);
-                ${tokens.textareaPlaceholderColor}: var(--text-secondary);
-                ${tokens.textareaPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.textareaCaretColor}: var(--surface-accent);
-                ${tokens.textareaScrollTrackColor}: var(--surface-transparent-primary);
-                ${tokens.textareaScrollThumbColor}: var(--surface-transparent-primary);
-                ${tokens.submitButtonColor}: var(--on-dark-text-primary);
-                ${tokens.submitButtonBackgroundColor}: var(--surface-accent);
-                ${tokens.submitButtonBackgroundColorHover}: var(--surface-accent-hover);
-                ${tokens.submitButtonBackgroundColorActive}: var(--surface-accent-active);
-                ${tokens.submitButtonLoadingBackgroundColor}: var(--surface-accent);
+                ${tokens.background}: ${surfaceTransparentPrimary};
+                ${tokens.focusColor}: ${surfaceAccent};
+                ${tokens.fileBackground}: ${surfaceSolidCardBrightness};
+                ${tokens.fileEmbedIconButtonColor}: ${textPrimary};
+                ${tokens.fileEmbedIconButtonColorHover}: ${textPrimaryHover};
+                ${tokens.fileEmbedIconButtonColorActive}: ${textPrimaryActive};
+                ${tokens.fileCellTitleColor}: ${textPrimary};
+                ${tokens.fileCellSubtitleColor}: ${textSecondary};
+                ${tokens.textareaColor}: ${textPrimary};
+                ${tokens.textareaPlaceholderColor}: ${textSecondary};
+                ${tokens.textareaPlaceholderColorFocus}: ${textTertiary};
+                ${tokens.textareaCaretColor}: ${surfaceAccent};
+                ${tokens.textareaScrollTrackColor}: ${surfaceTransparentPrimary};
+                ${tokens.textareaScrollThumbColor}: ${surfaceTransparentPrimary};
+                ${tokens.submitButtonColor}: ${onDarkTextPrimary};
+                ${tokens.submitButtonBackgroundColor}: ${surfaceAccent};
+                ${tokens.submitButtonBackgroundColorHover}: ${surfaceAccentHover};
+                ${tokens.submitButtonBackgroundColorActive}: ${surfaceAccentActive};
+                ${tokens.submitButtonLoadingBackgroundColor}: ${surfaceAccent};
                 ${tokens.submitButtonSpinnerColor}: inherit;
             `,
         },
@@ -53,18 +70,18 @@ export const config = {
                 ${tokens.fileCellHeight}: 2.5rem;
                 ${tokens.fileCellTextboxGap}: 0.125rem;
                 ${tokens.fileCellGap}: 0.75rem;
-                ${tokens.fileCellTitleFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.fileCellTitleFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.fileCellTitleFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.fileCellTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.fileCellTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.fileCellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
-                ${tokens.fileCellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileCellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileCellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileCellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileCellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileCellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileCellTitleFontFamily}: ${bodyL.fontFamily};
+                ${tokens.fileCellTitleFontSize}: ${bodyL.fontSize};
+                ${tokens.fileCellTitleFontStyle}: ${bodyL.fontStyle};
+                ${tokens.fileCellTitleFontWeight}: ${bodyL.fontWeight};
+                ${tokens.fileCellTitleLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.fileCellTitleLineHeight}: ${bodyL.lineHeight};
+                ${tokens.fileCellSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileCellSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileCellSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileCellSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileCellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileCellSubtitleLineHeight}: ${bodyXS.lineHeight};
                 ${tokens.fileThumbSize}: 2.5rem;
                 ${tokens.fileThumbRadius}: 0.375rem;
 
@@ -72,12 +89,12 @@ export const config = {
                 ${tokens.textareaPaddingRight}: 1.25rem;
                 ${tokens.textareaPaddingBottom}: 1.0625rem;
                 ${tokens.textareaPaddingLeft}: 1.25rem;
-                ${tokens.textareaFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.textareaFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.textareaFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.textareaFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.textareaLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.textareaLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textareaFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textareaFontSize}: ${bodyL.fontSize};
+                ${tokens.textareaFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textareaFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textareaLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textareaLineHeight}: ${bodyL.lineHeight};
                 ${tokens.textareaScrollWidth}: 0.125rem;
 
                 ${tokens.inputFieldPadding}: 0 1.125rem;
@@ -109,18 +126,18 @@ export const config = {
                 ${tokens.fileCellHeight}: 2.5rem;
                 ${tokens.fileCellTextboxGap}: 0.125rem;
                 ${tokens.fileCellGap}: 0.625rem;
-                ${tokens.fileCellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fileCellTitleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fileCellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fileCellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.fileCellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.fileCellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${tokens.fileCellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileCellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileCellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileCellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileCellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileCellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileCellTitleFontFamily}: ${bodyM.fontFamily};
+                ${tokens.fileCellTitleFontSize}: ${bodyM.fontSize};
+                ${tokens.fileCellTitleFontStyle}: ${bodyM.fontStyle};
+                ${tokens.fileCellTitleFontWeight}: ${bodyM.fontWeight};
+                ${tokens.fileCellTitleLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.fileCellTitleLineHeight}: ${bodyM.lineHeight};
+                ${tokens.fileCellSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileCellSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileCellSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileCellSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileCellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileCellSubtitleLineHeight}: ${bodyXS.lineHeight};
                 ${tokens.fileThumbSize}: 2.25rem;
                 ${tokens.fileThumbRadius}: 0.375rem;
 
@@ -128,12 +145,12 @@ export const config = {
                 ${tokens.textareaPaddingRight}: 0.875rem;
                 ${tokens.textareaPaddingBottom}: 0.8125rem;
                 ${tokens.textareaPaddingLeft}: 0.875rem;
-                ${tokens.textareaFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.textareaFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.textareaFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.textareaFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.textareaLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.textareaLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textareaFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textareaFontSize}: ${bodyL.fontSize};
+                ${tokens.textareaFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textareaFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textareaLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textareaLineHeight}: ${bodyL.lineHeight};
                 ${tokens.textareaScrollWidth}: 0.125rem;
 
                 ${tokens.inputFieldPadding}: 0 0.75rem;
@@ -165,18 +182,18 @@ export const config = {
                 ${tokens.fileCellHeight}: 2.125rem;
                 ${tokens.fileCellTextboxGap}: 0.125rem;
                 ${tokens.fileCellGap}: 0.5rem;
-                ${tokens.fileCellTitleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.fileCellTitleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.fileCellTitleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.fileCellTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.fileCellTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.fileCellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.fileCellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileCellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileCellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileCellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileCellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileCellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileCellTitleFontFamily}: ${bodyS.fontFamily};
+                ${tokens.fileCellTitleFontSize}: ${bodyS.fontSize};
+                ${tokens.fileCellTitleFontStyle}: ${bodyS.fontStyle};
+                ${tokens.fileCellTitleFontWeight}: ${bodyS.fontWeight};
+                ${tokens.fileCellTitleLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.fileCellTitleLineHeight}: ${bodyS.lineHeight};
+                ${tokens.fileCellSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileCellSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileCellSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileCellSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileCellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileCellSubtitleLineHeight}: ${bodyXS.lineHeight};
                 ${tokens.fileThumbSize}: 2rem;
                 ${tokens.fileThumbRadius}: 0.375rem;
 
@@ -184,12 +201,12 @@ export const config = {
                 ${tokens.textareaPaddingRight}: 0.625rem;
                 ${tokens.textareaPaddingBottom}: 0.625rem;
                 ${tokens.textareaPaddingLeft}: 0.625rem;
-                ${tokens.textareaFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.textareaFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.textareaFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.textareaFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.textareaLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.textareaLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.textareaFontFamily}: ${bodyM.fontFamily};
+                ${tokens.textareaFontSize}: ${bodyM.fontSize};
+                ${tokens.textareaFontStyle}: ${bodyM.fontStyle};
+                ${tokens.textareaFontWeight}: ${bodyM.fontWeight};
+                ${tokens.textareaLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.textareaLineHeight}: ${bodyM.lineHeight};
                 ${tokens.textareaScrollWidth}: 0.125rem;
 
                 ${tokens.inputFieldPadding}: 0 0.5rem;
@@ -221,18 +238,18 @@ export const config = {
                 ${tokens.fileCellHeight}: 1.875rem;
                 ${tokens.fileCellTextboxGap}: 0.125rem;
                 ${tokens.fileCellGap}: 0.375rem;
-                ${tokens.fileCellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileCellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileCellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileCellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileCellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileCellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${tokens.fileCellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileCellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileCellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileCellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileCellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileCellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileCellTitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileCellTitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileCellTitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileCellTitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileCellTitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileCellTitleLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.fileCellSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileCellSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileCellSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileCellSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileCellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileCellSubtitleLineHeight}: ${bodyXS.lineHeight};
                 ${tokens.fileThumbSize}: 1.75rem;
                 ${tokens.fileThumbRadius}: 0.25rem;
 
@@ -240,12 +257,12 @@ export const config = {
                 ${tokens.textareaPaddingRight}: 0.625rem;
                 ${tokens.textareaPaddingBottom}: 0.4375rem;
                 ${tokens.textareaPaddingLeft}: 0.625rem;
-                ${tokens.textareaFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textareaFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textareaFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textareaFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textareaLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textareaLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textareaFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textareaFontSize}: ${bodyS.fontSize};
+                ${tokens.textareaFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textareaFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textareaLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textareaLineHeight}: ${bodyS.lineHeight};
                 ${tokens.textareaScrollWidth}: 0.125rem;
 
                 ${tokens.inputFieldPadding}: 0 0.625rem;
@@ -277,18 +294,18 @@ export const config = {
                 ${tokens.fileCellHeight}: 1.875rem;
                 ${tokens.fileCellTextboxGap}: 0.125rem;
                 ${tokens.fileCellGap}: 0.375rem;
-                ${tokens.fileCellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileCellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileCellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileCellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileCellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileCellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${tokens.fileCellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileCellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileCellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileCellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileCellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileCellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileCellTitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileCellTitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileCellTitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileCellTitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileCellTitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileCellTitleLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.fileCellSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileCellSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileCellSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileCellSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileCellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileCellSubtitleLineHeight}: ${bodyXS.lineHeight};
                 ${tokens.fileThumbSize}: 1.75rem;
                 ${tokens.fileThumbRadius}: 0.25rem;
 
@@ -296,12 +313,12 @@ export const config = {
                 ${tokens.textareaPaddingRight}: 0.5625rem;
                 ${tokens.textareaPaddingBottom}: 0.5625rem;
                 ${tokens.textareaPaddingLeft}: 0.5625rem;
-                ${tokens.textareaFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textareaFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textareaFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textareaFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textareaLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textareaLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textareaFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textareaFontSize}: ${bodyXS.fontSize};
+                ${tokens.textareaFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textareaFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textareaLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textareaLineHeight}: ${bodyXS.lineHeight};
                 ${tokens.textareaScrollWidth}: 0.125rem;
 
                 ${tokens.inputFieldPadding}: 0 0.625rem;

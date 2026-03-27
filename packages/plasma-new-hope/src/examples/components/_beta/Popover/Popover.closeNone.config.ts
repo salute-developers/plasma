@@ -1,3 +1,4 @@
+import { shadowDownSoftM, surfaceAccent, surfaceSolidCard } from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 import { _beta_popoverTokens as tokens } from 'src/components/_beta/Popover';
 
@@ -9,12 +10,12 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.boxShadow}: var(--shadow-down-soft-m);
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.boxShadow}: ${shadowDownSoftM};
             `,
             accent: css`
-                ${tokens.backgroundColor}: var(--surface-accent);
-                ${tokens.boxShadow}: var(--shadow-down-soft-m);
+                ${tokens.backgroundColor}: ${surfaceAccent};
+                ${tokens.boxShadow}: ${shadowDownSoftM};
             `,
         },
         size: {

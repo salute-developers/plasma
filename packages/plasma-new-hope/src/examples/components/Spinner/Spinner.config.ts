@@ -1,3 +1,13 @@
+import {
+    textAccent,
+    textNegative,
+    textParagraph,
+    textPositive,
+    textPrimary,
+    textSecondary,
+    textTertiary,
+    textWarning,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { spinnerTokens } from '../../../components/Spinner';
@@ -21,28 +31,28 @@ export const config = {
         },
         view: {
             default: css`
-                ${spinnerTokens.color}: var(--text-primary);
+                ${spinnerTokens.color}: ${textPrimary};
             `,
             secondary: css`
-                ${spinnerTokens.color}: var(--text-secondary);
+                ${spinnerTokens.color}: ${textSecondary};
             `,
             tertiary: css`
-                ${spinnerTokens.color}: var(--text-tertiary);
+                ${spinnerTokens.color}: ${textTertiary};
             `,
             paragraph: css`
-                ${spinnerTokens.color}: var(--text-paragraph);
+                ${spinnerTokens.color}: ${textParagraph};
             `,
             accent: css`
-                ${spinnerTokens.color}: var(--text-accent);
+                ${spinnerTokens.color}: ${textAccent};
             `,
             positive: css`
-                ${spinnerTokens.color}: var(--text-positive);
+                ${spinnerTokens.color}: ${textPositive};
             `,
             warning: css`
-                ${spinnerTokens.color}: var(--text-warning);
+                ${spinnerTokens.color}: ${textWarning};
             `,
             negative: css`
-                ${spinnerTokens.color}: var(--text-negative);
+                ${spinnerTokens.color}: ${textNegative};
             `,
         },
     },
