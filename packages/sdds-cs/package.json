@@ -8,6 +8,11 @@
       "import": "./dist/emotion/es/index.js",
       "require": "./dist/emotion/cjs/index.js",
       "types": "./types/index.d.ts"
+    },
+    "./beta": {
+      "import": "./dist/beta/es/index.js",
+      "require": "./dist/beta/cjs/index.js",
+      "types": "./dist/beta/types/index.d.ts"
     }
   },
   "files": [
@@ -75,17 +80,16 @@
     "preapi-report": "npm run generate:typings",
     "api-report": "npx api-extractor run --local",
     "prepare": "npm run build",
-    "build": "npm run build:emotion",
-    "postbuild": "npm run generate:typings",
-    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && node ./scripts/replaceStyledComponentsToEmotion.js",
+    "build": "npm run build:emotion && npm run build:beta",
     "build:emotion": "rm -rf dist/emotion && npm run build:emotion:esm && npm run build:emotion:cjs",
-    "build:emotion:cjs": "swc ./src-emotion -d ./dist/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
-    "build:emotion:esm": "swc ./src-emotion -d ./dist/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-    "postbuild:emotion": "rm -rf src-emotion",
-    "generate:typings": "rm -rf types && tsc",
+    "build:emotion:cjs": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:emotion:esm": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "build:beta": "rm -rf dist/beta && npm run build:beta:esm && npm run build:beta:cjs",
+    "build:beta:cjs": "swc ./src/components/_beta -d ./dist/beta/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs && mv dist/beta/cjs/components/_beta/* dist/beta/cjs && rimraf dist/beta/cjs/components",
+    "build:beta:esm": "swc ./src/components/_beta -d ./dist/beta/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6 && mv dist/beta/es/components/_beta/* dist/beta/es && rimraf dist/beta/es/components",
+    "postbuild": "npm run generate:typings",
+    "generate:typings": "rm -rf types && tsc && rm -rf dist/beta/types && tsc -p src/components/_beta/tsconfig.json",
     "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
-    "prestorybook:emotion": "npm run prebuild:emotion",
-    "storybook:emotion": "USE_EMOTION_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
     "typescript-coverage": "npx typescript-coverage-report > /dev/null",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"

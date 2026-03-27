@@ -1,9 +1,4 @@
-import {
-    textAreaConfig,
-    component,
-    mergeConfig,
-    createConditionalComponent,
-} from '@salutejs/plasma-new-hope/styled-components';
+import { textAreaConfig, component, mergeConfig, createConditionalComponent } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './TextArea.config';
 import { config as clearConfig } from './TextArea.clear.config';

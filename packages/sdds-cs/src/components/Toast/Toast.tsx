@@ -4,11 +4,11 @@ import {
     ToastControllerHoc,
     component,
     mergeConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Toast.config';
 
-export { useToast } from '@salutejs/plasma-new-hope/styled-components';
+export { useToast } from '@salutejs/plasma-new-hope/emotion';
 
 const mergedConfig = mergeConfig(toastConfig, config);
 

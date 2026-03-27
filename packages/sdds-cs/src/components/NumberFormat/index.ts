@@ -1,2 +1,2 @@
-export { numberFormatter } from '@salutejs/plasma-new-hope/styled-components';
+export { numberFormatter } from '@salutejs/plasma-new-hope/emotion';
 export { NumberFormat } from './NumberFormat';

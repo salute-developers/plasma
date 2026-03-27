@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Headline1, Headline3, Footnote1, Caption, applyEllipsis } from '@salutejs/plasma-core';
+import { Headline1, Headline3, Footnote1, Caption } from '@salutejs/plasma-core';
 import { paramCase } from 'param-case';
 
 const NONE = 'NONE';
@@ -337,8 +337,6 @@ const StyledTitle = styled(Footnote1)`
     *:hover > & {
         display: none;
     }
-
-    ${applyEllipsis};
 `;
 const StyledName = styled(StyledTitle)`
     display: none;
@@ -356,8 +354,6 @@ const StyledDescr = styled(Caption)`
     *:hover > & {
         display: none;
     }
-
-    ${applyEllipsis};
 `;
 const StyledVar = styled(StyledDescr)`
     display: none;

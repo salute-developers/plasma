@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { segmentTokens, bodyXS, bodyM } from '@salutejs/plasma-new-hope';
 
 import { AccordionItem } from '../../Accordion';

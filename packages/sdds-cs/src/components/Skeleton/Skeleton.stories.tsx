@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react-vite';
 import { getSkeletonStories } from '@salutejs/plasma-sb-utils';
-import { lineSkeletonConfig, radiuses, mergeConfig, withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
+import { lineSkeletonConfig, radiuses, mergeConfig, withSkeleton } from '@salutejs/plasma-new-hope/emotion';
 
 import { Button as BasicButton } from '../Button/Button';
 

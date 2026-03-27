@@ -1,1 +1,1 @@
-export { ButtonBase } from '@salutejs/plasma-new-hope/styled-components';
+export { ButtonBase } from '@salutejs/plasma-new-hope/emotion';

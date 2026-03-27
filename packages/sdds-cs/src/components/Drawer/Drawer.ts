@@ -5,7 +5,7 @@ import {
     drawerHeaderConfig,
     component,
     mergeConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Drawer.config';
 

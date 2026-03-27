@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const TokensWrapper = styled.div`
     margin-top: 1.5rem;

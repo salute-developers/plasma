@@ -1,4 +1,4 @@
-import { composeMask } from '@salutejs/plasma-new-hope/styled-components';
+import { composeMask } from '@salutejs/plasma-new-hope/emotion';
 
 import { TextField } from '../TextField';
 

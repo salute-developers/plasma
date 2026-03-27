@@ -1,4 +1,4 @@
-import { chipConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { chipConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Chip.config';
 
