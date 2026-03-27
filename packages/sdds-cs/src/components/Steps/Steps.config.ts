@@ -1,5 +1,23 @@
+import {
+    bodyM,
+    bodyS,
+    inverseTextPrimary,
+    onDarkSurfaceSolidPrimary,
+    surfaceAccent,
+    surfaceClear,
+    surfacePositive,
+    surfacePositiveHover,
+    surfaceSolidTertiary,
+    surfaceSolidTertiaryHover,
+    textAccent,
+    textAccentHover,
+    textPositive,
+    textPositiveHover,
+    textPrimary,
+    textPrimaryHover,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, stepsTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
-
 export const config = {
     defaults: {
         size: 's',
@@ -8,45 +26,53 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.loaderSpinnerColor}: var(--on-dark-surface-solid-primary);
+                ${tokens.loaderSpinnerColor}: ${onDarkSurfaceSolidPrimary};
 
-                ${tokens.activeTitleColor}: var(--text-primary);
-                ${tokens.activeTitleColorHover}: var(--text-primary-hover);
-                ${tokens.activeIndicatorColor}: var(--inverse-text-primary);
-                ${tokens.activeIndicatorBackground}: var(--on-dark-surface-solid-primary);
+                ${tokens.activeTitleColor}: ${textPrimary};
+                ${tokens.activeTitleColorHover}: ${textPrimaryHover};
+                ${tokens.activeIndicatorColor}: ${inverseTextPrimary};
+                ${tokens.activeIndicatorBackground}: ${onDarkSurfaceSolidPrimary};
 
-                ${tokens.bulletActiveIndicatorBorder}: solid var(--on-dark-surface-solid-primary);
-                ${tokens.bulletActiveBackground}: var(--surface-clear);
+                ${tokens.bulletActiveIndicatorBorder}: solid ${onDarkSurfaceSolidPrimary};
+                ${tokens.bulletActiveBackground}: ${surfaceClear};
 
-                ${tokens.completedTitleColor}: var(--text-accent);
-                ${tokens.completedTitleColorHover}: var(--text-accent-hover);
-                ${tokens.completedIndicatorColor}: var(--text-positive);
-                ${tokens.completedIndicatorColorHover}: var(--text-positive-hover);
-                ${tokens.completedIndicatorBackground}: var(--surface-clear);
-                ${tokens.completedIndicatorBackgroundHover}: var(--surface-clear);
-                ${tokens.completedIndicatorBorder}: var(--surface-positive);
-                ${tokens.completedIndicatorBorderHover}: var(--surface-positive-hover);
+                ${tokens.completedTitleColor}: ${textAccent};
+                ${tokens.completedTitleColorHover}: ${textAccentHover};
+                ${tokens.completedIndicatorColor}: ${textPositive};
+                ${tokens.completedIndicatorColorHover}: ${textPositiveHover};
+                ${tokens.completedIndicatorBackground}: ${surfaceClear};
+                ${tokens.completedIndicatorBackgroundHover}: ${surfaceClear};
+                ${tokens.completedIndicatorBorder}: ${surfacePositive};
+                ${tokens.completedIndicatorBorderHover}: ${surfacePositiveHover};
 
-                ${tokens.completedBulletBorder}: var(--surface-positive);
-                ${tokens.completedBulletBorderHover}: var(--surface-positive-hover);
-                ${tokens.completedBulletBackground}: var(--surface-positive);
-                ${tokens.completedBulletBackgroundHover}: var(--surface-positive-hover);
+                ${tokens.completedBulletBorder}: ${surfacePositive};
+                ${tokens.completedBulletBorderHover}: ${surfacePositiveHover};
+                ${tokens.completedBulletBackground}: ${surfacePositive};
+                ${tokens.completedBulletBackgroundHover}: ${surfacePositiveHover};
 
-                ${tokens.inactiveTitleColor}: var(--text-primary);
-                ${tokens.inactiveTitleColorHover}: var(--text-primary-hover);
-                ${tokens.inactiveIndicatorColor}: var(--text-primary);
-                ${tokens.inactiveIndicatorColorHover}: var(--text-primary);
+                ${tokens.inactiveTitleColor}: ${textPrimary};
+                ${tokens.inactiveTitleColorHover}: ${textPrimaryHover};
+                ${tokens.inactiveIndicatorColor}: ${textPrimary};
+                ${tokens.inactiveIndicatorColorHover}: ${textPrimary};
 
-                ${tokens.inactiveIndicatorBackground}: var(--surface-solid-tertiary);
-                ${tokens.inactiveIndicatorBackgroundHover}: var(--surface-solid-tertiary-hover);
+                ${tokens.inactiveIndicatorBackground}: ${surfaceSolidTertiary};
+                ${tokens.inactiveIndicatorBackgroundHover}: ${surfaceSolidTertiaryHover};
 
-                ${tokens.contentColor}: var(--text-secondary);
-                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.contentColor}: ${textSecondary};
+                ${tokens.focusColor}: ${surfaceAccent};
 
-                ${tokens.dividerColor}: var(--surface-positive);
-                ${tokens.dividerGradientColor}: linear-gradient(90deg, var(--surface-positive) 35%, var(--on-dark-surface-solid-primary) 100%);
-                ${tokens.dividerVerticalGradientColor}: linear-gradient(180deg, var(--surface-positive) 35%, var(--on-dark-surface-solid-primary) 100%);
-                ${tokens.dividerVerticalIndentColor}: var(--on-dark-surface-solid-primary);
+                ${tokens.dividerColor}: ${surfacePositive};
+                ${tokens.dividerGradientColor}: linear-gradient(
+                    90deg,
+                    ${surfacePositive} 35%,
+                    ${onDarkSurfaceSolidPrimary} 100%
+                );
+                ${tokens.dividerVerticalGradientColor}: linear-gradient(
+                    180deg,
+                    ${surfacePositive} 35%,
+                    ${onDarkSurfaceSolidPrimary} 100%
+                );
+                ${tokens.dividerVerticalIndentColor}: ${onDarkSurfaceSolidPrimary};
 
                 ${tokens.disabledOpacity}: 0.4;
             `,
@@ -69,33 +95,33 @@ export const config = {
                 ${tokens.smallBulletIndentHeight}: 1rem;
                 ${tokens.largeBulletIndentHeight}: 0.75rem;
 
-                ${tokens.indicatorFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.indicatorFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.indicatorFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.indicatorFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.indicatorLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.indicatorLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.indicatorFontFamily}: ${bodyS.fontFamily};
+                ${tokens.indicatorFontSize}: ${bodyS.fontSize};
+                ${tokens.indicatorFontStyle}: ${bodyS.fontStyle};
+                ${tokens.indicatorFontWeight}: ${bodyS.fontWeight};
+                ${tokens.indicatorLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.indicatorLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.activeIndicatorFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.activeIndicatorFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.activeIndicatorFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.activeIndicatorFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.activeIndicatorLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.activeIndicatorLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.activeIndicatorFontFamily}: ${bodyS.fontFamily};
+                ${tokens.activeIndicatorFontSize}: ${bodyS.fontSize};
+                ${tokens.activeIndicatorFontStyle}: ${bodyS.fontStyle};
+                ${tokens.activeIndicatorFontWeight}: ${bodyS.fontWeight};
+                ${tokens.activeIndicatorLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.activeIndicatorLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.titleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.titleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.titleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.titleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.titleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.titleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.titleFontFamily}: ${bodyM.fontFamily};
+                ${tokens.titleFontSize}: ${bodyM.fontSize};
+                ${tokens.titleFontStyle}: ${bodyM.fontStyle};
+                ${tokens.titleFontWeight}: ${bodyM.fontWeight};
+                ${tokens.titleLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.titleLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.contentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.contentLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.contentLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.contentFontFamily}: ${bodyS.fontFamily};
+                ${tokens.contentFontSize}: ${bodyS.fontSize};
+                ${tokens.contentFontStyle}: ${bodyS.fontStyle};
+                ${tokens.contentFontWeight}: ${bodyS.fontWeight};
+                ${tokens.contentLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.contentLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
             `,
