@@ -1,3 +1,4 @@
+import { surfaceSolidCard } from '@salutejs/plasma-themes/tokens/plasma_homeds';
 import { css, cardTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,7 +9,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.solidBackground}: var(--surface-solid-card);
+                ${tokens.solidBackground}: ${surfaceSolidCard};
             `,
         },
         size: {
