@@ -27,6 +27,14 @@ export type HTMLAttributesWithoutDraggable<T = HTMLElement> = Omit<
     'onDragStart' | 'onDragEnter' | 'onDragOver' | 'onDragLeave' | 'onDragEnd' | 'onDrop'
 >;
 
+export type InputHTMLAttributesWithoutDraggable<
+    T = HTMLInputElement,
+    V extends string | number | symbol = never
+> = Omit<
+    React.InputHTMLAttributes<T>,
+    'onDragStart' | 'onDragEnter' | 'onDragOver' | 'onDragLeave' | 'onDragEnd' | 'onDrop' | V
+>;
+
 export type RootProps<
     RefElement extends HTMLElement,
     Element extends React.HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement>
@@ -75,7 +83,10 @@ export interface ComponentConfig<
     Tag extends HTMLTagList = React.ElementType,
     VariantList extends Variants = Variants,
     VariantsProps extends PropsType<VariantList> = {},
-    LayoutProps extends React.HTMLAttributes<HTMLElement> | undefined = React.HTMLAttributes<HTMLElement>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    LayoutProps extends React.HTMLAttributes<HTMLElement> | Record<string, any> | undefined = React.HTMLAttributes<
+        HTMLElement
+    >
 > {
     name: string;
     layout: (Root: React.FunctionComponent) => (props: LayoutProps | VariantsProps) => React.ReactElement | null;
