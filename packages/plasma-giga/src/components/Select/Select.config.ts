@@ -986,7 +986,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.textFieldTooltipBackgroundColor}: ${surfaceSolidCardBrightness};
-                ${tokens.textFieldTooltipBoxShadow}: ${shadowDownHardM}, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.textFieldTooltipBoxShadow}: ${shadowDownHardM};
                 ${tokens.textFieldTooltipColor}: ${textPrimary};
                 ${tokens.textFieldTooltipArrowBackground}: ${surfaceSolidCard};
             `,
