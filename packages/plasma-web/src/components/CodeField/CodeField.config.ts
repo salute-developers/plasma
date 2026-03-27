@@ -1,3 +1,18 @@
+import {
+    bodyL,
+    bodyLBold,
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodyXS,
+    outlineAccent,
+    surfaceAccent,
+    surfaceNegative,
+    surfaceTransparentTertiary,
+    textNegative,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/plasma-themes/tokens/plasma_web';
 import { css, codeFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -9,19 +24,19 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.caretColor}: var(--surface-accent);
+                ${tokens.caretColor}: ${surfaceAccent};
 
-                ${tokens.captionColor}: var(--text-secondary);
-                ${tokens.captionColorError}: var(--text-negative);
+                ${tokens.captionColor}: ${textSecondary};
+                ${tokens.captionColorError}: ${textNegative};
 
-                ${tokens.codeColor}: var(--text-primary);
-                ${tokens.codeColorError}: var(--text-negative);
-                ${tokens.borderColorFocus}: var(--outline-accent);
+                ${tokens.codeColor}: ${textPrimary};
+                ${tokens.codeColorError}: ${textNegative};
+                ${tokens.borderColorFocus}: ${outlineAccent};
 
-                ${tokens.borderColor}: var(--surface-transparent-tertiary);
-                ${tokens.borderColorHover}: var(--text-secondary);
-                ${tokens.borderColorFocus}: var(--surface-accent);
-                ${tokens.borderErrorColor}: var(--surface-negative);
+                ${tokens.borderColor}: ${surfaceTransparentTertiary};
+                ${tokens.borderColorHover}: ${textSecondary};
+                ${tokens.borderColorFocus}: ${surfaceAccent};
+                ${tokens.borderErrorColor}: ${surfaceNegative};
             `,
         },
         size: {
@@ -34,19 +49,19 @@ export const config = {
                 ${tokens.codeItemWidth}: 2.75rem;
                 ${tokens.codeItemHeight}: 3.5rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.fontFamily}: ${bodyL.fontFamily};
+                ${tokens.fontSize}: ${bodyL.fontSize};
+                ${tokens.fontStyle}: ${bodyL.fontStyle};
+                ${tokens.fontWeight}: ${bodyLBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.lineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.captionFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.captionFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.captionFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.captionFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.captionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.captionLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.captionFontFamily}: ${bodyS.fontFamily};
+                ${tokens.captionFontSize}: ${bodyS.fontSize};
+                ${tokens.captionFontStyle}: ${bodyS.fontStyle};
+                ${tokens.captionFontWeight}: ${bodyS.fontWeight};
+                ${tokens.captionLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.captionLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.borderWidth}: 0.063rem;
                 ${tokens.borderRadius}: 0.875rem;
@@ -62,19 +77,19 @@ export const config = {
                 ${tokens.codeItemWidth}: 2.375rem;
                 ${tokens.codeItemHeight}: 3rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fontFamily}: ${bodyM.fontFamily};
+                ${tokens.fontSize}: ${bodyM.fontSize};
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyMBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.lineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.captionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.captionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.captionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.captionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.captionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.captionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.captionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.captionFontSize}: ${bodyXS.fontSize};
+                ${tokens.captionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.captionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.captionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.captionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.borderWidth}: 0.063rem;
                 ${tokens.borderRadius}: 0.75rem;
