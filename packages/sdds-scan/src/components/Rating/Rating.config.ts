@@ -1,3 +1,13 @@
+import {
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    bodyXS,
+    textPrimary,
+    textSecondary,
+    textTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_scan';
 import { css, ratingTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,36 +18,36 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-primary);
-                ${tokens.helperTextColor}: var(--text-secondary);
-                ${tokens.iconColor}: var(--text-primary);
-                ${tokens.outlineIconColor}: var(--text-primary);
+                ${tokens.color}: ${textPrimary};
+                ${tokens.helperTextColor}: ${textSecondary};
+                ${tokens.iconColor}: ${textPrimary};
+                ${tokens.outlineIconColor}: ${textPrimary};
             `,
             accent: css`
-                ${tokens.color}: var(--text-primary);
-                ${tokens.helperTextColor}: var(--text-secondary);
+                ${tokens.color}: ${textPrimary};
+                ${tokens.helperTextColor}: ${textSecondary};
                 // TODO: change with token data-yellow, when it will be added to theme
                 ${tokens.iconColor}: #F3A912;
-                ${tokens.outlineIconColor}: var(--text-tertiary);
+                ${tokens.outlineIconColor}: ${textTertiary};
             `,
         },
         size: {
             m: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fontFamily}: ${bodyM.fontFamily};
+                ${tokens.fontSize}: ${bodyM.fontSize};
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyMBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.lineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.helperTextFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.helperTextFontSize}: ${bodyXS.fontSize};
+                ${tokens.helperTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.helperTextFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.helperTextLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.helperTextLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.contentGap}: 0.5rem;
                 ${tokens.singleIconContentGap}: 0.25rem;
@@ -48,19 +58,19 @@ export const config = {
             s: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.fontFamily}: ${bodyS.fontFamily};
+                ${tokens.fontSize}: ${bodyS.fontSize};
+                ${tokens.fontStyle}: ${bodyS.fontStyle};
+                ${tokens.fontWeight}: ${bodySBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.lineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.helperTextFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.helperTextFontSize}: ${bodyXS.fontSize};
+                ${tokens.helperTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.helperTextFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.helperTextLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.helperTextLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.contentGap}: 0.5rem;
                 ${tokens.singleIconContentGap}: 0.25rem;
