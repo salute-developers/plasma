@@ -1,3 +1,34 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    shadowDownHardM,
+    surfaceAccent,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidCard,
+    surfaceSolidCardBrightness,
+    surfaceTransparentNegative,
+    surfaceTransparentNegativeActive,
+    surfaceTransparentPositive,
+    surfaceTransparentPositiveActive,
+    surfaceTransparentPrimary,
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+    surfaceTransparentWarning,
+    surfaceTransparentWarningActive,
+    surfaceWarning,
+    textAccent,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textTertiary,
+    textWarning,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css, autocompleteTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -9,172 +40,172 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.textFieldColor}: var(--text-primary);
-                ${tokens.textFieldClearColor}: var(--text-primary);
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldClearColor}: ${textPrimary};
 
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.textFieldClearPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
+                ${tokens.textFieldClearPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.textFieldCaretColor}: var(--text-accent);
-                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
-                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
-                ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
-                ${tokens.textFieldFocusColor}: var(--text-accent);
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldTextBeforeColor}: ${textTertiary};
+                ${tokens.textFieldTextAfterColor}: ${textTertiary};
+                ${tokens.textFieldLabelColor}: ${textPrimary};
+                ${tokens.textFieldLeftHelperColor}: ${textSecondary};
+                ${tokens.textFieldFocusColor}: ${textAccent};
 
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentSlotColor}: ${textSecondary};
+                ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
 
-                ${tokens.focusColor}: var(--surface-accent);
-                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
-                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+                ${tokens.focusColor}: ${surfaceAccent};
+                ${tokens.textFieldIndicatorColor}: ${surfaceNegative};
+                ${tokens.textFieldOptionalColor}: ${textTertiary};
 
-                ${tokens.textFieldDividerColor}: var(--surface-transparent-tertiary);
-                ${tokens.textFieldDividerColorHover}: var(--text-secondary);
-                ${tokens.textFieldDividerColorFocus}: var(--surface-accent);
+                ${tokens.textFieldDividerColor}: ${surfaceTransparentTertiary};
+                ${tokens.textFieldDividerColorHover}: ${textSecondary};
+                ${tokens.textFieldDividerColorFocus}: ${surfaceAccent};
 
-                ${tokens.background}: var(--surface-solid-card);
+                ${tokens.background}: ${surfaceSolidCard};
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${tokens.itemBackground}: transparent;
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${tokens.itemColor}: var(--text-primary);
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemColor}: ${textPrimary};
 
                 ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
                 ${tokens.textFieldContentSlotRightColor}: ${tokens.textFieldColor};
-                ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
+                ${tokens.infiniteLoaderSpinnerColor}: ${textPrimary};
 
-                ${tokens.textFieldHintIconColor}: var(--text-secondary);
+                ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             positive: css`
-                ${tokens.textFieldColor}: var(--text-primary);
-                ${tokens.textFieldClearColor}: var(--text-positive);
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldClearColor}: ${textPositive};
 
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.textFieldClearPlaceholderColor}: var(--text-positive);
-                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-positive);
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
+                ${tokens.textFieldClearPlaceholderColor}: ${textPositive};
+                ${tokens.textFieldClearPlaceholderColorFocus}: ${textPositive};
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-positive-active);
-                ${tokens.textFieldCaretColor}: var(--text-accent);
-                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
-                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
-                ${tokens.textFieldLeftHelperColor}: var(--text-positive);
-                ${tokens.textFieldFocusColor}: var(--text-accent);
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPositive};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentPositiveActive};
+                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldTextBeforeColor}: ${textTertiary};
+                ${tokens.textFieldTextAfterColor}: ${textTertiary};
+                ${tokens.textFieldLabelColor}: ${textPrimary};
+                ${tokens.textFieldLeftHelperColor}: ${textPositive};
+                ${tokens.textFieldFocusColor}: ${textAccent};
 
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentSlotColor}: ${textSecondary};
+                ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
 
-                ${tokens.focusColor}: var(--surface-accent);
-                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
-                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+                ${tokens.focusColor}: ${surfaceAccent};
+                ${tokens.textFieldIndicatorColor}: ${surfaceNegative};
+                ${tokens.textFieldOptionalColor}: ${textTertiary};
 
-                ${tokens.textFieldDividerColor}: var(--surface-positive);
-                ${tokens.textFieldDividerColorHover}: var(--surface-positive);
-                ${tokens.textFieldDividerColorFocus}: var(--surface-accent);
+                ${tokens.textFieldDividerColor}: ${surfacePositive};
+                ${tokens.textFieldDividerColorHover}: ${surfacePositive};
+                ${tokens.textFieldDividerColorFocus}: ${surfaceAccent};
 
-                ${tokens.background}: var(--surface-solid-card);
+                ${tokens.background}: ${surfaceSolidCard};
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${tokens.itemBackground}: transparent;
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${tokens.itemColor}: var(--text-primary);
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemColor}: ${textPrimary};
 
                 ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
                 ${tokens.textFieldContentSlotRightColor}: ${tokens.textFieldColor};
-                ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
+                ${tokens.infiniteLoaderSpinnerColor}: ${textPrimary};
 
-                ${tokens.textFieldHintIconColor}: var(--text-secondary);
+                ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             warning: css`
-                ${tokens.textFieldColor}: var(--text-primary);
-                ${tokens.textFieldClearColor}: var(--text-warning);
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldClearColor}: ${textWarning};
 
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.textFieldClearPlaceholderColor}: var(--text-warning);
-                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-warning);
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
+                ${tokens.textFieldClearPlaceholderColor}: ${textWarning};
+                ${tokens.textFieldClearPlaceholderColorFocus}: ${textWarning};
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-warning-active);
-                ${tokens.textFieldCaretColor}: var(--text-accent);
-                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
-                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
-                ${tokens.textFieldLeftHelperColor}: var(--text-warning);
-                ${tokens.textFieldFocusColor}: var(--text-accent);
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentWarningActive};
+                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldTextBeforeColor}: ${textTertiary};
+                ${tokens.textFieldTextAfterColor}: ${textTertiary};
+                ${tokens.textFieldLabelColor}: ${textPrimary};
+                ${tokens.textFieldLeftHelperColor}: ${textWarning};
+                ${tokens.textFieldFocusColor}: ${textAccent};
 
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentSlotColor}: ${textSecondary};
+                ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
 
-                ${tokens.focusColor}: var(--surface-accent);
-                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
-                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+                ${tokens.focusColor}: ${surfaceAccent};
+                ${tokens.textFieldIndicatorColor}: ${surfaceNegative};
+                ${tokens.textFieldOptionalColor}: ${textTertiary};
 
-                ${tokens.textFieldDividerColor}: var(--surface-warning);
-                ${tokens.textFieldDividerColorHover}: var(--surface-warning);
-                ${tokens.textFieldDividerColorFocus}: var(--surface-accent);
+                ${tokens.textFieldDividerColor}: ${surfaceWarning};
+                ${tokens.textFieldDividerColorHover}: ${surfaceWarning};
+                ${tokens.textFieldDividerColorFocus}: ${surfaceAccent};
 
-                ${tokens.background}: var(--surface-solid-card);
+                ${tokens.background}: ${surfaceSolidCard};
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${tokens.itemBackground}: transparent;
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${tokens.itemColor}: var(--text-primary);
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemColor}: ${textPrimary};
 
                 ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
                 ${tokens.textFieldContentSlotRightColor}: ${tokens.textFieldColor};
-                ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
+                ${tokens.infiniteLoaderSpinnerColor}: ${textPrimary};
 
-                ${tokens.textFieldHintIconColor}: var(--text-secondary);
+                ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             negative: css`
-                ${tokens.textFieldColor}: var(--text-primary);
-                ${tokens.textFieldClearColor}: var(--text-negative);
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldClearColor}: ${textNegative};
 
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.textFieldClearPlaceholderColor}: var(--text-negative);
-                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-negative);
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
+                ${tokens.textFieldClearPlaceholderColor}: ${textNegative};
+                ${tokens.textFieldClearPlaceholderColorFocus}: ${textNegative};
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-negative-active);
-                ${tokens.textFieldCaretColor}: var(--text-accent);
-                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
-                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
-                ${tokens.textFieldLeftHelperColor}: var(--text-negative);
-                ${tokens.textFieldFocusColor}: var(--text-accent);
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldTextBeforeColor}: ${textTertiary};
+                ${tokens.textFieldTextAfterColor}: ${textTertiary};
+                ${tokens.textFieldLabelColor}: ${textPrimary};
+                ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldFocusColor}: ${textAccent};
 
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentSlotColor}: ${textSecondary};
+                ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
 
-                ${tokens.focusColor}: var(--surface-accent);
-                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
-                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+                ${tokens.focusColor}: ${surfaceAccent};
+                ${tokens.textFieldIndicatorColor}: ${surfaceNegative};
+                ${tokens.textFieldOptionalColor}: ${textTertiary};
 
-                ${tokens.textFieldDividerColor}: var(--surface-negative);
-                ${tokens.textFieldDividerColorHover}: var(--surface-negative);
-                ${tokens.textFieldDividerColorFocus}: var(--surface-accent);
+                ${tokens.textFieldDividerColor}: ${surfaceNegative};
+                ${tokens.textFieldDividerColorHover}: ${surfaceNegative};
+                ${tokens.textFieldDividerColorFocus}: ${surfaceAccent};
 
-                ${tokens.background}: var(--surface-solid-card);
+                ${tokens.background}: ${surfaceSolidCard};
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${tokens.itemBackground}: transparent;
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${tokens.itemColor}: var(--text-primary);
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemColor}: ${textPrimary};
 
                 ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
                 ${tokens.textFieldContentSlotRightColor}: ${tokens.textFieldColor};
-                ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
+                ${tokens.infiniteLoaderSpinnerColor}: ${textPrimary};
 
-                ${tokens.textFieldHintIconColor}: var(--text-secondary);
+                ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
         },
         size: {
@@ -193,21 +224,21 @@ export const config = {
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.textFieldFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textFieldFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textFieldFontSize}: ${bodyL.fontSize};
+                ${tokens.textFieldFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textFieldFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.textFieldLabelOffset}: 0.75rem;
                 ${tokens.textFieldClearLabelOffset}: 0.25rem;
-                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textFieldLabelFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textFieldLabelFontSize}: ${bodyL.fontSize};
+                ${tokens.textFieldLabelFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textFieldLabelFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textFieldLabelLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textFieldLabelLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -215,12 +246,12 @@ export const config = {
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldLeftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLeftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLeftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLabelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.textFieldContentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
@@ -240,12 +271,12 @@ export const config = {
                 ${tokens.itemPadding}: 1.0625rem 1rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.itemFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.itemFontFamily}: ${bodyL.fontFamily};
+                ${tokens.itemFontSize}: ${bodyL.fontSize};
+                ${tokens.itemFontStyle}: ${bodyL.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyL.fontWeight};
+                ${tokens.itemFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.itemFontLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.emptyStatePadding}: 2rem 1rem 1rem 1rem;
                 ${tokens.emptyStateGap}: 0.5rem;
@@ -268,21 +299,21 @@ export const config = {
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.textFieldFontFamily}: ${bodyM.fontFamily};
+                ${tokens.textFieldFontSize}: ${bodyM.fontSize};
+                ${tokens.textFieldFontStyle}: ${bodyM.fontStyle};
+                ${tokens.textFieldFontWeight}: ${bodyM.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.textFieldLabelOffset}: 0.625rem;
                 ${tokens.textFieldClearLabelOffset}: 0.25rem;
-                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.textFieldLabelFontFamily}: ${bodyM.fontFamily};
+                ${tokens.textFieldLabelFontSize}: ${bodyM.fontSize};
+                ${tokens.textFieldLabelFontStyle}: ${bodyM.fontStyle};
+                ${tokens.textFieldLabelFontWeight}: ${bodyM.fontWeight};
+                ${tokens.textFieldLabelLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.textFieldLabelLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -290,12 +321,12 @@ export const config = {
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldLeftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLeftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLeftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLabelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.textFieldContentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
@@ -315,12 +346,12 @@ export const config = {
                 ${tokens.itemPadding}: 0.875rem 0.875rem 0.875rem 0.875rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.itemFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.itemFontFamily}: ${bodyM.fontFamily};
+                ${tokens.itemFontSize}: ${bodyM.fontSize};
+                ${tokens.itemFontStyle}: ${bodyM.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyM.fontWeight};
+                ${tokens.itemFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.itemFontLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.emptyStatePadding}: 1.625rem 0.875rem 0.875rem 0.875rem;
                 ${tokens.emptyStateGap}: 0.375rem;
@@ -343,21 +374,21 @@ export const config = {
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textFieldFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFieldFontSize}: ${bodyS.fontSize};
+                ${tokens.textFieldFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFieldFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.textFieldLabelOffset}: 0.5rem;
                 ${tokens.textFieldClearLabelOffset}: 0.25rem;
-                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textFieldLabelFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFieldLabelFontSize}: ${bodyS.fontSize};
+                ${tokens.textFieldLabelFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFieldLabelFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textFieldLabelLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textFieldLabelLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -365,12 +396,12 @@ export const config = {
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldLeftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLeftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLeftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -390,12 +421,12 @@ export const config = {
                 ${tokens.itemPadding}: 0.6875rem 0.75rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.itemFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.itemFontFamily}: ${bodyS.fontFamily};
+                ${tokens.itemFontSize}: ${bodyS.fontSize};
+                ${tokens.itemFontStyle}: ${bodyS.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyS.fontWeight};
+                ${tokens.itemFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.itemFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.emptyStatePadding}: 1.375rem 0.625rem 0.625rem 0.625rem;
                 ${tokens.emptyStateGap}: 0.25rem;
@@ -418,21 +449,21 @@ export const config = {
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLabelOffset}: 0.375rem;
                 ${tokens.textFieldClearLabelOffset}: 0.25rem;
-                ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLabelFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldLabelFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldLabelFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldLabelFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLabelLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLabelLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldHintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -440,12 +471,12 @@ export const config = {
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldLeftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLeftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLeftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -465,12 +496,12 @@ export const config = {
                 ${tokens.itemPadding}: 0.5625rem 0.5rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.itemFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.itemFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.itemFontSize}: ${bodyXS.fontSize};
+                ${tokens.itemFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.itemFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.itemFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.emptyStatePadding}: 1rem 0.5rem 0.5rem 0.5rem;
                 ${tokens.emptyStateGap}: 0.25rem;
@@ -481,22 +512,22 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldLabelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldLabelInnerFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldLabelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldLabelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLabelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLabelInnerLineHeight}: ${bodyXS.lineHeight};
             `,
             outer: css``,
         },
         hintView: {
             default: css`
-                ${tokens.textFieldTooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.textFieldTooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
-                ${tokens.textFieldTooltipColor}: var(--text-primary);
-                ${tokens.textFieldTooltipArrowBackground}: var(--surface-solid-card);
+                ${tokens.textFieldTooltipBackgroundColor}: ${surfaceSolidCardBrightness};
+                ${tokens.textFieldTooltipBoxShadow}: ${shadowDownHardM}, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.textFieldTooltipColor}: ${textPrimary};
+                ${tokens.textFieldTooltipArrowBackground}: ${surfaceSolidCard};
             `,
         },
         hintSize: {
@@ -509,12 +540,12 @@ export const config = {
                 ${tokens.textFieldTooltipMinHeight}: 2.5rem;
                 ${tokens.textFieldTooltipBorderRadius}: 0.625rem;
 
-                ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textFieldTooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFieldTooltipTextFontSize}: ${bodyS.fontSize};
+                ${tokens.textFieldTooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFieldTooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textFieldTooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textFieldTooltipTextFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.textFieldTooltipContentLeftMargin}: 0.375rem;
 
@@ -533,12 +564,12 @@ export const config = {
                 ${tokens.textFieldTooltipMinHeight}: 2rem;
                 ${tokens.textFieldTooltipBorderRadius}: 0.5rem;
 
-                ${tokens.textFieldTooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldTooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldTooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldTooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldTooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldTooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldTooltipTextFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldTooltipTextFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldTooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldTooltipTextFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldTooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldTooltipTextFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldTooltipContentLeftMargin}: 0.25rem;
 
@@ -556,14 +587,14 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldColorReadOnly}: ${textPrimary};
                 ${tokens.textFieldReadOnlyOpacity}: 0.1;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: ${surfaceTransparentPrimary};
+                ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
+                ${tokens.textFieldLeftHelperColorReadOnly}: ${textSecondary};
+                ${tokens.textFieldLabelColorReadOnly}: ${textPrimary};
+                ${tokens.textFieldDividerColorReadOnly}: ${surfaceTransparentPrimary};
             `,
         },
     },
