@@ -1,3 +1,10 @@
+import {
+    bodyS,
+    bodyXS,
+    inverseSurfaceSolidCardBrightness,
+    inverseTextPrimary,
+    surfaceSolidCardBrightness,
+} from '@salutejs/sdds-themes/tokens/sdds_finai';
 import { css, tooltipTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -16,12 +23,12 @@ export const config = {
                 ${tooltipTokens.minHeight}: 2rem;
                 ${tooltipTokens.borderRadius}: 0.5rem;
 
-                ${tooltipTokens.textFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tooltipTokens.textFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tooltipTokens.textFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tooltipTokens.textFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tooltipTokens.textFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tooltipTokens.textFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tooltipTokens.textFontFamily}: ${bodyXS.fontFamily};
+                ${tooltipTokens.textFontSize}: ${bodyXS.fontSize};
+                ${tooltipTokens.textFontStyle}: ${bodyXS.fontStyle};
+                ${tooltipTokens.textFontWeight}: ${bodyXS.fontWeight};
+                ${tooltipTokens.textFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tooltipTokens.textFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${tooltipTokens.contentLeftMargin}: 0.25rem;
 
@@ -30,7 +37,7 @@ export const config = {
                 ${tooltipTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
                 ${tooltipTokens.arrowHeight}: 0.375rem;
                 ${tooltipTokens.arrowEdgeMargin}: 0.5625rem;
-                ${tooltipTokens.arrowBackground}: var(--surface-solid-card-brightness);
+                ${tooltipTokens.arrowBackground}: ${surfaceSolidCardBrightness};
             `,
             m: css`
                 ${tooltipTokens.paddingTop}: 0.6875rem;
@@ -41,12 +48,12 @@ export const config = {
                 ${tooltipTokens.minHeight}: 2.5rem;
                 ${tooltipTokens.borderRadius}: 0.625rem;
 
-                ${tooltipTokens.textFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tooltipTokens.textFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tooltipTokens.textFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tooltipTokens.textFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tooltipTokens.textFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tooltipTokens.textFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tooltipTokens.textFontFamily}: ${bodyS.fontFamily};
+                ${tooltipTokens.textFontSize}: ${bodyS.fontSize};
+                ${tooltipTokens.textFontStyle}: ${bodyS.fontStyle};
+                ${tooltipTokens.textFontWeight}: ${bodyS.fontWeight};
+                ${tooltipTokens.textFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tooltipTokens.textFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tooltipTokens.contentLeftMargin}: 0.375rem;
 
@@ -55,16 +62,16 @@ export const config = {
                 ${tooltipTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
                 ${tooltipTokens.arrowHeight}: 0.5rem;
                 ${tooltipTokens.arrowEdgeMargin}: 0.625rem;
-                ${tooltipTokens.arrowBackground}: var(--surface-solid-card-brightness);
+                ${tooltipTokens.arrowBackground}: ${surfaceSolidCardBrightness};
             `,
         },
         view: {
             // TODO заменить тень на токен https://github.com/salute-developers/plasma/issues/1131
             default: css`
-                ${tooltipTokens.backgroundColor}: var(--inverse-surface-solid-card-brightness);
+                ${tooltipTokens.backgroundColor}: ${inverseSurfaceSolidCardBrightness};
                 ${tooltipTokens.boxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);
-                ${tooltipTokens.color}: var(--inverse-text-primary);
-                ${tooltipTokens.arrowBackground}: var(--inverse-surface-solid-card-brightness);
+                ${tooltipTokens.color}: ${inverseTextPrimary};
+                ${tooltipTokens.arrowBackground}: ${inverseSurfaceSolidCardBrightness};
             `,
         },
     },
