@@ -1,8 +1,10 @@
+import { surfaceTransparentPrimary, surfaceTransparentTertiary } from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
+
 export const config = {
     view: {
         default: {
-            trackColor: 'var(--surface-transparent-primary)',
-            thumbColor: 'var(--surface-transparent-tertiary)',
+            trackColor: surfaceTransparentPrimary,
+            thumbColor: surfaceTransparentTertiary,
         },
     },
     size: {
