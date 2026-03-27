@@ -1,3 +1,18 @@
+import {
+    bodyS,
+    bodyXS,
+    bodyXXS,
+    inverseTextPrimary,
+    onDarkSurfaceSolidDefault,
+    onDarkTextPrimary,
+    onLightSurfaceSolidDefault,
+    onLightTextPrimary,
+    surfaceAccent,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    surfaceWarning,
+} from '@salutejs/plasma-themes/tokens/plasma_homeds';
 import { css, counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,32 +23,32 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${counterTokens.color}: var(--inverse-text-primary);
-                ${counterTokens.background}: var(--surface-solid-default);
+                ${counterTokens.color}: ${inverseTextPrimary};
+                ${counterTokens.background}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-accent);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfaceAccent};
             `,
             positive: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-positive);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfacePositive};
             `,
             warning: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-warning);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfaceWarning};
             `,
             negative: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-negative);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfaceNegative};
             `,
             dark: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--on-light-surface-solid-default);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${onLightSurfaceSolidDefault};
             `,
             light: css`
-                ${counterTokens.color}: var(--on-light-text-primary);
-                ${counterTokens.background}: var(--on-dark-surface-solid-default);
+                ${counterTokens.color}: ${onLightTextPrimary};
+                ${counterTokens.background}: ${onDarkSurfaceSolidDefault};
             `,
         },
         size: {
@@ -41,56 +56,56 @@ export const config = {
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1.75rem;
                 ${counterTokens.padding}: 0 0.625rem;
-                ${counterTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${counterTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${counterTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${counterTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${counterTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${counterTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${counterTokens.fontFamily}: ${bodyS.fontFamily};
+                ${counterTokens.fontSize}: ${bodyS.fontSize};
+                ${counterTokens.fontStyle}: ${bodyS.fontStyle};
+                ${counterTokens.fontWeight}: ${bodyS.fontWeight};
+                ${counterTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${counterTokens.lineHeight}: ${bodyS.lineHeight};
             `,
             m: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1.5rem;
                 ${counterTokens.padding}: 0 0.5rem;
-                ${counterTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${counterTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${counterTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${counterTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${counterTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${counterTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${counterTokens.fontFamily}: ${bodyXS.fontFamily};
+                ${counterTokens.fontSize}: ${bodyXS.fontSize};
+                ${counterTokens.fontStyle}: ${bodyXS.fontStyle};
+                ${counterTokens.fontWeight}: ${bodyXS.fontWeight};
+                ${counterTokens.letterSpacing}: ${bodyXS.letterSpacing};
+                ${counterTokens.lineHeight}: ${bodyXS.lineHeight};
             `,
             s: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1.25rem;
                 ${counterTokens.padding}: 0 0.375rem;
-                ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${counterTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${counterTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${counterTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${counterTokens.fontFamily}: ${bodyXXS.fontFamily};
+                ${counterTokens.fontSize}: ${bodyXXS.fontSize};
+                ${counterTokens.fontStyle}: ${bodyXXS.fontStyle};
+                ${counterTokens.fontWeight}: ${bodyXXS.fontWeight};
+                ${counterTokens.letterSpacing}: ${bodyXXS.letterSpacing};
+                ${counterTokens.lineHeight}: ${bodyXXS.lineHeight};
             `,
             xs: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1rem;
                 ${counterTokens.padding}: 0 0.25rem;
-                ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${counterTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${counterTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${counterTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${counterTokens.fontFamily}: ${bodyXXS.fontFamily};
+                ${counterTokens.fontSize}: ${bodyXXS.fontSize};
+                ${counterTokens.fontStyle}: ${bodyXXS.fontStyle};
+                ${counterTokens.fontWeight}: ${bodyXXS.fontWeight};
+                ${counterTokens.letterSpacing}: ${bodyXXS.letterSpacing};
+                ${counterTokens.lineHeight}: ${bodyXXS.lineHeight};
             `,
             xxs: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 0.75rem;
                 ${counterTokens.padding}: 0 0.125rem;
-                ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${counterTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${counterTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${counterTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${counterTokens.fontFamily}: ${bodyXXS.fontFamily};
+                ${counterTokens.fontSize}: ${bodyXXS.fontSize};
+                ${counterTokens.fontStyle}: ${bodyXXS.fontStyle};
+                ${counterTokens.fontWeight}: ${bodyXXS.fontWeight};
+                ${counterTokens.letterSpacing}: ${bodyXXS.letterSpacing};
+                ${counterTokens.lineHeight}: ${bodyXXS.lineHeight};
             `,
         },
     },
