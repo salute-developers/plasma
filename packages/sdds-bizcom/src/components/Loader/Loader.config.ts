@@ -1,3 +1,30 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    bodyXXS,
+    h2,
+    h2Bold,
+    h5,
+    h5Bold,
+    overlaySoft,
+    surfaceAccent,
+    surfaceInfo,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+    surfaceWarning,
+    textAccent,
+    textInfo,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textSecondary,
+    textWarning,
+} from '@salutejs/sdds-themes/tokens/sdds_bizcom';
 import { css, loaderTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,67 +35,67 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
-                ${loaderTokens.progressBarCircularStroke}: var(--surface-solid-default);
-                ${loaderTokens.progressBarCircularContentColor}: var(--text-primary);
+                ${loaderTokens.progressBarCircularBackgroundStroke}: ${surfaceTransparentTertiary};
+                ${loaderTokens.progressBarCircularStroke}: ${surfaceSolidDefault};
+                ${loaderTokens.progressBarCircularContentColor}: ${textPrimary};
 
-                ${loaderTokens.spinnerColor}: var(--text-primary);
+                ${loaderTokens.spinnerColor}: ${textPrimary};
 
-                ${loaderTokens.overlayColor}: var(--overlay-soft);
+                ${loaderTokens.overlayColor}: ${overlaySoft};
             `,
             secondary: css`
-                ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
-                ${loaderTokens.progressBarCircularStroke}: var(--surface-transparent-secondary);
-                ${loaderTokens.progressBarCircularContentColor}: var(--text-primary);
+                ${loaderTokens.progressBarCircularBackgroundStroke}: ${surfaceTransparentTertiary};
+                ${loaderTokens.progressBarCircularStroke}: ${surfaceTransparentSecondary};
+                ${loaderTokens.progressBarCircularContentColor}: ${textPrimary};
 
-                ${loaderTokens.spinnerColor}: var(--text-secondary);
+                ${loaderTokens.spinnerColor}: ${textSecondary};
 
-                ${loaderTokens.overlayColor}: var(--overlay-soft);
+                ${loaderTokens.overlayColor}: ${overlaySoft};
             `,
             accent: css`
-                ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
-                ${loaderTokens.progressBarCircularStroke}: var(--surface-accent);
-                ${loaderTokens.progressBarCircularContentColor}: var(--text-primary);
+                ${loaderTokens.progressBarCircularBackgroundStroke}: ${surfaceTransparentTertiary};
+                ${loaderTokens.progressBarCircularStroke}: ${surfaceAccent};
+                ${loaderTokens.progressBarCircularContentColor}: ${textPrimary};
 
-                ${loaderTokens.spinnerColor}: var(--text-accent);
+                ${loaderTokens.spinnerColor}: ${textAccent};
 
-                ${loaderTokens.overlayColor}: var(--overlay-soft);
+                ${loaderTokens.overlayColor}: ${overlaySoft};
             `,
             positive: css`
-                ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
-                ${loaderTokens.progressBarCircularStroke}: var(--surface-positive);
-                ${loaderTokens.progressBarCircularContentColor}: var(--text-primary);
+                ${loaderTokens.progressBarCircularBackgroundStroke}: ${surfaceTransparentTertiary};
+                ${loaderTokens.progressBarCircularStroke}: ${surfacePositive};
+                ${loaderTokens.progressBarCircularContentColor}: ${textPrimary};
 
-                ${loaderTokens.spinnerColor}: var(--text-positive);
+                ${loaderTokens.spinnerColor}: ${textPositive};
 
-                ${loaderTokens.overlayColor}: var(--overlay-soft);
+                ${loaderTokens.overlayColor}: ${overlaySoft};
             `,
             warning: css`
-                ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
-                ${loaderTokens.progressBarCircularStroke}: var(--surface-warning);
-                ${loaderTokens.progressBarCircularContentColor}: var(--text-primary);
+                ${loaderTokens.progressBarCircularBackgroundStroke}: ${surfaceTransparentTertiary};
+                ${loaderTokens.progressBarCircularStroke}: ${surfaceWarning};
+                ${loaderTokens.progressBarCircularContentColor}: ${textPrimary};
 
-                ${loaderTokens.spinnerColor}: var(--text-warning);
+                ${loaderTokens.spinnerColor}: ${textWarning};
 
-                ${loaderTokens.overlayColor}: var(--overlay-soft);
+                ${loaderTokens.overlayColor}: ${overlaySoft};
             `,
             negative: css`
-                ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
-                ${loaderTokens.progressBarCircularStroke}: var(--surface-negative);
-                ${loaderTokens.progressBarCircularContentColor}: var(--text-primary);
+                ${loaderTokens.progressBarCircularBackgroundStroke}: ${surfaceTransparentTertiary};
+                ${loaderTokens.progressBarCircularStroke}: ${surfaceNegative};
+                ${loaderTokens.progressBarCircularContentColor}: ${textPrimary};
 
-                ${loaderTokens.spinnerColor}: var(--text-negative);
+                ${loaderTokens.spinnerColor}: ${textNegative};
 
-                ${loaderTokens.overlayColor}: var(--overlay-soft);
+                ${loaderTokens.overlayColor}: ${overlaySoft};
             `,
             info: css`
-                ${loaderTokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
-                ${loaderTokens.progressBarCircularStroke}: var(--surface-info);
-                ${loaderTokens.progressBarCircularContentColor}: var(--text-primary);
+                ${loaderTokens.progressBarCircularBackgroundStroke}: ${surfaceTransparentTertiary};
+                ${loaderTokens.progressBarCircularStroke}: ${surfaceInfo};
+                ${loaderTokens.progressBarCircularContentColor}: ${textPrimary};
 
-                ${loaderTokens.spinnerColor}: var(--text-info);
+                ${loaderTokens.spinnerColor}: ${textInfo};
 
-                ${loaderTokens.overlayColor}: var(--overlay-soft);
+                ${loaderTokens.overlayColor}: ${overlaySoft};
             `,
         },
         size: {
@@ -81,12 +108,12 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 8rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.25rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 4;
-                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-h2-font-family);
-                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-h2-font-size);
-                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-h2-font-style);
-                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-h2-bold-font-weight);
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-h2-letter-spacing);
-                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-h2-line-height);
+                ${loaderTokens.progressBarCircularContentFontFamily}: ${h2.fontFamily};
+                ${loaderTokens.progressBarCircularContentFontSize}: ${h2.fontSize};
+                ${loaderTokens.progressBarCircularContentFontStyle}: ${h2.fontStyle};
+                ${loaderTokens.progressBarCircularContentFontWeight}: ${h2Bold.fontWeight};
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${h2.letterSpacing};
+                ${loaderTokens.progressBarCircularContentLineHeight}: ${h2.lineHeight};
 
                 ${loaderTokens.spinnerSize}: 8rem;
             `,
@@ -99,12 +126,12 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 5.5rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.25rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 4;
-                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-h5-font-family);
-                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-h5-font-size);
-                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-h5-font-style);
-                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-h5-bold-font-weight);
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
-                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-h5-line-height);
+                ${loaderTokens.progressBarCircularContentFontFamily}: ${h5.fontFamily};
+                ${loaderTokens.progressBarCircularContentFontSize}: ${h5.fontSize};
+                ${loaderTokens.progressBarCircularContentFontStyle}: ${h5.fontStyle};
+                ${loaderTokens.progressBarCircularContentFontWeight}: ${h5Bold.fontWeight};
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${h5.letterSpacing};
+                ${loaderTokens.progressBarCircularContentLineHeight}: ${h5.lineHeight};
 
                 ${loaderTokens.spinnerSize}: 5.5rem;
             `,
@@ -117,12 +144,12 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 3.5rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.125rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 2;
-                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-body-l-font-size);
-                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-l-body-font-weight);
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyL.fontFamily};
+                ${loaderTokens.progressBarCircularContentFontSize}: ${bodyL.fontSize};
+                ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyL.fontStyle};
+                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyL.fontWeight};
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyL.letterSpacing};
+                ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyL.lineHeight};
 
                 ${loaderTokens.spinnerSize}: 3.5rem;
             `,
@@ -135,12 +162,12 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 3rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.125rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 2;
-                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-body-m-font-size);
-                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-m-body-font-weight);
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyM.fontFamily};
+                ${loaderTokens.progressBarCircularContentFontSize}: ${bodyM.fontSize};
+                ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyM.fontStyle};
+                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyM.fontWeight};
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyM.letterSpacing};
+                ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyM.lineHeight};
 
                 ${loaderTokens.spinnerSize}: 3rem;
             `,
@@ -153,12 +180,12 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 2.25rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.125rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 2;
-                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-s-body-font-weight);
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyS.fontFamily};
+                ${loaderTokens.progressBarCircularContentFontSize}: ${bodyS.fontSize};
+                ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyS.fontStyle};
+                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyS.fontWeight};
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyS.letterSpacing};
+                ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyS.lineHeight};
 
                 ${loaderTokens.spinnerSize}: 2.25rem;
             `,
@@ -171,12 +198,12 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 1.5rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.125rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 2;
-                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-xs-body-font-weight);
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyXS.fontFamily};
+                ${loaderTokens.progressBarCircularContentFontSize}: ${bodyXS.fontSize};
+                ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyXS.fontStyle};
+                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyXS.fontWeight};
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyXS.letterSpacing};
+                ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyXS.lineHeight};
 
                 ${loaderTokens.spinnerSize}: 1.5rem;
             `,
@@ -189,12 +216,12 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 1rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.125rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 2;
-                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-xxs-body-font-weight);
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyXXS.fontFamily};
+                ${loaderTokens.progressBarCircularContentFontSize}: ${bodyXXS.fontSize};
+                ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyXXS.fontStyle};
+                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyXXS.fontWeight};
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyXXS.lineHeight};
 
                 ${loaderTokens.spinnerSize}: 1rem;
             `,

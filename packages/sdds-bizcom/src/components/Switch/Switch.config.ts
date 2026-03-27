@@ -1,3 +1,16 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    onDarkSurfaceSolidDefault,
+    surfaceAccent,
+    surfaceAccentHover,
+    surfaceTransparentTertiary,
+    surfaceTransparentTertiaryHover,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_bizcom';
 import { css, switchTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -11,50 +24,50 @@ export const config = {
     variations: {
         size: {
             s: css`
-                ${switchTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${switchTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${switchTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${switchTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
-                ${switchTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${switchTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${switchTokens.fontFamily}: ${bodyS.fontFamily};
+                ${switchTokens.fontStyle}: ${bodyS.fontStyle};
+                ${switchTokens.fontWeight}: ${bodyS.fontWeight};
+                ${switchTokens.lineHeight}: ${bodyS.lineHeight};
+                ${switchTokens.fontSize}: ${bodyS.fontSize};
+                ${switchTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${switchTokens.descriptionFontFamily}: ${bodyXS.fontFamily};
+                ${switchTokens.descriptionFontStyle}: ${bodyXS.fontStyle};
+                ${switchTokens.descriptionFontWeight}: ${bodyXS.fontWeight};
+                ${switchTokens.descriptionLineHeight}: ${bodyXS.lineHeight};
+                ${switchTokens.descriptionFontSize}: ${bodyXS.fontSize};
+                ${switchTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
             m: css`
-                ${switchTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${switchTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${switchTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${switchTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
-                ${switchTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${switchTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
-                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${switchTokens.fontFamily}: ${bodyM.fontFamily};
+                ${switchTokens.fontStyle}: ${bodyM.fontStyle};
+                ${switchTokens.fontWeight}: ${bodyM.fontWeight};
+                ${switchTokens.lineHeight}: ${bodyM.lineHeight};
+                ${switchTokens.fontSize}: ${bodyM.fontSize};
+                ${switchTokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${switchTokens.descriptionFontFamily}: ${bodyS.fontFamily};
+                ${switchTokens.descriptionFontStyle}: ${bodyS.fontStyle};
+                ${switchTokens.descriptionFontWeight}: ${bodyS.fontWeight};
+                ${switchTokens.descriptionLineHeight}: ${bodyS.lineHeight};
+                ${switchTokens.descriptionFontSize}: ${bodyS.fontSize};
+                ${switchTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
             l: css`
-                ${switchTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${switchTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${switchTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${switchTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
-                ${switchTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${switchTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
-                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${switchTokens.fontFamily}: ${bodyL.fontFamily};
+                ${switchTokens.fontStyle}: ${bodyL.fontStyle};
+                ${switchTokens.fontWeight}: ${bodyL.fontWeight};
+                ${switchTokens.lineHeight}: ${bodyL.lineHeight};
+                ${switchTokens.fontSize}: ${bodyL.fontSize};
+                ${switchTokens.letterSpacing}: ${bodyL.letterSpacing};
+                ${switchTokens.descriptionFontFamily}: ${bodyM.fontFamily};
+                ${switchTokens.descriptionFontStyle}: ${bodyM.fontStyle};
+                ${switchTokens.descriptionFontWeight}: ${bodyM.fontWeight};
+                ${switchTokens.descriptionLineHeight}: ${bodyM.lineHeight};
+                ${switchTokens.descriptionFontSize}: ${bodyM.fontSize};
+                ${switchTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
@@ -83,17 +96,17 @@ export const config = {
         },
         view: {
             default: css`
-                ${switchTokens.labelColor}: var(--text-primary);
-                ${switchTokens.descriptionColor}: var(--text-secondary);
+                ${switchTokens.labelColor}: ${textPrimary};
+                ${switchTokens.descriptionColor}: ${textSecondary};
                 ${switchTokens.descriptionMaxLines}: initial;
-                ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
-                ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
-                ${switchTokens.trackBackgroundColorOff}: var(--surface-transparent-tertiary);
-                ${switchTokens.trackBackgroundColorOffHover}: var(--surface-transparent-tertiary-hover);
+                ${switchTokens.trackBackgroundColorOn}: ${surfaceAccent};
+                ${switchTokens.trackBackgroundColorOnHover}: ${surfaceAccentHover};
+                ${switchTokens.trackBackgroundColorOff}: ${surfaceTransparentTertiary};
+                ${switchTokens.trackBackgroundColorOffHover}: ${surfaceTransparentTertiaryHover};
                 ${switchTokens.trackBorderWidthOn}: 0;
                 ${switchTokens.trackBorderWidthOff}: 0;
-                ${switchTokens.thumbBackgroundColorOn}: var(--on-dark-surface-solid-default);
-                ${switchTokens.thumbBackgroundColorOff}: var(--on-dark-surface-solid-default);
+                ${switchTokens.thumbBackgroundColorOn}: ${onDarkSurfaceSolidDefault};
+                ${switchTokens.thumbBackgroundColorOff}: ${onDarkSurfaceSolidDefault};
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,
         },
@@ -104,7 +117,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${switchTokens.trackFocusColor}: var(--surface-accent);
+                ${switchTokens.trackFocusColor}: ${surfaceAccent};
             `,
         },
     },
