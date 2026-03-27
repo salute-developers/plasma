@@ -1,3 +1,51 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    bodyXXS,
+    outlineAccent,
+    outlineSolidPrimary,
+    outlineSolidPrimaryHover,
+    outlineTransparentNegative,
+    outlineTransparentNegativeHover,
+    outlineTransparentPositive,
+    outlineTransparentPositiveHover,
+    outlineTransparentWarning,
+    outlineTransparentWarningHover,
+    shadowDownHardM,
+    surfaceAccent,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidCardBrightness,
+    surfaceTransparentCard,
+    surfaceTransparentCardActive,
+    surfaceTransparentCardHover,
+    surfaceTransparentNegative,
+    surfaceTransparentNegativeActive,
+    surfaceTransparentNegativeHover,
+    surfaceTransparentPositive,
+    surfaceTransparentPositiveActive,
+    surfaceTransparentPositiveHover,
+    surfaceTransparentPrimary,
+    surfaceTransparentPrimaryActive,
+    surfaceTransparentPrimaryHover,
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
+    surfaceTransparentWarning,
+    surfaceTransparentWarningActive,
+    surfaceTransparentWarningHover,
+    surfaceWarning,
+    textAccent,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textSecondary,
+    textTertiary,
+    textWarning,
+} from '@salutejs/sdds-themes/tokens/sdds_finai';
 import { css, textAreaTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,176 +56,176 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${textAreaTokens.backgroundColor}: var(--surface-transparent-card);
-                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-card-hover);
-                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-card-active);
-                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.borderColor}: var(--outline-solid-primary);
-                ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
-                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-accent);
-                ${textAreaTokens.placeholderColor}: var(--text-secondary);
-                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.backgroundColor}: ${surfaceTransparentCard};
+                ${textAreaTokens.backgroundColorHover}: ${surfaceTransparentCardHover};
+                ${textAreaTokens.backgroundColorActive}: ${surfaceTransparentCardActive};
+                ${textAreaTokens.backgroundColorFocus}: ${surfaceTransparentCard};
+                ${textAreaTokens.borderColor}: ${outlineSolidPrimary};
+                ${textAreaTokens.borderColorHover}: ${outlineSolidPrimaryHover};
+                ${textAreaTokens.borderColorFocus}: ${outlineAccent};
+                ${textAreaTokens.inputColor}: ${textPrimary};
+                ${textAreaTokens.inputColorFocus}: ${textPrimary};
+                ${textAreaTokens.inputCaretColor}: ${textAccent};
+                ${textAreaTokens.placeholderColor}: ${textSecondary};
+                ${textAreaTokens.placeholderColorFocus}: ${textTertiary};
 
-                ${textAreaTokens.leftHelperColor}: var(--text-secondary);
-                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
-                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
-                ${textAreaTokens.indicatorColor}: var(--surface-negative);
-                ${textAreaTokens.optionalColor}: var(--text-tertiary);
+                ${textAreaTokens.leftHelperColor}: ${textSecondary};
+                ${textAreaTokens.leftHelperColorFocus}: ${textSecondary};
+                ${textAreaTokens.rightHelperColor}: ${textSecondary};
+                ${textAreaTokens.indicatorColor}: ${surfaceNegative};
+                ${textAreaTokens.optionalColor}: ${textTertiary};
 
-                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${textAreaTokens.dividerColor}: var(--surface-transparent-tertiary);
-                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
-                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
-                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
-                ${textAreaTokens.hintIconColor}: var(--text-secondary);
+                ${textAreaTokens.dividerColor}: ${surfaceTransparentTertiary};
+                ${textAreaTokens.dividerColorHover}: ${textSecondary};
+                ${textAreaTokens.dividerColorFocus}: ${surfaceAccent};
+                ${textAreaTokens.titleCaptionColor}: ${textSecondary};
+                ${textAreaTokens.hintIconColor}: ${textSecondary};
             `,
             positive: css`
-                ${textAreaTokens.backgroundColor}: var(--surface-transparent-positive);
-                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-positive-hover);
-                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-positive-active);
-                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.borderColor}: var(--outline-transparent-positive);
-                ${textAreaTokens.borderColorHover}: var(--outline-transparent-positive-hover);
-                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.backgroundColor}: ${surfaceTransparentPositive};
+                ${textAreaTokens.backgroundColorHover}: ${surfaceTransparentPositiveHover};
+                ${textAreaTokens.backgroundColorActive}: ${surfaceTransparentPositiveActive};
+                ${textAreaTokens.backgroundColorFocus}: ${surfaceTransparentCard};
+                ${textAreaTokens.borderColor}: ${outlineTransparentPositive};
+                ${textAreaTokens.borderColorHover}: ${outlineTransparentPositiveHover};
+                ${textAreaTokens.borderColorFocus}: ${outlineAccent};
+                ${textAreaTokens.inputColor}: ${textPrimary};
 
-                ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-accent);
-                ${textAreaTokens.placeholderColor}: var(--text-secondary);
-                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.inputColorFocus}: ${textPrimary};
+                ${textAreaTokens.inputCaretColor}: ${textAccent};
+                ${textAreaTokens.placeholderColor}: ${textSecondary};
+                ${textAreaTokens.placeholderColorFocus}: ${textTertiary};
 
-                ${textAreaTokens.leftHelperColor}: var(--text-positive);
-                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
-                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
-                ${textAreaTokens.indicatorColor}: var(--surface-negative);
-                ${textAreaTokens.optionalColor}: var(--text-tertiary);
+                ${textAreaTokens.leftHelperColor}: ${textPositive};
+                ${textAreaTokens.leftHelperColorFocus}: ${textSecondary};
+                ${textAreaTokens.rightHelperColor}: ${textSecondary};
+                ${textAreaTokens.indicatorColor}: ${surfaceNegative};
+                ${textAreaTokens.optionalColor}: ${textTertiary};
 
-                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${textAreaTokens.dividerColor}: var(--surface-positive);
-                ${textAreaTokens.dividerColorHover}: var(--surface-positive);
-                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
-                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
-                ${textAreaTokens.hintIconColor}: var(--text-secondary);
+                ${textAreaTokens.dividerColor}: ${surfacePositive};
+                ${textAreaTokens.dividerColorHover}: ${surfacePositive};
+                ${textAreaTokens.dividerColorFocus}: ${surfaceAccent};
+                ${textAreaTokens.titleCaptionColor}: ${textSecondary};
+                ${textAreaTokens.hintIconColor}: ${textSecondary};
             `,
             /**
              * @deprecated
              * Использовать `default`
              */
             primary: css`
-                ${textAreaTokens.backgroundColor}: var(--surface-transparent-card);
-                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-card-hover);
-                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-card-active);
-                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.borderColor}: var(--outline-solid-primary);
-                ${textAreaTokens.borderColorHover}: var(--outline-solid-primary-hover);
-                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.inputColor}: var(--text-primary);
-                ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-accent);
-                ${textAreaTokens.placeholderColor}: var(--text-secondary);
-                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.backgroundColor}: ${surfaceTransparentCard};
+                ${textAreaTokens.backgroundColorHover}: ${surfaceTransparentCardHover};
+                ${textAreaTokens.backgroundColorActive}: ${surfaceTransparentCardActive};
+                ${textAreaTokens.backgroundColorFocus}: ${surfaceTransparentCard};
+                ${textAreaTokens.borderColor}: ${outlineSolidPrimary};
+                ${textAreaTokens.borderColorHover}: ${outlineSolidPrimaryHover};
+                ${textAreaTokens.borderColorFocus}: ${outlineAccent};
+                ${textAreaTokens.inputColor}: ${textPrimary};
+                ${textAreaTokens.inputColorFocus}: ${textPrimary};
+                ${textAreaTokens.inputCaretColor}: ${textAccent};
+                ${textAreaTokens.placeholderColor}: ${textSecondary};
+                ${textAreaTokens.placeholderColorFocus}: ${textTertiary};
 
-                ${textAreaTokens.leftHelperColor}: var(--text-secondary);
-                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
-                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
-                ${textAreaTokens.indicatorColor}: var(--surface-negative);
-                ${textAreaTokens.optionalColor}: var(--text-tertiary);
+                ${textAreaTokens.leftHelperColor}: ${textSecondary};
+                ${textAreaTokens.leftHelperColorFocus}: ${textSecondary};
+                ${textAreaTokens.rightHelperColor}: ${textSecondary};
+                ${textAreaTokens.indicatorColor}: ${surfaceNegative};
+                ${textAreaTokens.optionalColor}: ${textTertiary};
 
-                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${textAreaTokens.dividerColor}: var(--surface-transparent-tertiary);
-                ${textAreaTokens.dividerColorHover}: var(--text-secondary);
-                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
-                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
-                ${textAreaTokens.hintIconColor}: var(--text-secondary);
+                ${textAreaTokens.dividerColor}: ${surfaceTransparentTertiary};
+                ${textAreaTokens.dividerColorHover}: ${textSecondary};
+                ${textAreaTokens.dividerColorFocus}: ${surfaceAccent};
+                ${textAreaTokens.titleCaptionColor}: ${textSecondary};
+                ${textAreaTokens.hintIconColor}: ${textSecondary};
             `,
             warning: css`
-                ${textAreaTokens.backgroundColor}: var(--surface-transparent-warning);
-                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-warning-active);
-                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.borderColor}: var(--outline-transparent-warning);
-                ${textAreaTokens.borderColorHover}: var(--outline-transparent-warning-hover);
-                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.backgroundColor}: ${surfaceTransparentWarning};
+                ${textAreaTokens.backgroundColorHover}: ${surfaceTransparentWarningHover};
+                ${textAreaTokens.backgroundColorActive}: ${surfaceTransparentWarningActive};
+                ${textAreaTokens.backgroundColorFocus}: ${surfaceTransparentCard};
+                ${textAreaTokens.borderColor}: ${outlineTransparentWarning};
+                ${textAreaTokens.borderColorHover}: ${outlineTransparentWarningHover};
+                ${textAreaTokens.borderColorFocus}: ${outlineAccent};
+                ${textAreaTokens.inputColor}: ${textPrimary};
 
-                ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-accent);
-                ${textAreaTokens.placeholderColor}: var(--text-secondary);
-                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.inputColorFocus}: ${textPrimary};
+                ${textAreaTokens.inputCaretColor}: ${textAccent};
+                ${textAreaTokens.placeholderColor}: ${textSecondary};
+                ${textAreaTokens.placeholderColorFocus}: ${textTertiary};
 
-                ${textAreaTokens.leftHelperColor}: var(--text-warning);
-                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
-                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
-                ${textAreaTokens.indicatorColor}: var(--surface-negative);
-                ${textAreaTokens.optionalColor}: var(--text-tertiary);
+                ${textAreaTokens.leftHelperColor}: ${textWarning};
+                ${textAreaTokens.leftHelperColorFocus}: ${textSecondary};
+                ${textAreaTokens.rightHelperColor}: ${textSecondary};
+                ${textAreaTokens.indicatorColor}: ${surfaceNegative};
+                ${textAreaTokens.optionalColor}: ${textTertiary};
 
-                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${textAreaTokens.dividerColor}: var(--surface-warning);
-                ${textAreaTokens.dividerColorHover}: var(--surface-warning);
-                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
-                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
-                ${textAreaTokens.hintIconColor}: var(--text-secondary);
+                ${textAreaTokens.dividerColor}: ${surfaceWarning};
+                ${textAreaTokens.dividerColorHover}: ${surfaceWarning};
+                ${textAreaTokens.dividerColorFocus}: ${surfaceAccent};
+                ${textAreaTokens.titleCaptionColor}: ${textSecondary};
+                ${textAreaTokens.hintIconColor}: ${textSecondary};
             `,
             negative: css`
-                ${textAreaTokens.backgroundColor}: var(--surface-transparent-negative);
-                ${textAreaTokens.backgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${textAreaTokens.backgroundColorActive}: var(--surface-transparent-negative-active);
-                ${textAreaTokens.backgroundColorFocus}: var(--surface-transparent-card);
-                ${textAreaTokens.borderColor}: var(--outline-transparent-negative);
-                ${textAreaTokens.borderColorHover}: var(--outline-transparent-negative-hover);
-                ${textAreaTokens.borderColorFocus}: var(--outline-accent);
-                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.backgroundColor}: ${surfaceTransparentNegative};
+                ${textAreaTokens.backgroundColorHover}: ${surfaceTransparentNegativeHover};
+                ${textAreaTokens.backgroundColorActive}: ${surfaceTransparentNegativeActive};
+                ${textAreaTokens.backgroundColorFocus}: ${surfaceTransparentCard};
+                ${textAreaTokens.borderColor}: ${outlineTransparentNegative};
+                ${textAreaTokens.borderColorHover}: ${outlineTransparentNegativeHover};
+                ${textAreaTokens.borderColorFocus}: ${outlineAccent};
+                ${textAreaTokens.inputColor}: ${textPrimary};
 
-                ${textAreaTokens.inputColorFocus}: var(--text-primary);
-                ${textAreaTokens.inputCaretColor}: var(--text-accent);
-                ${textAreaTokens.placeholderColor}: var(--text-secondary);
-                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.inputColorFocus}: ${textPrimary};
+                ${textAreaTokens.inputCaretColor}: ${textAccent};
+                ${textAreaTokens.placeholderColor}: ${textSecondary};
+                ${textAreaTokens.placeholderColorFocus}: ${textTertiary};
 
-                ${textAreaTokens.leftHelperColor}: var(--text-negative);
-                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
-                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
-                ${textAreaTokens.indicatorColor}: var(--surface-negative);
-                ${textAreaTokens.optionalColor}: var(--text-tertiary);
+                ${textAreaTokens.leftHelperColor}: ${textNegative};
+                ${textAreaTokens.leftHelperColorFocus}: ${textSecondary};
+                ${textAreaTokens.rightHelperColor}: ${textSecondary};
+                ${textAreaTokens.indicatorColor}: ${surfaceNegative};
+                ${textAreaTokens.optionalColor}: ${textTertiary};
 
-                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${textAreaTokens.dividerColor}: var(--surface-negative);
-                ${textAreaTokens.dividerColorHover}: var(--surface-negative);
-                ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
-                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
-                ${textAreaTokens.hintIconColor}: var(--text-secondary);
+                ${textAreaTokens.dividerColor}: ${surfaceNegative};
+                ${textAreaTokens.dividerColorHover}: ${surfaceNegative};
+                ${textAreaTokens.dividerColorFocus}: ${surfaceAccent};
+                ${textAreaTokens.titleCaptionColor}: ${textSecondary};
+                ${textAreaTokens.hintIconColor}: ${textSecondary};
             `,
         },
         size: {
@@ -203,27 +251,27 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 1.25rem;
                 ${textAreaTokens.rightContentHeight}: 1.5rem;
                 ${textAreaTokens.labelMarginBottom}: 0.75rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
                 ${textAreaTokens.labelInnerTop}: 0.813rem;
                 ${textAreaTokens.labelInnerTopHelper}: -0.313rem;
                 ${textAreaTokens.labelInnerMarginBottom}: 0.25rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-l-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.inputFontFamily}: ${bodyL.fontFamily};
+                ${textAreaTokens.inputFontSize}: ${bodyL.fontSize};
+                ${textAreaTokens.inputFontStyle}: ${bodyL.fontStyle};
+                ${textAreaTokens.inputFontWeight}: ${bodyL.fontWeight};
+                ${textAreaTokens.inputLetterSpacing}: ${bodyL.letterSpacing};
+                ${textAreaTokens.inputLineHeight}: ${bodyL.lineHeight};
+                ${textAreaTokens.helpersFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.helpersFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.helpersFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.helpersFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.helpersLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.helpersLineHeight}: ${bodyXS.lineHeight};
                 ${textAreaTokens.indicatorSizeInner}: 0.5rem;
                 ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
                 ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
@@ -241,12 +289,12 @@ export const config = {
                 ${textAreaTokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
 
                 ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
             l: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -270,26 +318,26 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 1rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.75rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
                 ${textAreaTokens.labelInnerTop}: 0.563rem;
                 ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-l-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.inputFontFamily}: ${bodyL.fontFamily};
+                ${textAreaTokens.inputFontSize}: ${bodyL.fontSize};
+                ${textAreaTokens.inputFontStyle}: ${bodyL.fontStyle};
+                ${textAreaTokens.inputFontWeight}: ${bodyL.fontWeight};
+                ${textAreaTokens.inputLetterSpacing}: ${bodyL.letterSpacing};
+                ${textAreaTokens.inputLineHeight}: ${bodyL.lineHeight};
+                ${textAreaTokens.helpersFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.helpersFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.helpersFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.helpersFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.helpersLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.helpersLineHeight}: ${bodyXS.lineHeight};
                 ${textAreaTokens.indicatorSizeInner}: 0.5rem;
                 ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
                 ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
@@ -307,12 +355,12 @@ export const config = {
                 ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
 
                 ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
             m: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -336,26 +384,26 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 0.875rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.625rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
                 ${textAreaTokens.labelInnerTop}: 0.375rem;
                 ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-m-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.inputFontFamily}: ${bodyM.fontFamily};
+                ${textAreaTokens.inputFontSize}: ${bodyM.fontSize};
+                ${textAreaTokens.inputFontStyle}: ${bodyM.fontStyle};
+                ${textAreaTokens.inputFontWeight}: ${bodyM.fontWeight};
+                ${textAreaTokens.inputLetterSpacing}: ${bodyM.letterSpacing};
+                ${textAreaTokens.inputLineHeight}: ${bodyM.lineHeight};
+                ${textAreaTokens.helpersFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.helpersFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.helpersFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.helpersFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.helpersLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.helpersLineHeight}: ${bodyXS.lineHeight};
                 ${textAreaTokens.indicatorSizeInner}: 0.5rem;
                 ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
                 ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
@@ -375,12 +423,12 @@ export const config = {
                 ${textAreaTokens.hintInnerLabelPlacementOffset}:0.312rem -2.813rem auto auto;
 
                 ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
             s: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -404,26 +452,26 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 0.75rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
                 ${textAreaTokens.labelMarginBottom}: 0.5rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
                 ${textAreaTokens.labelInnerTop}: 0.375rem;
                 ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-s-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.inputFontFamily}: ${bodyS.fontFamily};
+                ${textAreaTokens.inputFontSize}: ${bodyS.fontSize};
+                ${textAreaTokens.inputFontStyle}: ${bodyS.fontStyle};
+                ${textAreaTokens.inputFontWeight}: ${bodyS.fontWeight};
+                ${textAreaTokens.inputLetterSpacing}: ${bodyS.letterSpacing};
+                ${textAreaTokens.inputLineHeight}: ${bodyS.lineHeight};
+                ${textAreaTokens.helpersFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.helpersFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.helpersFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.helpersFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.helpersLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.helpersLineHeight}: ${bodyXS.lineHeight};
                 ${textAreaTokens.indicatorSizeInner}: 0.375rem;
                 ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
                 ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
@@ -441,12 +489,12 @@ export const config = {
                 ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
 
                 ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
             xs: css`
                 ${textAreaTokens.inputWidth}: 100%;
@@ -470,26 +518,26 @@ export const config = {
                 ${textAreaTokens.rightContentRight}: 0.5rem;
                 ${textAreaTokens.rightContentHeight}: 1rem;
                 ${textAreaTokens.labelMarginBottom}: 0.375rem;
-                ${textAreaTokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${textAreaTokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${textAreaTokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${textAreaTokens.labelInnerFontFamily}: ${bodyXXS.fontFamily};
+                ${textAreaTokens.labelInnerFontSize}: ${bodyXXS.fontSize};
+                ${textAreaTokens.labelInnerFontStyle}: ${bodyXXS.fontStyle};
+                ${textAreaTokens.labelInnerFontWeight}: ${bodyXXS.fontWeight};
+                ${textAreaTokens.labelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${textAreaTokens.labelInnerLineHeight}: ${bodyXXS.lineHeight};
                 ${textAreaTokens.labelInnerTop}: 0rem;
                 ${textAreaTokens.labelInnerMarginBottom}: 0rem;
-                ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.inputFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.inputLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.inputLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${textAreaTokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.inputFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.inputFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.inputFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.inputFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.inputLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.inputLineHeight}: ${bodyXS.lineHeight};
+                ${textAreaTokens.helpersFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.helpersFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.helpersFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.helpersFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.helpersLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.helpersLineHeight}: ${bodyXS.lineHeight};
                 ${textAreaTokens.indicatorSizeInner}: 0.375rem;
                 ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
                 ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
@@ -507,20 +555,20 @@ export const config = {
                 ${textAreaTokens.hintInnerLabelPlacementOffset}: -0.188rem -2.188rem auto auto;
 
                 ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
         },
         hintView: {
             default: css`
-                ${textAreaTokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${textAreaTokens.tooltipBoxShadow}: var(--shadow-down-hard-m);
-                ${textAreaTokens.tooltipColor}: var(--text-primary);
-                ${textAreaTokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+                ${textAreaTokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
+                ${textAreaTokens.tooltipBoxShadow}: ${shadowDownHardM};
+                ${textAreaTokens.tooltipColor}: ${textPrimary};
+                ${textAreaTokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
         },
         hintSize: {
@@ -533,12 +581,12 @@ export const config = {
                 ${textAreaTokens.tooltipMinHeight}: 2.5rem;
                 ${textAreaTokens.tooltipBorderRadius}: 0.625rem;
 
-                ${textAreaTokens.tooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${textAreaTokens.tooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${textAreaTokens.tooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${textAreaTokens.tooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${textAreaTokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${textAreaTokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${textAreaTokens.tooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${textAreaTokens.tooltipTextFontSize}: ${bodyS.fontSize};
+                ${textAreaTokens.tooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${textAreaTokens.tooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${textAreaTokens.tooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${textAreaTokens.tooltipTextFontLineHeight}: ${bodyS.lineHeight};
 
                 ${textAreaTokens.tooltipContentLeftMargin}: 0.375rem;
 
@@ -558,12 +606,12 @@ export const config = {
                 ${textAreaTokens.tooltipMinHeight}: 2rem;
                 ${textAreaTokens.tooltipBorderRadius}: 0.5rem;
 
-                ${textAreaTokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${textAreaTokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${textAreaTokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${textAreaTokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${textAreaTokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${textAreaTokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.tooltipTextFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.tooltipTextFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.tooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.tooltipTextFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.tooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.tooltipTextFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${textAreaTokens.tooltipContentLeftMargin}: 0.25rem;
 
@@ -577,22 +625,22 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-card);
-                ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
-                ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.backgroundColorReadOnly}: ${surfaceTransparentCard};
+                ${textAreaTokens.inputColorReadOnly}: ${textPrimary};
+                ${textAreaTokens.dividerColorReadOnly}: ${surfaceTransparentPrimary};
                 ${textAreaTokens.contentSlotRightOpacityReadOnly}: 1;
-                ${textAreaTokens.rightContentColor}: var(--text-secondary);
-                ${textAreaTokens.backgroundColor}: var(--surface-transparent-card);
+                ${textAreaTokens.rightContentColor}: ${textSecondary};
+                ${textAreaTokens.backgroundColor}: ${surfaceTransparentCard};
             `,
         },
         disabled: {
             true: css`
                 ${textAreaTokens.disabledOpacity}: 1;
-                ${textAreaTokens.inputColorDisabled}: var(--text-secondary);
-                ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
-                ${textAreaTokens.titleCaptionColorReadOnly}: var(--text-secondary);
-                ${textAreaTokens.rightContentColor}: var(--text-secondary);
-                ${textAreaTokens.backgroundColor}: var(--surface-transparent-secondary);
+                ${textAreaTokens.inputColorDisabled}: ${textSecondary};
+                ${textAreaTokens.dividerColorReadOnly}: ${surfaceTransparentPrimary};
+                ${textAreaTokens.titleCaptionColorReadOnly}: ${textSecondary};
+                ${textAreaTokens.rightContentColor}: ${textSecondary};
+                ${textAreaTokens.backgroundColor}: ${surfaceTransparentSecondary};
                 ${textAreaTokens.borderColor}: transparent;
             `,
         },
