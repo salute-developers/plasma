@@ -1,3 +1,18 @@
+import {
+    bodyM,
+    bodyS,
+    bodyXS,
+    surfaceAccent,
+    surfaceNegative,
+    surfaceSolidDefault,
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+    textNegative,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 import { css, fileTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,36 +23,36 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.embedIconButtonColor}: var(--text-primary);
-                ${tokens.embedIconButtonColorHover}: var(--text-primary-hover);
-                ${tokens.embedIconButtonColorActive}: var(--text-primary-active);
-                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
+                ${tokens.embedIconButtonColor}: ${textPrimary};
+                ${tokens.embedIconButtonColorHover}: ${textPrimaryHover};
+                ${tokens.embedIconButtonColorActive}: ${textPrimaryActive};
+                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
 
-                ${tokens.cellTitleColor}: var(--text-primary);
-                ${tokens.cellSubtitleColor}: var(--text-secondary);
+                ${tokens.cellTitleColor}: ${textPrimary};
+                ${tokens.cellSubtitleColor}: ${textSecondary};
 
-                ${tokens.progressBarCircularContentColor}: var(--text-primary);
-                ${tokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
-                ${tokens.progressBarCircularStroke}: var(--surface-solid-default);
+                ${tokens.progressBarCircularContentColor}: ${textPrimary};
+                ${tokens.progressBarCircularBackgroundStroke}: ${surfaceTransparentTertiary};
+                ${tokens.progressBarCircularStroke}: ${surfaceSolidDefault};
 
-                ${tokens.progressTrackBackgroundColor}: var(--surface-transparent-secondary);
-                ${tokens.progressFilledBackgroundColor}: var(--surface-solid-default);
+                ${tokens.progressTrackBackgroundColor}: ${surfaceTransparentSecondary};
+                ${tokens.progressFilledBackgroundColor}: ${surfaceSolidDefault};
             `,
             negative: css`
-                ${tokens.embedIconButtonColor}: var(--text-primary);
-                ${tokens.embedIconButtonColorHover}: var(--text-primary-hover);
-                ${tokens.embedIconButtonColorActive}: var(--text-primary-active);
-                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
+                ${tokens.embedIconButtonColor}: ${textPrimary};
+                ${tokens.embedIconButtonColorHover}: ${textPrimaryHover};
+                ${tokens.embedIconButtonColorActive}: ${textPrimaryActive};
+                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
 
-                ${tokens.cellTitleColor}: var(--text-primary);
-                ${tokens.cellSubtitleColor}: var(--text-negative);
+                ${tokens.cellTitleColor}: ${textPrimary};
+                ${tokens.cellSubtitleColor}: ${textNegative};
 
-                ${tokens.progressBarCircularContentColor}: var(--text-primary);
-                ${tokens.progressBarCircularBackgroundStroke}: var(--surface-transparent-tertiary);
-                ${tokens.progressBarCircularStroke}: var(--surface-negative);
+                ${tokens.progressBarCircularContentColor}: ${textPrimary};
+                ${tokens.progressBarCircularBackgroundStroke}: ${surfaceTransparentTertiary};
+                ${tokens.progressBarCircularStroke}: ${surfaceNegative};
 
-                ${tokens.progressTrackBackgroundColor}: var(--surface-transparent-secondary);
-                ${tokens.progressFilledBackgroundColor}: var(--surface-negative);
+                ${tokens.progressTrackBackgroundColor}: ${surfaceTransparentSecondary};
+                ${tokens.progressFilledBackgroundColor}: ${surfaceNegative};
             `,
         },
         size: {
@@ -52,19 +67,19 @@ export const config = {
                 ${tokens.cellGap}: 0.625rem;
                 ${tokens.cellPaddingRightContent}: 0.625rem;
 
-                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.cellTitleFontFamily}: ${bodyM.fontFamily};
+                ${tokens.cellTitleFontSize}: ${bodyM.fontSize};
+                ${tokens.cellTitleFontStyle}: ${bodyM.fontStyle};
+                ${tokens.cellTitleFontWeight}: ${bodyM.fontWeight};
+                ${tokens.cellTitleLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.cellTitleLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.progressBarCircularSize}: 36;
                 ${tokens.progressBarCircularHeight}: 2.25rem;
@@ -94,19 +109,19 @@ export const config = {
                 ${tokens.cellGap}: 0.5rem;
                 ${tokens.cellPaddingRightContent}: 0.5rem;
 
-                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.cellTitleFontFamily}: ${bodyS.fontFamily};
+                ${tokens.cellTitleFontSize}: ${bodyS.fontSize};
+                ${tokens.cellTitleFontStyle}: ${bodyS.fontStyle};
+                ${tokens.cellTitleFontWeight}: ${bodyS.fontWeight};
+                ${tokens.cellTitleLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.cellTitleLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.progressBarCircularSize}: 36;
                 ${tokens.progressBarCircularHeight}: 2.25rem;
