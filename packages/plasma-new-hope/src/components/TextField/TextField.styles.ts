@@ -113,9 +113,11 @@ export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
     align-items: center;
 
-    white-space: ${({ isInnerLabel }) => (isInnerLabel ? 'nowrap' : 'normal')};
     margin-bottom: ${({ isInnerLabel }) =>
         isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
+    padding: ${({ isInnerLabel }) => (isInnerLabel ? 0 : `var(${tokens.labelPadding}, 0)`)};
+
+    white-space: ${({ isInnerLabel }) => (isInnerLabel ? 'nowrap' : 'normal')};
 `;
 
 export const TitleCaption = styled.div`
