@@ -1,3 +1,18 @@
+import {
+    bodyM,
+    bodyS,
+    inverseTextPrimary,
+    outlineSolidPrimary,
+    surfaceAccent,
+    surfaceAccentHover,
+    surfaceClear,
+    textAccent,
+    textAccentMinor,
+    textPositive,
+    textPrimary,
+    textSecondary,
+    textSecondaryHover,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, stepsTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,28 +23,28 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.activeTitleColor}: var(--text-accent);
-                ${tokens.activeTitleColorHover}: var(--text-accent-minor);
-                ${tokens.activeIndicatorBorder}: solid var(--text-accent);
-                ${tokens.activeIndicatorColor}: var(--text-positive);
-                ${tokens.activeIndicatorBackground}: var(--surface-clear);
+                ${tokens.activeTitleColor}: ${textAccent};
+                ${tokens.activeTitleColorHover}: ${textAccentMinor};
+                ${tokens.activeIndicatorBorder}: solid ${textAccent};
+                ${tokens.activeIndicatorColor}: ${textPositive};
+                ${tokens.activeIndicatorBackground}: ${surfaceClear};
 
-                ${tokens.completedIndicatorColor}: var(--inverse-text-primary);
-                ${tokens.completedIndicatorColorHover}: var(--inverse-text-primary);
-                ${tokens.completedIndicatorBackground}: var(--surface-accent);
-                ${tokens.completedIndicatorBackgroundHover}: var(--surface-accent-hover);
+                ${tokens.completedIndicatorColor}: ${inverseTextPrimary};
+                ${tokens.completedIndicatorColorHover}: ${inverseTextPrimary};
+                ${tokens.completedIndicatorBackground}: ${surfaceAccent};
+                ${tokens.completedIndicatorBackgroundHover}: ${surfaceAccentHover};
 
-                ${tokens.inactiveTitleColor}: var(--text-secondary);
-                ${tokens.inactiveTitleColorHover}: var(--text-secondary-hover);
-                ${tokens.inactiveIndicatorColor}: var(--text-primary);
-                ${tokens.inactiveIndicatorColorHover}: var(--text-primary);
-                ${tokens.inactiveIndicatorBackground}: var(--outline-solid-primary);
+                ${tokens.inactiveTitleColor}: ${textSecondary};
+                ${tokens.inactiveTitleColorHover}: ${textSecondaryHover};
+                ${tokens.inactiveIndicatorColor}: ${textPrimary};
+                ${tokens.inactiveIndicatorColorHover}: ${textPrimary};
+                ${tokens.inactiveIndicatorBackground}: ${outlineSolidPrimary};
                 ${tokens.inactiveIndicatorBackgroundHover}: #e9eef2;
 
-                ${tokens.contentColor}: var(--text-secondary);
-                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.contentColor}: ${textSecondary};
+                ${tokens.focusColor}: ${surfaceAccent};
 
-                ${tokens.dividerColor}: var(--text-positive);
+                ${tokens.dividerColor}: ${textPositive};
 
                 ${tokens.disabledOpacity}: 0.4;
             `,
@@ -52,33 +67,33 @@ export const config = {
                 ${tokens.smallBulletIndentHeight}: 1rem;
                 ${tokens.largeBulletIndentHeight}: 0.75rem;
 
-                ${tokens.indicatorFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.indicatorFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.indicatorFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.indicatorFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.indicatorLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.indicatorLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.indicatorFontFamily}: ${bodyS.fontFamily};
+                ${tokens.indicatorFontSize}: ${bodyS.fontSize};
+                ${tokens.indicatorFontStyle}: ${bodyS.fontStyle};
+                ${tokens.indicatorFontWeight}: ${bodyS.fontWeight};
+                ${tokens.indicatorLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.indicatorLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.activeIndicatorFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.activeIndicatorFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.activeIndicatorFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.activeIndicatorFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.activeIndicatorLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.activeIndicatorLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.activeIndicatorFontFamily}: ${bodyS.fontFamily};
+                ${tokens.activeIndicatorFontSize}: ${bodyS.fontSize};
+                ${tokens.activeIndicatorFontStyle}: ${bodyS.fontStyle};
+                ${tokens.activeIndicatorFontWeight}: ${bodyS.fontWeight};
+                ${tokens.activeIndicatorLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.activeIndicatorLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.titleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.titleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.titleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.titleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.titleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.titleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.titleFontFamily}: ${bodyM.fontFamily};
+                ${tokens.titleFontSize}: ${bodyM.fontSize};
+                ${tokens.titleFontStyle}: ${bodyM.fontStyle};
+                ${tokens.titleFontWeight}: ${bodyM.fontWeight};
+                ${tokens.titleLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.titleLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.contentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.contentLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.contentLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.contentFontFamily}: ${bodyS.fontFamily};
+                ${tokens.contentFontSize}: ${bodyS.fontSize};
+                ${tokens.contentFontStyle}: ${bodyS.fontStyle};
+                ${tokens.contentFontWeight}: ${bodyS.fontWeight};
+                ${tokens.contentLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.contentLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
             `,

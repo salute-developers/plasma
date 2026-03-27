@@ -1,3 +1,12 @@
+import {
+    bodyM,
+    bodyS,
+    onDarkTextPrimary,
+    outlineAccent,
+    surfaceSolidCard,
+    textAccent,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, radioboxTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -21,18 +30,18 @@ export const config = {
                 ${radioboxTokens.contentTopOffset}: 0;
                 ${radioboxTokens.contentLeftOffset}: 0.625rem;
                 ${radioboxTokens.descriptionMarginTop}: 0.125rem;
-                ${radioboxTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${radioboxTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
-                ${radioboxTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${radioboxTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${radioboxTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${radioboxTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${radioboxTokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${radioboxTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
-                ${radioboxTokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${radioboxTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${radioboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${radioboxTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${radioboxTokens.labelFontFamily}: ${bodyM.fontFamily};
+                ${radioboxTokens.labelFontSize}: ${bodyM.fontSize};
+                ${radioboxTokens.labelFontStyle}: ${bodyM.fontStyle};
+                ${radioboxTokens.labelFontWeight}: ${bodyM.fontWeight};
+                ${radioboxTokens.labelLetterSpacing}: ${bodyM.letterSpacing};
+                ${radioboxTokens.labelLineHeight}: ${bodyM.lineHeight};
+                ${radioboxTokens.descriptionFontFamily}: ${bodyS.fontFamily};
+                ${radioboxTokens.descriptionFontSize}: ${bodyS.fontSize};
+                ${radioboxTokens.descriptionFontStyle}: ${bodyS.fontStyle};
+                ${radioboxTokens.descriptionFontWeight}: ${bodyS.fontWeight};
+                ${radioboxTokens.descriptionLetterSpacing}: ${bodyS.letterSpacing};
+                ${radioboxTokens.descriptionLineHeight}: ${bodyS.lineHeight};
             `,
         },
         /**
@@ -40,11 +49,11 @@ export const config = {
          */
         view: {
             accent: css`
-                ${radioboxTokens.fillColor}: var(--text-accent);
-                ${radioboxTokens.ellipseColor}: var(--on-dark-text-primary);
-                ${radioboxTokens.descriptionColor}: var(--text-secondary);
-                ${radioboxTokens.triggerBackgroundColor}: var(--surface-solid-card);
-                ${radioboxTokens.triggerBorderColor}: var(--outline-accent);
+                ${radioboxTokens.fillColor}: ${textAccent};
+                ${radioboxTokens.ellipseColor}: ${onDarkTextPrimary};
+                ${radioboxTokens.descriptionColor}: ${textSecondary};
+                ${radioboxTokens.triggerBackgroundColor}: ${surfaceSolidCard};
+                ${radioboxTokens.triggerBorderColor}: ${outlineAccent};
                 ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
         },
@@ -55,7 +64,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${radioboxTokens.focusColor}: var(--text-accent);
+                ${radioboxTokens.focusColor}: ${textAccent};
             `,
         },
     },

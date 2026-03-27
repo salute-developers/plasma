@@ -1,3 +1,16 @@
+import {
+    bodyM,
+    outlineSolidPrimary,
+    surfaceAccent,
+    surfaceClear,
+    surfaceSolidCard,
+    surfaceSolidPrimary,
+    textAccent,
+    textAccentActive,
+    textAccentMinor,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, paginationTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -9,47 +22,47 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${paginationTokens.buttonColor}: var(--text-accent);
-                ${paginationTokens.buttonColorHover}: var(--text-accent-minor);
-                ${paginationTokens.buttonColorActive}: var(--text-accent-active);
-                ${paginationTokens.buttonBackgroundColor}: var(--surface-clear);
-                ${paginationTokens.buttonBackgroundColorHover}: var(--surface-clear);
-                ${paginationTokens.buttonBackgroundColorActive}: var(--surface-clear);
-                ${paginationTokens.buttonHoverColor}: var(--text-accent-minor);
-                ${paginationTokens.buttonActiveColor}: var(--text-accent-active);
-                ${paginationTokens.buttonArrowColor}: var(--text-accent);
-                ${paginationTokens.buttonArrowColorHover}: var(--text-accent-minor);
-                ${paginationTokens.buttonArrowColorActive}: var(--text-accent-active);
+                ${paginationTokens.buttonColor}: ${textAccent};
+                ${paginationTokens.buttonColorHover}: ${textAccentMinor};
+                ${paginationTokens.buttonColorActive}: ${textAccentActive};
+                ${paginationTokens.buttonBackgroundColor}: ${surfaceClear};
+                ${paginationTokens.buttonBackgroundColorHover}: ${surfaceClear};
+                ${paginationTokens.buttonBackgroundColorActive}: ${surfaceClear};
+                ${paginationTokens.buttonHoverColor}: ${textAccentMinor};
+                ${paginationTokens.buttonActiveColor}: ${textAccentActive};
+                ${paginationTokens.buttonArrowColor}: ${textAccent};
+                ${paginationTokens.buttonArrowColorHover}: ${textAccentMinor};
+                ${paginationTokens.buttonArrowColorActive}: ${textAccentActive};
 
-                ${paginationTokens.inputBackgroundColor}: var(--surface-solid-card);
-                ${paginationTokens.selectBackgroundColor}: var(--surface-solid-card);
-                ${paginationTokens.inputBorderColor}: var(--outline-solid-primary);
+                ${paginationTokens.inputBackgroundColor}: ${surfaceSolidCard};
+                ${paginationTokens.selectBackgroundColor}: ${surfaceSolidCard};
+                ${paginationTokens.inputBorderColor}: ${outlineSolidPrimary};
 
-                ${paginationTokens.paginationColor}: var(--text-primary);
-                ${paginationTokens.paginationHelperTextColor}: var(--text-secondary);
-                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
-                ${paginationTokens.paginationDisabledButtonColor}: var(--text-secondary);
-                ${paginationTokens.paginationDisabledButtonBackgroundColor}: var(--surface-clear);
+                ${paginationTokens.paginationColor}: ${textPrimary};
+                ${paginationTokens.paginationHelperTextColor}: ${textSecondary};
+                ${paginationTokens.buttonFocusColor}: ${surfaceAccent};
+                ${paginationTokens.paginationDisabledButtonColor}: ${textSecondary};
+                ${paginationTokens.paginationDisabledButtonBackgroundColor}: ${surfaceClear};
             `,
         },
         viewCurrentPage: {
             default: css`
-                ${paginationTokens.paginationCurrentButtonColor}: var(--text-primary);
-                ${paginationTokens.paginationCurrentButtonBackgroundColor}: var(--surface-solid-primary);
-                ${paginationTokens.paginationCurrentButtonHoverColor}: var(--text-primary);
-                ${paginationTokens.paginationCurrentButtonHoverBackgroundColor}: var(--surface-solid-primary);
-                ${paginationTokens.paginationCurrentButtonActiveColor}: var(--text-primary);
-                ${paginationTokens.paginationCurrentButtonActiveBackgroundColor}: var(--surface-solid-primary);
+                ${paginationTokens.paginationCurrentButtonColor}: ${textPrimary};
+                ${paginationTokens.paginationCurrentButtonBackgroundColor}: ${surfaceSolidPrimary};
+                ${paginationTokens.paginationCurrentButtonHoverColor}: ${textPrimary};
+                ${paginationTokens.paginationCurrentButtonHoverBackgroundColor}: ${surfaceSolidPrimary};
+                ${paginationTokens.paginationCurrentButtonActiveColor}: ${textPrimary};
+                ${paginationTokens.paginationCurrentButtonActiveBackgroundColor}: ${surfaceSolidPrimary};
             `,
         },
         size: {
             s: css`
-                ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-m-font-size);
-                ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${paginationTokens.paginationFontFamily}: ${bodyM.fontFamily};
+                ${paginationTokens.paginationFontSize}: ${bodyM.fontSize};
+                ${paginationTokens.paginationFontStyle}: ${bodyM.fontStyle};
+                ${paginationTokens.paginationFontWeight}: ${bodyM.fontWeight};
+                ${paginationTokens.paginationLetterSpacing}: ${bodyM.letterSpacing};
+                ${paginationTokens.paginationLineHeight}: ${bodyM.lineHeight};
 
                 ${paginationTokens.buttonHeight}: 2.5rem;
                 ${paginationTokens.buttonWidth}: 2.5rem;

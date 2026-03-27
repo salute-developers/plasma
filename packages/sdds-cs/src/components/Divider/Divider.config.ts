@@ -1,3 +1,9 @@
+import {
+    inverseSurfaceSolidDefault,
+    onDarkSurfaceSolidDefault,
+    onLightSurfaceSolidDefault,
+    surfaceSolidTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -9,17 +15,17 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${dividerTokens.background}: var(--surface-solid-tertiary);
+                ${dividerTokens.background}: ${surfaceSolidTertiary};
             `,
             dark: css`
-                ${dividerTokens.background}: var(--on-dark-surface-solid-default);
+                ${dividerTokens.background}: ${onDarkSurfaceSolidDefault};
             `,
             light: css`
-                ${dividerTokens.background}: var(--on-light-surface-solid-default);
+                ${dividerTokens.background}: ${onLightSurfaceSolidDefault};
             `,
             // TODO поменять на корректный токен --inverse-surface-transparent-tertiary когда он появится
             inverse: css`
-                ${dividerTokens.background}: var(--inverse-surface-solid-default);
+                ${dividerTokens.background}: ${inverseSurfaceSolidDefault};
             `,
         },
         size: {

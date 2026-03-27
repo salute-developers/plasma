@@ -1,13 +1,14 @@
+import { bodyM, bodyS, bodyXS, textPrimary, textSecondary } from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, cellTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     variations: {
         view: {
             default: css`
-                ${cellTokens.cellColor}: var(--text-primary);
-                ${cellTokens.cellLabelColor}: var(--text-secondary);
-                ${cellTokens.cellTitleColor}: var(--text-primary);
-                ${cellTokens.cellSubtitleColor}: var(--text-secondary);
+                ${cellTokens.cellColor}: ${textPrimary};
+                ${cellTokens.cellLabelColor}: ${textSecondary};
+                ${cellTokens.cellTitleColor}: ${textPrimary};
+                ${cellTokens.cellSubtitleColor}: ${textSecondary};
                 ${cellTokens.cellBackgroundColor}: transparent;
             `,
         },
@@ -23,26 +24,26 @@ export const config = {
                 ${cellTokens.cellTextboxGap}: 0.125rem;
                 ${cellTokens.cellGap}: 0.375rem;
 
-                ${cellTokens.cellLabelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${cellTokens.cellLabelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${cellTokens.cellLabelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${cellTokens.cellLabelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${cellTokens.cellLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${cellTokens.cellLabelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${cellTokens.cellLabelFontFamily}: ${bodyS.fontFamily};
+                ${cellTokens.cellLabelFontSize}: ${bodyS.fontSize};
+                ${cellTokens.cellLabelFontStyle}: ${bodyS.fontStyle};
+                ${cellTokens.cellLabelFontWeight}: ${bodyS.fontWeight};
+                ${cellTokens.cellLabelLetterSpacing}: ${bodyS.letterSpacing};
+                ${cellTokens.cellLabelLineHeight}: ${bodyS.lineHeight};
 
-                ${cellTokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${cellTokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${cellTokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${cellTokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${cellTokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${cellTokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${cellTokens.cellTitleFontFamily}: ${bodyM.fontFamily};
+                ${cellTokens.cellTitleFontSize}: ${bodyM.fontSize};
+                ${cellTokens.cellTitleFontStyle}: ${bodyM.fontStyle};
+                ${cellTokens.cellTitleFontWeight}: ${bodyM.fontWeight};
+                ${cellTokens.cellTitleLetterSpacing}: ${bodyM.letterSpacing};
+                ${cellTokens.cellTitleLineHeight}: ${bodyM.lineHeight};
 
-                ${cellTokens.cellSubtitleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${cellTokens.cellSubtitleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${cellTokens.cellSubtitleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${cellTokens.cellSubtitleFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${cellTokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${cellTokens.cellSubtitleLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${cellTokens.cellSubtitleFontFamily}: ${bodyS.fontFamily};
+                ${cellTokens.cellSubtitleFontSize}: ${bodyS.fontSize};
+                ${cellTokens.cellSubtitleFontStyle}: ${bodyS.fontStyle};
+                ${cellTokens.cellSubtitleFontWeight}: ${bodyS.fontWeight};
+                ${cellTokens.cellSubtitleLetterSpacing}: ${bodyS.letterSpacing};
+                ${cellTokens.cellSubtitleLineHeight}: ${bodyS.lineHeight};
             `,
             xs: css`
                 ${cellTokens.cellWidth}: 15rem;
@@ -55,26 +56,26 @@ export const config = {
                 ${cellTokens.cellTextboxGap}: 0.125rem;
                 ${cellTokens.cellGap}: 0.25rem;
 
-                ${cellTokens.cellLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${cellTokens.cellLabelFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${cellTokens.cellLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${cellTokens.cellLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${cellTokens.cellLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${cellTokens.cellLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${cellTokens.cellLabelFontFamily}: ${bodyXS.fontFamily};
+                ${cellTokens.cellLabelFontSize}: ${bodyXS.fontSize};
+                ${cellTokens.cellLabelFontStyle}: ${bodyXS.fontStyle};
+                ${cellTokens.cellLabelFontWeight}: ${bodyXS.fontWeight};
+                ${cellTokens.cellLabelLetterSpacing}: ${bodyXS.letterSpacing};
+                ${cellTokens.cellLabelLineHeight}: ${bodyXS.lineHeight};
 
-                ${cellTokens.cellTitleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${cellTokens.cellTitleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${cellTokens.cellTitleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${cellTokens.cellTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${cellTokens.cellTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${cellTokens.cellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${cellTokens.cellTitleFontFamily}: ${bodyS.fontFamily};
+                ${cellTokens.cellTitleFontSize}: ${bodyS.fontSize};
+                ${cellTokens.cellTitleFontStyle}: ${bodyS.fontStyle};
+                ${cellTokens.cellTitleFontWeight}: ${bodyS.fontWeight};
+                ${cellTokens.cellTitleLetterSpacing}: ${bodyS.letterSpacing};
+                ${cellTokens.cellTitleLineHeight}: ${bodyS.lineHeight};
 
-                ${cellTokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${cellTokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${cellTokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${cellTokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${cellTokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${cellTokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${cellTokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${cellTokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
+                ${cellTokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${cellTokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${cellTokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${cellTokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
             `,
         },
     },

@@ -1,3 +1,17 @@
+import {
+    bodyS,
+    inverseTextPrimary,
+    onDarkTextPrimary,
+    surfaceAccent,
+    surfaceClear,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    textAccent,
+    textNegative,
+    textPositive,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,31 +22,31 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${badgeTokens.color}: var(--inverse-text-primary);
-                ${badgeTokens.background}: var(--surface-solid-default);
+                ${badgeTokens.color}: ${inverseTextPrimary};
+                ${badgeTokens.background}: ${surfaceSolidDefault};
 
-                ${badgeTokens.colorClear}: var(--text-primary);
+                ${badgeTokens.colorClear}: ${textPrimary};
             `,
             accent: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
-                ${badgeTokens.background}: var(--surface-accent);
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${surfaceAccent};
 
-                ${badgeTokens.colorTransparent}: var(--text-accent);
-                ${badgeTokens.colorClear}: var(--text-accent);
+                ${badgeTokens.colorTransparent}: ${textAccent};
+                ${badgeTokens.colorClear}: ${textAccent};
             `,
             positive: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
-                ${badgeTokens.background}: var(--surface-positive);
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${surfacePositive};
 
-                ${badgeTokens.colorTransparent}: var(--text-positive);
-                ${badgeTokens.colorClear}: var(--text-positive);
+                ${badgeTokens.colorTransparent}: ${textPositive};
+                ${badgeTokens.colorClear}: ${textPositive};
             `,
             negative: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
-                ${badgeTokens.background}: var(--surface-negative);
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${surfaceNegative};
 
-                ${badgeTokens.colorTransparent}: var(--text-negative);
-                ${badgeTokens.colorClear}: var(--text-negative);
+                ${badgeTokens.colorTransparent}: ${textNegative};
+                ${badgeTokens.colorClear}: ${textNegative};
             `,
         },
         size: {
@@ -42,12 +56,12 @@ export const config = {
                 ${badgeTokens.padding}: 0 0.5rem;
                 ${badgeTokens.paddingIconOnly}: 0 0.375rem;
 
-                ${badgeTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${badgeTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${badgeTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${badgeTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${badgeTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${badgeTokens.fontFamily}: ${bodyS.fontFamily};
+                ${badgeTokens.fontSize}: ${bodyS.fontSize};
+                ${badgeTokens.fontStyle}: ${bodyS.fontStyle};
+                ${badgeTokens.fontWeight}: ${bodyS.fontWeight};
+                ${badgeTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${badgeTokens.lineHeight}: ${bodyS.lineHeight};
 
                 ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
                 ${badgeTokens.leftContentMarginRight}: 0.125rem;
@@ -66,7 +80,7 @@ export const config = {
         },
         clear: {
             true: css`
-                ${badgeTokens.backgroundClear}: var(--surface-clear);
+                ${badgeTokens.backgroundClear}: ${surfaceClear};
             `,
         },
     },

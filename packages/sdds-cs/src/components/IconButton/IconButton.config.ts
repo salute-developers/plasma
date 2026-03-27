@@ -1,3 +1,20 @@
+import {
+    bodyS,
+    bodySBold,
+    onDarkTextPrimary,
+    surfaceAccent,
+    surfaceAccentActive,
+    surfaceAccentHover,
+    surfaceClear,
+    surfaceSolidSecondary,
+    surfaceSolidSecondaryActive,
+    surfaceSolidSecondaryHover,
+    surfaceTransparentAccent,
+    surfaceTransparentAccentActive,
+    textAccent,
+    textAccentActive,
+    textAccentMinor,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -9,29 +26,29 @@ export const config = {
     variations: {
         view: {
             accent: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
+                ${iconButtonTokens.iconButtonColor}: ${onDarkTextPrimary};
+                ${iconButtonTokens.iconButtonBackgroundColor}: ${surfaceAccent};
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: ${surfaceAccentHover};
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: ${surfaceAccentActive};
             `,
             secondary: css`
-                ${iconButtonTokens.iconButtonColor}: var(--text-accent);
-                ${iconButtonTokens.iconButtonColorHover}: var(--text-accent-minor);
+                ${iconButtonTokens.iconButtonColor}: ${textAccent};
+                ${iconButtonTokens.iconButtonColorHover}: ${textAccentMinor};
                 
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-secondary);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-secondary-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-secondary-active);
+                ${iconButtonTokens.iconButtonBackgroundColor}: ${surfaceSolidSecondary};
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: ${surfaceSolidSecondaryHover};
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: ${surfaceSolidSecondaryActive};
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 
-                ${iconButtonTokens.iconButtonColorActive}: var(--text-accent-active);
+                ${iconButtonTokens.iconButtonColorActive}: ${textAccentActive};
             `,
             clear: css`
-                ${iconButtonTokens.iconButtonColor}: var(--text-accent);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-transparent-accent);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-accent);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-accent-active);
+                ${iconButtonTokens.iconButtonColor}: ${textAccent};
+                ${iconButtonTokens.iconButtonBackgroundColor}: ${surfaceClear};
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: ${surfaceTransparentAccent};
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: ${surfaceTransparentAccent};
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: ${surfaceTransparentAccentActive};
             `,
         },
         size: {
@@ -40,12 +57,12 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 2.5rem;
                 ${iconButtonTokens.iconButtonPadding}: 1rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.75rem;
-                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-s-font-size);
-                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${iconButtonTokens.iconButtonFontFamily}: ${bodyS.fontFamily};
+                ${iconButtonTokens.iconButtonFontSize}: ${bodyS.fontSize};
+                ${iconButtonTokens.iconButtonFontStyle}: ${bodyS.fontStyle};
+                ${iconButtonTokens.iconButtonFontWeight}: ${bodySBold.fontWeight};
+                ${iconButtonTokens.iconButtonLetterSpacing}: ${bodyS.letterSpacing};
+                ${iconButtonTokens.iconButtonLineHeight}: ${bodyS.lineHeight};
 
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1.375rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
@@ -58,7 +75,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${iconButtonTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${iconButtonTokens.iconButtonFocusColor}: ${surfaceAccent};
             `,
         },
     },

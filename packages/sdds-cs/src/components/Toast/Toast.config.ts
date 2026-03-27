@@ -1,3 +1,18 @@
+import {
+    bodyM,
+    onDarkSurfaceSolidPrimaryBrightness,
+    onDarkTextAccent,
+    onDarkTextAccentMinor,
+    onDarkTextPrimary,
+    onLightSurfaceSolidPrimaryBrightness,
+    onLightTextAccent,
+    onLightTextAccentMinor,
+    onLightTextPrimary,
+    surfaceSolidCardBrightness,
+    textAccent,
+    textAccentMinor,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, toastTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -9,33 +24,33 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.color}: ${textPrimary};
+                ${toastTokens.background}: ${surfaceSolidCardBrightness};
 
-                ${toastTokens.closeIconColor}: var(--text-accent);
-                ${toastTokens.closeIconColorOnHover}: var(--text-accent-minor);
+                ${toastTokens.closeIconColor}: ${textAccent};
+                ${toastTokens.closeIconColorOnHover}: ${textAccentMinor};
             `,
             /**
              * @deprecated
              * светлый и темный фон регулировать через `view` компонента `ViewContainer`
              */
             dark: css`
-                ${toastTokens.color}: var(--on-dark-text-primary);
-                ${toastTokens.background}: var(--on-dark-surface-solid-primary-brightness);
+                ${toastTokens.color}: ${onDarkTextPrimary};
+                ${toastTokens.background}: ${onDarkSurfaceSolidPrimaryBrightness};
 
-                ${toastTokens.closeIconColor}: var(--on-dark-text-accent);
-                ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-accent-minor);
+                ${toastTokens.closeIconColor}: ${onDarkTextAccent};
+                ${toastTokens.closeIconColorOnHover}: ${onDarkTextAccentMinor};
             `,
             /**
              * @deprecated
              * светлый и темный фон регулировать через `view` компонента `ViewContainer`
              */
             light: css`
-                ${toastTokens.color}: var(--on-light-text-primary);
-                ${toastTokens.background}: var(--on-light-surface-solid-primary-brightness);
+                ${toastTokens.color}: ${onLightTextPrimary};
+                ${toastTokens.background}: ${onLightSurfaceSolidPrimaryBrightness};
 
-                ${toastTokens.closeIconColor}: var(--on-light-text-accent);
-                ${toastTokens.closeIconColorOnHover}: var(--on-light-text-accent-minor);
+                ${toastTokens.closeIconColor}: ${onLightTextAccent};
+                ${toastTokens.closeIconColorOnHover}: ${onLightTextAccentMinor};
             `,
         },
         size: {
@@ -44,12 +59,12 @@ export const config = {
                 ${toastTokens.maxWidth}: calc(100vw - 5rem);
                 ${toastTokens.padding}: 0.5rem 0.75rem;
 
-                ${toastTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${toastTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${toastTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${toastTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${toastTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${toastTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${toastTokens.fontFamily}: ${bodyM.fontFamily};
+                ${toastTokens.fontSize}: ${bodyM.fontSize};
+                ${toastTokens.fontStyle}: ${bodyM.fontStyle};
+                ${toastTokens.fontWeight}: ${bodyM.fontWeight};
+                ${toastTokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${toastTokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${toastTokens.contentLeftMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
                 ${toastTokens.closeIconMargin}: -0.0625rem 0.125rem -0.0625rem 0.75rem;

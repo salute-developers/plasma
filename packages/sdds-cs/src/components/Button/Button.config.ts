@@ -1,3 +1,22 @@
+import {
+    bodyM,
+    bodyMBold,
+    onDarkTextPrimary,
+    onLightTextAccentMinor,
+    surfaceAccent,
+    surfaceAccentActive,
+    surfaceAccentHover,
+    surfaceClear,
+    surfaceSolidSecondary,
+    surfaceSolidSecondaryActive,
+    surfaceSolidSecondaryHover,
+    surfaceTransparentAccent,
+    surfaceTransparentAccentActive,
+    textAccent,
+    textAccentActive,
+    textAccentMinor,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -9,36 +28,36 @@ export const config = {
     variations: {
         view: {
             accent: css`
-                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonValueColor}: var(--on-light-text-accent-minor);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
+                ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonTextColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonValueColor}: ${onLightTextAccentMinor};
+                ${buttonTokens.buttonBackgroundColor}: ${surfaceAccent};
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
+                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceAccentHover};
+                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceAccentActive};
             `,
             secondary: css`
-                ${buttonTokens.buttonColor}: var(--text-accent);
-                ${buttonTokens.buttonColorHover}: var(--text-accent-minor);
-                ${buttonTokens.buttonColorActive}: var(--text-accent-active);
-                ${buttonTokens.buttonTextColor}: var(--text-accent);
-                ${buttonTokens.buttonIconColor}: var(--text-accent);
-                ${buttonTokens.buttonValueColor}: var(--text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-secondary);
+                ${buttonTokens.buttonColor}: ${textAccent};
+                ${buttonTokens.buttonColorHover}: ${textAccentMinor};
+                ${buttonTokens.buttonColorActive}: ${textAccentActive};
+                ${buttonTokens.buttonTextColor}: ${textAccent};
+                ${buttonTokens.buttonIconColor}: ${textAccent};
+                ${buttonTokens.buttonValueColor}: ${textSecondary};
+                ${buttonTokens.buttonBackgroundColor}: ${surfaceSolidSecondary};
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-secondary-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-secondary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceSolidSecondaryHover};
+                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceSolidSecondaryActive};
             `,
             clear: css`
-                ${buttonTokens.buttonColor}: var(--text-accent);
-                ${buttonTokens.buttonTextColor}: var(--text-accent);
-                ${buttonTokens.buttonIconColor}: var(--text-accent);
-                ${buttonTokens.buttonValueColor}: var(--text-accent-minor);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(--surface-transparent-accent);
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-accent);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-accent-active);
+                ${buttonTokens.buttonColor}: ${textAccent};
+                ${buttonTokens.buttonTextColor}: ${textAccent};
+                ${buttonTokens.buttonIconColor}: ${textAccent};
+                ${buttonTokens.buttonValueColor}: ${textAccentMinor};
+                ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
+                ${buttonTokens.buttonLoadingBackgroundColor}: ${surfaceTransparentAccent};
+                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentAccent};
+                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceTransparentAccentActive};
             `,
         },
         size: {
@@ -47,12 +66,12 @@ export const config = {
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonPadding}: 1rem;
                 ${buttonTokens.buttonRadius}: 0.75rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${buttonTokens.buttonFontFamily}: ${bodyM.fontFamily};
+                ${buttonTokens.buttonFontSize}: ${bodyM.fontSize};
+                ${buttonTokens.buttonFontStyle}: ${bodyM.fontStyle};
+                ${buttonTokens.buttonFontWeight}: ${bodyMBold.fontWeight};
+                ${buttonTokens.buttonLetterSpacing}: ${bodyM.letterSpacing};
+                ${buttonTokens.buttonLineHeight}: ${bodyM.lineHeight};
 
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
@@ -64,12 +83,12 @@ export const config = {
             sr: css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${buttonTokens.buttonFontFamily}: ${bodyM.fontFamily};
+                ${buttonTokens.buttonFontSize}: ${bodyM.fontSize};
+                ${buttonTokens.buttonFontStyle}: ${bodyM.fontStyle};
+                ${buttonTokens.buttonFontWeight}: ${bodyMBold.fontWeight};
+                ${buttonTokens.buttonLetterSpacing}: ${bodyM.letterSpacing};
+                ${buttonTokens.buttonLineHeight}: ${bodyM.lineHeight};
 
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
@@ -83,7 +102,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${buttonTokens.buttonFocusColor}: var(--surface-accent);
+                ${buttonTokens.buttonFocusColor}: ${surfaceAccent};
             `,
         },
         stretching: {

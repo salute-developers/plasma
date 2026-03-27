@@ -1,3 +1,4 @@
+import { surfaceSolidPrimary, textAccent } from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,14 +9,14 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${segmentTokens.arrowColor}: var(--text-accent);
+                ${segmentTokens.arrowColor}: ${textAccent};
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             filled: css`
-                ${segmentTokens.arrowColor}: var(--text-accent);
+                ${segmentTokens.arrowColor}: ${textAccent};
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
         },
         size: {
@@ -39,7 +40,7 @@ export const config = {
         },
         filledBackground: {
             true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-solid-primary);
+                ${segmentTokens.groupFilledBackgroundColor}: ${surfaceSolidPrimary};
             `,
         },
         orientation: {
