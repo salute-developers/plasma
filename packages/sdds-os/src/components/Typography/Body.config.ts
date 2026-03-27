@@ -1,3 +1,20 @@
+import {
+    bodyL,
+    bodyLBold,
+    bodyLMedium,
+    bodyM,
+    bodyMBold,
+    bodyMMedium,
+    bodyS,
+    bodySBold,
+    bodySMedium,
+    bodyXS,
+    bodyXSBold,
+    bodyXSMedium,
+    bodyXXS,
+    bodyXXSBold,
+    bodyXXSMedium,
+} from '@salutejs/sdds-themes/tokens/sdds_os';
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const configL = {
@@ -7,14 +24,14 @@ export const configL = {
     variations: {
         size: {
             l: css`
-                ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${typographyTokens.typoFontSize}: var(--plasma-typo-body-l-font-size);
-                ${typographyTokens.typoFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${typographyTokens.typoFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-body-l-bold-font-weight);
-                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-body-l-medium-font-weight);
-                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${typographyTokens.typoFontFamily}: ${bodyL.fontFamily};
+                ${typographyTokens.typoFontSize}: ${bodyL.fontSize};
+                ${typographyTokens.typoFontStyle}: ${bodyL.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${bodyL.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${bodyLBold.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${bodyLMedium.fontWeight};
+                ${typographyTokens.typoFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${bodyL.lineHeight};
             `,
         },
     },
@@ -27,14 +44,14 @@ export const configM = {
     variations: {
         size: {
             m: css`
-                ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${typographyTokens.typoFontSize}: var(--plasma-typo-body-m-font-size);
-                ${typographyTokens.typoFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${typographyTokens.typoFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-body-m-bold-font-weight);
-                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-body-m-medium-font-weight);
-                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${typographyTokens.typoFontFamily}: ${bodyM.fontFamily};
+                ${typographyTokens.typoFontSize}: ${bodyM.fontSize};
+                ${typographyTokens.typoFontStyle}: ${bodyM.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${bodyM.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${bodyMBold.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${bodyMMedium.fontWeight};
+                ${typographyTokens.typoFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${bodyM.lineHeight};
             `,
         },
     },
@@ -47,14 +64,14 @@ export const configS = {
     variations: {
         size: {
             s: css`
-                ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${typographyTokens.typoFontSize}: var(--plasma-typo-body-s-font-size);
-                ${typographyTokens.typoFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${typographyTokens.typoFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-body-s-bold-font-weight);
-                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-body-s-medium-font-weight);
-                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${typographyTokens.typoFontFamily}: ${bodyS.fontFamily};
+                ${typographyTokens.typoFontSize}: ${bodyS.fontSize};
+                ${typographyTokens.typoFontStyle}: ${bodyS.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${bodyS.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${bodySBold.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${bodySMedium.fontWeight};
+                ${typographyTokens.typoFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${bodyS.lineHeight};
             `,
         },
     },
@@ -67,14 +84,14 @@ export const configXS = {
     variations: {
         size: {
             xs: css`
-                ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${typographyTokens.typoFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${typographyTokens.typoFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${typographyTokens.typoFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-body-xs-medium-font-weight);
-                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${typographyTokens.typoFontFamily}: ${bodyXS.fontFamily};
+                ${typographyTokens.typoFontSize}: ${bodyXS.fontSize};
+                ${typographyTokens.typoFontStyle}: ${bodyXS.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${bodyXS.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${bodyXSBold.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${bodyXSMedium.fontWeight};
+                ${typographyTokens.typoFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${bodyXS.lineHeight};
             `,
         },
     },
@@ -87,14 +104,14 @@ export const configXXS = {
     variations: {
         size: {
             xxs: css`
-                ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${typographyTokens.typoFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${typographyTokens.typoFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${typographyTokens.typoFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-body-xxs-bold-font-weight);
-                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-body-xxs-medium-font-weight);
-                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${typographyTokens.typoFontFamily}: ${bodyXXS.fontFamily};
+                ${typographyTokens.typoFontSize}: ${bodyXXS.fontSize};
+                ${typographyTokens.typoFontStyle}: ${bodyXXS.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${bodyXXS.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${bodyXXSBold.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${bodyXXSMedium.fontWeight};
+                ${typographyTokens.typoFontLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${bodyXXS.lineHeight};
             `,
         },
     },

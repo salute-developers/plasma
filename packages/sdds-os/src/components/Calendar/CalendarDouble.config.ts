@@ -1,3 +1,22 @@
+import {
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    bodyXS,
+    h4,
+    h4Bold,
+    inverseTextPrimary,
+    shadowDownHardS,
+    surfaceAccent,
+    surfaceClear,
+    surfaceSolidCardBrightness,
+    surfaceSolidDefault,
+    surfaceTransparentSecondary,
+    textPrimary,
+    textPrimaryHover,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_os';
 import { css, calendarDoubleTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -9,39 +28,39 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${calendarDoubleTokens.calendarSeparatorBackground}: var(--surface-transparent-secondary);
+                ${calendarDoubleTokens.calendarSeparatorBackground}: ${surfaceTransparentSecondary};
                 ${calendarDoubleTokens.calendarBackgroundColor}: transparent;
-                ${calendarDoubleTokens.calendarSelectedItemBackground}: var(--surface-solid-default);
-                ${calendarDoubleTokens.calendarSelectedItemColor}: var(--inverse-text-primary);
-                ${calendarDoubleTokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-secondary);
-                ${calendarDoubleTokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
+                ${calendarDoubleTokens.calendarSelectedItemBackground}: ${surfaceSolidDefault};
+                ${calendarDoubleTokens.calendarSelectedItemColor}: ${inverseTextPrimary};
+                ${calendarDoubleTokens.calendarSelectableItemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${calendarDoubleTokens.calendarCurrentItemBorderColor}: ${surfaceSolidDefault};
                 ${calendarDoubleTokens.calendarCurrentItemBackgroundHover}: transparent;
-                ${calendarDoubleTokens.calendarCurrentItemColorHover}: var(--text-primary);
-                ${calendarDoubleTokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-secondary);
-                ${calendarDoubleTokens.calendarActiveItemBackground}: var(--surface-solid-default);
-                ${calendarDoubleTokens.calendarActiveItemColor}: var(--inverse-text-primary);
-                ${calendarDoubleTokens.calendarHoveredItemBackground}: var(--surface-accent);
-                ${calendarDoubleTokens.calendarHoveredItemColor}: var(--text-primary);
-                ${calendarDoubleTokens.calendarRangeBackground}: var(--surface-transparent-secondary);
-                ${calendarDoubleTokens.calendarOutlineFocusColor}: var(--surface-accent);
-                ${calendarDoubleTokens.calendarContentPrimaryColor}: var(--surface-solid-default);
-                ${calendarDoubleTokens.calendarContentPrimaryDisabledColor}: var(--surface-solid-default);
+                ${calendarDoubleTokens.calendarCurrentItemColorHover}: ${textPrimary};
+                ${calendarDoubleTokens.calendarCurrentItemChildBackgroundHover}: ${surfaceTransparentSecondary};
+                ${calendarDoubleTokens.calendarActiveItemBackground}: ${surfaceSolidDefault};
+                ${calendarDoubleTokens.calendarActiveItemColor}: ${inverseTextPrimary};
+                ${calendarDoubleTokens.calendarHoveredItemBackground}: ${surfaceAccent};
+                ${calendarDoubleTokens.calendarHoveredItemColor}: ${textPrimary};
+                ${calendarDoubleTokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
+                ${calendarDoubleTokens.calendarOutlineFocusColor}: ${surfaceAccent};
+                ${calendarDoubleTokens.calendarContentPrimaryColor}: ${surfaceSolidDefault};
+                ${calendarDoubleTokens.calendarContentPrimaryDisabledColor}: ${surfaceSolidDefault};
                 ${calendarDoubleTokens.calendarHeaderArrowColor}: ${calendarDoubleTokens.calendarContentPrimaryColor};
-                ${calendarDoubleTokens.calendarContentSecondaryColor}: var(--text-secondary);
-                ${calendarDoubleTokens.calendarContentSecondaryDisabledColor}: var(--text-secondary);
+                ${calendarDoubleTokens.calendarContentSecondaryColor}: ${textSecondary};
+                ${calendarDoubleTokens.calendarContentSecondaryDisabledColor}: ${textSecondary};
                 ${calendarDoubleTokens.calendarDisabledOpacity}: 0.4;
 
-                ${calendarDoubleTokens.iconButtonColor}: var(--text-primary);
-                ${calendarDoubleTokens.iconButtonBackgroundColor}: var(--surface-clear);
-                ${calendarDoubleTokens.iconButtonColorHover}: var(--text-primary-hover);
-                ${calendarDoubleTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
-                ${calendarDoubleTokens.iconButtonColorActive}: var(--text-primary-hover);
-                ${calendarDoubleTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
-                ${calendarDoubleTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${calendarDoubleTokens.iconButtonColor}: ${textPrimary};
+                ${calendarDoubleTokens.iconButtonBackgroundColor}: ${surfaceClear};
+                ${calendarDoubleTokens.iconButtonColorHover}: ${textPrimaryHover};
+                ${calendarDoubleTokens.iconButtonBackgroundColorHover}: ${surfaceClear};
+                ${calendarDoubleTokens.iconButtonColorActive}: ${textPrimaryHover};
+                ${calendarDoubleTokens.iconButtonBackgroundColorActive}: ${surfaceClear};
+                ${calendarDoubleTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${calendarDoubleTokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${calendarDoubleTokens.tooltipBoxShadow}: var(--shadow-down-hard-s);
-                ${calendarDoubleTokens.tooltipColor}: var(--text-primary);
+                ${calendarDoubleTokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
+                ${calendarDoubleTokens.tooltipBoxShadow}: ${shadowDownHardS};
+                ${calendarDoubleTokens.tooltipColor}: ${textPrimary};
             `,
         },
         size: {
@@ -52,46 +71,46 @@ export const config = {
                 ${calendarDoubleTokens.calendarYearsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.625rem;
 
-                ${calendarDoubleTokens.calendarYearFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${calendarDoubleTokens.calendarYearFontSize}: var(--plasma-typo-body-m-font-size);
-                ${calendarDoubleTokens.calendarYearFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${calendarDoubleTokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${calendarDoubleTokens.calendarYearFontLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${calendarDoubleTokens.calendarYearFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${calendarDoubleTokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${calendarDoubleTokens.calendarYearFontFamily}: ${bodyM.fontFamily};
+                ${calendarDoubleTokens.calendarYearFontSize}: ${bodyM.fontSize};
+                ${calendarDoubleTokens.calendarYearFontStyle}: ${bodyM.fontStyle};
+                ${calendarDoubleTokens.calendarYearFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${calendarDoubleTokens.calendarYearFontLineHeight}: ${bodyM.lineHeight};
+                ${calendarDoubleTokens.calendarYearFontWeight}: ${bodyM.fontWeight};
+                ${calendarDoubleTokens.calendarYearSelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarQuartersPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.625rem;
 
-                ${calendarDoubleTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${calendarDoubleTokens.calendarQuarterFontSize}: var(--plasma-typo-body-m-font-size);
-                ${calendarDoubleTokens.calendarQuarterFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${calendarDoubleTokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${calendarDoubleTokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${calendarDoubleTokens.calendarQuarterFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${calendarDoubleTokens.calendarQuarterFontFamily}: ${bodyM.fontFamily};
+                ${calendarDoubleTokens.calendarQuarterFontSize}: ${bodyM.fontSize};
+                ${calendarDoubleTokens.calendarQuarterFontStyle}: ${bodyM.fontStyle};
+                ${calendarDoubleTokens.calendarQuarterFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${calendarDoubleTokens.calendarQuarterFontLineHeight}: ${bodyM.lineHeight};
+                ${calendarDoubleTokens.calendarQuarterFontWeight}: ${bodyM.fontWeight};
+                ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarMonthsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.625rem;
 
-                ${calendarDoubleTokens.calendarMonthFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${calendarDoubleTokens.calendarMonthFontSize}: var(--plasma-typo-body-m-font-size);
-                ${calendarDoubleTokens.calendarMonthFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${calendarDoubleTokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${calendarDoubleTokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${calendarDoubleTokens.calendarMonthFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${calendarDoubleTokens.calendarMonthFontFamily}: ${bodyM.fontFamily};
+                ${calendarDoubleTokens.calendarMonthFontSize}: ${bodyM.fontSize};
+                ${calendarDoubleTokens.calendarMonthFontStyle}: ${bodyM.fontStyle};
+                ${calendarDoubleTokens.calendarMonthFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${calendarDoubleTokens.calendarMonthFontLineHeight}: ${bodyM.lineHeight};
+                ${calendarDoubleTokens.calendarMonthFontWeight}: ${bodyM.fontWeight};
+                ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.375rem 0 0 0;
                 ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.625rem;
 
-                ${calendarDoubleTokens.calendarDayFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${calendarDoubleTokens.calendarDayFontSize}: var(--plasma-typo-body-m-font-size);
-                ${calendarDoubleTokens.calendarDayFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${calendarDoubleTokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${calendarDoubleTokens.calendarDayFontLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${calendarDoubleTokens.calendarDayFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${calendarDoubleTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${calendarDoubleTokens.calendarDayFontFamily}: ${bodyM.fontFamily};
+                ${calendarDoubleTokens.calendarDayFontSize}: ${bodyM.fontSize};
+                ${calendarDoubleTokens.calendarDayFontStyle}: ${bodyM.fontStyle};
+                ${calendarDoubleTokens.calendarDayFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${calendarDoubleTokens.calendarDayFontLineHeight}: ${bodyM.lineHeight};
+                ${calendarDoubleTokens.calendarDayFontWeight}: ${bodyM.fontWeight};
+                ${calendarDoubleTokens.calendarDaySelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
@@ -101,13 +120,13 @@ export const config = {
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.75rem;
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${calendarDoubleTokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
-                ${calendarDoubleTokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
-                ${calendarDoubleTokens.calendarHeaderFontStyle}: var(--plasma-typo-h4-font-style);
-                ${calendarDoubleTokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${calendarDoubleTokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h4-line-height);
-                ${calendarDoubleTokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${calendarDoubleTokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
+                ${calendarDoubleTokens.calendarHeaderFontFamily}: ${h4.fontFamily};
+                ${calendarDoubleTokens.calendarHeaderFontSize}: ${h4.fontSize};
+                ${calendarDoubleTokens.calendarHeaderFontStyle}: ${h4.fontStyle};
+                ${calendarDoubleTokens.calendarHeaderFontLetterSpacing}: ${h4.letterSpacing};
+                ${calendarDoubleTokens.calendarHeaderFontLineHeight}: ${h4.lineHeight};
+                ${calendarDoubleTokens.calendarHeaderFontWeight}: ${h4.fontWeight};
+                ${calendarDoubleTokens.calendarHeaderFontWeightBold}: ${h4Bold.fontWeight};
 
                 ${calendarDoubleTokens.iconButtonHeight}: 3rem;
                 ${calendarDoubleTokens.iconButtonWidth}: 3rem;
@@ -121,46 +140,46 @@ export const config = {
                 ${calendarDoubleTokens.calendarYearsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.5rem;
 
-                ${calendarDoubleTokens.calendarYearFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${calendarDoubleTokens.calendarYearFontSize}: var(--plasma-typo-body-s-font-size);
-                ${calendarDoubleTokens.calendarYearFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${calendarDoubleTokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${calendarDoubleTokens.calendarYearFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${calendarDoubleTokens.calendarYearFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${calendarDoubleTokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${calendarDoubleTokens.calendarYearFontFamily}: ${bodyS.fontFamily};
+                ${calendarDoubleTokens.calendarYearFontSize}: ${bodyS.fontSize};
+                ${calendarDoubleTokens.calendarYearFontStyle}: ${bodyS.fontStyle};
+                ${calendarDoubleTokens.calendarYearFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${calendarDoubleTokens.calendarYearFontLineHeight}: ${bodyS.lineHeight};
+                ${calendarDoubleTokens.calendarYearFontWeight}: ${bodyS.fontWeight};
+                ${calendarDoubleTokens.calendarYearSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarQuartersPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.5rem;
 
-                ${calendarDoubleTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${calendarDoubleTokens.calendarQuarterFontSize}: var(--plasma-typo-body-s-font-size);
-                ${calendarDoubleTokens.calendarQuarterFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${calendarDoubleTokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${calendarDoubleTokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${calendarDoubleTokens.calendarQuarterFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${calendarDoubleTokens.calendarQuarterFontFamily}: ${bodyS.fontFamily};
+                ${calendarDoubleTokens.calendarQuarterFontSize}: ${bodyS.fontSize};
+                ${calendarDoubleTokens.calendarQuarterFontStyle}: ${bodyS.fontStyle};
+                ${calendarDoubleTokens.calendarQuarterFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${calendarDoubleTokens.calendarQuarterFontLineHeight}: ${bodyS.lineHeight};
+                ${calendarDoubleTokens.calendarQuarterFontWeight}: ${bodyS.fontWeight};
+                ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarMonthsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.5rem;
 
-                ${calendarDoubleTokens.calendarMonthFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${calendarDoubleTokens.calendarMonthFontSize}: var(--plasma-typo-body-s-font-size);
-                ${calendarDoubleTokens.calendarMonthFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${calendarDoubleTokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${calendarDoubleTokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${calendarDoubleTokens.calendarMonthFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${calendarDoubleTokens.calendarMonthFontFamily}: ${bodyS.fontFamily};
+                ${calendarDoubleTokens.calendarMonthFontSize}: ${bodyS.fontSize};
+                ${calendarDoubleTokens.calendarMonthFontStyle}: ${bodyS.fontStyle};
+                ${calendarDoubleTokens.calendarMonthFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${calendarDoubleTokens.calendarMonthFontLineHeight}: ${bodyS.lineHeight};
+                ${calendarDoubleTokens.calendarMonthFontWeight}: ${bodyS.fontWeight};
+                ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.375rem 0 0 0;
                 ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.5rem;
 
-                ${calendarDoubleTokens.calendarDayFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${calendarDoubleTokens.calendarDayFontSize}: var(--plasma-typo-body-s-font-size);
-                ${calendarDoubleTokens.calendarDayFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${calendarDoubleTokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${calendarDoubleTokens.calendarDayFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${calendarDoubleTokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${calendarDoubleTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${calendarDoubleTokens.calendarDayFontFamily}: ${bodyS.fontFamily};
+                ${calendarDoubleTokens.calendarDayFontSize}: ${bodyS.fontSize};
+                ${calendarDoubleTokens.calendarDayFontStyle}: ${bodyS.fontStyle};
+                ${calendarDoubleTokens.calendarDayFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${calendarDoubleTokens.calendarDayFontLineHeight}: ${bodyS.lineHeight};
+                ${calendarDoubleTokens.calendarDayFontWeight}: ${bodyS.fontWeight};
+                ${calendarDoubleTokens.calendarDaySelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
@@ -170,13 +189,13 @@ export const config = {
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${calendarDoubleTokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
-                ${calendarDoubleTokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
-                ${calendarDoubleTokens.calendarHeaderFontStyle}: var(--plasma-typo-h4-font-style);
-                ${calendarDoubleTokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${calendarDoubleTokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h4-line-height);
-                ${calendarDoubleTokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${calendarDoubleTokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
+                ${calendarDoubleTokens.calendarHeaderFontFamily}: ${h4.fontFamily};
+                ${calendarDoubleTokens.calendarHeaderFontSize}: ${h4.fontSize};
+                ${calendarDoubleTokens.calendarHeaderFontStyle}: ${h4.fontStyle};
+                ${calendarDoubleTokens.calendarHeaderFontLetterSpacing}: ${h4.letterSpacing};
+                ${calendarDoubleTokens.calendarHeaderFontLineHeight}: ${h4.lineHeight};
+                ${calendarDoubleTokens.calendarHeaderFontWeight}: ${h4.fontWeight};
+                ${calendarDoubleTokens.calendarHeaderFontWeightBold}: ${h4Bold.fontWeight};
 
                 ${calendarDoubleTokens.iconButtonHeight}: 2.5rem;
                 ${calendarDoubleTokens.iconButtonWidth}: 2.5rem;
@@ -194,12 +213,12 @@ export const config = {
                 ${calendarDoubleTokens.tooltipMinHeight}: 2.5rem;
                 ${calendarDoubleTokens.tooltipBorderRadius}: 0.625rem;
 
-                ${calendarDoubleTokens.tooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${calendarDoubleTokens.tooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${calendarDoubleTokens.tooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${calendarDoubleTokens.tooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${calendarDoubleTokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${calendarDoubleTokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${calendarDoubleTokens.tooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${calendarDoubleTokens.tooltipTextFontSize}: ${bodyS.fontSize};
+                ${calendarDoubleTokens.tooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${calendarDoubleTokens.tooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${calendarDoubleTokens.tooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${calendarDoubleTokens.tooltipTextFontLineHeight}: ${bodyS.lineHeight};
 
                 ${calendarDoubleTokens.tooltipContentLeftMargin}: 0.375rem;
 
@@ -208,7 +227,7 @@ export const config = {
                 ${calendarDoubleTokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
                 ${calendarDoubleTokens.tooltipArrowHeight}: 0.5rem;
                 ${calendarDoubleTokens.tooltipArrowEdgeMargin}: 0.625rem;
-                ${calendarDoubleTokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+                ${calendarDoubleTokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
             s: css`
                 ${calendarDoubleTokens.tooltipPaddingTop}: 0.5rem;
@@ -219,12 +238,12 @@ export const config = {
                 ${calendarDoubleTokens.tooltipMinHeight}: 2rem;
                 ${calendarDoubleTokens.tooltipBorderRadius}: 0.5rem;
 
-                ${calendarDoubleTokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${calendarDoubleTokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${calendarDoubleTokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${calendarDoubleTokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${calendarDoubleTokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${calendarDoubleTokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${calendarDoubleTokens.tooltipTextFontFamily}: ${bodyXS.fontFamily};
+                ${calendarDoubleTokens.tooltipTextFontSize}: ${bodyXS.fontSize};
+                ${calendarDoubleTokens.tooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${calendarDoubleTokens.tooltipTextFontWeight}: ${bodyXS.fontWeight};
+                ${calendarDoubleTokens.tooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${calendarDoubleTokens.tooltipTextFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${calendarDoubleTokens.tooltipContentLeftMargin}: 0.25rem;
 
@@ -233,7 +252,7 @@ export const config = {
                 ${calendarDoubleTokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
                 ${calendarDoubleTokens.tooltipArrowHeight}: 0.375rem;
                 ${calendarDoubleTokens.tooltipArrowEdgeMargin}: 0.5625rem;
-                ${calendarDoubleTokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+                ${calendarDoubleTokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
         },
     },
