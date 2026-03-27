@@ -1,3 +1,17 @@
+import {
+    bodyXS,
+    onDarkSurfaceSolidPrimaryBrightness,
+    onDarkTextPrimary,
+    onDarkTextSecondary,
+    onLightSurfaceSolidPrimaryBrightness,
+    onLightTextPrimary,
+    onLightTextSecondary,
+    surfaceSolidCardBrightness,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/plasma-themes/tokens/plasma_giga';
 import { css, toastTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -9,49 +23,49 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.color}: ${textPrimary};
+                ${toastTokens.background}: ${surfaceSolidCardBrightness};
 
-                ${toastTokens.closeIconColor}: var(--text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+                ${toastTokens.closeIconColor}: ${textSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
             `,
             positive: css`
-                ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card-brightness);
-                ${toastTokens.contentLeftColor}: var(--text-positive);
+                ${toastTokens.color}: ${textPrimary};
+                ${toastTokens.background}: ${surfaceSolidCardBrightness};
+                ${toastTokens.contentLeftColor}: ${textPositive};
 
-                ${toastTokens.closeIconColor}: var(--text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+                ${toastTokens.closeIconColor}: ${textSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
             `,
             negative: css`
-                ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card-brightness);
-                ${toastTokens.contentLeftColor}: var(--text-negative);
+                ${toastTokens.color}: ${textPrimary};
+                ${toastTokens.background}: ${surfaceSolidCardBrightness};
+                ${toastTokens.contentLeftColor}: ${textNegative};
 
-                ${toastTokens.closeIconColor}: var(--text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+                ${toastTokens.closeIconColor}: ${textSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
             `,
             /**
              * @deprecated
              * светлый и темный фон регулировать через `view` компонента `ViewContainer`
              */
             dark: css`
-                ${toastTokens.color}: var(--on-dark-text-primary);
-                ${toastTokens.background}: var(--on-dark-surface-solid-primary-brightness);
+                ${toastTokens.color}: ${onDarkTextPrimary};
+                ${toastTokens.background}: ${onDarkSurfaceSolidPrimaryBrightness};
 
-                ${toastTokens.closeIconColor}: var(--on-dark-text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-secondary);
+                ${toastTokens.closeIconColor}: ${onDarkTextSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${onDarkTextSecondary};
             `,
             /**
              * @deprecated
              * светлый и темный фон регулировать через `view` компонента `ViewContainer`
              */
             light: css`
-                ${toastTokens.color}: var(--on-light-text-primary);
-                ${toastTokens.background}: var(--on-light-surface-solid-primary-brightness);
+                ${toastTokens.color}: ${onLightTextPrimary};
+                ${toastTokens.background}: ${onLightSurfaceSolidPrimaryBrightness};
 
-                ${toastTokens.closeIconColor}: var(--on-light-text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--on-light-text-secondary);
+                ${toastTokens.closeIconColor}: ${onLightTextSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${onLightTextSecondary};
             `,
         },
         size: {
@@ -59,12 +73,12 @@ export const config = {
                 ${toastTokens.borderRadius}: 0.75rem;
                 ${toastTokens.maxWidth}: calc(100vw - 5rem);
                 ${toastTokens.padding}: 0.5625rem 0.75rem;
-                ${toastTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${toastTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${toastTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${toastTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${toastTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${toastTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${toastTokens.fontFamily}: ${bodyXS.fontFamily};
+                ${toastTokens.fontSize}: ${bodyXS.fontSize};
+                ${toastTokens.fontStyle}: ${bodyXS.fontStyle};
+                ${toastTokens.fontWeight}: ${bodyXS.fontWeight};
+                ${toastTokens.letterSpacing}: ${bodyXS.letterSpacing};
+                ${toastTokens.lineHeight}: ${bodyXS.lineHeight};
 
                 ${toastTokens.contentLeftMargin}: -0.0625rem 0.375rem -0.0625rem -0.125rem;
                 ${toastTokens.closeIconMargin}: -0.0625rem -0.25rem -0.0625rem 0.5rem;
