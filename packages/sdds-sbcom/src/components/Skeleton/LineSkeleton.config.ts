@@ -1,26 +1,22 @@
 import {
-    bodyL,
-    bodyM,
-    bodyS,
-    bodyXS,
-    bodyXXS,
-    dsplL,
-    dsplM,
-    dsplS,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
+    bodyL as typoBodyL,
+    bodyM as typoBodyM,
+    bodyM as typoH6Skeleton,
+    bodyS as typoBodyS,
+    bodyXS as typoBodyXS,
+    bodyXXS as typoBodyXXS,
+    dsplS as typoDsplS,
+    h1 as typoH1,
+    h2 as typoDsplL,
+    h2 as typoH2,
+    h3 as typoDsplM,
+    h3 as typoH3,
+    h4 as typoH4,
+    h4Medium as typoH5,
     surfaceSkeletonDeepGradient,
     surfaceSkeletonGradient,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
-    textL,
-    textM,
-    textS,
-    textXS,
 } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
 import { css, skeletonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
@@ -44,76 +40,76 @@ export const config = {
         },
         size: {
             bodyL: css`
-                ${skeletonTokens.lineHeight}: ${bodyL.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyL.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoBodyL.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoBodyL.fontSize};
             `,
             bodyM: css`
-                ${skeletonTokens.lineHeight}: ${bodyM.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyM.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoBodyM.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoBodyM.fontSize};
             `,
             bodyS: css`
-                ${skeletonTokens.lineHeight}: ${bodyS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyS.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoBodyS.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoBodyS.fontSize};
             `,
             bodyXS: css`
-                ${skeletonTokens.lineHeight}: ${bodyXS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyXS.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoBodyXS.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoBodyXS.fontSize};
             `,
             bodyXXS: css`
-                ${skeletonTokens.lineHeight}: ${bodyXXS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyXXS.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoBodyXXS.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoBodyXXS.fontSize};
             `,
             dsplL: css`
-                ${skeletonTokens.lineHeight}: ${dsplL.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${dsplL.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoDsplL.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoDsplL.fontSize};
             `,
             dsplM: css`
-                ${skeletonTokens.lineHeight}: ${dsplM.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${dsplM.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoDsplM.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoDsplM.fontSize};
             `,
             dsplS: css`
-                ${skeletonTokens.lineHeight}: ${dsplS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${dsplS.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoDsplS.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoDsplS.fontSize};
             `,
             h1: css`
-                ${skeletonTokens.lineHeight}: ${h1.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h1.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoH1.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoH1.fontSize};
             `,
             h2: css`
-                ${skeletonTokens.lineHeight}: ${h2.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h2.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoH2.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoH2.fontSize};
             `,
             h3: css`
-                ${skeletonTokens.lineHeight}: ${h3.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h3.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoH3.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoH3.fontSize};
             `,
             h4: css`
-                ${skeletonTokens.lineHeight}: ${h4.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h4.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoH4.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoH4.fontSize};
             `,
             h5: css`
-                ${skeletonTokens.lineHeight}: ${h5.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h5.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoH5.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoH5.fontSize};
             `,
             h6: css`
-                ${skeletonTokens.lineHeight}: ${h6.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h6.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoH6Skeleton.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoH6Skeleton.fontSize};
             `,
             textL: css`
-                ${skeletonTokens.lineHeight}: ${textL.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textL.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoBodyL.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoBodyL.fontSize};
             `,
             textM: css`
-                ${skeletonTokens.lineHeight}: ${textM.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textM.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoBodyM.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoBodyM.fontSize};
             `,
             textS: css`
-                ${skeletonTokens.lineHeight}: ${textS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textS.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoBodyS.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoBodyS.fontSize};
             `,
             textXS: css`
-                ${skeletonTokens.lineHeight}: ${textXS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textXS.fontSize};
+                ${skeletonTokens.lineHeight}: ${typoBodyXS.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${typoBodyXS.fontSize};
             `,
         },
     },

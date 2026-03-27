@@ -1,24 +1,24 @@
 import {
+    bodyL,
+    bodyLBold,
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    bodyXS,
+    bodyXSBold,
     surfaceTransparentInfo,
     surfaceTransparentNegative,
     surfaceTransparentPositive,
     surfaceTransparentSecondary,
     surfaceTransparentWarning,
     textInfo,
-    textL,
-    textLBold,
-    textM,
-    textMBold,
     textNegative,
     textPositive,
     textPrimary,
-    textS,
-    textSBold,
     textSecondary,
     textSecondaryHover,
     textWarning,
-    textXS,
-    textXSBold,
 } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
 import { css, noteTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
@@ -75,20 +75,20 @@ export const config = {
                 ${tokens.fixedContentBeforeHeight}: 2rem;
                 ${tokens.fixedContentBeforePadding}: 0.25rem 0;
 
-                ${tokens.titleFontFamily}: ${textL.fontFamily};
-                ${tokens.titleFontSize}: ${textL.fontSize};
-                ${tokens.titleFontStyle}: ${textL.fontStyle};
-                ${tokens.titleFontWeight}: ${textLBold.fontWeight};
-                ${tokens.titleLetterSpacing}: ${textL.letterSpacing};
-                ${tokens.titleLineHeight}: ${textL.lineHeight};
+                ${tokens.titleFontFamily}: ${bodyL.fontFamily};
+                ${tokens.titleFontSize}: ${bodyL.fontSize};
+                ${tokens.titleFontStyle}: ${bodyL.fontStyle};
+                ${tokens.titleFontWeight}: ${bodyLBold.fontWeight};
+                ${tokens.titleLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.titleLineHeight}: ${bodyL.lineHeight};
                 ${tokens.titlePaddingRight}: 1.875rem;
 
-                ${tokens.textFontFamily}: ${textL.fontFamily};
-                ${tokens.textFontSize}: ${textL.fontSize};
-                ${tokens.textFontStyle}: ${textL.fontStyle};
-                ${tokens.textFontWeight}: ${textL.fontWeight};
-                ${tokens.textLetterSpacing}: ${textL.letterSpacing};
-                ${tokens.textLineHeight}: ${textL.lineHeight};
+                ${tokens.textFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textFontSize}: ${bodyL.fontSize};
+                ${tokens.textFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyL.lineHeight};
             `,
             m: css`
                 ${tokens.padding}: 1.25rem 1.5rem;
@@ -109,20 +109,20 @@ export const config = {
                 ${tokens.fixedContentBeforeHeight}: 1.5rem;
                 ${tokens.fixedContentBeforePadding}: 0;
 
-                ${tokens.titleFontFamily}: ${textM.fontFamily};
-                ${tokens.titleFontSize}: ${textM.fontSize};
-                ${tokens.titleFontStyle}: ${textM.fontStyle};
-                ${tokens.titleFontWeight}: ${textMBold.fontWeight};
-                ${tokens.titleLetterSpacing}: ${textM.letterSpacing};
-                ${tokens.titleLineHeight}: ${textM.lineHeight};
+                ${tokens.titleFontFamily}: ${bodyM.fontFamily};
+                ${tokens.titleFontSize}: ${bodyM.fontSize};
+                ${tokens.titleFontStyle}: ${bodyM.fontStyle};
+                ${tokens.titleFontWeight}: ${bodyMBold.fontWeight};
+                ${tokens.titleLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.titleLineHeight}: ${bodyM.lineHeight};
                 ${tokens.titlePaddingRight}: 1.75rem;
 
-                ${tokens.textFontFamily}: ${textM.fontFamily};
-                ${tokens.textFontSize}: ${textM.fontSize};
-                ${tokens.textFontStyle}: ${textM.fontStyle};
-                ${tokens.textFontWeight}: ${textM.fontWeight};
-                ${tokens.textLetterSpacing}: ${textM.letterSpacing};
-                ${tokens.textLineHeight}: ${textM.lineHeight};
+                ${tokens.textFontFamily}: ${bodyM.fontFamily};
+                ${tokens.textFontSize}: ${bodyM.fontSize};
+                ${tokens.textFontStyle}: ${bodyM.fontStyle};
+                ${tokens.textFontWeight}: ${bodyM.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyM.lineHeight};
             `,
             s: css`
                 ${tokens.padding}: 1rem 1.25rem;
@@ -143,20 +143,20 @@ export const config = {
                 ${tokens.fixedContentBeforeHeight}: 1.125rem;
                 ${tokens.fixedContentBeforePadding}: 0.063rem 0;
 
-                ${tokens.titleFontFamily}: ${textS.fontFamily};
-                ${tokens.titleFontSize}: ${textS.fontSize};
-                ${tokens.titleFontStyle}: ${textS.fontStyle};
-                ${tokens.titleFontWeight}: ${textSBold.fontWeight};
-                ${tokens.titleLetterSpacing}: ${textS.letterSpacing};
-                ${tokens.titleLineHeight}: ${textS.lineHeight};
+                ${tokens.titleFontFamily}: ${bodyS.fontFamily};
+                ${tokens.titleFontSize}: ${bodyS.fontSize};
+                ${tokens.titleFontStyle}: ${bodyS.fontStyle};
+                ${tokens.titleFontWeight}: ${bodySBold.fontWeight};
+                ${tokens.titleLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.titleLineHeight}: ${bodyS.lineHeight};
                 ${tokens.titlePaddingRight}: 1.625rem;
 
-                ${tokens.textFontFamily}: ${textS.fontFamily};
-                ${tokens.textFontSize}: ${textS.fontSize};
-                ${tokens.textFontStyle}: ${textS.fontStyle};
-                ${tokens.textFontWeight}: ${textS.fontWeight};
-                ${tokens.textLetterSpacing}: ${textS.letterSpacing};
-                ${tokens.textLineHeight}: ${textS.lineHeight};
+                ${tokens.textFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFontSize}: ${bodyS.fontSize};
+                ${tokens.textFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyS.lineHeight};
             `,
             xs: css`
                 ${tokens.padding}: 0.75rem 1rem;
@@ -177,20 +177,20 @@ export const config = {
                 ${tokens.fixedContentBeforeHeight}: 1rem;
                 ${tokens.fixedContentBeforePadding}: 0;
 
-                ${tokens.titleFontFamily}: ${textXS.fontFamily};
-                ${tokens.titleFontSize}: ${textXS.fontSize};
-                ${tokens.titleFontStyle}: ${textXS.fontStyle};
-                ${tokens.titleFontWeight}: ${textXSBold.fontWeight};
-                ${tokens.titleLetterSpacing}: ${textXS.letterSpacing};
-                ${tokens.titleLineHeight}: ${textXS.lineHeight};
+                ${tokens.titleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.titleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleLineHeight}: ${bodyXS.lineHeight};
                 ${tokens.titlePaddingRight}: 1.5rem;
 
-                ${tokens.textFontFamily}: ${textXS.fontFamily};
-                ${tokens.textFontSize}: ${textXS.fontSize};
-                ${tokens.textFontStyle}: ${textXS.fontStyle};
-                ${tokens.textFontWeight}: ${textXS.fontWeight};
-                ${tokens.textLetterSpacing}: ${textXS.letterSpacing};
-                ${tokens.textLineHeight}: ${textXS.lineHeight};
+                ${tokens.textFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyXS.lineHeight};
             `,
         },
     },

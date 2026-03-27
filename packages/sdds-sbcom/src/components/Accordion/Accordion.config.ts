@@ -13,10 +13,7 @@ import {
     h3Bold,
     h4,
     h4Bold,
-    h5,
-    h5Bold,
-    h6,
-    h6Bold,
+    h4Medium,
     surfaceAccent,
     surfaceClear,
     surfaceSolidCard,
@@ -212,12 +209,12 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${h5.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${h5.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${h5.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${h5Bold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${h5.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${h5.lineHeight};
+                ${accordionTokens.accordionItemTitleFontFamily}: ${h4Medium.fontFamily};
+                ${accordionTokens.accordionItemTitleFontSize}: ${h4Medium.fontSize};
+                ${accordionTokens.accordionItemTitleFontStyle}: ${h4Medium.fontStyle};
+                ${accordionTokens.accordionItemTitleFontWeight}: ${h4Bold.fontWeight};
+                ${accordionTokens.accordionItemTitleLetterSpacing}: ${h4Medium.letterSpacing};
+                ${accordionTokens.accordionItemTitleLineHeight}: ${h4Medium.lineHeight};
 
                 ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
                 ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};
@@ -232,12 +229,12 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${h6.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${h6.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${h6.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${h6Bold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${h6.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${h6.lineHeight};
+                ${accordionTokens.accordionItemTitleFontFamily}: ${bodyM.fontFamily};
+                ${accordionTokens.accordionItemTitleFontSize}: ${bodyM.fontSize};
+                ${accordionTokens.accordionItemTitleFontStyle}: ${bodyM.fontStyle};
+                ${accordionTokens.accordionItemTitleFontWeight}: ${bodyMBold.fontWeight};
+                ${accordionTokens.accordionItemTitleLetterSpacing}: ${bodyM.letterSpacing};
+                ${accordionTokens.accordionItemTitleLineHeight}: ${bodyM.lineHeight};
 
                 ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
                 ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};

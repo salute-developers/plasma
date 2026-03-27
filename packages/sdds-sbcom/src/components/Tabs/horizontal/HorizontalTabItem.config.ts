@@ -11,8 +11,6 @@ import {
     h2,
     h3,
     h4,
-    h5,
-    h6,
     inverseTextPrimary,
     inverseTextSecondary,
     surfaceAccent,
@@ -214,40 +212,6 @@ export const config = {
                 ${tabsTokens.lineHeight}: ${bodyL.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
-            `,
-            h6: css`
-                ${tabsTokens.itemBorderRadius}: 0.375rem;
-                ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 3rem;
-                ${tabsTokens.itemPadding}: 0 0.125rem;
-                ${tabsTokens.itemMarginLeft}: 1.5rem;
-                ${tabsTokens.itemContentGap}: 0.625rem;
-
-                ${tabsTokens.fontFamily}: ${h6.fontFamily};
-                ${tabsTokens.fontSize}: ${h6.fontSize};
-                ${tabsTokens.fontStyle}: ${h6.fontStyle};
-                ${tabsTokens.fontWeight}: ${h6.fontWeight};
-                ${tabsTokens.letterSpacing}: ${h6.letterSpacing};
-                ${tabsTokens.lineHeight}: ${h6.lineHeight};
-
-                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
-            `,
-            h5: css`
-                ${tabsTokens.itemBorderRadius}: 0.375rem;
-                ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 3rem;
-                ${tabsTokens.itemPadding}: 0 0.125rem;
-                ${tabsTokens.itemMarginLeft}: 1.5rem;
-                ${tabsTokens.itemContentGap}: 0.625rem;
-
-                ${tabsTokens.fontFamily}: ${h5.fontFamily};
-                ${tabsTokens.fontSize}: ${h5.fontSize};
-                ${tabsTokens.fontStyle}: ${h5.fontStyle};
-                ${tabsTokens.fontWeight}: ${h5.fontWeight};
-                ${tabsTokens.letterSpacing}: ${h5.letterSpacing};
-                ${tabsTokens.lineHeight}: ${h5.lineHeight};
-
-                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
             h4: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;

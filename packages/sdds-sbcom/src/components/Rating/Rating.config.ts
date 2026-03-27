@@ -9,24 +9,16 @@ import {
     bodyXSBold,
     bodyXXS,
     bodyXXSBold,
-    dsplL,
-    dsplLBold,
-    dsplM,
-    dsplMBold,
-    dsplS,
-    dsplSBold,
-    h1,
-    h1Bold,
-    h2,
-    h2Bold,
-    h3,
-    h3Bold,
-    h4,
-    h4Bold,
-    h5,
-    h5Bold,
-    h6,
-    h6Bold,
+    dsplS as ratingDsplS,
+    dsplSBold as ratingDsplSBold,
+    h1 as ratingH1,
+    h1Bold as ratingH1Bold,
+    h2 as ratingH2,
+    h2Bold as ratingH2Bold,
+    h3 as ratingH3,
+    h3Bold as ratingH3Bold,
+    h4 as ratingH4,
+    h4Bold as ratingH4Bold,
     textPrimary,
     textSecondary,
     textTertiary,
@@ -179,12 +171,12 @@ export const config = {
             h1: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: ${h1.fontFamily};
-                ${tokens.fontSize}: ${h1.fontSize};
-                ${tokens.fontStyle}: ${h1.fontStyle};
-                ${tokens.fontWeight}: ${h1Bold.fontWeight};
-                ${tokens.letterSpacing}: ${h1.letterSpacing};
-                ${tokens.lineHeight}: ${h1.lineHeight};
+                ${tokens.fontFamily}: ${ratingH1.fontFamily};
+                ${tokens.fontSize}: ${ratingH1.fontSize};
+                ${tokens.fontStyle}: ${ratingH1.fontStyle};
+                ${tokens.fontWeight}: ${ratingH1Bold.fontWeight};
+                ${tokens.letterSpacing}: ${ratingH1.letterSpacing};
+                ${tokens.lineHeight}: ${ratingH1.lineHeight};
 
                 ${tokens.helperTextFontFamily}: ${bodyM.fontFamily};
                 ${tokens.helperTextFontSize}: ${bodyM.fontSize};
@@ -210,12 +202,12 @@ export const config = {
             h2: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: ${h2.fontFamily};
-                ${tokens.fontSize}: ${h2.fontSize};
-                ${tokens.fontStyle}: ${h2.fontStyle};
-                ${tokens.fontWeight}: ${h2Bold.fontWeight};
-                ${tokens.letterSpacing}: ${h2.letterSpacing};
-                ${tokens.lineHeight}: ${h2.lineHeight};
+                ${tokens.fontFamily}: ${ratingH2.fontFamily};
+                ${tokens.fontSize}: ${ratingH2.fontSize};
+                ${tokens.fontStyle}: ${ratingH2.fontStyle};
+                ${tokens.fontWeight}: ${ratingH2Bold.fontWeight};
+                ${tokens.letterSpacing}: ${ratingH2.letterSpacing};
+                ${tokens.lineHeight}: ${ratingH2.lineHeight};
 
                 ${tokens.helperTextFontFamily}: ${bodyS.fontFamily};
                 ${tokens.helperTextFontSize}: ${bodyS.fontSize};
@@ -241,12 +233,12 @@ export const config = {
             h3: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: ${h3.fontFamily};
-                ${tokens.fontSize}: ${h3.fontSize};
-                ${tokens.fontStyle}: ${h3.fontStyle};
-                ${tokens.fontWeight}: ${h3Bold.fontWeight};
-                ${tokens.letterSpacing}: ${h3.letterSpacing};
-                ${tokens.lineHeight}: ${h3.lineHeight};
+                ${tokens.fontFamily}: ${ratingH3.fontFamily};
+                ${tokens.fontSize}: ${ratingH3.fontSize};
+                ${tokens.fontStyle}: ${ratingH3.fontStyle};
+                ${tokens.fontWeight}: ${ratingH3Bold.fontWeight};
+                ${tokens.letterSpacing}: ${ratingH3.letterSpacing};
+                ${tokens.lineHeight}: ${ratingH3.lineHeight};
 
                 ${tokens.helperTextFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.helperTextFontSize}: ${bodyXS.fontSize};
@@ -272,12 +264,12 @@ export const config = {
             h4: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: ${h4.fontFamily};
-                ${tokens.fontSize}: ${h4.fontSize};
-                ${tokens.fontStyle}: ${h4.fontStyle};
-                ${tokens.fontWeight}: ${h4Bold.fontWeight};
-                ${tokens.letterSpacing}: ${h4.letterSpacing};
-                ${tokens.lineHeight}: ${h4.lineHeight};
+                ${tokens.fontFamily}: ${ratingH4.fontFamily};
+                ${tokens.fontSize}: ${ratingH4.fontSize};
+                ${tokens.fontStyle}: ${ratingH4.fontStyle};
+                ${tokens.fontWeight}: ${ratingH4Bold.fontWeight};
+                ${tokens.letterSpacing}: ${ratingH4.letterSpacing};
+                ${tokens.lineHeight}: ${ratingH4.lineHeight};
 
                 ${tokens.helperTextFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.helperTextFontSize}: ${bodyXS.fontSize};
@@ -303,12 +295,12 @@ export const config = {
             h5: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: ${h5.fontFamily};
-                ${tokens.fontSize}: ${h5.fontSize};
-                ${tokens.fontStyle}: ${h5.fontStyle};
-                ${tokens.fontWeight}: ${h5Bold.fontWeight};
-                ${tokens.letterSpacing}: ${h5.letterSpacing};
-                ${tokens.lineHeight}: ${h5.lineHeight};
+                ${tokens.fontFamily}: ${ratingH3.fontFamily};
+                ${tokens.fontSize}: ${ratingH3.fontSize};
+                ${tokens.fontStyle}: ${ratingH3.fontStyle};
+                ${tokens.fontWeight}: ${ratingH3Bold.fontWeight};
+                ${tokens.letterSpacing}: ${ratingH3.letterSpacing};
+                ${tokens.lineHeight}: ${ratingH3.lineHeight};
 
                 ${tokens.helperTextFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.helperTextFontSize}: ${bodyXS.fontSize};
@@ -334,12 +326,12 @@ export const config = {
             h6: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: ${h6.fontFamily};
-                ${tokens.fontSize}: ${h6.fontSize};
-                ${tokens.fontStyle}: ${h6.fontStyle};
-                ${tokens.fontWeight}: ${h6Bold.fontWeight};
-                ${tokens.letterSpacing}: ${h6.letterSpacing};
-                ${tokens.lineHeight}: ${h6.lineHeight};
+                ${tokens.fontFamily}: ${bodyM.fontFamily};
+                ${tokens.fontSize}: ${bodyM.fontSize};
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyMBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.helperTextFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.helperTextFontSize}: ${bodyXS.fontSize};
@@ -365,19 +357,19 @@ export const config = {
             displayL: css`
                 ${tokens.gap}: 0.375rem;
 
-                ${tokens.fontFamily}: ${dsplL.fontFamily};
-                ${tokens.fontSize}: ${dsplL.fontSize};
-                ${tokens.fontStyle}: ${dsplL.fontStyle};
-                ${tokens.fontWeight}: ${dsplLBold.fontWeight};
-                ${tokens.letterSpacing}: ${dsplL.letterSpacing};
-                ${tokens.lineHeight}: ${dsplL.lineHeight};
+                ${tokens.fontFamily}: ${ratingH1.fontFamily};
+                ${tokens.fontSize}: ${ratingH1.fontSize};
+                ${tokens.fontStyle}: ${ratingH1.fontStyle};
+                ${tokens.fontWeight}: ${ratingH1Bold.fontWeight};
+                ${tokens.letterSpacing}: ${ratingH1.letterSpacing};
+                ${tokens.lineHeight}: ${ratingH1.lineHeight};
 
-                ${tokens.helperTextFontFamily}: ${h3.fontFamily};
-                ${tokens.helperTextFontSize}: ${h3.fontSize};
-                ${tokens.helperTextFontStyle}: ${h3.fontStyle};
-                ${tokens.helperTextFontWeight}: ${h3.fontWeight};
-                ${tokens.helperTextLetterSpacing}: ${h3.letterSpacing};
-                ${tokens.helperTextLineHeight}: ${h3.lineHeight};
+                ${tokens.helperTextFontFamily}: ${ratingH3.fontFamily};
+                ${tokens.helperTextFontSize}: ${ratingH3.fontSize};
+                ${tokens.helperTextFontStyle}: ${ratingH3.fontStyle};
+                ${tokens.helperTextFontWeight}: ${ratingH3.fontWeight};
+                ${tokens.helperTextLetterSpacing}: ${ratingH3.letterSpacing};
+                ${tokens.helperTextLineHeight}: ${ratingH3.lineHeight};
 
                 ${tokens.contentGap}: 1.5rem;
                 ${tokens.singleIconContentGap}: 0.75rem;
@@ -396,12 +388,12 @@ export const config = {
             displayM: css`
                 ${tokens.gap}: 0.375rem;
 
-                ${tokens.fontFamily}: ${dsplM.fontFamily};
-                ${tokens.fontSize}: ${dsplM.fontSize};
-                ${tokens.fontStyle}: ${dsplM.fontStyle};
-                ${tokens.fontWeight}: ${dsplMBold.fontWeight};
-                ${tokens.letterSpacing}: ${dsplM.letterSpacing};
-                ${tokens.lineHeight}: ${dsplM.lineHeight};
+                ${tokens.fontFamily}: ${ratingH2.fontFamily};
+                ${tokens.fontSize}: ${ratingH2.fontSize};
+                ${tokens.fontStyle}: ${ratingH2.fontStyle};
+                ${tokens.fontWeight}: ${ratingH2Bold.fontWeight};
+                ${tokens.letterSpacing}: ${ratingH2.letterSpacing};
+                ${tokens.lineHeight}: ${ratingH2.lineHeight};
 
                 ${tokens.helperTextFontFamily}: ${bodyL.fontFamily};
                 ${tokens.helperTextFontSize}: ${bodyL.fontSize};
@@ -427,12 +419,12 @@ export const config = {
             displayS: css`
                 ${tokens.gap}: 0.375rem;
 
-                ${tokens.fontFamily}: ${dsplS.fontFamily};
-                ${tokens.fontSize}: ${dsplS.fontSize};
-                ${tokens.fontStyle}: ${dsplS.fontStyle};
-                ${tokens.fontWeight}: ${dsplSBold.fontWeight};
-                ${tokens.letterSpacing}: ${dsplS.letterSpacing};
-                ${tokens.lineHeight}: ${dsplS.lineHeight};
+                ${tokens.fontFamily}: ${ratingDsplS.fontFamily};
+                ${tokens.fontSize}: ${ratingDsplS.fontSize};
+                ${tokens.fontStyle}: ${ratingDsplS.fontStyle};
+                ${tokens.fontWeight}: ${ratingDsplSBold.fontWeight};
+                ${tokens.letterSpacing}: ${ratingDsplS.letterSpacing};
+                ${tokens.lineHeight}: ${ratingDsplS.lineHeight};
 
                 ${tokens.helperTextFontFamily}: ${bodyL.fontFamily};
                 ${tokens.helperTextFontSize}: ${bodyL.fontSize};

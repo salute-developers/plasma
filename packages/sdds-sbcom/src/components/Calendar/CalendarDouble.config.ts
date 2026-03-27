@@ -11,8 +11,6 @@ import {
     h3Bold,
     h4,
     h4Bold,
-    h5,
-    h5Bold,
     inverseTextPrimary,
     shadowDownHardS,
     surfaceAccent,
@@ -403,13 +401,13 @@ export const config = {
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${calendarDoubleTokens.calendarHeaderFontFamily}: ${h5.fontFamily};
-                ${calendarDoubleTokens.calendarHeaderFontSize}: ${h5.fontSize};
-                ${calendarDoubleTokens.calendarHeaderFontStyle}: ${h5.fontStyle};
-                ${calendarDoubleTokens.calendarHeaderFontLetterSpacing}: ${h5.letterSpacing};
-                ${calendarDoubleTokens.calendarHeaderFontLineHeight}: ${h5.lineHeight};
-                ${calendarDoubleTokens.calendarHeaderFontWeight}: ${h5.fontWeight};
-                ${calendarDoubleTokens.calendarHeaderFontWeightBold}: ${h5Bold.fontWeight};
+                ${calendarDoubleTokens.calendarHeaderFontFamily}: ${h4.fontFamily};
+                ${calendarDoubleTokens.calendarHeaderFontSize}: ${h4.fontSize};
+                ${calendarDoubleTokens.calendarHeaderFontStyle}: ${h4.fontStyle};
+                ${calendarDoubleTokens.calendarHeaderFontLetterSpacing}: ${h4.letterSpacing};
+                ${calendarDoubleTokens.calendarHeaderFontLineHeight}: ${h4.lineHeight};
+                ${calendarDoubleTokens.calendarHeaderFontWeight}: ${h4.fontWeight};
+                ${calendarDoubleTokens.calendarHeaderFontWeightBold}: ${h4Bold.fontWeight};
 
                 ${calendarDoubleTokens.iconButtonHeight}: 2rem;
                 ${calendarDoubleTokens.iconButtonWidth}: 2rem;

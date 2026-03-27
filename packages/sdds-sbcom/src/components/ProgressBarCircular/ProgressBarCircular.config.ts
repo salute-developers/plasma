@@ -6,8 +6,8 @@ import {
     bodyXXS,
     h2,
     h2Bold,
-    h5,
-    h5Bold,
+    h3,
+    h3Bold,
     surfaceAccent,
     surfaceInfo,
     surfaceNegative,
@@ -83,12 +83,12 @@ export const config = {
                 ${progressBarCircularTokens.width}: 5.5rem;
                 ${progressBarCircularTokens.strokeWidth}: 0.25rem;
                 ${progressBarCircularTokens.strokeSize}: 4;
-                ${progressBarCircularTokens.contentFontFamily}: ${h5.fontFamily};
-                ${progressBarCircularTokens.contentFontSize}: ${h5.fontSize};
-                ${progressBarCircularTokens.contentFontStyle}: ${h5.fontStyle};
-                ${progressBarCircularTokens.contentFontWeight}: ${h5Bold.fontWeight};
-                ${progressBarCircularTokens.contentLetterSpacing}: ${h5.letterSpacing};
-                ${progressBarCircularTokens.contentLineHeight}: ${h5.lineHeight};
+                ${progressBarCircularTokens.contentFontFamily}: ${h3.fontFamily};
+                ${progressBarCircularTokens.contentFontSize}: ${h3.fontSize};
+                ${progressBarCircularTokens.contentFontStyle}: ${h3.fontStyle};
+                ${progressBarCircularTokens.contentFontWeight}: ${h3Bold.fontWeight};
+                ${progressBarCircularTokens.contentLetterSpacing}: ${h3.letterSpacing};
+                ${progressBarCircularTokens.contentLineHeight}: ${h3.lineHeight};
             `,
             l: css`
                 ${progressBarCircularTokens.size}: 56;

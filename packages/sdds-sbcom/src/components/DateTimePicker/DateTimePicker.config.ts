@@ -11,8 +11,6 @@ import {
     h3Bold,
     h4,
     h4Bold,
-    h5,
-    h5Bold,
     inverseTextPrimary,
     shadowDownHardS,
     shadowDownSoftS,
@@ -896,13 +894,13 @@ export const config = {
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${tokens.calendarHeaderFontFamily}: ${h5.fontFamily};
-                ${tokens.calendarHeaderFontSize}: ${h5.fontSize};
-                ${tokens.calendarHeaderFontStyle}: ${h5.fontStyle};
-                ${tokens.calendarHeaderFontLetterSpacing}: ${h5.letterSpacing};
-                ${tokens.calendarHeaderFontLineHeight}: ${h5.lineHeight};
-                ${tokens.calendarHeaderFontWeight}: ${h5.fontWeight};
-                ${tokens.calendarHeaderFontWeightBold}: ${h5Bold.fontWeight};
+                ${tokens.calendarHeaderFontFamily}: ${h4.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${h4.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${h4.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${h4.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: ${h4.lineHeight};
+                ${tokens.calendarHeaderFontWeight}: ${h4.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${h4Bold.fontWeight};
 
                 ${tokens.iconButtonHeight}: 2rem;
                 ${tokens.iconButtonWidth}: 2rem;

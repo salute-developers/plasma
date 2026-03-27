@@ -6,8 +6,8 @@ import {
     bodyXXS,
     h2,
     h2Bold,
-    h5,
-    h5Bold,
+    h3,
+    h3Bold,
     overlaySoft,
     surfaceAccent,
     surfaceInfo,
@@ -126,12 +126,12 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 5.5rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.25rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 4;
-                ${loaderTokens.progressBarCircularContentFontFamily}: ${h5.fontFamily};
-                ${loaderTokens.progressBarCircularContentFontSize}: ${h5.fontSize};
-                ${loaderTokens.progressBarCircularContentFontStyle}: ${h5.fontStyle};
-                ${loaderTokens.progressBarCircularContentFontWeight}: ${h5Bold.fontWeight};
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${h5.letterSpacing};
-                ${loaderTokens.progressBarCircularContentLineHeight}: ${h5.lineHeight};
+                ${loaderTokens.progressBarCircularContentFontFamily}: ${h3.fontFamily};
+                ${loaderTokens.progressBarCircularContentFontSize}: ${h3.fontSize};
+                ${loaderTokens.progressBarCircularContentFontStyle}: ${h3.fontStyle};
+                ${loaderTokens.progressBarCircularContentFontWeight}: ${h3Bold.fontWeight};
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${h3.letterSpacing};
+                ${loaderTokens.progressBarCircularContentLineHeight}: ${h3.lineHeight};
 
                 ${loaderTokens.spinnerSize}: 5.5rem;
             `,
