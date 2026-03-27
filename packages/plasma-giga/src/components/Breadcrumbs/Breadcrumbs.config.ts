@@ -1,15 +1,4 @@
-import {
-    bodyL,
-    bodyLBold,
-    bodyM,
-    bodyMBold,
-    bodyS,
-    bodySBold,
-    bodyXS,
-    bodyXSBold,
-    surfaceAccent,
-    textPrimary,
-} from '@salutejs/plasma-themes/tokens/plasma_giga';
+import { bodyL, bodyM, bodyS, bodyXS, surfaceAccent, textPrimary } from '@salutejs/plasma-themes/tokens/plasma_giga';
 import { css, breadcrumbsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -34,7 +23,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyL.fontFamily};
                 ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyL.fontSize};
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyL.fontStyle};
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyLBold.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyL.fontWeight};
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyL.letterSpacing};
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyL.lineHeight};
             `,
@@ -44,7 +33,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyM.fontFamily};
                 ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyM.fontSize};
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyM.fontStyle};
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyMBold.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyM.fontWeight};
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyM.letterSpacing};
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyM.lineHeight};
             `,
@@ -54,7 +43,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyS.fontFamily};
                 ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyS.fontSize};
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyS.fontStyle};
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodySBold.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyS.fontWeight};
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyS.letterSpacing};
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyS.lineHeight};
             `,
@@ -64,7 +53,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyXS.fontFamily};
                 ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyXS.fontSize};
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyXS.fontStyle};
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyXSBold.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyXS.fontWeight};
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyXS.letterSpacing};
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyXS.lineHeight};
             `,
