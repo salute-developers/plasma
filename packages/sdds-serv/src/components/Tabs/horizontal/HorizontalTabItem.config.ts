@@ -1,3 +1,29 @@
+import {
+    bodyL,
+    bodyLBold,
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    bodyXS,
+    bodyXSBold,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    inverseTextPrimary,
+    inverseTextSecondary,
+    surfaceAccent,
+    surfaceSolidCard,
+    surfaceSolidDefault,
+    textPrimary,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_serv';
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,106 +34,106 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${tabsTokens.itemColor}: var(--text-secondary);
-                ${tabsTokens.itemValueColor}: var(--text-tertiary);
+                ${tabsTokens.itemColor}: ${textSecondary};
+                ${tabsTokens.itemValueColor}: ${textTertiary};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
-                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
+                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
+                ${tabsTokens.itemValueColorHover}: ${textSecondary};
+                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemValueColorActive}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
+                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedValueColor}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
+                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedValueColorHover}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
             secondary: css`
-                ${tabsTokens.itemColor}: var(--text-primary);
-                ${tabsTokens.itemValueColor}: var(--text-secondary);
+                ${tabsTokens.itemColor}: ${textPrimary};
+                ${tabsTokens.itemValueColor}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
-                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
+                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
+                ${tabsTokens.itemValueColorHover}: ${textSecondary};
+                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemValueColorActive}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
-                ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
-                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
-                ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
+                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedValueColor}: ${textSecondary};
+                ${tabsTokens.itemSelectedBackgroundColor}: ${surfaceSolidCard};
+                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedValueColorHover}: ${textSecondary};
+                ${tabsTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidCard};
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
             divider: css`
-                ${tabsTokens.itemColor}: var(--text-secondary);
-                ${tabsTokens.itemValueColor}: var(--text-tertiary);
+                ${tabsTokens.itemColor}: ${textSecondary};
+                ${tabsTokens.itemValueColor}: ${textTertiary};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
-                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
+                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
+                ${tabsTokens.itemValueColorHover}: ${textSecondary};
+                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemValueColorActive}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
+                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedValueColor}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
+                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedValueColorHover}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
             default: css`
-                ${tabsTokens.itemColor}: var(--text-primary);
-                ${tabsTokens.itemValueColor}: var(--text-secondary);
+                ${tabsTokens.itemColor}: ${textPrimary};
+                ${tabsTokens.itemValueColor}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
-                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
+                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
+                ${tabsTokens.itemValueColorHover}: ${textSecondary};
+                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemValueColorActive}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--inverse-text-primary);
-                ${tabsTokens.itemSelectedValueColor}: var(--inverse-text-secondary);
-                ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
-                ${tabsTokens.itemSelectedColorHover}: var(--inverse-text-primary);
-                ${tabsTokens.itemSelectedValueColorHover}: var(--inverse-text-secondary);
-                ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
+                ${tabsTokens.itemSelectedColor}: ${inverseTextPrimary};
+                ${tabsTokens.itemSelectedValueColor}: ${inverseTextSecondary};
+                ${tabsTokens.itemSelectedBackgroundColor}: ${surfaceSolidDefault};
+                ${tabsTokens.itemSelectedColorHover}: ${inverseTextPrimary};
+                ${tabsTokens.itemSelectedValueColorHover}: ${inverseTextSecondary};
+                ${tabsTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidDefault};
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
@@ -123,12 +149,12 @@ export const config = {
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tabsTokens.fontFamily}: ${bodyXS.fontFamily};
+                ${tabsTokens.fontSize}: ${bodyXS.fontSize};
+                ${tabsTokens.fontStyle}: ${bodyXS.fontStyle};
+                ${tabsTokens.fontWeight}: ${bodyXSBold.fontWeight};
+                ${tabsTokens.letterSpacing}: ${bodyXS.letterSpacing};
+                ${tabsTokens.lineHeight}: ${bodyXS.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: 0;
             `,
@@ -142,12 +168,12 @@ export const config = {
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tabsTokens.fontFamily}: ${bodyS.fontFamily};
+                ${tabsTokens.fontSize}: ${bodyS.fontSize};
+                ${tabsTokens.fontStyle}: ${bodyS.fontStyle};
+                ${tabsTokens.fontWeight}: ${bodySBold.fontWeight};
+                ${tabsTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${tabsTokens.lineHeight}: ${bodyS.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
@@ -161,12 +187,12 @@ export const config = {
                 ${tabsTokens.itemContentGap}: 0.375rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tabsTokens.fontFamily}: ${bodyM.fontFamily};
+                ${tabsTokens.fontSize}: ${bodyM.fontSize};
+                ${tabsTokens.fontStyle}: ${bodyM.fontStyle};
+                ${tabsTokens.fontWeight}: ${bodyMBold.fontWeight};
+                ${tabsTokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tabsTokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: 0.25rem;
             `,
@@ -180,12 +206,12 @@ export const config = {
                 ${tabsTokens.itemContentGap}: 0.5rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tabsTokens.fontFamily}: ${bodyL.fontFamily};
+                ${tabsTokens.fontSize}: ${bodyL.fontSize};
+                ${tabsTokens.fontStyle}: ${bodyL.fontStyle};
+                ${tabsTokens.fontWeight}: ${bodyLBold.fontWeight};
+                ${tabsTokens.letterSpacing}: ${bodyL.letterSpacing};
+                ${tabsTokens.lineHeight}: ${bodyL.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
@@ -197,12 +223,12 @@ export const config = {
                 ${tabsTokens.itemMarginLeft}: 1.5rem;
                 ${tabsTokens.itemContentGap}: 0.625rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-h6-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-h6-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-h6-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h6-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-h6-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-h6-line-height);
+                ${tabsTokens.fontFamily}: ${h6.fontFamily};
+                ${tabsTokens.fontSize}: ${h6.fontSize};
+                ${tabsTokens.fontStyle}: ${h6.fontStyle};
+                ${tabsTokens.fontWeight}: ${h6.fontWeight};
+                ${tabsTokens.letterSpacing}: ${h6.letterSpacing};
+                ${tabsTokens.lineHeight}: ${h6.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
@@ -214,12 +240,12 @@ export const config = {
                 ${tabsTokens.itemMarginLeft}: 1.5rem;
                 ${tabsTokens.itemContentGap}: 0.625rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-h5-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-h5-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-h5-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h5-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-h5-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-h5-line-height);
+                ${tabsTokens.fontFamily}: ${h5.fontFamily};
+                ${tabsTokens.fontSize}: ${h5.fontSize};
+                ${tabsTokens.fontStyle}: ${h5.fontStyle};
+                ${tabsTokens.fontWeight}: ${h5.fontWeight};
+                ${tabsTokens.letterSpacing}: ${h5.letterSpacing};
+                ${tabsTokens.lineHeight}: ${h5.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
@@ -231,12 +257,12 @@ export const config = {
                 ${tabsTokens.itemMarginLeft}: 1.75rem;
                 ${tabsTokens.itemContentGap}: 0.625rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-h4-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-h4-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-h4-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h4-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-h4-line-height);
+                ${tabsTokens.fontFamily}: ${h4.fontFamily};
+                ${tabsTokens.fontSize}: ${h4.fontSize};
+                ${tabsTokens.fontStyle}: ${h4.fontStyle};
+                ${tabsTokens.fontWeight}: ${h4.fontWeight};
+                ${tabsTokens.letterSpacing}: ${h4.letterSpacing};
+                ${tabsTokens.lineHeight}: ${h4.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
@@ -248,12 +274,12 @@ export const config = {
                 ${tabsTokens.itemMarginLeft}: 2rem;
                 ${tabsTokens.itemContentGap}: 0.75rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-h3-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-h3-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-h3-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h3-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-h3-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-h3-line-height);
+                ${tabsTokens.fontFamily}: ${h3.fontFamily};
+                ${tabsTokens.fontSize}: ${h3.fontSize};
+                ${tabsTokens.fontStyle}: ${h3.fontStyle};
+                ${tabsTokens.fontWeight}: ${h3.fontWeight};
+                ${tabsTokens.letterSpacing}: ${h3.letterSpacing};
+                ${tabsTokens.lineHeight}: ${h3.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
@@ -265,12 +291,12 @@ export const config = {
                 ${tabsTokens.itemMarginLeft}: 2.25rem;
                 ${tabsTokens.itemContentGap}: 0.875rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-h2-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-h2-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-h2-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h2-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-h2-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-h2-line-height);
+                ${tabsTokens.fontFamily}: ${h2.fontFamily};
+                ${tabsTokens.fontSize}: ${h2.fontSize};
+                ${tabsTokens.fontStyle}: ${h2.fontStyle};
+                ${tabsTokens.fontWeight}: ${h2.fontWeight};
+                ${tabsTokens.letterSpacing}: ${h2.letterSpacing};
+                ${tabsTokens.lineHeight}: ${h2.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: -0.125rem;
             `,
@@ -282,12 +308,12 @@ export const config = {
                 ${tabsTokens.itemMarginLeft}: 3.25rem;
                 ${tabsTokens.itemContentGap}: 1rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-h1-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-h1-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-h1-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h1-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-h1-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-h1-line-height);
+                ${tabsTokens.fontFamily}: ${h1.fontFamily};
+                ${tabsTokens.fontSize}: ${h1.fontSize};
+                ${tabsTokens.fontStyle}: ${h1.fontStyle};
+                ${tabsTokens.fontWeight}: ${h1.fontWeight};
+                ${tabsTokens.letterSpacing}: ${h1.letterSpacing};
+                ${tabsTokens.lineHeight}: ${h1.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: 0;
             `,
