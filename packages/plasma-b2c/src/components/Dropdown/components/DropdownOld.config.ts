@@ -1,3 +1,12 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    surfaceSolidCardBrightness,
+    surfaceTransparentSecondary,
+    textPrimary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css, dropdownOldTokens as dropdownTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 const dropdownSizeCommon = `
@@ -36,12 +45,12 @@ export const config = {
                 ${dropdownTokens.itemPaddingLeft}: 0.5rem;
                 ${dropdownTokens.itemBorderRadius}: 0.375rem;
 
-                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-xs-font-weight);
-                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${dropdownTokens.itemFontFamily}: ${bodyXS.fontFamily};
+                ${dropdownTokens.itemFontSize}: ${bodyXS.fontSize};
+                ${dropdownTokens.itemFontStyle}: ${bodyXS.fontStyle};
+                ${dropdownTokens.itemFontWeightBold}: ${bodyXS.fontWeight};
+                ${dropdownTokens.itemFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${dropdownTokens.itemFontLineHeight}: ${bodyXS.lineHeight};
             `,
             s: css`
                 ${dropdownSizeCommon};
@@ -53,12 +62,12 @@ export const config = {
                 ${dropdownTokens.itemPaddingLeft}: 0.75rem;
                 ${dropdownTokens.itemBorderRadius}: 0.5rem;
 
-                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
-                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-s-font-weight);
-                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${dropdownTokens.itemFontFamily}: ${bodyS.fontFamily};
+                ${dropdownTokens.itemFontSize}: ${bodyS.fontSize};
+                ${dropdownTokens.itemFontStyle}: ${bodyS.fontStyle};
+                ${dropdownTokens.itemFontWeightBold}: ${bodyS.fontWeight};
+                ${dropdownTokens.itemFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${dropdownTokens.itemFontLineHeight}: ${bodyS.lineHeight};
             `,
             m: css`
                 ${dropdownSizeCommon};
@@ -70,12 +79,12 @@ export const config = {
                 ${dropdownTokens.itemPaddingLeft}: 0.875rem;
                 ${dropdownTokens.itemBorderRadius}: 0.625rem;
 
-                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-m-font-weight);
-                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${dropdownTokens.itemFontFamily}: ${bodyM.fontFamily};
+                ${dropdownTokens.itemFontSize}: ${bodyM.fontSize};
+                ${dropdownTokens.itemFontStyle}: ${bodyM.fontStyle};
+                ${dropdownTokens.itemFontWeightBold}: ${bodyM.fontWeight};
+                ${dropdownTokens.itemFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${dropdownTokens.itemFontLineHeight}: ${bodyM.lineHeight};
             `,
             l: css`
                 ${dropdownSizeCommon};
@@ -87,28 +96,28 @@ export const config = {
                 ${dropdownTokens.itemPaddingLeft}: 1rem;
                 ${dropdownTokens.itemBorderRadius}: 0.75rem;
 
-                ${dropdownTokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${dropdownTokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${dropdownTokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${dropdownTokens.itemFontWeightBold}: var(--plasma-typo-body-l-font-weight);
-                ${dropdownTokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${dropdownTokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${dropdownTokens.itemFontFamily}: ${bodyL.fontFamily};
+                ${dropdownTokens.itemFontSize}: ${bodyL.fontSize};
+                ${dropdownTokens.itemFontStyle}: ${bodyL.fontStyle};
+                ${dropdownTokens.itemFontWeightBold}: ${bodyL.fontWeight};
+                ${dropdownTokens.itemFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${dropdownTokens.itemFontLineHeight}: ${bodyL.lineHeight};
             `,
         },
         view: {
             default: css`
                 ${dropdownTokens.disabledOpacity}: 0.4;
-                ${dropdownTokens.background}: var(--surface-solid-card-brightness);
+                ${dropdownTokens.background}: ${surfaceSolidCardBrightness};
                 // TODO: #1131 Вернуть токен --shadow-down-soft-s
                 ${dropdownTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
 
                 ${dropdownTokens.itemBackground}: transparent;
-                ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${dropdownTokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${dropdownTokens.itemBackgroundSelected}: inherit;
                 ${dropdownTokens.itemColorSelected}: inherit;
                 ${dropdownTokens.itemBackgroundSelectedHover}: inherit;
                 ${dropdownTokens.itemColorSelectedHover}: inherit;
-                ${dropdownTokens.itemColor}: var(--text-primary);
+                ${dropdownTokens.itemColor}: ${textPrimary};
             `,
         },
     },
