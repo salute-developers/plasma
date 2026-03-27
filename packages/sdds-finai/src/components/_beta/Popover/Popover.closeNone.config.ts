@@ -1,3 +1,4 @@
+import { shadowDownHardM, surfaceAccent, surfaceSolidCard } from '@salutejs/sdds-themes/tokens/sdds_finai';
 import { css, _beta_popoverTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,12 +9,12 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.boxShadow}: var(--shadow-down-hard-m);
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.boxShadow}: ${shadowDownHardM};
             `,
             info: css`
-                ${tokens.backgroundColor}: var(--surface-accent);
-                ${tokens.boxShadow}: var(--shadow-down-hard-m);
+                ${tokens.backgroundColor}: ${surfaceAccent};
+                ${tokens.boxShadow}: ${shadowDownHardM};
             `,
         },
         size: {
