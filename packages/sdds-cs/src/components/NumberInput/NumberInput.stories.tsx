@@ -12,7 +12,10 @@ const { meta: META, Default, DisplayWithoutValue } = getNumberInputStories({
     componentConfig: config,
     defaultArgs: {
         size: 's',
+        segmentation: 'solid',
+        width: 120,
     },
+    disablePropsList: ['segmentation'],
 });
 
 const meta: Meta<NumberInputProps> = {
