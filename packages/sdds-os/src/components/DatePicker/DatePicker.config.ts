@@ -1,3 +1,38 @@
+import {
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    bodyXS,
+    h4,
+    h4Bold,
+    inverseTextPrimary,
+    shadowDownHardM,
+    shadowDownHardS,
+    shadowDownSoftS,
+    surfaceAccent,
+    surfaceClear,
+    surfaceNegative,
+    surfaceSolidCard,
+    surfaceSolidCardBrightness,
+    surfaceSolidDefault,
+    surfaceTransparentNegative,
+    surfaceTransparentNegativeActive,
+    surfaceTransparentPositive,
+    surfaceTransparentPositiveActive,
+    surfaceTransparentPrimary,
+    surfaceTransparentSecondary,
+    textAccent,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_os';
 import { datePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,110 +43,110 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.outlineFocusColor}: var(--surface-accent);
+                ${tokens.outlineFocusColor}: ${surfaceAccent};
 
-                ${tokens.background}: var(--surface-transparent-primary);
-                ${tokens.backgroundError}: var(--surface-transparent-negative);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+                ${tokens.background}: ${surfaceTransparentPrimary};
+                ${tokens.backgroundError}: ${surfaceTransparentNegative};
+                ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
 
-                ${tokens.dividerColor}: var(--text-primary);
-                ${tokens.labelColor}: var(--text-primary);
-                ${tokens.leftHelperColor}: var(--text-secondary);
-                ${tokens.leftHelperColorError}: var(--text-negative);
-                ${tokens.leftHelperColorSuccess}: var(--text-positive);
+                ${tokens.dividerColor}: ${textPrimary};
+                ${tokens.labelColor}: ${textPrimary};
+                ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.leftHelperColorError}: ${textNegative};
+                ${tokens.leftHelperColorSuccess}: ${textPositive};
 
-                ${tokens.titleCaptionColor}: var(--text-secondary);
-                ${tokens.hintIconColor}: var(--text-secondary);
+                ${tokens.titleCaptionColor}: ${textSecondary};
+                ${tokens.hintIconColor}: ${textSecondary};
 
-                ${tokens.contentSlotColor}: var(--text-primary);
-                ${tokens.contentSlotColorHover}: var(--text-primary-hover);
-                ${tokens.contentSlotColorActive}: var(--text-primary-active);
+                ${tokens.contentSlotColor}: ${textPrimary};
+                ${tokens.contentSlotColorHover}: ${textPrimaryHover};
+                ${tokens.contentSlotColorActive}: ${textPrimaryActive};
 
-                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
-                ${tokens.contentSlotRightColor}: var(--text-primary);
-                ${tokens.contentSlotRightColorHover}: var(--text-primary-hover);
-                ${tokens.contentSlotRightColorActive}: var(--text-primary-active);
+                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
+                ${tokens.contentSlotRightColor}: ${textPrimary};
+                ${tokens.contentSlotRightColorHover}: ${textPrimaryHover};
+                ${tokens.contentSlotRightColorActive}: ${textPrimaryActive};
 
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentSlotColor}: ${textSecondary};
+                ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
 
-                ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
-                ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentSlotRightColor}: ${textSecondary};
+                ${tokens.textFieldContentSlotRightColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldContentSlotRightColorActive}: ${textSecondaryActive};
 
-                ${tokens.textFieldColor}: var(--text-primary);
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldCaretColor}: var(--text-accent);
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldCaretColor}: ${textAccent};
 
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentSlotColor}: ${textSecondary};
+                ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
 
-                ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentRightSlotColorActive}: var(--text-secondary-active);
+                ${tokens.textFieldContentRightSlotColor}: ${textSecondary};
+                ${tokens.textFieldContentRightSlotColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldContentRightSlotColorActive}: ${textSecondaryActive};
 
-                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.indicatorColor}: ${surfaceNegative};
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
+                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
 
-                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
-                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
+                ${tokens.textFieldTextBeforeColor}: ${textTertiary};
+                ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
-                ${tokens.focusColor}: var(--text-accent);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.focusColor}: ${textAccent};
+                ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
 
-                ${tokens.popoverShadow}: var(--shadow-down-soft-s);
-                ${tokens.popoverSeparatorBackground}: var(--surface-transparent-secondary);
-                ${tokens.popoverBackgroundColor}: var(--surface-solid-card);
+                ${tokens.popoverShadow}: ${shadowDownSoftS};
+                ${tokens.popoverSeparatorBackground}: ${surfaceTransparentSecondary};
+                ${tokens.popoverBackgroundColor}: ${surfaceSolidCard};
 
-                ${tokens.calendarSelectedItemBackground}: var(--surface-solid-default);
-                ${tokens.calendarSelectedItemColor}: var(--inverse-text-primary);
-                ${tokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-secondary);
-                ${tokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
+                ${tokens.calendarSelectedItemBackground}: ${surfaceSolidDefault};
+                ${tokens.calendarSelectedItemColor}: ${inverseTextPrimary};
+                ${tokens.calendarSelectableItemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.calendarCurrentItemBorderColor}: ${surfaceSolidDefault};
                 ${tokens.calendarCurrentItemBackgroundHover}: transparent;
-                ${tokens.calendarCurrentItemColorHover}: var(--text-primary);
-                ${tokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-secondary);
-                ${tokens.calendarActiveItemBackground}: var(--surface-solid-default);
-                ${tokens.calendarActiveItemColor}: var(--inverse-text-primary);
-                ${tokens.calendarHoveredItemBackground}: var(--surface-accent);
-                ${tokens.calendarHoveredItemColor}: var(--text-primary);
-                ${tokens.calendarRangeBackground}: var(--surface-transparent-secondary);
-                ${tokens.calendarOutlineFocusColor}: var(--surface-accent);
-                ${tokens.calendarContentPrimaryColor}: var(--surface-solid-default);
-                ${tokens.calendarContentPrimaryDisabledColor}: var(--surface-solid-default);
+                ${tokens.calendarCurrentItemColorHover}: ${textPrimary};
+                ${tokens.calendarCurrentItemChildBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.calendarActiveItemBackground}: ${surfaceSolidDefault};
+                ${tokens.calendarActiveItemColor}: ${inverseTextPrimary};
+                ${tokens.calendarHoveredItemBackground}: ${surfaceAccent};
+                ${tokens.calendarHoveredItemColor}: ${textPrimary};
+                ${tokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
+                ${tokens.calendarOutlineFocusColor}: ${surfaceAccent};
+                ${tokens.calendarContentPrimaryColor}: ${surfaceSolidDefault};
+                ${tokens.calendarContentPrimaryDisabledColor}: ${surfaceSolidDefault};
                 ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
-                ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
-                ${tokens.calendarContentSecondaryDisabledColor}: var(--text-secondary);
+                ${tokens.calendarContentSecondaryColor}: ${textSecondary};
+                ${tokens.calendarContentSecondaryDisabledColor}: ${textSecondary};
                 ${tokens.calendarDisabledOpacity}: 0.4;
 
-                ${tokens.iconButtonColor}: var(--text-primary);
-                ${tokens.iconButtonBackgroundColor}: var(--surface-clear);
-                ${tokens.iconButtonColorHover}: var(--text-primary-hover);
-                ${tokens.iconButtonBackgroundColorHover}: var(--surface-clear);
-                ${tokens.iconButtonColorActive}: var(--text-primary-hover);
-                ${tokens.iconButtonBackgroundColorActive}: var(--surface-clear);
-                ${tokens.iconButtonFocusColor}: var(--surface-accent);
+                ${tokens.iconButtonColor}: ${textPrimary};
+                ${tokens.iconButtonBackgroundColor}: ${surfaceClear};
+                ${tokens.iconButtonColorHover}: ${textPrimaryHover};
+                ${tokens.iconButtonBackgroundColorHover}: ${surfaceClear};
+                ${tokens.iconButtonColorActive}: ${textPrimaryHover};
+                ${tokens.iconButtonBackgroundColorActive}: ${surfaceClear};
+                ${tokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-s);
-                ${tokens.tooltipColor}: var(--text-primary);
+                ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
+                ${tokens.tooltipBoxShadow}: ${shadowDownHardS};
+                ${tokens.tooltipColor}: ${textPrimary};
 
-                ${tokens.shortcutColor}: var(--text-primary);
-                ${tokens.shortcutBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.shortcutColor}: ${textPrimary};
+                ${tokens.shortcutBackgroundHover}: ${surfaceTransparentSecondary};
             `,
         },
         size: {
@@ -120,12 +155,12 @@ export const config = {
                 ${tokens.borderRadius}: 0.75rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
-                ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.dividerFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.dividerFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.dividerFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.dividerLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.dividerFontFamily}: ${bodyM.fontFamily};
+                ${tokens.dividerFontStyle}: ${bodyM.fontStyle};
+                ${tokens.dividerFontSize}: ${bodyM.fontSize};
+                ${tokens.dividerFontWeight}: ${bodyM.fontWeight};
+                ${tokens.dividerLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.dividerLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.leftContentMargin}: 0 0 0 0.875rem;
                 ${tokens.rightContentMargin}: 0;
@@ -135,12 +170,12 @@ export const config = {
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
 
                 ${tokens.labelWrapperOffset}: 0.625rem;
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.labelFontFamily}: ${bodyM.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyM.fontStyle};
+                ${tokens.labelFontSize}: ${bodyM.fontSize};
+                ${tokens.labelFontWeight}: ${bodyM.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.embedIconButtonHeight}: 3rem;
                 ${tokens.embedIconButtonWidth}: 3rem;
@@ -170,30 +205,30 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.313rem;
-                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
-                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.textFieldFontFamily}: ${bodyM.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyM.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyM.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyM.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
@@ -211,46 +246,46 @@ export const config = {
                 ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarYearItemBorderRadius}: 0.625rem;
 
-                ${tokens.calendarYearFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.calendarYearFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.calendarYearFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarYearFontFamily}: ${bodyM.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyM.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyM.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyM.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyM.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarMonthItemBorderRadius}: 0.625rem;
 
-                ${tokens.calendarMonthFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.calendarMonthFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.calendarMonthFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarMonthFontFamily}: ${bodyM.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyM.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyM.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyM.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyM.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.625rem;
 
-                ${tokens.calendarQuarterFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.calendarQuarterFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.calendarQuarterFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${tokens.calendarQuarterFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarQuarterFontFamily}: ${bodyM.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyM.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyM.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyM.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyM.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarDayItemBorderRadius}: 0.625rem;
 
-                ${tokens.calendarDayFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.calendarDayFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.calendarDayFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarDayFontFamily}: ${bodyM.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyM.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyM.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyM.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyM.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
@@ -261,25 +296,25 @@ export const config = {
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.75rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
-                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
-                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h4-font-style);
-                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h4-line-height);
-                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
+                ${tokens.calendarHeaderFontFamily}: ${h4.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${h4.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${h4.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${h4.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: ${h4.lineHeight};
+                ${tokens.calendarHeaderFontWeight}: ${h4.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${h4Bold.fontWeight};
 
                 ${tokens.iconButtonHeight}: 3rem;
                 ${tokens.iconButtonWidth}: 3rem;
                 ${tokens.iconButtonPadding}: 1.25rem;
                 ${tokens.iconButtonRadius}: 0.75rem;
 
-                ${tokens.shortcutFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.shortcutFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.shortcutFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.shortcutFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.shortcutLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.shortcutLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.shortcutFontFamily}: ${bodyM.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyM.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyM.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyM.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.shortcutPadding}: 0.875rem 0.625rem;
                 ${tokens.shortcutGap}: 0.375rem;
@@ -290,12 +325,12 @@ export const config = {
                 ${tokens.borderRadius}: 0.625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
-                ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.dividerFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.dividerFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.dividerFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.dividerLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.dividerFontFamily}: ${bodyS.fontFamily};
+                ${tokens.dividerFontStyle}: ${bodyS.fontStyle};
+                ${tokens.dividerFontSize}: ${bodyS.fontSize};
+                ${tokens.dividerFontWeight}: ${bodyS.fontWeight};
+                ${tokens.dividerLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.dividerLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.leftContentMargin}: 0 0 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
@@ -305,12 +340,12 @@ export const config = {
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
                 ${tokens.labelWrapperOffset}: 0.5rem;
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.labelFontFamily}: ${bodyS.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyS.fontStyle};
+                ${tokens.labelFontSize}: ${bodyS.fontSize};
+                ${tokens.labelFontWeight}: ${bodyS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.embedIconButtonHeight}: 2.5rem;
                 ${tokens.embedIconButtonWidth}: 2.5rem;
@@ -340,30 +375,30 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.188rem;
-                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
-                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textFieldFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyS.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
@@ -381,46 +416,46 @@ export const config = {
                 ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarYearItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarYearFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.calendarYearFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.calendarYearFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarYearFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarMonthFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.calendarMonthFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.calendarMonthFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarMonthFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarQuarterFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.calendarQuarterFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.calendarQuarterFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.calendarQuarterFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarQuarterFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarDayItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarDayFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.calendarDayFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.calendarDayFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarDayFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
@@ -431,25 +466,25 @@ export const config = {
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
-                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
-                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h4-font-style);
-                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h4-line-height);
-                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h4-bold-font-weight);
+                ${tokens.calendarHeaderFontFamily}: ${h4.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${h4.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${h4.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${h4.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: ${h4.lineHeight};
+                ${tokens.calendarHeaderFontWeight}: ${h4.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${h4Bold.fontWeight};
 
                 ${tokens.iconButtonHeight}: 2.5rem;
                 ${tokens.iconButtonWidth}: 2.5rem;
                 ${tokens.iconButtonPadding}: 0.5rem;
                 ${tokens.iconButtonRadius}: 0.625rem;
 
-                ${tokens.shortcutFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.shortcutFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.shortcutFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.shortcutFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.shortcutLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.shortcutLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.shortcutFontFamily}: ${bodyS.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyS.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyS.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyS.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.shortcutPadding}: 0.688rem 0.5rem;
                 ${tokens.shortcutGap}: 0.375rem;
@@ -466,12 +501,12 @@ export const config = {
                 ${tokens.tooltipMinHeight}: 2.5rem;
                 ${tokens.tooltipBorderRadius}: 0.625rem;
 
-                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.tooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.tooltipTextFontSize}: ${bodyS.fontSize};
+                ${tokens.tooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.tooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.tooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.tooltipTextFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.tooltipContentLeftMargin}: 0.375rem;
 
@@ -480,7 +515,7 @@ export const config = {
                 ${tokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
                 ${tokens.tooltipArrowHeight}: 0.5rem;
                 ${tokens.tooltipArrowEdgeMargin}: 0.625rem;
-                ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+                ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
             s: css`
                 ${tokens.tooltipPaddingTop}: 0.5rem;
@@ -491,12 +526,12 @@ export const config = {
                 ${tokens.tooltipMinHeight}: 2rem;
                 ${tokens.tooltipBorderRadius}: 0.5rem;
 
-                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.tooltipTextFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.tooltipTextFontSize}: ${bodyXS.fontSize};
+                ${tokens.tooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.tooltipTextFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.tooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.tooltipTextFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.tooltipContentLeftMargin}: 0.25rem;
 
@@ -505,15 +540,15 @@ export const config = {
                 ${tokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
                 ${tokens.tooltipArrowHeight}: 0.375rem;
                 ${tokens.tooltipArrowEdgeMargin}: 0.5625rem;
-                ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+                ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
         },
         hintView: {
             default: css`
-                ${tokens.hintTooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.hintTooltipBoxShadow}: var(--shadow-down-hard-m);
-                ${tokens.hintTooltipColor}: var(--text-primary);
-                ${tokens.hintTooltipArrowBackground}: var(--surface-solid-card-brightness);
+                ${tokens.hintTooltipBackgroundColor}: ${surfaceSolidCardBrightness};
+                ${tokens.hintTooltipBoxShadow}: ${shadowDownHardM};
+                ${tokens.hintTooltipColor}: ${textPrimary};
+                ${tokens.hintTooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
         },
         hintSize: {
@@ -526,12 +561,12 @@ export const config = {
                 ${tokens.hintTooltipMinHeight}: 2.5rem;
                 ${tokens.hintTooltipBorderRadius}: 0.625rem;
 
-                ${tokens.hintTooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.hintTooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.hintTooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.hintTooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.hintTooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.hintTooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.hintTooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.hintTooltipTextFontSize}: ${bodyS.fontSize};
+                ${tokens.hintTooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.hintTooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.hintTooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.hintTooltipTextFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.hintTooltipContentLeftMargin}: 0.375rem;
 
@@ -550,12 +585,12 @@ export const config = {
                 ${tokens.hintTooltipMinHeight}: 2rem;
                 ${tokens.hintTooltipBorderRadius}: 0.5rem;
 
-                ${tokens.hintTooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.hintTooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.hintTooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.hintTooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.hintTooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.hintTooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.hintTooltipTextFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.hintTooltipTextFontSize}: ${bodyXS.fontSize};
+                ${tokens.hintTooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.hintTooltipTextFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.hintTooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.hintTooltipTextFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.hintTooltipContentLeftMargin}: 0.25rem;
 
@@ -573,16 +608,16 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
-                ${tokens.labelColorReadOnly}: var(--text-primary);
-                ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.backgroundReadOnly}: ${surfaceTransparentPrimary};
+                ${tokens.labelColorReadOnly}: ${textPrimary};
+                ${tokens.leftHelperColorReadOnly}: ${textSecondary};
 
-                ${tokens.dividerColorReadOnly}: var(--text-primary);
+                ${tokens.dividerColorReadOnly}: ${textPrimary};
                 ${tokens.dividerOpacityReadOnly}: 0.4;
 
-                ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldColorReadOnly}: ${textPrimary};
+                ${tokens.textFieldBackgroundColorReadOnly}: ${surfaceTransparentPrimary};
+                ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
 
                 ${tokens.rightContentOpacityReadOnly}: 0.4;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
