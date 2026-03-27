@@ -1,6 +1,6 @@
 # Token migration report
 
-Generated: 2026-03-27T17:14:56.031Z (repo root: `scripts/migrate-plasma-giga-config-tokens.mjs --all`)
+Generated: 2026-03-27T17:57:14.730Z (repo root: `scripts/migrate-plasma-giga-config-tokens.mjs --all`)
 
 ## Summary
 
@@ -45,12 +45,13 @@ Other trees outside the batch (e.g. ad-hoc fixtures) may still contain `var(---�
 
 ### Remaining `var(---…)` in batch packages (after this run)
 
--   None found under batch packages’ config roots (e.g. `src/components/`** or `src/examples/components/**`).
+-   None found under batch packages’ config roots (e.g. `src/components/**` or `src/examples/components/**`).
 
 ## Per-package results
 
 -   **Written this run:** `.config.ts` files the script saved in this invocation (still had `var(--*)` in a styled-components css template and every variable resolved). Usually **0** or small once the package is already migrated.
 -   **Configs importing theme:** count of `.config.ts` files under the config root whose source contains an import from that package’s theme module. Measured **after** the run; includes files not touched this run.
+-   **Configs with no theme import:** `Config files` minus `Configs importing theme` (e.g. empty configs, or configs that use another token source such as component-local tokens).
 
 ### `plasma-giga`
 
@@ -58,16 +59,13 @@ Other trees outside the batch (e.g. ad-hoc fixtures) may still contain `var(---�
 -   **Import:** `@salutejs/plasma-themes/tokens/plasma_giga`
 -   **Config files:** 80
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 79
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 80
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 0
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 76
-
-Skipped (manual / non-css configs)
-
--   `packages/plasma-giga/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 77
+-   **Configs with no theme import:** 3
 
 ### `plasma-homeds`
 
@@ -75,16 +73,13 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/plasma-themes/tokens/plasma_homeds`
 -   **Config files:** 77
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 76
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 77
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 0
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 73
-
-Skipped (manual / non-css configs)
-
--   `packages/plasma-homeds/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 74
+-   **Configs with no theme import:** 3
 
 ### `plasma-b2c`
 
@@ -92,16 +87,13 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/plasma-themes/tokens/plasma_b2c`
 -   **Config files:** 92
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 80
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 81
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 11
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 77
-
-Skipped (manual / non-css configs)
-
--   `packages/plasma-b2c/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 78
+-   **Configs with no theme import:** 14
 
 **Unresolved variables (not written):**
 
@@ -123,16 +115,13 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/plasma-themes/tokens/plasma_web`
 -   **Config files:** 93
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 81
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 82
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 11
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 79
-
-Skipped (manual / non-css configs)
-
--   `packages/plasma-web/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 80
+-   **Configs with no theme import:** 13
 
 **Unresolved variables (not written):**
 
@@ -155,16 +144,13 @@ Skipped (manual / non-css configs)
 -   **Config root:** `packages/plasma-new-hope/src/examples/components`
 -   **Config files:** 103
 -   **Written this run:** 1
--   **No `var(--*)` (unchanged / already migrated):** 97
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 98
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 4
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 95
-
-Skipped (manual / non-css configs)
-
--   `packages/plasma-new-hope/src/examples/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 96
+-   **Configs with no theme import:** 7
 
 **Unresolved variables (not written):**
 
@@ -185,6 +171,7 @@ Skipped (manual / non-css configs)
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
 -   **Configs importing theme:** 75
+-   **Configs with no theme import:** 3
 
 ### `sdds-crm`
 
@@ -192,16 +179,13 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/sdds-themes/tokens/sdds_serv`
 -   **Config files:** 77
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 76
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 77
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 0
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 73
-
-Skipped (manual / non-css configs)
-
--   `packages/sdds-crm/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 74
+-   **Configs with no theme import:** 3
 
 ### `sdds-cs`
 
@@ -215,6 +199,7 @@ Skipped (manual / non-css configs)
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
 -   **Configs importing theme:** 40
+-   **Configs with no theme import:** 21
 
 **Unresolved variables (not written):**
 
@@ -249,6 +234,7 @@ Skipped (manual / non-css configs)
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
 -   **Configs importing theme:** 73
+-   **Configs with no theme import:** 3
 
 ### `sdds-finai`
 
@@ -262,6 +248,7 @@ Skipped (manual / non-css configs)
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
 -   **Configs importing theme:** 70
+-   **Configs with no theme import:** 4
 
 **Unresolved variables (not written):**
 
@@ -279,6 +266,7 @@ Skipped (manual / non-css configs)
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
 -   **Configs importing theme:** 70
+-   **Configs with no theme import:** 6
 
 **Unresolved variables (not written):**
 
@@ -291,16 +279,13 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/plasma-themes/tokens/plasma_b2c`
 -   **Config files:** 79
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 78
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 79
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 0
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 75
-
-Skipped (manual / non-css configs)
-
--   `packages/sdds-netology/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 76
+-   **Configs with no theme import:** 3
 
 ### `sdds-os`
 
@@ -308,16 +293,13 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/sdds-themes/tokens/sdds_os`
 -   **Config files:** 55
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 54
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 55
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 0
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 52
-
-Skipped (manual / non-css configs)
-
--   `packages/sdds-os/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 53
+-   **Configs with no theme import:** 2
 
 ### `sdds-platform-ai`
 
@@ -325,16 +307,13 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/sdds-themes/tokens/sdds_platform_ai`
 -   **Config files:** 64
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 63
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 64
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 0
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 62
-
-Skipped (manual / non-css configs)
-
--   `packages/sdds-platform-ai/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 63
+-   **Configs with no theme import:** 1
 
 ### `sdds-sbcom`
 
@@ -342,16 +321,13 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/sdds-themes/tokens/sdds_sbcom`
 -   **Config files:** 78
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 77
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 78
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 0
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 73
-
-Skipped (manual / non-css configs)
-
--   `packages/sdds-sbcom/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 74
+-   **Configs with no theme import:** 4
 
 ### `sdds-scan`
 
@@ -359,16 +335,13 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/sdds-themes/tokens/sdds_scan`
 -   **Config files:** 72
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 71
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 72
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 0
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 68
-
-Skipped (manual / non-css configs)
-
--   `packages/sdds-scan/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 69
+-   **Configs with no theme import:** 3
 
 ### `sdds-serv`
 
@@ -376,20 +349,17 @@ Skipped (manual / non-css configs)
 -   **Import:** `@salutejs/sdds-themes/tokens/sdds_serv`
 -   **Config files:** 79
 -   **Written this run:** 0
--   **No `var(--*)` (unchanged / already migrated):** 78
--   **Skipped (has CSS variables but no styled-components `css` template):** 1
+-   **No `var(--*)` (unchanged / already migrated):** 79
+-   **Skipped (has CSS variables but no styled-components `css` template):** 0
 -   **Failed (unresolved vars):** 0
 -   **Failed (triple-dash, if any before fix pass):** 0
 -   **Errors:** 0
--   **Configs importing theme:** 75
-
-Skipped (manual / non-css configs)
-
--   `packages/sdds-serv/src/components/Scrollbar/Scrollbar.config.ts`
+-   **Configs importing theme:** 76
+-   **Configs with no theme import:** 3
 
 ## Follow-up
 
--   For **Scrollbar**-style configs (plain object + string colors, no styled-components css template), add theme imports manually (see `packages/plasma-giga/.../Scrollbar.config.ts`).
+-   **Scrollbar:** `Scrollbar/Scrollbar.config.ts` is handled by the migrator (quoted `var(--*)` → token imports). Other plain-object configs without `css` are still skipped unless added explicitly.
 -   Run **ESLint with `--fix`** on touched packages if `import/order` or Prettier complain.
 -   Re-run a single package: `node scripts/migrate-plasma-giga-config-tokens.mjs <profile>` (profiles: `plasma-giga`, `sdds-sbcom`, …).
 
@@ -397,4 +367,4 @@ Skipped (manual / non-css configs)
 
 -   **Legacy plasma-web “Old” typography** (`--plasma-typo-body1-*`, `display1`, `headline1`, …): these names are **not** present as string exports in `plasma_web/index.ts` (the theme uses the newer `--plasma-typo-body-m-*` / `dspl-*` scale). Migrate those configs manually or point them at the correct token exports.
 -   **Theme-specific gaps**: some packages reference CSS variables (e.g. `--surface-primary`, `--plasma-input-*`, `--overlay-soft`) that **do not appear** in the matching `tokens/*/index.ts` file. Add tokens upstream, or replace with the closest exported token after design review.
--   `**--plasma-typo-*-bold-bold-*`\*\*: duplicated `bold` segment in the variable name; the migrator normalizes `-bold-bold-` → `-bold-` when resolving typography.
+-   **`--plasma-typo-*-bold-bold-*`**: duplicated `bold` segment in the variable name; the migrator normalizes `-bold-bold-` → `-bold-` when resolving typography.

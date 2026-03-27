@@ -676,6 +676,9 @@ function formatReportMarkdown(batchResults, tripleDashFixes, generatedAt) {
     lines.push(
         '- **Configs importing theme:** count of `.config.ts` files under the config root whose source contains an import from that package’s theme module. Measured **after** the run; includes files not touched this run.',
     );
+    lines.push(
+        '- **Configs with no theme import:** `Config files` minus `Configs importing theme` (e.g. empty configs, or configs that use another token source such as component-local tokens).',
+    );
     lines.push('');
     for (const r of batchResults) {
         lines.push(`### \`${r.profileKey}\``);
@@ -702,6 +705,9 @@ function formatReportMarkdown(batchResults, tripleDashFixes, generatedAt) {
             r.profile.componentsRelative ?? 'src/components',
         );
         lines.push(`- **Configs importing theme:** ${migratedConfigsCount}`);
+        lines.push(
+            `- **Configs with no theme import:** ${Math.max(0, r.totalConfigFiles - migratedConfigsCount)}`,
+        );
         lines.push('');
 
         if (r.skippedNoCss.length) {
