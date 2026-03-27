@@ -38,35 +38,37 @@ const StyledColorItem = styled.div<{ colors: colorItemType['colors'] }>`
     position: relative;
     cursor: pointer;
 
-    &:hover .${classes.mask} {
-        opacity: 1;
-        visibility: visible;
-        transition-delay: 0s;
-    }
-
-    &:hover .${classes.maskItem} {
-        transition: 0.2s;
-
-        &::before {
-            box-shadow: 0rem 0rem 0 1rem rgba(0, 0, 0, 1);
-            border-radius: 0.5rem;
-            border-left: 0.062rem solid rgba(0, 0, 0, 1);
-            border-right: 0.062rem solid rgba(0, 0, 0, 1);
-            inset: 0;
-            transition: ease-in 0.3s;
+    @media (hover: hover) {
+        &:hover .${classes.mask} {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0s;
         }
-    }
 
-    &:hover .${classes.text} {
-        opacity: 1;
-        visibility: visible;
-        transition-delay: 0s;
-    }
+        &:hover .${classes.maskItem} {
+            transition: 0.2s;
 
-    &:hover .${classes.smallText} {
-        opacity: 0.56;
-        visibility: visible;
-        transition-delay: 0s;
+            &::before {
+                box-shadow: 0rem 0rem 0 1rem rgba(0, 0, 0, 1);
+                border-radius: 0.5rem;
+                border-left: 0.062rem solid rgba(0, 0, 0, 1);
+                border-right: 0.062rem solid rgba(0, 0, 0, 1);
+                inset: 0;
+                transition: ease-in 0.3s;
+            }
+        }
+
+        &:hover .${classes.text} {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0s;
+        }
+
+        &:hover .${classes.smallText} {
+            opacity: 0.56;
+            visibility: visible;
+            transition-delay: 0s;
+        }
     }
 `;
 
@@ -114,10 +116,12 @@ const StyledMaskItem = styled.div`
         transition: ease-in 0.3s;
     }
 
-    &:hover .${classes.nameColor} {
-        opacity: 1;
-        visibility: visible;
-        transition-delay: 0s;
+    @media (hover: hover) {
+        &:hover .${classes.nameColor} {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0s;
+        }
     }
 `;
 
@@ -147,6 +151,10 @@ const StyledText = styled.div`
     transition: opacity 0.3s, visibility 0s linear 0.3s;
     overflow: hidden;
     font-family: var(--plasma-typo-headline1-font-family);
+
+    @media (hover: none) {
+        opacity: 0.56;
+    }
 `;
 
 const StyledSmall = styled.div`
@@ -157,6 +165,10 @@ const StyledSmall = styled.div`
     transition: opacity 0.3s, visibility 0s linear 0.3s;
     overflow: hidden;
     margin-top: 0.2rem;
+
+    @media (hover: none) {
+        opacity: 0.4;
+    }
 `;
 
 export const PaletteItem: React.FC<{
@@ -168,14 +180,19 @@ export const PaletteItem: React.FC<{
         router.push(`/palette/?color=${paletteColor.name}&code=${code}`);
     };
 
+    const handlerCardClick = () => {
+        router.push(`/palette/?color=${paletteColor.name}&code=500`);
+    };
+
     return (
-        <StyledColorItem colors={paletteColor.colors}>
+        <StyledColorItem colors={paletteColor.colors} onClick={handlerCardClick}>
             <StyledMask className={classes.mask}>
                 {paletteColor.colors.map((item, index) => (
                     <StyledMaskItem
                         className={classes.maskItem}
                         key={index}
-                        onClick={() => {
+                        onClick={(e) => {
+                            e.stopPropagation();
                             handlerColorClick(item.code);
                         }}
                     >
