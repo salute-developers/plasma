@@ -1,3 +1,11 @@
+import {
+    surfaceAccent,
+    textAccent,
+    textPrimary,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+} from '@salutejs/sdds-themes/tokens/sdds_insol';
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,22 +16,22 @@ export const config = {
     variations: {
         view: {
             divider: css`
-                ${tabsTokens.itemColor}: var(--text-secondary);
+                ${tabsTokens.itemColor}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
+                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
+                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedColor}: ${textPrimary};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-accent);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-accent);
+                ${tabsTokens.itemSelectedDividerColor}: ${textAccent};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${textAccent};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
