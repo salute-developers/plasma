@@ -1,3 +1,10 @@
+import {
+    outlineSolidPrimary,
+    surfaceAccent,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+} from '@salutejs/sdds-themes/tokens/sdds_dfa';
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,25 +15,25 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${tabsTokens.arrowColor}: var(--text-secondary);
-                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
+                ${tabsTokens.arrowColor}: ${textSecondary};
+                ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
+                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
                 ${tabsTokens.tabsDividerColor}: transparent;
                 ${tabsTokens.tabsDividerBorderRadius}: 0rem;
             `,
             divider: css`
-                ${tabsTokens.arrowColor}: var(--text-secondary);
-                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
+                ${tabsTokens.arrowColor}: ${textSecondary};
+                ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
+                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
-                ${tabsTokens.tabsDividerColor}: var(--outline-solid-primary);
+                ${tabsTokens.tabsDividerColor}: ${outlineSolidPrimary};
                 ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
             `,
         },
