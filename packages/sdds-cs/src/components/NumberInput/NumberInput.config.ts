@@ -33,10 +33,10 @@ export const config = {
         },
         size: {
             s: css`
-                ${tokens.rootMinWidth}: 8.75rem;
-                ${tokens.iconButtonHeight}: 2.625rem;
-                ${tokens.iconButtonWidth}: 2.625rem;
-                ${tokens.iconButtonPadding}: 1rem;
+                ${tokens.rootMinWidth}: 7.5rem;
+                ${tokens.iconButtonHeight}: 2.5rem;
+                ${tokens.iconButtonWidth}: 2.5rem;
+                ${tokens.iconButtonPadding}: 0.5rem;
                 ${tokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.iconButtonFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.iconButtonFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -44,21 +44,28 @@ export const config = {
                 ${tokens.iconButtonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.iconButtonLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.iconButtonRadius}: 0.625rem;
+                ${tokens.iconButtonRadius}: 0.75rem;
                 ${tokens.iconButtonSegmentationRadius}: 0.25rem;
 
-                ${tokens.inputWrapperMargin}: 0 0.125rem;
-                ${tokens.inputWrapperBorderRadius}: 0.625rem;
-                ${tokens.textWrapperHeight}: 2.625rem;
-                ${tokens.textWrapperPadding}: 0.688rem 0.875rem;
+                ${tokens.inputWrapperMargin}: 0;
+                ${tokens.inputWrapperBorderRadius}: 0.75rem;
+                ${tokens.textWrapperHeight}: 2.5rem;
+                ${tokens.textWrapperPadding}: 0.5rem 0.375rem;
                 ${tokens.rootBorderWidth}: 0.125rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.additionalTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.additionalTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.additionalTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.additionalTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.additionalTextLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.additionalTextLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.textBeforeMarginRight}: 0.25rem;
                 ${tokens.textAfterMarginLeft}: 0.25rem;
