@@ -38,7 +38,7 @@ export const base = css`
         padding: var(${tokens.textWrapperPadding});
     }
 
-    ${DynamicInput}, ${Input}, ${AdditionalText} {
+    ${DynamicInput}, ${Input} {
         font-family: var(${tokens.fontFamily});
         font-size: var(${tokens.fontSize});
         font-style: var(${tokens.fontStyle});
@@ -48,6 +48,13 @@ export const base = css`
     }
 
     ${AdditionalText} {
+        font-family: var(${tokens.additionalTextFontFamily}, var(${tokens.fontFamily}));
+        font-size: var(${tokens.additionalTextFontStyle}, var(${tokens.fontSize}));
+        font-style: var(${tokens.additionalTextFontSize}, var(${tokens.fontStyle}));
+        font-weight: var(${tokens.additionalTextFontWeight}, var(${tokens.fontWeight}));
+        letter-spacing: var(${tokens.additionalTextLetterSpacing}, var(${tokens.letterSpacing}));
+        line-height: var(${tokens.additionalTextLineHeight}, var(${tokens.lineHeight}));
+
         &.${classes.textBefore} {
             margin-right: var(${tokens.textBeforeMarginRight});
         }
