@@ -17,7 +17,7 @@ const base = css`
         content: '';
         position: absolute;
         inset: 0;
-        opacity: 0.4;
+        transition: opacity 0.15s ease-in;
     }
 `;
 

@@ -16,6 +16,7 @@ export const base = css`
     color: var(${tokens.linkColor});
 
     ::before {
+        opacity: 0;
         border-bottom: var(${tokens.linkUnderlineBorder}) solid currentColor;
     }
 
