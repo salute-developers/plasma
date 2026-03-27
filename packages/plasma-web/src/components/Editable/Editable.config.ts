@@ -1,3 +1,10 @@
+import {
+    backgroundPrimary,
+    textAccent,
+    textPrimary,
+    textSecondary,
+    textTertiary,
+} from '@salutejs/plasma-themes/tokens/plasma_web';
 import { css, editableTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,11 +15,11 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${editableTokens.editButtonBackground}: var(--background-primary);
-                ${editableTokens.editButtonColor}: var(--text-tertiary);
-                ${editableTokens.editButtonColorHover}: var(--text-primary);
-                ${editableTokens.placeholderColor}: var(--text-secondary);
-                ${editableTokens.caretColor}: var(--text-accent);
+                ${editableTokens.editButtonBackground}: ${backgroundPrimary};
+                ${editableTokens.editButtonColor}: ${textTertiary};
+                ${editableTokens.editButtonColorHover}: ${textPrimary};
+                ${editableTokens.placeholderColor}: ${textSecondary};
+                ${editableTokens.caretColor}: ${textAccent};
             `,
         },
         size: {
