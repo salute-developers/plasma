@@ -1,3 +1,14 @@
+import {
+    surfaceAccent,
+    surfaceAccentGradient,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    surfaceSolidTertiary,
+    surfaceTransparentSecondary,
+    surfaceWarning,
+    textTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_serv';
 import { css, progressTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,39 +19,39 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-solid-default);
-                ${progressTokens.valueColor}: var(--text-tertiary);
+                ${progressTokens.trackBackgroundColor}: ${surfaceTransparentSecondary};
+                ${progressTokens.progressFilledBackgroundColor}: ${surfaceSolidDefault};
+                ${progressTokens.valueColor}: ${textTertiary};
             `,
             secondary: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-solid-tertiary);
-                ${progressTokens.valueColor}: var(--text-tertiary);
+                ${progressTokens.trackBackgroundColor}: ${surfaceTransparentSecondary};
+                ${progressTokens.progressFilledBackgroundColor}: ${surfaceSolidTertiary};
+                ${progressTokens.valueColor}: ${textTertiary};
             `,
             primary: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent);
-                ${progressTokens.valueColor}: var(--text-tertiary);
+                ${progressTokens.trackBackgroundColor}: ${surfaceTransparentSecondary};
+                ${progressTokens.progressFilledBackgroundColor}: ${surfaceAccent};
+                ${progressTokens.valueColor}: ${textTertiary};
             `,
             accent: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent-gradient);
-                ${progressTokens.valueColor}: var(--text-tertiary);
+                ${progressTokens.trackBackgroundColor}: ${surfaceTransparentSecondary};
+                ${progressTokens.progressFilledBackgroundColor}: ${surfaceAccentGradient};
+                ${progressTokens.valueColor}: ${textTertiary};
             `,
             success: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-positive);
-                ${progressTokens.valueColor}: var(--text-tertiary);
+                ${progressTokens.trackBackgroundColor}: ${surfaceTransparentSecondary};
+                ${progressTokens.progressFilledBackgroundColor}: ${surfacePositive};
+                ${progressTokens.valueColor}: ${textTertiary};
             `,
             warning: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-warning);
-                ${progressTokens.valueColor}: var(--text-tertiary);
+                ${progressTokens.trackBackgroundColor}: ${surfaceTransparentSecondary};
+                ${progressTokens.progressFilledBackgroundColor}: ${surfaceWarning};
+                ${progressTokens.valueColor}: ${textTertiary};
             `,
             error: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-transparent-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-negative);
-                ${progressTokens.valueColor}: var(--text-tertiary);
+                ${progressTokens.trackBackgroundColor}: ${surfaceTransparentSecondary};
+                ${progressTokens.progressFilledBackgroundColor}: ${surfaceNegative};
+                ${progressTokens.valueColor}: ${textTertiary};
             `,
         },
         size: {
