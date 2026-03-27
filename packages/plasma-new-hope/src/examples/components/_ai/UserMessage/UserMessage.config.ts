@@ -1,3 +1,25 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    surfaceSolidCard,
+    surfaceSolidSecondary,
+    surfaceSolidTertiary,
+    surfaceTransparentAccent,
+    surfaceTransparentNegative,
+    surfaceTransparentPositive,
+    surfaceTransparentPrimary,
+    surfaceTransparentPrimaryActive,
+    surfaceTransparentPrimaryHover,
+    surfaceTransparentTertiary,
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
+    surfaceTransparentWarning,
+    textAccent,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { userMessageTokens as tokens } from '../../../../components/_ai/UserMessage';
@@ -11,106 +33,106 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.backgroundColorEditing}: var(--surface-solid-tertiary);
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.backgroundColorEditing}: ${surfaceSolidTertiary};
 
-                ${tokens.caretColor}: var(--text-accent);
-                ${tokens.textColor}: var(--text-primary);
+                ${tokens.caretColor}: ${textAccent};
+                ${tokens.textColor}: ${textPrimary};
 
-                ${tokens.fileItemTitleColor}: var(--text-primary);
-                ${tokens.fileItemSubtitleColor}: var(--text-secondary);
+                ${tokens.fileItemTitleColor}: ${textPrimary};
+                ${tokens.fileItemSubtitleColor}: ${textSecondary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
             `,
             secondary: css`
-                ${tokens.backgroundColor}: var(--surface-solid-secondary);
-                ${tokens.backgroundColorEditing}: var(--surface-solid-tertiary);
+                ${tokens.backgroundColor}: ${surfaceSolidSecondary};
+                ${tokens.backgroundColorEditing}: ${surfaceSolidTertiary};
 
-                ${tokens.caretColor}: var(--text-accent);
-                ${tokens.textColor}: var(--text-primary);
+                ${tokens.caretColor}: ${textAccent};
+                ${tokens.textColor}: ${textPrimary};
 
-                ${tokens.fileItemTitleColor}: var(--text-primary);
-                ${tokens.fileItemSubtitleColor}: var(--text-secondary);
+                ${tokens.fileItemTitleColor}: ${textPrimary};
+                ${tokens.fileItemSubtitleColor}: ${textSecondary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
             `,
             accent: css`
-                ${tokens.backgroundColor}: var(--surface-transparent-accent);
-                ${tokens.backgroundColorEditing}: var(--surface-solid-tertiary);
+                ${tokens.backgroundColor}: ${surfaceTransparentAccent};
+                ${tokens.backgroundColorEditing}: ${surfaceSolidTertiary};
 
-                ${tokens.caretColor}: var(--text-accent);
-                ${tokens.textColor}: var(--text-primary);
+                ${tokens.caretColor}: ${textAccent};
+                ${tokens.textColor}: ${textPrimary};
 
-                ${tokens.fileItemTitleColor}: var(--text-primary);
-                ${tokens.fileItemSubtitleColor}: var(--text-secondary);
+                ${tokens.fileItemTitleColor}: ${textPrimary};
+                ${tokens.fileItemSubtitleColor}: ${textSecondary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
             `,
             positive: css`
-                ${tokens.backgroundColor}: var(--surface-transparent-positive);
-                ${tokens.backgroundColorEditing}: var(--surface-solid-tertiary);
+                ${tokens.backgroundColor}: ${surfaceTransparentPositive};
+                ${tokens.backgroundColorEditing}: ${surfaceSolidTertiary};
 
-                ${tokens.caretColor}: var(--text-accent);
-                ${tokens.textColor}: var(--text-primary);
+                ${tokens.caretColor}: ${textAccent};
+                ${tokens.textColor}: ${textPrimary};
 
-                ${tokens.fileItemTitleColor}: var(--text-primary);
-                ${tokens.fileItemSubtitleColor}: var(--text-secondary);
+                ${tokens.fileItemTitleColor}: ${textPrimary};
+                ${tokens.fileItemSubtitleColor}: ${textSecondary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
             `,
             negative: css`
-                ${tokens.backgroundColor}: var(--surface-transparent-negative);
-                ${tokens.backgroundColorEditing}: var(--surface-solid-tertiary);
+                ${tokens.backgroundColor}: ${surfaceTransparentNegative};
+                ${tokens.backgroundColorEditing}: ${surfaceSolidTertiary};
 
-                ${tokens.caretColor}: var(--text-accent);
-                ${tokens.textColor}: var(--text-primary);
+                ${tokens.caretColor}: ${textAccent};
+                ${tokens.textColor}: ${textPrimary};
 
-                ${tokens.fileItemTitleColor}: var(--text-primary);
-                ${tokens.fileItemSubtitleColor}: var(--text-secondary);
+                ${tokens.fileItemTitleColor}: ${textPrimary};
+                ${tokens.fileItemSubtitleColor}: ${textSecondary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
             `,
             warning: css`
-                ${tokens.backgroundColor}: var(--surface-transparent-warning);
-                ${tokens.backgroundColorEditing}: var(--surface-solid-tertiary);
+                ${tokens.backgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.backgroundColorEditing}: ${surfaceSolidTertiary};
 
-                ${tokens.caretColor}: var(--text-accent);
-                ${tokens.textColor}: var(--text-primary);
+                ${tokens.caretColor}: ${textAccent};
+                ${tokens.textColor}: ${textPrimary};
 
-                ${tokens.fileItemTitleColor}: var(--text-primary);
-                ${tokens.fileItemSubtitleColor}: var(--text-secondary);
+                ${tokens.fileItemTitleColor}: ${textPrimary};
+                ${tokens.fileItemSubtitleColor}: ${textSecondary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
             `,
         },
         size: {
@@ -125,12 +147,12 @@ export const config = {
                 ${tokens.scrollbarWidth}: 0.188rem;
                 ${tokens.scrollbarBorderWidth}: 0.063rem;
 
-                ${tokens.textFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.textFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.textFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.textFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.textLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.textLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textFontSize}: ${bodyL.fontSize};
+                ${tokens.textFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.actionsGap}: 0.5rem;
                 ${tokens.actionsEditingGap}: 0.125rem;
@@ -147,19 +169,19 @@ export const config = {
                 ${tokens.fileItemGap}: 0.75rem;
                 ${tokens.fileItemTextboxGap}: 0.125rem;
 
-                ${tokens.fileItemTitleFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.fileItemTitleFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.fileItemTitleFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.fileItemTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.fileItemTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.fileItemTitleLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.fileItemTitleFontFamily}: ${bodyL.fontFamily};
+                ${tokens.fileItemTitleFontSize}: ${bodyL.fontSize};
+                ${tokens.fileItemTitleFontStyle}: ${bodyL.fontStyle};
+                ${tokens.fileItemTitleFontWeight}: ${bodyL.fontWeight};
+                ${tokens.fileItemTitleLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.fileItemTitleLineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.fileItemSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileItemSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileItemSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileItemSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileItemSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileItemSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileItemSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileItemSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileItemSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileItemSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileItemSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileItemSubtitleLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.fileThumbSize}: 2.5rem;
                 ${tokens.fileThumbRadius}: 0.625rem;
@@ -177,12 +199,12 @@ export const config = {
                 ${tokens.scrollbarWidth}: 0.188rem;
                 ${tokens.scrollbarBorderWidth}: 0.063rem;
 
-                ${tokens.textFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.textFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.textFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.textFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.textLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.textLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textFontSize}: ${bodyL.fontSize};
+                ${tokens.textFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.actionsGap}: 0.5rem;
                 ${tokens.actionsEditingGap}: 0.125rem;
@@ -199,19 +221,19 @@ export const config = {
                 ${tokens.fileItemGap}: 0.625rem;
                 ${tokens.fileItemTextboxGap}: 0.125rem;
 
-                ${tokens.fileItemTitleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fileItemTitleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fileItemTitleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fileItemTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.fileItemTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.fileItemTitleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fileItemTitleFontFamily}: ${bodyM.fontFamily};
+                ${tokens.fileItemTitleFontSize}: ${bodyM.fontSize};
+                ${tokens.fileItemTitleFontStyle}: ${bodyM.fontStyle};
+                ${tokens.fileItemTitleFontWeight}: ${bodyM.fontWeight};
+                ${tokens.fileItemTitleLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.fileItemTitleLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.fileItemSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileItemSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileItemSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileItemSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileItemSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileItemSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileItemSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileItemSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileItemSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileItemSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileItemSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileItemSubtitleLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.fileThumbSize}: 2.25rem;
                 ${tokens.fileThumbRadius}: 0.375rem;
@@ -229,12 +251,12 @@ export const config = {
                 ${tokens.scrollbarWidth}: 0.188rem;
                 ${tokens.scrollbarBorderWidth}: 0.063rem;
 
-                ${tokens.textFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.textFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.textFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.textFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.textLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.textLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.textFontFamily}: ${bodyM.fontFamily};
+                ${tokens.textFontSize}: ${bodyM.fontSize};
+                ${tokens.textFontStyle}: ${bodyM.fontStyle};
+                ${tokens.textFontWeight}: ${bodyM.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.actionsGap}: 0.5rem;
                 ${tokens.actionsEditingGap}: 0.125rem;
@@ -251,19 +273,19 @@ export const config = {
                 ${tokens.fileItemGap}: 0.5rem;
                 ${tokens.fileItemTextboxGap}: 0.125rem;
 
-                ${tokens.fileItemTitleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.fileItemTitleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.fileItemTitleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.fileItemTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.fileItemTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.fileItemTitleLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.fileItemTitleFontFamily}: ${bodyS.fontFamily};
+                ${tokens.fileItemTitleFontSize}: ${bodyS.fontSize};
+                ${tokens.fileItemTitleFontStyle}: ${bodyS.fontStyle};
+                ${tokens.fileItemTitleFontWeight}: ${bodyS.fontWeight};
+                ${tokens.fileItemTitleLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.fileItemTitleLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.fileItemSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileItemSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileItemSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileItemSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileItemSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileItemSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileItemSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileItemSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileItemSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileItemSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileItemSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileItemSubtitleLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.fileThumbSize}: 2rem;
                 ${tokens.fileThumbRadius}: 0.375rem;
@@ -281,12 +303,12 @@ export const config = {
                 ${tokens.scrollbarWidth}: 0.188rem;
                 ${tokens.scrollbarBorderWidth}: 0.063rem;
 
-                ${tokens.textFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFontSize}: ${bodyS.fontSize};
+                ${tokens.textFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.actionsGap}: 0.5rem;
                 ${tokens.actionsEditingGap}: 0.125rem;
@@ -303,19 +325,19 @@ export const config = {
                 ${tokens.fileItemGap}: 0.375rem;
                 ${tokens.fileItemTextboxGap}: 0.125rem;
 
-                ${tokens.fileItemTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileItemTitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileItemTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileItemTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileItemTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileItemTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileItemTitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileItemTitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileItemTitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileItemTitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileItemTitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileItemTitleLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.fileItemSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileItemSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileItemSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileItemSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileItemSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileItemSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileItemSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileItemSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileItemSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileItemSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileItemSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileItemSubtitleLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.fileThumbSize}: 1.75rem;
                 ${tokens.fileThumbRadius}: 0.25rem;
@@ -333,12 +355,12 @@ export const config = {
                 ${tokens.scrollbarWidth}: 0.188rem;
                 ${tokens.scrollbarBorderWidth}: 0.063rem;
 
-                ${tokens.textFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.actionsGap}: 0.5rem;
                 ${tokens.actionsEditingGap}: 0.125rem;
@@ -355,19 +377,19 @@ export const config = {
                 ${tokens.fileItemGap}: 0.375rem;
                 ${tokens.fileItemTextboxGap}: 0.125rem;
 
-                ${tokens.fileItemTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileItemTitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileItemTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileItemTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileItemTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileItemTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileItemTitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileItemTitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileItemTitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileItemTitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileItemTitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileItemTitleLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.fileItemSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fileItemSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fileItemSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fileItemSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.fileItemSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.fileItemSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fileItemSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fileItemSubtitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.fileItemSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fileItemSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.fileItemSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.fileItemSubtitleLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.fileThumbSize}: 1.75rem;
                 ${tokens.fileThumbRadius}: 0.25rem;
@@ -377,12 +399,12 @@ export const config = {
         },
         attachmentsView: {
             default: css`
-                ${tokens.fileContentBackgroundColor}: var(--surface-solid-card);
-                ${tokens.imageBorderColor}: var(--surface-solid-card);
+                ${tokens.fileContentBackgroundColor}: ${surfaceSolidCard};
+                ${tokens.imageBorderColor}: ${surfaceSolidCard};
             `,
             secondary: css`
-                ${tokens.fileContentBackgroundColor}: var(--surface-solid-secondary);
-                ${tokens.imageBorderColor}: var(--surface-solid-secondary);
+                ${tokens.fileContentBackgroundColor}: ${surfaceSolidSecondary};
+                ${tokens.imageBorderColor}: ${surfaceSolidSecondary};
             `,
         },
     },

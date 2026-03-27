@@ -1,3 +1,14 @@
+import {
+    onDarkTextSecondary,
+    onDarkTextSecondaryActive,
+    onDarkTextSecondaryHover,
+    shadowDownSoftM,
+    surfaceAccent,
+    surfaceSolidCard,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 import { _beta_popoverTokens as tokens } from 'src/components/_beta/Popover';
 
@@ -9,18 +20,18 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.boxShadow}: var(--shadow-down-soft-m);
-                ${tokens.iconColor}: var(--text-secondary);
-                ${tokens.iconColorHover}: var(--text-secondary-hover);
-                ${tokens.iconColorActive}: var(--text-secondary-active);
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.boxShadow}: ${shadowDownSoftM};
+                ${tokens.iconColor}: ${textSecondary};
+                ${tokens.iconColorHover}: ${textSecondaryHover};
+                ${tokens.iconColorActive}: ${textSecondaryActive};
             `,
             accent: css`
-                ${tokens.backgroundColor}: var(--surface-accent);
-                ${tokens.boxShadow}: var(--shadow-down-soft-m);
-                ${tokens.iconColor}: var(--on-dark-text-secondary);
-                ${tokens.iconColorHover}: var(--on-dark-text-secondary-hover);
-                ${tokens.iconColorActive}: var(--on-dark-text-secondary-active);
+                ${tokens.backgroundColor}: ${surfaceAccent};
+                ${tokens.boxShadow}: ${shadowDownSoftM};
+                ${tokens.iconColor}: ${onDarkTextSecondary};
+                ${tokens.iconColorHover}: ${onDarkTextSecondaryHover};
+                ${tokens.iconColorActive}: ${onDarkTextSecondaryActive};
             `,
         },
         size: {

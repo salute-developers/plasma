@@ -1,3 +1,8 @@
+import {
+    shadowDownSoftS,
+    surfaceSolidCardBrightness,
+    surfaceTransparentTertiary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { toolbarTokens } from '../../../components/Toolbar';
@@ -10,10 +15,10 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${toolbarTokens.boxShadow}: var(--shadow-down-soft-s);
-                ${toolbarTokens.background}: var(--surface-solid-card-brightness);
+                ${toolbarTokens.boxShadow}: ${shadowDownSoftS};
+                ${toolbarTokens.background}: ${surfaceSolidCardBrightness};
 
-                ${toolbarTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${toolbarTokens.dividerColor}: ${surfaceTransparentTertiary};
             `,
         },
         size: {
