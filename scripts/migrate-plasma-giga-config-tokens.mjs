@@ -61,6 +61,8 @@ const PROFILES = {
         pkgRoot: path.join(root, 'packages/sdds-sbcom'),
         tokensMod: sdds('sdds_sbcom'),
         importPath: '@salutejs/sdds-themes/tokens/sdds_sbcom',
+        tokenThemeNote:
+            'Smaller typography/display surface than plasma-giga; see **§ sdds_sbcom theme surface & Linaria** in this report.',
     },
     'sdds-bizcom': {
         pkgRoot: path.join(root, 'packages/sdds-bizcom'),
@@ -765,6 +767,26 @@ function formatReportMarkdown(batchResults, tripleDashFixes, generatedAt) {
     );
     lines.push(
         '- **`--plasma-typo-*-bold-bold-*`**: duplicated `bold` segment in the variable name; the migrator normalizes `-bold-bold-` → `-bold-` when resolving typography.',
+    );
+    lines.push('');
+
+    lines.push('## `sdds_sbcom` theme surface & Linaria (`build:css`)');
+    lines.push('');
+    lines.push(
+        'Package **`sdds-sbcom`** runs **Linaria** over copied configs (`prebuild:css` → `src-css`). Static evaluation fails if imports are missing or **name-collide** with `variations` keys.',
+    );
+    lines.push('');
+    lines.push(
+        '- **Headings:** `sdds_sbcom` exports heading typography **`h1`–`h4` only** (plus bold/medium variants). There are **no `h5` / `h6` typography objects** — map UI sizes to **`h3`/`h4`**, **`h4Medium`**, or **`body*`** (confirm with design).',
+    );
+    lines.push(
+        '- **Display scale:** **`dsplS`** exists in `sdds_sbcom`; `dsplL` and `dsplM` **do not**. Use **`h1`/`h2`** (or another exported group) as stand-ins if configs expected a larger display step.',
+    );
+    lines.push(
+        '- **`textL` / `textM` / … vs colors:** In `sdds_sbcom`, names like **`textPrimary`** are **color** CSS variables, not typography groups. **`textL`-style font metrics** from plasma-giga-like configs should use **`bodyL`, `bodyM`, `bodyS`, `bodyXS`, …** from the same theme module.',
+    );
+    lines.push(
+        '- **Linaria + same identifier as variation key:** If a `variations` key matches an imported binding used in the same `css` template (e.g. size key `h6` with `${h6.fontFamily}`), static evaluation can yield **`undefined`**. Prefer **import aliases** that do not match keys (`typoBodyL`, `ratingH1`, `h4Medium as typoH5`).',
     );
     lines.push('');
 
