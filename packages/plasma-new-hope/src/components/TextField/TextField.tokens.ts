@@ -100,6 +100,8 @@ export const tokens = {
     contentRightWrapperMargin: '--plasma-textfield-content-right-wrapper-margin',
 
     /** Токены лейбла */
+    labelPadding: '--sdds-core-textfield__label-padding',
+
     labelColor: '--plasma-textfield__label-color',
     labelColorReadOnly: '--plasma-textfield__label-color-readonly',
     labelOffset: '--plasma-textfield__label-offset',
