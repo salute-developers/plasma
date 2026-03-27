@@ -23,6 +23,7 @@ jobs:
                     -   package_name: sdds-cs
                     -   package_name: sdds-serv
                     -   package_name: sdds-platform-ai
+                    -   package_name: sdds-netology
         steps:
             -   name: Checkout manual ref
                 if: ${{ github.event_name == 'workflow_dispatch' }}
