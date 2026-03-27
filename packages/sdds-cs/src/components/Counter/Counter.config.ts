@@ -1,3 +1,12 @@
+import {
+    bodyS,
+    inverseTextPrimary,
+    onDarkTextPrimary,
+    surfaceAccent,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,20 +17,20 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${counterTokens.color}: var(--inverse-text-primary);
-                ${counterTokens.background}: var(--surface-solid-default);
+                ${counterTokens.color}: ${inverseTextPrimary};
+                ${counterTokens.background}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-accent);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfaceAccent};
             `,
             positive: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-positive);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfacePositive};
             `,
             negative: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-negative);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfaceNegative};
             `,
         },
         size: {
@@ -30,12 +39,12 @@ export const config = {
                 ${counterTokens.height}: 1.25rem;
                 ${counterTokens.padding}: 0 0.375rem;
 
-                ${counterTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${counterTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${counterTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${counterTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${counterTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${counterTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${counterTokens.fontFamily}: ${bodyS.fontFamily};
+                ${counterTokens.fontSize}: ${bodyS.fontSize};
+                ${counterTokens.fontStyle}: ${bodyS.fontStyle};
+                ${counterTokens.fontWeight}: ${bodyS.fontWeight};
+                ${counterTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${counterTokens.lineHeight}: ${bodyS.lineHeight};
             `,
         },
     },

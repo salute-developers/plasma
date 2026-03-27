@@ -1,3 +1,20 @@
+import {
+    bodyS,
+    bodyXS,
+    onLightSurfaceSolidCard,
+    outlineAccent,
+    outlineSolidPrimary,
+    outlineSolidPrimaryHover,
+    surfaceAccent,
+    surfaceSolidCard,
+    surfaceSolidCardActive,
+    surfaceSolidDefault,
+    surfaceSolidPrimary,
+    surfaceSolidTertiary,
+    textAccent,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, sliderTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,58 +25,58 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${sliderTokens.labelColor}: var(--text-primary);
+                ${sliderTokens.labelColor}: ${textPrimary};
 
-                ${sliderTokens.rangeValueColor}: var(--text-secondary);
+                ${sliderTokens.rangeValueColor}: ${textSecondary};
 
-                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
-                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
-                ${sliderTokens.thumbFocusBorderColor}: var(--surface-solid-default);
+                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
+                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
+                ${sliderTokens.thumbFocusBorderColor}: ${surfaceSolidDefault};
 
-                ${sliderTokens.railBackgroundColor}: var(--surface-solid-primary);
+                ${sliderTokens.railBackgroundColor}: ${surfaceSolidPrimary};
 
-                ${sliderTokens.fillColor}: var(--surface-solid-default);
+                ${sliderTokens.fillColor}: ${surfaceSolidDefault};
 
-                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
-                ${sliderTokens.textFieldColor}: var(--text-primary);
-                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: ${textAccent};
+                ${sliderTokens.textFieldColor}: ${textPrimary};
+                ${sliderTokens.textFiledFocusColor}: ${textPrimary};
+                ${sliderTokens.textFieldPlaceholderColor}: ${textSecondary};
 
-                ${sliderTokens.textFieldBorderColor}: var(--outline-solid-primary);
-                ${sliderTokens.textFieldBorderColorFocus}: var(--outline-accent);
-                ${sliderTokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
+                ${sliderTokens.textFieldBorderColor}: ${outlineSolidPrimary};
+                ${sliderTokens.textFieldBorderColorFocus}: ${outlineAccent};
+                ${sliderTokens.textFieldBorderColorHover}: ${outlineSolidPrimaryHover};
 
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-solid-card);
-                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-solid-card);
-                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-solid-card-active);
+                ${sliderTokens.textFieldBackgroundColor}: ${surfaceSolidCard};
+                ${sliderTokens.textFieldBackgroundColorHover}: ${surfaceSolidCard};
+                ${sliderTokens.textFieldBackgroundColorFocus}: ${surfaceSolidCardActive};
             `,
             accent: css`
-                ${sliderTokens.labelColor}: var(--text-primary);
+                ${sliderTokens.labelColor}: ${textPrimary};
 
-                ${sliderTokens.rangeValueColor}: var(--text-secondary);
+                ${sliderTokens.rangeValueColor}: ${textSecondary};
 
-                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
-                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
-                ${sliderTokens.thumbFocusBorderColor}: var(--surface-accent);
+                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
+                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
+                ${sliderTokens.thumbFocusBorderColor}: ${surfaceAccent};
 
-                ${sliderTokens.railBackgroundColor}: var(--surface-solid-primary);
+                ${sliderTokens.railBackgroundColor}: ${surfaceSolidPrimary};
 
-                ${sliderTokens.fillColor}: var(--surface-accent);
+                ${sliderTokens.fillColor}: ${surfaceAccent};
 
-                ${sliderTokens.textFieldColor}: var(--text-secondary);
+                ${sliderTokens.textFieldColor}: ${textSecondary};
 
-                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
-                ${sliderTokens.textFieldColor}: var(--text-primary);
-                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: ${textAccent};
+                ${sliderTokens.textFieldColor}: ${textPrimary};
+                ${sliderTokens.textFiledFocusColor}: ${textPrimary};
+                ${sliderTokens.textFieldPlaceholderColor}: ${textSecondary};
 
-                ${sliderTokens.textFieldBorderColor}: var(--outline-solid-primary);
-                ${sliderTokens.textFieldBorderColorFocus}: var(--outline-accent);
-                ${sliderTokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
+                ${sliderTokens.textFieldBorderColor}: ${outlineSolidPrimary};
+                ${sliderTokens.textFieldBorderColorFocus}: ${outlineAccent};
+                ${sliderTokens.textFieldBorderColorHover}: ${outlineSolidPrimaryHover};
 
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-solid-card);
-                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-solid-card);
-                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-solid-card-active);
+                ${sliderTokens.textFieldBackgroundColor}: ${surfaceSolidCard};
+                ${sliderTokens.textFieldBackgroundColorHover}: ${surfaceSolidCard};
+                ${sliderTokens.textFieldBackgroundColorFocus}: ${surfaceSolidCardActive};
             `,
         },
         size: {
@@ -73,24 +90,24 @@ export const config = {
                 ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 0.625rem;
 
-                ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${sliderTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${sliderTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${sliderTokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${sliderTokens.labelFontFamily}: ${bodyS.fontFamily};
+                ${sliderTokens.labelFontSize}: ${bodyS.fontSize};
+                ${sliderTokens.labelFontStyle}: ${bodyS.fontStyle};
+                ${sliderTokens.labelFontWeight}: ${bodyS.fontWeight};
+                ${sliderTokens.labelLetterSpacing}: ${bodyS.letterSpacing};
+                ${sliderTokens.labelLineHeight}: ${bodyS.lineHeight};
 
                 ${sliderTokens.rangeValueHorizontalMargin}: 0.5rem;
                 ${sliderTokens.rangeValueBottomOffset}: 0.625rem;
                 ${sliderTokens.rangeValueHorizontalOffset}: 0.625rem;
                 ${sliderTokens.rangeValueVerticalMargin}: 0.5rem;
 
-                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${sliderTokens.valueFontFamily}: ${bodyXS.fontFamily};
+                ${sliderTokens.valueFontSize}: ${bodyXS.fontSize};
+                ${sliderTokens.valueFontStyle}: ${bodyXS.fontStyle};
+                ${sliderTokens.valueFontWeight}: ${bodyXS.fontWeight};
+                ${sliderTokens.valueLetterSpacing}: ${bodyXS.letterSpacing};
+                ${sliderTokens.valueLineHeight}: ${bodyXS.lineHeight};
 
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
@@ -108,12 +125,12 @@ export const config = {
                 ${sliderTokens.textFieldHeight}: 2.5rem;
                 ${sliderTokens.textFieldPadding}: 0.5rem 1rem 0.5rem 1rem;
                 ${sliderTokens.textFieldBorderRadius}: 0.625rem;
-                ${sliderTokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${sliderTokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
-                ${sliderTokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${sliderTokens.textFieldFontFamily}: ${bodyS.fontFamily};
+                ${sliderTokens.textFieldFontSize}: ${bodyS.fontSize};
+                ${sliderTokens.textFieldFontStyle}: ${bodyS.fontStyle};
+                ${sliderTokens.textFieldFontWeight}: ${bodyS.fontWeight};
+                ${sliderTokens.textFieldLetterSpacing}: ${bodyS.letterSpacing};
+                ${sliderTokens.textFieldLineHeight}: ${bodyS.lineHeight};
             `,
         },
         disabled: {

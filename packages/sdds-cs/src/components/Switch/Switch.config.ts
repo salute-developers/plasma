@@ -1,3 +1,18 @@
+import {
+    bodyM,
+    bodyS,
+    bodyXS,
+    outlineAccent,
+    outlineAccentHover,
+    outlineSolidPrimary,
+    outlineSolidPrimaryHover,
+    surfaceAccent,
+    surfaceAccentHover,
+    surfaceSolidCard,
+    surfaceSolidCardHover,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, switchTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -11,18 +26,18 @@ export const config = {
     variations: {
         size: {
             s: css`
-                ${switchTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${switchTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${switchTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${switchTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
-                ${switchTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${switchTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
-                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${switchTokens.fontFamily}: ${bodyM.fontFamily};
+                ${switchTokens.fontStyle}: ${bodyM.fontStyle};
+                ${switchTokens.fontWeight}: ${bodyM.fontWeight};
+                ${switchTokens.lineHeight}: ${bodyM.lineHeight};
+                ${switchTokens.fontSize}: ${bodyM.fontSize};
+                ${switchTokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${switchTokens.descriptionFontFamily}: ${bodyS.fontFamily};
+                ${switchTokens.descriptionFontStyle}: ${bodyS.fontStyle};
+                ${switchTokens.descriptionFontWeight}: ${bodyS.fontWeight};
+                ${switchTokens.descriptionLineHeight}: ${bodyS.lineHeight};
+                ${switchTokens.descriptionFontSize}: ${bodyS.fontSize};
+                ${switchTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
@@ -51,21 +66,21 @@ export const config = {
         },
         view: {
             default: css`
-                ${switchTokens.labelColor}: var(--text-primary);
-                ${switchTokens.descriptionColor}: var(--text-secondary);
+                ${switchTokens.labelColor}: ${textPrimary};
+                ${switchTokens.descriptionColor}: ${textSecondary};
                 ${switchTokens.descriptionMaxLines}: 2;
-                ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
-                ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
-                ${switchTokens.trackBackgroundColorOff}: var(--surface-solid-card);
-                ${switchTokens.trackBackgroundColorOffHover}: var(--surface-solid-card-hover);
+                ${switchTokens.trackBackgroundColorOn}: ${surfaceAccent};
+                ${switchTokens.trackBackgroundColorOnHover}: ${surfaceAccentHover};
+                ${switchTokens.trackBackgroundColorOff}: ${surfaceSolidCard};
+                ${switchTokens.trackBackgroundColorOffHover}: ${surfaceSolidCardHover};
                 ${switchTokens.trackBorderWidthOn}: 0;
                 ${switchTokens.trackBorderWidthOff}: 0.125rem;
-                ${switchTokens.trackBorderColorOn}: var(--outline-accent);
-                ${switchTokens.trackBorderColorOnHover}: var(--outline-accent-hover);
-                ${switchTokens.trackBorderColorOff}: var(--outline-solid-primary);
-                ${switchTokens.trackBorderColorOffHover}: var(--outline-solid-primary-hover);
-                ${switchTokens.thumbBackgroundColorOn}: var(--surface-solid-card);
-                ${switchTokens.thumbBackgroundColorOff}: var(--surface-accent);
+                ${switchTokens.trackBorderColorOn}: ${outlineAccent};
+                ${switchTokens.trackBorderColorOnHover}: ${outlineAccentHover};
+                ${switchTokens.trackBorderColorOff}: ${outlineSolidPrimary};
+                ${switchTokens.trackBorderColorOffHover}: ${outlineSolidPrimaryHover};
+                ${switchTokens.thumbBackgroundColorOn}: ${surfaceSolidCard};
+                ${switchTokens.thumbBackgroundColorOff}: ${surfaceAccent};
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,
         },
@@ -76,7 +91,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${switchTokens.trackFocusColor}: var(--surface-accent);
+                ${switchTokens.trackFocusColor}: ${surfaceAccent};
             `,
         },
     },

@@ -1,3 +1,9 @@
+import {
+    bodyS,
+    inverseSurfaceSolidCard,
+    inverseTextPrimary,
+    onDarkSurfaceSolidSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, tooltipTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -16,12 +22,12 @@ export const config = {
                 ${tooltipTokens.minHeight}: 2rem;
                 ${tooltipTokens.borderRadius}: 0.5rem;
 
-                ${tooltipTokens.textFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tooltipTokens.textFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tooltipTokens.textFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tooltipTokens.textFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tooltipTokens.textFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tooltipTokens.textFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tooltipTokens.textFontFamily}: ${bodyS.fontFamily};
+                ${tooltipTokens.textFontSize}: ${bodyS.fontSize};
+                ${tooltipTokens.textFontStyle}: ${bodyS.fontStyle};
+                ${tooltipTokens.textFontWeight}: ${bodyS.fontWeight};
+                ${tooltipTokens.textFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tooltipTokens.textFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tooltipTokens.contentLeftMargin}: 0.25rem;
 
@@ -35,16 +41,16 @@ export const config = {
         view: {
             // TODO заменить тень на токен https://github.com/salute-developers/plasma/issues/1131
             default: css`
-                ${tooltipTokens.backgroundColor}: var(--inverse-surface-solid-card);
-                ${tooltipTokens.arrowBackground}: var(--inverse-surface-solid-card);
+                ${tooltipTokens.backgroundColor}: ${inverseSurfaceSolidCard};
+                ${tooltipTokens.arrowBackground}: ${inverseSurfaceSolidCard};
                 ${tooltipTokens.boxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);
-                ${tooltipTokens.color}: var(--inverse-text-primary);
+                ${tooltipTokens.color}: ${inverseTextPrimary};
             `,
             secondary: css`
-                ${tooltipTokens.backgroundColor}: var(--on-dark-surface-solid-secondary);
-                ${tooltipTokens.arrowBackground}: var(--on-dark-surface-solid-secondary);
+                ${tooltipTokens.backgroundColor}: ${onDarkSurfaceSolidSecondary};
+                ${tooltipTokens.arrowBackground}: ${onDarkSurfaceSolidSecondary};
                 ${tooltipTokens.boxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);
-                ${tooltipTokens.color}: var(--inverse-text-primary);
+                ${tooltipTokens.color}: ${inverseTextPrimary};
             `,
         },
     },

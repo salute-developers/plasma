@@ -1,3 +1,14 @@
+import {
+    bodyM,
+    bodyMBold,
+    bodyS,
+    outlineSolidPrimary,
+    surfaceSolidCard,
+    textAccent,
+    textAccentMinor,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,13 +19,13 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${notificationTokens.titleColor}: var(--text-primary);
-                ${notificationTokens.contentLeftIconColor}: var(--text-primary);
-                ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-solid-card);
+                ${notificationTokens.titleColor}: ${textPrimary};
+                ${notificationTokens.contentLeftIconColor}: ${textPrimary};
+                ${notificationTokens.contentColor}: ${textSecondary};
+                ${notificationTokens.background}: ${surfaceSolidCard};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.75rem;
-                ${notificationTokens.borderColor}: var(--outline-solid-primary);
+                ${notificationTokens.borderColor}: ${outlineSolidPrimary};
 
                 ${notificationTokens.contentPaddingTop}: 0.125rem;
                 ${notificationTokens.contentPaddingRight}: 0.25rem;
@@ -41,22 +52,22 @@ export const config = {
                 ${notificationTokens.contentLeftIconMargin}: 0.25rem;
                 ${notificationTokens.contentTopIconMargin}: 0.25rem;
 
-                ${notificationTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.contentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${notificationTokens.contentFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.contentFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.contentFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.contentFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.contentFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.contentFontWeight}: ${bodyS.fontWeight};
+                ${notificationTokens.contentFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.contentFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.titleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${notificationTokens.titleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${notificationTokens.titleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${notificationTokens.titleFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${notificationTokens.titleFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${notificationTokens.titleFontFamily}: ${bodyM.fontFamily};
+                ${notificationTokens.titleFontSize}: ${bodyM.fontSize};
+                ${notificationTokens.titleFontStyle}: ${bodyM.fontStyle};
+                ${notificationTokens.titleFontWeight}: ${bodyMBold.fontWeight};
+                ${notificationTokens.titleFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${notificationTokens.titleFontLineHeight}: ${bodyM.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-accent);
-                ${notificationTokens.closeIconColorOnHover}:var(--text-accent-minor);
+                ${notificationTokens.closeIconColor}: ${textAccent};
+                ${notificationTokens.closeIconColorOnHover}:${textAccentMinor};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.5rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;

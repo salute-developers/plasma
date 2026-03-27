@@ -1,3 +1,13 @@
+import {
+    bodyS,
+    bodySBold,
+    surfaceAccent,
+    surfaceSolidCard,
+    textAccent,
+    textAccentMinor,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,36 +18,36 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${segmentTokens.itemColor}: var(--text-accent);
+                ${segmentTokens.itemColor}: ${textAccent};
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-accent-minor);
+                ${segmentTokens.itemColorHover}: ${textAccentMinor};
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemAdditionalColor}: var(--text-accent-minor);
-                ${segmentTokens.itemAdditionalColorHover}: var(--text-accent-minor);
-                ${segmentTokens.itemSelectedColor}: var(--text-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
-                ${segmentTokens.itemSelectedAdditionalColor}: var(--text-secondary);
-                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemAdditionalColor}: ${textAccentMinor};
+                ${segmentTokens.itemAdditionalColorHover}: ${textAccentMinor};
+                ${segmentTokens.itemSelectedColor}: ${textPrimary};
+                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceSolidCard};
+                ${segmentTokens.itemSelectedColorHover}: ${textPrimary};
+                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidCard};
+                ${segmentTokens.itemSelectedAdditionalColor}: ${textSecondary};
+                ${segmentTokens.itemSelectedAdditionalColorHover}: ${textSecondary};
 
-                ${segmentTokens.outlineFocusColor}: var(--surface-accent);
+                ${segmentTokens.outlineFocusColor}: ${surfaceAccent};
             `,
             secondary: css`
-                ${segmentTokens.itemColor}: var(--text-accent);
+                ${segmentTokens.itemColor}: ${textAccent};
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-accent-minor);
+                ${segmentTokens.itemColorHover}: ${textAccentMinor};
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemAdditionalColor}: var(--text-accent-minor);
-                ${segmentTokens.itemAdditionalColorHover}: var(--text-accent-minor);
-                ${segmentTokens.itemSelectedColor}: var(--text-accent);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--text-accent-minor);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
-                ${segmentTokens.itemSelectedAdditionalColor}: var(--text-accent-minor);
-                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-accent-minor);
+                ${segmentTokens.itemAdditionalColor}: ${textAccentMinor};
+                ${segmentTokens.itemAdditionalColorHover}: ${textAccentMinor};
+                ${segmentTokens.itemSelectedColor}: ${textAccent};
+                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceSolidCard};
+                ${segmentTokens.itemSelectedColorHover}: ${textAccentMinor};
+                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidCard};
+                ${segmentTokens.itemSelectedAdditionalColor}: ${textAccentMinor};
+                ${segmentTokens.itemSelectedAdditionalColorHover}: ${textAccentMinor};
 
-                ${segmentTokens.outlineFocusColor}: var(--surface-accent);
+                ${segmentTokens.outlineFocusColor}: ${surfaceAccent};
             `,
         },
         size: {
@@ -51,12 +61,12 @@ export const config = {
                 ${segmentTokens.itemIconMargin}: 0.25rem;
                 ${segmentTokens.itemMarginLeft}: 0rem;
 
-                ${segmentTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${segmentTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${segmentTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${segmentTokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${segmentTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${segmentTokens.fontFamily}: ${bodyS.fontFamily};
+                ${segmentTokens.fontSize}: ${bodyS.fontSize};
+                ${segmentTokens.fontStyle}: ${bodyS.fontStyle};
+                ${segmentTokens.fontWeight}: ${bodySBold.fontWeight};
+                ${segmentTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${segmentTokens.lineHeight}: ${bodyS.lineHeight};
             `,
         },
         disabled: {

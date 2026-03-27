@@ -1,3 +1,12 @@
+import {
+    bodyM,
+    inverseTextPrimary,
+    onDarkTextPrimary,
+    surfaceAccent,
+    surfaceSolidDefault,
+    surfaceSolidPrimary,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, chipGroupTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,28 +17,28 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.chipColor}: var(--inverse-text-primary);
-                ${tokens.chipBackground}: var(--surface-solid-default);
-                ${tokens.chipColorHover}: var(--inverse-text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-solid-default);
-                ${tokens.chipColorActive}: var(--inverse-text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-solid-default);
+                ${tokens.chipColor}: ${inverseTextPrimary};
+                ${tokens.chipBackground}: ${surfaceSolidDefault};
+                ${tokens.chipColorHover}: ${inverseTextPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceSolidDefault};
+                ${tokens.chipColorActive}: ${inverseTextPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceSolidDefault};
             `,
             secondary: css`
-                ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-solid-primary);
-                ${tokens.chipColorHover}: var(--text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-solid-primary);
-                ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-solid-primary);
+                ${tokens.chipColor}: ${textPrimary};
+                ${tokens.chipBackground}: ${surfaceSolidPrimary};
+                ${tokens.chipColorHover}: ${textPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceSolidPrimary};
+                ${tokens.chipColorActive}: ${textPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceSolidPrimary};
             `,
             accent: css`
-                ${tokens.chipColor}: var(--on-dark-text-primary);
-                ${tokens.chipBackground}: var(--surface-accent);
-                ${tokens.chipColorHover}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-accent);
-                ${tokens.chipColorActive}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-accent);
+                ${tokens.chipColor}: ${onDarkTextPrimary};
+                ${tokens.chipBackground}: ${surfaceAccent};
+                ${tokens.chipColorHover}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceAccent};
+                ${tokens.chipColorActive}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceAccent};
             `,
         },
         size: {
@@ -39,12 +48,12 @@ export const config = {
                 ${tokens.chipHeight}: 2.5rem;
                 ${tokens.chipPadding}: 0 1rem;
 
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.chipFontFamily}: ${bodyM.fontFamily};
+                ${tokens.chipFontSize}: ${bodyM.fontSize};
+                ${tokens.chipFontStyle}: ${bodyM.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyM.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.chipLeftContentMarginLeft}: -0.25rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
