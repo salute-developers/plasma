@@ -1,5 +1,18 @@
 {
-    "PACKAGES_CYPRESS": ["plasma-web", "plasma-giga", "plasma-b2c", "plasma-ui", "sdds-cs", "sdds-insol"],
+    "PACKAGES_CYPRESS": [
+        "plasma-web",
+        "plasma-giga",
+        "plasma-b2c",
+        "plasma-ui",
+        "sdds-cs",
+        "sdds-insol",
+        "sdds-serv",
+        "sdds-scan",
+        "sdds-os",
+        "sdds-platform-ai",
+        "sdds-finai",
+        "plasma-homeds"
+    ],
     "PACKAGES_DS": [
         "plasma-web",
         "plasma-b2c",

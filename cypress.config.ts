@@ -16,7 +16,7 @@ if (!packageName) {
 
 const baseTestMatch = '**/*.component-test.{ts,tsx}';
 const retriesCount = Number(retries);
-const productName = packageName.split('-').slice(1);
+const productName = packageName.split('-').slice(1).join('-');
 const snapshotsDir = `cypress/snapshots/${productName}/`;
 
 const getTestMatch = () => {
