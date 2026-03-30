@@ -9,6 +9,7 @@ export const classes = {
     selectWithoutBoxShadow: 'select-without-box-shadow',
     selectSpinner: 'select-spinner',
     readOnly: 'readonly',
+    singleLineMode: 'select-singleline-mode',
 };
 
 export const tokens = {

@@ -81,6 +81,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             shift,
             flip,
             chipClickArea,
+            singleLine,
             // @ts-ignore
             _offset,
 
@@ -447,6 +448,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                         dispatchTreePath,
                         arrowPlacement,
                         valueToPathMap,
+                        singleLine,
                     }}
                 >
                     <FloatingPopover
