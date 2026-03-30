@@ -101,6 +101,11 @@ const meta: Meta<StorySelectProps> = {
                 type: 'select',
             },
         },
+        singleLine: {
+            control: {
+                type: 'boolean',
+            },
+        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -134,6 +139,7 @@ const meta: Meta<StorySelectProps> = {
         hasRequiredIndicator: false,
         emptyStateDescription: '',
         mode: 'default',
+        singleLine: true,
     },
     parameters: {
         controls: {
@@ -163,6 +169,7 @@ const meta: Meta<StorySelectProps> = {
                 'hasRequiredIndicator',
                 'emptyStateDescription',
                 'mode',
+                'singleLine',
             ],
         },
     },

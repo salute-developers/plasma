@@ -79,6 +79,7 @@ const includeParams = [
     'mode',
     'treeView',
     'arrowPlacement',
+    'singleLine',
 ];
 
 const meta: Meta<StorySelectProps> = {
@@ -231,6 +232,11 @@ const meta: Meta<StorySelectProps> = {
             },
             if: { arg: 'treeView', truthy: true },
         },
+        singleLine: {
+            control: {
+                type: 'boolean',
+            },
+        },
     },
     args: {
         label: 'Label',
@@ -263,6 +269,7 @@ const meta: Meta<StorySelectProps> = {
         mode: 'default',
         treeView: false,
         arrowPlacement: 'left',
+        singleLine: true,
     },
     parameters: {
         controls: {

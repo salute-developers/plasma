@@ -1,9 +1,16 @@
 import type { KeyboardEvent, Dispatch } from 'react';
 import React from 'react';
 import { isEmpty } from 'src/utils';
-import { keyExists } from 'src/components/Select/reducers';
 
-import { PathAction, PathState, FocusedPathAction, FocusedPathState, TreePathState, TreePathAction } from '../reducers';
+import {
+    keyExists,
+    PathAction,
+    PathState,
+    FocusedPathAction,
+    FocusedPathState,
+    TreePathState,
+    TreePathAction,
+} from '../reducers';
 import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
 
 import { PathMapType, FocusedToValueMapType, ValueToItemMapType } from './getPathMaps';

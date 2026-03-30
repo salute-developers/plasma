@@ -1346,6 +1346,62 @@ describeFn('Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('singleLine=false, treeView=false', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="combobox" placeholder="Placeholder" items={items} listWidth="150px" />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=false, treeView=true', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="combobox" placeholder="Placeholder" items={items} treeView listWidth="150px" />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=true, treeView=false', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="combobox" placeholder="Placeholder" items={items} listWidth="150px" singleLine />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=true, treeView=true', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="combobox" placeholder="Placeholder" items={items} treeView listWidth="150px" singleLine />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('behavior: disabled unselected item', () => {
         const disabledItems = [
             {
