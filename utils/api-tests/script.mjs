@@ -13,11 +13,11 @@ const config = {
     libs: [
         {
             name: '@salutejs/plasma-b2c',
-            ignoreComponents: ['Combobox'],
+            ignoreComponents: ['Combobox', 'TextField'],
         },
         {
             name: '@salutejs/plasma-web',
-            ignoreComponents: ['Combobox'],
+            ignoreComponents: ['Combobox', 'TextField'],
         },
         {
             name: '@salutejs/plasma-giga',
