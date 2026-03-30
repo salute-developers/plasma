@@ -37,7 +37,7 @@ export const getWebpackConfig = () => {
         cache,
         mode: 'development',
         target: 'web',
-        devtool: 'eval-source-map',
+        devtool: browser === 'webkit' ? false : 'eval-source-map',
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
             modules: ['node_modules'],
