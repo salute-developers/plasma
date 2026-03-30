@@ -3,7 +3,7 @@ import { css, noteTokens as tokens } from '@salutejs/plasma-new-hope/styled-comp
 export const config = {
     defaults: {
         view: 'default',
-        size: 'l',
+        size: 'm',
     },
     variations: {
         view: {
