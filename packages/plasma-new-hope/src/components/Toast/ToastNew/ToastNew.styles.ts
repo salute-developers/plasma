@@ -21,6 +21,7 @@ export const Toast = styled.div<{ width: CSSProperties['width']; textColor: CSSP
     border-radius: var(${tokens.borderRadius});
     max-width: var(${tokens.maxWidth});
     width: ${({ width }) => width || 'auto'};
+    box-shadow: var(${tokens.boxShadow});
 
     font-family: var(${tokens.fontFamily});
     font-size: var(${tokens.fontSize});
