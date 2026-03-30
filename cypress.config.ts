@@ -8,7 +8,7 @@ const CORE_TESTS_DIR = 'plasma-new-hope';
 
 const supportFilePath = path.resolve(__dirname, 'cypress', 'support', 'index.ts');
 
-const { PACKAGE_NAME: packageName, COMPONENTS: components, RETRIES: retries = 5 } = process.env;
+const { PACKAGE_NAME: packageName, COMPONENTS: components, RETRIES: retries = 5, BROWSER: browser } = process.env;
 
 if (!packageName) {
     throw new Error('Provide PACKAGE env to cli command');
@@ -72,5 +72,5 @@ export default defineConfig({
     video: false,
     viewportWidth: 500,
     viewportHeight: 500,
-    chromeWebSecurity: false,
+    ...(browser !== 'webkit' && { chromeWebSecurity: false }),
 });
