@@ -10,7 +10,7 @@ import { ToastController, ToastProvider } from './Toast';
 
 import { Toast, useToast } from '.';
 
-const views = ['default'];
+const views = ['default', 'positive', 'negative', 'info'];
 
 const meta: Meta<typeof ToastController> = {
     title: 'Overlay/Toast',
@@ -26,7 +26,7 @@ const meta: Meta<typeof ToastController> = {
             control: 'color',
         },
         // NOTE: контролы 'textColor' и 'view' скрыты для сторибуков sdds-cs и sdds-insol
-        ...disableProps(['textColor', 'view', 'closeIconType', 'size', 'role', 'onShow', 'onHide', 'contentLeft']),
+        ...disableProps(['textColor', 'closeIconType', 'size', 'role', 'onShow', 'onHide', 'contentLeft']),
     },
 };
 

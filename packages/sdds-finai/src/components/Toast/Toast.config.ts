@@ -11,6 +11,37 @@ export const config = {
             default: css`
                 ${toastTokens.color}: var(--text-primary);
                 ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.boxShadow}: var(--shadow-down-hard-s);
+
+                ${toastTokens.closeIconColor}: var(--text-secondary);
+                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+            `,
+            positive: css`
+                ${toastTokens.color}: var(--text-primary);
+                ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.boxShadow}: var(--shadow-down-hard-s);
+
+                ${toastTokens.contentLeftColor}: var(--text-positive);
+
+                ${toastTokens.closeIconColor}: var(--text-secondary);
+                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+            `,
+            negative: css`
+                ${toastTokens.color}: var(--text-primary);
+                ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.boxShadow}: var(--shadow-down-hard-s);
+
+                ${toastTokens.contentLeftColor}: var(--text-negative);
+
+                ${toastTokens.closeIconColor}: var(--text-secondary);
+                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+            `,
+            info: css`
+                ${toastTokens.color}: var(--text-primary);
+                ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.boxShadow}: var(--shadow-down-hard-s);
+
+                ${toastTokens.contentLeftColor}: var(--text-info);
 
                 ${toastTokens.closeIconColor}: var(--text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
