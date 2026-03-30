@@ -8,7 +8,6 @@ import { Context } from '../../../../Combobox.context';
 
 import { ItemProps } from './Item.types';
 import {
-    StyledWrapper,
     StyledText,
     Wrapper,
     DisclosureIconWrapper,
@@ -46,6 +45,7 @@ export const Item: FC<ItemProps> = ({
         renderItem,
         renderSelectionIcon,
         treeId,
+        singleLine,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         _checkboxAppearance,
@@ -129,17 +129,12 @@ export const Item: FC<ItemProps> = ({
             {renderItem ? (
                 <StyledText>{renderItem(item)}</StyledText>
             ) : (
-                <StyledWrapper>
-                    <StyledCell
-                        view="default"
-                        size="l"
-                        contentLeft={contentLeft}
-                        contentRight={contentRight}
-                        alignContentLeft="center"
-                        alignContentRight="center"
-                        title={label}
-                    />
-                </StyledWrapper>
+                <StyledCell
+                    contentLeft={contentLeft}
+                    contentRight={contentRight}
+                    title={label}
+                    className={singleLine ? classes.singleLineMode : ''}
+                />
             )}
 
             {!isEmpty(item.items) && (

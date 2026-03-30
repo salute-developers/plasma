@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
-import { SelectProps } from 'src/components/Select';
 
+import { ComboboxProps } from '../../Combobox.types';
 import { constants, tokens } from '../../Combobox.tokens';
 
 export const ListWrapper = styled.div`
@@ -14,7 +14,7 @@ export const ListWrapper = styled.div`
 `;
 
 export const ScrollContainer = styled.div<{
-    listMaxHeight?: SelectProps['listMaxHeight'];
+    listMaxHeight?: ComboboxProps['listMaxHeight'];
 }>`
     max-height: ${({ listMaxHeight }) => listMaxHeight || 'auto'};
     overflow-x: hidden;

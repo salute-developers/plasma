@@ -10,6 +10,7 @@ export const classes = {
     selectItemCheckbox: 'combobox-item-checkbox',
     selectSpinner: 'combobox-spinner',
     emptyStateWrapper: 'combobox-empty-state-wrapper',
+    singleLineMode: 'combobox-singleline-mode',
 };
 
 export const tokens = {
