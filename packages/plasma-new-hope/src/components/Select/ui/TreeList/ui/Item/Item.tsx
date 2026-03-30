@@ -18,7 +18,6 @@ import {
     StyledIndicator,
     StyledIconDone,
     StyledText,
-    StyledWrapper,
     StyledCell,
     DisclosureIconWrapper,
     StyledArrowRight,
@@ -47,6 +46,7 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
         handleItemClick,
         handleCheckboxChange,
         valueToPathMap,
+        singleLine,
     } = useContext(Context);
 
     const itemDisabled = Boolean(disabled || isDisabled);
@@ -140,16 +140,12 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
                 {renderItem ? (
                     <StyledText>{renderItem(item)}</StyledText>
                 ) : (
-                    <StyledWrapper disabled={itemDisabled}>
-                        <StyledCell
-                            contentLeft={contentLeft}
-                            contentRight={contentRight}
-                            // TODO: #1548
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            title={<span>{label}</span>}
-                        />
-                    </StyledWrapper>
+                    <StyledCell
+                        contentLeft={contentLeft}
+                        contentRight={contentRight}
+                        title={label}
+                        className={singleLine ? classes.singleLineMode : ''}
+                    />
                 )}
 
                 {!multiselect && arrowPlacement === 'left' && (

@@ -948,6 +948,62 @@ describeFn('Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('singleLine=false, treeView=false', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="select" placeholder="Placeholder" items={items} listWidth="200px" />
+            </div>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=false, treeView=true', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="select" placeholder="Placeholder" items={items} treeView listWidth="200px" />
+            </div>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=true, treeView=false', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="select" placeholder="Placeholder" items={items} listWidth="200px" singleLine />
+            </div>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=true, treeView=true', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="select" placeholder="Placeholder" items={items} treeView listWidth="200px" singleLine />
+            </div>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
     it('basic logic', () => {
         cy.viewport(1000, 500);
 
