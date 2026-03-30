@@ -47,7 +47,7 @@ const getTestMatch = () => {
 export default defineConfig({
     experimentalWebKitSupport: true,
     component: {
-        numTestsKeptInMemory: 5,
+        numTestsKeptInMemory: browser === 'webkit' ? 2 : 5,
         specPattern: getTestMatch(),
         supportFile: supportFilePath,
         devServer: {
