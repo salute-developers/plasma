@@ -25,6 +25,7 @@ jobs:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
       browser: ${{ matrix.browser }}
+      test-all: true
       with-artifacts: true
     secrets: inherit
 
@@ -41,5 +42,6 @@ jobs:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
       browser: ${{ matrix.browser }}
+      test-all: true
       with-artifacts: true
     secrets: inherit

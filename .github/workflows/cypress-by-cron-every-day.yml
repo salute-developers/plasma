@@ -18,6 +18,7 @@ jobs:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
       browser: ${{ matrix.browser }}
+      test-all: true
     secrets: inherit
 
   cypress_sdds:
@@ -33,4 +34,5 @@ jobs:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
       browser: ${{ matrix.browser }}
+      test-all: true
     secrets: inherit
