@@ -26,9 +26,6 @@ const config = {
             name: '@salutejs/sdds-bizcom',
         },
         {
-            name: '@salutejs/sdds-crm',
-        },
-        {
             name: '@salutejs/sdds-cs',
         },
         {
