@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scope: [web,b2c,ui,giga]
+        scope: [web,b2c,ui,giga,homeds]
         browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
@@ -34,7 +34,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scope: [cs,insol]
+        scope: [cs,insol,os,finai,platform-ai,scan,serv]
         browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
