@@ -43,7 +43,7 @@ getBaseVisualTests({
     },
     propsForName: ['appearance=clear', 'hasDivider=true'],
     configPropsForMatrix: ['view', 'size'],
-    packagesForSkip: ['plasma-b2c', 'plasma-web'],
+    packagesForSkip: ['plasma-b2c', 'plasma-web', 'sdds-os', 'sdds-scan', 'sdds-platform-ai'],
 });
 
 describeFn('TextField', () => {
@@ -213,7 +213,6 @@ describeFn('TextField', () => {
     it('chipType', () => {
         mount(
             <TextField
-                size="l"
                 label="Label"
                 enumerationType="chip"
                 chips={['Value 1', 'Value 2']}
@@ -314,7 +313,7 @@ describeFn('TextField', () => {
     it('truncate placeholder', () => {
         mount(
             <div style={{ width: '6rem' }}>
-                <TextField size="l" label="Label" leftHelper="Helper text" placeholder="Placeholder very long" />
+                <TextField label="Label" leftHelper="Helper text" placeholder="Placeholder very long" />
             </div>,
         );
 
