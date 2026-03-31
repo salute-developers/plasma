@@ -1,6 +1,6 @@
 import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_sbcom__dark, sdds_sbcom__light } from '@salutejs/sdds-themes/es/themes';
+import { sdds_sbcom__dark, sdds_sbcom__light } from '@salutejs-ds/sdds_sbcom';
 import { InSpacingDecorator, getGroupedCornerRadiusTokens } from '@salutejs/plasma-sb-utils';
 import type { GroupedNumberTokens } from '@salutejs/plasma-sb-utils';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react-vite';
 import { createGlobalStyle } from 'styled-components';
-import { sdds_sbcom__light, sdds_sbcom__dark } from '@salutejs/sdds-themes';
+import { sdds_sbcom__light, sdds_sbcom__dark } from '@salutejs-ds/sdds_sbcom';
 
-import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
+import { ViewContainer } from '../src';
 
 const DocumentStyle = createGlobalStyle`
     html:root {
