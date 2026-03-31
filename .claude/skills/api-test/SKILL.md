@@ -8,26 +8,20 @@ allowed-tools: Glob, Grep, Read, Write, Edit, Bash, Agent
 # Создание API type-check теста для компонента **\$ARGUMENTS**
 
 Тесты проверяют публичный API (типы пропсов) компонента через `expectTypeOf` из `expect-type`.
-Исходный файл пишется для `@salutejs/plasma-b2c`, затем `script.mjs` автоматически генерирует варианты для всех 13 библиотек.
+Исходный файл пишется для `@salutejs/plasma-b2c`, затем `script.mjs` автоматически генерирует варианты для всех библиотек.
 
 ## Архитектурный контекст
 
 -   Тесты: `utils/api-tests/src/components/{ComponentName}/{ComponentName}.api.test.tsx`
 -   `utils/api-tests/script.mjs` копирует тесты из `src/` в `tests/{lib}/`, заменяя импорт `@salutejs/plasma-b2c` на каждую целевую библиотеку
--   Поэтому **тесты должны использовать типы из `plasma-new-hope`** (общий знаменатель), а НЕ b2c-специфичные
--   Библиотеки `plasma-b2c` и `plasma-web` могут оборачивать компоненты с другой типовой поверхностью — тогда компонент добавляется в `ignoreComponents` в `script.mjs`
 
 ---
 
 ## Шаг 1 — Найти определение типов компонента
 
-1. Найти экспорт компонента в `packages/plasma-b2c/src/components/$ARGUMENTS/`
-2. Проследить цепочку типов:
-    - `plasma-b2c` → может использовать типы из `@salutejs/plasma-hope` и/или `@salutejs/plasma-new-hope`
-    - Прочитать файлы с типами (`.tsx`, `*.types.ts`) чтобы собрать полный список пропсов
-3. Найти основные типы в `packages/plasma-new-hope/src/components/$ARGUMENTS/*.types.ts`
-4. Проверить реализацию в sdds-пакете (например `packages/sdds-serv/src/components/$ARGUMENTS/`) — чтобы понять реальный `ComponentProps`
-5. Обратить внимание на:
+1. Найти экспорт компонента в `packages/plasma-b2c`
+2. Найти основные типы в `packages/plasma-new-hope/src/components/$ARGUMENTS/*.types.ts` либо во внутренних папках компонента.
+3. Обратить внимание на:
     - Дискриминированные юнионы (conditional props)
     - Пропсы из `Pick<>` от новых типов
     - Наследование от HTML-элементов (`HTMLInputElement`, `HTMLButtonElement`, `HTMLDivElement`)
@@ -35,27 +29,7 @@ allowed-tools: Glob, Grep, Read, Write, Edit, Bash, Agent
 
 ---
 
-## Шаг 2 — Проверить совместимость b2c
-
-Сравнить обёртку b2c с типами new-hope.
-
-**b2c имеет отличающиеся типы когда:**
-
--   b2c импортирует типы из `@salutejs/plasma-hope` (старые типы)
--   b2c определяет кастомные типы через `Omit`, `Pick`, type aliases
--   b2c добавляет пропсы, которых нет в new-hope (`status`, `caption`, `helperText`, `animatedHint`, `hintTarget`)
--   b2c меняет тип пропса (например `label: string | number` vs `label: string`)
-
-**b2c имеет те же типы когда:**
-
--   b2c просто делает `mergeConfig` + `component` + экспортирует типы из new-hope
--   b2c реэкспортирует типы: `export type { XProps } from '@salutejs/plasma-new-hope/...'`
-
-Если типы отличаются — на шаге 5 предложить добавить компонент в `ignoreComponents`.
-
----
-
-## Шаг 3 — Создать файл теста
+## Шаг 2 — Создать файл теста
 
 Путь: `utils/api-tests/src/components/$ARGUMENTS/$ARGUMENTS.api.test.tsx`
 
@@ -63,7 +37,7 @@ allowed-tools: Glob, Grep, Read, Write, Edit, Bash, Agent
 
 ```tsx
 import * as React from 'react';
-import type { ComponentProps, ReactNode, CSSProperties, AriaRole /*, другие нужные типы */ } from 'react';
+import type { ComponentProps, ReactNode, CSSProperties, AriaRole /*, другие нужные утилитарные типы */ } from 'react';
 // Добавить useState если секция Examples использует его:
 // import { useState } from 'react';
 import { describe, it } from 'vitest';
@@ -273,7 +247,7 @@ describe('Examples', () => {
 
 ---
 
-## Шаг 4 — Запуск и валидация
+## Шаг 3 — Запуск и валидация
 
 Запустить полный цикл тестов (генерация + typecheck):
 
@@ -287,17 +261,6 @@ cd utils/api-tests && npm test
 Рантайм ошибки `Cannot find module 'styled-components'` — ожидаемые, игнорировать.
 
 Если есть ошибки типов — внимательно прочитать полный вывод (строки с `TypeCheckError`), исправить ассерты в `src/` файле (не в компоненте) и перезапустить.
-
----
-
-## Шаг 5 — Предложить ignoreComponents (если нужно)
-
-Если на шаге 2 обнаружены расхождения b2c с new-hope, сообщить:
-
-> Компонент $ARGUMENTS в plasma-b2c имеет отличающуюся типовую поверхность: (перечислить отличия).
-> Рекомендую добавить '$ARGUMENTS' в `ignoreComponents` для `plasma-b2c` и `plasma-web` в `utils/api-tests/script.mjs`.
-
-Показать точный edit, но **НЕ применять автоматически**.
 
 ---
 
@@ -324,7 +287,6 @@ cd utils/api-tests && npm test
 -   [ ] Дискриминированные юнионы покрыты в `Unions` с `@ts-expect-error`
 -   [ ] JSX-примеры в `Examples`
 -   [ ] Тесты проходят typecheck (`Type Errors: no errors`)
--   [ ] Проверена совместимость b2c — при расхождениях предложен `ignoreComponents`
 
 ---
 
