@@ -395,13 +395,13 @@ describeFn('Calendar', () => {
         cy.matchImageSnapshot();
     });
 
-    it.skip('locale: en', () => {
+    itSkipForWebkit('locale: en', () => {
         mount(
-            <div style={{ width: '500px', height: '570px', overflow: 'hidden' }}>
+            <>
                 <Demo baseValue={baseDate} locale="en" type="Days" />
                 <PadMe />
                 <Demo baseValue={baseDate} locale="en" type="Months" />
-            </div>,
+            </>,
         );
 
         cy.viewport(500, 570);
