@@ -1,6 +1,5 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
-import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 import * as path from 'node:path';
 
 const config: StorybookConfig = {
@@ -36,12 +35,10 @@ const config: StorybookConfig = {
                         return null;
                     },
                 },
-                viteCommonjs({
-                    include: ['@salutejs/sdds-themes/tokens/sdds_cs'],
-                }),
             ],
             resolve: {
                 dedupe: ['react', 'react-dom'],
+                preserveSymlinks: true,
                 alias: {
                     '@salutejs/plasma-sb-utils': path.resolve('../../utils/plasma-sb-utils/src'),
                 },
