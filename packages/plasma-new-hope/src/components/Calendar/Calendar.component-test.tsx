@@ -216,7 +216,7 @@ describeFn('Calendar', () => {
 
     it('default', () => {
         mount(
-            <div style={{ width: '500px', height: '1134px' }}>
+            <div style={{ width: '500px', height: '1134px', overflow: 'hidden' }}>
                 <Demo baseValue={baseDate} type="Days" />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Months" />
@@ -233,7 +233,7 @@ describeFn('Calendar', () => {
 
     it('default: double calendar', () => {
         mount(
-            <div style={{ width: '1200px', height: '1134px' }}>
+            <div style={{ width: '1200px', height: '1134px', overflow: 'hidden' }}>
                 <Demo baseValue={baseDate} type="Days" displayDouble />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Months" displayDouble />
