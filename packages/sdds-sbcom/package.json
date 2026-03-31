@@ -27,8 +27,8 @@
     "directory": "packages/sdds-sbcom"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.356.0",
-    "@salutejs/sdds-themes": "0.60.0"
+    "@salutejs-ds/sdds_sbcom": "0.1.2",
+    "@salutejs/plasma-new-hope": "0.356.0"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
@@ -48,7 +48,6 @@
     "@linaria/react": "5.0.3",
     "@linaria/rollup": "5.0.4",
     "@linaria/vite": "5.0.4",
-    "@microsoft/api-extractor": "7.38.3",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",

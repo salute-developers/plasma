@@ -13,7 +13,7 @@
 ### Установка зависимостей
 
 ```bash
-$ npm install --save @salutejs/sdds-sbcom @salutejs/sdds-themes
+$ npm install --save @salutejs/sdds-sbcom @salutejs-ds/sdds_sbcom
 ```
 
 ### Использование компонентов
@@ -100,7 +100,7 @@ export default function Home() {
 В файле, где происходит подключение всех стилей, например `index.css`
 
 ```css index.css
-@import '@salutejs/sdss-themes/css/sdds_sbcom__light.css';
+@import '@salutejs-ds/sdds_sbcom/css/sdds_sbcom__light.css';
 ```
 
 ```jsx
@@ -154,7 +154,7 @@ export default App;
 В файле, где происходит подключение всех стилей, например `index.css`
 
 ```css
-@import '@salutejs/sdss-themes/css/sdds_sbcom__light.css';
+@import '@salutejs-ds/sdds_sbcom/css/sdds_sbcom__light.css';
 ```
 
 ### Возможные дополнительные настройки в проекте для работы с css:
@@ -177,7 +177,12 @@ Next не разрешает импорт CSS из сторонних модул
 ```js
 const nextConfig = {
     reactStrictMode: true,
-    transpilePackages: ['@salutejs/sdds-sbcom', '@salutejs/plasma-new-hope', '@salutejs/plasma-icons'],
+    transpilePackages: [
+        '@salutejs/sdds-sbcom',
+        '@salutejs/plasma-new-hope',
+        '@salutejs/plasma-icons',
+        '@salutejs-ds/sdds_sbcom',
+    ],
 };
 ```
 
@@ -206,10 +211,9 @@ export const backgroundPrimary = 'var(--background-primary, #000000)';
 
 ### Способы подключения
 
-Есть два пути импорта токенов:
-
--   Из вертикали `@salutejs/sdds-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-sbcom` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
+```tsx
+import { textPrimary, h5 } from '@salutejs-ds/sdds_sbcom';
+```
 
 ## Типографика
 
