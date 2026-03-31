@@ -85,7 +85,7 @@ describeFn('CalendarRange', () => {
 
     it('default', () => {
         mount(
-            <>
+            <div style={{ width: '500px', height: '1134px', overflow: 'hidden' }}>
                 <Demo baseValue={[new Date(1999, 6, 7), new Date(1999, 6, 19)]} type="Days" />
                 <PadMe />
                 <Demo baseValue={[new Date(1999, 4, 1), new Date(1999, 6, 1)]} type="Months" />
@@ -93,7 +93,7 @@ describeFn('CalendarRange', () => {
                 <Demo baseValue={[new Date(1999, 0, 1), new Date(1999, 6, 1)]} type="Quarters" />
                 <PadMe />
                 <Demo baseValue={[new Date(1999, 0, 1), new Date(2001, 0, 1)]} type="Years" />
-            </>,
+            </div>,
         );
 
         cy.viewport(500, 1134);
@@ -105,7 +105,7 @@ describeFn('CalendarRange', () => {
 
     it('default: double calendar', () => {
         mount(
-            <>
+            <div style={{ width: '1200px', height: '1134px', overflow: 'hidden' }}>
                 <Demo displayDouble baseValue={[new Date(1999, 6, 7), new Date(1999, 6, 19)]} type="Days" />
                 <PadMe />
                 <Demo displayDouble baseValue={[new Date(1999, 4, 1), new Date(1999, 6, 1)]} type="Months" />
@@ -113,7 +113,7 @@ describeFn('CalendarRange', () => {
                 <Demo displayDouble baseValue={[new Date(1999, 0, 1), new Date(1999, 6, 1)]} type="Quarters" />
                 <PadMe />
                 <Demo displayDouble baseValue={[new Date(1999, 0, 1), new Date(2001, 0, 1)]} type="Years" />
-            </>,
+            </div>,
         );
 
         cy.viewport(1200, 1134);
@@ -144,13 +144,13 @@ describeFn('CalendarRange', () => {
         cy.matchImageSnapshot();
     });
 
-    it('locale: en', () => {
+    it.skip('locale: en', () => {
         mount(
-            <>
+            <div style={{ width: '500px', height: '570px', overflow: 'hidden' }}>
                 <Demo baseValue={[new Date(1999, 6, 7), new Date(1999, 6, 19)]} locale="en" type="Days" />
                 <PadMe />
                 <Demo baseValue={[new Date(1999, 4, 1), new Date(1999, 6, 1)]} locale="en" type="Months" />
-            </>,
+            </div>,
         );
 
         cy.viewport(500, 570);

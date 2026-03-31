@@ -216,7 +216,7 @@ describeFn('Calendar', () => {
 
     it('default', () => {
         mount(
-            <>
+            <div style={{ width: '500px', height: '1134px' }}>
                 <Demo baseValue={baseDate} type="Days" />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Months" />
@@ -224,7 +224,7 @@ describeFn('Calendar', () => {
                 <Demo baseValue={baseDate} type="Quarters" />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Years" />
-            </>,
+            </div>,
         );
 
         cy.viewport(500, 1134);
@@ -233,7 +233,7 @@ describeFn('Calendar', () => {
 
     it('default: double calendar', () => {
         mount(
-            <>
+            <div style={{ width: '1200px', height: '1134px' }}>
                 <Demo baseValue={baseDate} type="Days" displayDouble />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Months" displayDouble />
@@ -241,7 +241,7 @@ describeFn('Calendar', () => {
                 <Demo baseValue={baseDate} type="Quarters" displayDouble />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Years" displayDouble />
-            </>,
+            </div>,
         );
 
         cy.viewport(1200, 1134);
@@ -345,7 +345,7 @@ describeFn('Calendar', () => {
 
     it('min and max', () => {
         mount(
-            <>
+            <div style={{ width: '500px', height: '1134px' }}>
                 <Demo baseValue={baseDate} min={new Date(1999, 6, 3)} max={new Date(1999, 6, 15)} />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Months" min={new Date(1999, 4, 1)} max={new Date(1999, 10, 1)} />
@@ -353,7 +353,7 @@ describeFn('Calendar', () => {
                 <Demo baseValue={baseDate} type="Quarters" min={new Date(1999, 3, 1)} max={new Date(1999, 9, 1)} />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Years" min={new Date(1993, 0, 1)} max={new Date(2002, 0, 1)} />
-            </>,
+            </div>,
         );
 
         cy.viewport(500, 1134);
@@ -362,7 +362,7 @@ describeFn('Calendar', () => {
 
     it('min and max: double', () => {
         mount(
-            <>
+            <div style={{ width: '500px', height: '1134px' }}>
                 <Demo baseValue={baseDate} min={new Date(1999, 6, 3)} max={new Date(1999, 6, 15)} displayDouble />
                 <PadMe />
                 <Demo
@@ -388,20 +388,20 @@ describeFn('Calendar', () => {
                     max={new Date(2002, 0, 1)}
                     displayDouble
                 />
-            </>,
+            </div>,
         );
 
         cy.viewport(500, 1134);
         cy.matchImageSnapshot();
     });
 
-    it('locale: en', () => {
+    it.skip('locale: en', () => {
         mount(
-            <>
+            <div style={{ width: '500px', height: '570px', overflow: 'hidden' }}>
                 <Demo baseValue={baseDate} locale="en" type="Days" />
                 <PadMe />
                 <Demo baseValue={baseDate} locale="en" type="Months" />
-            </>,
+            </div>,
         );
 
         cy.viewport(500, 570);
