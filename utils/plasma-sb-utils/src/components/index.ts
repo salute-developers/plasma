@@ -21,3 +21,4 @@ export * from './Skeleton';
 export { getPaginationStories } from './Pagination';
 export { getNumberInputStories } from './NumberInput';
 export * from './Note';
+export * from './Carousel';
