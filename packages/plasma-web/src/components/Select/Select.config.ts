@@ -30,8 +30,9 @@ export const config = {
                 ${tokens.textFieldIndicatorColor}: var(--surface-negative);
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
-                ${tokens.textFieldBorderColor}: var(--surface-transparent-tertiary);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-transparent-tertiary);
+                ${tokens.textFieldBorderColor}: var(--outline-transparent-primary);
+                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-primary-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-transparent-primary-active);
 
                 ${tokens.buttonColor}: var(--inverse-text-primary);
                 ${tokens.buttonColorHover}: var(--inverse-text-primary-hover);
@@ -81,7 +82,8 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-positive);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-positive);
+                ${tokens.textFieldBorderColorHover}: var(--surface-positive-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-positive-active);
 
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -131,7 +133,8 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-warning);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-warning);
+                ${tokens.textFieldBorderColorHover}: var(--surface-warning-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-warning-active);
 
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -181,7 +184,8 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-negative);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-negative);
+                ${tokens.textFieldBorderColorHover}: var(--surface-negative-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-negative-active);
 
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -993,10 +997,9 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.disclosureIconOpacityReadOnly}: 0.4;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
-                ${tokens.textFieldBorderColorReadOnly}: var(--outline-transparent-primary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-read-only);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);

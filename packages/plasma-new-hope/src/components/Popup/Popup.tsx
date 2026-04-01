@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
 import { RootProps } from 'src/engines/types';
 import { canUseDOM, cx, safeUseId } from 'src/utils';
 

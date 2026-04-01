@@ -52,6 +52,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 afterList,
                 virtual = false,
                 flip = false,
+                rootClassName,
+                rootStyle,
                 // @ts-ignore
                 _offset,
                 ...rest
@@ -138,6 +140,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                     readOnly={readOnly}
                     hintView={hintView}
                     hintSize={hintSize}
+                    className={rootClassName}
+                    style={rootStyle}
                 >
                     <FloatingPopover
                         ref={floatingPopoverRef}

@@ -280,6 +280,11 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * @default false
      */
     shift?: boolean;
+    /**
+     * Label в элементе выпадающего списка в одну строку или с переносом строк.
+     * @default true
+     */
+    singleLine?: boolean;
 
     /**
      * @deprecated Использовать listMaxHeight.
@@ -329,6 +334,7 @@ export type ItemContext = {
     dispatchTreePath: Dispatch<TreePathAction>;
     arrowPlacement: ComboboxProps['arrowPlacement'];
     valueToPathMap: Map<string, string[]>;
+    singleLine: ComboboxProps['singleLine'];
 };
 
 export type { ItemOption, ItemOptionTransformed };

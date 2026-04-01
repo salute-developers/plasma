@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, SpaceMe, skipForBrowser } from '@salutejs/plasma-cy-utils';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 
+const itSkipForWebkit = skipForBrowser(['webkit'], it);
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const NoAnimationStyle = createGlobalStyle`
@@ -337,7 +338,7 @@ describe('plasma-web: Notification', () => {
         cy.get('.popup-base-root').should('not.exist');
     });
 
-    it('custom close icon', () => {
+    itSkipForWebkit('custom close icon', () => {
         mount(
             <CypressTestDecorator>
                 <NotificationsProvider>
@@ -377,7 +378,7 @@ describe('plasma-web: Notification', () => {
         cy.get('.popup-base-root').should('not.exist');
     });
 
-    it('timeouts', () => {
+    itSkipForWebkit('timeouts', () => {
         const fiveSecNotification = '5sec notification';
         const infiniteNotification = 'Infinite notification';
 

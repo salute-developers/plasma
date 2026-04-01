@@ -1,10 +1,9 @@
 import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { useResizeObserver } from '@salutejs/plasma-core';
-
-import { canUseDOM, cx, getSizeValueFromProp } from '../../utils';
-import type { RootProps } from '../../engines';
-import { IconCrossThin } from '../_Icon/Icons/IconCrossThin';
+import { canUseDOM, cx, getSizeValueFromProp } from 'src/utils';
+import { useResizeObserver } from 'src/hooks';
+import type { RootProps } from 'src/engines';
+import { IconCrossThin } from 'src/components/_Icon';
 
 import type { NoteProps } from './Note.types';
 import { base as viewCSS } from './variations/_view/base';
@@ -75,7 +74,9 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                 const contentHeight = contentWrapperRef.current.offsetHeight;
                 const titleHeight = titleHelperRef.current?.offsetHeight || 0;
 
-                const contentGap = Number(window.getComputedStyle(contentWrapperRef.current).rowGap.replace('px', ''));
+                const contentGap = titleHeight
+                    ? Number(window.getComputedStyle(contentWrapperRef.current).rowGap.replace('px', '')) || 0
+                    : 0;
 
                 const textAvailableHeight = contentHeight - titleHeight - contentGap;
 
@@ -105,11 +106,7 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
 
             useLayoutEffect(() => {
                 setTruncatedText();
-            }, [text, contentBefore, contentBeforeSizing, stretch]);
-
-            useEffect(() => {
-                setTruncatedText();
-            }, [text]);
+            }, [text, title, contentBefore, contentBeforeSizing, stretch]);
 
             useEffect(() => {
                 if (!contentBeforeRef?.current) {

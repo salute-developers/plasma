@@ -5,7 +5,7 @@ import { calendarBaseConfig, calendarDoubleConfig, withRange } from '../../../co
 import type { CalendarBaseProps, CalendarDoubleProps } from '../../../components/Calendar';
 import { boundCalendar } from '../../../components/Calendar/Calendar';
 
-import { config as baseConfig } from './CalendarBase.config';
+import { config as baseConfig } from './Calendar.config';
 import { config as doubleConfig } from './CalendarDouble.config';
 
 const mergedCalendarBaseConfig = mergeConfig(calendarBaseConfig, baseConfig);

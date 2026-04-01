@@ -128,6 +128,29 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 }
 
                 const rawSymbol = event.currentTarget.value;
+
+                // На мобильных устройствах вставка вызывает onChange по 1 символу
+                if (rawSymbol.length > 1) {
+                    const newCode = [...code];
+                    const pastedData = (fieldPattern
+                        ? rawSymbol
+                              .split('')
+                              .map((symb) => symb.match(fieldPattern)?.[0] || '')
+                              .filter(Boolean)
+                        : rawSymbol.split('')
+                    ).slice(0, codeLength - index);
+
+                    pastedData.forEach((element, i) => {
+                        newCode[index + i] = element;
+                    });
+
+                    const activeIndex = Math.min(index + pastedData.length, codeLength - 1);
+                    inputRefs.current[activeIndex]?.focus();
+                    codeSetter(newCode);
+
+                    return;
+                }
+
                 const symbol = rawSymbol.charAt(rawSymbol.length - 1);
                 handleAddSymbol(symbol, index);
             };

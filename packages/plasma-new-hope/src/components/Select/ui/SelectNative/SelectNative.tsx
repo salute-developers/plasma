@@ -1,6 +1,6 @@
 import React, { ChangeEvent, forwardRef, useLayoutEffect, useRef } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
 import { createEvent } from 'src/utils';
+import { useForkRef } from 'src/hooks';
 
 import { SelectProps } from '../../Select.types';
 import { ValueToItemMapType } from '../../hooks/usePathMaps';

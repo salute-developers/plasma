@@ -14,57 +14,52 @@ export const config = {
                 ${buttonGroupTokens.buttonValueColor}: var(--inverse-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-default);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--inverse-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--inverse-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-solid-default-active);
+                ${buttonGroupTokens.buttonColorHover}: var(--inverse-text-primary-hover);
+                ${buttonGroupTokens.buttonColorActive}: var(--inverse-text-primary-active);
             `,
             accent: css`
-                ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonColor}: var(--text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--text-primary);
+
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-accent);
+
+                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-accent-gradient);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--text-primary);
+
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
-                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+
+                ${buttonGroupTokens.buttonBackgroundColor}: transparent;
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+
+                ${buttonGroupTokens.buttonBorderColor}: var(--outline-solid-default);
+                ${buttonGroupTokens.buttonBorderColorHover}: var(--outline-solid-default);
+                ${buttonGroupTokens.buttonBorderColorActive}: var(--outline-solid-default);
             `,
             clear: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
+
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--text-primary-hover);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-clear);
-                ${buttonGroupTokens.buttonColorActive}: var(--text-primary-active);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-clear);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
-            success: css`
+            positive: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-positive);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-positive-active);
             `,
             warning: css`
@@ -74,21 +69,17 @@ export const config = {
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-warning);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-warning-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-warning-active);
             `,
-            critical: css`
+            negative: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-negative);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-negative-active);
             `,
             dark: css`
@@ -98,41 +89,38 @@ export const config = {
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
+                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
+                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary-active);
             `,
             black: css`
-                ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonColor}: var(--text-accent);
+                ${buttonGroupTokens.buttonTextColor}: var(--text-accent);
+                ${buttonGroupTokens.buttonIconColor}: var(--text-accent);
+
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${buttonGroupTokens.buttonBackgroundColor}: var(--on-light-surface-solid-default);
+
+                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-default);
+
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
             `,
             white: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-light-text-primary);
+                ${buttonGroupTokens.buttonColorHover}: var(--on-light-text-primary-hover);
+                ${buttonGroupTokens.buttonColorActive}: var(--on-light-text-primary-active);
+
                 ${buttonGroupTokens.buttonTextColor}: var(--on-light-text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--on-light-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-light-text-secondary);
+
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-light-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-light-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
             `,
         },
         size: {
             xl: css`
-                ${buttonGroupTokens.buttonDefaultRadius}: 1rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: 2rem;
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.5rem;
-                ${buttonGroupTokens.buttonSideRadius}: 1rem;
+                ${buttonGroupTokens.buttonSideRadius}: 2rem;
 
                 ${buttonGroupTokens.buttonHeight}: 4rem;
                 ${buttonGroupTokens.buttonPadding}: 1.75rem;
@@ -144,12 +132,13 @@ export const config = {
                 ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             l: css`
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.875rem;
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.375rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.875rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: 1.75rem;
+                ${buttonGroupTokens.buttonSideRadius}: 1.75rem;
 
                 ${buttonGroupTokens.buttonHeight}: 3.5rem;
-                ${buttonGroupTokens.buttonPadding}: 1.5rem;
+                ${buttonGroupTokens.buttonPadding}: 1.75rem;
+
                 ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -159,8 +148,8 @@ export const config = {
             `,
             m: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.75rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.75rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: 1.5rem;
+                ${buttonGroupTokens.buttonSideRadius}: 1.5rem;
 
                 ${buttonGroupTokens.buttonHeight}: 3rem;
                 ${buttonGroupTokens.buttonPadding}: 1.25rem;
@@ -174,8 +163,8 @@ export const config = {
             `,
             s: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.625rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.625rem;
+                ${buttonGroupTokens.buttonSideRadius}: 1.375rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: 1.375rem;
 
                 ${buttonGroupTokens.buttonHeight}: 2.5rem;
                 ${buttonGroupTokens.buttonPadding}: 1rem;
@@ -185,34 +174,6 @@ export const config = {
                 ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
                 ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
-            `,
-            xs: css`
-                ${buttonGroupTokens.buttonSegmentedRadius}: 0.125rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.5rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.5rem;
-
-                ${buttonGroupTokens.buttonHeight}: 2rem;
-                ${buttonGroupTokens.buttonPadding}: 0.75rem;
-                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
-            `,
-            xxs: css`
-                ${buttonGroupTokens.buttonSegmentedRadius}: 0.125rem;
-                ${buttonGroupTokens.buttonDefaultRadius}: 0.375rem;
-                ${buttonGroupTokens.buttonSideRadius}: 0.375rem;
-
-                ${buttonGroupTokens.buttonHeight}: 1.5rem;
-                ${buttonGroupTokens.buttonPadding}: 0.625rem;
-                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
         orientation: {

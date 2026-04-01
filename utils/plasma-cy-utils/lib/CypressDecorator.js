@@ -3,18 +3,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CypressTestDecorator = exports.getDescribeFN = exports.getComponent = exports.hasComponent = void 0;
+exports.CypressTestDecorator = exports.skipForBrowser = exports.skipForPackages = exports.getDescribeFN = exports.getComponent = exports.hasComponent = void 0;
 var react_1 = __importDefault(require("react"));
 var styled_components_1 = require("styled-components");
 var plasma_themes_1 = require("@salutejs/plasma-themes");
 var sdds_themes_1 = require("@salutejs/sdds-themes");
-// plasma-web
-var typo_1 = require("@salutejs/plasma-tokens-web/typo");
-var themes_1 = require("@salutejs/plasma-tokens-web/themes");
 // plasma-ui
-var themes_2 = require("@salutejs/plasma-tokens/themes");
+var themes_1 = require("@salutejs/plasma-tokens/themes");
 // plasma-b2c
-var themes_3 = require("@salutejs/plasma-tokens-b2c/themes");
+var themes_2 = require("@salutejs/plasma-tokens-b2c/themes");
 var plasma_typo_1 = require("@salutejs/plasma-typo");
 var SSRProvider_1 = require("./SSRProvider");
 var NormalizeCSSDecorator_1 = require("./NormalizeCSSDecorator");
@@ -22,17 +19,28 @@ var NormalizeCSSDecorator_1 = require("./NormalizeCSSDecorator");
 var ThemeGIGA = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_giga__light);
 var ThemeCS = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_cs__light);
 var ThemeINSOL = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_insol__light);
-// TODO: better naming
-var TypoThemeStyle = (0, styled_components_1.createGlobalStyle)(typo_1.web);
-var WebLightThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_1.light);
+var ThemeSERV = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_serv__light);
+var ThemeSCAN = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_scan__light);
+var ThemeOS = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_os__light);
+var ThemePLATFORMAI = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_platform_ai__light);
+var ThemeFINAI = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_finai__light);
+var ThemeHOMEDS = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_homeds__light);
+var ThemeWEB = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_web__light);
 var StandardTypoStyle = (0, styled_components_1.createGlobalStyle)(plasma_typo_1.standard);
 var CompatibleTypoStyle = (0, styled_components_1.createGlobalStyle)(plasma_typo_1.compatible);
-var ColorB2CStyle = (0, styled_components_1.createGlobalStyle)(themes_3.dark);
-var ThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_2.darkSber);
+var ColorB2CStyle = (0, styled_components_1.createGlobalStyle)(themes_2.dark);
+var ThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_1.darkSber);
 var testPackagesThemes = {
     'plasma-giga': react_1.default.createElement(ThemeGIGA, null),
     'sdds-cs': react_1.default.createElement(ThemeCS, null),
     'sdds-insol': react_1.default.createElement(ThemeINSOL, null),
+    'plasma-web': react_1.default.createElement(ThemeWEB, null),
+    'sdds-serv': react_1.default.createElement(ThemeSERV, null),
+    'sdds-scan': react_1.default.createElement(ThemeSCAN, null),
+    'sdds-os': react_1.default.createElement(ThemeOS, null),
+    'sdds-platform-ai': react_1.default.createElement(ThemePLATFORMAI, null),
+    'sdds-finai': react_1.default.createElement(ThemeFINAI, null),
+    'plasma-homeds': react_1.default.createElement(ThemeHOMEDS, null),
 };
 var getPackage = function () {
     var pkgName = Cypress.env('package');
@@ -53,6 +61,18 @@ var getPackage = function () {
             return require('../../../packages/sdds-cs/dist/emotion/cjs/index.js');
         case 'sdds-insol':
             return require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
+        case 'sdds-serv':
+            return require('../../../packages/sdds-serv/dist/styled-components/cjs/index.js');
+        case 'sdds-scan':
+            return require('../../../packages/sdds-scan/dist/styled-components/cjs/index.js');
+        case 'sdds-os':
+            return require('../../../packages/sdds-os/dist/styled-components/cjs/index.js');
+        case 'sdds-platform-ai':
+            return require('../../../packages/sdds-platform-ai/dist/styled-components/cjs/index.js');
+        case 'sdds-finai':
+            return require('../../../packages/sdds-finai/dist/styled-components/cjs/index.js');
+        case 'plasma-homeds':
+            return require('../../../packages/plasma-homeds/dist/styled-components/cjs/index.js');
         default:
             throw new Error("Library ".concat(pkgName, " is not required in plasma-core/CypressHelpers:getComponent"));
     }
@@ -70,7 +90,7 @@ var getComponent = function (componentName) {
     if (!component) {
         console.error("Library ".concat(pkgName, " has no ").concat(componentName));
     }
-    return component || (function () { return null; });
+    return component;
 };
 exports.getComponent = getComponent;
 var getDescribeFN = function (component) {
@@ -78,23 +98,29 @@ var getDescribeFN = function (component) {
     return componentExists ? describe : describe.skip;
 };
 exports.getDescribeFN = getDescribeFN;
+var skipForPackages = function (packages) {
+    var pkgName = Cypress.env('package');
+    return packages.includes(pkgName) ? it.skip : it;
+};
+exports.skipForPackages = skipForPackages;
+var skipForBrowser = function (browsers, customIt) {
+    var browserName = Cypress.browser.family;
+    return browsers.includes(browserName) ? it.skip : customIt;
+};
+exports.skipForBrowser = skipForBrowser;
 var CypressTestDecorator = function (_a) {
     var noSSR = _a.noSSR, children = _a.children;
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     var pkgName = Cypress.env('package');
     if (pkgName === 'plasma-ui') {
         var DeviceThemeProvider = (0, exports.getComponent)('DeviceThemeProvider');
+        if (!DeviceThemeProvider) {
+            return react_1.default.createElement(react_1.default.Fragment, null, children);
+        }
         return (react_1.default.createElement(DeviceThemeProvider, null,
             react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
                 react_1.default.createElement(ThemeStyle, null),
                 children)));
-    }
-    if (pkgName === 'plasma-web') {
-        return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
-            react_1.default.createElement(NormalizeCSSDecorator_1.NormalizeCSSDecorator, null),
-            react_1.default.createElement(TypoThemeStyle, null),
-            react_1.default.createElement(WebLightThemeStyle, null),
-            children));
     }
     if (pkgName === 'plasma-b2c') {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
@@ -104,7 +130,18 @@ var CypressTestDecorator = function (_a) {
             react_1.default.createElement(ColorB2CStyle, null),
             children));
     }
-    if (['plasma-giga', 'sdds-cs', 'sdds-insol'].includes(pkgName)) {
+    if ([
+        'plasma-giga',
+        'sdds-cs',
+        'sdds-insol',
+        'plasma-web',
+        'sdds-serv',
+        'sdds-scan',
+        'sdds-os',
+        'sdds-platform-ai',
+        'sdds-finai',
+        'plasma-homeds',
+    ].includes(pkgName)) {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
             react_1.default.createElement(NormalizeCSSDecorator_1.NormalizeCSSDecorator, null),
             testPackagesThemes[pkgName],

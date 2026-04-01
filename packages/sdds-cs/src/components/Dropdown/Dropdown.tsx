@@ -1,4 +1,4 @@
-import { dropdownConfig, component, mergeConfig, fixedForwardRef } from '@salutejs/plasma-new-hope/styled-components';
+import { dropdownConfig, component, mergeConfig, fixedForwardRef } from '@salutejs/plasma-new-hope/emotion';
 import type { DropdownItemOption, DropdownNewProps } from '@salutejs/plasma-new-hope';
 import React, { ComponentProps, ForwardedRef } from 'react';
 

@@ -2,15 +2,16 @@ import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import styled from 'styled-components';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
 import { ToastController, ToastProvider } from './Toast';
+import { config } from './Toast.config';
 
 import { Toast, useToast } from '.';
 
-const views = ['default'];
+const { views } = getConfigVariations(config);
 
 const meta: Meta<typeof ToastController> = {
     title: 'Overlay/Toast',
@@ -26,7 +27,7 @@ const meta: Meta<typeof ToastController> = {
             control: 'color',
         },
         // NOTE: контролы 'textColor' и 'view' скрыты для сторибуков sdds-cs и sdds-insol
-        ...disableProps(['textColor', 'view', 'closeIconType', 'size', 'role', 'onShow', 'onHide', 'contentLeft']),
+        ...disableProps(['textColor', 'closeIconType', 'size', 'role', 'onShow', 'onHide', 'contentLeft']),
     },
 };
 

@@ -2,9 +2,9 @@ import React, { useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { SSRProvider } from '@salutejs/plasma-core';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 
+import { SSRProvider } from '../../../components/SSRProvider';
 import { PopupProvider, popupClasses } from '../Popup/Popup';
 import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';

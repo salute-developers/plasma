@@ -51,6 +51,8 @@ export const Title = styled(DsplM)`
 
     ${multipleMediaQuery(['S'])(css`
         padding-left: 1.25rem;
+        font-size: 2rem;
+        line-height: 2.5rem;
     `)}
 `;
 
@@ -82,7 +84,9 @@ export const ProductMainInfo = styled.span<{ alwaysShowIcon?: boolean }>`
     `)}
 
     ${multipleMediaQuery(['S'])(css`
-        height: 3.5rem;
+        height: auto;
+        min-height: 3rem;
+        white-space: normal;
     `)}
 
     ${({ alwaysShowIcon }) =>

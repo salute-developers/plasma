@@ -26,8 +26,8 @@ export const config = {
                 ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
-                ${tokens.textFieldBorderColor}: var(--surface-transparent-tertiary);
-                ${tokens.textFieldBorderColorHover}: var(--text-secondary);
+                ${tokens.textFieldBorderColor}: var(--outline-transparent-primary);
+                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-primary-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
@@ -72,8 +72,8 @@ export const config = {
                 ${tokens.textFieldLeftHelperColor}: var(--text-positive);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
-                ${tokens.textFieldBorderColor}: var(--surface-positive);
-                ${tokens.textFieldBorderColorHover}: var(--surface-positive);
+                ${tokens.textFieldBorderColor}: var(--outline-positive);
+                ${tokens.textFieldBorderColorHover}: var(--outline-positive-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
@@ -118,8 +118,8 @@ export const config = {
                 ${tokens.textFieldLeftHelperColor}: var(--text-warning);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
-                ${tokens.textFieldBorderColor}: var(--surface-warning);
-                ${tokens.textFieldBorderColorHover}: var(--surface-warning);
+                ${tokens.textFieldBorderColor}: var(--outline-warning);
+                ${tokens.textFieldBorderColorHover}: var(--outline-warning-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
@@ -164,8 +164,8 @@ export const config = {
                 ${tokens.textFieldLeftHelperColor}: var(--text-negative);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
-                ${tokens.textFieldBorderColor}: var(--surface-negative);
-                ${tokens.textFieldBorderColorHover}: var(--surface-negative);
+                ${tokens.textFieldBorderColor}: var(--outline-negative);
+                ${tokens.textFieldBorderColorHover}: var(--outline-negative-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
@@ -580,11 +580,11 @@ export const config = {
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
-                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-read-only);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldDividerColorReadOnly}: var(--outline-read-only);
                 ${tokens.textFieldBorderColor}: transparent;
                 ${tokens.textFieldBorderWidth}: 0.063rem;
             `,

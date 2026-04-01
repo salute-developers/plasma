@@ -7,11 +7,10 @@ import type {
     MouseEventHandler,
     ClipboardEventHandler,
 } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
 import { css } from '@linaria/core';
 import { cx, safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines';
-import { useOutsideClick } from 'src/hooks';
+import { useOutsideClick, useForkRef } from 'src/hooks';
 
 import type { ChipValues, TextFieldPrimitiveValue, TextFieldProps, TextFieldRootProps } from './TextField.types';
 import { base as sizeCSS } from './variations/_size/base';

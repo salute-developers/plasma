@@ -1,4 +1,4 @@
-import { component, mergeConfig, accordionConfig, AccordionItem } from '@salutejs/plasma-new-hope/styled-components';
+import { component, mergeConfig, accordionConfig, AccordionItem } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Accordion.config';
 

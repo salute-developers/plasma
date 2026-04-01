@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 import { Divider as DividerCS } from './Divider';

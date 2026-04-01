@@ -3,7 +3,6 @@ import { css } from '@linaria/core';
 import { component, mergeConfig } from 'src/engines';
 
 import { textFieldConfig, textFieldTokens } from '../TextField';
-import { popoverClasses, popoverConfig } from '../Popover';
 import { timePickerGridConfig, timePickerGridTokens } from '../TimePickerGrid';
 
 import { classes, tokens } from './TimePicker.tokens';
@@ -11,17 +10,17 @@ import { classes, tokens } from './TimePicker.tokens';
 const mergedTextFieldConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedTextFieldConfig);
 
-const mergedPopoverConfig = mergeConfig(popoverConfig);
-const Popover = component(mergedPopoverConfig);
-
 const mergedTimePickerGrid = mergeConfig(timePickerGridConfig);
 const TimePickerGrid = component(mergedTimePickerGrid);
 
-export const StyledPopover = styled(Popover)`
-    .${popoverClasses.root} {
-        width: 100%;
-    }
+export const FloatingWrapper = styled.div`
+    position: relative;
+    width: 100%;
 `;
+
+export const FloatingTarget = styled.div``;
+
+export const FloatingContent = styled.div``;
 
 export const StyledTimePickerGrid = styled(TimePickerGrid)<{
     columns: number;
@@ -167,14 +166,10 @@ export const base = css`
     width: var(${tokens.width});
     margin-top: var(${tokens.dropdownMarginTop});
 
-    .${popoverClasses.wrapper}, .${popoverClasses.target} {
-        width: inherit;
-    }
-
     &.${classes.timePickerstretched} {
         width: 100%;
 
-        .${popoverClasses.root} {
+        & > div {
             width: 100%;
         }
     }

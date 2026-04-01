@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react';
 import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { SSRProvider } from '@salutejs/plasma-core';
 
+import { SSRProvider } from '../../../components/SSRProvider';
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../_helpers';
 

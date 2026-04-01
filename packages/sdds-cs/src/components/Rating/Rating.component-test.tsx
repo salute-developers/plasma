@@ -2,7 +2,7 @@ import React from 'react';
 import type { ComponentProps, ReactNode } from 'react';
 import { IconKeyFill, IconKeyOutline, IconLockFill } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
-import { ratingClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { ratingClasses } from '@salutejs/plasma-new-hope/emotion';
 
 import { Rating as RatingCS } from '.';
 

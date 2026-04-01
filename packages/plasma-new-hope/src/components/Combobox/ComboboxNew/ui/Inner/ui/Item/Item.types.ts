@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react';
 import React from 'react';
 
-import type { PathState } from '../../../../../../Select/reducers';
+import type { PathState } from '../../../../reducers';
 import type { Placement } from '../../../../Combobox.types';
 
 export type ItemOption = {

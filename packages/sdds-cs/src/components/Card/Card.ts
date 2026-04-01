@@ -1,10 +1,4 @@
-import {
-    cardConfig,
-    CardContent,
-    CardInnerContent,
-    component,
-    mergeConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+import { cardConfig, CardContent, CardInnerContent, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Card.config';
 

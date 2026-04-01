@@ -8,9 +8,9 @@ import type {
     FormEventHandler,
     KeyboardEventHandler,
 } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
+import type { RootProps } from 'src/engines';
 
-import type { RootProps } from '../../engines';
+import { useForkRef } from '../../hooks';
 import { constants } from '../../utils';
 
 import type { EditableProps, TypographyVariants } from './Editable.types';

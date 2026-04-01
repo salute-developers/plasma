@@ -4,6 +4,7 @@ export const config = {
     defaults: {
         view: 'default',
         focused: 'true',
+        size: 'm',
     },
     variations: {
         view: {

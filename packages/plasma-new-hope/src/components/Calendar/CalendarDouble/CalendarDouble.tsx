@@ -12,13 +12,13 @@ import React, {
     HTMLAttributes,
 } from 'react';
 import cls from 'classnames';
-import { useForkRef } from '@salutejs/plasma-core';
+import type { RootProps } from 'src/engines';
 
+import { useForkRef } from '../../../hooks';
 import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
 import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate, I18N } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears, EventTooltip } from '../ui';
-import { RootProps } from '../../../engines/types';
 import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
 import { IsOutOfRange } from '../CalendarBase/CalendarBase.styles';

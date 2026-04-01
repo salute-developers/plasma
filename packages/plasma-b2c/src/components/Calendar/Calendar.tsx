@@ -9,7 +9,7 @@ import {
 import type { CalendarBaseProps, CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { FC } from 'react';
 
-import { config as baseConfig } from './CalendarBase.config';
+import { config as baseConfig } from './Calendar.config';
 import { config as doubleConfig } from './CalendarDouble.config';
 
 const mergedCalendarBaseConfig = mergeConfig(calendarBaseConfig, baseConfig);

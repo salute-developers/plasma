@@ -5,7 +5,6 @@ import {
     StyledCell,
     StyledCheckbox,
     StyledCheckboxWrapper,
-    StyledWrapper,
     Wrapper as ItemWrapper,
 } from '../Inner/ui/Item/Item.styles';
 import type { SelectAllProps, SelectProps } from '../../Select.types';
@@ -28,14 +27,7 @@ export const SelectAll: FC<{
                 </StyledCheckboxWrapper>
             </IconWrapper>
 
-            <StyledWrapper>
-                <StyledCell
-                    // TODO: #1548
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    title={<span>{selectAllOptions?.label || 'Выбрать всё'}</span>}
-                />
-            </StyledWrapper>
+            <StyledCell title={selectAllOptions?.label || 'Выбрать всё'} />
         </ItemWrapper>
 
         <DividerWrapper>

@@ -1,7 +1,7 @@
 import React, { ChangeEvent, forwardRef, useLayoutEffect, useRef } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
+import { createEvent } from 'src/utils';
 
-import { createEvent } from '../../../../../utils';
 import { ComboboxProps } from '../../Combobox.types';
 import { ValueToItemMapType } from '../../hooks/getPathMaps';
 

@@ -74,8 +74,8 @@ export const config = {
                 ${tokens.textFieldBackgroundColorHover}: var(--surface-clear);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-clear);
 
-                ${tokens.textFieldBorderColor}: var(--surface-positive);
-                ${tokens.textFieldBorderColorHover}: var(--surface-positive-hover);
+                ${tokens.textFieldBorderColor}: var(--outline-positive);
+                ${tokens.textFieldBorderColorHover}: var(--outline-positive-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
 
                 ${tokens.labelColor}: var(--text-primary);
@@ -126,8 +126,8 @@ export const config = {
                 ${tokens.textFieldBackgroundColorHover}: var(--surface-clear);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-clear);
 
-                ${tokens.textFieldBorderColor}: var(--surface-warning);
-                ${tokens.textFieldBorderColorHover}: var(--surface-warning-hover);
+                ${tokens.textFieldBorderColor}: var(--outline-warning);
+                ${tokens.textFieldBorderColorHover}: var(--outline-warning-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
 
                 ${tokens.labelColor}: var(--text-primary);
@@ -178,8 +178,8 @@ export const config = {
                 ${tokens.textFieldBackgroundColorHover}: var(--surface-clear);
                 ${tokens.textFieldBackgroundColorFocus}: var(--surface-clear);
 
-                ${tokens.textFieldBorderColor}: var(--surface-negative);
-                ${tokens.textFieldBorderColorHover}: var(--surface-negative-hover);
+                ${tokens.textFieldBorderColor}: var(--outline-negative);
+                ${tokens.textFieldBorderColorHover}: var(--outline-negative-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
 
                 ${tokens.labelColor}: var(--text-primary);
@@ -653,12 +653,12 @@ export const config = {
                 ${tokens.labelColorReadOnly}: var(--text-primary);
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.textFieldBorderColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-read-only);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
+                ${tokens.textFieldReadOnlyOpacity}: 1;
             `,
         },
     },

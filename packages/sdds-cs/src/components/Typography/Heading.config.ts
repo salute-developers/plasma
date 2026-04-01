@@ -1,4 +1,4 @@
-import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css, typographyTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const configH1 = {
     defaults: {

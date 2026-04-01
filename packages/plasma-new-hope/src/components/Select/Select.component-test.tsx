@@ -1,0 +1,2185 @@
+import React, { useState } from 'react';
+import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests } from '@salutejs/plasma-cy-utils';
+// @ts-ignore
+import { IconLocation, IconPlasma } from 'override/_Icon';
+
+import type { SelectProps } from './Select.types';
+
+const componentExists = hasComponent('Select');
+const describeFn = getDescribeFN('Select');
+const openMultiSelect = () => {
+    cy.get('#select').click();
+    cy.contains('div', 'Северная Америка').click();
+    cy.contains('div', 'Южная Америка').click();
+    cy.get('#select [id$="south_america"] .checkbox-trigger').click({ force: true });
+    cy.matchImageSnapshot();
+};
+
+const items = [
+    {
+        value: 'north_america',
+        label: 'Северная Америка',
+        contentLeft: <IconLocation color="inherit" />,
+        contentRight: <IconLocation color="inherit" />,
+        className: 'test-classname',
+        'data-name': 'test-data-name',
+    },
+    {
+        value: 'south_america',
+        label: 'Южная Америка',
+        items: [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+            {
+                value: 'argentina',
+                label: 'Аргентина',
+                items: [
+                    {
+                        value: 'buenos_aires',
+                        label: 'Буэнос-Айрес',
+                    },
+                    {
+                        value: 'cordoba',
+                        label: 'Кордова',
+                    },
+                ],
+            },
+            {
+                value: 'colombia',
+                label: 'Колумбия',
+                items: [
+                    {
+                        value: 'bogota',
+                        label: 'Богота',
+                    },
+                    {
+                        value: 'medellin',
+                        label: 'Медельин',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'europe',
+        label: 'Европа',
+        items: [
+            {
+                value: 'france',
+                label: 'Франция',
+                items: [
+                    {
+                        value: 'paris',
+                        label: 'Париж',
+                    },
+                    {
+                        value: 'lyon',
+                        label: 'Лион',
+                    },
+                ],
+            },
+            {
+                value: 'germany',
+                label: 'Германия',
+                items: [
+                    {
+                        value: 'berlin',
+                        label: 'Берлин',
+                    },
+                    {
+                        value: 'munich',
+                        label: 'Мюнхен',
+                    },
+                ],
+            },
+            {
+                value: 'italy',
+                label: 'Италия',
+                items: [
+                    {
+                        value: 'rome',
+                        label: 'Рим',
+                    },
+                    {
+                        value: 'milan',
+                        label: 'Милан',
+                    },
+                ],
+            },
+            {
+                value: 'spain',
+                label: 'Испания',
+                items: [
+                    {
+                        value: 'madrid',
+                        label: 'Мадрид',
+                    },
+                    {
+                        value: 'barcelona',
+                        label: 'Барселона',
+                    },
+                ],
+            },
+            {
+                value: 'united_kingdom',
+                label: 'Великобритания',
+                items: [
+                    {
+                        value: 'london',
+                        label: 'Лондон',
+                    },
+                    {
+                        value: 'manchester',
+                        label: 'Манчестер',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'asia',
+        label: 'Азия',
+        items: [
+            {
+                value: 'china',
+                label: 'Китай',
+                items: [
+                    {
+                        value: 'beijing',
+                        label: 'Пекин',
+                    },
+                    {
+                        value: 'shanghai',
+                        label: 'Шанхай',
+                    },
+                ],
+            },
+            {
+                value: 'japan',
+                label: 'Япония',
+                items: [
+                    {
+                        value: 'tokyo',
+                        label: 'Токио',
+                    },
+                    {
+                        value: 'osaka',
+                        label: 'Осака',
+                    },
+                ],
+            },
+            {
+                value: 'india',
+                label: 'Индия',
+                items: [
+                    {
+                        value: 'delhi',
+                        label: 'Дели',
+                    },
+                    {
+                        value: 'mumbai',
+                        label: 'Мумбаи',
+                    },
+                ],
+            },
+            {
+                value: 'south_korea',
+                label: 'Южная Корея',
+                items: [
+                    {
+                        value: 'seoul',
+                        label: 'Сеул',
+                    },
+                    {
+                        value: 'busan',
+                        label: 'Пусан',
+                    },
+                ],
+            },
+            {
+                value: 'thailand',
+                label: 'Таиланд',
+                items: [
+                    {
+                        value: 'bangkok',
+                        label: 'Бангкок',
+                    },
+                    {
+                        value: 'phuket',
+                        label: 'Пхукет',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'africa',
+        label: 'Африка',
+        disabled: true,
+    },
+];
+
+const componentProps = {
+    items: [
+        { value: 'north_america', label: 'Северная Америка' },
+        { value: 'south_america', label: 'Южная Америка' },
+        { value: 'europe', label: 'Европа' },
+    ],
+    placeholder: 'Placeholder',
+    value: 'north_america',
+    label: 'Label',
+};
+
+getBaseVisualTests({
+    component: 'Select',
+    componentProps,
+    configPropsForMatrix: ['view', 'size', 'labelPlacement'],
+    excludePropsValues: {
+        view: ['accent', 'secondary', 'clear', 'dark', 'black', 'white'],
+    },
+});
+
+getBaseVisualTests({
+    component: 'Select',
+    componentProps: {
+        ...componentProps,
+        target: 'button-like',
+    },
+    configPropsForMatrix: ['view', 'size'],
+    propsForName: ['target=button-like'],
+});
+
+const multiSelectComponentProps = {
+    items,
+    id: 'select',
+    label: 'Label',
+    multiselect: true,
+};
+
+getBaseVisualTests({
+    component: 'Select',
+    componentProps: {
+        ...multiSelectComponentProps,
+    },
+    excludePropsValues: {
+        view: ['accent', 'secondary', 'clear', 'dark', 'black', 'white'],
+    },
+    configPropsForMatrix: ['chipView'],
+    propsForName: ['multiselect'],
+    actionBeforeSnapshot: openMultiSelect,
+});
+
+describeFn('Select', () => {
+    const Select = componentExists ? getComponent<SelectProps>('Select') : () => null;
+
+    const CommonComponent = (props: any) => {
+        const [singleValue, setSingleValue] = React.useState(props.initialSingleValue || '');
+        const [valueMultiple, setValueMultiple] = React.useState<Array<string>>(props.initialMultipleValue || []);
+
+        return (
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '30px' }}>
+                <Select
+                    target="button-like"
+                    items={items}
+                    value={singleValue}
+                    onChange={setSingleValue}
+                    label="Label"
+                    {...props}
+                />
+                <Select
+                    target="button-like"
+                    items={items}
+                    multiselect
+                    value={valueMultiple}
+                    onChange={setValueMultiple}
+                    label="Label"
+                    {...props}
+                />
+                <Select
+                    items={items}
+                    value={singleValue}
+                    onChange={setSingleValue}
+                    label="Label"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    {...props}
+                />
+                <Select
+                    items={items}
+                    multiselect
+                    value={valueMultiple}
+                    onChange={setValueMultiple}
+                    label="Label"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    {...props}
+                />
+            </div>
+        );
+    };
+
+    it('chipType', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ width: '100%' }}>
+                <Select
+                    chipType="text"
+                    multiselect
+                    value={['berlin', 'rome', 'madrid']}
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('contentLeft', () => {
+        cy.viewport(1000, 500);
+
+        mount(
+            <CommonComponent
+                initialSingleValue="paris"
+                initialMultipleValue={['paris', 'rome']}
+                contentLeft={<IconLocation size="s" />}
+            />,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('isTargetAmount', () => {
+        cy.viewport(1000, 500);
+
+        mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('required, requiredPlacement', () => {
+        cy.viewport(500, 100);
+
+        mount(
+            <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ width: '200px' }}>
+                    <Select required hasRequiredIndicator items={items} label="Label" placeholder="Placeholder" />
+                </div>
+
+                <div style={{ width: '200px' }}>
+                    <Select
+                        required
+                        hasRequiredIndicator
+                        requiredPlacement="left"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                </div>
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('optional', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ width: '300px' }}>
+                    <Select optional items={items} label="Label" placeholder="Placeholder" />
+                </div>
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('beforeList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="single"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        beforeList="Content before list"
+                    />
+                </div>
+            </div>,
+        );
+
+        cy.get('#single').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('afterList', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="single"
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        afterList="Content after list"
+                    />
+                </div>
+            </div>,
+        );
+
+        cy.get('#single').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('item data-attrs', () => {
+        cy.viewport(400, 100);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="single" items={items} label="Label" placeholder="Placeholder" />
+            </div>,
+        );
+
+        cy.get('#single').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="north_america"]').should('have.class', 'test-classname');
+        cy.get('[id$="north_america"]').should('have.attr', 'data-name', 'test-data-name');
+    });
+
+    it('zIndex', () => {
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="single" items={items} label="Label" placeholder="Placeholder" zIndex={10000} />
+            </div>,
+        );
+
+        cy.get('#single').click();
+
+        cy.get('[data-floating-ui-portal] > div').should('have.css', 'z-index', '10000');
+    });
+
+    it('renderValue', () => {
+        cy.viewport(400, 599);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('paris');
+            const [valueMultiple, setValueMultiple] = React.useState(['paris', 'lyon']);
+
+            return (
+                <>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            items={items}
+                            multiselect
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            target="button-like"
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            target="button-like"
+                            items={items}
+                            multiselect
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                            renderValue={(item) => item.label.toUpperCase()}
+                        />
+                    </div>
+                </>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('selectAll button', () => {
+        cy.viewport(400, 300);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select
+                    id="select"
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                    multiselect
+                    selectAllOptions={{
+                        label: 'Выбрать не совсем все',
+                    }}
+                    listOverflow="scroll"
+                    listHeight="150px"
+                />
+            </div>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('mode', () => {
+        cy.viewport(1000, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="single" items={items} label="Label" placeholder="Placeholder" mode="radio" />
+            </div>,
+        );
+
+        cy.get('#single').click();
+        cy.contains('Северная Америка').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Северная Америка');
+
+        cy.get('#single').click();
+        cy.contains('Северная Америка').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Северная Америка');
+
+        cy.get('body').click('topRight');
+        cy.get('body').tab();
+        cy.get('#single input').should('be.focused');
+        cy.pressKey('ArrowDown')
+            .pressKey('ArrowDown')
+            .pressKey('ArrowRight')
+            .pressKey('ArrowRight')
+            .pressKey('ArrowRight')
+            .pressKey('ArrowRight')
+            .pressKey('Enter');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Рио-де-Жанейро');
+
+        cy.get('#single input').should('be.focused');
+        cy.pressKey('ArrowDown')
+            .pressKey('ArrowDown')
+            .pressKey('ArrowRight')
+            .pressKey('ArrowRight')
+            .pressKey('ArrowRight')
+            .pressKey('ArrowRight')
+            .pressKey('Enter');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single input').should('have.value', 'Рио-де-Жанейро');
+    });
+
+    it('onToggle', () => {
+        cy.viewport(400, 300);
+
+        const onToggle = cy.stub().as('onToggle');
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="select" items={items} label="Label" placeholder="Placeholder" onToggle={onToggle} />
+            </div>,
+        );
+
+        cy.get('#select').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').should('have.been.calledOnce');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('#select').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').should('have.been.calledTwice');
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.get('#select').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').should('have.been.calledThrice');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('body').click('topRight');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 4);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.pressKey('Tab', 'body');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 4);
+
+        cy.get('input').first().focus().pressKey('ArrowDown');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').its('callCount').should('equal', 5);
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.pressKey('ArrowLeft');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 6);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.pressKey('ArrowLeft');
+        cy.get('@onToggle').its('callCount').should('equal', 6);
+        cy.pressKey('ArrowDown');
+        cy.get('@onToggle').its('callCount').should('equal', 7);
+        cy.get('@onToggle').should('have.been.calledWith', true);
+        cy.pressKey('Escape');
+        cy.get('@onToggle').its('callCount').should('equal', 8);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+        cy.pressKey('Escape');
+        cy.get('@onToggle').its('callCount').should('equal', 8);
+        cy.get('@onToggle').should('have.been.calledWith', false);
+    });
+
+    it('item disabled', () => {
+        cy.viewport(400, 100);
+
+        const Component = () => {
+            const [value, setValue] = useState(['africa']);
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        multiselect
+                        value={value}
+                        onChange={setValue}
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('treeView, single mode', () => {
+        cy.viewport(400, 599);
+
+        const Component = () => {
+            const [value, setValue] = useState('rio_de_janeiro');
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="select"
+                        value={value}
+                        onChange={setValue}
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        treeView
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click('bottomRight');
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('treeView, multiple mode', () => {
+        cy.viewport(400, 599);
+
+        const Component = () => {
+            const [value, setValue] = useState(['rio_de_janeiro']);
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="select"
+                        multiselect
+                        value={value}
+                        onChange={setValue}
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        treeView
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click('bottomRight');
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('onChange + renderValue + multiple + async items change', () => {
+        const list1 = [
+            { value: 'item1', label: 'Item 1' },
+            { value: 'item2', label: 'Item 2' },
+            { value: 'item3', label: 'Item 3' },
+        ];
+
+        const list2 = [
+            { value: 'item4', label: 'Item 4' },
+            { value: 'item5', label: 'Item 5' },
+            { value: 'item6', label: 'Item 6' },
+        ];
+
+        const handleChange = cy.stub().as('onChange');
+
+        const Component = () => {
+            const [localItems, setLocalItems] = React.useState(list1);
+
+            return (
+                <>
+                    <button type="button" id="list1" onClick={() => setLocalItems(list1)}>
+                        set list 1
+                    </button>
+                    <button type="button" id="list2" onClick={() => setLocalItems(list2)}>
+                        set list 2
+                    </button>
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="select"
+                            multiselect
+                            onChange={handleChange}
+                            items={localItems}
+                            label="Label"
+                            placeholder="Placeholder"
+                            renderValue={(item) => {
+                                if (item.value === 'item2') {
+                                    return 'Item 2';
+                                }
+
+                                return item.label;
+                            }}
+                        />
+                    </div>
+                </>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click('bottomRight');
+        cy.get('[id$="item1"]').click();
+        cy.get('[id$="item2"]').click();
+        cy.get('#list2').click();
+        cy.get('#select').click('bottomRight');
+        cy.get('[id$="item4"]').click();
+        cy.get('button').contains('Item 2').click();
+        cy.get('@onChange').its('lastCall.args.0').should('deep.equal', ['item4', 'item1']);
+        cy.get('@onChange').its('lastCall.args.1').should('deep.equal', { value: 'item2', label: 'Item 2' });
+        cy.get('[id$="item4"]').click();
+        cy.get('@onChange').its('lastCall.args.0').should('deep.equal', ['item1']);
+        cy.get('@onChange').its('lastCall.args.1').should('include', { value: 'item4', label: 'Item 4' });
+    });
+
+    it('renderSelectionIcon single', () => {
+        cy.viewport(1000, 400);
+
+        const Component = () => {
+            const [value, setValue] = useState('bogota');
+
+            const renderSelectionIcon = (selected: boolean | 'indeterminate') => {
+                if (selected === true) {
+                    return <div style={{ width: '10px', height: '10px', borderRadius: '100%', background: 'red' }} />;
+                }
+
+                if (selected === 'indeterminate') {
+                    return <div style={{ width: '10px', height: '10px', background: 'blue' }} />;
+                }
+
+                return null;
+            };
+
+            return (
+                <div style={{ display: 'flex' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="select"
+                            label="Single"
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            renderSelectionIcon={renderSelectionIcon}
+                        />
+                    </div>
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+        cy.contains('Южная Америка').click();
+        cy.contains('Колумбия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('renderSelectionIcon multiple', () => {
+        cy.viewport(1000, 400);
+
+        const Component = () => {
+            const [value, setValue] = useState(['bogota']);
+
+            const renderSelectionIcon = (selected: boolean | 'indeterminate') => {
+                if (selected === true) {
+                    return <div style={{ width: '10px', height: '10px', borderRadius: '100%', background: 'red' }} />;
+                }
+
+                if (selected === 'indeterminate') {
+                    return <div style={{ width: '10px', height: '10px', background: 'blue' }} />;
+                }
+
+                return null;
+            };
+
+            return (
+                <div style={{ display: 'flex' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="select"
+                            label="Multiple"
+                            multiselect
+                            value={value}
+                            onChange={setValue}
+                            items={items}
+                            renderSelectionIcon={renderSelectionIcon}
+                        />
+                    </div>
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+        cy.contains('Южная Америка').click();
+        cy.contains('Колумбия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('shift', () => {
+        cy.viewport(400, 400);
+
+        const Component = () => {
+            return (
+                <div style={{ width: '200vw' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select id="select" placeholder="Placeholder" items={items} shift />
+                    </div>
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+        cy.window().scrollTo(200, 0);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('flip', () => {
+        cy.viewport(400, 400);
+
+        const Component = () => {
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select id="select" placeholder="Placeholder" items={items} flip placement="top" />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=false, treeView=false', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="select" placeholder="Placeholder" items={items} listWidth="200px" />
+            </div>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=false, treeView=true', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="select" placeholder="Placeholder" items={items} treeView listWidth="200px" />
+            </div>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=true, treeView=false', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="select" placeholder="Placeholder" items={items} listWidth="200px" singleLine />
+            </div>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('singleLine=true, treeView=true', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select id="select" placeholder="Placeholder" items={items} treeView listWidth="200px" singleLine />
+            </div>,
+        );
+
+        cy.get('#select').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('basic logic', () => {
+        cy.viewport(1000, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('paris');
+            const [valueMultiple, setValueMultiple] = React.useState(['paris', 'lyon']);
+
+            return (
+                <>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="single"
+                            target="button-like"
+                            label="Список стран single"
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="multiple"
+                            target="button-like"
+                            label="Список стран multiple"
+                            items={items}
+                            multiselect
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                        />
+                    </div>
+                </>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#single').should('include.text', 'Париж');
+        cy.get('#multiple').should('include.text', 'Париж').should('include.text', 'Лион');
+
+        cy.get('#single').click();
+        cy.get('#single [id$="europe"]').click();
+        cy.get('#single [id$="france"]').click();
+
+        cy.get('#single [id$="paris"]').click();
+
+        cy.get('#multiple').click();
+        cy.get('#multiple [id$="europe"]').click();
+        cy.get('#multiple [id$="france"]').click();
+
+        cy.get('#multiple [id$="lyon"]').click();
+
+        cy.get('#multiple [id$="germany"] .checkbox-trigger').click();
+        cy.get('#multiple [id$="germany"]').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('behavior: disabled unselected item', () => {
+        const localItems = [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                        disabled: true,
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+        ];
+
+        const Component = () => (
+            <div style={{ width: '300px' }}>
+                <Select id="select" multiselect label="Список стран" items={localItems} />
+            </div>
+        );
+
+        mount(<Component />);
+
+        cy.get('#select').click('bottomRight');
+        cy.get('[id$="brazil"]').click();
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+    });
+
+    it('behavior: disabled selected item', () => {
+        const localItems = [
+            {
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                        disabled: true,
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
+            },
+        ];
+
+        const Component = () => {
+            const [value, setValue] = useState(['rio_de_janeiro']);
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="select"
+                        multiselect
+                        label="Список стран"
+                        items={localItems}
+                        value={value}
+                        onChange={setValue}
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click('bottomRight');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"]').click();
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'true');
+
+        cy.get('[id$="brazil"] .checkbox-trigger').click();
+        cy.get('[id$="rio_de_janeiro"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="sao_paulo"]').should('have.attr', 'aria-selected', 'false');
+    });
+
+    it('behavior: nesting lists within scroll', { scrollBehavior: false }, () => {
+        cy.viewport(1000, 300);
+
+        const nestingItems = [
+            {
+                value: 'north_america',
+                label: 'Северная Америка',
+                className: 'test-classname',
+            },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                listMaxHeight: '100px',
+                items: [
+                    {
+                        value: 'brazil',
+                        label: 'Бразилия',
+                        listMaxHeight: '100px',
+                        items: [
+                            {
+                                value: 'rio_de_janeiro',
+                                label: 'Рио-де-Жанейро',
+                            },
+                            {
+                                value: 'sao_paulo',
+                                label: 'Сан-Паулу',
+                            },
+                        ],
+                    },
+                    {
+                        value: 'argentina',
+                        label: 'Аргентина',
+                    },
+                    {
+                        value: 'colombia',
+                        label: 'Колумбия',
+                    },
+                ],
+            },
+            {
+                value: 'europe',
+                label: 'Европа',
+            },
+            {
+                value: 'asia',
+                label: 'Азия',
+            },
+            {
+                value: 'africa',
+                label: 'Африка',
+                disabled: true,
+            },
+        ];
+
+        const Component = () => (
+            <div style={{ width: '300px' }}>
+                <Select
+                    id="single"
+                    placeholder="Placeholder"
+                    label="Список стран"
+                    items={nestingItems}
+                    listMaxHeight="150px"
+                />
+            </div>
+        );
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('behaviour: isTargetAmount', () => {
+        cy.viewport(300, 100);
+
+        const Component = () => {
+            const [value, setValue] = React.useState(['africa', 'north_america']);
+
+            return (
+                <Select
+                    isTargetAmount
+                    multiselect
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                    value={value}
+                    onChange={setValue}
+                />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('.chip-item div svg').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('keyboard interactions', () => {
+        cy.viewport(1000, 500);
+
+        const Component = () => {
+            const [valueMultiple, setValueMultiple] = React.useState<string[]>([]);
+
+            return (
+                <div style={{ width: '200px' }}>
+                    <Select
+                        target="button-like"
+                        label="Список стран"
+                        items={items}
+                        multiselect
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('body').click();
+        cy.get('body').tab();
+        cy.get('button').focus();
+
+        // Arrow Down
+        cy.pressKey('ArrowDown');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('button').should('have.focus');
+        cy.pressKey('ArrowDown')
+            .pressKey('ArrowDown')
+            .pressKey('ArrowDown')
+            .pressKey('ArrowDown')
+            .pressKey('ArrowDown')
+            .pressKey('ArrowDown')
+            .pressKey('ArrowDown');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+
+        // Arrow Up
+        cy.pressKey('ArrowUp');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('ArrowUp');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+
+        // Arrows Right and Left
+        cy.pressKey('ArrowDown').pressKey('ArrowDown').pressKey('ArrowRight');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-active');
+        cy.get('button').should('have.focus');
+        cy.pressKey('ArrowRight');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="brazil"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-active');
+        cy.pressKey('ArrowLeft');
+        cy.pressKey('ArrowLeft');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.pressKey('ArrowDown')
+            .pressKey('ArrowDown')
+            .pressKey('ArrowRight')
+            .pressKey('ArrowRight')
+            .pressKey('ArrowRight')
+            .pressKey('ArrowRight');
+        cy.get('[id$="beijing"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="asia"]').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="china"]').should('have.class', 'dropdown-item-is-active');
+        cy.get('button').should('have.focus');
+        cy.pressKey('ArrowLeft')
+            .pressKey('ArrowLeft')
+            .pressKey('ArrowLeft')
+            .pressKey('ArrowLeft')
+            .pressKey('ArrowLeft');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.get('[id$="tree_level_3"]').should('not.exist');
+        cy.get('button').should('have.focus');
+        cy.pressKey('ArrowDown').pressKey('ArrowDown').pressKey('ArrowRight');
+        cy.pressKey('PageDown');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+        cy.pressKey('ArrowDown').pressKey('ArrowDown').pressKey('ArrowRight');
+        cy.pressKey('PageUp');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+        cy.pressKey('ArrowDown').pressKey('ArrowDown').pressKey('ArrowRight');
+        cy.pressKey('Home');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+        cy.pressKey('ArrowDown').pressKey('ArrowDown').pressKey('ArrowRight');
+        cy.pressKey('End');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('not.have.class', 'dropdown-item-is-active');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+
+        // Escape
+        cy.pressKey('ArrowDown').pressKey('ArrowDown').pressKey('ArrowRight').pressKey('ArrowRight');
+        cy.pressKey('Escape');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('[id$="tree_level_2"]').should('not.exist');
+        cy.get('[id$="tree_level_3"]').should('not.exist');
+        cy.get('button').should('have.focus');
+
+        // Home
+        cy.pressKey('Home');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('button').should('have.focus');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+
+        // End
+        cy.pressKey('End');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('button').should('have.focus');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+
+        // Page Down
+        cy.pressKey('PageDown');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('button').should('have.focus');
+        cy.pressKey('ArrowDown');
+        cy.pressKey('PageDown');
+        cy.get('button').should('have.focus');
+        cy.get('[id$="africa"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+
+        // Page Up
+        cy.pressKey('PageUp');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('button').should('have.focus');
+        cy.pressKey('ArrowDown');
+        cy.pressKey('ArrowDown');
+        cy.pressKey('PageUp');
+        cy.get('button').should('have.focus');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+
+        // Space
+        cy.pressKey('Space');
+        cy.get('button').should('have.class', 'select-without-box-shadow');
+        cy.pressKey('Space');
+        cy.get('button').should('include.text', 'Северная Америка');
+        cy.get('[id$="north_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('button').should('have.class', 'select-without-box-shadow');
+        cy.pressKey('Space');
+        cy.get('button').should('not.include.text', 'Северная Америка');
+        cy.pressKey('ArrowDown');
+        cy.pressKey('Space');
+        cy.get('button')
+            .should('include.text', 'Рио-де-Жанейро')
+            .should('include.text', 'Кордова')
+            .should('include.text', 'Медельин');
+        cy.pressKey('ArrowRight');
+        cy.pressKey('ArrowRight');
+        cy.pressKey('ArrowDown');
+        cy.pressKey('Space');
+        cy.get('button').should('not.include.text', 'Буэнос-Айрес').should('not.include.text', 'Кордова');
+        cy.pressKey('ArrowLeft').pressKey('ArrowLeft');
+        cy.pressKey('Space').pressKey('Space');
+        cy.get('button').should('include.text', 'Список стран');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+        cy.get('button').should('not.have.class', 'select-without-box-shadow');
+
+        // Enter
+        cy.pressKey('Enter');
+        cy.get('button').should('have.class', 'select-without-box-shadow');
+        cy.pressKey('Enter');
+        cy.get('button').should('include.text', 'Северная Америка');
+        cy.pressKey('Enter');
+        cy.get('button').should('include.text', 'Список стран');
+        cy.pressKey('ArrowDown');
+        cy.pressKey('Enter');
+        cy.get('button').should('include.text', 'Список стран');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-focused');
+        cy.get('[id$="south_america"]').should('have.class', 'dropdown-item-is-active');
+        cy.pressKey('Enter');
+        cy.pressKey('Enter');
+        cy.pressKey('Enter');
+        cy.get('[id$="brazil"]').should('have.class', 'dropdown-item-is-active');
+        cy.get('[id$="rio_de_janeiro"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('Enter');
+        cy.get('button').should('include.text', 'Рио-де-Жанейро');
+        cy.get('button').should('not.include.text', 'Сан-Паулу');
+        cy.pressKey('Enter');
+        cy.get('button').should('include.text', 'Список стран');
+        cy.pressKey('Escape');
+        cy.get('button').should('have.focus');
+        cy.get('button').should('not.have.class', 'select-without-box-shadow');
+
+        // Tab
+        cy.pressKey('ArrowDown').pressKey('Tab');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+    });
+
+    it('flow: opening', () => {
+        cy.viewport(1300, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('paris');
+            const [valueMultiple, setValueMultiple] = React.useState(['paris', 'lyon']);
+
+            return (
+                <div style={{ display: 'flex' }}>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="button-single"
+                            target="button-like"
+                            label="Список стран single"
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                        />
+                    </div>
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="button-multiple"
+                            multiselect
+                            target="button-like"
+                            label="Список стран single"
+                            items={items}
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                        />
+                    </div>
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="textfield-single"
+                            target="textfield-like"
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                        />
+                    </div>
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="textfield-multiple"
+                            multiselect
+                            target="textfield-like"
+                            items={items}
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                        />
+                    </div>
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#button-single').click();
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-single').click();
+        cy.get('ul[role="tree"]').should('not.exist');
+        cy.get('#button-single .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-single .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('not.exist');
+
+        cy.get('#button-multiple').click();
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-multiple').click();
+        cy.get('ul[role="tree"]').should('not.exist');
+        cy.get('#button-multiple .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#button-multiple .select-target-arrow').click({ force: true });
+        cy.get('ul[role="tree"]').should('not.exist');
+
+        cy.get('#textfield-single').click();
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#textfield-single').click();
+        cy.get('ul[role="tree"]').should('not.exist');
+
+        cy.get('#textfield-multiple').click({ position: 'topLeft' });
+        cy.get('ul[role="tree"]').should('be.visible');
+        cy.get('#textfield-multiple').click({ position: 'topLeft' });
+        cy.get('ul[role="tree"]').should('not.exist');
+        cy.get('#textfield-multiple').click({ position: 'center' });
+        cy.get('ul[role="tree"]').should('not.exist');
+    });
+
+    it('snapshot: missing value in items', () => {
+        cy.viewport(1280, 200);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('minsk');
+            const [valueMultiple, setValueMultiple] = React.useState(['minsk', 'lyon']);
+
+            const renderValue = (item) => {
+                if (item.value === 'minsk') {
+                    return 'Минск';
+                }
+
+                return item.label;
+            };
+
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select target="button-like" items={items} value={valueSingle} />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select multiselect target="button-like" items={items} value={valueMultiple} />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select items={items} value={valueSingle} />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select multiselect items={items} value={valueMultiple} />
+                        </div>
+                    </div>
+
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select target="button-like" items={items} value={valueSingle} renderValue={renderValue} />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                multiselect
+                                target="button-like"
+                                items={items}
+                                value={valueMultiple}
+                                renderValue={renderValue}
+                            />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select items={items} value={valueSingle} renderValue={renderValue} />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select multiselect items={items} value={valueMultiple} renderValue={renderValue} />
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('flow, single: missing value in items', () => {
+        cy.viewport(500, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('');
+
+            const handleClick = () => {
+                setValueSingle('minsk');
+            };
+
+            return (
+                <>
+                    <button id="btn" type="button" onClick={handleClick}>
+                        add missing value
+                    </button>
+
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="select"
+                                target="button-like"
+                                label="Label"
+                                items={items}
+                                value={valueSingle}
+                                onChange={setValueSingle}
+                            />
+                        </div>
+
+                        <div style={{ width: '300px' }}>
+                            <Select label="Label" items={items} value={valueSingle} onChange={setValueSingle} />
+                        </div>
+                    </div>
+                </>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#btn').click();
+
+        cy.matchImageSnapshot();
+
+        cy.get('#select').click();
+        cy.get('[id$="north_america"]').click();
+        cy.get('#select').should('include.text', 'Северная Америка');
+    });
+
+    it('flow, multiselect: missing value in items', () => {
+        cy.viewport(1000, 500);
+
+        const Component = () => {
+            const [valueMultiple, setValueMultiple] = React.useState<string[]>([]);
+
+            const handleClick = () => {
+                setValueMultiple([...valueMultiple, 'minsk']);
+            };
+
+            return (
+                <>
+                    <button id="btn" type="button" onClick={handleClick}>
+                        add missing value
+                    </button>
+
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '300px' }}>
+                            <Select
+                                id="select"
+                                multiselect
+                                target="button-like"
+                                label="Label"
+                                items={items}
+                                value={valueMultiple}
+                                onChange={setValueMultiple}
+                            />
+                        </div>
+
+                        <div style={{ width: '500px' }}>
+                            <Select
+                                id="multiselect"
+                                multiselect
+                                label="Label"
+                                items={items}
+                                value={valueMultiple}
+                                onChange={setValueMultiple}
+                            />
+                        </div>
+                    </div>
+                </>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#btn').click();
+        cy.get('#select').click();
+        cy.get('[id$="north_america"]').click();
+
+        cy.matchImageSnapshot();
+
+        cy.get('[id$="north_america"]').click();
+        cy.get('#select button').should('not.include.text', 'Северная Америка');
+        cy.get('#select button').should('include.text', 'minsk');
+        cy.get('[id$="north_america"]').click();
+        cy.get('#multiselect').get('.chip-item div svg').last().click();
+        cy.get('#multiselect .chips-wrapper').should('include.text', 'Северная Америка');
+        cy.get('#multiselect .chips-wrapper').should('not.include.text', 'minsk');
+    });
+
+    it('flow: single mode, async items loading', () => {
+        const Component = () => {
+            const [value, setValue] = useState('');
+            const [localItems, setLocalItems] = useState<Array<{ value: string; label: string }>>([]);
+
+            React.useEffect(() => {
+                const t = setTimeout(() => {
+                    setLocalItems([
+                        { value: 'A', label: 'A' },
+                        { value: 'B', label: 'B' },
+                        { value: 'C', label: 'C' },
+                    ]);
+                }, 10);
+
+                return () => clearTimeout(t);
+            }, []);
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="single"
+                        value={value}
+                        onChange={setValue}
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={localItems}
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="A"]').click();
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        cy.get('#single input').should('have.value', 'A');
+
+        cy.get('#single').click();
+        cy.get('[id$="A"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="B"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="C"]').should('have.attr', 'aria-selected', 'false');
+    });
+
+    it('flow: multiple mode, async items loading', () => {
+        const Component = () => {
+            const [value, setValue] = useState<string[]>([]);
+            const [localItems, setLocalItems] = useState<Array<{ value: string; label: string }>>([]);
+
+            React.useEffect(() => {
+                const t = setTimeout(() => {
+                    setLocalItems([
+                        { value: 'A', label: 'A' },
+                        { value: 'B', label: 'B' },
+                        { value: 'C', label: 'C' },
+                    ]);
+                }, 10);
+
+                return () => clearTimeout(t);
+            }, []);
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="multiple"
+                        value={value}
+                        onChange={setValue}
+                        multiselect
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={localItems}
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#multiple').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.get('[id$="A"]').click();
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('.has-chips').should('exist');
+        cy.get('.has-chips button').should('have.length', 1);
+        cy.get('.has-chips button').should('include.text', 'A');
+        cy.get('[id$="A"]').should('have.attr', 'aria-selected', 'true');
+        cy.get('[id$="B"]').should('have.attr', 'aria-selected', 'false');
+        cy.get('[id$="C"]').should('have.attr', 'aria-selected', 'false');
+    });
+
+    it('treeView, arrowPlacement=left', () => {
+        mount(<Select id="select" label="Label" items={items} placeholder="Placeholder" treeView />);
+        cy.get('#select').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('treeView, arrowPlacement=right', () => {
+        mount(
+            <Select
+                id="select"
+                label="Label"
+                items={items}
+                placeholder="Placeholder"
+                treeView
+                arrowPlacement="right"
+            />,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('treeView, arrowPlacement=left, multiselect', () => {
+        mount(<Select id="select" label="Label" items={items} multiselect placeholder="Placeholder" treeView />);
+        cy.get('#select').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('treeView, multiSelect arrowPlacement=right', () => {
+        mount(
+            <Select
+                id="select"
+                label="Label"
+                items={items}
+                multiselect
+                placeholder="Placeholder"
+                treeView
+                arrowPlacement="right"
+            />,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('closeAfterSelect', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    label="Label"
+                    items={items}
+                    labelPlacement="inner"
+                    helperText="Helper text"
+                    contentLeft={<IconPlasma />}
+                    variant="normal"
+                    required
+                    hasRequiredIndicator
+                    requiredPlacement="left"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('without closeAfterSelect', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="positive"
+                    target="textfield-like"
+                    label="Label"
+                    items={items}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="tight"
+                    optional
+                    closeAfterSelect={false}
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('required=left, noLabel', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    target="textfield-like"
+                    label=""
+                    items={items}
+                    labelPlacement="inner"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    required
+                    hasRequiredIndicator
+                    requiredPlacement="left"
+                />
+            </>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('optional, innerLabel', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    label="Label"
+                    items={items}
+                    labelPlacement="inner"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="tight"
+                    optional
+                />
+            </>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('disabled', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    label="Label"
+                    items={items}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    disabled
+                />
+            </>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, chipView=default, isTargetAmount', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    chipView="default"
+                    chipType="default"
+                    isTargetAmount
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, chipView=default, chipType=text', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    chipView="default"
+                    chipType="text"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, chipView=default, chipType=text, isTargetAmount', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    chipView="default"
+                    chipType="text"
+                    isTargetAmount
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, button-like', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    target="button-like"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, button-like, isTargetAmount', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    label="Label"
+                    target="button-like"
+                    items={items}
+                    multiselect
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    isTargetAmount
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('div', 'Северная Америка').click();
+        cy.contains('div', 'Южная Америка').click();
+        cy.get('#select [id$="south_america"] .checkbox-trigger').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: view=default, selectAllOptions', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    items={items}
+                    multiselect
+                    selectAllOptions={{
+                        label: 'Выбрать всё',
+                    }}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('MultiSelect: selectAllSticky', () => {
+        cy.viewport(400, 300);
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    items={items}
+                    multiselect
+                    listMaxHeight="180px"
+                    selectAllOptions={{
+                        label: 'Выбрать всё',
+                        sticky: true,
+                    }}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                />
+            </>,
+        );
+        cy.get('#select').click();
+        cy.contains('Азия').scrollIntoView();
+        cy.matchImageSnapshot();
+    });
+
+    it('readOnly', () => {
+        mount(
+            <>
+                <Select
+                    id="select"
+                    view="default"
+                    target="textfield-like"
+                    label="Label"
+                    items={items}
+                    labelPlacement="outer"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    variant="normal"
+                    readOnly
+                />
+            </>,
+        );
+        cy.matchImageSnapshot();
+    });
+});

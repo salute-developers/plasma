@@ -1,4 +1,4 @@
-import { cellConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { cellConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Cell.config';
 

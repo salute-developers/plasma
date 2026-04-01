@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import type { ComponentProps } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
 // @ts-expect-error override path is resolved by webpack alias at build time
@@ -29,10 +28,10 @@ getBaseVisualTests({
 
 describeFn('NumberInput', () => {
     const NumberInput = componentExists ? getComponent<NumberInputProps>('NumberInput') : () => null;
-    const IconButton = getComponent('IconButton');
+    const IconButton = componentExists ? getComponent('IconButton') : () => null;
 
     const InteractiveNumberInput = ({ value: outerValue, ...rest }: NumberInputProps) => {
-        const [value, setValue] = useState<number | string | undefined>(outerValue);
+        const [value, setValue] = useState<number | string | undefined>(outerValue as number | string | undefined);
 
         const handleChange = (_: any, newValue: number | string | undefined) => {
             setValue(newValue);
@@ -248,7 +247,7 @@ describeFn('NumberInput', () => {
     it('displayWithoutValue=increment, click shows full component', () => {
         mount(<InteractiveNumberInput min={0} max={10} displayWithoutValue="increment" />);
 
-        cy.get('button').click();
+        cy.get('button').last().click();
         cy.get('input').should('have.value', '1');
 
         cy.matchImageSnapshot();
@@ -257,7 +256,7 @@ describeFn('NumberInput', () => {
     it('displayWithoutValue=decrement, click shows full component', () => {
         mount(<InteractiveNumberInput min={0} max={10} displayWithoutValue="decrement" />);
 
-        cy.get('button').click();
+        cy.get('button').first().click();
         cy.get('input').should('have.value', '9');
 
         cy.matchImageSnapshot();

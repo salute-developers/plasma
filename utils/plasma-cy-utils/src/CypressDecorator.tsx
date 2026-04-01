@@ -1,11 +1,16 @@
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { plasma_giga__light } from '@salutejs/plasma-themes';
-import { sdds_cs__light, sdds_insol__light } from '@salutejs/sdds-themes';
-// plasma-web
-import { web } from '@salutejs/plasma-tokens-web/typo';
-import { light as webLight } from '@salutejs/plasma-tokens-web/themes';
+import { plasma_giga__light, plasma_web__light, plasma_homeds__light } from '@salutejs/plasma-themes';
+import {
+    sdds_cs__light,
+    sdds_insol__light,
+    sdds_serv__light,
+    sdds_scan__light,
+    sdds_os__light,
+    sdds_platform_ai__light,
+    sdds_finai__light,
+} from '@salutejs/sdds-themes';
 // plasma-ui
 import { darkSber } from '@salutejs/plasma-tokens/themes';
 // plasma-b2c
@@ -19,10 +24,13 @@ import { NormalizeCSSDecorator } from './NormalizeCSSDecorator';
 const ThemeGIGA = createGlobalStyle(plasma_giga__light);
 const ThemeCS = createGlobalStyle(sdds_cs__light);
 const ThemeINSOL = createGlobalStyle(sdds_insol__light);
-
-// TODO: better naming
-const TypoThemeStyle = createGlobalStyle(web);
-const WebLightThemeStyle = createGlobalStyle(webLight);
+const ThemeSERV = createGlobalStyle(sdds_serv__light);
+const ThemeSCAN = createGlobalStyle(sdds_scan__light);
+const ThemeOS = createGlobalStyle(sdds_os__light);
+const ThemePLATFORMAI = createGlobalStyle(sdds_platform_ai__light);
+const ThemeFINAI = createGlobalStyle(sdds_finai__light);
+const ThemeHOMEDS = createGlobalStyle(plasma_homeds__light);
+const ThemeWEB = createGlobalStyle(plasma_web__light);
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
@@ -33,6 +41,13 @@ const testPackagesThemes = {
     'plasma-giga': <ThemeGIGA />,
     'sdds-cs': <ThemeCS />,
     'sdds-insol': <ThemeINSOL />,
+    'plasma-web': <ThemeWEB />,
+    'sdds-serv': <ThemeSERV />,
+    'sdds-scan': <ThemeSCAN />,
+    'sdds-os': <ThemeOS />,
+    'sdds-platform-ai': <ThemePLATFORMAI />,
+    'sdds-finai': <ThemeFINAI />,
+    'plasma-homeds': <ThemeHOMEDS />,
 };
 
 const getPackage = function <T = PropsWithChildren<{}>>(): Record<string, React.FC<T> | undefined> {
@@ -56,6 +71,18 @@ const getPackage = function <T = PropsWithChildren<{}>>(): Record<string, React.
             return require('../../../packages/sdds-cs/dist/emotion/cjs/index.js');
         case 'sdds-insol':
             return require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
+        case 'sdds-serv':
+            return require('../../../packages/sdds-serv/dist/styled-components/cjs/index.js');
+        case 'sdds-scan':
+            return require('../../../packages/sdds-scan/dist/styled-components/cjs/index.js');
+        case 'sdds-os':
+            return require('../../../packages/sdds-os/dist/styled-components/cjs/index.js');
+        case 'sdds-platform-ai':
+            return require('../../../packages/sdds-platform-ai/dist/styled-components/cjs/index.js');
+        case 'sdds-finai':
+            return require('../../../packages/sdds-finai/dist/styled-components/cjs/index.js');
+        case 'plasma-homeds':
+            return require('../../../packages/plasma-homeds/dist/styled-components/cjs/index.js');
         default:
             throw new Error(`Library ${pkgName} is not required in plasma-core/CypressHelpers:getComponent`);
     }
@@ -70,19 +97,29 @@ export const hasComponent = (componentName: string): boolean => {
 export const getComponent = function <T = PropsWithChildren<{}>>(componentName: string): React.FC<T> {
     const pkgName = Cypress.env('package') as string | undefined;
     const pkg = getPackage<T>();
-    const component = pkg[componentName];
+    const component = pkg[componentName] as React.FC<T>;
 
     if (!component) {
         console.error(`Library ${pkgName} has no ${componentName}`);
     }
 
-    return component || (() => null);
+    return component;
 };
 
 export const getDescribeFN = (component: string) => {
     const componentExists = hasComponent(component);
 
     return componentExists ? describe : describe.skip;
+};
+
+export const skipForPackages = (packages: string[]) => {
+    const pkgName = Cypress.env('package') as string;
+    return packages.includes(pkgName) ? it.skip : it;
+};
+
+export const skipForBrowser = (browsers: string[], customIt: Mocha.TestFunction) => {
+    const browserName = Cypress.browser.family as string;
+    return browsers.includes(browserName) ? it.skip : customIt;
 };
 
 export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, children }) => {
@@ -92,6 +129,10 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
     if (pkgName === 'plasma-ui') {
         const DeviceThemeProvider = getComponent('DeviceThemeProvider');
 
+        if (!DeviceThemeProvider) {
+            return <>{children}</>;
+        }
+
         return (
             <DeviceThemeProvider>
                 <SSRProvider noSSR={noSSR}>
@@ -99,17 +140,6 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
                     {children}
                 </SSRProvider>
             </DeviceThemeProvider>
-        );
-    }
-
-    if (pkgName === 'plasma-web') {
-        return (
-            <SSRProvider noSSR={noSSR}>
-                <NormalizeCSSDecorator />
-                <TypoThemeStyle />
-                <WebLightThemeStyle />
-                {children}
-            </SSRProvider>
         );
     }
 
@@ -125,7 +155,20 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
         );
     }
 
-    if (['plasma-giga', 'sdds-cs', 'sdds-insol'].includes(pkgName)) {
+    if (
+        [
+            'plasma-giga',
+            'sdds-cs',
+            'sdds-insol',
+            'plasma-web',
+            'sdds-serv',
+            'sdds-scan',
+            'sdds-os',
+            'sdds-platform-ai',
+            'sdds-finai',
+            'plasma-homeds',
+        ].includes(pkgName)
+    ) {
         return (
             <SSRProvider noSSR={noSSR}>
                 <NormalizeCSSDecorator />

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 import styled from 'styled-components';
 
 import { IconMic } from '../../../../components/_Icon';
@@ -24,6 +25,11 @@ const meta: Meta<StoryInputProps> = {
     title: 'AI Kit/Input',
     decorators: [WithTheme],
     component: Input,
+    parameters: {
+        controls: {
+            disableSaveFromUI: true,
+        },
+    },
     args: {
         size: 'm',
         mode: 'condensed',
@@ -39,13 +45,72 @@ const meta: Meta<StoryInputProps> = {
     },
     argTypes: {
         size: {
+            description: 'Размер компонента',
             control: 'select',
             options: ['xs', 's', 'm', 'l', 'xl'],
+            table: { category: 'variation' },
         },
         mode: {
+            description: 'Режим отображения компонента',
             control: 'select',
             options: ['condensed', 'extended'],
+            table: { category: 'variation' },
         },
+        placeholder: {
+            description: 'Плейсхолдер поля ввода',
+            control: 'text',
+            table: { category: 'content-related' },
+        },
+        autoFocus: {
+            description: 'Автофокус на поле ввода',
+            control: 'boolean',
+            table: { category: 'content-related' },
+        },
+        minRows: {
+            description: 'Минимальное количество строк textarea',
+            control: 'number',
+            table: { category: 'layout-related' },
+        },
+        maxRows: {
+            description: 'Максимальное количество строк textarea',
+            control: 'number',
+            table: { category: 'layout-related' },
+        },
+        submitOnEnter: {
+            description: 'Отправлять сообщение по Enter (Shift+Enter — новая строка)',
+            control: 'boolean',
+            table: { category: 'behavior-related' },
+        },
+        clearOnSubmit: {
+            description: 'Очищать текст после отправки',
+            control: 'boolean',
+            table: { category: 'behavior-related' },
+        },
+        loading: {
+            description: 'Состояние загрузки кнопки отправки',
+            control: 'boolean',
+            table: { category: 'state-related' },
+        },
+        hasActionBefore: {
+            description: 'Показывать слот перед полем ввода',
+            control: 'boolean',
+            table: { category: 'story-related' },
+        },
+        hasActionAfter: {
+            description: 'Показывать слот после поля ввода',
+            control: 'boolean',
+            table: { category: 'story-related' },
+        },
+        ...disableProps([
+            'value',
+            'onChange',
+            'attachments',
+            'onAttachmentRemove',
+            'onSend',
+            'actionBefore',
+            'actionAfter',
+            'sendNode',
+        ]),
     },
 };
 

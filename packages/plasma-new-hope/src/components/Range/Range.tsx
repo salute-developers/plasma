@@ -1,9 +1,7 @@
 import React, { forwardRef, MouseEventHandler, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import { useOutsideClick } from 'src/hooks';
-import { useForkRef } from '@salutejs/plasma-core';
-
-import type { RootProps } from '../../engines';
-import { cx } from '../../utils';
+import { useOutsideClick, useForkRef } from 'src/hooks';
+import type { RootProps } from 'src/engines';
+import { cx } from 'src/utils';
 
 import type { RangeInputRefs, RangeProps, RangeRootProps } from './Range.types';
 import { base as sizeCSS } from './variations/_size/base';

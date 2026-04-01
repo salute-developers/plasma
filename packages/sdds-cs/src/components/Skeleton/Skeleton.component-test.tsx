@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe, withNoAnimation } from '@salutejs/plasma-cy-utils';
-import { radiuses } from '@salutejs/plasma-new-hope/styled-components';
+import { radiuses } from '@salutejs/plasma-new-hope/emotion';
 
 import { LineSkeleton as LineSkeletonCS, RectSkeleton as RectSkeletonCS, TextSkeleton as TextSkeletonCS } from '.';
 

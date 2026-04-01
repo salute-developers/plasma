@@ -1,10 +1,9 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, CSSProperties, DragEvent, MouseEvent } from 'react';
-import { useForkRef, useResizeObserver } from '@salutejs/plasma-core';
-
-import { canUseDOM, cx, getSizeValueFromProp } from '../../utils';
-import { IconArrowBarDown } from '../../components/_Icon';
-import type { RootProps } from '../../engines';
+import { canUseDOM, cx, getSizeValueFromProp } from 'src/utils';
+import { useForkRef, useResizeObserver } from 'src/hooks';
+import { IconArrowBarDown } from 'src/components/_Icon';
+import type { RootPropsOmitDraggable } from 'src/engines';
 
 import type { DropzoneProps, DropzoneRootProps, FileArgs, FileProcessHandler } from './Dropzone.types';
 import { base as viewCSS } from './variations/_view/base';
@@ -25,7 +24,7 @@ import {
 } from './Dropzone.styles';
 import { classes, privateTokens } from './Dropzone.tokens';
 
-export const dropzoneRoot = (Root: RootProps<HTMLDivElement, DropzoneRootProps>) =>
+export const dropzoneRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, DropzoneRootProps>) =>
     forwardRef<HTMLInputElement, DropzoneProps>(
         (
             {

@@ -1,6 +1,6 @@
 import React, { useCallback, forwardRef, useRef, AnimationEvent, TransitionEvent } from 'react';
 import Draggable from 'react-draggable';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
 import { safeUseId } from 'src/utils';
 import cls from 'classnames';
 

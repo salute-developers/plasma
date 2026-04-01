@@ -8,9 +8,21 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-primary);
-                ${tokens.backgroundError}: var(--surface-transparent-negative);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+                ${tokens.borderColor}: var(--outline-transparent-primary);
+                ${tokens.borderColorHover}: var(--outline-transparent-primary-hover);
+                ${tokens.borderColorFocus}: var(--surface-accent);
+
+                ${tokens.textFieldBorderColorSuccess}: var(--surface-positive);
+                ${tokens.textFieldBorderColorSuccessHover}: var(--surface-positive);
+                ${tokens.textFieldBorderColorSuccessFocus}: var(--surface-accent);
+
+                ${tokens.textFieldBorderColorError}: var(--surface-negative);
+                ${tokens.textFieldBorderColorErrorHover}: var(--surface-negative);
+                ${tokens.textFieldBorderColorErrorFocus}: var(--surface-accent);
+
+                ${tokens.background}: var(--surface-clear);
+                ${tokens.backgroundError}: var(--surface-clear);
+                ${tokens.backgroundSuccess}: var(--surface-clear);
 
                 ${tokens.labelColor}: var(--text-primary);
 
@@ -22,12 +34,12 @@ export const config = {
 
                 ${tokens.timePickerShadow}: var(--shadow-down-soft-s);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBackgroundColor}: var(--surface-clear);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-clear);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-clear);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-clear);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-clear);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-clear);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -47,6 +59,7 @@ export const config = {
             l: css`
                 ${tokens.width}: 20rem;
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: 0 0 0 1rem;
                 ${tokens.rightContentMargin}: 0;
@@ -114,6 +127,7 @@ export const config = {
             m: css`
                 ${tokens.width}: 20rem;
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: 0 0 0 0.875rem;
                 ${tokens.rightContentMargin}: 0;
@@ -181,6 +195,7 @@ export const config = {
             s: css`
                 ${tokens.width}: 20rem;
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: 0 0 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
@@ -248,6 +263,7 @@ export const config = {
             xs: css`
                 ${tokens.width}: 20rem;
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: 0 0 0 0.5rem;
                 ${tokens.rightContentMargin}: 0;

@@ -13,10 +13,14 @@ export type ScrollbarProps = {
      * Цвет тумблера прокрутки
      */
     thumbColor?: string;
+    /**
+     * Смещение по высоте
+     */
+    scrollHeightOffset?: string;
 };
 
 export const addScrollbar = (args: ScrollbarProps) => {
-    const { scrollWidth, trackColor, thumbColor } = args;
+    const { scrollWidth, trackColor, thumbColor, scrollHeightOffset = 0 } = args;
 
     return `
         &::-webkit-scrollbar {
@@ -28,6 +32,9 @@ export const addScrollbar = (args: ScrollbarProps) => {
             border-radius: ${scrollWidth};
 
             background-color: ${trackColor};
+
+            margin-top: ${scrollHeightOffset};
+            margin-bottom: ${scrollHeightOffset};
         }
 
         &::-webkit-scrollbar-thumb {

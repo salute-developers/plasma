@@ -1,8 +1,8 @@
 import React, { forwardRef, memo, useRef } from 'react';
 import type { MouseEvent } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
 
 import { cx } from '../../../../utils';
+import { useForkRef } from '../../../../hooks';
 import { classes } from '../../Calendar.tokens';
 
 import type { DateStructureItemProps } from './DateStructureItem.types';

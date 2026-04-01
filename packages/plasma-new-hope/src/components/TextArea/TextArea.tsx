@@ -1,10 +1,8 @@
 import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler, useLayoutEffect } from 'react';
 import { css } from '@linaria/core';
-import { useResizeObserver } from '@salutejs/plasma-core';
-
-import { cx, mergeRefs } from '../../utils';
-import type { RootProps } from '../../engines/types';
-import { useOutsideClick } from '../../hooks';
+import { cx, mergeRefs } from 'src/utils';
+import type { RootProps } from 'src/engines';
+import { useOutsideClick, useResizeObserver } from 'src/hooks';
 
 import { applyDynamicLabel } from './mixins';
 import { useAutoResize, ROOT_FONT_SIZE } from './hooks';

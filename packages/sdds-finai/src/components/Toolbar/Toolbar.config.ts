@@ -34,24 +34,6 @@ export const config = {
                 ${toolbarTokens.dividerOffset}: 0.5rem;
                 ${toolbarTokens.dividerBorderRadius}: 0.0625rem;
             `,
-            m: css`
-                ${toolbarTokens.size}: 3.75rem;
-                ${toolbarTokens.padding}: 0.375rem;
-                ${toolbarTokens.borderRadius}: 1rem;
-
-                ${toolbarTokens.dividerSize}: 1.75rem;
-                ${toolbarTokens.dividerOffset}: 0.625rem;
-                ${toolbarTokens.dividerBorderRadius}: 0.0625rem;
-            `,
-            l: css`
-                ${toolbarTokens.size}: 4.5rem;
-                ${toolbarTokens.padding}: 0.5rem;
-                ${toolbarTokens.borderRadius}: 1.25rem;
-
-                ${toolbarTokens.dividerSize}: 2rem;
-                ${toolbarTokens.dividerOffset}: 0.75rem;
-                ${toolbarTokens.dividerBorderRadius}: 0.0625rem;
-            `,
         },
     },
 };

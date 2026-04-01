@@ -1,6 +1,6 @@
 import React, { useRef, useState, forwardRef, KeyboardEvent } from 'react';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
 import { cx } from 'src/utils';
 
 import { getSliderThumbValue, getOffsets } from '../../utils';

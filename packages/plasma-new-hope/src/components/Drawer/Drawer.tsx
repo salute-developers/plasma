@@ -1,13 +1,12 @@
 import React, { forwardRef, useMemo } from 'react';
 import cls from 'classnames';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef, useFocusTrap } from 'src/hooks';
 import { getSizeValueFromProp, safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines';
 
 import { usePopupContext } from '../Popup';
 import { Overlay } from '../Overlay';
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
-import { useFocusTrap } from '../../hooks';
 
 import { classes, tokens } from './Drawer.tokens';
 import type { DrawerProps } from './Drawer.types';

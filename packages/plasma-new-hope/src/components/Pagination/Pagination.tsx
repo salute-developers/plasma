@@ -1,8 +1,7 @@
 import React, { useState, forwardRef, Fragment, useRef, useEffect } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
-
-import { cx, isNumber } from '../../utils';
-import { RootPropsOmitOnChange } from '../../engines';
+import { cx, isNumber } from 'src/utils';
+import type { RootPropsOmitOnChange } from 'src/engines';
+import { useForkRef } from 'src/hooks';
 
 import {
     PaginationPages,

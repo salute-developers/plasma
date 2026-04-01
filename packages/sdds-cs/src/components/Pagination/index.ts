@@ -1,3 +1,3 @@
 export { Pagination } from './Pagination';
 
-export type { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
+export type { PaginationProps } from '@salutejs/plasma-new-hope/emotion';

@@ -21,9 +21,9 @@ const Cell = component(mergedCellConfig);
 const mergedIndicatorConfig = mergeConfig(indicatorConfig);
 const Indicator = component(mergedIndicatorConfig);
 
-export const StyledWrapper = styled.div<{ disabled?: boolean }>`
-    ${cellTokens.cellTitleColor}: ${({ disabled }) =>
-    disabled ? `var(${tokens.itemDisabledColor})` : `var(${constants.cellTitleColor})`};
+// TODO: #1548
+export const StyledCell = styled(Cell)`
+    ${cellTokens.cellTitleColor}: var(${constants.cellTitleColor});
     ${cellTokens.cellBackgroundColor}: var(${constants.cellBackgroundColor});
     ${cellTokens.cellPadding}: var(${tokens.cellPadding});
     ${cellTokens.cellPaddingLeftContent}: var(${tokens.cellPaddingLeftContent});
@@ -37,30 +37,21 @@ export const StyledWrapper = styled.div<{ disabled?: boolean }>`
     ${cellTokens.cellTitleFontWeight}: var(${tokens.cellTitleFontWeight});
     ${cellTokens.cellTitleLetterSpacing}: var(${tokens.cellTitleLetterSpacing});
     ${cellTokens.cellTitleLineHeight}: var(${tokens.cellTitleLineHeight});
-    width: 100%;
 
-    // TODO: #1548
-    & div.cell-content, & div.cell-textbox {
-        flex: 1;
+    flex: 1;
+    min-width: 0;
+
+    & * {
+        min-width: 0;
     }
-    & div.cell-textbox-title {
-        position: relative;
-    }
-    & div.cell-textbox-title:before {
-        content: '&nbsp;';
-        visibility: hidden;
-    }
-    & div.cell-textbox-title span {
-        position: absolute;
-        left: 0;
-        right: 0;
+
+    &.${classes.singleLineMode} .cell-textbox-title {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        min-width: 0;
     }
 `;
-
-export const StyledCell = styled(Cell)``;
 
 export const StyledCheckbox = styled(Checkbox)`
     ${checkboxTokens.triggerSize}: var(${tokens.checkboxTriggerSize});
@@ -163,8 +154,7 @@ export const Wrapper = styled.div<{ variant: SelectProps['variant'] }>`
     }
 
     &.${classes.dropdownItemIsDisabled} {
-        opacity: var(${tokens.itemDisabledOpacity});
-        color: var(${tokens.itemDisabledColor});
+        opacity: ${constants.opacity};
         cursor: not-allowed;
     }
 

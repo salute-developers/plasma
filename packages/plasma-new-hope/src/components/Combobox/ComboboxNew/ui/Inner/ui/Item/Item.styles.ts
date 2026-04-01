@@ -15,7 +15,8 @@ const Checkbox = component(mergedCheckboxConfig);
 const mergedCellConfig = mergeConfig(cellConfig);
 const Cell = component(mergedCellConfig);
 
-export const StyledWrapper = styled.div`
+// TODO: #1548
+export const StyledCell = styled(Cell)`
     ${cellTokens.cellTitleColor}: var(${constants.cellTitleColor});
     ${cellTokens.cellBackgroundColor}: var(${constants.cellBackgroundColor});
     ${cellTokens.cellPadding}: var(${tokens.cellPadding});
@@ -30,10 +31,21 @@ export const StyledWrapper = styled.div`
     ${cellTokens.cellTitleFontWeight}: var(${tokens.cellTitleFontWeight});
     ${cellTokens.cellTitleLetterSpacing}: var(${tokens.cellTitleLetterSpacing});
     ${cellTokens.cellTitleLineHeight}: var(${tokens.cellTitleLineHeight});
-    width: 100%;
-`;
 
-export const StyledCell = styled(Cell)``;
+    flex: 1;
+    min-width: 0;
+
+    & * {
+        min-width: 0;
+    }
+
+    &.${classes.singleLineMode} .cell-textbox-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+    }
+`;
 
 export const StyledCheckbox = styled(Checkbox)`
     ${checkboxTokens.triggerSize}: var(${tokens.checkboxTriggerSize});

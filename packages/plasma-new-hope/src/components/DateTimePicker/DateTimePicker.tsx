@@ -1,8 +1,8 @@
 import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { MouseEvent, SyntheticEvent, KeyboardEvent } from 'react';
 import cls from 'classnames';
-import { useForkRef } from '@salutejs/plasma-core';
 import type { RootProps } from 'src/engines';
+import { useForkRef } from 'src/hooks';
 
 import type { DateTimePickerProps, DateTimePickerRootProps } from './DateTimePicker.types';
 import { base, CalendarContainerOverlay, LeftHelper } from './DateTimePicker.styles';

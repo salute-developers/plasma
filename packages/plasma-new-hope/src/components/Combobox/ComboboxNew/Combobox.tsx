@@ -1,16 +1,11 @@
 import React, { forwardRef, useState, useReducer, useMemo, useLayoutEffect, useRef } from 'react';
 import type { ChangeEvent, ForwardedRef, MouseEvent } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
 import { safeUseId, isEmpty } from 'src/utils';
 import { RootProps } from 'src/engines';
-import { useOutsideClick, useDidMountLayoutEffect } from 'src/hooks';
+import { useOutsideClick, useDidMountLayoutEffect, useForkRef } from 'src/hooks';
 
-import { sizeToIconSize } from '../../Select/utils';
-
-import { classes } from './Combobox.tokens';
-import { FloatingPopover } from './FloatingPopover';
-import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
 import {
+    sizeToIconSize,
     initialItemsTransform,
     updateAncestors,
     updateDescendants,
@@ -20,6 +15,9 @@ import {
     getTextValue,
     defaultFilter,
 } from './utils';
+import { classes } from './Combobox.tokens';
+import { FloatingPopover } from './FloatingPopover';
+import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
 import { Inner, StyledTextField, VirtualList, SelectAll, TreeList } from './ui';
 import { pathReducer, focusedPathReducer, treePathReducer } from './reducers';
 import { getPathMap, getTreeMaps } from './hooks/getPathMaps';
@@ -96,6 +94,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             chipClickArea = 'full',
             shift,
             flip,
+            singleLine,
             // @ts-ignore
             _offset,
             ...rest
@@ -538,6 +537,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             dispatchTreePath,
                             arrowPlacement,
                             valueToPathMap,
+                            singleLine,
                         }}
                     >
                         <FloatingPopover

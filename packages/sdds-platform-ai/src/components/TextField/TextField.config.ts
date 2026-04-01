@@ -21,7 +21,7 @@ export const config = {
                 ${tokens.backgroundColor}: var(--surface-transparent-primary);
                 ${tokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.caretColor}: var(--text-accent);
+                ${tokens.caretColor}: var(--text-primary);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -161,6 +161,7 @@ export const config = {
                 ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
+                ${tokens.labelPadding}: 0 0 0 1rem;
                 ${tokens.labelOffset}: 0.25rem;
                 ${tokens.clearLabelOffset}: 0.25rem;
 

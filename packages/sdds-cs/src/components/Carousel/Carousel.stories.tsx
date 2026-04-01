@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { config } from './Carousel.config';

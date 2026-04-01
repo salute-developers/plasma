@@ -7,10 +7,10 @@ import {
     mergeConfig,
     boundCalendar,
     CalendarStateType,
-} from '@salutejs/plasma-new-hope/styled-components';
-import type { CalendarBaseProps, CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
+import type { CalendarBaseProps, CalendarDoubleProps } from '@salutejs/plasma-new-hope/emotion';
 
-import { config as baseConfig } from './CalendarBase.config';
+import { config as baseConfig } from './Calendar.config';
 import { config as doubleConfig } from './CalendarDouble.config';
 
 const mergedCalendarBaseConfig = mergeConfig(calendarBaseConfig, baseConfig);

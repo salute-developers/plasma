@@ -1,4 +1,4 @@
 export { Modal } from './Modal';
-export { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
+export { modalClasses } from '@salutejs/plasma-new-hope/emotion';
 
-export type { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
+export type { ModalProps } from '@salutejs/plasma-new-hope/emotion';

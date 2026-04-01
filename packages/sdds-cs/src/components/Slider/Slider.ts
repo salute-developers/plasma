@@ -1,4 +1,4 @@
-import { sliderConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { sliderConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Slider.config';
 

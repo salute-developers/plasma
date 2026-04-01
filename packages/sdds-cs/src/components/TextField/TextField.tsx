@@ -1,9 +1,4 @@
-import {
-    textFieldConfig,
-    component,
-    mergeConfig,
-    createConditionalComponent,
-} from '@salutejs/plasma-new-hope/styled-components';
+import { textFieldConfig, component, mergeConfig, createConditionalComponent } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './TextField.config';
 import { config as clearConfig } from './TextField.clear.config';

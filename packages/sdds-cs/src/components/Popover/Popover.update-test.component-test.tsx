@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { surfaceSolid03 } from '@salutejs/plasma-core';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const StyledContent = styled.div`
     background: ${surfaceSolid03};

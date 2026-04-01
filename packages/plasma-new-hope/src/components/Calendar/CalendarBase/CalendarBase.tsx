@@ -12,7 +12,8 @@ import React, {
     MutableRefObject,
 } from 'react';
 import cls from 'classnames';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
+import { RootProps } from 'src/engines';
 
 import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
 import { getInitialState, reducer, sizeMap } from '../store/reducer';
@@ -20,7 +21,6 @@ import { ActionType, CalendarState } from '../store/types';
 import { I18N, isValueUpdate } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears, EventTooltip } from '../ui';
-import { RootProps } from '../../../engines';
 import { classes } from '../Calendar.tokens';
 
 import { base as viewCSS } from './variations/_view/base';

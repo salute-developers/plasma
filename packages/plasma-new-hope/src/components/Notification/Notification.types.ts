@@ -1,6 +1,5 @@
-import type { AsProps } from '@salutejs/plasma-core';
-import { HTMLAttributes, ReactNode } from 'react';
-import type { CSSProperties } from 'react';
+import type { AsProps } from 'src/types';
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 
 import { ComponentConfig, PropsType, Variants } from '../../engines/types';
 import type { PopupPlacement } from '../Popup';

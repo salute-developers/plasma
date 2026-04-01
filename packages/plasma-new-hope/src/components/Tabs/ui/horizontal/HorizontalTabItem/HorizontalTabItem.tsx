@@ -1,11 +1,10 @@
 import React, { forwardRef, useRef, useContext } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from 'src/hooks';
+import type { RootProps } from 'src/engines';
+import { cx } from 'src/utils';
+import { TabsContext, HorizontalTabItemProps } from 'src/components/Tabs';
 
-import { RootProps } from '../../../../../engines';
 import { classes } from '../../../tokens';
-import { cx } from '../../../../../utils';
-import { TabsContext } from '../../../TabsContext';
-import { HorizontalTabItemProps } from '../../../TabItem.types';
 import { useTabItem, UseTabItemProps } from '../../../hooks/useTabItem';
 
 import { base as viewCSS } from './variations/_view/base';

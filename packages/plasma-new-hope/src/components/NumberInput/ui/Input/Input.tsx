@@ -1,12 +1,11 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { KeyboardEvent, ChangeEvent, FocusEvent } from 'react';
-import { useForkRef } from '@salutejs/plasma-core';
+import { cx, isNumber } from 'src/utils';
+import { useDidMountEffect, useForkRef } from 'src/hooks';
+import { keyCodes } from 'src/utils/constants';
 
-import { classes } from '../../NumberInput.tokens';
-import { cx, isNumber } from '../../../../utils';
-import { useDidMountEffect } from '../../../../hooks';
 import { defaultCharacterWidth, excludingNumberSchema, getPreciseValue, numberSchema } from '../../utils';
-import { keyCodes } from '../../../../utils/constants';
+import { classes } from '../../NumberInput.tokens';
 
 import type { InputProps } from './Input.types';
 import {
