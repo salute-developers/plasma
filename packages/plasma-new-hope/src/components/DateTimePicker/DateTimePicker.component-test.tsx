@@ -67,7 +67,6 @@ describeFn('DateTimePicker', () => {
                 </div>
                 <DateTimePicker
                     value={date}
-                    size="l"
                     view="default"
                     min={new Date(2024, 1, 1)}
                     max={new Date(2024, 11, 29)}
