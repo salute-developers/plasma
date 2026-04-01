@@ -1,12 +1,17 @@
 import React, { useState, useRef, useEffect, ComponentProps } from 'react';
 import styled, { css } from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react-vite';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Button } from '../Button';
 import { BodyL } from '../Typography';
 
+import { config } from './Spinner.config';
+
 import { Spinner } from '.';
+
+const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<typeof Spinner> = {
     title: 'Data Display/Spinner',
@@ -14,13 +19,13 @@ const meta: Meta<typeof Spinner> = {
     component: Spinner,
     argTypes: {
         size: {
-            options: [8, 16, 32, 64, 96, 128],
+            options: sizes,
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'],
+            options: views,
             control: {
                 type: 'select',
             },
@@ -35,7 +40,7 @@ type StorySpinnerProps = ComponentProps<typeof Spinner>;
 
 export const Default: StoryObj<StorySpinnerProps> = {
     args: {
-        size: 32,
+        size: 'm',
         view: 'default',
     },
 };
@@ -106,4 +111,24 @@ const StoryLive = (props: StorySpinnerProps) => {
 
 export const Live: StoryObj<StorySpinnerProps> = {
     render: (args) => <StoryLive {...args} />,
+};
+
+export const CustomSize: StoryObj<StorySpinnerProps> = {
+    argTypes: {
+        ...disableProps(['size']),
+        width: {
+            control: {
+                type: 'text',
+            },
+        },
+        height: {
+            control: {
+                type: 'text',
+            },
+        },
+    },
+    args: {
+        width: '100px',
+        height: '100px',
+    },
 };
