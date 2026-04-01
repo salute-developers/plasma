@@ -1,4 +1,100 @@
 {
+  "1.613.0": {
+    "date": "2026-04-01",
+    "core": [
+      {
+        "component": "Autocomplete",
+        "children": [
+          {
+            "text": "добавлены свойства `rootClassName` и `rootStyle` для внешней обертки компонента;",
+            "link": "https://github.com/salute-developers/plasma/pull/2620",
+            "id": 2620
+          }
+        ]
+      },
+      {
+        "component": "TimePicker",
+        "children": [
+          {
+            "text": "логика по открытию выпадающего `TimeGrid` переведена на `FloatingPopover`",
+            "link": "https://github.com/salute-developers/plasma/pull/2616",
+            "id": 2616
+          }
+        ]
+      },
+      {
+        "component": "Checkbox",
+        "children": [
+          {
+            "text": "исправлено поведение при котором состояние `indeterminate` не снимается при клике, если не передан `onChange`",
+            "link": "https://github.com/salute-developers/plasma/pull/2618",
+            "id": 2618
+          }
+        ]
+      },
+      {
+        "component": "CodeField, CodeInput",
+        "children": [
+          {
+            "text": "исправлена вставка кода на мобильных устройствах",
+            "link": "https://github.com/salute-developers/plasma/pull/2627",
+            "id": 2627
+          }
+        ]
+      },
+      {
+        "component": "TextField",
+        "children": [
+          {
+            "text": "добавлен новый конфигурационный токен для управления отступами Label контейнера",
+            "link": "https://github.com/salute-developers/plasma/pull/2635",
+            "id": 2635
+          }
+        ]
+      },
+      {
+        "component": "Dropzone",
+        "children": [
+          {
+            "text": "исключили из типов `html` атрибут `title`, чтобы не было пересечения с `DropzoneProps[title]`",
+            "link": "https://github.com/salute-developers/plasma/pull/2487",
+            "id": 2487
+          }
+        ]
+      },
+      {
+        "component": "Note",
+        "children": [
+          {
+            "text": "исправлен расчет высоты для text и title",
+            "link": "https://github.com/salute-developers/plasma/pull/2632",
+            "id": 2632
+          }
+        ]
+      },
+      {
+        "component": "Combobox, Select",
+        "children": [
+          {
+            "text": "добавлено свойство `singleLine`, которое делает текст в элементе выпадающего списка в одну строку",
+            "link": "https://github.com/salute-developers/plasma/pull/2660",
+            "id": 2660
+          }
+        ]
+      },
+      {
+        "component": "Toast",
+        "children": [
+          {
+            "text": "добавлен токен для свойства `boxShadow`",
+            "link": "https://github.com/salute-developers/plasma/pull/2658",
+            "id": 2658
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "1.612.0": {
     "date": "2026-03-18",
     "core": [
