@@ -12,6 +12,7 @@ type TextFieldProps = ComponentProps<typeof TextField>;
 const { meta: META, Default, Chips } = getTextFieldStories({
     component: TextField,
     componentConfig: config,
+    defaultArgs: config.defaults,
     customIcon: (size: string, type: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';
         if (type === 'left') {
