@@ -27,7 +27,7 @@ jobs:
                   result-encoding: string
                   script: |
                       const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
-                          commit_sha: ${{ inputs.commit }},
+                          commit_sha: `${{ inputs.commit }}`,
                           owner: context.repo.owner,
                           repo: context.repo.repo,
                       });
