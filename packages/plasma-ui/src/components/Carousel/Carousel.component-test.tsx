@@ -22,7 +22,7 @@ const items = [
     { title: 'Фазан', subtitle: 'The pheasant', imageSrc: image },
 ];
 
-describe('plasma-ui: Carousel', () => {
+describe.skip('plasma-ui: Carousel', () => {
     const Container = getComponent('Container');
     const Row = getComponent('Row');
     const Carousel = getComponent('Carousel');

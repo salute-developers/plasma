@@ -48,6 +48,8 @@ export const getCalculatedPos = ({
 
 type UseCarouselOptions = Pick<CarouselProps, 'scrollAlign'> & {
     index: number;
+    onChangeIndex: (index: number) => void;
+    swipeEnabled: boolean;
 };
 
 type UseCarouselHookResult = {
@@ -55,14 +57,63 @@ type UseCarouselHookResult = {
     trackRef: RefObject<HTMLDivElement>;
 };
 
-export const useCarousel = ({ index, scrollAlign }: UseCarouselOptions): UseCarouselHookResult => {
+const getClosestIndex = ({
+    scrollRef,
+    trackRef,
+    scrollAlign,
+}: {
+    scrollRef: RefObject<HTMLDivElement>;
+    trackRef: RefObject<HTMLDivElement>;
+    scrollAlign: CarouselProps['scrollAlign'];
+}) => {
+    if (!scrollRef.current || !trackRef.current) {
+        return 0;
+    }
+
+    const itemsCollection = trackRef.current.children;
+
+    if (!itemsCollection.length) {
+        return 0;
+    }
+
+    const currentLeft = scrollRef.current.scrollLeft;
+    let closestIndex = 0;
+    let closestDistance = Number.POSITIVE_INFINITY;
+
+    for (let itemIndex = 0; itemIndex < itemsCollection.length; itemIndex++) {
+        const pos = getCalculatedPos({
+            scrollRef,
+            trackRef,
+            itemsCollection,
+            index: itemIndex,
+            scrollAlign,
+        });
+
+        const distance = Math.abs(pos - currentLeft);
+
+        if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = itemIndex;
+        }
+    }
+
+    return closestIndex;
+};
+
+export const useCarousel = ({
+    index,
+    scrollAlign,
+    onChangeIndex,
+    swipeEnabled,
+}: UseCarouselOptions): UseCarouselHookResult => {
     const scrollRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const isFirstRender = useRef(true);
+    const isInteracting = useRef(false);
 
     // Прокрутка до нужной позиции индекса, если индекс изменился.
     useEffect(() => {
-        if (!scrollRef.current || !trackRef.current) {
+        if (!scrollRef.current || !trackRef.current || isInteracting.current) {
             return;
         }
 
@@ -83,7 +134,124 @@ export const useCarousel = ({ index, scrollAlign }: UseCarouselOptions): UseCaro
         if (isFirstRender.current) {
             isFirstRender.current = false;
         }
-    }, [index]);
+    }, [index, scrollAlign]);
+
+    useEffect(() => {
+        const scrollElement = scrollRef.current;
+
+        if (!scrollElement) {
+            return;
+        }
+
+        let startX = 0;
+        let startScrollLeft = 0;
+        let activePointerId: number | null = null;
+        let initialScrollBehavior = '';
+        let initialScrollSnapType = '';
+
+        const restoreScrollBehavior = () => {
+            scrollElement.style.scrollBehavior = initialScrollBehavior;
+            scrollElement.style.scrollSnapType = initialScrollSnapType;
+        };
+
+        const resetInteraction = () => {
+            activePointerId = null;
+            isInteracting.current = false;
+            restoreScrollBehavior();
+        };
+
+        const finishInteraction = () => {
+            const nextIndex = getClosestIndex({
+                scrollRef,
+                trackRef,
+                scrollAlign,
+            });
+            const itemsCollection = trackRef.current?.children;
+            const nextPos =
+                itemsCollection && itemsCollection.length
+                    ? getCalculatedPos({
+                          scrollRef,
+                          trackRef,
+                          itemsCollection,
+                          index: nextIndex,
+                          scrollAlign,
+                      })
+                    : scrollElement.scrollLeft;
+
+            resetInteraction();
+            scrollElement.scrollTo({ left: nextPos, behavior: 'smooth' });
+            onChangeIndex(nextIndex);
+        };
+
+        const startInteraction = ({ clientX }: { clientX: number }) => {
+            startX = clientX;
+            startScrollLeft = scrollElement.scrollLeft;
+            initialScrollBehavior = scrollElement.style.scrollBehavior;
+            initialScrollSnapType = scrollElement.style.scrollSnapType;
+            scrollElement.style.scrollBehavior = 'auto';
+            scrollElement.style.scrollSnapType = 'none';
+            isInteracting.current = true;
+        };
+
+        const moveInteraction = ({ clientX }: { clientX: number }) => {
+            if (activePointerId === null) {
+                return;
+            }
+
+            const diffX = clientX - startX;
+
+            scrollElement.scrollLeft = startScrollLeft - diffX;
+        };
+
+        const onPointerMove = (event: PointerEvent) => {
+            if (event.pointerId !== activePointerId) {
+                return;
+            }
+
+            moveInteraction({ clientX: event.clientX });
+
+            if (event.cancelable) {
+                event.preventDefault();
+            }
+        };
+
+        const stopPointerInteraction = (event: PointerEvent) => {
+            if (event.pointerId !== activePointerId) {
+                return;
+            }
+
+            if (scrollElement.hasPointerCapture(event.pointerId)) {
+                scrollElement.releasePointerCapture(event.pointerId);
+            }
+
+            finishInteraction();
+        };
+
+        const onPointerDown = (event: PointerEvent) => {
+            if (!swipeEnabled || !event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) {
+                return;
+            }
+
+            activePointerId = event.pointerId;
+            startInteraction({ clientX: event.clientX });
+            scrollElement.setPointerCapture(event.pointerId);
+        };
+
+        if (swipeEnabled) {
+            scrollElement.addEventListener('pointerdown', onPointerDown);
+            scrollElement.addEventListener('pointermove', onPointerMove);
+            scrollElement.addEventListener('pointerup', stopPointerInteraction);
+            scrollElement.addEventListener('pointercancel', stopPointerInteraction);
+        }
+
+        return () => {
+            resetInteraction();
+            scrollElement.removeEventListener('pointerdown', onPointerDown);
+            scrollElement.removeEventListener('pointermove', onPointerMove);
+            scrollElement.removeEventListener('pointerup', stopPointerInteraction);
+            scrollElement.removeEventListener('pointercancel', stopPointerInteraction);
+        };
+    }, [onChangeIndex, scrollAlign, swipeEnabled]);
 
     return {
         scrollRef,

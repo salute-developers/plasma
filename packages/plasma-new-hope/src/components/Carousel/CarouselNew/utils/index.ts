@@ -1,0 +1,1 @@
+export { getNormalizedIndex } from './getNormalizedIndex';
