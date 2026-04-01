@@ -326,7 +326,7 @@ export function App() {
                         value={value}
                         min={0}
                         max={10}
-                        size="l"
+                        size="s"
                         width={188}
                         decrementIcon={<IconVolumeLevel1Fill color="inherit" />}
                         incrementIcon={<IconVolumeLevel2Fill color="inherit" />}
@@ -357,7 +357,7 @@ export function App() {
                     <NumberInput
                         value={value}
                         step={step}
-                        size="l"
+                        size="s"
                         width={188}
                         customDecrementButton={
                             <IconButton
@@ -371,7 +371,7 @@ export function App() {
                         }
                         customIncrementButton={
                             <IconButton
-                                size="l"
+                                size="s"
                                 view={value >= max ? 'critical' : 'accent'}
                                 disabled={value >= max}
                                 onClick={() => setValue(Math.min(max, value + step))}
@@ -412,7 +412,7 @@ export function App() {
         export function App() {
             return (
                 <div>
-                    <NumberInput value={5} size="l" width={188} isLoading />
+                    <NumberInput value={5} size="s" width={188} isLoading />
                 </div>
             );
         }
