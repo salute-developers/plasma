@@ -33,7 +33,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 disabled = false,
 
                 // popover props
-                opened = false,
+                opened: outerOpened,
                 placement = ['top', 'bottom'],
                 offset,
                 frame = 'document',
@@ -107,7 +107,8 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
             const inputInnerRef = useForkRef(inputRef, ref);
 
             const calendarOverlayRef = useRef<HTMLDivElement | null>(null);
-            const [isInnerOpen, setIsInnerOpen] = useState(opened);
+            const [isInnerOpen, setIsInnerOpen] = useState(false);
+            const openedValue = outerOpened ?? isInnerOpen;
 
             const {
                 format,
@@ -176,8 +177,6 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
 
                 if (onToggle) {
                     onToggle(isCalendarOpen, event);
-
-                    return;
                 }
 
                 setIsInnerOpen(isCalendarOpen);
@@ -192,11 +191,12 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
             useEffect(() => {
                 if (disabled || readOnly) {
                     setIsInnerOpen(false);
-                    return;
-                }
 
-                setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
-            }, [opened, disabled, readOnly]);
+                    if (onToggle) {
+                        onToggle(false);
+                    }
+                }
+            }, [disabled, readOnly]);
 
             useLayoutEffect(() => {
                 if (!dateVisibleValue) {
@@ -246,7 +246,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 {...rest}
                             />
                         }
-                        opened={isInnerOpen}
+                        opened={openedValue}
                         usePortal={usePortal}
                         frame={frame}
                         offset={offset}
