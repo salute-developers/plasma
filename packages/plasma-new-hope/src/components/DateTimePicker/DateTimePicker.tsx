@@ -8,6 +8,8 @@ import type { DateTimePickerProps, DateTimePickerRootProps } from './DateTimePic
 import { base, CalendarContainerOverlay, LeftHelper } from './DateTimePicker.styles';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
+import { base as hintViewCSS } from './variations/_hint-view/base';
+import { base as hintSizeCSS } from './variations/_hint-size/base';
 import { base as eventTooltipSizeCSS } from './variations/_tooltip-size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
@@ -91,6 +93,19 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 textBefore,
                 textAfter,
                 autoComplete,
+
+                // hint
+                hintTrigger = 'hover',
+                hintText,
+                hintView = 'default',
+                hintSize = 'm',
+                hintTargetIcon,
+                hintTargetPlacement = 'outer',
+                hintPlacement = 'auto',
+                hintHasArrow,
+                hintOffset = [0, 0],
+                hintWidth,
+                hintContentLeft,
 
                 // callbacks
                 onChangeValue,
@@ -214,6 +229,10 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
                     eventTooltipSize={eventTooltipOptions?.size}
+                    {...(hintText && {
+                        hintView,
+                        hintSize,
+                    })}
                 >
                     <Popover
                         target={
@@ -221,6 +240,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 ref={inputInnerRef}
                                 className={cls(errorClass, successClass)}
                                 value={inputValue}
+                                size={size}
                                 label={label}
                                 labelPlacement={labelPlacement}
                                 keepPlaceholder={keepPlaceholder}
@@ -243,6 +263,21 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 onFocus={onFocus}
                                 onBlur={handleBlur}
                                 onKeyDown={onKeyDown}
+                                {...(hintText
+                                    ? {
+                                          hintText,
+                                          hintView,
+                                          hintSize,
+                                          hintTrigger,
+                                          hintTargetIcon,
+                                          hintPlacement,
+                                          hintHasArrow,
+                                          hintOffset,
+                                          hintWidth,
+                                          hintContentLeft,
+                                          hintTargetPlacement,
+                                      }
+                                    : { hintText: undefined })}
                                 {...rest}
                             />
                         }
@@ -335,6 +370,12 @@ export const dateTimePickerConfig = {
         size: {
             css: sizeCSS,
         },
+        hintView: {
+            css: hintViewCSS,
+        },
+        hintSize: {
+            css: hintSizeCSS,
+        },
         eventTooltipSize: {
             css: eventTooltipSizeCSS,
         },
@@ -350,5 +391,7 @@ export const dateTimePickerConfig = {
     defaults: {
         size: 'm',
         view: 'default',
+        hintView: 'default',
+        hintSize: 'm',
     },
 };

@@ -9,7 +9,7 @@ import type {
 
 import type { DateInfo } from '../Calendar/Calendar.types';
 import type { DatePickerPopoverProps, DatePickerTextFieldProps } from '../DatePicker/SingleDate/SingleDate.types';
-import type { LabelProps } from '../TextField/TextField.types';
+import type { HintProps, LabelProps } from '../TextField/TextField.types';
 import type { DatePickerCalendarProps } from '../DatePicker/DatePickerBase.types';
 import type { CalendarStateType } from '../Calendar';
 import type { Langs } from '../DatePicker/utils/dateHelper';
@@ -151,7 +151,7 @@ type VariationProps = {
     disabled?: boolean;
 };
 
-export type DateTimePickerProps = VariationProps & CalendarProps & PopoverProps & InputProps;
+export type DateTimePickerProps = VariationProps & CalendarProps & PopoverProps & InputProps & HintProps;
 export type DateTimePickerRootProps = {
     eventTooltipSize?: string;
 } & Omit<DateTimePickerProps, 'opened' | 'defaultValue' | 'onChangeValue'>;
