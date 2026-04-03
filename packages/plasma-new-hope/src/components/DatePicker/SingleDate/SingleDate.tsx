@@ -1,4 +1,4 @@
-import React, { forwardRef, SyntheticEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { forwardRef, SyntheticEvent, useLayoutEffect, useRef, useState } from 'react';
 import cls from 'classnames';
 import type { KeyboardEvent, FocusEvent, MouseEvent } from 'react';
 import type { DateInfo, DateType } from 'src/components/Calendar/Calendar.types';
@@ -33,7 +33,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
 
                 // controlled
                 value: outerValue,
-                opened = false,
+                opened: outerOpened,
 
                 defaultDate = '',
                 preserveInvalidOnBlur,
@@ -127,7 +127,9 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
             const inputRef = useRef<HTMLInputElement | null>(null);
             const innerRef = useRef<HTMLInputElement | null>(null);
             const calendarRootRef = useRef<HTMLDivElement | null>(null);
-            const [isInnerOpen, setIsInnerOpen] = useState(opened);
+
+            const [isInnerOpen, setIsInnerOpen] = useState(false);
+            const openedValue = outerOpened ?? isInnerOpen;
 
             const dateFormatDelimiter = getDateFormatDelimiter(format);
 
@@ -202,8 +204,6 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
 
                 if (onToggle) {
                     onToggle(isCalendarOpen, event);
-
-                    return;
                 }
 
                 setIsInnerOpen(isCalendarOpen);
@@ -331,10 +331,6 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 />
             );
 
-            useEffect(() => {
-                setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
-            }, [opened]);
-
             useLayoutEffect(() => {
                 if (!dateValue) {
                     updateExternalDate(defaultDate);
@@ -357,7 +353,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                     {...rest}
                 >
                     <StyledPopover
-                        opened={isInnerOpen}
+                        opened={openedValue}
                         usePortal={usePortal}
                         frame={frame}
                         onToggle={handleToggle}
