@@ -4,6 +4,8 @@ export const config = {
     defaults: {
         view: 'default',
         size: 's',
+        hintView: 'default',
+        hintSize: 'm',
     },
     variations: {
         view: {
@@ -63,6 +65,10 @@ export const config = {
 
                 ${tokens.scrollbarColor}: var(--surface-solid-tertiary);
                 ${tokens.scrollbarTrackColor}: var(--surface-transparent-primary);
+
+                ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColorError}: var(--text-negative);
+                ${tokens.leftHelperColorSuccess}: var(--text-positive);
             `,
         },
         size: {
@@ -120,6 +126,14 @@ export const config = {
                 ${tokens.itemBorderRadius}: 0.5rem;
                 ${tokens.itemPadding}: 0rem;
 
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${tokens.scrollbarWidth}: 0.125rem;
                 ${tokens.scrollbarMargin}: 0.25rem;
             `,
@@ -141,6 +155,7 @@ export const config = {
         readonly: {
             true: css`
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
