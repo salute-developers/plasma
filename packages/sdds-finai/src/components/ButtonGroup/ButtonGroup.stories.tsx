@@ -66,7 +66,7 @@ export default meta;
 export const Default: Story = {
     args: {
         view: 'default',
-        size: 'm',
+        size: 's',
         gap: 'dense',
         orientation: 'horizontal',
         shape: 'default',
@@ -100,17 +100,15 @@ export const CustomButtons: Story = {
                 <h3>Группа кнопок с разными темами</h3>
                 <ButtonGroup {...args}>
                     <Button text="Primary" view="default" />
-                    <Button text="Negative" view="success" />
-                    <Button text="Positive" view="warning" />
-                    <Button text="Clear" view="clear" />
+                    <Button text="Negative" view="negative" />
+                    <Button text="Positive" view="positive" />
                 </ButtonGroup>
 
                 <h3>Группа кнопок с разными размерами</h3>
                 <ButtonGroup {...args}>
-                    <Button text="Primary" view="default" size="l" />
-                    <Button text="Negative" view="success" size="m" />
-                    <Button text="Positive" view="warning" size="s" />
-                    <Button text="Clear" view="clear" size="l" />
+                    <Button text="Primary" view="default" size="s" />
+                    <Button text="Negative" view="negative" size="xs" />
+                    <Button text="Positive" view="positive" size="xxs" />
                 </ButtonGroup>
             </>
         );
