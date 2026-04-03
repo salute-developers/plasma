@@ -6,6 +6,7 @@ import {
     hasComponent,
     getBaseVisualTests,
     skipForPackages,
+    PadMe,
 } from '@salutejs/plasma-cy-utils';
 // @ts-ignore
 import { IconPlasma } from 'override/_Icon';
@@ -20,6 +21,7 @@ const componentModalExists = hasComponent('Modal');
 const componentPopupProviderExists = hasComponent('PopupProvider');
 const describeFn = getDescribeFN('TimePicker');
 const itSkip = skipForPackages(['plasma-b2c', 'plasma-web']);
+const itSkipHint = skipForPackages(['plasma-b2c', 'plasma-web', 'sdds-cs']);
 
 const openTimePicker = () => {
     cy.viewport(580, 800);
@@ -123,6 +125,36 @@ describeFn('TimePicker', () => {
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
+
+    itSkipHint('with hint', () => {
+        const cases = [
+            { labelPlacement: 'outer' },
+            { labelPlacement: 'inner' },
+            { labelPlacement: 'inner', hintTargetPlacement: 'inner' },
+        ] as const;
+
+        mount(
+            <>
+                {cases.map((props) => (
+                    <div style={{ margin: '0 3rem' }}>
+                        <TimePicker
+                            placeholder="Placeholder"
+                            label="Title"
+                            hintText="Подсказка к полю"
+                            hintTrigger="click"
+                            hintSize="s"
+                            {...props}
+                        />
+                        <PadMe />
+                    </div>
+                ))}
+            </>,
+        );
+
+        cy.get('.popover-wrapper').first().click();
 
         cy.matchImageSnapshot();
     });
