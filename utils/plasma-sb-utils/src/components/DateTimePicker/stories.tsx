@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-
-import { IconPlaceholder } from '../IconPlaceholder';
+import { IconCalendar } from '@salutejs/plasma-icons';
 
 import { dateShortcuts } from './fixtures';
 
@@ -27,7 +26,7 @@ export const createDefaultStory = (DateTimePicker: any) => {
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
-                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onToggle={(is: boolean) => {
