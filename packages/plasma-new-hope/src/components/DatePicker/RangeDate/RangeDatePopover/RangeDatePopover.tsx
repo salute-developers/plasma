@@ -14,7 +14,6 @@ export const RangeDatePopover = ({
     rootWrapper: Root,
     target,
 
-    isOpen,
     opened,
     isDoubleCalendar,
 
@@ -63,7 +62,7 @@ export const RangeDatePopover = ({
 
     onToggle,
 }: RangeDatePopoverProps) => {
-    const innerIsOpen = Boolean(isOpen || opened);
+    const innerIsOpen = Boolean(opened);
 
     const calendarRootRef = useRef<HTMLDivElement | null>(null);
     const doubleCalendarRootRef = useRef<HTMLDivElement | null>(null);
