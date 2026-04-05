@@ -87,23 +87,6 @@ export const config = {
                 ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${listTokens.listItemLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
-            xl: css`
-                ${listTokens.listItemPaddingTop}: 1.3125rem;
-                ${listTokens.listItemPaddingLeft}: 1.125rem;
-                ${listTokens.listItemPaddingRight}: 1.125rem;
-                ${listTokens.listItemPaddingBottom}: 1.3125rem;
-                ${listTokens.listItemBorderRadius}: 1rem;
-                ${listTokens.listItemBorderWidth}: 0rem;
-                ${listTokens.listItemGap}: 0.5rem;
-                ${listTokens.listItemTightDifference}: 0.25rem;
-
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-l-line-height);
-            `,
         },
         disabled: {
             true: css``,
