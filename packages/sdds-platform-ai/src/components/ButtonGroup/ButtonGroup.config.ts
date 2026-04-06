@@ -12,10 +12,12 @@ export const config = {
                 ${buttonGroupTokens.buttonTextColor}: var(--inverse-text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--inverse-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--inverse-text-secondary);
+
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-solid-default-active);
+
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--inverse-text-primary-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--inverse-text-primary-active);
             `,
             accent: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
@@ -25,6 +27,7 @@ export const config = {
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
 
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-accent-gradient);
+
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
             `,
             secondary: css`
@@ -38,8 +41,8 @@ export const config = {
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
 
                 ${buttonGroupTokens.buttonBorderColor}: var(--outline-solid-default);
-                ${buttonGroupTokens.buttonBorderColorHover}: var(--outline-solid-default);
-                ${buttonGroupTokens.buttonBorderColorActive}: var(--outline-solid-default);
+                ${buttonGroupTokens.buttonBorderColorHover}: var(--outline-solid-default-hover);
+                ${buttonGroupTokens.buttonBorderColorActive}: var(--outline-solid-default-active);
             `,
             clear: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
@@ -48,49 +51,57 @@ export const config = {
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
 
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-clear);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
             positive: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
+
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-positive);
-                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-positive-active);
+
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
             `,
             warning: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
+
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-warning);
-                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-warning-hover);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-warning-active);
+
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
             `,
             negative: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
+
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-negative);
-                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-negative-active);
+
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
             `,
             dark: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
+
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
+
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary-active);
             `,
             black: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-accent);
@@ -100,19 +111,21 @@ export const config = {
                 ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
 
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-solid-default-active);
 
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
             `,
             white: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-light-text-primary);
-                ${buttonGroupTokens.buttonColorHover}: var(--on-light-text-primary-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-light-text-primary-active);
-
                 ${buttonGroupTokens.buttonTextColor}: var(--on-light-text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--on-light-text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--on-light-text-secondary);
 
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-clear);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-clear);
+
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
             `,
         },
