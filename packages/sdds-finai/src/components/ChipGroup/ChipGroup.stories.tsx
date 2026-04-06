@@ -84,9 +84,9 @@ export const CustomChips: Story = {
 
                 <h3>Группа Chip с разными размерами</h3>
                 <ChipGroup {...args}>
-                    <Chip text="Default" view="default" size="l" hasClear={false} />
-                    <Chip text="Clear" view="clear" size="m" hasClear={false} />
-                    <Chip text="Accent" view="accent" size="s" hasClear={false} />
+                    <Chip text="Default" view="default" size="m" hasClear={false} />
+                    <Chip text="Clear" view="clear" size="s" hasClear={false} />
+                    <Chip text="Accent" view="accent" size="xs" hasClear={false} />
                 </ChipGroup>
             </>
         );
