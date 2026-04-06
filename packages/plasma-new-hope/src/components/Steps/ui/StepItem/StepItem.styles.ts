@@ -222,6 +222,8 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
 
 export const StepItemContentWrapper = styled.div`
     &.${classes.verticalOrientation} {
+        width: 100%;
+
         ${StepItemTitle} {
             padding-top: var(${tokens.contentVerticalPadding});
             padding-right: 0;
