@@ -92,23 +92,5 @@ export const createMeta = ({
             ...additionalArgTypes,
             ...disableProps([...disablePropsList]),
         },
-        // parameters: {
-        //     controls: {
-        //         include: [
-        //             'scrollAlign',
-        //             'visibleDots',
-        //             'slides',
-        //             'controlArrowsDisabled',
-        //             'loop',
-        //             'autoPlay',
-        //             'autoPlayInterval',
-        //             'swipeEnabled',
-        //             'paginationDisabled',
-        //             'paginationCentered',
-        //             'gap',
-        //             'defaultIndex',
-        //         ],
-        //     },
-        // },
     };
 };
