@@ -20,6 +20,7 @@ import { css } from '@linaria/core';
 
 import { Slot } from '../../_Slot/Slot';
 import { ARROW_HEIGHT, ARROW_PADDING, ARROW_POLYGON, ARROW_WIDTH } from '../Popover/Popover';
+import { getFloatingPortalProps } from '../Popover/utils';
 
 import { tokens, classes } from './Tooltip.tokens';
 import { base, Wrapper, IconWrapper } from './Tooltip.styles';
@@ -97,7 +98,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     </Slot>
 
                     {opened && (
-                        <FloatingPortal root={portal}>
+                        <FloatingPortal {...getFloatingPortalProps(portal)}>
                             <Root
                                 ref={refs.setFloating}
                                 size={size}
