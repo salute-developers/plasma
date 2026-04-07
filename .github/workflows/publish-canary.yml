@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - next-insol
+      - next-platform-ai
+      - next-sbcom
       - master
   pull_request_target:
     branches:
