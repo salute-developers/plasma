@@ -5,6 +5,8 @@ on:
         branches:
             - dev
             - next-insol
+            - next-platform-ai
+            - next-sbcom
         paths-ignore:
             - 'docs/**'
     pull_request:

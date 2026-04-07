@@ -6,6 +6,8 @@ on:
       - master
       - dev
       - next-insol
+      - next-platform-ai
+      - next-sbcom
     paths-ignore:
       - 'docs/**'
       - 'website/**'
