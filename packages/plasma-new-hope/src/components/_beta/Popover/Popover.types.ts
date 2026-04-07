@@ -108,9 +108,13 @@ export type BasicPopoverProps = {
      */
     zIndex?: number;
     /**
-     * Портал для всплывающего контента.
+     * Портал для всплывающего окна.
+     * Принимает id контейнера или ref.
+     * Если контейнер с заданным id не найден на странице,
+     * то он будет автоматически создан перед </body>.
+     * @default Без использования portal всплывающее окно рендерится перед </body>.
      */
-    portal?: React.RefObject<HTMLElement | null>;
+    portal?: string | React.RefObject<HTMLElement | null>;
 
     /**
      * Вид компонента.
