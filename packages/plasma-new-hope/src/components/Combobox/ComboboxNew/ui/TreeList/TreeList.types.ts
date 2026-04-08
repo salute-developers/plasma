@@ -5,6 +5,7 @@ import { ComboboxProps } from '../../Combobox.types';
 export interface Props {
     items: ComboboxProps['items'];
     listMaxHeight: ComboboxProps['listMaxHeight'];
+    emptyStateDescription: ComboboxProps['emptyStateDescription'];
     onScroll?: (e: UIEvent<HTMLElement>) => void;
     virtual?: boolean;
     beforeList?: ReactNode;

@@ -1,12 +1,23 @@
 import React, { useRef } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { getHeightAsNumber } from 'src/utils';
+import { getHeightAsNumber, isEmpty } from 'src/utils';
+
+import { StyledEmptyState } from '../../Combobox.styles';
+import { classes } from '../../Combobox.tokens';
 
 import { Props } from './TreeList.types';
 import { Item } from './ui/Item/Item';
 import { ListWrapper, ScrollContainer } from './TreeList.styles';
 
-export const TreeList: React.FC<Props> = ({ items, listMaxHeight, onScroll, virtual, beforeList, afterList }) => {
+export const TreeList: React.FC<Props> = ({
+    items,
+    listMaxHeight,
+    onScroll,
+    virtual,
+    beforeList,
+    afterList,
+    emptyStateDescription,
+}) => {
     if (virtual) {
         return (
             <VirtualTreeList
@@ -15,6 +26,7 @@ export const TreeList: React.FC<Props> = ({ items, listMaxHeight, onScroll, virt
                 onScroll={onScroll}
                 beforeList={beforeList}
                 afterList={afterList}
+                emptyStateDescription={emptyStateDescription}
             />
         );
     }
@@ -24,9 +36,18 @@ export const TreeList: React.FC<Props> = ({ items, listMaxHeight, onScroll, virt
             <ScrollContainer listMaxHeight={listMaxHeight} onScroll={onScroll}>
                 {beforeList}
 
-                {items?.map((item, index) => {
-                    return <Item key={index} item={item} pathToItem={[index]} />;
-                })}
+                {isEmpty(items) ? (
+                    <StyledEmptyState
+                        className={classes.emptyStateWrapper}
+                        description={emptyStateDescription || 'Ничего не найдено'}
+                    />
+                ) : (
+                    <>
+                        {items?.map((item, index) => {
+                            return <Item key={index} item={item} pathToItem={[index]} />;
+                        })}
+                    </>
+                )}
 
                 {afterList}
             </ScrollContainer>
@@ -34,7 +55,14 @@ export const TreeList: React.FC<Props> = ({ items, listMaxHeight, onScroll, virt
     );
 };
 
-const VirtualTreeList: React.FC<Props> = ({ items = [], listMaxHeight, onScroll, beforeList, afterList }) => {
+const VirtualTreeList: React.FC<Props> = ({
+    items = [],
+    listMaxHeight,
+    onScroll,
+    beforeList,
+    afterList,
+    emptyStateDescription,
+}) => {
     const parentRef = useRef<HTMLDivElement>(null);
 
     const virtualizer = useVirtualizer({
@@ -49,43 +77,50 @@ const VirtualTreeList: React.FC<Props> = ({ items = [], listMaxHeight, onScroll,
         <ListWrapper>
             {beforeList}
 
-            <div
-                ref={parentRef}
-                style={{
-                    height: 'auto',
-                    maxHeight: getHeightAsNumber(listMaxHeight),
-                    overflowY: 'auto',
-                }}
-                onScroll={onScroll}
-            >
+            {isEmpty(items) ? (
+                <StyledEmptyState
+                    className={classes.emptyStateWrapper}
+                    description={emptyStateDescription || 'Ничего не найдено'}
+                />
+            ) : (
                 <div
+                    ref={parentRef}
                     style={{
-                        height: virtualizer.getTotalSize(),
-                        width: '100%',
-                        position: 'relative',
+                        height: 'auto',
+                        maxHeight: getHeightAsNumber(listMaxHeight),
+                        overflowY: 'auto',
                     }}
+                    onScroll={onScroll}
                 >
                     <div
                         style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
+                            height: virtualizer.getTotalSize(),
                             width: '100%',
-                            transform: `translateY(${virtualItems[0]?.start ?? 0}px)`,
+                            position: 'relative',
                         }}
                     >
-                        {virtualItems.map((virtualRow) => (
-                            <div
-                                key={virtualRow.key as React.Key}
-                                data-index={virtualRow.index}
-                                ref={virtualizer.measureElement}
-                            >
-                                <Item item={items[virtualRow.index]} pathToItem={[virtualRow.index]} />
-                            </div>
-                        ))}
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                transform: `translateY(${virtualItems[0]?.start ?? 0}px)`,
+                            }}
+                        >
+                            {virtualItems.map((virtualRow) => (
+                                <div
+                                    key={virtualRow.key as React.Key}
+                                    data-index={virtualRow.index}
+                                    ref={virtualizer.measureElement}
+                                >
+                                    <Item item={items[virtualRow.index]} pathToItem={[virtualRow.index]} />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
 
             {afterList}
         </ListWrapper>
