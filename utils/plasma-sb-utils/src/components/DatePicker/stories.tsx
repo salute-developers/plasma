@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { IconPlasma, IconCalendar, IconSearch, IconArrowRight } from '@salutejs/plasma-icons';
 
 import { getBaseEvents, getIconSize, EventTooltipBody } from './helpers';
