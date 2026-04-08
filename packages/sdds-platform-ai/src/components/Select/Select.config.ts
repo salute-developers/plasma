@@ -431,6 +431,7 @@ export const config = {
                 ${tokens.targetHeight}: 3rem;
                 ${tokens.buttonPadding}: 1.25rem 0 1.25rem;
 
+                ${tokens.emptyStatePadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.75rem;
 
