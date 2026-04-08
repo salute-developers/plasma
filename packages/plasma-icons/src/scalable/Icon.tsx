@@ -702,6 +702,7 @@ export const iconSectionsSet = {
         vibration: 'Vibration',
         dropsGroupFill: 'DropsGroupFill',
         aiFill: 'AiFill',
+        aiOutline: 'AiOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
