@@ -876,6 +876,7 @@ export const iconSectionsSet = {
         documentAddFill: 'DocumentAddFill',
         documentAddOutline: 'DocumentAddOutline',
         bookOpenOutline: 'BookOpenOutline',
+        blankXmlOutline: 'BlankXmlOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
