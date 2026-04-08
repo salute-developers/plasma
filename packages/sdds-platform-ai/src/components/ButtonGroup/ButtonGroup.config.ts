@@ -188,6 +188,20 @@ export const config = {
                 ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
+            xs: css`
+                ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
+                ${buttonGroupTokens.buttonSideRadius}: 1.375rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: 1.375rem;
+
+                ${buttonGroupTokens.buttonHeight}: 2.5rem;
+                ${buttonGroupTokens.buttonPadding}: 1rem;
+                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
+            `,
         },
         orientation: {
             horizontal: css`
