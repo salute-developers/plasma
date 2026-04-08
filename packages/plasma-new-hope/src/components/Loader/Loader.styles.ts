@@ -5,7 +5,7 @@ import { spinnerConfig, spinnerTokens } from '../Spinner';
 import { progressBarCircularConfig, progressBarCircularTokens } from '../ProgressBarCircular';
 import { component, mergeConfig } from '../../engines';
 
-import { tokens } from './Loader.tokens';
+import { tokens, classes } from './Loader.tokens';
 
 const mergedSpinnerConfig = mergeConfig(spinnerConfig);
 const Spinner = component(mergedSpinnerConfig);
@@ -21,6 +21,14 @@ export const base = css`
 
     width: var(${tokens.width});
     height: var(${tokens.height});
+
+    &.${classes.loaderHorizontal} {
+        flex-direction: row;
+    }
+
+    &.${classes.loaderVertical} {
+        flex-direction: column;
+    }
 `;
 
 export const StyledSpinner = styled(Spinner)`
@@ -76,4 +84,24 @@ export const StyledOverlay = styled.div<{
 export const LoaderContentWrapper = styled.div`
     position: relative;
     z-index: 1;
+`;
+
+export const LoaderText = styled.div`
+    color: var(${tokens.textColor});
+    font-family: var(${tokens.textFontFamily});
+    font-size: var(${tokens.textFontSize});
+    font-style: var(${tokens.textFontStyle});
+    font-weight: var(${tokens.textFontWeight});
+    letter-spacing: var(${tokens.textLetterSpacing});
+    line-height: var(${tokens.textLineHeight});
+
+    &.${classes.loaderHorizontal} {
+        margin-left: var(${tokens.textMarginLeft});
+        margin-top: 0;
+    }
+
+    &.${classes.loaderVertical} {
+        margin-left: 0;
+        margin-top: var(${tokens.textMarginTop});
+    }
 `;
