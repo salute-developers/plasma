@@ -55,7 +55,7 @@ export const config = {
         },
         view: {
             accent: css`
-                ${checkboxTokens.fillColor}: var(--text-accent);
+                ${checkboxTokens.fillColor}: var(--text-primary);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
