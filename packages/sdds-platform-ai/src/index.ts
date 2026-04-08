@@ -32,6 +32,8 @@ export * from './components/Segment';
 export * from './components/Switch';
 export * from './components/Slider';
 export * from './components/DateTimePicker';
+export * from './components/DatePicker';
+export * from './components/TimePicker';
 
 // components group Data Entry (upload)
 export * from './components/Attach';
