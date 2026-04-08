@@ -33,7 +33,7 @@ export const config = {
             `,
             secondary: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
-                ${buttonTokens.buttonTextColor}: var(--text-primary);
+                ${buttonTokens.buttonColorHover}: var(--text-primary-hover);
                 ${buttonTokens.buttonIconColor}: var(--text-primary);
 
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
@@ -212,6 +212,28 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 1.375rem;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
+
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.125rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.125rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
+            `,
+            xs: css`
+                ${buttonTokens.buttonHeight}: 2.5rem;
+                ${buttonTokens.buttonWidth}: 11.25rem;
+                ${buttonTokens.buttonPadding}: 1rem;
+                ${buttonTokens.buttonRadius}: 1.375rem;
+
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
