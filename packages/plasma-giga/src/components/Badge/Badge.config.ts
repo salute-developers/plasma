@@ -17,7 +17,7 @@ export const config = {
                 ${badgeTokens.colorClear}: var(--text-primary);
             `,
             accent: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.color}: var(--inverse-text-primary);
                 ${badgeTokens.background}: var(--surface-accent);
 
                 ${badgeTokens.colorTransparent}: var(--text-accent);
