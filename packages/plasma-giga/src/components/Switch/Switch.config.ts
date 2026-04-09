@@ -92,7 +92,7 @@ export const config = {
                 ${switchTokens.trackBackgroundColorOffHover}: var(--surface-transparent-tertiary-hover);
                 ${switchTokens.trackBorderWidthOn}: 0;
                 ${switchTokens.trackBorderWidthOff}: 0;
-                ${switchTokens.thumbBackgroundColorOn}: var(--on-dark-surface-solid-default);
+                ${switchTokens.thumbBackgroundColorOn}: var(--inverse-surface-solid-default);
                 ${switchTokens.thumbBackgroundColorOff}: var(--on-dark-surface-solid-default);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,
