@@ -22,10 +22,10 @@ export const config = {
                 ${buttonTokens.buttonColorActive}: var(--inverse-text-primary-active);
             `,
             accent: css`
-                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
+                ${buttonTokens.buttonColor}: var(--inverse-text-primary);
+                ${buttonTokens.buttonTextColor}: var(--inverse-text-primary);
+                ${buttonTokens.buttonIconColor}: var(--inverse-text-primary);
+                ${buttonTokens.buttonValueColor}: var(--inverse-text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
