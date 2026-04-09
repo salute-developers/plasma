@@ -70,20 +70,20 @@ export const config = {
                 ${tokens.backgroundErrorColor}: var(--surface-transparent-negative);
 
                 ${tokens.color}: var(--text-primary);
-                ${tokens.colorSolid}: var(--on-dark-text-primary);
+                ${tokens.colorSolid}: var(--inverse-text-primary);
                 ${tokens.additionalTextColor}: var(--text-tertiary);
-                ${tokens.additionalTextColorSolid}: var(--on-dark-text-tertiary);
+                ${tokens.additionalTextColorSolid}: var(--inverse-text-tertiary);
                 ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.backgroundColorSolidFocus}: var(--on-dark-surface-transparent-secondary);
+                ${tokens.backgroundColorSolidFocus}: var(--inverse-surface-transparent-secondary);
                 ${tokens.backgroundColorSolid}: var(--surface-accent);
 
-                ${tokens.iconButtonColor}: var(--on-dark-text-primary);
+                ${tokens.iconButtonColor}: var(--inverse-text-primary);
                 ${tokens.iconButtonBackgroundColor}: var(--surface-accent);
                 ${tokens.iconButtonColorHover}: var(--inverse-text-primary);
-                ${tokens.iconButtonColorSolidHover}: var(--on-dark-text-primary-hover);
+                ${tokens.iconButtonColorSolidHover}: var(--inverse-text-primary-hover);
                 ${tokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
                 ${tokens.iconButtonColorActive}: var(--inverse-text-primary);
-                ${tokens.iconButtonColorSolidActive}: var(--on-dark-text-primary-active);
+                ${tokens.iconButtonColorSolidActive}: var(--inverse-text-primary-active);
                 ${tokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
 
                 ${tokens.actionButtonDisabledOpacity}: 0.4;
