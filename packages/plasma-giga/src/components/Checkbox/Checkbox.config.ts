@@ -78,7 +78,7 @@ export const config = {
         view: {
             accent: css`
                 ${checkboxTokens.fillColor}: var(--text-accent);
-                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
+                ${checkboxTokens.iconColor}: var(--inverse-text-primary);
                 ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
@@ -141,7 +141,7 @@ export const config = {
             `,
             negative: css`
                 ${checkboxTokens.fillColor}: var(--text-negative);
-                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
+                ${checkboxTokens.iconColor}: var(--inverse-text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-negative);
