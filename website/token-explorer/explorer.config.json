@@ -1,0 +1,47 @@
+{
+    "componentPackages": [
+        {
+            "name": "plasma-giga",
+            "path": "packages/plasma-giga",
+            "configGlob": "src/components/**/*.config.ts"
+        },
+        {
+            "name": "sdds-sbcom",
+            "path": "packages/sdds-sbcom",
+            "configGlob": "src/components/**/*.config.ts"
+        },
+        {
+            "name": "sdds-serv",
+            "path": "packages/sdds-serv",
+            "configGlob": "src/components/**/*.config.ts"
+        }
+    ],
+    "designSystems": [
+        {
+            "id": "plasma-giga",
+            "label": "Plasma Giga",
+            "package": "plasma-giga",
+            "tokenSlugs": ["plasma_giga"]
+        },
+        {
+            "id": "sdds-sbcom",
+            "label": "SDDS SBCom",
+            "package": "sdds-sbcom",
+            "tokenSlugs": ["sdds_sbcom"]
+        },
+        {
+            "id": "sdds-serv",
+            "label": "SDDS Serv",
+            "package": "sdds-serv",
+            "tokenSlugs": ["sdds_serv"]
+        }
+    ],
+    "themeRoots": {
+        "plasma-themes": "packages/themes/plasma-themes/src/tokens",
+        "sdds-themes": "packages/themes/sdds-themes/src/tokens"
+    },
+    "importPathToTheme": {
+        "@salutejs/plasma-themes/tokens/": "plasma-themes",
+        "@salutejs/sdds-themes/tokens/": "sdds-themes"
+    }
+}
