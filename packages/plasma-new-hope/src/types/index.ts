@@ -8,3 +8,10 @@ export type { DistributiveOmit } from './DistributiveOmit';
 export type { DistributivePick } from './DistributivePick';
 export type { MakeNever } from './MakeNever';
 export type { SafeExtract } from './SafeExtract';
+export type {
+    PolymorphicComponentProps,
+    PolymorphicComponentPropsWithRef,
+    PolymorphicForwardRefComponent,
+    MakePolymorphic,
+} from './Polymorphic';
+export { makePolymorphic } from './Polymorphic';
