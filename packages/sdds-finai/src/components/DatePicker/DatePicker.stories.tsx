@@ -15,7 +15,6 @@ const { meta: META, Default } = getDatePickerStories({
         'appearance',
         'hasClearDivider',
         'view',
-        'hasHint',
         'showShortcuts',
         'dateShortcutsWidth',
         'dateShortcutsPlacement',
