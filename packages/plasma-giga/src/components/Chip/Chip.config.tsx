@@ -39,16 +39,16 @@ export const config = {
                 ${chipTokens.leftContentColor}: var(--text-primary);
             `,
             accent: css`
-                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.color}: var(--inverse-text-primary);
                 ${chipTokens.background}: var(--surface-accent);
-                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.colorHover}: var(--inverse-text-primary);
                 ${chipTokens.backgroundHover}: var(--surface-accent-hover);
-                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.colorActive}: var(--inverse-text-primary);
                 ${chipTokens.backgroundActive}: var(--surface-accent-active);
                 ${chipTokens.backgroundReadOnly}: var(--surface-accent);
-                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.colorReadOnly}: var(--inverse-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
-                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+                ${chipTokens.colorReadOnlyHover}: var(--inverse-text-primary);
 
                 ${chipTokens.closeIconColor}: var(--inverse-text-secondary);
                 ${chipTokens.leftContentColor}: var(--inverse-text-primary);
