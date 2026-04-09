@@ -12,7 +12,7 @@ export const StyledRoot = styled.div`
 `;
 
 export const StyledWrapper = styled.div`
-    display: inline-block;
+    display: inline-flex;
 
     &.${classes.targetAsRef} {
         position: absolute;

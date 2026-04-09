@@ -23,10 +23,8 @@ interface IconRootProps extends IconProps {
 }
 
 const IconsRoot = styled.div`
-    display: inline-flex;
     width: var(--icon-size);
     height: var(--icon-size);
-    flex: 0 0 var(--icon-size);
 `;
 
 export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className, style, ...rest }) => (
