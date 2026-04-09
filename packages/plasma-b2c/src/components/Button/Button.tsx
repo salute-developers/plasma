@@ -1,4 +1,5 @@
 import { buttonConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { makePolymorphic } from '@salutejs/plasma-new-hope';
 
 import { config } from './Button.config';
 
@@ -8,4 +9,4 @@ const ButtonComponent = component(mergedConfig);
 /**
  * Кнопка.
  */
-export const Button = ButtonComponent;
+export const Button = makePolymorphic(ButtonComponent, 'button');
