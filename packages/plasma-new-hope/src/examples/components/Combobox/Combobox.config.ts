@@ -7,6 +7,8 @@ export const config = {
         view: 'default',
         size: 'm',
         labelPlacement: 'outer',
+        hintView: 'default',
+        hintSize: 'm',
     },
     variations: {
         view: {
