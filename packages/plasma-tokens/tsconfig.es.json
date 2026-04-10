@@ -2,7 +2,7 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "module": "ESNext",
-        "declaration": false,
+        "declaration": true,
         "declarationMap": false,
         "outDir": "./es",
         "rootDir": "./src"

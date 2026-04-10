@@ -29,6 +29,12 @@ npm run cy:b2c:run
         ▼
   Cypress запускает Vite dev-сервер
         │
+        ├── generateModules() генерирует cypress/.generated/*.ts
+        │   (реальные файлы для @plasma-cy/* алиасов)
+        │
+        ▼
+  Vite запускает optimizeDeps: esbuild пре-бандлит все зависимости
+        │
         ▼
   Для каждого *.component-test.tsx:
     1. Компонент монтируется в браузере
@@ -49,9 +55,13 @@ cypress/
 ├── vite.config.ts               # конфигурация Vite dev-сервера
 ├── plugins/
 │   ├── index.ts                 # setupNodeEvents: скриншоты, регистрация webkit-браузера
-│   ├── virtualTestPackage.ts    # виртуальный модуль '@plasma-cy/test-package'
-│   ├── virtualTestConfigs.ts    # виртуальный модуль '@plasma-cy/test-configs'
-│   └── virtualTestTheme.ts      # виртуальный модуль '@plasma-cy/test-theme'
+│   └── generateModules.ts       # генерирует реальные файлы для @plasma-cy/* модулей
+├── .generated/                  # авто-генерируемые файлы при старте dev-сервера (в .gitignore)
+│   ├── test-package.ts          # реэкспорт dist тестируемого пакета
+│   ├── test-theme.ts            # тема и типографика для текущего пакета
+│   └── test-configs.ts          # namespace-реэкспорт всех *.config.ts файлов пакета
+├── stubs/
+│   └── platform.ts              # заглушка для platform.js (падает при парсинге UA в Cypress)
 ├── support/
 │   ├── index.ts                 # глобальный setup: команды, css, плагины
 │   └── commands.ts              # cy.matchImageSnapshot() + webkit font fix
@@ -112,6 +122,16 @@ npm run cy:b2c:run:webkit --components="Button,Chip"
 
 Таким образом к тестам конкретного пакета всегда добавляются "базовые" тесты из `plasma-new-hope`.
 
+### Подробные логи Vite
+
+Для диагностики производительности (какие файлы загружаются, сколько времени):
+
+```bash
+DEBUG=vite:deps,vite:resolve,vite:cache npm run cy:b2c:run --components="Button"
+# или подробнее:
+DEBUG=vite:* npm run cy:b2c:run --components="Button"
+```
+
 ---
 
 ## Тест-файлы
@@ -126,7 +146,7 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 import { Chip as ChipB2C } from '.';
 
 describe('plasma-b2c: Chip', () => {
-    const Chip = getComponent('Chip') as typeof ChipB2C; // берёт из pre-bundled дистрибутива
+    const Chip = getComponent('Chip') as typeof ChipB2C; // берёт из пре-бандленного дистрибутива
 
     it('size=l, view=default, hasClear', () => {
         mount(
@@ -139,8 +159,8 @@ describe('plasma-b2c: Chip', () => {
 });
 ```
 
-> `getComponent('Chip')` — ищет компонент в pre-bundled дистрибутиве текущего пакета
-> (см. виртуальный модуль `@plasma-cy/test-package`). Не импортирует исходник напрямую.
+> `getComponent('Chip')` — ищет компонент в пре-бандленном дистрибутиве текущего пакета
+> через модуль `@plasma-cy/test-package`. Не импортирует исходник напрямую.
 
 ### 2. Базовые тесты из `plasma-new-hope` — используют `getBaseVisualTests`
 
@@ -174,8 +194,6 @@ packages/plasma-web/src/components/Button/Button.config.ts  ← вариации
 1. Создайте `packages/plasma-new-hope/src/components/MyComponent/MyComponent.component-test.tsx` с `getBaseVisualTests`
 2. Создайте `packages/<package>/src/components/MyComponent/MyComponent.config.ts` с вариациями пропов
 
----
-
 ### Уникальный тест для пакета
 
 Создайте `packages/<package>/src/components/<Component>/<Component>.component-test.tsx`:
@@ -199,6 +217,8 @@ describe('<package>: MyComponent', () => {
 });
 ```
 
+---
+
 ## Обновление эталонных снимков
 
 Если компонент изменился намеренно, нужно обновить PNG-эталоны:
@@ -216,32 +236,52 @@ npm run cy:b2c:update:webkit --components="Button"   # webkit
 
 Vite поднимается как dev-сервер внутри Cypress. Конфиг в `cypress/vite.config.ts`.
 
-### Виртуальные модули
+### Генерируемые модули
 
-Три плагина создают "несуществующие" модули, которые Vite генерирует на лету:
+При старте dev-сервера `generateModules()` создаёт три реальных `.ts` файла в `cypress/.generated/`:
 
-| Модуль                    | Плагин                  | Содержит                                                                                  |
-| ------------------------- | ----------------------- | ----------------------------------------------------------------------------------------- |
-| `@plasma-cy/test-package` | `virtualTestPackage.ts` | Реэкспорт dist тестируемого пакета. `getComponent('Button')` возвращает компонент отсюда  |
-| `@plasma-cy/test-configs` | `virtualTestConfigs.ts` | Namespace-реэкспорт всех `*.config.ts` файлов пакета. Используется в `getBaseVisualTests` |
-| `@plasma-cy/test-theme`   | `virtualTestTheme.ts`   | Тема и типографика для текущего пакета. Используется в `CypressTestDecorator`             |
+| Алиас                     | Файл                         | Содержит                                                                                  |
+| ------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------- |
+| `@plasma-cy/test-package` | `.generated/test-package.ts` | Реэкспорт dist тестируемого пакета. `getComponent('Button')` возвращает компонент отсюда  |
+| `@plasma-cy/test-configs` | `.generated/test-configs.ts` | Namespace-реэкспорт всех `*.config.ts` файлов пакета. Используется в `getBaseVisualTests` |
+| `@plasma-cy/test-theme`   | `.generated/test-theme.ts`   | Тема и типографика для текущего пакета. Используется в `CypressTestDecorator`             |
+
+**Почему реальные файлы, а не виртуальные модули Vite:** esbuild умеет пре-бандлить только реальные файлы через `optimizeDeps`. Виртуальные модули (Rollup plugin API: `resolveId` + `load`) esbuild не понимает — без реальных файлов `@plasma-cy/*` не попадали бы в пре-бандл и создавали ESM request waterfall при каждом тесте.
 
 ### Pre-bundling зависимостей
 
-`optimizeDeps.include` в vite.config задаёт, что Vite должен пре-бандлить (CJS → ESM) до старта:
+`optimizeDeps.include` в `vite.config.ts` — список пакетов, которые esbuild конвертирует из CJS в ESM и упаковывает в единые чанки до старта тестов. Это устраняет ESM waterfall при загрузке каждого spec-файла:
 
--   `react`, `react-dom`, `styled-components` — стандартные CJS-пакеты
--   `TEST_PACKAGE_DIST_ALIAS` (`@plasma-cy/test-package-dist`) — весь дистрибутив пакета + plasma-icons собирается в один файл
+| Пакет                       | Зачем в include                                                 |
+| --------------------------- | --------------------------------------------------------------- |
+| `react`, `react-dom`        | CJS-пакеты, нужна конвертация в ESM                             |
+| `styled-components`         | CJS-пакет                                                       |
+| `@salutejs/plasma-cy-utils` | Исходники `.tsx`, esbuild бандлит в один файл вместо 9 запросов |
+| `@plasma-cy/test-package`   | Реальный генерируемый файл — dist компонентного пакета          |
+| `@plasma-cy/test-theme`     | Реальный генерируемый файл — тема пакета                        |
+| `@plasma-cy/test-configs`   | Реальный генерируемый файл — config-файлы компонентов           |
+| `cypress-plugin-tab`        | CJS-пакет                                                       |
+
+### Плагины vite.config.ts
+
+**`preload-dep-chunks`** — при каждом HTML-запросе читает `node_modules/.vite/deps/_metadata.json`, находит все `chunk-*.js` файлы и инжектирует `<link rel="modulepreload">` в `<head>`. Браузер начинает загружать shared chunks сразу при получении HTML, не дожидаясь обхода import chain. Это устраняет waterfall из нескольких последовательных round trips на chunk-зависимости.
+
+**`cache-static-assets`** — middleware Vite dev server, добавляет `Cache-Control: public, max-age=31536000, immutable` для шрифтов и изображений. Без этого браузер делает conditional GET при каждом spec-файле (~16 шрифтов × ~500ms round trip в Docker).
+
+### `justInTimeCompile: false`
+
+В `cypress.config.ts` выставлен `justInTimeCompile: false` — Cypress компилирует все spec-файлы заранее, до запуска тестов, что устраняет паузу на холодную компиляцию в начале каждого теста.
 
 ### Env-переменные
 
-| Переменная                | Пример        | Что делает                                            |
-| ------------------------- | ------------- | ----------------------------------------------------- |
-| `PACKAGE_NAME`            | `plasma-b2c`  | Обязательная. Определяет пакет, тему, dist-барель     |
-| `COMPONENTS`              | `Button,Chip` | Фильтрует тест-файлы. Без неё — все компоненты пакета |
-| `BROWSER`                 | `webkit`      | `chromium` по умолчанию                               |
-| `RETRIES`                 | `5`           | Количество повторов упавшего теста (по умолчанию 5)   |
-| `CYPRESS_updateSnapshots` | `true`        | Режим обновления эталонов                             |
+| Переменная                | Пример        | Что делает                                                |
+| ------------------------- | ------------- | --------------------------------------------------------- |
+| `PACKAGE_NAME`            | `plasma-b2c`  | Обязательная. Определяет пакет, тему, dist-барель         |
+| `COMPONENTS`              | `Button,Chip` | Фильтрует тест-файлы. Без неё — все компоненты пакета     |
+| `BROWSER`                 | `webkit`      | `chromium` по умолчанию                                   |
+| `RETRIES`                 | `5`           | Количество повторов упавшего теста (по умолчанию 5)       |
+| `CYPRESS_updateSnapshots` | `true`        | Режим обновления эталонов                                 |
+| `DEBUG`                   | `vite:*`      | Подробные логи Vite (загрузка файлов, кеш, трансформации) |
 
 ---
 
@@ -258,6 +298,10 @@ Vite поднимается как dev-сервер внутри Cypress. Кон
 **Chromium** — основной браузер.
 
 **WebKit** — для проверки Safari-совместимости. Работает медленнее (нет GPU-акселерации в Docker), скриншоты хранятся отдельно (`snapshots/<product>/webkit/`).
+
+### Производительность в Docker
+
+Docker bridge networking добавляет ~500ms на каждый round trip между браузером и Vite dev-сервером. Оптимизации выше (pre-bundling, `modulepreload`, font caching) снижают количество последовательных round trips с ~13 до ~5 на spec-файл. На Linux CI можно дополнительно использовать `--network=host` в Docker run команде — это устраняет накладные расходы сети полностью.
 
 ---
 

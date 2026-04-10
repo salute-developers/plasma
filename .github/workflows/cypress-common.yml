@@ -80,6 +80,18 @@ jobs:
             else
               npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
             fi
+          
+      - name: Cache Vite deps
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.vite
+          key: vite-deps-${{ inputs.scope }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            vite-deps-${{ inputs.scope }}-
+
+      - name: Fix Vite cache permissions
+        if: always()
+        run: sudo chown -R $(id -u):$(id -g) node_modules/.vite || true
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
