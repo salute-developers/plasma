@@ -1,6 +1,4 @@
-import { css } from '@linaria/core';
-
-import { segmentTokens } from '../../../components/Segment';
+import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -65,7 +63,6 @@ export const config = {
                 ${segmentTokens.itemHeight}: 2rem;
                 ${segmentTokens.itemPadding}: 0.5rem;
                 ${segmentTokens.itemPilledPadding}: 0.5rem;
-                ${segmentTokens.iconItemContentPadding}: 0.0625rem 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0;
             `,
             s: css`
@@ -74,7 +71,6 @@ export const config = {
                 ${segmentTokens.itemHeight}: 2.5rem;
                 ${segmentTokens.itemPadding}: 0.5rem;
                 ${segmentTokens.itemPilledPadding}: 0.5rem;
-                ${segmentTokens.iconItemContentPadding}: 0.1875rem 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0rem;
             `,
             m: css`
@@ -83,7 +79,6 @@ export const config = {
                 ${segmentTokens.itemHeight}: 3rem;
                 ${segmentTokens.itemPadding}: 0.75rem;
                 ${segmentTokens.itemPilledPadding}: 0.75rem;
-                ${segmentTokens.iconItemContentPadding}: 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0rem;
             `,
             l: css`
@@ -92,7 +87,6 @@ export const config = {
                 ${segmentTokens.itemHeight}: 3.5rem;
                 ${segmentTokens.itemPadding}: 1rem;
                 ${segmentTokens.itemPilledPadding}: 1rem;
-                ${segmentTokens.iconItemContentPadding}: 0.0625rem 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0;
             `,
             xl: css`
@@ -101,7 +95,6 @@ export const config = {
                 ${segmentTokens.itemHeight}: 4rem;
                 ${segmentTokens.itemPadding}: 1.25rem;
                 ${segmentTokens.itemPilledPadding}: 1.25rem;
-                ${segmentTokens.iconItemContentPadding}: 0.0625rem 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0;
             `,
         },
