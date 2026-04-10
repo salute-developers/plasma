@@ -27,7 +27,7 @@ export const SelectAll: FC<{
                 </StyledCheckboxWrapper>
             </IconWrapper>
 
-            <StyledCell title={selectAllOptions?.label} />
+            <StyledCell title={selectAllOptions?.label || 'Выбрать всё'} />
         </ItemWrapper>
 
         <DividerWrapper>
