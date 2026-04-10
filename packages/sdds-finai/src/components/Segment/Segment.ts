@@ -1,5 +1,6 @@
 import {
     segmentItemConfig,
+    segmentIconItemConfig,
     segmentGroupConfig,
     component,
     mergeConfig,
@@ -7,6 +8,7 @@ import {
 
 import { config as configSegmentItem } from './SegmentItem.config';
 import { config as configSegmentGroup } from './SegmentGroup.config';
+import { config as iconItemConfig } from './SegmentIconItem.config';
 
 /**
  * Провайдер контекста для группы сегментов и хук для доступа к контексту.
@@ -14,6 +16,7 @@ import { config as configSegmentGroup } from './SegmentGroup.config';
 export { SegmentProvider, useSegment } from '@salutejs/plasma-new-hope/styled-components';
 
 const mergedSegmentItemConfig = mergeConfig(segmentItemConfig, configSegmentItem);
+const mergedSegmentIconItemConfig = mergeConfig(segmentIconItemConfig, iconItemConfig);
 const mergedSegmentGroupConfig = mergeConfig(segmentGroupConfig, configSegmentGroup);
 
 /**
@@ -24,3 +27,7 @@ export const SegmentGroup = component(mergedSegmentGroupConfig);
  * Компонент сегмента.
  */
 export const SegmentItem = component(mergedSegmentItemConfig);
+/**
+ * Компонент сегмента с иконкой.
+ */
+export const SegmentIconItem = component(mergedSegmentIconItemConfig);
