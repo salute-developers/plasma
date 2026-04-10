@@ -198,4 +198,26 @@ describeFn('Carousel', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('prop: virtual', () => {
+        cy.viewport(700, 500);
+
+        const ControlledCarousel = () => {
+            return (
+                <div style={{ width: '600px' }}>
+                    <Carousel virtual defaultIndex={10}>
+                        {items.map((item, i) => (
+                            <StyledCard key={i}>{item.title}</StyledCard>
+                        ))}
+                    </Carousel>
+                </div>
+            );
+        };
+
+        mount(<ControlledCarousel />);
+
+        cy.get('[data-carousel-index="10"]').should('exist');
+        cy.get('[data-carousel-index="17"]').should('not.exist');
+        cy.get('[data-carousel-index="3"]').should('not.exist');
+    });
 });

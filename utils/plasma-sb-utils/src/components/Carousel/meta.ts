@@ -35,6 +35,7 @@ export const createMeta = ({
             paginationDisabled: false,
             paginationCentered: false,
             gap: '20px',
+            virtual: false,
             ...defaultArgs,
         },
         argTypes: {
@@ -88,6 +89,9 @@ export const createMeta = ({
             },
             gap: {
                 control: 'text',
+            },
+            virtual: {
+                control: 'boolean',
             },
             ...additionalArgTypes,
             ...disableProps([...disablePropsList]),

@@ -14,7 +14,7 @@ const { meta: META, Default } = getCarouselStories({
 
 const meta: Meta<CarouselProps> = {
     ...META,
-    title: 'Data Entry/Carousel',
+    title: 'Navigation/Carousel',
 };
 
 export default meta;

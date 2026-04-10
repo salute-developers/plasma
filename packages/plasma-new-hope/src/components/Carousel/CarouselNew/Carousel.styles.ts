@@ -44,11 +44,17 @@ export const CarouselTrack = styled.div<{ gap: Exclude<CarouselProps['gap'], und
     display: inline-flex;
     flex-direction: row;
     gap: ${({ gap }) => gap};
+    vertical-align: top;
 
     // TODO: станет неактуально после удаления CarouselOld.
     & > div {
         scroll-snap-align: none;
     }
+`;
+
+export const CarouselVirtualItem = styled.div`
+    display: flex;
+    flex: 0 0 auto;
 `;
 
 export const IconButton = styled(IconButtonComponent)`
