@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { IconBellFill } from '@salutejs/plasma-icons';
 import type { IconProps } from '@salutejs/plasma-icons';
 
