@@ -7,6 +7,8 @@ export const config = {
         labelPlacement: 'outer',
         chipView: 'default',
         _checkboxAppearance: 'outline',
+        hintView: 'default',
+        hintSize: 'm',
     },
     variations: {
         view: {

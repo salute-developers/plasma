@@ -6,6 +6,8 @@ export const config = {
         size: 'm',
         labelPlacement: 'outer',
         chipView: 'default',
+        hintView: 'default',
+        hintSize: 'm',
     },
     variations: {
         view: {
