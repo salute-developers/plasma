@@ -252,6 +252,49 @@ export function App() {
 }
 ```
 
+### Сегменты только с иконкой
+
+Для отображения сегментов с только иконкой, необходимо использовать `SegmentIconItem`
+
+```tsx live
+import React from 'react';
+import { IconPlasma } from '@salutejs/plasma-icons'
+import { SegmentGroup, SegmentIconItem, SegmentProvider, useSegment } from '@salutejs/sdds-finai';
+
+export function App() {
+    const items = Array(4).fill(0);
+
+    const SegmentTemplate = () => {
+        const {selectedSegmentItems} = useSegment();
+
+        return (
+            <>
+                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>
+                <br />
+                <SegmentGroup hasBackground pilled clip={false}>
+                    {items.map((_, i) => (
+                        <SegmentIconItem
+                            icon={<IconPlasma color="inherit" size="xs" />}
+                            value={`label_${i}`}
+                            key={`label_${i}`}
+                            view='default'
+                        />
+                    ))}
+                </SegmentGroup>
+            </>
+        )
+    }
+
+    return (
+        <div style={{ display: "block" }} >
+            <SegmentProvider defaultSelected={['label_1']}>
+                <SegmentTemplate/>
+            </SegmentProvider>
+        </div>
+    );
+}
+```
+
 ## Таблица свойств
 
 ### SegmentGroup
