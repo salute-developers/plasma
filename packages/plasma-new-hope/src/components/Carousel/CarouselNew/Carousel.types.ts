@@ -74,6 +74,11 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
      * @default false
      */
     swipeEnabled?: boolean;
+    /**
+     * Включение виртуализации слайдов.
+     * @default false
+     */
+    virtual?: boolean;
 
     /**
      * Размер контрола.
