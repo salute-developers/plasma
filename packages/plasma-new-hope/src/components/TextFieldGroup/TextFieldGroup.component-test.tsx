@@ -17,8 +17,15 @@ const getTexFields = () => [
     <TextField key="xs" size="xs" placeholder="Size 'xs'" />,
 ];
 
+const getCommonTexFields = () => [
+    <TextField placeholder="Input #1" />,
+    <TextField placeholder="Input #2" />,
+    <TextField placeholder="Input #3" />,
+    <TextField placeholder="Input #4" />,
+];
+
 const componentProps = {
-    children: getTexFields(),
+    children: getCommonTexFields(),
 };
 
 getBaseVisualTests({
@@ -36,11 +43,11 @@ describeFn('TextFieldGroup', () => {
         mount(
             <>
                 <TextFieldGroup orientation="horizontal" shape="default" stretching="filled">
-                    {getTexFields()}
+                    {getCommonTexFields()}
                 </TextFieldGroup>
                 <PadMe />
                 <TextFieldGroup className="vertical-group" orientation="vertical" shape="segmented" stretching="auto">
-                    {getTexFields()}
+                    {getCommonTexFields()}
                 </TextFieldGroup>
             </>,
         );
