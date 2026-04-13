@@ -11,7 +11,7 @@ const Spinner = component(mergedConfig);
 export const SpinnerStyled = styled(Spinner)<{ hasIndicator?: boolean }>`
     ${spinnerTokens.size}: ${({ hasIndicator }) =>
     hasIndicator ? `var(${tokens.activeIndicatorSize})` : `var(${tokens.activeBulletSize})`};
-    ${spinnerTokens.color}: var(${tokens.activeIndicatorColor});
+    ${spinnerTokens.color}: var(${tokens.loaderSpinnerColor}, var(${tokens.activeIndicatorColor}));
 `;
 
 export const StepItemTitle = styled.div`
@@ -112,7 +112,8 @@ export const BulletIndicator = styled.button`
     outline: none;
     padding: 0;
     margin: 0;
-    border: none;
+
+    border: var(${tokens.dividerThickness}) solid var(${tokens.completedIndicatorBorder}, transparent);
 
     cursor: pointer;
     color: var(${tokens.completedIndicatorColor});
@@ -159,6 +160,7 @@ export const BulletIndicator = styled.button`
     &.${classes.inactive} {
         color: var(${tokens.inactiveIndicatorColor});
         background: var(${tokens.inactiveIndicatorBackground});
+        border: none;
 
         &.${classes.simple} {
             &:before,
@@ -173,13 +175,31 @@ export const Bullet = styled(BulletIndicator)`
     width: var(${tokens.bulletSize});
     height: var(${tokens.bulletSize});
 
+    border: var(${tokens.dividerThickness}) solid
+        var(${tokens.completedBulletBorder}, var(${tokens.completedIndicatorBorder}, transparent));
+    background: var(${tokens.completedBulletBackground}, var(${tokens.completedIndicatorBackground}));
+
     &.${classes.active} {
         width: var(${tokens.activeBulletSize});
         height: var(${tokens.activeBulletSize});
 
-        border: var(${tokens.dividerThickness}) var(${tokens.activeIndicatorBorder});
+        border: var(${tokens.dividerThickness})
+            var(${tokens.bulletActiveIndicatorBorder}, var(${tokens.activeIndicatorBorder}));
 
-        background: var(${tokens.activeIndicatorBackground});
+        background: var(${tokens.bulletActiveBackground}, var(${tokens.activeIndicatorBackground}));
+    }
+
+    &.${classes.inactive} {
+        color: var(${tokens.inactiveIndicatorColor});
+        background: var(${tokens.inactiveIndicatorBackground});
+        border: none;
+
+        &.${classes.simple} {
+            &:before,
+            &:after {
+                background: var(${tokens.dividerColor});
+            }
+        }
     }
 `;
 
@@ -190,6 +210,17 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
     height: var(${tokens.dividerThickness});
 
     background: var(${tokens.dividerColor});
+
+    &.${classes.nextActive} {
+        background: var(${tokens.dividerGradientColor}, var(${tokens.dividerColor}));
+    }
+
+    &.${classes.verticalOrientation} {
+        width: var(${tokens.dividerThickness});
+        height: 100%;
+
+        background: var(${tokens.dividerVerticalGradientColor}, var(${tokens.dividerColor}));
+    }
 
     &.${classes.inactive} {
         background: var(${tokens.inactiveIndicatorBackground});
@@ -203,11 +234,6 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
         background: transparent;
     }
 
-    &.${classes.verticalOrientation} {
-        width: var(${tokens.dividerThickness});
-        height: 100%;
-    }
-
     &.${classes.indentDivider} {
         height: ${({ indentToken }) => indentToken || ''};
         min-height: ${({ indentToken }) => indentToken || ''};
@@ -216,6 +242,10 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
         &.${classes.simple} {
             height: auto;
             max-height: none;
+        }
+
+        &.${classes.verticalOrientation}.${classes.active} {
+            background: var(${tokens.dividerVerticalIndentColor}, var(${tokens.dividerColor}));
         }
     }
 `;
@@ -406,9 +436,21 @@ export const StepItemStyled = styled.div`
                 color: var(${tokens.completedTitleColorHover});
             }
 
-            ${BulletIndicator}, ${Bullet} {
+            ${BulletIndicator} {
                 color: var(${tokens.completedIndicatorColorHover});
                 background: var(${tokens.completedIndicatorBackgroundHover});
+
+                border: var(${tokens.dividerThickness}) solid var(${tokens.completedIndicatorBorderHover}, transparent);
+            }
+
+            ${Bullet} {
+                color: var(${tokens.completedBulletBackground}, var(${tokens.completedIndicatorColorHover}));
+                background: var(
+                    ${tokens.completedBulletBackgroundHover},
+                    var(${tokens.completedIndicatorBackgroundHover})
+                );
+
+                border: var(${tokens.dividerThickness}) solid var(${tokens.completedBulletBorderHover}, transparent);
             }
         }
 
@@ -420,6 +462,7 @@ export const StepItemStyled = styled.div`
             ${BulletIndicator}, ${Bullet} {
                 color: var(${tokens.inactiveIndicatorColorHover});
                 background: var(${tokens.inactiveIndicatorBackgroundHover});
+                border: none;
             }
         }
 
