@@ -219,7 +219,11 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
         width: var(${tokens.dividerThickness});
         height: 100%;
 
-        background: var(${tokens.dividerVerticalGradientColor}, var(${tokens.dividerColor}));
+        background: var(${tokens.dividerColor});
+
+        &.${classes.nextActive} {
+            background: var(${tokens.dividerVerticalGradientColor}, var(${tokens.dividerColor}));
+        }
     }
 
     &.${classes.inactive} {
