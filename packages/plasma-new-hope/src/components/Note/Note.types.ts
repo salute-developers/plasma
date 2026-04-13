@@ -39,11 +39,15 @@ export type NoteProps = {
      */
     size?: string;
     /**
-     * Наличие крестика для закрытия
+     * Наличие крестика для закрытия.
      */
     hasClose?: boolean;
     /**
      * Callback при нажатии на кнопку закрытия.
      */
     onCloseButtonClick?: () => void;
+    /**
+     * Слот для интерактивных элементов.
+     */
+    actionContent?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
