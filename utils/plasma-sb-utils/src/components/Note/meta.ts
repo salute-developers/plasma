@@ -37,6 +37,7 @@ export const createMeta = ({
             hasClose: false,
             enableHeightControl: false,
             height: '400',
+            hasActionContent: false,
             ...defaultArgs,
         },
         argTypes: {
@@ -87,6 +88,10 @@ export const createMeta = ({
             height: {
                 control: { type: 'text' },
                 if: { arg: 'enableHeightControl', truthy: true },
+                table: { category: 'layout' },
+            },
+            hasActionContent: {
+                control: { type: 'boolean' },
                 table: { category: 'layout' },
             },
             ...additionalArgTypes,

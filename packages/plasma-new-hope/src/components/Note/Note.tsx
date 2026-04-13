@@ -37,6 +37,7 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                 height,
                 hasClose,
                 onCloseButtonClick,
+                actionContent,
                 ...rest
             },
             outerRef,
@@ -157,6 +158,8 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                                 </Text>
                             </>
                         )}
+
+                        <div className={classes.actionContentContainer}>{actionContent}</div>
                     </ContentWrapper>
                     {hasClose && (
                         <CloseIconWrapper

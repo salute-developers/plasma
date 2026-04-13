@@ -2,6 +2,7 @@ export const classes = {
     stretch: 'note-stretch',
     closeIcon: 'note-close-icon',
     contentAlignCenter: 'note-content-align-center',
+    actionContentContainer: 'note-action-content-container',
 };
 
 export const privateTokens = {
