@@ -48,7 +48,7 @@ export const StyledDescription = styled.div`
     line-clamp: var(${tokens.descriptionMaxLines});
     -webkit-line-clamp: var(${tokens.descriptionMaxLines}); /* Ограничиваем количество строк */
     -webkit-box-orient: vertical;
-    white-space: wrap;
+    white-space: normal;
 `;
 
 export const StyledInput = styled.input`
