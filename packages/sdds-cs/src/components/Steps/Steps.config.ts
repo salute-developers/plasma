@@ -8,28 +8,45 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.activeTitleColor}: var(--text-accent);
-                ${tokens.activeTitleColorHover}: var(--text-accent-minor);
-                ${tokens.activeIndicatorBorder}: solid var(--text-accent);
-                ${tokens.activeIndicatorColor}: var(--text-positive);
-                ${tokens.activeIndicatorBackground}: var(--surface-clear);
+                ${tokens.loaderSpinnerColor}: var(--on-dark-surface-solid-primary);
 
-                ${tokens.completedIndicatorColor}: var(--inverse-text-primary);
-                ${tokens.completedIndicatorColorHover}: var(--inverse-text-primary);
-                ${tokens.completedIndicatorBackground}: var(--surface-accent);
-                ${tokens.completedIndicatorBackgroundHover}: var(--surface-accent-hover);
+                ${tokens.activeTitleColor}: var(--text-primary);
+                ${tokens.activeTitleColorHover}: var(--text-primary-hover);
+                ${tokens.activeIndicatorColor}: var(--inverse-text-primary);
+                ${tokens.activeIndicatorBackground}: var(--on-dark-surface-solid-primary);
 
-                ${tokens.inactiveTitleColor}: var(--text-secondary);
-                ${tokens.inactiveTitleColorHover}: var(--text-secondary-hover);
+                ${tokens.bulletActiveIndicatorBorder}: solid var(--on-dark-surface-solid-primary);
+                ${tokens.bulletActiveBackground}: var(--surface-clear);
+
+                ${tokens.completedTitleColor}: var(--text-accent);
+                ${tokens.completedTitleColorHover}: var(--text-accent-hover);
+                ${tokens.completedIndicatorColor}: var(--text-positive);
+                ${tokens.completedIndicatorColorHover}: var(--text-positive-hover);
+                ${tokens.completedIndicatorBackground}: var(--surface-clear);
+                ${tokens.completedIndicatorBackgroundHover}: var(--surface-clear);
+                ${tokens.completedIndicatorBorder}: var(--surface-positive);
+                ${tokens.completedIndicatorBorderHover}: var(--surface-positive-hover);
+
+                ${tokens.completedBulletBorder}: var(--surface-positive);
+                ${tokens.completedBulletBorderHover}: var(--surface-positive-hover);
+                ${tokens.completedBulletBackground}: var(--surface-positive);
+                ${tokens.completedBulletBackgroundHover}: var(--surface-positive-hover);
+
+                ${tokens.inactiveTitleColor}: var(--text-primary);
+                ${tokens.inactiveTitleColorHover}: var(--text-primary-hover);
                 ${tokens.inactiveIndicatorColor}: var(--text-primary);
                 ${tokens.inactiveIndicatorColorHover}: var(--text-primary);
-                ${tokens.inactiveIndicatorBackground}: var(--outline-solid-primary);
-                ${tokens.inactiveIndicatorBackgroundHover}: #e9eef2;
+
+                ${tokens.inactiveIndicatorBackground}: var(--surface-solid-tertiary);
+                ${tokens.inactiveIndicatorBackgroundHover}: var(--surface-solid-tertiary-hover);
 
                 ${tokens.contentColor}: var(--text-secondary);
                 ${tokens.focusColor}: var(--surface-accent);
 
-                ${tokens.dividerColor}: var(--text-positive);
+                ${tokens.dividerColor}: var(--surface-positive);
+                ${tokens.dividerGradientColor}: linear-gradient(90deg, var(--surface-positive) 35%, var(--on-dark-surface-solid-primary) 100%);
+                ${tokens.dividerVerticalGradientColor}: linear-gradient(180deg, var(--surface-positive) 35%, var(--on-dark-surface-solid-primary) 100%);
+                ${tokens.dividerVerticalIndentColor}: var(--on-dark-surface-solid-primary);
 
                 ${tokens.disabledOpacity}: 0.4;
             `,
