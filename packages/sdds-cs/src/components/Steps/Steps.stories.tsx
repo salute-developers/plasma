@@ -139,7 +139,6 @@ export const Default: Story = {
         orientation: 'horizontal',
         hasLine: true,
         hasContent: 'all',
-        disabled: false,
         loading: false,
         simple: false,
     },
@@ -185,7 +184,7 @@ export const Default: Story = {
                 type: 'boolean',
             },
         },
-        ...disableProps(['view', 'size']),
+        ...disableProps(['view', 'size', 'disabled']),
     },
     render: (args) => <DefaultStory {...args} />,
 };
