@@ -171,6 +171,7 @@ export const StepItem: React.FC<
                             [classes.transparentDivider]: !hasLine,
                             [classes.active]: isActive,
                             [classes.inactive]: isInactive || isNextInactive,
+                            [classes.nextActive]: isNextActive,
                             [classes.disabled]: isDisabled,
                         })}
                     />
@@ -212,8 +213,10 @@ export const StepItem: React.FC<
                         <StepItemDivider
                             className={cls({
                                 [classes.simple]: isSimple,
+                                [classes.verticalOrientation]: isVertical,
                                 [classes.transparentDivider]: !hasLine || isFirst,
                                 [classes.inactive]: isInactive || isPrevInactive,
+                                [classes.nextActive]: isNextActive,
                             })}
                         />
                     )}
@@ -221,9 +224,12 @@ export const StepItem: React.FC<
                     {isVertical && (
                         <StepItemDivider
                             className={cls(classes.indentDivider, {
+                                [classes.verticalOrientation]: isVertical,
                                 [classes.simple]: isSimple,
                                 [classes.transparentDivider]: !hasLine || isFirst,
                                 [classes.inactive]: isInactive || isPrevInactive,
+                                [classes.active]: isActive,
+                                [classes.nextActive]: isNextActive,
                             })}
                             indentToken={indentToken}
                         />
@@ -247,8 +253,10 @@ export const StepItem: React.FC<
                     <StepItemDivider
                         className={cls({
                             [classes.simple]: isSimple,
+                            [classes.verticalOrientation]: isVertical,
                             [classes.transparentDivider]: !hasLine || isLast,
                             [classes.inactive]: isInactive || isNextInactive,
+                            [classes.nextActive]: isNextActive,
                         })}
                     />
                 </BulletIndicatorWrapper>
