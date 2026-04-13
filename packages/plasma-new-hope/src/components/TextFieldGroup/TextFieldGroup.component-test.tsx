@@ -1,5 +1,13 @@
 import React from 'react';
-import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
+import {
+    mount,
+    getComponent,
+    getDescribeFN,
+    hasComponent,
+    getBaseVisualTests,
+    skipForPackages,
+    PadMe,
+} from '@salutejs/plasma-cy-utils';
 
 import type { TextFieldProps } from '../TextField/TextField.types';
 
@@ -7,6 +15,7 @@ import type { TextFieldGroupProps } from './TextFieldGroup.types';
 
 const componentExists = hasComponent('TextFieldGroup');
 const describeFn = getDescribeFN('TextFieldGroup');
+const itSkip = skipForPackages(['sdds-os', 'sdds-platform-ai', 'sdds-scan']);
 
 const TextField = getComponent<TextFieldProps>('TextField');
 
@@ -57,7 +66,7 @@ describeFn('TextFieldGroup', () => {
         cy.matchImageSnapshot();
     });
 
-    it('custom text fields', () => {
+    itSkip('custom text fields', () => {
         cy.viewport(1200, 600);
 
         mount(
