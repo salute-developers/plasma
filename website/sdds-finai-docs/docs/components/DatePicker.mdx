@@ -486,9 +486,9 @@ import { DatePicker } from '@salutejs/sdds-finai';
         import { DatePickerRange, IconButton } from '@salutejs/sdds-finai';
         import { IconDone } from '@salutejs/plasma-icons';
 
-        type DateType = Date | string | undefined | null
-
         export function App() {
+            type DateType = Date | string | undefined | null
+
             const [dateValue, setDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [originalDateValue, setOriginalDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [isoDateValue, setIsoDate] = useState<[string?, string?]>([new Date().toISOString(), '']);
@@ -563,9 +563,9 @@ import { DatePicker } from '@salutejs/sdds-finai';
         import { DatePickerRange } from '@salutejs/sdds-finai';
         import { IconDone } from '@salutejs/plasma-icons';
 
-        type DateType = Date | string | undefined | null
-
         export function App() {
+            type DateType = Date | string | undefined | null
+
             const [dateValue, setDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [originalDateValue, setOriginalDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [isoDateValue, setIsoDate] = useState<[string?, string?]>([new Date().toISOString(), '']);
@@ -639,7 +639,7 @@ import { DatePicker } from '@salutejs/sdds-finai';
         import { IconDone } from '@salutejs/plasma-icons';
 
         export function App() {
-            const sizes = ['xl', 'l', 'm', 's', 'xs']
+            const sizes = ['l', 'm', 's', 'xs']
 
             const ActionButton = () => {
                 return (
