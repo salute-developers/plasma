@@ -16,6 +16,8 @@ export * from './components/ChipGroup';
 export * from './components/Cell';
 export * from './components/Counter';
 export * from './components/Combobox';
+export * from './components/ColorPicker';
+export * from './components/ColorSwatch';
 export * from './components/DatePicker';
 export * from './components/Dropdown';
 export * from './components/IconButton';
