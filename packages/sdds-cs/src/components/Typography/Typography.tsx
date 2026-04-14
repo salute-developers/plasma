@@ -4,6 +4,7 @@ import {
     headingConfig,
     textConfig,
     component,
+    typographyComponent,
     mergeConfig,
 } from '@salutejs/plasma-new-hope/emotion';
 
@@ -34,55 +35,55 @@ import {
 } from './Text.config';
 
 const bodyMConfig = mergeConfig(bodyConfig, bodyConfigMCustom);
-const BodyMComponent = component(bodyMConfig);
+const BodyMComponent = typographyComponent(component(bodyMConfig));
 
 const bodyLConfig = mergeConfig(bodyConfig, bodyConfigLCustom);
-const BodyLComponent = component(bodyLConfig);
+const BodyLComponent = typographyComponent(component(bodyLConfig));
 
 const bodySConfig = mergeConfig(bodyConfig, bodyConfigSCustom);
-const BodySComponent = component(bodySConfig);
+const BodySComponent = typographyComponent(component(bodySConfig));
 
 const bodyXSConfig = mergeConfig(bodyConfig, bodyConfigXSCustom);
-const BodyXSComponent = component(bodyXSConfig);
+const BodyXSComponent = typographyComponent(component(bodyXSConfig));
 
 const bodyXXSConfig = mergeConfig(bodyConfig, bodyConfigXXSCustom);
-const BodyXXSComponent = component(bodyXXSConfig);
+const BodyXXSComponent = typographyComponent(component(bodyXXSConfig));
 
 const dsplMConfig = mergeConfig(dsplConfig, dsplConfigMCustom);
-const DsplMComponent = component(dsplMConfig);
+const DsplMComponent = typographyComponent(component(dsplMConfig));
 
 const dsplLConfig = mergeConfig(dsplConfig, dsplConfigLCustom);
-const DsplLComponent = component(dsplLConfig);
+const DsplLComponent = typographyComponent(component(dsplLConfig));
 
 const dsplSConfig = mergeConfig(dsplConfig, dsplConfigSCustom);
-const DsplSComponent = component(dsplSConfig);
+const DsplSComponent = typographyComponent(component(dsplSConfig));
 
 const heading1Config = mergeConfig(headingConfig, headingConfigH1Custom);
-const Heading1Component = component(heading1Config);
+const Heading1Component = typographyComponent(component(heading1Config));
 
 const heading2Config = mergeConfig(headingConfig, headingConfigH2Custom);
-const Heading2Component = component(heading2Config);
+const Heading2Component = typographyComponent(component(heading2Config));
 
 const heading3Config = mergeConfig(headingConfig, headingConfigH3Custom);
-const Heading3Component = component(heading3Config);
+const Heading3Component = typographyComponent(component(heading3Config));
 
 const heading4Config = mergeConfig(headingConfig, headingConfigH4Custom);
-const Heading4Component = component(heading4Config);
+const Heading4Component = typographyComponent(component(heading4Config));
 
 const heading5Config = mergeConfig(headingConfig, headingConfigH5Custom);
-const Heading5Component = component(heading5Config);
+const Heading5Component = typographyComponent(component(heading5Config));
 
 const textMConfig = mergeConfig(textConfig, textConfigMCustom);
-const TextMComponent = component(textMConfig);
+const TextMComponent = typographyComponent(component(textMConfig));
 
 const textLConfig = mergeConfig(textConfig, textConfigLCustom);
-const TextLComponent = component(textLConfig);
+const TextLComponent = typographyComponent(component(textLConfig));
 
 const textSConfig = mergeConfig(textConfig, textConfigSCustom);
-const TextSComponent = component(textSConfig);
+const TextSComponent = typographyComponent(component(textSConfig));
 
 const textXSConfig = mergeConfig(textConfig, textConfigXSCustom);
-const TextXSComponent = component(textXSConfig);
+const TextXSComponent = typographyComponent(component(textXSConfig));
 
 export const BodyM = BodyMComponent;
 export const BodyL = BodyLComponent;
