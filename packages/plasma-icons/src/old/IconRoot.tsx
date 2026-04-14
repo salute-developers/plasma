@@ -31,7 +31,7 @@ export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, cla
     <IconsRoot
         aria-hidden
         style={{ '--icon-size': `${sizeMap[size]}rem`, ...style } as CSSProperties}
-        className={className || ''}
+        className={`icon-root-container ${className || ''}`}
         {...rest}
     >
         <Icon color={color || 'var(--plasma-colors-primary)'} size={size} />
