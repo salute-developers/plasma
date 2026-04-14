@@ -13,3 +13,5 @@ export * from './Old/ParagraphText/ParagraphText';
 export * from './Old/Underline/Underline';
 export * from './Old/Subtitle/Subtitle';
 export { tokens as typographyTokens } from './tokens';
+export { typographyComponent } from './Typography.types';
+export type { TypographyComponent, AllowedTextHTMLElements } from './Typography.types';
