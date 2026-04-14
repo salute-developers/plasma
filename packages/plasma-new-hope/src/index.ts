@@ -81,6 +81,8 @@ export * from './components/PaginationDots';
 export * from './components/CodeInput';
 export * from './components/CodeField';
 export * from './components/CodeArea';
+export * from './components/ColorSwatch';
+export * from './components/ColorPicker';
 export * from './components/List';
 export * from './components/Tour';
 export * from './components/EmbedIconButton';
