@@ -1884,6 +1884,30 @@
                     },
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
+                },
+                "surfaceTransparentPositiveMinor": {
+                    "value": "#C5FC5F0D",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorHover": {
+                    "value": "#C5FC5F1C",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorActive": {
+                    "value": "#C5FC5F08",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinor": {
+                    "value": "#FA5F050D",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorHover": {
+                    "value": "#FA5F051C",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorActive": {
+                    "value": "#FA5F0508",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -2468,6 +2492,30 @@
                     },
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": true
+                },
+                "surfaceTransparentPositiveMinor": {
+                    "value": "#C5FC5F0D",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorHover": {
+                    "value": "#C5FC5F1C",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorActive": {
+                    "value": "#C5FC5F08",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinor": {
+                    "value": "#FA5F050D",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorHover": {
+                    "value": "#FA5F051C",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorActive": {
+                    "value": "#FA5F0508",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -3052,6 +3100,30 @@
                     "value": "rgba(8,8,8,0.03)",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
+                },
+                "surfaceTransparentPositiveMinor": {
+                    "value": "#C5FC5F0D",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorHover": {
+                    "value": "#C5FC5F12",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorActive": {
+                    "value": "#C5FC5F17",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinor": {
+                    "value": "#FA5F050D",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorHover": {
+                    "value": "#FA5F0512",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorActive": {
+                    "value": "#FA5F0517",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -3636,6 +3708,30 @@
                     "value": "rgba(8,8,8,0.03)",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
                     "enabled": true
+                },
+                "surfaceTransparentPositiveMinor": {
+                    "value": "#C5FC5F0D",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorHover": {
+                    "value": "#C5FC5F12",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorActive": {
+                    "value": "#C5FC5F17",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinor": {
+                    "value": "#FA5F050D",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorHover": {
+                    "value": "#FA5F0512",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorActive": {
+                    "value": "#FA5F0517",
+                    "comment": ""
                 }
             }
         },
@@ -7826,6 +7922,30 @@
                     },
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
+                },
+                "surfaceTransparentPositiveMinor": {
+                    "value": "#C5FC5F0D",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorHover": {
+                    "value": "#C5FC5F12",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorActive": {
+                    "value": "#C5FC5F17",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinor": {
+                    "value": "#FA5F050D",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorHover": {
+                    "value": "#FA5F0512",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorActive": {
+                    "value": "#FA5F0517",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -8410,6 +8530,30 @@
                     },
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": true
+                },
+                "surfaceTransparentPositiveMinor": {
+                    "value": "#C5FC5F0D",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorHover": {
+                    "value": "#C5FC5F1C",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorActive": {
+                    "value": "#C5FC5F08",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinor": {
+                    "value": "#FA5F050D",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorHover": {
+                    "value": "#FA5F051C",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorActive": {
+                    "value": "#FA5F0508",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -8994,6 +9138,30 @@
                     "value": "rgba(8,8,8,0.03)",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
                     "enabled": true
+                },
+                "surfaceTransparentPositiveMinor": {
+                    "value": "#C5FC5F0D",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorHover": {
+                    "value": "#C5FC5F12",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorActive": {
+                    "value": "#C5FC5F17",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinor": {
+                    "value": "#FA5F050D",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorHover": {
+                    "value": "#FA5F0512",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorActive": {
+                    "value": "#FA5F0517",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -9578,6 +9746,30 @@
                     },
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
                     "enabled": true
+                },
+                "surfaceTransparentPositiveMinor": {
+                    "value": "#C5FC5F0D",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorHover": {
+                    "value": "#C5FC5F1C",
+                    "comment": ""
+                },
+                "surfaceTransparentPositiveMinorActive": {
+                    "value": "#C5FC5F08",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinor": {
+                    "value": "#FA5F050D",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorHover": {
+                    "value": "#FA5F051C",
+                    "comment": ""
+                },
+                "surfaceTransparentNegativeMinorActive": {
+                    "value": "#FA5F0508",
+                    "comment": ""
                 }
             }
         },
