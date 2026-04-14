@@ -76,6 +76,10 @@ const StyledButtonRoot = styled(ButtonRoot)<InteractionProps>`
     ${applyViews}
     ${applyInteraction}
     ${applyNoSelect}
+
+    .icon-root-container {
+        flex: 0 0 auto;
+    }
 `;
 
 /**
