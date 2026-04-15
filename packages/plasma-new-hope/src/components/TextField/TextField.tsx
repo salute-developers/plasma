@@ -572,7 +572,6 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
                                     onPaste={handlePaste}
-                                    data-tour
                                     {...rest}
                                 />
                                 {hasInnerLabel && (

@@ -1,0 +1,709 @@
+---
+id: Tour
+title: Tour
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Tour
+<Description name="Tour" />
+
+## Быстрый старт
+
+Минимальный пример — два шага, управление через `open`, `current` и `onChange`:
+
+```tsx live
+import React, { useRef, useState } from 'react';
+import { Tour, Button } from '@salutejs/{{ package }}';
+
+export function App() {
+    const ref1 = useRef(null);
+    const ref2 = useRef(null);
+    const [open, setOpen] = useState(false);
+    const [current, setCurrent] = useState(0);
+
+    const onClose = () => { setOpen(false); setCurrent(0); };
+
+    const steps = [
+        { target: ref1, title: 'Первый шаг', description: 'Начало тура.' },
+        { target: ref2, title: 'Второй шаг', description: 'Завершение тура.', placement: 'top' },
+    ];
+
+    const renderStep = (cur, length, last, step, goToStep) => (
+        <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {step.title && <strong>{step.title}</strong>}
+            {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+            <div style=\{{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style=\{{ display: 'flex', gap: '0.5rem' }}>
+                    {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                    {last
+                        ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button>
+                        : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>
+                    }
+                </div>
+                <small>{cur + 1} / {length}</small>
+            </div>
+        </div>
+    );
+
+    return (
+        <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '6rem' }}>
+            <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button ref={ref1} view="secondary">Элемент 1</Button>
+                <Button ref={ref2} view="secondary">Элемент 2</Button>
+            </div>
+            <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+            <Tour
+                open={open}
+                current={current}
+                onChange={setCurrent}
+                onClose={onClose}
+                steps={steps}
+                renderStep={renderStep}
+                highlightBorderRadius="1rem"
+            />
+        </div>
+    );
+}
+```
+
+## renderStep
+
+`renderStep` — обязательный prop, отвечающий за содержимое карточки тура. Получает пять аргументов:
+
+| Аргумент   | Тип                       | Описание                                           |
+|------------|---------------------------|---------------------------------------------------|
+| `current`  | `number`                  | Индекс текущего шага (с нуля)                     |
+| `length`   | `number`                  | Общее количество шагов                            |
+| `last`     | `boolean`                 | `true`, если шаг последний                        |
+| `step`     | `TourStep`                | Данные текущего шага (`title`, `description`, …)  |
+| `goToStep` | `(index: number) => void` | Переход к произвольному шагу                      |
+
+## Шаги тура
+
+Массив `steps` задаёт последовательность шагов. Каждый шаг описывается объектом `TourStep`:
+
+| Свойство                | Тип                                  | Описание                                                                  |
+|-------------------------|--------------------------------------|---------------------------------------------------------------------------|
+| `target`                | `string \| RefObject \| HTMLElement` | CSS-селектор, React ref или DOM-элемент для подсветки                     |
+| `placement`             | `Placement`                          | Позиция карточки относительно цели (`bottom` по умолчанию)               |
+| `highlightOffset`       | `number`                             | Отступ подсветки — переопределяет общий `highlightOffset`                 |
+| `highlightBorderRadius` | `CSSProperties['borderRadius']`      | Скругление подсветки — переопределяет общий `highlightBorderRadius`       |
+| `title`                 | `string`                             | Заголовок карточки                                                        |
+| `description`           | `string`                             | Описание карточки                                                         |
+
+### target
+
+Свойство `target` принимает три формата:
+
+<Tabs>
+    <TabItem value="css-selector" label="CSS-селектор" default>
+        Строка CSS-селектора — элемент ищется через `document.querySelector`:
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const [open, setOpen] = useState(false);
+            const [current, setCurrent] = useState(0);
+            const onClose = () => { setOpen(false); setCurrent(0); };
+
+            const steps = [
+                { target: '#tour-doc-btn-1', title: 'Кнопка 1', description: 'Найдена по CSS-селектору #tour-doc-btn-1.' },
+                { target: '#tour-doc-btn-2', title: 'Кнопка 2', description: 'Найдена по CSS-селектору #tour-doc-btn-2.', placement: 'top' },
+            ];
+
+            const renderStep = (cur, length, last, step, goToStep) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                    </div>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Button id="tour-doc-btn-1" view="secondary">Кнопка 1</Button>
+                        <Button id="tour-doc-btn-2" view="secondary">Кнопка 2</Button>
+                    </div>
+                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="ref" label="React ref">
+        Объект `React.RefObject` — наиболее распространённый подход:
+
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const ref1 = useRef(null);
+            const ref2 = useRef(null);
+            const [open, setOpen] = useState(false);
+            const [current, setCurrent] = useState(0);
+            const onClose = () => { setOpen(false); setCurrent(0); };
+
+            const steps = [
+                { target: ref1, title: 'Кнопка 1', description: 'Цель задана через useRef.' },
+                { target: ref2, title: 'Кнопка 2', description: 'Тоже через useRef.', placement: 'top' },
+            ];
+
+            const renderStep = (cur, length, last, step, goToStep) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                    </div>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Button ref={ref1} view="secondary">Кнопка 1</Button>
+                        <Button ref={ref2} view="secondary">Кнопка 2</Button>
+                    </div>
+                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Оверлей
+
+Свойство `withOverlay` включает затемнение фона вокруг подсвеченного элемента. Цвет регулируется через `overlayColor`:
+
+<Tabs>
+    <TabItem value="withOverlay" label="withOverlay" default>
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const ref1 = useRef(null);
+            const ref2 = useRef(null);
+            const [open, setOpen] = useState(false);
+            const [current, setCurrent] = useState(0);
+            const onClose = () => { setOpen(false); setCurrent(0); };
+
+            const steps = [
+                { target: ref1, title: 'С оверлеем', description: 'withOverlay={true} — фон затемняется.' },
+                { target: ref2, title: 'Без оверлея', description: 'withOverlay={false} — только карточка.', placement: 'top' },
+            ];
+
+            const renderStep = (cur, length, last, step, goToStep) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                    </div>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Button ref={ref1} view="secondary">Кнопка 1</Button>
+                        <Button ref={ref2} view="secondary">Кнопка 2</Button>
+                    </div>
+                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" withOverlay={current === 0} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="overlayColor" label="overlayColor">
+        С помощью `overlayColor` можно задать произвольный цвет оверлея:
+
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const ref1 = useRef(null);
+            const [open, setOpen] = useState(false);
+            const onClose = () => setOpen(false);
+
+            const steps = [{ target: ref1, title: 'Синий оверлей', description: 'Цвет задан через overlayColor.' }];
+
+            const renderStep = (cur, length, last, step) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <Button size="s" view="default" onClick={onClose} style=\{{ marginTop: '0.25rem' }}>Закрыть</Button>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <Button ref={ref1} view="secondary" style=\{{ alignSelf: 'flex-start' }}>Целевой элемент</Button>
+                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Tour
+                        open={open}
+                        current={0}
+                        onClose={onClose}
+                        steps={steps}
+                        renderStep={renderStep}
+                        highlightBorderRadius="1rem"
+                        withOverlay
+                        overlayColor="rgba(0, 50, 120, 0.7)"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Подсветка элемента
+
+`highlightOffset` задаёт отступ вокруг целевого элемента. `highlightBorderRadius` задаёт форму подсветки. Оба свойства можно переопределить на уровне конкретного шага:
+
+<Tabs>
+    <TabItem value="highlightOffset" label="highlightOffset" default>
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const ref1 = useRef(null);
+            const ref2 = useRef(null);
+            const [open, setOpen] = useState(false);
+            const [current, setCurrent] = useState(0);
+            const onClose = () => { setOpen(false); setCurrent(0); };
+
+            const steps = [
+                { target: ref1, title: 'Отступ 4px', description: 'highlightOffset={4} — стандартный отступ.' },
+                { target: ref2, title: 'Отступ 16px', description: 'highlightOffset={16} — увеличенный отступ.', placement: 'top' },
+            ];
+
+            const renderStep = (cur, length, last, step, goToStep) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                    </div>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Button ref={ref1} view="secondary">Отступ 4px</Button>
+                        <Button ref={ref2} view="secondary">Отступ 16px</Button>
+                    </div>
+                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Tour
+                        open={open}
+                        current={current}
+                        onChange={setCurrent}
+                        onClose={onClose}
+                        steps={steps}
+                        renderStep={renderStep}
+                        highlightBorderRadius="1rem"
+                        highlightOffset={current === 0 ? 4 : 16}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="highlightBorderRadius" label="highlightBorderRadius">
+        По умолчанию скругление вычисляется автоматически на основе `border-radius` целевого элемента. Можно задать явно:
+
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const ref1 = useRef(null);
+            const ref2 = useRef(null);
+            const [open, setOpen] = useState(false);
+            const [current, setCurrent] = useState(0);
+            const onClose = () => { setOpen(false); setCurrent(0); };
+
+            const steps = [
+                { target: ref1, title: 'Круглая подсветка', description: 'highlightBorderRadius="50%"', highlightBorderRadius: '50%' },
+                { target: ref2, title: 'Прямоугольная', description: 'highlightBorderRadius="0"', highlightBorderRadius: '0', placement: 'top' },
+            ];
+
+            const renderStep = (cur, length, last, step, goToStep) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                    </div>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                        <div ref={ref1} style=\{{ background: 'var(--surface-solid-secondary)', width: '3rem', height: '3rem', borderRadius: '50%' }} />
+                        <Button ref={ref2} view="secondary">Кнопка</Button>
+                    </div>
+                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Стрелка
+
+Свойство `hasTail` добавляет стрелку-указатель к карточке тура. Цвет стрелки задаётся через `tailColor`:
+
+```tsx live
+import React, { useRef, useState } from 'react';
+import { Tour, Button } from '@salutejs/{{ package }}';
+
+export function App() {
+    const ref1 = useRef(null);
+    const ref2 = useRef(null);
+    const [open, setOpen] = useState(false);
+    const [current, setCurrent] = useState(0);
+    const onClose = () => { setOpen(false); setCurrent(0); };
+
+    const steps = [
+        { target: ref1, title: 'Шаг 1', description: 'Карточка со стрелкой.' },
+        { target: ref2, title: 'Шаг 2', description: 'Стрелка меняет направление автоматически.', placement: 'top' },
+    ];
+
+    const renderStep = (cur, length, last, step, goToStep) => (
+        <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {step.title && <strong>{step.title}</strong>}
+            {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+            <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+            </div>
+        </div>
+    );
+
+    return (
+        <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+            <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button ref={ref1} view="secondary">Кнопка 1</Button>
+                <Button ref={ref2} view="secondary">Кнопка 2</Button>
+            </div>
+            <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+            <Tour
+                open={open}
+                current={current}
+                onChange={setCurrent}
+                onClose={onClose}
+                steps={steps}
+                renderStep={renderStep}
+                highlightBorderRadius="1rem"
+                hasTail
+            />
+        </div>
+    );
+}
+```
+
+## Позиционирование карточки
+
+`offset` задаёт отступ карточки от целевого элемента в формате `[mainAxis, crossAxis]`. Направление определяется свойством `placement` в каждом шаге:
+
+<Tabs>
+    <TabItem value="offset" label="offset" default>
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const ref1 = useRef(null);
+            const [open, setOpen] = useState(false);
+            const onClose = () => setOpen(false);
+
+            const steps = [{ target: ref1, title: 'Отступ 32px', description: 'offset={[32, 12]} — увеличен основной отступ.' }];
+
+            const renderStep = (cur, length, last, step) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <Button size="s" view="default" onClick={onClose} style=\{{ marginTop: '0.25rem' }}>Закрыть</Button>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <Button ref={ref1} view="secondary" style=\{{ alignSelf: 'flex-start' }}>Целевой элемент</Button>
+                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Tour open={open} current={0} onClose={onClose} steps={steps} highlightBorderRadius="1rem" renderStep={renderStep} offset={[32, 12]} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="placement" label="placement">
+        Значение `placement` в шаге задаёт сторону размещения карточки:
+
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const ref1 = useRef(null);
+            const ref2 = useRef(null);
+            const ref3 = useRef(null);
+            const ref4 = useRef(null);
+            const [open, setOpen] = useState(false);
+            const [current, setCurrent] = useState(0);
+            const onClose = () => { setOpen(false); setCurrent(0); };
+
+            const steps = [
+                { target: ref1, title: 'bottom (по умолчанию)', description: 'placement не указан.', placement: 'bottom' },
+                { target: ref2, title: 'right', description: 'placement="right"', placement: 'right' },
+                { target: ref3, title: 'top', description: 'placement="top"', placement: 'top' },
+                { target: ref4, title: 'left', description: 'placement="left"', placement: 'left' },
+            ];
+
+            const renderStep = (cur, length, last, step, goToStep) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                    </div>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style=\{{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <Button ref={ref1} view="secondary">bottom</Button>
+                        <Button ref={ref2} view="secondary">right</Button>
+                    </div>
+                    <div style=\{{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <Button ref={ref3} view="secondary">top</Button>
+                        <Button ref={ref4} view="secondary">left</Button>
+                    </div>
+                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Контролируемый и неконтролируемый режим
+
+Компонент поддерживает оба режима работы:
+
+<Tabs>
+    <TabItem value="controlled" label="Контролируемый" default>
+        Управление состоянием вынесено наружу через `open`, `current`, `onChange` и `onClose`:
+
+        ```tsx live
+        import React, { useRef, useState } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const ref1 = useRef(null);
+            const ref2 = useRef(null);
+            const [open, setOpen] = useState(false);
+            const [current, setCurrent] = useState(0);
+            const onClose = () => { setOpen(false); setCurrent(0); };
+
+            const steps = [
+                { target: ref1, title: 'Шаг 1 из 2', description: 'Контролируемый режим.' },
+                { target: ref2, title: 'Шаг 2 из 2', description: 'Внешнее управление состоянием.', placement: 'top' },
+            ];
+
+            const renderStep = (cur, length, last, step, goToStep) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                    </div>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Button ref={ref1} view="secondary">Элемент 1</Button>
+                        <Button ref={ref2} view="secondary">Элемент 2</Button>
+                    </div>
+                    <div style=\{{ display: 'flex', gap: '0.5rem' }}>
+                        <Button view="default" onClick={() => setOpen(true)}>Открыть</Button>
+                        <Button view="secondary" onClick={() => setCurrent(1)}>Перейти к шагу 2</Button>
+                    </div>
+                    <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="uncontrolled" label="Неконтролируемый">
+        Начальные значения задаются через `defaultOpen` и `defaultCurrent`. Компонент управляет состоянием самостоятельно:
+
+        ```tsx
+        import React, { useRef } from 'react';
+        import { Tour, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const ref1 = useRef(null);
+            const ref2 = useRef(null);
+
+            const steps = [
+                { target: ref1, title: 'Шаг 1 из 2', description: 'Тур открыт по умолчанию.' },
+                { target: ref2, title: 'Шаг 2 из 2', description: 'Неконтролируемый режим.', placement: 'top' },
+            ];
+
+            const renderStep = (cur, length, last, step, goToStep) => (
+                <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {step.title && <strong>{step.title}</strong>}
+                    {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+                    <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="default">Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                    </div>
+                </div>
+            );
+
+            return (
+                <div style=\{{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Button ref={ref1} view="secondary">Элемент 1</Button>
+                        <Button ref={ref2} view="secondary">Элемент 2</Button>
+                    </div>
+                    <Tour defaultOpen defaultCurrent={0} steps={steps} renderStep={renderStep} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Кастомная подсветка
+
+Свойство `renderHighlight` заменяет стандартную подсветку произвольным React-элементом. При использовании вместе с `withOverlay={false}` позволяет создать полностью кастомный эффект без тёмного оверлея.
+
+Функция получает объект `TourHighlightProps`:
+
+| Свойство       | Тип      | Описание                                                       |
+|----------------|----------|----------------------------------------------------------------|
+| `left`         | `number` | Координата X подсветки (уже учитывает `highlightOffset`)       |
+| `top`          | `number` | Координата Y подсветки (уже учитывает `highlightOffset`)       |
+| `width`        | `number` | Ширина подсветки (уже учитывает `highlightOffset`)             |
+| `height`       | `number` | Высота подсветки (уже учитывает `highlightOffset`)             |
+| `borderRadius` | `number` | Скругление блока высветления                                   |
+
+Пример с анимированным пульсирующим бордером:
+
+```tsx live
+import React, { useRef, useState } from 'react';
+import { Tour, Button, TextField, Switch } from '@salutejs/{{ package }}';
+
+export function App() {
+    const textFieldRef = useRef(null);
+    const switchRef = useRef(null);
+    const buttonRef = useRef(null);
+    const [open, setOpen] = useState(false);
+    const [current, setCurrent] = useState(0);
+    const [name, setName] = useState('');
+    const [checked, setChecked] = useState(false);
+
+    const onClose = () => { setOpen(false); setCurrent(0); };
+
+    const steps = [
+        { target: textFieldRef, title: 'Имя пользователя', description: 'Введите имя для профиля.' },
+        { target: '#custom-highlight-switch', title: 'Уведомления', description: 'Включите push-уведомления.', placement: 'left' },
+        { target: buttonRef, title: 'Сохранить', description: 'Примените все изменения.', placement: 'top' },
+    ];
+
+    const renderHighlight = ({ left, top, width, height, borderRadius }) => (
+        <div
+            style=\{{
+                position: 'fixed',
+                left,
+                top,
+                width,
+                height,
+                borderRadius,
+                background: 'rgba(0, 102, 255, 0.1)',
+                animation: 'tour-doc-pulse 1.4s ease-in-out infinite',
+                pointerEvents: 'none',
+            }}
+        />
+    );
+
+    const renderStep = (cur, length, last, step, goToStep) => (
+        <div style=\{{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {step.title && <strong>{step.title}</strong>}
+            {step.description && <small style=\{{ opacity: 0.7 }}>{step.description}</small>}
+            <div style=\{{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+            </div>
+        </div>
+    );
+
+    return (
+        <>
+            <style>{`
+                @keyframes tour-doc-pulse {
+                    0%, 100% { box-shadow: 0 0 0 2px rgba(0,102,255,0.85), 0 0 0 6px rgba(0,102,255,0.2); }
+                    50%       { box-shadow: 0 0 0 3px rgba(0,102,255,0.35), 0 0 0 12px rgba(0,102,255,0); }
+                }
+            `}</style>
+            <div style=\{{ maxWidth: '24rem', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div ref={textFieldRef}>
+                    <TextField label="Имя пользователя" value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
+                <Switch id="custom-highlight-switch" label="Push-уведомления" checked={checked} onChange={(e) => setChecked(e.target.checked)} />
+                <div style=\{{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Button view="secondary" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button ref={buttonRef} view="default">Сохранить</Button>
+                </div>
+                <Tour
+                    open={open}
+                    current={current}
+                    onChange={setCurrent}
+                    onClose={onClose}
+                    steps={steps}
+                    renderStep={renderStep}
+                    withOverlay={false}
+                    renderHighlight={renderHighlight}
+                    highlightBorderRadius="1rem"
+                />
+            </div>
+        </>
+    );
+}
+```
+
+## Таблица свойств
+<PropsTable name="Tour" exclude={['css']} />

@@ -4,8 +4,6 @@ import { classes, tokens } from '../../TextArea.tokens';
 import { StyledIndicator, StyledTextAreaWrapper } from '../../TextArea.styles';
 
 export const base = css`
-    ${tokens.tourBorderRadius}: var(${tokens.borderRadius});
-
     ${StyledTextAreaWrapper} {
         &:after {
             border-radius: var(${tokens.borderRadius});
