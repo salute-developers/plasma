@@ -1,4 +1,130 @@
 {
+  "0.16.0": {
+    "date": "2026-04-15",
+    "core": [
+      {
+        "component": "DatePicker, DateTimePicker",
+        "children": [
+          {
+            "text": "исправлен контролируемый режим для `opened`",
+            "link": "https://github.com/salute-developers/plasma/pull/2665",
+            "id": 2665
+          }
+        ]
+      },
+      {
+        "component": "Steps",
+        "children": [
+          {
+            "text": "по умолчанию StepItem в вертикальной ориентации занимает всю доступную ширину",
+            "link": "https://github.com/salute-developers/plasma/pull/2669",
+            "id": 2669
+          },
+          {
+            "text": "документация дополнена примерами различных индикаторов у элемента шага",
+            "link": "https://github.com/salute-developers/plasma/pull/2681",
+            "id": 2681
+          }
+        ]
+      },
+      {
+        "component": "Carousel",
+        "children": [
+          {
+            "text": "добавлен `controlled` режим для внешнего управления компонентом\n\nдобавлено свойство `loop` для возможности зациклить карусель\n\nдобавлен механизм автоматического пролистывания карусели\n\nдобавлено свойство `swipeEnabled` для управления переключением слайдов через touch-events",
+            "link": "https://github.com/salute-developers/plasma/pull/2664",
+            "id": 2664
+          },
+          {
+            "text": "добавлено свойство `virtual` для включения виртуализации слайдов;",
+            "link": "https://github.com/salute-developers/plasma/pull/2687",
+            "id": 2687
+          }
+        ]
+      },
+      {
+        "component": "Combobox",
+        "children": [
+          {
+            "text": "исправлена ошибка типов TS для свойства `autoComplete`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2677",
+            "id": 2677
+          }
+        ]
+      },
+      {
+        "component": "Select",
+        "children": [
+          {
+            "text": "добавлено свойство `emptyStateDescription` для настройки контента в выпадающем списке при пустом массиве `items`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2676",
+            "id": 2676
+          }
+        ]
+      },
+      {
+        "component": "DateTimePicker, TimePicker",
+        "children": [
+          {
+            "text": "исправлено наследование свойств из TextField",
+            "link": "https://github.com/salute-developers/plasma/pull/2668",
+            "id": 2668
+          }
+        ]
+      },
+      {
+        "component": "Popover",
+        "children": [
+          {
+            "text": "исправлено вертикальное выравнивание у `img/svg` в target;",
+            "link": "https://github.com/salute-developers/plasma/pull/2680",
+            "id": 2680
+          }
+        ]
+      },
+      {
+        "component": "Switch",
+        "children": [
+          {
+            "text": "заменили нестабильное css-свойство `white-space: wrap` на стабильный аналог `white-space: normal`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2692",
+            "id": 2692
+          }
+        ]
+      },
+      {
+        "component": "Combobox, Select",
+        "children": [
+          {
+            "text": "установлены значения свойств `hintView`, `hintView` по-умолчанию;",
+            "link": "https://github.com/salute-developers/plasma/pull/2690",
+            "id": 2690
+          }
+        ]
+      },
+      {
+        "component": "Popover, Tooltip",
+        "children": [
+          {
+            "text": "исправление transition для корректной `dissolve-анимации`",
+            "link": "https://github.com/salute-developers/plasma/pull/2684",
+            "id": 2684
+          }
+        ]
+      },
+      {
+        "component": "Typography",
+        "children": [
+          {
+            "text": "Расширены типы для свойства `as` и сужены доступные варианты. Теперь, если выбран любой текстовый тег, то ref будет ожидаться соответствующим (раньше это всегда был HTMLDivElement):",
+            "link": "https://github.com/salute-developers/plasma/pull/2696",
+            "id": 2696
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.15.0": {
     "date": "2026-04-01",
     "core": [
