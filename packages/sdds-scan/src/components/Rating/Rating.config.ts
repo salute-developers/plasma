@@ -3,7 +3,7 @@ import { css, ratingTokens as tokens } from '@salutejs/plasma-new-hope/styled-co
 export const config = {
     defaults: {
         view: 'default',
-        size: 'l',
+        size: 'm',
     },
     variations: {
         view: {
