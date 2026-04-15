@@ -426,7 +426,6 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             resize={resize}
                             defaultValue={defaultValue}
                             onChange={onChangeHandler}
-                            data-tour
                             {...rest}
                         />
                         {Boolean(applyAutoResize || cols) && (

@@ -1,5 +1,3 @@
-import { TOUR_BORDER_RADIUS_TOKEN } from '../Tour/utils';
-
 export const classes = {
     /** Класс отвечающий за поднятие и уменьшение плейсхолдера */
     innerPlaceholderUp: 'inner-placeholder-up',
@@ -222,6 +220,4 @@ export const tokens = {
     indicatorLabelPlacementOuterRight: '--plasma-textarea-indicator-placement-outer-right',
     indicatorLabelPlacementHintOuterRight: '--plasma-textfield__indicator-hint-placement-outer-right',
     clearIndicatorHintInnerRight: '--plasma-textarea__clear-indicator-hint-placement-inner-right',
-
-    tourBorderRadius: TOUR_BORDER_RADIUS_TOKEN,
 };
