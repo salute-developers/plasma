@@ -1,18 +1,21 @@
 import React, { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconLocation } from '@salutejs/plasma-icons';
 import { action } from 'storybook/actions';
 
 import { Button } from '../Button';
 
+import { config } from './Dropdown.config';
+
 import { Dropdown } from '.';
 
 type DropdownProps = ComponentProps<typeof Dropdown>;
 
+const { sizes } = getConfigVariations(config);
+
 const placements: DropdownProps['placement'][] = ['auto', 'top', 'right', 'bottom', 'left'];
 const triggers: DropdownProps['trigger'][] = ['click', 'hover'];
-const size = ['s', 'm'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<DropdownProps> = {
@@ -39,7 +42,7 @@ const meta: Meta<DropdownProps> = {
             },
         },
         size: {
-            options: size,
+            options: sizes,
             control: {
                 type: 'select',
             },

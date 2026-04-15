@@ -1,17 +1,17 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Chip } from '../Chip/Chip';
 
 import { ChipGroup } from './ChipGroup';
+import { config } from './ChipGroup.config';
 
 type StoryProps = ComponentProps<typeof ChipGroup> & { itemsCount?: number };
 type Story = StoryObj<StoryProps>;
 
-const views = ['default', 'accent', 'secondary'];
-const sizes = ['l', 'm', 's'];
+const { views, sizes } = getConfigVariations(config);
 const gapValues = ['dense', 'wide'];
 
 const meta: Meta<typeof ChipGroup> = {
@@ -77,14 +77,14 @@ export const CustomChips: Story = {
             <>
                 <h3>Группа Chip с разными темами</h3>
                 <ChipGroup {...args}>
-                    <Chip text="Primary" view="default" hasClear={false} />
+                    <Chip text="Default" view="default" hasClear={false} />
                     <Chip text="Secondary" view="secondary" hasClear={false} />
                     <Chip text="Accent" view="accent" hasClear={false} />
                 </ChipGroup>
 
                 <h3>Группа Chip с разными размерами</h3>
                 <ChipGroup {...args}>
-                    <Chip text="Primary" view="default" size="l" hasClear={false} />
+                    <Chip text="Default" view="default" size="l" hasClear={false} />
                     <Chip text="Secondary" view="secondary" size="m" hasClear={false} />
                     <Chip text="Accent" view="accent" size="s" hasClear={false} />
                 </ChipGroup>
