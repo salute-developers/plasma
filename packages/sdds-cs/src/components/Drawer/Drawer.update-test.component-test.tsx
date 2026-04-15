@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import { Global, css } from '@emotion/react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { IconDone } from '@salutejs/plasma-icons';
 
@@ -33,12 +33,16 @@ type DrawerDemoProps = {
 
 const Icon = () => <IconDone color="inherit" size="s" />;
 
-const NoAnimationStyle = createGlobalStyle`
-    /* stylelint-disable-next-line selector-max-id, selector-max-universal */
-    * {
-        animation: none !important;
-    }
-`;
+const NoAnimationStyle = () => (
+    <Global
+        styles={css`
+            /* stylelint-disable-next-line selector-max-id, selector-max-universal */
+            * {
+                animation: none !important;
+            }
+        `}
+    />
+);
 
 describe('sdds-cs: Drawer', () => {
     const PopupProvider = getComponent('PopupProvider') as typeof PopupProviderCS;

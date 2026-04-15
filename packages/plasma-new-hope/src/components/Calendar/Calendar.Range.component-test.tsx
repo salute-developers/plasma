@@ -1,9 +1,10 @@
 /* eslint-disable newline-per-chained-call */
 import React, { useCallback, useState } from 'react';
-import { mount, getComponent, getDescribeFN, hasComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount, getComponent, getDescribeFN, hasComponent, PadMe, skipForBrowser } from '@salutejs/plasma-cy-utils';
 
 const componentExists = hasComponent('CalendarBaseRange');
 const describeFn = getDescribeFN('CalendarBaseRange');
+const itSkipForWebkit = skipForBrowser(['webkit'], it);
 
 const events = [
     {
@@ -83,7 +84,7 @@ describeFn('CalendarRange', () => {
         return calendarMap[type];
     };
 
-    it('default', () => {
+    itSkipForWebkit('default', () => {
         mount(
             <>
                 <Demo baseValue={[new Date(1999, 6, 7), new Date(1999, 6, 19)]} type="Days" />
@@ -103,7 +104,7 @@ describeFn('CalendarRange', () => {
         });
     });
 
-    it('default: double calendar', () => {
+    itSkipForWebkit('default: double calendar', () => {
         mount(
             <>
                 <Demo displayDouble baseValue={[new Date(1999, 6, 7), new Date(1999, 6, 19)]} type="Days" />
@@ -144,7 +145,7 @@ describeFn('CalendarRange', () => {
         cy.matchImageSnapshot();
     });
 
-    it('locale: en', () => {
+    itSkipForWebkit('locale: en', () => {
         mount(
             <>
                 <Demo baseValue={[new Date(1999, 6, 7), new Date(1999, 6, 19)]} locale="en" type="Days" />

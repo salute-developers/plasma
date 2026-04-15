@@ -42,6 +42,7 @@ export const tokens = {
     itemPilledPadding: '--plasma-segment-item-pilled-padding',
     itemMarginLeft: '--plasma-segment-item-margin-left',
     itemContentPadding: '--plasma-segment-item-content-padding',
+    iconItemContentPadding: '--plasma-segment-icon-item-content-padding',
     itemIconMargin: '--plasma-segment-item-content-icon-margin',
 
     itemColor: '--plasma-segment-item-color',

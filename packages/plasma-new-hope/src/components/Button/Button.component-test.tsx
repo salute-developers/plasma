@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
 // @ts-ignore
 import { IconPlasma } from 'override/_Icon';

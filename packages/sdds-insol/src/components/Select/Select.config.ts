@@ -7,6 +7,8 @@ export const config = {
         labelPlacement: 'outer',
         chipView: 'default',
         _checkboxAppearance: 'default',
+        hintView: 'default',
+        hintSize: 'm',
     },
     variations: {
         view: {
@@ -476,6 +478,7 @@ export const config = {
                 ${tokens.targetHeight}: 4rem;
                 ${tokens.buttonPadding}: 1.25rem 0 1.75rem;
 
+                ${tokens.emptyStatePadding}: 1.375rem 1.125rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.margin}: 0.375rem;
                 ${tokens.borderRadius}: 1rem;
@@ -609,6 +612,7 @@ export const config = {
                 ${tokens.targetHeight}: 3.5rem;
                 ${tokens.buttonPadding}: 1rem 0 1.125rem;
 
+                ${tokens.emptyStatePadding}: 1rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.margin}: 0.375rem;
                 ${tokens.borderRadius}: 0.875rem;
@@ -742,6 +746,7 @@ export const config = {
                 ${tokens.targetHeight}: 3rem;
                 ${tokens.buttonPadding}: 1.25rem 0 1.25rem;
 
+                ${tokens.emptyStatePadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.margin}: 0.25rem;
                 ${tokens.borderRadius}: 0.75rem;
@@ -877,6 +882,7 @@ export const config = {
                 ${tokens.targetHeight}: 2.5rem;
                 ${tokens.buttonPadding}: 1rem 0 1rem;
 
+                ${tokens.emptyStatePadding}: 0.625rem 0.875rem 0.625rem 0.875rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.margin}: 0.25rem;
                 ${tokens.borderRadius}: 0.625rem;
@@ -1011,6 +1017,7 @@ export const config = {
                 ${tokens.targetHeight}: 2rem;
                 ${tokens.buttonPadding}: 0.75rem 0 0.75rem;
 
+                ${tokens.emptyStatePadding}: 0.5rem 0.625rem 0.5rem 0.625rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.margin}: 0.125rem;
                 ${tokens.borderRadius}: 0.5rem;

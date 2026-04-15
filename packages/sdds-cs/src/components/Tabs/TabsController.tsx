@@ -6,7 +6,7 @@ import {
     HorizontalTabsProps,
     component,
     mergeConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
 import { config as horizontalTabsConfig } from './horizontal/HorizontalTabs.config';

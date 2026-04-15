@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const showOverlayText = 'Показать Overlay';
 const closeOverlayText = 'Скрыть Overlay';

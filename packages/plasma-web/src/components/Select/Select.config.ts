@@ -6,6 +6,8 @@ export const config = {
         size: 'm',
         labelPlacement: 'outer',
         chipView: 'default',
+        hintView: 'default',
+        hintSize: 'm',
     },
     variations: {
         view: {
@@ -30,8 +32,9 @@ export const config = {
                 ${tokens.textFieldIndicatorColor}: var(--surface-negative);
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
-                ${tokens.textFieldBorderColor}: var(--surface-transparent-tertiary);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-transparent-tertiary);
+                ${tokens.textFieldBorderColor}: var(--outline-transparent-primary);
+                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-primary-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-transparent-primary-active);
 
                 ${tokens.buttonColor}: var(--inverse-text-primary);
                 ${tokens.buttonColorHover}: var(--inverse-text-primary-hover);
@@ -81,7 +84,8 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-positive);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-positive);
+                ${tokens.textFieldBorderColorHover}: var(--surface-positive-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-positive-active);
 
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -131,7 +135,8 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-warning);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-warning);
+                ${tokens.textFieldBorderColorHover}: var(--surface-warning-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-warning-active);
 
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -181,7 +186,8 @@ export const config = {
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
                 ${tokens.textFieldBorderColor}: var(--surface-negative);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-negative);
+                ${tokens.textFieldBorderColorHover}: var(--surface-negative-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-negative-active);
 
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -444,6 +450,7 @@ export const config = {
                 ${tokens.targetHeight}: 3.5rem;
                 ${tokens.buttonPadding}: 1.5rem 0 1.5rem;
 
+                ${tokens.emptyStatePadding}: 1rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.875rem;
 
@@ -569,6 +576,7 @@ export const config = {
                 ${tokens.targetHeight}: 3rem;
                 ${tokens.buttonPadding}: 1.25rem 0 1.25rem;
 
+                ${tokens.emptyStatePadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.75rem;
 
@@ -694,6 +702,7 @@ export const config = {
                 ${tokens.targetHeight}: 2.5rem;
                 ${tokens.buttonPadding}: 1rem 0 1rem;
 
+                ${tokens.emptyStatePadding}: 0.625rem 0.875rem 0.625rem 0.875rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.625rem;
 
@@ -819,6 +828,7 @@ export const config = {
                 ${tokens.targetHeight}: 2rem;
                 ${tokens.buttonPadding}: 0.75rem 0 0.75rem;
 
+                ${tokens.emptyStatePadding}: 0.5rem 0.625rem 0.5rem 0.625rem;
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.5rem;
 
@@ -993,10 +1003,9 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.disclosureIconOpacityReadOnly}: 0.4;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
-                ${tokens.textFieldBorderColorReadOnly}: var(--outline-transparent-primary);
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-read-only);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);

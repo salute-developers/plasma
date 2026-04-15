@@ -26,7 +26,7 @@ import { IconClose } from '../../_Icon';
 import { Resizable } from '../../_Resizable';
 import { Slot } from '../../_Slot/Slot';
 
-import { sizeToIconSize, matchPlacements } from './utils';
+import { sizeToIconSize, matchPlacements, getFloatingPortalProps } from './utils';
 import { tokens, classes } from './Popover.tokens';
 import { base, CloseButton, Wrapper } from './Popover.styles';
 import type { PopoverProps } from './Popover.types';
@@ -132,7 +132,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                     </Slot>
 
                     {opened && (
-                        <FloatingPortal root={portal}>
+                        <FloatingPortal {...getFloatingPortalProps(portal)}>
                             <FloatingFocusManager context={context}>
                                 <Root
                                     ref={refs.setFloating}

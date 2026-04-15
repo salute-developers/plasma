@@ -8,7 +8,7 @@ import { tokens, classes } from '../../../../Select.tokens';
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
 
-export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: boolean }>`
+export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.backgroundColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColor})`};
@@ -17,15 +17,12 @@ export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: b
     ${textFieldTokens.labelColor}: var(${tokens.textFieldLabelColor});
     ${textFieldTokens.leftHelperColor}: var(${tokens.textFieldLeftHelperColor});
 
-    ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColor});
-    ${textFieldTokens.backgroundColorReadOnly}: ${({ opened }) =>
-    opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColor})`};
-    ${textFieldTokens.placeholderColorReadOnly}: ${({ opened }) =>
-    opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
+    ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
+    ${textFieldTokens.placeholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
     ${textFieldTokens.leftHelperColorReadOnly}: var(${tokens.textFieldLeftHelperColor});
     ${textFieldTokens.labelColorReadOnly}: var(${tokens.textFieldLabelColor});
-    ${textFieldTokens.borderColorReadOnly}: ${({ opened }) =>
-    opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColor})`};
+    ${textFieldTokens.borderColorReadOnly}: var(${tokens.textFieldBorderColorReadOnly});
     ${textFieldTokens.readOnlyOpacity}: var(${tokens.textFieldReadOnlyOpacity});
 
     ${textFieldTokens.placeholderColor}: ${({ opened }) =>
@@ -187,7 +184,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean; disabled?: b
 
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
 
-    ${textFieldTokens.boxShadow}: ${({ disabled }) => (disabled ? 'none' : `var(${tokens.textFieldBoxShadow})`)};
+    ${textFieldTokens.boxShadow}: var(${tokens.textFieldBoxShadow});
     ${textFieldTokens.boxShadowSecondary}: var(${tokens.textFieldBoxShadowSecondary});
 `;
 

@@ -99,7 +99,7 @@ describe('plasma-web: Switch', () => {
         );
 
         cy.matchImageSnapshot();
-        cy.get('#switch').realClick();
+        cy.get('#switch').click();
         cy.matchImageSnapshot('clicked');
     });
 
@@ -111,7 +111,7 @@ describe('plasma-web: Switch', () => {
         );
 
         cy.matchImageSnapshot();
-        cy.get('#switch').realMouseDown();
+        cy.get('#switch').click();
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(400); // transition of focus ring
         cy.matchImageSnapshot('mouseDown_pressed');

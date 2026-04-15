@@ -9,7 +9,6 @@ import { Context } from '../../../../Select.context';
 
 import { ItemProps } from './Item.types';
 import {
-    StyledWrapper,
     StyledCell,
     StyledCheckbox,
     StyledIndicator,
@@ -47,6 +46,7 @@ export const Item: FC<ItemProps> = ({
         renderItem,
         renderSelectionIcon,
         treeId,
+        singleLine,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         _checkboxAppearance,
@@ -133,16 +133,12 @@ export const Item: FC<ItemProps> = ({
             {renderItem ? (
                 <StyledText>{renderItem(item)}</StyledText>
             ) : (
-                <StyledWrapper disabled={itemDisabled}>
-                    <StyledCell
-                        contentLeft={contentLeft}
-                        contentRight={contentRight}
-                        // TODO: #1548
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        title={<span>{label}</span>}
-                    />
-                </StyledWrapper>
+                <StyledCell
+                    contentLeft={contentLeft}
+                    contentRight={contentRight}
+                    title={label}
+                    className={singleLine ? classes.singleLineMode : ''}
+                />
             )}
 
             {!isEmpty(item.items) && (

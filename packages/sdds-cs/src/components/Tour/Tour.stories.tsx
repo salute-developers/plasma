@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';

@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { Switch } from '@salutejs/sdds-platform-ai';
-import { sdds_serv__light, sdds_serv__dark } from '@salutejs/sdds-themes';
+import { sdds_platform_ai__light, sdds_platform_ai__dark } from '@salutejs/sdds-themes';
 
 import './style.css';
 
-const LightTheme = createGlobalStyle(sdds_serv__light);
-const DarkTheme = createGlobalStyle(sdds_serv__dark);
+const LightTheme = createGlobalStyle(sdds_platform_ai__light);
+const DarkTheme = createGlobalStyle(sdds_platform_ai__dark);
 
 const App = () => {
     const [theme, setTheme] = useState('light');

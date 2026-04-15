@@ -13,6 +13,7 @@ export const tokens = {
     padding: '--plasma-toast-padding',
     borderRadius: '--plasma-toast-border-radius',
     maxWidth: '--plasma-toast-max-width',
+    boxShadow: '--sdds-core-toast-box-shadow',
 
     fontFamily: '--plasma-toast-font-family',
     fontSize: '--plasma-toast-font-size',

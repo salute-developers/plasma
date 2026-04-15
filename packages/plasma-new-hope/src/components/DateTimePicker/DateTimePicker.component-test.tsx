@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
+import {
+    mount,
+    getComponent,
+    getDescribeFN,
+    hasComponent,
+    getBaseVisualTests,
+    PadMe,
+    skipForPackages,
+} from '@salutejs/plasma-cy-utils';
 // @ts-ignore
 import { IconPlasma } from 'override/_Icon';
 
@@ -8,10 +16,11 @@ import type { DateTimePickerProps } from './DateTimePicker.types';
 const componentExists = hasComponent('DateTimePicker');
 const componentButtonExists = hasComponent('Button');
 const describeFn = getDescribeFN('DateTimePicker');
+const itSkip = skipForPackages(['plasma-b2c', 'plasma-web']);
 
 const openDateTimePicker = () => {
     cy.viewport(750, 700);
-    cy.get('input').first().realClick();
+    cy.get('input').first().click();
 };
 
 getBaseVisualTests({
@@ -67,7 +76,6 @@ describeFn('DateTimePicker', () => {
                 </div>
                 <DateTimePicker
                     value={date}
-                    size="l"
                     view="default"
                     min={new Date(2024, 1, 1)}
                     max={new Date(2024, 11, 29)}
@@ -89,7 +97,7 @@ describeFn('DateTimePicker', () => {
             </>,
         );
 
-        cy.get('#demo').first().realClick();
+        cy.get('#demo').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -98,7 +106,7 @@ describeFn('DateTimePicker', () => {
         cy.viewport(750, 700);
         mount(<Demo defaultDate={new Date(2023, 5, 14, 0, 0, 0)} stretched />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -107,7 +115,7 @@ describeFn('DateTimePicker', () => {
         cy.viewport(750, 700);
         mount(<Demo defaultDate={new Date(2023, 5, 14)} enableContentLeft enableContentRight />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot();
     });
 
@@ -115,7 +123,7 @@ describeFn('DateTimePicker', () => {
         cy.viewport(750, 700);
         mount(<Demo renderFromDate={new Date(2023, 5, 14, 0, 0, 0)} />);
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
 
         cy.matchImageSnapshot();
     });
@@ -148,7 +156,7 @@ describeFn('DateTimePicker', () => {
             </>,
         );
 
-        cy.get('#demo').realClick();
+        cy.get('#demo').click();
 
         cy.matchImageSnapshot();
     });
@@ -233,11 +241,40 @@ describeFn('DateTimePicker', () => {
             </>,
         );
 
-        cy.get('input').first().realClick();
+        cy.get('input').first().click();
         cy.matchImageSnapshot({
             failureThreshold: 0.02,
             failureThresholdType: 'percent',
         });
+    });
+
+    itSkip('with hint', () => {
+        const cases = [
+            { labelPlacement: 'outer' },
+            { labelPlacement: 'inner' },
+            { labelPlacement: 'inner', hintTargetPlacement: 'inner' },
+        ] as const;
+
+        mount(
+            <>
+                {cases.map((props) => (
+                    <div style={{ margin: '0 3rem' }}>
+                        <DateTimePicker
+                            placeholder="Placeholder"
+                            label="Title"
+                            hintText="Подсказка к полю"
+                            hintTrigger="click"
+                            {...props}
+                        />
+                        <PadMe />
+                    </div>
+                ))}
+            </>,
+        );
+
+        cy.get('.popover-wrapper').first().click();
+
+        cy.matchImageSnapshot();
     });
 
     it('required', () => {
@@ -282,7 +319,7 @@ describeFn('DateTimePicker', () => {
 
         cy.get('input').first().click().type('14.06.2023');
         cy.get('.popover-root').should('be.visible');
-        cy.realPress('Enter');
+        cy.pressKey('Enter');
 
         cy.matchImageSnapshot();
     });

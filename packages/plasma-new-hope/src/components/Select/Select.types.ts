@@ -239,6 +239,15 @@ export interface BasicProps<K extends ItemOption> {
      * @default false
      */
     shift?: boolean;
+    /**
+     * Label в элементе выпадающего списка в одну строку или с переносом строк.
+     * @default true
+     */
+    singleLine?: boolean;
+    /**
+     * Текст выпадающего списка при пустом массиве items.
+     */
+    emptyStateDescription?: React.ReactNode;
 
     /**
      * Размер компонента.
@@ -294,6 +303,7 @@ export type ItemContext = {
     dispatchTreePath: Dispatch<TreePathAction>;
     arrowPlacement: MergedSelectProps['arrowPlacement'];
     valueToPathMap: Map<string, string[]>;
+    singleLine: MergedSelectProps['singleLine'];
 };
 
 // Тип старого селекта
@@ -477,6 +487,15 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default false
          */
         shift?: boolean;
+        /**
+         * Label в элементе выпадающего списка в одну строку или с переносом строк.
+         * @default true
+         */
+        singleLine?: boolean;
+        /**
+         * Текст выпадающего списка при пустом массиве items.
+         */
+        emptyStateDescription?: React.ReactNode;
 
         /**
          * Размер компонента.

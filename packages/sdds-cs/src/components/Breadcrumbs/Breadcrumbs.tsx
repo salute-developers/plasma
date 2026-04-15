@@ -1,4 +1,4 @@
-import { breadcrumbsConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { breadcrumbsConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Breadcrumbs.config';
 

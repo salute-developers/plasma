@@ -25,17 +25,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 export const getWebpackConfig = () => {
-    const babelOpts = { ...babelrc.env.cjs };
+    const babelOpts = { ...babelrc.env.cjs, plugins: ['@emotion/babel-plugin'] };
 
+    const browser = process.env.BROWSER || 'chromium';
     const cache = Boolean(process.env.WEBPACK_CACHE_ENABLED);
 
+    console.log('BROWSER', browser);
     console.log('WEBPACK_CACHE_ENABLED', cache);
 
     return {
         cache,
         mode: 'development',
         target: 'web',
-        devtool: 'eval-source-map',
+        devtool: browser === 'webkit' ? false : 'eval-source-map',
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
             modules: ['node_modules'],

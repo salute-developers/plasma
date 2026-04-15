@@ -1,6 +1,6 @@
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import React, { useState, useRef } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const descriptionEnabled = 'Содержимое портала появится в нижнем блоке.';
 const descriptionDisabled = 'Если портал выключен (disabled), то содержимое появится в данном блоке.';

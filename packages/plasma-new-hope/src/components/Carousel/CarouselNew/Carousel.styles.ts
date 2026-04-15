@@ -13,7 +13,7 @@ export const base = css`
     position: relative;
 `;
 
-export const CarouselWrapper = styled.div`
+export const CarouselWrapper = styled.div<{ isSwipeEnabled?: boolean }>`
     position: relative;
     padding: 0;
     list-style: none;
@@ -24,7 +24,7 @@ export const CarouselWrapper = styled.div`
         display: none;
     }
 
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
 
     scroll-behavior: smooth;
@@ -32,17 +32,29 @@ export const CarouselWrapper = styled.div`
 
     user-select: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    touch-action: pan-y;
+    cursor: ${({ isSwipeEnabled }) => (isSwipeEnabled ? 'grab' : 'default')};
+
+    &:active {
+        cursor: ${({ isSwipeEnabled }) => (isSwipeEnabled ? 'grabbing' : 'default')};
+    }
 `;
 
 export const CarouselTrack = styled.div<{ gap: Exclude<CarouselProps['gap'], undefined> }>`
     display: inline-flex;
     flex-direction: row;
     gap: ${({ gap }) => gap};
+    vertical-align: top;
 
     // TODO: станет неактуально после удаления CarouselOld.
     & > div {
         scroll-snap-align: none;
     }
+`;
+
+export const CarouselVirtualItem = styled.div`
+    display: flex;
+    flex: 0 0 auto;
 `;
 
 export const IconButton = styled(IconButtonComponent)`

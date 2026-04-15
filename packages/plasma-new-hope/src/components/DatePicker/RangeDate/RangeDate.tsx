@@ -44,7 +44,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
 
                 // controlled
                 isDoubleCalendar = false,
-                opened = false,
+                opened: outerOpened,
 
                 value: outerValue,
                 defaultFirstDate = '',
@@ -166,7 +166,9 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 rangeRef?.current?.secondTextField(),
             );
 
-            const [isInnerOpen, setIsInnerOpen] = useState(opened);
+            const [isInnerOpen, setIsInnerOpen] = useState(false);
+            const openedValue = outerOpened ?? isInnerOpen;
+
             const dateFormatDelimiter = getDateFormatDelimiter(format);
 
             const [startInnerDate, setStartInnerDate] = useState<string | DateType>(defaultFirstDate || '');
@@ -302,7 +304,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 }
 
                 if (onToggle) {
-                    return onToggle(isCalendarOpen, event);
+                    onToggle(isCalendarOpen, event);
                 }
 
                 setIsInnerOpen(isCalendarOpen);
@@ -570,10 +572,6 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 setSecondInputRef(rangeRef.current?.secondTextField());
             }, [rangeRef.current]);
 
-            useEffect(() => {
-                setIsInnerOpen((prevOpen) => prevOpen !== opened && opened);
-            }, [opened]);
-
             useLayoutEffect(() => {
                 if (!startDateValue) {
                     updateExternalFirstDate(defaultFirstDate);
@@ -622,7 +620,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     <RangeDatePopover
                         calendarValue={[calendarFirstValue, calendarSecondValue]}
                         target={RangeComponent}
-                        opened={isInnerOpen}
+                        opened={openedValue}
                         includeEdgeDates={includeEdgeDates}
                         eventTooltipOptions={eventTooltipOptions}
                         eventList={eventList}

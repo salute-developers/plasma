@@ -3,7 +3,7 @@ import { css, numberInputTokens as tokens } from '@salutejs/plasma-new-hope/styl
 export const config = {
     defaults: {
         view: 'default',
-        size: 'l',
+        size: 'm',
         shape: 'cornered',
         inputBackgroundType: 'fill',
     },

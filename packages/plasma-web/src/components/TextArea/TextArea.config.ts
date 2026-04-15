@@ -86,9 +86,9 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
             positive: css`
-                ${tokens.inputBorderColor}: var(--text-positive);
-                ${tokens.inputBorderColorHover}: var(--text-positive-hover);
-                ${tokens.inputBorderColorActive}: var(--text-positive-hover);
+                ${tokens.inputBorderColor}: var(--outline-positive);
+                ${tokens.inputBorderColorHover}: var(--outline-positive-hover);
+                ${tokens.inputBorderColorActive}: var(--outline-positive-active);
                 ${tokens.inputBorderColorFocus}: var(--text-positive);
 
                 ${tokens.inputColor}: var(--text-primary);
@@ -123,9 +123,9 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
             warning: css`
-                ${tokens.inputBorderColor}: var(--text-warning);
-                ${tokens.inputBorderColorHover}: var(--text-warning-hover);
-                ${tokens.inputBorderColorActive}: var(--text-warning-hover);
+                ${tokens.inputBorderColor}: var(--outline-warning);
+                ${tokens.inputBorderColorHover}: var(--outline-warning-hover);
+                ${tokens.inputBorderColorActive}: var(--outline-warning-active);
                 ${tokens.inputBorderColorFocus}: var(--text-warning);
 
                 ${tokens.inputColor}: var(--text-primary);
@@ -160,9 +160,9 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
             negative: css`
-                ${tokens.inputBorderColor}: var(--text-negative);
-                ${tokens.inputBorderColorHover}: var(--text-negative-hover);
-                ${tokens.inputBorderColorActive}: var(--text-negative-hover);
+                ${tokens.inputBorderColor}: var(--outline-negative);
+                ${tokens.inputBorderColorHover}: var(--outline-negative-hover);
+                ${tokens.inputBorderColorActive}: var(--outline-negative-active);
                 ${tokens.inputBorderColorFocus}: var(--text-negative);
 
                 ${tokens.inputColor}: var(--text-primary);
@@ -635,8 +635,8 @@ export const config = {
                 ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.backgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.inputColorReadOnly}: var(--text-primary);
-                ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.borderColorReadOnly}: var(--outline-read-only);
+                ${tokens.dividerColorReadOnly}: var(--outline-read-only);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },

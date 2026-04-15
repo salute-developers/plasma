@@ -1,9 +1,9 @@
 import React, { useContext, useRef } from 'react';
-import { classes } from 'src/components/Select/Select.tokens';
-import { sizeToIconSize } from 'src/components/Select/utils';
 import { useDidMountEffect } from 'src/hooks';
 import { isArraysEqual, cx } from 'src/utils';
 
+import { sizeToIconSize } from '../../../../utils';
+import { classes } from '../../../../Combobox.tokens';
 import { keyExists } from '../../../../reducers/treePathReducer';
 import { Context } from '../../../../Combobox.context';
 
@@ -18,7 +18,6 @@ import {
     StyledIndicator,
     StyledIconDone,
     StyledText,
-    StyledWrapper,
     StyledCell,
     DisclosureIconWrapper,
     StyledArrowRight,
@@ -47,6 +46,7 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
         handleItemClick,
         handleCheckboxChange,
         valueToPathMap,
+        singleLine,
     } = useContext(Context);
 
     const ref = useRef<HTMLDivElement | null>(null);
@@ -140,16 +140,12 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
                 {renderItem ? (
                     <StyledText>{renderItem(item)}</StyledText>
                 ) : (
-                    <StyledWrapper>
-                        <StyledCell
-                            contentLeft={contentLeft}
-                            contentRight={contentRight}
-                            // TODO: #1548
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            title={<span>{label}</span>}
-                        />
-                    </StyledWrapper>
+                    <StyledCell
+                        contentLeft={contentLeft}
+                        contentRight={contentRight}
+                        title={label}
+                        className={singleLine ? classes.singleLineMode : ''}
+                    />
                 )}
 
                 {!multiple && arrowPlacement === 'left' && (

@@ -1,3 +1,3 @@
 export { Avatar } from './Avatar';
 
-export type { AvatarProps } from '@salutejs/plasma-new-hope/styled-components';
+export type { AvatarProps } from '@salutejs/plasma-new-hope/emotion';

@@ -20,7 +20,7 @@ export const config = {
 
                 ${tokens.inputColor}: var(--text-primary);
                 ${tokens.inputColorFocus}: var(--text-primary);
-                ${tokens.inputCaretColor}: var(--text-accent);
+                ${tokens.inputCaretColor}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);

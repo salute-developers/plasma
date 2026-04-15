@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 import { ButtonGroup } from './ButtonGroup';
 import { config } from './ButtonGroup.config';
@@ -99,17 +99,17 @@ export const CustomButtons: Story = {
             <>
                 <h3>Группа кнопок с разными темами</h3>
                 <ButtonGroup {...args}>
-                    <Button text="Primary" view="default" />
-                    <Button text="Negative" view="success" />
-                    <Button text="Positive" view="warning" />
+                    <Button text="Default view" view="default" />
+                    <Button text="Negative" view="negative" />
+                    <Button text="Positive" view="positive" />
                     <Button text="Clear" view="clear" />
                 </ButtonGroup>
 
                 <h3>Группа кнопок с разными размерами</h3>
                 <ButtonGroup {...args}>
-                    <Button text="Primary" view="default" size="l" />
-                    <Button text="Negative" view="success" size="m" />
-                    <Button text="Positive" view="warning" size="s" />
+                    <Button text="Label" view="default" size="l" />
+                    <Button text="Negative" view="negative" size="m" />
+                    <Button text="Positive" view="positive" size="s" />
                     <Button text="Clear" view="clear" size="l" />
                 </ButtonGroup>
             </>

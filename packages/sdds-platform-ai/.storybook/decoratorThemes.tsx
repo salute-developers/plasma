@@ -69,9 +69,9 @@ const viewMap: Record<string, ViewType> = {
 
 export const withTheme: Decorator = (Story, context) => {
     const theme = context.globals.theme;
-    const viewContainerType = viewMap[context.globals.viewContainer];
+    const viewContainerType = viewMap[context.globals.viewContainer] || viewMap[DEFAULT_MODE];
 
-    const Theme = themes[theme];
+    const Theme = themes[theme] || themes[SDDS_PLATFORM_AI_LIGHT_THEME];
 
     return (
         <div style={viewContainerType.style}>

@@ -7,7 +7,7 @@ import {
     mergeConfig,
     SuggestionItemType,
     fixedForwardRef,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 import React, { ComponentProps } from 'react';
 
 import { config } from './Autocomplete.config';

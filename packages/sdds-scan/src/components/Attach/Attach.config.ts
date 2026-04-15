@@ -5,7 +5,7 @@ export const config = {
         view: 'default',
         helperTextView: 'default',
         focused: 'true',
-        size: 'm',
+        size: 's',
     },
     variations: {
         view: {

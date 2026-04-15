@@ -17,12 +17,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scope: [web,b2c,ui,giga]
+        scope: [web,b2c,ui,giga,homeds]
+        browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
+      browser: ${{ matrix.browser }}
+      test-all: true
       with-artifacts: true
     secrets: inherit
 
@@ -31,11 +34,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scope: [cs,insol]
+        scope: [cs,insol,os,finai,platform-ai,scan,serv]
+        browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
+      browser: ${{ matrix.browser }}
+      test-all: true
       with-artifacts: true
     secrets: inherit

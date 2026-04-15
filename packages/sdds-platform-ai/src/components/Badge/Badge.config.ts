@@ -25,6 +25,15 @@ export const config = {
 
                 ${badgeTokens.colorClear}: var(--text-accent);
             `,
+            positive: css`
+                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.background}: var(--text-positive);
+
+                ${badgeTokens.colorTransparent}: var(--text-positive);
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-positive);
+
+                ${badgeTokens.colorClear}: var(--text-positive);
+            `,
             warning: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
                 ${badgeTokens.background}: var(--surface-warning);

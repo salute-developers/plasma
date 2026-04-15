@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 import { SelectProps } from 'src/components/Select';
 
-import { constants, tokens } from '../../Select.tokens';
+import { constants, tokens, classes } from '../../Select.tokens';
 
 export const ListWrapper = styled.div`
     width: 100%;
@@ -11,6 +11,10 @@ export const ListWrapper = styled.div`
     background: var(${constants.background});
     box-shadow: ${constants.boxShadow},
         inset 0 0 0 var(${tokens.dropdownBorderWidth}, 0rem) var(${tokens.dropdownBorderColor}, transparent);
+
+    .${classes.emptyStateWrapper} {
+        box-shadow: none;
+    }
 `;
 
 export const ScrollContainer = styled.div<{

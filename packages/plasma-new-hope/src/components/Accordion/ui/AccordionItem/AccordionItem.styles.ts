@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
+import { addFocus } from 'src/mixins';
 
 import { IconChevronDownFill, IconMinus } from '../../../_Icon';
 import { classes, tokens } from '../../Accordion.tokens';
-import { addFocus } from '../../../../mixins';
 
 export const StyledAccordionHeader = styled.div`
     width: 100%;
@@ -151,7 +151,7 @@ export const StyledAccordionItem = styled.div`
     }
 
     &:hover:not(.${classes.accordionItemOpened}) {
-        background: var(${tokens.accordionItemBackgroundHover});
+        background: var(${tokens.accordionItemBackgroundHover}, var(${tokens.accordionItemBackground}));
     }
 
     &.${classes.accordionItemOpened} {

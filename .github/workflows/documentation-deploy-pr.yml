@@ -5,6 +5,8 @@ on:
         branches:
             - dev
             - next-insol
+            - next-platform-ai
+            - next-sbcom
         paths-ignore:
             - 'docs/**'
     pull_request:
@@ -91,6 +93,7 @@ jobs:
             PREFIX: pr/pr-${{ github.event.number }}
             TYPESENSE_KEY: ${{ secrets.TYPESENSE_KEY }}
             TYPESENSE_SERVICE_HOSTNAME: ${{ secrets.TYPESENSE_SERVICE_HOSTNAME }}
+            QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
         strategy:
             fail-fast: false
             matrix:

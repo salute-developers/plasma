@@ -1,4 +1,4 @@
-import type { CSSProperties, ButtonHTMLAttributes, ChangeEventHandler, Dispatch } from 'react';
+import type { CSSProperties, InputHTMLAttributes, ChangeEventHandler, Dispatch } from 'react';
 import * as React from 'react';
 import { SafeExtract } from 'src/types';
 
@@ -280,6 +280,11 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * @default false
      */
     shift?: boolean;
+    /**
+     * Label в элементе выпадающего списка в одну строку или с переносом строк.
+     * @default true
+     */
+    singleLine?: boolean;
 
     /**
      * @deprecated Использовать listMaxHeight.
@@ -297,7 +302,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
     IsMultiselect<T> &
     RequiredProps &
     HintProps &
-    Omit<ButtonHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue' | 'onScroll'>;
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue' | 'onScroll'>;
 
 export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
@@ -329,6 +334,7 @@ export type ItemContext = {
     dispatchTreePath: Dispatch<TreePathAction>;
     arrowPlacement: ComboboxProps['arrowPlacement'];
     valueToPathMap: Map<string, string[]>;
+    singleLine: ComboboxProps['singleLine'];
 };
 
 export type { ItemOption, ItemOptionTransformed };

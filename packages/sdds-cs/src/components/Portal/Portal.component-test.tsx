@@ -1,6 +1,6 @@
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import React, { useState, useRef } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const text = 'Тортик - это ложь';
 

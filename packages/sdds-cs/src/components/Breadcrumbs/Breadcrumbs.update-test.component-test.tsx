@@ -38,10 +38,6 @@ const customItems = [
 ];
 
 describe('sdds-cs: Breadcrumbs', () => {
-    beforeEach(() => {
-        cy.get('body').realMouseMove(0, 0);
-    });
-
     const Breadcrumbs = getComponent('Breadcrumbs') as typeof BreadcrumbsComponent;
 
     it('[PLASMA-T1379] Breadcrumbs: size=s, showItems=1', () => {
@@ -93,7 +89,7 @@ describe('sdds-cs: Breadcrumbs', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('span').contains('...').realHover();
+        cy.get('span').contains('...').trigger('mouseover');
 
         cy.matchImageSnapshot();
     });

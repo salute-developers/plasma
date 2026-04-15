@@ -76,6 +76,13 @@ export const tokens = {
     letterSpacing: '--plasma-number-input_letter-spacing',
     lineHeight: '--plasma-number-input_line-height',
 
+    additionalTextFontFamily: '--plasma-number-input_additional-text_font-family',
+    additionalTextFontStyle: '--plasma-number-input_additional-text_font-style',
+    additionalTextFontSize: '--plasma-number-input_additional-text_font-size',
+    additionalTextFontWeight: '--plasma-number-input_additional-text_font-weight',
+    additionalTextLetterSpacing: '--plasma-number-input_additional-text_letter-spacing',
+    additionalTextLineHeight: '--plasma-number-input_additional-text_line-height',
+
     textBeforeMarginRight: '--plasma-number-input_text-before_margin-right',
     textAfterMarginLeft: '--plasma-number-input_text-after_margin-left',
 

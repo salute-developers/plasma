@@ -701,6 +701,8 @@ export const iconSectionsSet = {
         smoke: 'Smoke',
         vibration: 'Vibration',
         dropsGroupFill: 'DropsGroupFill',
+        aiFill: 'AiFill',
+        aiOutline: 'AiOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
@@ -874,6 +876,8 @@ export const iconSectionsSet = {
         documentAddFill: 'DocumentAddFill',
         documentAddOutline: 'DocumentAddOutline',
         bookOpenOutline: 'BookOpenOutline',
+        blankXmlOutline: 'BlankXmlOutline',
+        blankXmlFill: 'BlankXmlFill',
     },
     Instruments: {
         boxFill: 'BoxFill',

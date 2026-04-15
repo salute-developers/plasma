@@ -1,9 +1,4 @@
-import {
-    comboboxNewConfig,
-    component,
-    mergeConfig,
-    fixedForwardRef,
-} from '@salutejs/plasma-new-hope/styled-components';
+import { comboboxNewConfig, component, mergeConfig, fixedForwardRef } from '@salutejs/plasma-new-hope/emotion';
 import type { ComboboxItemOption, ComboboxProps, DistributiveOmit, DistributivePick } from '@salutejs/plasma-new-hope';
 import React, { ComponentProps } from 'react';
 

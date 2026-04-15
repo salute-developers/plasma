@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import { IconTrash } from '@salutejs/plasma-icons/css';
 import { Button } from '@salutejs/sdds-finai';
 import Head from '@docusaurus/Head';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const name = 'sdds-finai';
 
@@ -25,9 +26,14 @@ export default function AiSearchPage() {
         });
     };
 
+    const {
+        siteConfig: {
+            themeConfig: { qdrantApiKey },
+        },
+    } = useDocusaurusContext();
+
     const config = {
         configKey: 'plasma_docs',
-        docIds: [name],
         prompt:
             'Ты специалист по поддержке пользователей, и можешь совершенно точно ответить на любой вопрос о компонентах UI-библиотеки SDDS-FinAI. Никогда не придумывай данные для ответа. Используй ТОЛЬКО данные, которые есть в CONTEXT. {context}',
         title: 'Задайте вопрос по работе с SDDS-FinAI',
@@ -37,8 +43,16 @@ export default function AiSearchPage() {
             3: 'Работа с NextJS',
         },
         modelParameters: {
+            apiKey: qdrantApiKey,
             qdrantConfig: {
-                collectionName: 'plasma-docs',
+                filter: {
+                    must: [
+                        {
+                            key: 'metadata.productId',
+                            match: { any: [name] },
+                        },
+                    ],
+                },
             },
             phoenixConfig: {
                 metadata: {

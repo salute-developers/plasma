@@ -187,6 +187,8 @@ export const base = css`
     &.${classes.onlyIncrementShown} {
         ${StyledIconButton}.${classes.actionButtonIncrement} {
             border-radius: var(${tokens.iconButtonRadius});
+            box-shadow: var(${privateTokens.topBoxShadow}), var(${privateTokens.bottomBoxShadow}),
+                    var(${privateTokens.rightBoxShadow}), var(${privateTokens.leftBoxShadow});
             width: 100%;
         }
 
@@ -198,6 +200,8 @@ export const base = css`
     &.${classes.onlyDecrementShown} {
         ${StyledIconButton}.${classes.actionButtonDecrement} {
             border-radius: var(${tokens.iconButtonRadius});
+            box-shadow: var(${privateTokens.topBoxShadow}), var(${privateTokens.bottomBoxShadow}),
+                    var(${privateTokens.rightBoxShadow}), var(${privateTokens.leftBoxShadow});
             width: 100%;
         }
 

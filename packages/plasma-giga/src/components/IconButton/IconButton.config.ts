@@ -16,7 +16,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonColorActive}: var(--inverse-text-primary-active);
             `,
             accent: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+                ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);

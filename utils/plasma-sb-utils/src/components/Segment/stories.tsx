@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { IconPlasma } from '@salutejs/plasma-icons';
 
-import { getContentLeft, getContentRight } from './helpers';
+import { getContentLeft, getContentRight, getContentSize } from './helpers';
 
 type CreateDefaultStoryProps = {
     SegmentGroup: any;
@@ -136,6 +137,88 @@ export const createDefaultStory = ({
                     contentLeftOption={contentLeftOption}
                     contentRightOption={contentRightOption}
                     maxItemWidth={maxItemWidth}
+                    {...args}
+                />
+            </SegmentProvider>
+        );
+    };
+};
+
+type CreateIconItemStoryProps = {
+    SegmentGroup: any;
+    SegmentIconItem: any;
+    SegmentProvider: any;
+};
+
+export const createIconItemStory = ({ SegmentGroup, SegmentIconItem, SegmentProvider }: CreateIconItemStoryProps) => {
+    const SegmentGroupContent = ({
+        items,
+        stretch,
+        disabled,
+        size,
+        orientation,
+        segmentItemView,
+        hasBackground,
+        args,
+    }: any) => {
+        const iconSize = getContentSize(size);
+
+        return (
+            <SegmentGroup
+                stretch={stretch}
+                disabled={disabled}
+                clip={false}
+                size={size}
+                orientation={orientation}
+                hasBackground={hasBackground}
+                {...args}
+            >
+                {items.map((_: any, i: number) => (
+                    <SegmentIconItem
+                        view={segmentItemView}
+                        value={`icon_${i}`}
+                        size={size}
+                        key={`icon_${i}`}
+                        icon={<IconPlasma size={iconSize} color="inherit" />}
+                        {...args}
+                    />
+                ))}
+            </SegmentGroup>
+        );
+    };
+
+    return (props: any) => {
+        const {
+            singleSelectedRequired,
+            disabled,
+            itemQuantity,
+            size,
+            stretch,
+            orientation,
+            segmentItemView,
+            ...args
+        } = props;
+
+        const items = Array(itemQuantity).fill(0);
+        const [selected, setSelected] = useState<string[]>([]);
+
+        const handleChangeSelected = (selectedSegment: string) => {
+            setSelected([selectedSegment]);
+        };
+
+        return (
+            <SegmentProvider
+                singleSelectedRequired={singleSelectedRequired}
+                selected={selected}
+                onChangeSelected={handleChangeSelected}
+            >
+                <SegmentGroupContent
+                    items={items}
+                    stretch={stretch}
+                    disabled={disabled}
+                    size={size}
+                    orientation={orientation}
+                    segmentItemView={segmentItemView}
                     {...args}
                 />
             </SegmentProvider>

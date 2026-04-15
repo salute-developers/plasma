@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_sbcom__dark, sdds_sbcom__light } from '@salutejs/sdds-themes/es/themes';
+import { sdds_sbcom__dark, sdds_sbcom__light } from '@salutejs-ds/sdds_sbcom';
 import { InSpacingDecorator, getGroupedTokens, upperFirstLetter } from '@salutejs/plasma-sb-utils';
 import type { GroupedTokens, TokenData } from '@salutejs/plasma-sb-utils';
 import { cx } from '@salutejs/plasma-new-hope';

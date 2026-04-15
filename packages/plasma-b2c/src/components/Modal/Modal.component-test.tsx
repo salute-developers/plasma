@@ -231,21 +231,21 @@ describe('plasma-web: Modal', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('button').contains('Open modal A').type('{enter}');
-        cy.get('button').contains('Open modal B').type('{enter}');
-        cy.get('button').contains('Close-B').type('{enter}');
+        cy.get('button').first().click();
+        cy.get('button').contains('Open modal B').click();
+        cy.get('button').contains('Close-B').click();
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal B');
         });
 
-        cy.focused().tab();
-        cy.focused().tab();
-        cy.focused().tab();
+        cy.pressKey('Tab');
+        cy.pressKey('Tab');
+        cy.pressKey('Tab');
 
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal B');
         });
-        cy.get('button').contains('Close-A').type('{enter}');
+        cy.get('button').contains('Close-A').click();
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal A');
         });
@@ -261,11 +261,11 @@ describe('plasma-web: Modal', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('button').contains('Open modal A').type('{enter}');
+        cy.get('button').first().click();
         cy.focused().should(($p) => {
-            expect($p).to.contain('Close-A');
+            expect($p).contain('Close-A');
         });
-        cy.get('button').contains('Close-A').type('{enter}');
+        cy.get('button').contains('Close-A').click();
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal B');
         });
@@ -281,7 +281,7 @@ describe('plasma-web: Modal', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('button').contains('Open modal A').type('{enter}');
+        cy.get('button').first().click();
         cy.get('#plasma-modals-root > div').should('be.visible');
 
         // overlay

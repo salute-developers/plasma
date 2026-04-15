@@ -137,7 +137,7 @@ export default function Home() {
 В файле, где происходит подключение всех стилей, например `index.css`
 
 ```css
-@import '@salutejs/sdss-themes/css/sdds_serv__dark.css';
+@import '@salutejs/sdss-themes/css/sdds_platform_ai__light.css';
 ```
 
 ```jsx
@@ -164,9 +164,9 @@ export default App;
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Button, BodyL } from '@salutejs/sdds-platform-ai/styled-components';
-import { sdds_serv__light } from '@salutejs/sdds-themes';
+import { sdds_platform_ai__light } from '@salutejs/sdds-themes';
 
-const Theme = createGlobalStyle(sdds_serv__light);
+const Theme = createGlobalStyle(sdds_platform_ai__light);
 
 const App = () => {
     return (
@@ -197,7 +197,7 @@ export const backgroundPrimary = 'var(--background-primary, #000000)';
 Есть два пути импорта токенов:
 
 -   Из вертикали `@salutejs/sdds-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-serv` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
+-   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-platform-ai` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
 
 ### Использование
 

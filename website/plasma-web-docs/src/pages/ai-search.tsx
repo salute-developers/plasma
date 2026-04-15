@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import { IconTrash } from '@salutejs/plasma-icons/css';
 import { Button } from '@salutejs/plasma-web/css';
 import Head from '@docusaurus/Head';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const name = 'plasma-web';
 
@@ -25,6 +26,12 @@ export default function AiSearchPage() {
         });
     };
 
+    const {
+        siteConfig: {
+            themeConfig: { qdrantApiKey },
+        },
+    } = useDocusaurusContext();
+
     const config = {
         configKey: 'plasma_docs',
         docIds: [name],
@@ -37,8 +44,16 @@ export default function AiSearchPage() {
             3: 'Работа с NextJS',
         },
         modelParameters: {
+            apiKey: qdrantApiKey,
             qdrantConfig: {
-                collectionName: 'plasma-docs',
+                filter: {
+                    must: [
+                        {
+                            key: 'metadata.productId',
+                            match: { any: [name] },
+                        },
+                    ],
+                },
             },
             phoenixConfig: {
                 metadata: {

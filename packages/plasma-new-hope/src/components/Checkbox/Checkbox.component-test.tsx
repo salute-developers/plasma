@@ -146,4 +146,10 @@ describeFn('Checkbox', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('indeterminate', () => {
+        mount(<Checkbox label="Label" description="Description" indeterminate />);
+
+        cy.matchImageSnapshot();
+    });
 });

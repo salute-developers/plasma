@@ -1,4 +1,4 @@
-import { switchConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { switchConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 import { ComponentProps } from 'react';
 
 import { config } from './Switch.config';

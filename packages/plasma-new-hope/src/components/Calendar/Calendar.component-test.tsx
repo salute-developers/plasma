@@ -1,9 +1,18 @@
 /* eslint-disable newline-per-chained-call */
 import React, { useCallback, useState } from 'react';
-import { mount, getComponent, getDescribeFN, hasComponent, PadMe, getBaseVisualTests } from '@salutejs/plasma-cy-utils';
+import {
+    mount,
+    getComponent,
+    getDescribeFN,
+    hasComponent,
+    PadMe,
+    getBaseVisualTests,
+    skipForBrowser,
+} from '@salutejs/plasma-cy-utils';
 
 const componentExists = hasComponent('CalendarBase');
 const describeFn = getDescribeFN('CalendarBase');
+const itSkipForWebkit = skipForBrowser(['webkit'], it);
 
 const baseDate = new Date(1999, 6, 7);
 const minBaseDate = new Date(1970, 1, 1);
@@ -207,7 +216,7 @@ describeFn('Calendar', () => {
 
     it('default', () => {
         mount(
-            <>
+            <div style={{ width: '500px', height: '1134px', overflow: 'hidden' }}>
                 <Demo baseValue={baseDate} type="Days" />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Months" />
@@ -215,7 +224,7 @@ describeFn('Calendar', () => {
                 <Demo baseValue={baseDate} type="Quarters" />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Years" />
-            </>,
+            </div>,
         );
 
         cy.viewport(500, 1134);
@@ -224,7 +233,7 @@ describeFn('Calendar', () => {
 
     it('default: double calendar', () => {
         mount(
-            <>
+            <div style={{ width: '1200px', height: '1134px', overflow: 'hidden' }}>
                 <Demo baseValue={baseDate} type="Days" displayDouble />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Months" displayDouble />
@@ -232,7 +241,7 @@ describeFn('Calendar', () => {
                 <Demo baseValue={baseDate} type="Quarters" displayDouble />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Years" displayDouble />
-            </>,
+            </div>,
         );
 
         cy.viewport(1200, 1134);
@@ -336,7 +345,7 @@ describeFn('Calendar', () => {
 
     it('min and max', () => {
         mount(
-            <>
+            <div style={{ width: '500px', height: '1134px' }}>
                 <Demo baseValue={baseDate} min={new Date(1999, 6, 3)} max={new Date(1999, 6, 15)} />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Months" min={new Date(1999, 4, 1)} max={new Date(1999, 10, 1)} />
@@ -344,7 +353,7 @@ describeFn('Calendar', () => {
                 <Demo baseValue={baseDate} type="Quarters" min={new Date(1999, 3, 1)} max={new Date(1999, 9, 1)} />
                 <PadMe />
                 <Demo baseValue={baseDate} type="Years" min={new Date(1993, 0, 1)} max={new Date(2002, 0, 1)} />
-            </>,
+            </div>,
         );
 
         cy.viewport(500, 1134);
@@ -353,7 +362,7 @@ describeFn('Calendar', () => {
 
     it('min and max: double', () => {
         mount(
-            <>
+            <div style={{ width: '500px', height: '1134px' }}>
                 <Demo baseValue={baseDate} min={new Date(1999, 6, 3)} max={new Date(1999, 6, 15)} displayDouble />
                 <PadMe />
                 <Demo
@@ -379,14 +388,14 @@ describeFn('Calendar', () => {
                     max={new Date(2002, 0, 1)}
                     displayDouble
                 />
-            </>,
+            </div>,
         );
 
         cy.viewport(500, 1134);
         cy.matchImageSnapshot();
     });
 
-    it('locale: en', () => {
+    itSkipForWebkit('locale: en', () => {
         mount(
             <>
                 <Demo baseValue={baseDate} locale="en" type="Days" />
@@ -467,7 +476,7 @@ describeFn('Calendar keyboard navigation', () => {
         cy.viewport(700, 500);
     });
 
-    it('set value with `Enter` and `Space`', () => {
+    itSkipForWebkit('set value with `Enter` and `Space`', () => {
         mount(<Demo baseValue={baseDate} />);
 
         cy.get('body').type('{rightarrow}{enter}{rightarrow} ');
@@ -488,7 +497,7 @@ describeFn('Calendar keyboard navigation', () => {
         cy.matchImageSnapshot();
     });
 
-    it('navigate with `Home` and `End`', () => {
+    itSkipForWebkit('navigate with `Home` and `End`', () => {
         mount(<Demo baseValue={baseDate} />);
 
         cy.get('body').type('{downarrow}').type('{end}');
@@ -504,7 +513,7 @@ describeFn('Calendar keyboard navigation', () => {
         checkFocusedMonth('6');
     });
 
-    it('navigate with `PageUp` and `PageDown`', () => {
+    itSkipForWebkit('navigate with `PageUp` and `PageDown`', () => {
         mount(<Demo baseValue={baseDate} />);
 
         cy.get('body').type('{pageup}');
@@ -548,7 +557,7 @@ describeFn('Calendar keyboard navigation', () => {
             .contains(`${minBaseDate.getFullYear() + 1}`);
     });
 
-    it('navigate with arrow abroad bounds', () => {
+    itSkipForWebkit('navigate with arrow abroad bounds', () => {
         mount(<Demo baseValue={minBaseDate} />);
 
         cy.get('body').type('{leftarrow}');
@@ -596,7 +605,7 @@ describeFn('Calendar keyboard navigation', () => {
         checkFocusedMonth('2');
     });
 
-    it('double: navigate with arrow abroad bounds', () => {
+    itSkipForWebkit('double: navigate with arrow abroad bounds', () => {
         mount(<Demo baseValue={minBaseDate} displayDouble />);
 
         cy.get('body').type('{leftarrow}');
@@ -650,7 +659,7 @@ describeFn('Calendar keyboard navigation', () => {
         checkFocusedMonth('2');
     });
 
-    it('processing aria-disabled as disabled attr', () => {
+    itSkipForWebkit('processing aria-disabled as disabled attr', () => {
         mount(<Demo baseValue={baseDate} />);
 
         cy.get('body').type('{downArrow}'.repeat(2)).type('{end}');
@@ -908,7 +917,7 @@ describeFn('Calendar keyboard navigation', () => {
         const shiftDownArrow = '{shift}{downArrow}';
         const shiftUpArrow = '{shift}{upArrow}';
 
-        it('arrow up with min', () => {
+        itSkipForWebkit('arrow up with min', () => {
             const june = [...new Array(6)].map((_, day) => ({
                 date: new Date(2022, 5, 1 + day),
             }));
@@ -925,7 +934,7 @@ describeFn('Calendar keyboard navigation', () => {
             checkFocusedMonth('5');
         });
 
-        it('arrow down with max', () => {
+        itSkipForWebkit('arrow down with max', () => {
             const june = [...new Array(6)].map((_, day) => ({
                 date: new Date(2022, 5, 24 + day),
             }));

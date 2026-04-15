@@ -1,4 +1,4 @@
-import { css, progressTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css, progressTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {
