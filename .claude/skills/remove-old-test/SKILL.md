@@ -1,6 +1,6 @@
 ---
 name: remove-old-test
-description: Remove old component tests and Cypress snapshots by component name. Trigger when user asks to delete, remove, or clean up old tests or screenshots for a component. Example: "удали старые тесты для ComponentName", "remove old tests for DateTimePicker".
+description: Remove old component tests and Cypress snapshots by component name. Trigger when user asks to delete, remove, or clean up old tests or screenshots for a component. Example "удали старые тесты для ComponentName", "remove old tests for DateTimePicker".
 disable-model-invocation: true
 ---
 

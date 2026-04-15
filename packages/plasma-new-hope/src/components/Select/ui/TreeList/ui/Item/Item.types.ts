@@ -1,6 +1,6 @@
-import { DropdownNodeSelect } from '../../../../Select.types';
+import { ItemOption } from '../../../../Select.types';
 
 export interface Props {
-    item: DropdownNodeSelect;
+    item: ItemOption;
     pathToItem: number[];
 }

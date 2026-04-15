@@ -1,11 +1,11 @@
-import React, { useContext, useRef } from 'react';
-import { classes } from 'src/components/Select/Select.tokens';
-import { sizeToIconSize } from 'src/components/Select/utils';
+import React, { useRef } from 'react';
 import { isArraysEqual, cx } from 'src/utils';
 import { useDidMountEffect } from 'src/hooks';
 
+import { classes } from '../../../../Select.tokens';
+import { sizeToIconSize } from '../../../../utils';
 import { keyExists } from '../../../../reducers/treePathReducer';
-import { Context } from '../../../../Select.context';
+import { useSelectContext } from '../../../../Select.context';
 
 import { Props } from './Item.types';
 import {
@@ -26,7 +26,7 @@ import {
 } from './Item.styles';
 
 export const Item: React.FC<Props> = ({ item, pathToItem }) => {
-    const { label, value, disabled, isDisabled, contentLeft, contentRight } = item;
+    const { label, value, disabled, contentLeft, contentRight } = item;
 
     const isLeaf = !item?.items;
 
@@ -36,8 +36,6 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
         size,
         variant,
         renderItem,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         _checkboxAppearance,
         focusedPath,
         treePath,
@@ -47,10 +45,9 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
         handleCheckboxChange,
         valueToPathMap,
         singleLine,
-    } = useContext(Context);
+    } = useSelectContext();
 
-    const itemDisabled = Boolean(disabled || isDisabled);
-    const disabledClassName = itemDisabled ? classes.dropdownItemIsDisabled : undefined;
+    const disabledClassName = disabled ? classes.dropdownItemIsDisabled : undefined;
 
     const ref = useRef<HTMLDivElement | null>(null);
 
@@ -63,7 +60,9 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
     const focusedClass = isArraysEqual(pathToItem, focusedPath) ? classes.dropdownItemIsFocused : undefined;
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-        if (itemDisabled) return;
+        if (disabled) {
+            return;
+        }
 
         if (!isLeaf) {
             dispatchTreePath({ type: 'toggled_level', value: valueToPathMap.get(value.toString()) || [] });
@@ -75,7 +74,9 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (itemDisabled) return;
+        if (disabled) {
+            return;
+        }
 
         e.stopPropagation();
 
@@ -117,7 +118,7 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
                     <IconWrapper variant={variant}>
                         <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
                             <StyledCheckbox
-                                disabled={itemDisabled}
+                                disabled={disabled}
                                 checked={Boolean(checked.get(item.value))}
                                 indeterminate={checked.get(item.value) === 'indeterminate'}
                                 onChange={handleChange}

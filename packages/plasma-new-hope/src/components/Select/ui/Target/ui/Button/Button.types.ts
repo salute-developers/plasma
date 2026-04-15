@@ -10,13 +10,12 @@ export type ButtonProps = Pick<
     | 'size'
     | 'disabled'
     | 'renderValue'
-    | 'selectProps'
-    | 'separator'
     | 'treeId'
     | 'activeDescendantItemValue'
+    | 'multiselect'
+    | 'isTargetAmount'
 >;
 
-export type GetButtonLabelProps = Pick<
-    ButtonProps,
-    'value' | 'valueToItemMap' | 'label' | 'renderValue' | 'selectProps'
+export type GetButtonLabelProps = Required<
+    Pick<ButtonProps, 'value' | 'valueToItemMap' | 'label' | 'renderValue' | 'multiselect' | 'isTargetAmount'>
 >;
