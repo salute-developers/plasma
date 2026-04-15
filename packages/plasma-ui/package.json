@@ -39,6 +39,7 @@
     "@salutejs/plasma-tokens": "1.135.0-dev.0",
     "@salutejs/use-virtual": "2.0.0",
     "@testing-library/react": "12.0.0",
+    "@types/babel__traverse": "7.20.6",
     "@types/color": "3.0.2",
     "@types/jest": "26.0.24",
     "@types/lodash.throttle": "4.1.6",
