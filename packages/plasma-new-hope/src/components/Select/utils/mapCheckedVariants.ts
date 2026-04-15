@@ -1,12 +1,12 @@
-import { SafeExtract } from 'src/types';
+import type { SafeExtract } from 'src/types';
 
-import { CheckedType } from '../hooks/usePathMaps';
+import type { SelectCheckedState } from '../Select.types';
 
-// TODO: временная утилита, удалим при рефакторинге компонента.
+// TODO: временная утилита, удалим при рефакторинге компонента (когда добавим тип для value: object}.
 export const mapCheckedVariants = (
-    checkedValue: CheckedType,
+    checkedValue: SelectCheckedState,
     multiple = false,
-): boolean | SafeExtract<CheckedType, 'indeterminate'> => {
+): boolean | SafeExtract<SelectCheckedState, 'indeterminate'> => {
     if (checkedValue === true || checkedValue === false) {
         return checkedValue;
     }

@@ -16,3 +16,4 @@ export type {
 } from './Polymorphic';
 export { makePolymorphic } from './Polymorphic';
 export type { RefOf } from './RefOf';
+export type { NeverProps } from './NeverProps';

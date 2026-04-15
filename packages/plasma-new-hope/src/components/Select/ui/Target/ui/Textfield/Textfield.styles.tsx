@@ -186,6 +186,13 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 
     ${textFieldTokens.boxShadow}: var(${tokens.textFieldBoxShadow});
     ${textFieldTokens.boxShadowSecondary}: var(${tokens.textFieldBoxShadowSecondary});
+
+    /* Переопределение стиля курсора для TextField-like */
+    &:not([readonly]),
+    &:not([readonly]) input,
+    &:not([readonly]) label {
+        cursor: pointer;
+    }
 `;
 
 export const IconArrowWrapper = styled.div<{ disabled?: boolean; readOnly?: boolean }>`

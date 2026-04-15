@@ -1,27 +1,25 @@
+import { useMemo } from 'react';
 import { isEmpty } from 'src/utils';
 
-import { MergedSelectProps } from '../Select.types';
-import { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
+import type { ItemOptionTransformed, SelectCheckedState } from '../Select.types';
 
-export type PathMapType = Map<string | number, number>;
-export type FocusedToValueMapType = Map<string, MergedDropdownNodeTransformed>;
-export type CheckedType = boolean | 'done' | 'dot' | 'indeterminate';
-export type ValueToCheckedMapType = Map<MergedDropdownNodeTransformed['value'], CheckedType>;
-export type ValueToItemMapType = Map<MergedDropdownNodeTransformed['value'], MergedDropdownNodeTransformed>;
+export type PathMapType = Map<string, number>;
+export type FocusedToValueMapType = Map<string, ItemOptionTransformed>;
+export type ValueToCheckedMapType = Map<ItemOptionTransformed['value'], SelectCheckedState>;
+export type ValueToItemMapType = Map<ItemOptionTransformed['value'], ItemOptionTransformed>;
 export type ValueToPathMapType = Map<string, string[]>;
 
-// Рекурсивно проходим по дереву items и создаем мапы для быстрой работы с деревом.
-export const usePathMaps = (items: MergedSelectProps['items']) => {
+const createPathMaps = (items: ItemOptionTransformed[] = []) => {
     const pathMap: PathMapType = new Map();
     const focusedToValueMap: FocusedToValueMapType = new Map();
     const valueToCheckedMap: ValueToCheckedMapType = new Map();
     const valueToItemMap: ValueToItemMapType = new Map();
     const valueToPathMap: ValueToPathMapType = new Map();
 
-    pathMap.set('root', items?.length || 0);
+    pathMap.set('root', items.length);
 
-    const rec = (items: MergedSelectProps['items'], prevIndex = '', path: string[] = []) => {
-        items?.forEach((item: MergedDropdownNodeTransformed, index: number) => {
+    const rec = (itemsToMap: ItemOptionTransformed[], prevIndex = '', path: string[] = []) => {
+        itemsToMap.forEach((item, index) => {
             const { value, items: innerItems } = item;
 
             const currIndex = `${prevIndex}/${index}`.replace(/^(\/)/, '');
@@ -30,7 +28,7 @@ export const usePathMaps = (items: MergedSelectProps['items']) => {
             valueToCheckedMap.set(value, false);
             valueToPathMap.set(value.toString(), [...path, value.toString()]);
 
-            if (isEmpty(innerItems) || !innerItems) {
+            if (!innerItems || isEmpty(innerItems)) {
                 valueToItemMap.set(value, item);
             } else {
                 pathMap.set(value, innerItems.length);
@@ -47,4 +45,9 @@ export const usePathMaps = (items: MergedSelectProps['items']) => {
         ValueToItemMapType,
         ValueToPathMapType,
     ];
+};
+
+// Рекурсивно проходим по дереву items и создаем мапы для быстрой работы с деревом.
+export const usePathMaps = (items: ItemOptionTransformed[] = []) => {
+    return useMemo(() => createPathMaps(items), [items]);
 };

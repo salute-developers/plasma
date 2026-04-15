@@ -78,7 +78,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
         return (
             <div ref={ref} id={wrappedId} style={{ position: 'relative' }}>
                 <div ref={isTargetAsFunction ? undefined : refs.setReference} onClick={handleClick}>
-                    {typeof target === 'function' ? target(refs.setReference as any) : target}
+                    {typeof target === 'function' ? target(refs.setReference) : target}
                 </div>
 
                 {opened && (

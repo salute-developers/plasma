@@ -3,7 +3,7 @@ id: select
 title: Select
 ---
 
-import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -13,66 +13,68 @@ import TabItem from '@theme/TabItem';
 <PropsTable name="Select" />
 
 ## Использование
-Обязательным параметром являются: `items`, `value` и `onChange`. Внутри items может быть такой же вложенный массив items. Формат следующий:
+Обязательным параметром является только `items`. Для controlled-варианта передавайте `value` и `onChange`, для интеграции с формой используйте `name` и при необходимости `defaultValue`.
+
+Множественный выбор включается через `multiselect`. В single-режиме `value` имеет тип `string`, в multiselect-режиме `string[]`.
+
+В single-режиме можно использовать `mode="radio"`, если нужно запретить снятие выбора повторным кликом. В multiselect-режиме доступны `selectAllOptions` и `isTargetAmount`.
+
+Select поддерживает два вида target-элемента: `textfield-like` по умолчанию и `button-like`. Для кастомизации доступны:
+
+- `renderValue` для текста выбранного значения;
+- `renderTarget` для полного переопределения target;
+- `renderItem` и `renderSelectionIcon` для отображения элементов списка;
+- `beforeList`, `afterList` и `emptyStateDescription` для содержимого выпадающего списка.
+
+Внутри `items` можно передавать вложенные элементы. Базовый формат:
 
 ```tsx
 type Items = Array<{
-        /**
-         *  Значение у item
-         */
-        value: string;
-        /**
-         * Метка-подпись к item
-         */
-        label: string;
-        /**
-        * Сторона открытия вложенного дропдауна относительно текущего элемента;
-        */
-        placement: SelectPlacement | Array<SelectPlacementBasic>;
-        /**
-         * Список дочерних items.
-         */
-        items?: Array<ItemOption>;
-        /**
-         * Item не активен
-         */
-        disabled?: boolean;
-        /**
-         * Слот для контента слева
-         */
-        contentLeft?: ReactNode;
-        /**
-         * Слот для контента справа
-         */
-        contentRight?: ReactNode;
-        /**
-         * Выбранный item.
-         * @deprecated
-         */
-        isActive?: boolean;
-        /**
-         * Кастомный цвет текста
-         * @deprecated
-         */
-        color?: string;
-        /**
-         * Айтем не активен
-         * @deprecated использовать disabled
-         */
-        isDisabled?: boolean;
-    }>;
+    /**
+     * Значение item.
+     */
+    value: string;
+    /**
+     * Метка-подпись к item.
+     */
+    label: string;
+    /**
+     * Сторона открытия вложенного списка относительно текущего элемента.
+     * @default right
+     */
+    placement?: SelectPlacement | Array<SelectPlacementBasic>;
+    /**
+     * Список дочерних items.
+     */
+    items?: Array<ItemOption>;
+    /**
+     * Item не активен.
+     */
+    disabled?: boolean;
+    /**
+     * Слот для контента слева.
+     */
+    contentLeft?: ReactNode;
+    /**
+     * Слот для контента справа.
+     */
+    contentRight?: ReactNode;
+    /**
+     * Classname для item.
+     */
+    className?: string;
+    /**
+     * Максимальная высота дочернего выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
+}>;
 ```
-
-Тип выбора селекта - одиночный или множественный зависит от типа `value` и `onChange`. В одиночном value - `string`, в множественном - `Array<string>`.
-Select может выглядеть как Button и как Textfield. За это отвечает пропс - `target`.\
-Есть возможность прокидывать компонент `EmptyState` в пропс `renderList` для изменения содержимого выпадающего окна.\
-Это нужно в случаях, когда произошла ошибка при загрузке `items`, либо когда `items` пустой. Более подробно в примерах.
 
 ## Примеры
 
 <Tabs>
     <TabItem value="textfield" label="Textfield" default>
-        В режиме `textfield` доступны только следующие варианты `view`: `default`, `warning`, `positive` и `negative`.
+        В режиме `textfield-like` target внешне мимикрирует под компонент <b>TextField</b> и наследует все его свойства.
 
         ```tsx live
         import React from 'react';
@@ -104,21 +106,17 @@ Select может выглядеть как Button и как Textfield. За э�
             ];
 
             return (
-                <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
-                    <div style={{width: '300px'}}>
-                        <Select items={items} value={singleValue} onChange={setSingleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
-                    </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '350px', height: '300px'}}>
+                    <Select items={items} value={singleValue} onChange={setSingleValue} label="Single" placeholder="Placeholder" helperText="Helper text" />
 
-                    <div style={{width: '300px'}}>
-                        <Select multiselect items={items} value={multipleValue} onChange={setMultipleValue} label="Label" placeholder="Placeholder" helperText="Helper text" />
-                    </div>
+                    <Select multiselect items={items} value={multipleValue} onChange={setMultipleValue} label="Multiselect" placeholder="Placeholder" helperText="Helper text" />
                 </div>
             );
         }
         ```
     </TabItem>
     <TabItem value="button" label="Button">
-        В режиме `button` недоступны следующие пропсы: `contentLeft`, `label`, `labelPlacement`, `placeholder` и `helperText`.
+        В режиме `button-like` target внешне мимикрирует под компонент <b>Button</b>. Свойства из `TextField`, например `contentLeft`, `contentRight`, `helperText`, `labelPlacement`, `keepPlaceholder`, `chipType` и `chipClickArea` и тд., в этом режиме не применяются.
 
         ```tsx live
         import React from 'react';
@@ -150,25 +148,21 @@ Select может выглядеть как Button и как Textfield. За э�
             ];
 
             return (
-                <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
-                    <div style={{width: '300px'}}>
-                        <Select items={items} label="Single" target="button-like" value={singleValue} onChange={setSingleValue} />
-                    </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '350px', height: '300px' }}>
+                    <Select items={items} label="Single" target="button-like" value={singleValue} onChange={setSingleValue} />
 
-                    <div style={{width: '300px'}}>
-                        <Select multiselect items={items} label="Multiple" target="button-like" value={multipleValue} onChange={setMultipleValue} />
-                    </div>
+                    <Select multiselect items={items} label="Multiple" target="button-like" value={multipleValue} onChange={setMultipleValue} />
                 </div>
             );
         }
         ```
     </TabItem>
     <TabItem value="predefined" label="Predefined">
-        Есть возможность задать значения по дефолту (главное, чтобы они находились в `items`). Также можно управлять состоянием снаружи селекта.
+        Есть возможность задать значения по дефолту (главное, чтобы они находились в `items`). Также можно управлять состоянием снаружи.
 
         ```tsx live
         import React from 'react';
-        import { Select, Button } from '@salutejs/sdds-cs';
+        import { Select, Button } from '@salutejs/sdds-dfa';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);
@@ -195,19 +189,17 @@ Select может выглядеть как Button и как Textfield. За э�
             ];
 
             return (
-                <div style={{ display: 'flex', gap: '30px', height: '300px' }}>
-                    <div style={{width: '300px'}}>
-                        <Select multiselect items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} />
-                    </div>
-
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '350px', height: '300px' }}>
                     <Button onClick={() => setMultipleValue([])}>Очистить</Button>
+
+                    <Select multiselect items={items} placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} />
                 </div>
             );
         }
         ```
     </TabItem>
     <TabItem value="renderValue" label="Render value">
-        Пропс `renderValue` для кастомной настройки `value` внутри таргета. Принимает коллбэк с двумя параметрами: `value` и `label`.
+        Пропс `renderValue` переопределяет текст выбранного значения внутри target. Коллбэк получает один аргумент: выбранный `item`.
 
         ```tsx live
         import React from 'react';
@@ -237,39 +229,30 @@ Select может выглядеть как Button и как Textfield. За э�
                 },
             ];
 
-            const renderValue = (itemData): string => {
-                if (!Array.isArray(itemData)) {
-                    return `${itemData.value} - ${itemData.label}`;
-                }
-
-                return '';
-            };
+            const renderValue = (item) => `${item.value} - ${item.label}`;
 
             return (
-                <div style={{ height: '300px' }}>
-                    <div style={{ width: '300px' }}>
-                        <Select
-                            items={items}
-                            label="Label"
-                            placeholder="Placeholder"
-                            value={singleValue}
-                            onChange={setSingleValue}
-                            renderValue={renderValue}
-                        />
-                    </div>
+                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
+                    <Select
+                        items={items}
+                        label="Label"
+                        placeholder="Placeholder"
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        renderValue={renderValue}
+                    />
                 </div>
             );
         }
         ```
     </TabItem>
     <TabItem value="renderItem" label="Render item">
-        `renderTarget` - для кастомной настройки таргета в Select. Принимает коллбэк с одним параметром: `value`.
-        Пропс `renderItem` для кастомной настройки айтема в выпадающем списке. Принимает коллбэк с двумя параметрами: `value` и `label`.
+        Пропс `renderItem` отвечает за кастомный рендер элемента списка и получает весь объект `item`.
         В примере использован другой наш компонент - Cell.
 
         ```tsx live
         import React from 'react';
-        import { Select, Cell } from '@salutejs/sdds-cs';
+        import { Select, Cell } from '@salutejs/sdds-dfa';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState([]);
@@ -285,32 +268,6 @@ Select может выглядеть как Button и как Textfield. За э�
                 },
             ];
 
-            const renderTarget = (itemData, opened) => {
-                console.log(opened);
-                if (Array.isArray(itemData)) {
-                    if (itemData.length === 0) {
-                        return (
-                            <div style={{ padding: '0.5rem 0' }}>
-                                <Cell
-                                    view="default"
-                                    title="Выберите страну"
-                                    subtitle="Subtitle"
-                                    label="Label"
-                                />
-                            </div>
-                        );
-                    }
-
-                    const title = itemData.map((item) => item.label).join(', ');
-
-                    return (
-                        <div style={{ padding: '0.5rem 0.75rem' }}>
-                            <Cell view="default" title={title} subtitle="Subtitle" label="Label" />
-                        </div>
-                    );
-                }
-            }
-
             const renderItem = ({ value, label }) => (
                 <Cell
                     view="default"
@@ -321,26 +278,27 @@ Select может выглядеть как Button и как Textfield. За э�
             )
 
             return (
-                <div style={{ height: '300px' }}>
-                   <div style={{ width: '400px' }}>
-                        <Select
-                            items={items}
-                            value={multipleValue}
-                            onChange={setMultipleValue}
-                            multiselect
-                            renderTarget={renderTarget}
-                            renderItem={renderItem}
-                        />
-                    </div>
+                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
+                    <Select
+                        placeholder="Placeholder"
+                        items={items}
+                        value={multipleValue}
+                        onChange={setMultipleValue}
+                        multiselect
+                        renderItem={renderItem}
+                    />
                 </div>
             );
         }
         ```
     </TabItem>
     <TabItem value="renderSelectionIcon" label="Render icon">
-        `renderSelectionIcon` - свойство для кастомной настройки иконки выбора элемента. Принимает коллбэк с одним параметром: `selected`.
+        `renderSelectionIcon` кастомизирует иконку выбранного состояния элемента. Коллбэк получает `true`, `false` или `'indeterminate'`.
 
         ```tsx live
+        import React from 'react';
+        import { Select } from '@salutejs/sdds-dfa';
+
         export function App() {
             const [value, setValue] = useState('brazil');
 
@@ -378,22 +336,20 @@ Select может выглядеть как Button и как Textfield. За э�
             };
 
             return (
-                <div style={{ height: '300px' }}>
-                   <div style={{ width: '400px' }}>
-                        <Select
-                            items={items}
-                            value={value}
-                            onChange={setValue}
-                            renderSelectionIcon={renderSelectionIcon}
-                        />
-                    </div>
+                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
+                    <Select
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                        renderSelectionIcon={renderSelectionIcon}
+                    />
                 </div>
             );
         }
         ```
     </TabItem>
     <TabItem value="portal" label="Portal">
-        Иногда возникает необходимость вынесения выпадающего списка на уровни выше в DOM. К примеру, когда у родительского блока имеется скролл, и список будет обрезаться, чего хотелось бы избежать.\
+        Иногда возникает необходимость вынесения выпадающего списка на уровни выше в DOM. К примеру, когда у родительского блока имеется скролл, и список будет обрезаться, чего в большинстве случаев хотелось бы избежать.\
         Для такой реализации имеется пропс `portal`, который принимает либо `ref` либо `id` html-тега.\
         Также нужно прокинуть проп `listWidth`, чтобы явно задать ширину списку. Если этого не сделать, то будет взята ширина 100% от блока, на который ведет ссылка портала.
 
@@ -430,7 +386,7 @@ Select может выглядеть как Button и как Textfield. За э�
             return (
                 <div style={{ position: "relative", height: "300px" }} ref={ref}>
                     <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" placeholder="Placeholder" value={value} onChange={setValue} portal={ref} listWidth="300px" />
+                        <Select items={items} label="Label" placeholder="Placeholder" value={value} onChange={setValue} portal={ref} />
                     </div>
                 </div>
             );
@@ -438,7 +394,7 @@ Select может выглядеть как Button и как Textfield. За э�
         ```
     </TabItem>
     <TabItem value="uncontrolled" label="Uncontrolled">
-        `value` и `onChange` - опциональные параметры. Если вы хотите `uncontrolled` вариант компонента - их пробрасывать необязательно.
+        `value` и `onChange` опциональны. Если нужен uncontrolled-вариант без интеграции с формой, достаточно передать `items`.
 
        ```tsx live
         import React from 'react';
@@ -467,10 +423,8 @@ Select может выглядеть как Button и как Textfield. За э�
             ];
 
             return (
-                <div style={{ height: '300px' }}>
-                    <div style={{width: '300px'}}>
-                        <Select items={items} label="Label" placeholder="Placeholder" />
-                    </div>
+                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
+                    <Select items={items} label="Label" placeholder="Placeholder" />
                 </div>
             );
         }
@@ -488,7 +442,7 @@ Select может выглядеть как Button и как Textfield. За э�
             const items = Array(5000).fill(1).map((_, i) => ({ value: i.toString(), label: i.toString() }));
 
             return (
-                <div style={{ width: "300px", height: "300px" }}>
+                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
                     <Select
                         items={items}
                         virtual
@@ -535,29 +489,23 @@ Select может выглядеть как Button и как Textfield. За э�
 
                 if (e.currentTarget.scrollTop + e.currentTarget.offsetHeight + 10 > e.currentTarget.scrollHeight) {
                     setIsInfiniteLoading(true);
-
                     const res = await getData();
-
                     setItems([...items, ...res]);
-
                     setIsInfiniteLoading(false);
                 }
             };
 
             return (
-                <div style={{ height: "300px" }}>
-                    <div style={{ width: "300px" }}>
-                        <Select
-                            items={items}
-                            listMaxHeight="200px"
-                            listOverflow="scroll"
-                            placeholder="Placeholder"
-                            label="Label"
-                            helperText="Helper text"
-                            onScroll={handleScroll}
-                            afterList={isInfiniteLoading ? <center>Загружаю...</center> : undefined}
-                        />
-                    </div>
+                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
+                    <Select
+                        items={items}
+                        listMaxHeight="200px"
+                        placeholder="Placeholder"
+                        label="Label"
+                        helperText="Helper text"
+                        onScroll={handleScroll}
+                        afterList={isInfiniteLoading ? <center>Загружаю...</center> : undefined}
+                    />
                 </div>
             );
         }
@@ -638,7 +586,7 @@ Select может выглядеть как Button и как Textfield. За э�
             }, [value]);
 
             return (
-                <div style={{ display: "block", width: "300px", height: "300px" }}>
+                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
                     <Select
                         value={value}
                         onChange={setValue}
@@ -651,7 +599,6 @@ Select может выглядеть как Button и как Textfield. За э�
                             indeterminate,
                             onClick: handleClick,
                         }}
-                        listOverflow="auto"
                         listMaxHeight="200px"
                     />
                 </div>
@@ -689,7 +636,7 @@ Select может выглядеть как Button и как Textfield. За э�
             ];
 
             return (
-                <div style={{ display: "block", width: "300px", height: "300px" }}>
+                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
                     <Select
                         label="Label"
                         placeholder="Placeholder"
@@ -738,27 +685,23 @@ Select может выглядеть как Button и как Textfield. За э�
         const [value, setValue] = useState(['brazil']);
 
         return (
-            <div style={{ display: "flex", height: "300px" }}>
-                <div style={{ width: "300px" }}>
-                    <Select
-                        multiselect
-                        label="Label"
-                        placeholder="Placeholder"
-                        items={items}
-                    />
-                </div>
+            <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
+                <Select
+                    multiselect
+                    label="Label"
+                    placeholder="Placeholder"
+                    items={items}
+                />
 
-                <div style={{ width: "300px" }}>
-                    <Select
-                        multiselect
-                        label="Label"
-                        placeholder="Placeholder"
-                        items={items}
-                        value={value}
-                        onChange={setValue}
-                        isTargetAmount
-                    />
-                </div>
+                <Select
+                    multiselect
+                    label="Label"
+                    placeholder="Placeholder"
+                    items={items}
+                    value={value}
+                    onChange={setValue}
+                    isTargetAmount
+                />
             </div>
         );
     }
@@ -777,18 +720,18 @@ Select может выглядеть как Button и как Textfield. За э�
         ```tsx live
         import React from 'react';
         import { useForm, SubmitHandler } from 'react-hook-form';
-        import { Select, Button } from '@salutejs/sdds-cs';
+        import { Select, Button } from '@salutejs/sdds-dfa';
 
         export function App() {
             type Inputs = {
-                Select: string,
-                SelectMulti: string[]
+                select: string,
+                selectMulti: string[]
             }
 
             const { register, handleSubmit } = useForm<Inputs>({
                 defaultValues: {
-                    Select: 'north_america',
-                    SelectMulti: ['brazil']
+                    select: 'north_america',
+                    selectMulti: ['brazil']
                 }
             });
 
@@ -818,20 +761,20 @@ Select может выглядеть как Button и как Textfield. За э�
             ];
 
             return (
-                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
-                    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                        <Select
-                            items={items}
-                            {...register('Select')}
-                        />
-                        <Select
-                            items={items}
-                            {...register('SelectMulti')}
-                            multiselect
-                        />
-                        <Button type="submit">Отправить</Button>
-                    </form>
-                </div>
+                <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '350px', height: '300px' }}>
+                    <Select
+                        placeholder="Placeholder"
+                        items={items}
+                        {...register('select')}
+                    />
+                    <Select
+                        placeholder="Placeholder"
+                        items={items}
+                        {...register('selectMulti')}
+                        multiselect
+                    />
+                    <Button type="submit">Отправить</Button>
+                </form>
             );
         }
         ```
@@ -842,7 +785,7 @@ Select может выглядеть как Button и как Textfield. За э�
         ```tsx live
         import React from 'react';
         import { useForm, Controller, SubmitHandler } from 'react-hook-form';
-        import { Select, Button } from '@salutejs/sdds-cs';
+        import { Select, Button } from '@salutejs/sdds-dfa';
 
         export function App() {
             type Inputs = {
@@ -855,6 +798,7 @@ Select может выглядеть как Button и как Textfield. За э�
                     selectMulti: ['brazil']
                 }
             });
+
             const onSubmit: SubmitHandler<Inputs> = (data) => {
                 console.log(data);
             };
@@ -881,36 +825,34 @@ Select может выглядеть как Button и как Textfield. За э�
             ];
 
             return (
-                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
-                    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                        <Controller
-                            control={control}
-                            name="Select"
-                            render={({ field: { onChange, value, ref } }) => (
-                            <Select
-                                items={items}
-                                ref={ref}
-                                value={value}
-                                onChange={onChange}
-                            />
-                            )}
+                <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '350px', height: '300px' }}>
+                    <Controller
+                        control={control}
+                        name="select"
+                        render={({ field: { onChange, value, ref } }) => (
+                        <Select
+                            items={items}
+                            ref={ref}
+                            value={value}
+                            onChange={onChange}
                         />
-                        <Controller
-                            control={control}
-                            name="SelectMulti"
-                            render={({ field: { onChange, value, ref } }) => (
-                            <Select
-                                items={items}
-                                ref={ref}
-                                value={value}
-                                onChange={onChange}
-                                multiselect
-                            />
-                            )}
+                        )}
+                    />
+                    <Controller
+                        control={control}
+                        name="selectMulti"
+                        render={({ field: { onChange, value, ref } }) => (
+                        <Select
+                            items={items}
+                            ref={ref}
+                            value={value}
+                            onChange={onChange}
+                            multiselect
                         />
-                        <Button type="submit">Отправить</Button>
-                    </form>
-                </div>
+                        )}
+                    />
+                    <Button type="submit">Отправить</Button>
+                </form>
             );
         }
         ```
@@ -920,8 +862,7 @@ Select может выглядеть как Button и как Textfield. За э�
 
         ```tsx live
         import React from 'react';
-        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
-        import { Select, Button } from '@salutejs/sdds-cs';
+        import { Select, Button } from '@salutejs/sdds-dfa';
 
         export function App() {
             const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -954,13 +895,11 @@ Select может выглядеть как Button и как Textfield. За э�
             ];
 
             return (
-                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
-                    <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                        <Select label="Select" name="Select" defaultValue={"brazil"} items={items} />
-                        <Select label="Select" name="SelectMulti" defaultValue={["brazil"]} items={items} multiselect />
-                        <Button type="submit">Отправить</Button>
-                    </form>
-                </div>
+                <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '350px', height: '300px' }}>
+                    <Select name="select" defaultValue="brazil" items={items} />
+                    <Select name="selectMulti" defaultValue={['brazil']} items={items} multiselect />
+                    <Button type="submit">Отправить</Button>
+                </form>
             );
         }
         ```
@@ -969,11 +908,11 @@ Select может выглядеть как Button и как Textfield. За э�
 
 ## Поиск совпадений с функцией подсветки символов
 
-:::tips
+:::tip
 `Combobox` - уже имеет механизм поиска и фильтрацию из коробки.
 :::
 
-Данный пример показывает реализацию подсветки (highlighting) символов в найденных элементах в режиме `treeView`.
+Данный пример показывает реализацию подсветки (<b>highlighting</b>) символов в найденных элементах в режиме `treeView`.
 
 ```tsx live
 import React, { useState } from 'react';
@@ -1045,7 +984,7 @@ export function App() {
         );
     }
 
-    const renderItem = (item: SelectItemOption) => {
+    const renderItem = (item) => {
         if (!textValue) return item.label;
 
         return highlightText(item.label, textValue);
@@ -1053,7 +992,7 @@ export function App() {
 
     return (
         <div style={{ display: 'flex', height: '400px' }}>
-            <div style={{ width: '300px' }}>
+            <div style={{ width: '350px' }}>
                 <Select
                     multiselect
                     variant="tight"
@@ -1090,4 +1029,3 @@ export function App() {
 - `ArrowRight` - если фокус на элементе вложенного списка - открывает его и перемещает фокус на первый элемент; Если фокус на таргете - переходит в режим выбора чипа.
 - `ArrowLeft` - закрывает текущий список и перемещает фокус на предыдущий; Если фокус на таргете - переходит в режим выбора чипа.
 - `Backspace` - только если фокус на чипе - снимает выбор с текущего значения;
-

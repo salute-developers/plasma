@@ -1,24 +1,26 @@
-import React, { ChangeEvent, forwardRef, useLayoutEffect, useRef } from 'react';
+import React, { forwardRef, useLayoutEffect, useRef } from 'react';
+import type { Ref, ChangeEventHandler } from 'react';
 import { createEvent } from 'src/utils';
 import { useForkRef } from 'src/hooks';
 
-import { SelectProps } from '../../Select.types';
+import { SelectProps, SelectValue } from '../../Select.types';
 import { ValueToItemMapType } from '../../hooks/usePathMaps';
 
 import { SelectHidden } from './SelectNative.styles';
 
 type Props = Pick<SelectProps, 'name' | 'multiselect'> & {
-    onChange: (newValue: ChangeEvent<HTMLSelectElement> | null) => void;
-    onSetValue: (value: string | string[]) => void;
+    handleChange: (value: string | string[], item: null) => void;
     items: ValueToItemMapType;
-    value: string | number | Array<string | number>;
+    value: SelectValue;
+    outerOnChange?: ChangeEventHandler<HTMLSelectElement>;
 };
 
 export const SelectNative = forwardRef<HTMLButtonElement, Props>(
-    ({ name, multiselect, items, value, onChange, onSetValue }, ref) => {
+    ({ name, multiselect, items, value, handleChange, outerOnChange }, ref) => {
         const values = (multiselect ? value : [value]) as string[];
+
         const selectRef = useRef<HTMLSelectElement>(null);
-        const forkRef = useForkRef(selectRef, ref as any);
+        const forkRef = useForkRef<HTMLSelectElement>(selectRef, ref as Ref<HTMLSelectElement>);
         const options = Array.from(items.keys());
 
         useLayoutEffect(() => {
@@ -26,14 +28,15 @@ export const SelectNative = forwardRef<HTMLButtonElement, Props>(
                 const valueInit = selectRef.current.value;
 
                 if (valueInit) {
-                    onSetValue(valueInit);
+                    handleChange(valueInit, null);
                 }
             }
 
             if (selectRef.current && multiselect) {
                 const valuesInit = Array.from(selectRef.current.selectedOptions).map((v) => v.value);
+
                 if (valuesInit.length !== 0) {
-                    onSetValue(valuesInit);
+                    handleChange(valuesInit, null);
                 }
             }
         }, []);
@@ -41,8 +44,8 @@ export const SelectNative = forwardRef<HTMLButtonElement, Props>(
         useLayoutEffect(() => {
             const event = createEvent(selectRef);
 
-            if (onChange) {
-                onChange(event);
+            if (event && outerOnChange) {
+                outerOnChange(event);
             }
         }, [value]);
 
@@ -59,9 +62,9 @@ export const SelectNative = forwardRef<HTMLButtonElement, Props>(
                         если нет изначального значения */}
                     <option> </option>
 
-                    {options.map((v) => (
-                        <option key={v} value={v}>
-                            {v}
+                    {options.map((option) => (
+                        <option key={option} value={option}>
+                            {option}
                         </option>
                     ))}
                 </SelectHidden>

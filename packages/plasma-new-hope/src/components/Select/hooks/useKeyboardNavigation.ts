@@ -3,7 +3,8 @@ import React from 'react';
 
 import { keyExists } from '../reducers/treePathReducer';
 import { PathAction, PathState, FocusedPathAction, FocusedPathState, TreePathAction, TreePathState } from '../reducers';
-import type { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
+import type { ItemOption } from '../Select.types';
+import { getItemByFocused } from '../utils';
 
 import { PathMapType, FocusedToValueMapType } from './usePathMaps';
 
@@ -25,12 +26,6 @@ export const keys = {
     PageDown: 'PageDown',
 };
 
-export const getItemByFocused = (focusedPath: FocusedPathState, focusedToValueMap: FocusedToValueMapType) => {
-    const focusedPathAsString = focusedPath.reduce((acc, n) => `${acc}/${n}`, '').replace(/^(\/)/, '');
-
-    return focusedToValueMap.get(focusedPathAsString);
-};
-
 type Props = {
     focusedPath: FocusedPathState;
     dispatchFocusedPath: Dispatch<FocusedPathAction>;
@@ -39,17 +34,33 @@ type Props = {
     pathMap: PathMapType;
     focusedToValueMap: FocusedToValueMapType;
     handleListToggle: (opened: boolean) => void;
-    handlePressDown: (item: MergedDropdownNodeTransformed, e?: React.MouseEvent<HTMLElement>) => void;
+    handlePressDown: (item: ItemOption, e?: React.MouseEvent<HTMLElement>) => void;
     treePath: TreePathState;
     dispatchTreePath: Dispatch<TreePathAction>;
     treeView: boolean;
     valueToPathMap: Map<string, string[]>;
-    items: MergedDropdownNodeTransformed[];
+    items: ItemOption[];
     readOnly: boolean;
 };
 
 type ReturnedProps = {
     onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
+};
+
+const openListWithInitialFocus = (
+    dispatchPath: Dispatch<PathAction>,
+    dispatchFocusedPath: Dispatch<FocusedPathAction>,
+    handleListToggle: (opened: boolean) => void,
+) => {
+    dispatchPath({ type: 'opened_first_level' });
+    dispatchFocusedPath({ type: 'set_initial_focus' });
+    handleListToggle(true);
+};
+
+const collapseNestedPath = (path: PathState, focusedPath: FocusedPathState, dispatchPath: Dispatch<PathAction>) => {
+    if (path.length > focusedPath.length) {
+        dispatchPath({ type: 'removed_last_level' });
+    }
 };
 
 // #TODO: подумать над идеей выноса логики фокуса непосредственно в focusedPathReducer.
@@ -129,16 +140,11 @@ const keyboardNavigationDefault = ({
             case keys.ArrowUp: {
                 if (focusedPath.length) {
                     if (currentIndex > 0) {
-                        if (path.length > focusedPath.length) {
-                            dispatchPath({ type: 'removed_last_level' });
-                        }
-
+                        collapseNestedPath(path, focusedPath, dispatchPath);
                         dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex - 1 });
                     }
                 } else {
-                    dispatchPath({ type: 'opened_first_level' });
-                    dispatchFocusedPath({ type: 'set_initial_focus' });
-                    handleListToggle(true);
+                    openListWithInitialFocus(dispatchPath, dispatchFocusedPath, handleListToggle);
                 }
 
                 break;
@@ -147,16 +153,11 @@ const keyboardNavigationDefault = ({
             case keys.ArrowDown: {
                 if (focusedPath.length) {
                     if (currentIndex + 1 < currentLength) {
-                        if (path.length > focusedPath.length) {
-                            dispatchPath({ type: 'removed_last_level' });
-                        }
-
+                        collapseNestedPath(path, focusedPath, dispatchPath);
                         dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + 1 });
                     }
                 } else {
-                    dispatchPath({ type: 'opened_first_level' });
-                    dispatchFocusedPath({ type: 'set_initial_focus' });
-                    handleListToggle(true);
+                    openListWithInitialFocus(dispatchPath, dispatchFocusedPath, handleListToggle);
                 }
 
                 break;
@@ -188,7 +189,7 @@ const keyboardNavigationDefault = ({
 
                     const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
 
-                    if (currentItem?.disabled || currentItem?.isDisabled) {
+                    if (currentItem?.disabled) {
                         break;
                     }
 
@@ -215,7 +216,7 @@ const keyboardNavigationDefault = ({
                     break;
                 }
 
-                if (!currentItem || currentItem?.disabled || currentItem?.isDisabled) {
+                if (!currentItem || currentItem?.disabled) {
                     break;
                 }
 
@@ -227,15 +228,15 @@ const keyboardNavigationDefault = ({
             case keys.Enter: {
                 event.preventDefault();
 
-                const currentItem = getItemByFocused(focusedPath, focusedToValueMap)!;
-
-                if (currentItem?.disabled || currentItem?.isDisabled) {
-                    break;
-                }
+                const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
 
                 if (!path[0]) {
                     dispatchPath({ type: 'opened_first_level' });
                     dispatchFocusedPath({ type: 'set_initial_focus' });
+                    break;
+                }
+
+                if (!currentItem || currentItem.disabled) {
                     break;
                 }
 
@@ -265,16 +266,10 @@ const keyboardNavigationDefault = ({
 
             case keys.Home: {
                 if (path[0]) {
-                    if (path.length > focusedPath.length) {
-                        dispatchPath({ type: 'removed_last_level' });
-                    }
-
+                    collapseNestedPath(path, focusedPath, dispatchPath);
                     dispatchFocusedPath({ type: 'change_last_focus', value: 0 });
                 } else {
-                    dispatchPath({ type: 'opened_first_level' });
-                    dispatchFocusedPath({ type: 'set_initial_focus' });
-
-                    handleListToggle(true);
+                    openListWithInitialFocus(dispatchPath, dispatchFocusedPath, handleListToggle);
                 }
 
                 break;
@@ -282,10 +277,7 @@ const keyboardNavigationDefault = ({
 
             case keys.End: {
                 if (path[0]) {
-                    if (path.length > focusedPath.length) {
-                        dispatchPath({ type: 'removed_last_level' });
-                    }
-
+                    collapseNestedPath(path, focusedPath, dispatchPath);
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
                 } else {
                     dispatchPath({ type: 'opened_first_level' });
@@ -302,10 +294,7 @@ const keyboardNavigationDefault = ({
                     break;
                 }
 
-                if (path.length > focusedPath.length) {
-                    dispatchPath({ type: 'removed_last_level' });
-                }
-
+                collapseNestedPath(path, focusedPath, dispatchPath);
                 if (currentIndex <= JUMP_SIZE) {
                     dispatchFocusedPath({ type: 'change_last_focus', value: 0 });
                 } else {
@@ -320,10 +309,7 @@ const keyboardNavigationDefault = ({
                     break;
                 }
 
-                if (path.length > focusedPath.length) {
-                    dispatchPath({ type: 'removed_last_level' });
-                }
-
+                collapseNestedPath(path, focusedPath, dispatchPath);
                 if (currentLength - currentIndex <= JUMP_SIZE) {
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
                 } else {
@@ -403,9 +389,13 @@ const keyboardNavigationTree = ({
                                 .reduce((acc, n) => `${acc}/${n}`, '')
                                 .replace(/^(\/)/, '');
 
-                            const item = focusedToValueMap.get(focusedPathAsString)!;
+                            const item = focusedToValueMap.get(focusedPathAsString);
 
-                            const isLevelOpened = keyExists(treePath, valueToPathMap.get(item!.value.toString()) || []);
+                            if (!item) {
+                                break;
+                            }
+
+                            const isLevelOpened = keyExists(treePath, valueToPathMap.get(item.value.toString()) || []);
 
                             if (isLevelOpened) {
                                 nextFocus = [...nextFocus, (item?.items?.length || 0) - 1];
@@ -425,9 +415,7 @@ const keyboardNavigationTree = ({
                     /**
                      * Если список закрыт, то нужно его открыть и установить фокус на первый элемент.
                      * */
-                    dispatchPath({ type: 'opened_first_level' });
-                    dispatchFocusedPath({ type: 'set_initial_focus' });
-                    handleListToggle(true);
+                    openListWithInitialFocus(dispatchPath, dispatchFocusedPath, handleListToggle);
                 }
 
                 break;
@@ -491,9 +479,7 @@ const keyboardNavigationTree = ({
                     /**
                      * Если список закрыт, то нужно его открыть и установить фокус на первый элемент.
                      * */
-                    dispatchPath({ type: 'opened_first_level' });
-                    dispatchFocusedPath({ type: 'set_initial_focus' });
-                    handleListToggle(true);
+                    openListWithInitialFocus(dispatchPath, dispatchFocusedPath, handleListToggle);
                 }
 
                 break;
@@ -514,12 +500,7 @@ const keyboardNavigationTree = ({
 
             case keys.ArrowRight: {
                 if (path[0]) {
-                    if (
-                        !focusedPath.length ||
-                        currentItem?.disabled ||
-                        currentItem?.isDisabled ||
-                        !currentItem?.items
-                    ) {
+                    if (!focusedPath.length || currentItem?.disabled || !currentItem?.items) {
                         break;
                     }
 
@@ -542,7 +523,7 @@ const keyboardNavigationTree = ({
                     break;
                 }
 
-                if (!currentItem || currentItem?.disabled || currentItem?.isDisabled) {
+                if (!currentItem || currentItem?.disabled) {
                     break;
                 }
 
