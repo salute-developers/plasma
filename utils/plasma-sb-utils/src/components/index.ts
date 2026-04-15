@@ -23,3 +23,4 @@ export { getNumberInputStories } from './NumberInput';
 export * from './Chip';
 export * from './Note';
 export * from './Carousel';
+export * from './Tour';
