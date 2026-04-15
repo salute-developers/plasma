@@ -7,13 +7,14 @@ import { Counter } from '../Counter/Counter';
 import { WithTheme } from '../../_helpers';
 
 import { config } from './SegmentGroup.config';
-import { SegmentItem, SegmentGroup } from './Segment';
+import { SegmentItem, SegmentGroup, SegmentIconItem } from './Segment';
 
 type SegmentGroupProps = ComponentProps<typeof SegmentGroup>;
 
-const { meta: META, Default } = getSegmentStories({
+const { meta: META, Default, IconItem } = getSegmentStories({
     SegmentGroup,
     SegmentItem,
+    SegmentIconItem,
     SegmentProvider,
     componentConfig: config,
     CounterComponent: Counter,
@@ -28,4 +29,4 @@ const meta: Meta<SegmentGroupProps> = {
 
 export default meta;
 
-export { Default };
+export { Default, IconItem };

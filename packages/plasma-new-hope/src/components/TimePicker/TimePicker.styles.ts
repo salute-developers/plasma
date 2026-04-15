@@ -114,8 +114,41 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${tokens.indicatorPlacementRight});
     ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${tokens.indicatorOuterPlacementRight});
 
+    ${textFieldTokens.hintMargin}: var(${tokens.hintMargin});
+    ${textFieldTokens.hintTargetSize}: var(${tokens.hintTargetSize});
+    ${textFieldTokens.hintCustomIconTargetSize}: var(${tokens.hintCustomIconTargetSize});
+    ${textFieldTokens.hintIconColor}: var(${tokens.hintIconColor});
+    ${textFieldTokens.hintInnerLabelPlacementOffset}: var(${tokens.hintInnerLabelPlacementOffset});
+
+    ${textFieldTokens.tooltipPaddingTop}: var(${tokens.hintTooltipPaddingTop});
+    ${textFieldTokens.tooltipPaddingRight}: var(${tokens.hintTooltipPaddingRight});
+    ${textFieldTokens.tooltipPaddingBottom}: var(${tokens.hintTooltipPaddingBottom});
+    ${textFieldTokens.tooltipPaddingLeft}: var(${tokens.hintTooltipPaddingLeft});
+    ${textFieldTokens.tooltipMinHeight}: var(${tokens.hintTooltipMinHeight});
+    ${textFieldTokens.tooltipBackgroundColor}: var(${tokens.hintTooltipBackgroundColor});
+    ${textFieldTokens.tooltipBoxShadow}: var(${tokens.hintTooltipBoxShadow});
+    ${textFieldTokens.tooltipBorderRadius}: var(${tokens.hintTooltipBorderRadius});
+    ${textFieldTokens.tooltipColor}: var(${tokens.hintTooltipColor});
+    ${textFieldTokens.tooltipTextFontFamily}: var(${tokens.hintTooltipTextFontFamily});
+    ${textFieldTokens.tooltipTextFontSize}: var(${tokens.hintTooltipTextFontSize});
+    ${textFieldTokens.tooltipTextFontStyle}: var(${tokens.hintTooltipTextFontStyle});
+    ${textFieldTokens.tooltipTextFontWeight}: var(${tokens.hintTooltipTextFontWeight});
+    ${textFieldTokens.tooltipTextFontLetterSpacing}: var(${tokens.hintTooltipTextFontLetterSpacing});
+    ${textFieldTokens.tooltipTextFontLineHeight}: var(${tokens.hintTooltipTextFontLineHeight});
+    ${textFieldTokens.tooltipContentLeftMargin}: var(${tokens.hintTooltipContentLeftMargin});
+    ${textFieldTokens.tooltipArrowMaskWidth}: var(${tokens.hintTooltipArrowMaskWidth});
+    ${textFieldTokens.tooltipArrowMaskHeight}: var(${tokens.hintTooltipArrowMaskHeight});
+    ${textFieldTokens.tooltipArrowMaskImage}: var(${tokens.hintTooltipArrowMaskImage});
+    ${textFieldTokens.tooltipArrowBackground}: var(${tokens.hintTooltipArrowBackground});
+    ${textFieldTokens.tooltipArrowHeight}: var(${tokens.hintTooltipArrowHeight});
+    ${textFieldTokens.tooltipArrowEdgeMargin}: var(${tokens.hintTooltipArrowEdgeMargin});
+
     ${textFieldTokens.leftContentMargin}: var(${tokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${tokens.textFieldRightContentMargin});
+    ${textFieldTokens.rightContentWithHintMargin}: var(${tokens.textFieldRightContentWithHintMargin});
+    
+    ${textFieldTokens.contentRightWrapperGap}: var(${tokens.textFieldContentRightWrapperGap});
+    ${textFieldTokens.contentRightWrapperMargin}: var(${tokens.textFieldContentRightWrapperMargin});
 
     ${textFieldTokens.fontFamily}: var(${tokens.textFieldFontFamily});
     ${textFieldTokens.fontSize}: var(${tokens.textFieldFontSize});
@@ -140,6 +173,16 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.contentSlotRightColorHover}: var(${tokens.textFieldContentRightSlotColorHover}, var(${textFieldTokens.contentSlotRightColor}));
     ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${tokens.textFieldContentSlotRightOpacityReadOnly}, var(${textFieldTokens.contentSlotRightColor}));
 
+    ${textFieldTokens.leftHelperColor}: var(${tokens.leftHelperColor});
+    ${textFieldTokens.leftHelperOffset}: var(${tokens.leftHelperOffset});
+
+    ${textFieldTokens.leftHelperFontFamily}: var(${tokens.leftHelperFontFamily});
+    ${textFieldTokens.leftHelperFontSize}: var(${tokens.leftHelperFontSize});
+    ${textFieldTokens.leftHelperFontStyle}: var(${tokens.leftHelperFontStyle});
+    ${textFieldTokens.leftHelperFontWeight}: var(${tokens.leftHelperFontWeight});
+    ${textFieldTokens.leftHelperLetterSpacing}: var(${tokens.leftHelperLetterSpacing});
+    ${textFieldTokens.leftHelperLineHeight}: var(${tokens.leftHelperLineHeight});
+
     &.${classes.timePickerError} {
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
@@ -148,6 +191,8 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorError});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
+
+        ${tokens.leftHelperColor}: var(${tokens.leftHelperColorError});
     }
 
     &.${classes.timePickerSuccess} {
@@ -158,6 +203,8 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorSuccess});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorSuccessHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorSuccessFocus});
+        
+        ${tokens.leftHelperColor}: var(${tokens.leftHelperColorSuccess});
     }
 `;
 

@@ -10,12 +10,32 @@ import TabItem from '@theme/TabItem';
 # Carousel
 
 <Description name="Carousel" />
-<PropsTable name="Carousel" />
-
-## Использование
-Для управления пагинацией используется свойство `paginationOptions`. Формат следующий:
 
 ```tsx
+export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
+    /**
+     * Номер слайда.
+     * Controlled-режим.
+     */
+    index?: number;
+    /**
+     * Callback для изменения слайда;
+     */
+    onChangeIndex?: (index: number) => void;
+    /**
+     * Номер слайда по-умолчанию.
+     * Только при uncontrolled-режиме.
+     * @default 0
+     */
+    defaultIndex?: number;
+    /**
+     * Центрирование активного элемента при скролле.
+     * @default start
+     */
+    scrollAlign?: ScrollAlign;
+    /**
+     * Опции управления пагинацией.
+     */
     paginationOptions?: {
         /**
          * Включение/выключение пагинации.
@@ -33,14 +53,70 @@ import TabItem from '@theme/TabItem';
          */
         centered?: boolean;
     };
+    /**
+     * Включение/выключение стрелок управления слайдами.
+     * @default false
+     */
+    controlArrowsDisabled?: boolean;
+    /**
+     * Отступ между слайдами.
+     * @default 20px
+     */
+    gap?: CSSProperties['gap'];
+    /**
+     * Зацикливание карусели.
+     * При включении после последнего слайда идет первый, и наоборот.
+     * @default false
+     */
+    loop?: boolean;
+    /**
+     * Автоматическое пролистывание карусели.
+     * @default false
+     */
+    autoPlay?: boolean;
+    /**
+     * Интервал автоматического пролистывания в мс.
+     * @default 5000
+     */
+    autoPlayInterval?: number;
+    /**
+     * Включение свайпа/drag для touch- и pointer-устройств.
+     * @default false
+     */
+    swipeEnabled?: boolean;
+    /**
+     * Включение виртуализации слайдов.
+     * @default false
+     */
+    virtual?: boolean;
+
+    /**
+     * Размер контрола.
+     */
+    size?: string;
+    /**
+     * Вид контрола.
+     * @default default
+     */
+    view?: string;
+}
 ```
+
+## Использование
+
+`Carousel` принимает набор React-элементов и отображает их как горизонтальную ленту с прокруткой. Обычно в компонент передают карточки одинаковой или близкой ширины, чтобы переход между слайдами выглядел предсказуемо.
+
+Для простого сценария достаточно передать элементы в `children`. Если нужно задать стартовый слайд один раз при инициализации, используйте `defaultIndex`. Если индексом нужно управлять снаружи, переключайте компонент в controlled-режим через `index` и `onChangeIndex`.
+
+Для мобильных сценариев имеет смысл включать `swipeEnabled`, а если внешние кнопки навигации не нужны, можно скрыть встроенные стрелки через `controlArrowsDisabled`.
+
 ## Примеры
 
 <Tabs>
     <TabItem value="basic" label="Basic" default>
         ```tsx live
         import React from 'react';
-        import { Carousel, CarouselItem } from '@salutejs/sdds-serv';
+        import { Carousel } from '@salutejs/sdds-serv';
         import styled from 'styled-components';
 
         export function App() {
@@ -48,27 +124,128 @@ import TabItem from '@theme/TabItem';
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border-radius: 8px;
-                width: 400px;
-                height: 370px;
-                background-color: #add8e6;
-                font-size: 30px;
+                border: 1px solid #d6d6d6;
+                border-radius: 12px;
+                width: 320px;
+                height: 180px;
+                background-color: #f4f5f7;
+                color: #1b1f23;
+                font-size: 20px;
+                font-weight: 600;
             `;
 
-            const items = Array(10)
-                .fill(1)
-                .map((_, i) => ({
-                    id: i,
-                    title: i,
-                }));
+            const items = Array(10).fill(0).map((_, i) => `Слайд ${i + 1}`);
 
             return (
-                <div style={{ display: 'block', width: '600px' }}>
-                    <Carousel>
-                        {items.map((item, i) => (
-                            <CarouselItem key={i}>
-                                <StyledCard>{item.title}</StyledCard>
-                            </CarouselItem>
+                <div style={{ display: 'block', width: '500px' }}>
+                    <Carousel gap="16px">
+                        {items.map((item) => (
+                            <StyledCard key={item}>{item}</StyledCard>
+                        ))}
+                    </Carousel>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="pagination" label="Pagination">
+        ```tsx live
+        import React from 'react';
+        import { Carousel } from '@salutejs/sdds-serv';
+        import styled from 'styled-components';
+
+        export function App() {
+            const StyledCard = styled.div`
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #d6d6d6;
+                border-radius: 12px;
+                width: 320px;
+                height: 180px;
+                background-color: #f4f5f7;
+                color: #1b1f23;
+                font-size: 20px;
+                font-weight: 600;
+            `;
+
+            const items = Array(10).fill(0).map((_, i) => `Слайд ${i + 1}`);
+
+            return (
+                <div style={{ display: 'block', width: '500px' }}>
+                    <Carousel paginationOptions={{ visibleDots: 4, centered: true }} gap="16px">
+                        {items.map((item) => (
+                            <StyledCard key={item}>{item}</StyledCard>
+                        ))}
+                    </Carousel>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="loop-autoplay" label="Loop / AutoPlay">
+        ```tsx live
+        import React from 'react';
+        import { Carousel } from '@salutejs/sdds-serv';
+        import styled from 'styled-components';
+
+        export function App() {
+            const StyledCard = styled.div`
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #d6d6d6;
+                border-radius: 12px;
+                width: 320px;
+                height: 180px;
+                background-color: #f4f5f7;
+                color: #1b1f23;
+                font-size: 20px;
+                font-weight: 600;
+            `;
+
+            const items = Array(10).fill(0).map((_, i) => `Слайд ${i + 1}`);
+
+            return (
+                <div style={{ display: 'block', width: '500px' }}>
+                    <Carousel loop autoPlay autoPlayInterval={2500} gap="16px">
+                        {items.map((item) => (
+                            <StyledCard key={item}>{item}</StyledCard>
+                        ))}
+                    </Carousel>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="swipe" label="Swipe">
+        ```tsx live
+        import React from 'react';
+        import { Carousel } from '@salutejs/sdds-serv';
+        import styled from 'styled-components';
+
+        export function App() {
+            const StyledCard = styled.div`
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #d6d6d6;
+                border-radius: 12px;
+                width: 320px;
+                height: 180px;
+                background-color: #f4f5f7;
+                color: #1b1f23;
+                font-size: 20px;
+                font-weight: 600;
+            `;
+
+            const items = Array(10).fill(0).map((_, i) => `Слайд ${i + 1}`);
+
+            return (
+                <div style={{ display: 'block', width: '500px' }}>
+                    <Carousel swipeEnabled gap="16px">
+                        {items.map((item) => (
+                            <StyledCard key={item}>{item}</StyledCard>
                         ))}
                     </Carousel>
                 </div>

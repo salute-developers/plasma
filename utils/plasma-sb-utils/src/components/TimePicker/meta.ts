@@ -1,6 +1,16 @@
 import { disableProps, InSpacingDecorator } from '../../index';
 
-import { labelPlacements, columnsQuantities, dropdownWidths, requiredPlacements, placements } from './fixtures';
+import {
+    labelPlacements,
+    columnsQuantities,
+    dropdownWidths,
+    requiredPlacements,
+    placements,
+    hintViews,
+    hintSizes,
+    hintTriggers,
+    hintTargetPlacements,
+} from './fixtures';
 
 type CreateMetaProps = {
     component: any;
@@ -28,8 +38,11 @@ export const createMeta = ({
             size: 'l',
             disabled: false,
             readonly: false,
+            valueError: false,
+            valueSuccess: false,
             label: 'Лейбл',
             labelPlacement: 'outer',
+            leftHelper: 'Подсказка к полю',
             placeholder: '00:00:00',
             textBefore: '',
             textAfter: '',
@@ -39,6 +52,15 @@ export const createMeta = ({
             required: false,
             requiredPlacement: 'right',
             hasRequiredIndicator: false,
+            hasHint: false,
+            hintText: 'Текст подсказки',
+            hintTrigger: 'hover',
+            hintView: 'default',
+            hintSize: 'm',
+            hintTargetPlacement: 'outer',
+            hintPlacement: 'auto',
+            hintWidth: '10rem',
+            hintHasArrow: true,
             placement: 'bottom-start',
             columnsQuantity: 3,
             dropdownWidth: 'fixed',
@@ -65,6 +87,14 @@ export const createMeta = ({
                 control: { type: 'boolean' },
                 table: { category: 'variation' },
             },
+            valueError: {
+                control: { type: 'boolean' },
+                table: { category: 'variation' },
+            },
+            valueSuccess: {
+                control: { type: 'boolean' },
+                table: { category: 'variation' },
+            },
             label: {
                 control: { type: 'text' },
                 table: { category: 'layout' },
@@ -72,6 +102,10 @@ export const createMeta = ({
             labelPlacement: {
                 options: labelPlacements,
                 control: { type: 'select' },
+                table: { category: 'layout' },
+            },
+            leftHelper: {
+                control: { type: 'text' },
                 table: { category: 'layout' },
             },
             placeholder: {
@@ -112,6 +146,55 @@ export const createMeta = ({
                 control: { type: 'boolean' },
                 if: { arg: 'required', truthy: true },
                 table: { category: 'form-related' },
+            },
+            hasHint: {
+                control: { type: 'boolean' },
+                table: { category: 'hint' },
+            },
+            hintText: {
+                control: { type: 'text' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintView: {
+                options: hintViews,
+                control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintSize: {
+                options: hintSizes,
+                control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintTargetPlacement: {
+                options: hintTargetPlacements,
+                control: { type: 'inline-radio' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintTrigger: {
+                options: hintTriggers,
+                control: { type: 'inline-radio' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintPlacement: {
+                options: placements,
+                control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintHasArrow: {
+                control: { type: 'boolean' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintWidth: {
+                control: { type: 'text' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
             },
             placement: {
                 options: placements,

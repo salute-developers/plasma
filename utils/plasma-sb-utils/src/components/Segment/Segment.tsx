@@ -3,11 +3,12 @@ import React from 'react';
 import { getConfigVariations } from '../../helpers';
 
 import { createMeta } from './meta';
-import { createDefaultStory } from './stories';
+import { createDefaultStory, createIconItemStory } from './stories';
 
 type CreateSegmentStoriesProps = {
     SegmentGroup: any;
     SegmentItem: any;
+    SegmentIconItem?: any;
     SegmentProvider: any;
     componentConfig: any;
     CounterComponent?: any;
@@ -33,6 +34,7 @@ export const getSegmentStories = (config: CreateSegmentStoriesProps) => {
     const {
         SegmentGroup,
         SegmentItem,
+        SegmentIconItem,
         SegmentProvider,
         componentConfig,
         CounterComponent,
@@ -62,13 +64,23 @@ export const getSegmentStories = (config: CreateSegmentStoriesProps) => {
         customGetContentLeft,
         customGetContentRight,
     });
+    const IconItemStoryComponent = createIconItemStory({
+        SegmentGroup,
+        SegmentIconItem,
+        SegmentProvider,
+    });
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,
     };
 
+    const IconItem = {
+        render: (args: any) => <IconItemStoryComponent {...args} />,
+    };
+
     return {
         meta,
         Default,
+        IconItem,
     };
 };

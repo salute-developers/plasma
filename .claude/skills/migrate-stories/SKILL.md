@@ -87,11 +87,11 @@ export const createMeta = ({
 
 ### `stories.tsx`
 
-Exports `createDefaultStory(Component)` — a factory that returns the render function. Uses `action` from `@storybook/addon-actions`. Example shape:
+Exports `createDefaultStory(Component)` — a factory that returns the render function. Uses `action` from `storybook/actions`. Example shape:
 
 ```tsx
 import React, { useState } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 // import icons/helpers as needed
 
 export const createDefaultStory = (MyComponent: any) => {
@@ -305,7 +305,6 @@ Write identical packages in bulk with a bash loop. Write per-package exceptions 
 ## Key rules
 
 -   Use `InSpacingDecorator` (from plasma-sb-utils), never `WithTheme` (package-specific)
--   Use `action` from `@storybook/addon-actions`, not `storybook/actions`
 -   Add `table: { category: '…' }` to **every** argType entry in `meta.ts`
 -   Add explicit argType entries (with category) for booleans/text that are only in `args` in the original
 -   Props controlled by the story component (`opened`, `contentLeft`, `onToggle`, etc.) go into the internal `commonDisabledArgs` list in `meta.ts`

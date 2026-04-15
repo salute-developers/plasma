@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect, useState, forwardRef, isValidElement } from 'react';
+import React, { useRef, useCallback, useEffect, useLayoutEffect, useState, forwardRef, isValidElement } from 'react';
 import { usePopper } from 'react-popper';
 import type { RootProps } from 'src/engines';
 import { useFocusTrap, useForkRef } from 'src/hooks';
@@ -52,20 +52,34 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
         ) => {
             const innerIsOpen = Boolean(isOpen || opened);
 
+            // Refs используются в event-хендлерах (без отслеживания зависимостей)
             const rootRef = useRef<HTMLDivElement | null>(null);
             const popoverRef = useRef<HTMLDivElement | null>(null);
-            const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
-            const portalRef = useRef<HTMLElement | null>(null);
             const targetRef = useRef<HTMLDivElement | null>(null);
+
+            // Стейт для элементов нужен usePopper: он должен видеть реальные DOM-элементы
+            // на момент рендера, а не null. Callback-рефы обновляют стейт при монтировании.
+            const [rootEl, setRootEl] = useState<HTMLDivElement | null>(null);
+            const [popoverEl, setPopoverEl] = useState<HTMLDivElement | null>(null);
+            const [portalEl, setPortalEl] = useState<HTMLElement | null>(null);
+
+            const setRootRefs = useCallback((el: HTMLDivElement | null) => {
+                rootRef.current = el;
+                setRootEl(el);
+            }, []);
+
+            const setPopoverRefs = useCallback((el: HTMLDivElement | null) => {
+                popoverRef.current = el;
+                setPopoverEl(el);
+            }, []);
 
             const trapRef = useFocusTrap(innerIsOpen && isFocusTrapped);
             const uuid = safeUseId();
 
-            const popoverForkRef = useForkRef<HTMLDivElement>(popoverRef, trapRef);
+            const handleRef = useForkRef<HTMLDivElement>(setRootRefs, outerRootRef);
+            const popoverForkRef = useForkRef<HTMLDivElement>(setPopoverRefs, trapRef);
 
             const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
-
-            const [, forceRender] = useState(false);
             const [shouldRender, setShouldRender] = useState(innerIsOpen);
 
             const portalContainer =
@@ -85,7 +99,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 offsetOuter: offset,
             });
 
-            const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
+            const { styles, attributes, forceUpdate } = usePopper(rootEl, popoverEl, {
                 // TODO: #1121
                 // eslint-disable-next-line no-nested-ternary
                 placement: isAutoArray
@@ -210,7 +224,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 return () => window.removeEventListener('keydown', onEscape);
             }, [closeOnEsc, innerIsOpen, onToggle]);
 
-            useEffect(() => {
+            useLayoutEffect(() => {
                 let portal = document.getElementById(POPOVER_PORTAL_ID);
 
                 if (typeof frame !== 'string' && frame && frame.current) {
@@ -238,13 +252,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     }
                 }
 
-                portalRef.current = portal;
-
-                /**
-                 * Изменение стейта нужно для того, чтобы Popup
-                 * отобразился после записи DOM элемента в portalRef.current
-                 */
-                forceRender(true);
+                setPortalEl(portal);
             }, []);
 
             useEffect(() => {
@@ -290,8 +298,8 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                         >
                             {isValidElement(target) && target}
                         </StyledRoot>
-                        {children && portalRef.current && (
-                            <Portal container={portalRef.current}>
+                        {children && portalEl && (
+                            <Portal container={portalEl}>
                                 <Root view={view} className={className} {...rest}>
                                     <StyledPopover
                                         {...attributes.popper}

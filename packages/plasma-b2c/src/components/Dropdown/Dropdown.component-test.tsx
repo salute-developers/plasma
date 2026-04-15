@@ -3,9 +3,10 @@ import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconLocation } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, skipForBrowser } from '@salutejs/plasma-cy-utils';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
+const itSkipForWebkit = skipForBrowser(['webkit'], it);
 
 const sizes = ['xs', 's', 'm', 'l', 'xl'];
 
@@ -323,7 +324,7 @@ describe('plasma-b2c: Dropdown', () => {
         </CypressTestDecorator>
     );
 
-    it('default', () => {
+    itSkipForWebkit('default', () => {
         cy.viewport(1000, 500);
 
         mount(

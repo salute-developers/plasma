@@ -211,6 +211,7 @@ describe('Basics', () => {
         expectTypeOf<ComboboxProps>().toHaveProperty('placeholder').toEqualTypeOf<string | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('aria-label').toEqualTypeOf<string | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('role').toEqualTypeOf<AriaRole | undefined>();
+        expectTypeOf<ComboboxProps>().toHaveProperty('autoComplete').toEqualTypeOf<string | undefined>();
     });
 });
 

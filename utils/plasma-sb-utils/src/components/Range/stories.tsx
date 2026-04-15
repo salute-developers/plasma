@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { ChangeEvent } from 'react';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { IconPlasma, IconArrowRight, IconDisclosureRight } from '@salutejs/plasma-icons';
 
 const onChangeFirstValue = action('onChangeFirstValue');

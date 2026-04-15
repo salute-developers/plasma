@@ -53,6 +53,11 @@ export const tokens = {
     textFieldPadding: '--plasma-date-time-picker-textfield-padding',
     textFieldLeftContentMargin: '--plasma-date-time-picker-textfield__left-content-margin',
     textFieldRightContentMargin: '--plasma-date-time-picker-textfield__right-content-margin',
+    textFieldRightContentWithHintMargin: '--plasma-date-time-picker--textfield__right-content-with-hint-margin',
+
+    textFieldContentRightWrapperGap: '--plasma-date-time-picker-content-right-wrapper-gap',
+    textFieldContentRightWrapperMargin: '--plasma-date-time-picker-content-right-wrapper-margin',
+
     textFieldFontFamily: '--plasma-date-time-picker-textfield-font-family',
     textFieldFontStyle: '--plasma-date-time-picker-textfield-font-style',
     textFieldFontSize: '--plasma-date-time-picker-textfield-font-size',
@@ -291,6 +296,36 @@ export const tokens = {
     shortcutPaddingRightContent: '--plasma-date-time-picker-shortcut-item-right-padding-content',
     shortcutGap: '--plasma-date-time-picker-shortcut-item-gap',
     shortcutBorderRadius: '--plasma-date-time-picker-shortcut-item-border-radius',
+
+    /* Токены для hint */
+    hintIconColor: '--plasma-date-time-picker-hint-icon-color',
+    hintMargin: '--plasma-date-time-picker-hint-margin',
+    hintTargetSize: '--plasma-date-time-picker-hint-target-size',
+    hintCustomIconTargetSize: '--plasma-date-time-picker-hint-custom-icon-target-size',
+    hintInnerLabelPlacementOffset: '--plasma-date-time-picker-hint-inner-label-placement-offset',
+
+    hintTooltipPaddingTop: '--plasma-date-time-picker-hint-tooltip-padding-top',
+    hintTooltipPaddingRight: '--plasma-date-time-picker-hint-tooltip-padding-right',
+    hintTooltipPaddingBottom: '--plasma-date-time-picker-hint-tooltip-padding-bottom',
+    hintTooltipPaddingLeft: '--plasma-date-time-picker-hint-tooltip-padding-left',
+    hintTooltipMinHeight: '--plasma-date-time-picker-hint-tooltip-min-height',
+    hintTooltipBackgroundColor: '--plasma-date-time-picker-hint-tooltip-background-color',
+    hintTooltipBoxShadow: '--plasma-date-time-picker-hint-tooltip-box-shadow',
+    hintTooltipBorderRadius: '--plasma-date-time-picker-hint-tooltip-border-radius',
+    hintTooltipColor: '--plasma-date-time-picker-hint-tooltip-color',
+    hintTooltipTextFontFamily: '--plasma-date-time-picker-hint-tooltip-text-font-family',
+    hintTooltipTextFontSize: '--plasma-date-time-picker-hint-tooltip-text-font-size',
+    hintTooltipTextFontStyle: '--plasma-date-time-picker-hint-tooltip-text-font-style',
+    hintTooltipTextFontWeight: '--plasma-date-time-picker-hint-tooltip-text-font-weight',
+    hintTooltipTextFontLetterSpacing: '--plasma-date-time-picker-hint-tooltip-text-font-letter-spacing',
+    hintTooltipTextFontLineHeight: '--plasma-date-time-picker-hint-tooltip-text-font-line-height',
+    hintTooltipContentLeftMargin: '--plasma-date-time-picker-hint-tooltip-content-left-margin',
+    hintTooltipArrowMaskWidth: '--plasma-date-time-picker-hint-tooltip-arrow-mask-width',
+    hintTooltipArrowMaskHeight: '--plasma-date-time-picker-hint-tooltip-arrow-mask-height',
+    hintTooltipArrowMaskImage: '--plasma-date-time-picker-hint-tooltip-arrow-mask-image',
+    hintTooltipArrowBackground: '--plasma-date-time-picker-hint-tooltip-arrow-background',
+    hintTooltipArrowHeight: '--plasma-date-time-picker-hint-tooltip-arrow-height',
+    hintTooltipArrowEdgeMargin: '--plasma-date-time-picker-hint-tooltip-arrow-edge-margin',
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-date-time-picker-disabled-opacity',

@@ -23,18 +23,18 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme for components',
-            defaultValue: SDDS_PLATFORM_AI_LIGHT_THEME,
             toolbar: {
                 title: 'Theme',
                 items: [SDDS_PLATFORM_AI_LIGHT_THEME, SDDS_PLATFORM_AI_DARK_THEME],
+                dynamicTitle: true,
             },
         },
         viewContainer: {
             description: 'ViewContainer mode for components',
-            defaultValue: DEFAULT_MODE,
             toolbar: {
                 title: 'ViewContainer',
                 items: [DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE],
+                dynamicTitle: true,
             },
         },
         ...reactStrictModePreviewOption,

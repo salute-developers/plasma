@@ -32,10 +32,8 @@ interface IconRootProps extends IconProps, HTMLAttributes<HTMLDivElement> {
 }
 
 const IconsRoot = styled.div`
-    display: inline-flex;
     width: var(--icon-size);
     height: var(--icon-size);
-    flex: 0 0 var(--icon-size);
 `;
 
 export const getIconComponent = (
@@ -64,7 +62,7 @@ export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, cla
         <IconsRoot
             aria-hidden
             style={{ '--icon-size': `${sizeMap[size].scale}rem`, ...style } as CSSProperties}
-            className={className || ''}
+            className={`icon-root-container ${className || ''}`}
             {...rest}
         >
             <Icon color={color || 'var(--plasma-colors-primary)'} size={size} />

@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 
 import { ComboboxProps } from '../../Combobox.types';
-import { constants, tokens } from '../../Combobox.tokens';
+import { constants, tokens, classes } from '../../Combobox.tokens';
 
 export const ListWrapper = styled.div`
     width: 100%;
@@ -11,6 +11,10 @@ export const ListWrapper = styled.div`
     background: var(${constants.background});
     box-shadow: ${constants.boxShadow},
         inset 0 0 0 var(${tokens.dropdownBorderWidth}, 0rem) var(${tokens.dropdownBorderColor}, transparent);
+
+    .${classes.emptyStateWrapper} {
+        box-shadow: none;
+    }
 `;
 
 export const ScrollContainer = styled.div<{

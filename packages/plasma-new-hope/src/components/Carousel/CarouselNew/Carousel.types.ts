@@ -4,7 +4,17 @@ export type ScrollAlign = 'start' | 'center' | 'end';
 
 export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
     /**
+     * Номер слайда.
+     * Controlled-режим.
+     */
+    index?: number;
+    /**
+     * Callback для изменения слайда;
+     */
+    onChangeIndex?: (index: number) => void;
+    /**
      * Номер слайда по-умолчанию.
+     * Только при uncontrolled-режиме.
      * @default 0
      */
     defaultIndex?: number;
@@ -43,6 +53,32 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
      * @default 20px
      */
     gap?: CSSProperties['gap'];
+    /**
+     * Зацикливание карусели.
+     * При включении после последнего слайда идет первый, и наоборот.
+     * @default false
+     */
+    loop?: boolean;
+    /**
+     * Автоматическое пролистывание карусели.
+     * @default false
+     */
+    autoPlay?: boolean;
+    /**
+     * Интервал автоматического пролистывания в мс.
+     * @default 5000
+     */
+    autoPlayInterval?: number;
+    /**
+     * Включение свайпа/drag для touch- и pointer-устройств.
+     * @default false
+     */
+    swipeEnabled?: boolean;
+    /**
+     * Включение виртуализации слайдов.
+     * @default false
+     */
+    virtual?: boolean;
 
     /**
      * Размер контрола.
