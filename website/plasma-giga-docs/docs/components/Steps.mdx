@@ -4,6 +4,8 @@ title: Steps
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Steps
 
@@ -32,35 +34,139 @@ import { PropsTable, Description } from '@site/src/components';
 - `warning`
 - `positive`
 
-## Внешнее управление
+## Тип индикатора
 
-```tsx live
-import React, { useState } from 'react';
-import { Steps, Button } from '@salutejs/plasma-giga';
+Свойство `indicator` каждого шага определяет, что отображается в индикаторе:
 
-export function App() {
-    const items = [{
-        indicator: 1,
-    }, {
-        indicator: 2,
-    }, {
-        indicator: 3,
-    }];
+<Tabs>
+    <TabItem value="numbered" label="Numbered" default>
+        ```tsx live
+        import React from 'react';
+        import { Steps } from '@salutejs/plasma-giga';
 
-    const [current, setCurrent] = useState<number>(0);
-    const onClick = () => setCurrent(() => current + 1);
+        export function App() {
+            const initialItems = [{
+                indicator: 1,
+                title: 'Title',
+                content: 'Content',
+            }, {
+                indicator: 2,
+                title: 'Title',
+                content: 'Content',
+            }, {
+                indicator: 3,
+                title: 'Title',
+                content: 'Content',
+            }];
 
-    return (
-        <section>
-            <Steps items={items} current={current} />
-            <br />
-            <Button view="secondary" onClick={onClick}>
-                Next
-            </Button>
-        </section>
-    );
-}
-```
+            const [items, setItems] = useState(initialItems);
+
+            const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
+                if (prevIndex !== undefined) {
+                    items[prevIndex].status = 'completed';
+                }
+
+                items[index].status = 'active';
+
+                setItems([...items]);
+            };
+
+            return (
+                <section>
+                    <Steps items={items} onChange={onChange} />
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="bullet" label="Bullet">
+        Если передать `indicator: undefined`, индикатор отображается в виде точки.
+
+        ```tsx live
+        import React from 'react';
+        import { Steps } from '@salutejs/plasma-giga';
+
+        export function App() {
+            const initialItems = [{
+                title: 'Title',
+                content: 'Content',
+            }, {
+                title: 'Title',
+                content: 'Content',
+            }, {
+                title: 'Title',
+                content: 'Content',
+            }];
+            
+            const [items, setItems] = useState(initialItems);
+
+            const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
+                if (prevIndex !== undefined) {
+                    items[prevIndex].status = 'completed';
+                }
+
+                items[index].status = 'active';
+
+                setItems([...items]);
+            };
+
+            return (
+                <section>
+                    <Steps items={items} onChange={onChange} />
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="icon" label="Icon">
+        Свойство `indicator` также принимает render-функцию, которая получает `{ status, size }` и возвращает иконку.
+
+        ```tsx live
+        import React from 'react';
+        import { Steps } from '@salutejs/plasma-giga';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const renderIndicator = ({ status, size }) => {
+                const iconSize = size === 'xs' || size === 's' ? 'xs' : 'xs';
+                return <IconPlasma color="inherit" size={iconSize} />;
+            };
+
+            const initialItems = [{
+                indicator: renderIndicator,
+                title: 'Title',
+                content: 'Content',
+            }, {
+                indicator: renderIndicator,
+                title: 'Title',
+                content: 'Content',
+            }, {
+                indicator: renderIndicator,
+                title: 'Title',
+                content: 'Content',
+            }];
+            
+            const [items, setItems] = useState(initialItems);
+
+            const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
+                if (prevIndex !== undefined) {
+                    items[prevIndex].status = 'completed';
+                }
+
+                items[index].status = 'active';
+
+                setItems([...items]);
+            };
+
+            return (
+                <section>
+                    <Steps items={items} onChange={onChange} />
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
 
 ## Управление через onChange и статус шага
 

@@ -10,6 +10,7 @@ export const classes = {
     selectSpinner: 'select-spinner',
     readOnly: 'readonly',
     singleLineMode: 'select-singleline-mode',
+    emptyStateWrapper: 'select-empty-state-wrapper',
 };
 
 export const tokens = {
@@ -279,6 +280,9 @@ export const tokens = {
     dividerMarginBottomTight: '--plasma-select-divider-margin-bottom-tight',
     dividerMarginLeft: '--plasma-select-divider-margin-left',
     dividerColor: '--plasma-select-divider-color',
+
+    // Токены для EmptyState
+    emptyStatePadding: '--plasma-select-empty-state-padding',
 };
 
 export const constants = {

@@ -33,6 +33,46 @@ export const Dots: React.FC<DotsProps> = memo(
         const hiddenDotsLeft = activeIndex < index;
         const hiddenDotsRight = index + (visibleCount - 1 - activeIndex) < count - 1;
 
+        const syncDotsState = () => {
+            if (
+                !dotWrapperRef.current ||
+                !transitionWrapperRef.current ||
+                !leftAnimationWrapperRef.current ||
+                !rightAnimationWrapperRef.current
+            ) {
+                return;
+            }
+
+            dotWrapperRef.current.classList.remove(classes.animating);
+            transitionWrapperRef.current.classList.remove(classes.animating);
+
+            Array.from(dotWrapperRef.current.children).forEach((child) => {
+                child.classList.remove(
+                    ...[classes.active, classes.animateOut, classes.temporaryNatural, classes.shrinking],
+                );
+                const node = child as HTMLElement;
+                node.style.animationDelay = '';
+                node.style.animationDuration = '';
+            });
+
+            dotWrapperRef.current.children[activeIndex]?.classList.add(classes.active);
+
+            if (centered) {
+                transitionWrapperRef.current.style.transform = `translateX(${
+                    (visibleCount * SIZE) / 2 - SIZE / 2 - activeIndex * SIZE
+                }px)`;
+            } else {
+                transitionWrapperRef.current.style.transform = 'translateX(0)';
+            }
+
+            leftAnimationWrapperRef.current.innerText = '';
+            rightAnimationWrapperRef.current.innerText = '';
+
+            prevIndex.current = index;
+            prevActiveIndex.current = activeIndex;
+            isAnimating.current = false;
+        };
+
         const handleClick = (i: number) => {
             if (isAnimating.current) return;
 
@@ -41,7 +81,7 @@ export const Dots: React.FC<DotsProps> = memo(
             }
         };
 
-        const handleTransitionEnd = () => {
+        const handleTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
             if (
                 !dotWrapperRef ||
                 !dotWrapperRef.current ||
@@ -55,37 +95,11 @@ export const Dots: React.FC<DotsProps> = memo(
                 return;
             }
 
-            dotWrapperRef.current.classList.remove(classes.animating);
-            transitionWrapperRef.current.classList.remove(classes.animating);
-
-            Array.from(dotWrapperRef.current.children).forEach((child) => {
-                child.classList.remove(
-                    ...[classes.active, classes.animateOut, classes.temporaryNatural, classes.shrinking],
-                );
-            });
-            dotWrapperRef.current.children[activeIndex].classList.add(classes.active);
-
-            if (centered) {
-                transitionWrapperRef.current.style.transform = `translateX(${
-                    (visibleCount * SIZE) / 2 - SIZE / 2 - activeIndex * SIZE
-                }px)`;
-            } else {
-                transitionWrapperRef.current.style.transform = 'translateX(0)';
+            if (event.target !== event.currentTarget || event.propertyName !== 'transform') {
+                return;
             }
 
-            setTimeout(() => {
-                if (transitionWrapperRef && transitionWrapperRef.current) {
-                    isAnimating.current = false;
-                }
-            });
-
-            // Очищаем блоки с анимированными точками
-            leftAnimationWrapperRef.current.innerText = '';
-            rightAnimationWrapperRef.current.innerText = '';
-
-            prevIndex.current = index;
-            prevActiveIndex.current = activeIndex;
-            isAnimating.current = false;
+            syncDotsState();
         };
 
         useLayoutEffect(() => {
@@ -113,17 +127,33 @@ export const Dots: React.FC<DotsProps> = memo(
                 !leftAnimationWrapperRef ||
                 !leftAnimationWrapperRef.current ||
                 !rightAnimationWrapperRef ||
-                !rightAnimationWrapperRef.current ||
-                isAnimating.current
+                !rightAnimationWrapperRef.current
             ) {
                 return;
             }
+
+            if (isAnimating.current) {
+                syncDotsState();
+                return;
+            }
+
             isAnimating.current = true;
             dotWrapperRef.current.classList.add(classes.animating);
             transitionWrapperRef.current.classList.add(classes.animating);
 
-            const targetIndex = getTargetIndex(index, prevIndex.current, prevActiveIndex.current, diffDotsRange);
+            const targetIndex = getTargetIndex(
+                index,
+                prevIndex.current,
+                prevActiveIndex.current,
+                diffDotsRange,
+                visibleCount,
+            );
             const dotsToAdd = Math.abs(targetIndex - activeIndex);
+
+            if (dotsToAdd === 0) {
+                syncDotsState();
+                return;
+            }
 
             if (centered) {
                 transitionWrapperRef.current.style.transform = `translateX(${

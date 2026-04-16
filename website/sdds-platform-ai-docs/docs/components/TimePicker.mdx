@@ -90,6 +90,30 @@ export function App() {
 }
 ```
 
+### Подсказки
+
+Для вывода подсказки снизу от поля используйте свойство `leftHelper`,
+для подсказки в виде Tooltip - `hintText`:
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    return (
+        <div style={{height: '500px'}}>
+            <TimePicker
+                placeholder="00:00:00"
+                leftHelper="Подсказка снизу"
+                hintText="Подсказка в виде Tooltip"
+                hintView="default"
+                hintSize="m"
+            />
+        </div>
+    );
+}
+```
+
 ### Управление клавиатурной навигацией
 
 Компонент поддерживает полную клавиатурную навигацию:

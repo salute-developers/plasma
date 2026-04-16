@@ -5,13 +5,14 @@ import { getSegmentStories } from '@salutejs/plasma-sb-utils';
 import { Counter } from '../Counter/Counter';
 
 import { config } from './SegmentGroup.config';
-import { SegmentProvider, SegmentItem, SegmentGroup, useSegment } from './Segment';
+import { SegmentProvider, SegmentItem, SegmentIconItem, SegmentGroup, useSegment } from './Segment';
 
 type SegmentGroupProps = ComponentProps<typeof SegmentGroup>;
 
-const { meta: META, Default } = getSegmentStories({
+const { meta: META, Default, IconItem } = getSegmentStories({
     SegmentGroup,
     SegmentItem,
+    SegmentIconItem,
     SegmentProvider,
     componentConfig: config,
     CounterComponent: Counter,
@@ -25,4 +26,4 @@ const meta: Meta<SegmentGroupProps> = {
 
 export default meta;
 
-export { Default };
+export { Default, IconItem };

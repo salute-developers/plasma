@@ -35,3 +35,7 @@ runs:
       shell: bash
       if: ${{ steps.cache.outputs.cache-hit != 'true' || steps.node_modules.outputs.cache-hit != 'true' }}
       run: npm ci --no-progress
+
+    - name: Apply patches for fix maxBuffer issue
+      shell: bash
+      run: npx patch-package

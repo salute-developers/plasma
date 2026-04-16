@@ -771,6 +771,24 @@ export const surfaceTransparentWarning = 'var(--surface-transparent-warning, #FA
 /** Прозрачный цвет фона поверхности/контрола успех */
 export const surfaceTransparentPositive = 'var(--surface-transparent-positive, #1A9E3233)';
 
+/** dark surface default surfaceTransparentPositiveMinor */
+export const surfaceTransparentPositiveMinor = 'var(--surface-transparent-positive-minor, #C5FC5F0D)';
+
+/** dark surface default surfaceTransparentPositiveMinorHover */
+export const surfaceTransparentPositiveMinorHover = 'var(--surface-transparent-positive-minor-hover, #C5FC5F1C)';
+
+/** dark surface default surfaceTransparentPositiveMinorActive */
+export const surfaceTransparentPositiveMinorActive = 'var(--surface-transparent-positive-minor-active, #C5FC5F08)';
+
+/** dark surface default surfaceTransparentNegativeMinor */
+export const surfaceTransparentNegativeMinor = 'var(--surface-transparent-negative-minor, #FA5F050D)';
+
+/** dark surface default surfaceTransparentNegativeMinorHover */
+export const surfaceTransparentNegativeMinorHover = 'var(--surface-transparent-negative-minor-hover, #FA5F051C)';
+
+/** dark surface default surfaceTransparentNegativeMinorActive */
+export const surfaceTransparentNegativeMinorActive = 'var(--surface-transparent-negative-minor-active, #FA5F0508)';
+
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #1C1C1CFF)';
 
@@ -1013,6 +1031,28 @@ export const onDarkSurfaceTransparentNegative = 'var(--on-dark-surface-transpare
 
 /** Прозрачный цвет фона поверхности/контрола информация на темном фоне */
 export const onDarkSurfaceTransparentInfo = 'var(--on-dark-surface-transparent-info, #118CDF33)';
+
+/** dark surface onDark surfaceTransparentPositiveMinor */
+export const onDarkSurfaceTransparentPositiveMinor = 'var(--on-dark-surface-transparent-positive-minor, #C5FC5F0D)';
+
+/** dark surface onDark surfaceTransparentPositiveMinorHover */
+export const onDarkSurfaceTransparentPositiveMinorHover =
+    'var(--on-dark-surface-transparent-positive-minor-hover, #C5FC5F1C)';
+
+/** dark surface onDark surfaceTransparentPositiveMinorActive */
+export const onDarkSurfaceTransparentPositiveMinorActive =
+    'var(--on-dark-surface-transparent-positive-minor-active, #C5FC5F08)';
+
+/** dark surface onDark surfaceTransparentNegativeMinor */
+export const onDarkSurfaceTransparentNegativeMinor = 'var(--on-dark-surface-transparent-negative-minor, #FA5F050D)';
+
+/** dark surface onDark surfaceTransparentNegativeMinorHover */
+export const onDarkSurfaceTransparentNegativeMinorHover =
+    'var(--on-dark-surface-transparent-negative-minor-hover, #FA5F051C)';
+
+/** dark surface onDark surfaceTransparentNegativeMinorActive */
+export const onDarkSurfaceTransparentNegativeMinorActive =
+    'var(--on-dark-surface-transparent-negative-minor-active, #FA5F0508)';
 
 /** Основной непрозрачный фон поверхности на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F2F2F2FF)';
@@ -1258,6 +1298,28 @@ export const onLightSurfaceInfoMinor = 'var(--on-light-surface-info-minor, #CFEC
 /** Основной прозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentPrimary = 'var(--on-light-surface-transparent-primary, #08080808)';
 
+/** dark surface onLight surfaceTransparentPositiveMinor */
+export const onLightSurfaceTransparentPositiveMinor = 'var(--on-light-surface-transparent-positive-minor, #C5FC5F0D)';
+
+/** dark surface onLight surfaceTransparentPositiveMinorHover */
+export const onLightSurfaceTransparentPositiveMinorHover =
+    'var(--on-light-surface-transparent-positive-minor-hover, #C5FC5F12)';
+
+/** dark surface onLight surfaceTransparentPositiveMinorActive */
+export const onLightSurfaceTransparentPositiveMinorActive =
+    'var(--on-light-surface-transparent-positive-minor-active, #C5FC5F17)';
+
+/** dark surface onLight surfaceTransparentNegativeMinor */
+export const onLightSurfaceTransparentNegativeMinor = 'var(--on-light-surface-transparent-negative-minor, #FA5F050D)';
+
+/** dark surface onLight surfaceTransparentNegativeMinorHover */
+export const onLightSurfaceTransparentNegativeMinorHover =
+    'var(--on-light-surface-transparent-negative-minor-hover, #FA5F0512)';
+
+/** dark surface onLight surfaceTransparentNegativeMinorActive */
+export const onLightSurfaceTransparentNegativeMinorActive =
+    'var(--on-light-surface-transparent-negative-minor-active, #FA5F0517)';
+
 /** Инвертированный основной непрозрачный фон поверхности */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F2F2F2FF)';
 
@@ -1501,6 +1563,28 @@ export const inverseSurfaceInfoMinor = 'var(--inverse-surface-info-minor, #CFECF
 
 /** Инвертированный основной прозрачный фон поверхности/контрола */
 export const inverseSurfaceTransparentPrimary = 'var(--inverse-surface-transparent-primary, #08080808)';
+
+/** dark surface inverse surfaceTransparentPositiveMinor */
+export const inverseSurfaceTransparentPositiveMinor = 'var(--inverse-surface-transparent-positive-minor, #C5FC5F0D)';
+
+/** dark surface inverse surfaceTransparentPositiveMinorHover */
+export const inverseSurfaceTransparentPositiveMinorHover =
+    'var(--inverse-surface-transparent-positive-minor-hover, #C5FC5F12)';
+
+/** dark surface inverse surfaceTransparentPositiveMinorActive */
+export const inverseSurfaceTransparentPositiveMinorActive =
+    'var(--inverse-surface-transparent-positive-minor-active, #C5FC5F17)';
+
+/** dark surface inverse surfaceTransparentNegativeMinor */
+export const inverseSurfaceTransparentNegativeMinor = 'var(--inverse-surface-transparent-negative-minor, #FA5F050D)';
+
+/** dark surface inverse surfaceTransparentNegativeMinorHover */
+export const inverseSurfaceTransparentNegativeMinorHover =
+    'var(--inverse-surface-transparent-negative-minor-hover, #FA5F0512)';
+
+/** dark surface inverse surfaceTransparentNegativeMinorActive */
+export const inverseSurfaceTransparentNegativeMinorActive =
+    'var(--inverse-surface-transparent-negative-minor-active, #FA5F0517)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #080808)';
@@ -3521,6 +3605,12 @@ export const viewContainer = {
         --surface-transparent-negative: var(--on-dark-surface-transparent-negative);
         --surface-transparent-warning: var(--on-dark-surface-transparent-warning);
         --surface-transparent-positive: var(--on-dark-surface-transparent-positive);
+        --surface-transparent-positive-minor: var(--on-dark-surface-transparent-positive-minor);
+        --surface-transparent-positive-minor-hover: var(--on-dark-surface-transparent-positive-minor-hover);
+        --surface-transparent-positive-minor-active: var(--on-dark-surface-transparent-positive-minor-active);
+        --surface-transparent-negative-minor: var(--on-dark-surface-transparent-negative-minor);
+        --surface-transparent-negative-minor-hover: var(--on-dark-surface-transparent-negative-minor-hover);
+        --surface-transparent-negative-minor-active: var(--on-dark-surface-transparent-negative-minor-active);
         --inverse-surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --inverse-surface-solid-primary: var(--on-light-surface-solid-primary);
@@ -3602,6 +3692,12 @@ export const viewContainer = {
         --inverse-surface-negative-minor: var(--on-light-surface-negative-minor);
         --inverse-surface-info-minor: var(--on-light-surface-info-minor);
         --inverse-surface-transparent-primary: var(--on-light-surface-transparent-primary);
+        --inverse-surface-transparent-positive-minor: var(--on-light-surface-transparent-positive-minor);
+        --inverse-surface-transparent-positive-minor-hover: var(--on-light-surface-transparent-positive-minor-hover);
+        --inverse-surface-transparent-positive-minor-active: var(--on-light-surface-transparent-positive-minor-active);
+        --inverse-surface-transparent-negative-minor: var(--on-light-surface-transparent-negative-minor);
+        --inverse-surface-transparent-negative-minor-hover: var(--on-light-surface-transparent-negative-minor-hover);
+        --inverse-surface-transparent-negative-minor-active: var(--on-light-surface-transparent-negative-minor-active);
         --background-primary: var(--dark-background-primary);
         --background-primary-brightness: var(--dark-background-primary-brightness);
         --background-secondary: var(--dark-background-secondary);
@@ -3975,6 +4071,12 @@ export const viewContainer = {
         --surface-accent: var(--on-light-surface-accent);
         --surface-promo: var(--on-light-surface-promo);
         --surface-solid-secondary: var(--on-light-surface-solid-secondary);
+        --surface-transparent-positive-minor: var(--on-light-surface-transparent-positive-minor);
+        --surface-transparent-positive-minor-hover: var(--on-light-surface-transparent-positive-minor-hover);
+        --surface-transparent-positive-minor-active: var(--on-light-surface-transparent-positive-minor-active);
+        --surface-transparent-negative-minor: var(--on-light-surface-transparent-negative-minor);
+        --surface-transparent-negative-minor-hover: var(--on-light-surface-transparent-negative-minor-hover);
+        --surface-transparent-negative-minor-active: var(--on-light-surface-transparent-negative-minor-active);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
@@ -4056,6 +4158,12 @@ export const viewContainer = {
         --inverse-surface-transparent-warning: var(--on-dark-surface-transparent-warning);
         --inverse-surface-transparent-negative: var(--on-dark-surface-transparent-negative);
         --inverse-surface-transparent-info: var(--on-dark-surface-transparent-info);
+        --inverse-surface-transparent-positive-minor: var(--on-dark-surface-transparent-positive-minor);
+        --inverse-surface-transparent-positive-minor-hover: var(--on-dark-surface-transparent-positive-minor-hover);
+        --inverse-surface-transparent-positive-minor-active: var(--on-dark-surface-transparent-positive-minor-active);
+        --inverse-surface-transparent-negative-minor: var(--on-dark-surface-transparent-negative-minor);
+        --inverse-surface-transparent-negative-minor-hover: var(--on-dark-surface-transparent-negative-minor-hover);
+        --inverse-surface-transparent-negative-minor-active: var(--on-dark-surface-transparent-negative-minor-active);
         --background-primary-brightness: var(--light-background-primary-brightness);
         --background-primary: var(--light-background-primary);
         --background-secondary: var(--light-background-secondary);

@@ -36,6 +36,8 @@ export * from './components/Select';
 
 // Data entry (date)
 export * from './components/DatePicker';
+export * from './components/DateTimePicker';
+export * from './components/TimePicker';
 
 // Data entry (inputs)
 export * from './components/Range';

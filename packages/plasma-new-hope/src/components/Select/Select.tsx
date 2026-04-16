@@ -19,7 +19,8 @@ import { initialItemsTransform, updateAncestors, updateDescendants, updateSingle
 import { Inner, Target, VirtualList, SelectAll, TreeList } from './ui';
 import { pathReducer, focusedPathReducer, treePathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
-import { Ul, base, ListWrapper } from './Select.styles';
+import { Ul, base, ListWrapper, StyledEmptyState } from './Select.styles';
+import { classes } from './Select.tokens';
 import type { MergedSelectProps, RequiredProps } from './Select.types';
 import type { MergedDropdownNodeTransformed } from './ui/Inner/ui/Item/Item.types';
 import { FloatingPopover } from './FloatingPopover';
@@ -82,6 +83,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
             flip,
             chipClickArea,
             singleLine,
+            emptyStateDescription,
             // @ts-ignore
             _offset,
 
@@ -512,6 +514,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                     virtual={virtual}
                                     beforeList={beforeList}
                                     afterList={afterList}
+                                    emptyStateDescription={emptyStateDescription}
                                 />
                             ) : (
                                 <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
@@ -530,27 +533,36 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<MergedSelectP
                                             <SelectAll selectAllOptions={props.selectAllOptions} variant={variant} />
                                         )}
 
-                                        {virtual ? (
-                                            <VirtualList
-                                                items={transformedItems}
-                                                listMaxHeight={listMaxHeight || listHeight}
-                                                onScroll={onScroll}
+                                        {isEmpty(transformedItems) ? (
+                                            <StyledEmptyState
+                                                className={classes.emptyStateWrapper}
+                                                description={emptyStateDescription || 'Ничего не найдено'}
                                             />
                                         ) : (
-                                            transformedItems.map((item, index) => (
-                                                <Inner
-                                                    key={`${index}/0`}
-                                                    item={item}
-                                                    currentLevel={0}
-                                                    path={path}
-                                                    dispatchPath={dispatchPath}
-                                                    index={index}
-                                                    listWidth={listWidth}
-                                                    portal={listWrapperRef}
-                                                    shift={shift}
-                                                    flip={flip}
-                                                />
-                                            ))
+                                            <>
+                                                {virtual ? (
+                                                    <VirtualList
+                                                        items={transformedItems}
+                                                        listMaxHeight={listMaxHeight || listHeight}
+                                                        onScroll={onScroll}
+                                                    />
+                                                ) : (
+                                                    transformedItems.map((item, index) => (
+                                                        <Inner
+                                                            key={`${index}/0`}
+                                                            item={item}
+                                                            currentLevel={0}
+                                                            path={path}
+                                                            dispatchPath={dispatchPath}
+                                                            index={index}
+                                                            listWidth={listWidth}
+                                                            portal={listWrapperRef}
+                                                            shift={shift}
+                                                            flip={flip}
+                                                        />
+                                                    ))
+                                                )}
+                                            </>
                                         )}
                                         {afterList}
                                     </Ul>

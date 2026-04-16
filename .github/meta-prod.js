@@ -82,7 +82,7 @@ module.exports = {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-scan-docs'],
     },
     'sdds-bizcom': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-bizcom-docs'],
     },
     'sdds-platform-ai': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'sdds-platform-ai-docs', 'plasma-docs-ui'],

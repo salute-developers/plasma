@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
+import {
+    mount,
+    getComponent,
+    getDescribeFN,
+    hasComponent,
+    getBaseVisualTests,
+    PadMe,
+    skipForPackages,
+} from '@salutejs/plasma-cy-utils';
 // @ts-ignore
 import { IconPlasma } from 'override/_Icon';
 
@@ -8,6 +16,7 @@ import type { DateTimePickerProps } from './DateTimePicker.types';
 const componentExists = hasComponent('DateTimePicker');
 const componentButtonExists = hasComponent('Button');
 const describeFn = getDescribeFN('DateTimePicker');
+const itSkip = skipForPackages(['plasma-b2c', 'plasma-web']);
 
 const openDateTimePicker = () => {
     cy.viewport(750, 700);
@@ -237,6 +246,35 @@ describeFn('DateTimePicker', () => {
             failureThreshold: 0.02,
             failureThresholdType: 'percent',
         });
+    });
+
+    itSkip('with hint', () => {
+        const cases = [
+            { labelPlacement: 'outer' },
+            { labelPlacement: 'inner' },
+            { labelPlacement: 'inner', hintTargetPlacement: 'inner' },
+        ] as const;
+
+        mount(
+            <>
+                {cases.map((props) => (
+                    <div style={{ margin: '0 3rem' }}>
+                        <DateTimePicker
+                            placeholder="Placeholder"
+                            label="Title"
+                            hintText="Подсказка к полю"
+                            hintTrigger="click"
+                            {...props}
+                        />
+                        <PadMe />
+                    </div>
+                ))}
+            </>,
+        );
+
+        cy.get('.popover-wrapper').first().click();
+
+        cy.matchImageSnapshot();
     });
 
     it('required', () => {

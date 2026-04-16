@@ -12,7 +12,7 @@ export const StyledRoot = styled.div`
 `;
 
 export const StyledWrapper = styled.div`
-    display: inline-block;
+    display: inline-flex;
 
     &.${classes.targetAsRef} {
         position: absolute;
@@ -56,7 +56,7 @@ export const StyledPopover = styled.div<Pick<PopoverProps, 'zIndex'>>`
     border-radius: inherit;
 
     &.${classes.animate} {
-        transition: opacity 0.2s ease-in-out, transform 0s ease-in-out, visibility 0.2s;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s;
     }
 
     &.${classes.open} {

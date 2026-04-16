@@ -43,9 +43,17 @@ export const getTargetIndex = (
     prevIndex: number,
     prevActiveIndex: number,
     diffDotsRange: number,
+    visibleCount: number,
 ): number => {
-    if (index > prevIndex) {
-        return prevActiveIndex + diffDotsRange;
+    const rawTargetIndex = index > prevIndex ? prevActiveIndex + diffDotsRange : prevActiveIndex - diffDotsRange;
+
+    if (rawTargetIndex < 0) {
+        return 0;
     }
-    return prevActiveIndex - diffDotsRange;
+
+    if (rawTargetIndex >= visibleCount) {
+        return visibleCount - 1;
+    }
+
+    return rawTargetIndex;
 };

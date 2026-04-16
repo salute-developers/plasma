@@ -20,4 +20,6 @@ export { getTreeStories } from './Tree';
 export * from './Skeleton';
 export { getPaginationStories } from './Pagination';
 export { getNumberInputStories } from './NumberInput';
+export * from './Chip';
 export * from './Note';
+export * from './Carousel';

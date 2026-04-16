@@ -1,6 +1,6 @@
 import type { CSSProperties, HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
-import type { LabelProps } from '../TextField/TextField.types';
+import type { HintProps, LabelProps } from '../TextField/TextField.types';
 
 export type Placement =
     | 'top'
@@ -91,6 +91,10 @@ export type TextFieldProps = {
      */
     textAfter?: string;
     /**
+     * Автозаполнение полей.
+     */
+    autoComplete?: string;
+    /**
      * Обработчик изменения значения
      */
     onChange?: (event: TimePickerChangeEvent) => void;
@@ -178,5 +182,6 @@ type BasicProps = {
 
 export type TimePickerProps = BasicProps &
     TextFieldProps &
+    HintProps &
     TimePickerPopoverProps &
     Omit<HTMLAttributes<HTMLDivElement>, 'defaultValue'>;

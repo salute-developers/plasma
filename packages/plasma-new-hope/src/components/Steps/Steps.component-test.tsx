@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 // @ts-ignore
 import { IconMic } from 'override/_Icon';
 
@@ -16,6 +16,20 @@ const stepItems: StepItemProps[] = [
     { title: 'Title', content: 'Content', status: 'inactive', indicator: 3 },
     { title: 'Title', content: 'Content', status: 'inactive', indicator: 4 },
     { title: 'Title', content: 'Content', status: 'inactive', indicator: 5 },
+];
+
+const complexContent = (
+    <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+        <span>Text</span>
+        <span>Lorem Ipsum</span>
+        <input type="text" placeholder="input" />
+    </div>
+);
+
+const complexStepItems: StepItemProps[] = [
+    { title: 'Title', content: complexContent, status: 'active', indicator: 1 },
+    { title: 'Title', content: complexContent, status: 'inactive', indicator: 2 },
+    { title: 'Title', content: complexContent, status: 'inactive', indicator: 3 },
 ];
 
 getBaseVisualTests({
@@ -638,6 +652,16 @@ describeFn('Steps', () => {
                     </VerticalWrapper>
                 </>,
             );
+            cy.matchImageSnapshot();
+        });
+
+        it('item stretch to max width', () => {
+            mount(
+                <div style={{ maxWidth: '450px' }}>
+                    <Steps items={complexStepItems} orientation="vertical" />
+                </div>,
+            );
+
             cy.matchImageSnapshot();
         });
     });
