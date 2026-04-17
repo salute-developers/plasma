@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import type { DraggableData } from 'react-draggable';
 
+/** @deprecated */
 export type SliderSettings = Partial<{
     indent?: number;
     fontSizeMultiplier?: number;
@@ -8,6 +8,14 @@ export type SliderSettings = Partial<{
     fillColor?: string;
 }>;
 
+/** @deprecated */
+export interface SliderInternalProps {
+    settings?: SliderSettings;
+}
+
+/**
+ * Общие пропсы для SingleSlider и DoubleSlider.
+ */
 export interface SliderBaseProps {
     /**
      * Минимальное значение
@@ -18,38 +26,35 @@ export interface SliderBaseProps {
      */
     max: number;
     /**
-     * подпись к слайдеру
+     * Подпись к слайдеру
      */
     label?: string;
     /**
-     * Слот под контент слева от подписи (например иконку)
+     * Слот под контент слева от подписи (например, иконку)
      */
     labelContentLeft?: ReactNode;
     /**
      * Компонент неактивен
      */
     disabled?: boolean;
-    labelPlacement?: string;
     /**
-     * Расположение значений минимума и максимума интервала.
+     * Шаг ползунка.
+     * @default 1
      */
-    rangeValuesPlacement?: string;
-}
-
-export interface SliderInternalProps {
+    step?: number;
     /**
-     * Настройки внешнего вида slider
+     * Размер увеличенного шага (клавиши PageUp / PageDown).
+     * Указывает процентное отношение от диапазона [min, max].
+     * Например, значение 10 при диапазоне 0–100 даёт шаг 10.
+     * @default 10
      */
-    settings?: SliderSettings;
-}
-
-export interface SliderViewProps extends SliderBaseProps, SliderInternalProps {
-    orientation: 'horizontal' | 'vertical';
-    reversed?: boolean;
-    size: string;
-    sliderAlign?: string;
-    railFillWidth: number;
-    setStepSize(stepSize: number): void;
-    railFillXPosition?: number;
-    onChange?(value: number, data: DraggableData): void;
+    multipleStepSize?: number;
+    /**
+     * Вид контрола
+     */
+    view?: string;
+    /**
+     * Размер контрола
+     */
+    size?: string;
 }

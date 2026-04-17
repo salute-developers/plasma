@@ -60,20 +60,26 @@ type SingleSliderOrientationPropsUnion =
           labelPlacement?: 'top' | 'left' | 'none';
           /**
            * Расположение значений минимума и максимума интервала.
-           * @default top
+           * @default bottom
            * @description
            * Может принимать три значения:
-           * side - отображение по сторонам
-           * bottom - отображение снизу
-           * none - скрывает значения
+           * - top - отображение сверху
+           * - bottom - отображение снизу
+           * - side - отображение по сторонам (не применяется при задании `scaleTicks`)
+           * - none - скрывает значения (не применяется при задании `scaleTicks`)
            */
-          scaleAlign?: 'side' | 'bottom' | 'none';
+          scaleAlign?: 'top' | 'side' | 'bottom' | 'none';
           /**
            * Выравнивание элементов в Slider.
            */
           sliderAlign?: never | 'none';
-
+          /**
+           * Изменяет направление слайдера
+           */
           reversed?: never;
+          /**
+           * Меняет местами иконку и подпись
+           */
           labelReversed?: never;
       }
     | {
@@ -87,9 +93,17 @@ type SingleSliderOrientationPropsUnion =
            * @default 'left'
            */
           sliderAlign?: 'center' | 'left' | 'right' | 'none';
+          /**
+           * Выравнивание элементов в Slider.
+           */
           scaleAlign?: never;
-
+          /**
+           * Изменяет направление слайдера
+           */
           reversed?: boolean;
+          /**
+           * Меняет местами иконку и подпись
+           */
           labelReversed?: boolean;
       };
 
@@ -150,15 +164,6 @@ export type SingleSliderProps = SliderBaseProps &
          */
         labelContent?: ReactNode;
 
-        /**
-         * Размера увеличенного шага (для клавиш PageUp, PageDown).
-         * Указывает процентное отношение от максимально возможного значения.
-         * Указав значение 20 при максимуме в 100, получим 20%.
-         */
-        multipleStepSize?: number;
-
-        view?: string;
-        size?: 's' | 'm' | 'l';
         type?: 'single';
 
         /**
@@ -190,4 +195,11 @@ export type SingleSliderProps = SliderBaseProps &
          * hover - при наведении на Slider
          */
         currentValueVisibility: 'always' | 'hover';
+
+        /**
+         * Массив значений для отображения шкалы делений под ползунком.
+         * При клике на деление ползунок перемещается к соответствующему значению.
+         * @example scaleTicks={[0, 25, 50, 75, 100]}
+         */
+        scaleTicks?: number[];
     };
