@@ -8,6 +8,14 @@ export type LinkCustomProps = {
      */
     disabled?: boolean;
     /**
+     * Режим подчёркивания ссылки:
+     * - `none` — без подчёркивания
+     * - `hover` — подчёркивание при наведении
+     * - `always` — всегда подчёркнута
+     * @default 'none'
+     */
+    underline?: 'none' | 'hover' | 'always';
+    /**
      * Вид компонента.
      */
     view?: string;
