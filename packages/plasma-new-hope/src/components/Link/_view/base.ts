@@ -1,13 +1,9 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../Link.tokens';
+import { classes, tokens } from '../Link.tokens';
 
 const getColor = (cssVar: string) => `
     color: var(${cssVar}, var(${tokens.linkColor}));
-
-    ::before {
-        opacity: 1;
-    }
 `;
 
 export const base = css`
@@ -15,8 +11,10 @@ export const base = css`
 
     color: var(${tokens.linkColor});
 
-    ::before {
-        border-bottom: var(${tokens.linkUnderlineBorder}) solid currentColor;
+    &.${classes.linkUnderlineAlways}, &.${classes.linkUnderlineHover}:hover {
+        text-decoration: underline solid var(${tokens.linkUnderlineColor}, currentColor)
+            var(${tokens.linkUnderlineBorder}, auto);
+        text-underline-offset: var(${tokens.linkUnderlineOffset}, auto);
     }
 
     &:hover {
