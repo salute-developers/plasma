@@ -173,8 +173,6 @@ export const Default: StoryObj<TooltipProps> = {
 
 const StyledRow = styled.div`
     display: flex;
-    width: 150vw;
-    height: auto;
     padding: 10rem;
 `;
 
