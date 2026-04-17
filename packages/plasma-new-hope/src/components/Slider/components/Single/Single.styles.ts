@@ -1,29 +1,23 @@
 import { styled } from '@linaria/react';
 
 import { classes, tokens } from '../../Slider.tokens';
-import { Slider } from '../SliderBase/SliderBase.styles';
+import {
+    Label,
+    LabelWrapper,
+    BaseSliderContainer,
+    BaseStyledTrack,
+    BaseStyledRange,
+} from '../SliderBase/SliderBase.styles';
 
-export const LabelWrapper = styled.div`
-    color: var(${tokens.labelColor});
-
-    display: flex;
-    gap: var(${tokens.labelWrapperGap});
-`;
+export { Label, LabelWrapper };
 
 export const LabelContent = styled.div`
     display: inline-flex;
 `;
 
-export const Label = styled.label`
-    font-family: var(${tokens.labelFontFamily});
-    font-size: var(${tokens.labelFontSize});
-    font-style: var(${tokens.labelFontStyle});
-    font-weight: var(${tokens.labelFontWeight});
-    letter-spacing: var(${tokens.labelLetterSpacing});
-    line-height: var(${tokens.labelLineHeight});
-`;
-
 export const StyledRangeValue = styled.span`
+    grid-area: b;
+
     color: var(${tokens.rangeValueColor});
     font-family: var(${tokens.valueFontFamily});
     font-size: var(${tokens.valueFontSize});
@@ -41,6 +35,222 @@ export const StyledRangeValue = styled.span`
     &.${classes.activeRangeValue} {
         color: var(${tokens.labelColor});
     }
+
+    &.${classes.maxRangeValue} {
+        grid-area: c;
+    }
+`;
+
+export const SliderContainer = styled(BaseSliderContainer)`
+    grid-area: a;
+    flex: 1;
+
+    &.${classes.reversed} {
+        transform: scaleX(-1);
+    }
+
+    &.${classes.verticalOrientation} {
+        width: var(${tokens.size});
+        height: 100%;
+        transform: scaleY(-1);
+        container-type: size;
+
+        &.${classes.reversed} {
+            transform: none;
+        }
+    }
+`;
+
+export const StyledTrack = styled(BaseStyledTrack)`
+    .${classes.verticalOrientation} & {
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: var(${tokens.railThickness});
+        height: auto;
+    }
+`;
+
+export const StyledProgress = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: var(${tokens.railThickness});
+    border-radius: var(${tokens.railBorderRadius}) 0 0 var(${tokens.railBorderRadius});
+    background: var(${tokens.fillColor});
+    pointer-events: none;
+
+    .${classes.verticalOrientation} & {
+        bottom: 0;
+        left: 50%;
+        top: auto;
+        transform: translateX(-50%);
+        width: var(${tokens.railThickness});
+        height: 0; /* переопределяется через style */
+    }
+`;
+
+export const StyledCurrentValue = styled.span`
+    position: absolute;
+    top: var(${tokens.currentValueTopOffset});
+    transform: translateX(-50%);
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 2;
+
+    font-family: var(${tokens.valueFontFamily});
+    font-size: var(${tokens.valueFontSize});
+    font-style: var(${tokens.valueFontStyle});
+    font-weight: var(${tokens.valueFontWeight});
+    letter-spacing: var(${tokens.valueLetterSpacing});
+    line-height: var(${tokens.valueLineHeight});
+    color: var(${tokens.rangeValueColor});
+
+    /* Компенсация scaleX(-1) у родителя в режиме reversed */
+    .${classes.reversed} & {
+        transform: translateX(-50%) scaleX(-1);
+    }
+
+    .${classes.verticalOrientation} & {
+        top: auto;
+        left: var(${tokens.currentValueTopOffset});
+        transform: translateY(-50%) scaleY(-1);
+    }
+
+    .${classes.labelAlignLeft} .${classes.verticalOrientation} & {
+        left: unset;
+        right: var(${tokens.currentValueTopOffset});
+    }
+
+    .${classes.verticalOrientation}.${classes.reversed} & {
+        transform: translateY(-50%);
+    }
+`;
+
+export const ScaleTick = styled.div<{
+    tickValue: number;
+    isVertical?: boolean;
+    sliderAlign?: 'center' | 'left' | 'right' | 'none';
+    scaleAlign?: 'top' | 'side' | 'bottom' | 'none';
+}>`
+    position: absolute;
+    width: 0;
+    overflow: visible;
+    font-family: var(${tokens.valueFontFamily});
+    font-size: var(${tokens.valueFontSize});
+    font-style: var(${tokens.valueFontStyle});
+    font-weight: var(${tokens.valueFontWeight});
+    letter-spacing: var(${tokens.valueLetterSpacing});
+    line-height: var(${tokens.valueLineHeight});
+
+    &:before {
+        content: ${({ tickValue }) => `"${tickValue}"`};
+        position: absolute;
+        top: ${({ isVertical, scaleAlign }) => {
+            if (isVertical) return '50%';
+            if (scaleAlign === 'top') return 'auto';
+            return '0';
+        }};
+        bottom: ${({ isVertical, scaleAlign }) => {
+            if (!isVertical && scaleAlign === 'top') return '0';
+            return 'unset';
+        }};
+        left: ${({ isVertical, sliderAlign }) => {
+            if (isVertical) {
+                if (sliderAlign === 'right') {
+                    return 'unset';
+                }
+
+                return '0';
+            }
+            return '0';
+        }};
+        right: ${({ isVertical, sliderAlign }) => {
+            if (isVertical && sliderAlign === 'right') {
+                return '0';
+            }
+
+            return 'unset';
+        }};
+        transform: ${({ isVertical }) => (isVertical ? 'translateY(-50%)' : 'translateX(-50%)')};
+
+        color: var(${tokens.rangeValueColor});
+        cursor: pointer;
+    }
+`;
+
+export const ScaleTickDot = styled.span<{
+    filled?: boolean;
+    reversed?: boolean;
+    isVertical?: boolean;
+    scaleAlign?: 'top' | 'side' | 'bottom' | 'none';
+    sliderAlign?: 'center' | 'left' | 'right' | 'none';
+}>`
+    position: absolute;
+    z-index: 0;
+
+    top: ${({ isVertical, scaleAlign }) => {
+        if (isVertical) {
+            return '50%';
+        }
+
+        if (scaleAlign === 'top') {
+            return `calc(100% + var(${tokens.size}) / 2)`;
+        }
+
+        return `calc(var(${tokens.size}) / -2)`;
+    }};
+
+    left: ${({ isVertical, sliderAlign }) => {
+        if (isVertical) {
+            if (sliderAlign === 'right') {
+                return `calc(100% + var(${tokens.size}) / 2)`;
+            }
+
+            return `calc(var(${tokens.size}) / -2)`;
+        }
+
+        return '0';
+    }};
+
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: block;
+    width: var(${tokens.tickSize});
+    height: var(${tokens.tickSize});
+    background-color: ${({ filled }) => (filled ? `var(${tokens.tickDotFilledColor})` : `var(${tokens.tickDotColor})`)};
+`;
+
+export const ScaleTicksWrapper = styled.datalist<{ isVertical?: boolean; reversed?: boolean }>`
+    position: relative;
+    display: block;
+
+    grid-column-start: ${({ isVertical }) => (isVertical ? 'b' : 'b')};
+    grid-column-end: ${({ isVertical }) => (isVertical ? 'b' : 'c')};
+
+    grid-row-start: ${({ isVertical }) => (isVertical ? 'b' : 'b')};
+    grid-row-end: ${({ isVertical }) => (isVertical ? 'c' : 'b')};
+`;
+
+export const StyledRange = styled(BaseStyledRange)`
+    position: relative;
+    z-index: 1;
+
+    &::-webkit-slider-thumb {
+        pointer-events: ${({ showPointer }) => (showPointer === false ? 'none' : 'auto')};
+    }
+
+    .${classes.verticalOrientation} & {
+        position: absolute;
+        width: 100cqh;
+        height: var(${tokens.size});
+        top: calc(50% - var(${tokens.size}) / 2);
+        left: calc(50% - 100cqh / 2);
+        transform: rotate(-90deg);
+    }
 `;
 
 export const SliderBaseWrapper = styled.div`
@@ -48,24 +258,29 @@ export const SliderBaseWrapper = styled.div`
     flex: 1;
     position: relative;
 
+    &:has(${StyledRange}:disabled) ${ScaleTicksWrapper} ${ScaleTick}:before {
+        cursor: not-allowed;
+    }
+
     &.${classes.rangeValuesPlacementOuter} {
         display: grid;
         grid-template-areas:
             'a a'
             'b c';
 
-        ${Slider} {
-            grid-area: a;
-        }
-
         ${StyledRangeValue} {
             width: fit-content;
-            grid-area: b;
 
             &.${classes.maxRangeValue} {
-                grid-area: c;
                 justify-self: end;
             }
+        }
+
+        &.${classes.scalePlacementTop} {
+            grid-template-areas:
+                'b c'
+                'a a';
+            padding-top: var(${tokens.valueLineHeight});
         }
     }
 
@@ -83,7 +298,7 @@ export const SliderBaseWrapper = styled.div`
     }
 `;
 
-export const SingleWrapper = styled.div`
+export const SingleWrapper = styled.div<{ hasTicks?: boolean }>`
     display: flex;
     opacity: var(${tokens.disabledOpacity});
 
@@ -93,9 +308,17 @@ export const SingleWrapper = styled.div`
         ${LabelWrapper} {
             margin-bottom: var(${tokens.labelWrapperMarginBottom});
         }
+
+        &.${classes.scalePlacementTop} {
+            ${LabelWrapper} {
+                margin-bottom: var(${tokens.valueLineHeight});
+            }
+        }
     }
 
     &.${classes.labelPlacementInner} {
+        align-items: flex-start;
+
         ${LabelWrapper} {
             margin-right: var(${tokens.labelWrapperMarginRight});
         }
@@ -181,22 +404,27 @@ export const SingleWrapper = styled.div`
         justify-content: center;
 
         ${SliderBaseWrapper} {
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            grid-template-areas: ${({ hasTicks }) =>
+                hasTicks
+                    ? `'a b'
+                'a c'`
+                    : `'b'
+                    'a'
+                    'a'
+                    'c'`};
         }
 
         &.${classes.labelAlignCenter} {
+            ${SliderBaseWrapper} {
+                grid-template-rows: auto 1fr auto;
+            }
+            
             ${StyledRangeValue} {
-                position: static;
-                bottom: 0;
-                left: 0;
+                justify-self: center;
                 margin-bottom: var(${tokens.rangeValueVerticalMargin});
 
                 &.${classes.maxRangeValue} {
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
                     margin-top: var(${tokens.rangeValueVerticalMargin});
                     margin-bottom: 0;
                 }
@@ -216,18 +444,12 @@ export const SingleWrapper = styled.div`
                 width: unset;
             }
 
-            ${Slider} {
-                grid-area: a;
-            }
-
             ${StyledRangeValue} {
-                grid-area: b;
-                align-self: start;
-                justify-self: end;
+                align-self: flex-start;
+                justify-self: flex-end;
 
                 &.${classes.maxRangeValue} {
-                    grid-area: c;
-                    align-self: end;
+                    align-self: flex-end;
                 }
             }
         }
@@ -237,10 +459,11 @@ export const SingleWrapper = styled.div`
                 grid-template-areas:
                     'a b'
                     'a c';
-            }
-
+            }  
+                
             ${StyledRangeValue} {
-                justify-self: start;
+                align-self: flex-start;
+                justify-self: flex-start;
             }
         }
     }

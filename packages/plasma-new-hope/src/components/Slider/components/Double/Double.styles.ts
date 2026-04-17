@@ -1,31 +1,27 @@
 import { styled } from '@linaria/react';
 import { InputWrapper } from 'src/components/TextField/TextField.styles';
+import { component, mergeConfig } from 'src/engines';
 
 import { classes, tokens } from '../../Slider.tokens';
-import { component, mergeConfig } from '../../../../engines';
 import { textFieldConfig, textFieldTokens } from '../../../TextField';
+import {
+    Label,
+    LabelWrapper as BaseLabelWrapper,
+    BaseSliderContainer,
+    BaseStyledTrack,
+    BaseStyledRange,
+} from '../SliderBase/SliderBase.styles';
 
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
 
-export const LabelWrapper = styled.div`
-    color: var(${tokens.labelColor});
+export { Label };
 
-    display: flex;
-    gap: var(${tokens.labelWrapperGap});
+export const LabelWrapper = styled(BaseLabelWrapper)`
     margin-bottom: var(${tokens.labelWrapperMarginBottom});
 `;
 
 export const LabelContentLeft = styled.div``;
-
-export const Label = styled.label`
-    font-family: var(${tokens.labelFontFamily});
-    font-size: var(${tokens.labelFontSize});
-    font-style: var(${tokens.labelFontStyle});
-    font-weight: var(${tokens.labelFontWeight});
-    letter-spacing: var(${tokens.labelLetterSpacing});
-    line-height: var(${tokens.labelLineHeight});
-`;
 
 export const InputsWrapper = styled.div`
     display: flex;
@@ -37,7 +33,7 @@ export const InputsWrapper = styled.div`
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`
     flex: 1;
-    
+
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
     ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundColorHover});
@@ -60,7 +56,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.fontWeight}: var(${tokens.textFieldFontWeight});
     ${textFieldTokens.letterSpacing}: var(${tokens.textFieldLetterSpacing});
     ${textFieldTokens.lineHeight}: var(${tokens.textFieldLineHeight});
-    
+
     &&.${classes.textFieldHovered} {
         ${InputWrapper} {
             background: var(${tokens.textFieldBackgroundColorHover});
@@ -68,7 +64,7 @@ export const StyledInput = styled(TextField)`
                 inset 0 0 0 0 transparent;
         }
     }
-    
+
     &&.${classes.textFieldFocused} {
         ${InputWrapper} {
             background: var(${tokens.textFieldBackgroundColorFocus});
@@ -79,7 +75,7 @@ export const StyledInput = styled(TextField)`
 
     &.${classes.firstTextField}{
         margin-right: var(${tokens.textFieldWebMarginRight}, 0);
-    
+
         ${InputWrapper} {
             clip-path: var(${tokens.textFieldWebClipPath});
         }
@@ -109,6 +105,33 @@ export const StyledInput = styled(TextField)`
 
 export const DoubleWrapper = styled.div`
     opacity: var(${tokens.disabledOpacity});
+`;
+
+export const SliderContainer = BaseSliderContainer;
+
+export const StyledTrack = BaseStyledTrack;
+
+export const StyledDoubleProgress = styled.div`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: var(${tokens.railThickness});
+    border-radius: var(${tokens.railBorderRadius});
+    background: var(${tokens.fillColor});
+    pointer-events: none;
+`;
+
+export const StyledRange = styled(BaseStyledRange)`
+    grid-area: 1 / 1;
+    pointer-events: none;
+
+    &::-webkit-slider-thumb {
+        pointer-events: all;
+    }
+
+    &::-moz-range-thumb {
+        pointer-events: all;
+    }
 `;
 
 export const SliderWrapper = styled.div``;

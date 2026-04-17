@@ -1,16 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import type { FC, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
+import type { FC } from 'react';
 import cls from 'classnames';
 
-import { SliderBase } from '../SliderBase/SliderBase';
-import { Handler } from '../../ui';
-import type { HandlerProps } from '../../ui';
-import { isNumber, noop } from '../../../../utils';
-import { sizeData } from '../../utils';
-import { classes } from '../../Slider.tokens';
-import { InputHidden } from '../SliderBase/SliderBase.styles';
+import { classes, privateTokens } from '../../Slider.tokens';
+import type { FormTypeString } from '../../../../types/FormType';
+import { useRangeHandlers } from '../../hooks/useRangeHandlers';
+import { useDoubleTextFieldHandlers } from '../../hooks/useDoubleTextFieldHandlers';
 
-import { DoubleSliderProps } from './Double.types';
+import type { DoubleSliderProps } from './Double.types';
 import {
     SliderWrapper,
     InputsWrapper,
@@ -19,274 +16,162 @@ import {
     LabelWrapper,
     StyledInput,
     DoubleWrapper,
+    SliderContainer,
+    StyledTrack,
+    StyledDoubleProgress,
+    StyledRange,
 } from './Double.styles';
 
-function getXCenterHandle(handle: HTMLDivElement) {
-    const containerX = handle.parentElement?.getBoundingClientRect()?.x || 0;
-    const handleRect = handle.getBoundingClientRect();
-    const handlePosition = handleRect.x;
-    return handlePosition - containerX;
-}
+const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(value, max));
 
 export const DoubleSlider: FC<DoubleSliderProps> = ({
+    // value
     min,
     max,
-    value,
-    disabled,
+    value: outerValue,
+    defaultValue,
+    name,
+    step = 1,
+
+    // label
     label,
     labelContentLeft,
-    size = 'm',
+
+    // pointer
     pointerSize = 'small',
+
+    // layout
+    multipleStepSize = 10,
+
+    // state
+    disabled,
+
+    // events
+    onChange,
     onChangeCommitted,
     onChangeTextField,
     onBlurTextField,
     onKeyDownTextField,
-    onChange,
+
+    // a11y
     ariaLabel,
-    multipleStepSize = 10,
-    name,
+
     ...rest
 }) => {
-    const [state, setState] = useState({
-        stepSize: 0,
-        railFillWidth: 0,
-        railFillXPosition: 0,
-        xFirstHandle: 0,
-        xSecondHandle: 0,
-        firstHandleZIndex: 100,
-        secondHandleZIndex: 101,
-        firstValue: value[0],
-        secondValue: value[1],
-    });
+    const isControlled = outerValue !== undefined;
+
+    const clampedOuterValue =
+        outerValue !== undefined ? [clamp(outerValue[0], min, max), clamp(outerValue[1], min, max)] : undefined;
+    const clampedDefaultValue =
+        defaultValue !== undefined ? [clamp(defaultValue[0], min, max), clamp(defaultValue[1], min, max)] : undefined;
+
+    const [dragValue, setDragValue] = useState<number[]>([
+        clampedDefaultValue?.[0] ?? min,
+        clampedDefaultValue?.[1] ?? max,
+    ]);
+
+    const firstValue = clampedOuterValue?.[0] ?? dragValue[0];
+    const secondValue = clampedOuterValue?.[1] ?? dragValue[1];
+
+    // z-index: последний взаимодействовавший ползунок — наверху
+    const [activeHandle, setActiveHandle] = useState<'first' | 'second'>('second');
+
     const [firstInputHovered, setFirstInputHovered] = useState(false);
     const [firstInputFocused, setFirstInputFocused] = useState(false);
     const [secondInputHovered, setSecondInputHovered] = useState(false);
     const [secondInputFocused, setSecondInputFocused] = useState(false);
 
-    const [firstValue, setFirstValue] = useState<number>(value[0]);
-    const [secondValue, setSecondValue] = useState<number>(value[1]);
-
-    const handleClicked = useRef(false);
-
-    const firstHandleRef = useRef<HTMLDivElement | null>(null);
-    const secondHandleRef = useRef<HTMLDivElement | null>(null);
-
-    const firstHandleValue = useRef<number>(value[0]);
-    const secondHandleValue = useRef<number>(value[1]);
-
     const innerRefFirst = useRef<HTMLInputElement>(null);
     const innerRefSecond = useRef<HTMLInputElement>(null);
 
-    const { stepSize } = state;
-
     const hasLabelContent = label || labelContentLeft;
 
-    const setStepSize = useCallback(
-        (newStepSize: number) => {
-            setState((prevState) => ({
-                ...prevState,
-                stepSize: newStepSize,
-            }));
-        },
-        [setState],
+    const [ariaLabelLeft, ariaLabelRight] = ariaLabel || [];
+
+    // Позиция и ширина заливки между ползунками (inline style)
+    const firstPercent = (firstValue - min) / (max - min);
+    const secondPercent = (secondValue - min) / (max - min);
+    const doubleProgressStyle = {
+        left: `calc(var(${privateTokens.thumbSize}) / 2 + ${firstPercent} * (100% - var(${privateTokens.thumbSize})))`,
+        width: `calc(${secondPercent - firstPercent} * (100% - var(${privateTokens.thumbSize})))`,
+    };
+
+    const sortValues = useCallback(
+        (values: number[]) => values.map((val) => Math.min(Math.max(val, min), max)).sort((a, b) => a - b),
+        [min, max],
     );
 
-    const onFirstHandleChange: NonNullable<HandlerProps['onChange']> = (handleValue, data) => {
-        if (!secondHandleRef?.current) {
-            return;
-        }
-        const newHandleXPosition = data.x;
-        const secondHandleXPosition = getXCenterHandle(secondHandleRef.current);
-        const fillWidth = secondHandleXPosition - newHandleXPosition;
-
-        firstHandleValue.current = handleValue;
-
-        setFirstValue(handleValue);
-
-        setState((prevState) => ({
-            ...prevState,
-            firstHandleZIndex: 101,
-            secondHandleZIndex: 100,
-            railFillWidth: fillWidth < 0 ? 0 : fillWidth,
-            railFillXPosition: newHandleXPosition,
-        }));
-        if (onChange) {
-            onChange([handleValue, value[1]]);
+    const emitChange = (values: number[]) => {
+        if (!onChange) return;
+        if (!isControlled && name) {
+            (onChange as (e: FormTypeString) => void)({
+                target: { value: values.join(' - '), name },
+            });
+        } else {
+            (onChange as (v: number[]) => void)(values);
         }
     };
 
-    const onFirstHandleChangeCommitted: NonNullable<HandlerProps['onChangeCommitted']> = (handleValue, data) => {
-        if (!secondHandleRef?.current) {
-            return;
-        }
-        const newHandleXPosition = data.x;
-        const secondHandleXPosition = getXCenterHandle(secondHandleRef.current);
-        const fillWidth = secondHandleXPosition - newHandleXPosition;
+    // ─── Первый ползунок ────────────────────────────────────────────────────────
 
-        firstHandleValue.current = handleValue;
+    const {
+        handleChange: handleFirstChange,
+        handleChangeCommitted: handleFirstChangeCommitted,
+        handleKeyDown: handleFirstKeyDown,
+    } = useRangeHandlers({
+        min,
+        max: secondValue, // первый не может выйти за второй
+        value: firstValue,
+        step,
+        multipleStepSize,
+        isControlled,
+        onSetValue: (v) => setDragValue((prev) => [Math.min(v, secondValue), prev[1]]),
+        onEmit: (v) => emitChange([Math.min(v, secondValue), secondValue]),
+        onCommit: (v) => onChangeCommitted?.([Math.min(v, secondValue), secondValue]),
+    });
 
-        setFirstValue(handleValue);
-        if (onChangeCommitted) {
-            onChangeCommitted([handleValue, value[1]]);
-        }
+    // ─── Второй ползунок ────────────────────────────────────────────────────────
 
-        setState((prevState) => ({
-            ...prevState,
-            firstValue: handleValue,
-            xFirstHandle: data.x,
-            railFillWidth: fillWidth < 0 ? 0 : fillWidth,
-            railFillXPosition: newHandleXPosition,
-        }));
-    };
+    const {
+        handleChange: handleSecondChange,
+        handleChangeCommitted: handleSecondChangeCommitted,
+        handleKeyDown: handleSecondKeyDown,
+    } = useRangeHandlers({
+        min: firstValue, // второй не может опуститься ниже первого
+        max,
+        value: secondValue,
+        step,
+        multipleStepSize,
+        isControlled,
+        onSetValue: (v) => setDragValue((prev) => [prev[0], Math.max(v, firstValue)]),
+        onEmit: (v) => emitChange([firstValue, Math.max(v, firstValue)]),
+        onCommit: (v) => onChangeCommitted?.([firstValue, Math.max(v, firstValue)]),
+    });
 
-    const onFirstTextfieldChange = (event: ChangeEvent<HTMLInputElement>) => {
-        if (!isNumber(event.target.value)) {
-            return;
-        }
+    // ─── Text fields ────────────────────────────────────────────────────────────
 
-        const handleValue = Number(event.target.value);
-
-        setFirstValue(handleValue);
-        if (onChangeTextField) {
-            onChangeTextField([handleValue, secondValue], event);
-        }
-    };
-
-    const onFirstTextfieldBlur = (event: FocusEvent<HTMLInputElement>) => {
-        setFirstInputFocused(false);
-        setFirstInputHovered(false);
-
-        if (!isNumber(event.target.value)) {
-            return;
-        }
-
-        const handleValue = Number(event.target.value);
-
-        setFirstValue(handleValue);
-        if (onBlurTextField) {
-            onBlurTextField && onBlurTextField([handleValue, secondValue], event);
-        }
-    };
-
-    const onSecondHandleChange: NonNullable<HandlerProps['onChange']> = (handleValue, data) => {
-        if (!firstHandleRef?.current) {
-            return;
-        }
-        const firstXHandleXPosition = getXCenterHandle(firstHandleRef.current);
-
-        const newHandleXPosition = data.x;
-        const fillWidth = newHandleXPosition - firstXHandleXPosition;
-
-        secondHandleValue.current = handleValue;
-
-        setSecondValue(handleValue);
-        setState((prevState) => ({
-            ...prevState,
-            firstHandleZIndex: 100,
-            secondHandleZIndex: 101,
-            railFillWidth: fillWidth < 0 ? 0 : fillWidth,
-            railFillXPosition: firstXHandleXPosition,
-        }));
-        if (onChange) {
-            onChange([value[0], handleValue]);
-        }
-    };
-
-    const onSecondHandleChangeCommitted: NonNullable<HandlerProps['onChangeCommitted']> = (handleValue, data) => {
-        if (!firstHandleRef?.current) {
-            return;
-        }
-        const firstXHandleXPosition = getXCenterHandle(firstHandleRef.current);
-
-        const newHandleXPosition = data.x;
-        const fillWidth = newHandleXPosition - firstXHandleXPosition;
-
-        secondHandleValue.current = handleValue;
-
-        if (onChangeCommitted) {
-            onChangeCommitted([value[0], handleValue]);
-        }
-
-        setSecondValue(handleValue);
-        setState((prevState) => ({
-            ...prevState,
-            secondValue: handleValue,
-            xSecondHandle: data.x,
-            railFillWidth: fillWidth < 0 ? 0 : fillWidth,
-            railFillXPosition: firstXHandleXPosition,
-        }));
-    };
-
-    const onSecondTextfieldChange = (event: ChangeEvent<HTMLInputElement>) => {
-        if (!isNumber(event.target.value)) {
-            return;
-        }
-        const handleValue = Number(event.target.value);
-
-        setSecondValue(handleValue);
-        if (onChangeTextField) {
-            onChangeTextField([firstValue, handleValue], event);
-        }
-    };
-
-    const onSecondTextfieldBlur = (event: FocusEvent<HTMLInputElement>) => {
-        setSecondInputFocused(false);
-        setSecondInputHovered(false);
-
-        if (!isNumber(event.target.value)) {
-            return;
-        }
-
-        const handleValue = Number(event.target.value);
-
-        setSecondValue(handleValue);
-        if (onBlurTextField) {
-            onBlurTextField([firstValue, handleValue], event);
-        }
-    };
-
-    const onTextfieldKeyDown = (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
-        if (onKeyDownTextField) {
-            onKeyDownTextField([firstValue, secondValue], event);
-        }
-    };
-
-    const [ariaLabelLeft, ariaLabelRight] = ariaLabel || [];
-    const currentFirstSliderValue = Math.max(state.firstValue, min);
-    const settings = sizeData[size][pointerSize === 'large' ? 'large' : 'small'];
-
-    useEffect(() => {
-        const firstLocalValue = Math.min(Math.max(value[0], min), max) - min;
-        const secondLocalValue = Math.min(Math.max(value[1], min), max) - min;
-
-        setFirstValue(value[0]);
-        setSecondValue(value[1]);
-
-        setState((prevState) => ({
-            ...prevState,
-            railFillXPosition: stepSize * firstLocalValue,
-            railFillWidth: stepSize * secondLocalValue - stepSize * firstLocalValue,
-            xFirstHandle: stepSize * firstLocalValue,
-            xSecondHandle: stepSize * secondLocalValue,
-        }));
-    }, [value, stepSize, min, max, setFirstValue, setSecondValue]);
-
-    useEffect(() => {
-        const onMouseUp = () => {
-            if (handleClicked.current) {
-                handleClicked.current = false;
-
-                setFirstInputFocused(false);
-                setSecondInputFocused(false);
-            }
-        };
-
-        window.addEventListener('mouseup', onMouseUp);
-
-        return () => {
-            window.removeEventListener('mouseup', onMouseUp);
-        };
-    }, []);
+    const {
+        onFirstTextfieldChange,
+        onFirstTextfieldBlur,
+        onSecondTextfieldChange,
+        onSecondTextfieldBlur,
+        onTextfieldKeyDown,
+    } = useDoubleTextFieldHandlers({
+        isControlled,
+        firstValue,
+        secondValue,
+        setDragValue,
+        sortValues,
+        emitChange,
+        onChangeTextField,
+        onBlurTextField,
+        onKeyDownTextField,
+        name,
+        setFirstInputFocused,
+        setFirstInputHovered,
+        setSecondInputFocused,
+        setSecondInputHovered,
+    });
 
     return (
         <DoubleWrapper>
@@ -296,85 +181,84 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     {label && <Label>{label}</Label>}
                 </LabelWrapper>
             )}
+
             <SliderWrapper>
-                <SliderBase
-                    min={min}
-                    max={max}
-                    size={size}
-                    disabled={disabled}
-                    setStepSize={setStepSize}
-                    railFillWidth={state.railFillWidth}
-                    settings={settings}
-                    railFillXPosition={state.railFillXPosition}
-                    orientation="horizontal"
-                    {...rest}
-                >
-                    <Handler
-                        ref={firstHandleRef}
-                        size={pointerSize}
-                        stepSize={state.stepSize}
-                        multipleStepSize={multipleStepSize}
-                        onChangeCommitted={onFirstHandleChangeCommitted}
-                        onChange={onFirstHandleChange}
+                <SliderContainer pointerSize={pointerSize} {...rest}>
+                    <StyledTrack />
+                    <StyledDoubleProgress style={doubleProgressStyle} />
+
+                    {/* Первый ползунок (левый / минимальный) */}
+                    <StyledRange
+                        type="range"
+                        ref={innerRefFirst}
+                        value={firstValue}
+                        name={name}
                         min={min}
-                        max={state.secondValue}
+                        max={max}
+                        step={step}
                         disabled={disabled}
-                        bounds={[min, state.secondValue]}
-                        side="left"
-                        orientation="horizontal"
-                        position={state.xFirstHandle}
-                        zIndex={state.firstHandleZIndex}
-                        value={currentFirstSliderValue}
-                        ariaLabel={ariaLabelLeft}
-                        onTouchStart={() => {
-                            handleClicked.current = true;
+                        aria-label={ariaLabelLeft}
+                        aria-valuemin={min}
+                        aria-valuemax={secondValue}
+                        aria-valuenow={firstValue}
+                        datatype="slider-double"
+                        data-slidertype="min"
+                        style={{ zIndex: activeHandle === 'first' ? 2 : 1 }}
+                        onChange={handleFirstChange}
+                        onMouseUp={handleFirstChangeCommitted}
+                        onTouchEnd={handleFirstChangeCommitted}
+                        onKeyUp={handleFirstChangeCommitted}
+                        onKeyDown={handleFirstKeyDown}
+                        onMouseDown={() => {
+                            setActiveHandle('first');
                             setFirstInputFocused(true);
                         }}
-                        onTouchEnd={() => {
-                            handleClicked.current = false;
-                            setFirstInputFocused(false);
-                        }}
-                        onMouseDown={() => {
-                            handleClicked.current = true;
+                        onTouchStart={() => {
+                            setActiveHandle('first');
                             setFirstInputFocused(true);
                         }}
                         onMouseEnter={() => setFirstInputHovered(true)}
                         onMouseLeave={() => setFirstInputHovered(false)}
+                        onFocus={() => setFirstInputFocused(true)}
+                        onBlur={() => setFirstInputFocused(false)}
                     />
-                    <Handler
-                        ref={secondHandleRef}
-                        size={pointerSize}
-                        stepSize={state.stepSize}
-                        multipleStepSize={multipleStepSize}
-                        onChangeCommitted={onSecondHandleChangeCommitted}
-                        onChange={onSecondHandleChange}
+
+                    {/* Второй ползунок (правый / максимальный) */}
+                    <StyledRange
+                        type="range"
+                        ref={innerRefSecond}
+                        value={secondValue}
+                        name={name}
                         min={min}
-                        ariaValueMin={currentFirstSliderValue}
                         max={max}
+                        step={step}
                         disabled={disabled}
-                        bounds={[state.firstValue, max]}
-                        side="right"
-                        orientation="horizontal"
-                        position={state.xSecondHandle}
-                        zIndex={state.secondHandleZIndex}
-                        value={Math.max(state.secondValue, min)}
-                        ariaLabel={ariaLabelRight}
-                        onTouchStart={() => {
-                            handleClicked.current = true;
+                        aria-label={ariaLabelRight}
+                        aria-valuemin={firstValue}
+                        aria-valuemax={max}
+                        aria-valuenow={secondValue}
+                        datatype="slider-double"
+                        data-slidertype="max"
+                        style={{ zIndex: activeHandle === 'second' ? 2 : 1 }}
+                        onChange={handleSecondChange}
+                        onMouseUp={handleSecondChangeCommitted}
+                        onTouchEnd={handleSecondChangeCommitted}
+                        onKeyUp={handleSecondChangeCommitted}
+                        onKeyDown={handleSecondKeyDown}
+                        onMouseDown={() => {
+                            setActiveHandle('second');
                             setSecondInputFocused(true);
                         }}
-                        onTouchEnd={() => {
-                            handleClicked.current = false;
-                            setSecondInputFocused(false);
-                        }}
-                        onMouseDown={() => {
-                            handleClicked.current = true;
+                        onTouchStart={() => {
+                            setActiveHandle('second');
                             setSecondInputFocused(true);
                         }}
                         onMouseEnter={() => setSecondInputHovered(true)}
                         onMouseLeave={() => setSecondInputHovered(false)}
+                        onFocus={() => setSecondInputFocused(true)}
+                        onBlur={() => setSecondInputFocused(false)}
                     />
-                </SliderBase>
+                </SliderContainer>
 
                 <InputsWrapper>
                     <StyledInput
@@ -382,7 +266,6 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                             [classes.textFieldHovered]: !firstInputFocused && firstInputHovered && !disabled,
                             [classes.textFieldFocused]: firstInputFocused && !disabled,
                         })}
-                        enumerationType="plain"
                         disabled={disabled}
                         value={firstValue}
                         onChange={onFirstTextfieldChange}
@@ -395,7 +278,6 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                             [classes.textFieldHovered]: !secondInputFocused && secondInputHovered && !disabled,
                             [classes.textFieldFocused]: secondInputFocused && !disabled,
                         })}
-                        enumerationType="plain"
                         disabled={disabled}
                         value={secondValue}
                         onChange={onSecondTextfieldChange}
@@ -405,24 +287,6 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     />
                 </InputsWrapper>
             </SliderWrapper>
-            <InputHidden
-                name={name}
-                type="number"
-                datatype="slider-double"
-                data-slidertype="min"
-                value={firstValue}
-                ref={innerRefFirst}
-                {...noop}
-            />
-            <InputHidden
-                name={name}
-                type="number"
-                datatype="slider-double"
-                data-slidertype="max"
-                value={secondValue}
-                ref={innerRefSecond}
-                {...noop}
-            />
         </DoubleWrapper>
     );
 };
