@@ -1,10 +1,16 @@
 import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { TextM } from '../Typography';
 
+import { config } from './Link.config';
+
 import { Link } from '.';
+
+const { views } = getConfigVariations(config);
+
+const underlineOptions = ['none', 'hover', 'always'];
 
 const meta: Meta<typeof Link> = {
     title: 'Navigation/Link',
@@ -12,17 +18,13 @@ const meta: Meta<typeof Link> = {
     component: Link,
     argTypes: {
         view: {
-            options: [
-                'default',
-                'secondary',
-                'tertiary',
-                'paragraph',
-                'accent',
-                'positive',
-                'warning',
-                'negative',
-                'clear',
-            ],
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        underline: {
+            options: underlineOptions,
             control: {
                 type: 'select',
             },
@@ -44,6 +46,7 @@ export const Default: StoryObj<StoryLinkProps> = {
         view: 'default',
         disabled: false,
         focused: true,
+        underline: 'none',
     },
     render: ({ text, ...props }) => (
         <TextM>
