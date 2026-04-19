@@ -200,7 +200,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h6-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-h6-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-h6-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h6-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-h6-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h6-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h6-line-height);
 
@@ -217,7 +217,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h5-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-h5-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-h5-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h5-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-h5-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h5-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h5-line-height);
 
@@ -234,7 +234,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h4-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-h4-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-h4-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h4-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-h4-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h4-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h4-line-height);
 
@@ -251,7 +251,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h3-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-h3-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-h3-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h3-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-h3-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h3-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h3-line-height);
 
@@ -268,7 +268,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h2-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-h2-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-h2-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h2-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-h2-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h2-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h2-line-height);
 
@@ -285,7 +285,7 @@ export const config = {
                 ${tabsTokens.fontFamily}: var(--plasma-typo-h1-font-family);
                 ${tabsTokens.fontSize}: var(--plasma-typo-h1-font-size);
                 ${tabsTokens.fontStyle}: var(--plasma-typo-h1-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-h1-font-weight);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-h1-bold-font-weight);
                 ${tabsTokens.letterSpacing}: var(--plasma-typo-h1-letter-spacing);
                 ${tabsTokens.lineHeight}: var(--plasma-typo-h1-line-height);
 
