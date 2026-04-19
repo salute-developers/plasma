@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Cell, CellTextbox, CellTextboxTitle, CellTextboxSubtitle } from '../../Cell';
 import { Button } from '../../Button';
@@ -8,9 +9,11 @@ import { ButtonGroup } from '../../ButtonGroup';
 import { ViewContainer } from '../../ViewContainer';
 
 import { Popover } from './Popover';
+import { config } from './Popover.closeNone.config';
 
 type StoryProps = ComponentProps<typeof Popover>;
 
+const { views, sizes } = getConfigVariations(config);
 const appearance = ['closeNone', 'closeInner'];
 const placements = [
     'top',
@@ -27,8 +30,6 @@ const placements = [
     'left-end',
 ];
 const trigger = ['click', 'hover', 'focus'];
-const view = ['default', 'info'];
-const size = ['m', 's'];
 
 const meta: Meta<StoryProps> = {
     title: '_Beta/Overlay/Popover',
@@ -93,13 +94,13 @@ const meta: Meta<StoryProps> = {
             },
         },
         view: {
-            options: view,
+            options: views,
             control: {
                 type: 'select',
             },
         },
         size: {
-            options: size,
+            options: sizes,
             control: {
                 type: 'select',
             },
@@ -117,7 +118,7 @@ const meta: Meta<StoryProps> = {
         outsideClick: true,
         delayOpen: 0,
         delayClose: 0,
-        view: 'default',
+        view: 'action',
         size: 'm',
     },
 };
@@ -142,14 +143,14 @@ const StoryDefault = (args: StoryProps) => {
                 height: '400vh',
             }}
         >
-            <Popover target={<Button>Target</Button>} {...args}>
-                <ViewContainer view={args.view === 'default' ? undefined : 'onDark'}>
+            <Popover {...args} target={<Button>Target</Button>}>
+                <ViewContainer view={args.view === 'action' ? undefined : 'onDark'}>
                     <Cell size="m">
                         <CellTextbox>
                             <CellTextboxTitle>Title</CellTextboxTitle>
                             <CellTextboxSubtitle>Description</CellTextboxSubtitle>
                             <ButtonGroup style={{ marginTop: '10px' }} isCommonButtonStyles={false}>
-                                <Button>Label</Button>
+                                <Button view={args.view === 'action' ? 'accent' : 'default'}>Label</Button>
                                 <Button view="secondary">Label</Button>
                             </ButtonGroup>
                         </CellTextbox>
@@ -201,7 +202,6 @@ const StoryResizable = (args: StoryProps) => {
             }}
         >
             <Popover
-                target={<Button>Target</Button>}
                 resizable={{
                     directions: resizableDirections,
                     hiddenIcons: resizableHiddenIcons,
@@ -213,6 +213,7 @@ const StoryResizable = (args: StoryProps) => {
                     iconSize: resizableIconSize,
                 }}
                 {...args}
+                target={<Button>Target</Button>}
             >
                 <div
                     style={{
