@@ -24,3 +24,4 @@ export * from './Chip';
 export * from './Note';
 export * from './Carousel';
 export * from './Tour';
+export * from './Link';
