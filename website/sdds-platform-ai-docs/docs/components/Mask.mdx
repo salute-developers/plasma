@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ## Использование
 Компонент `Mask` представляет собой поле ввода с возможностью маскирования значения.
-Он реализован на компоненте [TextField](https://plasma.sberdevices.ru/b2c/components/textfield/) 
+Он реализован на компоненте [TextField](https://plasma.sberdevices.ru/b2c/components/textfield/)
 и наследует практически все его свойства (`size`, `view`, `disabled`, `label` и тд.)
 
 ```tsx live
@@ -31,7 +31,7 @@ export function App() {
                 placeholder="Введите дату"
                 mask="00/00/0000"
                 maskString="DD/MM/YYYY"
-                size="l"
+                size="m"
             />
         </div>
     );
@@ -69,7 +69,7 @@ export function App() {
                         placeholder="Введите телефон"
                         mask="+7 (000) 000 - 00 - 00"
                         maskChar="_"
-                        size="l"
+                        size="m"
                         alwaysShowMask
                     />
                 </div>
@@ -92,7 +92,7 @@ export function App() {
                         placeholder="Введите дату"
                         mask="00/00/0000"
                         maskString="DD/MM/YYYY"
-                        size="l"
+                        size="m"
                     />
                 </div>
             );
@@ -114,7 +114,7 @@ export function App() {
                         placeholder="Введите время"
                         mask="1\0:00"
                         maskChar="_"
-                        size="l"
+                        size="m"
                         showPrefix
                     />
                 </div>
