@@ -20,6 +20,9 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-solid-default);
 
+                ${sliderTokens.tickDotColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.tickDotFilledColor}: var(--surface-solid-default);
+
                 ${sliderTokens.textFieldCaretColor}: var(--text-accent);
                 ${sliderTokens.textFieldColor}: var(--text-primary);
                 ${sliderTokens.textFiledFocusColor}: var(--text-primary);
@@ -41,6 +44,9 @@ export const config = {
                 ${sliderTokens.railBackgroundColor}: var(--surface-solid-tertiary);
 
                 ${sliderTokens.fillColor}: var(--surface-accent);
+
+                ${sliderTokens.tickDotColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.tickDotFilledColor}: var(--surface-accent);
 
                 ${sliderTokens.textFieldCaretColor}: var(--text-accent);
                 ${sliderTokens.textFieldColor}: var(--text-primary);
@@ -85,6 +91,8 @@ export const config = {
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
                 ${sliderTokens.thumbBorder}: 0.0625rem solid;
+
+                ${sliderTokens.tickSize}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.625rem;
 
@@ -137,6 +145,8 @@ export const config = {
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
                 ${sliderTokens.thumbBorder}: 0.0625rem solid;
 
+                ${sliderTokens.tickSize}: 0.5rem;
+
                 ${sliderTokens.currentValueTopOffset}: 1.75rem;
 
                 ${sliderTokens.railThickness}: 0.25rem;
@@ -187,6 +197,8 @@ export const config = {
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
                 ${sliderTokens.thumbBorder}: 0.0625rem solid;
+
+                ${sliderTokens.tickSize}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.25rem;
 
