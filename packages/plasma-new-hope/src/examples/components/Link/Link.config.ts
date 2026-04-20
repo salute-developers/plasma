@@ -17,7 +17,8 @@ export const config = {
                 ${tokens.linkColorVisited}: var(--text-primary);
                 ${tokens.linkColorVisitedHover}: var(--text-primary-hover);
                 ${tokens.linkColorVisitedActive}: var(--text-primary-active);
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             secondary: css`
                 ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
@@ -27,7 +28,8 @@ export const config = {
                 ${tokens.linkColorVisited}: var(--text-secondary);
                 ${tokens.linkColorVisitedHover}: var(--text-secondary-hover);
                 ${tokens.linkColorVisitedActive}: var(--text-secondary-active);
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             tertiary: css`
                 ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
@@ -37,7 +39,8 @@ export const config = {
                 ${tokens.linkColorVisited}: var(--text-tertiary);
                 ${tokens.linkColorVisitedHover}: var(--text-tertiary-hover);
                 ${tokens.linkColorVisitedActive}: var(--text-tertiary-active);
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             paragraph: css`
                 ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
@@ -47,7 +50,8 @@ export const config = {
                 ${tokens.linkColorVisited}: var(--text-paragraph);
                 ${tokens.linkColorVisitedHover}: var(--text-paragraph-hover);
                 ${tokens.linkColorVisitedActive}: var(--text-paragraph-active);
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             accent: css`
                 ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
@@ -57,7 +61,8 @@ export const config = {
                 ${tokens.linkColorVisited}: var(--text-accent);
                 ${tokens.linkColorVisitedHover}: var(--text-accent-hover);
                 ${tokens.linkColorVisitedActive}: var(--text-accent-active);
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             positive: css`
                 ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
@@ -67,7 +72,8 @@ export const config = {
                 ${tokens.linkColorVisited}: var(--text-positive);
                 ${tokens.linkColorVisitedHover}: var(--text-positive-hover);
                 ${tokens.linkColorVisitedActive}: var(--text-positive-active);
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             warning: css`
                 ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
@@ -77,7 +83,8 @@ export const config = {
                 ${tokens.linkColorVisited}: var(--text-warning);
                 ${tokens.linkColorVisitedHover}: var(--text-warning-hover);
                 ${tokens.linkColorVisitedActive}: var(--text-warning-active);
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             negative: css`
                 ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
@@ -87,7 +94,8 @@ export const config = {
                 ${tokens.linkColorVisited}: var(--text-negative);
                 ${tokens.linkColorVisitedHover}: var(--text-negative-hover);
                 ${tokens.linkColorVisitedActive}: var(--text-negative-active);
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             clear: css`
                 ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
@@ -98,6 +106,7 @@ export const config = {
                 ${tokens.linkColorVisitedHover}: inherit;
                 ${tokens.linkColorVisitedActive}: inherit;
                 ${tokens.linkUnderlineBorder}: 0.0625rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
         },
         disabled: {
