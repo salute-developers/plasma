@@ -87,7 +87,7 @@ type SingleSliderOrientationPropsUnion =
            * Ориентация Slider.
            * @default `horizontal`
            */
-          orientation: 'vertical';
+          orientation?: 'vertical';
           /**
            * Выравнивание элементов в Slider.
            * @default 'left'
@@ -185,7 +185,7 @@ export type SingleSliderProps = SliderBaseProps &
          * hover - при наведении на Slider
          */
 
-        pointerVisibility: 'always' | 'hover';
+        pointerVisibility?: 'always' | 'hover';
 
         /**
          * Условия появления ползунка, при pointerVisibility: true
@@ -194,7 +194,7 @@ export type SingleSliderProps = SliderBaseProps &
          * always - всегда отображать
          * hover - при наведении на Slider
          */
-        currentValueVisibility: 'always' | 'hover';
+        currentValueVisibility?: 'always' | 'hover';
 
         /**
          * Массив значений для отображения шкалы делений под ползунком.

@@ -300,6 +300,7 @@ export const SliderBaseWrapper = styled.div`
 
 export const SingleWrapper = styled.div<{ hasTicks?: boolean }>`
     display: flex;
+    width: 100%;
     opacity: var(${tokens.disabledOpacity});
 
     &.${classes.labelPlacementOuter} {
@@ -335,6 +336,7 @@ export const SingleWrapper = styled.div<{ hasTicks?: boolean }>`
     &.${classes.verticalOrientation} {
         flex-direction: column;
         align-items: center;
+        width: fit-content;
 
         &.${classes.labelAlignCenter} {
             ${LabelWrapper} {
