@@ -370,7 +370,6 @@ export const createPaginationComponent = (Table: any, components: CreateStoriesP
                 bottomContent={
                     <div style={{ padding: '10px', width: '100%', display: 'flex', justifyContent: 'center' }}>
                         <Pagination
-                            size="s"
                             value={page}
                             onChange={handleChange}
                             hasQuickJump={false}
