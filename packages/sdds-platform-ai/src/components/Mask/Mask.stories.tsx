@@ -9,7 +9,6 @@ import { Mask } from './Mask';
 const onChange = action('onChange');
 const onKeyDown = action('onKeyDown');
 
-const sizes = ['l', 'm', 's', 'xs'];
 const views = ['default', 'positive', 'warning', 'negative'];
 
 const propsToDisable = [
@@ -71,12 +70,6 @@ const meta: Meta<typeof Mask> = {
             options: views,
             control: {
                 type: 'select',
-            },
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
             },
         },
         ...disableProps(propsToDisable),
@@ -169,7 +162,6 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
 
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
-        size: 'l',
         view: 'default',
         placeholder: 'Заполните поле',
         disabled: false,

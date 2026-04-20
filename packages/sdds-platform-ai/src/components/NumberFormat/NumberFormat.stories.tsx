@@ -12,7 +12,7 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 const onSearch = action('onSearch');
 
-const { views, sizes } = getConfigVariations(config);
+const { views } = getConfigVariations(config);
 
 const labelPlacements = ['outer', 'inner'];
 const thousandsGroupStyles = ['thousand', 'lakh', 'wan', 'none'];
@@ -89,12 +89,6 @@ const meta: Meta = {
             if: {
                 arg: 'labelPlacement',
                 eq: 'inner',
-            },
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
             },
         },
         titleCaption: {
@@ -174,7 +168,6 @@ export const Default: StoryObj<StoryPropsDefault> = {
         fixedDecimalScale: false,
         allowNegative: true,
         allowLeadingZeros: false,
-        size: 'l',
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
