@@ -39,7 +39,7 @@ PopupBase можно использовать как и на всем окне, 
 import React, { useRef } from 'react';
 import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens-b2c';
 
-import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+import { Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
 
 export function App() {
     const [isOpenA, setIsOpenA] = React.useState(false);
@@ -48,74 +48,72 @@ export function App() {
     const ref = useRef();
 
     return (
-        <SSRProvider>
-            <PopupBaseProvider>
-                <div style={{height: "500px"}}>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                            text="Открыть в document"
-                            onClick={() => setIsOpenB(true)}
-                        />
-                        <Button
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                            text="Открыть во Frame"
-                            onClick={() => setIsOpenA(true)}
-                        />
-                    </div>
-                    <PopupBase
-                        id="popupA"
-                        frame={ref}
-                        isOpen={isOpenA}
-                        placement="center"
-                        offset={[0, 0]}
-                    >
-                        <div style={{ background: surfaceSolid02, padding: "1rem" }}>
-                            <Button onClick={() => setIsOpenA(false)}>Close</Button>
-                            <>Content</>
-                        </div>
-                    </PopupBase>
-                    <div
-                        ref={ref}
+        <PopupBaseProvider>
+            <div style={{height: "500px"}}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button
                         style={{
                             marginTop: "1rem",
-                            width: "400px",
-                            height: "500px",
-                            background: surfaceSolid03,
-                            position: "absolute",
-
-                            display: "flex",
-                            alignItems: "flex-start",
-                            justifyContent: "center",
-                            padding: "1rem",
-
-                            bottom: 0,
-                            right: 0
+                            width: "15rem"
                         }}
-                    >
-                        <>Frame</>
-                    </div>
-                    <PopupBase
-                        id="popupB"
-                        frame="document"
-                        isOpen={isOpenB}
-                        placement="center"
-                        offset={[0, 0]}
-                    >
-                        <div style={{ background: surfaceSolid02, padding: "1rem" }}>
-                            <Button onClick={() => setIsOpenB(false)}>Close</Button>
-                            <>Content</>
-                        </div>
-                    </PopupBase>
+                        text="Открыть в document"
+                        onClick={() => setIsOpenB(true)}
+                    />
+                    <Button
+                        style={{
+                            marginTop: "1rem",
+                            width: "15rem"
+                        }}
+                        text="Открыть во Frame"
+                        onClick={() => setIsOpenA(true)}
+                    />
                 </div>
-            </PopupBaseProvider>
-        </SSRProvider>
+                <PopupBase
+                    id="popupA"
+                    frame={ref}
+                    isOpen={isOpenA}
+                    placement="center"
+                    offset={[0, 0]}
+                >
+                    <div style={{ background: surfaceSolid02, padding: "1rem" }}>
+                        <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                        <>Content</>
+                    </div>
+                </PopupBase>
+                <div
+                    ref={ref}
+                    style={{
+                        marginTop: "1rem",
+                        width: "400px",
+                        height: "500px",
+                        background: surfaceSolid03,
+                        position: "absolute",
+
+                        display: "flex",
+                        alignItems: "flex-start",
+                        justifyContent: "center",
+                        padding: "1rem",
+
+                        bottom: 0,
+                        right: 0
+                    }}
+                >
+                    <>Frame</>
+                </div>
+                <PopupBase
+                    id="popupB"
+                    frame="document"
+                    isOpen={isOpenB}
+                    placement="center"
+                    offset={[0, 0]}
+                >
+                    <div style={{ background: surfaceSolid02, padding: "1rem" }}>
+                        <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                        <>Content</>
+                    </div>
+                </PopupBase>
+            </div>
+        </PopupBaseProvider>
     );
 }
 ```
@@ -218,40 +216,38 @@ const StyledPopupAnimation = styled(PopupBase)`
 
 ```tsx live
 import React from 'react';
-import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+import { Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <SSRProvider>
-            <PopupBaseProvider>
-                <div style={{height: "200px"}}>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                            text="Открыть"
-                            onClick={() => setIsOpen(true)}
-                        />
-                    </div>
-
-                    <PopupBase
-                        id="popup"
-                        isOpen={isOpen}
-                        placement="center"
-                        draggable
-                    >
-                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
-                            <Button onClick={() => setIsOpen(false)}>Close</Button>
-                            <>Content</>
-                        </div>
-                    </PopupBase>
+        <PopupBaseProvider>
+            <div style={{height: "200px"}}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button
+                        style={{
+                            marginTop: "1rem",
+                            width: "15rem"
+                        }}
+                        text="Открыть"
+                        onClick={() => setIsOpen(true)}
+                    />
                 </div>
-            </PopupBaseProvider>
-        </SSRProvider>
+
+                <PopupBase
+                    id="popup"
+                    isOpen={isOpen}
+                    placement="center"
+                    draggable
+                >
+                    <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                        <Button onClick={() => setIsOpen(false)}>Close</Button>
+                        <>Content</>
+                    </div>
+                </PopupBase>
+            </div>
+        </PopupBaseProvider>
     );
 }
 ```
@@ -320,41 +316,39 @@ resizable?: {
 
 ```tsx live
 import React from 'react';
-import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+import { Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <SSRProvider>
-            <PopupBaseProvider>
-                <div style={{height: "200px"}}>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                            text="Открыть"
-                            onClick={() => setIsOpen(true)}
-                        />
-                    </div>
-
-                    <PopupBase
-                        id="popup"
-                        isOpen={isOpen}
-                        placement="center"
-                        offset={[0, 0]}
-                        resizable
-                    >
-                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
-                            <Button onClick={() => setIsOpen(false)}>Close</Button>
-                            <>Content</>
-                        </div>
-                    </PopupBase>
+        <PopupBaseProvider>
+            <div style={{height: "200px"}}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button
+                        style={{
+                            marginTop: "1rem",
+                            width: "15rem"
+                        }}
+                        text="Открыть"
+                        onClick={() => setIsOpen(true)}
+                    />
                 </div>
-            </PopupBaseProvider>
-        </SSRProvider>
+
+                <PopupBase
+                    id="popup"
+                    isOpen={isOpen}
+                    placement="center"
+                    offset={[0, 0]}
+                    resizable
+                >
+                    <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                        <Button onClick={() => setIsOpen(false)}>Close</Button>
+                        <>Content</>
+                    </div>
+                </PopupBase>
+            </div>
+        </PopupBaseProvider>
     );
 }
 ```

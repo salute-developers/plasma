@@ -1,0 +1,25 @@
+---
+id: react_17
+title: Поддержка React 16,17
+---
+
+# Использование библиотеки в React 17 и ниже
+
+## SSRProvider
+
+Для корректной работы приложение нужно обернуть `SSRProvider`;
+
+```jsx
+import React from 'react';
+import { SSRProvider } from '@salutejs/sdds-cs';
+
+const App = () => {
+    return (
+        <SSRProvider>
+            ...
+        </SSRProvider>
+    );
+};
+
+export default App;
+```

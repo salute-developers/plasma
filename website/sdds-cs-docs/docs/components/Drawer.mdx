@@ -47,7 +47,6 @@ import React, { useRef } from 'react';
 import { IconDone } from '@salutejs/plasma-icons';
 import { surfaceSolidSecondary } from '@salutejs/sdds-themes/tokens';
 import {
-    SSRProvider,
     H3,
     Button,
     Drawer,
@@ -65,126 +64,124 @@ export function App() {
     const ref = useRef();
 
     return (
-        <SSRProvider>
-            <PopupProvider>
-                <div style={{height: "500px"}}>
-                    <div style={{ display: "flex", flexDirection: "column" }}>
-                        <Button
-                            text="Открыть в document"
-                            onClick={() => setIsOpenA(true)}
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                        />
-                        <Button
-                            text="Открыть во Frame"
-                            onClick={() => setIsOpenB(true)}
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                        />
-                    </div>
-                    <Drawer
-                        id="drawerA"
-                        opened={isOpenA}
-                        onClose={() => setIsOpenA(false)}
-                        placement="right"
-                        withBlur={false}
-                        closeOnEsc={true}
-                        closeOnOverlayClick={true}
-                        asModal={true}
-                        width="25vw"
-                        height="100vh"
-                    >
-                            <DrawerHeader
-                                hasClose={true}
-                                closePlacement="right"
-                                actions={(
-                                    <Button size="s" view="clear" style={{
-                                        position: "relative",
-                                        width: "1.5rem",
-                                        height: "1.5rem"
-                                    }}>
-                                        <IconDone size="s" />
-                                    </Button>
-                                )}
-                                onClose={() => setIsOpenA(false)}
-                            >
-                                <H3>Header</H3>
-                            </DrawerHeader>
-
-                            <DrawerContent>Content</DrawerContent>
-
-                            <DrawerFooter>
-                                <H3>Footer</H3>
-                            </DrawerFooter>
-                        </Drawer>
-                    <div
-                        ref={ref}
+        <PopupProvider>
+            <div style={{height: "500px"}}>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                    <Button
+                        text="Открыть в document"
+                        onClick={() => setIsOpenA(true)}
                         style={{
                             marginTop: "1rem",
-                            width: "400px",
-                            height: "500px",
-                            background: surfaceSolidSecondary,
-                            position: "absolute",
-
-                            display: "flex",
-                            alignItems: "flex-start",
-                            justifyContent: "center",
-                            padding: "1rem",
-
-                            bottom: 0,
-                            right: 0
+                            width: "15rem"
                         }}
-                    >
-                        <>Frame</>
-                    </div>
-
-                    <Drawer
-                        id="drawerB"
-                        opened={isOpenB}
-                        onClose={() => setIsOpenB(false)}
-                        placement="right"
-                        asModal={false}
-                        frame={ref}
-                        width="250px"
-                        height="100%"
-                    >
-                            <DrawerHeader
-                                hasClose={true}
-                                closePlacement="right"
-                                actions={(
-                                    <Button size="s" view="clear" style={{
-                                        position: "relative",
-                                        width: "1.5rem",
-                                        height: "1.5rem"
-                                    }}>
-                                        <IconDone size="s" />
-                                    </Button>
-                                )}
-                                onClose={() => setIsOpenB(false)}
-                            >
-                                <H3>Header</H3>
-                            </DrawerHeader>
-
-                            <DrawerContent>Content</DrawerContent>
-
-                            <DrawerFooter>
-                                <H3>Footer</H3>
-                            </DrawerFooter>
-                        </Drawer>
+                    />
+                    <Button
+                        text="Открыть во Frame"
+                        onClick={() => setIsOpenB(true)}
+                        style={{
+                            marginTop: "1rem",
+                            width: "15rem"
+                        }}
+                    />
                 </div>
-            </PopupProvider>
-        </SSRProvider>
+                <Drawer
+                    id="drawerA"
+                    opened={isOpenA}
+                    onClose={() => setIsOpenA(false)}
+                    placement="right"
+                    withBlur={false}
+                    closeOnEsc={true}
+                    closeOnOverlayClick={true}
+                    asModal={true}
+                    width="25vw"
+                    height="100vh"
+                >
+                        <DrawerHeader
+                            hasClose={true}
+                            closePlacement="right"
+                            actions={(
+                                <Button size="s" view="clear" style={{
+                                    position: "relative",
+                                    width: "1.5rem",
+                                    height: "1.5rem"
+                                }}>
+                                    <IconDone size="s" />
+                                </Button>
+                            )}
+                            onClose={() => setIsOpenA(false)}
+                        >
+                            <H3>Header</H3>
+                        </DrawerHeader>
+
+                        <DrawerContent>Content</DrawerContent>
+
+                        <DrawerFooter>
+                            <H3>Footer</H3>
+                        </DrawerFooter>
+                    </Drawer>
+                <div
+                    ref={ref}
+                    style={{
+                        marginTop: "1rem",
+                        width: "400px",
+                        height: "500px",
+                        background: surfaceSolidSecondary,
+                        position: "absolute",
+
+                        display: "flex",
+                        alignItems: "flex-start",
+                        justifyContent: "center",
+                        padding: "1rem",
+
+                        bottom: 0,
+                        right: 0
+                    }}
+                >
+                    <>Frame</>
+                </div>
+
+                <Drawer
+                    id="drawerB"
+                    opened={isOpenB}
+                    onClose={() => setIsOpenB(false)}
+                    placement="right"
+                    asModal={false}
+                    frame={ref}
+                    width="250px"
+                    height="100%"
+                >
+                        <DrawerHeader
+                            hasClose={true}
+                            closePlacement="right"
+                            actions={(
+                                <Button size="s" view="clear" style={{
+                                    position: "relative",
+                                    width: "1.5rem",
+                                    height: "1.5rem"
+                                }}>
+                                    <IconDone size="s" />
+                                </Button>
+                            )}
+                            onClose={() => setIsOpenB(false)}
+                        >
+                            <H3>Header</H3>
+                        </DrawerHeader>
+
+                        <DrawerContent>Content</DrawerContent>
+
+                        <DrawerFooter>
+                            <H3>Footer</H3>
+                        </DrawerFooter>
+                    </Drawer>
+            </div>
+        </PopupProvider>
     );
 }
 ```
 
 ### Анимация
 
-Для работы с анимацией необходимо использовать свойство `animationInfo`. 
+Для работы с анимацией необходимо использовать свойство `animationInfo`.
 Данное свойство содержит два поля:
 - enter
 - exit
@@ -199,7 +196,7 @@ export function App() {
         import { IconDone } from '@salutejs/plasma-icons';
         import { createGlobalStyle } from 'styled-components';
 
-        import { SSRProvider, H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-cs';
+        import { H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-cs';
 
         export function App() {
             const [isOpenA, setIsOpenA] = React.useState(false);
@@ -237,7 +234,7 @@ export function App() {
             `;
 
             return (
-                <SSRProvider>
+                <>
                     <GlobalAnimations />
 
                     <PopupProvider>
@@ -291,7 +288,7 @@ export function App() {
                             </Drawer>
                         </div>
                     </PopupProvider>
-                </SSRProvider>
+                </>
             );
         }
         ```
@@ -305,7 +302,7 @@ export function App() {
         import React from 'react';
         import { IconDone } from '@salutejs/plasma-icons';
 
-        import { SSRProvider, H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-cs';
+        import { H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-cs';
 
         const drawerAnimation = `
             @keyframes enterAnimation {
@@ -343,7 +340,7 @@ export function App() {
             }
 
             return (
-                <SSRProvider>
+                <>
                     <style>{drawerAnimation}</style>
 
                     <PopupProvider>
@@ -397,7 +394,7 @@ export function App() {
                             </Drawer>
                         </div>
                     </PopupProvider>
-                </SSRProvider>
+                </>
             );
         }
         ```
