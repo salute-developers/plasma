@@ -1,3 +1,9 @@
+import {
+    bodyM,
+    surfaceAccent,
+    surfaceTransparentSecondary,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 import { css, listTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,13 +14,13 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${listTokens.listItemColor}: var(--text-primary);
-                ${listTokens.listItemColorHover}: var(--text-primary);
+                ${listTokens.listItemColor}: ${textPrimary};
+                ${listTokens.listItemColorHover}: ${textPrimary};
                 ${listTokens.listItemBackground}: transparent;
-                ${listTokens.listItemBackgroundHover}: var(--surface-transparent-secondary);
+                ${listTokens.listItemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${listTokens.listItemBorderColor}: transparent;
                 ${listTokens.listItemBorderColorHover}: transparent;
-                ${listTokens.listItemFocusColor}: var(--surface-accent);
+                ${listTokens.listItemFocusColor}: ${surfaceAccent};
                 ${listTokens.listDisabledOpacity}: 0.4;
             `,
         },
@@ -29,12 +35,12 @@ export const config = {
                 ${listTokens.listItemGap}: 0.5rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${listTokens.listItemFontFamily}: ${bodyM.fontFamily};
+                ${listTokens.listItemFontSize}: ${bodyM.fontSize};
+                ${listTokens.listItemFontStyle}: ${bodyM.fontStyle};
+                ${listTokens.listItemFontWeight}: ${bodyM.fontWeight};
+                ${listTokens.listItemLetterSpacing}: ${bodyM.letterSpacing};
+                ${listTokens.listItemLineHeight}: ${bodyM.lineHeight};
             `,
         },
         disabled: {

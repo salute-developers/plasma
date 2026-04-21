@@ -1,3 +1,8 @@
+import {
+    shadowDownSoftS,
+    surfaceSolidCardBrightness,
+    surfaceTransparentTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 import { css, toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,11 +13,11 @@ export const config = {
     variations: {
         view: {
             default: css`
-                /* TODO: заменить значение box-shadow на var(--shadow-down-soft-s). https://github.com/salute-developers/plasma/issues/1131 */
+                /* TODO: заменить значение box-shadow на ${shadowDownSoftS}. https://github.com/salute-developers/plasma/issues/1131 */
                 ${toolbarTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${toolbarTokens.background}: var(--surface-solid-card-brightness);
+                ${toolbarTokens.background}: ${surfaceSolidCardBrightness};
 
-                ${toolbarTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${toolbarTokens.dividerColor}: ${surfaceTransparentTertiary};
             `,
         },
         size: {

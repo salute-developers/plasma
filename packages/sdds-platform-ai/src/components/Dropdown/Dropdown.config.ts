@@ -1,3 +1,8 @@
+import {
+    bodyM,
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 import { css, dropdownTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -24,12 +29,12 @@ export const config = {
                 ${tokens.dividerMarginTopTight}: 0.375rem;
                 ${tokens.dividerMarginBottomTight}: 0.375rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.itemFontWeightBold}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.itemFontFamily}: ${bodyM.fontFamily};
+                ${tokens.itemFontSize}: ${bodyM.fontSize};
+                ${tokens.itemFontStyle}: ${bodyM.fontStyle};
+                ${tokens.itemFontWeightBold}: ${bodyM.fontWeight};
+                ${tokens.itemFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.itemFontLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.cellPadding}: 0rem;
                 ${tokens.cellPaddingLeftContent}: 0rem;
@@ -37,18 +42,18 @@ export const config = {
                 ${tokens.cellPaddingRightContent}: 0rem;
                 ${tokens.cellTextboxGap}: 0.125rem;
                 ${tokens.cellGap}: 0.375rem;
-                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.cellTitleFontFamily}: ${bodyM.fontFamily};
+                ${tokens.cellTitleFontSize}: ${bodyM.fontSize};
+                ${tokens.cellTitleFontStyle}: ${bodyM.fontStyle};
+                ${tokens.cellTitleFontWeight}: ${bodyM.fontWeight};
+                ${tokens.cellTitleLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.cellTitleLineHeight}: ${bodyM.lineHeight};
             `,
         },
         view: {
             default: css`
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.dividerColor}: ${surfaceTransparentTertiary};
             `,
         },
     },

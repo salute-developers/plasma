@@ -1,3 +1,13 @@
+import {
+    bodyM,
+    bodyMBold,
+    surfaceAccent,
+    textPrimary,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,31 +18,31 @@ export const config = {
     variations: {
         view: {
             divider: css`
-                ${tabsTokens.itemColor}: var(--text-secondary);
-                ${tabsTokens.itemValueColor}: var(--text-tertiary);
+                ${tabsTokens.itemColor}: ${textSecondary};
+                ${tabsTokens.itemValueColor}: ${textTertiary};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemValueColorHover}: var(--text-secondary);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
-                ${tabsTokens.itemValueColorActive}: var(--text-secondary);
+                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
+                ${tabsTokens.itemValueColorHover}: ${textSecondary};
+                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemValueColorActive}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColor}: var(--text-secondary);
+                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedValueColor}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
-                ${tabsTokens.itemSelectedValueColorHover}: var(--text-secondary);
+                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedValueColorHover}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.itemPaddingClear}: 0;
                 ${tabsTokens.itemContentPaddingClear}: 0;
 
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
@@ -49,12 +59,12 @@ export const config = {
                 ${tabsTokens.itemContentGap}: 0.375rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tabsTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tabsTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tabsTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tabsTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tabsTokens.fontFamily}: ${bodyM.fontFamily};
+                ${tabsTokens.fontSize}: ${bodyM.fontSize};
+                ${tabsTokens.fontStyle}: ${bodyM.fontStyle};
+                ${tabsTokens.fontWeight}: ${bodyMBold.fontWeight};
+                ${tabsTokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tabsTokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
