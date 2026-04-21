@@ -1,4 +1,4 @@
-import { tourTokens, css } from '@salutejs/plasma-new-hope/styled-components';
+import { css } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -10,11 +10,7 @@ export const config = {
             default: css``,
         },
         size: {
-            s: css`
-                ${tourTokens.cardPadding}: 0.75rem;
-                ${tourTokens.cardRadius}: 0.75rem;
-                ${tourTokens.highlightRadius}: 0.75rem;
-            `,
+            s: css``,
         },
     },
 };
