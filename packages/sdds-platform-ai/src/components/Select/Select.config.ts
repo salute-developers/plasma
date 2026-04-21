@@ -361,7 +361,7 @@ export const config = {
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
-                ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldBorderRadius}: 1.25rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
@@ -435,7 +435,7 @@ export const config = {
 
                 ${tokens.emptyStatePadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.padding}: 0.125rem;
-                ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderRadius}: 1.25rem;
 
                 ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 0.75rem 0.75rem;
