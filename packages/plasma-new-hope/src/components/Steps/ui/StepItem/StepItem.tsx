@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import cls from 'classnames';
+import type { RootProps } from 'src/engines';
 
 import { classes, tokens } from '../../Steps.tokens';
-import { StepsContent, StepsContentAlign, StepsOrientation } from '../../Steps.types';
 
-import type { StepItemProps } from './StepItem.types';
 import {
     Bullet,
     BulletIndicator,
@@ -16,6 +15,8 @@ import {
     StepItemTitle,
     SpinnerStyled,
 } from './StepItem.styles';
+import type { RootStepItemProps, StepItemExtendedProps } from './StepItem.types';
+import { base as viewCSS } from './variations/_view/base';
 
 // todo попробовать заменить через baseline выравнивание
 const indicatorSizesIndentsMap = {
@@ -25,21 +26,7 @@ const indicatorSizesIndentsMap = {
     36: `var(${tokens.largeIndicatorIndentHeight})`,
 } as const;
 
-export const StepItem: React.FC<
-    StepItemProps & {
-        index: number;
-        items: StepItemProps[];
-        size: string;
-        hasLine?: boolean;
-        hasContent?: StepsContent;
-        hasLoader?: boolean;
-        isFirst?: boolean;
-        isLast?: boolean;
-        onClick?: (item: StepItemProps, index: number) => void;
-        contentAlign?: StepsContentAlign;
-        orientation?: StepsOrientation;
-    }
-> = ({
+export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>) => ({
     index,
     title,
     content,
@@ -50,9 +37,10 @@ export const StepItem: React.FC<
     contentAlign,
     hasLine,
     hasLoader,
+    rootView,
     onClick,
     items,
-}) => {
+}: StepItemExtendedProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const isFirst = index === 0;
@@ -72,6 +60,7 @@ export const StepItem: React.FC<
     const BulletNode = hasIndicator ? BulletIndicator : Bullet;
 
     const item = items[index];
+    const completedItemView = item.completedItemView ?? rootView;
     const isSimple = !title && !content;
     const clickable = Boolean(onClick);
     const isVertical = orientation === 'vertical';
@@ -116,7 +105,7 @@ export const StepItem: React.FC<
 
     if (isSimple) {
         return (
-            <>
+            <Root view={completedItemView}>
                 <StepItemStyled
                     className={cls({
                         [classes.simple]: isSimple,
@@ -176,12 +165,12 @@ export const StepItem: React.FC<
                         })}
                     />
                 )}
-            </>
+            </Root>
         );
     }
 
     return (
-        <>
+        <Root view={completedItemView}>
             <StepItemStyled
                 className={cls({
                     [classes.simple]: isSimple,
@@ -286,6 +275,19 @@ export const StepItem: React.FC<
                     )}
                 </StepItemContentWrapper>
             </StepItemStyled>
-        </>
+        </Root>
     );
+};
+
+export const stepItemConfig = {
+    name: 'Steps',
+    tag: 'div',
+    layout: stepItemRoot,
+    base: '',
+    variations: {
+        view: viewCSS,
+    },
+    defaults: {
+        view: 'default',
+    },
 };

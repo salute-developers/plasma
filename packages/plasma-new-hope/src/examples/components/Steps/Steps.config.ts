@@ -8,13 +8,6 @@ const baseItemView = `
     ${tokens.activeIndicatorBorder}: solid var(--surface-solid-default);
     ${tokens.activeIndicatorColor}: var(--text-primary);
     ${tokens.activeIndicatorBackground}: var(--surface-clear);
-    
-    ${tokens.completedIndicatorColor}: var(--inverse-text-primary);
-    ${tokens.completedIndicatorColorHover}: var(--inverse-text-primary);
-    ${tokens.completedIndicatorBackground}: var(--surface-solid-default);
-    ${tokens.completedIndicatorBackgroundHover}: var(--surface-solid-default-hover);
-    ${tokens.completedTitleColor}: var(--text-primary);
-    ${tokens.completedTitleColorHover}: var(--text-primary-hover);
 
     ${tokens.inactiveTitleColor}: var(--text-secondary);
     ${tokens.inactiveTitleColorHover}: var(--text-secondary-hover);
@@ -22,6 +15,13 @@ const baseItemView = `
     ${tokens.inactiveIndicatorColorHover}: var(--text-secondary);
     ${tokens.inactiveIndicatorBackground}: var(--surface-transparent-secondary);
     ${tokens.inactiveIndicatorBackgroundHover}: var(--surface-transparent-secondary-hover);
+    
+    ${tokens.completedIndicatorColor}: var(--inverse-text-primary);
+    ${tokens.completedIndicatorColorHover}: var(--inverse-text-primary);
+    ${tokens.completedIndicatorBackground}: var(--surface-solid-default);
+    ${tokens.completedIndicatorBackgroundHover}: var(--surface-solid-default-hover);
+    ${tokens.completedTitleColor}: var(--text-primary);
+    ${tokens.completedTitleColorHover}: var(--text-primary-hover);
 
     ${tokens.contentColor}: var(--text-secondary);
     ${tokens.focusColor}: var(--surface-accent);
@@ -32,11 +32,8 @@ const baseItemView = `
 const accentConfig = `
     ${tokens.completedTitleColor}: var(--text-primary);
     ${tokens.completedTitleColorHover}: var(--text-primary-hover);
-    
     ${tokens.completedIndicatorBackground}: var(--surface-accent);
     ${tokens.completedIndicatorBackgroundHover}: var(--surface-accent-hover);
-    
-    // Цвет контента внутри элемента Step
     ${tokens.completedIndicatorColor}: var(--on-dark-text-primary);
     ${tokens.completedIndicatorColorHover}: var(--on-dark-text-primary-hover);
 `;
@@ -46,6 +43,7 @@ export const config = {
         size: 'm',
         view: 'default',
         itemView: 'default',
+        completedItemView: 'default',
     },
     variations: {
         view: {
