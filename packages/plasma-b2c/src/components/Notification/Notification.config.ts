@@ -1,3 +1,16 @@
+import {
+    bodyS,
+    bodySBold,
+    surfaceSolidCardBrightness,
+    surfaceTransparentCard,
+    textInfo,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textSecondary,
+    textTertiary,
+    textWarning,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,10 +21,10 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${notificationTokens.titleColor}: var(--text-primary);
-                ${notificationTokens.contentLeftIconColor}: var(--text-primary);
-                ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-solid-card-brightness);
+                ${notificationTokens.titleColor}: ${textPrimary};
+                ${notificationTokens.contentLeftIconColor}: ${textPrimary};
+                ${notificationTokens.contentColor}: ${textSecondary};
+                ${notificationTokens.background}: ${surfaceSolidCardBrightness};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -40,32 +53,32 @@ export const config = {
                 ${notificationTokens.contentLeftIconMargin}: 0.375rem;
                 ${notificationTokens.contentTopIconMargin}: 0.5rem;
 
-                ${notificationTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.contentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${notificationTokens.contentFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.contentFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.contentFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.contentFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.contentFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.contentFontWeight}: ${bodyS.fontWeight};
+                ${notificationTokens.contentFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.contentFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.titleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.titleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.titleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.titleFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${notificationTokens.titleFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.titleFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.titleFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.titleFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.titleFontWeight}: ${bodySBold.fontWeight};
+                ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-tertiary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-primary);
+                ${notificationTokens.closeIconColor}: ${textTertiary};
+                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
             `,
             negative: css`
-                ${notificationTokens.titleColor}: var(--text-negative);
-                ${notificationTokens.contentLeftIconColor}: var(--text-negative);
-                ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
+                ${notificationTokens.titleColor}: ${textNegative};
+                ${notificationTokens.contentLeftIconColor}: ${textNegative};
+                ${notificationTokens.contentColor}: ${textSecondary};
+                ${notificationTokens.background}: ${surfaceTransparentCard};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -94,32 +107,32 @@ export const config = {
                 ${notificationTokens.contentLeftIconMargin}: 0.375rem;
                 ${notificationTokens.contentTopIconMargin}: 0.5rem;
 
-                ${notificationTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.contentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${notificationTokens.contentFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.contentFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.contentFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.contentFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.contentFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.contentFontWeight}: ${bodyS.fontWeight};
+                ${notificationTokens.contentFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.contentFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.titleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.titleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.titleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.titleFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${notificationTokens.titleFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.titleFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.titleFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.titleFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.titleFontWeight}: ${bodySBold.fontWeight};
+                ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-tertiary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-primary);
+                ${notificationTokens.closeIconColor}: ${textTertiary};
+                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
             `,
             positive: css`
-                ${notificationTokens.titleColor}: var(--text-positive);
-                ${notificationTokens.contentLeftIconColor}: var(--text-positive);
-                ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
+                ${notificationTokens.titleColor}: ${textPositive};
+                ${notificationTokens.contentLeftIconColor}: ${textPositive};
+                ${notificationTokens.contentColor}: ${textSecondary};
+                ${notificationTokens.background}: ${surfaceTransparentCard};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -148,32 +161,32 @@ export const config = {
                 ${notificationTokens.contentLeftIconMargin}: 0.375rem;
                 ${notificationTokens.contentTopIconMargin}: 0.5rem;
 
-                ${notificationTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.contentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${notificationTokens.contentFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.contentFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.contentFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.contentFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.contentFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.contentFontWeight}: ${bodyS.fontWeight};
+                ${notificationTokens.contentFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.contentFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.titleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.titleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.titleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.titleFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${notificationTokens.titleFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.titleFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.titleFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.titleFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.titleFontWeight}: ${bodySBold.fontWeight};
+                ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-tertiary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-primary);
+                ${notificationTokens.closeIconColor}: ${textTertiary};
+                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
             `,
             warning: css`
-                ${notificationTokens.titleColor}: var(--text-warning);
-                ${notificationTokens.contentLeftIconColor}: var(--text-warning);
-                ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
+                ${notificationTokens.titleColor}: ${textWarning};
+                ${notificationTokens.contentLeftIconColor}: ${textWarning};
+                ${notificationTokens.contentColor}: ${textSecondary};
+                ${notificationTokens.background}: ${surfaceTransparentCard};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -202,32 +215,32 @@ export const config = {
                 ${notificationTokens.contentLeftIconMargin}: 0.375rem;
                 ${notificationTokens.contentTopIconMargin}: 0.5rem;
 
-                ${notificationTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.contentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${notificationTokens.contentFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.contentFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.contentFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.contentFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.contentFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.contentFontWeight}: ${bodyS.fontWeight};
+                ${notificationTokens.contentFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.contentFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.titleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.titleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.titleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.titleFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${notificationTokens.titleFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.titleFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.titleFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.titleFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.titleFontWeight}: ${bodySBold.fontWeight};
+                ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-tertiary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-primary);
+                ${notificationTokens.closeIconColor}: ${textTertiary};
+                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
             `,
             info: css`
-                ${notificationTokens.titleColor}: var(--text-info);
-                ${notificationTokens.contentLeftIconColor}: var(--text-info);
-                ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
+                ${notificationTokens.titleColor}: ${textInfo};
+                ${notificationTokens.contentLeftIconColor}: ${textInfo};
+                ${notificationTokens.contentColor}: ${textSecondary};
+                ${notificationTokens.background}: ${surfaceTransparentCard};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -256,22 +269,22 @@ export const config = {
                 ${notificationTokens.contentLeftIconMargin}: 0.375rem;
                 ${notificationTokens.contentTopIconMargin}: 0.5rem;
 
-                ${notificationTokens.contentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.contentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.contentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.contentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${notificationTokens.contentFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.contentFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.contentFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.contentFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.contentFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.contentFontWeight}: ${bodyS.fontWeight};
+                ${notificationTokens.contentFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.contentFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.titleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${notificationTokens.titleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${notificationTokens.titleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${notificationTokens.titleFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${notificationTokens.titleFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${notificationTokens.titleFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.titleFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.titleFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.titleFontWeight}: ${bodySBold.fontWeight};
+                ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-tertiary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-primary);
+                ${notificationTokens.closeIconColor}: ${textTertiary};
+                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
