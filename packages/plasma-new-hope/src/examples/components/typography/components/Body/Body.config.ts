@@ -1,3 +1,20 @@
+import {
+    bodyL,
+    bodyLBold,
+    bodyLMedium,
+    bodyM,
+    bodyMBold,
+    bodyMMedium,
+    bodyS,
+    bodySBold,
+    bodySMedium,
+    bodyXS,
+    bodyXSBold,
+    bodyXSMedium,
+    bodyXXS,
+    bodyXXSBold,
+    bodyXXSMedium,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { tokens } from '../../../../../components/Typography/tokens';
@@ -9,54 +26,54 @@ export const config = {
     variations: {
         size: {
             l: css`
-                ${tokens.typoFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.typoFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.typoFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.typoFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.typoFontWeightBold}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-l-medium-font-weight);
-                ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.typoFontLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.typoFontFamily}: ${bodyL.fontFamily};
+                ${tokens.typoFontSize}: ${bodyL.fontSize};
+                ${tokens.typoFontStyle}: ${bodyL.fontStyle};
+                ${tokens.typoFontWeight}: ${bodyL.fontWeight};
+                ${tokens.typoFontWeightBold}: ${bodyLBold.fontWeight};
+                ${tokens.typoFontWeightMedium}: ${bodyLMedium.fontWeight};
+                ${tokens.typoFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.typoFontLineHeight}: ${bodyL.lineHeight};
             `,
             m: css`
-                ${tokens.typoFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.typoFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.typoFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.typoFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.typoFontWeightBold}: var(--plasma-typo-body-m-bold-font-weight);
-                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-m-medium-font-weight);
-                ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.typoFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.typoFontFamily}: ${bodyM.fontFamily};
+                ${tokens.typoFontSize}: ${bodyM.fontSize};
+                ${tokens.typoFontStyle}: ${bodyM.fontStyle};
+                ${tokens.typoFontWeight}: ${bodyM.fontWeight};
+                ${tokens.typoFontWeightBold}: ${bodyMBold.fontWeight};
+                ${tokens.typoFontWeightMedium}: ${bodyMMedium.fontWeight};
+                ${tokens.typoFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.typoFontLineHeight}: ${bodyM.lineHeight};
             `,
             s: css`
-                ${tokens.typoFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.typoFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.typoFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.typoFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.typoFontWeightBold}: var(--plasma-typo-body-s-bold-font-weight);
-                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-s-medium-font-weight);
-                ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.typoFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.typoFontFamily}: ${bodyS.fontFamily};
+                ${tokens.typoFontSize}: ${bodyS.fontSize};
+                ${tokens.typoFontStyle}: ${bodyS.fontStyle};
+                ${tokens.typoFontWeight}: ${bodyS.fontWeight};
+                ${tokens.typoFontWeightBold}: ${bodySBold.fontWeight};
+                ${tokens.typoFontWeightMedium}: ${bodySMedium.fontWeight};
+                ${tokens.typoFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.typoFontLineHeight}: ${bodyS.lineHeight};
             `,
             xs: css`
-                ${tokens.typoFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.typoFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.typoFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.typoFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.typoFontWeightBold}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-xs-medium-font-weight);
-                ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.typoFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.typoFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.typoFontSize}: ${bodyXS.fontSize};
+                ${tokens.typoFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.typoFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.typoFontWeightBold}: ${bodyXSBold.fontWeight};
+                ${tokens.typoFontWeightMedium}: ${bodyXSMedium.fontWeight};
+                ${tokens.typoFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.typoFontLineHeight}: ${bodyXS.lineHeight};
             `,
             xxs: css`
-                ${tokens.typoFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.typoFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.typoFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.typoFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.typoFontWeightBold}: var(--plasma-typo-body-xxs-bold-font-weight);
-                ${tokens.typoFontWeightMedium}: var(--plasma-typo-body-xxs-medium-font-weight);
-                ${tokens.typoFontLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.typoFontLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.typoFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.typoFontSize}: ${bodyXXS.fontSize};
+                ${tokens.typoFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.typoFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.typoFontWeightBold}: ${bodyXXSBold.fontWeight};
+                ${tokens.typoFontWeightMedium}: ${bodyXXSMedium.fontWeight};
+                ${tokens.typoFontLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.typoFontLineHeight}: ${bodyXXS.lineHeight};
             `,
         },
     },

@@ -1,3 +1,20 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    onLightSurfaceSolidCard,
+    surfaceAccent,
+    surfaceAccentGradient,
+    surfaceSolidDefault,
+    surfaceSolidTertiary,
+    surfaceTransparentPrimary,
+    surfaceTransparentPrimaryHover,
+    surfaceTransparentSecondary,
+    textAccent,
+    textPrimary,
+    textSecondary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { sliderTokens } from '../../../components/Slider';
@@ -10,70 +27,70 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${sliderTokens.labelColor}: var(--text-primary);
+                ${sliderTokens.labelColor}: ${textPrimary};
 
-                ${sliderTokens.rangeValueColor}: var(--text-secondary);
+                ${sliderTokens.rangeValueColor}: ${textSecondary};
 
-                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
-                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
-                ${sliderTokens.thumbFocusBorderColor}: var(--surface-solid-default);
+                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
+                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
+                ${sliderTokens.thumbFocusBorderColor}: ${surfaceSolidDefault};
 
-                ${sliderTokens.railBackgroundColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.railBackgroundColor}: ${surfaceSolidTertiary};
 
-                ${sliderTokens.fillColor}: var(--surface-solid-default);
+                ${sliderTokens.fillColor}: ${surfaceSolidDefault};
 
-                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
-                ${sliderTokens.textFieldColor}: var(--text-primary);
-                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: ${textAccent};
+                ${sliderTokens.textFieldColor}: ${textPrimary};
+                ${sliderTokens.textFiledFocusColor}: ${textPrimary};
+                ${sliderTokens.textFieldPlaceholderColor}: ${textSecondary};
 
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${sliderTokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
+                ${sliderTokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
+                ${sliderTokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
             `,
             accent: css`
-                ${sliderTokens.labelColor}: var(--text-primary);
+                ${sliderTokens.labelColor}: ${textPrimary};
 
-                ${sliderTokens.rangeValueColor}: var(--text-secondary);
+                ${sliderTokens.rangeValueColor}: ${textSecondary};
 
-                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
-                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
-                ${sliderTokens.thumbFocusBorderColor}: var(--surface-accent);
+                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
+                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
+                ${sliderTokens.thumbFocusBorderColor}: ${surfaceAccent};
 
-                ${sliderTokens.railBackgroundColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.railBackgroundColor}: ${surfaceSolidTertiary};
 
-                ${sliderTokens.fillColor}: var(--surface-accent);
+                ${sliderTokens.fillColor}: ${surfaceAccent};
 
-                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
-                ${sliderTokens.textFieldColor}: var(--text-primary);
-                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: ${textAccent};
+                ${sliderTokens.textFieldColor}: ${textPrimary};
+                ${sliderTokens.textFiledFocusColor}: ${textPrimary};
+                ${sliderTokens.textFieldPlaceholderColor}: ${textSecondary};
 
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${sliderTokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
+                ${sliderTokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
+                ${sliderTokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
             `,
             gradient: css`
-                ${sliderTokens.labelColor}: var(--text-primary);
+                ${sliderTokens.labelColor}: ${textPrimary};
 
-                ${sliderTokens.rangeValueColor}: var(--text-secondary);
+                ${sliderTokens.rangeValueColor}: ${textSecondary};
 
-                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
-                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
-                ${sliderTokens.thumbFocusBorderColor}: var(--surface-accent-gradient);
+                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
+                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
+                ${sliderTokens.thumbFocusBorderColor}: ${surfaceAccentGradient};
 
-                ${sliderTokens.railBackgroundColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.railBackgroundColor}: ${surfaceSolidTertiary};
 
-                ${sliderTokens.fillColor}: var(--surface-accent-gradient);
+                ${sliderTokens.fillColor}: ${surfaceAccentGradient};
 
-                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
-                ${sliderTokens.textFieldColor}: var(--text-primary);
-                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
-                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${sliderTokens.textFieldCaretColor}: ${textAccent};
+                ${sliderTokens.textFieldColor}: ${textPrimary};
+                ${sliderTokens.textFiledFocusColor}: ${textPrimary};
+                ${sliderTokens.textFieldPlaceholderColor}: ${textSecondary};
 
-                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${sliderTokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
+                ${sliderTokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
+                ${sliderTokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
             `,
         },
         size: {
@@ -87,24 +104,24 @@ export const config = {
                 ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 1rem;
 
-                ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${sliderTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
-                ${sliderTokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${sliderTokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${sliderTokens.labelFontFamily}: ${bodyL.fontFamily};
+                ${sliderTokens.labelFontSize}: ${bodyL.fontSize};
+                ${sliderTokens.labelFontStyle}: ${bodyL.fontStyle};
+                ${sliderTokens.labelFontWeight}: ${bodyL.fontWeight};
+                ${sliderTokens.labelLetterSpacing}: ${bodyL.letterSpacing};
+                ${sliderTokens.labelLineHeight}: ${bodyL.lineHeight};
 
                 ${sliderTokens.rangeValueHorizontalMargin}: 0.75rem;
                 ${sliderTokens.rangeValueBottomOffset}: 0.875rem;
                 ${sliderTokens.rangeValueHorizontalOffset}: 0.875rem;
                 ${sliderTokens.rangeValueVerticalMargin}: 0.75rem;
 
-                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-m-font-size);
-                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${sliderTokens.valueFontFamily}: ${bodyM.fontFamily};
+                ${sliderTokens.valueFontSize}: ${bodyM.fontSize};
+                ${sliderTokens.valueFontStyle}: ${bodyM.fontStyle};
+                ${sliderTokens.valueFontWeight}: ${bodyM.fontWeight};
+                ${sliderTokens.valueLetterSpacing}: ${bodyM.letterSpacing};
+                ${sliderTokens.valueLineHeight}: ${bodyM.lineHeight};
 
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
@@ -121,12 +138,12 @@ export const config = {
                 ${sliderTokens.textFieldHeight}: 3.5rem;
                 ${sliderTokens.textFieldPadding}: 1.25rem 1rem 1.25rem 1rem;
                 ${sliderTokens.textFieldBorderRadius}: 0.75rem;
-                ${sliderTokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${sliderTokens.textFieldFontSize}: var(--plasma-typo-body-l-font-size);
-                ${sliderTokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${sliderTokens.textFieldFontFamily}: ${bodyL.fontFamily};
+                ${sliderTokens.textFieldFontSize}: ${bodyL.fontSize};
+                ${sliderTokens.textFieldFontStyle}: ${bodyL.fontStyle};
+                ${sliderTokens.textFieldFontWeight}: ${bodyL.fontWeight};
+                ${sliderTokens.textFieldLetterSpacing}: ${bodyL.letterSpacing};
+                ${sliderTokens.textFieldLineHeight}: ${bodyL.lineHeight};
             `,
             m: css`
                 ${sliderTokens.size}: 1.5rem;
@@ -138,24 +155,24 @@ export const config = {
                 ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 0.75rem;
 
-                ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${sliderTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
-                ${sliderTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${sliderTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${sliderTokens.labelFontFamily}: ${bodyM.fontFamily};
+                ${sliderTokens.labelFontSize}: ${bodyM.fontSize};
+                ${sliderTokens.labelFontStyle}: ${bodyM.fontStyle};
+                ${sliderTokens.labelFontWeight}: ${bodyM.fontWeight};
+                ${sliderTokens.labelLetterSpacing}: ${bodyM.letterSpacing};
+                ${sliderTokens.labelLineHeight}: ${bodyM.lineHeight};
 
                 ${sliderTokens.rangeValueHorizontalMargin}: 0.75rem;
                 ${sliderTokens.rangeValueBottomOffset}: 0.75rem;
                 ${sliderTokens.rangeValueHorizontalOffset}: 0.875rem;
                 ${sliderTokens.rangeValueVerticalMargin}: 0.625rem;
 
-                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-s-font-size);
-                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${sliderTokens.valueFontFamily}: ${bodyS.fontFamily};
+                ${sliderTokens.valueFontSize}: ${bodyS.fontSize};
+                ${sliderTokens.valueFontStyle}: ${bodyS.fontStyle};
+                ${sliderTokens.valueFontWeight}: ${bodyS.fontWeight};
+                ${sliderTokens.valueLetterSpacing}: ${bodyS.letterSpacing};
+                ${sliderTokens.valueLineHeight}: ${bodyS.lineHeight};
 
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
@@ -172,12 +189,12 @@ export const config = {
                 ${sliderTokens.textFieldHeight}: 3rem;
                 ${sliderTokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${sliderTokens.textFieldBorderRadius}: 0.75rem;
-                ${sliderTokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${sliderTokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
-                ${sliderTokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${sliderTokens.textFieldFontFamily}: ${bodyM.fontFamily};
+                ${sliderTokens.textFieldFontSize}: ${bodyM.fontSize};
+                ${sliderTokens.textFieldFontStyle}: ${bodyM.fontStyle};
+                ${sliderTokens.textFieldFontWeight}: ${bodyM.fontWeight};
+                ${sliderTokens.textFieldLetterSpacing}: ${bodyM.letterSpacing};
+                ${sliderTokens.textFieldLineHeight}: ${bodyM.lineHeight};
             `,
             s: css`
                 ${sliderTokens.size}: 1rem;
@@ -189,24 +206,24 @@ export const config = {
                 ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 0.625rem;
 
-                ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${sliderTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${sliderTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${sliderTokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${sliderTokens.labelFontFamily}: ${bodyS.fontFamily};
+                ${sliderTokens.labelFontSize}: ${bodyS.fontSize};
+                ${sliderTokens.labelFontStyle}: ${bodyS.fontStyle};
+                ${sliderTokens.labelFontWeight}: ${bodyS.fontWeight};
+                ${sliderTokens.labelLetterSpacing}: ${bodyS.letterSpacing};
+                ${sliderTokens.labelLineHeight}: ${bodyS.lineHeight};
 
                 ${sliderTokens.rangeValueHorizontalMargin}: 0.5rem;
                 ${sliderTokens.rangeValueBottomOffset}: 0.625rem;
                 ${sliderTokens.rangeValueHorizontalOffset}: 0.625rem;
                 ${sliderTokens.rangeValueVerticalMargin}: 0.5rem;
 
-                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${sliderTokens.valueFontFamily}: ${bodyXS.fontFamily};
+                ${sliderTokens.valueFontSize}: ${bodyXS.fontSize};
+                ${sliderTokens.valueFontStyle}: ${bodyXS.fontStyle};
+                ${sliderTokens.valueFontWeight}: ${bodyXS.fontWeight};
+                ${sliderTokens.valueLetterSpacing}: ${bodyXS.letterSpacing};
+                ${sliderTokens.valueLineHeight}: ${bodyXS.lineHeight};
 
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
@@ -223,12 +240,12 @@ export const config = {
                 ${sliderTokens.textFieldHeight}: 2.5rem;
                 ${sliderTokens.textFieldPadding}: 0.5rem 1rem 0.5rem 1rem;
                 ${sliderTokens.textFieldBorderRadius}: 0.625rem;
-                ${sliderTokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${sliderTokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
-                ${sliderTokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${sliderTokens.textFieldFontFamily}: ${bodyS.fontFamily};
+                ${sliderTokens.textFieldFontSize}: ${bodyS.fontSize};
+                ${sliderTokens.textFieldFontStyle}: ${bodyS.fontStyle};
+                ${sliderTokens.textFieldFontWeight}: ${bodyS.fontWeight};
+                ${sliderTokens.textFieldLetterSpacing}: ${bodyS.letterSpacing};
+                ${sliderTokens.textFieldLineHeight}: ${bodyS.lineHeight};
             `,
         },
         disabled: {

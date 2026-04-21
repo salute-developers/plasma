@@ -1,3 +1,14 @@
+import {
+    dsplL,
+    dsplLBold,
+    dsplLMedium,
+    dsplM,
+    dsplMBold,
+    dsplMMedium,
+    dsplS,
+    dsplSBold,
+    dsplSMedium,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { tokens } from '../../../../../components/Typography/tokens';
@@ -9,34 +20,34 @@ export const config = {
     variations: {
         size: {
             l: css`
-                ${tokens.typoFontFamily}: var(--plasma-typo-dspl-l-font-family);
-                ${tokens.typoFontSize}: var(--plasma-typo-dspl-l-font-size);
-                ${tokens.typoFontStyle}: var(--plasma-typo-dspl-l-font-style);
-                ${tokens.typoFontWeight}: var(--plasma-typo-dspl-l-font-weight);
-                ${tokens.typoFontWeightBold}: var(--plasma-typo-dspl-l-bold-font-weight);
-                ${tokens.typoFontWeightMedium}: var(--plasma-typo-dspl-l-medium-font-weight);
-                ${tokens.typoFontLetterSpacing}: var(--plasma-typo-dspl-l-letter-spacing);
-                ${tokens.typoFontLineHeight}: var(--plasma-typo-dspl-l-line-height);
+                ${tokens.typoFontFamily}: ${dsplL.fontFamily};
+                ${tokens.typoFontSize}: ${dsplL.fontSize};
+                ${tokens.typoFontStyle}: ${dsplL.fontStyle};
+                ${tokens.typoFontWeight}: ${dsplL.fontWeight};
+                ${tokens.typoFontWeightBold}: ${dsplLBold.fontWeight};
+                ${tokens.typoFontWeightMedium}: ${dsplLMedium.fontWeight};
+                ${tokens.typoFontLetterSpacing}: ${dsplL.letterSpacing};
+                ${tokens.typoFontLineHeight}: ${dsplL.lineHeight};
             `,
             m: css`
-                ${tokens.typoFontFamily}: var(--plasma-typo-dspl-m-font-family);
-                ${tokens.typoFontSize}: var(--plasma-typo-dspl-m-font-size);
-                ${tokens.typoFontStyle}: var(--plasma-typo-dspl-m-font-style);
-                ${tokens.typoFontWeight}: var(--plasma-typo-dspl-m-font-weight);
-                ${tokens.typoFontWeightBold}: var(--plasma-typo-dspl-m-bold-font-weight);
-                ${tokens.typoFontWeightMedium}: var(--plasma-typo-dspl-m-medium-font-weight);
-                ${tokens.typoFontLetterSpacing}: var(--plasma-typo-dspl-m-letter-spacing);
-                ${tokens.typoFontLineHeight}: var(--plasma-typo-dspl-m-line-height);
+                ${tokens.typoFontFamily}: ${dsplM.fontFamily};
+                ${tokens.typoFontSize}: ${dsplM.fontSize};
+                ${tokens.typoFontStyle}: ${dsplM.fontStyle};
+                ${tokens.typoFontWeight}: ${dsplM.fontWeight};
+                ${tokens.typoFontWeightBold}: ${dsplMBold.fontWeight};
+                ${tokens.typoFontWeightMedium}: ${dsplMMedium.fontWeight};
+                ${tokens.typoFontLetterSpacing}: ${dsplM.letterSpacing};
+                ${tokens.typoFontLineHeight}: ${dsplM.lineHeight};
             `,
             s: css`
-                ${tokens.typoFontFamily}: var(--plasma-typo-dspl-s-font-family);
-                ${tokens.typoFontSize}: var(--plasma-typo-dspl-s-font-size);
-                ${tokens.typoFontStyle}: var(--plasma-typo-dspl-s-font-style);
-                ${tokens.typoFontWeight}: var(--plasma-typo-dspl-s-font-weight);
-                ${tokens.typoFontWeightBold}: var(--plasma-typo-dspl-s-bold-font-weight);
-                ${tokens.typoFontWeightMedium}: var(--plasma-typo-dspl-s-medium-font-weight);
-                ${tokens.typoFontLetterSpacing}: var(--plasma-typo-dspl-s-letter-spacing);
-                ${tokens.typoFontLineHeight}: var(--plasma-typo-dspl-s-line-height);
+                ${tokens.typoFontFamily}: ${dsplS.fontFamily};
+                ${tokens.typoFontSize}: ${dsplS.fontSize};
+                ${tokens.typoFontStyle}: ${dsplS.fontStyle};
+                ${tokens.typoFontWeight}: ${dsplS.fontWeight};
+                ${tokens.typoFontWeightBold}: ${dsplSBold.fontWeight};
+                ${tokens.typoFontWeightMedium}: ${dsplSMedium.fontWeight};
+                ${tokens.typoFontLetterSpacing}: ${dsplS.letterSpacing};
+                ${tokens.typoFontLineHeight}: ${dsplS.lineHeight};
             `,
         },
     },

@@ -1,3 +1,9 @@
+import {
+    inverseTextTertiary,
+    onDarkSurfaceTransparentTertiary,
+    onLightSurfaceTransparentTertiary,
+    surfaceTransparentTertiary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { dividerTokens } from '../../../components/Divider';
@@ -11,17 +17,17 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${dividerTokens.background}: var(--surface-transparent-tertiary);
+                ${dividerTokens.background}: ${surfaceTransparentTertiary};
             `,
             dark: css`
-                ${dividerTokens.background}: var(--on-dark-surface-transparent-tertiary);
+                ${dividerTokens.background}: ${onDarkSurfaceTransparentTertiary};
             `,
             light: css`
-                ${dividerTokens.background}: var(--on-light-surface-transparent-tertiary);
+                ${dividerTokens.background}: ${onLightSurfaceTransparentTertiary};
             `,
             // TODO поменять на корректный токен --inverse-surface-transparent-tertiary когда он появится
             inverse: css`
-                ${dividerTokens.background}: var(--inverse-text-tertiary);
+                ${dividerTokens.background}: ${inverseTextTertiary};
             `,
         },
         size: {

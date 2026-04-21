@@ -1,3 +1,30 @@
+import {
+    textAccent,
+    textAccentActive,
+    textAccentHover,
+    textM,
+    textNegative,
+    textNegativeActive,
+    textNegativeHover,
+    textParagraph,
+    textParagraphActive,
+    textParagraphHover,
+    textPositive,
+    textPositiveActive,
+    textPositiveHover,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textTertiary,
+    textTertiaryActive,
+    textTertiaryHover,
+    textWarning,
+    textWarningActive,
+    textWarningHover,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { tokens } from '../../../components/Link/Link.tokens';
@@ -10,87 +37,87 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
-                ${tokens.linkColor}: var(--text-primary);
-                ${tokens.linkColorHover}: var(--text-primary-hover);
-                ${tokens.linkColorActive}: var(--text-primary-active);
-                ${tokens.linkColorVisited}: var(--text-primary);
-                ${tokens.linkColorVisitedHover}: var(--text-primary-hover);
-                ${tokens.linkColorVisitedActive}: var(--text-primary-active);
+                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkColor}: ${textPrimary};
+                ${tokens.linkColorHover}: ${textPrimaryHover};
+                ${tokens.linkColorActive}: ${textPrimaryActive};
+                ${tokens.linkColorVisited}: ${textPrimary};
+                ${tokens.linkColorVisitedHover}: ${textPrimaryHover};
+                ${tokens.linkColorVisitedActive}: ${textPrimaryActive};
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             secondary: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
-                ${tokens.linkColor}: var(--text-secondary);
-                ${tokens.linkColorHover}: var(--text-secondary-hover);
-                ${tokens.linkColorActive}: var(--text-secondary-active);
-                ${tokens.linkColorVisited}: var(--text-secondary);
-                ${tokens.linkColorVisitedHover}: var(--text-secondary-hover);
-                ${tokens.linkColorVisitedActive}: var(--text-secondary-active);
+                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkColor}: ${textSecondary};
+                ${tokens.linkColorHover}: ${textSecondaryHover};
+                ${tokens.linkColorActive}: ${textSecondaryActive};
+                ${tokens.linkColorVisited}: ${textSecondary};
+                ${tokens.linkColorVisitedHover}: ${textSecondaryHover};
+                ${tokens.linkColorVisitedActive}: ${textSecondaryActive};
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             tertiary: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
-                ${tokens.linkColor}: var(--text-tertiary);
-                ${tokens.linkColorHover}: var(--text-tertiary-hover);
-                ${tokens.linkColorActive}: var(--text-tertiary-active);
-                ${tokens.linkColorVisited}: var(--text-tertiary);
-                ${tokens.linkColorVisitedHover}: var(--text-tertiary-hover);
-                ${tokens.linkColorVisitedActive}: var(--text-tertiary-active);
+                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkColor}: ${textTertiary};
+                ${tokens.linkColorHover}: ${textTertiaryHover};
+                ${tokens.linkColorActive}: ${textTertiaryActive};
+                ${tokens.linkColorVisited}: ${textTertiary};
+                ${tokens.linkColorVisitedHover}: ${textTertiaryHover};
+                ${tokens.linkColorVisitedActive}: ${textTertiaryActive};
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             paragraph: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
-                ${tokens.linkColor}: var(--text-paragraph);
-                ${tokens.linkColorHover}: var(--text-paragraph-hover);
-                ${tokens.linkColorActive}: var(--text-paragraph-active);
-                ${tokens.linkColorVisited}: var(--text-paragraph);
-                ${tokens.linkColorVisitedHover}: var(--text-paragraph-hover);
-                ${tokens.linkColorVisitedActive}: var(--text-paragraph-active);
+                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkColor}: ${textParagraph};
+                ${tokens.linkColorHover}: ${textParagraphHover};
+                ${tokens.linkColorActive}: ${textParagraphActive};
+                ${tokens.linkColorVisited}: ${textParagraph};
+                ${tokens.linkColorVisitedHover}: ${textParagraphHover};
+                ${tokens.linkColorVisitedActive}: ${textParagraphActive};
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             accent: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
-                ${tokens.linkColor}: var(--text-accent);
-                ${tokens.linkColorHover}: var(--text-accent-hover);
-                ${tokens.linkColorActive}: var(--text-accent-active);
-                ${tokens.linkColorVisited}: var(--text-accent);
-                ${tokens.linkColorVisitedHover}: var(--text-accent-hover);
-                ${tokens.linkColorVisitedActive}: var(--text-accent-active);
+                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkColor}: ${textAccent};
+                ${tokens.linkColorHover}: ${textAccentHover};
+                ${tokens.linkColorActive}: ${textAccentActive};
+                ${tokens.linkColorVisited}: ${textAccent};
+                ${tokens.linkColorVisitedHover}: ${textAccentHover};
+                ${tokens.linkColorVisitedActive}: ${textAccentActive};
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             positive: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
-                ${tokens.linkColor}: var(--text-positive);
-                ${tokens.linkColorHover}: var(--text-positive-hover);
-                ${tokens.linkColorActive}: var(--text-positive-active);
-                ${tokens.linkColorVisited}: var(--text-positive);
-                ${tokens.linkColorVisitedHover}: var(--text-positive-hover);
-                ${tokens.linkColorVisitedActive}: var(--text-positive-active);
+                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkColor}: ${textPositive};
+                ${tokens.linkColorHover}: ${textPositiveHover};
+                ${tokens.linkColorActive}: ${textPositiveActive};
+                ${tokens.linkColorVisited}: ${textPositive};
+                ${tokens.linkColorVisitedHover}: ${textPositiveHover};
+                ${tokens.linkColorVisitedActive}: ${textPositiveActive};
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             warning: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
-                ${tokens.linkColor}: var(--text-warning);
-                ${tokens.linkColorHover}: var(--text-warning-hover);
-                ${tokens.linkColorActive}: var(--text-warning-active);
-                ${tokens.linkColorVisited}: var(--text-warning);
-                ${tokens.linkColorVisitedHover}: var(--text-warning-hover);
-                ${tokens.linkColorVisitedActive}: var(--text-warning-active);
+                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkColor}: ${textWarning};
+                ${tokens.linkColorHover}: ${textWarningHover};
+                ${tokens.linkColorActive}: ${textWarningActive};
+                ${tokens.linkColorVisited}: ${textWarning};
+                ${tokens.linkColorVisitedHover}: ${textWarningHover};
+                ${tokens.linkColorVisitedActive}: ${textWarningActive};
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             negative: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
-                ${tokens.linkColor}: var(--text-negative);
-                ${tokens.linkColorHover}: var(--text-negative-hover);
-                ${tokens.linkColorActive}: var(--text-negative-active);
-                ${tokens.linkColorVisited}: var(--text-negative);
-                ${tokens.linkColorVisitedHover}: var(--text-negative-hover);
-                ${tokens.linkColorVisitedActive}: var(--text-negative-active);
+                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkColor}: ${textNegative};
+                ${tokens.linkColorHover}: ${textNegativeHover};
+                ${tokens.linkColorActive}: ${textNegativeActive};
+                ${tokens.linkColorVisited}: ${textNegative};
+                ${tokens.linkColorVisitedHover}: ${textNegativeHover};
+                ${tokens.linkColorVisitedActive}: ${textNegativeActive};
                 ${tokens.linkUnderlineBorder}: 0;
             `,
             clear: css`
-                ${tokens.linkFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${tokens.linkFontFamily}: ${textM.fontFamily};
                 ${tokens.linkColor}:inherit;
                 ${tokens.linkColorHover}: inherit;
                 ${tokens.linkColorActive}: inherit;
@@ -107,7 +134,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${tokens.linkColorFocus}: var(--text-accent);
+                ${tokens.linkColorFocus}: ${textAccent};
             `,
         },
     },

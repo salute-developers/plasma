@@ -1,3 +1,4 @@
+import { surfaceSolidCard, surfaceTransparentPrimary } from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { panelTokens } from '../../../components/Panel';
@@ -11,9 +12,9 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${panelTokens.background}: var(--surface-solid-card);
+                ${panelTokens.background}: ${surfaceSolidCard};
                 ${panelTokens.shadow}: 0 3.75rem 7rem -0.5rem rgba(0, 0, 0, 0.08);
-                ${panelTokens.contentBackgroundColor}: var(--surface-transparent-primary);
+                ${panelTokens.contentBackgroundColor}: ${surfaceTransparentPrimary};
             `,
         },
         size: {
