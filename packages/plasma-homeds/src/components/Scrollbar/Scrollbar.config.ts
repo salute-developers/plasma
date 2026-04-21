@@ -1,8 +1,10 @@
+import { surfaceTransparentPrimary, surfaceTransparentTertiary } from '@salutejs/plasma-themes/tokens/plasma_homeds';
+
 export const config = {
     view: {
         default: {
-            trackColor: 'var(--surface-transparent-primary)',
-            thumbColor: 'var(--surface-transparent-tertiary)',
+            trackColor: surfaceTransparentPrimary,
+            thumbColor: surfaceTransparentTertiary,
         },
     },
     size: {
