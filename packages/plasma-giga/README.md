@@ -4,13 +4,13 @@
 
 ## Использование
 
-Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) , [styled-components](https://styled-components.com/) и [emotion](https://emotion.sh/);
+Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) и [styled-components](https://styled-components.com/);
 
 Использование данного пакета предполагает установку зависимостей: `react` & `react-dom`;
 
-Использование `styled-components` и `emotion` на проекте необязательно, так же как и использование `typescript`.
+Использование `styled-components` на проекте необязательно, так же как и использование `typescript`.
 
-**Но** для того чтобы компоненты работали корректно необходимо установить `styled-components` или `emotion`.
+**Но** для того чтобы компоненты работали корректно необходимо установить `styled-components`.
 
 ### Установка пакета
 
@@ -23,12 +23,6 @@ $ npm install --save @salutejs/plasma-giga @salutejs/plasma-typo @salutejs/plasm
 
 ```bash
 $ npm install --save styled-components@5.3.1
-```
-
-Или, если вы используете пакет @emotion
-
-```bash
-$ npm install --save @emotion/styled @emotion/react @emotion/css
 ```
 
 ## Настройка при работе с пакетом `styled-components`
@@ -51,26 +45,6 @@ export const GlobalStyle = () => (
 );
 ```
 
-## Настройка при работе с пакетом `@emotion`
-
-Создайте компонент для подключения глобальных стилей:
-
-```jsx title="GlobalStyle.tsx"
-import { Global, css } from '@emotion/react';
-import { standard } from '@salutejs/plasma-typo';
-import { plasma_giga__light } from '@salutejs/plasma-themes';
-
-const themeStyle = css(plasma_giga__light);
-const typoStyle = css(standard);
-
-export const GlobalStyle = () => (
-    <>
-        <Global styles={themeStyle} />
-        <Global styles={typoStyle} />
-    </>
-);
-```
-
 ### Корень приложения
 
 В корне приложения вызовите компонент глобальных стилей `GlobalStyle`:
@@ -87,7 +61,7 @@ export const GlobalStyle = () => (
 ```jsx
 // App.tsx
 import { Button } from '@salutejs/plasma-giga';
-import { textAccent } from '@salutejs/plasma-themes/tokens/plasma-giga';
+import { textAccent } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const App = () => {
     return (
@@ -96,26 +70,6 @@ export const App = () => {
         <p style={{color: textAccent}}>
             Token usage example
         </p>
-    );
-};
-```
-
-#### `@emotion`
-
-Все компоненты `@emotion` доступны из директории `emotion`:
-
-```jsx
-// App.tsx
-import { Button } from '@salutejs/plasma-giga/emotion';
-import { textAccent } from '@salutejs/plasma-tokens/brands/plasma-giga';
-
-export const App = () => {
-    return (
-        <>
-            <Button>Hello, Plasma Giga!</Button>
-
-            <p style={{ color: textAccent }}>Token usage example</p>
-        </>
     );
 };
 ```
