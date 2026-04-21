@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { StyledContentWrapper } from '../../Checkbox.styles';
 import { tokens } from '../../Checkbox.tokens';

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { buttonTokens } from '../Button';
 import { baseContent as buttonBase } from '../Button/Button.styles';

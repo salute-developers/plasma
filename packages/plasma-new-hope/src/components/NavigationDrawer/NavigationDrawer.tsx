@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import cls from 'classnames';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { RootProps } from '../../engines';
 

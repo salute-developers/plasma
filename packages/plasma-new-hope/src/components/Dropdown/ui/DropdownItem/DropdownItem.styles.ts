@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { classes, tokens, constants } from '../../Dropdown.tokens';
 import { addFocus, applyEllipsis } from '../../../../mixins';

@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 import { cx } from 'src/utils';
 
 import type { RootProps } from '../../engines/types';

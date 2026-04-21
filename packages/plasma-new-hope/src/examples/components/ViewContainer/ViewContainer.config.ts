@@ -1,14 +1,14 @@
-import { css } from '@linaria/core';
-import { viewContainer } from '@salutejs/plasma-themes/tokens/plasma_b2c';
+import { css } from 'styled-components';
+import { plasma_b2c__dark, plasma_b2c__light } from '@salutejs/plasma-themes';
 
 export const config = {
     variations: {
         view: {
             onDark: css`
-                ${viewContainer.dark}
+                ${plasma_b2c__dark}
             `,
             onLight: css`
-                ${viewContainer.light}
+                ${plasma_b2c__light}
             `,
         },
     },

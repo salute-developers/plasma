@@ -1,6 +1,5 @@
 import type { CSSProperties } from 'react';
-import { css } from '@linaria/core';
-import { styled } from '@linaria/react';
+import styled, { css } from 'styled-components';
 
 import { applyHyphens } from '../../mixins';
 import { buttonConfig } from '../Button';

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { tokens } from '../Switch.tokens';
 import { StyledTrigger, StyledInput, StyledLabel, StyledDescription } from '../Switch.styles';

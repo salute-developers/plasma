@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { addFocus } from 'src/mixins';
 
 import { tokens, classes } from '../List.tokens';

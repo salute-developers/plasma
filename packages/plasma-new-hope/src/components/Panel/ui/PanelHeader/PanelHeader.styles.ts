@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { mergeConfig, component } from '../../../../engines';
 import { buttonConfig } from '../../../Button';

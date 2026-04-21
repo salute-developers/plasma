@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { IconChevronDown } from '../../../../_Icon';
 import { addFocus, applyEllipsis } from '../../../../../mixins';

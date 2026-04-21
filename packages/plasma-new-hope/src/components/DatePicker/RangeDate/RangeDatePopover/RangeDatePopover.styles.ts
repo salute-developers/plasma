@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { calendarDoubleConfig, withRange, calendarBaseConfig, calendarBaseTokens } from 'src/components/Calendar';
 import type { CalendarDoubleProps, CalendarBaseProps } from 'src/components/Calendar';
 import { component, mergeConfig } from 'src/engines';

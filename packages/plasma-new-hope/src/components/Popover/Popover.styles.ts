@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { DEFAULT_Z_INDEX } from '../Popup/utils';
 

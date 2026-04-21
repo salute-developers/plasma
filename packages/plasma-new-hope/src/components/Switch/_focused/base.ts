@@ -1,5 +1,5 @@
 import 'focus-visible';
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { tokens } from '../Switch.tokens';
 import { StyledInput, StyledTrigger } from '../Switch.styles';

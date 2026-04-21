@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { StyledProgress, StyledTrack, StyledValue } from '../../Progress.styles';
 import { tokens } from '../../Progress.tokens';

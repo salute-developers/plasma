@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FC, HTMLAttributes } from 'react';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import cls from 'classnames';
 import { applySkeletonPulseGradient, applySkeletonShimmerGradient, getSkeletonColor } from 'src/mixins';
 
