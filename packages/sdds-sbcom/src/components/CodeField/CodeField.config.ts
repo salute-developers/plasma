@@ -1,21 +1,20 @@
+import { css, codeFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, bodyXs, outlineAccent, surfaceAccent
+     * surfaceTransparentNegative
+     */
     bodyL,
     bodyLBold,
-    bodyM,
-    bodyMBold,
     bodyS,
-    bodyXS,
-    outlineAccent,
-    surfaceAccent,
-    surfaceTransparentNegative,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
     textNegative,
     textPrimary,
     textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, codeFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -26,19 +25,22 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.caretColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${tokens.caretColor}: var(--surface-accent);
 
                 ${tokens.captionColor}: ${textSecondary};
                 ${tokens.captionColorError}: ${textNegative};
 
                 ${tokens.codeColor}: ${textPrimary};
                 ${tokens.codeColorError}: ${textNegative};
-                ${tokens.borderColorFocus}: ${outlineAccent};
+                /* NOTE: no token outlineAccent in @salutejs/sdds-themes/tokens */
+                ${tokens.borderColorFocus}: var(--outline-accent);
 
                 ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentPrimaryHover};
                 ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                /* NOTE: no token surfaceTransparentNegative in @salutejs/sdds-themes/tokens */
+                ${tokens.backgroundErrorColor}: var(--surface-transparent-negative);
             `,
         },
         size: {
@@ -78,19 +80,31 @@ export const config = {
                 ${tokens.codeItemWidth}: 2.375rem;
                 ${tokens.codeItemHeight}: 3rem;
 
-                ${tokens.fontFamily}: ${bodyM.fontFamily};
-                ${tokens.fontSize}: ${bodyM.fontSize};
-                ${tokens.fontStyle}: ${bodyM.fontStyle};
-                ${tokens.fontWeight}: ${bodyMBold.fontWeight};
-                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
-                ${tokens.lineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${tokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.captionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.captionFontSize}: ${bodyXS.fontSize};
-                ${tokens.captionFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.captionFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.captionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.captionLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.captionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.captionFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.captionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.captionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.captionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.captionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.borderRadiusSegmented}: 0.25rem;

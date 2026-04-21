@@ -1,19 +1,19 @@
+import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, bodyXs, bodyXsBold, surfaceAccent
+     */
     bodyL,
     bodyLBold,
-    bodyM,
-    bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextPrimaryHover,
     inverseTextSecondary,
     onDarkTextPrimary,
     onDarkTextPrimaryHover,
     onDarkTextSecondary,
-    surfaceAccent,
     surfaceSolidDefault,
     surfaceTransparentCard,
     textAccent,
@@ -21,8 +21,7 @@ import {
     textPrimaryHover,
     textSecondary,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -87,9 +86,11 @@ export const config = {
                 ${segmentTokens.itemAdditionalColor}: ${textSecondary};
                 ${segmentTokens.itemAdditionalColorHover}: ${textSecondary};
                 ${segmentTokens.itemSelectedColor}: ${onDarkTextPrimary};
-                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-accent);
                 ${segmentTokens.itemSelectedColorHover}: ${onDarkTextPrimaryHover};
-                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-accent);
                 ${segmentTokens.itemSelectedAdditionalColor}: ${onDarkTextSecondary};
                 ${segmentTokens.itemSelectedAdditionalColorHover}: ${onDarkTextSecondary};
 
@@ -107,12 +108,18 @@ export const config = {
                 ${segmentTokens.itemIconMargin}: 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0;
 
-                ${segmentTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${segmentTokens.fontSize}: ${bodyXS.fontSize};
-                ${segmentTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${segmentTokens.fontWeight}: ${bodyXSBold.fontWeight};
-                ${segmentTokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${segmentTokens.lineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
                 ${segmentTokens.itemBorderRadius}: 0.625rem;
@@ -141,12 +148,18 @@ export const config = {
                 ${segmentTokens.itemIconMargin}: 0.25rem;
                 ${segmentTokens.itemMarginLeft}: 0rem;
 
-                ${segmentTokens.fontFamily}: ${bodyM.fontFamily};
-                ${segmentTokens.fontSize}: ${bodyM.fontSize};
-                ${segmentTokens.fontStyle}: ${bodyM.fontStyle};
-                ${segmentTokens.fontWeight}: ${bodyMBold.fontWeight};
-                ${segmentTokens.letterSpacing}: ${bodyM.letterSpacing};
-                ${segmentTokens.lineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             l: css`
                 ${segmentTokens.itemBorderRadius}: 0.875rem;
@@ -190,7 +203,7 @@ export const config = {
         },
         pilled: {
             true: css`
-                // NOTE: change on token when added
+                /* NOTE: change on token when added */
                 ${segmentTokens.itemPilledBorderRadius}: 1000px;
             `,
         },

@@ -4,7 +4,7 @@ import type { StoryObj, Meta } from '@storybook/react-vite';
 import { Indicator } from './Indicator';
 
 const meta: Meta<typeof Indicator> = {
-    title: 'Data Display/Indicator',
+    title: 'Data Display/⚠️ Indicator',
     component: Indicator,
     argTypes: {
         view: {

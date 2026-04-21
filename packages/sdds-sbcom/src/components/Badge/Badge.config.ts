@@ -1,4 +1,10 @@
+import { badgeTokens, css } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: surfaceAccent, surfaceTransparentNegative
+     * surfaceTransparentPositive, surfaceTransparentWarning
+     */
     bodyS,
     bodyXS,
     bodyXXS,
@@ -9,24 +15,19 @@ import {
     onLightSurfaceSolidDefault,
     onLightSurfaceTransparentDeep,
     onLightTextPrimary,
-    surfaceAccent,
     surfaceClear,
     surfaceNegative,
     surfacePositive,
     surfaceSolidDefault,
     surfaceTransparentAccent,
-    surfaceTransparentNegative,
-    surfaceTransparentPositive,
     surfaceTransparentSecondary,
-    surfaceTransparentWarning,
     surfaceWarning,
     textAccent,
     textNegative,
     textPositive,
     textPrimary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -46,7 +47,8 @@ export const config = {
             `,
             accent: css`
                 ${badgeTokens.color}: ${onDarkTextPrimary};
-                ${badgeTokens.background}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.background}: var(--surface-accent);
 
                 ${badgeTokens.colorTransparent}: ${textAccent};
                 ${badgeTokens.backgroundTransparent}: ${surfaceTransparentAccent};
@@ -58,7 +60,8 @@ export const config = {
                 ${badgeTokens.background}: ${surfacePositive};
 
                 ${badgeTokens.colorTransparent}: ${textPositive};
-                ${badgeTokens.backgroundTransparent}: ${surfaceTransparentPositive};
+                /* NOTE: no token surfaceTransparentPositive in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-positive);
 
                 ${badgeTokens.colorClear}: ${textPositive};
             `,
@@ -67,7 +70,8 @@ export const config = {
                 ${badgeTokens.background}: ${surfaceWarning};
 
                 ${badgeTokens.colorTransparent}: ${textWarning};
-                ${badgeTokens.backgroundTransparent}: ${surfaceTransparentWarning};
+                /* NOTE: no token surfaceTransparentWarning in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-warning);
 
                 ${badgeTokens.colorClear}: ${textWarning};
             `,
@@ -76,7 +80,8 @@ export const config = {
                 ${badgeTokens.background}: ${surfaceNegative};
 
                 ${badgeTokens.colorTransparent}: ${textNegative};
-                ${badgeTokens.backgroundTransparent}: ${surfaceTransparentNegative};
+                /* NOTE: no token surfaceTransparentNegative in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-negative);
 
                 ${badgeTokens.colorClear}: ${textNegative};
             `,

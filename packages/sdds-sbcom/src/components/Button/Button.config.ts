@@ -1,12 +1,14 @@
+import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, bodyXs, bodyXsBold, surfaceAccent
+     * surfaceAccentActive, surfaceAccentHover
+     */
     bodyL,
     bodyLBold,
-    bodyM,
-    bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextPrimaryActive,
     inverseTextPrimaryHover,
@@ -22,9 +24,6 @@ import {
     onLightTextPrimaryActive,
     onLightTextPrimaryHover,
     onLightTextSecondary,
-    surfaceAccent,
-    surfaceAccentActive,
-    surfaceAccentHover,
     surfaceClear,
     surfaceNegative,
     surfaceNegativeActive,
@@ -41,8 +40,7 @@ import {
     surfaceWarningHover,
     textPrimary,
     textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -67,10 +65,13 @@ export const config = {
                 ${buttonTokens.buttonTextColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
-                ${buttonTokens.buttonBackgroundColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceAccentHover};
-                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceAccentActive};
+                /* NOTE: no token surfaceAccentHover in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
+                /* NOTE: no token surfaceAccentActive in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
                 ${buttonTokens.buttonColor}: ${textPrimary};
@@ -201,12 +202,18 @@ export const config = {
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonPadding}: 1.25rem;
                 ${buttonTokens.buttonRadius}: 0.75rem;
-                ${buttonTokens.buttonFontFamily}: ${bodyM.fontFamily};
-                ${buttonTokens.buttonFontSize}: ${bodyM.fontSize};
-                ${buttonTokens.buttonFontStyle}: ${bodyM.fontStyle};
-                ${buttonTokens.buttonFontWeight}: ${bodyMBold.fontWeight};
-                ${buttonTokens.buttonLetterSpacing}: ${bodyM.letterSpacing};
-                ${buttonTokens.buttonLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
@@ -243,12 +250,18 @@ export const config = {
                 ${buttonTokens.buttonWidth}: 10rem;
                 ${buttonTokens.buttonPadding}: 0.75rem;
                 ${buttonTokens.buttonRadius}: 0.5rem;
-                ${buttonTokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${buttonTokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${buttonTokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${buttonTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${buttonTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${buttonTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${buttonTokens.buttonSpinnerSize}: 1rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
@@ -264,12 +277,18 @@ export const config = {
                 ${buttonTokens.buttonWidth}: 8.75rem;
                 ${buttonTokens.buttonPadding}: 0.625rem;
                 ${buttonTokens.buttonRadius}: 0.375rem;
-                ${buttonTokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${buttonTokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${buttonTokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${buttonTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${buttonTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${buttonTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${buttonTokens.buttonSpinnerSize}: 0.75rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
@@ -288,7 +307,8 @@ export const config = {
         },
         focused: {
             true: css`
-                ${buttonTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFocusColor}: var(--surface-accent);
             `,
         },
         stretching: {

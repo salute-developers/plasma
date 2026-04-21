@@ -1,8 +1,11 @@
+import { checkboxTokens, css } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyXs
+     */
     bodyL,
-    bodyM,
     bodyS,
-    bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
     textAccent,
@@ -13,8 +16,7 @@ import {
     textSecondary,
     textTertiary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, checkboxTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -39,12 +41,18 @@ export const config = {
                 ${checkboxTokens.labelFontWeight}: ${bodyS.fontWeight};
                 ${checkboxTokens.labelLetterSpacing}: ${bodyS.letterSpacing};
                 ${checkboxTokens.labelLineHeight}: ${bodyS.lineHeight};
-                ${checkboxTokens.descriptionFontFamily}: ${bodyXS.fontFamily};
-                ${checkboxTokens.descriptionFontSize}: ${bodyXS.fontSize};
-                ${checkboxTokens.descriptionFontStyle}: ${bodyXS.fontStyle};
-                ${checkboxTokens.descriptionFontWeight}: ${bodyXS.fontWeight};
-                ${checkboxTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${checkboxTokens.descriptionLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             m: css`
                 ${checkboxTokens.margin}: 0;
@@ -55,12 +63,18 @@ export const config = {
                 ${checkboxTokens.contentTopOffset}: 0.125rem;
                 ${checkboxTokens.contentLeftOffset}: 0.75rem;
                 ${checkboxTokens.descriptionMarginTop}: 0.125rem;
-                ${checkboxTokens.labelFontFamily}: ${bodyM.fontFamily};
-                ${checkboxTokens.labelFontSize}: ${bodyM.fontSize};
-                ${checkboxTokens.labelFontStyle}: ${bodyM.fontStyle};
-                ${checkboxTokens.labelFontWeight}: ${bodyM.fontWeight};
-                ${checkboxTokens.labelLetterSpacing}: ${bodyM.letterSpacing};
-                ${checkboxTokens.labelLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${checkboxTokens.descriptionFontFamily}: ${bodyS.fontFamily};
                 ${checkboxTokens.descriptionFontSize}: ${bodyS.fontSize};
                 ${checkboxTokens.descriptionFontStyle}: ${bodyS.fontStyle};
@@ -83,12 +97,18 @@ export const config = {
                 ${checkboxTokens.labelLetterSpacing}: ${bodyL.letterSpacing};
                 ${checkboxTokens.labelLineHeight}: ${bodyL.lineHeight};
                 ${checkboxTokens.descriptionMarginTop}: 0.125rem;
-                ${checkboxTokens.descriptionFontFamily}: ${bodyM.fontFamily};
-                ${checkboxTokens.descriptionFontSize}: ${bodyM.fontSize};
-                ${checkboxTokens.descriptionFontStyle}: ${bodyM.fontStyle};
-                ${checkboxTokens.descriptionFontWeight}: ${bodyM.fontWeight};
-                ${checkboxTokens.descriptionLetterSpacing}: ${bodyM.letterSpacing};
-                ${checkboxTokens.descriptionLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
         },
         view: {

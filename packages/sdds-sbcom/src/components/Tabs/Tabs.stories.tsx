@@ -103,9 +103,10 @@ const getIconContent = (size: string, CustomIcon?: ComponentType<IconProps>) => 
 
 type StoryTabsProps = ComponentProps<typeof Tabs> & CustomStoryTabsProps;
 type HorizontalStoryTabsProps = StoryTabsProps & { width: string; height: string };
+type HeaderStoryTabsProps = Omit<HorizontalStoryTabsProps, 'size'> & { size: HeaderSize };
 
 const meta: Meta<StoryTabsProps> = {
-    title: 'Navigation/Tabs',
+    title: 'Navigation/⚠️ Tabs',
     component: Tabs,
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -355,7 +356,7 @@ export const Default: StoryObj<HorizontalStoryTabsProps> = {
     render: StoryDefault,
 };
 
-const StoryHeaderDefault = (props: HorizontalStoryTabsProps) => {
+const StoryHeaderDefault = (props: HeaderStoryTabsProps) => {
     const { disabled, itemQuantity, size, helperText, maxItemWidth, hasAction } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
@@ -382,7 +383,7 @@ const StoryHeaderDefault = (props: HorizontalStoryTabsProps) => {
     );
 };
 
-const StoryHeaderScroll = (props: HorizontalStoryTabsProps) => {
+const StoryHeaderScroll = (props: HeaderStoryTabsProps) => {
     const { disabled, itemQuantity, size, helperText, width, maxItemWidth, hasAction } = props;
     const items = Array(itemQuantity).fill(0);
     const [index, setIndex] = useState(0);
@@ -409,7 +410,7 @@ const StoryHeaderScroll = (props: HorizontalStoryTabsProps) => {
     );
 };
 
-export const HeaderTabs: StoryObj<HorizontalStoryTabsProps> = {
+export const HeaderTabs: StoryObj<HeaderStoryTabsProps> = {
     args: {
         size: 'h5',
         disabled: false,

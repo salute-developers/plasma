@@ -1,14 +1,14 @@
+import { css, linkButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, bodyXs, bodyXsBold, surfaceAccent
+     * surfaceTransparentClear
+     */
     bodyL,
     bodyLBold,
-    bodyM,
-    bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
-    surfaceAccent,
-    surfaceClear,
     textAccent,
     textAccentActive,
     textAccentHover,
@@ -27,8 +27,7 @@ import {
     textWarning,
     textWarningActive,
     textWarningHover,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, linkButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -41,10 +40,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textPrimary};
                 ${linkButtonTokens.linkButtonIconColor}: ${textPrimary};
                 ${linkButtonTokens.linkButtonTextColor}: ${textPrimary};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                /* NOTE: no token surfaceTransparentClear in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textPrimaryHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textPrimaryActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textPrimaryHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textPrimaryActive};
             `,
@@ -52,10 +53,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonIconColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonTextColor}: ${textAccent};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                /* NOTE: no token surfaceTransparentClear in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textAccentHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textAccentActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textAccentHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textAccentActive};
             `,
@@ -63,10 +66,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textSecondary};
                 ${linkButtonTokens.linkButtonIconColor}: ${textSecondary};
                 ${linkButtonTokens.linkButtonTextColor}: ${textSecondary};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                /* NOTE: no token surfaceTransparentClear in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textSecondaryHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textSecondaryActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textSecondaryHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textSecondaryActive};
             `,
@@ -74,10 +79,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textPositive};
                 ${linkButtonTokens.linkButtonIconColor}: ${textPositive};
                 ${linkButtonTokens.linkButtonTextColor}: ${textPositive};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                /* NOTE: no token surfaceTransparentClear in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textPositiveHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textPositiveActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textPositiveHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textPositiveActive};
             `,
@@ -85,10 +92,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textWarning};
                 ${linkButtonTokens.linkButtonIconColor}: ${textWarning};
                 ${linkButtonTokens.linkButtonTextColor}: ${textWarning};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                /* NOTE: no token surfaceTransparentClear in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textWarningHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textWarningActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textWarningHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textWarningActive};
             `,
@@ -96,10 +105,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textNegative};
                 ${linkButtonTokens.linkButtonIconColor}: ${textNegative};
                 ${linkButtonTokens.linkButtonTextColor}: ${textNegative};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                /* NOTE: no token surfaceTransparentClear in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textNegativeHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textNegativeActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textNegativeHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textNegativeActive};
             `,
@@ -147,12 +158,18 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 3rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.75rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.75rem;
-                ${linkButtonTokens.linkButtonFontFamily}: ${bodyM.fontFamily};
-                ${linkButtonTokens.linkButtonFontSize}: ${bodyM.fontSize};
-                ${linkButtonTokens.linkButtonFontStyle}: ${bodyM.fontStyle};
-                ${linkButtonTokens.linkButtonFontWeight}: ${bodyMBold.fontWeight};
-                ${linkButtonTokens.linkButtonLetterSpacing}: ${bodyM.letterSpacing};
-                ${linkButtonTokens.linkButtonLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1.375rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
@@ -185,12 +202,18 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 2rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.5rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.5rem;
-                ${linkButtonTokens.linkButtonFontFamily}: ${bodyXS.fontFamily};
-                ${linkButtonTokens.linkButtonFontSize}: ${bodyXS.fontSize};
-                ${linkButtonTokens.linkButtonFontStyle}: ${bodyXS.fontStyle};
-                ${linkButtonTokens.linkButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${linkButtonTokens.linkButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${linkButtonTokens.linkButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
@@ -204,12 +227,18 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 1.5rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.375rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.375rem;
-                ${linkButtonTokens.linkButtonFontFamily}: ${bodyXS.fontFamily};
-                ${linkButtonTokens.linkButtonFontSize}: ${bodyXS.fontSize};
-                ${linkButtonTokens.linkButtonFontStyle}: ${bodyXS.fontStyle};
-                ${linkButtonTokens.linkButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${linkButtonTokens.linkButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${linkButtonTokens.linkButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 0.75rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;

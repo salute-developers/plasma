@@ -9,7 +9,7 @@ import type { ProgressProps } from '.';
 const { views } = getConfigVariations(config);
 
 const meta: Meta<typeof Progress> = {
-    title: 'Overlay/Progress',
+    title: 'Overlay/⚠️ Progress',
     component: Progress,
     decorators: [InSpacingDecorator],
     argTypes: {

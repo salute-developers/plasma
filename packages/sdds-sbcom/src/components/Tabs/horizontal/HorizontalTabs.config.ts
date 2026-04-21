@@ -1,12 +1,15 @@
+import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    surfaceAccent,
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: surfaceAccent
+     */
     surfaceTransparentPrimary,
     surfaceTransparentTertiary,
     textSecondary,
     textSecondaryActive,
     textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -20,7 +23,8 @@ export const config = {
                 ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
                 ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
                 ${tabsTokens.tabsDividerColor}: transparent;
@@ -31,7 +35,8 @@ export const config = {
                 ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
                 ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
                 ${tabsTokens.tabsBackgroundColor}: ${surfaceTransparentPrimary};
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
                 ${tabsTokens.tabsDividerColor}: transparent;
@@ -42,7 +47,8 @@ export const config = {
                 ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
                 ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
                 ${tabsTokens.tabsDividerColor}: ${surfaceTransparentTertiary};

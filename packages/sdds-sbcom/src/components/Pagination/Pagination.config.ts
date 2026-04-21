@@ -1,18 +1,18 @@
+import { css, paginationTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, bodyXs, bodyXsBold, surfaceAccent
+     */
     bodyL,
     bodyLBold,
-    bodyM,
-    bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextPrimaryActive,
     inverseTextPrimaryHover,
     inverseTextSecondary,
     inverseTextSecondaryHover,
-    surfaceAccent,
     surfaceClear,
     surfaceSolidCard,
     surfaceSolidDefault,
@@ -27,8 +27,7 @@ import {
     textPrimaryHover,
     textSecondary,
     textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, paginationTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -63,7 +62,8 @@ export const config = {
 
                 ${paginationTokens.paginationColor}: ${textPrimary};
                 ${paginationTokens.paginationHelperTextColor}: ${textSecondary};
-                ${paginationTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
             secondary: css`
                 ${paginationTokens.buttonColor}: ${textPrimary};
@@ -86,7 +86,8 @@ export const config = {
 
                 ${paginationTokens.paginationColor}: ${textPrimary};
                 ${paginationTokens.paginationHelperTextColor}: ${textSecondary};
-                ${paginationTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
             clear: css`
                 ${paginationTokens.buttonColor}: ${textPrimary};
@@ -109,7 +110,8 @@ export const config = {
 
                 ${paginationTokens.paginationColor}: ${textPrimary};
                 ${paginationTokens.paginationHelperTextColor}: ${textSecondary};
-                ${paginationTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
         },
         viewCurrentPage: {
@@ -197,12 +199,18 @@ export const config = {
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
             m: css`
-                ${paginationTokens.paginationFontFamily}: ${bodyM.fontFamily};
-                ${paginationTokens.paginationFontSize}: ${bodyM.fontSize};
-                ${paginationTokens.paginationFontStyle}: ${bodyM.fontStyle};
-                ${paginationTokens.paginationFontWeight}: ${bodyMBold.fontWeight};
-                ${paginationTokens.paginationLetterSpacing}: ${bodyM.letterSpacing};
-                ${paginationTokens.paginationLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${paginationTokens.buttonHeight}: 3rem;
                 ${paginationTokens.buttonWidth}: 3rem;
@@ -279,12 +287,18 @@ export const config = {
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
             xs: css`
-                ${paginationTokens.paginationFontFamily}: ${bodyXS.fontFamily};
-                ${paginationTokens.paginationFontSize}: ${bodyXS.fontSize};
-                ${paginationTokens.paginationFontStyle}: ${bodyXS.fontStyle};
-                ${paginationTokens.paginationFontWeight}: ${bodyXSBold.fontWeight};
-                ${paginationTokens.paginationLetterSpacing}: ${bodyXS.letterSpacing};
-                ${paginationTokens.paginationLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${paginationTokens.buttonHeight}: 2rem;
                 ${paginationTokens.paginationInputWidth}: 2.5rem;

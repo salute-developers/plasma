@@ -1,6 +1,10 @@
-import { bodyS, bodyXS, surfaceSolidCardBrightness, textPrimary } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
 import { css, tooltipTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { bodyS, surfaceSolidCardBrightness, textPrimary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -17,12 +21,18 @@ export const config = {
                 ${tooltipTokens.minHeight}: 2rem;
                 ${tooltipTokens.borderRadius}: 0.5rem;
 
-                ${tooltipTokens.textFontFamily}: ${bodyXS.fontFamily};
-                ${tooltipTokens.textFontSize}: ${bodyXS.fontSize};
-                ${tooltipTokens.textFontStyle}: ${bodyXS.fontStyle};
-                ${tooltipTokens.textFontWeight}: ${bodyXS.fontWeight};
-                ${tooltipTokens.textFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tooltipTokens.textFontLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tooltipTokens.textFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tooltipTokens.textFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tooltipTokens.textFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tooltipTokens.textFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tooltipTokens.textFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tooltipTokens.textFontLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tooltipTokens.contentLeftMargin}: 0.25rem;
 

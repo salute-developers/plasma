@@ -1,12 +1,15 @@
+import { css, modalTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: surfaceAccent
+     */
     overlaySoft,
-    surfaceAccent,
     surfaceSolidCard,
     textSecondary,
     textSecondaryActive,
     textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, modalTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -25,7 +28,8 @@ export const config = {
                 ${modalTokens.modalCloseButtonColor}: ${textSecondary};
                 ${modalTokens.modalCloseButtonHoverColor}: ${textSecondaryHover};
                 ${modalTokens.modalCloseButtonActiveColor}: ${textSecondaryActive};
-                ${modalTokens.modalOutlineFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${modalTokens.modalOutlineFocusColor}: var(--surface-accent);
             `,
         },
     },

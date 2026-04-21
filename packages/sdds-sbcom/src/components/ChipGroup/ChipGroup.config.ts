@@ -1,13 +1,14 @@
+import { css, chipGroupTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyXs, surfaceAccent, surfaceAccentActive
+     * surfaceAccentHover
+     */
     bodyL,
-    bodyM,
     bodyS,
-    bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
-    surfaceAccent,
-    surfaceAccentActive,
-    surfaceAccentHover,
     surfaceSolidDefault,
     surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
@@ -15,8 +16,7 @@ import {
     surfaceTransparentSecondaryActive,
     surfaceTransparentSecondaryHover,
     textPrimary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, chipGroupTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -43,11 +43,14 @@ export const config = {
             `,
             accent: css`
                 ${tokens.chipColor}: ${onDarkTextPrimary};
-                ${tokens.chipBackground}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${tokens.chipBackground}: var(--surface-accent);
                 ${tokens.chipColorHover}: ${onDarkTextPrimary};
-                ${tokens.chipBackgroundHover}: ${surfaceAccentHover};
+                /* NOTE: no token surfaceAccentHover in @salutejs/sdds-themes/tokens */
+                ${tokens.chipBackgroundHover}: var(--surface-accent-hover);
                 ${tokens.chipColorActive}: ${onDarkTextPrimary};
-                ${tokens.chipBackgroundActive}: ${surfaceAccentActive};
+                /* NOTE: no token surfaceAccentActive in @salutejs/sdds-themes/tokens */
+                ${tokens.chipBackgroundActive}: var(--surface-accent-active);
             `,
         },
         size: {
@@ -78,12 +81,18 @@ export const config = {
                 ${tokens.chipHeight}: 2.5rem;
                 ${tokens.chipPadding}: 0 0.875rem;
 
-                ${tokens.chipFontFamily}: ${bodyM.fontFamily};
-                ${tokens.chipFontSize}: ${bodyM.fontSize};
-                ${tokens.chipFontStyle}: ${bodyM.fontStyle};
-                ${tokens.chipFontWeight}: ${bodyM.fontWeight};
-                ${tokens.chipLetterSpacing}: ${bodyM.letterSpacing};
-                ${tokens.chipLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.375rem;
@@ -120,12 +129,18 @@ export const config = {
                 ${tokens.chipHeight}: 1.5rem;
                 ${tokens.chipPadding}: 0 0.625rem;
 
-                ${tokens.chipFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.chipFontSize}: ${bodyXS.fontSize};
-                ${tokens.chipFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.chipFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.chipLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.chipLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;

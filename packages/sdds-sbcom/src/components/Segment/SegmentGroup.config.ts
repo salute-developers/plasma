@@ -1,5 +1,9 @@
-import { surfaceTransparentSecondary, textAccent, textSecondary } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { surfaceTransparentSecondary, textAccent, textSecondary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
+/*
+ * NOTE: Raw var(--…) follows the SBCOM theme CSS. Prefer @salutejs-ds/sdds_sbcom/theme/tokens when the same
+ * name exists there; keep raw values only for DS gaps (e.g. surfaceAccent).
+ */
 
 export const config = {
     defaults: {
@@ -54,7 +58,7 @@ export const config = {
             `,
             xl: css`
                 ${segmentTokens.groupBorderRadius}: 1.125rem;
-                // NOTE: change on token when added
+                /* NOTE: change on token when added */
                 ${segmentTokens.groupPilledBorderRadius}: 1000px;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;

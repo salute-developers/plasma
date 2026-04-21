@@ -1,12 +1,14 @@
+import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, bodyXs, bodyXsBold, surfaceAccent
+     * surfaceAccentActive, surfaceAccentHover
+     */
     bodyL,
     bodyLBold,
-    bodyM,
-    bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextPrimaryActive,
     inverseTextPrimaryHover,
@@ -19,9 +21,6 @@ import {
     onLightTextPrimary,
     onLightTextPrimaryActive,
     onLightTextPrimaryHover,
-    surfaceAccent,
-    surfaceAccentActive,
-    surfaceAccentHover,
     surfaceClear,
     surfaceNegative,
     surfaceNegativeActive,
@@ -37,8 +36,7 @@ import {
     surfaceWarningActive,
     surfaceWarningHover,
     textPrimary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -57,10 +55,13 @@ export const config = {
             `,
             accent: css`
                 ${iconButtonTokens.iconButtonColor}: ${onDarkTextPrimary};
-                ${iconButtonTokens.iconButtonBackgroundColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: ${surfaceAccentHover};
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: ${surfaceAccentActive};
+                /* NOTE: no token surfaceAccentHover in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
+                /* NOTE: no token surfaceAccentActive in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: ${textPrimary};
@@ -155,12 +156,18 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 3rem;
                 ${iconButtonTokens.iconButtonPadding}: 1.25rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.75rem;
-                ${iconButtonTokens.iconButtonFontFamily}: ${bodyM.fontFamily};
-                ${iconButtonTokens.iconButtonFontSize}: ${bodyM.fontSize};
-                ${iconButtonTokens.iconButtonFontStyle}: ${bodyM.fontStyle};
-                ${iconButtonTokens.iconButtonFontWeight}: ${bodyMBold.fontWeight};
-                ${iconButtonTokens.iconButtonLetterSpacing}: ${bodyM.letterSpacing};
-                ${iconButtonTokens.iconButtonLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1.375rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
@@ -185,12 +192,18 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 2rem;
                 ${iconButtonTokens.iconButtonPadding}: 0.75rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.5rem;
-                ${iconButtonTokens.iconButtonFontFamily}: ${bodyXS.fontFamily};
-                ${iconButtonTokens.iconButtonFontSize}: ${bodyXS.fontSize};
-                ${iconButtonTokens.iconButtonFontStyle}: ${bodyXS.fontStyle};
-                ${iconButtonTokens.iconButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${iconButtonTokens.iconButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${iconButtonTokens.iconButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
@@ -203,7 +216,8 @@ export const config = {
         },
         focused: {
             true: css`
-                ${iconButtonTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFocusColor}: var(--surface-accent);
             `,
         },
     },

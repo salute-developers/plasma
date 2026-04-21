@@ -1,10 +1,14 @@
+import { css, dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     inverseTextTertiary,
     onDarkSurfaceTransparentTertiary,
     onLightSurfaceTransparentTertiary,
     surfaceTransparentTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
+/*
+ * NOTE: Raw var(--…) follows the SBCOM theme CSS. Prefer @salutejs-ds/sdds_sbcom/theme/tokens when the same
+ * name exists there; keep raw values only for DS gaps (e.g. surfaceAccent).
+ */
 
 export const config = {
     defaults: {

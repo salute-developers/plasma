@@ -13,7 +13,7 @@ import { Toast, useToast } from '.';
 const views = ['default', 'positive', 'negative'];
 
 const meta: Meta<typeof ToastController> = {
-    title: 'Overlay/Toast',
+    title: 'Overlay/⚠️ Toast',
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {

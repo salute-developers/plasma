@@ -21,7 +21,7 @@ const pins = [
 ];
 
 const meta: Meta<StoryButtonProps> = {
-    title: 'Data Entry/IconButton',
+    title: 'Data Entry/⚠️ IconButton',
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {

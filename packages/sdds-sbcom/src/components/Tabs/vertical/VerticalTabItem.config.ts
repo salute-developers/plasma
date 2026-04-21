@@ -1,20 +1,19 @@
+import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, bodyXs, bodyXsBold, surfaceAccent
+     */
     bodyL,
     bodyLBold,
-    bodyM,
-    bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
-    surfaceAccent,
     textPrimary,
     textSecondary,
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -43,7 +42,8 @@ export const config = {
                 ${tabsTokens.itemPaddingClear}: 0;
                 ${tabsTokens.itemContentPaddingClear}: 0;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
@@ -65,12 +65,18 @@ export const config = {
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${tabsTokens.fontSize}: ${bodyXS.fontSize};
-                ${tabsTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${tabsTokens.fontWeight}: ${bodyXSBold.fontWeight};
-                ${tabsTokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${tabsTokens.lineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.fontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tabsTokens.actionContentMarginLeft}: 0;
             `,
@@ -105,12 +111,18 @@ export const config = {
                 ${tabsTokens.itemContentGap}: 0.375rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: ${bodyM.fontFamily};
-                ${tabsTokens.fontSize}: ${bodyM.fontSize};
-                ${tabsTokens.fontStyle}: ${bodyM.fontStyle};
-                ${tabsTokens.fontWeight}: ${bodyMBold.fontWeight};
-                ${tabsTokens.letterSpacing}: ${bodyM.letterSpacing};
-                ${tabsTokens.lineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,

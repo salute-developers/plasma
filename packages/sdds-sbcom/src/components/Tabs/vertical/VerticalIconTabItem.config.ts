@@ -1,11 +1,14 @@
+import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    surfaceAccent,
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: surfaceAccent
+     */
     textPrimary,
     textSecondary,
     textSecondaryActive,
     textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -26,7 +29,8 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};

@@ -1,5 +1,9 @@
+import { css, progressTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    surfaceAccent,
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: surfaceAccent
+     */
     surfaceAccentGradient,
     surfaceInfo,
     surfaceNegative,
@@ -9,8 +13,7 @@ import {
     surfaceTransparentSecondary,
     surfaceWarning,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, progressTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -31,7 +34,8 @@ export const config = {
             `,
             primary: css`
                 ${progressTokens.trackBackgroundColor}: ${surfaceTransparentSecondary};
-                ${progressTokens.progressFilledBackgroundColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent);
                 ${progressTokens.valueColor}: ${textTertiary};
             `,
             accent: css`

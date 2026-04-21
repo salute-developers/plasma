@@ -1,28 +1,19 @@
+import { css, skeletonTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyXs, bodyXxs, dsplL, dsplM, h1, h2, h4, h5, h6, textL
+     * textM, textS, textXs
+     */
     bodyL,
-    bodyM,
     bodyS,
-    bodyXS,
-    bodyXXS,
-    dsplL,
-    dsplM,
     dsplS,
-    h1,
-    h2,
     h3,
-    h4,
-    h5,
-    h6,
     surfaceSkeletonDeepGradient,
     surfaceSkeletonGradient,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
-    textL,
-    textM,
-    textS,
-    textXS,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, skeletonTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -32,12 +23,12 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${skeletonTokens.gradientColor}: ${surfaceSkeletonGradient};
+                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient, ${surfaceSkeletonGradient});
                 ${skeletonTokens.fadeInColor}: ${surfaceTransparentSecondary};
                 ${skeletonTokens.fadeOutColor}: ${surfaceTransparentTertiary};
             `,
             lighter: css`
-                ${skeletonTokens.gradientColor}: ${surfaceSkeletonDeepGradient};
+                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient-lighter, ${surfaceSkeletonDeepGradient});
                 ${skeletonTokens.fadeInColor}: ${surfaceTransparentSecondary};
                 ${skeletonTokens.fadeOutColor}: ${surfaceTransparentTertiary};
             `,
@@ -48,72 +39,100 @@ export const config = {
                 ${skeletonTokens.visibleLineHeight}: ${bodyL.fontSize};
             `,
             bodyM: css`
-                ${skeletonTokens.lineHeight}: ${bodyM.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyM.fontSize};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-m-font-size);
             `,
             bodyS: css`
                 ${skeletonTokens.lineHeight}: ${bodyS.lineHeight};
                 ${skeletonTokens.visibleLineHeight}: ${bodyS.fontSize};
             `,
             bodyXS: css`
-                ${skeletonTokens.lineHeight}: ${bodyXS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyXS.fontSize};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-xs-font-size);
             `,
             bodyXXS: css`
-                ${skeletonTokens.lineHeight}: ${bodyXXS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyXXS.fontSize};
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-xxs-font-size);
             `,
             dsplL: css`
-                ${skeletonTokens.lineHeight}: ${dsplL.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${dsplL.fontSize};
+                /* NOTE: no token dsplL in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-dspl-l-line-height);
+                /* NOTE: no token dsplL in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-dspl-l-font-size);
             `,
             dsplM: css`
-                ${skeletonTokens.lineHeight}: ${dsplM.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${dsplM.fontSize};
+                /* NOTE: no token dsplM in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-dspl-m-line-height);
+                /* NOTE: no token dsplM in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-dspl-m-font-size);
             `,
             dsplS: css`
                 ${skeletonTokens.lineHeight}: ${dsplS.lineHeight};
                 ${skeletonTokens.visibleLineHeight}: ${dsplS.fontSize};
             `,
             h1: css`
-                ${skeletonTokens.lineHeight}: ${h1.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h1.fontSize};
+                /* NOTE: no token h1 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h1-line-height);
+                /* NOTE: no token h1 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h1-font-size);
             `,
             h2: css`
-                ${skeletonTokens.lineHeight}: ${h2.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h2.fontSize};
+                /* NOTE: no token h2 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h2-line-height);
+                /* NOTE: no token h2 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h2-font-size);
             `,
             h3: css`
                 ${skeletonTokens.lineHeight}: ${h3.lineHeight};
                 ${skeletonTokens.visibleLineHeight}: ${h3.fontSize};
             `,
             h4: css`
-                ${skeletonTokens.lineHeight}: ${h4.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h4.fontSize};
+                /* NOTE: no token h4 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h4-line-height);
+                /* NOTE: no token h4 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h4-font-size);
             `,
             h5: css`
-                ${skeletonTokens.lineHeight}: ${h5.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h5.fontSize};
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h5-line-height);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h5-font-size);
             `,
             h6: css`
-                ${skeletonTokens.lineHeight}: ${h6.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h6.fontSize};
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h6-line-height);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h6-font-size);
             `,
             textL: css`
-                ${skeletonTokens.lineHeight}: ${textL.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textL.fontSize};
+                /* NOTE: no token textL in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-l-line-height);
+                /* NOTE: no token textL in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-l-font-size);
             `,
             textM: css`
-                ${skeletonTokens.lineHeight}: ${textM.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textM.fontSize};
+                /* NOTE: no token textM in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-m-line-height);
+                /* NOTE: no token textM in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-m-font-size);
             `,
             textS: css`
-                ${skeletonTokens.lineHeight}: ${textS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textS.fontSize};
+                /* NOTE: no token textS in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-s-line-height);
+                /* NOTE: no token textS in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-s-font-size);
             `,
             textXS: css`
-                ${skeletonTokens.lineHeight}: ${textXS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textXS.fontSize};
+                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-xs-line-height);
+                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-xs-font-size);
             `,
         },
     },

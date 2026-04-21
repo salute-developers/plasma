@@ -1,14 +1,10 @@
-import {
-    bodyL,
-    bodyM,
-    bodyS,
-    bodyXS,
-    surfaceAccent,
-    surfaceTransparentSecondary,
-    textPrimary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
 import { css, listTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { bodyL, bodyS, surfaceTransparentSecondary, textPrimary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyXs, surfaceAccent
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -23,7 +19,8 @@ export const config = {
                 ${listTokens.listItemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${listTokens.listItemBorderColor}: transparent;
                 ${listTokens.listItemBorderColorHover}: transparent;
-                ${listTokens.listItemFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemFocusColor}: var(--surface-accent);
                 ${listTokens.listDisabledOpacity}: 0.4;
             `,
         },
@@ -38,12 +35,18 @@ export const config = {
                 ${listTokens.listItemGap}: 0.375rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
-                ${listTokens.listItemFontFamily}: ${bodyXS.fontFamily};
-                ${listTokens.listItemFontSize}: ${bodyXS.fontSize};
-                ${listTokens.listItemFontStyle}: ${bodyXS.fontStyle};
-                ${listTokens.listItemFontWeight}: ${bodyXS.fontWeight};
-                ${listTokens.listItemLetterSpacing}: ${bodyXS.letterSpacing};
-                ${listTokens.listItemLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
                 ${listTokens.listItemPaddingTop}: 0.689rem;
@@ -72,12 +75,18 @@ export const config = {
                 ${listTokens.listItemGap}: 0.5rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
-                ${listTokens.listItemFontFamily}: ${bodyM.fontFamily};
-                ${listTokens.listItemFontSize}: ${bodyM.fontSize};
-                ${listTokens.listItemFontStyle}: ${bodyM.fontStyle};
-                ${listTokens.listItemFontWeight}: ${bodyM.fontWeight};
-                ${listTokens.listItemLetterSpacing}: ${bodyM.letterSpacing};
-                ${listTokens.listItemLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             l: css`
                 ${listTokens.listItemPaddingTop}: 1rem;

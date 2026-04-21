@@ -37,7 +37,7 @@ const propsToDisable = [
 ];
 
 const meta: Meta<CheckboxProps> = {
-    title: 'Data Entry/Checkbox',
+    title: 'Data Entry/⚠️ Checkbox',
     component: Checkbox,
     decorators: [InSpacingDecorator],
     argTypes: {

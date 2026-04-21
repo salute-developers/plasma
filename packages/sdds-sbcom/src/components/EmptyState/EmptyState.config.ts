@@ -1,6 +1,10 @@
-import { bodyL, bodyM, bodyS, bodyXS } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
 import { css, emptyStateTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import { bodyL, bodyS } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyXs
+ */
 export const config = {
     defaults: {
         size: 'l',
@@ -28,12 +32,18 @@ export const config = {
                 ${tokens.descriptionMargin}: 0 0 0.875rem 0;
                 ${tokens.buttonMargin}: -0.875rem 0 0 0;
                 ${tokens.buttonHeight}: 3rem;
-                ${tokens.fontFamily}: ${bodyM.fontFamily};
-                ${tokens.fontSize}: ${bodyM.fontSize};
-                ${tokens.fontStyle}: ${bodyM.fontStyle};
-                ${tokens.fontWeight}: ${bodyM.fontWeight};
-                ${tokens.fontLetterSpacing}: ${bodyM.letterSpacing};
-                ${tokens.fontLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.fontLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
                 ${tokens.borderRadius}: 0.625rem;
@@ -56,12 +66,18 @@ export const config = {
                 ${tokens.descriptionMargin}: 0 0 0.5rem 0;
                 ${tokens.buttonMargin}: -0.5rem 0 0 0;
                 ${tokens.buttonHeight}: 2rem;
-                ${tokens.fontFamily}: ${bodyXS.fontFamily};
-                ${tokens.fontSize}: ${bodyXS.fontSize};
-                ${tokens.fontStyle}: ${bodyXS.fontStyle};
-                ${tokens.fontWeight}: ${bodyXS.fontWeight};
-                ${tokens.fontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.fontLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
     },

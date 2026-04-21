@@ -1,9 +1,11 @@
+import { css, fileTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyXs, surfaceAccent
+     */
     bodyL,
-    bodyM,
     bodyS,
-    bodyXS,
-    surfaceAccent,
     surfaceNegative,
     surfaceSolidDefault,
     surfaceTransparentSecondary,
@@ -13,8 +15,7 @@ import {
     textPrimaryActive,
     textPrimaryHover,
     textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, fileTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -27,7 +28,8 @@ export const config = {
                 ${tokens.embedIconButtonColor}: ${textPrimary};
                 ${tokens.embedIconButtonColorHover}: ${textPrimaryHover};
                 ${tokens.embedIconButtonColorActive}: ${textPrimaryActive};
-                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
 
                 ${tokens.cellTitleColor}: ${textPrimary};
                 ${tokens.cellSubtitleColor}: ${textSecondary};
@@ -43,7 +45,8 @@ export const config = {
                 ${tokens.embedIconButtonColor}: ${textPrimary};
                 ${tokens.embedIconButtonColorHover}: ${textPrimaryHover};
                 ${tokens.embedIconButtonColorActive}: ${textPrimaryActive};
-                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
 
                 ${tokens.cellTitleColor}: ${textPrimary};
                 ${tokens.cellSubtitleColor}: ${textNegative};
@@ -75,12 +78,18 @@ export const config = {
                 ${tokens.cellTitleLetterSpacing}: ${bodyL.letterSpacing};
                 ${tokens.cellTitleLineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
-                ${tokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.progressBarCircularSize}: 36;
                 ${tokens.progressBarCircularHeight}: 2.25rem;
@@ -110,19 +119,31 @@ export const config = {
                 ${tokens.cellGap}: 0.625rem;
                 ${tokens.cellPaddingRightContent}: 0.625rem;
 
-                ${tokens.cellTitleFontFamily}: ${bodyM.fontFamily};
-                ${tokens.cellTitleFontSize}: ${bodyM.fontSize};
-                ${tokens.cellTitleFontStyle}: ${bodyM.fontStyle};
-                ${tokens.cellTitleFontWeight}: ${bodyM.fontWeight};
-                ${tokens.cellTitleLetterSpacing}: ${bodyM.letterSpacing};
-                ${tokens.cellTitleLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
-                ${tokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.progressBarCircularSize}: 36;
                 ${tokens.progressBarCircularHeight}: 2.25rem;
@@ -159,12 +180,18 @@ export const config = {
                 ${tokens.cellTitleLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.cellTitleLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
-                ${tokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.progressBarCircularSize}: 36;
                 ${tokens.progressBarCircularHeight}: 2.25rem;
@@ -194,19 +221,31 @@ export const config = {
                 ${tokens.cellGap}: 0.375rem;
                 ${tokens.cellPaddingRightContent}: 0.375rem;
 
-                ${tokens.cellTitleFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.cellTitleFontSize}: ${bodyXS.fontSize};
-                ${tokens.cellTitleFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.cellTitleFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.cellTitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.cellTitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
-                ${tokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.progressBarCircularSize}: 24;
                 ${tokens.progressBarCircularHeight}: 1.5rem;

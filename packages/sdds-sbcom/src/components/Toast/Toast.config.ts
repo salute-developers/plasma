@@ -1,5 +1,9 @@
+import { css, toastTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    bodyXS,
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+     */
     onDarkSurfaceSolidPrimaryBrightness,
     onDarkTextPrimary,
     onDarkTextSecondary,
@@ -11,8 +15,7 @@ import {
     textPositive,
     textPrimary,
     textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, toastTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -73,12 +76,18 @@ export const config = {
                 ${toastTokens.borderRadius}: 0.75rem;
                 ${toastTokens.maxWidth}: calc(100vw - 5rem);
                 ${toastTokens.padding}: 0.5625rem 0.75rem;
-                ${toastTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${toastTokens.fontSize}: ${bodyXS.fontSize};
-                ${toastTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${toastTokens.fontWeight}: ${bodyXS.fontWeight};
-                ${toastTokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${toastTokens.lineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${toastTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${toastTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${toastTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${toastTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${toastTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${toastTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${toastTokens.contentLeftMargin}: -0.0625rem 0.375rem -0.0625rem -0.125rem;
                 ${toastTokens.closeIconMargin}: -0.0625rem -0.25rem -0.0625rem 0.5rem;

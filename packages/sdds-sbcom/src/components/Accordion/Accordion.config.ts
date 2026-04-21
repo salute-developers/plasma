@@ -1,30 +1,24 @@
 import {
     bodyL,
     bodyLBold,
-    bodyM,
-    bodyMBold,
     bodyS,
     bodySBold,
     bodyXS,
     bodyXSBold,
-    h2,
-    h2Bold,
     h3,
     h3Bold,
-    h4,
-    h4Bold,
-    h5,
-    h5Bold,
-    h6,
-    h6Bold,
-    surfaceAccent,
     surfaceClear,
     surfaceSolidCard,
     surfaceSolidTertiary,
     textPrimary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, accordionTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, h2, h2Bold, h4, h4Bold, h5, h5Bold, h6, h6Bold
+ * surfaceAccent
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -40,7 +34,8 @@ export const config = {
                 ${accordionTokens.accordionItemTitleColor}: ${textPrimary};
                 ${accordionTokens.accordionItemTextColor}: ${textPrimary};
                 ${accordionTokens.accordionItemIconColor}: ${textPrimary};
-                ${accordionTokens.accordionItemFocus}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionBackground}: ${surfaceClear};
                 ${accordionTokens.accordionItemBorderBottom}: 0;
                 ${accordionTokens.accordionItemPaddingHorizontalLeft}: var(${accordionTokens.accordionItemPaddingHorizontal});
@@ -53,7 +48,8 @@ export const config = {
                 ${accordionTokens.accordionItemTitleColor}: ${textPrimary};
                 ${accordionTokens.accordionItemTextColor}: ${textPrimary};
                 ${accordionTokens.accordionItemIconColor}: ${textPrimary};
-                ${accordionTokens.accordionItemFocus}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionItemBorderRadius}: 0rem !important;
                 ${accordionTokens.accordionBackground}: ${surfaceClear};
                 ${accordionTokens.accordionItemBorderBottom}: 0.063rem solid ${surfaceSolidTertiary};
@@ -88,19 +84,31 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.375rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.75rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${bodyM.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${bodyM.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${bodyM.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${bodyMBold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${bodyM.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
-                ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};
-                ${accordionTokens.accordionItemTextFontStyle}: ${bodyM.fontStyle};
-                ${accordionTokens.accordionItemTextFontWeight}: ${bodyM.fontWeight};
-                ${accordionTokens.accordionItemTextLetterSpacing}: ${bodyM.letterSpacing};
-                ${accordionTokens.accordionItemTextLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 0.6875rem;
@@ -151,12 +159,18 @@ export const config = {
                 ${accordionTokens.accordionItemBorderRadius}: 0.75rem;
                 ${accordionTokens.accordionItemIconSize}: 1.5rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${h2.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${h2.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${h2.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${h2Bold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${h2.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${h2.lineHeight};
+                /* NOTE: no token h2 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h2-font-family);
+                /* NOTE: no token h2 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h2-font-size);
+                /* NOTE: no token h2 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-h2-font-style);
+                /* NOTE: no token h2Bold in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-h2-bold-font-weight);
+                /* NOTE: no token h2 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-h2-letter-spacing);
+                /* NOTE: no token h2 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-h2-line-height);
 
                 ${accordionTokens.accordionItemTextFontFamily}: ${bodyL.fontFamily};
                 ${accordionTokens.accordionItemTextFontSize}: ${bodyL.fontSize};
@@ -192,19 +206,32 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.625rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${h4.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${h4.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${h4.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${h4Bold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${h4.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${h4.lineHeight};
+                /* NOTE: h4 title + body-m: h4/bodyM not in @salutejs-ds/sdds_sbcom; raw plasma typo vars. */
+                /* NOTE: no token h4 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h4-font-family);
+                /* NOTE: no token h4 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h4-font-size);
+                /* NOTE: no token h4 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-h4-font-style);
+                /* NOTE: no token h4Bold in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-h4-bold-font-weight);
+                /* NOTE: no token h4 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
+                /* NOTE: no token h4 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-h4-line-height);
 
-                ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
-                ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};
-                ${accordionTokens.accordionItemTextFontStyle}: ${bodyM.fontStyle};
-                ${accordionTokens.accordionItemTextFontWeight}: ${bodyM.fontWeight};
-                ${accordionTokens.accordionItemTextLetterSpacing}: ${bodyM.letterSpacing};
-                ${accordionTokens.accordionItemTextLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             h5: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 0.5rem;
@@ -212,19 +239,32 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${h5.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${h5.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${h5.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${h5Bold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${h5.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${h5.lineHeight};
+                /* NOTE: h5 title + body-m: h5/bodyM not in @salutejs-ds/sdds_sbcom; raw plasma typo vars. */
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h5-font-family);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h5-font-size);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-h5-font-style);
+                /* NOTE: no token h5Bold in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-h5-bold-font-weight);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-h5-line-height);
 
-                ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
-                ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};
-                ${accordionTokens.accordionItemTextFontStyle}: ${bodyM.fontStyle};
-                ${accordionTokens.accordionItemTextFontWeight}: ${bodyM.fontWeight};
-                ${accordionTokens.accordionItemTextLetterSpacing}: ${bodyM.letterSpacing};
-                ${accordionTokens.accordionItemTextLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             h6: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 0.5rem;
@@ -232,19 +272,32 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${h6.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${h6.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${h6.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${h6Bold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${h6.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${h6.lineHeight};
+                /* NOTE: h6 title + body-m: h6/bodyM not in @salutejs-ds/sdds_sbcom; raw plasma typo vars. */
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h6-font-family);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h6-font-size);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-h6-font-style);
+                /* NOTE: no token h6Bold in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-h6-bold-font-weight);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-h6-letter-spacing);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-h6-line-height);
 
-                ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
-                ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};
-                ${accordionTokens.accordionItemTextFontStyle}: ${bodyM.fontStyle};
-                ${accordionTokens.accordionItemTextFontWeight}: ${bodyM.fontWeight};
-                ${accordionTokens.accordionItemTextLetterSpacing}: ${bodyM.letterSpacing};
-                ${accordionTokens.accordionItemTextLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
         },
     },

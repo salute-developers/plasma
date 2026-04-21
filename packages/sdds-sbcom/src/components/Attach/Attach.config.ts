@@ -1,12 +1,14 @@
+import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, bodyXs, bodyXsBold, surfaceAccent
+     * surfaceAccentActive, surfaceAccentHover
+     */
     bodyL,
     bodyLBold,
-    bodyM,
-    bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextSecondary,
     onDarkSurfaceSolidDefault,
@@ -22,9 +24,6 @@ import {
     onLightSurfaceTransparentDeepHover,
     onLightTextPrimary,
     onLightTextSecondary,
-    surfaceAccent,
-    surfaceAccentActive,
-    surfaceAccentHover,
     surfaceClear,
     surfaceNegative,
     surfaceNegativeActive,
@@ -48,8 +47,7 @@ import {
     textSecondary,
     textSecondaryActive,
     textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -71,7 +69,8 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfaceSolidDefaultActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -88,7 +87,8 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceSolidDefaultActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -99,22 +99,27 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             accent: css`
                 ${attachTokens.buttonColor}: ${onDarkTextPrimary};
                 ${attachTokens.buttonValueColor}: ${onDarkTextSecondary};
-                ${attachTokens.buttonBackgroundColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
                 ${attachTokens.buttonColorHover}: ${onDarkTextPrimary};
-                ${attachTokens.buttonBackgroundColorHover}: ${surfaceAccentHover};
+                /* NOTE: no token surfaceAccentHover in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
                 ${attachTokens.buttonColorActive}: ${onDarkTextPrimary};
-                ${attachTokens.buttonBackgroundColorActive}: ${surfaceAccentActive};
+                /* NOTE: no token surfaceAccentActive in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -123,15 +128,19 @@ export const config = {
                 ${attachTokens.cellBackgroundColor}: transparent;
 
                 ${attachTokens.iconButtonColor}: ${onDarkTextPrimary};
-                ${attachTokens.iconButtonBackgroundColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonBackgroundColor}: var(--surface-accent);
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
                 ${attachTokens.iconButtonColorHover}: ${onDarkTextPrimary};
-                ${attachTokens.iconButtonBackgroundColorHover}: ${surfaceAccentHover};
+                /* NOTE: no token surfaceAccentHover in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
                 ${attachTokens.iconButtonColorActive}: ${onDarkTextPrimary};
-                ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceAccentActive};
+                /* NOTE: no token surfaceAccentActive in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -142,7 +151,8 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -157,7 +167,8 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -174,7 +185,8 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -185,7 +197,8 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -200,7 +213,8 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -217,7 +231,8 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -228,7 +243,8 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -243,7 +259,8 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfacePositiveActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -260,7 +277,8 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfacePositiveActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -271,7 +289,8 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -286,7 +305,8 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfaceWarningActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -303,7 +323,8 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceWarningActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -314,7 +335,8 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -343,7 +365,8 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceNegativeActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -354,7 +377,8 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -369,7 +393,8 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${onLightSurfaceTransparentDeepActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -386,7 +411,8 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${onLightSurfaceTransparentDeepActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -397,7 +423,8 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -412,7 +439,8 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${onLightSurfaceSolidDefaultActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -429,7 +457,8 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${onLightSurfaceSolidDefaultActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -440,7 +469,8 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -455,7 +485,8 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${onDarkSurfaceSolidDefaultActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -472,7 +503,8 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${onDarkSurfaceSolidDefaultActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -483,7 +515,8 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -532,12 +565,18 @@ export const config = {
                 ${attachTokens.cellTextboxGap}: 0.125rem;
                 ${attachTokens.cellGap}: 0.375rem;
 
-                ${attachTokens.cellLabelFontFamily}: ${bodyM.fontFamily};
-                ${attachTokens.cellLabelFontSize}: ${bodyM.fontSize};
-                ${attachTokens.cellLabelFontStyle}: ${bodyM.fontStyle};
-                ${attachTokens.cellLabelFontWeight}: ${bodyM.fontWeight};
-                ${attachTokens.cellLabelLetterSpacing}: ${bodyM.letterSpacing};
-                ${attachTokens.cellLabelLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${attachTokens.cellTitleFontFamily}: ${bodyL.fontFamily};
                 ${attachTokens.cellTitleFontSize}: ${bodyL.fontSize};
@@ -546,12 +585,18 @@ export const config = {
                 ${attachTokens.cellTitleLetterSpacing}: ${bodyL.letterSpacing};
                 ${attachTokens.cellTitleLineHeight}: ${bodyL.lineHeight};
 
-                ${attachTokens.cellSubtitleFontFamily}: ${bodyM.fontFamily};
-                ${attachTokens.cellSubtitleFontSize}: ${bodyM.fontSize};
-                ${attachTokens.cellSubtitleFontStyle}: ${bodyM.fontStyle};
-                ${attachTokens.cellSubtitleFontWeight}: ${bodyM.fontWeight};
-                ${attachTokens.cellSubtitleLetterSpacing}: ${bodyM.letterSpacing};
-                ${attachTokens.cellSubtitleLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${attachTokens.iconButtonHeight}: 3.5rem;
                 ${attachTokens.iconButtonWidth}: 3.5rem;
@@ -571,12 +616,18 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
@@ -598,12 +649,18 @@ export const config = {
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1.25rem;
                 ${attachTokens.buttonRadius}: 0.75rem;
-                ${attachTokens.buttonFontFamily}: ${bodyM.fontFamily};
-                ${attachTokens.buttonFontSize}: ${bodyM.fontSize};
-                ${attachTokens.buttonFontStyle}: ${bodyM.fontStyle};
-                ${attachTokens.buttonFontWeight}: ${bodyMBold.fontWeight};
-                ${attachTokens.buttonLetterSpacing}: ${bodyM.letterSpacing};
-                ${attachTokens.buttonLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${attachTokens.buttonSpinnerSize}: 1.375rem;
                 ${attachTokens.buttonSpinnerColor}: inherit;
@@ -629,12 +686,18 @@ export const config = {
                 ${attachTokens.cellLabelLetterSpacing}: ${bodyS.letterSpacing};
                 ${attachTokens.cellLabelLineHeight}: ${bodyS.lineHeight};
 
-                ${attachTokens.cellTitleFontFamily}: ${bodyM.fontFamily};
-                ${attachTokens.cellTitleFontSize}: ${bodyM.fontSize};
-                ${attachTokens.cellTitleFontStyle}: ${bodyM.fontStyle};
-                ${attachTokens.cellTitleFontWeight}: ${bodyM.fontWeight};
-                ${attachTokens.cellTitleLetterSpacing}: ${bodyM.letterSpacing};
-                ${attachTokens.cellTitleLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${attachTokens.cellSubtitleFontFamily}: ${bodyS.fontFamily};
                 ${attachTokens.cellSubtitleFontSize}: ${bodyS.fontSize};
@@ -647,12 +710,18 @@ export const config = {
                 ${attachTokens.iconButtonWidth}: 3rem;
                 ${attachTokens.iconButtonPadding}: 1.25rem;
                 ${attachTokens.iconButtonRadius}: 0.75rem;
-                ${attachTokens.iconButtonFontFamily}: ${bodyM.fontFamily};
-                ${attachTokens.iconButtonFontSize}: ${bodyM.fontSize};
-                ${attachTokens.iconButtonFontStyle}: ${bodyM.fontStyle};
-                ${attachTokens.iconButtonFontWeight}: ${bodyMBold.fontWeight};
-                ${attachTokens.iconButtonLetterSpacing}: ${bodyM.letterSpacing};
-                ${attachTokens.iconButtonLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyMBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${attachTokens.iconButtonSpinnerSize}: 1.375rem;
                 ${attachTokens.iconButtonSpinnerColor}: inherit;
@@ -661,12 +730,18 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
@@ -712,12 +787,18 @@ export const config = {
                 ${attachTokens.cellTextboxGap}: 0.125rem;
                 ${attachTokens.cellGap}: 0.375rem;
 
-                ${attachTokens.cellLabelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellLabelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellLabelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellLabelFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellLabelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellLabelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.cellTitleFontFamily}: ${bodyS.fontFamily};
                 ${attachTokens.cellTitleFontSize}: ${bodyS.fontSize};
@@ -726,12 +807,18 @@ export const config = {
                 ${attachTokens.cellTitleLetterSpacing}: ${bodyS.letterSpacing};
                 ${attachTokens.cellTitleLineHeight}: ${bodyS.lineHeight};
 
-                ${attachTokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonHeight}: 2.5rem;
                 ${attachTokens.iconButtonWidth}: 2.5rem;
@@ -751,12 +838,18 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
@@ -778,12 +871,18 @@ export const config = {
                 ${attachTokens.buttonWidth}: 10rem;
                 ${attachTokens.buttonPadding}: 0.75rem;
                 ${attachTokens.buttonRadius}: 0.5rem;
-                ${attachTokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.buttonSpinnerSize}: 1rem;
                 ${attachTokens.buttonSpinnerColor}: inherit;
@@ -802,37 +901,61 @@ export const config = {
                 ${attachTokens.cellTextboxGap}: 0.125rem;
                 ${attachTokens.cellGap}: 0.25rem;
 
-                ${attachTokens.cellLabelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellLabelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellLabelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellLabelFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellLabelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellLabelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${attachTokens.cellTitleFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellTitleFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellTitleFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellTitleFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellTitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellTitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${attachTokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonHeight}: 2rem;
                 ${attachTokens.iconButtonWidth}: 2rem;
                 ${attachTokens.iconButtonPadding}: 0.75rem;
                 ${attachTokens.iconButtonRadius}: 0.5rem;
-                ${attachTokens.iconButtonFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonSpinnerColor}: inherit;
@@ -841,12 +964,18 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;

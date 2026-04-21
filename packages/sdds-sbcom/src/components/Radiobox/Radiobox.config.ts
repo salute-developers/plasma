@@ -1,8 +1,11 @@
+import { css, radioboxTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    /*
+     * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+     * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyXs
+     */
     bodyL,
-    bodyM,
     bodyS,
-    bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
     textAccent,
@@ -13,8 +16,7 @@ import {
     textSecondary,
     textTertiary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
-import { css, radioboxTokens } from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -43,12 +45,18 @@ export const config = {
                 ${radioboxTokens.labelFontWeight}: ${bodyS.fontWeight};
                 ${radioboxTokens.labelLetterSpacing}: ${bodyS.letterSpacing};
                 ${radioboxTokens.labelLineHeight}: ${bodyS.lineHeight};
-                ${radioboxTokens.descriptionFontFamily}: ${bodyXS.fontFamily};
-                ${radioboxTokens.descriptionFontSize}: ${bodyXS.fontSize};
-                ${radioboxTokens.descriptionFontStyle}: ${bodyXS.fontStyle};
-                ${radioboxTokens.descriptionFontWeight}: ${bodyXS.fontWeight};
-                ${radioboxTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${radioboxTokens.descriptionLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             m: css`
                 ${radioboxTokens.margin}: 0;
@@ -60,12 +68,18 @@ export const config = {
                 ${radioboxTokens.contentTopOffset}: 0.125rem;
                 ${radioboxTokens.contentLeftOffset}: 0.625rem;
                 ${radioboxTokens.descriptionMarginTop}: 0.125rem;
-                ${radioboxTokens.labelFontFamily}: ${bodyM.fontFamily};
-                ${radioboxTokens.labelFontSize}: ${bodyM.fontSize};
-                ${radioboxTokens.labelFontStyle}: ${bodyM.fontStyle};
-                ${radioboxTokens.labelFontWeight}: ${bodyM.fontWeight};
-                ${radioboxTokens.labelLetterSpacing}: ${bodyM.letterSpacing};
-                ${radioboxTokens.labelLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${radioboxTokens.descriptionFontFamily}: ${bodyS.fontFamily};
                 ${radioboxTokens.descriptionFontSize}: ${bodyS.fontSize};
                 ${radioboxTokens.descriptionFontStyle}: ${bodyS.fontStyle};
@@ -88,13 +102,19 @@ export const config = {
                 ${radioboxTokens.labelFontWeight}: ${bodyL.fontWeight};
                 ${radioboxTokens.labelLetterSpacing}: ${bodyL.letterSpacing};
                 ${radioboxTokens.labelLineHeight}: ${bodyL.lineHeight};
-                ${radioboxTokens.descriptionFontFamily}: ${bodyM.fontFamily};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${radioboxTokens.descriptionMarginTop}: 0.125rem;
-                ${radioboxTokens.descriptionFontSize}: ${bodyM.fontSize};
-                ${radioboxTokens.descriptionFontStyle}: ${bodyM.fontStyle};
-                ${radioboxTokens.descriptionFontWeight}: ${bodyM.fontWeight};
-                ${radioboxTokens.descriptionLetterSpacing}: ${bodyM.letterSpacing};
-                ${radioboxTokens.descriptionLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
+                ${radioboxTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
         },
         /**
