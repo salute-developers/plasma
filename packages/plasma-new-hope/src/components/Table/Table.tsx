@@ -27,7 +27,7 @@ type ColumnSort = {
 };
 type SortingState = ColumnSort[];
 
-export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
+export const tableRoot = (Root: RootProps<HTMLDivElement, Omit<TableProps, 'data' | 'columns'>>) =>
     forwardRef<HTMLDivElement, TableProps>(
         (
             {
@@ -207,8 +207,6 @@ export const tableRoot = (Root: RootProps<HTMLDivElement, TableProps>) =>
             return (
                 <Root
                     ref={rootRef}
-                    data={data}
-                    columns={columns}
                     view={view}
                     size={size}
                     className={cls(props.className, classNames?.root, classes.root)}
