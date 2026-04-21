@@ -1,3 +1,10 @@
+import {
+    surfaceAccent,
+    surfaceTransparentTertiary,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,15 +15,15 @@ export const config = {
     variations: {
         view: {
             divider: css`
-                ${tabsTokens.arrowColor}: var(--text-secondary);
-                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
+                ${tabsTokens.arrowColor}: ${textSecondary};
+                ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
+                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.tabsDividerWidth}: 0.0625rem;
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
-                ${tabsTokens.tabsDividerColor}: var(--surface-transparent-tertiary);
+                ${tabsTokens.tabsDividerColor}: ${surfaceTransparentTertiary};
                 ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
             `,
         },
