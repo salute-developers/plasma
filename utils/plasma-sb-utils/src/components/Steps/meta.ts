@@ -32,6 +32,11 @@ export const createMeta = ({
         title,
         decorators: [InSpacingDecorator],
         component,
+        parameters: {
+            controls: {
+                disableSaveFromUI: true,
+            },
+        },
         args: {
             view: 'default',
             itemView: 'default',
@@ -81,12 +86,12 @@ export const createMeta = ({
             },
             orientation: {
                 options: orientations,
-                control: { type: 'inline-radio' },
+                control: { type: 'select' },
                 table: { category: 'layout' },
             },
             contentAlign: {
                 options: contentAligns,
-                control: { type: 'inline-radio' },
+                control: { type: 'select' },
                 if: { arg: 'orientation', eq: 'horizontal' },
                 table: { category: 'layout' },
             },
@@ -112,12 +117,12 @@ export const createMeta = ({
             },
             indicatorType: {
                 options: indicatorTypes,
-                control: { type: 'inline-radio' },
+                control: { type: 'select' },
                 table: { category: 'content' },
             },
             hasContent: {
                 options: hasContentOptions,
-                control: { type: 'inline-radio' },
+                control: { type: 'select' },
                 table: { category: 'content' },
             },
             simple: {

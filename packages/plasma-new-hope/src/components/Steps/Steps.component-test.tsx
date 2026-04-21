@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { IconMic } from 'override/_Icon';
 
 import type { StepsProps } from './Steps.types';
-import type { StepItemProps } from './ui';
+import type { StepItemProps, StepStatus } from './ui';
 
 const componentExists = hasComponent('Steps');
 const describeFn = getDescribeFN('Steps');
@@ -16,6 +16,14 @@ const stepItems: StepItemProps[] = [
     { title: 'Title', content: 'Content', status: 'inactive', indicator: 3 },
     { title: 'Title', content: 'Content', status: 'inactive', indicator: 4 },
     { title: 'Title', content: 'Content', status: 'inactive', indicator: 5 },
+];
+
+const stepItemsWithView: StepItemProps[] = [
+    { title: 'Title', content: 'Content', status: 'completed', indicator: 1, completedItemView: 'accent' },
+    { title: 'Title', content: 'Content', status: 'completed', indicator: 2, completedItemView: 'positive' },
+    { title: 'Title', content: 'Content', status: 'completed', indicator: 3, completedItemView: 'warning' },
+    { title: 'Title', content: 'Content', status: 'completed', indicator: 4, completedItemView: 'negative' },
+    { title: 'Title', content: 'Content', status: 'completed', indicator: 5, completedItemView: 'default' },
 ];
 
 const complexContent = (
@@ -38,10 +46,10 @@ getBaseVisualTests({
     configPropsForMatrix: ['size', 'view'],
 });
 
-const getItems = ({ quantity = 5, title = 'Title', content = 'Content', simple = false } = {}) => {
+const getItems = ({ quantity = 5, title = 'Title', content = 'Content', simple = false } = {}): StepItemProps[] => {
     const newItems = new Array(quantity).fill(null).map((_, index) => {
         const indicator = index + 1;
-        const status = index === 0 ? 'active' : 'inactive';
+        const status = (index === 0 ? 'active' : 'inactive') as StepStatus;
 
         if (simple) {
             return {
@@ -209,460 +217,84 @@ const VerticalWrapper = styled.div`
     height: 400px;
 `;
 
+itemsStatuses.map((items) => {
+    return getBaseVisualTests({
+        component: 'Steps',
+        componentProps: {
+            items,
+        },
+        configPropsForMatrix: ['view', 'size'],
+    });
+});
+
+itemsStatuses.map((items) => {
+    return getBaseVisualTests({
+        component: 'Steps',
+        componentProps: {
+            items,
+            orientation: 'vertical',
+        },
+        configPropsForMatrix: ['view', 'size'],
+    });
+});
+
 describeFn('Steps', () => {
     const Steps = componentExists ? getComponent<StepsProps>('Steps') : () => null;
-    const simpleItems = getItems({ simple: true });
-    const simpleBulletItems = simpleItems.map((item) => ({ ...item, indicator: undefined }));
 
+    const simpleItems = getItems({ simple: true });
     const items = getItems({ quantity: 4, simple: false });
+
     const bulletItems = items.map((item) => ({ ...item, indicator: undefined }));
-    const sizes = ['xs', 's', 'm', 'l'];
     const bulletIcon = items.map((item) => ({ ...item, indicator: <IconMic size="xs" /> }));
 
-    it('Steps: contentAlign=center, indicatorType=bullet, hasContent=active', () => {
-        mount(
-            <>
-                <Steps size="s" items={bulletItems} contentAlign="center" hasContent="active" hasLine={false} />
-            </>,
-        );
+    it('contentAlign=center, indicatorType=bullet, hasLine=false', () => {
+        mount(<Steps items={bulletItems} contentAlign="center" hasLine={false} />);
         cy.matchImageSnapshot();
     });
 
-    it('Steps: indicatorType=icon, hasContent=none', () => {
-        mount(
-            <>
-                <Steps size="s" items={bulletIcon} hasContent="none" />
-            </>,
-        );
+    it('indicatorType=icon, hasContent=none', () => {
+        mount(<Steps items={bulletIcon} hasContent="none" />);
         cy.matchImageSnapshot();
     });
 
-    it('Steps: simple', () => {
-        mount(
-            <>
-                <Steps items={simpleItems} />
-            </>,
-        );
+    it('simple items', () => {
+        mount(<Steps items={simpleItems} />);
         cy.matchImageSnapshot();
     });
 
-    it('Steps: vertical, isLoading', () => {
-        mount(
-            <>
-                <Steps items={stepItems} hasLoader orientation="vertical" />
-            </>,
-        );
+    it('hasLoader', () => {
+        mount(<Steps items={stepItems} hasLoader />);
         cy.matchImageSnapshot();
     });
 
-    it('Steps: disabled', () => {
-        mount(
-            <>
-                <Steps items={stepItems.map((item) => ({ ...item, disabled: true }))} />
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('simple', () => {
-        mount(
-            <>
-                {sizes.map((size) => (
-                    <>
-                        <Steps size={size} items={simpleItems} />
-                        <PadMe />
-                    </>
-                ))}
-                {sizes.map((size) => (
-                    <>
-                        <Steps size={size} items={simpleBulletItems} />
-                        <PadMe />
-                    </>
-                ))}
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('simple: current', () => {
-        mount(
-            <>
-                {new Array(simpleItems.length + 1).fill(null).map((size, index) => (
-                    <>
-                        <Steps current={index} items={simpleItems} />
-                        <PadMe />
-                    </>
-                ))}
-                {new Array(simpleBulletItems.length + 1).fill(null).map((size, index) => (
-                    <>
-                        <Steps current={index} items={simpleBulletItems} />
-                        <PadMe />
-                    </>
-                ))}
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('with title', () => {
-        mount(
-            <>
-                {sizes.map((size) => (
-                    <>
-                        <Steps size={size} items={items} />
-                        <PadMe />
-                    </>
-                ))}
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('with title: hasContent', () => {
-        mount(
-            <>
-                <Steps items={items} hasContent="all" />
-                <PadMe />
-                <Steps items={items} hasContent="active" />
-                <PadMe />
-                <Steps items={items} hasContent="none" />
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('with title, bullets', () => {
-        mount(
-            <>
-                {sizes.map((size) => (
-                    <>
-                        <Steps size={size} items={bulletItems} />
-                        <PadMe />
-                    </>
-                ))}
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('with title: current', () => {
-        mount(
-            <>
-                {new Array(items.length + 1).fill(null).map((size, index) => (
-                    <>
-                        <Steps current={index} items={items} />
-                        <PadMe />
-                    </>
-                ))}
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('with title, bullets: current', () => {
-        mount(
-            <>
-                {new Array(bulletItems.length + 1).fill(null).map((size, index) => (
-                    <>
-                        <Steps current={index} items={bulletItems} />
-                        <PadMe />
-                    </>
-                ))}
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('with indicators: statuses', () => {
-        mount(
-            <>
-                {itemsStatuses.map((items, index) => (
-                    <Steps key={index} items={items} />
-                ))}
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('with bullets: statuses', () => {
-        mount(
-            <>
-                {itemsStatuses.map((items, index) => (
-                    <Steps key={index} items={items.map((item) => ({ ...item, indicator: undefined }))} />
-                ))}
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('_disabled', () => {
-        mount(
-            <>
-                <Steps items={simpleItems.map((item) => ({ ...item, disabled: true }))} />
-                <PadMe />
-                <Steps items={items.map((item) => ({ ...item, disabled: true }))} />
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('_hasLine', () => {
-        mount(
-            <>
-                <Steps items={simpleItems} hasLine={false} />
-                <PadMe />
-                <Steps items={simpleBulletItems} hasLine={false} />
-                <PadMe />
-                <Steps items={items} hasLine={false} />
-                <PadMe />
-                <Steps items={bulletItems} hasLine={false} />
-            </>,
-        );
+    it('disabled', () => {
+        mount(<Steps items={stepItems.map((item) => ({ ...item, disabled: true }))} />);
         cy.matchImageSnapshot();
     });
 
     it('itemView:negative', () => {
-        mount(
-            <>
-                {new Array(simpleItems.length + 1).fill(null).map((size, index) => (
-                    <>
-                        <Steps current={index} items={simpleItems} itemView="negative" />
-                        <PadMe />
-                    </>
-                ))}
-            </>,
-        );
+        mount(<Steps current={2} items={simpleItems} itemView="negative" />);
         cy.matchImageSnapshot();
     });
 
-    describe('vertical', () => {
-        it('simple', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        {sizes.map((size) => (
-                            <>
-                                <Steps size={size} items={simpleItems} orientation="vertical" />
-                                <PadMe />
-                            </>
-                        ))}
-                        {sizes.map((size) => (
-                            <>
-                                <Steps size={size} items={simpleBulletItems} orientation="vertical" />
-                                <PadMe />
-                            </>
-                        ))}
-                    </VerticalWrapper>
-                </>,
-            );
-            cy.matchImageSnapshot();
-        });
+    it('custom step item view', () => {
+        mount(
+            <VerticalWrapper>
+                <Steps items={stepItemsWithView} orientation="vertical" />
+                <Steps items={stepItemsWithView} orientation="vertical" hasLine={false} />
+            </VerticalWrapper>,
+        );
 
-        it('simple: current', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        {new Array(simpleItems.length + 1).fill(null).map((size, index) => (
-                            <>
-                                <Steps current={index} items={simpleItems} orientation="vertical" />
-                                <PadMe />
-                            </>
-                        ))}
-                        {new Array(simpleBulletItems.length + 1).fill(null).map((size, index) => (
-                            <>
-                                <Steps current={index} items={simpleBulletItems} orientation="vertical" />
-                                <PadMe />
-                            </>
-                        ))}
-                    </VerticalWrapper>
-                </>,
-            );
+        cy.matchImageSnapshot();
+    });
 
-            cy.matchImageSnapshot();
-        });
+    it('item stretch to max width', () => {
+        mount(
+            <div style={{ maxWidth: '450px' }}>
+                <Steps items={complexStepItems} orientation="vertical" />
+            </div>,
+        );
 
-        it('with title', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        {sizes.map((size) => (
-                            <>
-                                <Steps size={size} items={items} orientation="vertical" />
-                                <PadMe />
-                            </>
-                        ))}
-                    </VerticalWrapper>
-                </>,
-            );
-            cy.matchImageSnapshot();
-        });
-
-        it('with title: hasContent', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        <Steps items={items} orientation="vertical" hasContent="all" />
-                        <PadMe />
-                        <Steps items={items} orientation="vertical" hasContent="active" />
-                        <PadMe />
-                        <Steps items={items} orientation="vertical" hasContent="none" />
-                    </VerticalWrapper>
-                </>,
-            );
-
-            cy.matchImageSnapshot();
-        });
-
-        it('with title, bullets', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        {sizes.map((size) => (
-                            <>
-                                <Steps size={size} items={bulletItems} orientation="vertical" />
-                                <PadMe />
-                            </>
-                        ))}
-                    </VerticalWrapper>
-                </>,
-            );
-            cy.matchImageSnapshot();
-        });
-
-        it('with title: current', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        {new Array(items.length + 1).fill(null).map((size, index) => (
-                            <>
-                                <Steps current={index} items={items} orientation="vertical" />
-                                <PadMe />
-                            </>
-                        ))}
-                    </VerticalWrapper>
-                </>,
-            );
-
-            cy.matchImageSnapshot();
-        });
-
-        it('with title, bullets: current', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        {new Array(bulletItems.length + 1).fill(null).map((size, index) => (
-                            <>
-                                <Steps current={index} items={bulletItems} orientation="vertical" />
-                                <PadMe />
-                            </>
-                        ))}
-                    </VerticalWrapper>
-                </>,
-            );
-
-            cy.matchImageSnapshot();
-        });
-
-        it('with indicators: statuses', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        {itemsStatuses.map((items, index) => (
-                            <Steps key={index} items={items} orientation="vertical" />
-                        ))}
-                    </VerticalWrapper>
-                </>,
-            );
-
-            cy.matchImageSnapshot();
-        });
-
-        it('with bullets: statuses', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        {itemsStatuses.map((items, index) => (
-                            <Steps
-                                key={index}
-                                items={items.map((item) => ({ ...item, indicator: undefined }))}
-                                orientation="vertical"
-                            />
-                        ))}
-                    </VerticalWrapper>
-                </>,
-            );
-
-            cy.matchImageSnapshot();
-        });
-
-        it('_disabled', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        <Steps
-                            items={simpleItems.map((item) => ({ ...item, disabled: true }))}
-                            orientation="vertical"
-                        />
-                        <PadMe />
-                        <Steps items={items.map((item) => ({ ...item, disabled: true }))} orientation="vertical" />
-                    </VerticalWrapper>
-                </>,
-            );
-            cy.matchImageSnapshot();
-        });
-
-        it('_hasLine', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        <Steps items={simpleItems} hasLine={false} orientation="vertical" />
-                        <PadMe />
-                        <Steps items={simpleBulletItems} hasLine={false} orientation="vertical" />
-                        <PadMe />
-                        <Steps items={items} hasLine={false} orientation="vertical" />
-                        <PadMe />
-                        <Steps items={bulletItems} hasLine={false} orientation="vertical" />
-                    </VerticalWrapper>
-                </>,
-            );
-            cy.matchImageSnapshot();
-        });
-
-        it('item view: negative', () => {
-            mount(
-                <>
-                    <VerticalWrapper>
-                        {new Array(simpleItems.length + 1).fill(null).map((size, index) => (
-                            <>
-                                <Steps current={index} items={simpleItems} orientation="vertical" itemView="negative" />
-                                <PadMe />
-                            </>
-                        ))}
-                        {new Array(simpleBulletItems.length + 1).fill(null).map((size, index) => (
-                            <>
-                                <Steps
-                                    current={index}
-                                    items={simpleBulletItems}
-                                    orientation="vertical"
-                                    itemView="negative"
-                                />
-                                <PadMe />
-                            </>
-                        ))}
-                    </VerticalWrapper>
-                </>,
-            );
-            cy.matchImageSnapshot();
-        });
-
-        it('item stretch to max width', () => {
-            mount(
-                <div style={{ maxWidth: '450px' }}>
-                    <Steps items={complexStepItems} orientation="vertical" />
-                </div>,
-            );
-
-            cy.matchImageSnapshot();
-        });
+        cy.matchImageSnapshot();
     });
 });

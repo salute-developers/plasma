@@ -43,7 +43,6 @@ export const config = {
         size: 'm',
         view: 'default',
         itemView: 'default',
-        completedItemView: 'default',
     },
     variations: {
         view: {

@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../Steps.tokens';
 import { component, mergeConfig } from '../../../../engines';
@@ -271,7 +272,7 @@ export const StepItemContentWrapper = styled.div`
     }
 `;
 
-export const StepItemStyled = styled.div`
+export const base = css`
     position: relative;
 
     display: flex;
@@ -421,7 +422,7 @@ export const StepItemStyled = styled.div`
     &:not(.${classes.simple}):not(.${classes.verticalOrientation}) {
         &.isNextActive {
             ${BulletIndicatorWrapper} {
-                width: calc(100% - (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+                width: 100%;
             }
         }
 

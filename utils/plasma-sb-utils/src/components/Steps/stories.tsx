@@ -32,6 +32,29 @@ export const createDefaultStory = (Steps: any, stepItemViews: any) => {
         const innerTitle = title || 'Title';
 
         const [items, setItems] = useState<any[]>([]);
+        const getItems = ({ quantity = 5, title = 'Title', content = 'Content', simple = false } = {}) => {
+            const newItems = new Array(quantity).fill(null).map((_, index) => {
+                const indicator = index + 1;
+                const status = index === 0 ? 'active' : 'inactive';
+
+                if (simple) {
+                    return {
+                        indicator,
+                        status,
+                    };
+                }
+
+                return {
+                    title,
+                    content,
+                    indicator,
+                    status,
+                };
+            });
+
+            return newItems;
+        };
+        const simpleItems = getItems({ simple: true });
 
         useEffect(() => {
             const newItems = new Array(quantity).fill(null).map((_, index) => {
