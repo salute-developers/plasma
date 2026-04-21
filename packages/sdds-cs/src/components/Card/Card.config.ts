@@ -1,5 +1,5 @@
+import { surfaceSolidCard } from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, cardTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
-
 export const config = {
     defaults: {
         view: 'default',
@@ -8,7 +8,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.solidBackground}: var(--surface-solid-card);
+                ${tokens.solidBackground}: ${surfaceSolidCard};
             `,
         },
         size: {
