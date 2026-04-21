@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { progressConfig, progressTokens } from 'src/components/Progress';
 import { progressBarCircularConfig, progressBarCircularTokens } from 'src/components/ProgressBarCircular';
 import { component, mergeConfig } from 'src/engines';

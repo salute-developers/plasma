@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { CSSProperties } from 'react';
 
 import { privateTokens, tokens } from './Tour.tokens';

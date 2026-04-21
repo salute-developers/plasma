@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 const sizeMap = {
     xxs: 1, // 16px

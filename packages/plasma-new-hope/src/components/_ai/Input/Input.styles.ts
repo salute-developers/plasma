@@ -1,5 +1,4 @@
-import { css } from '@linaria/core';
-import { styled } from '@linaria/react';
+import styled, { css } from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 import { fileConfig, fileTokens } from 'src/components/File';
 import { embedIconButtonConfig, embedIconButtonTokens } from 'src/components/EmbedIconButton';

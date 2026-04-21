@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { autocompleteTokens as tokens } from '../../../components/Autocomplete';
 

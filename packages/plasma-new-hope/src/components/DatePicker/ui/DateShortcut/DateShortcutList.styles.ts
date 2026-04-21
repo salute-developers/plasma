@@ -1,10 +1,10 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { DateShortcutList } from 'src/components/DateTimePicker/ui';
 import { dateTimePickerTokens } from 'src/components/DateTimePicker';
 
 import { tokens } from '../../DatePicker.tokens';
 
-export const StyledShortcutList = styled(DateShortcutList)`
+const StyledShortcutListBase = styled(DateShortcutList)`
     ${dateTimePickerTokens.popoverGap}: var(${tokens.popoverGap});
     ${dateTimePickerTokens.popoverSeparatorBackground}: var(${tokens.popoverSeparatorBackground});
     ${dateTimePickerTokens.popoverVerticalPadding}: var(${tokens.popoverVerticalPadding});
@@ -31,3 +31,5 @@ export const StyledShortcutList = styled(DateShortcutList)`
     ${dateTimePickerTokens.shortcutLetterSpacing}: var(${tokens.shortcutLetterSpacing});
     ${dateTimePickerTokens.shortcutLineHeight}: var(${tokens.shortcutLineHeight});
 `;
+
+export const StyledShortcutList = StyledShortcutListBase as typeof DateShortcutList;

@@ -1,5 +1,5 @@
 import React, { useEffect, forwardRef, useState } from 'react';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { RootProps, component } from 'src/engines';
 import { cx } from 'src/utils';
 

@@ -7,7 +7,6 @@
         },
         "baseUrl": ".",
         "paths": {
-            "src/*": ["./src-sc/*"],
             "styled-components": ["node_modules/styled-components"]
         },
         "experimental": {

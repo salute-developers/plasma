@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { classes, tokens } from '../../TextField.tokens';
 import { Input, InputContainer, Label, StyledIndicator } from '../../TextField.styles';

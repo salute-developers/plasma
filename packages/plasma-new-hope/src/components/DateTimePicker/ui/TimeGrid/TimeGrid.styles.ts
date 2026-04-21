@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { timePickerGridConfig, timePickerGridTokens } from 'src/components/TimePickerGrid';
 import { component, mergeConfig } from 'src/engines';
 

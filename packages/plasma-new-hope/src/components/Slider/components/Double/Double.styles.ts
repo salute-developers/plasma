@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { InputWrapper } from 'src/components/TextField/TextField.styles';
 import { component, mergeConfig } from 'src/engines';
 

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { addFocus } from '../../../../mixins';
 import { classes, tokens } from '../../Radiobox.tokens';

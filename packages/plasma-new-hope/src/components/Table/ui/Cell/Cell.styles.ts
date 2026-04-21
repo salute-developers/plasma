@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { TableProps } from '../../Table.types';
 import { tableTokens as tokens } from '../../Table.tokens';

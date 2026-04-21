@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { tokens } from '../../Range.tokens';
 import { ContentWrapper, StyledContentLeft, StyledContentRight, StyledDivider } from '../../Range.styles';

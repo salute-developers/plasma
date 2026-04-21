@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { applyRoundness, applySkeletonPulseGradient, applySkeletonShimmerGradient } from 'src/mixins';
 
 import { classes, privateTokens, tokens } from '../tokens';

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 import { popoverClasses } from 'src/components/Popover';
 import { informationWrapperTokens } from 'src/components/InformationWrapper';
 import { Indicator } from 'src/components/InformationWrapper/InformationWrapper.styles';

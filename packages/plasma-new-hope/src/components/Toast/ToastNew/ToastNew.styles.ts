@@ -1,6 +1,5 @@
 import type { CSSProperties } from 'react';
-import { css } from '@linaria/core';
-import { styled } from '@linaria/react';
+import styled, { css } from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 
 import { buttonConfig } from '../../Button';

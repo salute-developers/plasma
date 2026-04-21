@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 import { IconDisclosureDownCentered } from 'src/components/_Icon';
 import { textFieldConfig, textFieldTokens } from 'src/components/TextField';
