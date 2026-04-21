@@ -1,3 +1,4 @@
+import { surfaceTransparentSecondary, textAccent, textSecondary } from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { segmentTokens } from '../../../components/Segment';
@@ -10,14 +11,14 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${segmentTokens.arrowColor}: var(--text-secondary);
+                ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             filled: css`
-                ${segmentTokens.arrowColor}: var(--text-secondary);
+                ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
         },
         size: {
@@ -76,7 +77,7 @@ export const config = {
         },
         filledBackground: {
             true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-transparent-secondary);
+                ${segmentTokens.groupFilledBackgroundColor}: ${surfaceTransparentSecondary};
             `,
         },
         orientation: {

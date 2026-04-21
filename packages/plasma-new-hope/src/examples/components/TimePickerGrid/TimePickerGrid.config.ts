@@ -1,3 +1,13 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    surfaceAccent,
+    surfaceTransparentPrimary,
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { timePickerGridTokens as tokens } from '../../../components/TimePickerGrid';
@@ -10,12 +20,12 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${tokens.itemBackgroundActive}: var(--surface-transparent-secondary);
-                ${tokens.itemFocusColor}: var(--surface-accent);
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundActive}: ${surfaceTransparentSecondary};
+                ${tokens.itemFocusColor}: ${surfaceAccent};
 
-                ${tokens.scrollbarColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarTrackColor}: var(--surface-transparent-primary);
+                ${tokens.scrollbarColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarTrackColor}: ${surfaceTransparentPrimary};
 
                 ${tokens.disabledOpacity}: 0.4;
             `,
@@ -25,12 +35,12 @@ export const config = {
                 ${tokens.timePickerGridWidth}: 15rem;
                 ${tokens.columnHeight}: 36.25rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.itemFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.itemLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.itemLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.itemFontFamily}: ${bodyL.fontFamily};
+                ${tokens.itemFontSize}: ${bodyL.fontSize};
+                ${tokens.itemFontStyle}: ${bodyL.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyL.fontWeight};
+                ${tokens.itemLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.itemLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.itemHeight}: 3.5rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
@@ -43,12 +53,12 @@ export const config = {
                 ${tokens.timePickerGridWidth}: 15rem;
                 ${tokens.columnHeight}: 31.25rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.itemFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.itemLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.itemLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.itemFontFamily}: ${bodyM.fontFamily};
+                ${tokens.itemFontSize}: ${bodyM.fontSize};
+                ${tokens.itemFontStyle}: ${bodyM.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyM.fontWeight};
+                ${tokens.itemLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.itemLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.itemHeight}: 3rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
@@ -61,12 +71,12 @@ export const config = {
                 ${tokens.timePickerGridWidth}: 15rem;
                 ${tokens.columnHeight}: 26.25rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.itemFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.itemLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.itemLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.itemFontFamily}: ${bodyS.fontFamily};
+                ${tokens.itemFontSize}: ${bodyS.fontSize};
+                ${tokens.itemFontStyle}: ${bodyS.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyS.fontWeight};
+                ${tokens.itemLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.itemLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.itemHeight}: 2.5rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
@@ -79,12 +89,12 @@ export const config = {
                 ${tokens.timePickerGridWidth}: 15rem;
                 ${tokens.columnHeight}: 21.25rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.itemFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.itemLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.itemLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.itemFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.itemFontSize}: ${bodyXS.fontSize};
+                ${tokens.itemFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.itemLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.itemLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.itemHeight}: 2rem;
                 ${tokens.itemBorderRadius}: 0.375rem;

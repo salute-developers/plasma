@@ -1,3 +1,4 @@
+import { bodyM, bodyMBold, surfaceAccent, textPrimary } from '@salutejs/sdds-themes/tokens/sdds_os';
 import { css, breadcrumbsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,23 +9,23 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${breadcrumbsTokens.breadcrumbsColor}: var(--text-primary);
-                ${breadcrumbsTokens.breadcrumbsColorText}: var(--text-primary);
-                ${breadcrumbsTokens.breadcrumbsColorSeparator}: var(--text-primary);
+                ${breadcrumbsTokens.breadcrumbsColor}: ${textPrimary};
+                ${breadcrumbsTokens.breadcrumbsColorText}: ${textPrimary};
+                ${breadcrumbsTokens.breadcrumbsColorSeparator}: ${textPrimary};
                 ${breadcrumbsTokens.breadcrumbsOpacity}: 0.4;
-                ${breadcrumbsTokens.breadcrumbsFocusOutlineColor}: var(--surface-accent);
+                ${breadcrumbsTokens.breadcrumbsFocusOutlineColor}: ${surfaceAccent};
             `,
         },
         size: {
             m: css`
                 ${breadcrumbsTokens.breadcrumbsGap}: 0.375rem;
 
-                ${breadcrumbsTokens.breadcrumbsFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${breadcrumbsTokens.breadcrumbsFontSize}: var(--plasma-typo-body-m-font-size);
-                ${breadcrumbsTokens.breadcrumbsFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-m-bold-weight);
-                ${breadcrumbsTokens.breadcrumbsLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${breadcrumbsTokens.breadcrumbsLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyM.fontFamily};
+                ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyM.fontSize};
+                ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyM.fontStyle};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyMBold.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyM.letterSpacing};
+                ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyM.lineHeight};
             `,
         },
     },

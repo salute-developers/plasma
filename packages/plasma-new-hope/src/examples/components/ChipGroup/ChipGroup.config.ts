@@ -1,3 +1,21 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    inverseTextPrimary,
+    onDarkTextPrimary,
+    surfaceAccent,
+    surfaceAccentActive,
+    surfaceAccentHover,
+    surfaceSolidDefault,
+    surfaceSolidDefaultActive,
+    surfaceSolidDefaultHover,
+    surfaceTransparentSecondary,
+    surfaceTransparentSecondaryActive,
+    surfaceTransparentSecondaryHover,
+    textPrimary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { chipGroupTokens as tokens } from '../../../components/ChipGroup';
@@ -10,28 +28,28 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.chipColor}: var(--inverse-text-primary);
-                ${tokens.chipBackground}: var(--surface-solid-default);
-                ${tokens.chipColorHover}: var(--inverse-text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-solid-default-hover);
-                ${tokens.chipColorActive}: var(--inverse-text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-solid-default-active);
+                ${tokens.chipColor}: ${inverseTextPrimary};
+                ${tokens.chipBackground}: ${surfaceSolidDefault};
+                ${tokens.chipColorHover}: ${inverseTextPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceSolidDefaultHover};
+                ${tokens.chipColorActive}: ${inverseTextPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceSolidDefaultActive};
             `,
             secondary: css`
-                ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
-                ${tokens.chipColorHover}: var(--text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
+                ${tokens.chipColor}: ${textPrimary};
+                ${tokens.chipBackground}: ${surfaceTransparentSecondary};
+                ${tokens.chipColorHover}: ${textPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceTransparentSecondaryHover};
+                ${tokens.chipColorActive}: ${textPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceTransparentSecondaryActive};
             `,
             accent: css`
-                ${tokens.chipColor}: var(--on-dark-text-primary);
-                ${tokens.chipBackground}: var(--surface-accent);
-                ${tokens.chipColorHover}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-accent-hover);
-                ${tokens.chipColorActive}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-accent-active);
+                ${tokens.chipColor}: ${onDarkTextPrimary};
+                ${tokens.chipBackground}: ${surfaceAccent};
+                ${tokens.chipColorHover}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceAccentHover};
+                ${tokens.chipColorActive}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceAccentActive};
             `,
         },
         size: {
@@ -41,12 +59,12 @@ export const config = {
                 ${tokens.chipHeight}: 3rem;
                 ${tokens.chipPadding}: 0 1rem;
 
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.chipFontFamily}: ${bodyL.fontFamily};
+                ${tokens.chipFontSize}: ${bodyL.fontSize};
+                ${tokens.chipFontStyle}: ${bodyL.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyL.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.5rem;
@@ -62,12 +80,12 @@ export const config = {
                 ${tokens.chipHeight}: 2.5rem;
                 ${tokens.chipPadding}: 0 0.875rem;
 
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.chipFontFamily}: ${bodyM.fontFamily};
+                ${tokens.chipFontSize}: ${bodyM.fontSize};
+                ${tokens.chipFontStyle}: ${bodyM.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyM.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.375rem;
@@ -83,12 +101,12 @@ export const config = {
                 ${tokens.chipHeight}: 2rem;
                 ${tokens.chipPadding}: 0 0.875rem;
 
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.chipFontFamily}: ${bodyS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
@@ -104,12 +122,12 @@ export const config = {
                 ${tokens.chipHeight}: 1.5rem;
                 ${tokens.chipPadding}: 0 0.625rem;
 
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.chipFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyXS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;

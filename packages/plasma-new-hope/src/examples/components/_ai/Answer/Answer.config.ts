@@ -1,3 +1,19 @@
+import {
+    bodyL,
+    bodyLBold,
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    bodyXS,
+    bodyXSBold,
+    h3,
+    h4,
+    h5,
+    surfaceSolidDefault,
+    surfaceTransparentNegative,
+    textPrimary,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { tokens } from '../../../../components/_ai/Answer/Answer.tokens';
@@ -10,13 +26,13 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.titleColor}: var(--text-primary);
-                ${tokens.textContentColor}: var(--text-primary);
-                ${tokens.loadingTitleColor}: var(--text-primary);
-                ${tokens.spinnerColor}: var(--surface-solid-default);
-                ${tokens.errorContainerBackgroundColor}: var(--surface-transparent-negative);
-                ${tokens.errorTitleColor}: var(--text-primary);
-                ${tokens.errorTextContentColor}: var(--text-primary);
+                ${tokens.titleColor}: ${textPrimary};
+                ${tokens.textContentColor}: ${textPrimary};
+                ${tokens.loadingTitleColor}: ${textPrimary};
+                ${tokens.spinnerColor}: ${surfaceSolidDefault};
+                ${tokens.errorContainerBackgroundColor}: ${surfaceTransparentNegative};
+                ${tokens.errorTitleColor}: ${textPrimary};
+                ${tokens.errorTextContentColor}: ${textPrimary};
             `,
         },
         size: {
@@ -24,26 +40,26 @@ export const config = {
                 ${tokens.titleContentGap}: 1.875rem;
                 ${tokens.contentFooterGap}: 1.25rem;
 
-                ${tokens.titleFontFamily}: var(--plasma-typo-h3-font-family);
-                ${tokens.titleFontSize}: var(--plasma-typo-h3-font-size);
-                ${tokens.titleFontStyle}: var(--plasma-typo-h3-font-style);
-                ${tokens.titleFontWeight}: var(--plasma-typo-h3-font-weight);
-                ${tokens.titleLetterSpacing}: var(--plasma-typo-h3-letter-spacing);
-                ${tokens.titleLineHeight}: var(--plasma-typo-h3-line-height);
+                ${tokens.titleFontFamily}: ${h3.fontFamily};
+                ${tokens.titleFontSize}: ${h3.fontSize};
+                ${tokens.titleFontStyle}: ${h3.fontStyle};
+                ${tokens.titleFontWeight}: ${h3.fontWeight};
+                ${tokens.titleLetterSpacing}: ${h3.letterSpacing};
+                ${tokens.titleLineHeight}: ${h3.lineHeight};
 
-                ${tokens.textContentFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.textContentFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.textContentFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.textContentFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.textContentLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.textContentLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textContentFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textContentFontSize}: ${bodyL.fontSize};
+                ${tokens.textContentFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textContentFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textContentLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textContentLineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.loadingTitleFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.loadingTitleFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.loadingTitleFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.loadingTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.loadingTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.loadingTitleLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.loadingTitleFontFamily}: ${bodyL.fontFamily};
+                ${tokens.loadingTitleFontSize}: ${bodyL.fontSize};
+                ${tokens.loadingTitleFontStyle}: ${bodyL.fontStyle};
+                ${tokens.loadingTitleFontWeight}: ${bodyL.fontWeight};
+                ${tokens.loadingTitleLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.loadingTitleLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.spinnerSize}: 1.5rem;
 
@@ -51,44 +67,44 @@ export const config = {
                 ${tokens.errorContainerPadding}: 1.5rem 1.875rem;
                 ${tokens.errorContainerGap}: 0.25rem;
 
-                ${tokens.errorTitleFontFamily}: var(--plasma-typo-body-l-bold-font-family);
-                ${tokens.errorTitleFontSize}: var(--plasma-typo-body-l-bold-font-size);
-                ${tokens.errorTitleFontStyle}: var(--plasma-typo-body-l-bold-font-style);
-                ${tokens.errorTitleFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tokens.errorTitleLetterSpacing}: var(--plasma-typo-body-l-bold-letter-spacing);
-                ${tokens.errorTitleLineHeight}: var(--plasma-typo-body-l-bold-line-height);
+                ${tokens.errorTitleFontFamily}: ${bodyLBold.fontFamily};
+                ${tokens.errorTitleFontSize}: ${bodyLBold.fontSize};
+                ${tokens.errorTitleFontStyle}: ${bodyLBold.fontStyle};
+                ${tokens.errorTitleFontWeight}: ${bodyLBold.fontWeight};
+                ${tokens.errorTitleLetterSpacing}: ${bodyLBold.letterSpacing};
+                ${tokens.errorTitleLineHeight}: ${bodyLBold.lineHeight};
 
-                ${tokens.errorTextContentFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.errorTextContentFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.errorTextContentFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.errorTextContentFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.errorTextContentLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.errorTextContentLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.errorTextContentFontFamily}: ${bodyL.fontFamily};
+                ${tokens.errorTextContentFontSize}: ${bodyL.fontSize};
+                ${tokens.errorTextContentFontStyle}: ${bodyL.fontStyle};
+                ${tokens.errorTextContentFontWeight}: ${bodyL.fontWeight};
+                ${tokens.errorTextContentLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.errorTextContentLineHeight}: ${bodyL.lineHeight};
             `,
             l: css`
                 ${tokens.titleContentGap}: 1.625rem;
                 ${tokens.contentFooterGap}: 1rem;
 
-                ${tokens.titleFontFamily}: var(--plasma-typo-h3-font-family);
-                ${tokens.titleFontSize}: var(--plasma-typo-h3-font-size);
-                ${tokens.titleFontStyle}: var(--plasma-typo-h3-font-style);
-                ${tokens.titleFontWeight}: var(--plasma-typo-h3-font-weight);
-                ${tokens.titleLetterSpacing}: var(--plasma-typo-h3-letter-spacing);
-                ${tokens.titleLineHeight}: var(--plasma-typo-h3-line-height);
+                ${tokens.titleFontFamily}: ${h3.fontFamily};
+                ${tokens.titleFontSize}: ${h3.fontSize};
+                ${tokens.titleFontStyle}: ${h3.fontStyle};
+                ${tokens.titleFontWeight}: ${h3.fontWeight};
+                ${tokens.titleLetterSpacing}: ${h3.letterSpacing};
+                ${tokens.titleLineHeight}: ${h3.lineHeight};
 
-                ${tokens.textContentFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.textContentFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.textContentFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.textContentFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.textContentLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.textContentLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.textContentFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textContentFontSize}: ${bodyL.fontSize};
+                ${tokens.textContentFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textContentFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textContentLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textContentLineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.loadingTitleFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.loadingTitleFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.loadingTitleFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.loadingTitleFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.loadingTitleLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.loadingTitleLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.loadingTitleFontFamily}: ${bodyL.fontFamily};
+                ${tokens.loadingTitleFontSize}: ${bodyL.fontSize};
+                ${tokens.loadingTitleFontStyle}: ${bodyL.fontStyle};
+                ${tokens.loadingTitleFontWeight}: ${bodyL.fontWeight};
+                ${tokens.loadingTitleLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.loadingTitleLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.spinnerSize}: 1.5rem;
 
@@ -96,44 +112,44 @@ export const config = {
                 ${tokens.errorContainerPadding}: 1.5rem 1.875rem;
                 ${tokens.errorContainerGap}: 0.25rem;
 
-                ${tokens.errorTitleFontFamily}: var(--plasma-typo-body-l-bold-font-family);
-                ${tokens.errorTitleFontSize}: var(--plasma-typo-body-l-bold-font-size);
-                ${tokens.errorTitleFontStyle}: var(--plasma-typo-body-l-bold-font-style);
-                ${tokens.errorTitleFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tokens.errorTitleLetterSpacing}: var(--plasma-typo-body-l-bold-letter-spacing);
-                ${tokens.errorTitleLineHeight}: var(--plasma-typo-body-l-bold-line-height);
+                ${tokens.errorTitleFontFamily}: ${bodyLBold.fontFamily};
+                ${tokens.errorTitleFontSize}: ${bodyLBold.fontSize};
+                ${tokens.errorTitleFontStyle}: ${bodyLBold.fontStyle};
+                ${tokens.errorTitleFontWeight}: ${bodyLBold.fontWeight};
+                ${tokens.errorTitleLetterSpacing}: ${bodyLBold.letterSpacing};
+                ${tokens.errorTitleLineHeight}: ${bodyLBold.lineHeight};
 
-                ${tokens.errorTextContentFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.errorTextContentFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.errorTextContentFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.errorTextContentFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.errorTextContentLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.errorTextContentLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.errorTextContentFontFamily}: ${bodyL.fontFamily};
+                ${tokens.errorTextContentFontSize}: ${bodyL.fontSize};
+                ${tokens.errorTextContentFontStyle}: ${bodyL.fontStyle};
+                ${tokens.errorTextContentFontWeight}: ${bodyL.fontWeight};
+                ${tokens.errorTextContentLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.errorTextContentLineHeight}: ${bodyL.lineHeight};
             `,
             m: css`
                 ${tokens.titleContentGap}: 1.375rem;
                 ${tokens.contentFooterGap}: 0.75rem;
 
-                ${tokens.titleFontFamily}: var(--plasma-typo-h4-font-family);
-                ${tokens.titleFontSize}: var(--plasma-typo-h4-font-size);
-                ${tokens.titleFontStyle}: var(--plasma-typo-h4-font-style);
-                ${tokens.titleFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${tokens.titleLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${tokens.titleLineHeight}: var(--plasma-typo-h4-line-height);
+                ${tokens.titleFontFamily}: ${h4.fontFamily};
+                ${tokens.titleFontSize}: ${h4.fontSize};
+                ${tokens.titleFontStyle}: ${h4.fontStyle};
+                ${tokens.titleFontWeight}: ${h4.fontWeight};
+                ${tokens.titleLetterSpacing}: ${h4.letterSpacing};
+                ${tokens.titleLineHeight}: ${h4.lineHeight};
 
-                ${tokens.textContentFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.textContentFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.textContentFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.textContentFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.textContentLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.textContentLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.textContentFontFamily}: ${bodyM.fontFamily};
+                ${tokens.textContentFontSize}: ${bodyM.fontSize};
+                ${tokens.textContentFontStyle}: ${bodyM.fontStyle};
+                ${tokens.textContentFontWeight}: ${bodyM.fontWeight};
+                ${tokens.textContentLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.textContentLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.loadingTitleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.loadingTitleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.loadingTitleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.loadingTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.loadingTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.loadingTitleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.loadingTitleFontFamily}: ${bodyM.fontFamily};
+                ${tokens.loadingTitleFontSize}: ${bodyM.fontSize};
+                ${tokens.loadingTitleFontStyle}: ${bodyM.fontStyle};
+                ${tokens.loadingTitleFontWeight}: ${bodyM.fontWeight};
+                ${tokens.loadingTitleLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.loadingTitleLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.spinnerSize}: 1.5rem;
 
@@ -141,44 +157,44 @@ export const config = {
                 ${tokens.errorContainerPadding}: 1.25rem 1.5rem;
                 ${tokens.errorContainerGap}: 0.125rem;
 
-                ${tokens.errorTitleFontFamily}: var(--plasma-typo-body-m-bold-font-family);
-                ${tokens.errorTitleFontSize}: var(--plasma-typo-body-m-bold-font-size);
-                ${tokens.errorTitleFontStyle}: var(--plasma-typo-body-m-bold-font-style);
-                ${tokens.errorTitleFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${tokens.errorTitleLetterSpacing}: var(--plasma-typo-body-m-bold-letter-spacing);
-                ${tokens.errorTitleLineHeight}: var(--plasma-typo-body-m-bold-line-height);
+                ${tokens.errorTitleFontFamily}: ${bodyMBold.fontFamily};
+                ${tokens.errorTitleFontSize}: ${bodyMBold.fontSize};
+                ${tokens.errorTitleFontStyle}: ${bodyMBold.fontStyle};
+                ${tokens.errorTitleFontWeight}: ${bodyMBold.fontWeight};
+                ${tokens.errorTitleLetterSpacing}: ${bodyMBold.letterSpacing};
+                ${tokens.errorTitleLineHeight}: ${bodyMBold.lineHeight};
 
-                ${tokens.errorTextContentFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.errorTextContentFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.errorTextContentFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.errorTextContentFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.errorTextContentLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.errorTextContentLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.errorTextContentFontFamily}: ${bodyM.fontFamily};
+                ${tokens.errorTextContentFontSize}: ${bodyM.fontSize};
+                ${tokens.errorTextContentFontStyle}: ${bodyM.fontStyle};
+                ${tokens.errorTextContentFontWeight}: ${bodyM.fontWeight};
+                ${tokens.errorTextContentLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.errorTextContentLineHeight}: ${bodyM.lineHeight};
             `,
             s: css`
                 ${tokens.titleContentGap}: 1.25rem;
                 ${tokens.contentFooterGap}: 0.625rem;
 
-                ${tokens.titleFontFamily}: var(--plasma-typo-h5-font-family);
-                ${tokens.titleFontSize}: var(--plasma-typo-h5-font-size);
-                ${tokens.titleFontStyle}: var(--plasma-typo-h5-font-style);
-                ${tokens.titleFontWeight}: var(--plasma-typo-h5-font-weight);
-                ${tokens.titleLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
-                ${tokens.titleLineHeight}: var(--plasma-typo-h5-line-height);
+                ${tokens.titleFontFamily}: ${h5.fontFamily};
+                ${tokens.titleFontSize}: ${h5.fontSize};
+                ${tokens.titleFontStyle}: ${h5.fontStyle};
+                ${tokens.titleFontWeight}: ${h5.fontWeight};
+                ${tokens.titleLetterSpacing}: ${h5.letterSpacing};
+                ${tokens.titleLineHeight}: ${h5.lineHeight};
 
-                ${tokens.textContentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textContentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textContentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textContentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textContentLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textContentLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textContentFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textContentFontSize}: ${bodyS.fontSize};
+                ${tokens.textContentFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textContentFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textContentLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textContentLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.loadingTitleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.loadingTitleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.loadingTitleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.loadingTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.loadingTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.loadingTitleLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.loadingTitleFontFamily}: ${bodyS.fontFamily};
+                ${tokens.loadingTitleFontSize}: ${bodyS.fontSize};
+                ${tokens.loadingTitleFontStyle}: ${bodyS.fontStyle};
+                ${tokens.loadingTitleFontWeight}: ${bodyS.fontWeight};
+                ${tokens.loadingTitleLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.loadingTitleLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.spinnerSize}: 1.5rem;
 
@@ -186,44 +202,44 @@ export const config = {
                 ${tokens.errorContainerPadding}: 1rem 1.25rem;
                 ${tokens.errorContainerGap}: 0.125rem;
 
-                ${tokens.errorTitleFontFamily}: var(--plasma-typo-body-s-bold-font-family);
-                ${tokens.errorTitleFontSize}: var(--plasma-typo-body-s-bold-font-size);
-                ${tokens.errorTitleFontStyle}: var(--plasma-typo-body-s-bold-font-style);
-                ${tokens.errorTitleFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${tokens.errorTitleLetterSpacing}: var(--plasma-typo-body-s-bold-letter-spacing);
-                ${tokens.errorTitleLineHeight}: var(--plasma-typo-body-s-bold-line-height);
+                ${tokens.errorTitleFontFamily}: ${bodySBold.fontFamily};
+                ${tokens.errorTitleFontSize}: ${bodySBold.fontSize};
+                ${tokens.errorTitleFontStyle}: ${bodySBold.fontStyle};
+                ${tokens.errorTitleFontWeight}: ${bodySBold.fontWeight};
+                ${tokens.errorTitleLetterSpacing}: ${bodySBold.letterSpacing};
+                ${tokens.errorTitleLineHeight}: ${bodySBold.lineHeight};
 
-                ${tokens.errorTextContentFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.errorTextContentFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.errorTextContentFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.errorTextContentFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.errorTextContentLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.errorTextContentLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.errorTextContentFontFamily}: ${bodyS.fontFamily};
+                ${tokens.errorTextContentFontSize}: ${bodyS.fontSize};
+                ${tokens.errorTextContentFontStyle}: ${bodyS.fontStyle};
+                ${tokens.errorTextContentFontWeight}: ${bodyS.fontWeight};
+                ${tokens.errorTextContentLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.errorTextContentLineHeight}: ${bodyS.lineHeight};
             `,
             xs: css`
                 ${tokens.titleContentGap}: 1.125rem;
                 ${tokens.contentFooterGap}: 0.5rem;
 
-                ${tokens.titleFontFamily}: var(--plasma-typo-h5-font-family);
-                ${tokens.titleFontSize}: var(--plasma-typo-h5-font-size);
-                ${tokens.titleFontStyle}: var(--plasma-typo-h5-font-style);
-                ${tokens.titleFontWeight}: var(--plasma-typo-h5-font-weight);
-                ${tokens.titleLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
-                ${tokens.titleLineHeight}: var(--plasma-typo-h5-line-height);
+                ${tokens.titleFontFamily}: ${h5.fontFamily};
+                ${tokens.titleFontSize}: ${h5.fontSize};
+                ${tokens.titleFontStyle}: ${h5.fontStyle};
+                ${tokens.titleFontWeight}: ${h5.fontWeight};
+                ${tokens.titleLetterSpacing}: ${h5.letterSpacing};
+                ${tokens.titleLineHeight}: ${h5.lineHeight};
 
-                ${tokens.textContentFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textContentFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textContentFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textContentFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textContentLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textContentLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textContentFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textContentFontSize}: ${bodyXS.fontSize};
+                ${tokens.textContentFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textContentFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textContentLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textContentLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.loadingTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.loadingTitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.loadingTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.loadingTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.loadingTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.loadingTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.loadingTitleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.loadingTitleFontSize}: ${bodyXS.fontSize};
+                ${tokens.loadingTitleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.loadingTitleFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.loadingTitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.loadingTitleLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.spinnerSize}: 1rem;
 
@@ -231,19 +247,19 @@ export const config = {
                 ${tokens.errorContainerPadding}: 0.75rem 1rem;
                 ${tokens.errorContainerGap}: 0.125rem;
 
-                ${tokens.errorTitleFontFamily}: var(--plasma-typo-body-xs-bold-font-family);
-                ${tokens.errorTitleFontSize}: var(--plasma-typo-body-xs-bold-font-size);
-                ${tokens.errorTitleFontStyle}: var(--plasma-typo-body-xs-bold-font-style);
-                ${tokens.errorTitleFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${tokens.errorTitleLetterSpacing}: var(--plasma-typo-body-xs-bold-letter-spacing);
-                ${tokens.errorTitleLineHeight}: var(--plasma-typo-body-xs-bold-line-height);
+                ${tokens.errorTitleFontFamily}: ${bodyXSBold.fontFamily};
+                ${tokens.errorTitleFontSize}: ${bodyXSBold.fontSize};
+                ${tokens.errorTitleFontStyle}: ${bodyXSBold.fontStyle};
+                ${tokens.errorTitleFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.errorTitleLetterSpacing}: ${bodyXSBold.letterSpacing};
+                ${tokens.errorTitleLineHeight}: ${bodyXSBold.lineHeight};
 
-                ${tokens.errorTextContentFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.errorTextContentFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.errorTextContentFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.errorTextContentFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.errorTextContentLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.errorTextContentLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.errorTextContentFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.errorTextContentFontSize}: ${bodyXS.fontSize};
+                ${tokens.errorTextContentFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.errorTextContentFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.errorTextContentLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.errorTextContentLineHeight}: ${bodyXS.lineHeight};
             `,
         },
     },

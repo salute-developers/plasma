@@ -1,3 +1,33 @@
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    bodyXXS,
+    surfaceAccent,
+    surfaceTransparentAccent,
+    surfaceTransparentAccentActive,
+    surfaceTransparentAccentHover,
+    surfaceTransparentNegative,
+    surfaceTransparentNegativeActive,
+    surfaceTransparentNegativeHover,
+    surfaceTransparentPositive,
+    surfaceTransparentPositiveActive,
+    surfaceTransparentPositiveHover,
+    surfaceTransparentSecondary,
+    surfaceTransparentSecondaryActive,
+    surfaceTransparentSecondaryHover,
+    surfaceTransparentWarning,
+    surfaceTransparentWarningActive,
+    surfaceTransparentWarningHover,
+    textAccent,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textWarning,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 import { css } from '@linaria/core';
 
 import { chipTokens } from '../../../components/Chip';
@@ -11,76 +41,76 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${chipTokens.color}: var(--text-primary);
-                ${chipTokens.background}: var(--surface-transparent-secondary);
-                ${chipTokens.colorHover}: var(--text-primary-hover);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
-                ${chipTokens.colorActive}: var(--text-primary-active);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnly}: var(--text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
+                ${chipTokens.color}: ${textPrimary};
+                ${chipTokens.background}: ${surfaceTransparentSecondary};
+                ${chipTokens.colorHover}: ${textPrimaryHover};
+                ${chipTokens.backgroundHover}: ${surfaceTransparentSecondaryHover};
+                ${chipTokens.colorActive}: ${textPrimaryActive};
+                ${chipTokens.backgroundActive}: ${surfaceTransparentSecondaryActive};
+                ${chipTokens.backgroundReadOnly}: ${surfaceTransparentSecondary};
+                ${chipTokens.colorReadOnly}: ${textPrimary};
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceTransparentSecondary};
+                ${chipTokens.colorReadOnlyHover}: ${textPrimary};
             `,
             secondary: css`
-                ${chipTokens.color}: var(--text-primary);
-                ${chipTokens.background}: var(--surface-transparent-secondary);
-                ${chipTokens.colorHover}: var(--text-primary-hover);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
-                ${chipTokens.colorActive}: var(--text-primary-active);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnly}: var(--text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
+                ${chipTokens.color}: ${textPrimary};
+                ${chipTokens.background}: ${surfaceTransparentSecondary};
+                ${chipTokens.colorHover}: ${textPrimaryHover};
+                ${chipTokens.backgroundHover}: ${surfaceTransparentSecondaryHover};
+                ${chipTokens.colorActive}: ${textPrimaryActive};
+                ${chipTokens.backgroundActive}: ${surfaceTransparentSecondaryActive};
+                ${chipTokens.backgroundReadOnly}: ${surfaceTransparentSecondary};
+                ${chipTokens.colorReadOnly}: ${textPrimary};
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceTransparentSecondary};
+                ${chipTokens.colorReadOnlyHover}: ${textPrimary};
             `,
             accent: css`
-                ${chipTokens.color}: var(--text-accent);
-                ${chipTokens.background}: var(--surface-transparent-accent);
-                ${chipTokens.colorHover}: var(--text-accent);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-accent-hover);
-                ${chipTokens.colorActive}: var(--text-accent);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-accent-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-accent);
-                ${chipTokens.colorReadOnly}: var(--text-accent);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-accent);
-                ${chipTokens.colorReadOnlyHover}: var(--text-accent);
+                ${chipTokens.color}: ${textAccent};
+                ${chipTokens.background}: ${surfaceTransparentAccent};
+                ${chipTokens.colorHover}: ${textAccent};
+                ${chipTokens.backgroundHover}: ${surfaceTransparentAccentHover};
+                ${chipTokens.colorActive}: ${textAccent};
+                ${chipTokens.backgroundActive}: ${surfaceTransparentAccentActive};
+                ${chipTokens.backgroundReadOnly}: ${surfaceTransparentAccent};
+                ${chipTokens.colorReadOnly}: ${textAccent};
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceTransparentAccent};
+                ${chipTokens.colorReadOnlyHover}: ${textAccent};
             `,
             positive: css`
-                ${chipTokens.color}: var(--text-positive);
-                ${chipTokens.background}: var(--surface-transparent-positive);
-                ${chipTokens.colorHover}: var(--text-positive);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-positive-hover);
-                ${chipTokens.colorActive}: var(--text-positive);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-positive-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-positive);
-                ${chipTokens.colorReadOnly}: var(--text-positive);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-positive);
-                ${chipTokens.colorReadOnlyHover}: var(--text-positive);
+                ${chipTokens.color}: ${textPositive};
+                ${chipTokens.background}: ${surfaceTransparentPositive};
+                ${chipTokens.colorHover}: ${textPositive};
+                ${chipTokens.backgroundHover}: ${surfaceTransparentPositiveHover};
+                ${chipTokens.colorActive}: ${textPositive};
+                ${chipTokens.backgroundActive}: ${surfaceTransparentPositiveActive};
+                ${chipTokens.backgroundReadOnly}: ${surfaceTransparentPositive};
+                ${chipTokens.colorReadOnly}: ${textPositive};
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceTransparentPositive};
+                ${chipTokens.colorReadOnlyHover}: ${textPositive};
             `,
             warning: css`
-                ${chipTokens.color}: var(--text-warning);
-                ${chipTokens.background}: var(--surface-transparent-warning);
-                ${chipTokens.colorHover}: var(--text-warning);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-warning-hover);
-                ${chipTokens.colorActive}: var(--text-warning);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-warning-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-warning);
-                ${chipTokens.colorReadOnly}: var(--text-warning);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-warning);
-                ${chipTokens.colorReadOnlyHover}: var(--text-warning);
+                ${chipTokens.color}: ${textWarning};
+                ${chipTokens.background}: ${surfaceTransparentWarning};
+                ${chipTokens.colorHover}: ${textWarning};
+                ${chipTokens.backgroundHover}: ${surfaceTransparentWarningHover};
+                ${chipTokens.colorActive}: ${textWarning};
+                ${chipTokens.backgroundActive}: ${surfaceTransparentWarningActive};
+                ${chipTokens.backgroundReadOnly}: ${surfaceTransparentWarning};
+                ${chipTokens.colorReadOnly}: ${textWarning};
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceTransparentWarning};
+                ${chipTokens.colorReadOnlyHover}: ${textWarning};
             `,
             negative: css`
-                ${chipTokens.color}: var(--text-negative);
-                ${chipTokens.background}: var(--surface-transparent-negative);
-                ${chipTokens.colorHover}: var(--text-negative);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-negative-hover);
-                ${chipTokens.colorActive}: var(--text-negative);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-negative-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-negative);
-                ${chipTokens.colorReadOnly}: var(--text-negative);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-negative);
-                ${chipTokens.colorReadOnlyHover}: var(--text-negative);
+                ${chipTokens.color}: ${textNegative};
+                ${chipTokens.background}: ${surfaceTransparentNegative};
+                ${chipTokens.colorHover}: ${textNegative};
+                ${chipTokens.backgroundHover}: ${surfaceTransparentNegativeHover};
+                ${chipTokens.colorActive}: ${textNegative};
+                ${chipTokens.backgroundActive}: ${surfaceTransparentNegativeActive};
+                ${chipTokens.backgroundReadOnly}: ${surfaceTransparentNegative};
+                ${chipTokens.colorReadOnly}: ${textNegative};
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceTransparentNegative};
+                ${chipTokens.colorReadOnlyHover}: ${textNegative};
             `,
         },
         size: {
@@ -91,12 +121,12 @@ export const config = {
                 ${chipTokens.height}: 3rem;
                 ${chipTokens.padding}: 0 1rem;
 
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${chipTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+                ${chipTokens.fontFamily}: ${bodyL.fontFamily};
+                ${chipTokens.fontSize}: ${bodyL.fontSize};
+                ${chipTokens.fontStyle}: ${bodyL.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyL.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyL.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyL.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.5rem;
@@ -113,12 +143,12 @@ export const config = {
                 ${chipTokens.height}: 2.5rem;
                 ${chipTokens.padding}: 0 0.875rem;
 
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${chipTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${chipTokens.fontFamily}: ${bodyM.fontFamily};
+                ${chipTokens.fontSize}: ${bodyM.fontSize};
+                ${chipTokens.fontStyle}: ${bodyM.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyM.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.375rem;
@@ -135,12 +165,12 @@ export const config = {
                 ${chipTokens.height}: 2rem;
                 ${chipTokens.padding}: 0 0.875rem;
 
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${chipTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${chipTokens.fontFamily}: ${bodyS.fontFamily};
+                ${chipTokens.fontSize}: ${bodyS.fontSize};
+                ${chipTokens.fontStyle}: ${bodyS.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyS.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyS.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
@@ -157,12 +187,12 @@ export const config = {
                 ${chipTokens.height}: 1.5rem;
                 ${chipTokens.padding}: 0 0.625rem;
 
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${chipTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${chipTokens.fontFamily}: ${bodyXS.fontFamily};
+                ${chipTokens.fontSize}: ${bodyXS.fontSize};
+                ${chipTokens.fontStyle}: ${bodyXS.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyXS.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyXS.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyXS.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
@@ -179,12 +209,12 @@ export const config = {
                 ${chipTokens.height}: 1.25rem;
                 ${chipTokens.padding}: 0 0.5rem;
 
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${chipTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${chipTokens.fontFamily}: ${bodyXXS.fontFamily};
+                ${chipTokens.fontSize}: ${bodyXXS.fontSize};
+                ${chipTokens.fontStyle}: ${bodyXXS.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyXXS.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyXXS.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyXXS.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.125rem;
@@ -202,7 +232,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${chipTokens.focusColor}: var(--surface-accent);
+                ${chipTokens.focusColor}: ${surfaceAccent};
             `,
         },
         pilled: {
