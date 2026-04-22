@@ -15,14 +15,6 @@ export const config = {
                 ${tokens.chipColorActive}: var(--inverse-text-primary);
                 ${tokens.chipBackgroundActive}: var(--surface-solid-default-active);
             `,
-            secondary: css`
-                ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
-                ${tokens.chipColorHover}: var(--text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-            `,
             accent: css`
                 ${tokens.chipColor}: var(--on-dark-text-primary);
                 ${tokens.chipBackground}: var(--surface-accent);
@@ -30,6 +22,38 @@ export const config = {
                 ${tokens.chipBackgroundHover}: var(--surface-accent-hover);
                 ${tokens.chipColorActive}: var(--on-dark-text-primary);
                 ${tokens.chipBackgroundActive}: var(--surface-accent-active);
+            `,
+            positive: css`
+                ${tokens.chipColor}: var(--on-dark-text-primary);
+                ${tokens.chipBackground}: var(--surface-positive);
+                ${tokens.chipColorHover}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundHover}: var(--surface-positive-hover);
+                ${tokens.chipColorActive}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundActive}: var(--surface-positive-active);
+            `,
+            warning: css`
+                ${tokens.chipColor}: var(--on-dark-text-primary);
+                ${tokens.chipBackground}: var(--surface-warning);
+                ${tokens.chipColorHover}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundHover}: var(--surface-warning-hover);
+                ${tokens.chipColorActive}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundActive}: var(--surface-warning-active);
+            `,
+            negative: css`
+                ${tokens.chipColor}: var(--on-dark-text-primary);
+                ${tokens.chipBackground}: var(--surface-negative);
+                ${tokens.chipColorHover}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundHover}: var(--surface-negative-hover);
+                ${tokens.chipColorActive}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundActive}: var(--surface-negative-active);
+            `,
+            clear: css`
+                ${tokens.chipColor}: var(--text-primary);
+                ${tokens.chipBackground}: var(--surface-clear);
+                ${tokens.chipColorHover}: var(--text-primary);
+                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.chipColorActive}: var(--text-primary);
+                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
             `,
         },
         size: {

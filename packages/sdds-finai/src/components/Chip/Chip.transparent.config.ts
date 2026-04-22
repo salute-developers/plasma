@@ -21,19 +21,6 @@ export const config = {
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
                 ${chipTokens.closeIconColor}: var(--text-tertiary);
             `,
-            secondary: css`
-                ${chipTokens.color}: var(--text-primary);
-                ${chipTokens.background}: var(--surface-transparent-secondary);
-                ${chipTokens.colorHover}: var(--text-primary-hover);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
-                ${chipTokens.colorActive}: var(--text-primary-active);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnly}: var(--text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
-                ${chipTokens.closeIconColor}: var(--text-tertiary);
-            `,
             accent: css`
                 ${chipTokens.color}: var(--text-accent);
                 ${chipTokens.background}: var(--surface-transparent-accent);
