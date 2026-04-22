@@ -52,7 +52,9 @@ program
 
 program
     .command('update-storybook')
-    .description('Regenerate MissingTokens data file and update story title warning emojis')
+    .description(
+        'Regenerate Tokens/MissingTokens (missingTokensData.ts + MissingTokens.stories.tsx) and update story title emojis',
+    )
     .option('--package-root <path>', 'Target package root (defaults to cwd)', '.')
     .option(
         '--package-name <name>',
@@ -76,8 +78,9 @@ program
             missingTokensDescription: opts.missingTokensDescription,
         });
         const s = res.stats;
+        const storiesLine = s.storiesOutFile ? `storiesFile=${s.storiesOutFile}` : 'storiesFile=—';
         process.stdout.write(
-            `update-storybook: configsScanned=${s.configsScanned} configsWithMissing=${s.configsWithMissing} uniqueTokens=${s.uniqueTokens} updatedStories=${s.updatedStories}\n`,
+            `update-storybook: configsScanned=${s.configsScanned} configsWithMissing=${s.configsWithMissing} uniqueTokens=${s.uniqueTokens} dataFile=${s.outFile} ${storiesLine} updatedStories=${s.updatedStories}\n`,
         );
     });
 

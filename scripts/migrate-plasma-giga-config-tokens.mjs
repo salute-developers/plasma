@@ -60,7 +60,7 @@ const PROFILES = {
     'sdds-sbcom': {
         pkgRoot: path.join(root, 'packages/sdds-sbcom'),
         tokensMod: sdds('sdds_sbcom'),
-        importPath: '@salutejs/sdds-themes/tokens/sdds_sbcom',
+        importPath: '@salutejs-ds/sdds_sbcom/theme/tokens',
         tokenThemeNote:
             'Smaller typography/display surface than plasma-giga; see **§ sdds_sbcom theme surface & Linaria** in this report.',
     },
