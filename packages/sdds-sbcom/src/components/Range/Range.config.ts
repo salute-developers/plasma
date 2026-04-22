@@ -7,12 +7,11 @@ import {
     surfaceAccent,
     surfaceNegative,
     surfaceSolidCardBrightness,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentNegativeHover,
-    surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
-    surfaceTransparentPositiveHover,
+    surfaceNegativeActive,
+    surfaceNegativeHover,
+    surfacePositive,
+    surfacePositiveActive,
+    surfacePositiveHover,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
@@ -26,7 +25,7 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, rangeTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -40,8 +39,8 @@ export const config = {
         view: {
             default: css`
                 ${tokens.background}: ${surfaceTransparentPrimary};
-                ${tokens.backgroundError}: ${surfaceTransparentNegative};
-                ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
+                ${tokens.backgroundError}: ${surfaceNegative};
+                ${tokens.backgroundSuccess}: ${surfacePositive};
 
                 ${tokens.dividerColor}: ${textPrimary};
                 ${tokens.labelColor}: ${textPrimary};
@@ -74,12 +73,12 @@ export const config = {
 
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundErrorColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
-                ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
-                ${tokens.textFieldBackgroundSuccessColorHover}: ${surfaceTransparentPositiveHover};
-                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceNegative};
+                ${tokens.textFieldBackgroundErrorColorHover}: ${surfaceNegativeHover};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceNegativeActive};
+                ${tokens.textFieldBackgroundSuccessColor}: ${surfacePositive};
+                ${tokens.textFieldBackgroundSuccessColorHover}: ${surfacePositiveHover};
+                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfacePositiveActive};
 
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};

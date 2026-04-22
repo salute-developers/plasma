@@ -3,14 +3,15 @@ import {
     bodyM,
     bodyS,
     bodyXS,
+    shadowDownHardM,
     shadowDownSoftS,
     surfaceAccent,
     surfaceNegative,
     surfaceSolidCard,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
+    surfaceSolidCardBrightness,
+    surfaceNegativeActive,
+    surfacePositive,
+    surfacePositiveActive,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
@@ -20,9 +21,13 @@ import {
     textPrimary,
     textSecondary,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { timePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -34,8 +39,8 @@ export const config = {
         view: {
             default: css`
                 ${tokens.background}: ${surfaceTransparentPrimary};
-                ${tokens.backgroundError}: ${surfaceTransparentNegative};
-                ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
+                ${tokens.backgroundError}: ${surfaceNegative};
+                ${tokens.backgroundSuccess}: ${surfacePositive};
 
                 ${tokens.labelColor}: ${textPrimary};
 
@@ -49,10 +54,10 @@ export const config = {
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
-                ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
-                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceNegative};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceNegativeActive};
+                ${tokens.textFieldBackgroundSuccessColor}: ${surfacePositive};
+                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfacePositiveActive};
 
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
@@ -415,10 +420,10 @@ export const config = {
         },
         hintView: {
             default: css`
-                ${tokens.hintTooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.hintTooltipBoxShadow}: var(--shadow-down-hard-m);
-                ${tokens.hintTooltipColor}: var(--text-primary);
-                ${tokens.hintTooltipArrowBackground}: var(--surface-solid-card-brightness);
+                ${tokens.hintTooltipBackgroundColor}: ${surfaceSolidCardBrightness};
+                ${tokens.hintTooltipBoxShadow}: ${shadowDownHardM};
+                ${tokens.hintTooltipColor}: ${textPrimary};
+                ${tokens.hintTooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
         },
         hintSize: {
@@ -431,12 +436,12 @@ export const config = {
                 ${tokens.hintTooltipMinHeight}: 2.5rem;
                 ${tokens.hintTooltipBorderRadius}: 0.625rem;
 
-                ${tokens.hintTooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.hintTooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.hintTooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.hintTooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.hintTooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.hintTooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.hintTooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.hintTooltipTextFontSize}: ${bodyS.fontSize};
+                ${tokens.hintTooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.hintTooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.hintTooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.hintTooltipTextFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.hintTooltipContentLeftMargin}: 0.375rem;
 
@@ -455,11 +460,17 @@ export const config = {
                 ${tokens.hintTooltipMinHeight}: 2rem;
                 ${tokens.hintTooltipBorderRadius}: 0.5rem;
 
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.hintTooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.hintTooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.hintTooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.hintTooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.hintTooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.hintTooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.hintTooltipContentLeftMargin}: 0.25rem;

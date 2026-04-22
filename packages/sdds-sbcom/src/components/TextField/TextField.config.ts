@@ -23,21 +23,12 @@ import {
     surfaceSolidDefault,
     surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentNegativeHover,
-    surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
-    surfaceTransparentPositiveHover,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
     surfaceTransparentSecondaryHover,
     surfaceTransparentTertiary,
-    surfaceTransparentWarning,
-    surfaceTransparentWarningActive,
-    surfaceTransparentWarningHover,
     surfaceWarning,
     surfaceWarningActive,
     surfaceWarningHover,
@@ -50,7 +41,7 @@ import {
     textSecondaryHover,
     textTertiary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, textFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -96,9 +87,9 @@ export const config = {
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentPositive};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentPositiveHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentPositiveActive};
+                ${tokens.backgroundColor}: ${surfacePositive};
+                ${tokens.backgroundColorHover}: ${surfacePositiveHover};
+                ${tokens.backgroundColorFocus}: ${surfacePositiveActive};
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
@@ -125,9 +116,9 @@ export const config = {
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentWarning};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentWarningHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentWarningActive};
+                ${tokens.backgroundColor}: ${surfaceWarning};
+                ${tokens.backgroundColorHover}: ${surfaceWarningHover};
+                ${tokens.backgroundColorFocus}: ${surfaceWarningActive};
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
@@ -154,9 +145,9 @@ export const config = {
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.backgroundColor}: ${surfaceNegative};
+                ${tokens.backgroundColorHover}: ${surfaceNegativeHover};
+                ${tokens.backgroundColorFocus}: ${surfaceNegativeActive};
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};

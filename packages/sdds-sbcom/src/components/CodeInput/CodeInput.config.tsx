@@ -1,5 +1,18 @@
 import { css, codeInputTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyS,
+    bodySBold,
+    dsplS,
+    h3,
+    textNegative,
+    textPrimary,
+    textSecondary,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, dsplL, dsplLBold, dsplM, h4, h5, outlinePrimary
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -8,11 +21,11 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.captionColor}: var(--text-secondary);
-                ${tokens.captionColorError}: var(--text-negative);
+                ${tokens.captionColor}: ${textSecondary};
+                ${tokens.captionColorError}: ${textNegative};
 
-                ${tokens.codeColor}: var(--text-primary);
-                ${tokens.codeColorError}: var(--text-negative);
+                ${tokens.codeColor}: ${textPrimary};
+                ${tokens.codeColorError}: ${textNegative};
                 ${tokens.borderColorFocus}: var(--outline-accent);
             `,
         },
@@ -37,12 +50,12 @@ export const config = {
                 ${tokens.smallFontSize}: 5.5rem;
                 ${tokens.smallLineHeight}: 5.75rem;
 
-                ${tokens.captionFontFamily}: var(--plasma-typo-h3-font-family);
-                ${tokens.captionFontSize}: var(--plasma-typo-h3-font-size);
-                ${tokens.captionFontStyle}: var(--plasma-typo-h3-font-style);
-                ${tokens.captionFontWeight}: var(--plasma-typo-h3-font-weight);
-                ${tokens.captionLetterSpacing}: var(--plasma-typo-h3-letter-spacing);
-                ${tokens.captionLineHeight}: var(--plasma-typo-h3-line-height);
+                ${tokens.captionFontFamily}: ${h3.fontFamily};
+                ${tokens.captionFontSize}: ${h3.fontSize};
+                ${tokens.captionFontStyle}: ${h3.fontStyle};
+                ${tokens.captionFontWeight}: ${h3.fontWeight};
+                ${tokens.captionLetterSpacing}: ${h3.letterSpacing};
+                ${tokens.captionLineHeight}: ${h3.lineHeight};
 
                 ${tokens.largeCodeItemWidth}: 5rem;
                 ${tokens.largeCodeItemHeight}: 8rem;
@@ -101,10 +114,10 @@ export const config = {
 
                 ${tokens.separatorWidth}: 0.5rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-dspl-s-font-family);
-                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.fontFamily}: ${dsplS.fontFamily};
+                ${tokens.fontStyle}: ${bodyS.fontStyle};
+                ${tokens.fontWeight}: ${bodySBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyS.letterSpacing};
 
                 ${tokens.largeFontSize}: 4rem;
                 ${tokens.largeLineHeight}: 4.25rem;

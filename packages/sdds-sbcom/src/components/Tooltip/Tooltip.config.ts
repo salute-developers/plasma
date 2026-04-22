@@ -1,4 +1,4 @@
-import { bodyS, bodyXS, surfaceSolidCardBrightness, textPrimary } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+import { bodyS, bodyXS, surfaceSolidCardBrightness, textPrimary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, tooltipTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {

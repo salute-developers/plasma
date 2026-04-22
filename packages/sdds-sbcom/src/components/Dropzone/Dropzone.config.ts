@@ -2,15 +2,15 @@ import {
     bodyS,
     h4,
     h4Bold,
-    outlineAccent,
-    outlineSolidSecondary,
-    outlineSolidSecondaryHover,
+    outlinePrimary,
+    outlineDefault,
+    outlineDefaultHover,
     overlaySoft,
     surfaceSolidCard,
     surfaceSolidCardHover,
     textPrimary,
     textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, dropzoneTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -24,9 +24,9 @@ export const config = {
                 ${dropzoneTokens.background}: ${surfaceSolidCard};
                 ${dropzoneTokens.backgroundHover}: ${surfaceSolidCardHover};
                 ${dropzoneTokens.overlayColorActive}: ${overlaySoft};
-                ${dropzoneTokens.borderColor}: ${outlineSolidSecondary};
-                ${dropzoneTokens.borderColorHover}: ${outlineSolidSecondaryHover};
-                ${dropzoneTokens.borderColorActive}: ${outlineAccent};
+                ${dropzoneTokens.borderColor}: ${outlineDefault};
+                ${dropzoneTokens.borderColorHover}: ${outlineDefaultHover};
+                ${dropzoneTokens.borderColorActive}: ${outlinePrimary};
                 ${dropzoneTokens.titleColor}: ${textPrimary};
                 ${dropzoneTokens.descriptionColor}: ${textSecondary};
             `,

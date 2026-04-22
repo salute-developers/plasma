@@ -23,7 +23,7 @@ import {
     surfaceSolidDefault,
     surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
-    surfaceTransparentNegative,
+    surfaceNegative,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
@@ -34,7 +34,7 @@ import {
     textPrimaryActive,
     textPrimaryHover,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, numberInputTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -49,7 +49,7 @@ export const config = {
             default: css`
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.backgroundErrorColor}: ${surfaceNegative};
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${inverseTextPrimary};
@@ -76,7 +76,7 @@ export const config = {
             secondary: css`
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.backgroundErrorColor}: ${surfaceNegative};
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${textPrimary};
@@ -104,7 +104,7 @@ export const config = {
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.caretColorSolid}: ${inverseTextPrimary};
                 ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.backgroundErrorColor}: ${surfaceNegative};
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${onDarkTextPrimary};
@@ -132,7 +132,7 @@ export const config = {
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.caretColorSolid}: ${textAccent};
                 ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.backgroundErrorColor}: ${surfaceNegative};
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${textPrimary};

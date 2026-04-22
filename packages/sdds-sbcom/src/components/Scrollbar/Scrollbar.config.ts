@@ -1,4 +1,4 @@
-import { surfaceTransparentPrimary, surfaceTransparentTertiary } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+import { surfaceTransparentPrimary, surfaceTransparentTertiary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     view: {

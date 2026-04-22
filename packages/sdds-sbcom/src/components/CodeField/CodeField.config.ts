@@ -5,16 +5,16 @@ import {
     bodyMBold,
     bodyS,
     bodyXS,
-    outlineAccent,
+    outlinePrimary,
     surfaceAccent,
-    surfaceTransparentNegative,
+    surfaceNegative,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
     textNegative,
     textPrimary,
     textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, codeFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -33,12 +33,12 @@ export const config = {
 
                 ${tokens.codeColor}: ${textPrimary};
                 ${tokens.codeColorError}: ${textNegative};
-                ${tokens.borderColorFocus}: ${outlineAccent};
+                ${tokens.borderColorFocus}: ${outlinePrimary};
 
                 ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentPrimaryHover};
                 ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.backgroundErrorColor}: ${surfaceNegative};
             `,
         },
         size: {

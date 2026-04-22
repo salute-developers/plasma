@@ -38,7 +38,7 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { datePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {

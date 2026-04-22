@@ -9,7 +9,7 @@ import {
     surfaceTransparentSecondary,
     surfaceWarning,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, progressTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {

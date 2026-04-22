@@ -1,4 +1,4 @@
-import { bodyL, bodyM, bodyS, bodyXS } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+import { bodyL, bodyM, bodyS, bodyXS } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, emptyStateTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {

@@ -1,4 +1,4 @@
-import { dsplS, dsplSBold, dsplSMedium } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+import { dsplS, dsplSBold, dsplSMedium } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const configS = {

@@ -1,4 +1,4 @@
-import { surfaceSolidCard } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+import { surfaceSolidCard } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, cardTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {

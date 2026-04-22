@@ -6,7 +6,7 @@ import {
     surfaceAccent,
     surfaceTransparentSecondary,
     textPrimary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, listTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {

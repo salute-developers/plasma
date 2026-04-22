@@ -7,11 +7,11 @@ import {
     bodySBold,
     bodyXS,
     bodyXSBold,
-    surfaceTransparentInfo,
-    surfaceTransparentNegative,
-    surfaceTransparentPositive,
+    surfaceInfo,
+    surfaceNegative,
+    surfacePositive,
     surfaceTransparentSecondary,
-    surfaceTransparentWarning,
+    surfaceWarning,
     textInfo,
     textNegative,
     textPositive,
@@ -19,7 +19,7 @@ import {
     textSecondary,
     textSecondaryHover,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, noteTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -35,22 +35,22 @@ export const config = {
                 ${tokens.contentBeforeColor}: ${textPrimary};
             `,
             positive: css`
-                ${tokens.background}: ${surfaceTransparentPositive};
+                ${tokens.background}: ${surfacePositive};
                 ${tokens.color}: ${textPrimary};
                 ${tokens.contentBeforeColor}: ${textPositive};
             `,
             warning: css`
-                ${tokens.background}: ${surfaceTransparentWarning};
+                ${tokens.background}: ${surfaceWarning};
                 ${tokens.color}: ${textPrimary};
                 ${tokens.contentBeforeColor}: ${textWarning};
             `,
             negative: css`
-                ${tokens.background}: ${surfaceTransparentNegative};
+                ${tokens.background}: ${surfaceNegative};
                 ${tokens.color}: ${textPrimary};
                 ${tokens.contentBeforeColor}: ${textNegative};
             `,
             info: css`
-                ${tokens.background}: ${surfaceTransparentInfo};
+                ${tokens.background}: ${surfaceInfo};
                 ${tokens.color}: ${textPrimary};
                 ${tokens.contentBeforeColor}: ${textInfo};
             `,

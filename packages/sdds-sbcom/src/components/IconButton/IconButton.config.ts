@@ -37,7 +37,7 @@ import {
     surfaceWarningActive,
     surfaceWarningHover,
     textPrimary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {

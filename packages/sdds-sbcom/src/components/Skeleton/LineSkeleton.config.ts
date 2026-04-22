@@ -13,11 +13,10 @@ import {
     h3 as typoH3,
     h4 as typoH4,
     h4Medium as typoH5,
-    surfaceSkeletonDeepGradient,
     surfaceSkeletonGradient,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, skeletonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -33,7 +32,7 @@ export const config = {
                 ${skeletonTokens.fadeOutColor}: ${surfaceTransparentTertiary};
             `,
             lighter: css`
-                ${skeletonTokens.gradientColor}: ${surfaceSkeletonDeepGradient};
+                ${skeletonTokens.gradientColor}: ${surfaceSkeletonGradient};
                 ${skeletonTokens.fadeInColor}: ${surfaceTransparentSecondary};
                 ${skeletonTokens.fadeOutColor}: ${surfaceTransparentTertiary};
             `,

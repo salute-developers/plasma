@@ -1,4 +1,4 @@
-import { bodyL, bodyM, bodyS, bodyXS, textPrimary, textSecondary } from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+import { bodyL, bodyM, bodyS, bodyXS, textPrimary, textSecondary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, cellTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {

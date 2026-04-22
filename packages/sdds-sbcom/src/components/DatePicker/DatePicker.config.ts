@@ -21,10 +21,9 @@ import {
     surfaceSolidCard,
     surfaceSolidCardBrightness,
     surfaceSolidDefault,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
+    surfaceNegativeActive,
+    surfacePositive,
+    surfacePositiveActive,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     textAccent,
@@ -37,7 +36,7 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { datePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -52,8 +51,8 @@ export const config = {
                 ${tokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tokens.background}: ${surfaceTransparentPrimary};
-                ${tokens.backgroundError}: ${surfaceTransparentNegative};
-                ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
+                ${tokens.backgroundError}: ${surfaceNegative};
+                ${tokens.backgroundSuccess}: ${surfacePositive};
 
                 ${tokens.dividerColor}: ${textPrimary};
                 ${tokens.labelColor}: ${textPrimary};
@@ -104,10 +103,10 @@ export const config = {
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
-                ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
-                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceNegative};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceNegativeActive};
+                ${tokens.textFieldBackgroundSuccessColor}: ${surfacePositive};
+                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfacePositiveActive};
 
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};

@@ -9,12 +9,10 @@ import {
     surfaceNegative,
     surfacePositive,
     surfaceSolidCardBrightness,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentNegativeHover,
-    surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
-    surfaceTransparentPositiveHover,
+    surfaceNegativeActive,
+    surfaceNegativeHover,
+    surfacePositiveActive,
+    surfacePositiveHover,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryActive,
     surfaceTransparentPrimaryHover,
@@ -22,10 +20,9 @@ import {
     surfaceTransparentTertiary,
     surfaceTransparentTertiaryActive,
     surfaceTransparentTertiaryHover,
-    surfaceTransparentWarning,
-    surfaceTransparentWarningActive,
-    surfaceTransparentWarningHover,
     surfaceWarning,
+    surfaceWarningActive,
+    surfaceWarningHover,
     textAccent,
     textNegative,
     textPositive,
@@ -35,7 +32,7 @@ import {
     textSecondaryHover,
     textTertiary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, textAreaTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -88,15 +85,15 @@ export const config = {
                 ${tokens.titleCaptionColor}: ${textSecondary};
             `,
             positive: css`
-                ${tokens.inputBackgroundColor}: ${surfaceTransparentPositive};
-                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentPositiveHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentPositiveActive};
-                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentPositive};
+                ${tokens.inputBackgroundColor}: ${surfacePositive};
+                ${tokens.inputBackgroundColorHover}: ${surfacePositiveHover};
+                ${tokens.inputBackgroundColorActive}: ${surfacePositiveActive};
+                ${tokens.inputBackgroundColorFocus}: ${surfacePositive};
 
-                ${tokens.helpersBackgroundColor}: ${surfaceTransparentPositive};
-                ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentPositiveHover};
-                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentPositiveActive};
-                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentPositive};
+                ${tokens.helpersBackgroundColor}: ${surfacePositive};
+                ${tokens.helpersBackgroundColorHover}: ${surfacePositiveHover};
+                ${tokens.helpersBackgroundColorActive}: ${surfacePositiveActive};
+                ${tokens.helpersBackgroundColorFocus}: ${surfacePositive};
 
                 ${tokens.inputColor}: ${textPrimary};
                 ${tokens.inputColorFocus}: ${textPrimary};
@@ -130,15 +127,15 @@ export const config = {
                 ${tokens.titleCaptionColor}: ${textSecondary};
             `,
             warning: css`
-                ${tokens.inputBackgroundColor}: ${surfaceTransparentWarning};
-                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentWarningHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentWarningActive};
-                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentWarning};
+                ${tokens.inputBackgroundColor}: ${surfaceWarning};
+                ${tokens.inputBackgroundColorHover}: ${surfaceWarningHover};
+                ${tokens.inputBackgroundColorActive}: ${surfaceWarningActive};
+                ${tokens.inputBackgroundColorFocus}: ${surfaceWarning};
 
-                ${tokens.helpersBackgroundColor}: ${surfaceTransparentWarning};
-                ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentWarningHover};
-                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentWarningActive};
-                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentWarning};
+                ${tokens.helpersBackgroundColor}: ${surfaceWarning};
+                ${tokens.helpersBackgroundColorHover}: ${surfaceWarningHover};
+                ${tokens.helpersBackgroundColorActive}: ${surfaceWarningActive};
+                ${tokens.helpersBackgroundColorFocus}: ${surfaceWarning};
 
                 ${tokens.inputColor}: ${textPrimary};
                 ${tokens.inputColorFocus}: ${textPrimary};
@@ -172,15 +169,15 @@ export const config = {
                 ${tokens.titleCaptionColor}: ${textSecondary};
             `,
             negative: css`
-                ${tokens.inputBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentNegativeActive};
-                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentNegative};
+                ${tokens.inputBackgroundColor}: ${surfaceNegative};
+                ${tokens.inputBackgroundColorHover}: ${surfaceNegativeHover};
+                ${tokens.inputBackgroundColorActive}: ${surfaceNegativeActive};
+                ${tokens.inputBackgroundColorFocus}: ${surfaceNegative};
 
-                ${tokens.helpersBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentNegativeActive};
-                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentNegative};
+                ${tokens.helpersBackgroundColor}: ${surfaceNegative};
+                ${tokens.helpersBackgroundColorHover}: ${surfaceNegativeHover};
+                ${tokens.helpersBackgroundColorActive}: ${surfaceNegativeActive};
+                ${tokens.helpersBackgroundColorFocus}: ${surfaceNegative};
 
                 ${tokens.inputColor}: ${textPrimary};
                 ${tokens.inputColorFocus}: ${textPrimary};

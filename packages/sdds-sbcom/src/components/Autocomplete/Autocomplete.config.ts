@@ -9,16 +9,13 @@ import {
     surfacePositive,
     surfaceSolidCard,
     surfaceSolidCardBrightness,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
+    surfaceNegativeActive,
+    surfacePositiveActive,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
-    surfaceTransparentWarning,
-    surfaceTransparentWarningActive,
     surfaceWarning,
+    surfaceWarningActive,
     textAccent,
     textNegative,
     textPositive,
@@ -28,7 +25,7 @@ import {
     textSecondaryHover,
     textTertiary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, autocompleteTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -90,8 +87,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: ${textPositive};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textPositive};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPositive};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentPositiveActive};
+                ${tokens.textFieldBackgroundColor}: ${surfacePositive};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfacePositiveActive};
                 ${tokens.textFieldCaretColor}: ${textAccent};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
@@ -132,8 +129,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: ${textWarning};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textWarning};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentWarningActive};
+                ${tokens.textFieldBackgroundColor}: ${surfaceWarning};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceWarningActive};
                 ${tokens.textFieldCaretColor}: ${textAccent};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
@@ -174,8 +171,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: ${textNegative};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textNegative};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundColor}: ${surfaceNegative};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceNegativeActive};
                 ${tokens.textFieldCaretColor}: ${textAccent};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};

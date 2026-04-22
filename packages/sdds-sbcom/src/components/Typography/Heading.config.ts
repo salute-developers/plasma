@@ -11,7 +11,7 @@ import {
     h4,
     h4Bold,
     h4Medium,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const configH1 = {

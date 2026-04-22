@@ -7,7 +7,7 @@ import { DsplS } from '../Typography';
 import { Link } from '.';
 
 const meta: Meta<typeof Link> = {
-    title: 'Navigation/Link',
+    title: 'Navigation/⚠️ Link',
     decorators: [InSpacingDecorator],
     component: Link,
     argTypes: {

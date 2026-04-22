@@ -24,7 +24,7 @@ import {
     textPrimary,
     textSecondary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, loaderTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {

@@ -12,16 +12,15 @@ import {
     surfaceSolidCardBrightness,
     surfaceSolidDefault,
     surfaceSolidTertiary,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
+    surfaceNegativeActive,
+    surfacePositive,
+    surfacePositiveActive,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryActive,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
-    surfaceTransparentWarning,
-    surfaceTransparentWarningActive,
+    surfaceWarning,
+    surfaceWarningActive,
     textAccent,
     textNegative,
     textPrimary,
@@ -29,7 +28,7 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_sbcom';
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, textFieldSliderTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -47,7 +46,7 @@ export const config = {
                 ${tokens.textFieldCaretColor}: ${textAccent};
 
                 ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceNegative};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryActive};
@@ -98,11 +97,11 @@ export const config = {
                 ${tokens.textFieldCaretColor}: ${textAccent};
 
                 ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceNegative};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPositive};
-                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPositiveActive};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentPositiveActive};
+                ${tokens.textFieldBackgroundColor}: ${surfacePositive};
+                ${tokens.textFieldBackgroundColorHover}: ${surfacePositiveActive};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfacePositiveActive};
 
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
@@ -145,11 +144,11 @@ export const config = {
                 ${tokens.textFieldCaretColor}: ${textAccent};
 
                 ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceNegative};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
-                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentWarningActive};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentWarningActive};
+                ${tokens.textFieldBackgroundColor}: ${surfaceWarning};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceWarningActive};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceWarningActive};
 
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
@@ -192,11 +191,11 @@ export const config = {
                 ${tokens.textFieldCaretColor}: ${textAccent};
 
                 ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceNegative};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentNegativeActive};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundColor}: ${surfaceNegative};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceNegativeActive};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceNegativeActive};
 
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
