@@ -88,6 +88,7 @@ const includeParams = [
     'treeView',
     'arrowPlacement',
     'singleLine',
+    'emptyStateDescription',
 ];
 
 const meta: Meta<StorySelectProps> = {
@@ -257,6 +258,9 @@ const meta: Meta<StorySelectProps> = {
             control: {
                 type: 'boolean',
             },
+        },
+        emptyStateDescription: {
+            control: 'text',
         },
     },
     args: {

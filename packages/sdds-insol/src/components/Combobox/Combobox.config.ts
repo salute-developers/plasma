@@ -6,6 +6,8 @@ export const config = {
         size: 'm',
         labelPlacement: 'outer',
         _checkboxAppearance: 'outline',
+        hintView: 'default',
+        hintSize: 'm',
     },
     variations: {
         view: {

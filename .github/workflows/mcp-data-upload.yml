@@ -25,17 +25,10 @@ jobs:
                     -   package_name: sdds-platform-ai
                     -   package_name: sdds-netology
         steps:
-            -   name: Checkout manual ref
-                if: ${{ github.event_name == 'workflow_dispatch' }}
+            -   name: Checkout
                 uses: actions/checkout@v4
                 with:
-                    show-progress: false
-
-            -   name: Checkout release commit
-                if: ${{ github.event_name == 'workflow_run' }}
-                uses: actions/checkout@v4
-                with:
-                    ref: ${{ github.event.workflow_run.head_sha }}
+                    ref: master
                     show-progress: false
 
             -   name: Prepare environment

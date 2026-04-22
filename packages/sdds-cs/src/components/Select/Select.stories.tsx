@@ -112,6 +112,9 @@ const meta: Meta<StorySelectProps> = {
                 type: 'boolean',
             },
         },
+        emptyStateDescription: {
+            control: 'text',
+        },
         ...disableProps([
             'hintText',
             'hintTrigger',
@@ -170,6 +173,7 @@ const meta: Meta<StorySelectProps> = {
                 'chipType',
                 'mode',
                 'singleLine',
+                'emptyStateDescription',
             ],
         },
     },

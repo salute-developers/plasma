@@ -1,6 +1,17 @@
 import { disableProps, InSpacingDecorator } from '../../index';
 
-import { labelPlacements, requiredPlacements, shortcutsPlacements, dateFormats, timeFormats } from './fixtures';
+import {
+    labelPlacements,
+    requiredPlacements,
+    shortcutsPlacements,
+    dateFormats,
+    timeFormats,
+    hintViews,
+    hintSizes,
+    hintTriggers,
+    hintTargetPlacements,
+    placements,
+} from './fixtures';
 
 type CreateMetaProps = {
     component: any;
@@ -58,6 +69,15 @@ export const createMeta = ({
             calendarContainerWidth: 0,
             calendarContainerHeight: 0,
             stretched: false,
+            hasHint: false,
+            hintText: 'Текст подсказки',
+            hintTrigger: 'hover',
+            hintView: 'default',
+            hintSize: 'm',
+            hintTargetPlacement: 'outer',
+            hintPlacement: 'auto',
+            hintWidth: '10rem',
+            hintHasArrow: true,
             ...defaultArgs,
         },
         argTypes: {
@@ -200,6 +220,55 @@ export const createMeta = ({
                 control: { type: 'boolean' },
                 if: { arg: 'required', truthy: true },
                 table: { category: 'form-related' },
+            },
+            hasHint: {
+                control: { type: 'boolean' },
+                table: { category: 'hint' },
+            },
+            hintText: {
+                control: { type: 'text' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintView: {
+                options: hintViews,
+                control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintSize: {
+                options: hintSizes,
+                control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintTargetPlacement: {
+                options: hintTargetPlacements,
+                control: { type: 'inline-radio' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintTrigger: {
+                options: hintTriggers,
+                control: { type: 'inline-radio' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintPlacement: {
+                options: placements,
+                control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintHasArrow: {
+                control: { type: 'boolean' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintWidth: {
+                control: { type: 'text' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),

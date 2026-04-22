@@ -15,7 +15,6 @@ const { meta: META, Range } = getDatePickerRangeStories({
         'appearance',
         'hasClearDivider',
         'view',
-        'hasHint',
         'showShortcuts',
         'dateShortcutsWidth',
         'dateShortcutsPlacement',

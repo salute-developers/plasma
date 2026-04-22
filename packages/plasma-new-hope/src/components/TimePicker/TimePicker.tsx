@@ -14,6 +14,8 @@ import { classes } from './TimePicker.tokens';
 import { FloatingPopover } from './FloatingPopover';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
+import { base as hintViewCSS } from './variations/_hint-view/base';
+import { base as hintSizeCSS } from './variations/_hint-size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readonlyCSS } from './variations/_readonly/base';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
@@ -33,35 +35,64 @@ export const timePickerRoot = (
         (
             {
                 className,
-                opened = false,
+
+                // controlled
                 value: outerValue,
+                opened = false,
+
+                // variations
+                view,
+                size,
+                disabled = false,
+                readonly = false,
+                stretched,
+
+                valueError,
+                valueSuccess,
+
+                // layout
                 label,
                 labelPlacement = 'outer',
-                placement = 'bottom-start',
                 keepPlaceholder,
                 required = false,
                 requiredPlacement = 'right',
                 hasRequiredIndicator = false,
                 placeholder,
+                leftHelper,
                 contentLeft,
                 contentRight,
                 textBefore,
                 textAfter,
-                view,
-                size,
-                disabled = false,
-                readonly = false,
+                autoComplete,
+
+                // hint
+                hintTrigger = 'hover',
+                hintText,
+                hintView = 'default',
+                hintSize = 'm',
+                hintTargetIcon,
+                hintTargetPlacement = 'outer',
+                hintPlacement = 'auto',
+                hintHasArrow,
+                hintOffset = [0, 0],
+                hintWidth,
+                hintContentLeft,
+
+                // popover-container
                 frame = 'document',
                 usePortal = false,
+                placement = 'bottom-start',
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
                 disableFlip,
                 offset,
-                stretched,
+
+                // dropdown
                 dropdownAlign = 'left',
                 dropdownWidth,
                 dropdownHeight,
                 columnsQuantity = 2,
+
                 onToggle,
                 onFocus,
                 onChange,
@@ -288,6 +319,10 @@ export const timePickerRoot = (
                     disabled={disabled}
                     readonly={readonly}
                     ref={rootForkRef}
+                    {...(hintText && {
+                        hintView,
+                        hintSize,
+                    })}
                     {...rest}
                 >
                     <FloatingPopover
@@ -304,6 +339,10 @@ export const timePickerRoot = (
                             <StyledInput
                                 ref={inputRef}
                                 inputWrapperRef={referenceRef as MutableRefObject<HTMLDivElement>}
+                                className={cls({
+                                    [classes.timePickerError]: valueError,
+                                    [classes.timePickerSuccess]: valueSuccess,
+                                })}
                                 value={viewValue}
                                 size={size}
                                 disabled={disabled}
@@ -313,6 +352,7 @@ export const timePickerRoot = (
                                 contentRight={contentRight}
                                 textBefore={textBefore}
                                 textAfter={textAfter}
+                                autoComplete={autoComplete}
                                 onChange={handleInputChange}
                                 onFocus={onFocus}
                                 onKeyDown={handleOnKeyDown}
@@ -321,7 +361,23 @@ export const timePickerRoot = (
                                 hasRequiredIndicator={hasRequiredIndicator}
                                 label={label}
                                 labelPlacement={labelPlacement}
+                                leftHelper={leftHelper}
                                 keepPlaceholder={keepPlaceholder}
+                                {...(hintText
+                                    ? {
+                                          hintText,
+                                          hintView,
+                                          hintSize,
+                                          hintTrigger,
+                                          hintTargetIcon,
+                                          hintPlacement,
+                                          hintHasArrow,
+                                          hintOffset,
+                                          hintWidth,
+                                          hintContentLeft,
+                                          hintTargetPlacement,
+                                      }
+                                    : { hintText: undefined })}
                             />
                         )}
                     >
@@ -370,6 +426,12 @@ export const timePickerConfig = {
         },
         size: {
             css: sizeCSS,
+        },
+        hintView: {
+            css: hintViewCSS,
+        },
+        hintSize: {
+            css: hintSizeCSS,
         },
         disabled: {
             css: disabledCSS,

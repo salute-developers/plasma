@@ -285,6 +285,30 @@ export function App() {
 }
 ```
 
+### Подсказки
+
+Для вывода подсказки снизу от поля используйте свойство `leftHelper`,
+для подсказки в виде Tooltip - `hintText`:
+
+```tsx live
+import React from 'react';
+import { DateTimePicker } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div>
+            <DateTimePicker
+                placeholder="Введите дату"
+                leftHelper="Подсказка снизу"
+                hintText="Подсказка в виде Tooltip"
+                hintView="default"
+                hintSize="m"
+            />
+        </div>
+    );
+}
+```
+
 ### Всплывающая подсказка для событий календаря
 
 С помощью `eventList`, `eventMonthList`, `eventQuarterList` и `eventYearList`

@@ -634,6 +634,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         virtual={virtual}
                                         beforeList={beforeList}
                                         afterList={afterList}
+                                        emptyStateDescription={emptyStateDescription}
                                     />
                                 ) : (
                                     <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
@@ -658,7 +659,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                             {isEmpty(filteredItems) ? (
                                                 <StyledEmptyState
                                                     className={classes.emptyStateWrapper}
-                                                    size={size}
                                                     description={emptyStateDescription || 'Ничего не найдено'}
                                                 />
                                             ) : (

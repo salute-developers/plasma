@@ -244,6 +244,10 @@ export interface BasicProps<K extends ItemOption> {
      * @default true
      */
     singleLine?: boolean;
+    /**
+     * Текст выпадающего списка при пустом массиве items.
+     */
+    emptyStateDescription?: React.ReactNode;
 
     /**
      * Размер компонента.
@@ -488,6 +492,10 @@ export type MergedSelectProps<T = any, K extends DropdownNode = DropdownNode> = 
          * @default true
          */
         singleLine?: boolean;
+        /**
+         * Текст выпадающего списка при пустом массиве items.
+         */
+        emptyStateDescription?: React.ReactNode;
 
         /**
          * Размер компонента.

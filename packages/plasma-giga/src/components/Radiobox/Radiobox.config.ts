@@ -87,7 +87,7 @@ export const config = {
         view: {
             accent: css`
                 ${radioboxTokens.fillColor}: var(--text-accent);
-                ${radioboxTokens.ellipseColor}: var(--on-dark-text-primary);
+                ${radioboxTokens.ellipseColor}: var(--inverse-text-primary);
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);

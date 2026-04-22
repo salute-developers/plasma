@@ -10,6 +10,7 @@ type InputUIProps = {
     value: string;
     errorClass?: string;
     successClass?: string;
+    size?: string;
 } & Omit<InputProps, 'value'>;
 
 export const Input = forwardRef<HTMLInputElement, InputUIProps>(

@@ -165,6 +165,7 @@ export const config = {
                 ${selectTokens.targetHeight}: 2.5rem;
                 ${selectTokens.buttonPadding}: 1rem 0 1rem;
 
+                ${selectTokens.emptyStatePadding}: 0.625rem 0.875rem 0.625rem 0.875rem;
                 ${selectTokens.padding}: 0.125rem;
                 ${selectTokens.borderRadius}: 0.75rem;
 

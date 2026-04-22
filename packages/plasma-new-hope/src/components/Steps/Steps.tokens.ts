@@ -2,6 +2,7 @@ export const classes = {
     simple: 'simple',
     centered: 'item-centered',
     active: 'item-active',
+    nextActive: 'next-item-active',
     inactive: 'item-inactive',
     clickable: 'item-clickable',
     hovered: 'item-hovered',
@@ -70,24 +71,46 @@ export const tokens = {
     activeIndicatorBorder: '--plasma-step-item-active-indicator-border',
     activeIndicatorBorderHover: '--plasma-step-item-active-indicator-border-hover',
 
+    bulletActiveIndicatorBorder: '--plasma-step-item-bullet-active-indicator-border',
+    bulletActiveIndicatorBorderHover: '--plasma-step-item-bullet-active-indicator-border-hover',
+
+    loaderSpinnerColor: '--plasma-step-item-lodare-spinner-color',
+
     activeIndicatorColor: '--plasma-step-item-active-indicator-color',
     activeIndicatorColorHover: '--plasma-step-item-active-indicator-color-hover',
     activeIndicatorBackground: '--plasma-step-item-active-indicator-background',
+
+    bulletActiveBackground: '--plasma-step-item-bullet-active-indicator-background',
 
     completedTitleColor: '--plasma-step-item-completed-title-color',
     completedTitleColorHover: '--plasma-step-item-completed-title-color-hover',
     completedIndicatorColor: '--plasma-step-item-completed-indicator-color',
     completedIndicatorColorHover: '--plasma-step-item-completed-indicator-color-hover',
+
     completedIndicatorBackground: '--plasma-step-item-completed-indicator-background',
     completedIndicatorBackgroundHover: '--plasma-step-item-completed-indicator-background-hover',
+
+    completedBulletBackground: '--plasma-step-item-completed-bullet-background',
+    completedBulletBackgroundHover: '--plasma-step-item-completed-bullet-background-hover',
+
+    completedIndicatorBorder: '--plasma-step-item-completed-indicator-border',
+    completedIndicatorBorderHover: '--plasma-step-item-completed-indicator-border-hover',
+
+    completedBulletBorder: '--plasma-step-item-completed-bullet-border',
+    completedBulletBorderHover: '--plasma-step-item-completed-bullet-border-hover',
 
     inactiveIndicatorColor: '--plasma-step-item-inactive-indicator-color',
     inactiveIndicatorColorHover: '--plasma-step-item-inactive-indicator-color-hover',
     inactiveIndicatorBackground: '--plasma-step-item-inactive-indicator-background',
     inactiveIndicatorBackgroundHover: '--plasma-step-item-inactive-indicator-background-hover',
 
+    inactiveBulletBackgroundHover: '--plasma-step-item-inactive-bullet-background-hover',
+
     disabledOpacity: '--plasma-step-item-disabled-opacity',
 
     dividerThickness: '--plasma-step-item-divider-thickness',
     dividerColor: '--plasma-step-item-divider-color',
+    dividerGradientColor: '--plasma-step-item-divider-gradient-color',
+    dividerVerticalIndentColor: '--plasma-step-item-divider-vertical-indent-color',
+    dividerVerticalGradientColor: '--plasma-step-item-divider-vertical-gradient-color',
 };

@@ -13,7 +13,13 @@ const pckgJson = require('./package.json');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const versionsArchived = require('./versionsArchived.json');
 
-const { VERSION_NAME, PREFIX = '', TYPESENSE_KEY = '', TYPESENSE_SERVICE_HOSTNAME = '' } = process.env;
+const {
+    VERSION_NAME,
+    PREFIX = '',
+    TYPESENSE_KEY = '',
+    TYPESENSE_SERVICE_HOSTNAME = '',
+    QDRANT_API_KEY = '',
+} = process.env;
 const prPrefix = VERSION_NAME || PREFIX;
 const defaultUrl = PREFIX ? `/${PREFIX}/web/` : '/web/';
 const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : defaultUrl;
@@ -145,6 +151,7 @@ module.exports = {
             // Optional
             contextualSearch: true,
         },
+        qdrantApiKey: QDRANT_API_KEY,
     },
     presets: [
         [

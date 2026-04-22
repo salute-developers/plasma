@@ -5,7 +5,7 @@ import { classes, tokens } from '../../../../tokens';
 export const base = css`
     position: relative;
 
-    &.${String(classes.segmentGroupFilledBackground)} {
+    &.${classes.segmentGroupFilledBackground} {
         &:before {
             content: '';
             position: absolute;
