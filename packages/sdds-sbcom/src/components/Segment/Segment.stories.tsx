@@ -20,7 +20,7 @@ const { meta: META, Default } = getSegmentStories({
 
 const meta: Meta<SegmentGroupProps> = {
     ...META,
-    title: 'Data Entry/Segment',
+    title: 'Data Entry/⚠️ Segment',
 };
 
 export default meta;

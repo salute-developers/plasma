@@ -1,7 +1,6 @@
+import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyS,
-    bodyXS,
-    bodyXXS,
     inverseTextPrimary,
     onDarkSurfaceSolidDefault,
     onDarkSurfaceTransparentCard,
@@ -23,8 +22,12 @@ import {
     textPrimary,
     textWarning,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXxs, surfaceTransparentNegative
+ * surfaceTransparentPositive, surfaceTransparentWarning
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -55,7 +58,7 @@ export const config = {
                 ${badgeTokens.background}: ${surfacePositive};
 
                 ${badgeTokens.colorTransparent}: ${textPositive};
-                ${badgeTokens.backgroundTransparent}: ${surfacePositive};
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-positive);
 
                 ${badgeTokens.colorClear}: ${textPositive};
             `,
@@ -64,7 +67,7 @@ export const config = {
                 ${badgeTokens.background}: ${surfaceWarning};
 
                 ${badgeTokens.colorTransparent}: ${textWarning};
-                ${badgeTokens.backgroundTransparent}: ${surfaceWarning};
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-warning);
 
                 ${badgeTokens.colorClear}: ${textWarning};
             `,
@@ -73,7 +76,7 @@ export const config = {
                 ${badgeTokens.background}: ${surfaceNegative};
 
                 ${badgeTokens.colorTransparent}: ${textNegative};
-                ${badgeTokens.backgroundTransparent}: ${surfaceNegative};
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-negative);
 
                 ${badgeTokens.colorClear}: ${textNegative};
             `,
@@ -122,12 +125,12 @@ export const config = {
                 ${badgeTokens.padding}: 0 0.5625rem;
                 ${badgeTokens.paddingIconOnly}: 0 0.375rem;
 
-                ${badgeTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${badgeTokens.fontSize}: ${bodyXS.fontSize};
-                ${badgeTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${badgeTokens.fontWeight}: ${bodyXS.fontWeight};
-                ${badgeTokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${badgeTokens.lineHeight}: ${bodyXS.lineHeight};
+                ${badgeTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${badgeTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${badgeTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${badgeTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
                 ${badgeTokens.leftContentMarginRight}: 0.1875rem;
@@ -141,12 +144,12 @@ export const config = {
                 ${badgeTokens.padding}: 0 0.4375rem;
                 ${badgeTokens.paddingIconOnly}: 0 0.25rem;
 
-                ${badgeTokens.fontFamily}: ${bodyXXS.fontFamily};
-                ${badgeTokens.fontSize}: ${bodyXXS.fontSize};
-                ${badgeTokens.fontStyle}: ${bodyXXS.fontStyle};
-                ${badgeTokens.fontWeight}: ${bodyXXS.fontWeight};
-                ${badgeTokens.letterSpacing}: ${bodyXXS.letterSpacing};
-                ${badgeTokens.lineHeight}: ${bodyXXS.lineHeight};
+                ${badgeTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${badgeTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${badgeTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${badgeTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
 
                 ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
                 ${badgeTokens.leftContentMarginRight}: 0.125rem;
@@ -160,12 +163,18 @@ export const config = {
                 ${badgeTokens.padding}: 0 0.25rem;
                 ${badgeTokens.paddingIconOnly}: 0 0.188rem;
 
-                ${badgeTokens.fontFamily}: ${bodyXXS.fontFamily};
-                ${badgeTokens.fontSize}: ${bodyXXS.fontSize};
-                ${badgeTokens.fontStyle}: ${bodyXXS.fontStyle};
-                ${badgeTokens.fontWeight}: ${bodyXXS.fontWeight};
-                ${badgeTokens.letterSpacing}: ${bodyXXS.letterSpacing};
-                ${badgeTokens.lineHeight}: ${bodyXXS.lineHeight};
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${badgeTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
 
                 ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
                 ${badgeTokens.leftContentMarginRight}: 0.125rem;

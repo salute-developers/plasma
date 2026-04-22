@@ -3,7 +3,7 @@ import { overlaySoft, surfaceSolidCard, surfaceSolidTertiary } from '@salutejs-d
 
 /*
  * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: overlayHard
+ * Missing tokens in @salutejs/sdds-themes/tokens: overlayBlur
  */
 export const config = {
     defaults: {

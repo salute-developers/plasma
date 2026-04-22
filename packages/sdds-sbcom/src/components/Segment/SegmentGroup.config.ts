@@ -1,5 +1,5 @@
-import { surfaceTransparentSecondary, textAccent, textSecondary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { surfaceTransparentSecondary, textAccent, textSecondary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {

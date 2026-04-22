@@ -1,17 +1,11 @@
+import { css, rangeTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
-    shadowDownHardM,
     surfaceAccent,
     surfaceNegative,
     surfaceSolidCardBrightness,
-    surfaceNegativeActive,
-    surfaceNegativeHover,
-    surfacePositive,
-    surfacePositiveActive,
-    surfacePositiveHover,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
@@ -26,8 +20,13 @@ import {
     textSecondaryHover,
     textTertiary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, rangeTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, surfaceTransparentNegative
+ * surfaceTransparentNegativeActive, surfaceTransparentNegativeHover, surfaceTransparentPositive
+ * surfaceTransparentPositiveActive, surfaceTransparentPositiveHover
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -39,8 +38,8 @@ export const config = {
         view: {
             default: css`
                 ${tokens.background}: ${surfaceTransparentPrimary};
-                ${tokens.backgroundError}: ${surfaceNegative};
-                ${tokens.backgroundSuccess}: ${surfacePositive};
+                ${tokens.backgroundError}: var(--surface-transparent-negative);
+                ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
 
                 ${tokens.dividerColor}: ${textPrimary};
                 ${tokens.labelColor}: ${textPrimary};
@@ -73,12 +72,12 @@ export const config = {
 
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceNegative};
-                ${tokens.textFieldBackgroundErrorColorHover}: ${surfaceNegativeHover};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceNegativeActive};
-                ${tokens.textFieldBackgroundSuccessColor}: ${surfacePositive};
-                ${tokens.textFieldBackgroundSuccessColorHover}: ${surfacePositiveHover};
-                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfacePositiveActive};
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
+                ${tokens.textFieldBackgroundErrorColorHover}: var(--surface-transparent-negative-hover);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
+                ${tokens.textFieldBackgroundSuccessColorHover}: var(--surface-transparent-positive-hover);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
 
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
@@ -142,22 +141,22 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.813rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
-                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
-                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.helpersPadding}: 0.25rem 0 0 0;
                 ${tokens.helpersGap}: 0.25rem;
 
-                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
-                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -218,22 +217,34 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.563rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
-                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
-                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.helpersPadding}: 0.25rem 0 0 0;
                 ${tokens.helpersGap}: 0.25rem;
 
-                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
-                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -294,22 +305,34 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.313rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.313rem;
-                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
-                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.helpersPadding}: 0.25rem 0 0 0;
                 ${tokens.helpersGap}: 0.25rem;
 
-                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
-                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -370,22 +393,34 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.063rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.188rem;
-                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
-                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.helpersPadding}: 0.25rem 0 0 0;
                 ${tokens.helpersGap}: 0.25rem;
 
-                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
-                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -398,12 +433,18 @@ export const config = {
                 ${tokens.borderRadius}: 0.5rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
-                ${tokens.dividerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.dividerFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.dividerFontSize}: ${bodyXS.fontSize};
-                ${tokens.dividerFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.dividerLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.dividerLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.dividerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.dividerFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.dividerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.dividerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.leftContentMargin}: 0 0 0 0.5rem;
                 ${tokens.rightContentMargin}: 0;
@@ -411,24 +452,36 @@ export const config = {
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
-                ${tokens.textFieldFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.textFieldFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.textFieldFontSize}: ${bodyXS.fontSize};
-                ${tokens.textFieldFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.textFieldLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.textFieldLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.labelFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelFontSize}: ${bodyXS.fontSize};
-                ${tokens.labelFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.labelFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.labelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.labelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.embedIconButtonHeight}: 2rem;
                 ${tokens.embedIconButtonWidth}: 2rem;
@@ -446,22 +499,34 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 -0.188rem 0 -0.688rem;
 
                 ${tokens.titleCaptionOffset}: 0;
-                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
-                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.helpersPadding}: 0.25rem 0 0 0;
                 ${tokens.helpersGap}: 0.25rem;
 
-                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
-                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -474,7 +539,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
-                ${tokens.tooltipBoxShadow}: ${shadowDownHardM}, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
                 ${tokens.tooltipColor}: ${textPrimary};
                 ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
@@ -513,12 +578,18 @@ export const config = {
                 ${tokens.tooltipMinHeight}: 2rem;
                 ${tokens.tooltipBorderRadius}: 0.5rem;
 
-                ${tokens.tooltipTextFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.tooltipTextFontSize}: ${bodyXS.fontSize};
-                ${tokens.tooltipTextFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.tooltipTextFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.tooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.tooltipTextFontLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.tooltipContentLeftMargin}: 0.25rem;
 

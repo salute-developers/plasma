@@ -1,7 +1,6 @@
+import { css, counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyS,
-    bodyXS,
-    bodyXXS,
     inverseTextPrimary,
     onDarkSurfaceSolidDefault,
     onDarkTextPrimary,
@@ -13,8 +12,11 @@ import {
     surfaceSolidDefault,
     surfaceWarning,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXxs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -67,45 +69,45 @@ export const config = {
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1.5rem;
                 ${counterTokens.padding}: 0 0.5rem;
-                ${counterTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${counterTokens.fontSize}: ${bodyXS.fontSize};
-                ${counterTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${counterTokens.fontWeight}: ${bodyXS.fontWeight};
-                ${counterTokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${counterTokens.lineHeight}: ${bodyXS.lineHeight};
+                ${counterTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${counterTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${counterTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${counterTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${counterTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${counterTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1.25rem;
                 ${counterTokens.padding}: 0 0.375rem;
-                ${counterTokens.fontFamily}: ${bodyXXS.fontFamily};
-                ${counterTokens.fontSize}: ${bodyXXS.fontSize};
-                ${counterTokens.fontStyle}: ${bodyXXS.fontStyle};
-                ${counterTokens.fontWeight}: ${bodyXXS.fontWeight};
-                ${counterTokens.letterSpacing}: ${bodyXXS.letterSpacing};
-                ${counterTokens.lineHeight}: ${bodyXXS.lineHeight};
+                ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${counterTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${counterTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${counterTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
             `,
             xs: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1rem;
                 ${counterTokens.padding}: 0 0.25rem;
-                ${counterTokens.fontFamily}: ${bodyXXS.fontFamily};
-                ${counterTokens.fontSize}: ${bodyXXS.fontSize};
-                ${counterTokens.fontStyle}: ${bodyXXS.fontStyle};
-                ${counterTokens.fontWeight}: ${bodyXXS.fontWeight};
-                ${counterTokens.letterSpacing}: ${bodyXXS.letterSpacing};
-                ${counterTokens.lineHeight}: ${bodyXXS.lineHeight};
+                ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${counterTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${counterTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${counterTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
             `,
             xxs: css`
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 0.75rem;
                 ${counterTokens.padding}: 0 0.125rem;
-                ${counterTokens.fontFamily}: ${bodyXXS.fontFamily};
-                ${counterTokens.fontSize}: ${bodyXXS.fontSize};
-                ${counterTokens.fontStyle}: ${bodyXXS.fontStyle};
-                ${counterTokens.fontWeight}: ${bodyXXS.fontWeight};
-                ${counterTokens.letterSpacing}: ${bodyXXS.letterSpacing};
-                ${counterTokens.lineHeight}: ${bodyXXS.lineHeight};
+                ${counterTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${counterTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${counterTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${counterTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${counterTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${counterTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
             `,
         },
     },

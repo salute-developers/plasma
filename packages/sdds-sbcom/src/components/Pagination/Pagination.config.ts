@@ -1,3 +1,4 @@
+import { css, paginationTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,8 +6,6 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextPrimaryActive,
     inverseTextPrimaryHover,
@@ -28,8 +27,11 @@ import {
     textSecondary,
     textSecondaryHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, paginationTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold
+ */
 export const config = {
     defaults: {
         view: 'clear',
@@ -279,12 +281,18 @@ export const config = {
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
             `,
             xs: css`
-                ${paginationTokens.paginationFontFamily}: ${bodyXS.fontFamily};
-                ${paginationTokens.paginationFontSize}: ${bodyXS.fontSize};
-                ${paginationTokens.paginationFontStyle}: ${bodyXS.fontStyle};
-                ${paginationTokens.paginationFontWeight}: ${bodyXSBold.fontWeight};
-                ${paginationTokens.paginationLetterSpacing}: ${bodyXS.letterSpacing};
-                ${paginationTokens.paginationLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${paginationTokens.buttonHeight}: 2rem;
                 ${paginationTokens.paginationInputWidth}: 2.5rem;

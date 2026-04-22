@@ -1,13 +1,16 @@
+import { css, dropdownTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, dropdownTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -180,12 +183,18 @@ export const config = {
                 ${tokens.dividerMarginTopTight}: 0.125rem;
                 ${tokens.dividerMarginBottomTight}: 0.125rem;
 
-                ${tokens.itemFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.itemFontSize}: ${bodyXS.fontSize};
-                ${tokens.itemFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.itemFontWeightBold}: ${bodyXS.fontWeight};
-                ${tokens.itemFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.itemFontLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.itemFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.itemFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.itemFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.itemFontWeightBold}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.cellPadding}: 0rem;
                 ${tokens.cellPaddingLeftContent}: 0rem;
@@ -193,12 +202,18 @@ export const config = {
                 ${tokens.cellPaddingRightContent}: 0rem;
                 ${tokens.cellTextboxGap}: 0.125rem;
                 ${tokens.cellGap}: 0.25rem;
-                ${tokens.cellTitleFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.cellTitleFontSize}: ${bodyXS.fontSize};
-                ${tokens.cellTitleFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.cellTitleFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.cellTitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.cellTitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
         view: {

@@ -1,8 +1,8 @@
+import { css, radioboxTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
     textAccent,
@@ -14,8 +14,11 @@ import {
     textTertiary,
     textWarning,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, radioboxTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'accent',
@@ -43,12 +46,12 @@ export const config = {
                 ${radioboxTokens.labelFontWeight}: ${bodyS.fontWeight};
                 ${radioboxTokens.labelLetterSpacing}: ${bodyS.letterSpacing};
                 ${radioboxTokens.labelLineHeight}: ${bodyS.lineHeight};
-                ${radioboxTokens.descriptionFontFamily}: ${bodyXS.fontFamily};
-                ${radioboxTokens.descriptionFontSize}: ${bodyXS.fontSize};
-                ${radioboxTokens.descriptionFontStyle}: ${bodyXS.fontStyle};
-                ${radioboxTokens.descriptionFontWeight}: ${bodyXS.fontWeight};
-                ${radioboxTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${radioboxTokens.descriptionLineHeight}: ${bodyXS.lineHeight};
+                ${radioboxTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${radioboxTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${radioboxTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${radioboxTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${radioboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${radioboxTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             m: css`
                 ${radioboxTokens.margin}: 0;

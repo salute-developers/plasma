@@ -1,3 +1,4 @@
+import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,8 +6,6 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextPrimaryActive,
     inverseTextPrimaryHover,
@@ -42,8 +41,11 @@ import {
     textPrimary,
     textSecondary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -243,12 +245,18 @@ export const config = {
                 ${buttonTokens.buttonWidth}: 10rem;
                 ${buttonTokens.buttonPadding}: 0.75rem;
                 ${buttonTokens.buttonRadius}: 0.5rem;
-                ${buttonTokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${buttonTokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${buttonTokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${buttonTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${buttonTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${buttonTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${buttonTokens.buttonSpinnerSize}: 1rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
@@ -264,12 +272,18 @@ export const config = {
                 ${buttonTokens.buttonWidth}: 8.75rem;
                 ${buttonTokens.buttonPadding}: 0.625rem;
                 ${buttonTokens.buttonRadius}: 0.375rem;
-                ${buttonTokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${buttonTokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${buttonTokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${buttonTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${buttonTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${buttonTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${buttonTokens.buttonSpinnerSize}: 0.75rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;

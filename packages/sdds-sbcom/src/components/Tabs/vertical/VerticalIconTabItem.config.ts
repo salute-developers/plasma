@@ -1,3 +1,4 @@
+import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     surfaceAccent,
     textPrimary,
@@ -5,7 +6,6 @@ import {
     textSecondaryActive,
     textSecondaryHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

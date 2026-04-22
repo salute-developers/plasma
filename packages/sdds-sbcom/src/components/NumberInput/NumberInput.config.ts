@@ -1,3 +1,4 @@
+import { css, numberInputTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,8 +6,6 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseSurfaceTransparentSecondary,
     inverseTextPrimary,
     inverseTextPrimaryActive,
@@ -23,7 +22,6 @@ import {
     surfaceSolidDefault,
     surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
-    surfaceNegative,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
@@ -35,8 +33,11 @@ import {
     textPrimaryHover,
     textTertiary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, numberInputTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold, surfaceTransparentNegative
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -49,7 +50,7 @@ export const config = {
             default: css`
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceNegative};
+                ${tokens.backgroundErrorColor}: var(--surface-transparent-negative);
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${inverseTextPrimary};
@@ -76,7 +77,7 @@ export const config = {
             secondary: css`
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceNegative};
+                ${tokens.backgroundErrorColor}: var(--surface-transparent-negative);
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${textPrimary};
@@ -104,7 +105,7 @@ export const config = {
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.caretColorSolid}: ${inverseTextPrimary};
                 ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceNegative};
+                ${tokens.backgroundErrorColor}: var(--surface-transparent-negative);
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${onDarkTextPrimary};
@@ -132,7 +133,7 @@ export const config = {
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.caretColorSolid}: ${textAccent};
                 ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceNegative};
+                ${tokens.backgroundErrorColor}: var(--surface-transparent-negative);
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${textPrimary};
@@ -258,12 +259,18 @@ export const config = {
                 ${tokens.iconButtonHeight}: 2rem;
                 ${tokens.iconButtonWidth}: 2rem;
                 ${tokens.iconButtonPadding}: 0.75rem;
-                ${tokens.iconButtonFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.iconButtonFontSize}: ${bodyXS.fontSize};
-                ${tokens.iconButtonFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.iconButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${tokens.iconButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.iconButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${tokens.iconButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.iconButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.iconButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.iconButtonRadius}: 0.5rem;
                 ${tokens.iconButtonSegmentationRadius}: 0.125rem;
@@ -273,12 +280,18 @@ export const config = {
                 ${tokens.textWrapperHeight}: 2rem;
                 ${tokens.textWrapperPadding}: 0.563rem 0.625rem;
 
-                ${tokens.fontFamily}: ${bodyXS.fontFamily};
-                ${tokens.fontSize}: ${bodyXS.fontSize};
-                ${tokens.fontStyle}: ${bodyXS.fontStyle};
-                ${tokens.fontWeight}: ${bodyXS.fontWeight};
-                ${tokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.lineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textBeforeMarginRight}: 0.25rem;
                 ${tokens.textAfterMarginLeft}: 0.25rem;

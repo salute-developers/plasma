@@ -1,6 +1,10 @@
-import { bodyL, bodyM, bodyS, bodyXS } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, emptyStateTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import { bodyL, bodyM, bodyS } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         size: 'l',
@@ -56,12 +60,12 @@ export const config = {
                 ${tokens.descriptionMargin}: 0 0 0.5rem 0;
                 ${tokens.buttonMargin}: -0.5rem 0 0 0;
                 ${tokens.buttonHeight}: 2rem;
-                ${tokens.fontFamily}: ${bodyXS.fontFamily};
-                ${tokens.fontSize}: ${bodyXS.fontSize};
-                ${tokens.fontStyle}: ${bodyXS.fontStyle};
-                ${tokens.fontWeight}: ${bodyXS.fontWeight};
-                ${tokens.fontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.fontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.fontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.fontLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
     },

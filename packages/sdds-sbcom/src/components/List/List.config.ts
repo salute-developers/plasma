@@ -1,14 +1,17 @@
+import { css, listTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
     surfaceAccent,
     surfaceTransparentSecondary,
     textPrimary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, listTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -38,12 +41,12 @@ export const config = {
                 ${listTokens.listItemGap}: 0.375rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
-                ${listTokens.listItemFontFamily}: ${bodyXS.fontFamily};
-                ${listTokens.listItemFontSize}: ${bodyXS.fontSize};
-                ${listTokens.listItemFontStyle}: ${bodyXS.fontStyle};
-                ${listTokens.listItemFontWeight}: ${bodyXS.fontWeight};
-                ${listTokens.listItemLetterSpacing}: ${bodyXS.letterSpacing};
-                ${listTokens.listItemLineHeight}: ${bodyXS.lineHeight};
+                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${listTokens.listItemFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
                 ${listTokens.listItemPaddingTop}: 0.689rem;

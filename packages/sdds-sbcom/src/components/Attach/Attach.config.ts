@@ -1,3 +1,4 @@
+import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,8 +6,6 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextSecondary,
     onDarkSurfaceSolidDefault,
@@ -49,8 +48,11 @@ import {
     textSecondaryActive,
     textSecondaryHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -571,12 +573,18 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
@@ -661,12 +669,18 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
@@ -712,12 +726,18 @@ export const config = {
                 ${attachTokens.cellTextboxGap}: 0.125rem;
                 ${attachTokens.cellGap}: 0.375rem;
 
-                ${attachTokens.cellLabelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellLabelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellLabelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellLabelFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellLabelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellLabelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.cellTitleFontFamily}: ${bodyS.fontFamily};
                 ${attachTokens.cellTitleFontSize}: ${bodyS.fontSize};
@@ -726,12 +746,18 @@ export const config = {
                 ${attachTokens.cellTitleLetterSpacing}: ${bodyS.letterSpacing};
                 ${attachTokens.cellTitleLineHeight}: ${bodyS.lineHeight};
 
-                ${attachTokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonHeight}: 2.5rem;
                 ${attachTokens.iconButtonWidth}: 2.5rem;
@@ -751,12 +777,18 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
@@ -778,12 +810,18 @@ export const config = {
                 ${attachTokens.buttonWidth}: 10rem;
                 ${attachTokens.buttonPadding}: 0.75rem;
                 ${attachTokens.buttonRadius}: 0.5rem;
-                ${attachTokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.buttonSpinnerSize}: 1rem;
                 ${attachTokens.buttonSpinnerColor}: inherit;
@@ -802,37 +840,61 @@ export const config = {
                 ${attachTokens.cellTextboxGap}: 0.125rem;
                 ${attachTokens.cellGap}: 0.25rem;
 
-                ${attachTokens.cellLabelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellLabelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellLabelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellLabelFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellLabelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellLabelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${attachTokens.cellTitleFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellTitleFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellTitleFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellTitleFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellTitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellTitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${attachTokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
-                ${attachTokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonHeight}: 2rem;
                 ${attachTokens.iconButtonWidth}: 2rem;
                 ${attachTokens.iconButtonPadding}: 0.75rem;
                 ${attachTokens.iconButtonRadius}: 0.5rem;
-                ${attachTokens.iconButtonFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonSpinnerColor}: inherit;
@@ -841,12 +903,18 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
-                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
-                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
-                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
-                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;

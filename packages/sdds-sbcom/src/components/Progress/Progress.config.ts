@@ -1,3 +1,4 @@
+import { css, progressTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     surfaceAccent,
     surfaceAccentGradient,
@@ -10,7 +11,6 @@ import {
     surfaceWarning,
     textTertiary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, progressTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

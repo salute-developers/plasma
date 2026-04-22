@@ -17,7 +17,7 @@ const orientations: Array<string> = ['vertical', 'horizontal'];
 const visibility = ['always', 'hover'];
 
 const meta: Meta<typeof Slider> = {
-    title: 'Data Entry/Slider',
+    title: 'Data Entry/⚠️ Slider',
     component: Slider,
     decorators: [InSpacingDecorator],
     argTypes: {

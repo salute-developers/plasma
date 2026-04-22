@@ -1,10 +1,10 @@
+import { css, dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     inverseTextTertiary,
     onDarkSurfaceTransparentTertiary,
     onLightSurfaceTransparentTertiary,
     surfaceTransparentTertiary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

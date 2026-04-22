@@ -5,7 +5,7 @@ import type { StoryObj, Meta } from '@storybook/react-vite';
 import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {
-    title: 'Data Display/Badge',
+    title: 'Data Display/⚠️ Badge',
     component: Badge,
     decorators: [InSpacingDecorator],
     argTypes: {

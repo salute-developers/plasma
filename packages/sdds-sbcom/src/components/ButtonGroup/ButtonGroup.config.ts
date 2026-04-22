@@ -1,3 +1,4 @@
+import { css, buttonGroupTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,8 +6,6 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextSecondary,
     onDarkSurfaceSolidDefault,
@@ -46,8 +45,11 @@ import {
     textPrimaryHover,
     textSecondary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, buttonGroupTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -241,12 +243,18 @@ export const config = {
 
                 ${buttonGroupTokens.buttonHeight}: 2rem;
                 ${buttonGroupTokens.buttonPadding}: 0.75rem;
-                ${buttonGroupTokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${buttonGroupTokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${buttonGroupTokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${buttonGroupTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${buttonGroupTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${buttonGroupTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             xxs: css`
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.125rem;
@@ -255,12 +263,18 @@ export const config = {
 
                 ${buttonGroupTokens.buttonHeight}: 1.5rem;
                 ${buttonGroupTokens.buttonPadding}: 0.625rem;
-                ${buttonGroupTokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${buttonGroupTokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${buttonGroupTokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${buttonGroupTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${buttonGroupTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${buttonGroupTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${buttonGroupTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
         orientation: {

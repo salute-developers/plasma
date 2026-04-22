@@ -1,17 +1,19 @@
+import { css, tableTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     onDarkTextPrimary,
     surfaceTransparentTertiary,
     textAccent,
     textSecondary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, tableTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -128,12 +130,12 @@ export const config = {
                 ${tokens.filterDividerMargin}: 0.375rem 0.75rem;
 
                 ${tokens.buttonHeight}: 2rem;
-                ${tokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${tokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${tokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.selectPadding}: 0.125rem;
                 ${tokens.selectBorderRadius}: 0.75rem;
@@ -156,12 +158,15 @@ export const config = {
                 ${tokens.selectControlPanelPadding}: 0.25rem 0.75rem;
                 ${tokens.selectControlPanelGap}: 0.625rem;
 
-                ${tokens.linkButtonFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.linkButtonFontSize}: ${bodyXS.fontSize};
-                ${tokens.linkButtonFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.linkButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${tokens.linkButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.linkButtonLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${tokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
                 ${tokens.fontFamily}: ${bodyS.fontFamily};
@@ -196,12 +201,18 @@ export const config = {
                 ${tokens.filterDividerMargin}: 0.25rem 0.5rem;
 
                 ${tokens.buttonHeight}: 1.5rem;
-                ${tokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${tokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${tokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${tokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.selectPadding}: 0.125rem;
                 ${tokens.selectBorderRadius}: 0.625rem;
@@ -211,12 +222,18 @@ export const config = {
                 ${tokens.selectItemIconMargin}: 0 0.25rem 0 0;
                 ${tokens.selectItemIconSize}: 1rem;
                 ${tokens.selectCellPadding}: 0;
-                ${tokens.selectCellTitleFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.selectCellTitleFontSize}: ${bodyXS.fontSize};
-                ${tokens.selectCellTitleFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.selectCellTitleFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.selectCellTitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.selectCellTitleLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.selectCellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.selectCellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.selectCellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.selectCellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.selectCellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.selectCellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.selectCheckboxTriggerSize}: 0.875rem;
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.25rem;
                 ${tokens.selectCheckboxTriggerBorderWidth}: 0.125rem;
@@ -224,12 +241,18 @@ export const config = {
                 ${tokens.selectControlPanelPadding}: 0.25rem 0.5rem;
                 ${tokens.selectControlPanelGap}: 0.25rem;
 
-                ${tokens.linkButtonFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.linkButtonFontSize}: ${bodyXS.fontSize};
-                ${tokens.linkButtonFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.linkButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${tokens.linkButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.linkButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${tokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
     },

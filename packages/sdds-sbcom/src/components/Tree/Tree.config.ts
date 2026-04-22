@@ -1,8 +1,8 @@
+import { css, treeTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
     surfacePositive,
     surfaceSolidDefault,
     surfaceTransparentSecondary,
@@ -14,8 +14,11 @@ import {
     textSecondaryActive,
     textSecondaryHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, treeTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -193,12 +196,18 @@ export const config = {
                 ${tokens.checkboxInnerSize}: 0.875rem;
                 ${tokens.checkboxBorderRadius}: 0.25rem;
 
-                ${tokens.fontFamily}: ${bodyXS.fontFamily};
-                ${tokens.fontSize}: ${bodyXS.fontSize};
-                ${tokens.fontStyle}: ${bodyXS.fontStyle};
-                ${tokens.fontWeight}: ${bodyXS.fontWeight};
-                ${tokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.lineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
     },

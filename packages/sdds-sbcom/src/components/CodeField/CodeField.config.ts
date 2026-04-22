@@ -1,13 +1,11 @@
+import { css, codeFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
     bodyM,
     bodyMBold,
     bodyS,
-    bodyXS,
-    outlinePrimary,
     surfaceAccent,
-    surfaceNegative,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
@@ -15,8 +13,11 @@ import {
     textPrimary,
     textSecondary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, codeFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, outlineAccent, surfaceTransparentNegative
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -33,12 +34,12 @@ export const config = {
 
                 ${tokens.codeColor}: ${textPrimary};
                 ${tokens.codeColorError}: ${textNegative};
-                ${tokens.borderColorFocus}: ${outlinePrimary};
+                ${tokens.borderColorFocus}: var(--outline-accent);
 
                 ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentPrimaryHover};
                 ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.backgroundErrorColor}: ${surfaceNegative};
+                ${tokens.backgroundErrorColor}: var(--surface-transparent-negative);
             `,
         },
         size: {
@@ -85,12 +86,12 @@ export const config = {
                 ${tokens.letterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.lineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.captionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.captionFontSize}: ${bodyXS.fontSize};
-                ${tokens.captionFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.captionFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.captionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.captionLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.captionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.captionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.captionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.captionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.captionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.captionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.borderRadiusSegmented}: 0.25rem;

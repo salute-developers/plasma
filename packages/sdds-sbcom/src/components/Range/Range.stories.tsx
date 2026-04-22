@@ -14,7 +14,7 @@ const { meta: META, Default } = getRangeStories({
 
 const meta: Meta<RangeProps> = {
     ...META,
-    title: 'Data Entry/Range',
+    title: 'Data Entry/⚠️ Range',
 };
 
 export default meta;

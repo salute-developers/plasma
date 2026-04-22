@@ -2,6 +2,7 @@ import { css, indicatorTokens as tokens } from '@salutejs/plasma-new-hope/styled
 import {
     onDarkSurfaceSolidDefault,
     onLightSurfaceSolidDefault,
+    surfaceAccent,
     surfaceNegative,
     surfacePositive,
     surfaceSolidDefault,
@@ -9,10 +10,6 @@ import {
     surfaceWarning,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
-/*
- * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: surfaceAccent
- */
 export const config = {
     defaults: {
         size: 's',
@@ -24,7 +21,7 @@ export const config = {
                 ${tokens.color}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${tokens.color}: var(--surface-accent);
+                ${tokens.color}: ${surfaceAccent};
             `,
             inactive: css`
                 ${tokens.color}: ${surfaceSolidTertiary};

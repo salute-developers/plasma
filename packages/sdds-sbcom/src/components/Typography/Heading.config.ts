@@ -1,3 +1,4 @@
+import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     h1,
     h1Bold,
@@ -12,7 +13,6 @@ import {
     h4Bold,
     h4Medium,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const configH1 = {
     defaults: {

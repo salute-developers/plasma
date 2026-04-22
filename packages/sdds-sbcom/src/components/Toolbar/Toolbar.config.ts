@@ -1,9 +1,9 @@
+import { css, toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     shadowDownSoftS,
     surfaceSolidCardBrightness,
     surfaceTransparentTertiary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

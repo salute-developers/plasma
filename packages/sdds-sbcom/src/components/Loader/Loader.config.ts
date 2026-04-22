@@ -1,13 +1,10 @@
+import { css, loaderTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
-    bodyXXS,
     h2,
     h2Bold,
-    h3,
-    h3Bold,
     overlaySoft,
     surfaceAccent,
     surfaceInfo,
@@ -25,8 +22,12 @@ import {
     textSecondary,
     textWarning,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, loaderTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyLBody, bodyMBody, bodySBody, bodyXs, bodyXsBody, bodyXxs
+ * bodyXxsBody, h5, h5Bold
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -126,12 +127,12 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 5.5rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.25rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 4;
-                ${loaderTokens.progressBarCircularContentFontFamily}: ${h3.fontFamily};
-                ${loaderTokens.progressBarCircularContentFontSize}: ${h3.fontSize};
-                ${loaderTokens.progressBarCircularContentFontStyle}: ${h3.fontStyle};
-                ${loaderTokens.progressBarCircularContentFontWeight}: ${h3Bold.fontWeight};
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${h3.letterSpacing};
-                ${loaderTokens.progressBarCircularContentLineHeight}: ${h3.lineHeight};
+                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-h5-font-family);
+                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-h5-font-size);
+                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-h5-font-style);
+                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-h5-bold-font-weight);
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
+                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-h5-line-height);
 
                 ${loaderTokens.spinnerSize}: 5.5rem;
             `,
@@ -147,7 +148,7 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyL.fontFamily};
                 ${loaderTokens.progressBarCircularContentFontSize}: ${bodyL.fontSize};
                 ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyL.fontStyle};
-                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyL.fontWeight};
+                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-l-body-font-weight);
                 ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyL.letterSpacing};
                 ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyL.lineHeight};
 
@@ -165,7 +166,8 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyM.fontFamily};
                 ${loaderTokens.progressBarCircularContentFontSize}: ${bodyM.fontSize};
                 ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyM.fontStyle};
-                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyM.fontWeight};
+                /* NOTE: no token bodyMBody in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-m-body-font-weight);
                 ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyM.letterSpacing};
                 ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyM.lineHeight};
 
@@ -183,7 +185,8 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyS.fontFamily};
                 ${loaderTokens.progressBarCircularContentFontSize}: ${bodyS.fontSize};
                 ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyS.fontStyle};
-                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyS.fontWeight};
+                /* NOTE: no token bodySBody in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-s-body-font-weight);
                 ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyS.letterSpacing};
                 ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyS.lineHeight};
 
@@ -198,12 +201,18 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 1.5rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.125rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 2;
-                ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyXS.fontFamily};
-                ${loaderTokens.progressBarCircularContentFontSize}: ${bodyXS.fontSize};
-                ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyXS.fontStyle};
-                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyXS.fontWeight};
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyXS.letterSpacing};
-                ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBody in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-xs-body-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${loaderTokens.spinnerSize}: 1.5rem;
             `,
@@ -216,12 +225,18 @@ export const config = {
                 ${loaderTokens.progressBarCircularWidth}: 1rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.125rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 2;
-                ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyXXS.fontFamily};
-                ${loaderTokens.progressBarCircularContentFontSize}: ${bodyXXS.fontSize};
-                ${loaderTokens.progressBarCircularContentFontStyle}: ${bodyXXS.fontStyle};
-                ${loaderTokens.progressBarCircularContentFontWeight}: ${bodyXXS.fontWeight};
-                ${loaderTokens.progressBarCircularContentLetterSpacing}: ${bodyXXS.letterSpacing};
-                ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyXXS.lineHeight};
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-body-xxs-font-family);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontSize}: var(--plasma-typo-body-xxs-font-size);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontStyle}: var(--plasma-typo-body-xxs-font-style);
+                /* NOTE: no token bodyXxsBody in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentFontWeight}: var(--plasma-typo-body-xxs-body-font-weight);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
+                ${loaderTokens.progressBarCircularContentLineHeight}: var(--plasma-typo-body-xxs-line-height);
 
                 ${loaderTokens.spinnerSize}: 1rem;
             `,

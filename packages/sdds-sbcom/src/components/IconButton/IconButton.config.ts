@@ -1,3 +1,4 @@
+import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,8 +6,6 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextPrimaryActive,
     inverseTextPrimaryHover,
@@ -38,8 +37,11 @@ import {
     surfaceWarningHover,
     textPrimary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -185,12 +187,18 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 2rem;
                 ${iconButtonTokens.iconButtonPadding}: 0.75rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.5rem;
-                ${iconButtonTokens.iconButtonFontFamily}: ${bodyXS.fontFamily};
-                ${iconButtonTokens.iconButtonFontSize}: ${bodyXS.fontSize};
-                ${iconButtonTokens.iconButtonFontStyle}: ${bodyXS.fontStyle};
-                ${iconButtonTokens.iconButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${iconButtonTokens.iconButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${iconButtonTokens.iconButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;

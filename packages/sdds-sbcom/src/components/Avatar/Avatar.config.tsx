@@ -8,6 +8,7 @@ import {
     onLightSurfaceSolidDefault,
     onLightSurfaceTransparentDeep,
     onLightTextPrimary,
+    surfaceAccent,
     surfaceClear,
     surfaceNegative,
     surfacePositive,
@@ -25,8 +26,8 @@ import {
 
 /*
  * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: bodyXxs, surfaceAccent, surfaceNegative
- * surfacePositive, surfaceWarning, text, textAccentGradient
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXxs, surfaceTransparentNegative, surfaceTransparentPositive
+ * surfaceTransparentWarning, text, textAccentGradient
  */
 export const config = {
     defaults: {
@@ -220,8 +221,7 @@ export const config = {
             `,
             accent: css`
                 ${tokens.badgeColor}: ${onDarkTextPrimary};
-                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
-                ${tokens.badgeBackground}: var(--surface-accent);
+                ${tokens.badgeBackground}: ${surfaceAccent};
 
                 ${tokens.badgeColorTransparent}: ${textAccent};
                 ${tokens.badgeBackgroundTransparent}: ${surfaceTransparentAccent};
@@ -234,7 +234,7 @@ export const config = {
                 ${tokens.badgeBackground}: ${surfacePositive};
 
                 ${tokens.badgeColorTransparent}: ${textPositive};
-                /* NOTE: no token surfacePositive in @salutejs/sdds-themes/tokens */
+                /* NOTE: no token surfaceTransparentPositive in @salutejs/sdds-themes/tokens */
                 ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-positive);
 
                 ${tokens.badgeColorClear}: ${textPositive};
@@ -245,7 +245,7 @@ export const config = {
                 ${tokens.badgeBackground}: ${surfaceWarning};
 
                 ${tokens.badgeColorTransparent}: ${textWarning};
-                /* NOTE: no token surfaceWarning in @salutejs/sdds-themes/tokens */
+                /* NOTE: no token surfaceTransparentWarning in @salutejs/sdds-themes/tokens */
                 ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-warning);
 
                 ${tokens.badgeColorClear}: ${textWarning};
@@ -256,7 +256,7 @@ export const config = {
                 ${tokens.badgeBackground}: ${surfaceNegative};
 
                 ${tokens.badgeColorTransparent}: ${textNegative};
-                /* NOTE: no token surfaceNegative in @salutejs/sdds-themes/tokens */
+                /* NOTE: no token surfaceTransparentNegative in @salutejs/sdds-themes/tokens */
                 ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-negative);
 
                 ${tokens.badgeColorClear}: ${textNegative};
@@ -290,8 +290,7 @@ export const config = {
             `,
             accent: css`
                 ${tokens.counterColor}: ${onDarkTextPrimary};
-                /* NOTE: no token surfaceAccent in @salutejs/sdds-themes/tokens */
-                ${tokens.counterBackground}: var(--surface-accent);
+                ${tokens.counterBackground}: ${surfaceAccent};
             `,
             positive: css`
                 ${tokens.counterColor}: ${onDarkTextPrimary};

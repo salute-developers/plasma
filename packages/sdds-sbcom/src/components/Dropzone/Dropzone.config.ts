@@ -1,18 +1,19 @@
+import { css, dropzoneTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyS,
     h4,
     h4Bold,
-    outlinePrimary,
-    outlineDefault,
-    outlineDefaultHover,
     overlaySoft,
     surfaceSolidCard,
     surfaceSolidCardHover,
     textPrimary,
     textSecondary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, dropzoneTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: outlineAccent, outlineSolidSecondary, outlineSolidSecondaryHover
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -24,9 +25,9 @@ export const config = {
                 ${dropzoneTokens.background}: ${surfaceSolidCard};
                 ${dropzoneTokens.backgroundHover}: ${surfaceSolidCardHover};
                 ${dropzoneTokens.overlayColorActive}: ${overlaySoft};
-                ${dropzoneTokens.borderColor}: ${outlineDefault};
-                ${dropzoneTokens.borderColorHover}: ${outlineDefaultHover};
-                ${dropzoneTokens.borderColorActive}: ${outlinePrimary};
+                ${dropzoneTokens.borderColor}: var(--outline-solid-secondary);
+                ${dropzoneTokens.borderColorHover}: var(--outline-solid-secondary-hover);
+                ${dropzoneTokens.borderColorActive}: var(--outline-accent);
                 ${dropzoneTokens.titleColor}: ${textPrimary};
                 ${dropzoneTokens.descriptionColor}: ${textSecondary};
             `,

@@ -1,13 +1,16 @@
+import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     surfaceAccent,
     surfaceTransparentPrimary,
     surfaceTransparentTertiary,
     textSecondary,
-    textSecondaryActive,
     textSecondaryHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: TextSecondaryActive
+ */
 export const config = {
     defaults: {
         view: 'filled',
@@ -18,7 +21,7 @@ export const config = {
             clear: css`
                 ${tabsTokens.arrowColor}: ${textSecondary};
                 ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
-                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
@@ -29,7 +32,7 @@ export const config = {
             filled: css`
                 ${tabsTokens.arrowColor}: ${textSecondary};
                 ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
-                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
@@ -40,7 +43,7 @@ export const config = {
             divider: css`
                 ${tabsTokens.arrowColor}: ${textSecondary};
                 ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
-                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 

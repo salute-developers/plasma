@@ -1,6 +1,7 @@
 import { css, chipTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
+    bodyM,
     bodyS,
     inverseTextPrimary,
     inverseTextSecondary,
@@ -8,6 +9,9 @@ import {
     onDarkTextPrimary,
     onDarkTextSecondary,
     onDarkTextSecondaryHover,
+    surfaceAccent,
+    surfaceAccentActive,
+    surfaceAccentHover,
     surfaceNegative,
     surfaceNegativeActive,
     surfaceNegativeHover,
@@ -31,8 +35,7 @@ import {
 
 /*
  * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyXs, bodyXxs, surfaceAccent, surfaceAccentActive
- * surfaceAccentHover
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXxs
  */
 export const config = {
     defaults: {
@@ -74,14 +77,14 @@ export const config = {
             `,
             accent: css`
                 ${chipTokens.color}: ${onDarkTextPrimary};
-                ${chipTokens.background}: var(--surface-accent);
+                ${chipTokens.background}: ${surfaceAccent};
                 ${chipTokens.colorHover}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundHover}: var(--surface-accent-hover);
+                ${chipTokens.backgroundHover}: ${surfaceAccentHover};
                 ${chipTokens.colorActive}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundActive}: var(--surface-accent-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-accent);
+                ${chipTokens.backgroundActive}: ${surfaceAccentActive};
+                ${chipTokens.backgroundReadOnly}: ${surfaceAccent};
                 ${chipTokens.colorReadOnly}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceAccent};
                 ${chipTokens.colorReadOnlyHover}: ${onDarkTextPrimary};
                 ${chipTokens.closeIconColor}: ${onDarkTextSecondary};
                 ${chipTokens.closeIconColorHover}: ${onDarkTextSecondaryHover};
@@ -163,18 +166,12 @@ export const config = {
                 ${chipTokens.height}: 2.5rem;
                 ${chipTokens.padding}: 0 0.875rem;
 
-                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                /* NOTE: no token bodyM in @salutejs/sdds-themes/tokens */
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${chipTokens.fontFamily}: ${bodyM.fontFamily};
+                ${chipTokens.fontSize}: ${bodyM.fontSize};
+                ${chipTokens.fontStyle}: ${bodyM.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyM.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.375rem;

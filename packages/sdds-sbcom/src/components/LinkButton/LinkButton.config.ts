@@ -1,3 +1,4 @@
+import { css, linkButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,10 +6,7 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     surfaceAccent,
-    surfaceClear,
     textAccent,
     textAccentActive,
     textAccentHover,
@@ -28,8 +26,12 @@ import {
     textWarningActive,
     textWarningHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, linkButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold, surfaceTransparentClear
+ * SurfaceTransparentClear
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -41,7 +43,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textPrimary};
                 ${linkButtonTokens.linkButtonIconColor}: ${textPrimary};
                 ${linkButtonTokens.linkButtonTextColor}: ${textPrimary};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textPrimaryHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textPrimaryActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -52,7 +54,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonIconColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonTextColor}: ${textAccent};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textAccentHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textAccentActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -63,7 +65,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textSecondary};
                 ${linkButtonTokens.linkButtonIconColor}: ${textSecondary};
                 ${linkButtonTokens.linkButtonTextColor}: ${textSecondary};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textSecondaryHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textSecondaryActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -74,7 +76,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textPositive};
                 ${linkButtonTokens.linkButtonIconColor}: ${textPositive};
                 ${linkButtonTokens.linkButtonTextColor}: ${textPositive};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textPositiveHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textPositiveActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -85,7 +87,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textWarning};
                 ${linkButtonTokens.linkButtonIconColor}: ${textWarning};
                 ${linkButtonTokens.linkButtonTextColor}: ${textWarning};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textWarningHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textWarningActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -96,7 +98,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: ${textNegative};
                 ${linkButtonTokens.linkButtonIconColor}: ${textNegative};
                 ${linkButtonTokens.linkButtonTextColor}: ${textNegative};
-                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
                 ${linkButtonTokens.linkButtonColorHover}: ${textNegativeHover};
                 ${linkButtonTokens.linkButtonColorActive}: ${textNegativeActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -185,12 +187,18 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 2rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.5rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.5rem;
-                ${linkButtonTokens.linkButtonFontFamily}: ${bodyXS.fontFamily};
-                ${linkButtonTokens.linkButtonFontSize}: ${bodyXS.fontSize};
-                ${linkButtonTokens.linkButtonFontStyle}: ${bodyXS.fontStyle};
-                ${linkButtonTokens.linkButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${linkButtonTokens.linkButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${linkButtonTokens.linkButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
@@ -204,12 +212,18 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 1.5rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.375rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.375rem;
-                ${linkButtonTokens.linkButtonFontFamily}: ${bodyXS.fontFamily};
-                ${linkButtonTokens.linkButtonFontSize}: ${bodyXS.fontSize};
-                ${linkButtonTokens.linkButtonFontStyle}: ${bodyXS.fontStyle};
-                ${linkButtonTokens.linkButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${linkButtonTokens.linkButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${linkButtonTokens.linkButtonLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 0.75rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;

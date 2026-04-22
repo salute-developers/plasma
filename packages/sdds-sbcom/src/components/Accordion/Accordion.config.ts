@@ -1,3 +1,4 @@
+import { css, accordionTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,23 +6,23 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     h2,
     h2Bold,
     h3,
     h3Bold,
     h4,
     h4Bold,
-    h4Medium,
     surfaceAccent,
     surfaceClear,
     surfaceSolidCard,
     surfaceSolidTertiary,
     textPrimary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, accordionTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold, h5, h5Bold, h6, h6Bold
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -127,19 +128,19 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${bodyXS.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${bodyXS.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${bodyXS.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${bodyXSBold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${bodyXS.lineHeight};
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${accordionTokens.accordionItemTextFontFamily}: ${bodyXS.fontFamily};
-                ${accordionTokens.accordionItemTextFontSize}: ${bodyXS.fontSize};
-                ${accordionTokens.accordionItemTextFontStyle}: ${bodyXS.fontStyle};
-                ${accordionTokens.accordionItemTextFontWeight}: ${bodyXS.fontWeight};
-                ${accordionTokens.accordionItemTextLetterSpacing}: ${bodyXS.letterSpacing};
-                ${accordionTokens.accordionItemTextLineHeight}: ${bodyXS.lineHeight};
+                ${accordionTokens.accordionItemTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${accordionTokens.accordionItemTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${accordionTokens.accordionItemTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${accordionTokens.accordionItemTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${accordionTokens.accordionItemTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             h2: css`
                 ${accordionTokens.accordionItemPaddingVertical}: 1rem;
@@ -209,12 +210,18 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${h4Medium.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${h4Medium.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${h4Medium.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${h4Bold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${h4Medium.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${h4Medium.lineHeight};
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h5-font-family);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h5-font-size);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-h5-font-style);
+                /* NOTE: no token h5Bold in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-h5-bold-font-weight);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-h5-line-height);
 
                 ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
                 ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};
@@ -229,12 +236,18 @@ export const config = {
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
 
-                ${accordionTokens.accordionItemTitleFontFamily}: ${bodyM.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${bodyM.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${bodyM.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${bodyMBold.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${bodyM.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${bodyM.lineHeight};
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h6-font-family);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h6-font-size);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontStyle}: var(--plasma-typo-h6-font-style);
+                /* NOTE: no token h6Bold in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleFontWeight}: var(--plasma-typo-h6-bold-font-weight);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLetterSpacing}: var(--plasma-typo-h6-letter-spacing);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
+                ${accordionTokens.accordionItemTitleLineHeight}: var(--plasma-typo-h6-line-height);
 
                 ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
                 ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};

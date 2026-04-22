@@ -1,8 +1,8 @@
+import { css, switchTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
     onDarkSurfaceSolidDefault,
     surfaceAccent,
     surfaceAccentHover,
@@ -11,8 +11,11 @@ import {
     textPrimary,
     textSecondary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, switchTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -30,12 +33,12 @@ export const config = {
                 ${switchTokens.lineHeight}: ${bodyS.lineHeight};
                 ${switchTokens.fontSize}: ${bodyS.fontSize};
                 ${switchTokens.letterSpacing}: ${bodyS.letterSpacing};
-                ${switchTokens.descriptionFontFamily}: ${bodyXS.fontFamily};
-                ${switchTokens.descriptionFontStyle}: ${bodyXS.fontStyle};
-                ${switchTokens.descriptionFontWeight}: ${bodyXS.fontWeight};
-                ${switchTokens.descriptionLineHeight}: ${bodyXS.lineHeight};
-                ${switchTokens.descriptionFontSize}: ${bodyXS.fontSize};
-                ${switchTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${switchTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${switchTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${switchTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${switchTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${switchTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
@@ -51,7 +54,7 @@ export const config = {
                 ${switchTokens.descriptionFontWeight}: ${bodyS.fontWeight};
                 ${switchTokens.descriptionLineHeight}: ${bodyS.lineHeight};
                 ${switchTokens.descriptionFontSize}: ${bodyS.fontSize};
-                ${switchTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
@@ -67,7 +70,7 @@ export const config = {
                 ${switchTokens.descriptionFontWeight}: ${bodyM.fontWeight};
                 ${switchTokens.descriptionLineHeight}: ${bodyM.lineHeight};
                 ${switchTokens.descriptionFontSize}: ${bodyM.fontSize};
-                ${switchTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,

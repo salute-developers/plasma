@@ -1,8 +1,8 @@
+import { css, checkboxTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
     textAccent,
@@ -14,8 +14,11 @@ import {
     textTertiary,
     textWarning,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, checkboxTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'accent',
@@ -39,12 +42,12 @@ export const config = {
                 ${checkboxTokens.labelFontWeight}: ${bodyS.fontWeight};
                 ${checkboxTokens.labelLetterSpacing}: ${bodyS.letterSpacing};
                 ${checkboxTokens.labelLineHeight}: ${bodyS.lineHeight};
-                ${checkboxTokens.descriptionFontFamily}: ${bodyXS.fontFamily};
-                ${checkboxTokens.descriptionFontSize}: ${bodyXS.fontSize};
-                ${checkboxTokens.descriptionFontStyle}: ${bodyXS.fontStyle};
-                ${checkboxTokens.descriptionFontWeight}: ${bodyXS.fontWeight};
-                ${checkboxTokens.descriptionLetterSpacing}: ${bodyXS.letterSpacing};
-                ${checkboxTokens.descriptionLineHeight}: ${bodyXS.lineHeight};
+                ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             m: css`
                 ${checkboxTokens.margin}: 0;

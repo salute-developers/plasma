@@ -1,8 +1,8 @@
+import { css, sliderTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
     onLightSurfaceSolidCard,
     surfaceAccent,
     surfaceAccentGradient,
@@ -15,8 +15,11 @@ import {
     textPrimary,
     textSecondary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, sliderTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -216,12 +219,18 @@ export const config = {
                 ${sliderTokens.rangeValueHorizontalOffset}: 0.625rem;
                 ${sliderTokens.rangeValueVerticalMargin}: 0.5rem;
 
-                ${sliderTokens.valueFontFamily}: ${bodyXS.fontFamily};
-                ${sliderTokens.valueFontSize}: ${bodyXS.fontSize};
-                ${sliderTokens.valueFontStyle}: ${bodyXS.fontStyle};
-                ${sliderTokens.valueFontWeight}: ${bodyXS.fontWeight};
-                ${sliderTokens.valueLetterSpacing}: ${bodyXS.letterSpacing};
-                ${sliderTokens.valueLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;

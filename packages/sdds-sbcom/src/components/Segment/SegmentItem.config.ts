@@ -1,3 +1,4 @@
+import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,8 +6,6 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     inverseTextPrimary,
     inverseTextPrimaryHover,
     inverseTextSecondary,
@@ -22,8 +21,11 @@ import {
     textSecondary,
     textTertiary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold
+ */
 export const config = {
     defaults: {
         view: 'clear',
@@ -107,12 +109,12 @@ export const config = {
                 ${segmentTokens.itemIconMargin}: 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0;
 
-                ${segmentTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${segmentTokens.fontSize}: ${bodyXS.fontSize};
-                ${segmentTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${segmentTokens.fontWeight}: ${bodyXSBold.fontWeight};
-                ${segmentTokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${segmentTokens.lineHeight}: ${bodyXS.lineHeight};
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
                 ${segmentTokens.itemBorderRadius}: 0.625rem;

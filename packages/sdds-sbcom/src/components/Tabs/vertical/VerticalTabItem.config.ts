@@ -1,3 +1,4 @@
+import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,8 +6,6 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     surfaceAccent,
     textPrimary,
     textSecondary,
@@ -14,8 +13,11 @@ import {
     textSecondaryHover,
     textTertiary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold
+ */
 export const config = {
     defaults: {
         view: 'divider',
@@ -65,12 +67,12 @@ export const config = {
                 ${tabsTokens.itemContentGap}: 0.25rem;
                 ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${tabsTokens.fontSize}: ${bodyXS.fontSize};
-                ${tabsTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${tabsTokens.fontWeight}: ${bodyXSBold.fontWeight};
-                ${tabsTokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${tabsTokens.lineHeight}: ${bodyXS.lineHeight};
+                ${tabsTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tabsTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tabsTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tabsTokens.fontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tabsTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tabsTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tabsTokens.actionContentMarginLeft}: 0;
             `,

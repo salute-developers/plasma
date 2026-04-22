@@ -1,9 +1,12 @@
 import { css, codeInputTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    bodyM,
+    bodyMBold,
     bodyS,
     bodySBold,
     dsplS,
     h3,
+    h4,
     textNegative,
     textPrimary,
     textSecondary,
@@ -11,7 +14,7 @@ import {
 
 /*
  * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: bodyM, bodyMBold, dsplL, dsplLBold, dsplM, h4, h5, outlinePrimary
+ * Missing tokens in @salutejs/sdds-themes/tokens: dsplL, dsplLBold, dsplM, h5, outlineAccent
  */
 export const config = {
     defaults: {
@@ -76,9 +79,9 @@ export const config = {
                 ${tokens.separatorWidth}: 0.75rem;
 
                 ${tokens.fontFamily}: var(--plasma-typo-dspl-m-font-family);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyMBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
 
                 ${tokens.largeFontSize}: 5.5rem;
                 ${tokens.largeLineHeight}: 5.75rem;
@@ -89,12 +92,12 @@ export const config = {
                 ${tokens.smallFontSize}: 3.5rem;
                 ${tokens.smallLineHeight}: 3.75rem;
 
-                ${tokens.captionFontFamily}: var(--plasma-typo-h4-font-family);
-                ${tokens.captionFontSize}: var(--plasma-typo-h4-font-size);
-                ${tokens.captionFontStyle}: var(--plasma-typo-h4-font-style);
-                ${tokens.captionFontWeight}: var(--plasma-typo-h4-font-weight);
-                ${tokens.captionLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${tokens.captionLineHeight}: var(--plasma-typo-h4-line-height);
+                ${tokens.captionFontFamily}: ${h4.fontFamily};
+                ${tokens.captionFontSize}: ${h4.fontSize};
+                ${tokens.captionFontStyle}: ${h4.fontStyle};
+                ${tokens.captionFontWeight}: ${h4.fontWeight};
+                ${tokens.captionLetterSpacing}: ${h4.letterSpacing};
+                ${tokens.captionLineHeight}: ${h4.lineHeight};
 
                 ${tokens.largeCodeItemWidth}: 3.5rem;
                 ${tokens.largeCodeItemHeight}: 5.75rem;

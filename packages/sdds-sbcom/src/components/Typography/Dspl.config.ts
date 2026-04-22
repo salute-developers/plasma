@@ -1,5 +1,5 @@
-import { dsplS, dsplSBold, dsplSMedium } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { dsplS, dsplSBold, dsplSMedium } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const configS = {
     defaults: {

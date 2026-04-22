@@ -1,3 +1,4 @@
+import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyS,
     bodySBold,
@@ -10,7 +11,6 @@ import {
     textTertiary,
     textWarning,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

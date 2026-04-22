@@ -1,3 +1,4 @@
+import { css, modalTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     overlaySoft,
     surfaceAccent,
@@ -6,7 +7,6 @@ import {
     textSecondaryActive,
     textSecondaryHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, modalTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

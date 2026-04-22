@@ -1,3 +1,4 @@
+import { css, carouselNewTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     surfaceSolidDefault,
     surfaceTransparentSecondary,
@@ -6,7 +7,6 @@ import {
     surfaceTransparentTertiary,
     textPrimary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, carouselNewTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

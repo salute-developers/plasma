@@ -1,3 +1,4 @@
+import { css, calendarBaseTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyLBold,
@@ -5,8 +6,6 @@ import {
     bodyMBold,
     bodyS,
     bodySBold,
-    bodyXS,
-    bodyXSBold,
     h3,
     h3Bold,
     h4,
@@ -22,8 +21,11 @@ import {
     textPrimaryHover,
     textSecondary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, calendarBaseTokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold, h5, h5Bold
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -351,46 +353,74 @@ export const config = {
                 ${calendarBaseTokens.calendarYearsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarBaseTokens.calendarYearItemBorderRadius}: 0.5rem;
 
-                ${calendarBaseTokens.calendarYearFontFamily}: ${bodyXS.fontFamily};
-                ${calendarBaseTokens.calendarYearFontSize}: ${bodyXS.fontSize};
-                ${calendarBaseTokens.calendarYearFontStyle}: ${bodyXS.fontStyle};
-                ${calendarBaseTokens.calendarYearFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${calendarBaseTokens.calendarYearFontLineHeight}: ${bodyXS.lineHeight};
-                ${calendarBaseTokens.calendarYearFontWeight}: ${bodyXS.fontWeight};
-                ${calendarBaseTokens.calendarYearSelectedFontWeight}: ${bodyXSBold.fontWeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarYearFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarYearFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarYearFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarYearFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarYearFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
 
                 ${calendarBaseTokens.calendarQuartersPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarBaseTokens.calendarQuarterItemBorderRadius}: 0.5rem;
 
-                ${calendarBaseTokens.calendarQuarterFontFamily}: ${bodyXS.fontFamily};
-                ${calendarBaseTokens.calendarQuarterFontSize}: ${bodyXS.fontSize};
-                ${calendarBaseTokens.calendarQuarterFontStyle}: ${bodyXS.fontStyle};
-                ${calendarBaseTokens.calendarQuarterFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${calendarBaseTokens.calendarQuarterFontLineHeight}: ${bodyXS.lineHeight};
-                ${calendarBaseTokens.calendarQuarterFontWeight}: ${bodyXS.fontWeight};
-                ${calendarBaseTokens.calendarQuarterSelectedFontWeight}: ${bodyXSBold.fontWeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarQuarterFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarQuarterFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarQuarterFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarQuarterFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
 
                 ${calendarBaseTokens.calendarMonthsPadding}: 0.375rem 0.25rem 0 0.25rem;
                 ${calendarBaseTokens.calendarMonthItemBorderRadius}: 0.5rem;
 
-                ${calendarBaseTokens.calendarMonthFontFamily}: ${bodyXS.fontFamily};
-                ${calendarBaseTokens.calendarMonthFontSize}: ${bodyXS.fontSize};
-                ${calendarBaseTokens.calendarMonthFontStyle}: ${bodyXS.fontStyle};
-                ${calendarBaseTokens.calendarMonthFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${calendarBaseTokens.calendarMonthFontLineHeight}: ${bodyXS.lineHeight};
-                ${calendarBaseTokens.calendarMonthFontWeight}: ${bodyXS.fontWeight};
-                ${calendarBaseTokens.calendarMonthSelectedFontWeight}: ${bodyXSBold.fontWeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarMonthFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarMonthFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarMonthFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarMonthFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
 
                 ${calendarBaseTokens.calendarDaysPadding}: 0.375rem 0 0 0;
                 ${calendarBaseTokens.calendarDayItemBorderRadius}: 0.5rem;
 
-                ${calendarBaseTokens.calendarDayFontFamily}: ${bodyXS.fontFamily};
-                ${calendarBaseTokens.calendarDayFontSize}: ${bodyXS.fontSize};
-                ${calendarBaseTokens.calendarDayFontStyle}: ${bodyXS.fontStyle};
-                ${calendarBaseTokens.calendarDayFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${calendarBaseTokens.calendarDayFontLineHeight}: ${bodyXS.lineHeight};
-                ${calendarBaseTokens.calendarDayFontWeight}: ${bodyXS.fontWeight};
-                ${calendarBaseTokens.calendarDaySelectedFontWeight}: ${bodyXSBold.fontWeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarDayFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarDayFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarDayFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarDayFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarDayFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
 
                 ${calendarBaseTokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
@@ -400,13 +430,20 @@ export const config = {
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${calendarBaseTokens.calendarHeaderFontFamily}: ${h4.fontFamily};
-                ${calendarBaseTokens.calendarHeaderFontSize}: ${h4.fontSize};
-                ${calendarBaseTokens.calendarHeaderFontStyle}: ${h4.fontStyle};
-                ${calendarBaseTokens.calendarHeaderFontLetterSpacing}: ${h4.letterSpacing};
-                ${calendarBaseTokens.calendarHeaderFontLineHeight}: ${h4.lineHeight};
-                ${calendarBaseTokens.calendarHeaderFontWeight}: ${h4.fontWeight};
-                ${calendarBaseTokens.calendarHeaderFontWeightBold}: ${h4Bold.fontWeight};
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarHeaderFontFamily}: var(--plasma-typo-h5-font-family);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarHeaderFontSize}: var(--plasma-typo-h5-font-size);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarHeaderFontStyle}: var(--plasma-typo-h5-font-style);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h5-line-height);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarHeaderFontWeight}: var(--plasma-typo-h5-font-weight);
+                /* NOTE: no token h5Bold in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h5-bold-font-weight);
 
                 ${calendarBaseTokens.iconButtonHeight}: 2rem;
                 ${calendarBaseTokens.iconButtonWidth}: 2rem;
@@ -449,12 +486,18 @@ export const config = {
                 ${calendarBaseTokens.tooltipMinHeight}: 2rem;
                 ${calendarBaseTokens.tooltipBorderRadius}: 0.5rem;
 
-                ${calendarBaseTokens.tooltipTextFontFamily}: ${bodyXS.fontFamily};
-                ${calendarBaseTokens.tooltipTextFontSize}: ${bodyXS.fontSize};
-                ${calendarBaseTokens.tooltipTextFontStyle}: ${bodyXS.fontStyle};
-                ${calendarBaseTokens.tooltipTextFontWeight}: ${bodyXS.fontWeight};
-                ${calendarBaseTokens.tooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${calendarBaseTokens.tooltipTextFontLineHeight}: ${bodyXS.lineHeight};
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
+                ${calendarBaseTokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${calendarBaseTokens.tooltipContentLeftMargin}: 0.25rem;
 

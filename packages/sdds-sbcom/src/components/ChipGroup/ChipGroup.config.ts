@@ -1,8 +1,8 @@
+import { css, chipGroupTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyL,
     bodyM,
     bodyS,
-    bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
     surfaceAccent,
@@ -16,8 +16,11 @@ import {
     surfaceTransparentSecondaryHover,
     textPrimary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
-import { css, chipGroupTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -120,12 +123,12 @@ export const config = {
                 ${tokens.chipHeight}: 1.5rem;
                 ${tokens.chipPadding}: 0 0.625rem;
 
-                ${tokens.chipFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.chipFontSize}: ${bodyXS.fontSize};
-                ${tokens.chipFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.chipFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.chipLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.chipLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;

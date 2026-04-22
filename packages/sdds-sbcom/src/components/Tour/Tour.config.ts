@@ -1,6 +1,5 @@
 import { tourTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
-
-const tourCss = tokens as typeof tokens & { tailColor: string; overlayColor: string };
+import { inverseOverlaySoft, surfaceSolidCard } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -10,8 +9,8 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tourCss.tailColor}: var(--surface-solid-card);
-                ${tourCss.overlayColor}: var(--inverse-overlay-soft);
+                ${tokens.tailColor}: ${surfaceSolidCard};
+                ${tokens.overlayColor}: ${inverseOverlaySoft};
             `,
         },
         size: {
