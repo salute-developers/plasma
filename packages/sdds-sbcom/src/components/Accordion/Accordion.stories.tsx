@@ -38,7 +38,7 @@ const pins = [
 ] as const;
 
 const meta: Meta<AccordionProps> = {
-    title: 'Data Display/Accordion',
+    title: 'Data Display/⚠️ Accordion',
     decorators: [InSpacingDecorator],
     component: Accordion,
     args: {

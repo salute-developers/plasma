@@ -105,7 +105,7 @@ type StoryTabsProps = ComponentProps<typeof Tabs> & CustomStoryTabsProps;
 type HorizontalStoryTabsProps = StoryTabsProps & { width: string; height: string };
 
 const meta: Meta<StoryTabsProps> = {
-    title: 'Navigation/Tabs',
+    title: 'Navigation/⚠️ Tabs',
     component: Tabs,
     decorators: [InSpacingDecorator],
     argTypes: {

@@ -14,7 +14,7 @@ const iconsCount = [1, 5, 10];
 const helperTextStretching = ['fixed', 'filled'];
 
 const meta: Meta<typeof Rating> = {
-    title: 'Data Display/Rating',
+    title: 'Data Display/⚠️ Rating',
     component: Rating,
     decorators: [InSpacingDecorator],
     argTypes: {

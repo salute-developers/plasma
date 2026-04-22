@@ -14,7 +14,7 @@ import type { ClosePlacementType } from '.';
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from '.';
 
 export default {
-    title: 'Overlay/Drawer',
+    title: 'Overlay/⚠️ Drawer',
     decorators: [InSpacingDecorator],
     argTypes: {
         placement: {

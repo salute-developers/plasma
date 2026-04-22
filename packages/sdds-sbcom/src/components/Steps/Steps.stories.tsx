@@ -12,7 +12,7 @@ import type { StepItemProps } from '.';
 const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<typeof Steps> = {
-    title: 'Navigation/Steps',
+    title: 'Navigation/⚠️ Steps',
     decorators: [InSpacingDecorator],
     component: Steps,
 };

@@ -15,7 +15,7 @@ const { meta: META, Default } = getDatePickerStories({
 
 const meta: Meta<DatePickerProps> = {
     ...META,
-    title: 'Data Entry/DatePicker',
+    title: 'Data Entry/⚠️ DatePicker',
 };
 
 export default meta;
