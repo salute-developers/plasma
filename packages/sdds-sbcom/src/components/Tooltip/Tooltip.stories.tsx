@@ -46,7 +46,7 @@ const disabledProps = [
     'onDismiss',
 ];
 const meta: Meta<TooltipProps> = {
-    title: 'Overlay/Tooltip',
+    title: 'Overlay/⚠️ Tooltip',
     decorators: [InSpacingDecorator],
     component: Tooltip,
 };

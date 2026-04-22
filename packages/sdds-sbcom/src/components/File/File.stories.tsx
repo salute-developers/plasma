@@ -14,7 +14,7 @@ const { meta: META, Default } = getFileStories({
 
 const meta: Meta<FileProps> = {
     ...META,
-    title: 'Data Entry/File',
+    title: 'Data Entry/⚠️ File',
 };
 
 export default meta;

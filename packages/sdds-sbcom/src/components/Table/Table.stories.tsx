@@ -29,7 +29,7 @@ const { meta: META, Default, Complex, Pagination, InfiniteLoading } = getTableSt
 
 const meta: Meta<StoryProps> = {
     ...META,
-    title: 'Data Display/Table',
+    title: 'Data Display/⚠️ Table',
 };
 
 export default meta;

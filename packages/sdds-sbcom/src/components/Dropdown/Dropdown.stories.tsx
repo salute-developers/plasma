@@ -16,7 +16,7 @@ const size = ['xs', 's', 'm', 'l', 'xl'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<DropdownProps> = {
-    title: 'Data Entry/Dropdown',
+    title: 'Data Entry/⚠️ Dropdown',
     component: Dropdown,
     decorators: [InSpacingDecorator],
     argTypes: {
