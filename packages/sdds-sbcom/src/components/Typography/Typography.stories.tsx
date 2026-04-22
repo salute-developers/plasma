@@ -5,7 +5,7 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { DsplS, H1, H2, H3, H4, BodyL, BodyM, BodyS, BodyXS, BodyXXS } from '.';
 
 const meta: Meta = {
-    title: 'Data Display/Typography',
+    title: 'Data Display/⚠️ Typography',
     component: DsplS,
     argTypes: {
         ...disableProps(['size', 'bold', 'medium', 'as', 'forwardedAs', 'isNumeric']),

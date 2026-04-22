@@ -11,7 +11,7 @@ type StoryButtonProps = ComponentProps<typeof EmbedIconButton> & { contentType: 
 const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<StoryButtonProps> = {
-    title: 'Data Entry/EmbedIconButton',
+    title: 'Data Entry/⚠️ EmbedIconButton',
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {

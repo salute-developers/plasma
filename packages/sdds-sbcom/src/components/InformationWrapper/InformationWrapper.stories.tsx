@@ -38,7 +38,7 @@ const placements: Array<PopoverPlacement> = [
 const componentContents = ['Placeholder', 'TextField', 'TextArea'];
 
 const meta: Meta<typeof InformationWrapper> = {
-    title: 'Data Display/InformationWrapper',
+    title: 'Data Display/⚠️ InformationWrapper',
     component: InformationWrapper,
     decorators: [InSpacingDecorator],
     argTypes: {

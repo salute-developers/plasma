@@ -19,7 +19,7 @@ type StoryPropsDefault = ComponentProps<typeof Loader> & {
 };
 
 const meta: Meta<StoryPropsDefault> = {
-    title: 'Overlay/Loader',
+    title: 'Overlay/⚠️ Loader',
     component: Loader,
     decorators: [InSpacingDecorator],
     argTypes: {

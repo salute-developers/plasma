@@ -14,7 +14,7 @@ const { meta: META, Default } = getNoteStories({
 
 const meta: Meta<NoteProps> = {
     ...(META as any),
-    title: 'Data Display/Note',
+    title: 'Data Display/⚠️ Note',
 };
 
 export default meta;

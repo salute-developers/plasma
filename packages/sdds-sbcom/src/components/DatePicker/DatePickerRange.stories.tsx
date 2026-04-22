@@ -15,7 +15,7 @@ const { meta: META, Range } = getDatePickerRangeStories({
 
 const meta: Meta<DatePickerRangeProps> = {
     ...META,
-    title: 'Data Entry/DatePicker',
+    title: 'Data Entry/⚠️ DatePicker',
 };
 
 export default meta;

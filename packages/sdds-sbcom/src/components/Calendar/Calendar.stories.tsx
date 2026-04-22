@@ -27,7 +27,7 @@ const { meta: META, Default, Range } = getCalendarStories({
 
 const meta: Meta<ButtonProps> = {
     ...META,
-    title: 'Data Entry/Calendar',
+    title: 'Data Entry/⚠️ Calendar',
 };
 
 export default meta;
