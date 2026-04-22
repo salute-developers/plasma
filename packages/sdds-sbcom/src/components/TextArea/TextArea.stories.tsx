@@ -14,7 +14,7 @@ const { meta: META, Default } = getTextAreaStories({
 
 const meta: Meta<TextAreaProps> = {
     ...META,
-    title: 'Data Entry/TextArea',
+    title: 'Data Entry/⚠️ TextArea',
 };
 
 export default meta;

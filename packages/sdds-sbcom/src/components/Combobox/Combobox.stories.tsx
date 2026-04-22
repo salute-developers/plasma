@@ -88,7 +88,7 @@ const includeParams = [
 ];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Data Entry/Combobox',
+    title: 'Data Entry/⚠️ Combobox',
     decorators: [InSpacingDecorator],
     component: Combobox,
     argTypes: {

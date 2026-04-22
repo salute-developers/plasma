@@ -17,7 +17,7 @@ const itemErrorBehaviorVariants = ['remove-symbol', 'forbid-enter'];
 const codeErrorBehaviorVariants = ['remove-code', 'keep'];
 
 const meta: Meta<typeof CodeInput> = {
-    title: 'Data Entry/CodeInput',
+    title: 'Data Entry/⚠️ CodeInput',
     component: CodeInput,
     decorators: [InSpacingDecorator],
     argTypes: {

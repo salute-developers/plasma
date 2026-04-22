@@ -93,7 +93,7 @@ const includeParams = [
 ];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'Data Entry/Select',
+    title: 'Data Entry/⚠️ Select',
     decorators: [InSpacingDecorator],
     component: Select,
     argTypes: {

@@ -15,7 +15,7 @@ const { sizes } = getConfigVariations(config);
 const views = ['accent'];
 
 const meta: Meta<RadioboxProps> = {
-    title: 'Data Entry/Radiobox',
+    title: 'Data Entry/⚠️ Radiobox',
     component: Radiobox,
     decorators: [InSpacingDecorator],
     argTypes: {

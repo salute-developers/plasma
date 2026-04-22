@@ -17,7 +17,7 @@ const itemErrorBehaviorVariants = ['remove-symbol', 'keep', 'forbid-enter'];
 const codeErrorBehaviorVariants = ['remove-code', 'keep'];
 
 const meta: Meta<typeof CodeField> = {
-    title: 'Data Entry/CodeField',
+    title: 'Data Entry/⚠️ CodeField',
     component: CodeField,
     decorators: [InSpacingDecorator],
     argTypes: {

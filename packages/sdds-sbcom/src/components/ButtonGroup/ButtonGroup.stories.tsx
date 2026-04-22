@@ -18,7 +18,7 @@ const shapeValues = ['segmented', 'default'];
 const stretchingValues = ['auto', 'filled'];
 
 const meta: Meta<typeof ButtonGroup> = {
-    title: 'Data Entry/ButtonGroup',
+    title: 'Data Entry/⚠️ ButtonGroup',
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
