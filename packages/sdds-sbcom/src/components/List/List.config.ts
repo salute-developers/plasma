@@ -1,5 +1,17 @@
 import { css, listTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    surfaceAccent,
+    surfaceTransparentSecondary,
+    textPrimary,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -8,13 +20,13 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${listTokens.listItemColor}: var(--text-primary);
-                ${listTokens.listItemColorHover}: var(--text-primary);
+                ${listTokens.listItemColor}: ${textPrimary};
+                ${listTokens.listItemColorHover}: ${textPrimary};
                 ${listTokens.listItemBackground}: transparent;
-                ${listTokens.listItemBackgroundHover}: var(--surface-transparent-secondary);
+                ${listTokens.listItemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${listTokens.listItemBorderColor}: transparent;
                 ${listTokens.listItemBorderColorHover}: transparent;
-                ${listTokens.listItemFocusColor}: var(--surface-accent);
+                ${listTokens.listItemFocusColor}: ${surfaceAccent};
                 ${listTokens.listDisabledOpacity}: 0.4;
             `,
         },
@@ -46,12 +58,12 @@ export const config = {
                 ${listTokens.listItemGap}: 0.375rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-s-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${listTokens.listItemFontFamily}: ${bodyS.fontFamily};
+                ${listTokens.listItemFontSize}: ${bodyS.fontSize};
+                ${listTokens.listItemFontStyle}: ${bodyS.fontStyle};
+                ${listTokens.listItemFontWeight}: ${bodyS.fontWeight};
+                ${listTokens.listItemLetterSpacing}: ${bodyS.letterSpacing};
+                ${listTokens.listItemLineHeight}: ${bodyS.lineHeight};
             `,
             m: css`
                 ${listTokens.listItemPaddingTop}: 0.75rem;
@@ -63,12 +75,12 @@ export const config = {
                 ${listTokens.listItemGap}: 0.5rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${listTokens.listItemFontFamily}: ${bodyM.fontFamily};
+                ${listTokens.listItemFontSize}: ${bodyM.fontSize};
+                ${listTokens.listItemFontStyle}: ${bodyM.fontStyle};
+                ${listTokens.listItemFontWeight}: ${bodyM.fontWeight};
+                ${listTokens.listItemLetterSpacing}: ${bodyM.letterSpacing};
+                ${listTokens.listItemLineHeight}: ${bodyM.lineHeight};
             `,
             l: css`
                 ${listTokens.listItemPaddingTop}: 1rem;
@@ -80,12 +92,12 @@ export const config = {
                 ${listTokens.listItemGap}: 0.5rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${listTokens.listItemFontFamily}: ${bodyL.fontFamily};
+                ${listTokens.listItemFontSize}: ${bodyL.fontSize};
+                ${listTokens.listItemFontStyle}: ${bodyL.fontStyle};
+                ${listTokens.listItemFontWeight}: ${bodyL.fontWeight};
+                ${listTokens.listItemLetterSpacing}: ${bodyL.letterSpacing};
+                ${listTokens.listItemLineHeight}: ${bodyL.lineHeight};
             `,
             xl: css`
                 ${listTokens.listItemPaddingTop}: 1.3125rem;
@@ -97,12 +109,12 @@ export const config = {
                 ${listTokens.listItemGap}: 0.5rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-l-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${listTokens.listItemFontFamily}: ${bodyL.fontFamily};
+                ${listTokens.listItemFontSize}: ${bodyL.fontSize};
+                ${listTokens.listItemFontStyle}: ${bodyL.fontStyle};
+                ${listTokens.listItemFontWeight}: ${bodyL.fontWeight};
+                ${listTokens.listItemLetterSpacing}: ${bodyL.letterSpacing};
+                ${listTokens.listItemLineHeight}: ${bodyL.lineHeight};
             `,
         },
         disabled: {
