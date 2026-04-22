@@ -32,6 +32,8 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, RootTourProps>) =>
                 highlightBorderRadius,
                 hasTail = false,
                 tailColor,
+                tailWidth = ARROW_WIDTH,
+                tailHeight = ARROW_HEIGHT,
                 renderStep,
                 renderHighlight,
                 onChange,
@@ -69,7 +71,7 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, RootTourProps>) =>
             const placement: Placement = currentStep?.placement || 'bottom';
 
             const middleware = [
-                offset((hasTail ? ARROW_HEIGHT : 0) + offsetProp[0] + highlightOffset),
+                offset((hasTail ? tailHeight : 0) + offsetProp[0] + highlightOffset),
                 flip(),
                 shift({ padding: offsetProp[1] }),
                 hasTail && arrow({ element: arrowRef, padding: ARROW_PADDING }),
@@ -288,8 +290,8 @@ export const tourRoot = (Root: RootProps<HTMLDivElement, RootTourProps>) =>
                                     <FloatingArrow
                                         ref={arrowRef}
                                         context={context}
-                                        width={ARROW_WIDTH}
-                                        height={ARROW_HEIGHT}
+                                        width={tailWidth}
+                                        height={tailHeight}
                                         fill={arrowFill}
                                         d={ARROW_POLYGON}
                                     />

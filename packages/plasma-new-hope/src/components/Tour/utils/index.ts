@@ -1,6 +1,8 @@
 import { canUseDOM } from 'src/utils';
 
-export const getHTMLElement = (target: string | React.RefObject<HTMLElement> | HTMLElement): HTMLElement | null => {
+export const getHTMLElement = (
+    target: string | React.RefObject<HTMLElement | null> | HTMLElement,
+): HTMLElement | null => {
     if (!target || !canUseDOM) {
         return null;
     }
