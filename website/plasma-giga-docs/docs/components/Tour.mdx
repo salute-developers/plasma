@@ -705,5 +705,191 @@ export function App() {
 }
 ```
 
+## Кастомный TourCard
+
+Библиотека поставляет кастомный компонент `TourCard` для упрощенной настройки и визуализации.
+
+```tsx live
+import React, { useRef, useState } from 'react';
+import { Tour, TourCard, Button, ButtonGroup, LinkButton } from '@salutejs/plasma-giga';
+
+export function App() {
+    const ref1 = useRef<HTMLButtonElement>(null);
+    const ref2 = useRef<HTMLButtonElement>(null);
+
+    const [open, setOpen] = useState(false);
+    const [current, setCurrent] = useState(0);
+
+    const onClose = () => {
+        setOpen(false);
+        setCurrent(0);
+    };
+
+    const goToStep = (index: number) => {
+        setCurrent(index);
+    };
+
+    const getImage = () => {
+        const svgString = `
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMinYMin slice"
+              viewBox="1 0.5 8 8"
+              style="background: lightblue"
+            >
+              <path stroke="#fff" stroke-dasharray="1" d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+            </svg>
+          `;
+
+        const cleanedSvg = svgString.replace(/\s+/g, ' ').trim();
+        return `data:image/svg+xml,${encodeURIComponent(cleanedSvg)}`;
+    };
+
+    type Step = {
+        target: React.RefObject<HTMLElement | null>;
+        title: string;
+        description: string;
+    };
+
+    const steps: Step[] = [
+        { target: ref1, title: 'Шаг 1', description: 'Карточка со стрелкой.' },
+        { target: ref2, title: 'Шаг 2', description: 'Стрелка меняет направление автоматически.' },
+    ];
+
+    const renderTourCard = (stepCurrent: number, stepLength: number, last: boolean, step: Step) => {
+        const actionButtons = (
+            <ButtonGroup stretching="filled">
+                {stepCurrent > 0 && (
+                    <Button size="s" view="secondary" onClick={() => setCurrent((c) => c - 1)}>
+                        Назад
+                    </Button>
+                )}
+
+                {last ? (
+                    <Button size="s" view="default" onClick={onClose}>
+                        Закрыть
+                    </Button>
+                ) : (
+                    <Button size="s" view="default" onClick={() => setCurrent((c) => c + 1)}>
+                        Далее
+                    </Button>
+                )}
+            </ButtonGroup>
+        );
+
+        const skipButton = <LinkButton onClick={onClose}>Пропустить</LinkButton>;
+
+        return (
+            <TourCard
+                title={step.title}
+                description={step.description}
+                actionButtons={actionButtons}
+                skipButton={skipButton}
+                orientation="vertical"
+                stepCurrent={stepCurrent}
+                stepLength={stepLength}
+                goToStep={goToStep}
+                onClose={onClose}
+                image={{ src: getImage() }}
+            />
+        );
+    };
+
+    return (
+        <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button ref={ref1} view="secondary">
+                    Кнопка 1
+                </Button>
+                <Button ref={ref2} view="secondary">
+                    Кнопка 2
+                </Button>
+            </div>
+            <Button view="default" onClick={() => setOpen(true)}>
+                Запустить тур
+            </Button>
+
+            <Tour
+                open={open}
+                current={current}
+                onChange={setCurrent}
+                onClose={onClose}
+                steps={steps}
+                renderStep={renderTourCard}
+                highlightBorderRadius="2rem"
+                hasTail
+            />
+        </div>
+    );
+}
+```
+
+### Тип компонента TourCard
+```tsx
+type TourCardProps = {
+    /**
+     * Ориентация карточки
+     * @default 'horizontal'
+     */
+    orientation?: 'horizontal' | 'vertical';
+    /**
+     * Название карточки
+     */
+    title?: string;
+    /**
+     * Описание карточки
+     */
+    description?: string;
+    /**
+     * Пропсы для изображения (src, alt, ratio, customRatio и др.)
+     */
+    image?: ImageProps;
+    /**
+     * Показывать пагинацию (точки)
+     * @default true
+     */
+    showPagination?: boolean;
+    /**
+     * Индекс текущего шага
+     */
+    stepCurrent?: number;
+    /**
+     * Общее количество шагов
+     */
+    stepLength?: number;
+    /**
+     * Функция перехода к шагу по индексу
+     */
+    goToStep?: (index: number) => void;
+    /**
+     * Кнопки навигации по шагам
+     * Например: «Далее» / «Готово» на последнем шаге
+     */
+    actionButtons?: ReactNode;
+    /**
+     * Кнопка пропуска
+     */
+    skipButton?: ReactNode;
+    /**
+     * Показывать кнопку закрытия
+     * @default true
+     */
+    showClose?: boolean;
+    /**
+     * Обработчик закрытия тура
+     */
+    onClose?: () => void;
+
+    /**
+     * Вид карточки тура
+     */
+    view?: string;
+    /**
+     * Размер карточки тура
+     */
+    size?: string;
+} & HTMLAttributes<HTMLDivElement>;
+```
+
 ## Таблица свойств
 <PropsTable name="Tour" exclude={['css']} />

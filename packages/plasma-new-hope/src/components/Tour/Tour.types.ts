@@ -28,7 +28,7 @@ export type TourStep = {
     /**
      * Ссылка на объект: CSS-селектор, React ref или DOM-элемент
      */
-    target: string | React.RefObject<HTMLElement> | HTMLElement;
+    target: string | React.RefObject<HTMLElement | null> | HTMLElement;
     /**
      * Отступ высветленного блока
      * @description Имеет приоритет над общим highlightOffset
@@ -133,6 +133,16 @@ export interface TourProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
      * Цвет стрелки
      */
     tailColor?: CSSProperties['color'];
+    /**
+     * Ширина стрелки
+     * @default 20
+     */
+    tailWidth?: number;
+    /**
+     * Высота стрелки
+     * @default 8
+     */
+    tailHeight?: number;
     /**
      * Callback при смене шага
      */
