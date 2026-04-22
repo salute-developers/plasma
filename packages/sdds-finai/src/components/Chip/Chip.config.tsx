@@ -23,21 +23,6 @@ export const config = {
                 ${chipTokens.closeIconColorHover}: var(--inverse-text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--inverse-text-primary);
             `,
-            secondary: css`
-                ${chipTokens.color}: var(--text-primary);
-                ${chipTokens.background}: var(--surface-transparent-secondary);
-                ${chipTokens.colorHover}: var(--text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
-                ${chipTokens.colorActive}: var(--text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnly}: var(--text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
-                ${chipTokens.closeIconColor}: var(--text-secondary);
-                ${chipTokens.closeIconColorHover}: var(--text-secondary-hover);
-                ${chipTokens.leftContentColor}: var(--text-primary);
-            `,
             accent: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
                 ${chipTokens.background}: var(--surface-accent);
@@ -97,6 +82,21 @@ export const config = {
                 ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
                 ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
+            `,
+            clear: css`
+                ${chipTokens.color}: var(--text-primary);
+                ${chipTokens.background}: var(--surface-clear);
+                ${chipTokens.colorHover}: var(--text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
+                ${chipTokens.colorActive}: var(--text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-clear);
+                ${chipTokens.colorReadOnly}: var(--text-primaryы);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-clear);
+                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
+                ${chipTokens.closeIconColor}: var(--text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--text-secondary-hover);
+                ${chipTokens.leftContentColor}: var(--text-primary);
             `,
         },
         size: {
