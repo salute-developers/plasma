@@ -1,5 +1,24 @@
 import { css, checkboxTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    inverseTextPrimary,
+    onDarkTextPrimary,
+    textAccent,
+    textNegative,
+    textParagraph,
+    textPositive,
+    textPrimary,
+    textSecondary,
+    textTertiary,
+    textWarning,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'accent',
@@ -17,12 +36,12 @@ export const config = {
                 ${checkboxTokens.contentTopOffset}: 0;
                 ${checkboxTokens.contentLeftOffset}: 0.5rem;
                 ${checkboxTokens.descriptionMarginTop}: 0.125rem;
-                ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${checkboxTokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${checkboxTokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${checkboxTokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${checkboxTokens.labelFontFamily}: ${bodyS.fontFamily};
+                ${checkboxTokens.labelFontSize}: ${bodyS.fontSize};
+                ${checkboxTokens.labelFontStyle}: ${bodyS.fontStyle};
+                ${checkboxTokens.labelFontWeight}: ${bodyS.fontWeight};
+                ${checkboxTokens.labelLetterSpacing}: ${bodyS.letterSpacing};
+                ${checkboxTokens.labelLineHeight}: ${bodyS.lineHeight};
                 ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -39,18 +58,18 @@ export const config = {
                 ${checkboxTokens.contentTopOffset}: 0.125rem;
                 ${checkboxTokens.contentLeftOffset}: 0.75rem;
                 ${checkboxTokens.descriptionMarginTop}: 0.125rem;
-                ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
-                ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${checkboxTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${checkboxTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${checkboxTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
-                ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${checkboxTokens.labelFontFamily}: ${bodyM.fontFamily};
+                ${checkboxTokens.labelFontSize}: ${bodyM.fontSize};
+                ${checkboxTokens.labelFontStyle}: ${bodyM.fontStyle};
+                ${checkboxTokens.labelFontWeight}: ${bodyM.fontWeight};
+                ${checkboxTokens.labelLetterSpacing}: ${bodyM.letterSpacing};
+                ${checkboxTokens.labelLineHeight}: ${bodyM.lineHeight};
+                ${checkboxTokens.descriptionFontFamily}: ${bodyS.fontFamily};
+                ${checkboxTokens.descriptionFontSize}: ${bodyS.fontSize};
+                ${checkboxTokens.descriptionFontStyle}: ${bodyS.fontStyle};
+                ${checkboxTokens.descriptionFontWeight}: ${bodyS.fontWeight};
+                ${checkboxTokens.descriptionLetterSpacing}: ${bodyS.letterSpacing};
+                ${checkboxTokens.descriptionLineHeight}: ${bodyS.lineHeight};
             `,
             l: css`
                 ${checkboxTokens.margin}: 0;
@@ -60,91 +79,91 @@ export const config = {
                 ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0.0625rem;
                 ${checkboxTokens.contentLeftOffset}: 0.75rem;
-                ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
-                ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${checkboxTokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${checkboxTokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${checkboxTokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${checkboxTokens.labelFontFamily}: ${bodyL.fontFamily};
+                ${checkboxTokens.labelFontSize}: ${bodyL.fontSize};
+                ${checkboxTokens.labelFontStyle}: ${bodyL.fontStyle};
+                ${checkboxTokens.labelFontWeight}: ${bodyL.fontWeight};
+                ${checkboxTokens.labelLetterSpacing}: ${bodyL.letterSpacing};
+                ${checkboxTokens.labelLineHeight}: ${bodyL.lineHeight};
                 ${checkboxTokens.descriptionMarginTop}: 0.125rem;
-                ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-m-font-size);
-                ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${checkboxTokens.descriptionFontFamily}: ${bodyM.fontFamily};
+                ${checkboxTokens.descriptionFontSize}: ${bodyM.fontSize};
+                ${checkboxTokens.descriptionFontStyle}: ${bodyM.fontStyle};
+                ${checkboxTokens.descriptionFontWeight}: ${bodyM.fontWeight};
+                ${checkboxTokens.descriptionLetterSpacing}: ${bodyM.letterSpacing};
+                ${checkboxTokens.descriptionLineHeight}: ${bodyM.lineHeight};
             `,
         },
         view: {
             accent: css`
-                ${checkboxTokens.fillColor}: var(--text-accent);
-                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
-                ${checkboxTokens.labelColor}: var(--text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.fillColor}: ${textAccent};
+                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
+                ${checkboxTokens.labelColor}: ${textPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: ${textSecondary};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             default: css`
-                ${checkboxTokens.fillColor}: var(--text-primary);
-                ${checkboxTokens.iconColor}: var(--inverse-text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.fillColor}: ${textPrimary};
+                ${checkboxTokens.iconColor}: ${inverseTextPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: ${textSecondary};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             secondary: css`
-                ${checkboxTokens.fillColor}: var(--text-secondary);
-                ${checkboxTokens.iconColor}: var(--inverse-text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.fillColor}: ${textSecondary};
+                ${checkboxTokens.iconColor}: ${inverseTextPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: ${textSecondary};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             tertiary: css`
-                ${checkboxTokens.fillColor}: var(--text-tertiary);
-                ${checkboxTokens.iconColor}: var(--inverse-text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.fillColor}: ${textTertiary};
+                ${checkboxTokens.iconColor}: ${inverseTextPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: ${textSecondary};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             paragraph: css`
-                ${checkboxTokens.fillColor}: var(--text-paragraph);
-                ${checkboxTokens.iconColor}: var(--inverse-text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.fillColor}: ${textParagraph};
+                ${checkboxTokens.iconColor}: ${inverseTextPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: ${textSecondary};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             positive: css`
-                ${checkboxTokens.fillColor}: var(--text-positive);
-                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.fillColor}: ${textPositive};
+                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: ${textSecondary};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
             warning: css`
-                ${checkboxTokens.fillColor}: var(--text-warning);
-                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.fillColor}: ${textWarning};
+                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-secondary);
+                ${checkboxTokens.triggerBorderColor}: ${textSecondary};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             negative: css`
-                ${checkboxTokens.fillColor}: var(--text-negative);
-                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
-                ${checkboxTokens.descriptionColor}: var(--text-secondary);
+                ${checkboxTokens.fillColor}: ${textNegative};
+                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: var(--text-negative);
+                ${checkboxTokens.triggerBorderColor}: ${textNegative};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
         },
@@ -155,7 +174,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${checkboxTokens.focusColor}: var(--text-accent);
+                ${checkboxTokens.focusColor}: ${textAccent};
             `,
         },
     },

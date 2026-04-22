@@ -1,5 +1,26 @@
 import { css, skeletonTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    dsplS,
+    h1,
+    h2,
+    h3,
+    h4,
+    surfaceSkeletonGradient,
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+    textL,
+    textM,
+    textS,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXxs, dsplL, dsplM, h5, h6, surfaceSkeletonDeepGradient
+ * textXs
+ */
 export const config = {
     defaults: {
         size: 'bodyM',
@@ -8,28 +29,28 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient, var(--surface-skeleton-gradient));
-                ${skeletonTokens.fadeInColor}: var(--surface-transparent-secondary);
-                ${skeletonTokens.fadeOutColor}: var(--surface-transparent-tertiary);
+                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient, ${surfaceSkeletonGradient});
+                ${skeletonTokens.fadeInColor}: ${surfaceTransparentSecondary};
+                ${skeletonTokens.fadeOutColor}: ${surfaceTransparentTertiary};
             `,
             lighter: css`
                 ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient-lighter, var(--surface-skeleton-deep-gradient));
-                ${skeletonTokens.fadeInColor}: var(--surface-transparent-secondary);
-                ${skeletonTokens.fadeOutColor}: var(--surface-transparent-tertiary);
+                ${skeletonTokens.fadeInColor}: ${surfaceTransparentSecondary};
+                ${skeletonTokens.fadeOutColor}: ${surfaceTransparentTertiary};
             `,
         },
         size: {
             bodyL: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-l-font-size);
+                ${skeletonTokens.lineHeight}: ${bodyL.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${bodyL.fontSize};
             `,
             bodyM: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-m-font-size);
+                ${skeletonTokens.lineHeight}: ${bodyM.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${bodyM.fontSize};
             `,
             bodyS: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-s-font-size);
+                ${skeletonTokens.lineHeight}: ${bodyS.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${bodyS.fontSize};
             `,
             bodyXS: css`
                 ${skeletonTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
@@ -48,24 +69,24 @@ export const config = {
                 ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-dspl-m-font-size);
             `,
             dsplS: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-dspl-s-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-dspl-s-font-size);
+                ${skeletonTokens.lineHeight}: ${dsplS.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${dsplS.fontSize};
             `,
             h1: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-h1-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h1-font-size);
+                ${skeletonTokens.lineHeight}: ${h1.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${h1.fontSize};
             `,
             h2: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-h2-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h2-font-size);
+                ${skeletonTokens.lineHeight}: ${h2.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${h2.fontSize};
             `,
             h3: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-h3-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h3-font-size);
+                ${skeletonTokens.lineHeight}: ${h3.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${h3.fontSize};
             `,
             h4: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-h4-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h4-font-size);
+                ${skeletonTokens.lineHeight}: ${h4.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${h4.fontSize};
             `,
             h5: css`
                 ${skeletonTokens.lineHeight}: var(--plasma-typo-h5-line-height);
@@ -76,16 +97,16 @@ export const config = {
                 ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h6-font-size);
             `,
             textL: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-l-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-l-font-size);
+                ${skeletonTokens.lineHeight}: ${textL.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${textL.fontSize};
             `,
             textM: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-m-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-m-font-size);
+                ${skeletonTokens.lineHeight}: ${textM.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${textM.fontSize};
             `,
             textS: css`
-                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-s-line-height);
-                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-s-font-size);
+                ${skeletonTokens.lineHeight}: ${textS.lineHeight};
+                ${skeletonTokens.visibleLineHeight}: ${textS.fontSize};
             `,
             textXS: css`
                 ${skeletonTokens.lineHeight}: var(--plasma-typo-text-xs-line-height);

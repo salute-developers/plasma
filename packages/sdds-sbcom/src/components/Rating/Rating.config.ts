@@ -1,5 +1,31 @@
 import { css, ratingTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyL,
+    bodyLBold,
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    dsplS,
+    dsplSBold,
+    h1,
+    h1Bold,
+    h2,
+    h2Bold,
+    h3,
+    h3Bold,
+    h4,
+    h4Bold,
+    textPrimary,
+    textSecondary,
+    textTertiary,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold, bodyXxs, bodyXxsBold, dsplL, dsplLBold, dsplM
+ * dsplMBold, h5, h5Bold, h6, h6Bold
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -8,29 +34,29 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-primary);
-                ${tokens.helperTextColor}: var(--text-secondary);
-                ${tokens.iconColor}: var(--text-primary);
-                ${tokens.outlineIconColor}: var(--text-primary);
+                ${tokens.color}: ${textPrimary};
+                ${tokens.helperTextColor}: ${textSecondary};
+                ${tokens.iconColor}: ${textPrimary};
+                ${tokens.outlineIconColor}: ${textPrimary};
             `,
             accent: css`
-                ${tokens.color}: var(--text-primary);
-                ${tokens.helperTextColor}: var(--text-secondary);
+                ${tokens.color}: ${textPrimary};
+                ${tokens.helperTextColor}: ${textSecondary};
                 // TODO: change with token data-yellow, when it will be added to theme
                 ${tokens.iconColor}: #F3A912;
-                ${tokens.outlineIconColor}: var(--text-tertiary);
+                ${tokens.outlineIconColor}: ${textTertiary};
             `,
         },
         size: {
             l: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.fontFamily}: ${bodyL.fontFamily};
+                ${tokens.fontSize}: ${bodyL.fontSize};
+                ${tokens.fontStyle}: ${bodyL.fontStyle};
+                ${tokens.fontWeight}: ${bodyLBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.lineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -48,12 +74,12 @@ export const config = {
             m: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fontFamily}: ${bodyM.fontFamily};
+                ${tokens.fontSize}: ${bodyM.fontSize};
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyMBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -71,12 +97,12 @@ export const config = {
             s: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.fontFamily}: ${bodyS.fontFamily};
+                ${tokens.fontSize}: ${bodyS.fontSize};
+                ${tokens.fontStyle}: ${bodyS.fontStyle};
+                ${tokens.fontWeight}: ${bodySBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.lineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -146,19 +172,19 @@ export const config = {
             h1: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-h1-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-h1-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-h1-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-h1-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-h1-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-h1-line-height);
+                ${tokens.fontFamily}: ${h1.fontFamily};
+                ${tokens.fontSize}: ${h1.fontSize};
+                ${tokens.fontStyle}: ${h1.fontStyle};
+                ${tokens.fontWeight}: ${h1Bold.fontWeight};
+                ${tokens.letterSpacing}: ${h1.letterSpacing};
+                ${tokens.lineHeight}: ${h1.lineHeight};
 
-                ${tokens.helperTextFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.helperTextFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.helperTextFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.helperTextFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.helperTextLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.helperTextFontFamily}: ${bodyM.fontFamily};
+                ${tokens.helperTextFontSize}: ${bodyM.fontSize};
+                ${tokens.helperTextFontStyle}: ${bodyM.fontStyle};
+                ${tokens.helperTextFontWeight}: ${bodyM.fontWeight};
+                ${tokens.helperTextLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.helperTextLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.contentGap}: 1rem;
                 ${tokens.singleIconContentGap}: 0.5rem;
@@ -177,19 +203,19 @@ export const config = {
             h2: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-h2-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-h2-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-h2-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-h2-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-h2-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-h2-line-height);
+                ${tokens.fontFamily}: ${h2.fontFamily};
+                ${tokens.fontSize}: ${h2.fontSize};
+                ${tokens.fontStyle}: ${h2.fontStyle};
+                ${tokens.fontWeight}: ${h2Bold.fontWeight};
+                ${tokens.letterSpacing}: ${h2.letterSpacing};
+                ${tokens.lineHeight}: ${h2.lineHeight};
 
-                ${tokens.helperTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.helperTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.helperTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.helperTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.helperTextLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.helperTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.helperTextFontSize}: ${bodyS.fontSize};
+                ${tokens.helperTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.helperTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.helperTextLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.helperTextLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.contentGap}: 0.875rem;
                 ${tokens.singleIconContentGap}: 0.5rem;
@@ -208,18 +234,24 @@ export const config = {
             h3: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-h3-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-h3-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-h3-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-h3-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-h3-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-h3-line-height);
+                ${tokens.fontFamily}: ${h3.fontFamily};
+                ${tokens.fontSize}: ${h3.fontSize};
+                ${tokens.fontStyle}: ${h3.fontStyle};
+                ${tokens.fontWeight}: ${h3Bold.fontWeight};
+                ${tokens.letterSpacing}: ${h3.letterSpacing};
+                ${tokens.lineHeight}: ${h3.lineHeight};
 
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.contentGap}: 0.75rem;
@@ -239,18 +271,24 @@ export const config = {
             h4: css`
                 ${tokens.gap}: 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-h4-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-h4-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-h4-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-h4-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-h4-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-h4-line-height);
+                ${tokens.fontFamily}: ${h4.fontFamily};
+                ${tokens.fontSize}: ${h4.fontSize};
+                ${tokens.fontStyle}: ${h4.fontStyle};
+                ${tokens.fontWeight}: ${h4Bold.fontWeight};
+                ${tokens.letterSpacing}: ${h4.letterSpacing};
+                ${tokens.lineHeight}: ${h4.lineHeight};
 
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.contentGap}: 0.625rem;
@@ -270,18 +308,30 @@ export const config = {
             h5: css`
                 ${tokens.gap}: 0.25rem;
 
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
                 ${tokens.fontFamily}: var(--plasma-typo-h5-font-family);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
                 ${tokens.fontSize}: var(--plasma-typo-h5-font-size);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
                 ${tokens.fontStyle}: var(--plasma-typo-h5-font-style);
+                /* NOTE: no token h5Bold in @salutejs/sdds-themes/tokens */
                 ${tokens.fontWeight}: var(--plasma-typo-h5-bold-font-weight);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
                 ${tokens.letterSpacing}: var(--plasma-typo-h5-letter-spacing);
+                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
                 ${tokens.lineHeight}: var(--plasma-typo-h5-line-height);
 
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.contentGap}: 0.625rem;
@@ -301,18 +351,30 @@ export const config = {
             h6: css`
                 ${tokens.gap}: 0.25rem;
 
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
                 ${tokens.fontFamily}: var(--plasma-typo-h6-font-family);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
                 ${tokens.fontSize}: var(--plasma-typo-h6-font-size);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
                 ${tokens.fontStyle}: var(--plasma-typo-h6-font-style);
+                /* NOTE: no token h6Bold in @salutejs/sdds-themes/tokens */
                 ${tokens.fontWeight}: var(--plasma-typo-h6-bold-font-weight);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
                 ${tokens.letterSpacing}: var(--plasma-typo-h6-letter-spacing);
+                /* NOTE: no token h6 in @salutejs/sdds-themes/tokens */
                 ${tokens.lineHeight}: var(--plasma-typo-h6-line-height);
 
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.contentGap}: 0.625rem;
@@ -332,19 +394,25 @@ export const config = {
             displayL: css`
                 ${tokens.gap}: 0.375rem;
 
+                /* NOTE: no token dsplL in @salutejs/sdds-themes/tokens */
                 ${tokens.fontFamily}: var(--plasma-typo-dspl-l-font-family);
+                /* NOTE: no token dsplL in @salutejs/sdds-themes/tokens */
                 ${tokens.fontSize}: var(--plasma-typo-dspl-l-font-size);
+                /* NOTE: no token dsplL in @salutejs/sdds-themes/tokens */
                 ${tokens.fontStyle}: var(--plasma-typo-dspl-l-font-style);
+                /* NOTE: no token dsplLBold in @salutejs/sdds-themes/tokens */
                 ${tokens.fontWeight}: var(--plasma-typo-dspl-l-bold-font-weight);
+                /* NOTE: no token dsplL in @salutejs/sdds-themes/tokens */
                 ${tokens.letterSpacing}: var(--plasma-typo-dspl-l-letter-spacing);
+                /* NOTE: no token dsplL in @salutejs/sdds-themes/tokens */
                 ${tokens.lineHeight}: var(--plasma-typo-dspl-l-line-height);
 
-                ${tokens.helperTextFontFamily}: var(--plasma-typo-h3-font-family);
-                ${tokens.helperTextFontSize}: var(--plasma-typo-h3-font-size);
-                ${tokens.helperTextFontStyle}: var(--plasma-typo-h3-font-style);
-                ${tokens.helperTextFontWeight}: var(--plasma-typo-h3-font-weight);
-                ${tokens.helperTextLetterSpacing}: var(--plasma-typo-h3-letter-spacing);
-                ${tokens.helperTextLineHeight}: var(--plasma-typo-h3-line-height);
+                ${tokens.helperTextFontFamily}: ${h3.fontFamily};
+                ${tokens.helperTextFontSize}: ${h3.fontSize};
+                ${tokens.helperTextFontStyle}: ${h3.fontStyle};
+                ${tokens.helperTextFontWeight}: ${h3.fontWeight};
+                ${tokens.helperTextLetterSpacing}: ${h3.letterSpacing};
+                ${tokens.helperTextLineHeight}: ${h3.lineHeight};
 
                 ${tokens.contentGap}: 1.5rem;
                 ${tokens.singleIconContentGap}: 0.75rem;
@@ -363,19 +431,25 @@ export const config = {
             displayM: css`
                 ${tokens.gap}: 0.375rem;
 
+                /* NOTE: no token dsplM in @salutejs/sdds-themes/tokens */
                 ${tokens.fontFamily}: var(--plasma-typo-dspl-m-font-family);
+                /* NOTE: no token dsplM in @salutejs/sdds-themes/tokens */
                 ${tokens.fontSize}: var(--plasma-typo-dspl-m-font-size);
+                /* NOTE: no token dsplM in @salutejs/sdds-themes/tokens */
                 ${tokens.fontStyle}: var(--plasma-typo-dspl-m-font-style);
+                /* NOTE: no token dsplMBold in @salutejs/sdds-themes/tokens */
                 ${tokens.fontWeight}: var(--plasma-typo-dspl-m-bold-font-weight);
+                /* NOTE: no token dsplM in @salutejs/sdds-themes/tokens */
                 ${tokens.letterSpacing}: var(--plasma-typo-dspl-m-letter-spacing);
+                /* NOTE: no token dsplM in @salutejs/sdds-themes/tokens */
                 ${tokens.lineHeight}: var(--plasma-typo-dspl-m-line-height);
 
-                ${tokens.helperTextFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.helperTextFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.helperTextFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.helperTextFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.helperTextLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.helperTextFontFamily}: ${bodyL.fontFamily};
+                ${tokens.helperTextFontSize}: ${bodyL.fontSize};
+                ${tokens.helperTextFontStyle}: ${bodyL.fontStyle};
+                ${tokens.helperTextFontWeight}: ${bodyL.fontWeight};
+                ${tokens.helperTextLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.helperTextLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.contentGap}: 1.5rem;
                 ${tokens.singleIconContentGap}: 0.75rem;
@@ -394,19 +468,19 @@ export const config = {
             displayS: css`
                 ${tokens.gap}: 0.375rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-dspl-s-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-dspl-s-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-dspl-s-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-dspl-s-bold-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-dspl-s-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-dspl-s-line-height);
+                ${tokens.fontFamily}: ${dsplS.fontFamily};
+                ${tokens.fontSize}: ${dsplS.fontSize};
+                ${tokens.fontStyle}: ${dsplS.fontStyle};
+                ${tokens.fontWeight}: ${dsplSBold.fontWeight};
+                ${tokens.letterSpacing}: ${dsplS.letterSpacing};
+                ${tokens.lineHeight}: ${dsplS.lineHeight};
 
-                ${tokens.helperTextFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.helperTextFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.helperTextFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.helperTextFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.helperTextLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.helperTextLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.helperTextFontFamily}: ${bodyL.fontFamily};
+                ${tokens.helperTextFontSize}: ${bodyL.fontSize};
+                ${tokens.helperTextFontStyle}: ${bodyL.fontStyle};
+                ${tokens.helperTextFontWeight}: ${bodyL.fontWeight};
+                ${tokens.helperTextLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.helperTextLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.contentGap}: 1.5rem;
                 ${tokens.singleIconContentGap}: 0.75rem;

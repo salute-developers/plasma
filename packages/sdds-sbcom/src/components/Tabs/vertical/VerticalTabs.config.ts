@@ -1,5 +1,15 @@
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    surfaceAccent,
+    surfaceTransparentTertiary,
+    textSecondary,
+    textSecondaryHover,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: TextSecondaryActive
+ */
 export const config = {
     defaults: {
         view: 'divider',
@@ -8,15 +18,15 @@ export const config = {
     variations: {
         view: {
             divider: css`
-                ${tabsTokens.arrowColor}: var(--text-secondary);
-                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColor}: ${textSecondary};
+                ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
                 ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.tabsDividerWidth}: 0.0625rem;
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
-                ${tabsTokens.tabsDividerColor}: var(--surface-transparent-tertiary);
+                ${tabsTokens.tabsDividerColor}: ${surfaceTransparentTertiary};
                 ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
             `,
         },
