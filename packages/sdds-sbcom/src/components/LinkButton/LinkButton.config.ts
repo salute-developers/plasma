@@ -1,5 +1,37 @@
 import { css, linkButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyL,
+    bodyLBold,
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    surfaceAccent,
+    textAccent,
+    textAccentActive,
+    textAccentHover,
+    textNegative,
+    textNegativeActive,
+    textNegativeHover,
+    textPositive,
+    textPositiveActive,
+    textPositiveHover,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textWarning,
+    textWarningActive,
+    textWarningHover,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold, surfaceTransparentClear
+ * SurfaceTransparentClear
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -8,70 +40,70 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-primary);
-                ${linkButtonTokens.linkButtonIconColor}: var(--text-primary);
-                ${linkButtonTokens.linkButtonTextColor}: var(--text-primary);
+                ${linkButtonTokens.linkButtonColor}: ${textPrimary};
+                ${linkButtonTokens.linkButtonIconColor}: ${textPrimary};
+                ${linkButtonTokens.linkButtonTextColor}: ${textPrimary};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-primary-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-primary-active);
-                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
-                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-primary-hover);
-                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-primary-active);
+                ${linkButtonTokens.linkButtonColorHover}: ${textPrimaryHover};
+                ${linkButtonTokens.linkButtonColorActive}: ${textPrimaryActive};
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${textPrimaryHover};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${textPrimaryActive};
             `,
             accent: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-accent);
-                ${linkButtonTokens.linkButtonIconColor}: var(--text-accent);
-                ${linkButtonTokens.linkButtonTextColor}: var(--text-accent);
+                ${linkButtonTokens.linkButtonColor}: ${textAccent};
+                ${linkButtonTokens.linkButtonIconColor}: ${textAccent};
+                ${linkButtonTokens.linkButtonTextColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-accent-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-accent-active);
-                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
-                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-accent-hover);
-                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-accent-active);
+                ${linkButtonTokens.linkButtonColorHover}: ${textAccentHover};
+                ${linkButtonTokens.linkButtonColorActive}: ${textAccentActive};
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${textAccentHover};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${textAccentActive};
             `,
             secondary: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-secondary);
-                ${linkButtonTokens.linkButtonIconColor}: var(--text-secondary);
-                ${linkButtonTokens.linkButtonTextColor}: var(--text-secondary);
+                ${linkButtonTokens.linkButtonColor}: ${textSecondary};
+                ${linkButtonTokens.linkButtonIconColor}: ${textSecondary};
+                ${linkButtonTokens.linkButtonTextColor}: ${textSecondary};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-secondary-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-secondary-active);
-                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
-                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-secondary-hover);
-                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-secondary-active);
+                ${linkButtonTokens.linkButtonColorHover}: ${textSecondaryHover};
+                ${linkButtonTokens.linkButtonColorActive}: ${textSecondaryActive};
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${textSecondaryHover};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${textSecondaryActive};
             `,
             positive: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-positive);
-                ${linkButtonTokens.linkButtonIconColor}: var(--text-positive);
-                ${linkButtonTokens.linkButtonTextColor}: var(--text-positive);
+                ${linkButtonTokens.linkButtonColor}: ${textPositive};
+                ${linkButtonTokens.linkButtonIconColor}: ${textPositive};
+                ${linkButtonTokens.linkButtonTextColor}: ${textPositive};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-positive-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-positive-active);
-                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
-                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-positive-hover);
-                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-positive-active);
+                ${linkButtonTokens.linkButtonColorHover}: ${textPositiveHover};
+                ${linkButtonTokens.linkButtonColorActive}: ${textPositiveActive};
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${textPositiveHover};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${textPositiveActive};
             `,
             warning: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-warning);
-                ${linkButtonTokens.linkButtonIconColor}: var(--text-warning);
-                ${linkButtonTokens.linkButtonTextColor}: var(--text-warning);
+                ${linkButtonTokens.linkButtonColor}: ${textWarning};
+                ${linkButtonTokens.linkButtonIconColor}: ${textWarning};
+                ${linkButtonTokens.linkButtonTextColor}: ${textWarning};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-warning-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-warning-active);
-                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
-                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-warning-hover);
-                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-warning-active);
+                ${linkButtonTokens.linkButtonColorHover}: ${textWarningHover};
+                ${linkButtonTokens.linkButtonColorActive}: ${textWarningActive};
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${textWarningHover};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${textWarningActive};
             `,
             negative: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-negative);
-                ${linkButtonTokens.linkButtonIconColor}: var(--text-negative);
-                ${linkButtonTokens.linkButtonTextColor}: var(--text-negative);
+                ${linkButtonTokens.linkButtonColor}: ${textNegative};
+                ${linkButtonTokens.linkButtonIconColor}: ${textNegative};
+                ${linkButtonTokens.linkButtonTextColor}: ${textNegative};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-negative-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-negative-active);
-                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
-                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-negative-hover);
-                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-negative-active);
+                ${linkButtonTokens.linkButtonColorHover}: ${textNegativeHover};
+                ${linkButtonTokens.linkButtonColorActive}: ${textNegativeActive};
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${textNegativeHover};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${textNegativeActive};
             `,
         },
         size: {
@@ -79,12 +111,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 4rem;
                 ${linkButtonTokens.linkButtonPadding}: 1.25rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 1rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${linkButtonTokens.linkButtonFontFamily}: ${bodyL.fontFamily};
+                ${linkButtonTokens.linkButtonFontSize}: ${bodyL.fontSize};
+                ${linkButtonTokens.linkButtonFontStyle}: ${bodyL.fontStyle};
+                ${linkButtonTokens.linkButtonFontWeight}: ${bodyLBold.fontWeight};
+                ${linkButtonTokens.linkButtonLetterSpacing}: ${bodyL.letterSpacing};
+                ${linkButtonTokens.linkButtonLineHeight}: ${bodyL.lineHeight};
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1.5rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
@@ -98,12 +130,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 3.5rem;
                 ${linkButtonTokens.linkButtonPadding}: 1rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.875rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-l-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${linkButtonTokens.linkButtonFontFamily}: ${bodyL.fontFamily};
+                ${linkButtonTokens.linkButtonFontSize}: ${bodyL.fontSize};
+                ${linkButtonTokens.linkButtonFontStyle}: ${bodyL.fontStyle};
+                ${linkButtonTokens.linkButtonFontWeight}: ${bodyLBold.fontWeight};
+                ${linkButtonTokens.linkButtonLetterSpacing}: ${bodyL.letterSpacing};
+                ${linkButtonTokens.linkButtonLineHeight}: ${bodyL.lineHeight};
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1.375rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
@@ -117,12 +149,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 3rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.75rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.75rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-m-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${linkButtonTokens.linkButtonFontFamily}: ${bodyM.fontFamily};
+                ${linkButtonTokens.linkButtonFontSize}: ${bodyM.fontSize};
+                ${linkButtonTokens.linkButtonFontStyle}: ${bodyM.fontStyle};
+                ${linkButtonTokens.linkButtonFontWeight}: ${bodyMBold.fontWeight};
+                ${linkButtonTokens.linkButtonLetterSpacing}: ${bodyM.letterSpacing};
+                ${linkButtonTokens.linkButtonLineHeight}: ${bodyM.lineHeight};
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1.375rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
@@ -136,12 +168,12 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 2.5rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.5rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.625rem;
-                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-s-font-size);
-                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${linkButtonTokens.linkButtonFontFamily}: ${bodyS.fontFamily};
+                ${linkButtonTokens.linkButtonFontSize}: ${bodyS.fontSize};
+                ${linkButtonTokens.linkButtonFontStyle}: ${bodyS.fontStyle};
+                ${linkButtonTokens.linkButtonFontWeight}: ${bodySBold.fontWeight};
+                ${linkButtonTokens.linkButtonLetterSpacing}: ${bodyS.letterSpacing};
+                ${linkButtonTokens.linkButtonLineHeight}: ${bodyS.lineHeight};
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1.375rem;
                 ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
@@ -155,11 +187,17 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 2rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.5rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.5rem;
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 1rem;
@@ -174,11 +212,17 @@ export const config = {
                 ${linkButtonTokens.linkButtonHeight}: 1.5rem;
                 ${linkButtonTokens.linkButtonPadding}: 0.375rem 0;
                 ${linkButtonTokens.linkButtonRadius}: 0.375rem;
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${linkButtonTokens.linkButtonSpinnerSize}: 0.75rem;
