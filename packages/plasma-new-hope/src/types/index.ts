@@ -15,3 +15,4 @@ export type {
     MakePolymorphic,
 } from './Polymorphic';
 export { makePolymorphic } from './Polymorphic';
+export type { RefOf } from './RefOf';
