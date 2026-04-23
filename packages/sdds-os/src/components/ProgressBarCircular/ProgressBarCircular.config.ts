@@ -1,3 +1,15 @@
+import {
+    bodyM,
+    surfaceAccent,
+    surfaceInfo,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+    surfaceWarning,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_os';
 import { css, progressBarCircularTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -8,39 +20,39 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
-                ${progressBarCircularTokens.progressStroke}: var(--surface-solid-default);
-                ${progressBarCircularTokens.contentColor}: var(--text-primary);
+                ${progressBarCircularTokens.backgroundStroke}: ${surfaceTransparentTertiary};
+                ${progressBarCircularTokens.progressStroke}: ${surfaceSolidDefault};
+                ${progressBarCircularTokens.contentColor}: ${textPrimary};
             `,
             secondary: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
-                ${progressBarCircularTokens.progressStroke}: var(--surface-transparent-secondary);
-                ${progressBarCircularTokens.contentColor}: var(--text-primary);
+                ${progressBarCircularTokens.backgroundStroke}: ${surfaceTransparentTertiary};
+                ${progressBarCircularTokens.progressStroke}: ${surfaceTransparentSecondary};
+                ${progressBarCircularTokens.contentColor}: ${textPrimary};
             `,
             accent: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
-                ${progressBarCircularTokens.progressStroke}: var(--surface-accent);
-                ${progressBarCircularTokens.contentColor}: var(--text-primary);
+                ${progressBarCircularTokens.backgroundStroke}: ${surfaceTransparentTertiary};
+                ${progressBarCircularTokens.progressStroke}: ${surfaceAccent};
+                ${progressBarCircularTokens.contentColor}: ${textPrimary};
             `,
             positive: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
-                ${progressBarCircularTokens.progressStroke}: var(--surface-positive);
-                ${progressBarCircularTokens.contentColor}: var(--text-primary);
+                ${progressBarCircularTokens.backgroundStroke}: ${surfaceTransparentTertiary};
+                ${progressBarCircularTokens.progressStroke}: ${surfacePositive};
+                ${progressBarCircularTokens.contentColor}: ${textPrimary};
             `,
             warning: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
-                ${progressBarCircularTokens.progressStroke}: var(--surface-warning);
-                ${progressBarCircularTokens.contentColor}: var(--text-primary);
+                ${progressBarCircularTokens.backgroundStroke}: ${surfaceTransparentTertiary};
+                ${progressBarCircularTokens.progressStroke}: ${surfaceWarning};
+                ${progressBarCircularTokens.contentColor}: ${textPrimary};
             `,
             negative: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
-                ${progressBarCircularTokens.progressStroke}: var(--surface-negative);
-                ${progressBarCircularTokens.contentColor}: var(--text-primary);
+                ${progressBarCircularTokens.backgroundStroke}: ${surfaceTransparentTertiary};
+                ${progressBarCircularTokens.progressStroke}: ${surfaceNegative};
+                ${progressBarCircularTokens.contentColor}: ${textPrimary};
             `,
             info: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
-                ${progressBarCircularTokens.progressStroke}: var(--surface-info);
-                ${progressBarCircularTokens.contentColor}: var(--text-primary);
+                ${progressBarCircularTokens.backgroundStroke}: ${surfaceTransparentTertiary};
+                ${progressBarCircularTokens.progressStroke}: ${surfaceInfo};
+                ${progressBarCircularTokens.contentColor}: ${textPrimary};
             `,
         },
         size: {
@@ -50,12 +62,12 @@ export const config = {
                 ${progressBarCircularTokens.width}: 3rem;
                 ${progressBarCircularTokens.strokeWidth}: 0.125rem;
                 ${progressBarCircularTokens.strokeSize}: 2;
-                ${progressBarCircularTokens.contentFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${progressBarCircularTokens.contentFontSize}: var(--plasma-typo-body-m-font-size);
-                ${progressBarCircularTokens.contentFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${progressBarCircularTokens.contentFontWeight}: var(--plasma-typo-body-m-body-font-weight);
-                ${progressBarCircularTokens.contentLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${progressBarCircularTokens.contentLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${progressBarCircularTokens.contentFontFamily}: ${bodyM.fontFamily};
+                ${progressBarCircularTokens.contentFontSize}: ${bodyM.fontSize};
+                ${progressBarCircularTokens.contentFontStyle}: ${bodyM.fontStyle};
+                ${progressBarCircularTokens.contentFontWeight}: ${bodyM.fontWeight};
+                ${progressBarCircularTokens.contentLetterSpacing}: ${bodyM.letterSpacing};
+                ${progressBarCircularTokens.contentLineHeight}: ${bodyM.lineHeight};
             `,
         },
     },

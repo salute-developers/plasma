@@ -1,3 +1,52 @@
+import {
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    bodyXS,
+    bodyXSBold,
+    inverseTextPrimary,
+    inverseTextSecondary,
+    onDarkSurfaceSolidDefault,
+    onDarkSurfaceSolidDefaultActive,
+    onDarkSurfaceSolidDefaultHover,
+    onDarkTextPrimary,
+    onDarkTextSecondary,
+    onLightSurfaceSolidDefault,
+    onLightSurfaceSolidDefaultActive,
+    onLightSurfaceSolidDefaultHover,
+    onLightSurfaceTransparentDeep,
+    onLightSurfaceTransparentDeepActive,
+    onLightSurfaceTransparentDeepHover,
+    onLightTextPrimary,
+    onLightTextSecondary,
+    surfaceAccent,
+    surfaceAccentActive,
+    surfaceAccentHover,
+    surfaceClear,
+    surfaceNegative,
+    surfaceNegativeActive,
+    surfaceNegativeHover,
+    surfacePositive,
+    surfacePositiveActive,
+    surfacePositiveHover,
+    surfaceSolidDefault,
+    surfaceSolidDefaultActive,
+    surfaceSolidDefaultHover,
+    surfaceTransparentSecondary,
+    surfaceTransparentSecondaryActive,
+    surfaceTransparentSecondaryHover,
+    surfaceWarning,
+    surfaceWarningActive,
+    surfaceWarningHover,
+    textNegative,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+} from '@salutejs/sdds-themes/tokens/sdds_os';
 import { css, attachTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
@@ -10,439 +59,439 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${attachTokens.buttonColor}: var(--inverse-text-primary);
-                ${attachTokens.buttonValueColor}: var(--inverse-text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${attachTokens.buttonColor}: ${inverseTextPrimary};
+                ${attachTokens.buttonValueColor}: ${inverseTextSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${surfaceSolidDefault};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--inverse-text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
-                ${attachTokens.buttonColorActive}: var(--inverse-text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--surface-solid-default-active);
+                ${attachTokens.buttonColorHover}: ${inverseTextPrimary};
+                ${attachTokens.buttonBackgroundColorHover}: ${surfaceSolidDefaultHover};
+                ${attachTokens.buttonColorActive}: ${inverseTextPrimary};
+                ${attachTokens.buttonBackgroundColorActive}: ${surfaceSolidDefaultActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--inverse-text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
+                ${attachTokens.iconButtonColor}: ${inverseTextPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${surfaceSolidDefault};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--inverse-text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-solid-default-hover);
-                ${attachTokens.iconButtonColorActive}: var(--inverse-text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-solid-default-active);
+                ${attachTokens.iconButtonColorHover}: ${inverseTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${surfaceSolidDefaultHover};
+                ${attachTokens.iconButtonColorActive}: ${inverseTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceSolidDefaultActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             accent: css`
-                ${attachTokens.buttonColor}: var(--on-dark-text-primary);
-                ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--surface-accent);
+                ${attachTokens.buttonColor}: ${onDarkTextPrimary};
+                ${attachTokens.buttonValueColor}: ${onDarkTextSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${surfaceAccent};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${attachTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
+                ${attachTokens.buttonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorHover}: ${surfaceAccentHover};
+                ${attachTokens.buttonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorActive}: ${surfaceAccentActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--surface-accent);
+                ${attachTokens.iconButtonColor}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${surfaceAccent};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
-                ${attachTokens.iconButtonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
+                ${attachTokens.iconButtonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${surfaceAccentHover};
+                ${attachTokens.iconButtonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceAccentActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             secondary: css`
-                ${attachTokens.buttonColor}: var(--text-primary);
-                ${attachTokens.buttonValueColor}: var(--text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+                ${attachTokens.buttonColor}: ${textPrimary};
+                ${attachTokens.buttonValueColor}: ${textSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${surfaceTransparentSecondary};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${attachTokens.buttonColorActive}: var(--text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${attachTokens.buttonColorHover}: ${textPrimary};
+                ${attachTokens.buttonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
+                ${attachTokens.buttonColorActive}: ${textPrimary};
+                ${attachTokens.buttonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--surface-transparent-secondary);
+                ${attachTokens.iconButtonColor}: ${textPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${surfaceTransparentSecondary};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${attachTokens.iconButtonColorActive}: var(--text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${attachTokens.iconButtonColorHover}: ${textPrimary};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
+                ${attachTokens.iconButtonColorActive}: ${textPrimary};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             clear: css`
-                ${attachTokens.buttonColor}: var(--text-primary);
-                ${attachTokens.buttonValueColor}: var(--text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--surface-clear);
+                ${attachTokens.buttonColor}: ${textPrimary};
+                ${attachTokens.buttonValueColor}: ${textSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${surfaceClear};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--text-primary-hover);
-                ${attachTokens.buttonBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.buttonColorActive}: var(--text-primary-active);
-                ${attachTokens.buttonBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.buttonColorHover}: ${textPrimaryHover};
+                ${attachTokens.buttonBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.buttonColorActive}: ${textPrimaryActive};
+                ${attachTokens.buttonBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonColor}: ${textPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--text-primary-hover);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonColorActive}: var(--text-primary-active);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonColorHover}: ${textPrimaryHover};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonColorActive}: ${textPrimaryActive};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             positive: css`
-                ${attachTokens.buttonColor}: var(--on-dark-text-primary);
-                ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--surface-positive);
+                ${attachTokens.buttonColor}: ${onDarkTextPrimary};
+                ${attachTokens.buttonValueColor}: ${onDarkTextSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${surfacePositive};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
-                ${attachTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--surface-positive-active);
+                ${attachTokens.buttonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorHover}: ${surfacePositiveHover};
+                ${attachTokens.buttonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorActive}: ${surfacePositiveActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--surface-positive);
+                ${attachTokens.iconButtonColor}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${surfacePositive};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-positive-hover);
-                ${attachTokens.iconButtonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-positive-active);
+                ${attachTokens.iconButtonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${surfacePositiveHover};
+                ${attachTokens.iconButtonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${surfacePositiveActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             warning: css`
-                ${attachTokens.buttonColor}: var(--on-dark-text-primary);
-                ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--surface-warning);
+                ${attachTokens.buttonColor}: ${onDarkTextPrimary};
+                ${attachTokens.buttonValueColor}: ${onDarkTextSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${surfaceWarning};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--surface-warning-hover);
-                ${attachTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--surface-warning-active);
+                ${attachTokens.buttonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorHover}: ${surfaceWarningHover};
+                ${attachTokens.buttonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorActive}: ${surfaceWarningActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--surface-warning);
+                ${attachTokens.iconButtonColor}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${surfaceWarning};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-warning-hover);
-                ${attachTokens.iconButtonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-warning-active);
+                ${attachTokens.iconButtonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${surfaceWarningHover};
+                ${attachTokens.iconButtonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceWarningActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             negative: css`
-                ${attachTokens.buttonColor}: var(--on-dark-text-primary);
-                ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--surface-negative);
+                ${attachTokens.buttonColor}: ${onDarkTextPrimary};
+                ${attachTokens.buttonValueColor}: ${onDarkTextSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${surfaceNegative};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
-                ${attachTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--surface-negative-active);
+                ${attachTokens.buttonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorHover}: ${surfaceNegativeHover};
+                ${attachTokens.buttonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorActive}: ${surfaceNegativeActive};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--surface-negative);
+                ${attachTokens.iconButtonColor}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${surfaceNegative};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-negative-hover);
-                ${attachTokens.iconButtonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-negative-active);
+                ${attachTokens.iconButtonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${surfaceNegativeHover};
+                ${attachTokens.iconButtonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceNegativeActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             dark: css`
-                ${attachTokens.buttonColor}: var(--on-dark-text-primary);
-                ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
+                ${attachTokens.buttonColor}: ${onDarkTextPrimary};
+                ${attachTokens.buttonValueColor}: ${onDarkTextSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${onLightSurfaceTransparentDeep};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
-                ${attachTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
+                ${attachTokens.buttonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorHover}: ${onLightSurfaceTransparentDeepHover};
+                ${attachTokens.buttonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorActive}: ${onLightSurfaceTransparentDeepActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--on-light-surface-transparent-deep);
+                ${attachTokens.iconButtonColor}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${onLightSurfaceTransparentDeep};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
-                ${attachTokens.iconButtonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
+                ${attachTokens.iconButtonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${onLightSurfaceTransparentDeepHover};
+                ${attachTokens.iconButtonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${onLightSurfaceTransparentDeepActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             black: css`
-                ${attachTokens.buttonColor}: var(--on-dark-text-primary);
-                ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--on-light-surface-solid-default);
+                ${attachTokens.buttonColor}: ${onDarkTextPrimary};
+                ${attachTokens.buttonValueColor}: ${onDarkTextSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${onLightSurfaceSolidDefault};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
-                ${attachTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+                ${attachTokens.buttonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorHover}: ${onLightSurfaceSolidDefaultHover};
+                ${attachTokens.buttonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.buttonBackgroundColorActive}: ${onLightSurfaceSolidDefaultActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--on-light-surface-solid-default);
+                ${attachTokens.iconButtonColor}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${onLightSurfaceSolidDefault};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
-                ${attachTokens.iconButtonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+                ${attachTokens.iconButtonColorHover}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${onLightSurfaceSolidDefaultHover};
+                ${attachTokens.iconButtonColorActive}: ${onDarkTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${onLightSurfaceSolidDefaultActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
             white: css`
-                ${attachTokens.buttonColor}: var(--on-light-text-primary);
-                ${attachTokens.buttonValueColor}: var(--on-light-text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${attachTokens.buttonColor}: ${onLightTextPrimary};
+                ${attachTokens.buttonValueColor}: ${onLightTextSecondary};
+                ${attachTokens.buttonBackgroundColor}: ${onDarkSurfaceSolidDefault};
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--on-light-text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${attachTokens.buttonColorActive}: var(--on-light-text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+                ${attachTokens.buttonColorHover}: ${onLightTextPrimary};
+                ${attachTokens.buttonBackgroundColorHover}: ${onDarkSurfaceSolidDefaultHover};
+                ${attachTokens.buttonColorActive}: ${onLightTextPrimary};
+                ${attachTokens.buttonBackgroundColorActive}: ${onDarkSurfaceSolidDefaultActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
+                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
+                ${attachTokens.cellColor}: ${textPrimary};
+                ${attachTokens.cellLabelColor}: ${textSecondary};
+                ${attachTokens.cellTitleColor}: ${textPrimary};
+                ${attachTokens.cellSubtitleColor}: ${textSecondary};
                 ${attachTokens.cellBackgroundColor}: transparent;
 
-                ${attachTokens.iconButtonColor}: var(--on-light-text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${attachTokens.iconButtonColor}: ${onLightTextPrimary};
+                ${attachTokens.iconButtonBackgroundColor}: ${onDarkSurfaceSolidDefault};
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--on-light-text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${attachTokens.iconButtonColorActive}: var(--on-light-text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
+                ${attachTokens.iconButtonColorHover}: ${onLightTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorHover}: ${onDarkSurfaceSolidDefaultHover};
+                ${attachTokens.iconButtonColorActive}: ${onLightTextPrimary};
+                ${attachTokens.iconButtonBackgroundColorActive}: ${onDarkSurfaceSolidDefaultActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColor}: ${textSecondary};
+                ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
                 ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
+                ${attachTokens.iconButtonCancelColorHover}: ${textSecondaryHover};
+                ${attachTokens.iconButtonCancelBackgroundColorHover}: ${surfaceClear};
+                ${attachTokens.iconButtonCancelColorActive}: ${textSecondaryActive};
+                ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
+                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
 
-                ${attachTokens.moreIconColor}: var(--text-primary);
+                ${attachTokens.moreIconColor}: ${textPrimary};
             `,
         },
         helperTextView: {
             default: css`
-                ${attachTokens.helperTextColor}: var(--text-secondary);
+                ${attachTokens.helperTextColor}: ${textSecondary};
             `,
             negative: css`
-                ${attachTokens.helperTextColor}: var(--text-negative);
+                ${attachTokens.helperTextColor}: ${textNegative};
             `,
         },
         size: {
@@ -457,12 +506,12 @@ export const config = {
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1.25rem;
                 ${attachTokens.buttonRadius}: 0.75rem;
-                ${attachTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${attachTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
-                ${attachTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${attachTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${attachTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${attachTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${attachTokens.buttonFontFamily}: ${bodyM.fontFamily};
+                ${attachTokens.buttonFontSize}: ${bodyM.fontSize};
+                ${attachTokens.buttonFontStyle}: ${bodyM.fontStyle};
+                ${attachTokens.buttonFontWeight}: ${bodyMBold.fontWeight};
+                ${attachTokens.buttonLetterSpacing}: ${bodyM.letterSpacing};
+                ${attachTokens.buttonLineHeight}: ${bodyM.lineHeight};
 
                 ${attachTokens.buttonSpinnerSize}: 1.375rem;
                 ${attachTokens.buttonSpinnerColor}: inherit;
@@ -481,37 +530,37 @@ export const config = {
                 ${attachTokens.cellTextboxGap}: 0.125rem;
                 ${attachTokens.cellGap}: 0.375rem;
 
-                ${attachTokens.cellLabelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${attachTokens.cellLabelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${attachTokens.cellLabelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${attachTokens.cellLabelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${attachTokens.cellLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${attachTokens.cellLabelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${attachTokens.cellLabelFontFamily}: ${bodyS.fontFamily};
+                ${attachTokens.cellLabelFontSize}: ${bodyS.fontSize};
+                ${attachTokens.cellLabelFontStyle}: ${bodyS.fontStyle};
+                ${attachTokens.cellLabelFontWeight}: ${bodyS.fontWeight};
+                ${attachTokens.cellLabelLetterSpacing}: ${bodyS.letterSpacing};
+                ${attachTokens.cellLabelLineHeight}: ${bodyS.lineHeight};
 
-                ${attachTokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${attachTokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${attachTokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${attachTokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${attachTokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${attachTokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${attachTokens.cellTitleFontFamily}: ${bodyM.fontFamily};
+                ${attachTokens.cellTitleFontSize}: ${bodyM.fontSize};
+                ${attachTokens.cellTitleFontStyle}: ${bodyM.fontStyle};
+                ${attachTokens.cellTitleFontWeight}: ${bodyM.fontWeight};
+                ${attachTokens.cellTitleLetterSpacing}: ${bodyM.letterSpacing};
+                ${attachTokens.cellTitleLineHeight}: ${bodyM.lineHeight};
 
-                ${attachTokens.cellSubtitleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${attachTokens.cellSubtitleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${attachTokens.cellSubtitleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${attachTokens.cellSubtitleFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${attachTokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${attachTokens.cellSubtitleLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${attachTokens.cellSubtitleFontFamily}: ${bodyS.fontFamily};
+                ${attachTokens.cellSubtitleFontSize}: ${bodyS.fontSize};
+                ${attachTokens.cellSubtitleFontStyle}: ${bodyS.fontStyle};
+                ${attachTokens.cellSubtitleFontWeight}: ${bodyS.fontWeight};
+                ${attachTokens.cellSubtitleLetterSpacing}: ${bodyS.letterSpacing};
+                ${attachTokens.cellSubtitleLineHeight}: ${bodyS.lineHeight};
 
                 ${attachTokens.iconButtonHeight}: 3rem;
                 ${attachTokens.iconButtonWidth}: 3rem;
                 ${attachTokens.iconButtonPadding}: 1.25rem;
                 ${attachTokens.iconButtonRadius}: 0.75rem;
-                ${attachTokens.iconButtonFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${attachTokens.iconButtonFontSize}: var(--plasma-typo-body-m-font-size);
-                ${attachTokens.iconButtonFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${attachTokens.iconButtonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${attachTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${attachTokens.iconButtonLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${attachTokens.iconButtonFontFamily}: ${bodyM.fontFamily};
+                ${attachTokens.iconButtonFontSize}: ${bodyM.fontSize};
+                ${attachTokens.iconButtonFontStyle}: ${bodyM.fontStyle};
+                ${attachTokens.iconButtonFontWeight}: ${bodyMBold.fontWeight};
+                ${attachTokens.iconButtonLetterSpacing}: ${bodyM.letterSpacing};
+                ${attachTokens.iconButtonLineHeight}: ${bodyM.lineHeight};
 
                 ${attachTokens.iconButtonSpinnerSize}: 1.375rem;
                 ${attachTokens.iconButtonSpinnerColor}: inherit;
@@ -520,12 +569,12 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
+                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
+                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
+                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
+                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
+                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
@@ -547,12 +596,12 @@ export const config = {
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1rem;
                 ${attachTokens.buttonRadius}: 0.625rem;
-                ${attachTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${attachTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
-                ${attachTokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${attachTokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${attachTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${attachTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${attachTokens.buttonFontFamily}: ${bodyS.fontFamily};
+                ${attachTokens.buttonFontSize}: ${bodyS.fontSize};
+                ${attachTokens.buttonFontStyle}: ${bodyS.fontStyle};
+                ${attachTokens.buttonFontWeight}: ${bodySBold.fontWeight};
+                ${attachTokens.buttonLetterSpacing}: ${bodyS.letterSpacing};
+                ${attachTokens.buttonLineHeight}: ${bodyS.lineHeight};
 
                 ${attachTokens.buttonSpinnerSize}: 1.375rem;
                 ${attachTokens.buttonSpinnerColor}: inherit;
@@ -571,37 +620,37 @@ export const config = {
                 ${attachTokens.cellTextboxGap}: 0.125rem;
                 ${attachTokens.cellGap}: 0.375rem;
 
-                ${attachTokens.cellLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${attachTokens.cellLabelFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${attachTokens.cellLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${attachTokens.cellLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${attachTokens.cellLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${attachTokens.cellLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${attachTokens.cellLabelFontFamily}: ${bodyXS.fontFamily};
+                ${attachTokens.cellLabelFontSize}: ${bodyXS.fontSize};
+                ${attachTokens.cellLabelFontStyle}: ${bodyXS.fontStyle};
+                ${attachTokens.cellLabelFontWeight}: ${bodyXS.fontWeight};
+                ${attachTokens.cellLabelLetterSpacing}: ${bodyXS.letterSpacing};
+                ${attachTokens.cellLabelLineHeight}: ${bodyXS.lineHeight};
 
-                ${attachTokens.cellTitleFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${attachTokens.cellTitleFontSize}: var(--plasma-typo-body-s-font-size);
-                ${attachTokens.cellTitleFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${attachTokens.cellTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${attachTokens.cellTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${attachTokens.cellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${attachTokens.cellTitleFontFamily}: ${bodyS.fontFamily};
+                ${attachTokens.cellTitleFontSize}: ${bodyS.fontSize};
+                ${attachTokens.cellTitleFontStyle}: ${bodyS.fontStyle};
+                ${attachTokens.cellTitleFontWeight}: ${bodyS.fontWeight};
+                ${attachTokens.cellTitleLetterSpacing}: ${bodyS.letterSpacing};
+                ${attachTokens.cellTitleLineHeight}: ${bodyS.lineHeight};
 
-                ${attachTokens.cellSubtitleFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${attachTokens.cellSubtitleFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${attachTokens.cellSubtitleFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${attachTokens.cellSubtitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${attachTokens.cellSubtitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${attachTokens.cellSubtitleLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${attachTokens.cellSubtitleFontFamily}: ${bodyXS.fontFamily};
+                ${attachTokens.cellSubtitleFontSize}: ${bodyXS.fontSize};
+                ${attachTokens.cellSubtitleFontStyle}: ${bodyXS.fontStyle};
+                ${attachTokens.cellSubtitleFontWeight}: ${bodyXS.fontWeight};
+                ${attachTokens.cellSubtitleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${attachTokens.cellSubtitleLineHeight}: ${bodyXS.lineHeight};
 
                 ${attachTokens.iconButtonHeight}: 2.5rem;
                 ${attachTokens.iconButtonWidth}: 2.5rem;
                 ${attachTokens.iconButtonPadding}: 1rem;
                 ${attachTokens.iconButtonRadius}: 0.625rem;
-                ${attachTokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${attachTokens.iconButtonFontSize}: var(--plasma-typo-body-s-font-size);
-                ${attachTokens.iconButtonFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${attachTokens.iconButtonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${attachTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${attachTokens.iconButtonLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${attachTokens.iconButtonFontFamily}: ${bodyS.fontFamily};
+                ${attachTokens.iconButtonFontSize}: ${bodyS.fontSize};
+                ${attachTokens.iconButtonFontStyle}: ${bodyS.fontStyle};
+                ${attachTokens.iconButtonFontWeight}: ${bodySBold.fontWeight};
+                ${attachTokens.iconButtonLetterSpacing}: ${bodyS.letterSpacing};
+                ${attachTokens.iconButtonLineHeight}: ${bodyS.lineHeight};
 
                 ${attachTokens.iconButtonSpinnerSize}: 1.375rem;
                 ${attachTokens.iconButtonSpinnerColor}: inherit;
@@ -610,12 +659,12 @@ export const config = {
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
                 ${attachTokens.iconButtonCancelRadius}: 0.5rem;
-                ${attachTokens.iconButtonCancelFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${attachTokens.iconButtonCancelFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${attachTokens.iconButtonCancelFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${attachTokens.iconButtonCancelFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${attachTokens.iconButtonCancelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${attachTokens.iconButtonCancelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
+                ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
+                ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
+                ${attachTokens.iconButtonCancelFontWeight}: ${bodyXSBold.fontWeight};
+                ${attachTokens.iconButtonCancelLetterSpacing}: ${bodyXS.letterSpacing};
+                ${attachTokens.iconButtonCancelLineHeight}: ${bodyXS.lineHeight};
 
                 ${attachTokens.iconButtonCancelSpinnerSize}: 1rem;
                 ${attachTokens.iconButtonCancelSpinnerColor}: inherit;
