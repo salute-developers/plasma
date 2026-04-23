@@ -145,7 +145,7 @@ export const tokens = {
 
 ```typescript
 // tokens.ts — объявление ключа
-padding: '--sdds-core-component-name-padding'// MyComponent.config.ts (вертикаль) — присвоение значения
+padding: '--sdds-core-component-name-padding' // MyComponent.config.ts (вертикаль) — присвоение значения
 `${tokens.padding}: 0.75rem;`;
 ```
 
@@ -461,12 +461,10 @@ const mergedConfigClear = mergeConfig(textFieldConfig, clearConfig);
 export const TextFieldClear = component(mergedConfigClear);
 
 // Объединяем через createConditionalComponent
-export const TextField = createConditionalComponent(TextFieldDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'clear' },
-        component: TextFieldClear,
-    },
-]);
+export const TextField = createConditionalComponent({
+    default: TextFieldDefault,
+    clear: TextFieldClear,
+});
 ```
 
 Если `appearance="clear"` — рендерится `TextFieldClear`, иначе — `TextFieldDefault`.

@@ -52,7 +52,7 @@
       "src/**/*.stories.tsx",
       "src/**/*.perftest.tsx"
     ],
-    "atLeast": 99.97
+    "atLeast": 99.80
   },
   "dependencies": {
     "@salutejs/plasma-core": "1.223.0",

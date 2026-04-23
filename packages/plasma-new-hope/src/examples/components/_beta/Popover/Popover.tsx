@@ -11,9 +11,7 @@ export const PopoverCloseNone = component(mergedCloseNoneConfig);
 const mergedCloseInnerConfig = mergeConfig(_beta_popoverConfig, closeInnerConfig);
 export const PopoverCloseInner = component(mergedCloseInnerConfig);
 
-export const Popover = createConditionalComponent(PopoverCloseNone, [
-    {
-        conditions: { prop: 'appearance', value: 'closeInner' },
-        component: PopoverCloseInner,
-    },
-]);
+export const Popover = createConditionalComponent({
+    default: PopoverCloseNone,
+    closeInner: PopoverCloseInner,
+});

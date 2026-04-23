@@ -17,12 +17,10 @@ export const TextFieldDefault = component(mergedConfigDefault);
 const mergedConfigClear = mergeConfig(textFieldConfig, clearConfig);
 export const TextFieldClear = component(mergedConfigClear);
 
-export const TextFieldComponent = createConditionalComponent(TextFieldDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'clear' },
-        component: TextFieldClear,
-    },
-]);
+export const TextFieldComponent = createConditionalComponent({
+    default: TextFieldDefault,
+    clear: TextFieldClear,
+}) as any;
 
 type newHopeTextFieldProps = React.ComponentProps<typeof TextFieldComponent>;
 

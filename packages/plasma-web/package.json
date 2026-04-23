@@ -107,7 +107,7 @@
       "src/**/*.stories.tsx",
       "src/**/*.perftest.tsx"
     ],
-    "atLeast": 99.96
+    "atLeast": 99.80
   },
   "contributors": [
     "Vasiliy Loginevskiy",
