@@ -57,6 +57,8 @@ const meta: Meta<SwitchProps> = {
             'required',
             'minLength',
             'maxLength',
+            'size',
+            'toggleSize',
         ]),
     },
     args: {
