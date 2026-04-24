@@ -34,7 +34,7 @@ runs:
           npm i --silent ${{ env.OPTIONS }}
         command: |
           npx lerna clean -y
-          npx lerna bootstrap --ignore-scripts
+          npx lerna bootstrap --ignore-scripts --no-ci
 
     - name: Root deps don't update correctly on first regeneration
       shell: bash
