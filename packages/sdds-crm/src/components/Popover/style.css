@@ -1,4 +1,0 @@
-.popover-root {
-    --popover-border-radius: 0.5rem;
-    border-radius: var(--popover-border-radius);
-}
