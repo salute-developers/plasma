@@ -10,7 +10,7 @@ type CreateSegmentStoriesProps = {
     SegmentItem: any;
     SegmentIconItem?: any;
     SegmentProvider: any;
-    componentConfig: any;
+    componentConfig: { group: any; item: any; iconItem?: any };
     CounterComponent?: any;
     title?: string;
     disablePropsList?: string[];
@@ -45,13 +45,21 @@ export const getSegmentStories = (config: CreateSegmentStoriesProps) => {
         ...rest
     } = config;
 
-    const segmentConfig = getConfigVariations(componentConfig);
+    const segmentGroupConfig = getConfigVariations(componentConfig.group);
+    const segmentItemConfig = getConfigVariations(componentConfig.item);
+    const segmentIconItemConfig = componentConfig.iconItem ? getConfigVariations(componentConfig.iconItem) : null;
+
+    const { defaults } = componentConfig.item;
 
     const meta = createMeta({
         component: SegmentGroup,
-        componentConfig: segmentConfig,
+        componentConfig: { group: segmentGroupConfig, item: segmentItemConfig },
         decorators,
         useSegment,
+        defaultArgs: {
+            size: defaults.size,
+            segmentItemView: defaults.view,
+        },
         ...rest,
     });
 
@@ -76,6 +84,15 @@ export const getSegmentStories = (config: CreateSegmentStoriesProps) => {
 
     const IconItem = {
         render: (args: any) => <IconItemStoryComponent {...args} />,
+        args: {
+            segmentItemView: componentConfig.iconItem?.defaults?.view,
+        },
+        argTypes: {
+            segmentItemView: {
+                options: segmentIconItemConfig?.views,
+                control: { type: 'select' },
+            },
+        },
     };
 
     return {

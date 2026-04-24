@@ -2,17 +2,15 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getSegmentStories } from '@salutejs/plasma-sb-utils';
-import styled from '@emotion/styled';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { Counter } from '../Counter/Counter';
 
-import { config } from './SegmentGroup.config';
+import { config as groupConfig } from './SegmentGroup.config';
+import { config as itemConfig } from './SegmentItem.config';
 import { SegmentProvider, SegmentItem, SegmentGroup, useSegment } from './Segment';
 
 type SegmentGroupProps = ComponentProps<typeof SegmentGroup>;
-
-const segmentItemViews = ['default', 'secondary'];
 
 const getContentRight = (contentRightOption: string, size: string, _?: string, isSelected?: boolean) => {
     switch (contentRightOption) {
@@ -32,21 +30,10 @@ const { meta: META, Default } = getSegmentStories({
     SegmentItem,
     SegmentProvider,
     useSegment,
-    componentConfig: config,
+    componentConfig: { group: groupConfig, item: itemConfig },
     CounterComponent: Counter,
     customGetContentRight: getContentRight,
     disablePropsList: ['filledBackground'],
-    additionalArgTypes: {
-        segmentItemView: {
-            options: segmentItemViews,
-            control: {
-                type: 'select',
-            },
-        },
-    },
-    defaultArgs: {
-        size: 'xs',
-    },
 });
 
 const meta: Meta<SegmentGroupProps> = {
