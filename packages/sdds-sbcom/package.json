@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-sbcom",
-  "version": "0.347.0-next-sbcom.0",
+  "version": "0.347.1-next-sbcom.0",
   "description": "Salute Design System / React UI kit for SDDS SBCOM web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "exports": {
