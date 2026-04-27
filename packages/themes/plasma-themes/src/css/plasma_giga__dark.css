@@ -498,12 +498,12 @@
   --on-dark-overlay-soft: #0808088F;
   --on-dark-overlay-hard: #080808F5;
   --on-dark-overlay-blur: #08080847;
-  --on-light-overlay-soft: #F9F9F98F;
-  --on-light-overlay-hard: #F9F9F9F5;
-  --on-light-overlay-blur: #F9F9F947;
-  --inverse-overlay-soft: #F9F9F98F;
-  --inverse-overlay-hard: #F9F9F9F5;
-  --inverse-overlay-blur: #F9F9F947;
+  --on-light-overlay-soft: #0808088F;
+  --on-light-overlay-hard: #080808F5;
+  --on-light-overlay-blur: #08080847;
+  --inverse-overlay-soft: #0808088F;
+  --inverse-overlay-hard: #080808F5;
+  --inverse-overlay-blur: #08080847;
   --outline-solid-primary-hover: #FFFFFFFF;
   --outline-solid-primary-active: #B5B5B5FF;
   --outline-solid-secondary-hover: #FFFFFFFF;
