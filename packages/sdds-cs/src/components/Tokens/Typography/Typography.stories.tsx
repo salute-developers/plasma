@@ -49,7 +49,7 @@ const meta: Meta = {
 export default meta;
 
 const themes: Record<string, TypographyStructure> = {
-    'sdds-srvc:light': getGroupedTypographyTokens(sdds_cs__light[0]),
+    'theme:sdds_cs:light': getGroupedTypographyTokens(sdds_cs__light[0]),
 };
 
 type FontWeightControllerProps = {

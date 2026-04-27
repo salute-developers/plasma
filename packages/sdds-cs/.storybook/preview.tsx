@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react-vite';
 
 import storybookTheme from './theme';
 import { docsPage } from './docsPage';
-import { withTheme, SDDS_CS_LIGHT_THEME } from './decoratorThemes';
+import { withTheme, SDDS_CS_LIGHT_THEME, DEFAULT_MODE, ON_LIGHT_MODE, ON_DARK_MODE } from './decoratorThemes';
 import { withToast } from './decoratorToast';
 import { withReactStrictMode, reactStrictModePreviewOption } from '@salutejs/plasma-sb-utils';
 
@@ -19,6 +19,14 @@ const preview: Preview = {
             toolbar: {
                 title: 'Theme',
                 items: [SDDS_CS_LIGHT_THEME],
+            },
+        },
+        viewContainer: {
+            description: 'ViewContainer mode for components',
+            defaultValue: DEFAULT_MODE,
+            toolbar: {
+                title: 'ViewContainer',
+                items: [DEFAULT_MODE, ON_DARK_MODE, ON_LIGHT_MODE],
             },
         },
         ...reactStrictModePreviewOption,
