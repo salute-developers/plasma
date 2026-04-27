@@ -239,3 +239,30 @@ export const dsplL = ({
     lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
 } as unknown) as CSSObject;
 ```
+
+## Как разрабатывать
+
+Ветка `next-sbcom` - это master + ваши **срочные** изменения
+
+#### Создание pull request для next-sbcom
+
+-   создаем ветку от next-sbcom
+-   создаем pull request в next-sbcom
+
+На этом этапе мы создаем изменения, которые лягут в основу новой версии за тегом для npm `@next-sbcom`
+
+Такой подход нужен в первую очередь для быстрых независимых релизов.
+
+#### Создание pull request для dev
+
+-   создаем ветку от dev
+-   создаем pull request в dev
+
+На этом этапе мы дублируем изменения (из next-sbcom) которые лягут в master ветку вашей вертикали.
+
+Это нужно для синхронизации мастера и next-sbcom.
+
+#### Наименование commit, branch
+
+branch - `fix-update-tokens`
+commit - `fix: update tokens for Select`
