@@ -1,75 +1,256 @@
-# Библиотека компонентов PLASMA GIGA
+# PLASMA-GIGA
 
-Реализация компонентов для создания веб-приложений.
+Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
 
 ## Использование
 
-Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) и [styled-components](https://styled-components.com/);
+Библиотека реализована с помощью:
 
-Использование данного пакета предполагает установку зависимостей: `react` & `react-dom`;
+-   [typescript](https://www.typescriptlang.org/)
+-   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
 
-Использование `styled-components` на проекте необязательно, так же как и использование `typescript`.
+Однако их использование **необязательно**!
 
-**Но** для того чтобы компоненты работали корректно необходимо установить `styled-components`.
-
-### Установка пакета
+### Установка зависимостей
 
 ```bash
-$ npm install --save react react-dom
-$ npm install --save @salutejs/plasma-giga @salutejs/plasma-typo @salutejs/plasma-themes
+$ npm install --save @salutejs/plasma-giga @salutejs/plasma-themes
 ```
 
-Так же надо установить пакет styled-components
+Для работы со `styled-components`, необходимо установить
 
 ```bash
 $ npm install --save styled-components@5.3.1
 ```
 
-## Настройка при работе с пакетом `styled-components`
+### Использование компонентов
 
-Создайте компонент для подключения глобальных стилей:
+Все компоненты доступны напрямую из пакета
 
-```jsx title="GlobalStyle.tsx"
-import { createGlobalStyle } from 'styled-components';
-import { standard } from '@salutejs/plasma-typo';
-import { plasma_giga__light } from '@salutejs/plasma-themes';
+```jsx
+import styled from 'styled-components';
+import { Button } from '@salutejs/plasma-giga';
+import { textAccent } from '@salutejs/plasma-themes/tokens';
 
-const ThemeStyle = createGlobalStyle(plasma_giga__light);
-const TypoStyle = createGlobalStyle(standard);
+export const App = () => {
+    const StyledP = styled.p`
+        color: ${textAccent};
+    `;
 
-export const GlobalStyle = () => (
-    <>
-        <ThemeStyle />
-        <TypoStyle />
-    </>
-);
+    return (
+        <>
+            <Button>Hello, GIGA!</Button>
+            <StyledP>Token usage example</StyledP>
+        </>
+    );
+};
 ```
 
-### Корень приложения
+Так же библиотека поставляет компоненты собранные с помощью `styled-components`
 
-В корне приложения вызовите компонент глобальных стилей `GlobalStyle`:
+```js
+import { Button } from '@salutejs/plasma-giga/styled-components';
+```
+
+## Подключение шрифтов
+
+Типографическая система основана на фирменных шрифтах.
+
+Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на **CDN**
+
+Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
+
+### Create react app
+
+Добавить внутрь тега `head`.
+
+```html
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
+        />
+        <title>Wep App</title>
+    </head>
+    <body>
+        ...
+    </body>
+</html>
+```
+
+### NextJs
+
+```tsx
+import Head from 'next/head';
+
+import { H2, Button } from '@salutejs/plasma-giga';
+
+export default function Home() {
+    return (
+        <>
+            <Head>
+                <title>Create Next App with plasma-giga components</title>
+                <link
+                    rel="stylesheet"
+                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
+                />
+                <link
+                    rel="stylesheet"
+                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
+                />
+            </Head>
+            <div>
+                <main>
+                    <div>
+                        <H2> Salute </H2>
+                        <Button text="Hello" />
+                    </div>
+                </main>
+            </div>
+        </>
+    );
+}
+```
+
+## Подключение темы
+
+Точкой входа является корень приложения:
 
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в plasma-giga);
+### CSS
 
-### Использование компонентов
+Возможные дополнительные настройки bundle tools для проекта:
 
-Все компоненты styled-components доступны из директории `components` или напрямую из пакета:
+<ul>
+    <li>
+        <a href="https://webpack.js.org/loaders/css-loader/">webpack + css</a>
+    </li>
+    <li>
+        <a href="https://vite.dev/guide/features.html#css-pre-processors">vite</a>
+    </li>
+</ul>
+
+В файле, где происходит подключение всех стилей, например `index.css`
+
+```css
+@import '@salutejs/plasma-themes/css/plasma_giga__light.css';
+```
 
 ```jsx
-// App.tsx
-import { Button } from '@salutejs/plasma-giga';
-import { textAccent } from '@salutejs/plasma-themes/tokens/plasma_giga';
+import React from 'react';
+import { Button, BodyL } from '@salutejs/plasma-giga';
 
-export const App = () => {
+import 'index.css';
+
+const App = () => {
     return (
-        <Button>Hello, Plasma Giga!</Button>
-
-        <p style={{color: textAccent}}>
-            Token usage example
-        </p>
+        <>
+            <BodyL>Hello GIGA</BodyL>
+            <Button text="This is themed button" />
+        </>
     );
 };
+
+export default App;
+```
+
+### Styled-components
+
+```jsx
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { Button, BodyL } from '@salutejs/plasma-giga/styled-components';
+import { plasma_giga__light } from '@salutejs/plasma-themes';
+
+const Theme = createGlobalStyle(plasma_giga__light);
+
+const App = () => {
+    return (
+        <>
+            <Theme />
+            <BodyL>Hello GIGA</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
+
+## Токены
+
+Все `css` токены завернуты в `js` переменные для более удобного доступа:
+
+```js
+/** Основной цвет текста */
+export const textPrimary = 'var(--text-primary, #F5F5F5)';
+/** Основной фон */
+export const backgroundPrimary = 'var(--background-primary, #000000)';
+```
+
+### Способы подключения
+
+Есть два пути импорта токенов:
+
+-   Из вертикали `@salutejs/plasma-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
+-   Непосредственно из темы `@salutejs/plasma-themes/tokens/plasma_giga` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
+
+### Использование
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { textAccent, backgroundPrimary, textL } from '@salutejs/plasma-themes/tokens';
+
+const AppStyled = styled.div`
+    padding: 2rem;
+    color: ${textAccent};
+    background-color: ${backgroundPrimary};
+`;
+
+const Container = styled.div`
+    ${textL};
+    margin: 1rem;
+`;
+
+const App = () => {
+    return (
+        <AppStyled>
+            <Container>
+                <span>Hello GIGA</span>
+            </Container>
+        </AppStyled>
+    );
+};
+
+export default App;
+```
+
+## Типографика
+
+Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
+
+```ts
+import { BodyL, DsplL, H3 } from '@salutejs/plasma-giga';
+```
+
+### Токены типографики на примере компонента `DsplL`
+
+Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
+
+```tsx
+import { CSSObject } from 'styled-components';
+
+export const dsplL = ({
+    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
+} as unknown) as CSSObject;
 ```
