@@ -90,6 +90,8 @@ export const PaginationButtonGroup = styled(ButtonGroup)`
     ${buttonGroupTokens.buttonSideRadius}: var(${tokens.buttonRadius});
     ${buttonGroupTokens.buttonSegmentedRadius}: var(${tokens.buttonRadius});
     ${buttonGroupTokens.buttonRadiusCircle}: var(${tokens.buttonRadius});
+
+    ${buttonGroupTokens.buttonPadding}: 0;
 `;
 
 export const PaginationButton = styled(Button)`
