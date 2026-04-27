@@ -1494,22 +1494,22 @@ export const onDarkOverlayHard = 'var(--on-dark-overlay-hard, #080808F5)';
 export const onDarkOverlayBlur = 'var(--on-dark-overlay-blur, #08080847)';
 
 /** Цвет фона паранжи светлый на светлом фоне */
-export const onLightOverlaySoft = 'var(--on-light-overlay-soft, #F9F9F98F)';
+export const onLightOverlaySoft = 'var(--on-light-overlay-soft, #0808088F)';
 
 /** Цвет фона паранжи темный на светлом фоне */
-export const onLightOverlayHard = 'var(--on-light-overlay-hard, #F9F9F9F5)';
+export const onLightOverlayHard = 'var(--on-light-overlay-hard, #080808F5)';
 
 /** Цвет фона паранжи размытый на светлом фоне */
-export const onLightOverlayBlur = 'var(--on-light-overlay-blur, #F9F9F947)';
+export const onLightOverlayBlur = 'var(--on-light-overlay-blur, #08080847)';
 
 /** Инвертированный цвет фона паранжи светлый */
-export const inverseOverlaySoft = 'var(--inverse-overlay-soft, #F9F9F98F)';
+export const inverseOverlaySoft = 'var(--inverse-overlay-soft, #0808088F)';
 
 /** Инвертированный цвет фона паранжи темный */
-export const inverseOverlayHard = 'var(--inverse-overlay-hard, #F9F9F9F5)';
+export const inverseOverlayHard = 'var(--inverse-overlay-hard, #080808F5)';
 
 /** Инвертированный цвет фона паранжи размытый */
-export const inverseOverlayBlur = 'var(--inverse-overlay-blur, #F9F9F947)';
+export const inverseOverlayBlur = 'var(--inverse-overlay-blur, #08080847)';
 
 /** Основной непрозрачный цвет обводки */
 export const outlineSolidPrimaryHover = 'var(--outline-solid-primary-hover, #FFFFFFFF)';
