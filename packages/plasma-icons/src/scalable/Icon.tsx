@@ -1325,6 +1325,7 @@ export const iconSectionsSet = {
         dzenOutline: 'DzenOutline',
         dzenAltFill: 'DzenAltFill',
         vkFill: 'VkFill',
+        vkOutline: 'VkOutline',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
