@@ -804,6 +804,7 @@ export const iconSectionsSet = {
         gradientColorOutline: 'GradientColorOutline',
         solidColorOutline: 'SolidColorOutline',
         pictureSquareOutline: 'PictureSquareOutline',
+        pictureSquareFill: 'PictureSquareFill',
     },
     File: {
         blankFill: 'BlankFill',
