@@ -1320,6 +1320,7 @@ export const iconSectionsSet = {
         langFlow: 'LangFlow',
         webFill: 'WebFill',
         androidFill: 'AndroidFill',
+        gosuslugiOutline: 'GosuslugiOutline',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
