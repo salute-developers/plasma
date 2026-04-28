@@ -803,6 +803,7 @@ export const iconSectionsSet = {
         shadowUpOutline: 'ShadowUpOutline',
         gradientColorOutline: 'GradientColorOutline',
         solidColorOutline: 'SolidColorOutline',
+        pictureSquareOutline: 'PictureSquareOutline',
     },
     File: {
         blankFill: 'BlankFill',
