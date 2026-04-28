@@ -1323,6 +1323,7 @@ export const iconSectionsSet = {
         gosuslugiOutline: 'GosuslugiOutline',
         dzenFill: 'DzenFill',
         dzenOutline: 'DzenOutline',
+        dzenAltFill: 'DzenAltFill',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
