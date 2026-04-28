@@ -1321,6 +1321,7 @@ export const iconSectionsSet = {
         webFill: 'WebFill',
         androidFill: 'AndroidFill',
         gosuslugiOutline: 'GosuslugiOutline',
+        dzenFill: 'DzenFill',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
