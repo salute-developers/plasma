@@ -1327,6 +1327,7 @@ export const iconSectionsSet = {
         vkFill: 'VkFill',
         vkOutline: 'VkOutline',
         vkAltFill: 'VkAltFill',
+        ruTubeFill: 'RuTubeFill',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
