@@ -1318,6 +1318,7 @@ export const iconSectionsSet = {
         gigaFill: 'GigaFill',
         gigaOutline: 'GigaOutline',
         langFlow: 'LangFlow',
+        webFill: 'WebFill',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
