@@ -1319,6 +1319,7 @@ export const iconSectionsSet = {
         gigaOutline: 'GigaOutline',
         langFlow: 'LangFlow',
         webFill: 'WebFill',
+        androidFill: 'AndroidFill',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
