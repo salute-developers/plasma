@@ -1,7 +1,7 @@
 import { selectConfig, component, mergeConfig, fixedForwardRef } from '@salutejs/plasma-new-hope/styled-components';
 import type {
     SelectProps as SelectPropsNewHope,
-    ItemOptionSelect,
+    SelectItemOption,
     DistributivePick,
     DistributiveOmit,
 } from '@salutejs/plasma-new-hope';
@@ -14,15 +14,25 @@ import { config } from './Select.config';
 const mergedConfig = mergeConfig(selectConfig, config);
 const SelectNewHope = component(mergedConfig);
 
-export type SelectProps<K extends ItemOptionSelect> = DistributiveOmit<
+export type SelectProps<K extends SelectItemOption> = DistributiveOmit<
     SelectPropsNewHope<K>,
-    'size' | 'view' | 'chipView' | 'disabled' | 'hintTargetPlacement'
+    'size' | 'view' | 'chipView' | 'hintView' | 'hintSize' | 'labelPlacement'
 > &
-    DistributivePick<ComponentProps<typeof SelectNewHope>, 'size' | 'view' | 'chipView' | 'disabled'>;
+    DistributivePick<
+        ComponentProps<typeof SelectNewHope>,
+        'size' | 'view' | 'chipView' | 'hintView' | 'hintSize' | 'labelPlacement'
+    >;
 
-const SelectComponent = <K extends ItemOptionSelect>(props: SelectProps<K>, ref: ForwardedRef<HTMLButtonElement>) => {
+const SelectComponent = <K extends SelectItemOption>(props: SelectProps<K>, ref: ForwardedRef<HTMLButtonElement>) => {
     // TODO: #2087
-    return <SelectNewHope ref={ref} {...(props as any)} _offset={[0, mapSizesToOffset(props.size)]} />;
+    return (
+        <SelectNewHope
+            ref={ref}
+            {...(props as any)}
+            _offset={[0, mapSizesToOffset(props.size)]}
+            _checkboxAppearance="outline"
+        />
+    );
 };
 
 const Select = fixedForwardRef(SelectComponent);

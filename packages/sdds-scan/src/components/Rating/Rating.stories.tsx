@@ -1,13 +1,13 @@
 import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconKeyFill, IconKeyOutline, IconLockFill } from '@salutejs/plasma-icons';
 import { ratingClasses } from '@salutejs/plasma-new-hope/styled-components';
 
 import { Rating } from './Rating';
+import { config } from './Rating.config';
 
-const views = ['default', 'accent'];
-const sizes = ['m', 's'];
+const { views, sizes } = getConfigVariations(config);
 const scorePrecision = [1, 2];
 const valuePlacements = ['before', 'after'];
 const iconsCount = [1, 5, 10];

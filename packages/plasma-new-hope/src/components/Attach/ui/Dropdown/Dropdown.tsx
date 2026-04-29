@@ -44,7 +44,7 @@ export const DropdownUI = ({
     return (
         <StyledDropdown
             items={parsedItems as DropdownItemOption[]}
-            renderItem={({ value, label }) => {
+            renderItem={({ value, label }: DropdownItemOption) => {
                 const { filenameWithoutExtension, extension } = getFilenameParts(String(value));
 
                 return (

@@ -3,7 +3,7 @@ import type { Decorator } from '@storybook/react-vite';
 import { Global, css } from '@emotion/react';
 import { sdds_cs__light } from '@salutejs/sdds-themes';
 
-// import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
+import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
 
 const documentCss = css`
     html:root {
@@ -26,9 +26,10 @@ const documentCss = css`
 `;
 /* stylelint-enable */
 
-export const SDDS_CS_LIGHT_THEME = 'sdds-srvc:light';
+export const SDDS_CS_LIGHT_THEME = 'theme:sdds_cs:light';
 export const DEFAULT_MODE = 'default';
 export const ON_LIGHT_MODE = 'onLight';
+export const ON_DARK_MODE = 'onDark';
 
 const themes = {
     [SDDS_CS_LIGHT_THEME]: css(sdds_cs__light),
@@ -44,6 +45,15 @@ const viewMap: Record<string, ViewType> = {
         style: undefined,
         view: undefined,
     },
+    onDark: {
+        style: {
+            background: '#1a1a1a',
+            color: 'white',
+            margin: '3rem',
+            'border-radius': '1rem',
+        },
+        view: 'onDark',
+    },
     onLight: {
         style: {
             background: '#ededed',
@@ -57,14 +67,16 @@ const viewMap: Record<string, ViewType> = {
 
 export const withTheme: Decorator = (Story, context) => {
     const theme = context.globals.theme;
-    // const viewContainerType = viewMap[context.globals.viewContainer];
+    const viewContainerType = viewMap[context.globals.viewContainer];
 
     return (
-        <div>
-            <Global styles={themes[theme]} />
-            <Global styles={documentCss} />
+        <div style={viewContainerType.style}>
+            <ViewContainer view={viewContainerType.view}>
+                <Global styles={themes[theme]} />
+                <Global styles={documentCss} />
 
-            <Story {...context} />
+                <Story {...context} />
+            </ViewContainer>
         </div>
     );
 };

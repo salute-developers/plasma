@@ -4,8 +4,8 @@ import { isEmpty, safeUseId } from 'src/utils';
 
 import { Ul, ListWrapper } from '../../Select.styles';
 import { FloatingPopover } from '../../FloatingPopover';
+import type { ItemOption } from '../../Select.types';
 
-import type { MergedDropdownNodeTransformed } from './ui/Item/Item.types';
 import { Item } from './ui/Item/Item';
 import { InnerProps } from './Inner.type';
 
@@ -61,7 +61,7 @@ export const Inner: FC<InnerProps> = ({
             >
                 <ListWrapper listWidth={listWidth} ref={listWrapperRef}>
                     <Ul role="group" id={listId} virtual={false} listMaxHeight={item?.listMaxHeight}>
-                        {item.items?.map((innerItem: MergedDropdownNodeTransformed, innerIndex: number) => (
+                        {item.items?.map((innerItem: ItemOption, innerIndex: number) => (
                             <Inner
                                 key={`${innerIndex}/${currentLevel}`}
                                 item={innerItem}

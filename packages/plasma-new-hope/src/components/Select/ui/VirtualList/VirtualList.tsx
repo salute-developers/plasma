@@ -2,11 +2,11 @@ import React, { useRef, CSSProperties } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { getHeightAsNumber } from 'src/utils';
 
-import type { MergedDropdownNodeTransformed } from '../Inner/ui/Item/Item.types';
+import type { ItemOption } from '../../Select.types';
 import { Item } from '../Inner/ui';
 
 interface Props {
-    items: MergedDropdownNodeTransformed[];
+    items: ItemOption[];
     listMaxHeight?: CSSProperties['height'];
     onScroll?: (e: React.UIEvent<HTMLElement>) => void;
 }

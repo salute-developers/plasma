@@ -4,7 +4,8 @@ import { getSegmentStories } from '@salutejs/plasma-sb-utils';
 
 import { Counter } from '../Counter/Counter';
 
-import { config } from './SegmentGroup.config';
+import { config as groupConfig } from './SegmentGroup.config';
+import { config as itemConfig } from './SegmentItem.config';
 import { SegmentProvider, SegmentItem, SegmentGroup, useSegment } from './Segment';
 
 type SegmentGroupProps = ComponentProps<typeof SegmentGroup>;
@@ -13,7 +14,7 @@ const { meta: META, Default } = getSegmentStories({
     SegmentGroup,
     SegmentItem,
     SegmentProvider,
-    componentConfig: config,
+    componentConfig: { group: groupConfig, item: itemConfig },
     CounterComponent: Counter,
     useSegment,
 });

@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo, ReactElement } from 'react';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { RootProps, component, mergeConfig } from '../../engines';
 import { cx } from '../../utils';

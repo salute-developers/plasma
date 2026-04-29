@@ -41,7 +41,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { surfaceSolidTertiary, surfaceSolidSecondary } from '@salutejs/sdds-themes/tokens';
 
-import { SSRProvider, Button, Popup, PopupProvider } from  '@salutejs/sdds-bizcom';
+import { Button, Popup, PopupProvider } from  '@salutejs/sdds-bizcom';
 
 export function App() {
     const StyledButton = styled(Button)`
@@ -80,43 +80,41 @@ export function App() {
     const ref = useRef();
 
     return (
-        <SSRProvider>
-            <PopupProvider>
-                <StyledWrapper>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
-                        <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
-                    </div>
-                    <Popup
-                        id="popupA"
-                        frame={ref}
-                        opened={isOpenA}
-                        placement="center"
-                        offset={[0, 0]}
-                    >
-                        <Content>
-                            <Button onClick={() => setIsOpenA(false)}>Close</Button>
-                            <>Content</>
-                        </Content>
-                    </Popup>
-                    <OtherContent ref={ref}>
-                        <>Frame</>
-                    </OtherContent>
-                    <Popup
-                        id="popupB"
-                        frame="document"
-                        opened={isOpenB}
-                        placement="center"
-                        offset={[0, 0]}
-                    >
-                        <Content>
-                            <Button onClick={() => setIsOpenB(false)}>Close</Button>
-                            <>Content</>
-                        </Content>
-                    </Popup>
-                </StyledWrapper>
-            </PopupProvider>
-        </SSRProvider>
+        <PopupProvider>
+            <StyledWrapper>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
+                    <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
+                </div>
+                <Popup
+                    id="popupA"
+                    frame={ref}
+                    opened={isOpenA}
+                    placement="center"
+                    offset={[0, 0]}
+                >
+                    <Content>
+                        <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                        <>Content</>
+                    </Content>
+                </Popup>
+                <OtherContent ref={ref}>
+                    <>Frame</>
+                </OtherContent>
+                <Popup
+                    id="popupB"
+                    frame="document"
+                    opened={isOpenB}
+                    placement="center"
+                    offset={[0, 0]}
+                >
+                    <Content>
+                        <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                        <>Content</>
+                    </Content>
+                </Popup>
+            </StyledWrapper>
+        </PopupProvider>
     );
 }
 ```
@@ -212,40 +210,38 @@ const StyledPopupAnimation = styled(Popup)`
 
 ```tsx live
 import React from 'react';
-import { SSRProvider, Button, Popup, PopupProvider } from  '@salutejs/sdds-bizcom';
+import { Button, Popup, PopupProvider } from  '@salutejs/sdds-bizcom';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <SSRProvider>
-            <PopupProvider>
-                <div style={{height: "200px"}}>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                            text="Открыть"
-                            onClick={() => setIsOpen(true)}
-                        />
-                    </div>
-
-                    <Popup
-                        id="popup"
-                        isOpen={isOpen}
-                        placement="center"
-                        draggable
-                    >
-                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
-                            <Button onClick={() => setIsOpen(false)}>Close</Button>
-                            <>Content</>
-                        </div>
-                    </Popup>
+        <PopupProvider>
+            <div style={{height: "200px"}}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button
+                        style={{
+                            marginTop: "1rem",
+                            width: "15rem"
+                        }}
+                        text="Открыть"
+                        onClick={() => setIsOpen(true)}
+                    />
                 </div>
-            </PopupProvider>
-        </SSRProvider>
+
+                <Popup
+                    id="popup"
+                    isOpen={isOpen}
+                    placement="center"
+                    draggable
+                >
+                    <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                        <Button onClick={() => setIsOpen(false)}>Close</Button>
+                        <>Content</>
+                    </div>
+                </Popup>
+            </div>
+        </PopupProvider>
     );
 }
 ```
@@ -314,41 +310,39 @@ resizable?: {
 
 ```tsx live
 import React from 'react';
-import { SSRProvider, Button, Popup, PopupProvider } from  '@salutejs/sdds-bizcom';
+import { Button, Popup, PopupProvider } from  '@salutejs/sdds-bizcom';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <SSRProvider>
-            <PopupProvider>
-                <div style={{height: "200px"}}>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                            text="Открыть"
-                            onClick={() => setIsOpen(true)}
-                        />
-                    </div>
-
-                    <Popup
-                        id="popup"
-                        isOpen={isOpen}
-                        placement="center"
-                        offset={[0, 0]}
-                        resizable
-                    >
-                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
-                            <Button onClick={() => setIsOpen(false)}>Close</Button>
-                            <>Content</>
-                        </div>
-                    </Popup>
+        <PopupProvider>
+            <div style={{height: "200px"}}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button
+                        style={{
+                            marginTop: "1rem",
+                            width: "15rem"
+                        }}
+                        text="Открыть"
+                        onClick={() => setIsOpen(true)}
+                    />
                 </div>
-            </PopupProvider>
-        </SSRProvider>
+
+                <Popup
+                    id="popup"
+                    isOpen={isOpen}
+                    placement="center"
+                    offset={[0, 0]}
+                    resizable
+                >
+                    <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                        <Button onClick={() => setIsOpen(false)}>Close</Button>
+                        <>Content</>
+                    </div>
+                </Popup>
+            </div>
+        </PopupProvider>
     );
 }
 ```

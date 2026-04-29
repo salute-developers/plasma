@@ -18,9 +18,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             size,
             disabled,
             renderValue,
-            selectProps,
             treeId,
             activeDescendantItemValue,
+            multiselect,
+            isTargetAmount,
         },
         ref,
     ) => {
@@ -58,7 +59,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                             valueToItemMap,
                             label,
                             renderValue,
-                            selectProps,
+                            multiselect,
+                            isTargetAmount,
                         })}
                     </Label>
                 </StyledButton>

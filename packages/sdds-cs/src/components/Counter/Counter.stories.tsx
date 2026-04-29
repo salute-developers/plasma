@@ -1,9 +1,10 @@
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 
 import { Counter } from './Counter';
+import { config } from './Counter.config';
 
-const views = ['default', 'accent', 'positive', 'negative'];
+const { views } = getConfigVariations(config);
 
 const meta: Meta<typeof Counter> = {
     title: 'Data Display/Counter',

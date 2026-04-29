@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { tokens as calendarBaseTokens } from '../../../components/Calendar/Calendar.tokens';
 

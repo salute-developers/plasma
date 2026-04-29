@@ -2,13 +2,13 @@ import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components'
 
 export const config = {
     defaults: {
-        view: 'clear',
+        view: 'none',
         size: 'xs',
     },
     variations: {
         view: {
-            clear: css`
-                ${segmentTokens.itemColor}: var(--text-secondary);
+            none: css`
+                ${segmentTokens.itemColor}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
                 ${segmentTokens.itemColorHover}: var(--text-primary-hover);
                 ${segmentTokens.itemBackgroundColorHover}: transparent;

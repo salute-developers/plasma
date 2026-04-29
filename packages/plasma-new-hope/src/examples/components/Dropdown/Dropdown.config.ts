@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { dropdownTokens as tokens } from '../../../components/Dropdown';
 

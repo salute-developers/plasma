@@ -1,3 +1,8 @@
+export const classes = {
+    linkUnderlineAlways: 'link-underline-always',
+    linkUnderlineHover: 'link-underline-hover',
+};
+
 export const tokens = {
     linkColor: '--plasma-link-color',
     linkColorHover: '--plasma-link-color-hover',
@@ -9,4 +14,6 @@ export const tokens = {
     linkFontFamily: '--plasma-link-font-family',
     linkDisabledOpacity: '--plasma-link-disabled-opacity',
     linkUnderlineBorder: '--plasma-link-underline-border',
+    linkUnderlineColor: '--plasma-link-underline-color',
+    linkUnderlineOffset: '--plasma-link-underline-offset',
 };

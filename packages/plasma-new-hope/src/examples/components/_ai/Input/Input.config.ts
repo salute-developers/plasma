@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 import { inputTokens as tokens } from 'src/components/_ai/Input';
 
 export const config = {

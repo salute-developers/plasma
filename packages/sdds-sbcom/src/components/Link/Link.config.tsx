@@ -42,7 +42,8 @@ export const config = {
                 ${tokens.linkColorVisited}: ${textPrimary};
                 ${tokens.linkColorVisitedHover}: ${textPrimaryHover};
                 ${tokens.linkColorVisitedActive}: ${textPrimaryActive};
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             secondary: css`
                 ${tokens.linkFontFamily}: ${textM.fontFamily};
@@ -52,7 +53,8 @@ export const config = {
                 ${tokens.linkColorVisited}: ${textSecondary};
                 ${tokens.linkColorVisitedHover}: ${textSecondaryHover};
                 ${tokens.linkColorVisitedActive}: ${textSecondaryActive};
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             tertiary: css`
                 ${tokens.linkFontFamily}: ${textM.fontFamily};
@@ -62,7 +64,8 @@ export const config = {
                 ${tokens.linkColorVisited}: ${textTertiary};
                 ${tokens.linkColorVisitedHover}: ${textTertiaryHover};
                 ${tokens.linkColorVisitedActive}: ${textTertiaryActive};
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             paragraph: css`
                 ${tokens.linkFontFamily}: ${textM.fontFamily};
@@ -72,7 +75,8 @@ export const config = {
                 ${tokens.linkColorVisited}: ${textParagraph};
                 ${tokens.linkColorVisitedHover}: ${textParagraphHover};
                 ${tokens.linkColorVisitedActive}: ${textParagraphActive};
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             accent: css`
                 ${tokens.linkFontFamily}: ${textM.fontFamily};
@@ -82,7 +86,8 @@ export const config = {
                 ${tokens.linkColorVisited}: ${textAccent};
                 ${tokens.linkColorVisitedHover}: ${textAccentHover};
                 ${tokens.linkColorVisitedActive}: ${textAccentActive};
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             positive: css`
                 ${tokens.linkFontFamily}: ${textM.fontFamily};
@@ -92,7 +97,8 @@ export const config = {
                 ${tokens.linkColorVisited}: ${textPositive};
                 ${tokens.linkColorVisitedHover}: ${textPositiveHover};
                 ${tokens.linkColorVisitedActive}: ${textPositiveActive};
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             warning: css`
                 ${tokens.linkFontFamily}: ${textM.fontFamily};
@@ -102,7 +108,8 @@ export const config = {
                 ${tokens.linkColorVisited}: ${textWarning};
                 ${tokens.linkColorVisitedHover}: ${textWarningHover};
                 ${tokens.linkColorVisitedActive}: ${textWarningActive};
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             negative: css`
                 ${tokens.linkFontFamily}: ${textM.fontFamily};
@@ -112,7 +119,8 @@ export const config = {
                 ${tokens.linkColorVisited}: ${textNegative};
                 ${tokens.linkColorVisitedHover}: ${textNegativeHover};
                 ${tokens.linkColorVisitedActive}: ${textNegativeActive};
-                ${tokens.linkUnderlineBorder}: 0;
+                ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             clear: css`
                 ${tokens.linkFontFamily}: ${textM.fontFamily};
@@ -123,6 +131,7 @@ export const config = {
                 ${tokens.linkColorVisitedHover}: inherit;
                 ${tokens.linkColorVisitedActive}: inherit;
                 ${tokens.linkUnderlineBorder}: 0.063rem;
+                ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
         },
         disabled: {

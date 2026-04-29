@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { popoverClasses } from 'src/components/Popover';
 import type { FocusProps } from 'src/mixins';
 import { addFocus } from 'src/mixins';

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { classes, tokens } from '../../Badge.tokens';
 import { StyledContentLeft } from '../../Badge.styles';

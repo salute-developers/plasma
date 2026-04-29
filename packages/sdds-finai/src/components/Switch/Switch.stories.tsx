@@ -26,14 +26,11 @@ const meta: Meta<SwitchProps> = {
                 type: 'text',
             },
         },
-        labelPosition: {
-            options: ['before', 'after'],
-            control: { type: 'select' },
-        },
         size: {
             control: { type: 'select' },
         },
         toggleSize: {
+            options: ['s', 'l'],
             control: { type: 'select' },
         },
         ...disableProps([
@@ -57,12 +54,12 @@ const meta: Meta<SwitchProps> = {
             'required',
             'minLength',
             'maxLength',
+            'labelPosition',
         ]),
     },
     args: {
         label: 'Label',
         description: 'Description',
-        labelPosition: 'before',
         singleLine: true,
     },
 };

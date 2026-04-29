@@ -14,9 +14,7 @@ export const TextFieldSliderDefault = component(mergedConfigDefault);
 const mergedConfigClear = mergeConfig(textFieldSliderConfig, clearConfig);
 export const TextFieldSliderClear = component(mergedConfigClear);
 
-export const TextFieldSlider = createConditionalComponent(TextFieldSliderDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'clear' },
-        component: TextFieldSliderClear,
-    },
-]);
+export const TextFieldSlider = createConditionalComponent({
+    default: TextFieldSliderDefault,
+    clear: TextFieldSliderClear,
+});

@@ -1,225 +1,183 @@
-import React, { useCallback, useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 import type { FC } from 'react';
+import cls from 'classnames';
 
-import { SliderBase } from '../SliderBase/SliderBase';
-import { Handler } from '../../ui';
-import { sizeData } from '../../utils';
-import type { HandlerProps } from '../../ui';
-import { cx, isNumber, noop } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
-import { InputHidden } from '../SliderBase/SliderBase.styles';
 import { FormTypeNumber } from '../../../../types/FormType';
+import { useRangeHandlers } from '../../hooks/useRangeHandlers';
+import { getTickStyle } from '../../utils/getTickStyle';
+import { getSingleSliderLayout } from '../../utils/getSingleSliderLayout';
 
 import type { SingleSliderProps } from './Single.types';
-import { Label, LabelContent, LabelWrapper, SingleWrapper, SliderBaseWrapper, StyledRangeValue } from './Single.styles';
+import {
+    Label,
+    LabelContent,
+    LabelWrapper,
+    ScaleTick,
+    ScaleTickDot,
+    ScaleTicksWrapper,
+    SingleWrapper,
+    SliderBaseWrapper,
+    SliderContainer,
+    StyledCurrentValue,
+    StyledProgress,
+    StyledRange,
+    StyledRangeValue,
+    StyledTrack,
+} from './Single.styles';
 
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(value, max));
 
 export const SingleSlider: FC<SingleSliderProps> = ({
+    // value
     min,
     max,
-    value,
-    disabled,
-    onChangeCommitted,
-    onChange,
-    ariaLabel,
+    value: outerValue,
+    defaultValue,
+    name,
+    step = 1,
+
+    // label
     label,
     labelContentLeft,
     labelContent,
-    sliderAlign = 'left',
+    labelPlacement = 'top',
+    labelReversed,
+
+    // scale
     showScale,
     showRangeValues,
-    showCurrentValue,
+    scaleAlign = 'bottom',
     hideMinValueDiff,
     hideMaxValueDiff,
-    labelPlacement = 'top',
-    rangeValuesPlacement: rangeValuesPlacementOld,
-    scaleAlign = 'bottom',
-    multipleStepSize = 10,
-    defaultValue,
-    size = 'm',
-    name,
+
+    // pointer
     pointerSize = 'small',
     pointerVisibility = 'always',
+    showCurrentValue,
     currentValueVisibility = 'always',
+
+    // layout
     orientation = 'horizontal',
+    sliderAlign = 'left',
     reversed,
-    labelReversed,
+    multipleStepSize = 10,
+
+    // deprecated
+    rangeValuesPlacement: rangeValuesPlacementOld,
+
+    // state
+    disabled,
+
+    // events
+    onChange,
+    onChangeCommitted,
+
+    // a11y
+    ariaLabel,
+
+    // scale
+    scaleTicks,
+
+    // остальные HTMLAttributes идут на SliderContainer
     ...rest
 }) => {
     const isVertical = orientation === 'vertical';
     const [isHovered, setIsHovered] = useState(false);
 
-    const [state, setState] = useState({
-        handlePosition: 0,
-        stepSize: 0,
-        railFillWidth: 0,
-    });
+    const clampedOuterValue = outerValue !== undefined ? clamp(outerValue, min, max) : undefined;
+    const clampedDefaultValue = defaultValue !== undefined ? clamp(defaultValue, min, max) : undefined;
 
-    const innerRef = useRef<HTMLInputElement>(null);
+    const [dragValue, setDragValue] = useState(clampedDefaultValue ?? min);
 
-    const [startOffset, setStartOffset] = useState(0);
-    const [endOffset, setEndOffset] = useState(0);
+    const value = clampedOuterValue ?? dragValue;
 
-    const innerValue = clamp(value ?? defaultValue ?? min, min, max);
-    const [dragValue, setDragValue] = useState(innerValue);
-
-    const { stepSize } = state;
-
-    const innerShowScale = showRangeValues || showScale;
-    const innerShowCurrentValue = currentValueVisibility === 'hover' ? showCurrentValue && isHovered : showCurrentValue;
-
-    const hasLabelContent =
-        Boolean(label || labelContentLeft || labelContent) && (!isVertical || (isVertical && sliderAlign !== 'none'));
-    const labelPlacementClass =
-        !isVertical && (labelPlacement === 'outer' || labelPlacement === 'top')
-            ? classes.labelPlacementOuter
-            : classes.labelPlacementInner;
-
-    const rangeValuesPlacement = rangeValuesPlacementOld === 'outer' || scaleAlign === 'bottom' ? 'outer' : 'inner';
-    const scaleAlignClass =
-        rangeValuesPlacement === 'outer' ? classes.rangeValuesPlacementOuter : classes.rangeValuesPlacementInner;
-
-    const hideMinValueDiffClass = hideMinValueDiff && dragValue - min <= hideMinValueDiff ? classes.hideMinValue : '';
-    const hideMaxValueDiffClass = hideMaxValueDiff && max - dragValue <= hideMaxValueDiff ? classes.hideMaxValue : '';
-    const verticalOrientationClass = orientation === 'vertical' ? classes.verticalOrientation : '';
-
-    const startLabelRef = useRef<HTMLDivElement>(null);
-    const endLabelRef = useRef<HTMLDivElement>(null);
-
-    const activeFirstValue = dragValue === min ? classes.activeRangeValue : undefined;
-    const activeSecondValue = dragValue === max ? classes.activeRangeValue : undefined;
-
-    useEffect(() => {
-        const visibleValue = reversed ? max - dragValue + min : dragValue;
-        const localValue = Math.min(Math.max(visibleValue, min), max) - min;
-
-        if (!isVertical && rangeValuesPlacement === 'outer') {
-            const startWidth = startLabelRef.current?.offsetWidth;
-            if (isNumber(startWidth)) {
-                setStartOffset(Number(startWidth));
-            }
-
-            const endWidth = endLabelRef.current?.offsetWidth;
-            if (isNumber(endWidth)) {
-                setEndOffset(Number(endWidth));
-            }
-        } else if (isVertical && innerShowScale && (sliderAlign === 'left' || sliderAlign === 'right')) {
-            setStartOffset(12);
-            setEndOffset(12);
-        } else {
-            setStartOffset(0);
-            setEndOffset(0);
-        }
-
-        setState((prevState) => ({
-            ...prevState,
-            handlePosition: stepSize * localValue,
-            railFillWidth: stepSize * localValue,
-        }));
-    }, [
-        dragValue,
+    const {
         innerShowScale,
-        labelPlacement,
-        stepSize,
+        innerShowCurrentValue,
+        hasLabelContent,
+        labelPlacementClass,
         rangeValuesPlacement,
+        scaleAlignClass,
+        labelVerticalPlacement,
+        showPointer,
+        currentValueStyle,
+        progressSizeStyle,
+    } = getSingleSliderLayout({
+        value,
         min,
         max,
         isVertical,
+        isHovered,
         reversed,
-        // для перерасчета размеров
+        scaleTicks,
+        showRangeValues,
+        showScale,
+        showCurrentValue,
+        currentValueVisibility,
+        label,
+        labelContentLeft,
+        labelContent,
+        labelPlacement,
         sliderAlign,
-        size,
-    ]);
+        rangeValuesPlacementOld,
+        scaleAlign,
+        pointerSize,
+        pointerVisibility,
+    });
 
-    const setStepSize = useCallback((newStepSize: number) => {
-        setState((prevState) => ({
-            ...prevState,
-            stepSize: newStepSize,
-        }));
-    }, []);
+    const emitChange = (newValue: number) => {
+        if (!onChange) return;
+        if (outerValue !== undefined || !name) {
+            (onChange as (v: number) => void)(newValue);
+            return;
+        }
+        (onChange as (e: FormTypeNumber) => void)({ target: { value: newValue, name } });
+    };
 
-    const onHandleChange: NonNullable<HandlerProps['onChange']> = (handleValue, data) => {
-        const newValue = Math.round(reversed ? max - handleValue + min : handleValue);
-
-        const newHandlePosition = isVertical ? data.y : data.x;
-        setState((prevState) => ({
-            ...prevState,
-            railFillWidth: newHandlePosition,
-        }));
-
-        if (onChange) {
-            if (value !== undefined) {
-                (onChange as (value: number) => void)(newValue);
-            }
-
-            if (name && !value) {
-                (onChange as (event: FormTypeNumber) => void)({
-                    target: {
-                        value: newValue,
-                        name,
-                    },
-                });
-            }
+    const handleTickClick = (tick: number) => {
+        if (disabled) {
+            return;
         }
 
-        setDragValue(newValue);
-    };
-
-    const onHandleChangeCommitted: NonNullable<HandlerProps['onChangeCommitted']> = useCallback(
-        (handleValue, data) => {
-            const newValue = Math.round(reversed ? max - handleValue + min : handleValue);
-
-            if (onChangeCommitted) {
-                onChangeCommitted(newValue);
-            }
-
-            setState((prevState) => ({
-                ...prevState,
-                handlePosition: isVertical ? data.lastY : data.lastX,
-                railFillWidth: isVertical ? data.lastY : data.lastX,
-            }));
-
-            setDragValue(newValue);
-        },
-        [isVertical, min, max, reversed],
-    );
-
-    useEffect(() => {
-        if (value !== dragValue) {
-            const newValue = clamp(value ?? defaultValue ?? min, min, max);
-            const clampedValue = Math.max(min, Math.min(newValue, max));
-
-            setDragValue(clampedValue);
+        const clamped = clamp(tick, min, max);
+        if (outerValue === undefined) {
+            setDragValue(clamped);
         }
-    }, [value, defaultValue, dragValue, min, max]);
 
-    const labelVerticalPlacement = reversed ? 'bottom' : 'top';
-    const valuePlacement = sliderAlign === 'right' ? 'left' : 'right';
-    const settings = sizeData[size][pointerSize === 'large' ? 'large' : 'small'];
+        emitChange(clamped);
 
-    const onPointerEnter = () => {
-        setIsHovered(true);
+        if (onChangeCommitted) {
+            onChangeCommitted(clamped);
+        }
     };
 
-    const onPointerLeave = () => {
-        setIsHovered(false);
-    };
+    const { handleChange, handleChangeCommitted, handleKeyDown } = useRangeHandlers({
+        min,
+        max,
+        value,
+        step,
+        multipleStepSize,
+        isControlled: outerValue !== undefined,
+        onSetValue: setDragValue,
+        onEmit: emitChange,
+        onCommit: onChangeCommitted,
+    });
 
     return (
         <SingleWrapper
-            className={cx(
-                labelPlacementClass,
-                scaleAlignClass,
-                verticalOrientationClass,
-                sliderAlign === 'right' && classes.labelAlignLeft,
-                (sliderAlign === 'center' || sliderAlign === 'none') && classes.labelAlignCenter,
-                sliderAlign === 'left' && classes.labelAlignRight,
-                labelVerticalPlacement === 'bottom' && classes.labelPlacementBottom,
-                labelReversed && classes.labelContentReversed,
-            )}
-            onPointerEnter={onPointerEnter}
-            onPointerLeave={onPointerLeave}
+            className={cls(labelPlacementClass, scaleAlignClass, {
+                [classes.verticalOrientation]: isVertical,
+                [classes.labelContentReversed]: labelReversed,
+                [classes.labelPlacementBottom]: labelVerticalPlacement === 'bottom',
+                [classes.labelAlignRight]: sliderAlign === 'left',
+                [classes.labelAlignLeft]: sliderAlign === 'right',
+                [classes.labelAlignCenter]: (sliderAlign === 'center' || sliderAlign === 'none') && !scaleTicks,
+                [classes.scalePlacementTop]: scaleAlign === 'top',
+            })}
+            hasTicks={Boolean(scaleTicks)}
+            onPointerEnter={() => setIsHovered(true)}
+            onPointerLeave={() => setIsHovered(false)}
         >
             {hasLabelContent && (
                 <LabelWrapper>
@@ -227,72 +185,109 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     {label && <Label>{label}</Label>}
                 </LabelWrapper>
             )}
+
             <SliderBaseWrapper
-                className={cx(
-                    !isVertical && rangeValuesPlacement === 'outer' && classes.rangeValuesPlacementOuter,
-                    !isVertical && rangeValuesPlacement !== 'outer' && classes.rangeValuesPlacementInner,
-                    verticalOrientationClass,
-                )}
+                className={cls({
+                    [classes.verticalOrientation]: isVertical,
+                    [classes.rangeValuesPlacementInner]: !isVertical && rangeValuesPlacement !== 'outer',
+                    [classes.rangeValuesPlacementOuter]: !isVertical && rangeValuesPlacement === 'outer',
+                    [classes.scalePlacementTop]: scaleAlign === 'top',
+                })}
             >
                 {innerShowScale && (
-                    <StyledRangeValue ref={startLabelRef} className={cx(hideMinValueDiffClass, activeFirstValue)}>
+                    <StyledRangeValue
+                        className={cls({
+                            [classes.hideMinValue]:
+                                showCurrentValue &&
+                                (reversed
+                                    ? hideMaxValueDiff && max - value <= hideMaxValueDiff
+                                    : hideMinValueDiff && value - min <= hideMinValueDiff),
+                            [classes.activeRangeValue]: value === min,
+                        })}
+                    >
                         {reversed ? max : min}
                     </StyledRangeValue>
                 )}
-                <SliderBase
-                    min={min}
-                    max={max}
-                    disabled={disabled}
-                    size={size}
-                    sliderAlign={sliderAlign}
-                    setStepSize={setStepSize}
-                    onChange={onHandleChangeCommitted}
-                    railFillWidth={state.railFillWidth}
-                    settings={settings}
-                    labelPlacement={labelPlacement}
-                    rangeValuesPlacement={rangeValuesPlacement}
-                    orientation={orientation}
-                    reversed={reversed}
+
+                <SliderContainer
+                    className={cls(isVertical && classes.verticalOrientation, reversed && classes.reversed)}
+                    pointerSize={pointerSize}
                     {...rest}
                 >
-                    <Handler
-                        size={pointerSize}
-                        visibility={pointerVisibility}
-                        isHovered={isHovered}
-                        orientation={orientation}
-                        stepSize={state.stepSize}
-                        onChangeCommitted={onHandleChangeCommitted}
-                        onChange={onHandleChange}
-                        position={state.handlePosition}
+                    <StyledTrack />
+                    <StyledProgress style={progressSizeStyle} />
+
+                    <StyledRange
+                        type="range"
+                        name={name}
+                        value={value}
                         min={min}
                         max={max}
-                        startOffset={startOffset}
-                        endOffset={endOffset}
-                        value={dragValue}
+                        step={step}
                         disabled={disabled}
-                        ariaLabel={ariaLabel}
-                        multipleStepSize={multipleStepSize}
-                        showCurrentValue={innerShowCurrentValue}
-                        valuePlacement={valuePlacement}
+                        showPointer={showPointer}
+                        datatype="slider-single"
+                        aria-label={ariaLabel}
+                        aria-valuemin={min}
+                        aria-valuemax={max}
+                        aria-valuenow={value}
+                        aria-orientation={orientation}
+                        onChange={handleChange}
+                        onMouseUp={handleChangeCommitted}
+                        onTouchEnd={handleChangeCommitted}
+                        onKeyUp={handleChangeCommitted}
+                        onKeyDown={handleKeyDown}
                     />
-                </SliderBase>
+
+                    {innerShowCurrentValue && (
+                        <StyledCurrentValue style={currentValueStyle}>{value}</StyledCurrentValue>
+                    )}
+                </SliderContainer>
+
                 {innerShowScale && (
                     <StyledRangeValue
-                        ref={endLabelRef}
-                        className={cx(classes.maxRangeValue, hideMaxValueDiffClass, activeSecondValue)}
+                        className={cls(classes.maxRangeValue, {
+                            [classes.hideMaxValue]:
+                                showCurrentValue &&
+                                (reversed
+                                    ? hideMinValueDiff && value - min <= hideMinValueDiff
+                                    : hideMaxValueDiff && max - value <= hideMaxValueDiff),
+
+                            [classes.activeRangeValue]: value === max,
+                        })}
                     >
                         {reversed ? min : max}
                     </StyledRangeValue>
                 )}
+
+                {scaleTicks && (
+                    <ScaleTicksWrapper isVertical={isVertical} reversed={reversed}>
+                        {scaleTicks.map((tick) => {
+                            const tickStyle = getTickStyle({ tick, min, max, isVertical, reversed: reversed ?? false });
+
+                            return (
+                                <ScaleTick
+                                    key={tick}
+                                    tickValue={tick}
+                                    isVertical={isVertical}
+                                    sliderAlign={sliderAlign}
+                                    scaleAlign={scaleAlign}
+                                    style={tickStyle}
+                                    onClick={() => handleTickClick(tick)}
+                                >
+                                    <ScaleTickDot
+                                        isVertical={isVertical}
+                                        filled={tick <= value}
+                                        reversed={reversed}
+                                        scaleAlign={scaleAlign}
+                                        sliderAlign={sliderAlign}
+                                    />
+                                </ScaleTick>
+                            );
+                        })}
+                    </ScaleTicksWrapper>
+                )}
             </SliderBaseWrapper>
-            <InputHidden
-                name={name}
-                type="number"
-                datatype="slider-single"
-                value={dragValue}
-                ref={innerRef}
-                {...noop}
-            />
         </SingleWrapper>
     );
 };

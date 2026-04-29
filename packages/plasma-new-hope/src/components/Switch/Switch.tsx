@@ -65,9 +65,11 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
                         defaultChecked={defaultChecked}
                         disabled={disabled}
                     />
-                    <StyledLabel tabIndex={-1} className={singleLine ? classes.singleLine : ''}>
-                        {label}
-                    </StyledLabel>
+                    {label && (
+                        <StyledLabel tabIndex={-1} className={singleLine ? classes.singleLine : ''}>
+                            {label}
+                        </StyledLabel>
+                    )}
                     <StyledTrigger aria-hidden />
                 </StyledContent>
                 {description && <StyledDescription>{description}</StyledDescription>}

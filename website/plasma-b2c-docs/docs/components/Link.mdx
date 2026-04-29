@@ -10,6 +10,8 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 <PropsTable name="Link" exclude={['css', 'focused']} />
 <StorybookLink name="Link" />
 
+## Использование
+
 ```tsx live
 import React from 'react';
 import { P1, Link } from '@salutejs/plasma-b2c';
@@ -19,6 +21,30 @@ export function App() {
         <P1>
             Скачайте <Link href="/" target="_blank">приложение</Link>.
         </P1>
+    );
+}
+```
+
+## Примеры
+### Подчёркивание
+
+Prop `underline` управляет режимом подчёркивания ссылки:
+
+- `none` — без подчёркивания (по умолчанию)
+- `hover` — подчёркивание при наведении
+- `always` — всегда подчёркнута
+
+```tsx live
+import React from 'react';
+import { P1, Link } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <P1><Link href="/" underline="none">Без подчёркивания</Link></P1>
+            <P1><Link href="/" underline="hover">Подчёркивание при наведении</Link></P1>
+            <P1><Link href="/" underline="always">Всегда подчёркнута</Link></P1>
+        </div>
     );
 }
 ```

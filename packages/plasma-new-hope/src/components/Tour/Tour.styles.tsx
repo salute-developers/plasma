@@ -1,5 +1,7 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { CSSProperties } from 'react';
+
+import { privateTokens, tokens } from './Tour.tokens';
 
 export const MaskContainer = styled.div<{ zIndex: CSSProperties['zIndex'] }>`
     z-index: ${({ zIndex }) => zIndex || 9000};
@@ -14,16 +16,25 @@ export const Mask = styled.div`
 export const Highlight = styled.div<{
     overlayColor?: CSSProperties['color'];
     borderRadius?: CSSProperties['borderRadius'] | null;
+    disableTransition?: boolean;
+    withOverlay?: boolean;
 }>`
-    --private-mask-color: ${({ overlayColor }) => `${overlayColor || 'rgba(0, 0, 0, 0.45)'}`};
+    ${privateTokens.maskColor}: ${({ overlayColor }) => overlayColor || `var(${tokens.overlayColor})`};
+
     position: fixed;
     background: transparent;
     border-radius: ${({ borderRadius }) => borderRadius ?? 0};
-    box-shadow: 0 0 0 9999px var(--private-mask-color);
+    box-shadow: ${({ withOverlay }) => (withOverlay ? `0 0 0 9999px var(${privateTokens.maskColor})` : 'none')};
     pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* stylelint-disable */
+    transition: ${({ disableTransition }) =>
+        disableTransition
+            ? 'none'
+            : 'left 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1)'};
+    /* stylelint-enable */
 `;
 
 export const TourPortal = styled.div`
-    position: absolute;
+    outline: none;
 `;

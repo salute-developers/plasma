@@ -1,209 +1,229 @@
-import React, { useRef, useState } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import styled from 'styled-components';
-import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
+import React, { ComponentProps, useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { getTourStories } from '@salutejs/plasma-sb-utils';
 
-import { Button } from '../Button/Button';
+import { Avatar } from '../Avatar';
+import { Button } from '../Button';
+import { Range } from '../Range';
+import { Switch } from '../Switch';
+import { TextField } from '../TextField';
+import { ButtonGroup } from '../ButtonGroup';
+import { LinkButton } from '../LinkButton';
 
 import { config } from './Tour.config';
 import { Tour } from './Tour';
+import { TourCard } from './TourCard';
 
-const { views, sizes } = getConfigVariations(config);
+type TourProps = ComponentProps<typeof Tour>;
 
-const meta: Meta<typeof Tour> = {
-    title: 'Navigation/Tour',
+const { meta: META, Default, CustomHighlight } = getTourStories({
     component: Tour,
-    argTypes: {
-        withOverlay: {
-            type: 'boolean',
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'select',
-            },
-        },
-        view: {
-            options: views,
-            control: {
-                type: 'select',
-            },
-        },
-        ...disableProps(['view', 'size']),
-    },
+    componentConfig: config,
+    disablePropsList: ['view', 'size'],
+    additionalComponents: { Avatar, Button, Range, Switch, TextField },
+});
+
+const meta: Meta<TourProps> = {
+    ...META,
+    title: 'Navigation/Tour',
 };
 
 export default meta;
 
-const Card = styled.div`
-    padding: 1rem;
-    background: #fff;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
-    border-radius: 0.75rem;
-    max-width: 20rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-`;
+const getImage = () => {
+    const svgString = `
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMinYMin slice"
+      viewBox="1 0.5 8 8"
+      style="background: lightblue"
+    >
+      <path stroke="#fff" stroke-dasharray="1" d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+    </svg>
+  `;
 
-const Title = styled.h4`
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #000;
-`;
+    const cleanedSvg = svgString.replace(/\s+/g, ' ').trim();
+    return `data:image/svg+xml,${encodeURIComponent(cleanedSvg)}`;
+};
 
-const Description = styled.p`
-    margin: 0;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: #666;
-`;
-
-const Footer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-
-    > div {
-        display: flex;
-        gap: 0.5rem;
-    }
-
-    small {
-        color: #666;
-        white-space: nowrap;
-    }
-`;
-
-const StoryDefault = (args) => {
-    const ref1 = useRef<HTMLButtonElement>(null);
-    const ref2 = useRef<HTMLButtonElement>(null);
-    const ref3 = useRef<HTMLButtonElement>(null);
-    const ref4 = useRef<HTMLButtonElement>(null);
+const StoryCard = (props: TourProps) => {
     const [open, setOpen] = useState(false);
     const [current, setCurrent] = useState(0);
+    const [name, setName] = useState('');
+    const [checked, setChecked] = useState(false);
+    const [firstValue, setFirstValue] = useState('18');
+    const [secondValue, setSecondValue] = useState('65');
 
-    const onNext = () => setCurrent(current + 1);
-    const onPrev = () => setCurrent(current - 1);
-    const onClose = () => setOpen(false);
-
-    const renderTourCard = (currentStep: number, length, last, step) => {
-        return (
-            <Card>
-                {step?.title && <Title>{step?.title}</Title>}
-                {step?.description && <Description>{step?.description}</Description>}
-                <Footer>
-                    <div>
-                        {currentStep > 0 && (
-                            <Button size="xs" type="button" onClick={onPrev}>
-                                Назад
-                            </Button>
-                        )}
-                        {!last && (
-                            <Button size="xs" type="button" onClick={onNext}>
-                                Далее
-                            </Button>
-                        )}
-                        {last && (
-                            <Button size="xs" type="button" onClick={onClose}>
-                                Закрыть
-                            </Button>
-                        )}
-                    </div>
-                    <small>
-                        Шаг {currentStep + 1} / {length}
-                    </small>
-                </Footer>
-            </Card>
-        );
+    const onClose = () => {
+        setOpen(false);
+        setCurrent(0);
     };
+
+    const goToStep = (index: number) => {
+        setCurrent(index);
+    };
+
+    const image = props.showImage
+        ? {
+              src: getImage(),
+          }
+        : undefined;
 
     const steps = [
         {
-            target: ref1,
-            title: 'Title 1',
-            description: 'Description text for title 1',
+            target: '#avatar-id',
+            title: 'Аватар профиля',
+            description: 'Здесь отображается ваш аватар. Кликните по нему, чтобы загрузить фотографию.',
             placement: 'right',
+            highlightBorderRadius: '50%',
         },
         {
-            target: ref2,
-            title: 'Title 2',
-            description: 'Description text for title 2',
+            target: '#textfield-id',
+            title: 'Имя пользователя',
+            description: 'Введите ваше имя — оно будет отображаться в профиле и переписке.',
         },
         {
-            target: ref3,
-            title: 'Title 3',
-            description: 'Description text for title 3',
+            target: '#switch-id',
+            title: 'Push-уведомления',
+            description: 'Включите уведомления, чтобы не пропускать важные события.',
         },
         {
-            target: ref4,
-            title: 'Title 4',
-            description: 'Description text for title 4',
-            placement: 'left',
+            target: '#range-id',
+            title: 'Возрастной диапазон',
+            description: 'Укажите диапазон возраста аудитории для персонализации контента.',
+        },
+        {
+            target: '#button-id',
+            title: 'Сохранить настройки',
+            description: 'Нажмите кнопку, чтобы применить все внесённые изменения.',
+            placement: 'top',
         },
     ];
+
+    const renderTourCard = (stepCurrent: number, stepLength: number, last: boolean, step: any) => {
+        const actionButtons = props.showActionButtons ? (
+            <ButtonGroup stretching="filled">
+                {stepCurrent > 0 && (
+                    <Button size="s" view="secondary" onClick={() => setCurrent((c) => c - 1)}>
+                        Назад
+                    </Button>
+                )}
+
+                {last ? (
+                    <Button size="s" view="default" onClick={onClose}>
+                        Закрыть
+                    </Button>
+                ) : (
+                    <Button size="s" view="default" onClick={() => setCurrent((c) => c + 1)}>
+                        Далее
+                    </Button>
+                )}
+            </ButtonGroup>
+        ) : undefined;
+
+        const skipButton = props.showSkipButton ? <LinkButton onClick={onClose}>Пропустить</LinkButton> : undefined;
+
+        return (
+            <TourCard
+                title={step?.title}
+                description={step?.description}
+                actionButtons={actionButtons}
+                skipButton={skipButton}
+                orientation={props.orientation}
+                showPagination={props.showPagination}
+                stepCurrent={stepCurrent}
+                stepLength={stepLength}
+                goToStep={goToStep}
+                showClose={props.showClose}
+                onClose={onClose}
+                image={image}
+            />
+        );
+    };
 
     return (
         <div
             style={{
-                width: '100%',
-                height: '110vh',
+                maxWidth: '26rem',
+                margin: '0 auto',
                 display: 'flex',
-                justifyContent: 'space-between',
                 flexDirection: 'column',
-                alignItems: 'center',
+                gap: '1.5rem',
+                padding: '2rem',
             }}
         >
-            <div
-                style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                }}
-            >
-                <Button ref={ref1}>Блок 1</Button>
-                <Button ref={ref2}>Блок 2</Button>
-            </div>
-            <Button onClick={() => setOpen(true)}>Запуск тура</Button>
+            <Avatar id="avatar-id" size="m" name="Иван Иванов" style={{ alignSelf: 'flex-start' }} />
 
-            <div
-                style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                }}
-            >
-                <Button ref={ref3}>Блок 3</Button>
-                <Button ref={ref4}>Блок 4</Button>
+            <div id="textfield-id">
+                <TextField
+                    label="Имя пользователя"
+                    value={name}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+                />
+            </div>
+
+            <Switch
+                id="switch-id"
+                label="Push-уведомления"
+                checked={checked}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setChecked(e.target.checked)}
+            />
+
+            <Range
+                id="range-id"
+                label="Возрастной диапазон"
+                firstValue={firstValue}
+                secondValue={secondValue}
+                onChangeFirstValue={(e: React.ChangeEvent<HTMLInputElement>) => setFirstValue(e.target.value)}
+                onChangeSecondValue={(e: React.ChangeEvent<HTMLInputElement>) => setSecondValue(e.target.value)}
+            />
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Button view="secondary" onClick={() => setOpen(true)}>
+                    Запустить тур
+                </Button>
+                <Button id="button-id" view="default">
+                    Сохранить
+                </Button>
             </div>
 
             <Tour
-                {...args}
-                offset={[args.offset, args.shift]}
                 open={open}
                 current={current}
-                onClose={() => {
-                    setCurrent(0);
-                    setOpen(false);
-                }}
+                hasTail
+                onChange={setCurrent}
+                onClose={onClose}
                 renderStep={renderTourCard}
                 steps={steps}
+                highlightBorderRadius="1rem"
             />
         </div>
     );
 };
 
-export const Default: StoryObj = {
+const Card: StoryObj<TourProps> = {
     args: {
-        size: 's',
-        view: 'default',
-        withOverlay: true,
-        offset: 12,
-        shift: 12,
-        highlightOffset: 4,
+        orientation: 'vertical',
+        showImage: true,
+        showPagination: true,
+        showActionButtons: true,
+        showSkipButton: true,
+        showClose: true,
     },
-    render: (args) => <StoryDefault {...args} />,
+    parameters: {
+        controls: {
+            include: ['orientation', 'showImage', 'showPagination', 'showActionButtons', 'showSkipButton', 'showClose'],
+        },
+    },
+    argTypes: {
+        orientation: {
+            options: ['vertical', 'horizontal'],
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    render: (args) => <StoryCard {...args} />,
 };
+
+export { Default, CustomHighlight, Card };

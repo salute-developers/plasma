@@ -1,5 +1,5 @@
 import { counterConfig, counterTokens } from 'src/components/Counter';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 import { indicatorTokens, indicatorConfig } from 'src/components/Indicator';
 import { linkConfig } from 'src/components/Link';

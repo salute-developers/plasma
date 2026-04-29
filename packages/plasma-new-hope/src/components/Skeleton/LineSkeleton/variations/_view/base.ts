@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { StyledVisibleLine } from '../../LineSkeleton.styles';
 import { tokens } from '../../../tokens';

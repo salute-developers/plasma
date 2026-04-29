@@ -11,7 +11,7 @@ import { useInnerProps } from './hooks';
 
 export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
     forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => {
-        const { id, ...rest } = props;
+        const { id, width, height, style, ...rest } = props;
 
         const innerProps = useInnerProps(props, {
             wrapperWidth: 'auto',
@@ -24,8 +24,11 @@ export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
         const uniqId = safeUseId;
         const innerId = id || uniqId();
 
+        const rootStyle =
+            width && height ? { ...style, width: innerProps.wrapperWidth, height: innerProps.wrapperHeight } : style;
+
         return (
-            <Root ref={ref} id={innerId} {...rest}>
+            <Root ref={ref} id={innerId} {...rest} style={rootStyle}>
                 <SpinnerWrapper width={innerProps.wrapperWidth} height={innerProps.wrapperHeight}>
                     <SpinnerSvg
                         id={innerId}

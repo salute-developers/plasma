@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { IconDisclosureDownCentered } from 'src/components/_Icon';
 import { applyEllipsis } from 'src/mixins';
 

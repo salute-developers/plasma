@@ -1,3 +1,12 @@
-import type { SingleSliderProps, DoubleUncontrolledProps } from './components';
+import type { CSSProperties } from 'react';
 
-export type SliderProps = SingleSliderProps | DoubleUncontrolledProps;
+import type { SingleSliderProps, DoubleSliderProps } from './components';
+
+export type SliderProps = SingleSliderProps | DoubleSliderProps;
+export type SliderRootProps = {
+    view?: string;
+    size?: string;
+    disabled?: boolean;
+    className?: string;
+    style?: CSSProperties;
+};

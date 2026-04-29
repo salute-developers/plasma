@@ -14,9 +14,7 @@ export const TextFieldDefault = component(mergedConfigDefault);
 const mergedConfigClear = mergeConfig(textFieldConfig, clearConfig);
 export const TextFieldClear = component(mergedConfigClear);
 
-export const TextField = createConditionalComponent(TextFieldDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'clear' },
-        component: TextFieldClear,
-    },
-]);
+export const TextField = createConditionalComponent({
+    default: TextFieldDefault,
+    clear: TextFieldClear,
+});

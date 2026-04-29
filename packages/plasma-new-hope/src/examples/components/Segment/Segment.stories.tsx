@@ -16,7 +16,7 @@ const { meta: META, Default, IconItem } = getSegmentStories({
     SegmentItem,
     SegmentIconItem,
     SegmentProvider,
-    componentConfig: config,
+    componentConfig: { group: groupConfig, item: itemConfig },
     CounterComponent: Counter,
     useSegment,
     decorators: [WithTheme],

@@ -1,52 +1,24 @@
-import React from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getLinkStories } from '@salutejs/plasma-sb-utils';
 
-import { P1 } from '../Typography';
+import { config } from './Link.config';
 
 import { Link } from '.';
 
-const meta: Meta<typeof Link> = {
-    title: 'Navigation/Link',
-    decorators: [InSpacingDecorator],
+type LinkProps = ComponentProps<typeof Link>;
+
+const { meta: META, Default } = getLinkStories({
     component: Link,
-    argTypes: {
-        text: {
-            control: {
-                type: 'text',
-            },
-        },
-        href: {
-            control: {
-                type: 'text',
-            },
-        },
-    },
+    componentConfig: config,
+    defaultArgs: { view: 'accent' },
+});
+
+const meta: Meta<LinkProps> = {
+    ...(META as Meta<LinkProps>),
+    title: 'Navigation/Link',
 };
 
 export default meta;
 
-type StoryLinkProps = {
-    text: string;
-    href: string;
-    disabled?: boolean;
-    focused?: boolean;
-};
-
-export const Default: StoryObj<StoryLinkProps> = {
-    args: {
-        text: 'приложение',
-        href: 'https://google.com',
-        disabled: false,
-        focused: true,
-    },
-    render: ({ text, ...props }) => (
-        <P1>
-            Скачайте{' '}
-            <Link target="_blank" {...props}>
-                {text}
-            </Link>
-            .
-        </P1>
-    ),
-};
+export { Default };

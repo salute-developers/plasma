@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 import { IconDisclosureDownCentered } from 'src/components/_Icon';
 import { textFieldConfig, textFieldTokens } from 'src/components/TextField';
@@ -186,6 +186,13 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 
     ${textFieldTokens.boxShadow}: var(${tokens.textFieldBoxShadow});
     ${textFieldTokens.boxShadowSecondary}: var(${tokens.textFieldBoxShadowSecondary});
+
+    /* Переопределение стиля курсора для TextField-like */
+    &:not([readonly]),
+    &:not([readonly]) input,
+    &:not([readonly]) label {
+        cursor: pointer;
+    }
 `;
 
 export const IconArrowWrapper = styled.div<{ disabled?: boolean; readOnly?: boolean }>`

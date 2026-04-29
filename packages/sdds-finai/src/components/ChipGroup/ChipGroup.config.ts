@@ -15,14 +15,6 @@ export const config = {
                 ${tokens.chipColorActive}: var(--inverse-text-primary);
                 ${tokens.chipBackgroundActive}: var(--surface-solid-default-active);
             `,
-            secondary: css`
-                ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
-                ${tokens.chipColorHover}: var(--text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-            `,
             accent: css`
                 ${tokens.chipColor}: var(--on-dark-text-primary);
                 ${tokens.chipBackground}: var(--surface-accent);
@@ -31,29 +23,40 @@ export const config = {
                 ${tokens.chipColorActive}: var(--on-dark-text-primary);
                 ${tokens.chipBackgroundActive}: var(--surface-accent-active);
             `,
+            positive: css`
+                ${tokens.chipColor}: var(--on-dark-text-primary);
+                ${tokens.chipBackground}: var(--surface-positive);
+                ${tokens.chipColorHover}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundHover}: var(--surface-positive-hover);
+                ${tokens.chipColorActive}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundActive}: var(--surface-positive-active);
+            `,
+            warning: css`
+                ${tokens.chipColor}: var(--on-dark-text-primary);
+                ${tokens.chipBackground}: var(--surface-warning);
+                ${tokens.chipColorHover}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundHover}: var(--surface-warning-hover);
+                ${tokens.chipColorActive}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundActive}: var(--surface-warning-active);
+            `,
+            negative: css`
+                ${tokens.chipColor}: var(--on-dark-text-primary);
+                ${tokens.chipBackground}: var(--surface-negative);
+                ${tokens.chipColorHover}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundHover}: var(--surface-negative-hover);
+                ${tokens.chipColorActive}: var(--on-dark-text-primary);
+                ${tokens.chipBackgroundActive}: var(--surface-negative-active);
+            `,
+            clear: css`
+                ${tokens.chipColor}: var(--text-primary);
+                ${tokens.chipBackground}: var(--surface-clear);
+                ${tokens.chipColorHover}: var(--text-primary);
+                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.chipColorActive}: var(--text-primary);
+                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
+            `,
         },
         size: {
-            l: css`
-                ${tokens.chipBorderRadius}: 0.75rem;
-                ${tokens.chipWidth}: auto;
-                ${tokens.chipHeight}: 3rem;
-                ${tokens.chipPadding}: 0 1rem;
-
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${tokens.chipLeftContentMarginLeft}: -0.125rem;
-                ${tokens.chipLeftContentMarginRight}: 0.5rem;
-                ${tokens.chipRightContentMarginLeft}: 0.5rem;
-                ${tokens.chipRightContentMarginRight}: -0.125rem;
-                ${tokens.chipClearContentMarginLeft}: 0.625rem;
-                ${tokens.chipClearContentMarginRight}: -0.25rem;
-                ${tokens.chipCloseIconSize}: 1.5rem;
-            `,
             m: css`
                 ${tokens.chipBorderRadius}: 0.625rem;
                 ${tokens.chipWidth}: auto;

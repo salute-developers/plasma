@@ -23,10 +23,10 @@ export type TextfieldProps = Pick<
     | 'isTargetAmount'
     | 'valueToItemMap'
     | 'renderValue'
-    | 'onChange'
+    | 'handleChange'
     | 'chipView'
-    | 'requiredProps'
-    | 'hintProps'
     | 'chipType'
     | 'chipClickArea'
+    | 'requiredProps'
+    | 'hintProps'
 >;

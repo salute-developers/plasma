@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { classes, tokens } from '../../TextField.tokens';
 import {
@@ -18,8 +18,6 @@ import {
 } from '../../TextField.styles';
 
 export const base = css`
-    ${tokens.tourBorderRadius}: var(${tokens.borderRadius});
-
     ${Input} {
         width: 100%;
         font: inherit;

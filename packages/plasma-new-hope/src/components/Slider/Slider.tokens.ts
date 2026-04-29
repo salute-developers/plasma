@@ -2,6 +2,7 @@ export const classes = {
     labelPlacementOuter: 'slider-label-placement-outer',
     labelPlacementInner: 'slider-label-placement-inner',
     labelPlacementBottom: 'slider-label-placement-bottom',
+    scalePlacementTop: 'slider-scale-placement-top',
     labelAlignLeft: 'slider-label-align-left',
     labelAlignCenter: 'slider-label-align-center',
     labelAlignRight: 'slider-label-align-right',
@@ -20,6 +21,11 @@ export const classes = {
     verticalOrientation: 'slider-vertical-orientation',
     valuePlacementLeft: 'slider-value-placement-left',
     reversed: 'slider-reversed',
+    pointerHidden: 'slider-pointer-hidden',
+};
+
+export const privateTokens = {
+    thumbSize: '--sdds-core_private-thumb-size',
 };
 
 export const tokens = {
@@ -62,6 +68,11 @@ export const tokens = {
     thumbBackgroundColor: '--plasma-slider-thumb-background-color',
 
     thumbFocusBorderColor: '--plasma-slider-thumb-focus-border-color',
+
+    tickSize: '--plasma-slider-tick-size',
+    tickDotColor: '--plasma-slider-tick-dot-color',
+    tickDotFilledColor: '--plasma-slider-tick-dot-filled-color',
+    tickDotOffset: '--plasma-slider-tick-dot-offset',
 
     currentValueTopOffset: '--plasma-slider-current-value-top-offset',
 

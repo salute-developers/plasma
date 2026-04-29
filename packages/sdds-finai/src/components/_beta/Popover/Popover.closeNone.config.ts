@@ -2,12 +2,12 @@ import { css, _beta_popoverTokens as tokens } from '@salutejs/plasma-new-hope/st
 
 export const config = {
     defaults: {
-        view: 'default',
+        view: 'action',
         size: 'm',
     },
     variations: {
         view: {
-            default: css`
+            action: css`
                 ${tokens.backgroundColor}: var(--surface-solid-card);
                 ${tokens.boxShadow}: var(--shadow-down-hard-m);
             `,

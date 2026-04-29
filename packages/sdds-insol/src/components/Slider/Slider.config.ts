@@ -20,6 +20,9 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-solid-default);
 
+                ${sliderTokens.tickDotColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.tickDotFilledColor}: var(--surface-solid-default);
+
                 ${sliderTokens.doubleBoxShadow}: var(--shadow-down-soft-s);
 
                 ${sliderTokens.textFieldCaretColor}: var(--text-accent);
@@ -48,6 +51,9 @@ export const config = {
 
                 ${sliderTokens.fillColor}: var(--surface-accent);
 
+                ${sliderTokens.tickDotColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.tickDotFilledColor}: var(--surface-accent);
+
                 ${sliderTokens.doubleBoxShadow}: var(--shadow-down-soft-s);
 
                 ${sliderTokens.textFieldCaretColor}: var(--text-accent);
@@ -75,6 +81,9 @@ export const config = {
                 ${sliderTokens.railBackgroundColor}: var(--surface-solid-tertiary);
 
                 ${sliderTokens.fillColor}: var(--surface-accent-gradient);
+
+                ${sliderTokens.tickDotColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.tickDotFilledColor}: var(--surface-accent-gradient);
 
                 ${sliderTokens.doubleBoxShadow}: var(--shadow-down-soft-s);
 
@@ -125,6 +134,8 @@ export const config = {
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
                 ${sliderTokens.thumbBorder}: 0.0625rem solid;
+
+                ${sliderTokens.tickSize}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.625rem;
 
@@ -178,6 +189,8 @@ export const config = {
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
                 ${sliderTokens.thumbBorder}: 0.0625rem solid;
 
+                ${sliderTokens.tickSize}: 0.5rem;
+
                 ${sliderTokens.currentValueTopOffset}: 1.75rem;
 
                 ${sliderTokens.railThickness}: 0.25rem;
@@ -229,6 +242,8 @@ export const config = {
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
                 ${sliderTokens.thumbBorder}: 0.0625rem solid;
+
+                ${sliderTokens.tickSize}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.25rem;
 

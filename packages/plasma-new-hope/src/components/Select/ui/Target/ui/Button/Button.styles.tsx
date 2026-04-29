@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { applyEllipsis } from 'src/mixins';
 import { component, mergeConfig } from 'src/engines';
 import { buttonConfig, buttonTokens } from 'src/components/Button';
