@@ -41,7 +41,9 @@ type Story = StoryObj<RadioboxProps>;
 const cDescription = (
     <div>
         A general-purpose, procedural computer programming{' '}
-        <a href="https://en.wikipedia.org/wiki/C_(programming_language)">language</a>{' '}
+        <a style={{ color: 'inherit' }} href="https://en.wikipedia.org/wiki/C_(programming_language)">
+            language
+        </a>{' '}
     </div>
 );
 
@@ -134,6 +136,7 @@ export const Live: Story = {
         size: 'm',
         view: 'accent',
         singleLine: false,
+        disabled: false,
         focused: true,
     },
     render: (args) => <StoryLive {...args} />,
