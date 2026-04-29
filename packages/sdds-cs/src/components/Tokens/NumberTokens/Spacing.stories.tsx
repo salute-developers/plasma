@@ -24,7 +24,7 @@ const meta: Meta = {
 export default meta;
 
 const themes: Record<string, GroupedNumberTokens> = {
-    'sdds-srvc:light': getGroupedCornerRadiusTokens(sdds_cs__light[0]),
+    'theme:sdds_cs:light': getGroupedCornerRadiusTokens(sdds_cs__light[0]),
 };
 
 const StoryDemo = ({ context }) => {

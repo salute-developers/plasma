@@ -198,8 +198,8 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.25rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.25rem -0.1875rem 0.75rem;
                 ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
@@ -274,8 +274,8 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.1875rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.1875rem -0.0625rem 0.75rem;
                 ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.25rem;

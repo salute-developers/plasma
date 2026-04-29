@@ -227,10 +227,6 @@
                     "value": "rgba(242,245,248,0.8)",
                     "comment": "Сплошной наборный текст"
                 },
-                "textAccent": {
-                    "value": "[general.blue.400]",
-                    "comment": "Акцентный цвет"
-                },
                 "textAccentMinor": {
                     "value": "[general.blue.800]",
                     "comment": "Акцентный минорный цвет"
@@ -274,6 +270,10 @@
                 "textTertiary": {
                     "value": "#d5dfe64d",
                     "comment": "Третичный цвет текста"
+                },
+                "textAccent": {
+                    "value": "[general.blue.400]",
+                    "comment": "Акцентный цвет"
                 }
             },
             "onDark": {
@@ -1160,11 +1160,11 @@
                     "comment": "Фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0F96F0FF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -1343,11 +1343,11 @@
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Цвет фона поверхности/контрола информация"
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0F96F0FF",
                     "comment": "Цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinorHover": {
@@ -1454,10 +1454,6 @@
                     "value": "rgba(255,255,255,0)",
                     "comment": "Фон поверхности/контрола без заливки"
                 },
-                "surfaceAccent": {
-                    "value": "[general.blue.500]",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.2)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
@@ -1473,10 +1469,6 @@
                 "surfaceNegative": {
                     "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinor": {
                     "value": "[general.green.900]",
@@ -1529,6 +1521,14 @@
                 "surfaceAccentMinor": {
                     "value": "#071A26",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceAccent": {
+                    "value": "[general.blue.400]",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceInfo": {
+                    "value": "[general.blue.400]",
+                    "comment": "Цвет фона поверхности/контрола информация"
                 }
             },
             "onDark": {
@@ -1621,11 +1621,11 @@
                     "comment": "Фон поверхности/контрола без заливки на темном фоне"
                 },
                 "surfaceAccentHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0F96F0FF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
@@ -1819,16 +1819,12 @@
                     "value": "#FF1F35FF",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
                 },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет фона поверхности/контрола информация на темном фоне"
-                },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Цвет фона поверхности/контрола информация на темном фоне"
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0F96F0FF",
                     "comment": "Цвет фона поверхности/контрола информация на темном фоне"
                 },
                 "surfacePositiveMinor": {
@@ -1963,10 +1959,6 @@
                     "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
-                "surfaceAccent": {
-                    "value": "[general.blue.500]",
-                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
-                },
                 "surfaceClear": {
                     "value": "rgba(255,255,255,0)",
                     "comment": "Фон поверхности/контрола без заливки на темном фоне"
@@ -1990,6 +1982,14 @@
                 "surfaceAccentMinor": {
                     "value": "#071A26",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceInfo": {
+                    "value": "[general.blue.400]",
+                    "comment": "Цвет фона поверхности/контрола информация на темном фоне"
+                },
+                "surfaceAccent": {
+                    "value": "[general.blue.400]",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 }
             },
             "onLight": {
@@ -2086,11 +2086,11 @@
                     "comment": "Фон поверхности/контрола без заливки на светлом фоне"
                 },
                 "surfaceAccentHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0F90E6FF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
@@ -2269,11 +2269,11 @@
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0F90E6FF",
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfacePositiveMinorHover": {
@@ -2376,10 +2376,6 @@
                     "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
-                "surfaceAccent": {
-                    "value": "[general.blue.500]",
-                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
@@ -2395,10 +2391,6 @@
                 "surfaceNegative": {
                     "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfacePositiveMinor": {
                     "value": "[general.green.150]",
@@ -2451,6 +2443,14 @@
                 "surfaceAccentMinor": {
                     "value": "#ECF6FC",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccent": {
+                    "value": "[general.blue.400]",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceInfo": {
+                    "value": "[general.blue.400]",
+                    "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 }
             },
             "inverse": {
@@ -2547,11 +2547,11 @@
                     "comment": "Инвертированный фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0F90E6FF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -2730,11 +2730,11 @@
                     "comment": "Инвертированный цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Инвертированный цвет фона поверхности/контрола информация"
                 },
                 "surfaceInfoActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0F90E6FF",
                     "comment": "Инвертированный цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinorHover": {
@@ -2837,10 +2837,6 @@
                     "value": "#FFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
-                "surfaceAccent": {
-                    "value": "[general.blue.500]",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.12)",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
@@ -2856,10 +2852,6 @@
                 "surfaceNegative": {
                     "value": "[general.red.500]",
                     "comment": "Инвертированный цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Инвертированный цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinor": {
                     "value": "[general.green.150]",
@@ -2912,6 +2904,14 @@
                 "surfaceAccentMinor": {
                     "value": "#071A26",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceAccent": {
+                    "value": "[general.blue.400]",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceInfo": {
+                    "value": "[general.blue.400]",
+                    "comment": "Инвертированный цвет фона поверхности/контрола информация"
                 }
             }
         },
@@ -7602,11 +7602,11 @@
                     "comment": "Фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F90E6FF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -7785,11 +7785,11 @@
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Цвет фона поверхности/контрола информация"
                 },
                 "surfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F90E6FF",
                     "comment": "Цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinorHover": {
@@ -7896,10 +7896,6 @@
                     "value": "rgba(255,255,255,0)",
                     "comment": "Фон поверхности/контрола без заливки"
                 },
-                "surfaceAccent": {
-                    "value": "[general.blue.500]",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола"
@@ -7915,10 +7911,6 @@
                 "surfaceNegative": {
                     "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinor": {
                     "value": "[general.green.150]",
@@ -7971,6 +7963,14 @@
                 "surfaceAccentMinor": {
                     "value": "#ECF6FC",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceAccent": {
+                    "value": "[general.blue.400]",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceInfo": {
+                    "value": "[general.blue.400]",
+                    "comment": "Цвет фона поверхности/контрола информация"
                 }
             },
             "onDark": {
@@ -8067,11 +8067,11 @@
                     "comment": "Фон поверхности/контрола без заливки на темном фоне"
                 },
                 "surfaceAccentHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F96F0FF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
@@ -8250,11 +8250,11 @@
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Цвет фона поверхности/контрола информация на темном фоне"
                 },
                 "surfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F96F0FF",
                     "comment": "Цвет фона поверхности/контрола информация на темном фоне"
                 },
                 "surfacePositiveMinorHover": {
@@ -8357,10 +8357,6 @@
                     "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
-                "surfaceAccent": {
-                    "value": "[general.blue.500]",
-                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.2)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
@@ -8376,10 +8372,6 @@
                 "surfaceNegative": {
                     "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет фона поверхности/контрола информация на темном фоне"
                 },
                 "surfacePositiveMinor": {
                     "value": "[general.green.900]",
@@ -8432,6 +8424,14 @@
                 "surfaceAccentMinor": {
                     "value": "#071A26",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccent": {
+                    "value": "[general.blue.400]",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceInfo": {
+                    "value": "[general.blue.400]",
+                    "comment": "Цвет фона поверхности/контрола информация на темном фоне"
                 }
             },
             "onLight": {
@@ -8528,11 +8528,11 @@
                     "comment": "Фон поверхности/контрола без заливки на светлом фоне"
                 },
                 "surfaceAccentHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F90E6FF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
@@ -8711,11 +8711,11 @@
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F90E6FF",
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfacePositiveMinorHover": {
@@ -8818,10 +8818,6 @@
                     "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
-                "surfaceAccent": {
-                    "value": "[general.blue.500]",
-                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.12)",
                     "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
@@ -8837,10 +8833,6 @@
                 "surfaceNegative": {
                     "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 },
                 "surfacePositiveMinor": {
                     "value": "[general.green.150]",
@@ -8893,6 +8885,14 @@
                 "surfaceAccentMinor": {
                     "value": "#ECF6FC",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccent": {
+                    "value": "[general.blue.400]",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceInfo": {
+                    "value": "[general.blue.400]",
+                    "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
                 }
             },
             "inverse": {
@@ -8989,11 +8989,11 @@
                     "comment": "Инвертированный фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F96F0FF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -9172,11 +9172,11 @@
                     "comment": "Инвертированный цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceInfoHover": {
-                    "value": "#1798EEFF",
+                    "value": "#36A7F2FF",
                     "comment": "Инвертированный цвет фона поверхности/контрола информация"
                 },
                 "surfaceInfoActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F96F0FF",
                     "comment": "Инвертированный цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinorHover": {
@@ -9279,10 +9279,6 @@
                     "value": "#FFFFFF",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
-                "surfaceAccent": {
-                    "value": "[general.blue.500]",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола"
-                },
                 "surfaceTransparentAccent": {
                     "value": "rgba(17,140,223,0.2)",
                     "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
@@ -9298,10 +9294,6 @@
                 "surfaceNegative": {
                     "value": "[general.red.500]",
                     "comment": "Инвертированный цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceInfo": {
-                    "value": "[general.blue.500]",
-                    "comment": "Инвертированный цвет фона поверхности/контрола информация"
                 },
                 "surfacePositiveMinor": {
                     "value": "[general.green.900]",
@@ -9354,6 +9346,14 @@
                 "surfaceAccentMinor": {
                     "value": "#071A26",
                     "comment": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceAccent": {
+                    "value": "[general.blue.400]",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceInfo": {
+                    "value": "[general.blue.400]",
+                    "comment": "Инвертированный цвет фона поверхности/контрола информация"
                 }
             }
         },

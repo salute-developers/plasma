@@ -23,21 +23,6 @@ export const config = {
                 ${chipTokens.closeIconColorHover}: var(--inverse-text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--inverse-text-primary);
             `,
-            secondary: css`
-                ${chipTokens.color}: var(--text-primary);
-                ${chipTokens.background}: var(--surface-transparent-secondary);
-                ${chipTokens.colorHover}: var(--text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
-                ${chipTokens.colorActive}: var(--text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnly}: var(--text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
-                ${chipTokens.closeIconColor}: var(--text-secondary);
-                ${chipTokens.closeIconColorHover}: var(--text-secondary-hover);
-                ${chipTokens.leftContentColor}: var(--text-primary);
-            `,
             accent: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
                 ${chipTokens.background}: var(--surface-accent);
@@ -98,30 +83,23 @@ export const config = {
                 ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
+            clear: css`
+                ${chipTokens.color}: var(--text-primary);
+                ${chipTokens.background}: var(--surface-clear);
+                ${chipTokens.colorHover}: var(--text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
+                ${chipTokens.colorActive}: var(--text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-clear);
+                ${chipTokens.colorReadOnly}: var(--text-primaryы);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-clear);
+                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
+                ${chipTokens.closeIconColor}: var(--text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--text-secondary-hover);
+                ${chipTokens.leftContentColor}: var(--text-primary);
+            `,
         },
         size: {
-            l: css`
-                ${chipTokens.borderRadius}: 0.75rem;
-                ${chipTokens.pilledBorderRadius}: 1.5rem;
-                ${chipTokens.width}: auto;
-                ${chipTokens.height}: 3rem;
-                ${chipTokens.padding}: 0 1rem;
-
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
-                ${chipTokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
-
-                ${chipTokens.leftContentMarginLeft}: -0.125rem;
-                ${chipTokens.leftContentMarginRight}: 0.5rem;
-                ${chipTokens.rightContentMarginLeft}: 0.5rem;
-                ${chipTokens.rightContentMarginRight}: -0.125rem;
-                ${chipTokens.clearContentMarginLeft}: 0.625rem;
-                ${chipTokens.clearContentMarginRight}: -0.25rem;
-                ${chipTokens.closeIconSize}: 1.5rem;
-            `,
             m: css`
                 ${chipTokens.borderRadius}: 0.625rem;
                 ${chipTokens.pilledBorderRadius}: 1.25rem;

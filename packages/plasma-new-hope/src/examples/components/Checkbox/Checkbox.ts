@@ -1,5 +1,3 @@
-import { ComponentProps } from 'react';
-
 import { checkboxConfig } from '../../../components/Checkbox';
 import { component, mergeConfig } from '../../../engines';
 import { createConditionalComponent } from '../../../utils';
@@ -13,14 +11,10 @@ export const CheckboxDefault = component(mergedConfigDefault);
 const mergedConfigOutline = mergeConfig(checkboxConfig, outlineConfig);
 export const CheckboxOutline = component(mergedConfigOutline);
 
-export type CheckboxProps = ComponentProps<typeof CheckboxDefault>;
-
 /**
  * Флажок или чекбокс. Позволяет пользователю управлять параметром с двумя состояниями — ☑ включено и ☐ отключено.
  */
-export const Checkbox = createConditionalComponent<CheckboxProps, HTMLInputElement>(CheckboxDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'outline' },
-        component: CheckboxOutline,
-    },
-]);
+export const Checkbox = createConditionalComponent({
+    default: CheckboxDefault,
+    outline: CheckboxOutline,
+});

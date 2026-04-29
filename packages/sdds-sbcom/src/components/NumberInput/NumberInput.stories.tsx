@@ -14,7 +14,7 @@ const { meta: META, Default, DisplayWithoutValue } = getNumberInputStories({
 
 const meta: Meta<NumberInputProps> = {
     ...META,
-    title: 'Data Entry/NumberInput',
+    title: 'Data Entry/⚠️ NumberInput',
 };
 
 export default meta;

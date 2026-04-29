@@ -1,5 +1,4 @@
 import { createConditionalComponent } from 'src/utils/createConditionalComponent';
-import { ComponentProps } from 'react';
 
 import { chipConfig } from '../../../components/Chip';
 import { component, mergeConfig } from '../../../engines';
@@ -13,11 +12,7 @@ export const ChipDefault = component(mergedConfigDefault);
 const mergedConfigTransparent = mergeConfig(chipConfig, clearConfig);
 export const ChipTransparent = component(mergedConfigTransparent);
 
-export type ChipProps = ComponentProps<typeof ChipDefault>;
-
-export const Chip = createConditionalComponent<ChipProps, HTMLButtonElement>(ChipDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'transparent' },
-        component: ChipTransparent,
-    },
-]);
+export const Chip = createConditionalComponent({
+    default: ChipDefault,
+    transparent: ChipTransparent,
+});

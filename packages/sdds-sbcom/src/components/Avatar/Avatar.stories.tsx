@@ -11,7 +11,7 @@ const counterViews = ['default', 'accent', 'positive', 'warning', 'negative', 'd
 const badgeViews = ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'];
 
 const meta: Meta<typeof Avatar> = {
-    title: 'Data Display/Avatar',
+    title: 'Data Display/⚠️ Avatar',
     component: Avatar,
     argTypes: {
         view: { control: 'inline-radio', options: ['default'] },

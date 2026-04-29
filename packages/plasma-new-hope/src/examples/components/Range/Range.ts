@@ -11,9 +11,7 @@ export const RangeDefault = component(mergedConfigDefault);
 const mergedConfigClear = mergeConfig(rangeConfig, configClear);
 export const RangeClear = component(mergedConfigClear);
 
-export const Range = createConditionalComponent(RangeDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'clear' },
-        component: RangeClear,
-    },
-]);
+export const Range = createConditionalComponent({
+    default: RangeDefault,
+    clear: RangeClear,
+});

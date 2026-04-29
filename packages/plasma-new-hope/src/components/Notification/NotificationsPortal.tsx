@@ -1,6 +1,6 @@
 import React, { FC, ForwardRefExoticComponent, RefAttributes, useMemo } from 'react';
 import { useStoreon } from 'storeon/react';
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { component } from 'src/engines';
 import { cx } from 'src/utils';
 

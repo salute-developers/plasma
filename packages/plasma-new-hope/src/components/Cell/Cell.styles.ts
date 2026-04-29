@@ -1,5 +1,4 @@
-import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
+import styled, { css } from 'styled-components';
 
 import type { AlignProp } from './Cell.types';
 import { tokens, classes } from './Cell.tokens';

@@ -6,7 +6,6 @@ export const config = {
         size: 'm',
         labelPlacement: 'outer',
         chipView: 'default',
-        _checkboxAppearance: 'outline',
         hintView: 'default',
         hintSize: 'm',
     },

@@ -34,6 +34,7 @@ interface IconRootProps extends IconProps, HTMLAttributes<HTMLDivElement> {
 const IconsRoot = styled.div`
     width: var(--icon-size);
     height: var(--icon-size);
+    flex: none;
 `;
 
 export const getIconComponent = (

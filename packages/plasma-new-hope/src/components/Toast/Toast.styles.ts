@@ -1,5 +1,4 @@
-import { css } from '@linaria/core';
-import { styled } from '@linaria/react';
+import styled, { css } from 'styled-components';
 
 import { Overlay } from '../Overlay';
 import { buttonTokens } from '../Button';

@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { addFocus, applyEllipsis } from 'src/mixins';
 import { component, mergeConfig } from 'src/engines';
 import type { SelectProps } from 'src/components/Select';

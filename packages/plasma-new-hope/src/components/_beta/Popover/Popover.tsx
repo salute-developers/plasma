@@ -20,7 +20,7 @@ import {
     autoUpdate,
     limitShift,
 } from '@floating-ui/react';
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { IconClose } from '../../_Icon';
 import { Resizable } from '../../_Resizable';

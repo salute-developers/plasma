@@ -15,7 +15,18 @@ const getIconSize = (size?: string) => {
 };
 
 export const createDefaultStory = (DateTimePicker: any) => {
-    return ({ enableContentLeft, valueError, valueSuccess, size, lang, min, max, hasShortcuts, ...rest }: any) => {
+    return ({
+        enableContentLeft,
+        enableContentRight,
+        valueError,
+        valueSuccess,
+        size,
+        lang,
+        min,
+        max,
+        hasShortcuts,
+        ...rest
+    }: any) => {
         const [isOpen, setIsOpen] = useState(false);
 
         const iconSize = getIconSize(size);
@@ -27,6 +38,7 @@ export const createDefaultStory = (DateTimePicker: any) => {
                 valueError={valueError}
                 valueSuccess={valueSuccess}
                 contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onToggle={(is: boolean) => {

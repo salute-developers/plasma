@@ -17,7 +17,7 @@ const { meta: META, Default } = getPaginationStories({
 
 const meta: Meta<PaginationProps> = {
     ...META,
-    title: 'Navigation/Pagination',
+    title: 'Navigation/⚠️ Pagination',
 };
 
 export default meta;

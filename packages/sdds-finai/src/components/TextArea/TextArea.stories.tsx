@@ -10,12 +10,12 @@ type TextAreaProps = ComponentProps<typeof TextArea>;
 const { meta: META, Default } = getTextAreaStories({
     component: TextArea,
     componentConfig: config,
+    disablePropsList: ['appearance', 'hasDivider', 'enableHeader'],
 });
 
 const meta: Meta<TextAreaProps> = {
     ...META,
     title: 'Data Entry/TextArea',
-    disablePropsList: ['appearance', 'hasDivider'],
 };
 
 export default meta;

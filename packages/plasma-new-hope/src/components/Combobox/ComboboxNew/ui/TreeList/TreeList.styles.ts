@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { ComboboxProps } from '../../Combobox.types';
 import { constants, tokens, classes } from '../../Combobox.tokens';

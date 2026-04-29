@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, createRef, useCallback, useRef, MouseEventHandler, useLayoutEffect } from 'react';
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 import { cx, mergeRefs } from 'src/utils';
 import type { RootProps } from 'src/engines';
 import { useOutsideClick, useResizeObserver } from 'src/hooks';
@@ -426,7 +426,6 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             resize={resize}
                             defaultValue={defaultValue}
                             onChange={onChangeHandler}
-                            data-tour
                             {...rest}
                         />
                         {Boolean(applyAutoResize || cols) && (

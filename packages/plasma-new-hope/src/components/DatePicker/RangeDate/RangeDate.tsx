@@ -14,7 +14,7 @@ import { customDayjs } from 'src/utils/datejs';
 
 import { getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
-import type { RangeInputRefs } from '../../Range/Range.types';
+import type { BaseCallbackKeyboardInstance, RangeInputRefs } from '../../Range/Range.types';
 import { classes } from '../DatePicker.tokens';
 import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { InputHidden } from '../DatePickerBase.styles';
@@ -494,6 +494,26 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 }
             };
 
+            const handleSearchFirstValue: BaseCallbackKeyboardInstance = (_, date) => {
+                handleSearchFirst(String(date));
+                if (!calendarSecondValue || secondValueError) {
+                    rangeRef?.current?.secondTextField()?.current?.focus();
+                }
+            };
+
+            const handleSearchSecondValue: BaseCallbackKeyboardInstance = (_, date) => {
+                handleSearchSecond(String(date));
+                if (!calendarFirstValue || firstValueError) {
+                    rangeRef?.current?.firstTextField()?.current?.focus();
+                }
+            };
+
+            const handleBlurFirstTextfield = (event: FocusEvent<HTMLInputElement>) =>
+                handleBlur(event, onBlurFirstTextfield);
+
+            const handleBlurSecondTextfield = (event: FocusEvent<HTMLInputElement>) =>
+                handleBlur(event, onBlurSecondTextfield);
+
             const RangeComponent = (
                 <>
                     {/* TODO https://github.com/salute-developers/plasma/issues/1227
@@ -533,22 +553,12 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         onChangeFirstValue={handleChangeFirstValue}
                         onChangeSecondValue={handleChangeSecondValue}
                         name={name}
-                        onSearchFirstValue={(_, date) => {
-                            handleSearchFirst(String(date));
-                            if (!calendarSecondValue || secondValueError) {
-                                rangeRef?.current?.secondTextField()?.current?.focus();
-                            }
-                        }}
-                        onSearchSecondValue={(_, date) => {
-                            handleSearchSecond(String(date));
-                            if (!calendarFirstValue || firstValueError) {
-                                rangeRef?.current?.firstTextField()?.current?.focus();
-                            }
-                        }}
+                        onSearchFirstValue={handleSearchFirstValue}
+                        onSearchSecondValue={handleSearchSecondValue}
                         onFocusFirstTextfield={handleFocusFirstTextField}
                         onFocusSecondTextfield={handleFocusSecondTextField}
-                        onBlurFirstTextfield={(event) => handleBlur(event, onBlurFirstTextfield)}
-                        onBlurSecondTextfield={(event) => handleBlur(event, onBlurSecondTextfield)}
+                        onBlurFirstTextfield={handleBlurFirstTextfield}
+                        onBlurSecondTextfield={handleBlurSecondTextfield}
                         onKeyDown={onKeyDown}
                         appearance={appearance}
                         hasClearDivider={hasClearDivider}

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { StyledHelperText } from '../../Attach.styles';
 import { tokens } from '../../Attach.tokens';

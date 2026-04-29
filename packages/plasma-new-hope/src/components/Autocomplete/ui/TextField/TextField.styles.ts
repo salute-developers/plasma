@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { textFieldConfig, textFieldTokens } from '../../../TextField';
 import { component, mergeConfig } from '../../../../engines';

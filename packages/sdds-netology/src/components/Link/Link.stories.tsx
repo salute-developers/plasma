@@ -1,57 +1,23 @@
-import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getLinkStories } from '@salutejs/plasma-sb-utils';
 
-import { TextM } from '../Typography';
+import { config } from './Link.config';
 
 import { Link } from '.';
 
-const meta: Meta<typeof Link> = {
-    title: 'Navigation/Link',
-    decorators: [InSpacingDecorator],
+type LinkProps = ComponentProps<typeof Link>;
+
+const { meta: META, Default } = getLinkStories({
     component: Link,
-    argTypes: {
-        view: {
-            options: [
-                'default',
-                'secondary',
-                'tertiary',
-                'paragraph',
-                'accent',
-                'positive',
-                'warning',
-                'negative',
-                'clear',
-            ],
-            control: {
-                type: 'select',
-            },
-        },
-    },
+    componentConfig: config,
+});
+
+const meta: Meta<LinkProps> = {
+    ...(META as Meta<LinkProps>),
+    title: 'Navigation/Link',
 };
 
 export default meta;
 
-type StoryLinkProps = {
-    text: string;
-    href: string;
-} & ComponentProps<typeof Link>;
-
-export const Default: StoryObj<StoryLinkProps> = {
-    args: {
-        text: 'приложение',
-        href: 'https://google.com',
-        view: 'default',
-        disabled: false,
-        focused: true,
-    },
-    render: ({ text, ...props }) => (
-        <TextM>
-            Скачайте{' '}
-            <Link target="_blank" {...props}>
-                {text}
-            </Link>
-            .
-        </TextM>
-    ),
-};
+export { Default };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { _component } from './linaria';
+import { _component } from './styled-components';
 import type {
     ComponentConfig,
     HTMLTagList,

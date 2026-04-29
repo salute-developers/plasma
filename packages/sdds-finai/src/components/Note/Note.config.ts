@@ -35,7 +35,7 @@ export const config = {
         },
         size: {
             l: css`
-                ${tokens.padding}: 1.5rem 1.875rem;
+                ${tokens.padding}: 1.5rem 2rem;
                 ${tokens.paddingScalable}: 1.5rem 1.75rem;
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.gap}: 0.75rem;

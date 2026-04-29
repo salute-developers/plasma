@@ -20,7 +20,7 @@ export const config = {
         size: {
             // TODO: #1044 токены типографики в Avatar
             xxl: css`
-                ${tokens.avatarSize}: 6.25rem;
+                ${tokens.avatarSize}: 5.5rem;
                 ${tokens.fontSize}: 2rem;
                 ${tokens.fontWeight}: 600;
                 ${tokens.lineHeight}: 2rem;
@@ -167,10 +167,6 @@ export const config = {
                 ${tokens.borderRadius}: 50%;
                 ${tokens.statusLeft}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
                 ${tokens.statusTop}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
-            `,
-            rounded: css`
-                ${tokens.statusLeft}: calc(var(${tokens.avatarSize}) - var(${tokens.statusIconSize}));
-                ${tokens.statusTop}: calc(var(${tokens.avatarSize}) - var(${tokens.statusIconSize}));
             `,
         },
         badgeView: {

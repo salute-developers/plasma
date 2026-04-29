@@ -19,7 +19,7 @@ const { meta: META, Default, WithValue } = getButtonStories({
 
 const meta: Meta<ButtonProps> = {
     ...META,
-    title: 'Data Entry/Button',
+    title: 'Data Entry/⚠️ Button',
 };
 
 export default meta;

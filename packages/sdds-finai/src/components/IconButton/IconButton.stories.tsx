@@ -9,16 +9,7 @@ import { config } from './IconButton.config';
 type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
 
 const { views, sizes } = getConfigVariations(config);
-const pins = [
-    'square-square',
-    'square-clear',
-    'clear-square',
-    'clear-clear',
-    'clear-circle',
-    'circle-clear',
-    'circle-circle',
-    '',
-];
+const pins = ['square-square', 'circle-circle'];
 
 const meta: Meta<StoryButtonProps> = {
     title: 'Data Entry/IconButton',
@@ -27,7 +18,7 @@ const meta: Meta<StoryButtonProps> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         view: {
@@ -51,14 +42,7 @@ export default meta;
 
 const getSizeForIcon = (size) => {
     const map = {
-        mr: 's',
-        lr: 's',
-        xlr: 's',
-        m: 's',
-        l: 's',
-        xl: 's',
-        sr: 's',
-        xsr: 'xs',
+        s: 's',
         xs: 'xs',
         xxs: 'xs',
     };
@@ -73,10 +57,11 @@ export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
     args: {
         children: <IconClose />,
         view: 'default',
-        size: 'm',
+        size: 's',
         disabled: false,
         focused: true,
         isLoading: false,
+        pin: 'square-square',
     },
     argTypes: { ...disableProps(['children']) },
     render: (args) => (

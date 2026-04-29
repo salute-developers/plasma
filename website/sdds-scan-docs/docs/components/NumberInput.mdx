@@ -63,10 +63,8 @@ export function App() {
         export function App() {
             return (
                 <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-                    <NumberInput value={5} width={188} size="l" />
                     <NumberInput value={5} width={188} size="m" />
                     <NumberInput value={5} width={188} size="s" />
-                    <NumberInput value={5} width={188} size="xs" />
                 </div>
             );
         }
@@ -351,7 +349,7 @@ export function App() {
                         value={value}
                         min={0}
                         max={10}
-                        size="l"
+                        size="m"
                         width={188}
                         decrementIcon={<IconVolumeLevel1Fill color="inherit" />}
                         incrementIcon={<IconVolumeLevel2Fill color="inherit" />}
@@ -382,11 +380,11 @@ export function App() {
                     <NumberInput
                         value={value}
                         step={step}
-                        size="l"
+                        size="m"
                         width={188}
                         customDecrementButton={
                             <IconButton
-                                size="l"
+                                size="m"
                                 view={value <= min ? 'critical' : 'accent'}
                                 disabled={value <= min}
                                 onClick={() => setValue(Math.max(min, value - step))}
@@ -396,7 +394,7 @@ export function App() {
                         }
                         customIncrementButton={
                             <IconButton
-                                size="l"
+                                size="m"
                                 view={value >= max ? 'critical' : 'accent'}
                                 disabled={value >= max}
                                 onClick={() => setValue(Math.min(max, value + step))}
@@ -437,7 +435,7 @@ export function App() {
         export function App() {
             return (
                 <div>
-                    <NumberInput value={5} size="l" width={188} isLoading />
+                    <NumberInput value={5} size="m" width={188} isLoading />
                 </div>
             );
         }

@@ -14,7 +14,7 @@ const { meta: META, Default, DragAndDrop, AsyncLoading } = getTreeStories({
 
 const meta: Meta<StoryProps> = {
     ...META,
-    title: 'Data Entry/Tree',
+    title: 'Data Entry/⚠️ Tree',
 };
 
 export default meta;

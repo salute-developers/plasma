@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 import { informationWrapperClasses } from 'src/components/InformationWrapper';
 import { textFieldTokens } from 'src/components/TextField';
 

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 export const base = css`
     width: var(--plasma-spinner-size);

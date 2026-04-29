@@ -16,7 +16,7 @@ const { meta: META, Default } = getChipStories({
 
 const meta: Meta<ChipProps> = {
     ...META,
-    title: 'Data Display/Chip',
+    title: 'Data Display/⚠️ Chip',
 };
 
 export default meta;

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, FC, PropsWithChildren, useRef } from 'react';
+import React, { createContext, useState, useContext, useEffect, FC, PropsWithChildren } from 'react';
 import { canUseDOM, safeUseId } from 'src/utils';
 
 import { Portal } from '../Portal';
@@ -9,6 +9,37 @@ import type { PopupContextType, PopupInfo } from './Popup.types';
 import { StyledPortal } from './Popup.styles';
 
 export const POPUP_PORTAL_ID = 'plasma-popup-root';
+
+/**
+ * INFO:
+ * Глобальный координатор overflow для нескольких экземпляров PopupProvider.
+ * Каждый PopupProvider независимо управляет своими items, но overflow на body — общий ресурс.
+ * Используется Set с ID провайдеров вместо счётчика — Set.add/delete идемпотентны,
+ * поэтому повторные вызовы при ремаунте (hydration mismatch, Strict Mode) не ломают состояние.
+ * Overflow сохраняется при ∅→1 и восстанавливается при 1→∅.
+ */
+const globalOverflowState = {
+    activeProviders: new Set<string>(),
+    savedOverflowY: '',
+};
+
+const lockBodyOverflow = (providerId: string) => {
+    if (globalOverflowState.activeProviders.has(providerId)) {
+        return;
+    }
+    if (globalOverflowState.activeProviders.size === 0) {
+        globalOverflowState.savedOverflowY = document.body.style.overflowY;
+    }
+    globalOverflowState.activeProviders.add(providerId);
+    document.body.style.overflowY = 'hidden';
+};
+
+const unlockBodyOverflow = (providerId: string) => {
+    const wasActive = globalOverflowState.activeProviders.delete(providerId);
+    if (wasActive && globalOverflowState.activeProviders.size === 0) {
+        document.body.style.overflowY = globalOverflowState.savedOverflowY;
+    }
+};
 
 const initialItems = new Map<string, PopupInfo>();
 
@@ -40,11 +71,37 @@ export const PopupProvider: FC<
         UNSAFE_SSR_ENABLED?: boolean;
     }
 > = ({ children, providerFrame, UNSAFE_SSR_ENABLED }) => {
-    const prevBodyOverflowY = useRef(canUseDOM ? document.body.style.overflowY : '');
     const [items, setItems] = useState(initialItems);
 
     const uuid = safeUseId();
     const rootId = `${POPUP_PORTAL_ID}-${uuid}`;
+
+    useEffect(() => {
+        if (!canUseDOM) {
+            return;
+        }
+
+        const currentHasModals = hasModals(Array.from(items.values()));
+
+        if (currentHasModals) {
+            lockBodyOverflow(rootId);
+        } else {
+            unlockBodyOverflow(rootId);
+        }
+    }, [items, rootId]);
+
+    /**
+     * INFO:
+     * Cleanup при unmount: если PopupProvider размонтируется с открытой модалкой
+     * (например, при смене роута или hydration mismatch), провайдер удаляется из Set
+     * и overflow восстанавливается, если активных провайдеров не осталось.
+     * Выделен в отдельный эффект, чтобы не срабатывать при каждой смене items.
+     */
+    useEffect(() => {
+        return () => {
+            unlockBodyOverflow(rootId);
+        };
+    }, [rootId]);
 
     const register = (info: PopupInfo) => {
         if (!canUseDOM) {
@@ -53,12 +110,6 @@ export const PopupProvider: FC<
 
         setItems((prevItems) => {
             const newItems = new Map(prevItems);
-
-            if (info.info?.isModal && !hasModals(Array.from(prevItems.values()))) {
-                prevBodyOverflowY.current = document.body.style.overflowY;
-                document.body.style.overflowY = 'hidden';
-            }
-
             newItems.set(info.id, info);
             return newItems;
         });
@@ -75,14 +126,7 @@ export const PopupProvider: FC<
             }
 
             const newItems = new Map(prevItems);
-            const prevHasModals = hasModals(Array.from(newItems.values()));
-
             newItems.delete(id);
-
-            if (prevHasModals && !hasModals(Array.from(newItems.values()))) {
-                document.body.style.overflowY = prevBodyOverflowY.current;
-            }
-
             return newItems;
         });
     };

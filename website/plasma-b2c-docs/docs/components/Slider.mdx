@@ -4,122 +4,446 @@ title: Slider
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Slider
-
 <Description name="Slider" />
-<PropsTable name="Slider" />
 
-## Использование
+## Быстрый старт
 
 ```tsx live
 import React, { useState } from 'react';
-import { Slider  } from '@salutejs/plasma-b2c';
+import { Slider } from '@salutejs/plasma-b2c';
 
 export function App() {
     const [value, setValue] = useState(30);
 
-    const onChangeCommittedHandle = (value) => {
-        setValue(value);
-    };
-
-    const onChangeHandle = (value) => {
-        setValue(value);
-    };
-
     return (
-        <section>            
-            <Slider onChange={onChangeHandle} onChangeCommitted={onChangeCommittedHandle} min={0} max={100} value={value} />
-        </section>
+        <div style={{ width: '25rem', display: 'flex', flexDirection: 'column' }}>
+            <Slider
+                min={0}
+                max={100}
+                value={value}
+                label="Громкость"
+                onChange={(val) => setValue(val)}
+                onChangeCommitted={(val) => setValue(val)}
+            />
+        </div>
     );
 }
 ```
 
-Можно использовать диапазон значений.
+## Управление внешним видом
+
+Внешний вид компонента определяется свойствами `view` и `size`:
+
+<Tabs>
+    <TabItem value="view" label="View" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [v1, setV1] = useState(50);
+            const [v2, setV2] = useState(50);
+            const [v3, setV3] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+                    <Slider view="default" min={0} max={100} value={v1} label="Default" onChange={setV1} />
+                    <Slider view="accent" min={0} max={100} value={v2} label="Accent" onChange={setV2} />
+                    <Slider view="gradient" min={0} max={100} value={v3} label="Gradient" onChange={setV3} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [vs, setVs] = useState(50);
+            const [vm, setVm] = useState(50);
+            const [vl, setVl] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+                    <Slider size="s" min={0} max={100} value={vs} label="Size s" onChange={setVs} />
+                    <Slider size="m" min={0} max={100} value={vm} label="Size m" onChange={setVm} />
+                    <Slider size="l" min={0} max={100} value={vl} label="Size l" onChange={setVl} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Диапазон значений
+
+Передайте массив из двух чисел в `value`, чтобы использовать двойной слайдер:
 
 ```tsx live
 import React, { useState } from 'react';
-import { Slider  } from '@salutejs/plasma-b2c';
+import { Slider } from '@salutejs/plasma-b2c';
 
 export function App() {
     const [value, setValue] = useState([10, 80]);
-    const sortValues = (values) => {
-        return values
-            .map((val) => {
-                if (val < 0) {
-                    return 0;
-                }
-                if (val > 100) {
-                    return 100;
-                }
-                return val;
-            })
-            .sort((a, b) => a - b);
-    };
 
-    const onChangeHandle = (values) => {
-        setValue(sortValues(values));
-    };
-
-    const onChangeCommitedHandle = (values) => {
-        setValue(sortValues(values));
-    };
-
-    const onBlurTextField = (values) => {
-        setValue(sortValues(values));
-    };
-
-    const onKeyDownTextField = (values, event) => {
-        if (event.key === 'Enter') {
-            setValue(sortValues(values));
-        }
-    };
+    const sortValues = (values) =>
+        values.map((val) => Math.min(100, Math.max(0, val))).sort((a, b) => a - b);
 
     return (
-        <section>
-            <Slider value={value}
-                onKeyDownTextField={onKeyDownTextField}
-                onBlurTextField={onBlurTextField}
-                onChangeCommitted={onChangeCommitedHandle}
-                onChange={onChangeHandle} min={0} max={100} />
-        </section>
+        <div style={{ width: '25rem', display: 'flex', flexDirection: 'column' }}>
+            <Slider
+                min={0}
+                max={100}
+                value={value}
+                label="Цена товара"
+                onChange={(values) => setValue(sortValues(values))}
+                onChangeCommitted={(values) => setValue(sortValues(values))}
+                onBlurTextField={(values) => setValue(sortValues(values))}
+                onKeyDownTextField={(values, event) => {
+                    if (event.key === 'Enter') setValue(sortValues(values));
+                }}
+            />
+        </div>
     );
 }
 ```
 
-## Вертикальное отображение
+## Ориентация
+
+Слайдер поддерживает горизонтальное (по умолчанию) и вертикальное отображение через свойство `orientation`:
+
+<Tabs>
+    <TabItem value="horizontal" label="Horizontal" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [value, setValue] = useState(30);
+
+            return (
+                <div style={{ width: '25rem', display: 'flex', flexDirection: 'column' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={value}
+                        label="Громкость"
+                        orientation="horizontal"
+                        onChange={setValue}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="vertical" label="Vertical">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+        import { IconMic } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const [value, setValue] = useState(30);
+
+            return (
+                <div style={{ height: '25rem' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={value}
+                        label="Громкость"
+                        labelContent={<IconMic size="s" />}
+                        orientation="vertical"
+                        sliderAlign="center"
+                        onChange={setValue}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Ползунок
+
+С помощью свойств `pointerSize` и `pointerVisibility` можно управлять размером и видимостью ползунка:
+
+<Tabs>
+    <TabItem value="pointerSize" label="Размер" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [v1, setV1] = useState(50);
+            const [v2, setV2] = useState(50);
+            const [v3, setV3] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+                    <Slider min={0} max={100} value={v1} pointerSize="small" label="Small (по умолчанию)" onChange={setV1} />
+                    <Slider min={0} max={100} value={v2} pointerSize="large" label="Large" onChange={setV2} />
+                    <Slider min={0} max={100} value={v3} pointerSize="none" label="None (скрыт)" onChange={setV3} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="pointerVisibility" label="Видимость">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [v1, setV1] = useState(50);
+            const [v2, setV2] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+                    <Slider min={0} max={100} value={v1} pointerVisibility="always" label="Always (по умолчанию)" onChange={setV1} />
+                    <Slider min={0} max={100} value={v2} pointerVisibility="hover" label="Hover (наведите курсор)" onChange={setV2} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Текущее значение
+
+Свойство `showCurrentValue` включает отображение текущего значения над ползунком. Видимость регулируется через `currentValueVisibility`:
 
 ```tsx live
 import React, { useState } from 'react';
-import { Slider  } from '@salutejs/plasma-b2c';
-import { IconMic } from '@salutejs/plasma-icons';
+import { Slider } from '@salutejs/plasma-b2c';
 
 export function App() {
-    const [value, setValue] = useState(30);
+    const [v1, setV1] = useState(50);
+    const [v2, setV2] = useState(50);
 
-    const onChangeCommittedHandle = (value) => {
-        setValue(value);
-    };
-
-    const onChangeHandle = (value) => {
-        setValue(value);
-    };
-    
     return (
-        <section style={{ height: '300px' }}>
+        <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column', width: '25rem' }}>
             <Slider
-                value={value}
-                onChange={onChangeHandle}
-                onChangeCommitted={onChangeCommittedHandle}
                 min={0}
                 max={100}
-                label="Громкость"
-                labelContent={<IconMic size="s" />}
-                orientation="vertical"
-                sliderAlign="center"
-                size="m"
+                value={v1}
+                showCurrentValue
+                currentValueVisibility="always"
+                label="Всегда"
+                onChange={setV1}
             />
-        </section>
+            <Slider
+                min={0}
+                max={100}
+                value={v2}
+                showCurrentValue
+                currentValueVisibility="hover"
+                label="При наведении"
+                onChange={setV2}
+            />
+        </div>
     );
 }
 ```
+
+## Шкала значений
+
+Свойство `showScale` отображает минимальное и максимальное значения. Расположение меток задаётся через `scaleAlign`:
+
+<Tabs>
+    <TabItem value="scaleAlign" label="scaleAlign" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [v1, setV1] = useState(50);
+            const [v2, setV2] = useState(50);
+            const [v3, setV3] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column', width: '25rem' }}>
+                    <Slider min={0} max={100} value={v1} showScale scaleAlign="bottom" label="Bottom (по умолчанию)" onChange={setV1} />
+                    <Slider min={0} max={100} value={v2} showScale scaleAlign="top" label="Top" onChange={setV2} />
+                    <Slider min={0} max={100} value={v3} showScale scaleAlign="side" label="Side" onChange={setV3} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="scaleTicks" label="scaleTicks">
+        Свойство `scaleTicks` позволяет задать произвольный набор делений на шкале. При клике на деление ползунок перемещается к нужному значению:
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [value, setValue] = useState(50);
+
+            return (
+                <div style={{ width: '25rem', display: 'flex', flexDirection: 'column' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={value}
+                        label="Произвольные деления"
+                        scaleTicks={[0, 13, 37, 72, 89, 100]}
+                        onChange={setValue}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Подпись
+
+С помощью свойства `label` можно добавить подпись к слайдеру. Расположение подписи управляется через `labelPlacement`, а иконку можно передать в `labelContent`:
+
+<Tabs>
+    <TabItem value="labelPlacement" label="labelPlacement" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [v1, setV1] = useState(50);
+            const [v2, setV2] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column', width: '25rem' }}>
+                    <Slider min={0} max={100} value={v1} label="Сверху" labelPlacement="top" onChange={setV1} />
+                    <Slider min={0} max={100} value={v2} label="Слева" labelPlacement="left" onChange={setV2} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="labelContent" label="Иконка">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+        import { IconMic } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const [value, setValue] = useState(50);
+
+            return (
+                <div style={{ width: '25rem', display: 'flex', flexDirection: 'column' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={value}
+                        label="Громкость"
+                        labelContent={<IconMic size="s" />}
+                        onChange={setValue}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Шаг изменения
+
+Свойство `step` задаёт шаг ползунка. Свойство `multipleStepSize` — увеличенный шаг при нажатии `PageUp` / `PageDown` (в процентах от диапазона):
+
+```tsx live
+import React, { useState } from 'react';
+import { Slider } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [v1, setV1] = useState(50);
+    const [v2, setV2] = useState(5000);
+
+    return (
+        <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column', width: '25rem' }}>
+            <Slider min={0} max={100} step={5} value={v1} label="Шаг 5" showScale onChange={setV1} />
+            <Slider min={0} max={10000} step={500} multipleStepSize={10} value={v2} label="Шаг 500, PageUp/Down — 10%" showScale onChange={setV2} />
+        </div>
+    );
+}
+```
+
+## Состояния
+
+Компонент поддерживает состояние `disabled`:
+
+```tsx live
+import React, { useState } from 'react';
+import { Slider } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [value, setValue] = useState(50);
+
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+            <Slider min={0} max={100} value={value} label="Активный" onChange={setValue} />
+            <Slider min={0} max={100} value={50} label="Неактивный" disabled />
+        </div>
+    );
+}
+```
+
+## Контролируемый режим
+
+Компонент поддерживает контролируемый и неконтролируемый режимы. В контролируемом режиме передайте `value` и `onChange`; в неконтролируемом — `defaultValue` и `name`:
+
+<Tabs>
+    <TabItem value="controlled" label="Контролируемый" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [value, setValue] = useState(30);
+
+            return (
+                <div style={{ width: '25rem', display: 'flex', flexDirection: 'column' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={value}
+                        label={`Текущее значение: ${value}`}
+                        onChange={setValue}
+                        onChangeCommitted={setValue}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="uncontrolled" label="Неконтролируемый">
+        ```tsx live
+        import React from 'react';
+        import { Slider } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            return (
+                <div style={{ width: '25rem', display: 'flex', flexDirection: 'column' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        name="volume"
+                        defaultValue={30}
+                        label="Громкость"
+                        onChange={(event) => console.log('Value:', event.target.value)}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Таблица свойств
+<PropsTable name="Slider" exclude={['css']} />

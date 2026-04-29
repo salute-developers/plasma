@@ -2,13 +2,11 @@ export const classes = {
     mask: 'tour-mask',
 };
 
+export const privateTokens = {
+    maskColor: '--sdds-core_private-tour-mask-color',
+};
+
 export const tokens = {
-    cardPadding: '--plasma-tour-card-padding',
-    cardRadius: '--plasma-tour-card-radius',
-    cardBgColor: '--plasma-tour-card-bg',
-    cardShadow: '--plasma-tour-card-shadow',
-    maskBgColor: '--plasma-tour-mask-bg',
-    titleColor: '--plasma-tour-title-color',
-    descriptionColor: '--plasma-tour-description-color',
-    highlightRadius: '--plasma-tour-highlight-radius',
+    tailColor: '--sdds-core-tour-tail-color',
+    overlayColor: '--sdds-core-tour-overlay-color',
 };

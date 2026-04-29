@@ -4,7 +4,7 @@ export const config = {
     defaults: {
         view: 'default',
         focused: 'true',
-        size: 'm',
+        size: 's',
     },
     variations: {
         view: {
@@ -17,6 +17,8 @@ export const config = {
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
                 ${buttonTokens.buttonColorHover}: var(--inverse-text-primary-hover);
                 ${buttonTokens.buttonColorActive}: var(--inverse-text-primary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-default-active);
             `,
             accent: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
@@ -48,7 +50,7 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
-            success: css`
+            positive: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
@@ -68,7 +70,7 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-warning-hover);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-warning-active);
             `,
-            critical: css`
+            negative: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
@@ -87,6 +89,8 @@ export const config = {
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
                 ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
             `,
             black: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
@@ -97,6 +101,8 @@ export const config = {
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
                 ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
             `,
             white: css`
                 ${buttonTokens.buttonColor}: var(--on-light-text-primary);
@@ -107,6 +113,8 @@ export const config = {
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
                 ${buttonTokens.buttonColorHover}: var(--on-light-text-primary-hover);
                 ${buttonTokens.buttonColorActive}: var(--on-light-text-primary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
             `,
         },
         size: {
@@ -197,8 +205,8 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 1.375rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.375rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.375rem 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
@@ -218,8 +226,8 @@ export const config = {
                 ${buttonTokens.buttonSpinnerSize}: 1rem;
                 ${buttonTokens.buttonSpinnerColor}: inherit;
 
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.275rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.275rem 0 0.25rem;
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.125rem;

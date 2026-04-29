@@ -1,11 +1,12 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { TextField } from '../TextField/TextField';
 
 import { TextFieldGroup } from './TextFieldGroup';
+import { config } from './TextFieldGroup.config';
 
 type StoryProps = Omit<ComponentProps<typeof TextFieldGroup>, 'gap'> & {
     itemsCount?: number;
@@ -14,7 +15,8 @@ type StoryProps = Omit<ComponentProps<typeof TextFieldGroup>, 'gap'> & {
 };
 type Story = StoryObj<StoryProps>;
 
-const sizes = ['l', 'm', 's', 'xs'];
+const { sizes } = getConfigVariations(config);
+
 const orientationValues = ['horizontal', 'vertical'];
 const gapDefaultValues = ['dense', 'wide'];
 const gapSegmentedValues = ['none', 'dense'];
@@ -69,7 +71,7 @@ export const Default: Story = {
         },
     },
     args: {
-        size: 'm',
+        size: 's',
         shape: 'default',
         gapDefaultShape: 'dense',
         gapSegmentedShape: 'dense',
@@ -104,8 +106,6 @@ export const CustomTextFields: Story = {
             <>
                 <h3>Группа TextField с разными размерами</h3>
                 <TextFieldGroup {...args} gap={(gapDefaultShape || gapSegmentedShape) as any}>
-                    <TextField placeholder="Размер l" size="l" />
-                    <TextField placeholder="Размер m" size="m" />
                     <TextField placeholder="Размер s" size="s" />
                     <TextField placeholder="Размер xs" size="xs" />
                 </TextFieldGroup>

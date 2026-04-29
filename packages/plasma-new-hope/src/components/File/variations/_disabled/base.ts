@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { tokens } from '../../File.tokens';
 import { StyledCell } from '../../ui/Cell/Cell.styles';

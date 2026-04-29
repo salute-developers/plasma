@@ -559,8 +559,7 @@ describeFn('Select', () => {
                     selectAllOptions={{
                         label: 'Выбрать не совсем все',
                     }}
-                    listOverflow="scroll"
-                    listHeight="150px"
+                    listMaxHeight="150px"
                 />
             </div>,
         );

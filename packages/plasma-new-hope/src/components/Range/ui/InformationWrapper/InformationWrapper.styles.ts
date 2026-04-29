@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { informationWrapperConfig, informationWrapperTokens } from 'src/components/InformationWrapper';
 import { component, mergeConfig } from 'src/engines';
 

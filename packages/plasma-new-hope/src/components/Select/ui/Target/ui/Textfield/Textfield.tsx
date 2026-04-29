@@ -30,12 +30,12 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             isTargetAmount,
             valueToItemMap,
             renderValue,
-            onChange,
+            handleChange,
             chipView,
-            requiredProps,
             chipType,
-            hintProps,
             chipClickArea,
+            requiredProps,
+            hintProps,
         },
         ref,
     ) => {
@@ -89,12 +89,12 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
             if (isTargetAmount) {
                 // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы
-                onChange(
+                handleChange(
                     value.filter((val) => valueToItemMap?.get(val)?.disabled),
                     null,
                 );
             } else {
-                onChange(
+                handleChange(
                     value.filter((val) => val !== chip.value),
                     valueToItemMap.get(chip.value) || { value: chip.value, label: chip.label },
                 );
@@ -107,13 +107,13 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
         return (
             <StyledTextField
+                size={size}
+                view={view}
                 ref={ref}
                 inputWrapperRef={inputWrapperRef}
                 readOnly={readOnly}
                 className={readOnly ? classes.readOnly : undefined}
                 value={getValue()}
-                size={size}
-                view={view}
                 labelPlacement={labelPlacement}
                 disabled={disabled}
                 label={label}
@@ -153,8 +153,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 // TODO: #1547
                 _forceChipManipulationWithReadonly={!readOnly}
                 _interaction_disabled
-                {...requiredProps}
                 {...hintProps}
+                {...requiredProps}
             />
         );
     },

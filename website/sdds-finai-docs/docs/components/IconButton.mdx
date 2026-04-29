@@ -44,15 +44,6 @@ import { IconClose } from '@salutejs/plasma-icons';
 export function App() {
     return (
         <div>
-            <IconButton size="xl">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="l">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton size="m">
-                <IconClose color="inherit" />
-            </IconButton>
             <IconButton size="s">
                 <IconClose color="inherit" />
             </IconButton>
@@ -75,9 +66,9 @@ export function App() {
 + `"accent"` – акцентная;
 + `"secondary"` – вторичная;
 + `"clear"` – без цветового сопровождения.
-+ `"success"` – успешное завершение;
++ `"positive"` – успешное завершение;
 + `"warning"` – предупреждение;
-+ `"critical"` – ошибка;
++ `"negative"` – ошибка;
 + `"dark"` – темная;
 + `"black"` – черная;
 + `"white"` – белая.
@@ -102,13 +93,13 @@ export function App() {
             <IconButton size="s" view="clear">
                 <IconClose color="inherit" />
             </IconButton>
-            <IconButton size="s" view="success">
+            <IconButton size="s" view="positive">
                 <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="warning">
                 <IconClose color="inherit" />
             </IconButton>
-            <IconButton size="s" view="critical">
+            <IconButton size="s" view="negative">
                 <IconClose color="inherit" />
             </IconButton>
             <IconButton size="s" view="dark">
@@ -129,7 +120,6 @@ export function App() {
 Границы кнопки задаются с помощью свойства `pin`. Возможные значения свойства `pin`:
 + `square` – обычное скругление;
 + `circle` – сильное скругление;
-+ `clear` – нет скругления.
 
 ```tsx live
 import React from 'react';
@@ -140,21 +130,6 @@ export function App() {
     return (
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <IconButton pin="square-square">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton pin="square-clear">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton pin="clear-square">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton pin="clear-clear">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton pin="clear-circle">
-                <IconClose color="inherit" />
-            </IconButton>
-            <IconButton pin="circle-clear">
                 <IconClose color="inherit" />
             </IconButton>
             <IconButton pin="circle-circle">

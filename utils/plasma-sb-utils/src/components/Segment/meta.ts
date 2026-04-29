@@ -1,10 +1,10 @@
 import { disableProps } from '../../index';
 
-import { segmentItemViews, orientations, contentLeftOptions, contentRightOptions } from './fixtures';
+import { orientations, contentLeftOptions, contentRightOptions } from './fixtures';
 
 type CreateMetaProps = {
     component: any;
-    componentConfig: any;
+    componentConfig: { group: any; item: any };
     title?: string;
     defaultArgs?: {};
     additionalArgTypes?: {};
@@ -38,7 +38,7 @@ const commonArgs = {
     contentLeft: 'icon',
 };
 
-const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) => ({
+const getCommonArgTypes = (componentConfig: { group: any; item: any }, additionalArgTypes: any = {}) => ({
     stretch: {
         control: {
             type: 'boolean',
@@ -58,7 +58,7 @@ const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) =
         },
     },
     segmentItemView: {
-        options: segmentItemViews,
+        options: componentConfig.item.views,
         control: {
             type: 'select',
         },
@@ -76,7 +76,7 @@ const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) =
         },
     },
     size: {
-        options: componentConfig.sizes,
+        options: componentConfig.group.sizes,
         control: {
             type: 'select',
         },

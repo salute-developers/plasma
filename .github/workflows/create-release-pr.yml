@@ -38,7 +38,7 @@ jobs:
             - name: Computed envs
               run: |
                   echo "DATE=$(date +'%d.%m.%Y')" >> $GITHUB_ENV
-                  echo "FROM_TAG=$(git merge-base --fork-point origin/master)" >> $GITHUB_ENV
+                  echo "FROM_TAG=$(git merge-base origin/master HEAD)" >> $GITHUB_ENV
                   echo "FILE=${{ github.workspace }}/changelog_artifacts.md" >> $GITHUB_ENV
 
             - name: Build Changelog

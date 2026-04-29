@@ -29,7 +29,7 @@ export const config = {
             `,
             dark: css`
                 ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--on-light-surface-solid-default);
+                ${counterTokens.background}: var(--on-light-surface-transparent-deep);
             `,
             light: css`
                 ${counterTokens.color}: var(--on-light-text-primary);

@@ -12,28 +12,28 @@ describeFn('Tour', () => {
     const Tour = componentExists ? getComponent<TourProps>('Tour') : () => null;
 
     const Card = styled.div`
-        padding: 1rem;
-        background: #fff;
-        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+        padding: 1.25rem;
+        max-width: 18rem;
         border-radius: 0.75rem;
-        max-width: 20rem;
+        background: var(--surface-solid-card);
+        box-shadow: var(--shadow-down-soft-s);
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.5rem;
     `;
 
     const Title = styled.h4`
         margin: 0;
         font-size: 1rem;
         font-weight: 600;
-        color: #000;
+        color: var(--text-primary);
     `;
 
     const Description = styled.p`
         margin: 0;
         font-size: 0.875rem;
         line-height: 1.5;
-        color: #666;
+        color: var(--text-secondary);
     `;
 
     const Footer = styled.div`
@@ -49,7 +49,7 @@ describeFn('Tour', () => {
         }
 
         small {
-            color: #666;
+            color: var(--text-secondary);
             white-space: nowrap;
         }
     `;
@@ -159,6 +159,7 @@ describeFn('Tour', () => {
                 </div>
 
                 <Tour
+                    highlightBorderRadius="1rem"
                     {...args}
                     offset={[args.offset, args.shift]}
                     open={open}
@@ -185,7 +186,22 @@ describeFn('Tour', () => {
             offset: 100,
             shift: 50,
             highlightOffset: 0,
-            overlayColor: 'rgba(255, 255, 255, 0.25)',
+            overlayColor: 'var(--overlay-hard)',
+        };
+
+        mount(<Demo {...args} />);
+
+        cy.get('#start').click();
+        cy.get('small').should('have.text', step1);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('hasTail, hightlightBorderRadius=2rem', () => {
+        const args = {
+            withOverlay: true,
+            hasTail: true,
+            highlightBorderRadius: '2rem',
         };
 
         mount(<Demo {...args} />);
@@ -288,5 +304,123 @@ describeFn('Tour', () => {
         cy.get('small').should('not.exist');
 
         cy.matchImageSnapshot();
+    });
+
+    it('escape closes tour', () => {
+        const args = {
+            withOverlay: false,
+            offset: 12,
+            shift: 12,
+            highlightOffset: 4,
+        };
+
+        mount(<Demo {...args} />);
+
+        cy.get('#start').click();
+        cy.get('small').should('have.text', step1);
+        cy.get('body').type('{esc}');
+        cy.get('small').should('not.exist');
+    });
+
+    it('reopen resets to first step', () => {
+        const args = {
+            withOverlay: false,
+            offset: 12,
+            shift: 12,
+            highlightOffset: 4,
+        };
+
+        mount(<Demo {...args} />);
+
+        cy.get('#start').click();
+        cy.get('small').should('have.text', step1);
+        cy.get('#next').click();
+        cy.get('small').should('have.text', step2);
+        cy.get('body').type('{esc}');
+        cy.get('small').should('not.exist');
+
+        cy.get('#start').click();
+        cy.get('small').should('have.text', step1);
+    });
+
+    it('string target', () => {
+        const StringTargetDemo = (args) => {
+            const [open, setOpen] = useState(false);
+            const [current, setCurrent] = useState(0);
+
+            const onNext = () => setCurrent(current + 1);
+            const onClose = () => setOpen(false);
+
+            const renderTourCard = (currentStep: number, length, last, step) => (
+                <Card>
+                    {step?.title && <Title>{step?.title}</Title>}
+                    <Footer>
+                        <div>
+                            {!last && (
+                                <Button id="next" size="s" type="button" onClick={onNext}>
+                                    Далее
+                                </Button>
+                            )}
+                            {last && (
+                                <Button id="close" size="s" type="button" onClick={onClose}>
+                                    Закрыть
+                                </Button>
+                            )}
+                        </div>
+                        <small>
+                            Шаг {currentStep + 1} / {length}
+                        </small>
+                    </Footer>
+                </Card>
+            );
+
+            const steps = [
+                { target: '#target-a', title: 'Target A' },
+                { target: '#target-b', title: 'Target B' },
+            ];
+
+            return (
+                <div
+                    style={{
+                        width: '100%',
+                        height: '300px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '2rem',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <div style={{ display: 'flex', gap: '4rem' }}>
+                        <Button id="target-a">Элемент A</Button>
+                        <Button id="target-b">Элемент B</Button>
+                    </div>
+                    <Button id="start" onClick={() => setOpen(true)}>
+                        Запуск тура
+                    </Button>
+                    <Tour
+                        {...args}
+                        offset={[args.offset, args.shift]}
+                        open={open}
+                        current={current}
+                        onClose={() => {
+                            setCurrent(0);
+                            setOpen(false);
+                        }}
+                        renderStep={renderTourCard}
+                        steps={steps}
+                    />
+                </div>
+            );
+        };
+
+        mount(<StringTargetDemo withOverlay={false} offset={12} shift={12} highlightOffset={4} />);
+
+        cy.get('#start').click();
+        cy.get('small').should('have.text', 'Шаг 1 / 2');
+        cy.get('#next').click();
+        cy.get('small').should('have.text', 'Шаг 2 / 2');
+        cy.get('#close').click();
+        cy.get('small').should('not.exist');
     });
 });

@@ -1,4 +1,4 @@
-import { TokenType, webBreakpoints, webBreakpoints_FOR_SDDS_INSOL } from '../types';
+import { TokenType, getBreakpointsByThemeName } from '../types';
 import { camelToKebab, kebabToCamel } from '../utils';
 
 const fontMap: Record<string, string> = {
@@ -129,8 +129,9 @@ export const createTypographyTokens = (
     isJS = false,
     themeName?: string,
 ) => {
-    // TODO: Удалить после добавление брейкпоинтов в токены
-    const breakpoints = themeName === 'sdds_insol' ? webBreakpoints_FOR_SDDS_INSOL : webBreakpoints;
+    // TODO: Удалить после добавление breakpoints в токены
+    const breakpoints = getBreakpointsByThemeName(themeName);
+
     type ScreenList = Record<keyof typeof breakpoints, string>;
 
     const screenList = getScreenList(breakpoints) as ScreenList;

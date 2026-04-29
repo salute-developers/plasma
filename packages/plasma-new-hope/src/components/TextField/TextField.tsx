@@ -7,7 +7,7 @@ import type {
     MouseEventHandler,
     ClipboardEventHandler,
 } from 'react';
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 import { cx, safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines';
 import { useOutsideClick, useForkRef } from 'src/hooks';
@@ -572,7 +572,6 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
                                     onPaste={handlePaste}
-                                    data-tour
                                     {...rest}
                                 />
                                 {hasInnerLabel && (
