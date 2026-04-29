@@ -57,13 +57,6 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-negative-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-negative-active);
             `,
-            dark: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-transparent-deep);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
-            `,
             black: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-solid-default);
@@ -143,7 +136,7 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${iconButtonTokens.iconButtonDisabledOpacity}: 0.4;
+                ${iconButtonTokens.iconButtonDisabledOpacity}: 1;
             `,
         },
         focused: {
@@ -152,4 +145,78 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            disabled: true,
+            style: css`
+                ${iconButtonTokens.iconButtonColor}: var(--text-tertiary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-tertiary);
+            `,
+        },
+        {
+            view: 'accent',
+            disabled: true,
+            style: css`
+                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-accent-minor);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
+            `,
+        },
+        {
+            view: 'secondary',
+            disabled: true,
+            style: css`
+                ${iconButtonTokens.iconButtonColor}: var(--text-tertiary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-tertiary);
+            `,
+        },
+        {
+            view: 'clear',
+            disabled: true,
+            style: css`
+                ${iconButtonTokens.iconButtonColor}: var(--text-tertiary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
+            `,
+        },
+        {
+            view: 'positive',
+            disabled: true,
+            style: css`
+                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-positive-minor);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-positive);
+            `,
+        },
+        {
+            view: 'warning',
+            disabled: true,
+            style: css`
+                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-warning-minor);
+            `,
+        },
+        {
+            view: 'negative',
+            disabled: true,
+            style: css`
+                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-negative-minor);
+            `,
+        },
+        {
+            view: 'black',
+            disabled: true,
+            style: css`
+                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-solid-tertiary);
+            `,
+        },
+        {
+            view: 'white',
+            disabled: true,
+            style: css`
+                ${iconButtonTokens.iconButtonColor}: var(--on-light-text-tertiary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
+            `,
+        },
+    ],
 };

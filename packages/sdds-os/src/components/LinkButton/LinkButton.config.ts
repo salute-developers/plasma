@@ -165,8 +165,69 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${linkButtonTokens.linkButtonDisabledOpacity}: 0.4;
+                ${linkButtonTokens.linkButtonDisabledOpacity}: 1;
             `,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-tertiary);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-tertiary);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-tertiary);
+            `,
+        },
+        {
+            view: 'accent',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonDisabledOpacity}: 0.4;
+            `,
+        },
+        {
+            view: 'secondary',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-tertiary);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-tertiary);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-tertiary);
+            `,
+        },
+        {
+            view: 'positive',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonDisabledOpacity}: 0.4;
+            `,
+        },
+        {
+            view: 'warning',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-warning-minor);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-warning-minor);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-warning-minor);
+            `,
+        },
+        {
+            view: 'negative',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-negative-minor);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-negative-minor);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-negative-minor);
+            `,
+        },
+        {
+            view: 'info',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-info-minor);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-info-minor);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-info-minor);
+            `,
+        },
+    ],
 };

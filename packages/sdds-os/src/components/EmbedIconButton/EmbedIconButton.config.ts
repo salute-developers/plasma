@@ -107,7 +107,7 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${embedIconButtonTokens.embedIconButtonDisabledOpacity}: 0.4;
+                ${embedIconButtonTokens.embedIconButtonDisabledOpacity}: 1;
             `,
         },
         focused: {
@@ -116,4 +116,55 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            disabled: true,
+            style: css`
+                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-tertiary);
+            `,
+        },
+        {
+            view: 'accent',
+            disabled: true,
+            style: css`
+                ${embedIconButtonTokens.embedIconButtonDisabledOpacity}: 0.4;
+            `,
+        },
+        {
+            view: 'secondary',
+            disabled: true,
+            style: css`
+                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-tertiary);
+            `,
+        },
+        {
+            view: 'positive',
+            disabled: true,
+            style: css`
+                ${embedIconButtonTokens.embedIconButtonDisabledOpacity}: 0.4;
+            `,
+        },
+        {
+            view: 'warning',
+            disabled: true,
+            style: css`
+                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-warning-minor);
+            `,
+        },
+        {
+            view: 'negative',
+            disabled: true,
+            style: css`
+                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-negative-minor);
+            `,
+        },
+        {
+            view: 'info',
+            disabled: true,
+            style: css`
+                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-info-minor);
+            `,
+        },
+    ],
 };
