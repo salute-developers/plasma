@@ -1,4 +1,120 @@
 {
+  "0.348.0": {
+    "date": "2026-04-29",
+    "core": [
+      {
+        "component": "Typings",
+        "children": [
+          {
+            "text": "добавлен тип для полиморфных компонентов со свойством `as`",
+            "link": "https://github.com/salute-developers/plasma/pull/2689",
+            "id": 2689
+          }
+        ]
+      },
+      {
+        "component": "Tour",
+        "children": [
+          {
+            "text": "добавлена возможность задать хвостик как у `Tooltip`\n\nисправлена прокрутка к верху страницы при открытии, скролл срабатывает только если `target` вне `viewport`\n\nотключена анимация при первом появлении `highlight` (анимация не «плывёт» с верхнего края страницы)\n\nдобавлена возможность указать собственный `highlight` при помощи `renderHighlight`",
+            "link": "https://github.com/salute-developers/plasma/pull/2707",
+            "id": 2707
+          }
+        ]
+      },
+      {
+        "component": "InformationWrapper",
+        "children": [
+          {
+            "text": "исправлены `SyntaxError` в документации компонента",
+            "link": "https://github.com/salute-developers/plasma/pull/2703",
+            "id": 2703
+          }
+        ]
+      },
+      {
+        "component": "Table",
+        "children": [
+          {
+            "text": "убраны лишние html-атрибуты из корневого `div`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2717",
+            "id": 2717
+          }
+        ]
+      },
+      {
+        "component": "Link",
+        "children": [
+          {
+            "text": "добавлен токен `linkUnderlineOffset` для управления отступом подчеркивания\n\nдобавлен токен `linkUnderlineColor` для кастомного цвета подчеркивания\n\nдобавлен prop `underline` с возможными значениями: `none` (default), `hover`, `always`\n\nдобавлен пример использования с `underline`",
+            "link": "https://github.com/salute-developers/plasma/pull/2636",
+            "id": 2636
+          }
+        ]
+      },
+      {
+        "component": "Tooltip",
+        "children": [
+          {
+            "text": "исправлены `stories` компонента",
+            "link": "https://github.com/salute-developers/plasma/pull/2710",
+            "id": 2710
+          }
+        ]
+      },
+      {
+        "component": "Slider",
+        "children": [
+          {
+            "text": "исправлен контролируемый режим\n\nдобавлена возможность указать шкалу значений",
+            "link": "https://github.com/salute-developers/plasma/pull/2716",
+            "id": 2716
+          }
+        ]
+      },
+      {
+        "component": "Select",
+        "children": [
+          {
+            "text": "произведен глубокий технический рефакторинг компонента;",
+            "link": "https://github.com/salute-developers/plasma/pull/2704",
+            "id": 2704
+          }
+        ]
+      },
+      {
+        "component": "Segment",
+        "children": [
+          {
+            "text": "изменена конфигурация `stories`\n\nисправлены стили right content при `disabled` состоянии",
+            "link": "https://github.com/salute-developers/plasma/pull/2678",
+            "id": 2678
+          }
+        ]
+      },
+      {
+        "component": "Switch",
+        "children": [
+          {
+            "text": "изменен рендер `label`",
+            "link": "https://github.com/salute-developers/plasma/pull/2678",
+            "id": 2678
+          }
+        ]
+      },
+      {
+        "component": "Pagination",
+        "children": [
+          {
+            "text": "исправлен padding для `PaginationButtonGroup`",
+            "link": "https://github.com/salute-developers/plasma/pull/2678",
+            "id": 2678
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.346.0": {
     "date": "2026-04-21",
     "core": [
