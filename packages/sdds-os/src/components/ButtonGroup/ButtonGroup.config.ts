@@ -51,9 +51,9 @@ export const config = {
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--text-primary-hover);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-clear);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-solid-secondary-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--text-primary-active);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-clear);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-solid-secondary-active);
             `,
             positive: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
@@ -90,18 +90,6 @@ export const config = {
                 ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-negative-active);
-            `,
-            dark: css`
-                ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${buttonGroupTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
-                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
             `,
             black: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
