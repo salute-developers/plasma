@@ -83,7 +83,7 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${switchTokens.disabledOpacity}: 0.4;
+                ${switchTokens.disabledOpacity}: 1;
             `,
         },
         focused: {
@@ -92,4 +92,16 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            disabled: true,
+            style: css`
+                ${switchTokens.labelColor}: var(--text-tertiary);
+                ${switchTokens.descriptionColor}: var(--text-tertiary);
+                ${switchTokens.trackBackgroundColorOn}: var(--surface-accent-minor);
+                ${switchTokens.trackBackgroundColorOff}: var(--surface-solid-secondary);
+            `,
+        },
+    ],
 };
