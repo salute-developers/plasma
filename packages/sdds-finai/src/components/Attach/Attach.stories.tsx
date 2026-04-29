@@ -5,6 +5,8 @@ import { action } from 'storybook/actions';
 import { InSpacingDecorator, getConfigVariations, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
+import { InformationWrapper } from '../InformationWrapper';
+
 import { Attach } from './Attach';
 import { config } from './Attach.config';
 
@@ -31,6 +33,9 @@ type StoryAttachProps = ComponentProps<typeof Attach> & {
     closeOnOverlayClick?: boolean;
     listWidth?: string;
     buttonType?: string;
+    label?: string;
+    titleCaption?: string;
+    hintText?: string;
 };
 
 const meta: Meta<StoryAttachProps> = {
@@ -119,7 +124,7 @@ const meta: Meta<StoryAttachProps> = {
         ...disableProps(['onClear']),
     },
     args: {
-        size: 'm',
+        size: 's',
         view: 'accent',
         width: '400px',
 
@@ -149,7 +154,7 @@ const meta: Meta<StoryAttachProps> = {
 
 export default meta;
 
-const StoryDefault = ({
+const RenderAttach = ({
     buttonType,
     buttonText,
     buttonValue,
@@ -191,5 +196,28 @@ const StoryDefault = ({
 };
 
 export const Default: StoryObj<StoryAttachProps> = {
-    render: StoryDefault,
+    render: RenderAttach,
+};
+
+export const WithInformationWrapper: StoryObj<StoryAttachProps> = {
+    render: (args) => {
+        const { label, titleCaption, hintText } = args;
+        const wrapperId = 'example-id-attach';
+
+        return (
+            <InformationWrapper labelHtmlFor={wrapperId} label={label} titleCaption={titleCaption} hintText={hintText}>
+                <RenderAttach {...args} id={wrapperId} />
+            </InformationWrapper>
+        );
+    },
+    args: {
+        label: 'Label',
+        titleCaption: 'Title',
+        hintText: 'Hint text',
+    },
+    argTypes: {
+        label: { control: 'text' },
+        titleCaption: { control: 'text' },
+        hintText: { control: 'text' },
+    },
 };

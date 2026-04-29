@@ -1,5 +1,22 @@
 import { css, counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyS,
+    inverseTextPrimary,
+    onDarkSurfaceSolidDefault,
+    onDarkTextPrimary,
+    onLightSurfaceSolidDefault,
+    onLightTextPrimary,
+    surfaceAccent,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    surfaceWarning,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXxs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -8,32 +25,32 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${counterTokens.color}: var(--inverse-text-primary);
-                ${counterTokens.background}: var(--surface-solid-default);
+                ${counterTokens.color}: ${inverseTextPrimary};
+                ${counterTokens.background}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-accent);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfaceAccent};
             `,
             positive: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-positive);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfacePositive};
             `,
             warning: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-warning);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfaceWarning};
             `,
             negative: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-negative);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${surfaceNegative};
             `,
             dark: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--on-light-surface-solid-default);
+                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.background}: ${onLightSurfaceSolidDefault};
             `,
             light: css`
-                ${counterTokens.color}: var(--on-light-text-primary);
-                ${counterTokens.background}: var(--on-dark-surface-solid-default);
+                ${counterTokens.color}: ${onLightTextPrimary};
+                ${counterTokens.background}: ${onDarkSurfaceSolidDefault};
             `,
         },
         size: {
@@ -41,12 +58,12 @@ export const config = {
                 ${counterTokens.borderRadius}: 1rem;
                 ${counterTokens.height}: 1.75rem;
                 ${counterTokens.padding}: 0 0.625rem;
-                ${counterTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${counterTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${counterTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${counterTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${counterTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${counterTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${counterTokens.fontFamily}: ${bodyS.fontFamily};
+                ${counterTokens.fontSize}: ${bodyS.fontSize};
+                ${counterTokens.fontStyle}: ${bodyS.fontStyle};
+                ${counterTokens.fontWeight}: ${bodyS.fontWeight};
+                ${counterTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${counterTokens.lineHeight}: ${bodyS.lineHeight};
             `,
             m: css`
                 ${counterTokens.borderRadius}: 1rem;

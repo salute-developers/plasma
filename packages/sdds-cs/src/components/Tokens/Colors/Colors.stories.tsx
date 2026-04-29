@@ -43,7 +43,7 @@ const meta: Meta = {
 export default meta;
 
 const themes: Record<string, GroupedTokens> = {
-    'sdds-srvc:light': getGroupedTokens(sdds_cs__light[0]),
+    'theme:sdds_cs:light': getGroupedTokens(sdds_cs__light[0]),
 };
 
 const ColorTokenData: FC<ColorTokenDataProps> = ({

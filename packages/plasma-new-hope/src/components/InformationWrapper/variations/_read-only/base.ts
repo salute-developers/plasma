@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { Label, LeftHelper, RightHelper, TitleCaption } from '../../InformationWrapper.styles';
 import { tokens } from '../../InformationWrapper.tokens';

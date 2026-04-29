@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 import { addFocus } from 'src/mixins';
 import { chipConfig, chipTokens } from 'src/components/Chip';

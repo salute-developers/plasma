@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { SelectProps } from 'src/components/Select';
 
 import { constants, tokens, classes } from '../../Select.tokens';

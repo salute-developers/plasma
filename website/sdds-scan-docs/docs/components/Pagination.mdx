@@ -47,16 +47,16 @@ export function App() {
         export function App() {
             return (
                 <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-                    <Pagination size="xs" view="default" slots={9} count={200} />
-                    <Pagination size="xs" view="secondary" slots={9} count={200} />
-                    <Pagination size="xs" view="clear" slots={9} count={200} />
+                    <Pagination size="s" view="default" slots={9} count={200} />
+                    <Pagination size="s" view="secondary" slots={9} count={200} />
+                    <Pagination size="s" view="clear" slots={9} count={200} />
                 </div>
             );
         }
         ```
     </TabItem>
     <TabItem value="size" label="Size">
-        Размер задается с помощью свойства `size`. Возможные значения: `"l"`, `"m"`, `"s"`, `"xs"`:
+        Размер задается с помощью свойства `size`. Возможные значения: `"m"`, `"s"`:
 
         ```tsx live
         import React from 'react';
@@ -65,10 +65,8 @@ export function App() {
         export function App() {
             return (
                 <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-                    <Pagination size="l" slots={9} count={200} />
                     <Pagination size="m" slots={9} count={200} />
                     <Pagination size="s" slots={9} count={200} />
-                    <Pagination size="xs" slots={9} count={200} />
                 </div>
             );
         }
@@ -87,9 +85,9 @@ import { Pagination } from '@salutejs/sdds-scan';
 export function App() {
     return (
         <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-            <Pagination size="xs" viewCurrentPage="default" slots={9} count={200} />
-            <Pagination size="xs" viewCurrentPage="secondary" slots={9} count={200} />
-            <Pagination size="xs" viewCurrentPage="clear" slots={9} count={200} />
+            <Pagination size="s" viewCurrentPage="default" slots={9} count={200} />
+            <Pagination size="s" viewCurrentPage="secondary" slots={9} count={200} />
+            <Pagination size="s" viewCurrentPage="clear" slots={9} count={200} />
         </div>
     );
 }
@@ -109,8 +107,8 @@ import { Pagination } from '@salutejs/sdds-scan';
 export function App() {
     return (
         <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-            <Pagination size="xs" type="default" slots={9} count={200} hasPerPage />
-            <Pagination size="xs" type="compact" slots={9} count={200} hasPerPage />
+            <Pagination size="s" type="default" slots={9} count={200} hasPerPage />
+            <Pagination size="s" type="compact" slots={9} count={200} hasPerPage />
         </div>
     );
 }
@@ -127,8 +125,8 @@ import { Pagination } from '@salutejs/sdds-scan';
 export function App() {
     return (
         <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-            <Pagination size="xs" pilled={false} slots={9} count={200} />
-            <Pagination size="xs" pilled={true} slots={9} count={200} />
+            <Pagination size="s" pilled={false} slots={9} count={200} />
+            <Pagination size="s" pilled={true} slots={9} count={200} />
         </div>
     );
 }
@@ -145,8 +143,8 @@ import { Pagination } from '@salutejs/sdds-scan';
 export function App() {
     return (
         <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-            <Pagination size="xs" slots={9} count={200} hasPerPage={false} />
-            <Pagination size="xs" slots={9} count={200} hasPerPage perPage={20} />
+            <Pagination size="s" slots={9} count={200} hasPerPage={false} />
+            <Pagination size="s" slots={9} count={200} hasPerPage perPage={20} />
         </div>
     );
 }
@@ -163,8 +161,8 @@ import { Pagination } from '@salutejs/sdds-scan';
 export function App() {
     return (
         <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-            <Pagination size="xs" slots={9} count={200} hasQuickJump={false} />
-            <Pagination size="xs" slots={9} count={200} hasQuickJump />
+            <Pagination size="s" slots={9} count={200} hasQuickJump={false} />
+            <Pagination size="s" slots={9} count={200} hasQuickJump />
         </div>
     );
 }
@@ -182,9 +180,9 @@ import { Pagination } from '@salutejs/sdds-scan';
 export function App() {
     return (
         <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-            <Pagination size="xs" slots={9} count={200} helperText="Страница 1 из 10" />
+            <Pagination size="s" slots={9} count={200} helperText="Страница 1 из 10" />
             <Pagination
-                size="xs"
+                size="s"
                 slots={9}
                 count={200}
                 helperText="Очень длинный вспомогательный текст, который может не поместиться в одну строку"
@@ -219,10 +217,10 @@ export function App() {
 
     const leftContent = (
         <>
-            <IconButton view="clear" size="xs" onClick={() => setPage(1)}>
+            <IconButton view="clear" size="m" onClick={() => setPage(1)}>
                 <IconDoubleDisclosureLeft color="inherit" size="xs" />
             </IconButton>
-            <IconButton view="clear" size="xs" onClick={() => setPage((p) => Math.max(1, p - 1))}>
+            <IconButton view="clear" size="m" onClick={() => setPage((p) => Math.max(1, p - 1))}>
                 <IconDisclosureLeftOutline color="inherit" size="xs" />
             </IconButton>
         </>
@@ -230,10 +228,10 @@ export function App() {
 
     const rightContent = (
         <>
-            <IconButton view="clear" size="xs" onClick={() => setPage((p) => Math.min(lastPage, p + 1))}>
+            <IconButton view="clear" size="m" onClick={() => setPage((p) => Math.min(lastPage, p + 1))}>
                 <IconDisclosureRightOutline color="inherit" size="xs" />
             </IconButton>
-            <IconButton view="clear" size="xs" onClick={() => setPage(lastPage)}>
+            <IconButton view="clear" size="m" onClick={() => setPage(lastPage)}>
                 <IconDoubleDisclosureRight color="inherit" size="xs" />
             </IconButton>
         </>
@@ -242,7 +240,7 @@ export function App() {
     return (
         <div>
             <Pagination
-                size="xs"
+                size="s"
                 slots={9}
                 count={count}
                 perPage={perPage}
@@ -272,7 +270,7 @@ export function App() {
     return (
         <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
             <Pagination
-                size="xs"
+                size="s"
                 slots={9}
                 count={2000}
                 value={page}

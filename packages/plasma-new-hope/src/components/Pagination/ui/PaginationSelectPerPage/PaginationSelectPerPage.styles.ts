@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { selectConfig, selectTokens } from '../../../Select';
 import { component, mergeConfig } from '../../../../engines';

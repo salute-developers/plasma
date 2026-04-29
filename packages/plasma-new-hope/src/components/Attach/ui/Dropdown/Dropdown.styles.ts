@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { Wrapper } from 'src/components/Dropdown/ui/DropdownItem/DropdownItem.styles';
 
 import { component, mergeConfig } from '../../../../engines';

@@ -20,7 +20,7 @@ const sizeMap = {
 };
 
 const meta: Meta<typeof LinkButton> = {
-    title: 'Data Entry/LinkButton',
+    title: 'Data Entry/⚠️ LinkButton',
     decorators: [InSpacingDecorator],
     component: LinkButton,
     args: {

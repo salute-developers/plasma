@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { textAreaTokens as tokens } from '../../../components/TextArea';
 

@@ -1,6 +1,6 @@
 ---
 name: migrate-test
-description: Migrate a Cypress component test from packages/plasma-b2c to the new pattern in packages/plasma-new-hope. Trigger when user asks to rewrite, migrate, or port a component test to plasma-new-hope style. Example: "перепиши тесты для ComponentName по новому паттерну", "migrate ComponentName test to new-hope".
+description: Migrate a Cypress component test from packages/plasma-b2c to the new pattern in packages/plasma-new-hope. Trigger when user asks to rewrite, migrate, or port a component test to plasma-new-hope style. Example "перепиши тесты для ComponentName по новому паттерну", "migrate ComponentName test to new-hope".
 ---
 
 # Migrate component test from plasma-b2c to plasma-new-hope

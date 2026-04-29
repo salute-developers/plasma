@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { buttonConfig, buttonTokens } from '../Button';
 import { buttonGroupConfig, buttonGroupTokens } from '../ButtonGroup';
@@ -90,6 +90,8 @@ export const PaginationButtonGroup = styled(ButtonGroup)`
     ${buttonGroupTokens.buttonSideRadius}: var(${tokens.buttonRadius});
     ${buttonGroupTokens.buttonSegmentedRadius}: var(${tokens.buttonRadius});
     ${buttonGroupTokens.buttonRadiusCircle}: var(${tokens.buttonRadius});
+
+    ${buttonGroupTokens.buttonPadding}: 0;
 `;
 
 export const PaginationButton = styled(Button)`

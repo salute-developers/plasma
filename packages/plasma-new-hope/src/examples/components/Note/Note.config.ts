@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { noteTokens as tokens } from '../../../components/Note';
 

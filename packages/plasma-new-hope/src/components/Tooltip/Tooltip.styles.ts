@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { tokens } from './Tooltip.tokens';
 import { TooltipProps } from './Tooltip.types';

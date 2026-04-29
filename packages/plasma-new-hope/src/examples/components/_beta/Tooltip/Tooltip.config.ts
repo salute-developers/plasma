@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 import { _beta_tooltipTokens as tokens } from 'src/components/_beta/Tooltip';
 
 export const config = {

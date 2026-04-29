@@ -1,12 +1,10 @@
 import type { Dispatch, RefObject } from 'react';
 
 import type { PathAction, PathState } from '../../reducers';
-import type { SelectProps } from '../../Select.types';
-
-import type { MergedDropdownNodeTransformed } from './ui/Item/Item.types';
+import type { SelectProps, ItemOption } from '../../Select.types';
 
 export type InnerProps = {
-    item: MergedDropdownNodeTransformed;
+    item: ItemOption;
     currentLevel: number;
     path: PathState;
     dispatchPath: Dispatch<PathAction>;

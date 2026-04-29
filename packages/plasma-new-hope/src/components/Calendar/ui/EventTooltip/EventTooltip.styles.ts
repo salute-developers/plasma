@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { tooltipConfig, tooltipTokens } from 'src/components/Tooltip';
 import { component, mergeConfig } from 'src/engines';
 

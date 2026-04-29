@@ -6,7 +6,7 @@ export interface SerializedStyles {
     next?: SerializedStyles;
 }
 
-export type PolymorphicClassName = string | SerializedStyles;
+export type PolymorphicClassName = string | SerializedStyles | readonly any[];
 
 export type CSSProperties = {
     [key: string]: string | number | CSSProperties;

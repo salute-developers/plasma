@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { userMessageTokens as tokens } from '../../../../components/_ai/UserMessage';
 

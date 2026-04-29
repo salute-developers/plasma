@@ -41,7 +41,7 @@ export const createDefaultStory = ({
         contentRightOption,
         maxItemWidth,
         hasBackground,
-        args,
+        ...args
     }: any) => {
         const { selectedSegmentItems } = useSegment();
 

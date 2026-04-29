@@ -81,8 +81,8 @@ export const config = {
                 ${toastTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${toastTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${toastTokens.contentLeftMargin}: -0.0625rem 0.375rem -0.0625rem -0.125rem;
-                ${toastTokens.closeIconMargin}: -0.0625rem -0.25rem -0.0625rem 0.5rem;
+                ${toastTokens.contentLeftMargin}: -0.0625rem 0.375rem -0.0625rem -0.2rem;
+                ${toastTokens.closeIconMargin}: -0.0625rem -0.3125rem -0.0625rem 0.5rem;
             `,
         },
         closeIconType: {

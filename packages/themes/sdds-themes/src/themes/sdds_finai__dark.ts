@@ -34,7 +34,6 @@ export const sdds_finai__dark = ([
   --text-primary: #F2F5F8F5;
   --text-primary-brightness: #F3F6F8FF;
   --text-paragraph: #F2F5F8CC;
-  --text-accent: #199AF0;
   --text-accent-minor: #0D5382;
   --text-positive: #24B23E;
   --text-warning: #FF7024;
@@ -46,6 +45,7 @@ export const sdds_finai__dark = ([
   --text-info-minor: #0D5382;
   --text-secondary: #D5DFE69E;
   --text-tertiary: #D5DFE64D;
+  --text-accent: #199AF0;
   --on-dark-text-primary-hover: #F2F5F893;
   --on-dark-text-primary-active: #F2F5F8C4;
   --on-dark-text-secondary-hover: #D6DFE6FF;
@@ -197,8 +197,8 @@ export const sdds_finai__dark = ([
   --surface-transparent-card-active: #FFFFFF0A;
   --surface-clear-hover: #FFFFFF00;
   --surface-clear-active: #FFFFFF00;
-  --surface-accent-hover: #1798EEFF;
-  --surface-accent-active: #1086D5FF;
+  --surface-accent-hover: #36A7F2FF;
+  --surface-accent-active: #0F96F0FF;
   --surface-accent-minor-hover: #09212FFF;
   --surface-accent-minor-active: #06151EFF;
   --surface-transparent-accent-hover: #118CDF52;
@@ -209,8 +209,8 @@ export const sdds_finai__dark = ([
   --surface-warning-active: #F05B05FF;
   --surface-negative-hover: #FF475AFF;
   --surface-negative-active: #FF1F35FF;
-  --surface-info-hover: #1798EEFF;
-  --surface-info-active: #1086D5FF;
+  --surface-info-hover: #36A7F2FF;
+  --surface-info-active: #0F96F0FF;
   --surface-positive-minor-hover: #0E3A16FF;
   --surface-positive-minor-active: #08210CFF;
   --surface-warning-minor-hover: #4F250DFF;
@@ -237,12 +237,10 @@ export const sdds_finai__dark = ([
   --surface-transparent-card-brightness: #FFFFFFFF;
   --surface-transparent-primary: #FFFFFF0F;
   --surface-clear: #FFFFFF00;
-  --surface-accent: #118CDF;
   --surface-transparent-accent: #118CDF33;
   --surface-positive: #1A9E32;
   --surface-warning: #FA5F05;
   --surface-negative: #FF293E;
-  --surface-info: #118CDF;
   --surface-positive-minor: #0A2B10;
   --surface-warning-minor: #3D1D0A;
   --surface-negative-minor: #4A0D13;
@@ -256,6 +254,8 @@ export const sdds_finai__dark = ([
   --surface-transparent-tertiary: #D5DFE63D;
   --surface-transparent-deep: #D5DFE6BD;
   --surface-accent-minor: #071A26FF;
+  --surface-accent: #199AF0;
+  --surface-info: #199AF0;
   --on-dark-surface-solid-primary-hover: #171D21FF;
   --on-dark-surface-solid-primary-active: #0F1315FF;
   --on-dark-surface-solid-secondary-hover: #2C343AFF;
@@ -278,8 +278,8 @@ export const sdds_finai__dark = ([
   --on-dark-surface-transparent-card-active: #FFFFFF0A;
   --on-dark-surface-clear-hover: #FFFFFF00;
   --on-dark-surface-clear-active: #FFFFFF00;
-  --on-dark-surface-accent-hover: #1798EEFF;
-  --on-dark-surface-accent-active: #1086D5FF;
+  --on-dark-surface-accent-hover: #36A7F2FF;
+  --on-dark-surface-accent-active: #0F96F0FF;
   --on-dark-surface-accent-minor-hover: #09212FFF;
   --on-dark-surface-accent-minor-active: #06151EFF;
   --on-dark-surface-transparent-accent: #199AF047;
@@ -294,9 +294,8 @@ export const sdds_finai__dark = ([
   --on-dark-surface-negative: #FF293E;
   --on-dark-surface-negative-hover: #FF475AFF;
   --on-dark-surface-negative-active: #FF1F35FF;
-  --on-dark-surface-info: #118CDF;
-  --on-dark-surface-info-hover: #1798EEFF;
-  --on-dark-surface-info-active: #1086D5FF;
+  --on-dark-surface-info-hover: #36A7F2FF;
+  --on-dark-surface-info-active: #0F96F0FF;
   --on-dark-surface-positive-minor: #0A2B10;
   --on-dark-surface-positive-minor-hover: #0E3A16FF;
   --on-dark-surface-positive-minor-active: #08210CFF;
@@ -330,13 +329,14 @@ export const sdds_finai__dark = ([
   --on-dark-surface-transparent-primary: #FFFFFF0F;
   --on-dark-surface-transparent-card: #FFFFFF0F;
   --on-dark-surface-transparent-card-brightness: #FFFFFFFF;
-  --on-dark-surface-accent: #118CDF;
   --on-dark-surface-clear: #FFFFFF00;
   --on-dark-surface-solid-card: #060A0C;
   --on-dark-surface-transparent-secondary: #D5DFE624;
   --on-dark-surface-transparent-tertiary: #D5DFE63D;
   --on-dark-surface-transparent-deep: #D5DFE6BD;
   --on-dark-surface-accent-minor: #071A26FF;
+  --on-dark-surface-info: #199AF0;
+  --on-dark-surface-accent: #199AF0;
   --on-light-surface-solid-primary-hover: #F8FAFBFF;
   --on-light-surface-solid-primary-active: #EBF0F4FF;
   --on-light-surface-solid-secondary-hover: #F5F8F9FF;
@@ -360,8 +360,8 @@ export const sdds_finai__dark = ([
   --on-light-surface-clear: #FFFFFF00;
   --on-light-surface-clear-hover: #FFFFFF00;
   --on-light-surface-clear-active: #FFFFFF00;
-  --on-light-surface-accent-hover: #1798EEFF;
-  --on-light-surface-accent-active: #1086D5FF;
+  --on-light-surface-accent-hover: #36A7F2FF;
+  --on-light-surface-accent-active: #0F90E6FF;
   --on-light-surface-accent-minor-hover: #F6FBFEFF;
   --on-light-surface-accent-minor-active: #E5F2FBFF;
   --on-light-surface-transparent-accent-hover: #118CDF3D;
@@ -372,8 +372,8 @@ export const sdds_finai__dark = ([
   --on-light-surface-warning-active: #F05B05FF;
   --on-light-surface-negative-hover: #FF475AFF;
   --on-light-surface-negative-active: #FF1F35FF;
-  --on-light-surface-info-hover: #1798EEFF;
-  --on-light-surface-info-active: #1086D5FF;
+  --on-light-surface-info-hover: #36A7F2FF;
+  --on-light-surface-info-active: #0F90E6FF;
   --on-light-surface-positive-minor-hover: #B1FBBFFF;
   --on-light-surface-positive-minor-active: #94F9A7FF;
   --on-light-surface-warning-minor-hover: #FEE9DCFF;
@@ -399,12 +399,10 @@ export const sdds_finai__dark = ([
   --on-light-surface-solid-default: #060A0C;
   --on-light-surface-transparent-card: #FFFFFFFF;
   --on-light-surface-transparent-card-brightness: #FFFFFFFF;
-  --on-light-surface-accent: #118CDF;
   --on-light-surface-transparent-accent: #118CDF1F;
   --on-light-surface-positive: #1A9E32;
   --on-light-surface-warning: #FA5F05;
   --on-light-surface-negative: #FF293E;
-  --on-light-surface-info: #118CDF;
   --on-light-surface-positive-minor: #9EFAAF;
   --on-light-surface-warning-minor: #FEE2D2;
   --on-light-surface-negative-minor: #FFE0E3;
@@ -418,6 +416,8 @@ export const sdds_finai__dark = ([
   --on-light-surface-transparent-tertiary: #8A959D47;
   --on-light-surface-transparent-deep: #30373CC7;
   --on-light-surface-accent-minor: #ECF6FCFF;
+  --on-light-surface-accent: #199AF0;
+  --on-light-surface-info: #199AF0;
   --inverse-surface-solid-primary-hover: #F8FAFBFF;
   --inverse-surface-solid-primary-active: #EBF0F4FF;
   --inverse-surface-solid-secondary-hover: #F5F8F9FF;
@@ -441,8 +441,8 @@ export const sdds_finai__dark = ([
   --inverse-surface-clear: #FFFFFF00;
   --inverse-surface-clear-hover: #FFFFFF00;
   --inverse-surface-clear-active: #FFFFFF00;
-  --inverse-surface-accent-hover: #1798EEFF;
-  --inverse-surface-accent-active: #1086D5FF;
+  --inverse-surface-accent-hover: #36A7F2FF;
+  --inverse-surface-accent-active: #0F90E6FF;
   --inverse-surface-accent-minor-hover: #09212FFF;
   --inverse-surface-accent-minor-active: #06151EFF;
   --inverse-surface-transparent-accent-hover: #118CDF3D;
@@ -453,8 +453,8 @@ export const sdds_finai__dark = ([
   --inverse-surface-warning-active: #F05B05FF;
   --inverse-surface-negative-hover: #FF475AFF;
   --inverse-surface-negative-active: #FF1F35FF;
-  --inverse-surface-info-hover: #1798EEFF;
-  --inverse-surface-info-active: #1086D5FF;
+  --inverse-surface-info-hover: #36A7F2FF;
+  --inverse-surface-info-active: #0F90E6FF;
   --inverse-surface-positive-minor-hover: #B1FBBFFF;
   --inverse-surface-positive-minor-active: #94F9A7FF;
   --inverse-surface-warning-minor-hover: #FEE9DCFF;
@@ -480,12 +480,10 @@ export const sdds_finai__dark = ([
   --inverse-surface-solid-card-brightness: #FFFFFFFF;
   --inverse-surface-transparent-card: #FFFFFFFF;
   --inverse-surface-transparent-card-brightness: #FFFFFFFF;
-  --inverse-surface-accent: #118CDF;
   --inverse-surface-transparent-accent: #118CDF1F;
   --inverse-surface-positive: #1A9E32;
   --inverse-surface-warning: #FA5F05;
   --inverse-surface-negative: #FF293E;
-  --inverse-surface-info: #118CDF;
   --inverse-surface-positive-minor: #9EFAAF;
   --inverse-surface-warning-minor: #FEE2D2;
   --inverse-surface-negative-minor: #FFE0E3;
@@ -499,6 +497,8 @@ export const sdds_finai__dark = ([
   --inverse-surface-transparent-tertiary: #8A959D47;
   --inverse-surface-transparent-deep: #30373CC7;
   --inverse-surface-accent-minor: #071A26FF;
+  --inverse-surface-accent: #199AF0;
+  --inverse-surface-info: #199AF0;
   --background-primary: #060A0C;
   --background-primary-brightness: #15191BFF;
   --dark-background-primary: #060A0C;
@@ -1429,7 +1429,7 @@ export const sdds_finai__dark = ([
   --plasma-typo-text-xs-medium-font-style: normal;
 }
 
-@media (max-width: 559px) {
+@media (max-width: 959px) {
   :root {
     --plasma-typo-dspl-l-font-size: 5.5rem;
     --plasma-typo-dspl-l-font-weight: 300;
@@ -1596,7 +1596,7 @@ export const sdds_finai__dark = ([
   }
 }
 
-@media (min-width: 560px) and (max-width: 959px) {
+@media (min-width: 960px) and (max-width: 1280px) {
   :root {
     --plasma-typo-dspl-l-font-size: 7rem;
     --plasma-typo-dspl-l-font-weight: 300;
@@ -1763,7 +1763,7 @@ export const sdds_finai__dark = ([
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1281px) {
   :root {
     --plasma-typo-dspl-l-font-size: 8rem;
     --plasma-typo-dspl-l-font-weight: 300;

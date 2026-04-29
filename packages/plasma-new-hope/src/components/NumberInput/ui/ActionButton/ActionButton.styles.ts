@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { iconButtonConfig } from '../../../IconButton';
 import { component, mergeConfig } from '../../../../engines';

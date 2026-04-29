@@ -11,9 +11,7 @@ export const TextAreaDefault = component(mergedConfig);
 const mergedConfigClear = mergeConfig(textAreaConfig, clearConfig);
 export const TextAreaClear = component(mergedConfigClear);
 
-export const TextArea = createConditionalComponent(TextAreaDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'clear' },
-        component: TextAreaClear,
-    },
-]);
+export const TextArea = createConditionalComponent({
+    default: TextAreaDefault,
+    clear: TextAreaClear,
+});

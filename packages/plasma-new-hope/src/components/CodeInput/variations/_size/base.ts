@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { CaptionWrapper, CodeGroup, CodeWrapper, ItemInput } from '../../CodeInput.styles';
 import { tokens, privateTokens, TokensType } from '../../CodeInput.tokens';

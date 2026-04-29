@@ -16,7 +16,7 @@ import {
     FloatingPortal,
     autoUpdate,
 } from '@floating-ui/react';
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { Slot } from '../../_Slot/Slot';
 import { ARROW_HEIGHT, ARROW_PADDING, ARROW_POLYGON, ARROW_WIDTH } from '../Popover/Popover';

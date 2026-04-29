@@ -86,3 +86,58 @@ describe('Complex', () => {
         expectTypeOf<ButtonProps>({ text: 'Hello', value: 'Plasma', stretching: 'filled', contentPlacing: 'default' });
     });
 });
+
+describe('Polymorphic (as prop)', () => {
+    it('as="a" adds anchor props', () => {
+        expectTypeOf(<Button as="a" href="/link" target="_blank" />);
+    });
+
+    it('as="a" keeps own props', () => {
+        expectTypeOf(<Button as="a" text="text" disabled />);
+        expectTypeOf(<Button as="a" text="text" isLoading />);
+    });
+
+    it('as custom component adds its props', () => {
+        type LinkProps = { to: string; replace?: boolean; children?: React.ReactNode };
+        const Link = (_: LinkProps) => null;
+
+        expectTypeOf(<Button as={Link} to="/link" replace text="text" />);
+    });
+
+    it('as custom component does not add props absent in that component', () => {
+        type LinkProps = { to: string; children?: React.ReactNode };
+        const Link = (_: LinkProps) => null;
+
+        // @ts-expect-error
+        expectTypeOf(<Button as={Link} href="/link" replace text="text" />);
+    });
+
+    it('as="input" adds input props', () => {
+        expectTypeOf(<Button as="input" type="submit" />);
+        expectTypeOf(<Button as="input" type="reset" placeholder="..." onChange={() => {}} />);
+    });
+
+    it('as="input" keeps own props', () => {
+        expectTypeOf(<Button as="input" text="text" disabled />);
+        expectTypeOf(<Button as="input" text="text" isLoading />);
+    });
+
+    it('as="input" does not add anchor props', () => {
+        // @ts-expect-error
+        expectTypeOf(<Button as="input" href="/link" target="_blank" />);
+    });
+
+    it('as="div" adds div props', () => {
+        expectTypeOf(<Button as="div" tabIndex={0} contentEditable />);
+    });
+
+    it('as="div" keeps own props', () => {
+        expectTypeOf(<Button as="div" text="text" disabled />);
+        expectTypeOf(<Button as="div" text="text" isLoading />);
+    });
+
+    it('as="div" does not add anchor props', () => {
+        // @ts-expect-error
+        expectTypeOf(<Button as="div" href="/link" target="_blank" />);
+    });
+});

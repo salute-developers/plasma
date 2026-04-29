@@ -1,5 +1,4 @@
-import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
+import styled, { css } from 'styled-components';
 import { spinnerConfig, spinnerTokens } from 'src/components/Spinner';
 import { component, mergeConfig } from 'src/engines';
 

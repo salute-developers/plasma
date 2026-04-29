@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { toastNewTokens as toastTokens } from '../../../components/Toast/ToastNew';
 

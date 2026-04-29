@@ -9,7 +9,7 @@ import { StyledChip } from './TextFieldChipNew.styles';
 export const TextFieldChipNew: FC<{
     chips: { value: string; label: string; disabled: boolean }[];
     onChipCloseClick: (chip: { value: string; label: string; disabled: boolean }) => void;
-    getRef: (...e: any) => void;
+    getRef: (element: HTMLButtonElement | null, index: number) => void;
     handleChipKeyDown: (event: KeyboardEvent<HTMLButtonElement>, chipId: string, chipIndex: number) => void;
     onChipClear: (clearId: string, index: number) => void;
     readOnly: boolean;
@@ -65,7 +65,7 @@ export const TextFieldChipNew: FC<{
                 return chipType === 'default' ? (
                     <StyledChip
                         key={chipId}
-                        ref={(element) => getRef(element, index)}
+                        ref={(element: HTMLButtonElement | null) => getRef(element, index)}
                         tabIndex={-1}
                         disabled={disabled}
                         hasClear={!disabled}

@@ -1,6 +1,6 @@
 ---
 name: remove-old-test
-description: Remove old component tests and Cypress snapshots by component name. Trigger when user asks to delete, remove, or clean up old tests or screenshots for a component. Example: "удали старые тесты для ComponentName", "remove old tests for DateTimePicker".
+description: Remove old component tests and Cypress snapshots by component name. Trigger when user asks to delete, remove, or clean up old tests or screenshots for a component. Example "удали старые тесты для ComponentName", "remove old tests for DateTimePicker".
 disable-model-invocation: true
 ---
 
@@ -13,11 +13,11 @@ rm -rf cypress/snapshots/**/ComponentName/*
 ```
 
 ```bash
-rm ./packages/!(plasma-new-hope)/**/ComponentName.component-test.tsx
+find ./packages -path ./packages/plasma-new-hope -prune -o -name "ComponentName.component-test.tsx" -print | xargs rm -f
 ```
 
 ```bash
-rm ./packages/**/ComponentName.update-test.component-test.tsx
+find ./packages -path ./packages/plasma-new-hope -prune -o -name "ComponentName.update-test.component-test.tsx" -print | xargs rm -f
 ```
 
 Replace `{ComponentName}` with the actual component name from `$ARGUMENTS`.

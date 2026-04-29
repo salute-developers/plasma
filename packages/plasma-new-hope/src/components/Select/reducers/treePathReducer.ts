@@ -1,6 +1,6 @@
 import { deepCopy } from 'src/utils';
 
-type NestedTreePath = {
+export type NestedTreePath = {
     [key: string]: {} | NestedTreePath;
 };
 

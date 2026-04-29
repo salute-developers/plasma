@@ -1,5 +1,3 @@
-import { ComponentProps } from 'react';
-
 import { radioboxConfig } from '../../../components/Radiobox';
 import { component, mergeConfig } from '../../../engines';
 import { createConditionalComponent } from '../../../utils';
@@ -13,17 +11,7 @@ export const RadioboxDefault = component(mergedConfigDefault);
 const mergedConfigOutline = mergeConfig(radioboxConfig, outlineConfig);
 export const RadioboxOutline = component(mergedConfigOutline);
 
-type CheckboxProps =
-    | (ComponentProps<typeof RadioboxDefault> & {
-          appearance: 'outline';
-      })
-    | (ComponentProps<typeof RadioboxOutline> & {
-          appearance?: 'default' | undefined;
-      });
-
-export const Radiobox = createConditionalComponent<CheckboxProps, HTMLInputElement>(RadioboxDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'outline' },
-        component: RadioboxOutline,
-    },
-]);
+export const Radiobox = createConditionalComponent({
+    default: RadioboxDefault,
+    outline: RadioboxOutline,
+});

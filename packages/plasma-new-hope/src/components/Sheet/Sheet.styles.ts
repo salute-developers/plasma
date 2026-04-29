@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { tokens, classes } from './Sheet.tokens';
 import { CommonProps } from './Sheet.types';

@@ -1,14 +1,15 @@
 import type { ComponentProps } from 'react';
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconPlasma, IconLockOutline } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Autocomplete } from './Autocomplete';
+import { config } from './Autocomplete.config';
 
-const sizes = ['s', 'xs'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const { views, sizes } = getConfigVariations(config);
+
 const labelPlacements = ['outer', 'inner'];
 const hintViews = ['default'];
 const hintSizes = ['m', 's'];

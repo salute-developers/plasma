@@ -23,7 +23,7 @@ export function App() {
         <div>
             <Rating
                 view="default"
-                size="l"
+                size="m"
                 value={3.8}
                 helperText="Helper text"
             />
@@ -44,13 +44,13 @@ export function App() {
         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             <Rating
                 view="default"
-                size="l"
+                size="m"
                 value={3.8}
                 helperText="Helper text"
             />
             <Rating
                 view="accent"
-                size="l"
+                size="m"
                 value={3.8}
                 helperText="Helper text"
             />
@@ -62,127 +62,29 @@ export function App() {
 ### Размер Rating
 Размер Rating задается с помощью свойства `size`:
 
-<Tabs>
-    <TabItem value="common" label="Common" default>
-        ```tsx live
-            import React from 'react';
-            import { Rating } from '@salutejs/sdds-scan';
+```tsx live
+    import React from 'react';
+    import { Rating } from '@salutejs/sdds-scan';
 
-            export function App() {
-                return (
-                    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                        <Rating
-                            view="default"
-                            size="l"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="m"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="s"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="xs"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="xxs"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                    </div>
-                );
-            }
-        ```
-    </TabItem>
-
-    <TabItem value="heading" label="Heading">
-        ```tsx live
-            import React from 'react';
-            import { Rating } from '@salutejs/sdds-scan';
-
-            export function App() {
-                return (
-                    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                        <Rating
-                            view="default"
-                            size="h1"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="h2"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="h3"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="h4"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="h5"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                    </div>
-                );
-            }
-        ```
-    </TabItem>
-
-    <TabItem value="display" label="Display">
-        ```tsx live
-            import React from 'react';
-            import { Rating } from '@salutejs/sdds-scan';
-
-            export function App() {
-                return (
-                    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                        <Rating
-                            view="default"
-                            size="displayL"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="displayM"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                        <Rating
-                            view="default"
-                            size="displayS"
-                            value={3.8}
-                            helperText="Helper text"
-                        />
-                    </div>
-                );
-            }
-        ```
-    </TabItem>
-</Tabs>
+    export function App() {
+        return (
+            <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                <Rating
+                    view="default"
+                    size="m"
+                    value={3.8}
+                    helperText="Helper text"
+                />
+                <Rating
+                    view="default"
+                    size="s"
+                    value={3.8}
+                    helperText="Helper text"
+                />
+            </div>
+        );
+    }
+```
 
 ### Количество иконок в Rating
 Количество иконок в Rating задается с помощью свойства `iconQuantity`:
@@ -196,21 +98,21 @@ export function App() {
         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             <Rating
                 view="default"
-                size="l"
+                size="m"
                 value={3.8}
                 iconQuantity={5}
                 helperText="Helper text"
             />
             <Rating
                 view="accent"
-                size="l"
+                size="m"
                 value={3.8}
                 iconQuantity={10}
                 helperText="Helper text"
             />
             <Rating
                 view="accent"
-                size="l"
+                size="m"
                 value={3.8}
                 iconQuantity={1}
                 helperText="Helper text"
@@ -233,21 +135,21 @@ export function App() {
         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             <Rating
                 view="default"
-                size="l"
+                size="m"
                 value={3.8}
                 valuePlacement="before"
                 helperText="Helper text"
             />
             <Rating
                 view="accent"
-                size="l"
+                size="m"
                 value={3.8}
                 valuePlacement="after"
                 helperText="Helper text"
             />
             <Rating
                 view="accent"
-                size="l"
+                size="m"
                 value={3.8}
                 hasValue={false}
                 helperText="Helper text"
@@ -276,7 +178,7 @@ export function App() {
         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             <Rating
                 view="default"
-                size="l"
+                size="m"
                 value={3.8}
                 helperText="Helper text"
                 iconSlot={<IconKeyFill size="s" className={ratingClasses.customIconSizing} />}

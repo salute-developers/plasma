@@ -1,11 +1,10 @@
-import React, { useRef, FC, useContext } from 'react';
+import React, { useRef, FC } from 'react';
 import { cx, isEmpty } from 'src/utils';
 import { useDidMountEffect } from 'src/hooks';
-import { mapCheckedVariants } from 'src/components/Combobox/ComboboxNew/utils';
 
-import { sizeToIconSize, getItemId } from '../../../../utils';
+import { sizeToIconSize, getItemId, mapCheckedVariants } from '../../../../utils';
 import { classes } from '../../../../Select.tokens';
-import { Context } from '../../../../Select.context';
+import { useSelectContext } from '../../../../Select.context';
 
 import { ItemProps } from './Item.types';
 import {
@@ -31,7 +30,7 @@ export const Item: FC<ItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const { value, label, disabled, isDisabled, contentLeft, contentRight, className, ...rest } = item;
+    const { value, label, disabled, contentLeft, contentRight, className, ...rest } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -47,15 +46,12 @@ export const Item: FC<ItemProps> = ({
         renderSelectionIcon,
         treeId,
         singleLine,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         _checkboxAppearance,
-    } = useContext(Context);
+    } = useSelectContext();
 
     const checkedValue = checked.get(item.value) || false;
-    const itemDisabled = Boolean(disabled || isDisabled);
 
-    const disabledClassName = itemDisabled ? classes.dropdownItemIsDisabled : undefined;
+    const disabledClassName = disabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
             ? classes.dropdownItemIsFocused
@@ -73,7 +69,7 @@ export const Item: FC<ItemProps> = ({
     }, [focusedClass]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (itemDisabled) return;
+        if (disabled) return;
 
         e.stopPropagation();
 
@@ -81,7 +77,7 @@ export const Item: FC<ItemProps> = ({
     };
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-        if (itemDisabled) {
+        if (disabled) {
             e.stopPropagation();
             return;
         }
@@ -112,7 +108,7 @@ export const Item: FC<ItemProps> = ({
                         {multiselect && (
                             <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
                                 <StyledCheckbox
-                                    disabled={itemDisabled}
+                                    disabled={disabled}
                                     checked={Boolean(checkedValue)}
                                     indeterminate={checkedValue === 'indeterminate'}
                                     onChange={handleChange}

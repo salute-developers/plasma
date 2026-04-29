@@ -1,15 +1,16 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconEdit } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';
 
 import { Toolbar, ToolbarDivider } from './Toolbar';
+import { config } from './Toolbar.config';
 
 const orientations: Array<string> = ['vertical', 'horizontal'];
-const size: Array<string> = ['s', 'm'];
+const { sizes } = getConfigVariations(config);
 
 const ToolbarWrapper = (props: ComponentProps<typeof Toolbar>) => {
     return (
@@ -41,7 +42,7 @@ const meta: Meta<typeof Toolbar> = {
             },
         },
         size: {
-            options: size,
+            options: sizes,
             control: {
                 type: 'select',
             },

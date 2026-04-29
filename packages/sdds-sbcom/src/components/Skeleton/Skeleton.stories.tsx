@@ -23,7 +23,7 @@ const { meta: META, Line, Text, Rect, Button } = getSkeletonStories({
 
 const meta: Meta = {
     ...META,
-    title: 'Data Display/Skeleton',
+    title: 'Data Display/⚠️ Skeleton',
 };
 
 export default meta;

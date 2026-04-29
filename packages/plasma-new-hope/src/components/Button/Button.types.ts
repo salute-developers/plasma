@@ -1,4 +1,4 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import type { Pin } from '../../utils/roundness';
 import { Blur } from '../../mixins';
@@ -128,7 +128,6 @@ type CustomButtonProps = {
 };
 
 export type ButtonProps<T = HTMLElement> = {} & Omit<ButtonHTMLAttributes<T>, 'value'> &
-    Omit<AnchorHTMLAttributes<T>, 'type'> &
     AsProps &
     CustomButtonProps &
     RightContent;

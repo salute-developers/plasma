@@ -1,5 +1,4 @@
-import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
+import styled, { css } from 'styled-components';
 import { IconResizeDiagonal } from 'src/components/_Icon';
 
 import { classes } from './Popup.tokens';
