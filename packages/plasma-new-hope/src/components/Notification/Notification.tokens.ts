@@ -29,6 +29,7 @@ export const tokens = {
     borderRadius: '--plasma-notification-border-radius',
     borderWidth: '--plasma-notification-border-width',
     borderColor: '--plasma-notification-border-color',
+    boxShadow: '--plasma-notification-box-shadow',
 
     paddingOneLineTextbox: '--plasma-notification-padding-one-line-textbox',
     horizontalLayoutGap: '--plasma-notification-horizontal-layout-gap',
