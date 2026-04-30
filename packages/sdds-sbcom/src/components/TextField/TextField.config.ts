@@ -64,7 +64,7 @@ export const config = {
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.backgroundColor}: ${textPrimary};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentPrimaryHover};
                 ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
                 ${tokens.caretColor}: ${textAccent};
