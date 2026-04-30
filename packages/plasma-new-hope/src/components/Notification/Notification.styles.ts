@@ -42,10 +42,28 @@ export const Wrapper = styled.div<{
     max-width: ${({ maxWidth }) => maxWidth || 'unset'};
 
     border-radius: var(${tokens.borderRadius});
-    border: var(${tokens.borderWidth}) solid var(${tokens.borderColor});
+    border: var(${tokens.borderWidth}) solid transparent;
 
     background: ${({ backgroundColor }) => backgroundColor || `var(${tokens.background})`};
     box-sizing: border-box;
+    box-shadow: var(${tokens.boxShadow});
+
+    &::before {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        inset: calc(-1 * var(${tokens.borderWidth}, 0px));
+        border-radius: inherit;
+        padding: var(${tokens.borderWidth}, 0px);
+        background: var(${tokens.borderColor}, transparent);
+
+        --m: linear-gradient(#fff 0 0);
+        -webkit-mask: var(--m) content-box, var(--m);
+        mask: var(--m) content-box exclude, var(--m);
+
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
 
     &.${classes.horizontal} {
         display: flex;

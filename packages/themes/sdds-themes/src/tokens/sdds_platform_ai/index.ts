@@ -4229,7 +4229,6 @@ export const viewContainer = {
         --outline-warning: var(--on-light-outline-warning);
         --outline-positive: var(--on-light-outline-positive);
         --outline-transparent-positive: var(--on-light-outline-transparent-positive);
-        --outline-info: var(--on-light-outline-info);
         --outline-positive-minor: var(--on-light-outline-positive-minor);
         --outline-warning-minor: var(--on-light-outline-warning-minor);
         --outline-negative-minor: var(--on-light-outline-negative-minor);
@@ -4300,7 +4299,6 @@ export const viewContainer = {
         --inverse-outline-positive: var(--on-dark-outline-positive);
         --inverse-outline-warning: var(--on-dark-outline-warning);
         --inverse-outline-negative: var(--on-dark-outline-negative);
-        --inverse-outline-info: var(--on-dark-outline-info);
         --inverse-outline-positive-minor: var(--on-dark-outline-positive-minor);
         --inverse-outline-warning-minor: var(--on-dark-outline-warning-minor);
         --inverse-outline-negative-minor: var(--on-dark-outline-negative-minor);
@@ -4359,8 +4357,10 @@ export const viewContainer = {
         --outline-accent-gradient-active: var(--on-light-outline-accent-gradient-active);
         --outline-accent-gradient: var(--on-light-outline-accent-gradient);
         --outline-negative: var(--on-light-outline-negative);
+        --outline-info: var(--on-light-outline-info);
         --inverse-outline-accent-gradient-hover: var(--on-dark-outline-accent-gradient-hover);
         --inverse-outline-accent-gradient-active: var(--on-dark-outline-accent-gradient-active);
         --inverse-outline-accent-gradient: var(--on-dark-outline-accent-gradient);
+        --inverse-outline-info: var(--on-dark-outline-info);
       `,
 };
