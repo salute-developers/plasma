@@ -1,4 +1,4 @@
-import React, { useState, ComponentProps } from 'react';
+import React, { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconLocation } from '@salutejs/plasma-icons';
@@ -6,7 +6,7 @@ import { action } from 'storybook/actions';
 
 import { Button } from '../Button';
 
-import { Dropdown, DropdownList, DropdownItem, DropdownPopup } from '.';
+import { Dropdown } from '.';
 
 type DropdownProps = ComponentProps<typeof Dropdown>;
 
@@ -328,47 +328,4 @@ const StoryNormal = (args: DropdownProps) => {
 
 export const Default: StoryObj<DropdownProps> = {
     render: (args) => <StoryNormal {...args} />,
-};
-
-const CompositionDeprecatedStory = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <div
-            style={{
-                height: '350px',
-                display: 'block',
-            }}
-        >
-            <DropdownPopup
-                opened={isOpen}
-                trigger="click"
-                placement="bottom"
-                onToggle={(is) => setIsOpen(is)}
-                disclosure={<Button text="Меню" />}
-            >
-                <DropdownList>
-                    <DropdownItem
-                        index={5}
-                        value={100001}
-                        label="Новости"
-                        onHover={(index) => console.log(index)}
-                        isActive
-                    />
-                    <DropdownItem index={0} value={100002} label="Каталог" color="var(--text-accent)" />
-                    <DropdownItem index={1} value={100003} label="О нас" color="var(--text-negative)" />
-                    <DropdownItem index={2} value={100004} label="Недоступно" isDisabled />
-                </DropdownList>
-            </DropdownPopup>
-        </div>
-    );
-};
-
-export const CompositionDeprecated: StoryObj<DropdownProps> = {
-    render: (args) => <CompositionDeprecatedStory {...args} />,
-    parameters: {
-        controls: {
-            include: [],
-        },
-    },
 };
