@@ -9917,12 +9917,12 @@
                     "enabled": true
                 },
                 "outlineInfoHover": {
-                    "value": "#47B0F5FF",
+                    "value": "#CCCCCCFF",
                     "comment": "Цвет обводки информация",
                     "enabled": true
                 },
                 "outlineInfoActive": {
-                    "value": "#096CAEFF",
+                    "value": "#E6E6E6FF",
                     "comment": "Цвет обводки информация",
                     "enabled": true
                 },
@@ -10049,11 +10049,6 @@
                 "outlineTransparentPositive": {
                     "value": "rgba(16,142,38,0.2)",
                     "comment": "Прозрачный цвет обводки успех",
-                    "enabled": true
-                },
-                "outlineInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет обводки информация",
                     "enabled": true
                 },
                 "outlinePositiveMinor": {
@@ -10191,6 +10186,53 @@
                         }
                     },
                     "comment": "Цвет обводки ошибка",
+                    "enabled": true
+                },
+                "outlineInfo": {
+                    "value": {
+                        "origin": "linear-gradient(270deg, #562296 1.527%, #52BAFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#562296",
+                                "#52BAFF"
+                            ],
+                            "locations": [
+                                0.02,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#562296",
+                                "#52BAFF"
+                            ],
+                            "locations": [
+                                0.02,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        }
+                    },
+                    "comment": "Цвет обводки информация",
                     "enabled": true
                 }
             },
@@ -10441,12 +10483,12 @@
                     "enabled": true
                 },
                 "outlineInfoHover": {
-                    "value": "#66BCF5FF",
+                    "value": "#858585FF",
                     "comment": "Цвет обводки информация на темном фоне",
                     "enabled": true
                 },
                 "outlineInfoActive": {
-                    "value": "#0E8ADDFF",
+                    "value": "#666666FF",
                     "comment": "Цвет обводки информация на темном фоне",
                     "enabled": true
                 },
@@ -10575,11 +10617,6 @@
                     "comment": "Цвет обводки ошибка на темном фоне",
                     "enabled": true
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": "Цвет обводки информация на темном фоне",
-                    "enabled": true
-                },
                 "outlinePositiveMinor": {
                     "value": "[general.green.800]",
                     "comment": "Минорный цвет обводки успех на темном фоне",
@@ -10686,6 +10723,53 @@
                 "outlineSolidDefaultActive": {
                     "value": "#616161FF",
                     "comment": ""
+                },
+                "outlineInfo": {
+                    "value": {
+                        "origin": "linear-gradient(270deg, #562296 1.527%, #52BAFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#562296",
+                                "#52BAFF"
+                            ],
+                            "locations": [
+                                0.02,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#562296",
+                                "#52BAFF"
+                            ],
+                            "locations": [
+                                0.02,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        }
+                    },
+                    "comment": "Цвет обводки информация на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -10935,12 +11019,12 @@
                     "enabled": true
                 },
                 "outlineInfoHover": {
-                    "value": "#47B0F5FF",
+                    "value": "#CCCCCCFF",
                     "comment": "Цвет обводки информация на светлом фоне",
                     "enabled": true
                 },
                 "outlineInfoActive": {
-                    "value": "#096CAEFF",
+                    "value": "#E6E6E6FF",
                     "comment": "Цвет обводки информация на светлом фоне",
                     "enabled": true
                 },
@@ -11089,11 +11173,6 @@
                     "comment": "Цвет обводки ошибка на светлом фоне",
                     "enabled": true
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.600]",
-                    "comment": "Цвет обводки информация на светлом фоне",
-                    "enabled": true
-                },
                 "outlinePositiveMinor": {
                     "value": "[general.green.300]",
                     "comment": "Минорный цвет обводки успех на светлом фоне",
@@ -11180,6 +11259,53 @@
                 "outlineSolidDefaultActive": {
                     "value": "#080808FF",
                     "comment": ""
+                },
+                "outlineInfo": {
+                    "value": {
+                        "origin": "linear-gradient(270deg, #562296 1.527%, #52BAFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#562296",
+                                "#52BAFF"
+                            ],
+                            "locations": [
+                                0.02,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#562296",
+                                "#52BAFF"
+                            ],
+                            "locations": [
+                                0.02,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        }
+                    },
+                    "comment": "Цвет обводки информация на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -11429,12 +11555,12 @@
                     "enabled": true
                 },
                 "outlineInfoHover": {
-                    "value": "#66BCF5FF",
+                    "value": "#858585FF",
                     "comment": "Инвертированный цвет обводки информация",
                     "enabled": true
                 },
                 "outlineInfoActive": {
-                    "value": "#0E8ADDFF",
+                    "value": "#666666FF",
                     "comment": "Инвертированный цвет обводки информация",
                     "enabled": true
                 },
@@ -11578,11 +11704,6 @@
                     "comment": "Инвертированный цвет обводки ошибка",
                     "enabled": true
                 },
-                "outlineInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": "Инвертированный цвет обводки информация",
-                    "enabled": true
-                },
                 "outlinePositiveMinor": {
                     "value": "[general.green.800]",
                     "comment": "Инвертированный минорный цвет обводки успех",
@@ -11674,6 +11795,53 @@
                 "outlineSolidDefaultActive": {
                     "value": "#616161FF",
                     "comment": ""
+                },
+                "outlineInfo": {
+                    "value": {
+                        "origin": "linear-gradient(270deg, #562296 1.527%, #52BAFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#562296",
+                                "#52BAFF"
+                            ],
+                            "locations": [
+                                0.02,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#562296",
+                                "#52BAFF"
+                            ],
+                            "locations": [
+                                0.02,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        }
+                    },
+                    "comment": "Инвертированный цвет обводки информация",
+                    "enabled": true
                 }
             }
         },
