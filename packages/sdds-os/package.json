@@ -32,8 +32,8 @@
     "directory": "packages/sdds-os"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.360.0",
-    "@salutejs/sdds-themes": "0.63.0"
+    "@salutejs-ds/sdds_os": "0.1.2",
+    "@salutejs/plasma-new-hope": "0.360.0"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
