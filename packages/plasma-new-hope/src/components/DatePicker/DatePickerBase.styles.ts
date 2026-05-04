@@ -9,6 +9,33 @@ import { tokens } from './DatePicker.tokens';
 const mergedCalendarConfig = mergeConfig(calendarBaseConfig);
 const Calendar = component(mergedCalendarConfig);
 
+export const FloatingWrapper = styled.div`
+    position: relative;
+    width: 100%;
+`;
+
+export const FloatingTarget = styled.div``;
+
+export const FloatingContent = styled.div``;
+
+export const StyledCalendarContent = styled.div<{ innerWidth?: string; innerHeight?: string }>`
+    box-sizing: border-box;
+
+    display: flex;
+    gap: var(${tokens.popoverGap});
+    border-radius: var(${tokens.popoverBorderRadius});
+    padding: var(${tokens.popoverPadding});
+
+    border: var(${tokens.calendarBorderWidth}) solid var(${tokens.calendarBorderColor});
+    background: var(${tokens.popoverBackgroundColor});
+    box-shadow: var(${tokens.popoverShadow});
+
+    overflow: hidden;
+
+    width: ${({ innerWidth }) => innerWidth || 'fit-content'};
+    height: ${({ innerHeight }) => innerHeight || 'fit-content'};
+`;
+
 export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarSelectedItemBackground}: var(${tokens.calendarSelectedItemBackground});
     ${calendarBaseTokens.calendarSelectedItemColor}: var(${tokens.calendarSelectedItemColor});

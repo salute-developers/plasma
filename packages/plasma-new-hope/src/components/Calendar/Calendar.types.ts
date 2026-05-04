@@ -153,6 +153,10 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      */
     onChangeValue: (value: Date, dateInfo?: DateInfo) => void;
     /**
+     * Дата, определяющая отображаемый период календаря.
+     */
+    focusedDate?: DateType;
+    /**
      * Состояние календаря, отвечающее за отображение.
      */
     date?: DateObject;
@@ -165,7 +169,7 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      */
     max?: Date;
     /**
-     * Дата с которой начинается календарная сетка.
+     * Дата с которой начинается календарная сетка при отсутсвии значения.
      */
     renderFromDate?: Date;
     /**
