@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import cls from 'classnames';
-import type { MouseEvent } from 'react';
-import { getPlacements, getSizeValueFromProp } from 'src/utils';
+import type { MouseEvent, RefObject, SyntheticEvent } from 'react';
+import { getSizeValueFromProp } from 'src/utils';
 
-import { StyledPopover } from '../RangeDate.styles';
 import { classes } from '../../DatePicker.tokens';
 import { StyledShortcutList } from '../../ui';
+import { FloatingPopover } from '../../FloatingPopover';
+import { StyledCalendarContent } from '../../DatePickerBase.styles';
 
 import type { RangeDatePopoverProps } from './RangeDatePopover.types';
 import { StyledCalendar, StyledCalendarDouble } from './RangeDatePopover.styles';
@@ -18,6 +19,7 @@ export const RangeDatePopover = ({
     isDoubleCalendar,
 
     calendarValue,
+    calendarFocusedDate,
     min,
     max,
     renderFromDate,
@@ -37,8 +39,9 @@ export const RangeDatePopover = ({
     zIndex,
     placement = ['top', 'bottom'],
     closeOnOverlayClick = true,
-    closeOnEsc,
+    closeOnEsc = true,
     offset,
+    disableFlip,
 
     calendarContainerWidth,
     calendarContainerHeight,
@@ -66,6 +69,7 @@ export const RangeDatePopover = ({
 
     const calendarRootRef = useRef<HTMLDivElement | null>(null);
     const doubleCalendarRootRef = useRef<HTMLDivElement | null>(null);
+    const floatingPopoverRef = useRef<HTMLDivElement | null>(null);
 
     const calendarContainerWidthValue = calendarContainerWidth
         ? getSizeValueFromProp(calendarContainerWidth, 'rem')
@@ -73,6 +77,11 @@ export const RangeDatePopover = ({
     const calendarContainerHeightValue = calendarContainerHeight
         ? getSizeValueFromProp(calendarContainerHeight, 'rem')
         : undefined;
+
+    const handleToggle = (isOpen: boolean, event?: SyntheticEvent | Event) => {
+        setIsInnerOpen(isOpen);
+        onToggle?.(isOpen, event);
+    };
 
     const handleCalendarRootClick = (event: MouseEvent<HTMLDivElement>) => {
         if (disabled || readOnly) {
@@ -83,36 +92,97 @@ export const RangeDatePopover = ({
             event.target === calendarRootRef?.current || event.target === doubleCalendarRootRef?.current;
 
         if (innerIsOpen && stretched && isRootClicked) {
-            setIsInnerOpen(false);
-
-            if (onToggle) {
-                onToggle(false, event);
-            }
+            handleToggle(false, event);
         }
     };
 
     if (isDoubleCalendar) {
         return (
-            <StyledPopover
+            <FloatingPopover
+                ref={floatingPopoverRef}
                 opened={innerIsOpen}
-                frame={frame}
-                usePortal={usePortal}
-                onToggle={onToggle}
+                onToggle={handleToggle}
                 offset={offset}
-                placement={getPlacements(placement, false)}
-                trigger="click"
-                closeOnOverlayClick={closeOnOverlayClick}
-                isFocusTrapped={false}
-                target={target}
-                preventOverflow={false}
                 zIndex={zIndex}
-                innerWidth={calendarContainerWidthValue}
-                innerHeight={calendarContainerHeightValue}
+                placement={placement}
+                disableFlip={disableFlip}
+                closeOnOverlayClick={closeOnOverlayClick}
+                closeOnEsc={closeOnEsc}
+                portal={usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined}
+                target={target}
             >
                 <Root
                     ref={doubleCalendarRootRef}
                     className={cls(classes.datePickerRoot, { [classes.datePickerstretched]: stretched })}
                     onClick={handleCalendarRootClick}
+                >
+                    <StyledCalendarContent
+                        innerWidth={calendarContainerWidthValue}
+                        innerHeight={calendarContainerHeightValue}
+                    >
+                        {dateShortcuts?.length && onShortcutDateSelect ? (
+                            <StyledShortcutList
+                                items={dateShortcuts}
+                                setShortcutDate={onShortcutDateSelect}
+                                dateShortcutsWidth={dateShortcutsWidth}
+                                calendarContainerHeight={calendarContainerHeight}
+                                dateShortcutsPlacement={dateShortcutsPlacement}
+                            />
+                        ) : null}
+
+                        <StyledCalendarDouble
+                            className={cls({ [classes.datePickerCalendarstretched]: stretched })}
+                            innerWidth={calendarContainerWidthValue}
+                            innerHeight={calendarContainerHeightValue}
+                            size={size}
+                            value={calendarValue}
+                            focusedDate={calendarFocusedDate}
+                            eventTooltipOptions={eventTooltipOptions}
+                            eventList={eventList}
+                            disabledList={disabledList}
+                            eventMonthList={eventMonthList}
+                            disabledMonthList={disabledMonthList}
+                            eventQuarterList={eventQuarterList}
+                            disabledQuarterList={disabledQuarterList}
+                            eventYearList={eventYearList}
+                            disabledYearList={disabledYearList}
+                            min={min}
+                            max={max}
+                            renderFromDate={renderFromDate}
+                            type={type}
+                            locale={lang}
+                            includeEdgeDates={includeEdgeDates}
+                            onChangeValue={onChangeValue}
+                            onChangeStartOfRange={onChangeStartOfRange}
+                        />
+                    </StyledCalendarContent>
+                </Root>
+            </FloatingPopover>
+        );
+    }
+
+    return (
+        <FloatingPopover
+            ref={floatingPopoverRef}
+            opened={innerIsOpen}
+            onToggle={handleToggle}
+            offset={offset}
+            zIndex={zIndex}
+            placement={placement}
+            disableFlip={disableFlip}
+            closeOnOverlayClick={closeOnOverlayClick}
+            closeOnEsc={closeOnEsc}
+            portal={usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined}
+            target={target}
+        >
+            <Root
+                ref={calendarRootRef}
+                className={cls(classes.datePickerRoot, { [classes.datePickerstretched]: stretched })}
+                onClick={handleCalendarRootClick}
+            >
+                <StyledCalendarContent
+                    innerWidth={calendarContainerWidthValue}
+                    innerHeight={calendarContainerHeightValue}
                 >
                     {dateShortcuts?.length && onShortcutDateSelect ? (
                         <StyledShortcutList
@@ -124,12 +194,13 @@ export const RangeDatePopover = ({
                         />
                     ) : null}
 
-                    <StyledCalendarDouble
+                    <StyledCalendar
                         className={cls({ [classes.datePickerCalendarstretched]: stretched })}
                         innerWidth={calendarContainerWidthValue}
                         innerHeight={calendarContainerHeightValue}
                         size={size}
                         value={calendarValue}
+                        focusedDate={calendarFocusedDate}
                         eventTooltipOptions={eventTooltipOptions}
                         eventList={eventList}
                         disabledList={disabledList}
@@ -139,78 +210,17 @@ export const RangeDatePopover = ({
                         disabledQuarterList={disabledQuarterList}
                         eventYearList={eventYearList}
                         disabledYearList={disabledYearList}
+                        renderFromDate={renderFromDate}
                         min={min}
                         max={max}
-                        renderFromDate={renderFromDate}
                         type={type}
                         locale={lang}
                         includeEdgeDates={includeEdgeDates}
                         onChangeValue={onChangeValue}
                         onChangeStartOfRange={onChangeStartOfRange}
                     />
-                </Root>
-            </StyledPopover>
-        );
-    }
-
-    return (
-        <StyledPopover
-            opened={innerIsOpen}
-            frame={frame}
-            usePortal={usePortal}
-            onToggle={onToggle}
-            offset={offset}
-            placement={getPlacements(placement)}
-            trigger="click"
-            closeOnOverlayClick={closeOnOverlayClick}
-            isFocusTrapped={false}
-            target={target}
-            preventOverflow={false}
-            closeOnEsc={closeOnEsc}
-            zIndex={zIndex}
-            innerWidth={calendarContainerWidthValue}
-            innerHeight={calendarContainerHeightValue}
-        >
-            <Root
-                ref={calendarRootRef}
-                className={cls(classes.datePickerRoot, { [classes.datePickerstretched]: stretched })}
-                onClick={handleCalendarRootClick}
-            >
-                {dateShortcuts?.length && onShortcutDateSelect ? (
-                    <StyledShortcutList
-                        items={dateShortcuts}
-                        setShortcutDate={onShortcutDateSelect}
-                        dateShortcutsWidth={dateShortcutsWidth}
-                        calendarContainerHeight={calendarContainerHeight}
-                        dateShortcutsPlacement={dateShortcutsPlacement}
-                    />
-                ) : null}
-
-                <StyledCalendar
-                    className={cls({ [classes.datePickerCalendarstretched]: stretched })}
-                    innerWidth={calendarContainerWidthValue}
-                    innerHeight={calendarContainerHeightValue}
-                    size={size}
-                    value={calendarValue}
-                    eventTooltipOptions={eventTooltipOptions}
-                    eventList={eventList}
-                    disabledList={disabledList}
-                    eventMonthList={eventMonthList}
-                    disabledMonthList={disabledMonthList}
-                    eventQuarterList={eventQuarterList}
-                    disabledQuarterList={disabledQuarterList}
-                    eventYearList={eventYearList}
-                    disabledYearList={disabledYearList}
-                    renderFromDate={renderFromDate}
-                    min={min}
-                    max={max}
-                    type={type}
-                    locale={lang}
-                    includeEdgeDates={includeEdgeDates}
-                    onChangeValue={onChangeValue}
-                    onChangeStartOfRange={onChangeStartOfRange}
-                />
+                </StyledCalendarContent>
             </Root>
-        </StyledPopover>
+        </FloatingPopover>
     );
 };
