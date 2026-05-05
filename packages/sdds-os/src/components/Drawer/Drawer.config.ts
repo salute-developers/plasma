@@ -10,7 +10,7 @@ export const config = {
             default: css`
                 ${drawerTokens.background}: var(--surface-solid-card);
                 ${drawerTokens.shadow}: 0 3.75rem 7rem -0.5rem rgba(0, 0, 0, 0.08);
-                ${drawerTokens.contentBackgroundColor}: var(--surface-transparent-primary);
+                ${drawerTokens.contentBackgroundColor}: var(--surface-solid-primary);
                 ${drawerTokens.drawerOverlayWithBlurColor}: var(--overlay-blur);
                 ${drawerTokens.drawerOverlayColor}: var(--overlay-soft);
             `,

@@ -98,12 +98,12 @@ export const config = {
             secondary: css`
                 ${attachTokens.buttonColor}: var(--text-primary);
                 ${attachTokens.buttonValueColor}: var(--text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+                ${attachTokens.buttonBackgroundColor}: var(--surface-solid-secondary);
                 ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
                 ${attachTokens.buttonColorHover}: var(--text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${attachTokens.buttonBackgroundColorHover}: var(--surface-solid-secondary-hover);
                 ${attachTokens.buttonColorActive}: var(--text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${attachTokens.buttonBackgroundColorActive}: var(--surface-solid-secondary-active);
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
                 ${attachTokens.buttonFocusColor}: var(--surface-accent);
@@ -115,12 +115,12 @@ export const config = {
                 ${attachTokens.cellBackgroundColor}: transparent;
 
                 ${attachTokens.iconButtonColor}: var(--text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--surface-transparent-secondary);
+                ${attachTokens.iconButtonBackgroundColor}: var(--surface-solid-secondary);
                 ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
                 ${attachTokens.iconButtonColorHover}: var(--text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${attachTokens.iconButtonBackgroundColorHover}: var(--surface-solid-secondary-hover);
                 ${attachTokens.iconButtonColorActive}: var(--text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${attachTokens.iconButtonBackgroundColorActive}: var(--surface-solid-secondary-active);
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
                 ${attachTokens.iconButtonFocusColor}: var(--surface-accent);

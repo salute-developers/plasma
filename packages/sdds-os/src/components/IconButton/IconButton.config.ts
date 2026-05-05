@@ -24,17 +24,17 @@ export const config = {
             `,
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-transparent-secondary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-secondary);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-secondary-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-secondary-active);
             `,
             clear: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-clear);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-secondary-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-secondary-active);
             `,
             positive: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);

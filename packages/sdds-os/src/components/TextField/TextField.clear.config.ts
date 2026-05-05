@@ -29,7 +29,7 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.dividerColor}: var(--surface-solid-tertiary);
                 ${tokens.dividerColorHover}: var(--text-secondary);
                 ${tokens.dividerColorFocus}: var(--surface-accent);
 
@@ -559,14 +559,14 @@ export const config = {
             `,
             secondary: css`
                 ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
+                ${tokens.chipBackground}: var(--surface-solid-secondary);
                 ${tokens.chipColorHover}: var(--text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.chipBackgroundHover}: var(--surface-solid-secondary-hover);
                 ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${tokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.chipBackgroundActive}: var(--surface-solid-secondary-active);
+                ${tokens.chipBackgroundReadOnly}: var(--surface-solid-secondary);
                 ${tokens.chipColorReadOnly}: var(--text-primary);
-                ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${tokens.chipBackgroundReadOnlyHover}: var(--surface-solid-secondary);
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
@@ -715,7 +715,7 @@ export const config = {
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.dividerColorReadOnly}: var(--surface-solid-primary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
