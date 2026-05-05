@@ -7,10 +7,10 @@ import {
     sdds_insol__light,
     sdds_serv__light,
     sdds_scan__light,
-    sdds_os__light,
     sdds_platform_ai__light,
     sdds_finai__light,
 } from '@salutejs/sdds-themes';
+import { sdds_os__light } from '@salutejs-ds/sdds_os';
 // plasma-ui
 import { darkSber } from '@salutejs/plasma-tokens/themes';
 // plasma-b2c
