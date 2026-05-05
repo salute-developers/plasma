@@ -1,12 +1,66 @@
-import type { HTMLAttributes, ReactNode, SyntheticEvent, CSSProperties } from 'react';
-import React from 'react';
+import type { HTMLAttributes, ReactNode, SyntheticEvent, CSSProperties, RefObject } from 'react';
 
 import { FocusedPathState } from './reducers/focusedPathReducer';
-import { DropdownItemOption } from './ui/DropdownItem/DropdownItem.type';
 
 export type DropdownPlacement = 'auto' | 'top' | 'right' | 'bottom' | 'left';
-
 export type DropdownTrigger = 'hover' | 'click';
+export type HandleGlobalToggleType = (opened: boolean, event?: SyntheticEvent | Event) => void;
+export type PlacementType = 'auto' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start';
+
+export type DropdownItemOption = {
+    /**
+     *  Значение у item.
+     */
+    value: string | number;
+    /**
+     * Label у item.
+     */
+    label: string;
+    /**
+     * Сторона открытия вложенного выпадающего списка относительно текущего элемента.
+     */
+    placement?: DropdownPlacement;
+    /**
+     * Список дочерних items.
+     */
+    items?: DropdownItemOption[];
+    /**
+     * Слот в начале дочернего выпадающего списка.
+     */
+    beforeList?: ReactNode;
+    /**
+     * Item не активен.
+     */
+    disabled?: boolean;
+    /**
+     * Слот для контента слева.
+     */
+    contentLeft?: ReactNode;
+    /**
+     * Слот для контента справа.
+     */
+    contentRight?: ReactNode;
+    /**
+     * Отобразить ли разделитель до элемента.
+     */
+    dividerBefore?: boolean;
+    /**
+     * Отобразить ли разделитель после элемента.
+     */
+    dividerAfter?: boolean;
+    /**
+     * Classname для item.
+     */
+    className?: string;
+    /**
+     * Способ открытия дочернего списка.
+     */
+    trigger?: DropdownTrigger;
+    /**
+     * Максимальная высота дочернего выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
+};
 
 export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     /**
@@ -14,46 +68,28 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      */
     items: T[];
     /**
-     * Дропдаун открыт всегда.
-     */
-    alwaysOpened?: boolean;
-    /**
-     * Target для открытия.
-     */
-    children?: ReactNode;
-    /**
-     * WAI-ARIA role элемента меню.
-     * @default option
-     */
-    itemRole?: string;
-    /**
-     * Обработчик наведения на item.
-     */
-    onHover?: (index: number, item: T) => void;
-    /**
-     * Обработчик выбора item.
-     */
-    onItemSelect?: (item: T, event: SyntheticEvent) => void;
-    /**
      * Способ открытия Dropdown окна - наведение или клик мышью.
      * @default click
      */
     trigger?: DropdownTrigger;
-    /**
-     * Открывает дропдаун окно по правому клику мышью
-     * @default false
-     */
-    openByRightClick?: boolean;
     /**
      * Сторона открытия Dropdown относительно target элемента.
      * @default bottom
      */
     placement?: DropdownPlacement;
     /**
-     * Отступ Dropdown относительно элемента, у которого оно вызвано.
-     * @default [0, 8]
+     * Target для открытия.
      */
-    offset?: [number, number];
+    children?: ReactNode;
+    /**
+     * Вариант: обычный или сжатый
+     * @default normal
+     */
+    variant?: 'normal' | 'tight';
+    /**
+     * CSS-свойство z-index для выпадающего списка.
+     */
+    zIndex?: CSSProperties['zIndex'];
     /**
      * Максимальная высота выпадающего списка.
      */
@@ -64,11 +100,48 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      */
     listWidth?: CSSProperties['width'];
     /**
-     * Стрелка у выпадающего списка.
-     * @default true
-     * @deprecated
+     * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
-    hasArrow?: boolean;
+    portal?: string | RefObject<HTMLElement>;
+    /**
+     * Callback для кастомной настройки айтема в выпадающем списке.
+     */
+    renderItem?: (item: T) => ReactNode;
+    /**
+     * Ячейка для контента в начале выпадающего списка.
+     */
+    beforeList?: ReactNode;
+    /**
+     * Ячейка для контента в конце выпадающего списка.
+     */
+    afterList?: ReactNode;
+    /**
+     * Событие сворачивания/разворачивания Dropdown.
+     */
+    onToggle?: (isOpen: boolean, event?: SyntheticEvent | Event) => void;
+    /**
+     * Выпадающий список открыт всегда.
+     * @default false
+     */
+    alwaysOpened?: boolean;
+    /**
+     * Обработчик наведения на item.
+     */
+    onHover?: (index: number, item: T) => void;
+    /**
+     * Обработчик выбора item.
+     */
+    onItemSelect?: (item: T, event: SyntheticEvent) => void;
+    /**
+     * Открывает выпадающий список окно по правому клику мышью
+     * @default false
+     */
+    openByRightClick?: boolean;
+    /**
+     * Отступ выпадающего списка относительно элемента, у которого оно вызвано.
+     * @default [0, 8]
+     */
+    offset?: [number, number];
     /**
      * Закрыть выпадающий список после выбора.
      * @default true
@@ -80,67 +153,28 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
      */
     closeOnOverlayClick?: boolean;
     /**
-     * Событие сворачивания/разворачивания Dropdown.
+     * WAI-ARIA role элемента меню.
+     * @default option
      */
-    onToggle?: (isOpen: boolean, event?: SyntheticEvent | Event) => void;
-    size?: string;
-    view?: string;
+    itemRole?: string;
     /**
-     * Вариант: обычный или сжатый
-     * @default normal
+     * Выпадающий список не активен.
      */
-    variant?: 'normal' | 'tight';
-    /**
-     * Портал для выпадающего списка. Принимает id контейнера или ref.
-     */
-    portal?: string | React.RefObject<HTMLElement>;
-    /**
-     * Callback для кастомной настройки айтема в выпадающем списке.
-     */
-    renderItem?: (item: T) => React.ReactNode;
-    /**
-     * CSS-свойство z-index для выпадающего списка.
-     */
-    zIndex?: CSSProperties['zIndex'];
-    /**
-     * Ячейка для контента в начале выпадающего списка.
-     */
-    beforeList?: ReactNode;
-    /**
-     * Ячейка для контента в конце выпадающего списка.
-     */
-    afterList?: ReactNode;
+    disabled?: boolean;
 
     /**
-     * Обработчик клика по item.
-     * @deprecated использовать onItemSelect.
+     * Размер компонента.
      */
-    onItemClick?: (item: T, event: SyntheticEvent) => void;
+    size?: string;
     /**
-     * Значение css height для выпадающего меню.
-     * @default initial
-     * @deprecated Использовать listMaxHeight.
-     * @example listHeight="11", listHeight="auto", listHeight={11}
+     * Вид компонента.
      */
-    listHeight?: CSSProperties['height'];
-    /**
-     * Индекс элемента при наведении
-     * @deprecated использовать onHover
-     */
-    hoverIndex?: number;
-    /**
-     * @deprecated Скролл применится автоматически при использовании listMaxHeight.
-     */
-    listOverflow?: CSSProperties['overflow'];
+    view?: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-export type HandleGlobalToggleType = (opened: boolean, event?: SyntheticEvent | Event) => void;
-
-export type PlacementType = 'auto' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start';
-
 export type FloatingPopoverProps = {
-    target: React.ReactNode;
-    children: React.ReactNode;
+    target: ReactNode;
+    children: ReactNode;
     opened: boolean;
     onToggle: (opened: boolean, event?: SyntheticEvent | Event) => void;
     placement: PlacementType;
@@ -160,8 +194,6 @@ export type ItemContext = {
     closeOnSelect: DropdownProps['closeOnSelect'];
     onHover: DropdownProps['onHover'];
     onItemSelect: DropdownProps['onItemSelect'];
-    onItemClick: DropdownProps['onItemClick'];
-    hasArrow: DropdownProps['hasArrow'];
     treeId: string;
     renderItem: DropdownProps['renderItem'];
 };

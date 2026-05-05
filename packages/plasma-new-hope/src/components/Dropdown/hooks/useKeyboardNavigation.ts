@@ -40,7 +40,6 @@ interface Props {
     handleGlobalToggle: HandleGlobalToggleType;
     closeOnSelect: DropdownProps['closeOnSelect'];
     onItemSelect: DropdownProps['onItemSelect'];
-    onItemClick: DropdownProps['onItemClick'];
 }
 
 interface ReturnedProps {
@@ -57,7 +56,6 @@ export const useKeyNavigation = ({
     handleGlobalToggle,
     closeOnSelect,
     onItemSelect,
-    onItemClick,
 }: Props): ReturnedProps => {
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
     const currentLength: number = pathMap.get(path?.[focusedPath.length - 1]) || 0;
@@ -123,7 +121,7 @@ export const useKeyNavigation = ({
 
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
-                if (currentItem?.disabled || currentItem?.isDisabled) {
+                if (currentItem?.disabled) {
                     break;
                 }
 
@@ -150,7 +148,7 @@ export const useKeyNavigation = ({
 
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
-                if (currentItem?.disabled || currentItem?.isDisabled) {
+                if (currentItem?.disabled) {
                     break;
                 }
 
@@ -167,10 +165,6 @@ export const useKeyNavigation = ({
 
                     if (onItemSelect && currentItem) {
                         onItemSelect(currentItem, event);
-                    }
-
-                    if (onItemClick && currentItem) {
-                        onItemClick(currentItem, event);
                     }
                 }
 

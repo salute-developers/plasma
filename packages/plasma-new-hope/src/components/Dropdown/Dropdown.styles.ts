@@ -17,7 +17,7 @@ export const ListWrapper = styled.div<{
 `;
 
 export const Ul = styled.ul<{
-    listMaxHeight: DropdownProps['listHeight'];
+    listMaxHeight: DropdownProps['listMaxHeight'];
 }>`
     max-height: ${({ listMaxHeight }) => (listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto')};
     overflow-x: hidden;

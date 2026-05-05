@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, FC, useContext } from 'react';
+import cls from 'classnames';
 
 import { classes } from '../../Dropdown.tokens';
-import { cx } from '../../../../utils';
 import { Context } from '../../Dropdown.context';
 import { getItemId } from '../../utils';
 
@@ -26,18 +26,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const {
-        value,
-        label,
-        disabled,
-        isDisabled,
-        contentLeft,
-        contentRight,
-        dividerBefore,
-        dividerAfter,
-        className,
-        ...rest
-    } = item;
+    const { value, label, disabled, contentLeft, contentRight, dividerBefore, dividerAfter, className, ...rest } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -50,15 +39,13 @@ export const DropdownItem: FC<DropdownItemProps> = ({
         closeOnSelect,
         onHover,
         onItemSelect,
-        onItemClick,
-        hasArrow,
         treeId,
         renderItem,
     } = useContext(Context);
 
     const hasDescendants = Boolean(item.items);
     const disclosureIconSize = size === 'xs' ? 'xs' : 's';
-    const itemDisabled = Boolean(disabled || isDisabled);
+    const itemDisabled = disabled;
     const isDisabledClassName = itemDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
@@ -86,10 +73,6 @@ export const DropdownItem: FC<DropdownItemProps> = ({
             onItemSelect(item, event);
         }
 
-        if (onItemClick) {
-            onItemClick(item, event);
-        }
-
         // Закрываем весь дропдаун целиком при клике на айтем без потомков. Только при closeOnSelect === true.
         if (closeOnSelect && !hasDescendants) {
             handleGlobalToggle(false, event);
@@ -109,13 +92,13 @@ export const DropdownItem: FC<DropdownItemProps> = ({
             <Wrapper
                 {...rest}
                 ref={ref}
-                className={cx(isDisabledClassName, focusedClass, activeClass, className)}
+                className={cls(isDisabledClassName, focusedClass, activeClass, className)}
                 id={getItemId(treeId, value.toString())}
                 role={itemRole}
                 onClick={handleClick}
                 onMouseEnter={handleHover}
                 variant={variant}
-                aria-disabled={disabled || isDisabled}
+                aria-disabled={disabled}
                 aria-controls={ariaControls}
                 aria-expanded={ariaExpanded}
                 aria-level={ariaLevel}
@@ -135,7 +118,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
                     </CellWrapper>
                 )}
 
-                {item.items && hasArrow && (
+                {item.items && (
                     <DisclosureIconWrapper>
                         <StyledIconDisclosureRight size={disclosureIconSize} color="inherit" />
                     </DisclosureIconWrapper>
