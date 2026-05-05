@@ -214,7 +214,7 @@ const meta: Meta<StoryProps> = {
     },
     args: {
         view: 'default',
-        size: 'l',
+        size: 'm',
         labelPlacement: 'outer',
         disabled: false,
         readOnly: false,

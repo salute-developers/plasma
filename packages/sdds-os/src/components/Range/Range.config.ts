@@ -3,7 +3,7 @@ import { css, rangeTokens as tokens } from '@salutejs/plasma-new-hope/styled-com
 export const config = {
     defaults: {
         view: 'default',
-        size: 'l',
+        size: 'm',
         hintView: 'default',
         hintSize: 'm',
     },

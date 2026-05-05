@@ -19,7 +19,7 @@ export const config = {
             `,
             accent: css`
                 ${progressTokens.trackBackgroundColor}: var(--surface-solid-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent-gradient);
+                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent);
                 ${progressTokens.valueColor}: var(--text-tertiary);
             `,
             info: css`

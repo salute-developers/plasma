@@ -1,4 +1,8 @@
 export const config = {
+    defaults: {
+        view: 'default',
+        size: 'm',
+    },
     view: {
         default: {
             trackColor: 'var(--surface-solid-primary)',
