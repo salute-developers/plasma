@@ -1,8 +1,8 @@
 export const config = {
     view: {
         default: {
-            trackColor: 'var(--surface-transparent-primary)',
-            thumbColor: 'var(--surface-transparent-tertiary)',
+            trackColor: 'var(--surface-solid-primary)',
+            thumbColor: 'var(--surface-solid-tertiary)',
         },
     },
     size: {

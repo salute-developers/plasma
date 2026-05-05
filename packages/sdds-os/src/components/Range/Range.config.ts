@@ -10,9 +10,9 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-primary);
-                ${tokens.backgroundError}: var(--surface-transparent-negative);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+                ${tokens.background}: var(--surface-solid-primary);
+                ${tokens.backgroundError}: var(--surface-solid-negative);
+                ${tokens.backgroundSuccess}: var(--surface-solid-positive);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -43,14 +43,14 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
-                ${tokens.textFieldBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundErrorColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundSuccessColorHover}: var(--surface-transparent-positive-hover);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBackgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-secondary);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-solid-negative);
+                ${tokens.textFieldBackgroundErrorColorHover}: var(--surface-solid-negative-hover);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-solid-negative-active);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-solid-positive);
+                ${tokens.textFieldBackgroundSuccessColorHover}: var(--surface-solid-positive-hover);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-solid-positive-active);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -280,7 +280,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-solid-primary);
 
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
                 ${tokens.readOnlyOpacity}: 0.1;

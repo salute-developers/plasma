@@ -36,12 +36,12 @@ export const config = {
                 ${buttonGroupTokens.buttonTextColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonIconColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonValueColor}: var(--text-secondary);
-                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-secondary);
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
                 ${buttonGroupTokens.buttonColorHover}: var(--text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-solid-secondary-hover);
                 ${buttonGroupTokens.buttonColorActive}: var(--text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-solid-secondary-active);
             `,
             clear: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);

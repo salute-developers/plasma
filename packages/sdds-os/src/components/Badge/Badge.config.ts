@@ -12,7 +12,7 @@ export const config = {
                 ${badgeTokens.background}: var(--surface-solid-default);
 
                 ${badgeTokens.colorTransparent}: var(--text-primary);
-                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-secondary);
+                ${badgeTokens.backgroundTransparent}: var(--surface-solid-secondary);
 
                 ${badgeTokens.colorClear}: var(--text-primary);
             `,
@@ -21,7 +21,7 @@ export const config = {
                 ${badgeTokens.background}: var(--surface-accent);
 
                 ${badgeTokens.colorTransparent}: var(--text-accent);
-                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-accent);
+                ${badgeTokens.backgroundTransparent}: var(--surface-solid-accent);
 
                 ${badgeTokens.colorClear}: var(--text-accent);
             `,
@@ -30,7 +30,7 @@ export const config = {
                 ${badgeTokens.background}: var(--surface-positive);
 
                 ${badgeTokens.colorTransparent}: var(--text-positive);
-                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-positive);
+                ${badgeTokens.backgroundTransparent}: var(--surface-solid-positive);
 
                 ${badgeTokens.colorClear}: var(--text-positive);
             `,
@@ -39,7 +39,7 @@ export const config = {
                 ${badgeTokens.background}: var(--surface-warning);
 
                 ${badgeTokens.colorTransparent}: var(--text-warning);
-                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-warning);
+                ${badgeTokens.backgroundTransparent}: var(--surface-solid-warning);
 
                 ${badgeTokens.colorClear}: var(--text-warning);
             `,
@@ -48,7 +48,7 @@ export const config = {
                 ${badgeTokens.background}: var(--surface-negative);
 
                 ${badgeTokens.colorTransparent}: var(--text-negative);
-                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-negative);
+                ${badgeTokens.backgroundTransparent}: var(--surface-solid-negative);
 
                 ${badgeTokens.colorClear}: var(--text-negative);
             `,

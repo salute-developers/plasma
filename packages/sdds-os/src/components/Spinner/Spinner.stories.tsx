@@ -50,7 +50,7 @@ const StyledWrapper = styled.div<{ $loading?: boolean }>`
 
         content: '';
         display: none;
-        background: var(--surface-transparent-primary);
+        background: var(--surface-solid-primary);
     }
 
     ${({ $loading }) =>

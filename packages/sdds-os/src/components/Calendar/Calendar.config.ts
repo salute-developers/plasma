@@ -11,16 +11,16 @@ export const config = {
             default: css`
                 ${calendarBaseTokens.calendarSelectedItemBackground}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarSelectedItemColor}: var(--inverse-text-primary);
-                ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-secondary);
+                ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(--surface-solid-secondary);
                 ${calendarBaseTokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarCurrentItemBackgroundHover}: transparent;
                 ${calendarBaseTokens.calendarCurrentItemColorHover}: var(--text-primary);
-                ${calendarBaseTokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-secondary);
+                ${calendarBaseTokens.calendarCurrentItemChildBackgroundHover}: var(--surface-solid-secondary);
                 ${calendarBaseTokens.calendarActiveItemBackground}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarActiveItemColor}: var(--inverse-text-primary);
                 ${calendarBaseTokens.calendarHoveredItemBackground}: var(--surface-accent);
                 ${calendarBaseTokens.calendarHoveredItemColor}: var(--text-primary);
-                ${calendarBaseTokens.calendarRangeBackground}: var(--surface-transparent-secondary);
+                ${calendarBaseTokens.calendarRangeBackground}: var(--surface-solid-secondary);
                 ${calendarBaseTokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${calendarBaseTokens.calendarContentPrimaryColor}: var(--surface-solid-default);
                 ${calendarBaseTokens.calendarContentPrimaryDisabledColor}: var(--surface-solid-default);
