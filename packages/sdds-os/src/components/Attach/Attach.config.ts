@@ -307,49 +307,6 @@ export const config = {
 
                 ${attachTokens.moreIconColor}: var(--text-primary);
             `,
-            dark: css`
-                ${attachTokens.buttonColor}: var(--on-dark-text-primary);
-                ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${attachTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
-                ${attachTokens.buttonLoadingBackgroundColor}: var(${attachTokens.buttonBackgroundColor});
-                ${attachTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
-                ${attachTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.buttonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
-
-                ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: var(--surface-accent);
-
-                ${attachTokens.cellColor}: var(--text-primary);
-                ${attachTokens.cellLabelColor}: var(--text-secondary);
-                ${attachTokens.cellTitleColor}: var(--text-primary);
-                ${attachTokens.cellSubtitleColor}: var(--text-secondary);
-                ${attachTokens.cellBackgroundColor}: transparent;
-
-                ${attachTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColor}: var(--on-light-surface-transparent-deep);
-                ${attachTokens.iconButtonLoadingBackgroundColor}: var(${attachTokens.iconButtonBackgroundColor});
-                ${attachTokens.iconButtonColorHover}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
-                ${attachTokens.iconButtonColorActive}: var(--on-dark-text-primary);
-                ${attachTokens.iconButtonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
-
-                ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: var(--surface-accent);
-
-                ${attachTokens.iconButtonCancelColor}: var(--text-secondary);
-                ${attachTokens.iconButtonCancelBackgroundColor}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelLoadingBackgroundColor}: var(${attachTokens.iconButtonCancelBackgroundColor});
-                ${attachTokens.iconButtonCancelColorHover}: var(--text-secondary-hover);
-                ${attachTokens.iconButtonCancelBackgroundColorHover}: var(--surface-clear);
-                ${attachTokens.iconButtonCancelColorActive}: var(--text-secondary-active);
-                ${attachTokens.iconButtonCancelBackgroundColorActive}: var(--surface-clear);
-
-                ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: var(--surface-accent);
-
-                ${attachTokens.moreIconColor}: var(--text-primary);
-            `,
             black: css`
                 ${attachTokens.buttonColor}: var(--on-dark-text-primary);
                 ${attachTokens.buttonValueColor}: var(--on-dark-text-secondary);

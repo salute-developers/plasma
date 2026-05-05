@@ -1,9 +1,12 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { disableProps } from '@salutejs/plasma-sb-utils';
+import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Avatar } from './Avatar';
+import { config } from './Avatar.config';
+
+const { views, sizes } = getConfigVariations(config);
 
 const extraPlacements = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 const extraType = ['', 'badge', 'counter'];
@@ -14,8 +17,8 @@ const meta: Meta<typeof Avatar> = {
     title: 'Data Display/Avatar',
     component: Avatar,
     argTypes: {
-        view: { control: 'inline-radio', options: ['default'] },
-        size: { control: 'select', options: ['xxl', 'l', 'm', 's', 'fit'] },
+        view: { control: 'inline-radio', options: views },
+        size: { control: 'select', options: sizes },
         status: { control: 'select', options: ['active', 'inactive'] },
         type: {
             control: 'select',
@@ -88,7 +91,7 @@ const BellIcon = (props) => (
 export const Default: Story = {
     args: {
         view: 'default',
-        size: 'xxl',
+        size: 'm',
         name: 'Иван Фадеев',
         url: 'https://avatars.githubusercontent.com/u/1813468?v=4',
         isScalable: false,

@@ -3,6 +3,7 @@ import { css, textAreaTokens as tokens } from '@salutejs/plasma-new-hope/styled-
 export const config = {
     defaults: {
         view: 'default',
+        size: 'm',
         focused: 'true',
     },
     variations: {

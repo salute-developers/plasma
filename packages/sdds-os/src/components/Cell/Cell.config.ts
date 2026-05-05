@@ -1,6 +1,10 @@
 import { css, cellTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
+    defaults: {
+        view: 'default',
+        size: 'm',
+    },
     variations: {
         view: {
             default: css`
