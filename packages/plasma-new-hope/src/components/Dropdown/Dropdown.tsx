@@ -1,9 +1,7 @@
 import React, { forwardRef, useCallback, useReducer, useRef } from 'react';
-import { safeUseId } from 'src/utils';
-
-import { RootProps } from '../../engines';
-import { cx } from '../../utils';
-import { useOutsideClick } from '../../hooks';
+import { safeUseId, cx } from 'src/utils';
+import { RootProps } from 'src/engines';
+import { useOutsideClick } from 'src/hooks';
 
 import { pathReducer } from './reducers/pathReducer';
 import { focusedPathReducer } from './reducers/focusedPathReducer';
@@ -20,39 +18,38 @@ import { FloatingPopover } from './FloatingPopover';
 import { Context } from './Dropdown.context';
 
 /**
- * Выпадающий список.
+ * Выпадающий список с поддержкой вложенных пунктов.
  */
 export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps, 'items'>>) =>
     forwardRef<HTMLDivElement, DropdownProps>(
         (
             {
                 items,
+                trigger = 'click',
+                placement = 'bottom',
                 children,
-                placement,
-                offset,
-                closeOnOverlayClick = true,
-                onToggle,
-                size,
-                view,
-                itemRole = 'treeitem',
-                className,
+                variant = 'normal',
+                zIndex,
                 listMaxHeight,
                 listWidth,
-                listHeight,
-                closeOnSelect = true,
-                onHover,
-                onItemSelect,
-                onItemClick,
-                trigger = 'click',
-                openByRightClick = false,
-                variant = 'normal',
-                hasArrow = true,
-                alwaysOpened = false,
                 portal,
                 renderItem,
-                zIndex,
                 beforeList,
                 afterList,
+                onToggle,
+                alwaysOpened = false,
+                onHover,
+                onItemSelect,
+                openByRightClick = false,
+                offset = [0, 8],
+                closeOnSelect = true,
+                closeOnOverlayClick = true,
+                itemRole = 'option',
+                disabled,
+
+                size,
+                view,
+                className,
                 ...rest
             },
             ref,
@@ -126,7 +123,6 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 handleGlobalToggle,
                 closeOnSelect,
                 onItemSelect,
-                onItemClick,
             });
 
             return (
@@ -139,9 +135,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                         handleGlobalToggle,
                         closeOnSelect,
                         onHover,
-                        onItemClick,
                         onItemSelect,
-                        hasArrow,
                         treeId,
                         renderItem,
                     }}
@@ -175,11 +169,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                             {...rest}
                         >
                             <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
-                                <Ul
-                                    id={`${treeId}_tree_level_1`}
-                                    role="tree"
-                                    listMaxHeight={listMaxHeight || listHeight}
-                                >
+                                <Ul id={`${treeId}_tree_level_1`} role="tree" listMaxHeight={listMaxHeight}>
                                     {beforeList}
 
                                     {items.map((item, index) => (

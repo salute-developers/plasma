@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 
-import { DropdownProps } from '../Dropdown.types';
-import { DropdownItemOption } from '../ui/DropdownItem/DropdownItem.type';
+import { DropdownProps, DropdownItemOption } from '../Dropdown.types';
 
 export type PathMapType = Map<string | number, number>;
 export type FocusedToValueMapType = Map<string, DropdownItemOption>;

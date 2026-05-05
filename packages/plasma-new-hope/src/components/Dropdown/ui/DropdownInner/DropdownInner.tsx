@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import type { FC } from 'react';
 import { safeUseId } from 'src/utils';
+import { DropdownItem } from 'src/components/Dropdown/ui';
 
-import { DropdownItem } from '../DropdownItem/DropdownItem';
 import { Ul, ListWrapper } from '../../Dropdown.styles';
 import { FloatingPopover } from '../../FloatingPopover';
 import { getPlacement } from '../../utils';
