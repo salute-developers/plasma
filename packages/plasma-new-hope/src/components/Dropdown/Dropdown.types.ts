@@ -7,7 +7,7 @@ export type DropdownTrigger = 'hover' | 'click';
 export type HandleGlobalToggleType = (opened: boolean, event?: SyntheticEvent | Event) => void;
 export type PlacementType = 'auto' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start';
 
-export type DropdownItemOption = {
+export type ItemOption = {
     /**
      *  Значение у item.
      */
@@ -23,7 +23,7 @@ export type DropdownItemOption = {
     /**
      * Список дочерних items.
      */
-    items?: DropdownItemOption[];
+    items?: ItemOption[];
     /**
      * Слот в начале дочернего выпадающего списка.
      */
@@ -62,7 +62,7 @@ export type DropdownItemOption = {
     listMaxHeight?: CSSProperties['height'];
 };
 
-export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
+export type DropdownProps<T extends ItemOption = ItemOption> = {
     /**
      * Список элементов.
      */
@@ -88,6 +88,7 @@ export type DropdownProps<T extends DropdownItemOption = DropdownItemOption> = {
     variant?: 'normal' | 'tight';
     /**
      * CSS-свойство z-index для выпадающего списка.
+     * @default 1000
      */
     zIndex?: CSSProperties['zIndex'];
     /**

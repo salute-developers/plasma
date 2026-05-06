@@ -1,19 +1,17 @@
-import React, { forwardRef, useCallback, useReducer, useRef } from 'react';
-import { safeUseId, cx } from 'src/utils';
+import React, { forwardRef, useRef } from 'react';
+import { cx, safeUseId } from 'src/utils';
 import { RootProps } from 'src/engines';
-import { useOutsideClick } from 'src/hooks';
 
-import { pathReducer } from './reducers/pathReducer';
-import { focusedPathReducer } from './reducers/focusedPathReducer';
-import { DropdownInner } from './ui';
+import { Inner } from './ui';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { Ul, base, ListWrapper } from './Dropdown.styles';
+import { base, ListWrapper, Ul } from './Dropdown.styles';
 import { childrenWithProps, getItemByFocused, getItemId, getPlacement } from './utils';
-import type { DropdownProps, HandleGlobalToggleType } from './Dropdown.types';
+import type { DropdownProps } from './Dropdown.types';
 import { classes } from './Dropdown.tokens';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
-import { useHashMaps } from './hooks/useHashMaps';
+import { useList } from './hooks/useList';
+import { usePathMaps } from './hooks/usePathMaps';
 import { FloatingPopover } from './FloatingPopover';
 import { Context } from './Dropdown.context';
 
@@ -29,7 +27,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 placement = 'bottom',
                 children,
                 variant = 'normal',
-                zIndex,
+                zIndex = 1000,
                 listMaxHeight,
                 listWidth,
                 portal,
@@ -54,64 +52,25 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             },
             ref,
         ) => {
-            const initialPath = alwaysOpened ? ['root'] : [];
-
-            const [path, dispatchPath] = useReducer(pathReducer, initialPath);
-            const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
-
-            const isCurrentListOpen = Boolean(path[0]);
-
-            const [pathMap, focusedToValueMap] = useHashMaps(items);
-
-            const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value || '';
-
+            /**
+             * Refs
+             */
             const floatingPopoverRef = useRef<HTMLDivElement>(null);
             const listWrapperRef = useRef<HTMLDivElement>(null);
 
-            const treeId = safeUseId();
+            /**
+             * Hooks
+             */
+            const { path, dispatchPath, dispatchFocusedPath, focusedPath, handleGlobalToggle } = useList({
+                alwaysOpened,
+                disabled,
+                onToggle,
+                closeOnOverlayClick,
+                floatingPopoverRef,
+                listWrapperRef,
+            });
 
-            /* Логика работы при клике за пределами выпадающего списка */
-            useOutsideClick(
-                (event) => {
-                    if (!isCurrentListOpen || !closeOnOverlayClick || alwaysOpened) {
-                        return;
-                    }
-
-                    dispatchPath({ type: 'reset' });
-                    dispatchFocusedPath({ type: 'reset' });
-
-                    if (onToggle) {
-                        onToggle(false, event);
-                    }
-                },
-                [floatingPopoverRef, listWrapperRef],
-            );
-
-            const handleGlobalToggle: HandleGlobalToggleType = (opened, event) => {
-                if (alwaysOpened || opened) {
-                    dispatchPath({ type: 'opened_first_level' });
-                } else {
-                    dispatchFocusedPath({ type: 'reset' });
-                    dispatchPath({ type: 'reset' });
-                }
-
-                if (onToggle) {
-                    onToggle(opened, event);
-                }
-            };
-
-            const onContextMenu = useCallback(
-                (e: React.MouseEvent) => {
-                    e.preventDefault();
-
-                    if (alwaysOpened) {
-                        return;
-                    }
-
-                    handleGlobalToggle(!isCurrentListOpen, e);
-                },
-                [handleGlobalToggle, isCurrentListOpen, alwaysOpened],
-            );
+            const [pathMap, focusedToValueMap] = usePathMaps(items);
 
             const { onKeyDown } = useKeyNavigation({
                 focusedPath,
@@ -123,7 +82,22 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 handleGlobalToggle,
                 closeOnSelect,
                 onItemSelect,
+                disabled,
             });
+
+            const isCurrentListOpen = Boolean(path[0]);
+            const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value || '';
+            const treeId = safeUseId();
+
+            const onContextMenu = (e: React.MouseEvent) => {
+                e.preventDefault();
+
+                if (alwaysOpened || disabled) {
+                    return;
+                }
+
+                handleGlobalToggle(!isCurrentListOpen, e);
+            };
 
             return (
                 <Context.Provider
@@ -173,7 +147,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                     {beforeList}
 
                                     {items.map((item, index) => (
-                                        <DropdownInner
+                                        <Inner
                                             key={`${index}/0`}
                                             item={item}
                                             currentLevel={0}

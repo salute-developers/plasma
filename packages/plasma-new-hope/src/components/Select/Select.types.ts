@@ -13,7 +13,6 @@ import type {
 import type { SafeExtract, NeverProps } from 'src/types';
 
 import type { RequiredProps, LabelProps, HintProps } from '../TextField/TextField.types';
-import type { DropdownProps } from '../Dropdown/Dropdown.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import type { ValueToCheckedMapType } from './hooks/usePathMaps';
@@ -359,6 +358,6 @@ export type FloatingPopoverProps = {
     flip: SelectProps['flip'];
     portal?: SelectProps['portal'];
     listWidth?: SelectProps['listWidth'];
-    zIndex?: DropdownProps['zIndex'];
+    zIndex?: SelectProps['zIndex'];
     offset?: SelectProps['_offset'];
 };

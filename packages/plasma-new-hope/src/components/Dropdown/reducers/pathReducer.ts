@@ -1,4 +1,4 @@
-export type PathState = Array<string>;
+export type PathState = string[];
 
 export type PathAction =
     | { type: 'reset' }
