@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { Children, HTMLAttributes, ElementType, cloneElement, isValidElement } from 'react';
+import React, { Children, HTMLAttributes } from 'react';
 
 import type { DropdownProps } from '../Dropdown.types';
 
@@ -17,24 +17,6 @@ export const childrenWithProps = (children: ReactNode, additionalProps: HTMLAttr
         }
         return child;
     });
-
-const isReactObject = (element: any): element is ElementType => {
-    return typeof element === 'object' || typeof element === 'function';
-};
-
-export const getValidComponent = (element: ElementType | ReactNode, props: object) => {
-    if (isValidElement(element)) {
-        return cloneElement(element, props);
-    }
-
-    if (isReactObject(element)) {
-        const Component = element;
-
-        return <Component {...props} />;
-    }
-
-    return element;
-};
 
 export { getItemId } from './getItemId';
 export { getItemByFocused } from './getItemByFocused';

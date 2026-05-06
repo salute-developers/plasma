@@ -1,10 +1,10 @@
 import type { HTMLAttributes, AriaAttributes } from 'react';
 
-import type { PathState } from '../../reducers/pathReducer';
-import { DropdownItemOption } from '../../Dropdown.types';
+import type { PathState } from '../../../../reducers/pathReducer';
+import type { ItemOption } from '../../../../Dropdown.types';
 
 export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {
-    item: DropdownItemOption;
+    item: ItemOption;
     currentLevel: number;
     index: number;
     path?: PathState;

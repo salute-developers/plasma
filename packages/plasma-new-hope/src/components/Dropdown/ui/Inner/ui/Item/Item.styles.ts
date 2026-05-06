@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { addFocus, applyEllipsis } from 'src/mixins';
+import { component, mergeConfig } from 'src/engines';
+import { cellConfig, cellTokens } from 'src/components/Cell';
+import { IconDisclosureRight } from 'src/components/_Icon';
 
-import { classes, tokens, constants } from '../../Dropdown.tokens';
-import { addFocus, applyEllipsis } from '../../../../mixins';
-import { DropdownProps } from '../../Dropdown.types';
-import { cellConfig, cellTokens } from '../../../Cell';
-import { component, mergeConfig } from '../../../../engines';
-import { IconDisclosureRight } from '../../../_Icon';
+import { classes, tokens, constants } from '../../../../Dropdown.tokens';
+import type { DropdownProps } from '../../../../Dropdown.types';
 
 const mergedCellConfig = mergeConfig(cellConfig);
 const Cell = component(mergedCellConfig);

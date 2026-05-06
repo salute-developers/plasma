@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, FC, useContext } from 'react';
 import cls from 'classnames';
 
-import { classes } from '../../Dropdown.tokens';
-import { Context } from '../../Dropdown.context';
-import { getItemId } from '../../utils';
+import { Context } from '../../../../Dropdown.context';
+import { getItemId } from '../../../../utils';
+import { classes } from '../../../../Dropdown.tokens';
 
 import {
     Wrapper,
@@ -13,10 +13,10 @@ import {
     StyledCell,
     RenderItemWrapper,
     StyledIconDisclosureRight,
-} from './DropdownItem.styles';
-import type { DropdownItemProps } from './DropdownItem.type';
+} from './Item.styles';
+import type { DropdownItemProps } from './Item.type';
 
-export const DropdownItem: FC<DropdownItemProps> = ({
+export const Item: FC<DropdownItemProps> = ({
     item,
     path,
     currentLevel,

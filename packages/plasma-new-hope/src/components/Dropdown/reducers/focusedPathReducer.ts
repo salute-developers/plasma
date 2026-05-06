@@ -1,4 +1,4 @@
-export type FocusedPathState = Array<number>;
+export type FocusedPathState = number[];
 
 export type FocusedPathAction =
     | { type: 'reset' }

@@ -1,15 +1,15 @@
 import React, { useRef } from 'react';
 import type { FC } from 'react';
 import { safeUseId } from 'src/utils';
-import { DropdownItem } from 'src/components/Dropdown/ui';
 
 import { Ul, ListWrapper } from '../../Dropdown.styles';
 import { FloatingPopover } from '../../FloatingPopover';
 import { getPlacement } from '../../utils';
 
-import { DropdownInnerProps } from './DropdownInner.type';
+import { Item } from './ui';
+import { DropdownInnerProps } from './Inner.type';
 
-const DropdownInner: FC<DropdownInnerProps> = ({
+const Inner: FC<DropdownInnerProps> = ({
     item,
     currentLevel,
     path,
@@ -43,7 +43,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                 onToggle={handleToggle}
                 trigger={item.trigger || trigger}
                 target={
-                    <DropdownItem
+                    <Item
                         item={item}
                         index={index}
                         path={path}
@@ -62,7 +62,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                         {item.beforeList}
 
                         {item.items.map((innerItem, innerIndex) => (
-                            <DropdownInner
+                            <Inner
                                 key={`${innerIndex}/${currentLevel}`}
                                 item={innerItem}
                                 currentLevel={nextLevel}
@@ -80,7 +80,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
         );
     }
 
-    return <DropdownItem item={item} path={path} index={index} currentLevel={currentLevel} ariaLevel={nextLevel} />;
+    return <Item item={item} path={path} index={index} currentLevel={currentLevel} ariaLevel={nextLevel} />;
 };
 
-export { DropdownInner };
+export { Inner };

@@ -1,14 +1,15 @@
 import { useMemo } from 'react';
 
-import { DropdownProps, DropdownItemOption } from '../Dropdown.types';
+import { DropdownProps, ItemOption } from '../Dropdown.types';
 
 export type PathMapType = Map<string | number, number>;
-export type FocusedToValueMapType = Map<string, DropdownItemOption>;
+export type FocusedToValueMapType = Map<string, ItemOption>;
 
-// Данный хук рекурсивно проходится по дереву items и создает 2 мапы: мапу путей и мапу фокусов.
-// Нужно для получения всей информации об item, зная только путь до него.
-
-export const useHashMaps = (items: DropdownProps['items']) => {
+/**
+ * Данный хук рекурсивно проходится по дереву items и создает 2 мапы: мапу путей и мапу фокусов.
+ * Нужно для получения всей информации об item, зная только путь до него.
+ */
+export const usePathMaps = (items: DropdownProps['items']) => {
     return useMemo(() => {
         const pathMap: PathMapType = new Map();
         const focusedToValueMap: FocusedToValueMapType = new Map();
@@ -16,7 +17,7 @@ export const useHashMaps = (items: DropdownProps['items']) => {
         pathMap.set('root', items.length);
 
         const rec = (items: DropdownProps['items'], prevIndex = '') => {
-            items.forEach((item: DropdownItemOption, index: number) => {
+            items.forEach((item: ItemOption, index: number) => {
                 const { value, items: innerItems } = item;
 
                 const currIndex = `${prevIndex}/${index}`.replace(/^(\/)/, '');
