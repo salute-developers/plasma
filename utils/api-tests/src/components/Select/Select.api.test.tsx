@@ -11,6 +11,7 @@ import type {
 import { useRef, useState } from 'react';
 import { describe, it } from 'vitest';
 import { expectTypeOf } from 'expect-type';
+import { Controller, useForm } from 'react-hook-form';
 import { Button, Cell, Select } from '@salutejs/plasma-b2c';
 
 type SelectProps = ComponentProps<typeof Select>;
@@ -210,6 +211,19 @@ describe('Unions', () => {
             name: 'country',
             onChange: (e: React.ChangeEvent<HTMLSelectElement>) => e.target.value,
         });
+        expectTypeOf<SelectProps>({
+            items: [],
+            name: 'country',
+            value: '',
+            onChange: (value: string) => value,
+        });
+        expectTypeOf<SelectProps>({
+            items: [],
+            name: 'country',
+            multiselect: true,
+            value: ['value'],
+            onChange: (value: string[]) => value,
+        });
 
         // @ts-expect-error
         expectTypeOf<SelectProps>({ items: [], multiselect: false, value: [] });
@@ -224,9 +238,20 @@ describe('Unions', () => {
         // @ts-expect-error
         expectTypeOf<SelectProps>({ items: [], selectAllOptions: { label: 'All' } });
         // @ts-expect-error
-        expectTypeOf<SelectProps>({ items: [], name: 'country', value: '' });
+        expectTypeOf<SelectProps>({
+            items: [],
+            name: 'country',
+            value: '',
+            onChange: (e: React.ChangeEvent<HTMLSelectElement>) => e.target.value,
+        });
         // @ts-expect-error
-        expectTypeOf<SelectProps>({ items: [], name: 'country', defaultValue: '', onChange: (value: string) => value });
+        expectTypeOf<SelectProps>({
+            items: [],
+            name: 'country',
+            multiselect: true,
+            value: ['value'],
+            onChange: (e: React.ChangeEvent<HTMLSelectElement>) => e.target.value,
+        });
     });
 
     it('HintProps', () => {
@@ -465,7 +490,82 @@ describe('Examples', () => {
 
     it('Uncontrolled', () => {
         () => {
-            return <Select items={items} label="Label" placeholder="Placeholder" />;
+            return (
+                <>
+                    <Select items={items} label="Label" placeholder="Placeholder" />
+
+                    <Select
+                        items={items}
+                        defaultValue="north_america"
+                        label="Label"
+                        placeholder="Placeholder"
+                        onChange={(value, item) => item?.value || value}
+                    />
+
+                    <Select
+                        multiselect
+                        items={items}
+                        defaultValue={['north_america']}
+                        label="Label"
+                        placeholder="Placeholder"
+                        onChange={(value, item) => item?.value || value.join(',')}
+                    />
+                </>
+            );
+        };
+    });
+
+    it('react-hook-form register', () => {
+        () => {
+            const { register: registerSingle } = useForm<{ region: string }>({
+                defaultValues: {
+                    region: 'north_america',
+                },
+            });
+            const { register: registerMultiple } = useForm<{ region: string[] }>({
+                defaultValues: {
+                    region: ['north_america'],
+                },
+            });
+
+            return (
+                <>
+                    <Select items={items} {...registerSingle('region')} />
+
+                    <Select multiselect items={items} {...registerMultiple('region')} />
+                </>
+            );
+        };
+    });
+
+    it('react-hook-form Controller', () => {
+        () => {
+            const { control: singleControl } = useForm<{ region: string }>({
+                defaultValues: {
+                    region: 'north_america',
+                },
+            });
+            const { control: multipleControl } = useForm<{ region: string[] }>({
+                defaultValues: {
+                    region: ['north_america'],
+                },
+            });
+
+            return (
+                <>
+                    <Controller
+                        name="region"
+                        control={singleControl}
+                        render={({ field }) => <Select items={items} {...field} />}
+                    />
+
+                    <Controller
+                        name="region"
+                        control={multipleControl}
+                        render={({ field }) => <Select multiselect items={items} {...field} />}
+                    />
+                </>
+            );
         };
     });
 

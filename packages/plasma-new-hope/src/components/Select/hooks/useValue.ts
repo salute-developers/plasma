@@ -1,42 +1,33 @@
 import { useState } from 'react';
 
+import { hasOuterValue } from '../utils';
 import type { ItemOption, SelectProps, SelectValue } from '../Select.types';
 
 const getInitialValue = ({
-    name,
     defaultValue,
     multiselect,
 }: {
-    name: SelectProps['name'];
     defaultValue: SelectProps['defaultValue'];
     multiselect: SelectProps['multiselect'];
 }): SelectValue => {
-    if (name !== undefined && defaultValue !== undefined) {
-        return defaultValue;
+    if (multiselect) {
+        return defaultValue || [];
     }
 
-    return multiselect ? [] : '';
-};
-
-const hasOuterValue = <K extends ItemOption>(
-    value: SelectProps<K>['value'] | null | undefined,
-): value is SelectValue => {
-    return value !== null && value !== undefined;
+    return defaultValue || '';
 };
 
 type Props = {
-    name: SelectProps['name'];
     outerValue: SelectProps['value'];
     outerOnChange: SelectProps['onChange'];
     defaultValue: SelectProps['defaultValue'];
     multiselect: SelectProps['multiselect'];
+    nativeMode: boolean;
 };
 
-export const useValue = ({ name, outerValue, outerOnChange, defaultValue, multiselect }: Props) => {
+export const useValue = ({ outerValue, outerOnChange, defaultValue, multiselect, nativeMode }: Props) => {
     // Внутреннее состояние для корректной работы в uncontrolled-режиме.
-    const [internalValue, setInternalValue] = useState<string | string[]>(
-        getInitialValue({ name, defaultValue, multiselect }),
-    );
+    const [internalValue, setInternalValue] = useState<SelectValue>(getInitialValue({ defaultValue, multiselect }));
 
     // Актуальное состояние компонента.
     const value = hasOuterValue(outerValue) ? outerValue : internalValue;
@@ -44,7 +35,7 @@ export const useValue = ({ name, outerValue, outerOnChange, defaultValue, multis
     const handleChange = (newValue: SelectValue, item: ItemOption | null) => {
         setInternalValue(newValue);
 
-        if (outerOnChange && !name) {
+        if (outerOnChange && !nativeMode) {
             outerOnChange(newValue as any, item);
         }
     };

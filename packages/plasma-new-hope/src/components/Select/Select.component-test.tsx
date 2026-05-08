@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests } from '@salutejs/plasma-cy-utils';
+import { Controller, useForm } from 'react-hook-form';
 // @ts-ignore
 import { IconLocation, IconPlasma } from 'override/_Icon';
 
@@ -1833,6 +1834,57 @@ describeFn('Select', () => {
         cy.get('[id$="C"]').should('have.attr', 'aria-selected', 'false');
     });
 
+    it('uncontrolled: single and multiselect', () => {
+        const onSingleChange = cy.stub().as('onSingleChange');
+        const onMultiChange = cy.stub().as('onMultiChange');
+
+        mount(
+            <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="uncontrolled-single"
+                        defaultValue="north_america"
+                        items={items}
+                        onChange={onSingleChange}
+                    />
+                </div>
+
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="uncontrolled-multiple"
+                        multiselect
+                        defaultValue={['north_america']}
+                        items={items}
+                        onChange={onMultiChange}
+                    />
+                </div>
+            </div>,
+        );
+
+        cy.get('#uncontrolled-single input').should('have.value', 'Северная Америка');
+        cy.get('#uncontrolled-single').click('bottomRight');
+        cy.contains('li', 'Южная Америка').click();
+        cy.contains('li', 'Бразилия').click();
+        cy.contains('li', 'Сан-Паулу').click();
+        cy.get('#uncontrolled-single input').should('have.value', 'Сан-Паулу');
+        cy.get('@onSingleChange').should('have.been.calledWithMatch', 'sao_paulo', {
+            value: 'sao_paulo',
+            label: 'Сан-Паулу',
+        });
+
+        cy.get('#uncontrolled-multiple .chips-wrapper').contains('Северная Америка').should('exist');
+        cy.get('#uncontrolled-multiple').click('bottomRight');
+        cy.contains('li', 'Южная Америка').click();
+        cy.contains('li', 'Бразилия').click();
+        cy.contains('li', 'Сан-Паулу').click();
+        cy.get('#uncontrolled-multiple .chips-wrapper').contains('Сан-Паулу').should('exist');
+
+        cy.get('@onMultiChange').should('have.been.calledWithMatch', ['north_america', 'sao_paulo'], {
+            value: 'sao_paulo',
+            label: 'Сан-Паулу',
+        });
+    });
+
     it('treeView, arrowPlacement=left', () => {
         mount(<Select id="select" label="Label" items={items} placeholder="Placeholder" treeView />);
         cy.get('#select').click();
@@ -2180,5 +2232,167 @@ describeFn('Select', () => {
             </>,
         );
         cy.matchImageSnapshot();
+    });
+});
+
+describeFn('Select react-hook-form', () => {
+    const Select = componentExists ? getComponent<SelectProps>('Select') : () => null;
+
+    it('register: single', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const { register, handleSubmit, watch } = useForm<{ region: string }>({
+                defaultValues: {
+                    region: 'north_america',
+                },
+            });
+            const currentValue = watch('region');
+
+            return (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <button type="submit">submit</button>
+
+                    <Select id="select-wrapper" items={items} {...register('region')} />
+                    <div data-cy="watched">{currentValue}</div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('[data-cy="watched"]').should('have.text', 'north_america');
+        cy.get('#select-wrapper input').should('have.value', 'Северная Америка');
+        cy.get('#select-wrapper').click();
+        cy.contains('li', 'Южная Америка').click();
+        cy.contains('li', 'Бразилия').click();
+        cy.contains('li', 'Сан-Паулу').click();
+        cy.get('[data-cy="watched"]').should('have.text', 'sao_paulo');
+        cy.get('#select-wrapper input').should('have.value', 'Сан-Паулу');
+        cy.contains('button', 'submit').click();
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: 'sao_paulo',
+        });
+    });
+
+    it('register: multiselect', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const { register, handleSubmit, watch } = useForm<{ region: string[] }>({
+                defaultValues: {
+                    region: ['north_america'],
+                },
+            });
+            const currentValue = watch('region');
+
+            return (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <button type="submit">submit</button>
+
+                    <Select multiselect id="select-wrapper" items={items} {...register('region')} />
+                    <div data-cy="watched">{currentValue.join()}</div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('[data-cy="watched"]').should('have.text', 'north_america');
+        cy.get('#select-wrapper .chips-wrapper').contains('Северная Америка').should('exist');
+        cy.get('#select-wrapper').click();
+        cy.contains('li', 'Южная Америка').click();
+        cy.contains('li', 'Бразилия').click();
+        cy.contains('li', 'Сан-Паулу').click();
+        cy.get('[data-cy="watched"]').should('have.text', 'north_america,sao_paulo');
+        cy.get('#select-wrapper .chips-wrapper').contains('Северная Америка').should('exist');
+        cy.get('#select-wrapper .chips-wrapper').contains('Сан-Паулу').should('exist');
+        cy.contains('button', 'submit').click();
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: ['north_america', 'sao_paulo'],
+        });
+    });
+
+    it('Controller: single', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const { control, handleSubmit, watch } = useForm<{ region: string }>({
+                defaultValues: {
+                    region: 'north_america',
+                },
+            });
+            const currentValue = watch('region');
+
+            return (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <button type="submit">submit</button>
+
+                    <Controller
+                        name="region"
+                        control={control}
+                        render={({ field }) => <Select id="select-wrapper" items={items} {...field} />}
+                    />
+                    <div data-cy="watched">{currentValue}</div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('[data-cy="watched"]').should('have.text', 'north_america');
+        cy.get('#select-wrapper input').should('have.value', 'Северная Америка');
+        cy.get('#select-wrapper').click();
+        cy.contains('li', 'Южная Америка').click();
+        cy.contains('li', 'Бразилия').click();
+        cy.contains('li', 'Сан-Паулу').click();
+        cy.get('[data-cy="watched"]').should('have.text', 'sao_paulo');
+        cy.get('#select-wrapper input').should('have.value', 'Сан-Паулу');
+        cy.contains('button', 'submit').click();
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: 'sao_paulo',
+        });
+    });
+
+    it('Controller: multiselect', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const { control, handleSubmit, watch } = useForm<{ region: string[] }>({
+                defaultValues: {
+                    region: ['north_america'],
+                },
+            });
+            const currentValue = watch('region');
+
+            return (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <button type="submit">submit</button>
+
+                    <Controller
+                        name="region"
+                        control={control}
+                        render={({ field }) => <Select multiselect id="select-wrapper" items={items} {...field} />}
+                    />
+                    <div data-cy="watched">{currentValue.join()}</div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('[data-cy="watched"]').should('have.text', 'north_america');
+        cy.get('#select-wrapper .chips-wrapper').contains('Северная Америка').should('exist');
+        cy.get('#select-wrapper').click();
+        cy.contains('li', 'Южная Америка').click();
+        cy.contains('li', 'Бразилия').click();
+        cy.contains('li', 'Сан-Паулу').click();
+        cy.get('[data-cy="watched"]').should('have.text', 'north_america,sao_paulo');
+        cy.get('#select-wrapper .chips-wrapper').contains('Северная Америка').should('exist');
+        cy.get('#select-wrapper .chips-wrapper').contains('Сан-Паулу').should('exist');
+        cy.contains('button', 'submit').click();
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: ['north_america', 'sao_paulo'],
+        });
     });
 });
