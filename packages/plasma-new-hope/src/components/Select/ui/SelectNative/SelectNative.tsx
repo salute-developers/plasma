@@ -9,19 +9,19 @@ import { ValueToItemMapType } from '../../hooks/usePathMaps';
 import { SelectHidden } from './SelectNative.styles';
 
 type Props = Pick<SelectProps, 'name' | 'multiselect'> & {
-    handleChange: (value: string | string[], item: null) => void;
+    handleChange: (value: SelectValue, item: null) => void;
     items: ValueToItemMapType;
     value: SelectValue;
     outerOnChange?: ChangeEventHandler<HTMLSelectElement>;
 };
 
-export const SelectNative = forwardRef<HTMLButtonElement, Props>(
+export const SelectNative = forwardRef<HTMLSelectElement, Props>(
     ({ name, multiselect, items, value, handleChange, outerOnChange }, ref) => {
-        const values = (multiselect ? value : [value]) as string[];
+        const values = Array.isArray(value) ? value : [value].filter(Boolean);
 
         const selectRef = useRef<HTMLSelectElement>(null);
         const forkRef = useForkRef<HTMLSelectElement>(selectRef, ref as Ref<HTMLSelectElement>);
-        const options = Array.from(items.keys());
+        const options = Array.from(new Set([...items.keys(), ...values]));
 
         useLayoutEffect(() => {
             if (selectRef.current && !multiselect) {
@@ -47,7 +47,7 @@ export const SelectNative = forwardRef<HTMLButtonElement, Props>(
             if (event && outerOnChange) {
                 outerOnChange(event);
             }
-        }, [value]);
+        }, [value, outerOnChange]);
 
         return (
             <>
@@ -56,11 +56,11 @@ export const SelectNative = forwardRef<HTMLButtonElement, Props>(
                     multiple={multiselect}
                     name={name}
                     hidden
-                    value={multiselect ? values : values[0]}
+                    value={multiselect ? values : values[0] ?? ''}
                 >
                     {/* Пустой option нужен для нативного поведения. Он автоматически выбирает первый пункт,
                         если нет изначального значения */}
-                    <option> </option>
+                    <option value=""> </option>
 
                     {options.map((option) => (
                         <option key={option} value={option}>

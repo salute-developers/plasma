@@ -134,6 +134,7 @@ type Target = TextfieldLikeTargetProps | ButtonLikeTargetProps;
 type SelectSingleProps<K extends ItemOption> = {
     multiselect?: false;
     value?: string;
+    defaultValue?: string;
     onChange?: (value: string, item: K | null) => void;
     /**
      * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
@@ -150,25 +151,46 @@ type SelectSingleProps<K extends ItemOption> = {
 type SelectMultiselectProps<K extends ItemOption> = {
     multiselect: true;
     value?: string[];
+    defaultValue?: string[];
     onChange?: (value: string[], item: K | null) => void;
     isTargetAmount?: true;
     renderTarget?: (value: K[], opened?: boolean) => ReactNode;
     selectAllOptions?: SelectAllProps;
 };
 
-type SelectControlledProps<K extends ItemOption> = { name?: never; defaultValue?: never } & (
+type SelectSingleNativeProps<K extends ItemOption> = Omit<SelectSingleProps<K>, 'onChange' | 'value'> & {
+    /**
+     * Имя поля. Используется для нативной формы и react-hook-form register.
+     */
+    name: string;
+    value?: never;
+    onChange?: ChangeEventHandler<HTMLSelectElement>;
+};
+
+type SelectMultiselectNativeProps<K extends ItemOption> = Omit<SelectMultiselectProps<K>, 'onChange' | 'value'> & {
+    name: string;
+    value?: never;
+    onChange?: ChangeEventHandler<HTMLSelectElement>;
+};
+
+/**
+ *  Описание режимов работы компонента:
+ *
+ *  1. Если value !== null && value !== undefined, компонент controlled.
+ *     name при этом только рендерит hidden <select> для формы,
+ *     но onChange вызывается как (value, item), не как native event.
+ *  2. Если value нет и name есть, компонент uncontrolled внутри,
+ *     но изменения дополнительно прокидываются в hidden <select> и наружу как native-like change event.
+ *     Это сценарий react-hook-form register / обычной HTML-формы.
+ *  3. Если value нет и name нет, компонент uncontrolled.
+ *     Значение хранится во внутреннем internalValue, а onChange, если передан,
+ *     вызывается старым контрактом (value, item).
+ */
+type IsMultiselect<K extends ItemOption> =
     | SelectSingleProps<K>
     | SelectMultiselectProps<K>
-);
-
-type SelectUncontrolledProps<K extends ItemOption> = {
-    name: string;
-    onChange?: ChangeEventHandler<HTMLSelectElement>;
-    value?: never;
-    defaultValue?: SelectValue;
-} & (Omit<SelectSingleProps<K>, 'value' | 'onChange'> | Omit<SelectMultiselectProps<K>, 'value' | 'onChange'>);
-
-type IsMultiselect<K extends ItemOption> = SelectControlledProps<K> | SelectUncontrolledProps<K>;
+    | SelectSingleNativeProps<K>
+    | SelectMultiselectNativeProps<K>;
 
 type SelectPrivateProps = {
     /**
@@ -326,7 +348,7 @@ export type SelectProps<K extends ItemOption = ItemOption> = BasicProps<K> &
     SelectPrivateProps &
     Omit<
         ButtonHTMLAttributes<HTMLButtonElement>,
-        'placeholder' | 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'name' | 'defaultValue' | 'onScroll'
+        'placeholder' | 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'defaultValue' | 'onScroll'
     >;
 
 export type ItemContext = {
