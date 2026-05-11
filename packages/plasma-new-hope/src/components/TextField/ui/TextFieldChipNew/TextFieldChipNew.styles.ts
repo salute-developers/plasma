@@ -52,6 +52,10 @@ export const StyledChip = styled(Chip)<{ chipClickArea: 'full' | 'close-icon' }>
         opacity: var(${tokens.chipOpacityReadonly});
     }
 
+    ${StyledContentClear} {
+        display: var(${tokens.chipCloseIconDisplay}, flex);
+    }
+
     &:not([readonly]):hover, &:not([readonly]):active {
         color: ${({ chipClickArea }) =>
             chipClickArea === 'full' ? `var(${tokens.chipColorHover})` : `var(${tokens.chipColor})`};
