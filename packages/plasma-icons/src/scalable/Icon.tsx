@@ -1329,6 +1329,7 @@ export const iconSectionsSet = {
         vkAltFill: 'VkAltFill',
         ruTubeFill: 'RuTubeFill',
         ruTubeAltFill: 'RuTubeAltFill',
+        appleLogoFill: 'AppleLogoFill',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',
