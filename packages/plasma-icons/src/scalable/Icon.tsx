@@ -704,6 +704,7 @@ export const iconSectionsSet = {
         dropsGroupFill: 'DropsGroupFill',
         aiFill: 'AiFill',
         aiOutline: 'AiOutline',
+        movementOutline: 'MovementOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
