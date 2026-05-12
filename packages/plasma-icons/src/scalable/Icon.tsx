@@ -1289,6 +1289,7 @@ export const iconSectionsSet = {
         track: 'Track',
         trackCast: 'TrackCast',
         trackError: 'TrackError',
+        aura: 'Aura',
     },
     Senses: {
         handActionFill: 'HandActionFill',
