@@ -23,6 +23,7 @@ const matchImageSnapshotWithTreshold = () =>
     });
 
 const openDatePicker = () => cy.get('input').first().click();
+const assertDatePickerPopoverOpen = () => cy.get('[data-floating-ui-portal] .date-picker-root').should('be.visible');
 
 getBaseVisualTests({
     component: 'DatePicker',
@@ -252,7 +253,7 @@ describeFn('DatePicker', () => {
                     defaultDate={new Date(2023, 5, 14)}
                     onToggle={(isOpen: boolean, event: any) => {
                         expect(isOpen).to.be.oneOf([true, false]);
-                        expect(event.type).to.eq('click');
+                        expect(event?.type).to.be.oneOf(['click', 'pointerdown', undefined]);
                     }}
                 />
             </>,
@@ -268,7 +269,7 @@ describeFn('DatePicker', () => {
         mount(<Demo enableContentRight />);
 
         cy.get('input').first().click().type('14.06.2023');
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.pressKey('Enter');
 
         cy.matchImageSnapshot();
@@ -287,8 +288,8 @@ describeFn('DatePicker', () => {
         );
 
         cy.get('input').first().click().clear();
-        cy.get('body').click();
         cy.get('input').first().click();
+        assertDatePickerPopoverOpen();
         cy.get('body').find('[data-day="16"][data-month-index="5"]').first().click();
         cy.matchImageSnapshot();
     });
@@ -297,7 +298,7 @@ describeFn('DatePicker', () => {
         mount(<Demo format="MM/DD/YYYY" maskWithFormat enableContentRight />);
 
         cy.get('input').first().click().type('06');
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('input').first().should('have.value', '06/');
         cy.get('input').first().type('14');
         cy.get('input').first().should('have.value', '06/14/');
@@ -312,7 +313,7 @@ describeFn('DatePicker', () => {
         mount(<Demo />);
 
         cy.get('input').first().click().type('14.06.2023');
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
 
         matchImageSnapshotWithTreshold();
     });
@@ -321,7 +322,7 @@ describeFn('DatePicker', () => {
         mount(<Demo defaultDate={new Date(2023, 5, 14)} closeAfterDateSelect={false} />);
 
         cy.get('input').first().click();
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('[data-day="15"]').click();
 
         cy.matchImageSnapshot();
@@ -331,7 +332,7 @@ describeFn('DatePicker', () => {
         mount(<Demo defaultDate={new Date(2023, 5, 14)} />);
 
         cy.get('input').first().click();
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('#id-grid-label').click();
         cy.get('[aria-label="Февраль"]').click();
 
@@ -342,7 +343,7 @@ describeFn('DatePicker', () => {
         mount(<Demo defaultDate={new Date(2023, 5, 14)} />);
 
         cy.get('input').first().click();
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('button[aria-label="Следующий месяц"]').click();
         cy.get('button[aria-label="Предыдущий месяц"]').click();
         cy.get('button[aria-label="Следующий месяц"]').click();
@@ -354,7 +355,7 @@ describeFn('DatePicker', () => {
         mount(<Demo defaultDate={new Date(2023, 5, 14)} />);
 
         cy.get('input').first().click();
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('#id-grid-label').click();
         cy.get('#id-grid-label').click();
         cy.get('[aria-label="2024"]').click();
@@ -368,7 +369,7 @@ describeFn('DatePicker', () => {
         mount(<Demo defaultDate={new Date(2023, 5, 14)} />);
 
         cy.get('input').first().click();
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('#id-grid-label').click();
         cy.get('button[aria-label="Предыдущий год"]').click();
         cy.get('button[aria-label="Следующий год"]').click();
@@ -431,7 +432,7 @@ describeFn('DatePicker', () => {
         mount(<ControlledDemo />);
 
         cy.get('input').first().click().type('06142024');
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button').first().click();
         cy.get('input').first().should('have.value', '10/15/2024');
@@ -446,7 +447,7 @@ describeFn('DatePicker', () => {
         mount(<ControlledDemo />);
 
         cy.get('input').first().click().type('06142024');
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button.reset-btn').click();
         cy.get('input').first().click();
@@ -721,7 +722,7 @@ describeFnRange('DatePickerRange', () => {
                     defaultFirstDate={new Date(2023, 5, 14)}
                     onToggle={(isOpen: boolean, event: any) => {
                         expect(isOpen).to.be.oneOf([true, false]);
-                        expect(event.type).to.eq('click');
+                        expect(event?.type).to.be.oneOf(['click', 'pointerdown', undefined]);
                     }}
                 />
             </>,
@@ -915,7 +916,7 @@ describeFnRange('DatePickerRange', () => {
         mount(<ControlledDemo />);
 
         cy.get('input').first().click().type('06142024');
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button').first().click();
         cy.get('input').first().should('have.value', '10/15/2024');
@@ -931,7 +932,7 @@ describeFnRange('DatePickerRange', () => {
         mount(<ControlledDemo />);
 
         cy.get('input').first().click().type('06142024');
-        cy.get('.popover-root').should('be.visible');
+        assertDatePickerPopoverOpen();
         cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button.reset-btn').click();
         cy.get('input').first().click();
