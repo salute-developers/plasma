@@ -7,7 +7,7 @@ import { config } from './Dropdown.config';
 const mergedConfig = mergeConfig(dropdownConfig, config);
 const DropdownNewHope = component(mergedConfig);
 
-export type Props<T extends DropdownItemOption> = Omit<DropdownProps<T>, 'size' | 'view'> &
+type Props<T extends DropdownItemOption> = Omit<DropdownProps<T>, 'size' | 'view'> &
     Pick<ComponentProps<typeof DropdownNewHope>, 'size' | 'view'>;
 
 const DropdownComponent = <T extends DropdownItemOption>(props: Props<T>, ref: ForwardedRef<HTMLButtonElement>) => {
@@ -17,3 +17,4 @@ const DropdownComponent = <T extends DropdownItemOption>(props: Props<T>, ref: F
 const Dropdown = fixedForwardRef(DropdownComponent);
 
 export { Dropdown };
+export type { Props as DropdownProps };
