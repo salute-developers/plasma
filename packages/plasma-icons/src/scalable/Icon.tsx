@@ -1287,6 +1287,7 @@ export const iconSectionsSet = {
         auraCast: 'AuraCast',
         track: 'Track',
         trackCast: 'TrackCast',
+        trackError: 'TrackError',
     },
     Senses: {
         handActionFill: 'HandActionFill',
