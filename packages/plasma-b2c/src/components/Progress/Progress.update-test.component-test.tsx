@@ -34,10 +34,10 @@ describe('plasma-b2c: Progress', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-1511] Progress: view=primary, value=50, without displayValue', () => {
+    it('[PLASMA-1511] Progress: view=primary, value=50, without hasValue', () => {
         mount(
             <CypressTestDecorator>
-                <Progress value={50} displayValue={false} view="primary" />
+                <Progress value={50} hasValue={false} view="primary" />
             </CypressTestDecorator>,
         );
 
