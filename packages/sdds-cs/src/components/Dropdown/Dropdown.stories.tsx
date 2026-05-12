@@ -15,6 +15,9 @@ const { meta: META, Default } = getDropdownStories({
     additionalComponents: {
         Button,
     },
+    defaultArgs: {
+        size: 's',
+    },
 });
 
 const meta: Meta<SelectProps> = {

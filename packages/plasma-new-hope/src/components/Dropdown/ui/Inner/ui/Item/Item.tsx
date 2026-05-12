@@ -45,8 +45,7 @@ export const Item: FC<DropdownItemProps> = ({
 
     const hasDescendants = Boolean(item.items);
     const disclosureIconSize = size === 'xs' ? 'xs' : 's';
-    const itemDisabled = disabled;
-    const isDisabledClassName = itemDisabled ? classes.dropdownItemIsDisabled : undefined;
+    const isDisabledClassName = disabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
             ? classes.dropdownItemIsFocused
@@ -64,7 +63,7 @@ export const Item: FC<DropdownItemProps> = ({
     }, [focusedClass]);
 
     const handleClick = (event: React.MouseEvent<HTMLLIElement>): void => {
-        if (itemDisabled) {
+        if (disabled) {
             event.stopPropagation();
             return;
         }
