@@ -1285,6 +1285,7 @@ export const iconSectionsSet = {
         notebookDownloadOutline: 'NotebookDownloadOutline',
         notebookDownloadFill: 'NotebookDownloadFill',
         auraCast: 'AuraCast',
+        track: 'Track',
     },
     Senses: {
         handActionFill: 'HandActionFill',
