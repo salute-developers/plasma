@@ -18,6 +18,7 @@ export * from './File';
 export * from './Segment';
 export { getTreeStories } from './Tree';
 export * from './Skeleton';
+export * from './InformationWrapper';
 export { getPaginationStories } from './Pagination';
 export { getNumberInputStories } from './NumberInput';
 export * from './Chip';
