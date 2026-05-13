@@ -1,16 +1,11 @@
-import {
-    comboboxNewConfig,
-    component,
-    mergeConfig,
-    fixedForwardRef,
-} from '@salutejs/plasma-new-hope/styled-components';
+import { comboboxConfig, component, mergeConfig, fixedForwardRef } from '@salutejs/plasma-new-hope/styled-components';
 import type { ComponentProps } from 'react';
 import type { ComboboxItemOption, ComboboxProps, DistributiveOmit, DistributivePick } from '@salutejs/plasma-new-hope';
 import React from 'react';
 
 import { config } from './Combobox.config';
 
-const mergedConfig = mergeConfig(comboboxNewConfig, config);
+const mergedConfig = mergeConfig(comboboxConfig, config);
 const ComboboxNew = component(mergedConfig);
 
 type PropsFromConfig = keyof typeof config['variations'];

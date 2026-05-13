@@ -1,8 +1,7 @@
 import type { CSSProperties, InputHTMLAttributes, ChangeEventHandler, Dispatch } from 'react';
 import * as React from 'react';
 import { SafeExtract } from 'src/types';
-
-import { RequiredProps, HintProps, LabelProps } from '../../TextField/TextField.types';
+import type { RequiredProps, HintProps, LabelProps } from 'src/components/TextField/TextField.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';

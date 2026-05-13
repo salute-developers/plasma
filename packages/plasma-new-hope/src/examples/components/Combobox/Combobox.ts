@@ -1,12 +1,11 @@
 import type { ForwardedRef, ComponentProps, ReactElement } from 'react';
-
-import { component, mergeConfig } from '../../../engines';
-import { comboboxNewConfig } from '../../..';
-import type { ComboboxProps, ComboboxItemOption } from '../../../components/Combobox';
+import { component, mergeConfig } from 'src/engines';
+import type { ComboboxProps, ComboboxItemOption } from 'src/components/Combobox';
+import { comboboxConfig } from 'src/components/Combobox';
 
 import { config } from './Combobox.config';
 
-const mergedConfig = mergeConfig(comboboxNewConfig, config);
+const mergedConfig = mergeConfig(comboboxConfig, config);
 const ComboboxComponent = component(mergedConfig);
 
 type PropsFromConfig = keyof typeof config['variations'];

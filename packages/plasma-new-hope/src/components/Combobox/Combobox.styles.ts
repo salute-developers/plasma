@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
+import { component, mergeConfig } from 'src/engines';
 
-import { emptyStateConfig, emptyStateTokens } from '../../EmptyState';
-import { IconDisclosureDownCentered } from '../../_Icon';
-import { component, mergeConfig } from '../../../engines';
+import { emptyStateConfig, emptyStateTokens } from '../EmptyState';
+import { IconDisclosureDownCentered } from '../_Icon';
 
 import { ComboboxProps } from './Combobox.types';
 import { tokens, constants, classes } from './Combobox.tokens';
