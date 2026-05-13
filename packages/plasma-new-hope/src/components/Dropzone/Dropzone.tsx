@@ -28,6 +28,7 @@ export const dropzoneRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, Dropzo
     forwardRef<HTMLInputElement, DropzoneProps>(
         (
             {
+                files,
                 className,
                 style,
                 accept,
@@ -57,6 +58,9 @@ export const dropzoneRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, Dropzo
             const [isDropzoneActive, setIsDropzoneActive] = useState(false);
             const [innerTitle, setInnerTitle] = useState(title);
             const [innerDescription, setInnerDescription] = useState(description);
+            const [innerFiles, setInnerFiles] = useState<File[]>([]);
+
+            const currentFiles = files !== undefined ? files : innerFiles;
 
             const inputRef = useRef<HTMLInputElement>(null);
             const forkInputRef = useForkRef(outerRef, inputRef);
@@ -190,7 +194,12 @@ export const dropzoneRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, Dropzo
 
                 const { files: rawFiles } = event.target;
 
-                await processFiles(rawFiles, onChoseFiles);
+                await processFiles(rawFiles, async (res) => {
+                    setInnerFiles(res.acceptedFiles);
+                    if (onChoseFiles) {
+                        await onChoseFiles(res);
+                    }
+                });
             };
 
             const truncateContent = () => {
@@ -271,6 +280,12 @@ export const dropzoneRoot = (Root: RootPropsOmitDraggable<HTMLDivElement, Dropzo
             useEffect(() => {
                 truncateContent();
             }, [title, description, iconPlacement]);
+
+            useEffect(() => {
+                if (inputRef.current) {
+                    inputRef.current.value = '';
+                }
+            }, [currentFiles]);
 
             return (
                 <Root
