@@ -24,6 +24,7 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.clearDividerColor}: var(${tokens.clearDividerColor});
     ${rangeTokens.dividerColor}: var(${tokens.dividerColor});
     ${rangeTokens.labelColor}: var(${tokens.labelColor});
+    ${rangeTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
     ${rangeTokens.leftHelperColor}: var(${tokens.leftHelperColor});
     ${rangeTokens.leftHelperColorSuccess}: var(${tokens.leftHelperColorSuccess});
     ${rangeTokens.leftHelperColorError}: var(${tokens.leftHelperColorError});

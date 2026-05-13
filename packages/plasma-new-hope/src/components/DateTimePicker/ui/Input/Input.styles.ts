@@ -16,6 +16,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.placeholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
+    
 
     ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
     ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundColorHover});
@@ -55,6 +56,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.labelInnerFontWeight}: var(${tokens.labelInnerFontWeight});
     ${textFieldTokens.labelInnerLetterSpacing}: var(${tokens.labelInnerLetterSpacing});
     ${textFieldTokens.labelInnerLineHeight}: var(${tokens.labelInnerLineHeight});
+    ${textFieldTokens.labelColor}: var(${tokens.labelColor});
     ${textFieldTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
 
     ${textFieldTokens.indicatorColor}: var(${tokens.indicatorColor});

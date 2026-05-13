@@ -36,6 +36,8 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.dividerColor}: var(${tokens.clearDividerColor});
     ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
     ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorHover});
+    ${textFieldTokens.labelColor}: var(${tokens.labelColor});
+    ${textFieldTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
 
     ${textFieldTokens.height}: var(${tokens.textFieldHeight});
     ${textFieldTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
@@ -60,7 +62,6 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.labelInnerFontWeight}: var(${tokens.labelInnerFontWeight});
     ${textFieldTokens.labelInnerLetterSpacing}: var(${tokens.labelInnerLetterSpacing});
     ${textFieldTokens.labelInnerLineHeight}: var(${tokens.labelInnerLineHeight});
-    ${textFieldTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
 
     ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${tokens.titleCaptionOffset});
     ${textFieldTokens.titleCaptionColor}: var(${tokens.titleCaptionColor});

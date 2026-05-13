@@ -90,6 +90,7 @@ export const StyledInput = styled(TextField)`
 
     ${textFieldTokens.labelOffset}: var(${tokens.labelOffset});
 
+    ${textFieldTokens.labelColor}: var(${tokens.labelColor});
     ${textFieldTokens.labelFontFamily}: var(${tokens.labelFontFamily});
     ${textFieldTokens.labelFontStyle}: var(${tokens.labelFontStyle});
     ${textFieldTokens.labelFontSize}: var(${tokens.labelFontSize});
@@ -173,6 +174,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${tokens.textFieldContentSlotRightOpacityReadOnly}, var(${textFieldTokens.contentSlotRightColor}));
 
     ${textFieldTokens.leftHelperColor}: var(${tokens.leftHelperColor});
+    ${textFieldTokens.leftHelperColorReadOnly}: var(${tokens.leftHelperColorReadOnly});
     ${textFieldTokens.leftHelperOffset}: var(${tokens.leftHelperOffset});
 
     ${textFieldTokens.leftHelperFontFamily}: var(${tokens.leftHelperFontFamily});
