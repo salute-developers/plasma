@@ -11,7 +11,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: var(--text-primary);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-primary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-primary);
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-primary-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-primary-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
@@ -22,7 +22,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: var(--text-accent);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-accent);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-accent);
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-solid-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-accent-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-accent-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
@@ -33,7 +33,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: var(--text-secondary);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-secondary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-secondary);
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-secondary-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-secondary-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
@@ -44,7 +44,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: var(--text-positive);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-positive);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-positive);
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-positive-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-positive-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
@@ -55,7 +55,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: var(--text-warning);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-warning);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-warning);
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-warning-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-warning-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
@@ -66,7 +66,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: var(--text-negative);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-negative);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-negative);
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-negative-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-negative-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
@@ -77,7 +77,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonColor}: var(--text-info);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-info);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-info);
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
                 ${linkButtonTokens.linkButtonColorHover}: var(--text-info-hover);
                 ${linkButtonTokens.linkButtonColorActive}: var(--text-info-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
@@ -165,8 +165,69 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${linkButtonTokens.linkButtonDisabledOpacity}: 0.4;
+                ${linkButtonTokens.linkButtonDisabledOpacity}: 1;
             `,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-tertiary);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-tertiary);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-tertiary);
+            `,
+        },
+        {
+            view: 'accent',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonDisabledOpacity}: 0.4;
+            `,
+        },
+        {
+            view: 'secondary',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-tertiary);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-tertiary);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-tertiary);
+            `,
+        },
+        {
+            view: 'positive',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonDisabledOpacity}: 0.4;
+            `,
+        },
+        {
+            view: 'warning',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-warning-minor);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-warning-minor);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-warning-minor);
+            `,
+        },
+        {
+            view: 'negative',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-negative-minor);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-negative-minor);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-negative-minor);
+            `,
+        },
+        {
+            view: 'info',
+            disabled: true,
+            style: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-info-minor);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-info-minor);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-info-minor);
+            `,
+        },
+    ],
 };

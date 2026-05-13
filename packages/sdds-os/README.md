@@ -14,7 +14,7 @@
 ### Установка зависимостей
 
 ```bash
-$ npm install --save @salutejs/sdds-os @salutejs/sdds-themes
+$ npm install --save @salutejs/sdds-os @salutejs-ds/sdds_os
 ```
 
 Для работы со `styled-components`, необходимо установить
@@ -30,7 +30,7 @@ $ npm install --save styled-components@5.3.1
 ```jsx
 import styled from 'styled-components';
 import { Button } from '@salutejs/sdds-os';
-import { textAccent } from '@salutejs/sdds-themes/tokens';
+import { textAccent } from '@salutejs-ds/sdds_os';
 
 export const App = () => {
     const StyledP = styled.p`
@@ -137,7 +137,7 @@ export default function Home() {
 В файле, где происходит подключение всех стилей, например `index.css`
 
 ```css
-@import '@salutejs/sdss-themes/css/sdds_serv__dark.css';
+@import '@salutejs-вы/sdss_os/css/sdds_os__dark.css';
 ```
 
 ```jsx
@@ -164,9 +164,9 @@ export default App;
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Button, BodyL } from '@salutejs/sdds-os/styled-components';
-import { sdds_serv__light } from '@salutejs/sdds-themes';
+import { sdds_os__light } from '@salutejs-ds/sdds_os';
 
-const Theme = createGlobalStyle(sdds_serv__light);
+const Theme = createGlobalStyle(sdds_os__light);
 
 const App = () => {
     return (
@@ -194,17 +194,16 @@ export const backgroundPrimary = 'var(--background-primary, #000000)';
 
 ### Способы подключения
 
-Есть два пути импорта токенов:
-
--   Из вертикали `@salutejs/sdds-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-serv` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
+```tsx
+import { textPrimary, h5 } from '@salutejs-ds/sdds_os';
+```
 
 ### Использование
 
 ```jsx
 import React from 'react';
 import styled from 'styled-components';
-import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
+import { textAccent, backgroundPrimary, textL } from '@salutejs-ds/sdds_os';
 
 const AppStyled = styled.div`
     padding: 2rem;

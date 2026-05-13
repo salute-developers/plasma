@@ -13,7 +13,7 @@ const widths = [100, 32, 171, 74, 179, 55];
 const heights = [10, 50, 45, 33, 14, 55];
 
 const FlowCustom = styled(Flow)`
-    background: var(--surface-transparent-primary);
+    background: var(--surface-solid-primary);
     border-radius: 0.5rem;
 `;
 

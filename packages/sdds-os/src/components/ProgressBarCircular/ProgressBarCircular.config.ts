@@ -8,37 +8,37 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
+                ${progressBarCircularTokens.backgroundStroke}: var(--surface-solid-tertiary);
                 ${progressBarCircularTokens.progressStroke}: var(--surface-solid-default);
                 ${progressBarCircularTokens.contentColor}: var(--text-primary);
             `,
             secondary: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
-                ${progressBarCircularTokens.progressStroke}: var(--surface-transparent-secondary);
+                ${progressBarCircularTokens.backgroundStroke}: var(--surface-solid-tertiary);
+                ${progressBarCircularTokens.progressStroke}: var(--surface-solid-secondary);
                 ${progressBarCircularTokens.contentColor}: var(--text-primary);
             `,
             accent: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
+                ${progressBarCircularTokens.backgroundStroke}: var(--surface-solid-tertiary);
                 ${progressBarCircularTokens.progressStroke}: var(--surface-accent);
                 ${progressBarCircularTokens.contentColor}: var(--text-primary);
             `,
             positive: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
+                ${progressBarCircularTokens.backgroundStroke}: var(--surface-solid-tertiary);
                 ${progressBarCircularTokens.progressStroke}: var(--surface-positive);
                 ${progressBarCircularTokens.contentColor}: var(--text-primary);
             `,
             warning: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
+                ${progressBarCircularTokens.backgroundStroke}: var(--surface-solid-tertiary);
                 ${progressBarCircularTokens.progressStroke}: var(--surface-warning);
                 ${progressBarCircularTokens.contentColor}: var(--text-primary);
             `,
             negative: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
+                ${progressBarCircularTokens.backgroundStroke}: var(--surface-solid-tertiary);
                 ${progressBarCircularTokens.progressStroke}: var(--surface-negative);
                 ${progressBarCircularTokens.contentColor}: var(--text-primary);
             `,
             info: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-transparent-tertiary);
+                ${progressBarCircularTokens.backgroundStroke}: var(--surface-solid-tertiary);
                 ${progressBarCircularTokens.progressStroke}: var(--surface-info);
                 ${progressBarCircularTokens.contentColor}: var(--text-primary);
             `,

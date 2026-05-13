@@ -556,24 +556,6 @@ describe('plasma-b2c: Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
-    it('prop: hasArrow', () => {
-        cy.viewport(1000, 500);
-
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Dropdown items={items} hasArrow={false}>
-                    <Button text="Список стран" />
-                </Dropdown>
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').click();
-        cy.get('[id$="south_america"]').click();
-        cy.get('[id$="argentina"]').click();
-
-        cy.matchImageSnapshot();
-    });
-
     it('prop: closeOnSelect', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -640,20 +622,6 @@ describe('plasma-b2c: Dropdown', () => {
 
         cy.get('button').click();
         cy.get('[id$="north_america"]').click();
-    });
-
-    it('prop: listHeight, listOverflow', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Dropdown items={items} listOverflow="scroll" listHeight={6}>
-                    <Button text="Список стран" />
-                </Dropdown>
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get('button').click();
-
-        cy.matchImageSnapshot();
     });
 
     it('prop: item data-attrs', () => {

@@ -49,6 +49,9 @@ export const tokens = {
     thumbOffsetOn: '--plasma-switch__thumb_checked_true-offset',
     thumbOffsetOff: '--plasma-switch__thumb_checked_false-offset',
     thumbBorderRadius: '--plasma-switch__thumb-border-radius',
+    thumbBorderColorOff: '--plasma-switch__thumb-border-color-off',
+    thumbBorderColorOn: '--plasma-switch__thumb-border-color-on',
+    thumbBorderWidth: '--plasma-switch__thumb-border-width',
 
     thumbPressScale: '--plasma-switch__thumb-scale',
 

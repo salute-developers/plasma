@@ -14,6 +14,7 @@ import {
     hintSizes,
     hintViews,
     shortcutsPlacements,
+    datePickerRangePlacements,
 } from './fixtures';
 
 type CreateMetaProps = {
@@ -64,6 +65,8 @@ const commonArgs = {
     hasShortcuts: false,
     shortcutsWidth: '11.5rem',
     shortcutsPlacement: 'left',
+    placement: 'bottom',
+    disableFlip: true,
 };
 
 const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) => ({
@@ -235,6 +238,10 @@ const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) =
         },
         if: { arg: 'hasShortcuts', truthy: true },
     },
+    disableFlip: {
+        control: { type: 'boolean' },
+        table: { category: 'dropdown' },
+    },
     ...additionalArgTypes,
 });
 
@@ -296,6 +303,11 @@ export const createMeta = ({
                 options: inputViews,
                 control: { type: 'select' },
             },
+            placement: {
+                options: placements,
+                control: { type: 'select' },
+                table: { category: 'dropdown' },
+            },
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },
     };
@@ -347,6 +359,11 @@ export const createRangeMeta = ({
             secondInputView: {
                 options: inputViews,
                 control: { type: 'select' },
+            },
+            placement: {
+                options: datePickerRangePlacements,
+                control: { type: 'select' },
+                table: { category: 'dropdown' },
             },
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },

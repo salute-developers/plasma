@@ -3,7 +3,6 @@ import * as React from 'react';
 import { SafeExtract } from 'src/types';
 
 import { RequiredProps, HintProps, LabelProps } from '../../TextField/TextField.types';
-import { DropdownProps } from '../../Dropdown/Dropdown.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
@@ -315,7 +314,7 @@ export type FloatingPopoverProps = {
     onToggle?: (opened: boolean) => void;
     portal?: ComboboxProps['portal'];
     listWidth?: ComboboxProps['listWidth'];
-    zIndex?: DropdownProps['zIndex'];
+    zIndex?: ComboboxProps['zIndex'];
     offset?: [number, number];
 };
 

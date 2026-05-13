@@ -5,7 +5,7 @@ import { PathAction, PathState } from '../reducers/pathReducer';
 import { FocusedPathAction, FocusedPathState } from '../reducers/focusedPathReducer';
 import { HandleGlobalToggleType, DropdownProps } from '../Dropdown.types';
 
-import { PathMapType, FocusedToValueMapType } from './useHashMaps';
+import { PathMapType, FocusedToValueMapType } from './usePathMaps';
 
 const JUMP_SIZE = 10;
 
@@ -40,7 +40,7 @@ interface Props {
     handleGlobalToggle: HandleGlobalToggleType;
     closeOnSelect: DropdownProps['closeOnSelect'];
     onItemSelect: DropdownProps['onItemSelect'];
-    onItemClick: DropdownProps['onItemClick'];
+    disabled: DropdownProps['disabled'];
 }
 
 interface ReturnedProps {
@@ -57,12 +57,16 @@ export const useKeyNavigation = ({
     handleGlobalToggle,
     closeOnSelect,
     onItemSelect,
-    onItemClick,
+    disabled,
 }: Props): ReturnedProps => {
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
     const currentLength: number = pathMap.get(path?.[focusedPath.length - 1]) || 0;
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+        if (disabled) {
+            return;
+        }
+
         switch (event.code) {
             case keys.ArrowUp: {
                 if (focusedPath.length) {
@@ -123,7 +127,7 @@ export const useKeyNavigation = ({
 
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
-                if (currentItem?.disabled || currentItem?.isDisabled) {
+                if (currentItem?.disabled) {
                     break;
                 }
 
@@ -150,7 +154,7 @@ export const useKeyNavigation = ({
 
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
-                if (currentItem?.disabled || currentItem?.isDisabled) {
+                if (currentItem?.disabled) {
                     break;
                 }
 
@@ -167,10 +171,6 @@ export const useKeyNavigation = ({
 
                     if (onItemSelect && currentItem) {
                         onItemSelect(currentItem, event);
-                    }
-
-                    if (onItemClick && currentItem) {
-                        onItemClick(currentItem, event);
                     }
                 }
 

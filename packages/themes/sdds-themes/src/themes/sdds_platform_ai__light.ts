@@ -575,8 +575,8 @@ export const sdds_platform_ai__light = ([
   --outline-warning-active: #CA4B02FF;
   --outline-negative-hover: #CCCCCCFF;
   --outline-negative-active: #E6E6E6FF;
-  --outline-info-hover: #47B0F5FF;
-  --outline-info-active: #096CAEFF;
+  --outline-info-hover: #CCCCCCFF;
+  --outline-info-active: #E6E6E6FF;
   --outline-positive-minor-hover: #7AE68EFF;
   --outline-positive-minor-active: #23B83EFF;
   --outline-warning-minor-hover: #FDB790FF;
@@ -602,7 +602,6 @@ export const sdds_platform_ai__light = ([
   --outline-warning: #E85702;
   --outline-positive: #108E26;
   --outline-transparent-positive: #108E2633;
-  --outline-info: #0B7ECB;
   --outline-positive-minor: #28D247;
   --outline-warning-minor: #FD9C68;
   --outline-negative-minor: #FF8F9A;
@@ -643,8 +642,8 @@ export const sdds_platform_ai__light = ([
   --on-dark-outline-warning-active: #FF5D05FF;
   --on-dark-outline-negative-hover: #FF8F9AFF;
   --on-dark-outline-negative-active: #FF1F35FF;
-  --on-dark-outline-info-hover: #66BCF5FF;
-  --on-dark-outline-info-active: #0E8ADDFF;
+  --on-dark-outline-info-hover: #858585FF;
+  --on-dark-outline-info-active: #666666FF;
   --on-dark-outline-positive-minor-hover: #0F9527FF;
   --on-dark-outline-positive-minor-active: #074A14FF;
   --on-dark-outline-warning-minor-hover: #FFA575FF;
@@ -670,7 +669,6 @@ export const sdds_platform_ai__light = ([
   --on-dark-outline-positive: #24B23E;
   --on-dark-outline-warning: #FF7024;
   --on-dark-outline-negative: #FF3D51;
-  --on-dark-outline-info: #199AF0;
   --on-dark-outline-positive-minor: #095C18;
   --on-dark-outline-warning-minor: #FF7024;
   --on-dark-outline-negative-minor: #FF3D51;
@@ -712,8 +710,8 @@ export const sdds_platform_ai__light = ([
   --on-light-outline-warning-active: #CA4B02FF;
   --on-light-outline-negative-hover: #F87C89FF;
   --on-light-outline-negative-active: #E40C22FF;
-  --on-light-outline-info-hover: #47B0F5FF;
-  --on-light-outline-info-active: #096CAEFF;
+  --on-light-outline-info-hover: #CCCCCCFF;
+  --on-light-outline-info-active: #E6E6E6FF;
   --on-light-outline-positive-minor-hover: #7AE68EFF;
   --on-light-outline-positive-minor-active: #23B83EFF;
   --on-light-outline-warning-minor-hover: #FDB790FF;
@@ -743,7 +741,6 @@ export const sdds_platform_ai__light = ([
   --on-light-outline-accent-minor: #28D247;
   --on-light-outline-warning: #E85702;
   --on-light-outline-negative: #F31B31;
-  --on-light-outline-info: #0B7ECB;
   --on-light-outline-positive-minor: #28D247;
   --on-light-outline-warning-minor: #FD9C68;
   --on-light-outline-negative-minor: #FF8F9A;
@@ -781,8 +778,8 @@ export const sdds_platform_ai__light = ([
   --inverse-outline-warning-active: #FF5D05FF;
   --inverse-outline-negative-hover: #FF8F9AFF;
   --inverse-outline-negative-active: #FF1F35FF;
-  --inverse-outline-info-hover: #66BCF5FF;
-  --inverse-outline-info-active: #0E8ADDFF;
+  --inverse-outline-info-hover: #858585FF;
+  --inverse-outline-info-active: #666666FF;
   --inverse-outline-positive-minor-hover: #0F9527FF;
   --inverse-outline-positive-minor-active: #074A14FF;
   --inverse-outline-warning-minor-hover: #BB4F11FF;
@@ -811,7 +808,6 @@ export const sdds_platform_ai__light = ([
   --inverse-outline-positive: #24B23E;
   --inverse-outline-warning: #FF7024;
   --inverse-outline-negative: #FF3D51;
-  --inverse-outline-info: #199AF0;
   --inverse-outline-positive-minor: #095C18;
   --inverse-outline-warning-minor: #85380C;
   --inverse-outline-negative-minor: #9C1422;
@@ -917,15 +913,19 @@ export const sdds_platform_ai__light = ([
   --outline-accent-gradient-active: #E6E6E6FF;
   --outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --outline-negative: linear-gradient(270.00deg, #F155D7FF 0%, #F31B31FF 100%);
+  --outline-info: linear-gradient(270deg, #562296FF 1.527%, #52BAFFFF 100%);
   --on-dark-outline-accent-gradient-hover: #858585FF;
   --on-dark-outline-accent-gradient-active: #666666FF;
   --on-dark-outline-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
+  --on-dark-outline-info: linear-gradient(270deg, #562296FF 1.527%, #52BAFFFF 100%);
   --on-light-outline-accent-gradient-hover: #CCCCCCFF;
   --on-light-outline-accent-gradient-active: #E6E6E6FF;
   --on-light-outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
+  --on-light-outline-info: linear-gradient(270deg, #562296FF 1.527%, #52BAFFFF 100%);
   --inverse-outline-accent-gradient-hover: #858585FF;
   --inverse-outline-accent-gradient-active: #666666FF;
   --inverse-outline-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
+  --inverse-outline-info: linear-gradient(270deg, #562296FF 1.527%, #52BAFFFF 100%);
 }
 
 :root {

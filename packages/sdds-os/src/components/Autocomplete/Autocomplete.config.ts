@@ -3,7 +3,7 @@ import { css, autocompleteTokens as tokens } from '@salutejs/plasma-new-hope/sty
 export const config = {
     defaults: {
         view: 'default',
-        size: 'l',
+        size: 'm',
         labelPlacement: 'outer',
     },
     variations: {
@@ -17,8 +17,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -34,14 +34,14 @@ export const config = {
                 ${tokens.textFieldIndicatorColor}: var(--surface-negative);
                 ${tokens.textFieldOptionalColor}: var(--text-tertiary);
 
-                ${tokens.textFieldDividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.textFieldDividerColor}: var(--surface-solid-tertiary);
                 ${tokens.textFieldDividerColorHover}: var(--text-secondary);
                 ${tokens.textFieldDividerColorFocus}: var(--surface-accent);
 
                 ${tokens.background}: var(--surface-solid-card);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${tokens.itemBackground}: transparent;
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemBackgroundHover}: var(--surface-solid-secondary);
                 ${tokens.itemColor}: var(--text-primary);
 
                 ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
@@ -59,8 +59,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: var(--text-positive);
                 ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-positive);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-positive);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-positive-active);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -83,7 +83,7 @@ export const config = {
                 ${tokens.background}: var(--surface-solid-card);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${tokens.itemBackground}: transparent;
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemBackgroundHover}: var(--surface-solid-secondary);
                 ${tokens.itemColor}: var(--text-primary);
 
                 ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
@@ -101,8 +101,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: var(--text-warning);
                 ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-warning);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-warning-active);
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-warning);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-warning-active);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -125,7 +125,7 @@ export const config = {
                 ${tokens.background}: var(--surface-solid-card);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${tokens.itemBackground}: transparent;
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemBackgroundHover}: var(--surface-solid-secondary);
                 ${tokens.itemColor}: var(--text-primary);
 
                 ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
@@ -143,8 +143,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: var(--text-negative);
                 ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-negative);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-negative-active);
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-negative);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-negative-active);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -167,7 +167,7 @@ export const config = {
                 ${tokens.background}: var(--surface-solid-card);
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${tokens.itemBackground}: transparent;
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemBackgroundHover}: var(--surface-solid-secondary);
                 ${tokens.itemColor}: var(--text-primary);
 
                 ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
@@ -409,11 +409,11 @@ export const config = {
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldReadOnlyOpacity}: 0.1;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-primary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldDividerColorReadOnly}: var(--surface-solid-primary);
             `,
         },
     },

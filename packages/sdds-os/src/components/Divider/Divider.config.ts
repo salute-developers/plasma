@@ -9,7 +9,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${dividerTokens.background}: var(--surface-transparent-tertiary);
+                ${dividerTokens.background}: var(--surface-solid-tertiary);
             `,
             dark: css`
                 ${dividerTokens.background}: var(--on-dark-surface-transparent-tertiary);

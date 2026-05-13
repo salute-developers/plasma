@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
             };
 
             return (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem'}}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '3rem'}}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>
                         <p>Значение date: {String(dateValue)}</p>
                         <p>Значение originalDate: {String(originalDateValue)}</p>
@@ -122,7 +122,7 @@ import TabItem from '@theme/TabItem';
             };
 
             return (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem'}}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '3rem'}}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>
                         <p>Значение date: {String(dateValue)}</p>
                         <p>Значение originalDate: {String(originalDateValue)}</p>
@@ -150,72 +150,35 @@ import TabItem from '@theme/TabItem';
 
 ### Управление внешним видом
 
-Внешний вид компонента зависит от свойств `appearance`, `size`:
+Внешний вид компонента зависит от свойств `size`:
 
-<Tabs>
-    <TabItem value="appearance" label="Appearance" default>
-        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasClearDivider`
+Размер `DatePicker` задаётся с помощью свойства `size`.
 
-        ```tsx live
-        import React from 'react';
-        import { DatePicker } from '@salutejs/sdds-scan';
-        import { IconDone } from '@salutejs/plasma-icons';
+```tsx live
+import React from 'react';
+import { DatePicker } from '@salutejs/sdds-scan';
+import { IconDone } from '@salutejs/plasma-icons';
 
-        export function App() {
-            return (
-                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
-                    <DatePicker
-                        appearance="default"
-                        label="Appearance default"
-                        leftHelper="Подсказка к полю"
-                        placeholder="Введите дату"
-                        contentRight={<IconDone size="s" />}
-                        usePortal
-                    />
-                    <DatePicker
-                        appearance="clear"
-                        hasClearDivider
-                        label="Appearance clear"
-                        leftHelper="Подсказка к полю"
-                        placeholder="Введите дату"
-                        contentRight={<IconDone size="s" />}
-                        usePortal
-                    />
-                </div>
-            );
-        }
-        ```
-    </TabItem>
-    <TabItem value="size" label="Size">
-        Размер `DatePicker` задаётся с помощью свойства `size`.
+export function App() {
+    const sizes = ['m', 's']
 
-        ```tsx live
-        import React from 'react';
-        import { DatePicker } from '@salutejs/sdds-scan';
-        import { IconDone } from '@salutejs/plasma-icons';
-
-        export function App() {
-            const sizes = ['xl', 'l', 'm', 's', 'xs']
-
-            return (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                    {sizes.map((size) => (
-                        <DatePicker
-                            key={size}
-                            size={size}
-                            label={`Size ${size}`}
-                            leftHelper="Подсказка к полю"
-                            placeholder="Введите дату"
-                            contentRight={<IconDone size="s" />}
-                            usePortal
-                        />
-                    ))}
-                </div>
-            );
-        }
-        ```
-    </TabItem>
-</Tabs>
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '2rem' }}>
+            {sizes.map((size) => (
+                <DatePicker
+                    key={size}
+                    size={size}
+                    label={`Size ${size}`}
+                    leftHelper="Подсказка к полю"
+                    placeholder="Введите дату"
+                    contentRight={<IconDone size="s" />}
+                    usePortal
+                />
+            ))}
+        </div>
+    );
+}
+```
 
 ### Формат даты
 
@@ -525,9 +488,9 @@ import { DatePicker } from '@salutejs/sdds-scan';
         import { DatePickerRange, IconButton } from '@salutejs/sdds-scan';
         import { IconDone } from '@salutejs/plasma-icons';
 
-        type DateType = Date | string | undefined | null
-
         export function App() {
+            type DateType = Date | string | undefined | null
+
             const [dateValue, setDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [originalDateValue, setOriginalDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [isoDateValue, setIsoDate] = useState<[string?, string?]>([new Date().toISOString(), '']);
@@ -585,7 +548,7 @@ import { DatePicker } from '@salutejs/sdds-scan';
                         isDoubleCalendar
                         usePortal
                         maskWithFormat
-                        size="l"
+                        size="m"
                         leftHelper="Подсказка к полю"
                         firstPlaceholder="Введите дату 1"
                         secondPlaceholder="Введите дату 2"
@@ -602,9 +565,9 @@ import { DatePicker } from '@salutejs/sdds-scan';
         import { DatePickerRange } from '@salutejs/sdds-scan';
         import { IconDone } from '@salutejs/plasma-icons';
 
-        type DateType = Date | string | undefined | null
-
         export function App() {
+            type DateType = Date | string | undefined | null
+            
             const [dateValue, setDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [originalDateValue, setOriginalDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [isoDateValue, setIsoDate] = useState<[string?, string?]>([new Date().toISOString(), '']);
@@ -665,70 +628,12 @@ import { DatePicker } from '@salutejs/sdds-scan';
 
 ### Управление внешним видом
 
-Внешний вид компонента зависит от свойств `appearance`, `size`, `isDoubleCalendar`:
+Внешний вид компонента зависит от свойств `size`, `isDoubleCalendar`:
 
 <Tabs>
-    <TabItem value="appearance" label="Appearance" default>
-        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasClearDivider`
-
-        ```tsx live
-        import React from 'react';
-        import { DatePickerRange, IconButton } from '@salutejs/sdds-scan';
-        import { IconDone } from '@salutejs/plasma-icons';
-
-        export function App() {
-            const ActionButton = () => {
-                return (
-                    <IconButton view="clear" size="l">
-                        <IconDone size="s" />
-                    </IconButton>
-                );
-            };
-
-            return (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-                    <DatePickerRange
-                        appearance="default"
-                        size="l"
-                        label="Appearance default"
-                        leftHelper="Подсказка к полю"
-                        firstPlaceholder="Введите дату 1"
-                        secondPlaceholder="Введите дату 2"
-                        contentRight={<ActionButton />}
-                        isDoubleCalendar
-                        usePortal
-                    />
-                    <DatePickerRange
-                        appearance="clear"
-                        size="l"
-                        label="Appearance clear"
-                        leftHelper="Подсказка к полю"
-                        firstPlaceholder="Введите дату 1"
-                        secondPlaceholder="Введите дату 2"
-                        contentRight={<ActionButton />}
-                        isDoubleCalendar
-                        usePortal
-                    />
-                    <DatePickerRange
-                        appearance="clear"
-                        hasClearDivider
-                        size="l"
-                        label="Appearance clear с разделителем"
-                        leftHelper="Подсказка к полю"
-                        firstPlaceholder="Введите дату 1"
-                        secondPlaceholder="Введите дату 2"
-                        contentRight={<ActionButton />}
-                        isDoubleCalendar
-                        usePortal
-                    />
-                </div>
-            );
-        }
-        ```
-    </TabItem>
     <TabItem value="size" label="Size">
         Размер `DatePickerRange` задаётся с помощью свойства `size`.
-        Возможные значения свойства: `"l"`, `"m"`, `"s"`, `"xs"`.
+        Возможные значения свойства: `"m"`, `"s"`.
 
         ```tsx live
         import React from 'react';
@@ -736,7 +641,7 @@ import { DatePicker } from '@salutejs/sdds-scan';
         import { IconDone } from '@salutejs/plasma-icons';
 
         export function App() {
-            const sizes = ['xl', 'l', 'm', 's', 'xs']
+            const sizes = ['m', 's']
 
             const ActionButton = () => {
                 return (
@@ -786,7 +691,7 @@ import { DatePicker } from '@salutejs/sdds-scan';
             return (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
                     <DatePickerRange
-                        size="l"
+                        size="m"
                         label="Одиночный календарь"
                         leftHelper="Подсказка к полю"
                         firstPlaceholder="Введите дату 1"
@@ -795,7 +700,7 @@ import { DatePicker } from '@salutejs/sdds-scan';
                         usePortal
                     />
                     <DatePickerRange
-                        size="l"
+                        size="m"
                         label="Двойной календарь"
                         leftHelper="Подсказка к полю"
                         firstPlaceholder="Введите дату 1"

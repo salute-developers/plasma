@@ -33,10 +33,10 @@ export const config = {
                 ${buttonTokens.buttonTextColor}: var(--text-primary);
                 ${buttonTokens.buttonIconColor}: var(--text-primary);
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-secondary);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-secondary-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-secondary-active);
             `,
             clear: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
@@ -45,8 +45,8 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-secondary-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-secondary-active);
             `,
             positive: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
@@ -77,16 +77,6 @@ export const config = {
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-negative-active);
-            `,
-            dark: css`
-                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
             `,
             black: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
@@ -173,52 +163,10 @@ export const config = {
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
             `,
-            xs: css`
-                ${buttonTokens.buttonHeight}: 2rem;
-                ${buttonTokens.buttonWidth}: 10rem;
-                ${buttonTokens.buttonPadding}: 0.75rem;
-                ${buttonTokens.buttonRadius}: 0.5rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${buttonTokens.buttonSpinnerSize}: 1rem;
-                ${buttonTokens.buttonSpinnerColor}: inherit;
-
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
-                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
-                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
-                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.125rem;
-            `,
-            xxs: css`
-                ${buttonTokens.buttonHeight}: 1.5rem;
-                ${buttonTokens.buttonWidth}: 8.75rem;
-                ${buttonTokens.buttonPadding}: 0.625rem;
-                ${buttonTokens.buttonRadius}: 0.375rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${buttonTokens.buttonSpinnerSize}: 0.75rem;
-                ${buttonTokens.buttonSpinnerColor}: inherit;
-
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
-                ${buttonTokens.buttonAdditionalContentMargin}: 0 0rem 0 0.25rem;
-                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
-                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.125rem;
-            `,
         },
         disabled: {
             true: css`
-                ${buttonTokens.buttonDisabledOpacity}: 0.4;
+                ${buttonTokens.buttonDisabledOpacity}: 1;
             `,
         },
         focused: {
@@ -232,4 +180,101 @@ export const config = {
             fixed: css``,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            disabled: true,
+            style: css`
+                ${buttonTokens.buttonColor}: var(--text-tertiary);
+                ${buttonTokens.buttonTextColor}: var(--text-tertiary);
+                ${buttonTokens.buttonIconColor}: var(--text-tertiary);
+                ${buttonTokens.buttonValueColor}: var(--text-tertiary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-tertiary);
+            `,
+        },
+        {
+            view: 'accent',
+            disabled: true,
+            style: css`
+                ${buttonTokens.buttonColor}: var(--on-dark-text-accent-minor);
+                ${buttonTokens.buttonTextColor}: var(--on-dark-text-accent-minor);
+                ${buttonTokens.buttonIconColor}: var(--on-dark-text-accent-minor);
+                ${buttonTokens.buttonValueColor}: var(--on-dark-text-accent-minor);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
+            `,
+        },
+        {
+            view: 'secondary',
+            disabled: true,
+            style: css`
+                ${buttonTokens.buttonColor}: var(--text-tertiary);
+                ${buttonTokens.buttonTextColor}: var(--text-tertiary);
+                ${buttonTokens.buttonIconColor}: var(--text-tertiary);
+                ${buttonTokens.buttonValueColor}: var(--text-tertiary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-secondary);
+            `,
+        },
+        {
+            view: 'clear',
+            disabled: true,
+            style: css`
+                ${buttonTokens.buttonColor}: var(--text-tertiary);
+                ${buttonTokens.buttonTextColor}: var(--text-tertiary);
+                ${buttonTokens.buttonIconColor}: var(--text-tertiary);
+                ${buttonTokens.buttonValueColor}: var(--text-tertiary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
+            `,
+        },
+        {
+            view: 'positive',
+            disabled: true,
+            style: css`
+                ${buttonTokens.buttonColor}: var(--on-dark-text-positive-minor);
+                ${buttonTokens.buttonTextColor}: var(--on-dark-text-positive-minor);
+                ${buttonTokens.buttonIconColor}: var(--on-dark-text-positive-minor);
+                ${buttonTokens.buttonValueColor}: var(--on-dark-text-positive-minor);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-positive);
+            `,
+        },
+        {
+            view: 'warning',
+            disabled: true,
+            style: css`
+                ${buttonTokens.buttonColor}: var(--on-dark-text-warning);
+                ${buttonTokens.buttonTextColor}: var(--on-dark-text-warning);
+                ${buttonTokens.buttonIconColor}: var(--on-dark-text-warning);
+                ${buttonTokens.buttonValueColor}: var(--text-warning-minor);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-warning-minor);
+            `,
+        },
+        {
+            view: 'negative',
+            disabled: true,
+            style: css`
+                ${buttonTokens.buttonColor}: var(--on-dark-text-negative);
+                ${buttonTokens.buttonTextColor}: var(--on-dark-text-negative);
+                ${buttonTokens.buttonIconColor}: var(--on-dark-text-negative);
+                ${buttonTokens.buttonValueColor}: var(--text-negative-minor);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-negative-minor);
+            `,
+        },
+        {
+            view: 'black',
+            disabled: true,
+            style: css`
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-tertiary);
+            `,
+        },
+        {
+            view: 'white',
+            disabled: true,
+            style: css`
+                ${buttonTokens.buttonColor}: var(--on-light-text-tertiary);
+                ${buttonTokens.buttonTextColor}: var(--on-light-text-tertiary);
+                ${buttonTokens.buttonIconColor}: var(--on-light-text-tertiary);
+                ${buttonTokens.buttonValueColor}: var(--on-light-text-tertiary);
+                ${buttonTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
+            `,
+        },
+    ],
 };

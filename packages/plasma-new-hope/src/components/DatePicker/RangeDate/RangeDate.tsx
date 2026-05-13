@@ -99,7 +99,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 hintWidth,
                 hintContentLeft,
 
-                // calendar-container
+                // popover-container
                 frame = 'document',
                 usePortal = false,
                 zIndex,
@@ -108,6 +108,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 closeOnEsc = true,
                 closeAfterDateSelect = true,
                 offset,
+                disableFlip,
 
                 // calendar
                 format = 'DD.MM.YYYY',
@@ -215,6 +216,20 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
             const fullDateEntered = Boolean(calendarFirstValue && calendarSecondValue);
 
             const [secondTextFieldClicked, setSecondTextFieldClicked] = useState(false);
+
+            const isSameMonth = Boolean(
+                fullDateEntered && customDayjs(calendarFirstValue).isSame(calendarSecondValue, 'month'),
+            );
+
+            let calendarFocusedDate: DateType = calendarFirstValue;
+
+            if (secondTextFieldClicked && calendarSecondValue) {
+                const shouldShowPreviousMonth = Boolean(isDoubleCalendar && calendarFirstValue && !isSameMonth);
+
+                calendarFocusedDate = shouldShowPreviousMonth
+                    ? new Date(calendarSecondValue.getFullYear(), calendarSecondValue.getMonth() - 1, 1)
+                    : calendarSecondValue;
+            }
 
             const handleInputChange = (value: string) => {
                 if (onChange) {
@@ -424,7 +439,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
             };
 
             const { onKeyDown } = useKeyNavigation({
-                isCalendarOpen: isInnerOpen,
+                isCalendarOpen: openedValue,
                 format,
                 maskWithFormat,
                 delimiter: dateFormatDelimiter,
@@ -629,6 +644,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 >
                     <RangeDatePopover
                         calendarValue={[calendarFirstValue, calendarSecondValue]}
+                        calendarFocusedDate={calendarFocusedDate}
                         target={RangeComponent}
                         opened={openedValue}
                         includeEdgeDates={includeEdgeDates}
@@ -665,6 +681,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         dateShortcuts={dateShortcuts}
                         dateShortcutsPlacement={dateShortcutsPlacement}
                         dateShortcutsWidth={dateShortcutsWidth}
+                        disableFlip={disableFlip}
                         onShortcutDateSelect={handleShortcutDateSelect}
                     />
                     <InputHidden
