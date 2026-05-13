@@ -1,13 +1,13 @@
 import styled from 'styled-components';
+import { addFocus, applyEllipsis } from 'src/mixins';
+import { component, mergeConfig } from 'src/engines';
+import { checkboxConfig, checkboxTokens } from 'src/components/Checkbox';
+import { indicatorConfig, indicatorTokens } from 'src/components/Indicator';
+import { cellConfig, cellTokens } from 'src/components/Cell';
+import { IconDisclosureRightCentered, IconDone } from 'src/components/_Icon';
 
-import { classes, tokens, constants } from '../../../../Combobox.tokens';
-import { addFocus, applyEllipsis } from '../../../../../../../mixins';
-import { component, mergeConfig } from '../../../../../../../engines';
-import { checkboxConfig, checkboxTokens } from '../../../../../../Checkbox';
-import { indicatorConfig, indicatorTokens } from '../../../../../../Indicator';
-import { cellConfig, cellTokens } from '../../../../../../Cell';
 import type { ComboboxProps } from '../../../../Combobox.types';
-import { IconDisclosureRightCentered, IconDone } from '../../../../../../_Icon';
+import { classes, tokens, constants } from '../../../../Combobox.tokens';
 
 const mergedCheckboxConfig = mergeConfig(checkboxConfig);
 const Checkbox = component(mergedCheckboxConfig);

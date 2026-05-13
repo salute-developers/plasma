@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
-
-import { comboboxNewTokens as tokens } from '../../../components/Combobox';
+import { comboboxTokens as tokens } from 'src/components/Combobox';
 
 export const config = {
     defaults: {

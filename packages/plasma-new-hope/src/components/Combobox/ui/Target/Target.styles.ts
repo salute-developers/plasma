@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { textFieldConfig, textFieldTokens } from 'src/components/TextField';
+import { component, mergeConfig } from 'src/engines';
 
-import { textFieldConfig, textFieldTokens } from '../../../../TextField';
-import { component, mergeConfig } from '../../../../../engines';
 import { tokens as comboboxTokens } from '../../Combobox.tokens';
 
 const mergedConfig = mergeConfig(textFieldConfig);
@@ -41,7 +41,7 @@ export const StyledTextField = styled(TextField)`
 
     ${textFieldTokens.leftContentMargin}: var(${comboboxTokens.textFieldLeftContentMargin});
     ${textFieldTokens.rightContentMargin}: var(${comboboxTokens.textFieldRightContentMargin});
-    
+
     ${textFieldTokens.rightContentWithHintMargin}: var(${comboboxTokens.textFieldRightContentWithHintMargin});
     ${textFieldTokens.contentRightWrapperGap}: var(${comboboxTokens.textFieldContentRightWrapperGap});
     ${textFieldTokens.contentRightWrapperMargin}: var(${comboboxTokens.textFieldContentRightWrapperMargin});
@@ -113,7 +113,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.textAfterMargin}: var(${comboboxTokens.textFieldTextAfterMargin});
 
     ${textFieldTokens.disabledOpacity}: var(${comboboxTokens.textFieldDisabledOpacity});
-    
+
     ${textFieldTokens.hintCustomIconTargetSize}: var(${comboboxTokens.textFieldHintCustomIconTargetSize});
     ${textFieldTokens.hintMargin}: var(${comboboxTokens.textFieldHintMargin});
     ${textFieldTokens.hintTargetSize}: var(${comboboxTokens.textFieldHintTargetSize});
