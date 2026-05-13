@@ -4,54 +4,160 @@ title: Dropzone
 ---
 
 import { PropsTable, Description } from '@site/src/components';
-
-<Description name="Dropzone" />
-<PropsTable name="Dropzone"  exclude={['css']} />
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Dropzone
-Компонент для загрузки файлов, без отображения индикации загрузки. 
-Компонент не предполагает наличия валиации, так как является частью Upload. 
+Компонент для загрузки файлов, без отображения индикации загрузки.
+Компонент не предполагает наличия валидации, так как является частью Upload.
 Но валидацию можно задать с помощью callback `validator`.
 
-# Пример
+<Description name="Dropzone" />
+<PropsTable name="Dropzone" exclude={['css']} />
+
+## Быстрый старт
 
 ```tsx live
 import React from 'react';
 import { Dropzone } from '@salutejs/sdds-dfa';
 
 export function App() {
-    const onDragEnter = () => {
-        console.log("onDragEnter")
-    }
-
-    const onDragLeave = () => {
-        console.log("onDragLeave")
-    }
-
-    const onDrop = () => {
-        console.log("onDrop")
-    }
-
-    const onChange = () => {
-        console.log("onChange")
-    }
-
-    const onChoseFiles = () => {
-        console.log("onChoseFiles")
-    }
-
     return (
         <Dropzone
             iconPlacement="top"
-            width="240"
+            width={400}
+            height={280}
             title="Click to upload"
             description="or drag and drop files here"
-            onDragEnter={onDragEnter}
-            onDragLeave={onDragLeave}
-            onDrop={onDrop}
-            onChange={onChange}
-            onChoseFiles={onChoseFiles}
+            onDrop={({ acceptedFiles }) => console.log('onDrop', acceptedFiles)}
+            onChoseFiles={({ acceptedFiles }) => console.log('onChoseFiles', acceptedFiles)}
         />
+    );
+}
+```
+
+## Растягивание
+
+С помощью свойства `stretch` компонент растягивается на всю доступную ширину:
+
+```tsx live
+import React from 'react';
+import { Dropzone } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <Dropzone
+            stretch
+            height={200}
+            iconPlacement="top"
+            title="Click to upload"
+            description="or drag and drop files here"
+        />
+    );
+}
+```
+
+## Множественный выбор
+
+С помощью свойства `multiple` можно разрешить выбор нескольких файлов одновременно:
+
+```tsx live
+import React from 'react';
+import { Dropzone } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <Dropzone
+            multiple
+            iconPlacement="top"
+            width={400}
+            height={280}
+            title="Click to upload"
+            description="or drag and drop files here"
+            onChoseFiles={({ acceptedFiles }) => console.log('Выбрано файлов:', acceptedFiles.length)}
+        />
+    );
+}
+```
+
+## Контролируемый режим
+
+Компонент поддерживает контролируемый режим через свойство `files`. При изменении списка файлов снаружи (например, при удалении) компонент автоматически сбрасывает состояние инпута, что позволяет повторно выбрать тот же файл:
+
+```tsx live
+import React, { useState } from 'react';
+import { Dropzone, Chip } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [files, setFiles] = useState([]);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <Dropzone
+                iconPlacement="top"
+                width={400}
+                height={280}
+                title="Click to upload"
+                description="or drag and drop files here"
+                files={files}
+                onChoseFiles={({ acceptedFiles }) => setFiles(acceptedFiles)}
+                onDrop={({ acceptedFiles }) => setFiles(acceptedFiles)}
+            />
+            {files.length > 0 && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                    {files.map((file, index) => (
+                        <Chip
+                            view="clear"
+                            key={index}
+                            text={file.name}
+                            onClickClose={() => setFiles((prev) => prev.filter((_, i) => i !== index))}
+                        />
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+```
+
+## Валидация
+
+С помощью свойства `validator` можно задать функцию валидации файлов. Она вызывается перед `onDrop` и `onChoseFiles` и должна вернуть объект с `acceptedFiles` и опционально `rejectedFiles`:
+
+```tsx live
+import React, { useState } from 'react';
+import { Dropzone } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [log, setLog] = useState('');
+
+    const validator = async (files) => {
+        const acceptedFiles = files.filter((f) => f.size < 1024 * 1024);
+        const rejectedFiles = files.filter((f) => f.size >= 1024 * 1024);
+        return { acceptedFiles, rejectedFiles };
+    };
+
+    const handleChoseFiles = ({ acceptedFiles, rejectedFiles }) => {
+        if (rejectedFiles.length) {
+            setLog(`Отклонено файлов: ${rejectedFiles.length} (больше 1 МБ)`);
+        } else {
+            setLog(`Принято файлов: ${acceptedFiles.length}`);
+        }
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <Dropzone
+                iconPlacement="top"
+                width={400}
+                height={280}
+                title="Только файлы до 1 МБ"
+                description="or drag and drop files here"
+                validator={validator}
+                onChoseFiles={handleChoseFiles}
+            />
+            {log && <p>{log}</p>}
+        </div>
     );
 }
 ```
