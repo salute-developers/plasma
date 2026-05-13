@@ -1,4 +1,70 @@
 {
+  "0.348.0": {
+    "date": "2026-05-13",
+    "core": [
+      {
+        "component": "Modal",
+        "children": [
+          {
+            "text": "исправлен discriminated union `hasBody`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2743",
+            "id": 2743
+          }
+        ]
+      },
+      {
+        "component": "TextField",
+        "children": [
+          {
+            "text": "добавлен токен `chipCloseIconDisplay`",
+            "link": "https://github.com/salute-developers/plasma/pull/2755",
+            "id": 2755
+          }
+        ]
+      },
+      {
+        "component": "Dropdown",
+        "children": [
+          {
+            "text": "сделан глубокий рефактор компонента. Логика состояния, фокуса и навигации вынесена в новые хуки и внутренние компоненты. Удален legacy-слой.",
+            "link": "https://github.com/salute-developers/plasma/pull/2744",
+            "id": 2744
+          }
+        ]
+      },
+      {
+        "component": "Select",
+        "children": [
+          {
+            "text": "исправлен баг, при котором не выбиралось значение в одиночном режиме в связке с `react-hook-form`;\n\nулучшена типизация компонента при работе с `Controller` из `react-hook-form`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2754",
+            "id": 2754
+          }
+        ]
+      },
+      {
+        "component": "Radiobox",
+        "children": [
+          {
+            "text": "добавлен токен `labelColor`",
+            "link": "https://github.com/salute-developers/plasma/pull/2738",
+            "id": 2738
+          }
+        ]
+      },
+      {
+        "component": "DatePicker",
+        "children": [
+          {
+            "text": "логика по открытию выпадающего контента переведена на `FloatingPopover`",
+            "link": "https://github.com/salute-developers/plasma/pull/2751",
+            "id": 2751
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.347.0": {
     "date": "2026-04-29",
     "core": [
