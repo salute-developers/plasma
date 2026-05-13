@@ -13,6 +13,7 @@ const appendChainParam = (params: URLSearchParams) => ({
     },
 });
 
+//
 const getAuthURL = (pluginClientId: string) => {
     const { REACT_APP_AUTH_SERVER_URL, REACT_APP_APPLICATION_CLIENT_ID } = getEnv();
 
