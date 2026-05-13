@@ -27,6 +27,14 @@ export const config = {
                 ${segmentTokens.groupArrowPadding}: 0.25rem 0.75rem;
                 ${segmentTokens.groupVerticalArrowPadding}: 0.75rem 0;
             `,
+            s: css`
+                ${segmentTokens.groupBorderRadius}: 0.75rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.25rem;
+                ${segmentTokens.groupWidth}: auto;
+                ${segmentTokens.groupHeight}: auto;
+                ${segmentTokens.groupArrowPadding}: 0.5rem 0.875rem;
+                ${segmentTokens.groupVerticalArrowPadding}: 0.875rem 0;
+            `,
             m: css`
                 ${segmentTokens.groupBorderRadius}: 0.875rem;
                 ${segmentTokens.groupPilledBorderRadius}: 1.625rem;
@@ -34,6 +42,14 @@ export const config = {
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.75rem 1.25rem;
                 ${segmentTokens.groupVerticalArrowPadding}: 1.25rem 0;
+            `,
+            l: css`
+                ${segmentTokens.groupBorderRadius}: 1rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.875rem;
+                ${segmentTokens.groupWidth}: auto;
+                ${segmentTokens.groupHeight}: auto;
+                ${segmentTokens.groupArrowPadding}: 1rem 1.375rem;
+                ${segmentTokens.groupVerticalArrowPadding}: 1.375rem 0;
             `,
         },
         disabled: {
