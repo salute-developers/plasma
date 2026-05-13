@@ -25,7 +25,7 @@ export const config = {
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
@@ -70,7 +70,7 @@ export const config = {
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-positive);
                 ${tokens.textFieldLeftHelperColorFocus}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
@@ -116,7 +116,7 @@ export const config = {
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-warning);
                 ${tokens.textFieldLeftHelperColorFocus}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
@@ -162,7 +162,7 @@ export const config = {
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-negative);
                 ${tokens.textFieldLeftHelperColorFocus}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
@@ -434,7 +434,7 @@ export const config = {
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldLabelColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldDividerColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary);

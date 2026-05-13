@@ -20,7 +20,7 @@ export const config = {
                 ${tokens.borderColorError}: var(--outline-transparent-negative);
                 ${tokens.borderColorSuccess}: var(--outline-transparent-positive);
 
-                ${tokens.labelColor}: var(--text-primary);
+                ${tokens.labelColor}: var(--text-secondary);
 
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);

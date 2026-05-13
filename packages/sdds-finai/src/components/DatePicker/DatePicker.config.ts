@@ -21,7 +21,7 @@ export const config = {
                 ${tokens.borderColorSuccess}: var(--outline-transparent-positive);
 
                 ${tokens.dividerColor}: var(--text-primary);
-                ${tokens.labelColor}: var(--text-primary);
+                ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
@@ -570,7 +570,7 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
-                ${tokens.labelColorReadOnly}: var(--text-primary);
+                ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
                 ${tokens.dividerColorReadOnly}: var(--text-primary);
