@@ -24,7 +24,7 @@ export const config = {
                 ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
@@ -74,7 +74,7 @@ export const config = {
                 ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-positive);
                 ${tokens.textFieldLeftHelperColorFocus}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
@@ -125,7 +125,7 @@ export const config = {
                 ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-warning);
                 ${tokens.textFieldLeftHelperColorFocus}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
@@ -176,7 +176,7 @@ export const config = {
                 ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-negative);
                 ${tokens.textFieldLeftHelperColorFocus}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
@@ -765,7 +765,7 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldLabelColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary);
