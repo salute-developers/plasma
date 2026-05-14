@@ -232,6 +232,7 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
 
     &.${classes.disabled} {
         opacity: var(${tokens.disabledOpacity});
+        cursor: not-allowed;
     }
 
     &.${classes.transparentDivider} {
@@ -419,7 +420,7 @@ export const StepItemStyled = styled.div`
     }
 
     &:not(.${classes.simple}):not(.${classes.verticalOrientation}) {
-        &.isNextActive {
+        &:not(.${classes.centered}).isNextActive {
             ${BulletIndicatorWrapper} {
                 width: calc(100% - (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
             }
@@ -498,7 +499,12 @@ export const StepItemStyled = styled.div`
     }
 
     &.${classes.disabled} {
-        cursor: default;
+        cursor: not-allowed;
         opacity: var(${tokens.disabledOpacity});
+
+        ${BulletIndicator},
+        ${Bullet} {
+            cursor: not-allowed;
+        }
     }
 `;
