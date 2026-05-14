@@ -38,7 +38,7 @@ export const config = {
 
                 ${tokens.labelOuterColor}: var(--text-primary);
 
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.dividerColor}: var(--surface-solid-tertiary);
                 ${tokens.dividerColorHover}: var(--text-secondary);
                 ${tokens.dividerColorFocus}: var(--surface-accent);
 
@@ -341,7 +341,7 @@ export const config = {
             true: css`
                 ${tokens.inputColorReadOnly}: var(--text-primary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.dividerColorReadOnly}: var(--surface-solid-primary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },

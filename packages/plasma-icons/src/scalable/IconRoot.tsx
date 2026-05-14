@@ -35,6 +35,11 @@ const IconsRoot = styled.div`
     width: var(--icon-size);
     height: var(--icon-size);
     flex: none;
+
+    /* Нужно чтобы svg была блочным элементов для отключения baseline */
+    svg {
+        display: block;
+    }
 `;
 
 export const getIconComponent = (

@@ -211,6 +211,7 @@ export const tokens = {
     chipWidth: '--plasma-textfield__chip-width',
     chipPadding: '--plasma-textfield__chip-padding',
     chipCloseIconSize: '--plasma-textfield__chip-close-icon-size',
+    chipCloseIconDisplay: '--plasma-textfield__chip-close-icon-display',
     chipFontFamily: '--plasma-textfield__chip-font-family',
     chipFontSize: '--plasma-textfield__chip-font-size',
     chipFontStyle: '--plasma-textfield__chip-font-style',

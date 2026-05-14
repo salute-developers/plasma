@@ -3,33 +3,9 @@ import { component, mergeConfig } from 'src/engines';
 
 import { rangeConfig, rangeTokens } from '../../Range';
 import { classes, tokens } from '../DatePicker.tokens';
-import { popoverClasses, popoverConfig } from '../../Popover';
 
 const mergedRangeConfig = mergeConfig(rangeConfig);
 const Range = component(mergedRangeConfig);
-
-const mergedPopoverConfig = mergeConfig(popoverConfig);
-const Popover = component(mergedPopoverConfig);
-
-export const StyledPopover = styled(Popover)`
-    .${classes.datePickerRoot} {
-        box-sizing: border-box;
-
-        display: flex;
-        gap: var(${tokens.popoverGap});
-        border-radius: var(${tokens.popoverBorderRadius});
-        padding: var(${tokens.popoverPadding});
-
-        border: var(${tokens.calendarBorderWidth}) solid var(${tokens.calendarBorderColor});
-        background: var(${tokens.popoverBackgroundColor});
-        box-shadow: var(${tokens.popoverShadow});
-
-        overflow: hidden;
-
-        width: ${({ innerWidth }) => innerWidth || 'fit-content'};
-        height: ${({ innerHeight }) => innerHeight || 'fit-content'};
-    }
-`;
 
 // NOTE: переопределение токенов Range
 export const StyledRange = styled(Range)`
@@ -228,24 +204,15 @@ export const StyledRange = styled(Range)`
 export const base = css`
     display: inline-block;
 
-    & > .${popoverClasses.wrapper} {
-        display: grid;
-        width: inherit;
-
-        .${popoverClasses.target} {
-            width: inherit;
-        }
-    }
-
     &.${classes.datePickerstretched} {
         width: 100%;
 
-        & > .${popoverClasses.wrapper} {
+        & > div {
             width: 100%;
+        }
 
-            .${popoverClasses.target}, ${StyledRange} {
-                width: 100%;
-            }
+        ${StyledRange} {
+            width: 100%;
         }
     }
 `;

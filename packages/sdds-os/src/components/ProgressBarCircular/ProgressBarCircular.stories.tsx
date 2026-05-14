@@ -51,7 +51,7 @@ const getContent = (value: number, size?: string) => {
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
         view: 'default',
-        size: 's',
+        size: 'm',
         value: 50,
         hasTrack: true,
     },

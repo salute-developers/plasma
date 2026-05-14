@@ -18,8 +18,8 @@ const baseItemView = `
     ${tokens.inactiveTitleColorHover}: var(--text-secondary-hover);
     ${tokens.inactiveIndicatorColor}: var(--text-secondary);
     ${tokens.inactiveIndicatorColorHover}: var(--text-secondary);
-    ${tokens.inactiveIndicatorBackground}: var(--surface-transparent-secondary);
-    ${tokens.inactiveIndicatorBackgroundHover}: var(--surface-transparent-secondary-hover);
+    ${tokens.inactiveIndicatorBackground}: var(--surface-solid-secondary);
+    ${tokens.inactiveIndicatorBackgroundHover}: var(--surface-solid-secondary-hover);
 
     ${tokens.contentColor}: var(--text-secondary);
     ${tokens.focusColor}: var(--surface-accent);

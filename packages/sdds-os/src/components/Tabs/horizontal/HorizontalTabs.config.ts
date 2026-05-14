@@ -22,7 +22,7 @@ export const config = {
                 ${tabsTokens.arrowColor}: var(--text-secondary);
                 ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
                 ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
-                ${tabsTokens.tabsBackgroundColor}: var(--surface-transparent-primary);
+                ${tabsTokens.tabsBackgroundColor}: var(--surface-solid-primary);
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
@@ -37,7 +37,7 @@ export const config = {
                 ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
-                ${tabsTokens.tabsDividerColor}: var(--surface-transparent-tertiary);
+                ${tabsTokens.tabsDividerColor}: var(--surface-solid-tertiary);
                 ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
             `,
         },

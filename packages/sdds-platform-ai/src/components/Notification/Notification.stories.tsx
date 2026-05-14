@@ -2,20 +2,22 @@ import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { action } from 'storybook/actions';
 import { addNotification } from '@salutejs/plasma-new-hope';
 import type { NotificationIconPlacement } from '@salutejs/plasma-new-hope';
 
 import { Button } from '../Button/Button';
+import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
 import { Modal } from '../Modal/Modal';
 import { PopupProvider } from '../Popup';
 
 import { Notification, NotificationsProvider, NotificationPlacement } from './Notification';
+import { config } from './Notification.config';
 
+const { views, sizes } = getConfigVariations(config);
 const titles = ['Выполнено', 'Внимание', 'Ошибка'];
 const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
-const size = ['xs', 'xxs'];
 const iconPlacement = ['top', 'left'];
 const notificationsPlacements = [
     'center',
@@ -28,7 +30,6 @@ const notificationsPlacements = [
     'bottom-right',
     'bottom-left',
 ];
-const views = ['default', 'negative', 'positive', 'warning', 'info'];
 
 const longText = `JavaScript frameworks are an essential part of modern front-end web development,
 providing developers with proven tools for building scalable, interactive web applications.
@@ -37,7 +38,7 @@ providing developers with proven tools for building scalable, interactive web ap
 const getNotificationProps = (i: number) => ({
     title: titles[i % 3],
     children: texts[i % 3],
-    size: size[i % 2],
+    size: sizes[i % 2],
     iconPlacement: iconPlacement[i % 2] as NotificationIconPlacement,
     onTimeoutClose: () => {
         action('onTimeoutClose')('Callback, вызываемый при автоматическом закрытии по timeout.');
@@ -76,11 +77,10 @@ const StoryDefault = ({
             icon={showLeftIcon ? <IconDisclosureRight color={iconColor || 'inherit'} /> : ''}
             iconPlacement={iconPlacement}
             actions={
-                <Button
-                    text="text"
-                    size={layout === 'horizontal' ? 'xs' : size}
-                    stretch={layout === 'vertical' && size === 'xs'}
-                />
+                <ButtonGroup view="secondary" size="xs">
+                    <Button text="text" />
+                    <Button text="text" />
+                </ButtonGroup>
             }
             size={size}
             layout={layout}
@@ -101,7 +101,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
             },
         },
         size: {
-            options: ['xs', 'xxs'],
+            options: sizes,
             control: {
                 type: 'select',
             },

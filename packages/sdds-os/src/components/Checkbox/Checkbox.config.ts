@@ -55,7 +55,7 @@ export const config = {
         },
         view: {
             accent: css`
-                ${checkboxTokens.fillColor}: var(--text-accent);
+                ${checkboxTokens.fillColor}: var(--surface-accent);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
@@ -64,8 +64,9 @@ export const config = {
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             negative: css`
-                ${checkboxTokens.fillColor}: var(--text-negative);
+                ${checkboxTokens.fillColor}: var(--surface-negative);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
+                ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: var(--text-negative);
@@ -74,7 +75,7 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${checkboxTokens.disabledOpacity}: 0.4;
+                ${checkboxTokens.disabledOpacity}: 1;
             `,
         },
         focused: {
@@ -83,4 +84,26 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            view: 'accent',
+            disabled: true,
+            style: css`
+                ${checkboxTokens.fillColor}: var(--surface-accent-minor);
+                ${checkboxTokens.labelColor}: var(--text-tertiary);
+                ${checkboxTokens.descriptionColor}: var(--text-tertiary);
+                ${checkboxTokens.triggerBorderColor}: var(--text-tertiary);
+            `,
+        },
+        {
+            view: 'negative',
+            disabled: true,
+            style: css`
+                ${checkboxTokens.fillColor}: var(--surface-negative-minor);
+                ${checkboxTokens.labelColor}: var(--text-tertiary);
+                ${checkboxTokens.descriptionColor}: var(--text-tertiary);
+                ${checkboxTokens.triggerBorderColor}: var(--text-tertiary);
+            `,
+        },
+    ],
 };

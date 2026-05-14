@@ -47,7 +47,7 @@ export const config = {
             accentFiled: css`
                 ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonTextColor}: ${onDarkTextPrimary};
-                ${buttonTokens.buttonSpinnerColor}: ${onDarkTextPrimary};            
+                ${buttonTokens.buttonSpinnerColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceAccent};
@@ -58,7 +58,7 @@ export const config = {
             accentWhite: css`
                 ${buttonTokens.buttonColor}: ${textPrimary};
                 ${buttonTokens.buttonTextColor}: ${onLightTextAccent};
-                ${buttonTokens.buttonSpinnerColor}: ${onLightTextAccent}; 
+                ${buttonTokens.buttonSpinnerColor}: ${onLightTextAccent};
                 ${buttonTokens.buttonIconColor}: ${textPrimary};
                 ${buttonTokens.buttonValueColor}: ${textSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceSolidPrimary};
@@ -66,11 +66,10 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
             `,
-            
             primaryWhite: css`
                 ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonTextColor}: ${onLightTextPrimary};
-                ${buttonTokens.buttonSpinnerColor}: ${onLightTextPrimary}; 
+                ${buttonTokens.buttonSpinnerColor}: ${onLightTextPrimary};
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceSolidPrimary};
@@ -81,7 +80,7 @@ export const config = {
             accentGrey: css`
                 ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonTextColor}: ${textAccent};
-                ${buttonTokens.buttonSpinnerColor}: ${textAccent}; 
+                ${buttonTokens.buttonSpinnerColor}: ${textAccent};
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceTransparentSecondary};
@@ -92,7 +91,7 @@ export const config = {
             accentClear: css`
                 ${buttonTokens.buttonColor}: ${textPrimary};
                 ${buttonTokens.buttonTextColor}: ${textAccent};
-                ${buttonTokens.buttonSpinnerColor}: ${textAccent}; 
+                ${buttonTokens.buttonSpinnerColor}: ${textAccent};
                 ${buttonTokens.buttonIconColor}: ${textPrimary};
                 ${buttonTokens.buttonValueColor}: ${textSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
@@ -103,7 +102,7 @@ export const config = {
             dangerTint: css`
                 ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonTextColor}: ${textNegative};
-                ${buttonTokens.buttonSpinnerColor}: ${textNegative}; 
+                ${buttonTokens.buttonSpinnerColor}: ${textNegative};
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceTransparentNegative};
@@ -114,7 +113,7 @@ export const config = {
             dangerClear: css`
                 ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonTextColor}: ${textNegative};
-                ${buttonTokens.buttonSpinnerColor}: ${textNegative}; 
+                ${buttonTokens.buttonSpinnerColor}: ${textNegative};
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
@@ -125,7 +124,7 @@ export const config = {
             primaryGrey: css`
                 ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonTextColor}: ${textPrimary};
-                ${buttonTokens.buttonSpinnerColor}: ${textPrimary}; 
+                ${buttonTokens.buttonSpinnerColor}: ${textPrimary};
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceTransparentSecondary};
@@ -146,11 +145,11 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: ${h4Medium.fontWeight};
                 ${buttonTokens.buttonLetterSpacing}: ${h4Medium.letterSpacing};
                 ${buttonTokens.buttonLineHeight}: ${h4Medium.lineHeight};
-                
-                ${buttonTokens.buttonSpinnerSize}: 1.5rem;
-                
 
-                
+                ${buttonTokens.buttonSpinnerSize}: 1.5rem;
+
+
+
                 ${buttonTokens.buttonLeftContentMargin}: 0 ${spacing3x} 0 0;
                 ${buttonTokens.buttonRightContentMargin}: 0 0 0 ${spacing3x};
                 ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
@@ -217,7 +216,6 @@ export const config = {
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
             `,
-           
         },
         disabled: {
             true: css`

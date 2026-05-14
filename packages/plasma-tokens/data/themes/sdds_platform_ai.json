@@ -10194,14 +10194,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#562296",
-                                "#52BAFF"
-                            ],
-                            "locations": [
-                                0.02,
-                                1
-                            ],
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
                             "startPoint": {
                                 "x": 1,
                                 "y": 0.5
@@ -10214,14 +10208,43 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#562296",
-                                "#52BAFF"
-                            ],
-                            "locations": [
-                                0.02,
-                                1
-                            ],
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        }
+                    },
+                    "comment": "Цвет обводки информация",
+                    "enabled": true
+                },
+                "outlineInfo": {
+                    "value": {
+                        "origin": "linear-gradient(270deg, #562296 1.527%, #52BAFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
+                            "startPoint": {
+                                "x": 1,
+                                "y": 0.5
+                            },
+                            "endPoint": {
+                                "x": 0,
+                                "y": 0.5
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
                             "startPoint": {
                                 "x": 1,
                                 "y": 0.5
@@ -10730,14 +10753,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#562296",
-                                "#52BAFF"
-                            ],
-                            "locations": [
-                                0.02,
-                                1
-                            ],
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
                             "startPoint": {
                                 "x": 1,
                                 "y": 0.5
@@ -10750,14 +10767,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#562296",
-                                "#52BAFF"
-                            ],
-                            "locations": [
-                                0.02,
-                                1
-                            ],
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
                             "startPoint": {
                                 "x": 1,
                                 "y": 0.5
@@ -11266,14 +11277,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#562296",
-                                "#52BAFF"
-                            ],
-                            "locations": [
-                                0.02,
-                                1
-                            ],
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
                             "startPoint": {
                                 "x": 1,
                                 "y": 0.5
@@ -11286,14 +11291,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#562296",
-                                "#52BAFF"
-                            ],
-                            "locations": [
-                                0.02,
-                                1
-                            ],
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
                             "startPoint": {
                                 "x": 1,
                                 "y": 0.5
@@ -11802,14 +11801,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#562296",
-                                "#52BAFF"
-                            ],
-                            "locations": [
-                                0.02,
-                                1
-                            ],
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
                             "startPoint": {
                                 "x": 1,
                                 "y": 0.5
@@ -11822,14 +11815,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#562296",
-                                "#52BAFF"
-                            ],
-                            "locations": [
-                                0.02,
-                                1
-                            ],
+                            "colors": ["#562296", "#52BAFF"],
+                            "locations": [0.02, 1],
                             "startPoint": {
                                 "x": 1,
                                 "y": 0.5

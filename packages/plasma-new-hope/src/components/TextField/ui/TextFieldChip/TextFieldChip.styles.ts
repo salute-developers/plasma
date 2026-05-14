@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { component, mergeConfig } from 'src/engines';
+import { addFocus } from 'src/mixins';
+import { chipConfig, chipTokens } from 'src/components/Chip';
+import { StyledContentClear } from 'src/components/Chip/Chip.styles';
 
-import { chipConfig, chipTokens } from '../../../Chip';
-import { component, mergeConfig } from '../../../../engines';
 import { tokens } from '../../TextField.tokens';
-import { addFocus } from '../../../../mixins';
 
 // issue #823
 const mergedConfig = mergeConfig(chipConfig);
@@ -50,6 +51,10 @@ export const StyledChip = styled(Chip)`
 
     &[readonly] {
         opacity: var(${tokens.chipOpacityReadonly});
+    }
+
+    ${StyledContentClear} {
+        display: var(${tokens.chipCloseIconDisplay}, flex);
     }
 `;
 

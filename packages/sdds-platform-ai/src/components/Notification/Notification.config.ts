@@ -11,9 +11,12 @@ export const config = {
                 ${notificationTokens.titleColor}: var(--text-primary);
                 ${notificationTokens.contentLeftIconColor}: var(--text-primary);
                 ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
-                ${notificationTokens.borderRadius}: 0.75rem;
+                ${notificationTokens.background}: var(--surface-solid-secondary);
+                ${notificationTokens.borderRadius}: 2rem;
+                ${notificationTokens.borderWidth}: 0.5rem;
+                ${notificationTokens.borderColor}: var(--surface-transparent-card);
                 ${notificationTokens.padding}: 0.375rem;
+                ${notificationTokens.boxShadow}: var(--shadow-down-soft-m);
 
                 ${notificationTokens.contentPaddingTop}: 0.125rem;
                 ${notificationTokens.contentPaddingRight}: 0.25rem;
@@ -62,12 +65,15 @@ export const config = {
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
             `,
             negative: css`
-                ${notificationTokens.titleColor}: var(--text-negative);
-                ${notificationTokens.contentLeftIconColor}: var(--text-negative);
+                ${notificationTokens.titleColor}: var(--text-primary);
+                ${notificationTokens.contentLeftIconColor}: var(--text-primary);
                 ${notificationTokens.contentColor}: var(--text-secondary);
                 ${notificationTokens.background}: var(--surface-transparent-card);
-                ${notificationTokens.borderRadius}: 0.75rem;
+                ${notificationTokens.borderRadius}: 2rem;
+                ${notificationTokens.borderWidth}: 0.5rem;
+                ${notificationTokens.borderColor}: var(--outline-negative);
                 ${notificationTokens.padding}: 0.375rem;
+                ${notificationTokens.boxShadow}: var(--shadow-down-soft-m);
 
                 ${notificationTokens.contentPaddingTop}: 0.125rem;
                 ${notificationTokens.contentPaddingRight}: 0.25rem;
@@ -116,12 +122,15 @@ export const config = {
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
             `,
             positive: css`
-                ${notificationTokens.titleColor}: var(--text-positive);
-                ${notificationTokens.contentLeftIconColor}: var(--text-positive);
+                ${notificationTokens.titleColor}: var(--text-primary);
+                ${notificationTokens.contentLeftIconColor}: var(--text-primary);
                 ${notificationTokens.contentColor}: var(--text-secondary);
                 ${notificationTokens.background}: var(--surface-transparent-card);
-                ${notificationTokens.borderRadius}: 0.75rem;
+                ${notificationTokens.borderRadius}: 2rem;
+                ${notificationTokens.borderWidth}: 0.5rem;
+                ${notificationTokens.borderColor}: var(--surface-accent-gradient);
                 ${notificationTokens.padding}: 0.375rem;
+                ${notificationTokens.boxShadow}: var(--shadow-down-soft-m);
 
                 ${notificationTokens.contentPaddingTop}: 0.125rem;
                 ${notificationTokens.contentPaddingRight}: 0.25rem;
@@ -224,12 +233,15 @@ export const config = {
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
             `,
             info: css`
-                ${notificationTokens.titleColor}: var(--text-info);
-                ${notificationTokens.contentLeftIconColor}: var(--text-info);
+                ${notificationTokens.titleColor}: var(--text-primary);
+                ${notificationTokens.contentLeftIconColor}: var(--text-primary);
                 ${notificationTokens.contentColor}: var(--text-secondary);
                 ${notificationTokens.background}: var(--surface-transparent-card);
-                ${notificationTokens.borderRadius}: 0.75rem;
+                ${notificationTokens.borderRadius}: 2rem;
+                ${notificationTokens.borderWidth}: 0.5rem;
+                ${notificationTokens.borderColor}: var(--outline-info);
                 ${notificationTokens.padding}: 0.375rem;
+                ${notificationTokens.boxShadow}: var(--shadow-down-soft-m);
 
                 ${notificationTokens.contentPaddingTop}: 0.125rem;
                 ${notificationTokens.contentPaddingRight}: 0.25rem;
@@ -283,15 +295,15 @@ export const config = {
                 ${notificationTokens.closeIconTop}: 0.5rem;
                 ${notificationTokens.closeIconRight}: 0.5rem;
 
-                ${notificationTokens.padding}: 0.375rem;
+                ${notificationTokens.padding}: 0.25rem 0.75rem 0.75rem 0.75rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0rem;
 
-                ${notificationTokens.contentPaddingTop}: 0.125rem;
+                ${notificationTokens.contentPaddingTop}: 0.25rem;
                 ${notificationTokens.contentPaddingRight}: 0.25rem;
-                ${notificationTokens.contentPaddingBottom}: 0rem;
+                ${notificationTokens.contentPaddingBottom}: 0.25rem;
                 ${notificationTokens.contentPaddingLeft}: 0.25rem;
 
-                ${notificationTokens.buttonsMarginLeft}: 0rem;
+                ${notificationTokens.buttonsMarginLeft}: 1.75rem;
             `,
         },
         layout: {
@@ -301,7 +313,7 @@ export const config = {
             `,
             vertical: css`
                 ${notificationTokens.width}: 15rem;
-                ${notificationTokens.padding}: 0.375rem;
+                ${notificationTokens.padding}: 0.25rem 0.75rem 0.75rem 0.75rem;
             `,
         },
         closeIconType: {

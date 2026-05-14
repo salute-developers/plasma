@@ -72,8 +72,8 @@ export const config = {
                 ${switchTokens.descriptionMaxLines}: initial;
                 ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
                 ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
-                ${switchTokens.trackBackgroundColorOff}: var(--surface-transparent-tertiary);
-                ${switchTokens.trackBackgroundColorOffHover}: var(--surface-transparent-tertiary-hover);
+                ${switchTokens.trackBackgroundColorOff}: var(--surface-solid-tertiary);
+                ${switchTokens.trackBackgroundColorOffHover}: var(--surface-solid-tertiary-hover);
                 ${switchTokens.trackBorderWidthOn}: 0;
                 ${switchTokens.trackBorderWidthOff}: 0;
                 ${switchTokens.thumbBackgroundColorOn}: var(--on-dark-surface-solid-default);
@@ -83,7 +83,7 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${switchTokens.disabledOpacity}: 0.4;
+                ${switchTokens.disabledOpacity}: 1;
             `,
         },
         focused: {
@@ -92,4 +92,16 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            disabled: true,
+            style: css`
+                ${switchTokens.labelColor}: var(--text-tertiary);
+                ${switchTokens.descriptionColor}: var(--text-tertiary);
+                ${switchTokens.trackBackgroundColorOn}: var(--surface-accent-minor);
+                ${switchTokens.trackBackgroundColorOff}: var(--surface-solid-secondary);
+            `,
+        },
+    ],
 };

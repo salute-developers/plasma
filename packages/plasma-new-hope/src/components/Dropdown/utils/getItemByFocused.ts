@@ -1,5 +1,5 @@
 import { FocusedPathState } from '../reducers/focusedPathReducer';
-import { FocusedToValueMapType } from '../hooks/useHashMaps';
+import { FocusedToValueMapType } from '../hooks/usePathMaps';
 
 export const getItemByFocused = (focusedPath: FocusedPathState, focusedToValueMap: FocusedToValueMapType) => {
     const focusedPathAsString = focusedPath.reduce((acc, n) => `${acc}/${n}`, '').replace(/^(\/)/, '');

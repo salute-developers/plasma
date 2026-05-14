@@ -264,6 +264,7 @@ describeFn('DateTimePicker', () => {
                             label="Title"
                             hintText="Подсказка к полю"
                             hintTrigger="click"
+                            renderFromDate={new Date(2026, 3, 1)}
                             {...props}
                         />
                         <PadMe />

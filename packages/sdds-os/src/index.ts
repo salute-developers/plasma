@@ -68,5 +68,4 @@ export * from './components/Typography';
 
 // Others
 export * from './mixins';
-export * from './tokens';
 export * from './types';
