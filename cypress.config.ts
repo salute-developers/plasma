@@ -55,7 +55,7 @@ export default defineConfig({
             bundler: 'vite',
             viteConfig: getViteConfig,
         },
-        justInTimeCompile: false,
+        justInTimeCompile: true,
         setupNodeEvents,
     },
     env: {
