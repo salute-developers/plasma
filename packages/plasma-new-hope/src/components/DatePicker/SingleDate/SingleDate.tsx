@@ -1,17 +1,18 @@
 import React, { forwardRef, SyntheticEvent, useLayoutEffect, useRef, useState } from 'react';
 import cls from 'classnames';
-import type { KeyboardEvent, FocusEvent, MouseEvent } from 'react';
+import type { KeyboardEvent, FocusEvent, MouseEvent, MutableRefObject, RefObject } from 'react';
 import type { DateInfo, DateType } from 'src/components/Calendar/Calendar.types';
 import type { RootProps } from 'src/engines';
-import { getPlacements, getSizeValueFromProp, noop } from 'src/utils';
+import { getSizeValueFromProp, noop } from 'src/utils';
 
 import { getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
-import { InputHidden, StyledCalendar } from '../DatePickerBase.styles';
+import { InputHidden, StyledCalendar, StyledCalendarContent } from '../DatePickerBase.styles';
 import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
 import { getFormattedDates, invokeOnCommitDate } from '../utils';
 import { StyledShortcutList } from '../ui';
+import { FloatingPopover } from '../FloatingPopover';
 
 import type { DatePickerProps, RootDatePickerProps } from './SingleDate.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -21,7 +22,7 @@ import { base as hintSizeCSS } from './variations/_hint-size/base';
 import { base as eventTooltipSizeCSS } from './variations/_tooltip-size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { LeftHelper, StyledInput, StyledPopover, base } from './SingleDate.styles';
+import { LeftHelper, StyledInput, base } from './SingleDate.styles';
 
 export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerProps>) =>
     forwardRef<HTMLInputElement, DatePickerProps>(
@@ -77,7 +78,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 hintWidth,
                 hintContentLeft,
 
-                // calendar-container
+                // popover-container
                 frame = 'document',
                 usePortal = false,
                 zIndex,
@@ -86,6 +87,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 closeOnEsc = true,
                 closeAfterDateSelect = true,
                 offset,
+                disableFlip,
 
                 // calendar
                 format = 'DD.MM.YYYY',
@@ -127,6 +129,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
             const inputRef = useRef<HTMLInputElement | null>(null);
             const innerRef = useRef<HTMLInputElement | null>(null);
             const calendarRootRef = useRef<HTMLDivElement | null>(null);
+            const floatingPopoverRef = useRef<HTMLDivElement | null>(null);
 
             const [isInnerOpen, setIsInnerOpen] = useState(false);
             const openedValue = outerOpened ?? isInnerOpen;
@@ -224,7 +227,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
             };
 
             const { onKeyDown } = useKeyNavigation({
-                isCalendarOpen: isInnerOpen,
+                isCalendarOpen: openedValue,
                 format,
                 maskWithFormat,
                 delimiter: dateFormatDelimiter,
@@ -286,51 +289,6 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 }
             };
 
-            const DatePickerInput = (
-                <StyledInput
-                    ref={inputRef}
-                    className={cls(datePickerErrorClass, datePickerSuccessClass)}
-                    value={inputValue}
-                    size={size}
-                    readOnly={readOnly}
-                    disabled={disabled}
-                    placeholder={placeholder}
-                    contentLeft={contentLeft}
-                    contentRight={contentRight}
-                    textBefore={textBefore}
-                    textAfter={textAfter}
-                    onChange={handleChangeValue}
-                    onSearch={handleSearch}
-                    onFocus={onFocus}
-                    onBlur={handleBlur}
-                    onKeyDown={onKeyDown}
-                    required={required}
-                    requiredPlacement={requiredPlacement}
-                    hasRequiredIndicator={hasRequiredIndicator}
-                    label={label}
-                    labelPlacement={labelPlacement}
-                    keepPlaceholder={keepPlaceholder}
-                    autoComplete={autoComplete}
-                    appearance={appearance}
-                    hasDivider={hasClearDivider}
-                    {...(hintText
-                        ? {
-                              hintText,
-                              hintView,
-                              hintSize,
-                              hintTrigger,
-                              hintTargetIcon,
-                              hintPlacement,
-                              hintHasArrow,
-                              hintOffset,
-                              hintWidth,
-                              hintContentLeft,
-                              hintTargetPlacement,
-                          }
-                        : { hintText: undefined })}
-                />
-            );
-
             useLayoutEffect(() => {
                 if (!dateValue) {
                     updateExternalDate(defaultDate);
@@ -352,21 +310,64 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                     })}
                     {...rest}
                 >
-                    <StyledPopover
+                    <FloatingPopover
+                        ref={floatingPopoverRef}
                         opened={openedValue}
-                        usePortal={usePortal}
-                        frame={frame}
                         onToggle={handleToggle}
                         offset={offset}
-                        placement={getPlacements(placement, false)}
-                        trigger="click"
-                        closeOnOverlayClick={closeOnOverlayClick}
-                        isFocusTrapped={false}
-                        target={DatePickerInput}
-                        preventOverflow={false}
                         zIndex={zIndex}
-                        innerWidth={calendarContainerWidthValue}
-                        innerHeight={calendarContainerHeightValue}
+                        placement={placement}
+                        disableFlip={disableFlip}
+                        closeOnOverlayClick={closeOnOverlayClick}
+                        closeOnEsc={closeOnEsc}
+                        portal={
+                            usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined
+                        }
+                        target={(referenceRef) => (
+                            <StyledInput
+                                ref={inputRef}
+                                inputWrapperRef={referenceRef as MutableRefObject<HTMLDivElement>}
+                                className={cls(datePickerErrorClass, datePickerSuccessClass)}
+                                value={inputValue}
+                                size={size}
+                                readOnly={readOnly}
+                                disabled={disabled}
+                                placeholder={placeholder}
+                                contentLeft={contentLeft}
+                                contentRight={contentRight}
+                                textBefore={textBefore}
+                                textAfter={textAfter}
+                                onChange={handleChangeValue}
+                                onSearch={handleSearch}
+                                onFocus={onFocus}
+                                onBlur={handleBlur}
+                                onKeyDown={onKeyDown}
+                                required={required}
+                                requiredPlacement={requiredPlacement}
+                                hasRequiredIndicator={hasRequiredIndicator}
+                                label={label}
+                                labelPlacement={labelPlacement}
+                                keepPlaceholder={keepPlaceholder}
+                                autoComplete={autoComplete}
+                                appearance={appearance}
+                                hasDivider={hasClearDivider}
+                                {...(hintText
+                                    ? {
+                                          hintText,
+                                          hintView,
+                                          hintSize,
+                                          hintTrigger,
+                                          hintTargetIcon,
+                                          hintPlacement,
+                                          hintHasArrow,
+                                          hintOffset,
+                                          hintWidth,
+                                          hintContentLeft,
+                                          hintTargetPlacement,
+                                      }
+                                    : { hintText: undefined })}
+                            />
+                        )}
                     >
                         <Root
                             ref={calendarRootRef}
@@ -379,42 +380,47 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                             readOnly={!disabled && readOnly}
                             onClick={handleCalendarRootClick}
                         >
-                            {dateShortcuts?.length ? (
-                                <StyledShortcutList
-                                    items={dateShortcuts}
-                                    setShortcutDate={onCalendarPick}
-                                    dateShortcutsWidth={dateShortcutsWidth}
-                                    calendarContainerHeight={calendarContainerHeight}
-                                    dateShortcutsPlacement={dateShortcutsPlacement}
-                                />
-                            ) : null}
-
-                            <StyledCalendar
-                                className={cls({ [classes.datePickerCalendarstretched]: stretched })}
+                            <StyledCalendarContent
                                 innerWidth={calendarContainerWidthValue}
                                 innerHeight={calendarContainerHeightValue}
-                                size={size}
-                                value={calendarValue}
-                                type={type}
-                                eventTooltipOptions={eventTooltipOptions}
-                                eventList={eventList}
-                                disabledList={disabledList}
-                                eventMonthList={eventMonthList}
-                                disabledMonthList={disabledMonthList}
-                                eventQuarterList={eventQuarterList}
-                                disabledQuarterList={disabledQuarterList}
-                                eventYearList={eventYearList}
-                                disabledYearList={disabledYearList}
-                                min={min}
-                                max={max}
-                                renderFromDate={renderFromDate}
-                                includeEdgeDates={includeEdgeDates}
-                                isRange={false}
-                                locale={lang}
-                                onChangeValue={handleCalendarPick}
-                            />
+                            >
+                                {dateShortcuts?.length ? (
+                                    <StyledShortcutList
+                                        items={dateShortcuts}
+                                        setShortcutDate={onCalendarPick}
+                                        dateShortcutsWidth={dateShortcutsWidth}
+                                        calendarContainerHeight={calendarContainerHeight}
+                                        dateShortcutsPlacement={dateShortcutsPlacement}
+                                    />
+                                ) : null}
+
+                                <StyledCalendar
+                                    className={cls({ [classes.datePickerCalendarstretched]: stretched })}
+                                    innerWidth={calendarContainerWidthValue}
+                                    innerHeight={calendarContainerHeightValue}
+                                    size={size}
+                                    value={calendarValue}
+                                    type={type}
+                                    eventTooltipOptions={eventTooltipOptions}
+                                    eventList={eventList}
+                                    disabledList={disabledList}
+                                    eventMonthList={eventMonthList}
+                                    disabledMonthList={disabledMonthList}
+                                    eventQuarterList={eventQuarterList}
+                                    disabledQuarterList={disabledQuarterList}
+                                    eventYearList={eventYearList}
+                                    disabledYearList={disabledYearList}
+                                    min={min}
+                                    max={max}
+                                    renderFromDate={renderFromDate}
+                                    includeEdgeDates={includeEdgeDates}
+                                    isRange={false}
+                                    locale={lang}
+                                    onChangeValue={handleCalendarPick}
+                                />
+                            </StyledCalendarContent>
                         </Root>
-                    </StyledPopover>
+                    </FloatingPopover>
                     {leftHelper && (
                         <LeftHelper className={cls(datePickerErrorClass, datePickerSuccessClass)}>
                             {leftHelper}

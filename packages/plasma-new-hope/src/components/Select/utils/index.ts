@@ -10,3 +10,4 @@ export { getItemId } from './getItemId';
 export { mapCheckedVariants } from './mapCheckedVariants';
 export { syncCheckedState } from './syncCheckedState';
 export { getItemByFocused } from './getItemByFocused';
+export { hasOuterValue } from './hasOuterValue';

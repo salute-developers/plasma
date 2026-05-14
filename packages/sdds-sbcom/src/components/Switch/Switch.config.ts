@@ -3,13 +3,13 @@ import {
     bodyL,
     bodyM,
     bodyS,
-    onDarkSurfaceSolidDefault,
     surfaceAccent,
     surfaceAccentHover,
     surfaceTransparentTertiary,
     surfaceTransparentTertiaryHover,
     textPrimary,
     textSecondary,
+    onDarkTextPrimary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 /*
@@ -48,13 +48,16 @@ export const config = {
                 ${switchTokens.fontWeight}: ${bodyM.fontWeight};
                 ${switchTokens.lineHeight}: ${bodyM.lineHeight};
                 ${switchTokens.fontSize}: ${bodyM.fontSize};
+
                 ${switchTokens.letterSpacing}: ${bodyM.letterSpacing};
+
                 ${switchTokens.descriptionFontFamily}: ${bodyS.fontFamily};
                 ${switchTokens.descriptionFontStyle}: ${bodyS.fontStyle};
                 ${switchTokens.descriptionFontWeight}: ${bodyS.fontWeight};
                 ${switchTokens.descriptionLineHeight}: ${bodyS.lineHeight};
                 ${switchTokens.descriptionFontSize}: ${bodyS.fontSize};
                 ${switchTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+
                 ${switchTokens.verticalGap}: 0.25rem;
                 ${switchTokens.labelOffset}: 0.75rem;
             `,
@@ -77,14 +80,15 @@ export const config = {
         },
         toggleSize: {
             l: css`
-                ${switchTokens.trackWidth}: 2.75rem;
-                ${switchTokens.trackHeight}: 1.75rem;
+                ${switchTokens.trackWidth}: 2.125rem;
+                ${switchTokens.trackHeight}: 0.875rem;
                 ${switchTokens.trackBorderRadius}: calc(var(${switchTokens.trackHeight}) / 2);
-                ${switchTokens.thumbSize}: 1.5rem;
-                ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
-                ${switchTokens.thumbOffsetOn}: 0.125rem;
-                ${switchTokens.thumbOffsetOff}: 0.125rem;
+
+                ${switchTokens.thumbSize}: 1rem;
+                ${switchTokens.thumbBorderRadius}: 50%;
                 ${switchTokens.thumbPressScale}: 1.25;
+
+                ${switchTokens.thumbBorderWidth}: 0.125rem;
             `,
             s: css`
                 ${switchTokens.trackWidth}: 2rem;
@@ -95,6 +99,8 @@ export const config = {
                 ${switchTokens.thumbOffsetOn}: 0.125rem;
                 ${switchTokens.thumbOffsetOff}: 0.125rem;
                 ${switchTokens.thumbPressScale}: 1.25;
+
+                ${switchTokens.thumbBorderWidth}: 0.125rem;
             `,
         },
         view: {
@@ -102,15 +108,19 @@ export const config = {
                 ${switchTokens.labelColor}: ${textPrimary};
                 ${switchTokens.descriptionColor}: ${textSecondary};
                 ${switchTokens.descriptionMaxLines}: initial;
+
                 ${switchTokens.trackBackgroundColorOn}: ${surfaceAccent};
                 ${switchTokens.trackBackgroundColorOnHover}: ${surfaceAccentHover};
                 ${switchTokens.trackBackgroundColorOff}: ${surfaceTransparentTertiary};
                 ${switchTokens.trackBackgroundColorOffHover}: ${surfaceTransparentTertiaryHover};
+
                 ${switchTokens.trackBorderWidthOn}: 0;
                 ${switchTokens.trackBorderWidthOff}: 0;
-                ${switchTokens.thumbBackgroundColorOn}: ${onDarkSurfaceSolidDefault};
-                ${switchTokens.thumbBackgroundColorOff}: ${onDarkSurfaceSolidDefault};
-                ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
+
+                ${switchTokens.thumbBackgroundColorOn}: ${onDarkTextPrimary};
+                ${switchTokens.thumbBackgroundColorOff}: ${onDarkTextPrimary};
+
+                ${switchTokens.thumbBorderColorOff}: ${surfaceTransparentTertiary};
             `,
         },
         disabled: {

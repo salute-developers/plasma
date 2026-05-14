@@ -3,7 +3,7 @@ import { css, avatarTokens as tokens } from '@salutejs/plasma-new-hope/styled-co
 export const config = {
     defaults: {
         view: 'default',
-        size: 'xxl',
+        size: 'm',
         shape: 'circled',
     },
     variations: {
@@ -82,7 +82,7 @@ export const config = {
                 ${tokens.badgeBackground}: var(--surface-solid-default);
 
                 ${tokens.badgeColorTransparent}: var(--text-primary);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-secondary);
+                ${tokens.badgeBackgroundTransparent}: var(--surface-solid-secondary);
 
                 ${tokens.badgeColorClear}: var(--text-primary);
                 ${tokens.badgeBackgroundClear}: var(--surface-clear);
@@ -92,7 +92,7 @@ export const config = {
                 ${tokens.badgeBackground}: var(--surface-accent);
 
                 ${tokens.badgeColorTransparent}: var(--text-accent);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-accent);
+                ${tokens.badgeBackgroundTransparent}: var(--surface-solid-accent);
 
                 ${tokens.badgeColorClear}: var(--text-accent);
                 ${tokens.badgeBackgroundClear}: var(--surface-clear);
@@ -102,7 +102,7 @@ export const config = {
                 ${tokens.badgeBackground}: var(--surface-positive);
 
                 ${tokens.badgeColorTransparent}: var(--text-positive);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-positive);
+                ${tokens.badgeBackgroundTransparent}: var(--surface-solid-positive);
 
                 ${tokens.badgeColorClear}: var(--text-positive);
                 ${tokens.badgeBackgroundClear}: var(--surface-clear);
@@ -112,7 +112,7 @@ export const config = {
                 ${tokens.badgeBackground}: var(--surface-warning);
 
                 ${tokens.badgeColorTransparent}: var(--text-warning);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-warning);
+                ${tokens.badgeBackgroundTransparent}: var(--surface-solid-warning);
 
                 ${tokens.badgeColorClear}: var(--text-warning);
                 ${tokens.badgeBackgroundClear}: var(--surface-clear);
@@ -122,7 +122,7 @@ export const config = {
                 ${tokens.badgeBackground}: var(--surface-negative);
 
                 ${tokens.badgeColorTransparent}: var(--text-negative);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-negative);
+                ${tokens.badgeBackgroundTransparent}: var(--surface-solid-negative);
 
                 ${tokens.badgeColorClear}: var(--text-negative);
                 ${tokens.badgeBackgroundClear}: var(--surface-clear);

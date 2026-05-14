@@ -173,6 +173,10 @@ export type DatePickerPopoverProps = {
      */
     dateShortcuts?: DateShortcutItem[];
     /**
+     * Отключить автоматическое переворачивание дропдауна при нехватке места
+     */
+    disableFlip?: boolean;
+    /**
      * Событие сворачивания/разворачивания календаря.
      */
     onToggle?: (isOpen: boolean, event?: SyntheticEvent | Event) => void;

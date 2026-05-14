@@ -10,9 +10,9 @@ export const config = {
             default: css`
                 ${tokens.outlineFocusColor}: var(--surface-accent);
 
-                ${tokens.background}: var(--surface-transparent-primary);
-                ${tokens.backgroundError}: var(--surface-transparent-negative);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+                ${tokens.background}: var(--surface-solid-primary);
+                ${tokens.backgroundError}: var(--surface-solid-negative);
+                ${tokens.backgroundSuccess}: var(--surface-solid-positive);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -61,12 +61,12 @@ export const config = {
 
                 ${tokens.indicatorColor}: var(--surface-negative);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-secondary);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-solid-negative);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-solid-negative-active);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-solid-positive);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-solid-positive-active);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -75,21 +75,21 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.popoverShadow}: var(--shadow-down-soft-s);
-                ${tokens.popoverSeparatorBackground}: var(--surface-transparent-secondary);
+                ${tokens.popoverSeparatorBackground}: var(--surface-solid-secondary);
                 ${tokens.popoverBackgroundColor}: var(--surface-solid-card);
 
                 ${tokens.calendarSelectedItemBackground}: var(--surface-solid-default);
                 ${tokens.calendarSelectedItemColor}: var(--inverse-text-primary);
-                ${tokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.calendarSelectableItemBackgroundHover}: var(--surface-solid-secondary);
                 ${tokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
                 ${tokens.calendarCurrentItemBackgroundHover}: transparent;
                 ${tokens.calendarCurrentItemColorHover}: var(--text-primary);
-                ${tokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.calendarCurrentItemChildBackgroundHover}: var(--surface-solid-secondary);
                 ${tokens.calendarActiveItemBackground}: var(--surface-solid-default);
                 ${tokens.calendarActiveItemColor}: var(--inverse-text-primary);
                 ${tokens.calendarHoveredItemBackground}: var(--surface-accent);
                 ${tokens.calendarHoveredItemColor}: var(--text-primary);
-                ${tokens.calendarRangeBackground}: var(--surface-transparent-secondary);
+                ${tokens.calendarRangeBackground}: var(--surface-solid-secondary);
                 ${tokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${tokens.calendarContentPrimaryColor}: var(--surface-solid-default);
                 ${tokens.calendarContentPrimaryDisabledColor}: var(--surface-solid-default);
@@ -111,7 +111,7 @@ export const config = {
                 ${tokens.tooltipColor}: var(--text-primary);
 
                 ${tokens.shortcutColor}: var(--text-primary);
-                ${tokens.shortcutBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.shortcutBackgroundHover}: var(--surface-solid-secondary);
             `,
         },
         size: {
@@ -573,7 +573,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-solid-primary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
@@ -581,7 +581,7 @@ export const config = {
                 ${tokens.dividerOpacityReadOnly}: 0.4;
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-primary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
                 ${tokens.rightContentOpacityReadOnly}: 0.4;

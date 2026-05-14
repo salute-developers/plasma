@@ -14,6 +14,15 @@ const onToggle = action('onToggle');
 const onChangeFirstValue = action('onChangeFirstValue');
 const onChangeSecondValue = action('onChangeSecondValue');
 
+const toValidDate = (value: unknown): Date | undefined => {
+    if (value === undefined || value === null) {
+        return undefined;
+    }
+
+    const date = value instanceof Date ? value : new Date(value as number);
+    return Number.isNaN(date.getTime()) ? undefined : date;
+};
+
 export const createDefaultStory = (DatePicker: any) => {
     return ({
         appearance,
@@ -63,8 +72,8 @@ export const createDefaultStory = (DatePicker: any) => {
                 onCommitDate={onCommitDate}
                 lang={lang}
                 format={format}
-                min={min}
-                max={max}
+                min={toValidDate(min)}
+                max={toValidDate(max)}
                 eventTooltipOptions={{
                     bodyWrapper: EventTooltipBody,
                     size: eventTooltipSize,
@@ -167,8 +176,8 @@ export const createRangeStory = (DatePickerRange: any) => {
                 onChangeFirstValue={onChangeFirstValue}
                 onChangeSecondValue={onChangeSecondValue}
                 lang={lang}
-                min={min}
-                max={max}
+                min={toValidDate(min)}
+                max={toValidDate(max)}
                 autoComplete="off"
                 eventTooltipOptions={{
                     bodyWrapper: EventTooltipBody,

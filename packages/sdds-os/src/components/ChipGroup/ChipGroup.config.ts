@@ -17,11 +17,11 @@ export const config = {
             `,
             secondary: css`
                 ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
+                ${tokens.chipBackground}: var(--surface-solid-secondary);
                 ${tokens.chipColorHover}: var(--text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.chipBackgroundHover}: var(--surface-solid-secondary-hover);
                 ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
+                ${tokens.chipBackgroundActive}: var(--surface-solid-secondary-active);
             `,
             accent: css`
                 ${tokens.chipColor}: var(--on-dark-text-primary);

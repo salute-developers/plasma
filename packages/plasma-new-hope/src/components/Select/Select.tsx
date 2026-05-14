@@ -11,7 +11,7 @@ import type { SelectProps } from './Select.types';
 import { FloatingPopover } from './FloatingPopover';
 import { SelectNative } from './ui/SelectNative/SelectNative';
 import { Context } from './Select.context';
-import { initialItemsTransform, getItemByFocused } from './utils';
+import { initialItemsTransform, getItemByFocused, hasOuterValue } from './utils';
 
 /**
  * Выпадающий список. Поддерживает выбор одного или нескольких значений.
@@ -117,12 +117,14 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
         /**
          * Hooks
          */
+        const nativeMode = Boolean(name && !hasOuterValue(outerValue));
+
         const { value, handleChange } = useValue({
-            name,
             outerValue,
             outerOnChange,
             defaultValue,
             multiselect,
+            nativeMode,
         });
 
         const requiredProps =
@@ -226,15 +228,15 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                 ref={rootRef}
                 {...rest}
             >
-                {name === 'string' && (
+                {nativeMode && (
                     <SelectNative
                         items={valueToItemMap}
                         name={name}
                         value={value}
                         multiselect={multiselect}
                         handleChange={handleChange}
-                        outerOnChange={outerOnChange}
-                        ref={ref as ForwardedRef<HTMLButtonElement>}
+                        outerOnChange={outerOnChange as any}
+                        ref={ref as ForwardedRef<HTMLSelectElement>}
                     />
                 )}
 

@@ -41,6 +41,7 @@ export const calendarBaseRoot = (
             {
                 className,
                 value: externalValue,
+                focusedDate,
                 min: minDate,
                 max: maxDate,
                 renderFromDate,
@@ -66,7 +67,7 @@ export const calendarBaseRoot = (
                 () => (Array.isArray(externalValue) ? externalValue : [externalValue]),
                 [externalValue],
             );
-            const value = secondValue || firstValue;
+            const value = focusedDate || secondValue || firstValue;
 
             const [hoveredItem, setHoveredItem] = useState<DateObject | undefined>();
             const [prevType, setPrevType] = useState(type);

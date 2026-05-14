@@ -1,5 +1,5 @@
-import { dropdownConfig } from '../../../components/Dropdown';
-import { component, mergeConfig } from '../../../engines';
+import { dropdownConfig } from 'src/components/Dropdown';
+import { component, mergeConfig } from 'src/engines';
 
 import { config } from './Dropdown.config';
 

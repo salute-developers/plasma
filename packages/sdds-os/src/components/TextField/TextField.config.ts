@@ -14,9 +14,9 @@ export const config = {
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.backgroundColor}: var(--surface-transparent-primary);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.backgroundColor}: var(--surface-solid-primary);
+                ${tokens.backgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -29,13 +29,15 @@ export const config = {
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
                 ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.dividerColor}: var(--surface-solid-tertiary);
                 ${tokens.dividerColorHover}: var(--text-secondary);
                 ${tokens.dividerColorFocus}: var(--surface-accent);
 
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
+
+                ${tokens.borderColorFocus}: var(--outline-primary);
             `,
             positive: css`
                 ${tokens.color}: var(--text-primary);
@@ -43,9 +45,9 @@ export const config = {
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.backgroundColor}: var(--surface-transparent-positive);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-positive-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.backgroundColor}: var(--surface-solid-primary);
+                ${tokens.backgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -65,6 +67,8 @@ export const config = {
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
+
+                ${tokens.borderColor}: var(--outline-positive);
             `,
             warning: css`
                 ${tokens.color}: var(--text-primary);
@@ -72,9 +76,9 @@ export const config = {
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.backgroundColor}: var(--surface-transparent-warning);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
+                ${tokens.backgroundColor}: var(--surface-solid-primary);
+                ${tokens.backgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -94,6 +98,8 @@ export const config = {
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
+
+                ${tokens.borderColor}: var(--outline-warning);
             `,
             negative: css`
                 ${tokens.color}: var(--text-primary);
@@ -101,9 +107,9 @@ export const config = {
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.backgroundColor}: var(--surface-transparent-negative);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-negative-active);
+                ${tokens.backgroundColor}: var(--surface-solid-primary);
+                ${tokens.backgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -123,6 +129,8 @@ export const config = {
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
+
+                ${tokens.borderColor}: var(--outline-negative);
             `,
         },
         size: {
@@ -315,14 +323,14 @@ export const config = {
             `,
             secondary: css`
                 ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
+                ${tokens.chipBackground}: var(--surface-solid-secondary);
                 ${tokens.chipColorHover}: var(--text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.chipBackgroundHover}: var(--surface-solid-secondary-hover);
                 ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${tokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.chipBackgroundActive}: var(--surface-solid-secondary-active);
+                ${tokens.chipBackgroundReadOnly}: var(--surface-solid-tertiary);
                 ${tokens.chipColorReadOnly}: var(--text-primary);
-                ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${tokens.chipBackgroundReadOnlyHover}: var(--surface-solid-tertiary);
                 ${tokens.chipColorReadOnlyHover}: var(--text-primary);
 
                 ${tokens.chipCloseIconColor}: var(--text-secondary);
@@ -459,20 +467,30 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+                ${tokens.color}: var(--text-tertiary);
+                ${tokens.placeholderColor}: var(--text-tertiary);
+                ${tokens.labelColor}: var(--text-secondary);
+                ${tokens.titleCaptionColor}: var(--text-tertiary);
+                ${tokens.leftHelperColor}: var(--text-tertiary);
+                ${tokens.contentSlotColor}: var(--text-tertiary);
+                ${tokens.backgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.chipCloseIconDisplay}: none;
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
+                ${tokens.readOnlyOpacity}: 1;
                 ${tokens.colorReadOnly}: var(--text-primary);
-                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundColorReadOnly}: var(--surface-solid-secondary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.dividerColorReadOnly}: var(--surface-solid-primary);
+                ${tokens.contentSlotRightColor}: var(--text-tertiary);
+                ${tokens.chipCloseIconDisplay}: none;
             `,
         },
     },

@@ -704,6 +704,7 @@ export const iconSectionsSet = {
         dropsGroupFill: 'DropsGroupFill',
         aiFill: 'AiFill',
         aiOutline: 'AiOutline',
+        movementOutline: 'MovementOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
@@ -1284,6 +1285,12 @@ export const iconSectionsSet = {
         sbDotOutline: 'SbDotOutline',
         notebookDownloadOutline: 'NotebookDownloadOutline',
         notebookDownloadFill: 'NotebookDownloadFill',
+        auraCast: 'AuraCast',
+        track: 'Track',
+        trackCast: 'TrackCast',
+        trackError: 'TrackError',
+        aura: 'Aura',
+        auraError: 'AuraError',
     },
     Senses: {
         handActionFill: 'HandActionFill',
@@ -1329,6 +1336,7 @@ export const iconSectionsSet = {
         vkAltFill: 'VkAltFill',
         ruTubeFill: 'RuTubeFill',
         ruTubeAltFill: 'RuTubeAltFill',
+        appleLogoFill: 'AppleLogoFill',
     },
     Status: {
         attentionCircleFill: 'AttentionCircleFill',

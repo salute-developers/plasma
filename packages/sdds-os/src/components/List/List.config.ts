@@ -11,7 +11,7 @@ export const config = {
                 ${listTokens.listItemColor}: var(--text-primary);
                 ${listTokens.listItemColorHover}: var(--text-primary);
                 ${listTokens.listItemBackground}: transparent;
-                ${listTokens.listItemBackgroundHover}: var(--surface-transparent-secondary);
+                ${listTokens.listItemBackgroundHover}: var(--surface-solid-secondary);
                 ${listTokens.listItemBorderColor}: transparent;
                 ${listTokens.listItemBorderColorHover}: transparent;
                 ${listTokens.listItemFocusColor}: var(--surface-accent);

@@ -9,8 +9,9 @@ export const config = {
     variations: {
         view: {
             accent: css`
-                ${radioboxTokens.fillColor}: var(--text-accent);
+                ${radioboxTokens.fillColor}: var(--surface-accent);
                 ${radioboxTokens.ellipseColor}: var(--on-dark-text-primary);
+                ${radioboxTokens.labelColor}: var(--text-primary);
                 ${radioboxTokens.descriptionColor}: var(--text-secondary);
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: var(--text-secondary);
@@ -67,7 +68,7 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${radioboxTokens.disabledOpacity}: 0.4;
+                ${radioboxTokens.disabledOpacity}: 1;
             `,
         },
         focused: {
@@ -76,4 +77,16 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            view: 'accent',
+            disabled: true,
+            style: css`
+                ${radioboxTokens.fillColor}: var(--surface-accent-minor);
+                ${radioboxTokens.labelColor}: var(--text-tertiary);
+                ${radioboxTokens.descriptionColor}: var(--text-tertiary);
+                ${radioboxTokens.triggerBorderColor}: var(--text-tertiary);
+            `,
+        },
+    ],
 };

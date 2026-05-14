@@ -2,9 +2,12 @@ import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import type { ComponentProps } from 'react';
 import { IconChevronRight } from '@salutejs/plasma-icons';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 import styled from 'styled-components';
 
 import { Avatar } from '../Avatar';
+
+import { config } from './Cell.config';
 
 import { Cell, CellTextbox, CellTextboxTitle } from '.';
 
@@ -15,21 +18,10 @@ type StoryProps = ComponentProps<typeof Cell> & {
 };
 type Story = StoryObj<StoryProps>;
 
-const sizes = ['l', 'm', 's'];
+const { sizes } = getConfigVariations(config);
 const stretchingValues = ['fixed', 'filled', 'auto'];
 const alignLeft = ['top', 'center', 'bottom'];
 const alignRight = ['top', 'center', 'bottom'];
-
-type SizesCell = 'xs' | 'l' | 'm' | 's' | undefined;
-type SizesAvatar = 'l' | 'm' | 's';
-
-const getSize = (size: SizesCell): SizesAvatar => {
-    if (size === 'xs' || !size) {
-        return 's';
-    }
-
-    return size;
-};
 
 const ChevronRight = styled(IconChevronRight)`
     color: var(--text-secondary);
@@ -84,7 +76,7 @@ export const Default: Story = {
             <Cell
                 contentLeft={
                     !args.disableLeftContent && (
-                        <Avatar size={getSize(args.size)} url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+                        <Avatar size="m" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
                     )
                 }
                 contentRight={!args.disableRightContent && <ChevronRight color="inherit" size="xs" />}
@@ -107,9 +99,7 @@ export const WithContentTextboxCustom: Story = {
         `;
         return (
             <Cell
-                contentLeft={
-                    <Avatar size={getSize(args.size)} url="https://avatars.githubusercontent.com/u/1813468?v=4" />
-                }
+                contentLeft={<Avatar size="m" url="https://avatars.githubusercontent.com/u/1813468?v=4" />}
                 contentRight={<ChevronRight color="inherit" size="xs" />}
                 view="default"
                 size={args.size}

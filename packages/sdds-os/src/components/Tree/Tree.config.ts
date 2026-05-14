@@ -14,11 +14,11 @@ export const config = {
                 ${tokens.arrowColorActive}: var(--text-secondary-active);
                 ${tokens.color}: var(--text-primary);
                 ${tokens.colorSelected}: var(--text-primary);
-                ${tokens.itemBackgroundColorSelected}: var(--surface-transparent-secondary);
+                ${tokens.itemBackgroundColorSelected}: var(--surface-solid-secondary);
                 ${tokens.itemBackgroundColorPrimary}: transparent;
 
-                ${tokens.itemBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.itemBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${tokens.itemBackgroundColorHover}: var(--surface-solid-secondary-hover);
+                ${tokens.itemBackgroundColorActive}: var(--surface-solid-secondary-active);
                 ${tokens.checkboxBorderColor}: var(--text-secondary);
                 ${tokens.checkboxBackgroundColor}: var(--text-accent);
                 ${tokens.itemDisabledOpacity}: 0.4;
