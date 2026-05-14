@@ -73,8 +73,6 @@
     "access": "public"
   },
   "scripts": {
-    "preapi-report": "npm run generate:typings",
-    "api-report": "npx api-extractor run --local",
     "prepare": "npm run build",
     "build": "npm run build:css",
     "postbuild": "npm run generate:typings",

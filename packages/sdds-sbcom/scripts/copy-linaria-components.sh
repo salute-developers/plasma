@@ -13,6 +13,15 @@ for component in $components; do
 
 done;
 
+# copy mixins
+if [ -d "src/mixins" ]; then
+    cp -R src/mixins src-css/mixins
+    echo "export * from './mixins';" >> src-css/index.ts
+
+    mixinFiles=$(find src-css/mixins -name '*.ts' -or -name '*.tsx');
+    perl -p -i -e "s/\/styled-components/\/css/g" $mixinFiles
+fi
+
 # remove unused tests
 rm -rf src-css/components/**/*.component-test.tsx
 rm -rf src-css/components/**/*.perftest.tsx
