@@ -56,9 +56,12 @@ const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
     return undefined;
 };
 
-export const createSingleStory = (Select: any) => {
+type CustomGetContentType = (size: string, disabled?: boolean, readOnly?: boolean) => JSX.Element | undefined;
+
+export const createSingleStory = (Select: any, customGetContentRight?: CustomGetContentType) => {
     return ({ enableContentLeft, ...rest }: any) => {
         const [value, setValue] = useState('');
+        const resolveIcon = customGetContentRight ?? getIcon;
 
         return (
             <div
@@ -74,16 +77,17 @@ export const createSingleStory = (Select: any) => {
                     contentLeft={
                         enableContentLeft ? <IconPlasma size={getIconSize(rest.size)} color="inherit" /> : undefined
                     }
-                    contentRight={getIcon(rest.size, rest.disabled, rest.readOnly)}
+                    contentRight={resolveIcon(rest.size, rest.disabled, rest.readOnly)}
                 />
             </div>
         );
     };
 };
 
-export const createMultipleStory = (Select: any) => {
+export const createMultipleStory = (Select: any, customGetContentRight?: CustomGetContentType) => {
     return ({ enableContentLeft, ...rest }: any) => {
         const [value, setValue] = useState<Array<string>>([]);
+        const resolveIcon = customGetContentRight ?? getIcon;
 
         return (
             <div style={{ width: '300px' }}>
@@ -96,17 +100,18 @@ export const createMultipleStory = (Select: any) => {
                     contentLeft={
                         enableContentLeft ? <IconPlasma size={getIconSize(rest.size)} color="inherit" /> : undefined
                     }
-                    contentRight={getIcon(rest.size, rest.disabled, rest.readOnly)}
+                    contentRight={resolveIcon(rest.size, rest.disabled, rest.readOnly)}
                 />
             </div>
         );
     };
 };
 
-export const createPredefinedStory = (Select: any) => {
+export const createPredefinedStory = (Select: any, customGetContentRight?: CustomGetContentType) => {
     return ({ enableContentLeft, ...rest }: any) => {
         const [valueSingle, setValueSingle] = useState('paris');
         const [valueMultiple, setValueMultiple] = useState(['paris', 'north_america']);
+        const resolveIcon = customGetContentRight ?? getIcon;
 
         return (
             <div style={{ width: '300px' }}>
@@ -118,7 +123,7 @@ export const createPredefinedStory = (Select: any) => {
                     contentLeft={
                         enableContentLeft ? <IconPlasma size={getIconSize(rest.size)} color="inherit" /> : undefined
                     }
-                    contentRight={getIcon(rest.size, rest.disabled, rest.readOnly)}
+                    contentRight={resolveIcon(rest.size, rest.disabled, rest.readOnly)}
                 />
 
                 <br />
@@ -132,7 +137,7 @@ export const createPredefinedStory = (Select: any) => {
                     contentLeft={
                         enableContentLeft ? <IconPlasma size={getIconSize(rest.size)} color="inherit" /> : undefined
                     }
-                    contentRight={getIcon(rest.size, rest.disabled, rest.readOnly)}
+                    contentRight={resolveIcon(rest.size, rest.disabled, rest.readOnly)}
                 />
             </div>
         );
