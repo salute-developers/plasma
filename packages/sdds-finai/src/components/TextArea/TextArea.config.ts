@@ -278,7 +278,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-card);
+                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-secondary);
                 ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
                 ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
                 ${textAreaTokens.contentSlotRightOpacityReadOnly}: 1;

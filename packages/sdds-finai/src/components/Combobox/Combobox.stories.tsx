@@ -499,7 +499,7 @@ const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
         return <IconLockOutline size={iconSize} />;
     }
     if (readOnly) {
-        return <IconLockOutline size={iconSize} />;
+        return undefined;
     }
     return undefined;
 };

@@ -150,7 +150,7 @@ export const config = {
                 ${tokens.height}: 2.5rem;
                 ${tokens.padding}: 0.6875rem 0;
                 ${tokens.paddingWithChips}: 0.375rem 0;
-                ${tokens.borderRadius}: 0;
+                ${tokens.borderRadius}: 0.5rem;
 
                 ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem 0;
                 ${tokens.rightContentMargin}: -0.1875rem 0 -0.1875rem 0.75rem;
@@ -228,7 +228,7 @@ export const config = {
                 ${tokens.height}: 2rem;
                 ${tokens.padding}: 0.5625rem 0;
                 ${tokens.paddingWithChips}: 0.375rem 0;
-                ${tokens.borderRadius}: 0;
+                ${tokens.borderRadius}: 0.375rem;
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem 0;
                 ${tokens.rightContentMargin}: -0.0625rem 0 -0.0625rem 0.75rem;
@@ -480,6 +480,7 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 1;
+                ${tokens.color}: var(--text-secondary);
                 ${tokens.backgroundColor}: var(--surface-transparent-secondary);
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotRightColorHover}: var(--text-secondary);
@@ -489,7 +490,7 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.colorReadOnly}: var(--text-primary);
-                ${tokens.backgroundColorReadOnly}: transparent;
+                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-secondary);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);

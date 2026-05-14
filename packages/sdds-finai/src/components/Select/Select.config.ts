@@ -643,13 +643,13 @@ export const config = {
         },
         chipView: {
             default: css`
-                ${tokens.textFieldChipColor}: var(--inverse-text-primary);
-                ${tokens.textFieldChipColorHover}: var(--inverse-text-primary);
-                ${tokens.textFieldChipBackground}: var(--surface-solid-default);
+                ${tokens.textFieldChipColor}: var(--text-primary);
+                ${tokens.textFieldChipColorHover}: var(--text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
-                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
-                ${tokens.textFieldChipCloseIconColorReadonly}: var(--inverse-text-secondary);
-                ${tokens.textFieldChipCloseIconColorHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(---text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
 
                 ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-default);
                 ${tokens.textFieldChipColorReadOnly}: var(--inverse-text-primary);
@@ -760,7 +760,7 @@ export const config = {
             true: css`
                 ${tokens.disclosureIconOpacityReadOnly}: 1;
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
@@ -769,7 +769,7 @@ export const config = {
                 ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary);
-                ${tokens.textFieldBorderColorReadOnly}: var(--outline-accent)
+                ${tokens.textFieldBorderColorReadOnly}: transparent;
             `,
         },
     },
