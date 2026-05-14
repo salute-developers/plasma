@@ -1,0 +1,28 @@
+name: Release next branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch for next tag"
+        required: true
+        type: choice
+        options:
+          - next-platform-ai
+          - next-sbcom
+          - next-insol
+
+concurrency:
+  group: ${{ github.workflow }}-${{ inputs.branch }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    name: Release ${{ inputs.branch }}
+    uses: ./.github/workflows/publish-common.yml
+    with:
+      ref: ${{ inputs.branch }}
+      auto-options: '--no-changelog'
+    secrets:
+      gh_token: ${{ secrets.GH_TOKEN }}
+      npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
