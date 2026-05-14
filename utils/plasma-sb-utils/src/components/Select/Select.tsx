@@ -16,10 +16,11 @@ type CreateStoriesProps = {
     componentConfig: any;
     disablePropsList?: string[];
     defaultArgs?: {};
+    customGetContentRight?: (size: string, disabled?: boolean, readOnly?: boolean) => JSX.Element | undefined;
 };
 
 export const getSelectStories = (config: CreateStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, customGetContentRight, ...rest } = config;
 
     const selectConfig = getConfigVariations(componentConfig);
 
@@ -29,7 +30,7 @@ export const getSelectStories = (config: CreateStoriesProps) => {
         ...rest,
     });
 
-    const SingleStoryComponent = createSingleStory(component);
+    const SingleStoryComponent = createSingleStory(component, customGetContentRight);
 
     const Single = {
         render: (args: any) => <SingleStoryComponent {...args} />,
@@ -43,7 +44,7 @@ export const getSelectStories = (config: CreateStoriesProps) => {
         },
     };
 
-    const MultipleStoryComponent = createMultipleStory(component);
+    const MultipleStoryComponent = createMultipleStory(component, customGetContentRight);
 
     const Multiselect = {
         render: (args: any) => <MultipleStoryComponent {...args} />,
@@ -57,7 +58,7 @@ export const getSelectStories = (config: CreateStoriesProps) => {
         },
     };
 
-    const PredefinedStoryComponent = createPredefinedStory(component);
+    const PredefinedStoryComponent = createPredefinedStory(component, customGetContentRight);
 
     const Predefined = {
         render: (args: any) => <PredefinedStoryComponent {...args} />,

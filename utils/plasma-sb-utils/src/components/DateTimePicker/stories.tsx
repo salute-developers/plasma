@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { action } from 'storybook/actions';
 import { IconCalendar } from '@salutejs/plasma-icons';
+import type { IconProps } from '@salutejs/plasma-icons';
 
 import { dateShortcuts } from './fixtures';
 
@@ -14,7 +15,14 @@ const getIconSize = (size?: string) => {
     return size === 'xs' ? 'xs' : 's';
 };
 
-export const createDefaultStory = (DateTimePicker: any) => {
+const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
+    return <IconComponent size={getIconSize(size)} color="inherit" />;
+};
+
+export const createDefaultStory = (
+    DateTimePicker: any,
+    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element,
+) => {
     return ({
         enableContentLeft,
         enableContentRight,
@@ -29,7 +37,9 @@ export const createDefaultStory = (DateTimePicker: any) => {
     }: any) => {
         const [isOpen, setIsOpen] = useState(false);
 
-        const iconSize = getIconSize(size);
+        const innerGetIcon = (type: 'left' | 'right') => {
+            return customIcon ? customIcon(size, type, rest.disabled, rest.readOnly) : getIcon(IconCalendar, size);
+        };
 
         return (
             <DateTimePicker
@@ -37,8 +47,8 @@ export const createDefaultStory = (DateTimePicker: any) => {
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
-                contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? innerGetIcon('left') : undefined}
+                contentRight={enableContentRight ? innerGetIcon('right') : undefined}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onToggle={(is: boolean) => {
