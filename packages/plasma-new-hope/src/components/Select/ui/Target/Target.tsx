@@ -1,13 +1,15 @@
 import React, { forwardRef } from 'react';
-import type { MutableRefObject } from 'react';
+import type { Ref } from 'react';
 import { useForkRef } from 'src/hooks';
 
 import type { TargetProps } from './Target.types';
-import { Button, Textfield } from './ui';
+import { Button, Textfield, RenderTarget } from './ui';
 
 export const Target = forwardRef<HTMLButtonElement, TargetProps>(
     (
         {
+            target,
+            renderTarget,
             value,
             opened,
             valueToItemMap,
@@ -16,45 +18,45 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             onKeyDown,
             labelPlacement,
             size,
+            view,
             contentLeft,
             contentRight,
             disabled,
             readOnly,
             renderValue,
-            selectProps,
             inputWrapperRef,
             multiselect,
-            view,
             helperText,
             treeId,
             activeDescendantItemValue,
             isTargetAmount,
-            onChange,
+            handleChange,
             chipView,
-            separator,
+            chipType,
+            chipClickArea,
+            keepPlaceholder,
             requiredProps,
             hintProps,
         },
         ref,
     ) => {
-        const buttonRef = useForkRef(ref, inputWrapperRef as any);
+        const buttonRef = useForkRef<HTMLElement>(ref as Ref<HTMLElement>, inputWrapperRef);
 
-        if (selectProps.renderTarget) {
+        if (renderTarget) {
             return (
-                <div ref={inputWrapperRef as any}>
-                    {selectProps.renderTarget(
-                        Array.isArray(value)
-                            ? value.map((value) => valueToItemMap.get(value)!)
-                            : valueToItemMap.get(value)!,
-                        opened,
-                    )}
-                </div>
+                <RenderTarget
+                    inputWrapperRef={inputWrapperRef}
+                    multiselect={multiselect}
+                    value={value}
+                    renderTarget={renderTarget}
+                    valueToItemMap={valueToItemMap}
+                />
             );
         }
 
-        return selectProps.target === 'button-like' ? (
+        return target === 'button-like' ? (
             <Button
-                ref={buttonRef}
+                ref={buttonRef as Ref<HTMLButtonElement>}
                 opened={opened}
                 value={value}
                 valueToItemMap={valueToItemMap}
@@ -63,14 +65,14 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 size={size}
                 disabled={disabled || readOnly}
                 renderValue={renderValue}
-                selectProps={selectProps}
-                separator={separator}
                 treeId={treeId}
                 activeDescendantItemValue={activeDescendantItemValue}
+                multiselect={multiselect}
+                isTargetAmount={isTargetAmount}
             />
         ) : (
             <Textfield
-                ref={ref as MutableRefObject<HTMLInputElement>}
+                ref={ref as Ref<HTMLInputElement>}
                 inputWrapperRef={inputWrapperRef}
                 opened={opened}
                 multiselect={multiselect}
@@ -91,12 +93,13 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 isTargetAmount={isTargetAmount}
                 valueToItemMap={valueToItemMap}
                 renderValue={renderValue}
-                onChange={onChange}
+                handleChange={handleChange}
                 chipView={chipView}
+                chipType={chipType}
+                chipClickArea={chipClickArea}
+                keepPlaceholder={keepPlaceholder}
                 requiredProps={requiredProps}
                 hintProps={hintProps}
-                chipType={selectProps.chipType}
-                chipClickArea={selectProps.chipClickArea}
             />
         );
     },

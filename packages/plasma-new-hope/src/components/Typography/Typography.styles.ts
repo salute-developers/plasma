@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 import { applyHyphens, applyHyphensNormal } from 'src/mixins';
 
 import { classes, tokens } from './tokens';

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { tokens } from '../../../../components/_ai/Answer/Answer.tokens';
 

@@ -25,14 +25,14 @@ export const config = {
             `,
             secondary: css`
                 ${chipTokens.color}: var(--text-primary);
-                ${chipTokens.background}: var(--surface-transparent-secondary);
+                ${chipTokens.background}: var(--surface-solid-secondary);
                 ${chipTokens.colorHover}: var(--text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
+                ${chipTokens.backgroundHover}: var(--surface-solid-secondary-hover);
                 ${chipTokens.colorActive}: var(--text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
+                ${chipTokens.backgroundActive}: var(--surface-solid-secondary-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-solid-secondary);
                 ${chipTokens.colorReadOnly}: var(--text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-secondary);
                 ${chipTokens.colorReadOnlyHover}: var(--text-primary);
                 ${chipTokens.closeIconColor}: var(--text-secondary);
                 ${chipTokens.closeIconColorHover}: var(--text-secondary-hover);

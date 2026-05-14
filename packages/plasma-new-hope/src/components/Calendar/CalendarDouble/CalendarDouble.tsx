@@ -42,6 +42,7 @@ export const calendarDoubleRoot = (
             {
                 className,
                 value: externalValue,
+                focusedDate,
                 min: minDate,
                 max: maxDate,
                 renderFromDate,
@@ -67,7 +68,7 @@ export const calendarDoubleRoot = (
                 () => (Array.isArray(externalValue) ? externalValue : [externalValue]),
                 [externalValue],
             );
-            const value = secondValue || firstValue;
+            const value = focusedDate || secondValue || firstValue;
 
             const [hoveredItem, setHoveredItem] = useState<DateObject | undefined>();
             const [prevType, setPrevType] = useState(type);
@@ -211,7 +212,7 @@ export const calendarDoubleRoot = (
                 if ((value && prevValue && isValueUpdate(value, prevValue)) || (value && !prevValue)) {
                     const [minVisibleDate, maxVisibleDate] = getBoundaryDates();
 
-                    if (value > maxVisibleDate || value < minVisibleDate) {
+                    if (focusedDate || value > maxVisibleDate || value < minVisibleDate) {
                         dispatch({
                             type: ActionType.UPDATE_DATE,
                             payload: { value },

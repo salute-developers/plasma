@@ -296,7 +296,7 @@ const StoryDefault = (props: HorizontalStoryTabsProps) => {
 
 export const Default: StoryObj<HorizontalStoryTabsProps> = {
     args: {
-        size: 'xs',
+        size: 's',
         orientation: 'horizontal',
         disabled: false,
         hasDivider: true,

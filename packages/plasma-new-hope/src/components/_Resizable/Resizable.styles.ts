@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { IconResizeDiagonal } from 'src/components/_Icon';
 
 import { classes } from './Resizable.tokens';

@@ -28,6 +28,7 @@ export const placements = [
 
     'auto',
 ];
+export const datePickerRangePlacements = ['top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end'];
 export const shortcutsPlacements = ['left', 'right'];
 
 export const dateShortcuts = [

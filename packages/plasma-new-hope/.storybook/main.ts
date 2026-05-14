@@ -1,40 +1,25 @@
 import { fileURLToPath } from 'url';
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
-import linaria from '@linaria/vite';
 import path, { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const USE_STYLED_COMPONENTS = process.env.USE_STYLED_COMPONENTS || false;
-const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
 const USE_AI_COMPONENTS = process.env.USE_AI_COMPONENTS || false;
 
-const storyMap = {
-    linaria: ['../src/**/*.stories.tsx'],
-    ai: ['../src/examples/components/_ai/**/*.stories.tsx'],
-    'styled-components': ['../src-sc/**/*.stories.tsx'],
-    emotion: ['../src-emotion/**/*.stories.tsx'],
+const getStories = () => {
+    if (USE_AI_COMPONENTS) {
+        return ['../src/examples/components/_ai/**/*.stories.tsx'];
+    } else {
+        return ['../src/**/*.stories.tsx'];
+    }
 };
-
-const stories = [];
-
-if (USE_STYLED_COMPONENTS) {
-    stories.push(...storyMap['styled-components']);
-} else if (USE_AI_COMPONENTS) {
-    stories.push(...storyMap['ai']);
-} else if (USE_EMOTION_COMPONENTS) {
-    stories.push(...storyMap['emotion']);
-} else {
-    // default
-    stories.push(...storyMap['linaria']);
-}
 
 const config: StorybookConfig = {
     staticDirs: ['public'],
     addons: ['@storybook/addon-docs'],
-    stories,
+    stories: getStories(),
     framework: {
         name: '@storybook/react-vite',
         options: {},
@@ -61,15 +46,6 @@ const config: StorybookConfig = {
             build: {
                 sourcemap: false,
             },
-            plugins: [
-                linaria({
-                    exclude: ['../../../'],
-                    displayName: true,
-                    babelOptions: {
-                        presets: ['@babel/preset-typescript', '@babel/preset-react'],
-                    },
-                }),
-            ],
         });
     },
 };

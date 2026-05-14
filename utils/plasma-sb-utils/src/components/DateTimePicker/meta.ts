@@ -22,7 +22,16 @@ type CreateMetaProps = {
     disablePropsList?: string[];
 };
 
-const commonDisabledArgs = ['contentLeft', 'opened', 'onToggle', 'onChangeValue', 'onCommitDate', 'onBlur', 'onFocus'];
+const commonDisabledArgs = [
+    'contentLeft',
+    'contentRight',
+    'opened',
+    'onToggle',
+    'onChangeValue',
+    'onCommitDate',
+    'onBlur',
+    'onFocus',
+];
 
 export const createMeta = ({
     component,
@@ -61,6 +70,7 @@ export const createMeta = ({
             readOnly: false,
             textBefore: '',
             enableContentLeft: true,
+            enableContentRight: false,
             valueError: false,
             valueSuccess: false,
             lang: 'ru',
@@ -129,6 +139,10 @@ export const createMeta = ({
                 table: { category: 'layout' },
             },
             enableContentLeft: {
+                control: { type: 'boolean' },
+                table: { category: 'layout' },
+            },
+            enableContentRight: {
                 control: { type: 'boolean' },
                 table: { category: 'layout' },
             },

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import type { PopupAnimationInfo, PopupHookArgs } from '../Popup.types';
 import { usePopupContext } from '../PopupContext';
@@ -8,7 +8,10 @@ const usePopupAnimation = (): PopupAnimationInfo => {
     const [endAnimation, setEndAnimation] = useState<boolean>(false);
     const [endTransition, setEndTransition] = useState<boolean>(false);
 
-    return { endAnimation, endTransition, setEndTransition, setEndAnimation };
+    return useMemo(() => ({ endAnimation, endTransition, setEndTransition, setEndAnimation }), [
+        endAnimation,
+        endTransition,
+    ]);
 };
 
 // Хук для внутреннего состояния, необходимого для правильного отображения вложенных окон, а также для анимации

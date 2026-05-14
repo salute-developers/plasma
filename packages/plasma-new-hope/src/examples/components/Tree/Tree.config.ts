@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { treeTokens as tokens } from '../../../components/Tree/Tree.tokens';
 

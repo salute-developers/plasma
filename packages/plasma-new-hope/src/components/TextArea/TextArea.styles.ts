@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { applyEllipsis } from '../../mixins';
 import { tooltipConfig } from '../Tooltip';

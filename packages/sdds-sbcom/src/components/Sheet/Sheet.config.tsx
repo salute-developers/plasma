@@ -1,5 +1,10 @@
 import { css, sheetTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { overlaySoft, surfaceSolidCard, surfaceSolidTertiary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: overlayBlur
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -7,10 +12,10 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${sheetTokens.sheetOverlayColor}: var(--overlay-soft);
+                ${sheetTokens.sheetOverlayColor}: ${overlaySoft};
                 ${sheetTokens.sheetOverlayWithBlurColor}: var(--overlay-blur);
-                ${sheetTokens.contentBackgroundColor}: var(--surface-solid-card);
-                ${sheetTokens.handleBackgroundColor}: var(--surface-solid-tertiary);
+                ${sheetTokens.contentBackgroundColor}: ${surfaceSolidCard};
+                ${sheetTokens.handleBackgroundColor}: ${surfaceSolidTertiary};
             `,
         },
         handlePlacement: {

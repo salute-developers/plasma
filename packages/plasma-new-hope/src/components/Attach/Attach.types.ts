@@ -2,7 +2,7 @@ import type { CSSProperties, InputHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
 import { ButtonProps } from '../Button/Button.types';
-import { DropdownPlacement, DropdownTrigger } from '../Dropdown';
+import { DropdownPlacement, DropdownTrigger } from '../Dropdown/Dropdown.types';
 
 export type FileInfo = {
     extension: string;

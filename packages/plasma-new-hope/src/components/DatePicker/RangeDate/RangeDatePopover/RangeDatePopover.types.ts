@@ -27,6 +27,7 @@ export type RangeDatePopoverProps = DatePickerCalendarProps &
         onChangeValue: (values: [DateType, DateType], dateInfo?: DateInfo) => void;
         setIsInnerOpen: Dispatch<SetStateAction<boolean>>;
         calendarValue: [DateType, DateType];
+        calendarFocusedDate?: DateType;
         isDoubleCalendar?: boolean;
         target?: ReactNode;
         onChangeStartOfRange?: (value: Date, dateInfo?: DateInfo) => void;

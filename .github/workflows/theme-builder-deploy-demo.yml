@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.ref }}
-      
+
       - name: Prepare-environment
         uses: ./.github/actions/prepare-environment
 
@@ -24,14 +24,14 @@ jobs:
 
       # TODO: https://github.com/salute-developers/plasma/issues/255
       - name: Npm install
-        run: | 
+        run: |
           npm install --prefix="./website/plasma-theme-builder"
 
       # 2 папки, так как названия разные - в первом случае нужно для replace
       - name: Build Theme Builder
         env:
           REACT_APP_APPLICATION_CLIENT_ID: ${{ secrets.REACT_APP_APPLICATION_CLIENT_ID }}
-          REACT_APP_AUTH_SERVER_URL: ${{ secrets.REACT_APP_AUTH_SERVER_URL }}
+          REACT_APP_AUTH_SERVER_URL: ${{ vars.REACT_APP_AUTH_SERVER_URL }}
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-theme-builder"

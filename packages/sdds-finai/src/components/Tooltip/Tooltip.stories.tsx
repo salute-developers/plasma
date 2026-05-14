@@ -163,8 +163,6 @@ export const Default: StoryObj<TooltipProps> = {
 
 const StyledRow = styled.div`
     display: flex;
-    width: 150vw;
-    height: 150vh;
     padding: 10rem;
 `;
 
@@ -174,7 +172,6 @@ const StoryLive = (args: TooltipProps) => {
     return (
         <>
             <StyledRow>
-                `
                 <Tooltip
                     target={<Button onClick={() => setIsOpen(!isOpen)}>Show tooltip</Button>}
                     contentLeft={args.enableContentLeft && <IconScribbleDiagonal size="xs" />}

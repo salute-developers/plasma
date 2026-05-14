@@ -83,7 +83,7 @@ export const Filter: React.FC<Props> = ({ header, size, outerFiltered, tableCont
                     {filtered.length ? <StyledIndicator size="s" view="accent" /> : undefined}
                 </IconFilterWrapper>
             )}
-            items={filters}
+            items={filters || []}
             portal={tableContainerRef}
             listWidth={getSelectWidth(size)}
             onToggle={handleToggle}

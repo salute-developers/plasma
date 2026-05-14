@@ -2,15 +2,15 @@ import path from 'path';
 import { writeGeneratedToFS, generateFile } from '@salutejs/plasma-tokens-utils';
 import { generateCommonFile } from '@salutejs/plasma-tokens-utils/lib/generators/generateFile';
 
-import { ThemeContent, ThemeMode, webBreakpoints, webBreakpoints_FOR_SDDS_INSOL } from '../types';
+import { ThemeContent, ThemeMode, getBreakpointsByThemeName } from '../types';
 import { getBreakpointSelector, getSelector } from '../utils';
 
 export const generateThemes = (srcDir: string, themeName: string, themeContent: ThemeContent) => {
     const themesDir = path.join(srcDir, 'themes');
 
-    // TODO: Удалить после добавление брейкпоинтов в токены
-    const breakpoints =
-        themeName === 'sdds_insol' || themeName === 'sdds_insol_next' ? webBreakpoints_FOR_SDDS_INSOL : webBreakpoints;
+    // TODO: Удалить после добавление breakpoints в токены
+    const breakpoints = getBreakpointsByThemeName(themeName);
+
     const breakpointsSelectors = Object.entries(breakpoints).map(([key, value]) =>
         getBreakpointSelector(themeContent.dark.typographyTokens[key], value.from, value.to),
     );

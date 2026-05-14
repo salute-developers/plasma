@@ -42,7 +42,7 @@ export const createDefaultStory = ({
         maxItemWidth,
         hasBackground,
         pilled,
-        args,
+        ...args
     }: any) => {
         const { selectedSegmentItems } = useSegment();
 

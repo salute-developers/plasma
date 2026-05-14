@@ -52,10 +52,8 @@ export function App() {
             </TextFieldGroup>
             
             <TextFieldGroup isCommonTextFieldStyles={false}>
-                <TextField placeholder="Размер l" size="l" />
                 <TextField placeholder="Размер m" size="m" />
                 <TextField placeholder="Размер s" size="s" />
-                <TextField placeholder="Размер xs" size="xs" />
             </TextFieldGroup>
         </div>
     );
@@ -72,7 +70,7 @@ import { TextFieldGroup, TextField } from '@salutejs/sdds-scan';
 export function App() {
     return (
         <div>
-            <TextFieldGroup size="xs" shape="segmented">
+            <TextFieldGroup size="s" shape="segmented">
                 {Array(3)
                     .fill(true)
                     .map((_, i) => (
@@ -80,7 +78,7 @@ export function App() {
                     ))}
             </TextFieldGroup>
 
-            <TextFieldGroup size="xs" shape="default">
+            <TextFieldGroup size="s" shape="default">
                 {Array(3)
                     .fill(true)
                     .map((_, i) => (
@@ -105,7 +103,7 @@ import { TextFieldGroup, TextField } from '@salutejs/sdds-scan';
 export function App() {
     return (
         <div>
-            <TextFieldGroup size="xs" orientation="vertical" shape="segmented" gap="none">
+            <TextFieldGroup size="s" orientation="vertical" shape="segmented" gap="none">
                 {Array(5)
                     .fill(true)
                     .map((_, i) => (
@@ -113,7 +111,7 @@ export function App() {
                     ))}
             </TextFieldGroup>
 
-            <TextFieldGroup size="xs" orientation="horizontal" gap="wide">
+            <TextFieldGroup size="s" orientation="horizontal" gap="wide">
                 {Array(4)
                     .fill(true)
                     .map((_, i) => (

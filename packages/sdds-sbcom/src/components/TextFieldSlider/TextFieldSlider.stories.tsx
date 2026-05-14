@@ -15,7 +15,7 @@ const { meta: META, Default } = getTextFieldSliderStories({
 
 const meta: Meta<TextFieldSliderProps> = {
     ...META,
-    title: 'Data Entry/TextFieldSlider',
+    title: 'Data Entry/⚠️ TextFieldSlider',
 };
 
 export default meta;

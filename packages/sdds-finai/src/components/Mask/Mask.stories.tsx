@@ -2,15 +2,16 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
+
+import { config } from '../TextField/TextField.config';
 
 import { Mask } from './Mask';
 
 const onChange = action('onChange');
 const onKeyDown = action('onKeyDown');
 
-const sizes = ['l', 'm', 's', 'xs'];
-const views = ['default', 'positive', 'warning', 'negative'];
+const { views, sizes } = getConfigVariations(config);
 
 const propsToDisable = [
     'helperBlock',
@@ -169,7 +170,7 @@ const StoryDemo = ({ view, ...rest }: StoryPropsDefault) => {
 
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
-        size: 'l',
+        size: 's',
         view: 'default',
         placeholder: 'Заполните поле',
         disabled: false,

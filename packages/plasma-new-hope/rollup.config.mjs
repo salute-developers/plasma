@@ -1,11 +1,16 @@
+import fs from 'fs';
 import path from 'path';
 import { createFilter } from '@rollup/pluginutils';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import linaria from '@linaria/rollup';
 import { babel } from '@rollup/plugin-babel';
 import styles from '@ironkinoko/rollup-plugin-styles';
+import { fileURLToPath } from 'url';
 
-const inputDir = 'src';
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+const inputDir = 'src-css';
+const inputDirPath = path.resolve(dirname, inputDir);
 
 export default {
     input: path.join(inputDir, 'index.ts'),
@@ -19,7 +24,7 @@ export default {
             format: 'es',
             freeze: false,
             esModule: true,
-            sourcemap: true,
+            sourcemap: false,
             exports: 'named',
             assetFileNames: '[name][extname]',
         },
@@ -29,7 +34,7 @@ export default {
             format: 'cjs',
             freeze: false,
             esModule: true,
-            sourcemap: true,
+            sourcemap: false,
             exports: 'named',
             assetFileNames: '[name][extname]',
             interop: 'auto',
@@ -39,11 +44,28 @@ export default {
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
         }
+        if (id === inputDir || id.startsWith(`${inputDir}/`)) {
+            return false;
+        }
         return !id.startsWith('.') && !path.isAbsolute(id);
     },
     plugins: [
+        sourceAliasPlugin(),
         linaria({
             exclude: ['plasma-core/src/collectPackageInfo.ts'],
+            babelOptions: {
+                plugins: [
+                    [
+                        'module-resolver',
+                        {
+                            alias: {
+                                'src-css': path.resolve(dirname, 'src-css'),
+                            },
+                            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+                        },
+                    ],
+                ],
+            },
         }),
         nodeResolve({
             extensions: ['.tsx', '.ts'],
@@ -60,6 +82,57 @@ export default {
         }),
     ],
 };
+
+function sourceAliasPlugin() {
+    return {
+        name: 'sourceAliasPlugin',
+        resolveId(source, importer) {
+            if (source === inputDir) {
+                return resolveSourceAlias(inputDirPath);
+            }
+
+            if (source.startsWith(`${inputDir}/`)) {
+                return resolveSourceAlias(path.resolve(dirname, source));
+            }
+
+            if (importer?.startsWith(inputDirPath) && source.startsWith('src/')) {
+                return resolveSourceAlias(path.resolve(dirname, source.replace(/^src\//, `${inputDir}/`)));
+            }
+
+            return null;
+        },
+    };
+}
+
+function resolveSourceAlias(resolvedPath) {
+    const extensions = ['', '.ts', '.tsx', '.js', '.jsx'];
+
+    for (const extension of extensions) {
+        const filePath = `${resolvedPath}${extension}`;
+
+        if (isFile(filePath)) {
+            return filePath;
+        }
+    }
+
+    for (const extension of ['.ts', '.tsx', '.js', '.jsx']) {
+        const indexPath = path.join(resolvedPath, `index${extension}`);
+
+        if (isFile(indexPath)) {
+            return indexPath;
+        }
+    }
+
+    return resolvedPath;
+}
+
+function isFile(filePath) {
+    try {
+        return fs.statSync(filePath).isFile();
+    } catch {
+        return false;
+    }
+}
 
 function importCssPlugin() {
     const filter = createFilter(['**/*.css']);

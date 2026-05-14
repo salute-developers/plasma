@@ -236,14 +236,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -256,14 +250,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -542,14 +530,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -562,14 +544,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -832,14 +808,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -852,14 +822,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1154,14 +1118,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1174,14 +1132,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1647,14 +1599,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -1667,14 +1613,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -2153,14 +2093,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2173,14 +2107,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2659,14 +2587,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2679,14 +2601,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3165,14 +3081,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3185,14 +3095,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3357,29 +3261,29 @@
             },
             "onLight": {
                 "overlaySoft": {
-                    "value": "[general.gray.50][-0.440]",
+                    "value": "#0808088F",
                     "comment": "Цвет фона паранжи светлый на светлом фоне"
                 },
                 "overlayHard": {
-                    "value": "[general.gray.50][-0.0400]",
+                    "value": "#080808F5",
                     "comment": "Цвет фона паранжи темный на светлом фоне"
                 },
                 "overlayBlur": {
-                    "value": "[general.gray.50][-0.720]",
+                    "value": "#08080847",
                     "comment": "Цвет фона паранжи размытый на светлом фоне"
                 }
             },
             "inverse": {
                 "overlaySoft": {
-                    "value": "[general.gray.50][-0.440]",
+                    "value": "#0808088F",
                     "comment": "Инвертированный цвет фона паранжи светлый"
                 },
                 "overlayHard": {
-                    "value": "[general.gray.50][-0.0400]",
+                    "value": "#080808F5",
                     "comment": "Инвертированный цвет фона паранжи темный"
                 },
                 "overlayBlur": {
-                    "value": "[general.gray.50][-0.720]",
+                    "value": "#08080847",
                     "comment": "Инвертированный цвет фона паранжи размытый"
                 }
             }
@@ -5311,14 +5215,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5331,14 +5229,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5617,14 +5509,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5637,14 +5523,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5923,14 +5803,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -5943,14 +5817,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6229,14 +6097,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6249,14 +6111,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#5E94FF",
-                                "#43DBFA"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#5E94FF", "#43DBFA"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6722,14 +6578,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -6742,14 +6592,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -7228,14 +7072,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7248,14 +7086,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7734,14 +7566,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7754,14 +7580,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "#3E79F0",
-                                "#27C6E5"
-                            ],
-                            "locations": [
-                                0.06,
-                                0.94
-                            ],
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0.06, 0.94],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -8362,15 +8182,15 @@
         "overlay": {
             "default": {
                 "overlaySoft": {
-                    "value": "[general.gray.50][-0.440]",
+                    "value": "#0808088F",
                     "comment": "Цвет фона паранжи светлый"
                 },
                 "overlayHard": {
-                    "value": "[general.gray.50][-0.0400]",
+                    "value": "#080808F5",
                     "comment": "Цвет фона паранжи темный"
                 },
                 "overlayBlur": {
-                    "value": "[general.gray.50][-0.720]",
+                    "value": "#08080847",
                     "comment": "Цвет фона паранжи размытый"
                 }
             },
@@ -8390,15 +8210,15 @@
             },
             "onLight": {
                 "overlaySoft": {
-                    "value": "[general.gray.50][-0.440]",
+                    "value": "#0808088F",
                     "comment": "Цвет фона паранжи светлый на светлом фоне"
                 },
                 "overlayHard": {
-                    "value": "[general.gray.50][-0.0400]",
+                    "value": "#080808F5",
                     "comment": "Цвет фона паранжи темный на светлом фоне"
                 },
                 "overlayBlur": {
-                    "value": "[general.gray.50][-0.720]",
+                    "value": "#08080847",
                     "comment": "Цвет фона паранжи размытый на светлом фоне"
                 }
             },

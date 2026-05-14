@@ -1,44 +1,46 @@
 import React, { forwardRef } from 'react';
-
-import type { RootPropsOmitOnChangeAndDefaultValue } from '../../engines';
-import { cx } from '../../utils';
+import type { RootPropsOmitOnChangeAndDefaultValue } from 'src/engines';
+import cls from 'classnames';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
-import { SingleSlider, DoubleUncontrolled } from './components';
-import type { SingleSliderProps, DoubleUncontrolledProps } from './components';
-import { SliderProps } from './Slider.types';
+import { SingleSlider, DoubleSlider } from './components';
+import type { SingleSliderProps, DoubleSliderProps } from './components';
+import { SliderProps, SliderRootProps } from './Slider.types';
 import { classes } from './Slider.tokens';
-
-// TODO: проверить, можно ли обойтись без каста типов
 
 const isSingleValueProps = (props: SliderProps, type: string): props is SingleSliderProps =>
     typeof props.value === 'number' || (type === 'single' && typeof props.value !== 'object');
 
-const isDoubleValueProps = (props: SliderProps, type: string): props is DoubleUncontrolledProps =>
+const isDoubleValueProps = (props: SliderProps, type: string): props is DoubleSliderProps =>
     typeof props.value === 'object' || type === 'double';
 
-export const sliderRoot = (Root: RootPropsOmitOnChangeAndDefaultValue<HTMLDivElement, SliderProps>) =>
-    forwardRef<HTMLDivElement, SliderProps>(({ type = 'single', ...props }, ref) => {
-        if (isSingleValueProps(props, type)) {
+export const sliderRoot = (Root: RootPropsOmitOnChangeAndDefaultValue<HTMLDivElement, SliderRootProps>) =>
+    forwardRef<HTMLDivElement, SliderProps>(
+        ({ type = 'single', view, size, disabled, className, style, ...props }, ref) => {
+            if (isSingleValueProps(props, type)) {
+                return (
+                    <Root
+                        ref={ref}
+                        view={view}
+                        size={size}
+                        disabled={disabled}
+                        className={cls(className, { [classes.verticalOrientation]: props.orientation === 'vertical' })}
+                        style={style}
+                    >
+                        <SingleSlider disabled={disabled} {...props} />
+                    </Root>
+                );
+            }
+
             return (
-                <Root
-                    {...props}
-                    className={cx(props.orientation === 'vertical' && classes.verticalOrientation, props.className)}
-                    ref={ref}
-                >
-                    <SingleSlider {...props} />
+                <Root ref={ref} view={view} size={size} disabled={disabled} className={className} style={style}>
+                    {isDoubleValueProps(props, type) && <DoubleSlider disabled={disabled} {...props} />}
                 </Root>
             );
-        }
-
-        return (
-            <Root ref={ref} {...props}>
-                {isDoubleValueProps(props, type) && <DoubleUncontrolled {...props} />}
-            </Root>
-        );
-    });
+        },
+    );
 
 export const sliderConfig = {
     name: 'Slider',

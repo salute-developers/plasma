@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { classes, privateTokens, tokens } from '../../Note.tokens';
 import { ContentBefore, ContentWrapper, Text, TextHelper, Title, TitleHelper } from '../../Note.styles';

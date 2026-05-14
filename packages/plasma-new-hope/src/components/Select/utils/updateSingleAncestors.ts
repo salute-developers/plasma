@@ -1,8 +1,8 @@
-import type { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
+import type { ItemOptionTransformed } from '../Select.types';
 import type { ValueToCheckedMapType } from '../hooks/usePathMaps';
 
 export const updateSingleAncestors = (
-    node: MergedDropdownNodeTransformed,
+    node: ItemOptionTransformed,
     checkedMap: ValueToCheckedMapType,
     type: boolean | 'done' | 'dot' | 'indeterminate',
 ) => {

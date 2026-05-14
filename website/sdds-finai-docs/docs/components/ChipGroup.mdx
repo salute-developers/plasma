@@ -43,7 +43,7 @@ import { ChipGroup, Chip } from '@salutejs/sdds-finai';
 export function App() {
     return (
         <div>
-            <ChipGroup size="s" view="secondary">
+            <ChipGroup size="s" view="clear">
                 {Array(5)
                     .fill(true)
                     .map((_, i) => (
@@ -53,7 +53,7 @@ export function App() {
 
             <ChipGroup isCommonChipStyles={false}>
                 <Chip size="m" text="Default" />
-                <Chip size="s" text="Secondary" view="secondary" />
+                <Chip size="s" text="Clear" view="clear" />
                 <Chip size="xs" text="Accent" view="accent" />
             </ChipGroup>
         </div>

@@ -18,47 +18,45 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 ```tsx live
 import React from 'react';
 import { surfaceSolid02 } from '@salutejs/plasma-tokens-b2c';
-import { SSRProvider, Button, ModalBase, PopupBaseProvider } from '@salutejs/plasma-b2c';
+import { Button, ModalBase, PopupBaseProvider } from '@salutejs/plasma-b2c';
 
 export function App() {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
 
     return (
-        <SSRProvider>
-            <PopupBaseProvider>
-                <div style={{ height: "300px" }}>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button text="Открыть A" onClick={() => setIsOpenA(true)} />
+        <PopupBaseProvider>
+            <div style={{ height: "300px" }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button text="Открыть A" onClick={() => setIsOpenA(true)} />
+                </div>
+                <ModalBase
+                    id="modalA"
+                    onClose={() => setIsOpenA(false)}
+                    isOpen={isOpenA}
+                    placement="center"
+                    offset={[0, 0]}
+                >
+                    <div style={{ background: `${surfaceSolid02}`, padding: "1rem" }}>
+                        <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                        <Button text="Открыть B" onClick={() => setIsOpenB(true)} />
+                        Content
                     </div>
                     <ModalBase
-                        id="modalA"
-                        onClose={() => setIsOpenA(false)}
-                        isOpen={isOpenA}
-                        placement="center"
+                        id="modalB"
+                        onClose={() => setIsOpenB(false)}
+                        isOpen={isOpenB}
+                        placement="right"
                         offset={[0, 0]}
                     >
                         <div style={{ background: `${surfaceSolid02}`, padding: "1rem" }}>
-                            <Button onClick={() => setIsOpenA(false)}>Close</Button>
-                            <Button text="Открыть B" onClick={() => setIsOpenB(true)} />
+                            <Button onClick={() => setIsOpenB(false)}>Close</Button>
                             Content
                         </div>
-                        <ModalBase
-                            id="modalB"
-                            onClose={() => setIsOpenB(false)}
-                            isOpen={isOpenB}
-                            placement="right"
-                            offset={[0, 0]}
-                        >
-                            <div style={{ background: `${surfaceSolid02}`, padding: "1rem" }}>
-                                <Button onClick={() => setIsOpenB(false)}>Close</Button>
-                                Content
-                            </div>
-                        </ModalBase>
                     </ModalBase>
-                </div>
-            </PopupBaseProvider>
-        </SSRProvider>
+                </ModalBase>
+            </div>
+        </PopupBaseProvider>
     );
 }
 ```
@@ -70,44 +68,42 @@ export function App() {
 Для использования стилизованного модального окна с отступами и крестиком для закрытия, добавьте свойство `hasBody`.
 ```tsx live
 import React, { useState } from 'react';
-import { SSRProvider, Button, ModalBase, PopupBaseProvider } from '@salutejs/plasma-b2c';
+import { Button, ModalBase, PopupBaseProvider } from '@salutejs/plasma-b2c';
 
 export function App() {
     const [isOpenA, setIsOpenA] = useState(false);
     const [isOpenB, setIsOpenB] = useState(false);
 
     return (
-        <SSRProvider>
-            <PopupBaseProvider>
-                <div style={{ height: "300px" }}>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button text="Открыть A" onClick={() => setIsOpenA(true)} />
-                    </div>
-                    <ModalBase
-                        id="modalA"
-                        onClose={() => setIsOpenA(false)}
-                        opened={isOpenA}
-                        placement="center"
-                        offset={[0, 0]}
-                        hasBody
-                    >
-                        <Button onClick={() => setIsOpenA(false)}>Close</Button>
-                        <Button text="Открыть B" onClick={() => setIsOpenB(true)} />
-                        Content
-                        <ModalBase
-                            id="modalB"
-                            onClose={() => setIsOpenB(false)}
-                            opened={isOpenB}
-                            placement="right"
-                            offset={[0, 0]}
-                        >
-                            <Button onClick={() => setIsOpenB(false)}>Close</Button>
-                            Content
-                        </ModalBase>
-                    </ModalBase>
+        <PopupBaseProvider>
+            <div style={{ height: "300px" }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button text="Открыть A" onClick={() => setIsOpenA(true)} />
                 </div>
-            </PopupBaseProvider>
-        </SSRProvider>
+                <ModalBase
+                    id="modalA"
+                    onClose={() => setIsOpenA(false)}
+                    opened={isOpenA}
+                    placement="center"
+                    offset={[0, 0]}
+                    hasBody
+                >
+                    <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                    <Button text="Открыть B" onClick={() => setIsOpenB(true)} />
+                    Content
+                    <ModalBase
+                        id="modalB"
+                        onClose={() => setIsOpenB(false)}
+                        opened={isOpenB}
+                        placement="right"
+                        offset={[0, 0]}
+                    >
+                        <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                        Content
+                    </ModalBase>
+                </ModalBase>
+            </div>
+        </PopupBaseProvider>
     );
 }
 ```
@@ -174,41 +170,39 @@ const StyledModal = styled(ModalBase)`
 
 ```tsx live
 import React from 'react';
-import { SSRProvider, Button, ModalBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+import { Button, ModalBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <SSRProvider>
-            <PopupBaseProvider>
-                <div style={{height: "200px"}}>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                            text="Открыть"
-                            onClick={() => setIsOpen(true)}
-                        />
-                    </div>
-
-                    <ModalBase
-                        id="modal"
-                        isOpen={isOpen}
-                        onClose={() => setIsOpen(false)}
-                        placement="center"
-                        draggable
-                    >
-                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
-                            <Button onClick={() => setIsOpen(false)}>Close</Button>
-                            <>Content</>
-                        </div>
-                    </ModalBase>
+        <PopupBaseProvider>
+            <div style={{height: "200px"}}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button
+                        style={{
+                            marginTop: "1rem",
+                            width: "15rem"
+                        }}
+                        text="Открыть"
+                        onClick={() => setIsOpen(true)}
+                    />
                 </div>
-            </PopupBaseProvider>
-        </SSRProvider>
+
+                <ModalBase
+                    id="modal"
+                    isOpen={isOpen}
+                    onClose={() => setIsOpen(false)}
+                    placement="center"
+                    draggable
+                >
+                    <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                        <Button onClick={() => setIsOpen(false)}>Close</Button>
+                        <>Content</>
+                    </div>
+                </ModalBase>
+            </div>
+        </PopupBaseProvider>
     );
 }
 ```
@@ -277,42 +271,40 @@ resizable?: {
 
 ```tsx live
 import React from 'react';
-import { SSRProvider, Button, ModalBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
+import { Button, ModalBase, PopupBaseProvider } from  '@salutejs/plasma-b2c';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <SSRProvider>
-            <PopupBaseProvider>
-                <div style={{height: "200px"}}>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <Button
-                            style={{
-                                marginTop: "1rem",
-                                width: "15rem"
-                            }}
-                            text="Открыть"
-                            onClick={() => setIsOpen(true)}
-                        />
-                    </div>
-
-                    <ModalBase
-                        id="modal"
-                        isOpen={isOpen}
-                        onClose={() => setIsOpen(false)}
-                        placement="center"
-                        offset={[0, 0]}
-                        resizable
-                    >
-                        <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
-                            <Button onClick={() => setIsOpen(false)}>Close</Button>
-                            <>Content</>
-                        </div>
-                    </ModalBase>
+        <PopupBaseProvider>
+            <div style={{height: "200px"}}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button
+                        style={{
+                            marginTop: "1rem",
+                            width: "15rem"
+                        }}
+                        text="Открыть"
+                        onClick={() => setIsOpen(true)}
+                    />
                 </div>
-            </PopupBaseProvider>
-        </SSRProvider>
+
+                <ModalBase
+                    id="modal"
+                    isOpen={isOpen}
+                    onClose={() => setIsOpen(false)}
+                    placement="center"
+                    offset={[0, 0]}
+                    resizable
+                >
+                    <div style={{ background: "lightgray", padding: "1rem", height: '100%', boxSizing: 'border-box', borderRadius: '1rem' }}>
+                        <Button onClick={() => setIsOpen(false)}>Close</Button>
+                        <>Content</>
+                    </div>
+                </ModalBase>
+            </div>
+        </PopupBaseProvider>
     );
 }
 ```

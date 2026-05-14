@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { panelTokens } from '../../../Panel';
 import { tokens } from '../../Drawer.tokens';

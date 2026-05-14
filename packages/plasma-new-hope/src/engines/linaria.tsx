@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { cx } from '@linaria/core';
+import cls from 'classnames';
 
 // TODO: #1008 Избавиться от импортов и переделать addFocus
 import 'focus-visible';
@@ -18,7 +18,7 @@ export const _component = (componentConfig: ComponentConfig) => {
         const variants = dynamicVariants(rest);
         const intersectionStyles = getIntersectionStyles(rest, intersections) as string[];
 
-        const cls = cx(
+        const rootClassName = cls(
             className,
             base as string,
             ...(staticVariants as string[]),
@@ -54,7 +54,7 @@ export const _component = (componentConfig: ComponentConfig) => {
 
         const Root = as || forwardedAs || (tag as React.ElementType);
 
-        return <Root className={cls} {...htmlAttrs} {...baseProps} />;
+        return <Root className={rootClassName} {...htmlAttrs} {...baseProps} />;
     });
     if (name) {
         component.displayName = name;

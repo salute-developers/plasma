@@ -11,6 +11,7 @@ import { config } from './LinkButton.config';
 const { views, sizes } = getConfigVariations(config);
 
 const sizeMap = {
+    xxs: '0.75rem', // 12px
     xs: '1rem', // 16px
     s: '1.5rem', // 24px
 };

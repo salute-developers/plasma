@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 
 import { classes, tokens } from '../../Calendar.tokens';
 import { component, mergeConfig } from '../../../../engines';

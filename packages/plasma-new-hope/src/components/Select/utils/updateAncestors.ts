@@ -1,14 +1,18 @@
-import type { MergedDropdownNodeTransformed } from '../ui/Inner/ui/Item/Item.types';
+import type { ItemOptionTransformed } from '../Select.types';
 import type { ValueToCheckedMapType } from '../hooks/usePathMaps';
 
-export const updateAncestors = (node: MergedDropdownNodeTransformed, checkedMap: ValueToCheckedMapType) => {
+export const updateAncestors = (node: ItemOptionTransformed, checkedMap: ValueToCheckedMapType) => {
     if (!node?.parent) {
         return;
     }
 
     const { parent } = node;
-    const siblings = parent.items!;
-    const siblingsLength = siblings.length;
+    const siblings = parent.items;
+
+    if (!siblings?.length) {
+        return;
+    }
+
     let checkedFromAllSiblings = 0;
     let isParentIndeterminate = false;
 
@@ -23,7 +27,7 @@ export const updateAncestors = (node: MergedDropdownNodeTransformed, checkedMap:
         }
     });
 
-    if (isParentIndeterminate || (checkedFromAllSiblings > 0 && checkedFromAllSiblings < siblingsLength)) {
+    if (isParentIndeterminate || (checkedFromAllSiblings > 0 && checkedFromAllSiblings < siblings.length)) {
         checkedMap.set(parent.value, 'indeterminate');
     } else if (checkedFromAllSiblings === 0) {
         checkedMap.set(parent.value, false);

@@ -1,4 +1,4 @@
-import { css as cssLibrary } from '@linaria/core';
+import { css as cssLibrary } from 'styled-components';
 
 import type { CSS } from './types';
 

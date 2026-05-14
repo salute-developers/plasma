@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { classes, tokens } from '../../Editable.tokens';
 import { EditButton } from '../../Editable.styles';

@@ -1,30 +1,23 @@
-import React from 'react';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-
-import { linkConfig } from '../../../components/Link';
-import { mergeConfig } from '../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../_helpers';
+import type { Meta } from '@storybook/react-vite';
+import { getLinkStories } from '@salutejs/plasma-sb-utils';
 
 import { config } from './Link.config';
 import { Link } from './Link';
 
-const meta: Meta<typeof Link> = {
-    title: 'Navigation/Link',
-    decorators: [WithTheme],
+type LinkProps = ComponentProps<typeof Link>;
+
+const { meta: META, Default } = getLinkStories({
     component: Link,
-    argTypes: argTypesFromConfig(mergeConfig(linkConfig, config)),
+    componentConfig: config,
+    defaultArgs: { view: 'accent' },
+});
+
+const meta: Meta<LinkProps> = {
+    ...(META as Meta<LinkProps>),
+    title: 'Navigation/Link',
 };
 
 export default meta;
 
-export const Default: StoryObj<ComponentProps<typeof Link>> = {
-    args: {
-        target: '_blank',
-        href: 'https://google.com',
-        children: 'Hello',
-        view: 'accent',
-        disabled: false,
-        focused: true,
-    },
-};
+export { Default };

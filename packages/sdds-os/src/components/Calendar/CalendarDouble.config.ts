@@ -9,20 +9,20 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${calendarDoubleTokens.calendarSeparatorBackground}: var(--surface-transparent-secondary);
+                ${calendarDoubleTokens.calendarSeparatorBackground}: var(--surface-solid-secondary);
                 ${calendarDoubleTokens.calendarBackgroundColor}: transparent;
                 ${calendarDoubleTokens.calendarSelectedItemBackground}: var(--surface-solid-default);
                 ${calendarDoubleTokens.calendarSelectedItemColor}: var(--inverse-text-primary);
-                ${calendarDoubleTokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-secondary);
+                ${calendarDoubleTokens.calendarSelectableItemBackgroundHover}: var(--surface-solid-secondary);
                 ${calendarDoubleTokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
                 ${calendarDoubleTokens.calendarCurrentItemBackgroundHover}: transparent;
                 ${calendarDoubleTokens.calendarCurrentItemColorHover}: var(--text-primary);
-                ${calendarDoubleTokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-secondary);
+                ${calendarDoubleTokens.calendarCurrentItemChildBackgroundHover}: var(--surface-solid-secondary);
                 ${calendarDoubleTokens.calendarActiveItemBackground}: var(--surface-solid-default);
                 ${calendarDoubleTokens.calendarActiveItemColor}: var(--inverse-text-primary);
                 ${calendarDoubleTokens.calendarHoveredItemBackground}: var(--surface-accent);
                 ${calendarDoubleTokens.calendarHoveredItemColor}: var(--text-primary);
-                ${calendarDoubleTokens.calendarRangeBackground}: var(--surface-transparent-secondary);
+                ${calendarDoubleTokens.calendarRangeBackground}: var(--surface-solid-secondary);
                 ${calendarDoubleTokens.calendarOutlineFocusColor}: var(--surface-accent);
                 ${calendarDoubleTokens.calendarContentPrimaryColor}: var(--surface-solid-default);
                 ${calendarDoubleTokens.calendarContentPrimaryDisabledColor}: var(--surface-solid-default);

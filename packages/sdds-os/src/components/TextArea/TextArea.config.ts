@@ -3,20 +3,21 @@ import { css, textAreaTokens as tokens } from '@salutejs/plasma-new-hope/styled-
 export const config = {
     defaults: {
         view: 'default',
+        size: 'm',
         focused: 'true',
     },
     variations: {
         view: {
             default: css`
-                ${tokens.inputBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.inputBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.inputBackgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.inputBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-secondary);
 
-                ${tokens.helpersBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.helpersBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.helpersBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-secondary);
 
                 ${tokens.inputColor}: var(--text-primary);
                 ${tokens.inputColorFocus}: var(--text-primary);
@@ -35,14 +36,14 @@ export const config = {
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-solid-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-solid-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-solid-primary-hover);
 
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.dividerColor}: var(--surface-solid-tertiary);
                 ${tokens.dividerColorHover}: var(--text-secondary);
                 ${tokens.dividerColorFocus}: var(--surface-accent);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
@@ -50,15 +51,15 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
             warning: css`
-                ${tokens.inputBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-warning-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-warning);
+                ${tokens.inputBackgroundColor}: var(--surface-solid-warning);
+                ${tokens.inputBackgroundColorHover}: var(--surface-solid-warning-hover);
+                ${tokens.inputBackgroundColorActive}: var(--surface-solid-warning-active);
+                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-warning);
 
-                ${tokens.helpersBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-warning-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-warning);
+                ${tokens.helpersBackgroundColor}: var(--surface-solid-warning);
+                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-warning-hover);
+                ${tokens.helpersBackgroundColorActive}: var(--surface-solid-warning-active);
+                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-warning);
 
                 ${tokens.inputColor}: var(--text-primary);
                 ${tokens.inputColorFocus}: var(--text-primary);
@@ -77,12 +78,12 @@ export const config = {
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-solid-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-solid-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-solid-primary-hover);
 
                 ${tokens.dividerColor}: var(--surface-warning);
                 ${tokens.dividerColorHover}: var(--surface-warning);
@@ -92,15 +93,15 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
             negative: css`
-                ${tokens.inputBackgroundColor}: var(--surface-transparent-negative);
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-negative-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-negative);
+                ${tokens.inputBackgroundColor}: var(--surface-solid-negative);
+                ${tokens.inputBackgroundColorHover}: var(--surface-solid-negative-hover);
+                ${tokens.inputBackgroundColorActive}: var(--surface-solid-negative-active);
+                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-negative);
 
-                ${tokens.helpersBackgroundColor}: var(--surface-transparent-negative);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-negative-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-negative);
+                ${tokens.helpersBackgroundColor}: var(--surface-solid-negative);
+                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-negative-hover);
+                ${tokens.helpersBackgroundColorActive}: var(--surface-solid-negative-active);
+                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-negative);
 
                 ${tokens.inputColor}: var(--text-primary);
                 ${tokens.inputColorFocus}: var(--text-primary);
@@ -119,12 +120,12 @@ export const config = {
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-solid-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-solid-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-solid-primary-hover);
 
                 ${tokens.dividerColor}: var(--surface-negative);
                 ${tokens.dividerColorHover}: var(--surface-negative);
@@ -345,9 +346,9 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.readOnlyOpacity}: 0.1;
-                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundColorReadOnly}: var(--surface-solid-primary);
                 ${tokens.inputColorReadOnly}: var(--text-primary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.dividerColorReadOnly}: var(--surface-solid-primary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
@@ -355,7 +356,7 @@ export const config = {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
                 ${tokens.inputColorDisabled}: var(--text-secondary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.dividerColorReadOnly}: var(--surface-solid-primary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
             `,
         },

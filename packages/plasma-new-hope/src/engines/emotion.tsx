@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { css, SerializedStyles } from '@emotion/react';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { getStaticVariants, getDynamicVariants, getIntersectionStyles } from './utils';
@@ -8,8 +8,8 @@ import { ComponentConfig, HTMLAnyAttributes, PolymorphicClassName } from './type
 export { css };
 
 const Root = styled.div<{
-    base: string | SerializedStyles;
-    staticVariants: (string | SerializedStyles)[];
+    base: PolymorphicClassName;
+    staticVariants: PolymorphicClassName[];
     dynamicVariants: (props: HTMLAnyAttributes) => any[];
     intersectionStyles: PolymorphicClassName[];
 }>`

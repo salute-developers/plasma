@@ -20,9 +20,7 @@ export type ChipProps = ComponentProps<typeof ChipDefault>;
 /**
  * Компонент chip.
  */
-export const Chip = createConditionalComponent<ChipProps, HTMLButtonElement>(ChipDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'transparent' },
-        component: ChipTransparent,
-    },
-]);
+export const Chip = createConditionalComponent({
+    default: ChipDefault,
+    transparent: ChipTransparent,
+});

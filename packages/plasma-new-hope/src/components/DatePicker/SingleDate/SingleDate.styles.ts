@@ -1,36 +1,11 @@
-import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
+import styled, { css } from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 
 import { textFieldConfig, textFieldTokens } from '../../TextField';
 import { classes, tokens } from '../DatePicker.tokens';
-import { popoverClasses, popoverConfig } from '../../Popover';
 
 const mergedTextFieldConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedTextFieldConfig);
-
-const mergedPopoverConfig = mergeConfig(popoverConfig);
-const Popover = component(mergedPopoverConfig);
-
-export const StyledPopover = styled(Popover)`
-    .${classes.datePickerRoot} {
-        box-sizing: border-box;
-
-        display: flex;
-        gap: var(${tokens.popoverGap});
-        border-radius: var(${tokens.popoverBorderRadius});
-        padding: var(${tokens.popoverPadding});
-
-        border: var(${tokens.calendarBorderWidth}) solid var(${tokens.calendarBorderColor});
-        background: var(${tokens.popoverBackgroundColor});
-        box-shadow: var(${tokens.popoverShadow});
-
-        overflow: hidden;
-
-        width: ${({ innerWidth }) => innerWidth || 'fit-content'};
-        height: ${({ innerHeight }) => innerHeight || 'fit-content'};
-    }
-`;
 
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`
@@ -200,14 +175,10 @@ export const StyledInput = styled(TextField)`
 export const base = css`
     display: inline-block;
 
-    .${popoverClasses.wrapper}, .${popoverClasses.target} {
-        width: inherit;
-    }
-
     &.${classes.datePickerstretched} {
         width: 100%;
 
-        .${popoverClasses.root} {
+        & > div {
             width: 100%;
         }
     }

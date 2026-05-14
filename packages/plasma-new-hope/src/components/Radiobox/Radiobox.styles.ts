@@ -1,5 +1,4 @@
-import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
+import styled, { css } from 'styled-components';
 
 import { checkboxTokens } from '../Checkbox';
 import { applyEllipsis, applyNoUserSelect } from '../../mixins';
@@ -23,6 +22,7 @@ const mappingOverride = `
     ${checkboxTokens.descriptionLineHeight}: var(${tokens.descriptionLineHeight});
 
     ${checkboxTokens.fillColor}: var(${tokens.fillColor});
+    ${checkboxTokens.labelColor}: var(${tokens.labelColor});
     ${checkboxTokens.descriptionColor}: var(${tokens.descriptionColor});
     ${checkboxTokens.triggerBorderWidth}: var(${tokens.triggerBorderWidth});
     ${checkboxTokens.triggerBorderColor}: var(${tokens.triggerBorderColor});

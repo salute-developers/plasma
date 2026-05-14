@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconDone, IconPlasma, IconLockOutline } from '@salutejs/plasma-icons';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { IconPlasma, IconLockOutline } from '@salutejs/plasma-icons';
 import type { PopoverPlacement } from '@salutejs/plasma-new-hope';
 
 import { Combobox } from './Combobox';
+import { config } from './Combobox.config';
 
 type StorySelectProps = ComponentProps<typeof Combobox> & {
     enableContentLeft?: boolean;
@@ -14,8 +15,8 @@ type StorySelectProps = ComponentProps<typeof Combobox> & {
     selectAllSticky?: boolean;
 };
 
-const view = ['default', 'positive', 'warning', 'negative'];
-const size = ['xs', 's', 'm', 'l'];
+const { views, sizes } = getConfigVariations(config);
+
 const labelPlacement = ['inner', 'outer'];
 const variant = ['normal', 'tight'];
 const hintViews = ['default'];
@@ -88,13 +89,13 @@ const meta: Meta<StorySelectProps> = {
     component: Combobox,
     argTypes: {
         size: {
-            options: size,
+            options: sizes,
             control: {
                 type: 'select',
             },
         },
         view: {
-            options: view,
+            options: views,
             control: {
                 type: 'select',
             },
@@ -243,7 +244,7 @@ const meta: Meta<StorySelectProps> = {
         labelPlacement: 'outer',
         placeholder: 'Placeholder',
         helperText: 'Helper text',
-        size: 'm',
+        size: 's',
         view: 'default',
         enableContentLeft: false,
         isTargetAmount: false,
@@ -513,7 +514,7 @@ const SingleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={<IconPlasma size="s" color="inherit" />}
+                contentLeft={args.enableContentLeft ? <IconPlasma size={args.size} color="inherit" /> : undefined}
                 contentRight={getIcon(args.size, args.disabled, args.readOnly)}
             />
         </div>
@@ -540,7 +541,7 @@ const MultipleStory = (args: StorySelectProps) => {
                 items={items}
                 value={value}
                 onChange={setValue}
-                contentLeft={<IconPlasma size="s" color="inherit" />}
+                contentLeft={args.enableContentLeft ? <IconPlasma size="s" color="inherit" /> : undefined}
                 contentRight={getIcon(args.size, args.disabled, args.readOnly)}
             />
         </div>

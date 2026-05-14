@@ -76,12 +76,6 @@ describe('Generics', () => {
     });
 });
 
-describe('Complex', () => {
-    it('Examples', () => {
-        // Реальные примеры использования через expectTypeOf
-    });
-});
-
 describe('Examples', () => {
     it('Basic', () => {
         () => {

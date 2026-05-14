@@ -1,5 +1,4 @@
-import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
+import styled, { css } from 'styled-components';
 
 import { getCorrectHeight } from './utils';
 import { DropdownProps } from './Dropdown.types';
@@ -18,7 +17,7 @@ export const ListWrapper = styled.div<{
 `;
 
 export const Ul = styled.ul<{
-    listMaxHeight: DropdownProps['listHeight'];
+    listMaxHeight: DropdownProps['listMaxHeight'];
 }>`
     max-height: ${({ listMaxHeight }) => (listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto')};
     overflow-x: hidden;

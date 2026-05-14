@@ -115,32 +115,8 @@ import TabItem from '@theme/TabItem';
             return (
                 <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
                     <TextArea
-                        size="xl"
-                        label="Size xl"
-                        placeholder="Введите значение"
-                        contentRight={<IconDownload />}
-                    />
-                    <TextArea
-                        size="l"
-                        label="Size l"
-                        placeholder="Введите значение"
-                        contentRight={<IconDownload />}
-                    />
-                    <TextArea
-                        size="m"
-                        label="Size m"
-                        placeholder="Введите значение"
-                        contentRight={<IconDownload />}
-                    />
-                    <TextArea
                         size="s"
                         label="Size s"
-                        placeholder="Введите значение"
-                        contentRight={<IconDownload />}
-                    />
-                    <TextArea
-                        size="xs"
-                        label="Size xs"
                         placeholder="Введите значение"
                         contentRight={<IconDownload />}
                     />
@@ -292,11 +268,10 @@ export function App() {
 ```tsx live
 import React from 'react';
 import { TextArea, TextS } from '@salutejs/sdds-finai';
-import { surfaceSolid03 } from '@salutejs/plasma-tokens-b2c';
 
 export function App() {
     const HeaderSlot = () => (
-       <div style={{ margin: "0 0.75rem", padding: "0.5rem 0", borderBottom: `0.063rem solid ${surfaceSolid03}` }}>
+       <div style={{ margin: "0 0.75rem", padding: "0.5rem 0", borderBottom: `0.063rem solid #000` }}>
            <TextS>Дополнительный контент</TextS>
        </div>
     )

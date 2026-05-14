@@ -1,5 +1,6 @@
 import React, { ComponentProps, useCallback, MouseEvent, forwardRef } from 'react';
 import { buttonConfig, component, mergeConfig, buttonClasses, buttonTokens } from '@salutejs/plasma-new-hope/emotion';
+import { makePolymorphic } from '@salutejs/plasma-new-hope';
 import styled from '@emotion/styled';
 
 import { config } from './Button.config';
@@ -22,8 +23,8 @@ const StyledButton = styled(ButtonComponent)`
 /**
  * Кнопка.
  */
-export const Button = forwardRef<Omit<HTMLButtonElement, 'value'>, ButtonProps>(
-    ({ onClick, isLoading, value, ...props }, ref) => {
+export const Button = makePolymorphic(
+    forwardRef<Omit<HTMLButtonElement, 'value'>, ButtonProps>(({ onClick, isLoading, value, ...props }, ref) => {
         const handleClick = useCallback(
             (event: MouseEvent<HTMLButtonElement>) => {
                 if (!isLoading) {
@@ -35,5 +36,6 @@ export const Button = forwardRef<Omit<HTMLButtonElement, 'value'>, ButtonProps>(
 
         // @ts-ignore
         return <StyledButton value={value} ref={ref} onClick={handleClick} isLoading={isLoading} {...props} />;
-    },
+    }),
+    'button',
 );

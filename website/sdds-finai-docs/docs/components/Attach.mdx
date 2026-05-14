@@ -100,14 +100,21 @@ export function App() {
 }
 ```
 
-### Пример использования в форме
+### Пример взаимодействия с формой
+
+:::tip
+С помощью компонента `InformationWrapper`можно добавить весь необходимый UX/UI для работы с формой, включая:
+- обязательность поле
+- label, caption, hint, etc
+- view
+:::
+
 
 ```tsx live
 import React, { useState } from 'react';
-import { Attach, Button } from '@salutejs/sdds-finai';
+import { Attach, Button, InformationWrapper, outlineSolidPrimary } from '@salutejs/sdds-serv';
 
 function App() {
-    const ids = ['0', '1', '2'];
     const [isLoading, setIsLoading] = useState(false);
     const [attachedFiles, setAttachedFiles] = useState([]);
 
@@ -140,30 +147,49 @@ function App() {
 
     return (
         <>
-            <span>{isLoading ? 'Форма отправляется' : 'Прикрепленные файлы:'}</span>
-            {!isLoading && attachedFiles.length > 0 && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
-                    {attachedFiles.map((file) => (
-                        <span>{file.fileData.name}</span>
-                    ))}
-                </div>
-            )}
-
             {!isLoading && (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-                    {ids.map((id) => (
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px', padding: '16px 18px', border: `1px dashed ${outlineSolidPrimary}` }}>
+                    <InformationWrapper labelHtmlFor={`example-id-attach-1`} label="Label" hasRequiredIndicator leftHelper="Caption" titleCaption="Title Caption">
                         <Attach
-                            id={id}
-                            name={`attach${id}`}
-                            text={`Загрузить файл ${id}`}
+                            id={`example-id-attach-1`}
+                            name={`attach-1`}
+                            text={`Upload avatar`}
                             onChange={handleAttachFile}
-                            onClear={() => handleAttachClear(id)}
+                            onClear={() => handleAttachClear('1')}
                         />
-                    ))}
-
-                    <Button type="submit">Отправить</Button>
+                   </InformationWrapper>
+                    <InformationWrapper
+                        labelHtmlFor={`example-id-attach-2`}
+                        label="Label"
+                        leftHelper="Caption"
+                        titleCaption="Title Caption"
+                        hintText='Example hint text'
+                    >
+                        <Attach
+                            id={`example-id-attach-2`}
+                            name={`attach-2`}
+                            text={`Upload config`}
+                            onChange={handleAttachFile}
+                            onClear={() => handleAttachClear('2')}
+                        />
+                   </InformationWrapper>
+                   <Button style={{ alignSelf: 'end' }} type="submit">Submit</Button>
                 </form>
             )}
+
+            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem', margin: '16px 0 0 0', border: '1px dashed gray' }}>
+              <span>
+                {isLoading ? 'Форма отправляется' : 'Прикрепленные к форме файлы:'}
+              </span>
+
+              {!isLoading && attachedFiles.length > 0 && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    {attachedFiles.map((file) => (
+                        <div>{file.fileData.name}</div>
+                    ))}
+                </div>
+              )}
+            </div>
         </>
     );
 }

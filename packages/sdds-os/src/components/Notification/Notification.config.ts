@@ -11,7 +11,7 @@ export const config = {
                 ${notificationTokens.titleColor}: var(--text-primary);
                 ${notificationTokens.contentLeftIconColor}: var(--text-primary);
                 ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
+                ${notificationTokens.background}: var(--surface-solid-card);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -65,7 +65,7 @@ export const config = {
                 ${notificationTokens.titleColor}: var(--text-negative);
                 ${notificationTokens.contentLeftIconColor}: var(--text-negative);
                 ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
+                ${notificationTokens.background}: var(--surface-solid-card);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -119,7 +119,7 @@ export const config = {
                 ${notificationTokens.titleColor}: var(--text-positive);
                 ${notificationTokens.contentLeftIconColor}: var(--text-positive);
                 ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
+                ${notificationTokens.background}: var(--surface-solid-card);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -173,7 +173,7 @@ export const config = {
                 ${notificationTokens.titleColor}: var(--text-warning);
                 ${notificationTokens.contentLeftIconColor}: var(--text-warning);
                 ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
+                ${notificationTokens.background}: var(--surface-solid-card);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -227,7 +227,7 @@ export const config = {
                 ${notificationTokens.titleColor}: var(--text-info);
                 ${notificationTokens.contentLeftIconColor}: var(--text-info);
                 ${notificationTokens.contentColor}: var(--text-secondary);
-                ${notificationTokens.background}: var(--surface-transparent-card);
+                ${notificationTokens.background}: var(--surface-solid-card);
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 

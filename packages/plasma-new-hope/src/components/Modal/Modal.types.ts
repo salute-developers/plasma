@@ -12,7 +12,7 @@ export type ModalBodyProps =
           hasClose?: boolean;
       }
     | {
-          hasBody?: never;
+          hasBody?: false;
           hasClose?: never;
       };
 

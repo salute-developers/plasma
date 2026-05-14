@@ -17,7 +17,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { InformationWrapper, TextField, TextArea } from '@salutejs/sdds-scan;
+import { InformationWrapper, TextField, TextArea } from '@salutejs/sdds-scan';
 
 export function App() {
     const size = 'm';
@@ -69,7 +69,7 @@ export function App() {
                 hasRequiredIndicator
                 labelHtmlFor="example-id-textarea-for-wrapper"
             >
-                <TextArea id="example-id-textarea-for-wrapper size={size} />
+                <TextArea id="example-id-textarea-for-wrapper" size={size} />
             </InformationWrapper>
         </div>
     );

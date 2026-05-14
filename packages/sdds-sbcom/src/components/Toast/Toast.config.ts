@@ -1,5 +1,22 @@
 import { css, toastTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    onDarkSurfaceSolidPrimaryBrightness,
+    onDarkTextPrimary,
+    onDarkTextSecondary,
+    onLightSurfaceSolidPrimaryBrightness,
+    onLightTextPrimary,
+    onLightTextSecondary,
+    surfaceSolidCardBrightness,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textSecondary,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
+/*
+ * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
+ * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
+ */
 export const config = {
     defaults: {
         view: 'default',
@@ -9,49 +26,49 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card-brightness);
+                ${toastTokens.color}: ${textPrimary};
+                ${toastTokens.background}: ${surfaceSolidCardBrightness};
 
-                ${toastTokens.closeIconColor}: var(--text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+                ${toastTokens.closeIconColor}: ${textSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
             `,
             positive: css`
-                ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card-brightness);
-                ${toastTokens.contentLeftColor}: var(--text-positive);
+                ${toastTokens.color}: ${textPrimary};
+                ${toastTokens.background}: ${surfaceSolidCardBrightness};
+                ${toastTokens.contentLeftColor}: ${textPositive};
 
-                ${toastTokens.closeIconColor}: var(--text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+                ${toastTokens.closeIconColor}: ${textSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
             `,
             negative: css`
-                ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card-brightness);
-                ${toastTokens.contentLeftColor}: var(--text-negative);
+                ${toastTokens.color}: ${textPrimary};
+                ${toastTokens.background}: ${surfaceSolidCardBrightness};
+                ${toastTokens.contentLeftColor}: ${textNegative};
 
-                ${toastTokens.closeIconColor}: var(--text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
+                ${toastTokens.closeIconColor}: ${textSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
             `,
             /**
              * @deprecated
              * светлый и темный фон регулировать через `view` компонента `ViewContainer`
              */
             dark: css`
-                ${toastTokens.color}: var(--on-dark-text-primary);
-                ${toastTokens.background}: var(--on-dark-surface-solid-primary-brightness);
+                ${toastTokens.color}: ${onDarkTextPrimary};
+                ${toastTokens.background}: ${onDarkSurfaceSolidPrimaryBrightness};
 
-                ${toastTokens.closeIconColor}: var(--on-dark-text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-secondary);
+                ${toastTokens.closeIconColor}: ${onDarkTextSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${onDarkTextSecondary};
             `,
             /**
              * @deprecated
              * светлый и темный фон регулировать через `view` компонента `ViewContainer`
              */
             light: css`
-                ${toastTokens.color}: var(--on-light-text-primary);
-                ${toastTokens.background}: var(--on-light-surface-solid-primary-brightness);
+                ${toastTokens.color}: ${onLightTextPrimary};
+                ${toastTokens.background}: ${onLightSurfaceSolidPrimaryBrightness};
 
-                ${toastTokens.closeIconColor}: var(--on-light-text-secondary);
-                ${toastTokens.closeIconColorOnHover}: var(--on-light-text-secondary);
+                ${toastTokens.closeIconColor}: ${onLightTextSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${onLightTextSecondary};
             `,
         },
         size: {

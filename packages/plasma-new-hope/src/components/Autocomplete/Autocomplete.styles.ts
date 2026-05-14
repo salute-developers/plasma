@@ -1,5 +1,4 @@
-import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
+import styled, { css } from 'styled-components';
 
 import { AutocompleteProps } from './Autocomplete.types';
 import { tokens } from './Autocomplete.tokens';

@@ -113,6 +113,24 @@ export const config = {
                 ${linkButtonTokens.linkButtonRightContentMargin}: 0 0 0 0.25rem;
                 ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.25rem;
             `,
+            xxs: css`
+                ${linkButtonTokens.linkButtonHeight}: 1.5rem;
+                ${linkButtonTokens.linkButtonPadding}: 0.375rem 0;
+                ${linkButtonTokens.linkButtonRadius}: 0.375rem;
+                ${linkButtonTokens.linkButtonFontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${linkButtonTokens.linkButtonFontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${linkButtonTokens.linkButtonFontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${linkButtonTokens.linkButtonFontWeight}: var(--plasma-typo-body-xxs-bold-font-weight);
+                ${linkButtonTokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${linkButtonTokens.linkButtonLineHeight}: var(--plasma-typo-body-xxs-line-height);
+
+                ${linkButtonTokens.linkButtonSpinnerSize}: 0.75rem;
+                ${linkButtonTokens.linkButtonSpinnerColor}: inherit;
+
+                ${linkButtonTokens.linkButtonLeftContentMargin}: 0.063rem 0.25rem 0.063rem 0;
+                ${linkButtonTokens.linkButtonRightContentMargin}: 0.063rem 0 0.063rem 0.25rem;
+                ${linkButtonTokens.linkButtonAdditionalContentMargin}: 0 0 0 0.25rem;
+            `,
         },
         disabled: {
             true: css`

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { classes, tokens } from '../../Rating.tokens';
 import { HelperText, Score, Star } from '../../Rating.styles';

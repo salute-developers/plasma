@@ -1,5 +1,3 @@
-import { TOUR_BORDER_RADIUS_TOKEN } from '../Tour/utils';
-
 export const classes = {
     hasChips: 'has-chips',
     chipsWrapper: 'chips-wrapper',
@@ -213,6 +211,7 @@ export const tokens = {
     chipWidth: '--plasma-textfield__chip-width',
     chipPadding: '--plasma-textfield__chip-padding',
     chipCloseIconSize: '--plasma-textfield__chip-close-icon-size',
+    chipCloseIconDisplay: '--plasma-textfield__chip-close-icon-display',
     chipFontFamily: '--plasma-textfield__chip-font-family',
     chipFontSize: '--plasma-textfield__chip-font-size',
     chipFontStyle: '--plasma-textfield__chip-font-style',
@@ -237,6 +236,4 @@ export const tokens = {
     clearIndicatorLabelPlacementInner: '--plasma-textfield__clear-indicator-placement-inner',
     clearIndicatorLabelPlacementInnerRight: '--plasma-textfield__clear-indicator-placement-inner-right',
     clearIndicatorHintInnerRight: '--plasma-textfield__clear-indicator-hint-placement-inner-right',
-
-    tourBorderRadius: TOUR_BORDER_RADIUS_TOKEN,
 };

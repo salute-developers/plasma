@@ -30,7 +30,7 @@ runs:
           npx lerna bootstrap --ignore-scripts
         command: |
           npx lerna clean -y
-          npx lerna bootstrap --ignore-scripts
+          npx lerna bootstrap --ignore-scripts --no-ci
 
     - name: Extract branch name
       id: branch

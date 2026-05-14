@@ -42,7 +42,7 @@ import {
 } from './Typography.styles';
 
 const meta: Meta = {
-    title: 'Tokens/Typography',
+    title: 'Tokens/⚠️ Typography',
     decorators: [InSpacingDecorator],
 };
 

@@ -197,8 +197,8 @@ export const sdds_finai__light = ([
   --surface-transparent-card-active: #FFFFFFFF;
   --surface-clear-hover: #FFFFFF00;
   --surface-clear-active: #FFFFFF00;
-  --surface-accent-hover: #1798EEFF;
-  --surface-accent-active: #0F81CCFF;
+  --surface-accent-hover: #36A7F2FF;
+  --surface-accent-active: #0F90E6FF;
   --surface-accent-minor-hover: #E9F4FCFF;
   --surface-accent-minor-active: #E5F2FBFF;
   --surface-transparent-accent-hover: #118CDF2E;
@@ -209,8 +209,8 @@ export const sdds_finai__light = ([
   --surface-warning-active: #E65705FF;
   --surface-negative-hover: #FF5263FF;
   --surface-negative-active: #FF142CFF;
-  --surface-info-hover: #1798EEFF;
-  --surface-info-active: #0F81CCFF;
+  --surface-info-hover: #36A7F2FF;
+  --surface-info-active: #0F90E6FF;
   --surface-positive-minor-hover: #94F9A7FF;
   --surface-positive-minor-active: #8BF99FFF;
   --surface-warning-minor-hover: #FEDCC8FF;
@@ -237,12 +237,10 @@ export const sdds_finai__light = ([
   --surface-transparent-card: #FFFFFFFF;
   --surface-transparent-card-brightness: #FFFFFFFF;
   --surface-clear: #FFFFFF00;
-  --surface-accent: #118CDF;
   --surface-transparent-accent: #118CDF1F;
   --surface-positive: #1A9E32;
   --surface-warning: #FA5F05;
   --surface-negative: #FF293E;
-  --surface-info: #118CDF;
   --surface-positive-minor: #9EFAAF;
   --surface-warning-minor: #FEE2D2;
   --surface-negative-minor: #FFE0E3;
@@ -256,6 +254,8 @@ export const sdds_finai__light = ([
   --surface-transparent-tertiary: #8A959D47;
   --surface-transparent-deep: #30373CC7;
   --surface-accent-minor: #ECF6FCFF;
+  --surface-accent: #199AF0;
+  --surface-info: #199AF0;
   --on-dark-surface-solid-primary-hover: #20282DFF;
   --on-dark-surface-solid-primary-active: #0B0D0FFF;
   --on-dark-surface-solid-secondary-hover: #2C343AFF;
@@ -279,8 +279,8 @@ export const sdds_finai__light = ([
   --on-dark-surface-clear: #FFFFFF00;
   --on-dark-surface-clear-hover: #FFFFFF00;
   --on-dark-surface-clear-active: #FFFFFF00;
-  --on-dark-surface-accent-hover: #1798EEFF;
-  --on-dark-surface-accent-active: #0F81CCFF;
+  --on-dark-surface-accent-hover: #36A7F2FF;
+  --on-dark-surface-accent-active: #0F96F0FF;
   --on-dark-surface-accent-minor-hover: #0A2638FF;
   --on-dark-surface-accent-minor-active: #040F16FF;
   --on-dark-surface-transparent-accent-hover: #118CDF1F;
@@ -291,8 +291,8 @@ export const sdds_finai__light = ([
   --on-dark-surface-warning-active: #E65705FF;
   --on-dark-surface-negative-hover: #FF5263FF;
   --on-dark-surface-negative-active: #FF142CFF;
-  --on-dark-surface-info-hover: #1798EEFF;
-  --on-dark-surface-info-active: #0F81CCFF;
+  --on-dark-surface-info-hover: #36A7F2FF;
+  --on-dark-surface-info-active: #0F96F0FF;
   --on-dark-surface-positive-minor-hover: #0E3A16FF;
   --on-dark-surface-positive-minor-active: #061909FF;
   --on-dark-surface-warning-minor-hover: #58290EFF;
@@ -318,12 +318,10 @@ export const sdds_finai__light = ([
   --on-dark-surface-transparent-primary: #FFFFFF0F;
   --on-dark-surface-transparent-card: #FFFFFF0F;
   --on-dark-surface-transparent-card-brightness: #FFFFFFFF;
-  --on-dark-surface-accent: #118CDF;
   --on-dark-surface-transparent-accent: #118CDF33;
   --on-dark-surface-positive: #1A9E32;
   --on-dark-surface-warning: #FA5F05;
   --on-dark-surface-negative: #FF293E;
-  --on-dark-surface-info: #118CDF;
   --on-dark-surface-positive-minor: #0A2B10;
   --on-dark-surface-warning-minor: #3D1D0A;
   --on-dark-surface-negative-minor: #4A0D13;
@@ -337,6 +335,8 @@ export const sdds_finai__light = ([
   --on-dark-surface-transparent-tertiary: #D5DFE63D;
   --on-dark-surface-transparent-deep: #D5DFE6BD;
   --on-dark-surface-accent-minor: #071A26FF;
+  --on-dark-surface-accent: #199AF0;
+  --on-dark-surface-info: #199AF0;
   --on-light-surface-solid-primary-hover: #EEF2F6FF;
   --on-light-surface-solid-primary-active: #EBF0F4FF;
   --on-light-surface-solid-secondary-hover: #E2E9EEFF;
@@ -360,8 +360,8 @@ export const sdds_finai__light = ([
   --on-light-surface-clear: #FFFFFF00;
   --on-light-surface-clear-hover: #FFFFFF00;
   --on-light-surface-clear-active: #FFFFFF00;
-  --on-light-surface-accent-hover: #1798EEFF;
-  --on-light-surface-accent-active: #0F81CCFF;
+  --on-light-surface-accent-hover: #36A7F2FF;
+  --on-light-surface-accent-active: #0F90E6FF;
   --on-light-surface-accent-minor-hover: #E9F4FCFF;
   --on-light-surface-accent-minor-active: #E5F2FBFF;
   --on-light-surface-transparent-accent-hover: #118CDF2E;
@@ -372,8 +372,8 @@ export const sdds_finai__light = ([
   --on-light-surface-warning-active: #E65705FF;
   --on-light-surface-negative-hover: #FF5263FF;
   --on-light-surface-negative-active: #FF142CFF;
-  --on-light-surface-info-hover: #1798EEFF;
-  --on-light-surface-info-active: #0F81CCFF;
+  --on-light-surface-info-hover: #36A7F2FF;
+  --on-light-surface-info-active: #0F90E6FF;
   --on-light-surface-positive-minor-hover: #94F9A7FF;
   --on-light-surface-positive-minor-active: #8BF99FFF;
   --on-light-surface-warning-minor-hover: #FEDCC8FF;
@@ -399,12 +399,10 @@ export const sdds_finai__light = ([
   --on-light-surface-solid-default: #060A0C;
   --on-light-surface-transparent-card: #FFFFFFFF;
   --on-light-surface-transparent-card-brightness: #FFFFFFFF;
-  --on-light-surface-accent: #118CDF;
   --on-light-surface-transparent-accent: #118CDF1F;
   --on-light-surface-positive: #1A9E32;
   --on-light-surface-warning: #FA5F05;
   --on-light-surface-negative: #FF293E;
-  --on-light-surface-info: #118CDF;
   --on-light-surface-positive-minor: #9EFAAF;
   --on-light-surface-warning-minor: #FEE2D2;
   --on-light-surface-negative-minor: #FFE0E3;
@@ -418,6 +416,8 @@ export const sdds_finai__light = ([
   --on-light-surface-transparent-tertiary: #8A959D47;
   --on-light-surface-transparent-deep: #30373CC7;
   --on-light-surface-accent-minor: #ECF6FCFF;
+  --on-light-surface-accent: #199AF0;
+  --on-light-surface-info: #199AF0;
   --inverse-surface-solid-primary-hover: #20282DFF;
   --inverse-surface-solid-primary-active: #0B0D0FFF;
   --inverse-surface-solid-secondary-hover: #2C343AFF;
@@ -441,8 +441,8 @@ export const sdds_finai__light = ([
   --inverse-surface-clear: #FFFFFF00;
   --inverse-surface-clear-hover: #FFFFFF00;
   --inverse-surface-clear-active: #FFFFFF00;
-  --inverse-surface-accent-hover: #1798EEFF;
-  --inverse-surface-accent-active: #0F81CCFF;
+  --inverse-surface-accent-hover: #36A7F2FF;
+  --inverse-surface-accent-active: #0F96F0FF;
   --inverse-surface-accent-minor-hover: #0A2638FF;
   --inverse-surface-accent-minor-active: #040F16FF;
   --inverse-surface-transparent-accent-hover: #118CDF1F;
@@ -453,8 +453,8 @@ export const sdds_finai__light = ([
   --inverse-surface-warning-active: #E65705FF;
   --inverse-surface-negative-hover: #FF5263FF;
   --inverse-surface-negative-active: #FF142CFF;
-  --inverse-surface-info-hover: #1798EEFF;
-  --inverse-surface-info-active: #0F81CCFF;
+  --inverse-surface-info-hover: #36A7F2FF;
+  --inverse-surface-info-active: #0F96F0FF;
   --inverse-surface-positive-minor-hover: #0E3A16FF;
   --inverse-surface-positive-minor-active: #061909FF;
   --inverse-surface-warning-minor-hover: #58290EFF;
@@ -480,12 +480,10 @@ export const sdds_finai__light = ([
   --inverse-surface-transparent-primary: #FFFFFF0F;
   --inverse-surface-transparent-card: #FFFFFF0F;
   --inverse-surface-transparent-card-brightness: #FFFFFFFF;
-  --inverse-surface-accent: #118CDF;
   --inverse-surface-transparent-accent: #118CDF33;
   --inverse-surface-positive: #1A9E32;
   --inverse-surface-warning: #FA5F05;
   --inverse-surface-negative: #FF293E;
-  --inverse-surface-info: #118CDF;
   --inverse-surface-positive-minor: #0A2B10;
   --inverse-surface-warning-minor: #3D1D0A;
   --inverse-surface-negative-minor: #4A0D13;
@@ -499,6 +497,8 @@ export const sdds_finai__light = ([
   --inverse-surface-transparent-tertiary: #D5DFE63D;
   --inverse-surface-transparent-deep: #D5DFE6BD;
   --inverse-surface-accent-minor: #071A26FF;
+  --inverse-surface-accent: #199AF0;
+  --inverse-surface-info: #199AF0;
   --background-primary: #F2F5F8;
   --background-primary-brightness: #F7F9FBFF;
   --dark-background-primary: #060A0C;
@@ -1429,7 +1429,7 @@ export const sdds_finai__light = ([
   --plasma-typo-text-xs-medium-font-style: normal;
 }
 
-@media (max-width: 559px) {
+@media (max-width: 959px) {
   :root {
     --plasma-typo-dspl-l-font-size: 5.5rem;
     --plasma-typo-dspl-l-font-weight: 300;
@@ -1596,7 +1596,7 @@ export const sdds_finai__light = ([
   }
 }
 
-@media (min-width: 560px) and (max-width: 959px) {
+@media (min-width: 960px) and (max-width: 1280px) {
   :root {
     --plasma-typo-dspl-l-font-size: 7rem;
     --plasma-typo-dspl-l-font-weight: 300;
@@ -1763,7 +1763,7 @@ export const sdds_finai__light = ([
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1281px) {
   :root {
     --plasma-typo-dspl-l-font-size: 8rem;
     --plasma-typo-dspl-l-font-weight: 300;

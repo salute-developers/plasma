@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 import { addFocus } from 'src/mixins';
 import { chipConfig, chipTokens } from 'src/components/Chip';
@@ -50,6 +50,10 @@ export const StyledChip = styled(Chip)<{ chipClickArea: 'full' | 'close-icon' }>
 
     &[readonly] {
         opacity: var(${tokens.chipOpacityReadonly});
+    }
+
+    ${StyledContentClear} {
+        display: var(${tokens.chipCloseIconDisplay}, flex);
     }
 
     &:not([readonly]):hover, &:not([readonly]):active {

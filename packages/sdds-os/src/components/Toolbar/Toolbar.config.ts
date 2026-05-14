@@ -12,7 +12,7 @@ export const config = {
                 ${toolbarTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
                 ${toolbarTokens.background}: var(--surface-solid-card-brightness);
 
-                ${toolbarTokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${toolbarTokens.dividerColor}: var(--surface-solid-tertiary);
             `,
         },
         size: {

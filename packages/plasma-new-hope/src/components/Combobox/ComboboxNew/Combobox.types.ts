@@ -3,7 +3,6 @@ import * as React from 'react';
 import { SafeExtract } from 'src/types';
 
 import { RequiredProps, HintProps, LabelProps } from '../../TextField/TextField.types';
-import { DropdownProps } from '../../Dropdown/Dropdown.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
@@ -302,7 +301,7 @@ export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
     IsMultiselect<T> &
     RequiredProps &
     HintProps &
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue' | 'onScroll'>;
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue' | 'onScroll' | 'size'>;
 
 export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
@@ -315,7 +314,7 @@ export type FloatingPopoverProps = {
     onToggle?: (opened: boolean) => void;
     portal?: ComboboxProps['portal'];
     listWidth?: ComboboxProps['listWidth'];
-    zIndex?: DropdownProps['zIndex'];
+    zIndex?: ComboboxProps['zIndex'];
     offset?: [number, number];
 };
 

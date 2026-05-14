@@ -7,13 +7,13 @@ import { getSegmentStories, getConfigVariations } from '@salutejs/plasma-sb-util
 
 import { Counter } from '../Counter';
 
-import { config } from './SegmentGroup.config';
-import { config as SegmentItemConfig } from './SegmentItem.config';
+import { config as groupConfig } from './SegmentGroup.config';
+import { config as itemConfig } from './SegmentItem.config';
 import { SegmentProvider, SegmentItem, SegmentGroup, useSegment } from './Segment';
 
 type SegmentGroupProps = ComponentProps<typeof SegmentGroup>;
 
-const { views: segmentItemViews } = getConfigVariations(SegmentItemConfig);
+const { views: segmentItemViews } = getConfigVariations(itemConfig);
 
 const getIconSizeProps = (size: string) => {
     switch (size) {
@@ -70,7 +70,7 @@ const { meta: META, Default } = getSegmentStories({
     SegmentGroup,
     SegmentItem,
     SegmentProvider,
-    componentConfig: config,
+    componentConfig: { group: groupConfig, item: itemConfig },
     CounterComponent: Counter,
     useSegment,
     customGetContentLeft: getContentLeft,

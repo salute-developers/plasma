@@ -1,9 +1,24 @@
-import type { Dispatch, SetStateAction, ChangeEvent, CSSProperties } from 'react';
+import type { Dispatch, SetStateAction, ChangeEvent, CSSProperties, SyntheticEvent } from 'react';
 
 import type { CalendarStateType } from '../Calendar';
 import type { DateInfo, DateType, DisabledDay, EventDay, EventTooltipOptions } from '../Calendar/Calendar.types';
 
 import type { Langs } from './utils/dateHelper';
+import { DatePickerPlacement, DatePickerPlacementBasic } from './SingleDate/SingleDate.types';
+
+export type DatePickerFloatingPopoverProps = {
+    target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
+    children: React.ReactNode;
+    opened: boolean;
+    onToggle: (opened: boolean, event?: SyntheticEvent | Event) => void;
+    placement: DatePickerPlacement | Array<DatePickerPlacementBasic>;
+    portal?: string | React.RefObject<HTMLElement>;
+    offset?: [number, number];
+    zIndex?: React.CSSProperties['zIndex'];
+    disableFlip?: boolean;
+    closeOnOverlayClick?: boolean;
+    closeOnEsc?: boolean;
+};
 
 export type FormattedDateValues = {
     /**

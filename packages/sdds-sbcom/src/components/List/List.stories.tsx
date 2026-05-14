@@ -21,7 +21,7 @@ const ChevronRight = styled(IconChevronRight)`
 `;
 
 const meta: Meta<typeof List> = {
-    title: 'Data Display/List',
+    title: 'Data Display/⚠️ List',
     component: List,
     argTypes: {
         size: {

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { LeftHelper } from '../../DateTimePicker.styles';
 import { tokens } from '../../DateTimePicker.tokens';

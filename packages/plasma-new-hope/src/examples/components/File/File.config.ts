@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 import { fileTokens as tokens } from 'src/components/File';
 
 export const config = {

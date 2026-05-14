@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from 'styled-components';
 
 import { classes, privateTokens, tokens } from '../../NumberInput.tokens';
 import { StyledIconButton } from '../../ui/ActionButton/ActionButton.styles';

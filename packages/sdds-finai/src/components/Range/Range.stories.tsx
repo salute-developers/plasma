@@ -11,6 +11,7 @@ const { meta: META, Default } = getRangeStories({
     component: Range,
     componentConfig: config,
     disablePropsList: ['appearance'],
+    defaultArgs: config.defaults,
 });
 
 const meta: Meta<RangeProps> = {

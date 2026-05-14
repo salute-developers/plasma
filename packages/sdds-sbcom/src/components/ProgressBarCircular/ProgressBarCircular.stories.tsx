@@ -10,7 +10,7 @@ import { ProgressBarCircular } from '.';
 const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<typeof ProgressBarCircular> = {
-    title: 'Overlay/ProgressBarCircular',
+    title: 'Overlay/⚠️ ProgressBarCircular',
     component: ProgressBarCircular,
     decorators: [InSpacingDecorator],
     argTypes: {

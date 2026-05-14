@@ -46,7 +46,7 @@ const disabledProps = [
     'onDismiss',
 ];
 const meta: Meta<TooltipProps> = {
-    title: 'Overlay/Tooltip',
+    title: 'Overlay/⚠️ Tooltip',
     decorators: [InSpacingDecorator],
     component: Tooltip,
 };
@@ -109,8 +109,6 @@ export const Default: StoryObj<TooltipProps> = {
 
 const StyledRow = styled.div`
     display: flex;
-    width: 150vw;
-    height: 150vh;
     padding: 10rem;
 `;
 
