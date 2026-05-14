@@ -123,6 +123,9 @@ export const getViteConfig = async () => {
             // вызывает "Dynamic require of X is not supported".
             // Все три @plasma-cy/* — реальные сгенерированные файлы с абсолютными путями,
             // esbuild bundle-ит их в отдельные чанки, устраняя ESM waterfall запросов.
+            // holdUntilCrawlEnd: false — не ждём обхода всех spec-файлов перед запуском
+            // esbuild: явный include-список уже содержит все нужные зависимости.
+            holdUntilCrawlEnd: false,
             include: [
                 'cypress-plugin-tab',
                 'react',

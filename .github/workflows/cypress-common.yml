@@ -89,7 +89,7 @@ jobs:
           restore-keys: |
             vite-deps-${{ inputs.scope }}-
 
-      - name: Fix Vite cache permissions
+      - name: Fix Vite cache permissions (pre-run)
         if: always()
         run: sudo chown -R $(id -u):$(id -g) node_modules/.vite || true
 
@@ -109,6 +109,10 @@ jobs:
           else
               echo "Skipping Cypress: No test files found for specified components"
           fi
+
+      - name: Fix Vite cache permissions (post-run)
+        if: always()
+        run: sudo chown -R $(id -u):$(id -g) node_modules/.vite || true
 
       - name: Reorganize diff artifacts
         if: ${{ failure() || inputs.with-artifacts }}
