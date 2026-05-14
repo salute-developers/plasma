@@ -14,14 +14,10 @@ const IconButtonDefault = component(mergedConfigDefault);
 const mergedConfigOutline = mergeConfig(iconButtonConfig, outlineConfig);
 const IconButtonOutline = component(mergedConfigOutline);
 
-type OutlineIconButtonProps = typeof IconButtonDefault;
-
 /**
  * Кнопка с иконкой.
  */
-export const IconButton = createConditionalComponent(IconButtonDefault, [
-    {
-        conditions: { prop: 'appearance', value: 'outline' },
-        component: IconButtonOutline as OutlineIconButtonProps,
-    },
-]);
+export const IconButton = createConditionalComponent({
+    default: IconButtonDefault,
+    outline: IconButtonOutline,
+});
