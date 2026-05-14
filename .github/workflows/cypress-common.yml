@@ -93,6 +93,16 @@ jobs:
         if: always()
         run: sudo chown -R $(id -u):$(id -g) node_modules/.vite || true
 
+      - name: Check Vite cache state
+        if: always()
+        run: |
+          if [ -d "node_modules/.vite/deps" ]; then
+            FILE_COUNT=$(find node_modules/.vite/deps -name '*.js' | wc -l)
+            echo "Vite cache: ${FILE_COUNT} bundled files (warm start expected)"
+          else
+            echo "No Vite cache (cold start expected)"
+          fi
+
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
         run: |
