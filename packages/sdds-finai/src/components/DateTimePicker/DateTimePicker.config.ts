@@ -538,6 +538,7 @@ export const config = {
             true: css`
                 ${tokens.disabledOpacity}: 1;
 
+                ${tokens.textFieldColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColorActive}: var(--text-secondary);
@@ -565,10 +566,10 @@ export const config = {
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-secondary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
-                ${tokens.textFieldBorderColorReadOnly}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderColorReadOnly}: transparent;
                 ${tokens.textFieldBorderWidth}: 0.125rem;
             `,
         },

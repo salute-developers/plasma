@@ -1,6 +1,8 @@
 import type { ComponentProps } from 'react';
+import React from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getSelectStories } from '@salutejs/plasma-sb-utils';
+import { IconLockOutline } from '@salutejs/plasma-icons';
 
 import { Select } from './Select';
 import { config } from './Select.config';
@@ -12,6 +14,13 @@ const { meta: META, Single, Multiselect, Predefined, Common, SelectAll } = getSe
     componentConfig: config,
     defaultArgs: {
         ...config.defaults,
+    },
+    customGetContentRight: (size, disabled) => {
+        const iconSize = size === 'xs' ? 'xs' : 's';
+        if (disabled) {
+            return <IconLockOutline size={iconSize} />;
+        }
+        return undefined;
     },
 });
 

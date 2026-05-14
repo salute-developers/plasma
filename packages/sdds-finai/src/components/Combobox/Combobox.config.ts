@@ -565,6 +565,7 @@ export const config = {
         },
         disabled: {
             true: css`
+                ${tokens.textFieldColor}: var(--text-secondary);
                 ${tokens.textFieldDisabledOpacity}: 1;
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBorderColor}: transparent;
@@ -577,7 +578,7 @@ export const config = {
             true: css`
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 1;
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
@@ -585,7 +586,7 @@ export const config = {
                 ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary);
-                ${tokens.textFieldBorderColorReadOnly}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderColorReadOnly}: transparent;
                 ${tokens.textFieldBorderWidth}: 0.125rem;
             `,
         },

@@ -475,6 +475,7 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 1;
+                ${tokens.color}: var(--text-secondary);
                 ${tokens.backgroundColor}: var(--surface-transparent-secondary);
                 ${tokens.borderColor}: transparent;
                 ${tokens.borderColorHover}: transparent;
@@ -488,8 +489,8 @@ export const config = {
             true: css`
                 ${tokens.colorReadOnly}: var(--text-primary);
                 ${tokens.backgroundColor}: var(--surface-transparent-card);
-                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-card);
-                ${tokens.borderColorReadOnly}: var(--outline-solid-primary);
+                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.borderColorReadOnly}: transparent;
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);

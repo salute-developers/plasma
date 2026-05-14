@@ -290,6 +290,7 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 1;
+                ${tokens.textFieldColor}: var(--text-secondary);
                 ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.background}: var(--surface-transparent-secondary);
                 ${tokens.borderColor}: transparent;
@@ -299,7 +300,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
+                ${tokens.backgroundReadOnly}: var(--surface-transparent-secondary);
                 ${tokens.background}: var(--surface-transparent-card);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
@@ -307,11 +308,11 @@ export const config = {
                 ${tokens.dividerOpacityReadOnly}: 0.4;
                 ${tokens.rightContentOpacityReadOnly}: 1;
 
-                ${tokens.textFieldColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldBackgroundColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.borderColor}: transparent;
             `,
         },
     },

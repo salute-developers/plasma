@@ -1,15 +1,11 @@
 import React from 'react';
-import type { ComponentProps } from 'react';
-import type { Meta } from '@storybook/react-vite';
 import { getDateTimePickerStories } from '@salutejs/plasma-sb-utils';
-import { IconCalendarOutline } from '@salutejs/plasma-icons';
+import { IconCalendarOutline, IconLockOutline } from '@salutejs/plasma-icons';
 
 import { DateTimePicker } from './DateTimePicker';
 import { config } from './DateTimePicker.config';
 
-type DateTimePickerProps = ComponentProps<typeof DateTimePicker>;
-
-const { meta: META, Default: DefaultStory } = getDateTimePickerStories({
+const { meta: META, Default } = getDateTimePickerStories({
     component: DateTimePicker,
     componentConfig: config,
     defaultArgs: {
@@ -18,25 +14,20 @@ const { meta: META, Default: DefaultStory } = getDateTimePickerStories({
         enableContentRight: true,
     },
     disablePropsList: ['view', 'enableContentLeft'],
+    customIcon: (size: string, _type?: 'left' | 'right', disabled?: boolean) => {
+        const iconSize = size === 'xs' ? 'xs' : 's';
+        if (disabled) {
+            return <IconLockOutline size={iconSize} color="inherit" />;
+        }
+        return <IconCalendarOutline size={iconSize} color="inherit" />;
+    },
 });
 
-const meta: Meta<DateTimePickerProps> = {
+const meta = {
     ...META,
     title: 'Data Entry/DateTimePicker',
 };
 
 export default meta;
 
-export const Default = {
-    ...DefaultStory,
-    render: (args: DateTimePickerProps) => (
-        <DateTimePicker
-            {...args}
-            contentRight={
-                args.enableContentRight ? (
-                    <IconCalendarOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />
-                ) : undefined
-            }
-        />
-    ),
-};
+export { Default };

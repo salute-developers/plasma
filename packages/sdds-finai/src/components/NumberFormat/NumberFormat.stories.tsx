@@ -2,6 +2,7 @@ import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { IconLockOutline, IconBellFill } from '@salutejs/plasma-icons';
 
 import { config } from '../TextField/TextField.config';
 
@@ -141,7 +142,14 @@ type StoryPropsDefault = Omit<
     | 'hintTrigger'
 >;
 
-const StoryDemo = ({ ...rest }: StoryPropsDefault) => {
+const StoryDemo = ({ disabled, ...rest }: StoryPropsDefault) => {
+    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+    const ContentRight = disabled ? (
+        <IconLockOutline size={iconSize} color="inherit" />
+    ) : (
+        <IconBellFill size={iconSize} color="inherit" />
+    );
+
     return (
         <div
             style={{
@@ -154,6 +162,8 @@ const StoryDemo = ({ ...rest }: StoryPropsDefault) => {
         >
             <NumberFormat
                 {...rest}
+                disabled={disabled}
+                contentRight={ContentRight}
                 enumerationType="plain"
                 onChange={onChange}
                 onFocus={onFocus}
