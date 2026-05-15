@@ -11,10 +11,9 @@ const Tooltip = component(mergedConfig);
 
 export const Hint = styled(Tooltip)``;
 
-export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean; width: string }>`
+export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
     align-items: center;
-    max-width: ${({ width }) => width};
 
     margin-bottom: ${({ isInnerLabel }) =>
         isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelMarginBottom})`};
@@ -95,10 +94,14 @@ export const HintIconWrapper = styled.div``;
 export const StyledTextAreaWrapper = styled.div<{
     hasHelper: boolean;
     hasHeader: boolean;
+    hasExplicitHeight: boolean;
 }>`
     display: flex;
     flex-direction: column;
     background-color: var(${tokens.inputBackgroundColor});
+
+    flex: ${({ hasExplicitHeight }) => (hasExplicitHeight ? '1' : 'unset')};
+    min-height: 0;
 
     padding-top: ${({ hasHeader }) => (hasHeader ? 'unset' : `var(${tokens.inputPaddingTop})`)};
     padding-bottom: ${({ hasHelper }) =>
@@ -158,21 +161,18 @@ export const Divider = styled.div`
     background: var(${tokens.dividerColor});
 `;
 
-export const StyledContainer = styled.div<{ width: string }>`
+export const StyledContainer = styled.div<{ hasExplicitHeight: boolean }>`
     display: inline-flex;
     flex-direction: column;
 
-    width: ${({ width }) => width};
+    flex: ${({ hasExplicitHeight }) => (hasExplicitHeight ? '1' : 'unset')};
 
     position: relative;
 `;
 
 export const StyledTextArea = styled.textarea<{
-    hasHelper: boolean;
     hasContentRight: boolean;
-    applyCustomWidth: boolean;
-    width?: string | number;
-    height?: string | number;
+    hasExplicitHeight: boolean;
     resize?: string;
 }>`
     display: block;
@@ -187,22 +187,15 @@ export const StyledTextArea = styled.textarea<{
 
     resize: ${({ resize }) => resize || 'none'};
 
-    --plasma_private-textarea-height: ${({ height }) =>
-        !Number.isNaN(Number(height)) ? `calc(${height}rem - 0.875rem)` : height || `var(${tokens.inputHeight})`};
+    width: ${({ cols }) => (cols ? 'unset' : '100%')};
 
-    --plasma_private-textarea-width: ${({ width }) =>
-        !Number.isNaN(Number(width)) ? `${width}rem` : width || `var(${tokens.inputWidth})`};
+    --plasma_private-textarea-input-actual-height: ${({ hasExplicitHeight }) =>
+        hasExplicitHeight ? '100%' : `calc(var(${tokens.inputHeight}) - var(${tokens.inputPaddingBottom}))`};
 
-    --plasma_private-textarea-computed-height: ${({ rows }) =>
-        rows ? 'unset' : 'var(--plasma_private-textarea-height)'};
-    --plasma_private-textarea-computed-width: ${({ cols }) =>
-        cols ? 'unset' : 'var(--plasma_private-textarea-width)'};
+    flex: ${({ hasExplicitHeight, rows }) => (hasExplicitHeight && !rows ? '1' : 'unset')};
 
-    height: var(--plasma_private-textarea-computed-height);
-    width: var(--plasma_private-textarea-computed-width);
-
-    min-width: ${({ applyCustomWidth }) => (applyCustomWidth ? 'var(--plasma_private-textarea-width)' : 'auto')};
-    max-width: ${({ applyCustomWidth }) => (applyCustomWidth ? 'var(--plasma_private-textarea-width)' : 'auto')};
+    height: ${({ hasExplicitHeight, rows }) =>
+        rows || hasExplicitHeight ? 'unset' : 'var(--plasma_private-textarea-input-actual-height)'};
 
     min-height: var(${tokens.inputMinHeight});
 
@@ -213,26 +206,6 @@ export const StyledTextArea = styled.textarea<{
     padding-left: var(${tokens.inputPaddingLeft}, 0);
     padding-top: 0;
     padding-bottom: 0;
-
-    /* INFO: Высчитываем высоту блока с подсказками */
-    --plasma_private-textarea-helpers-computed-height: calc(
-        var(${tokens.helpersPaddingTop}, 0) + var(${tokens.helpersPaddingBottom}, 0) + var(${tokens.helpersLineHeight})
-    );
-
-    --plasma_private-textarea-input-with-helpers-height: calc(
-        var(--plasma_private-textarea-height) - var(--plasma_private-textarea-helpers-computed-height) +
-            var(${tokens.helpersOffset})
-    );
-    --plasma_private-textarea-input-without-helpers-height: calc(
-        var(--plasma_private-textarea-computed-height) - var(${tokens.inputPaddingBottom})
-    );
-
-    --plasma_private-textarea-input-actual-height: ${({ hasHelper, rows }) =>
-        hasHelper && !rows
-            ? 'var(--plasma_private-textarea-input-with-helpers-height)'
-            : 'var(--plasma_private-textarea-input-without-helpers-height)'};
-
-    height: var(--plasma_private-textarea-input-actual-height);
 
     font-family: var(${tokens.inputFontFamily});
     font-size: var(${tokens.inputFontSize});
