@@ -162,10 +162,12 @@ export const Divider = styled.div`
 `;
 
 export const StyledContainer = styled.div<{ hasExplicitHeight: boolean }>`
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
 
     flex: ${({ hasExplicitHeight }) => (hasExplicitHeight ? '1' : 'unset')};
+    min-height: 0;
+    width: 100%;
 
     position: relative;
 `;
@@ -191,8 +193,6 @@ export const StyledTextArea = styled.textarea<{
 
     --plasma_private-textarea-input-actual-height: ${({ hasExplicitHeight }) =>
         hasExplicitHeight ? '100%' : `calc(var(${tokens.inputHeight}) - var(${tokens.inputPaddingBottom}))`};
-
-    flex: ${({ hasExplicitHeight, rows }) => (hasExplicitHeight && !rows ? '1' : 'unset')};
 
     height: ${({ hasExplicitHeight, rows }) =>
         rows || hasExplicitHeight ? 'unset' : 'var(--plasma_private-textarea-input-actual-height)'};
