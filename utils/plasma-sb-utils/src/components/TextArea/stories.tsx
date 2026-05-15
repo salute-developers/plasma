@@ -14,6 +14,10 @@ const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
     return <IconComponent size={iconSize} color="inherit" />;
 };
 
+const StyledWrapper = styled.div`
+    height: calc(100vh - 4rem);
+`;
+
 const StyledHeader = styled.div`
     padding: 0.5rem 0.75rem;
     border-bottom: 0.063rem solid var(--surface-transparent-tertiary);
@@ -39,24 +43,22 @@ export const createDefaultStory = (
         const headerSlot = enableHeader ? <StyledHeader>Дополнительный контент</StyledHeader> : undefined;
 
         return (
-            <TextArea
-                {...rest}
-                value={text}
-                readOnly={readOnly}
-                contentRight={contentRight}
-                headerSlot={headerSlot}
-                view={view}
-                onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
-                    setText(e.target.value);
-                    onChange(e.target.value);
-                }}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                style={{
-                    width: '70%',
-                    margin: '0 auto',
-                }}
-            />
+            <StyledWrapper>
+                <TextArea
+                    {...rest}
+                    value={text}
+                    readOnly={readOnly}
+                    contentRight={contentRight}
+                    headerSlot={headerSlot}
+                    view={view}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
+                        setText(e.target.value);
+                        onChange(e.target.value);
+                    }}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                />
+            </StyledWrapper>
         );
     };
 };
