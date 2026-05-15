@@ -7,6 +7,7 @@ import {
     createConditionalComponent,
 } from '@salutejs/plasma-new-hope/styled-components';
 import type { PopoverPlacement, PopoverPlacementBasic } from '@salutejs/plasma-new-hope/styled-components';
+import type { DistributivePick, DistributiveOmit } from '@salutejs/plasma-new-hope';
 
 import { config } from './TextField.config';
 import { config as clearConfig } from './TextField.clear.config';
@@ -20,7 +21,7 @@ export const TextFieldClear = component(mergedConfigClear);
 export const TextFieldComponent = createConditionalComponent({
     default: TextFieldDefault,
     clear: TextFieldClear,
-}) as any;
+});
 
 type newHopeTextFieldProps = React.ComponentProps<typeof TextFieldComponent>;
 
@@ -105,7 +106,7 @@ type HintProps =
           hintContentLeft?: never;
       };
 
-type TextFieldProps = Omit<TextFieldPropsOld, 'helperText'> & {
+type TextFieldProps = DistributiveOmit<TextFieldPropsOld, 'helperText'> & {
     /**
      * Подсказка для поля ввода.
      */
@@ -114,7 +115,7 @@ type TextFieldProps = Omit<TextFieldPropsOld, 'helperText'> & {
     HintProps;
 
 export type CustomTextFieldProps = TextFieldProps &
-    Pick<
+    DistributivePick<
         newHopeTextFieldProps,
         | 'appearance'
         | 'enumerationType'
