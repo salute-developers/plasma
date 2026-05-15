@@ -44,7 +44,7 @@ type CustomButtonProps = {
      */
     contentLeft?: ReactNode;
     /**
-     * Положение контента по ширине кнопки.
+     * Положение контента по ширине кнопки
      * @default 'default'
      */
     contentPlacing?: ContentPlacing;
