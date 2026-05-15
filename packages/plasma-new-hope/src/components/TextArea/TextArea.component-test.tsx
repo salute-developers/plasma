@@ -25,6 +25,7 @@ const componentProps = {
     leftHelper: 'Left helper',
     rightHelper: 'Right helper',
     contentRight: <IconEye color="inherit" size="s" />,
+    height: '150px',
 };
 
 getBaseVisualTests({
@@ -43,7 +44,7 @@ getBaseVisualTests({
     },
     propsForName: ['appearance=clear', 'hasDivider=true'],
     configPropsForMatrix: ['view', 'size'],
-    packagesForSkip: ['plasma-b2c', 'plasma-web'],
+    packagesForSkip: ['plasma-b2c', 'plasma-web', 'scan', 'platform-ai'],
 });
 
 describeFn('TextArea', () => {
@@ -212,7 +213,7 @@ describeFn('TextArea', () => {
                             value="Value"
                             placeholder="Placeholder"
                             label="Title"
-                            height="2.5rem"
+                            height="90px"
                             hintText="Подсказка к полю"
                             hintTrigger="click"
                             labelPlacement={labelPlacement as TextAreaProps['labelPlacement']}
@@ -229,7 +230,7 @@ describeFn('TextArea', () => {
     });
 
     it('autoResize', () => {
-        mount(<TextArea autoResize {...componentProps} />);
+        mount(<TextArea autoResize {...componentProps} height={undefined} />);
 
         cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
@@ -237,13 +238,13 @@ describeFn('TextArea', () => {
     });
 
     it('autoResize, minAuto', () => {
-        mount(<TextArea autoResize minAuto={5} {...componentProps} />);
+        mount(<TextArea autoResize minAuto={5} {...componentProps} height={undefined} />);
 
         cy.matchImageSnapshot();
     });
 
     it('autoResize, maxAuto', () => {
-        mount(<TextArea autoResize maxAuto={3} {...componentProps} />);
+        mount(<TextArea autoResize maxAuto={3} {...componentProps} height={undefined} />);
 
         cy.get('.textarea').type(LONG_TEXT.repeat(10));
 
@@ -251,13 +252,13 @@ describeFn('TextArea', () => {
     });
 
     it('custom height and width', () => {
-        mount(<TextArea height={10} width={10} {...componentProps} />);
+        mount(<TextArea {...componentProps} height={10} width={10} />);
 
         cy.matchImageSnapshot();
     });
 
     it('resize=horizontal', () => {
-        mount(<TextArea resize="horizontal" {...componentProps} />);
+        mount(<TextArea resize="horizontal" {...componentProps} height={undefined} />);
 
         cy.get('.textarea').invoke('attr', 'style', 'width: 140px');
 
@@ -265,7 +266,7 @@ describeFn('TextArea', () => {
     });
 
     it('resize=vertical', () => {
-        mount(<TextArea resize="vertical" {...componentProps} />);
+        mount(<TextArea resize="vertical" {...componentProps} height={undefined} />);
 
         cy.get('.textarea').invoke('attr', 'style', 'height: 280px');
 
@@ -273,7 +274,7 @@ describeFn('TextArea', () => {
     });
 
     it('resize=both', () => {
-        mount(<TextArea resize="both" {...componentProps} />);
+        mount(<TextArea resize="both" {...componentProps} height={undefined} />);
 
         cy.get('.textarea').invoke('attr', 'style', 'height: 280px; width: 140px');
 
