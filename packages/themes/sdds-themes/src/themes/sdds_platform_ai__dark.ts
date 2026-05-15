@@ -395,6 +395,7 @@ export const sdds_platform_ai__dark = ([
   --on-light-surface-accent-minor-active: #8BF99FFF;
   --on-light-surface-transparent-accent-hover: #1A9E322E;
   --on-light-surface-transparent-accent-active: #1A9E3233;
+  --on-light-surface-promo: #FFFFFFFF;
   --on-light-surface-positive-hover: #1EB83AFF;
   --on-light-surface-positive-active: #178C2CFF;
   --on-light-surface-positive: #1A9E32;
