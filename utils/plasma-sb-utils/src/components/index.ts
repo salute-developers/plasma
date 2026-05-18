@@ -29,3 +29,4 @@ export * from './Link';
 export * from './Slider';
 export * from './Select';
 export * from './Dropdown';
+export * from './Popover';
