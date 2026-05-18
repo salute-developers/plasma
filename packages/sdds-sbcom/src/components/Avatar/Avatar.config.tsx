@@ -23,7 +23,6 @@ import {
     textPositive,
     textPrimary,
     textWarning,
-    textS,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 /*
@@ -45,7 +44,7 @@ export const config = {
                 ${tokens.statusOnlineColor}: ${surfacePositive};
                 ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
                 ${tokens.scaleHover}: 1.02;
-                ${tokens.fontFamily}: ${textS.fontFamily};
+                ${tokens.fontFamily}: ${bodyS.fontFamily};
             `,
         },
         size: {
