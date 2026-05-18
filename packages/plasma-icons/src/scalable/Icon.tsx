@@ -1294,6 +1294,7 @@ export const iconSectionsSet = {
         sbboomCast: 'SbboomCast',
         sbboomError: 'SbboomError',
         sbboomMiniCastOutline: 'SbboomMiniCastOutline',
+        sbboomMiniErrorFill: 'SbboomMiniErrorFill',
     },
     Senses: {
         handActionFill: 'HandActionFill',
