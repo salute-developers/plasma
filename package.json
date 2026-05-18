@@ -44,7 +44,8 @@
     "bootstrap:sdds-crm:dev": "npx lerna bootstrap --scope='@salutejs/sdds-crm' --scope='@salutejs/{core-themes,plasma-new-hope,sdds-themes,plasma-core,plasma-docs-ui,sdds-crm-docs}'",
     "bootstrap:sdds-netology:dev": "npx lerna bootstrap --scope='@salutejs/sdds-netology' --scope='@salutejs/{core-themes,plasma-new-hope,plasma-themes,plasma-core,plasma-docs-ui,sdds-netology-docs}'",
     "bootstrap:sdds-scan:dev": "npx lerna bootstrap --scope='@salutejs/sdds-scan' --scope='@salutejs/{core-themes,plasma-new-hope,plasma-core,plasma-docs-ui,sdds-scan-docs}'",
-    "bootstrap:sdds-sber-os:dev": "npx lerna bootstrap --scope='@salutejs/sdds-sber-os' --scope='@salutejs/{core-themes,plasma-new-hope,plasma-core}'"
+    "bootstrap:sdds-sber-os:dev": "npx lerna bootstrap --scope='@salutejs/sdds-sber-os' --scope='@salutejs/{core-themes,plasma-new-hope,plasma-core}'",
+    "prepare:packages": "for pkg in plasma-b2c plasma-giga plasma-web sdds-cs sdds-insol sdds-serv sdds-scan sdds-os sdds-platform-ai sdds-finai plasma-homeds; do (cd packages/$pkg && npm run prepare) & done; wait"
   },
   "devDependencies": {
     "@actions/core": "1.2.7",
