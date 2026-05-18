@@ -1293,6 +1293,7 @@ export const iconSectionsSet = {
         auraError: 'AuraError',
         sbboomCast: 'SbboomCast',
         sbboomError: 'SbboomError',
+        sbboomMiniCastOutline: 'SbboomMiniCastOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',
