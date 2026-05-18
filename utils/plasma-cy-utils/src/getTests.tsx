@@ -1,4 +1,9 @@
 import React, { ReactNode } from 'react';
+// Виртуальный модуль, резолвится плагином virtualTestConfigs в vite.config.ts.
+// Содержит namespace-экспорты вида: export * as Button from '.../Button.config.ts'
+// для всех компонентов текущего пакета.
+// eslint-disable-next-line import/no-unresolved
+import * as testConfigs from '@plasma-cy/test-configs';
 
 import { mount } from './CypressHelpers';
 import { getComponent, getDescribeFN, hasComponent } from './CypressDecorator';
@@ -44,12 +49,8 @@ type GetBaseVisualTestsArgs = {
 };
 
 const getConfig = (component: string): any => {
-    try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
-        return require(`src/examples/components/${component}/${component}.config.ts`).config;
-    } catch {
-        return null;
-    }
+    const mod = ((testConfigs as unknown) as Record<string, Record<string, unknown>>)[component];
+    return mod ? mod.config ?? null : null;
 };
 
 /**

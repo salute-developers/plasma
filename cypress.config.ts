@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { defineConfig } from 'cypress';
 
-import { getWebpackConfig } from './cypress/webpack.config';
+import { getViteConfig } from './cypress/vite.config';
 import { setupNodeEvents } from './cypress/plugins';
 
 const CORE_TESTS_DIR = 'plasma-new-hope';
@@ -52,10 +52,10 @@ export default defineConfig({
         supportFile: supportFilePath,
         devServer: {
             framework: 'react',
-            bundler: 'webpack',
-            webpackConfig: getWebpackConfig(),
+            bundler: 'vite',
+            viteConfig: getViteConfig,
         },
-        justInTimeCompile: false,
+        justInTimeCompile: true,
         setupNodeEvents,
     },
     env: {

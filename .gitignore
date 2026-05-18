@@ -17,3 +17,6 @@ s3_build
 temp
 **/.DS_Store
 **/.swc
+
+# Vite-generated module files (created at dev-server startup)
+cypress/.generated/

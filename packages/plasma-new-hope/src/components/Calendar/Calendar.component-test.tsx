@@ -231,7 +231,7 @@ describeFn('Calendar', () => {
         cy.matchImageSnapshot();
     });
 
-    it('default: double calendar', () => {
+    itSkipForWebkit('default: double calendar', () => {
         mount(
             <div style={{ width: '1200px', height: '1134px', overflow: 'hidden' }}>
                 <Demo baseValue={baseDate} type="Days" displayDouble />

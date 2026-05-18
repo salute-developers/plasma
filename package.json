@@ -15,7 +15,7 @@
     "release": "npm run git:diff && auto shipit -v",
     "precy:run": "rm -rf {.nyc_output}",
     "cy:clean": "rm -rf cypress/{results,reports,screenshots,videos}",
-    "cy:run": "CYPRESS_IMAGE=plasmadockerhub/cypress:15.9.0-webkit && docker run --rm -v $PWD:/e2e -w /e2e -e NODE_OPTIONS='--max-old-space-size=16384' --entrypoint=/bin/bash -e CYPRESS_CONFIG_FILE='cypress.config.ts' -e PACKAGE_NAME=$PACKAGE_NAME -e SPEC_GROUP=$SPEC_GROUP -e COMPONENTS=$COMPONENTS -e RETRIES=$RETRIES -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots -e WEBPACK_CACHE_ENABLED=$WEBPACK_CACHE_ENABLED -e BROWSER=$BROWSER ${CYPRESS_IMAGE} -c 'cypress run --component --browser ${BROWSER:-chromium}'",
+    "cy:run": "CYPRESS_IMAGE=plasmadockerhub/cypress:15.9.0-webkit && docker run --rm -v $PWD:/e2e -w /e2e --shm-size=1.5gb -e NODE_OPTIONS='--max-old-space-size=16384' --entrypoint=/bin/bash -e CYPRESS_CONFIG_FILE='cypress.config.ts' -e PACKAGE_NAME=$PACKAGE_NAME -e SPEC_GROUP=$SPEC_GROUP -e COMPONENTS=$COMPONENTS -e RETRIES=$RETRIES -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots -e WEBPACK_CACHE_ENABLED=$WEBPACK_CACHE_ENABLED -e BROWSER=$BROWSER -e DEBUG=$DEBUG ${CYPRESS_IMAGE} -c 'cypress run --component --browser ${BROWSER:-chromium}'",
     "cy:b2c:run": "PACKAGE_NAME=plasma-b2c COMPONENTS=$npm_config_components WEBPACK_CACHE_ENABLED=$npm_config_webpack_cache_enabled npm run cy:run",
     "cy:giga:run": "PACKAGE_NAME=plasma-giga COMPONENTS=$npm_config_components WEBPACK_CACHE_ENABLED=$npm_config_webpack_cache_enabled npm run cy:run",
     "cy:web:run": "PACKAGE_NAME=plasma-web COMPONENTS=$npm_config_components WEBPACK_CACHE_ENABLED=$npm_config_webpack_cache_enabled npm run cy:run",

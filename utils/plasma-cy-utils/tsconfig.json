@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
-        "target": "ES5",
-        "module": "NodeNext",
+        "target": "ES2017",
+        "module": "ESNext",
         "lib": ["dom", "dom.iterable", "esnext"],
         "jsx": "react",
         "declaration": true,
         "importHelpers": false,
-        "typeRoots": ["node_modules/@types"],
-        "types": ["node"],
+        "typeRoots": ["node_modules/@types", "../../node_modules"],
+        "types": ["node", "vite/client"],
 
         /* Strict Type-Checking Options */
         "strict": true,
@@ -27,7 +27,7 @@
         "noFallthroughCasesInSwitch": true,
 
         /* Module Resolution Options */
-        "moduleResolution": "nodenext",
+        "moduleResolution": "bundler",
         "esModuleInterop": true,
 
         /* Advanced Options */

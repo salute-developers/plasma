@@ -80,6 +80,28 @@ jobs:
             else
               npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
             fi
+          
+      - name: Cache Vite deps
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.vite
+          key: vite-deps-${{ inputs.scope }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            vite-deps-${{ inputs.scope }}-
+
+      - name: Fix Vite cache permissions (pre-run)
+        if: always()
+        run: sudo chown -R $(id -u):$(id -g) node_modules/.vite || true
+
+      - name: Check Vite cache state
+        if: always()
+        run: |
+          if [ -d "node_modules/.vite/deps" ]; then
+            FILE_COUNT=$(find node_modules/.vite/deps -name '*.js' | wc -l)
+            echo "Vite cache: ${FILE_COUNT} bundled files (warm start expected)"
+          else
+            echo "No Vite cache (cold start expected)"
+          fi
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
@@ -97,6 +119,10 @@ jobs:
           else
               echo "Skipping Cypress: No test files found for specified components"
           fi
+
+      - name: Fix Vite cache permissions (post-run)
+        if: always()
+        run: sudo chown -R $(id -u):$(id -g) node_modules/.vite || true
 
       - name: Reorganize diff artifacts
         if: ${{ failure() || inputs.with-artifacts }}

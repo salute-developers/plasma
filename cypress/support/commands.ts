@@ -6,22 +6,6 @@ const { name } = Cypress.spec;
 const componentName = name.split('.').at(0);
 const baseSnapsDir = `${Cypress.env('snapshotsDir')}${Cypress.browser.name}`;
 
-// const getSnapshotPath = () => {
-//     if (Cypress.env('hasSpecGroup')) {
-//         return `${baseSnapsDir}/components`;
-//     }
-
-//     if (Cypress.env('hasComponents')) {
-//         return `${baseSnapsDir}/components/${componentName}`;
-//     }
-
-//     if (['plasma-web', 'plasma-b2c'].includes(Cypress.env('package'))) {
-//         return baseSnapsDir;
-//     }
-
-//     return `${baseSnapsDir}/components`;
-// };
-
 const isUpdateMode =
     Cypress.env('updateSnapshots') || Cypress.env('UPDATE_SNAPSHOTS') || Cypress.env('CYPRESS_updateSnapshots');
 
