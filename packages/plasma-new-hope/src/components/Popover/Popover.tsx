@@ -50,7 +50,10 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             },
             outerRootRef,
         ) => {
-            const innerIsOpen = Boolean(isOpen || opened);
+            const outerOpened = Boolean(isOpen || opened);
+            const isControlled = isOpen !== undefined || opened !== undefined;
+            const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(false);
+            const innerIsOpen = isControlled ? outerOpened : uncontrolledIsOpen;
 
             // Refs используются в event-хендлерах (без отслеживания зависимостей)
             const rootRef = useRef<HTMLDivElement | null>(null);
@@ -131,28 +134,38 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 ],
             });
 
+            const handleToggle = useCallback(
+                (nextIsOpen: boolean, event: React.SyntheticEvent | Event) => {
+                    if (!isControlled) {
+                        setUncontrolledIsOpen(nextIsOpen);
+                    }
+                    onToggle?.(nextIsOpen, event);
+                },
+                [isControlled, onToggle],
+            );
+
             const onEscape = useCallback(
                 (event: KeyboardEvent) => {
                     if (innerIsOpen && closeOnEsc && event.keyCode === ESCAPE_KEYCODE) {
-                        onToggle?.(false, event);
+                        handleToggle(false, event);
                     }
                 },
-                [closeOnEsc, innerIsOpen, onToggle],
+                [closeOnEsc, innerIsOpen, handleToggle],
             );
 
             const onDocumentClick = useCallback(
                 (event: MouseEvent) => {
-                    if (innerIsOpen && closeOnOverlayClick && onToggle) {
+                    if (innerIsOpen && closeOnOverlayClick) {
                         const targetIsRoot = event.target === rootRef.current;
                         const rootHasTarget = rootRef.current?.contains(event.target as Element);
                         const popoverRootHasTarget = popoverRef.current?.contains(event.target as Element);
 
                         if (!targetIsRoot && !rootHasTarget && !popoverRootHasTarget) {
-                            onToggle(false, event);
+                            handleToggle(false, event);
                         }
                     }
                 },
-                [closeOnOverlayClick, innerIsOpen, onToggle],
+                [closeOnOverlayClick, innerIsOpen, handleToggle],
             );
 
             const onClick = useCallback<React.MouseEventHandler>(
@@ -163,29 +176,29 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                         const rootHasTarget = popoverRef.current?.contains(event.target as Element);
 
                         if (!targetIsPopover && !rootHasTarget) {
-                            onToggle?.(!innerIsOpen, event);
+                            handleToggle(!innerIsOpen, event);
                         }
                     }
                 },
-                [trigger, innerIsOpen, onToggle],
+                [trigger, innerIsOpen, handleToggle],
             );
 
             const onMouseEnter = useCallback<React.MouseEventHandler>(
                 (event) => {
                     if (trigger === 'hover') {
-                        onToggle?.(true, event);
+                        handleToggle(true, event);
                     }
                 },
-                [trigger, onToggle],
+                [trigger, handleToggle],
             );
 
             const onMouseLeave = useCallback<React.MouseEventHandler>(
                 (event) => {
                     if (trigger === 'hover') {
-                        onToggle?.(false, event);
+                        handleToggle(false, event);
                     }
                 },
-                [trigger, onToggle],
+                [trigger, handleToggle],
             );
 
             const onFocus = useCallback<React.FocusEventHandler>(
@@ -195,10 +208,10 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     }
 
                     if (trigger === 'hover') {
-                        onToggle?.(true, event);
+                        handleToggle(true, event);
                     }
                 },
-                [trigger, onToggle],
+                [trigger, handleToggle],
             );
 
             const onBlur = useCallback<React.FocusEventHandler>(
@@ -208,10 +221,10 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     }
 
                     if (trigger === 'hover') {
-                        onToggle?.(false, event);
+                        handleToggle(false, event);
                     }
                 },
-                [trigger, onToggle],
+                [trigger, handleToggle],
             );
 
             useEffect(() => {
