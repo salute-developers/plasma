@@ -320,9 +320,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                         disableFlip={disableFlip}
                         closeOnOverlayClick={closeOnOverlayClick}
                         closeOnEsc={closeOnEsc}
-                        portal={
-                            usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined
-                        }
+                        portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
                         target={(referenceRef) => (
                             <StyledInput
                                 ref={inputRef}

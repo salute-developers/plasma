@@ -166,7 +166,7 @@ describeFn('TimePicker', () => {
             <PopupProvider>
                 <Modal opened placement="top">
                     <Content>
-                        <TimePicker usePortal dropdownHeight="250px" />
+                        <TimePicker usePortal dropdownHeight="250px" zIndex="9999" />
                     </Content>
                 </Modal>
             </PopupProvider>,
@@ -190,7 +190,7 @@ describeFn('TimePicker', () => {
                 />
                 <Modal opened placement="bottom">
                     <Content>
-                        <TimePicker usePortal dropdownHeight="250px" />
+                        <TimePicker usePortal dropdownHeight="250px" zIndex="9999" />
                     </Content>
                 </Modal>
             </PopupProvider>,

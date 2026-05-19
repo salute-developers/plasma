@@ -115,6 +115,11 @@ export type TimePickerPopoverProps = {
      */
     offset?: [number, number];
     /**
+     * CSS-свойство z-index для выпадающего списка времени
+     * @default 1000
+     */
+    zIndex?: CSSProperties['zIndex'];
+    /**
      * Контейнер для позиционирования
      */
     frame?: 'document' | string | RefObject<HTMLElement>;
