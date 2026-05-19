@@ -330,11 +330,10 @@ export function App() {
 ```tsx live
 import React from 'react';
 import { TextArea, TextS } from '@salutejs/sdds-netology';
-import { surfaceSolid03 } from '@salutejs/plasma-tokens-b2c';
 
 export function App() {
     const HeaderSlot = () => (
-       <div style={{ margin: "0 0.75rem", padding: "0.5rem 0", borderBottom: `0.063rem solid ${surfaceSolid03}` }}>
+       <div style={{ margin: "0 0.75rem", padding: "0.5rem 0", borderBottom: `0.063rem solid var(--surface-solid-tertiary)` }}>
            <TextS>Дополнительный контент</TextS>
        </div>
     )
