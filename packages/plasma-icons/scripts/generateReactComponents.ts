@@ -39,6 +39,23 @@ const getPath = (dir: string, name: string) => {
     return path.join(dir, `${name}.tsx`);
 };
 
+// INFO: Карта всех «настоящих» имён иконок: lowercase -> оригинальное имя.
+// Нужна, чтобы понять, существует ли уже реальная иконка с именем алиаса
+// (сравнение без учёта регистра, т.к. ФС может быть case-insensitive).
+const realIconByLower = new Map<string, string>(
+    files
+        .filter((file) => path.extname(file) === '.svg')
+        .map((file) => {
+            const name = path.parse(file).name;
+
+            return [name.toLowerCase(), name] as const;
+        }),
+);
+
+// INFO: deprecated-реэкспорты для алиасов, которые больше не генерируются,
+// потому что их место заняла настоящая иконка (обратная совместимость).
+const compatReexports: Array<string> = [];
+
 files.forEach((file) => {
     const extension = path.extname(file);
 
@@ -52,16 +69,30 @@ files.forEach((file) => {
 
     const componentName = path.parse(file).name;
 
-    let replacedName = path.parse(file).name;
+    let replacedName = componentName;
     const hasKeyWord = /sber/i.test(componentName);
 
-    // INFO: После того как устаревшие иконки будут удалены, часть дублирования уйдет.
+    // INFO: Если место dedup-алиаса уже заняла настоящая иконка храним её имя.
+    let aliasReplacedByRealIcon: string | null = null;
+
     if (hasKeyWord) {
         // INFO: Заменяем ключевое слово и приводим к формату аля SbBoomCast, вместо SbboomCast
         replacedName = componentName
             .replace(/sber/i, 'Sb')
             .replace(/(Sb)(.)/, (_, sb, char) => sb + char.toUpperCase());
 
+        // INFO: Существует ли уже настоящая иконка с именем алиаса (без учёта регистра)?
+        // Если да — алиас не генерируем, иначе на case-insensitive ФС файлы
+        // перезатирают друг друга (SbboomCast <-> SberboomCast -> SbBoomCast).
+        const realIconName = realIconByLower.get(replacedName.toLowerCase());
+
+        if (realIconName && realIconName.toLowerCase() !== componentName.toLowerCase()) {
+            aliasReplacedByRealIcon = realIconName;
+        }
+    }
+
+    // INFO: После того как устаревшие иконки будут удалены, часть дублирования уйдет.
+    if (hasKeyWord && !aliasReplacedByRealIcon) {
         const componentContent = getIconComponent(replacedName);
 
         names.push(replacedName);
@@ -77,6 +108,17 @@ files.forEach((file) => {
         fs.writeFileSync(getPath(IconsDirectory, `Icon${replacedName}`), componentContent, 'utf8');
     }
 
+    // INFO: Алиас больше не генерируется, но чтобы не ломать тех, кто импортировал
+    // Icon<Alias> напрямую — отдаём deprecated-реэкспорт на настоящую иконку.
+    if (aliasReplacedByRealIcon) {
+        compatReexports.push(
+            `export { Icon${aliasReplacedByRealIcon} as Icon${replacedName} } from '.${IconsDirectory.replace(
+                rootPath,
+                '',
+            )}/Icon${aliasReplacedByRealIcon}';`,
+        );
+    }
+
     names.push(componentName);
 
     const assetContent16 = getIconAsset(svg16, componentName);
@@ -85,7 +127,7 @@ files.forEach((file) => {
 
     const componentContent = getIconComponent(componentName, {
         deprecated: hasKeyWord,
-        replacement: `Icon${replacedName}`,
+        replacement: `Icon${aliasReplacedByRealIcon ?? replacedName}`,
     });
 
     // генерируем файлы-assets
@@ -105,6 +147,10 @@ const indexExport = names
     .join('\n');
 
 fs.appendFileSync(IndexPath, indexExport, 'utf8');
+
+if (compatReexports.length > 0) {
+    fs.appendFileSync(IndexPath, `\n${compatReexports.join('\n')}`, 'utf8');
+}
 
 // добавляем mapping по категориям
 let dataIconFile = fs.readFileSync(IconPath, 'utf8');
