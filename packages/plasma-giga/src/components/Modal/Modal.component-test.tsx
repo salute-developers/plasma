@@ -261,13 +261,13 @@ describe('plasma-giga: Modal', () => {
         cy.focused().tab();
 
         cy.focused().should(($p) => {
-            expect($p).to.contain('Close');
+            expect($p).to.contain('Outer');
         });
 
-        cy.focused().tab({ shift: true });
+        cy.focused().tab();
 
         cy.focused().should(($p) => {
-            expect($p).to.contain('Outer');
+            expect($p).to.contain('Close');
         });
     });
 
