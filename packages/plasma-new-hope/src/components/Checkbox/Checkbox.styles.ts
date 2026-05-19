@@ -53,6 +53,7 @@ export const StyledTrigger = styled.div`
     flex-shrink: 0;
     flex-grow: 0;
 
+    // TODO: allow controlling animation via tokens [PLASMA-7283]
     input:not(:indeterminate) + label & div {
         transform: scale(0);
         transition: transform 0.15s ease-in-out;
