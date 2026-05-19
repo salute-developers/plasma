@@ -62,19 +62,47 @@ files.forEach((file) => {
             .replace(/sber/i, 'Sb')
             .replace(/(Sb)(.)/, (_, sb, char) => sb + char.toUpperCase());
 
-        const componentContent = getIconComponent(replacedName);
+        // INFO: Если дизайн уже поставил исправленный вектор с правильным именем
+        // (например, `SbBoomCast.svg`), не создаем переименованную копию из устаревшего
+        // вектора - правильная иконка сгенерируется напрямую из нового файла.
+        // Устаревшая иконка всё равно будет помечена @deprecated со ссылкой @see Icon<replacedName>.
+        const correctedFileName = `${replacedName}.svg`;
+        const correctedExists = files.includes(correctedFileName);
 
-        names.push(replacedName);
+        if (correctedExists) {
+            // INFO: Триггером отключения дедупликации считаем наличие файла в Icon.svg.24
+            // (по этой директории идёт итерация). Дизайн, как правило, поставляет все размеры, поэтому
+            // отсутствие 16/36 — повод задать вопрос правильно ли это.
+            const missingSizes = [
+                { dir: sourceDirectory16, label: 'Icon.svg.16' },
+                { dir: sourceDirectory36, label: 'Icon.svg.36' },
+            ]
+                .filter(({ dir }) => !fs.existsSync(path.join(dir, correctedFileName)))
+                .map(({ label }) => label);
 
-        const assetContent16 = getIconAsset(svg16, replacedName);
-        const assetContent24 = getIconAsset(svg24, replacedName);
-        const assetContent36 = getIconAsset(svg36, replacedName);
+            if (missingSizes.length > 0) {
+                // eslint-disable-next-line no-console
+                console.warn(
+                    `[generateReactComponents] Неполный набор размеров для исправленной иконки "${correctedFileName}": отсутствует в ${missingSizes.join(
+                        ', ',
+                    )}.`,
+                );
+            }
+        } else {
+            const componentContent = getIconComponent(replacedName);
 
-        fs.writeFileSync(getPath(AssetDirectory16, replacedName), assetContent16, 'utf8');
-        fs.writeFileSync(getPath(AssetDirectory24, replacedName), assetContent24, 'utf8');
-        fs.writeFileSync(getPath(AssetDirectory36, replacedName), assetContent36, 'utf8');
+            names.push(replacedName);
 
-        fs.writeFileSync(getPath(IconsDirectory, `Icon${replacedName}`), componentContent, 'utf8');
+            const assetContent16 = getIconAsset(svg16, replacedName);
+            const assetContent24 = getIconAsset(svg24, replacedName);
+            const assetContent36 = getIconAsset(svg36, replacedName);
+
+            fs.writeFileSync(getPath(AssetDirectory16, replacedName), assetContent16, 'utf8');
+            fs.writeFileSync(getPath(AssetDirectory24, replacedName), assetContent24, 'utf8');
+            fs.writeFileSync(getPath(AssetDirectory36, replacedName), assetContent36, 'utf8');
+
+            fs.writeFileSync(getPath(IconsDirectory, `Icon${replacedName}`), componentContent, 'utf8');
+        }
     }
 
     names.push(componentName);
