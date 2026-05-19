@@ -52,6 +52,7 @@ export const prettify = (source: string) => prettier.format(source, prettierSett
  */
 export const getIconAsset = (source: string, iconName: string) => {
     const viewBox = getViewBox(source);
+
     const svgContent = compose(
         removeLineBreak,
         getSvgContent,
