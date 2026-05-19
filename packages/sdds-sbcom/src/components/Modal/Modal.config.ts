@@ -19,7 +19,7 @@ export const config = {
                 ${modalTokens.modalOverlayColor}: ${overlaySoft};
                 ${modalTokens.modalBodyBackground}: ${surfaceSolidCard};
                 ${modalTokens.modalBodyBorderRadius}: 1.25rem;
-                ${modalTokens.modalBodyPadding}: 2rem;
+                ${modalTokens.modalBodyPadding}: 1rem;
                 ${modalTokens.modalContentPadding}: 0.625rem;
                 ${modalTokens.modalCloseButtonRadius}: 0.375rem;
                 ${modalTokens.modalCloseButtonColor}: ${textSecondary};
