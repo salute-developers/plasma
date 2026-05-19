@@ -86,6 +86,7 @@ export const timePickerRoot = (
                 closeOnEsc = true,
                 disableFlip,
                 offset,
+                zIndex = 1000,
 
                 // dropdown
                 dropdownAlign = 'left',
@@ -332,9 +333,8 @@ export const timePickerRoot = (
                         offset={offset}
                         placement={placement}
                         disableFlip={disableFlip}
-                        portal={
-                            usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined
-                        }
+                        portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
+                        zIndex={zIndex}
                         target={(referenceRef) => (
                             <StyledInput
                                 ref={inputRef}
