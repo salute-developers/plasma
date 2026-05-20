@@ -10,7 +10,7 @@
     "directory": "utils/api-tests"
   },
   "scripts": {
-    "test": "rm -rf tests && node script.mjs && vitest run --config ./vitest.config.ts"
+    "test": "rm -rf tests && node script.mjs && NODE_OPTIONS=--max-old-space-size=8192 tsc --noEmit -p ./tsconfig.typecheck.json"
   },
   "devDependencies": {
     "@salutejs/plasma-b2c": "1.617.0",
@@ -26,6 +26,7 @@
     "@salutejs/sdds-platform-ai": "0.348.0",
     "@salutejs/sdds-scan": "0.347.0",
     "@salutejs/sdds-serv": "0.348.0",
+    "@types/node": "^25.9.1",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "react": "18.2.0",

@@ -8,6 +8,7 @@
         "sourceMap": true,
         "importHelpers": false,
         "typeRoots": ["node_modules/@types"],
+        "types": ["node"],
 
         /* Strict Type-Checking Options */
         "strict": true,

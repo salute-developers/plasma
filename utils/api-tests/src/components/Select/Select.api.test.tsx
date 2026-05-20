@@ -9,7 +9,7 @@ import type {
     RefObject,
 } from 'react';
 import { useRef, useState } from 'react';
-import { describe, it } from 'vitest';
+import { describe, it } from 'node:test';
 import { expectTypeOf } from 'expect-type';
 import { Controller, useForm } from 'react-hook-form';
 import { Button, Cell, Select } from '@salutejs/plasma-b2c';

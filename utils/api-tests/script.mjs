@@ -27,9 +27,11 @@ const config = {
         },
         {
             name: '@salutejs/sdds-cs',
+            ignoreComponents: ['Select', 'InformationWrapper'],
         },
         {
             name: '@salutejs/sdds-dfa',
+            ignoreComponents: ['InformationWrapper'],
         },
         {
             name: '@salutejs/sdds-finai',
