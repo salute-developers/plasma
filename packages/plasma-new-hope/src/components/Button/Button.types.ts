@@ -125,6 +125,10 @@ type CustomButtonProps = {
      * @deprecated для кнопок без прозрачности не работает
      */
     blur?: Blur;
+    /**
+     * Включает адаптивный режим: подмешивает предсобранный CSS-блок для @media запроса
+     */
+    responsive?: boolean;
 };
 
 export type ButtonProps<T = HTMLElement> = {} & Omit<ButtonHTMLAttributes<T>, 'value'> &

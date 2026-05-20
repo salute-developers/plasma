@@ -17,13 +17,21 @@ const { meta: META, Default, WithValue } = getButtonStories({
     },
     defaultArgs: {
         view: 'accent',
+        size: 'm',
+        adaptive: true,
     },
-    disablePropsList: ['size', 'disabled'],
+    disablePropsList: ['disabled'],
 });
 
 const meta: Meta<ButtonProps> = {
     ...META,
     title: 'Data Entry/Button',
+    argTypes: {
+        ...META.argTypes,
+        adaptive: {
+            control: 'boolean',
+        },
+    },
 };
 
 export default meta;

@@ -1,10 +1,58 @@
-import { css, buttonTokens } from '@salutejs/plasma-new-hope/emotion';
+import { css, buttonTokens, getAdaptiveCSS } from '@salutejs/plasma-new-hope/emotion';
+
+// Декларации size-блоков вынесены в строковые константы,
+// чтобы те же декларации можно было одновременно использовать
+// как обычную вариацию `size.*` и как тело @media-блока для `adaptive`.
+const sizeS = `
+    ${buttonTokens.buttonHeight}: 1.5rem;
+    ${buttonTokens.buttonWidth}: 8.25rem;
+    ${buttonTokens.buttonPadding}: 0.5rem;
+    ${buttonTokens.buttonRadius}: 0.55rem;
+
+    ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
+    ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
+    ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
+    ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+    ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+    ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
+
+    ${buttonTokens.buttonSpinnerSize}: 1.375rem;
+    ${buttonTokens.buttonSpinnerColor}: inherit;
+
+    ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
+    ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
+    ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+`;
+
+const sizeM = `
+    ${buttonTokens.buttonHeight}: 2.5rem;
+    ${buttonTokens.buttonWidth}: 11.25rem;
+    ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
+    ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
+    ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
+    ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+    ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+    ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
+
+    ${buttonTokens.buttonSpinnerSize}: 1.375rem;
+    ${buttonTokens.buttonSpinnerColor}: inherit;
+
+    ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 0;
+    ${buttonTokens.buttonRightContentMargin}: 0 0 0 0.25rem;
+    ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+    ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
+    ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
+`;
+
+// На экранах ≤559px компактный `m` (без content-margins) сменяется на `s` —
+// чтобы интерактивная зона стала комфортнее на мобиле.
+const media = [{ from: 559, to: undefined, size: 's' }];
 
 export const config = {
     defaults: {
         view: 'accent',
         focused: 'true',
-        size: 's',
+        size: 'm',
     },
     variations: {
         view: {
@@ -43,42 +91,10 @@ export const config = {
         },
         size: {
             s: css`
-                ${buttonTokens.buttonHeight}: 2.5rem;
-                ${buttonTokens.buttonWidth}: 11.25rem;
-                ${buttonTokens.buttonPadding}: 1rem;
-                ${buttonTokens.buttonRadius}: 0.75rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
-
-                ${buttonTokens.buttonSpinnerSize}: 1.375rem;
-                ${buttonTokens.buttonSpinnerColor}: inherit;
-
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
-                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
-                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
+                ${sizeS}
             `,
-            sr: css`
-                ${buttonTokens.buttonHeight}: 2.5rem;
-                ${buttonTokens.buttonWidth}: 11.25rem;
-                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
-                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
-
-                ${buttonTokens.buttonSpinnerSize}: 1.375rem;
-                ${buttonTokens.buttonSpinnerColor}: inherit;
-
-                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 0;
-                ${buttonTokens.buttonRightContentMargin}: 0 0 0 0.25rem;
-                ${buttonTokens.buttonValueMargin}: 0 0 0 0.25rem;
-                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
-                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
+            m: css`
+                ${sizeM}
             `,
         },
         focused: {
@@ -92,4 +108,8 @@ export const config = {
             fixed: css``,
         },
     },
+    media,
+    adaptive: css`
+        ${getAdaptiveCSS(media, { s: sizeS, m: sizeM })}
+    `,
 };
