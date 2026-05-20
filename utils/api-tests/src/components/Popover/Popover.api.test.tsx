@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { ComponentProps, ReactNode, CSSProperties, AriaRole, RefObject, SyntheticEvent, Ref } from 'react';
-import { describe, it } from 'vitest';
+import { describe, it } from 'node:test';
 import { expectTypeOf } from 'expect-type';
 import { Popover } from '@salutejs/plasma-b2c';
 import type { PopoverPlacement, PopoverTrigger } from '@salutejs/plasma-b2c';

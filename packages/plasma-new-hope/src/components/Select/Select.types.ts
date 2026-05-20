@@ -41,7 +41,7 @@ export type ItemOption = {
     /**
      * Список дочерних items.
      */
-    items?: Array<ItemOption>;
+    items?: ItemOption[];
     /**
      * Item не активен.
      */
@@ -65,7 +65,7 @@ export type ItemOption = {
 };
 
 export type ItemOptionTransformed = Omit<ItemOption, 'items'> & {
-    items?: Array<ItemOptionTransformed>;
+    items?: ItemOptionTransformed[];
     parent?: ItemOptionTransformed | null;
 };
 
@@ -139,7 +139,7 @@ type SelectSingleProps<K extends ItemOption> = {
      * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
      * @default false
      */
-    isTargetAmount?: never | false;
+    isTargetAmount?: false;
     /**
      * Callback для кастомной настройки значения в селекте.
      */
@@ -176,8 +176,7 @@ type SelectMultiselectNativeProps<K extends ItemOption> = Omit<SelectMultiselect
  *  Описание режимов работы компонента:
  *
  *  1. Если value !== null && value !== undefined, компонент controlled.
- *     name при этом только рендерит hidden <select> для формы,
- *     но onChange вызывается как (value, item), не как native event.
+ *     name не включает native-режим, onChange вызывается как (value, item).
  *  2. Если value нет и name есть, компонент uncontrolled внутри,
  *     но изменения дополнительно прокидываются в hidden <select> и наружу как native-like change event.
  *     Это сценарий react-hook-form register / обычной HTML-формы.
@@ -252,7 +251,7 @@ export interface BasicProps<K extends ItemOption> {
     /**
      * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
-    portal?: string | RefObject<HTMLElement>;
+    portal?: string | RefObject<HTMLElement | null>;
     /**
      * Callback для кастомной настройки значения в селекте.
      */
@@ -345,10 +344,7 @@ export type SelectProps<K extends ItemOption = ItemOption> = BasicProps<K> &
     IsMultiselect<K> &
     Target &
     SelectPrivateProps &
-    Omit<
-        ButtonHTMLAttributes<HTMLButtonElement>,
-        'placeholder' | 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'defaultValue' | 'onScroll'
-    >;
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'placeholder' | 'value' | 'onChange' | 'defaultValue' | 'onScroll'>;
 
 export type ItemContext = {
     focusedPath: FocusedPathState;

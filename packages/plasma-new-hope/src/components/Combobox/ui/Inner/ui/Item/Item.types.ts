@@ -1,50 +1,7 @@
-import type { CSSProperties, ReactNode } from 'react';
 import React from 'react';
 
+import { ItemOptionTransformed } from '../../../../Combobox.types';
 import type { PathState } from '../../../../reducers';
-import type { Placement } from '../../../../Combobox.types';
-
-export type ItemOption = {
-    /**
-     *  Значение у item
-     */
-    value: string;
-    /**
-     * Метка-подпись к item
-     */
-    label: string;
-    /**
-     * Сторона открытия вложенного выпадающего списка относительно текущего элемента
-     * @default right
-     */
-    placement?: Placement;
-    /**
-     * Список дочерних items
-     */
-    items?: Array<ItemOption>;
-    /**
-     * Item не активен
-     */
-    disabled?: boolean;
-    /**
-     * Слот для контента слева
-     */
-    contentLeft?: ReactNode;
-    /**
-     * Слот для контента справа
-     */
-    contentRight?: ReactNode;
-    /**
-     * Classname для item
-     */
-    className?: string;
-    /**
-     * Максимальная высота дочернего выпадающего списка.
-     */
-    listMaxHeight?: CSSProperties['height'];
-};
-
-export type ItemOptionTransformed = ItemOption & { parent?: ItemOption | null };
 
 export type ItemProps = {
     item: ItemOptionTransformed;

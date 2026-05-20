@@ -11,9 +11,9 @@ import {
     TreePathState,
     TreePathAction,
 } from '../reducers';
-import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
+import type { ItemOptionTransformed } from '../Combobox.types';
 
-import { PathMapType, FocusedToValueMapType, ValueToItemMapType } from './getPathMaps';
+import { PathMapType, FocusedToValueMapType, ValueToItemMapType } from './usePathMaps';
 
 const JUMP_SIZE = 10;
 

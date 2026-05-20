@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests } from '@salutejs/plasma-cy-utils';
+import { Controller, useForm } from 'react-hook-form';
 
 import type { ComboboxProps } from './Combobox.types';
 
@@ -537,7 +538,6 @@ describeFn('Combobox', () => {
             <div style={{ display: 'grid', gap: '20px', gridTemplateColumns: 'repeat(2, 400px)' }}>
                 <Combobox
                     listMaxHeight="400px"
-                    listOverflow="scroll"
                     items={itemsHuge}
                     label="Label"
                     placeholder="Placeholder"
@@ -545,7 +545,6 @@ describeFn('Combobox', () => {
                 />
                 <Combobox
                     listMaxHeight="20rem"
-                    listOverflow="scroll"
                     items={itemsHuge}
                     label="Label"
                     placeholder="Placeholder"
@@ -940,13 +939,38 @@ describeFn('Combobox', () => {
                     selectAllOptions={{
                         label: 'Выбрать не совсем все',
                     }}
-                    listOverflow="scroll"
-                    listHeight="150px"
+                    listMaxHeight="150px"
                 />
             </div>,
         );
 
         cy.get('#combobox').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('selectAllSticky', () => {
+        cy.viewport(400, 300);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    id="combobox"
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                    multiple
+                    selectAllOptions={{
+                        label: 'Выбрать всё',
+                        sticky: true,
+                    }}
+                    listMaxHeight="180px"
+                />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+        cy.contains('Азия').scrollIntoView();
 
         cy.matchImageSnapshot();
     });
@@ -1147,6 +1171,51 @@ describeFn('Combobox', () => {
         cy.get('#combobox').click('bottomRight');
         cy.contains('div', 'Южная Америка').click();
         cy.contains('div', 'Бразилия').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('treeView, arrowPlacement=right', () => {
+        cy.viewport(400, 599);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    id="combobox"
+                    label="Label"
+                    items={items}
+                    placeholder="Placeholder"
+                    treeView
+                    arrowPlacement="right"
+                />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+        cy.contains('div', 'Южная Америка').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('treeView, multiple arrowPlacement=right', () => {
+        cy.viewport(400, 599);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    id="combobox"
+                    label="Label"
+                    items={items}
+                    multiple
+                    placeholder="Placeholder"
+                    treeView
+                    arrowPlacement="right"
+                />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+        cy.contains('div', 'Южная Америка').click();
 
         cy.matchImageSnapshot();
     });
@@ -1786,6 +1855,65 @@ describeFn('Combobox', () => {
         cy.get('.has-chips').should('not.exist');
     });
 
+    it('uncontrolled: single and multiple with defaultValue', () => {
+        const onSingleChange = cy.stub().as('onSingleChange');
+        const onMultiChange = cy.stub().as('onMultiChange');
+
+        mount(
+            <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="uncontrolled-single"
+                        defaultValue="north_america"
+                        items={items}
+                        onChange={onSingleChange}
+                    />
+                </div>
+
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="uncontrolled-multiple"
+                        multiple
+                        defaultValue={['north_america']}
+                        items={items}
+                        onChange={onMultiChange}
+                    />
+                </div>
+            </div>,
+        );
+
+        cy.get('#uncontrolled-single').should('have.value', 'Северная Америка');
+        cy.get('#uncontrolled-single').click();
+        cy.contains('li', 'Южная Америка').click();
+        cy.contains('li', 'Бразилия').click();
+        cy.contains('li', 'Сан-Паулу').click();
+        cy.get('#uncontrolled-single').should('have.value', 'Сан-Паулу');
+        cy.get('@onSingleChange').should('have.been.calledWithMatch', 'sao_paulo', {
+            value: 'sao_paulo',
+            label: 'Сан-Паулу',
+        });
+
+        cy.get('#uncontrolled-multiple')
+            .parents('.input-wrapper')
+            .find('.chips-wrapper')
+            .contains('Северная Америка')
+            .should('exist');
+        cy.get('#uncontrolled-multiple').click();
+        cy.contains('li', 'Южная Америка').click();
+        cy.contains('li', 'Бразилия').click();
+        cy.contains('li', 'Сан-Паулу').click();
+        cy.get('#uncontrolled-multiple')
+            .parents('.input-wrapper')
+            .find('.chips-wrapper')
+            .contains('Сан-Паулу')
+            .should('exist');
+
+        cy.get('@onMultiChange').should('have.been.calledWithMatch', ['north_america', 'sao_paulo'], {
+            value: 'sao_paulo',
+            label: 'Сан-Паулу',
+        });
+    });
+
     it('flow: async items loading', () => {
         cy.viewport(500, 500);
 
@@ -1870,6 +1998,53 @@ describeFn('Combobox', () => {
         cy.get('body').tab();
         cy.get('#single').should('have.value', 'Северная Америка');
         cy.get('[id$="tree_level_1"]').should('not.exist');
+    });
+
+    it('keyboard interactions: single filtered item', () => {
+        const handleChange = cy.stub().as('onChange');
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    id="single"
+                    label="Label"
+                    placeholder="Placeholder"
+                    items={flatItems}
+                    onChange={handleChange}
+                />
+            </div>,
+        );
+
+        cy.get('#single').click();
+        cy.get('#single').type('Париж');
+        cy.get('[id$="tree_level_1"]').find('li').should('have.length', 1);
+        cy.get('[id$="paris"]').should('be.visible');
+
+        cy.pressKey('ArrowDown');
+        cy.pressKey('Enter');
+
+        cy.get('@onChange').its('lastCall.args.0').should('equal', 'paris');
+        cy.get('@onChange').its('lastCall.args.1').should('include', { value: 'paris', label: 'Париж' });
+        cy.get('#single').should('have.value', 'Париж');
+    });
+
+    it('keyboard interactions: single restores label on Esc after search', () => {
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="single" label="Label" placeholder="Placeholder" items={flatItems} defaultValue="paris" />
+            </div>,
+        );
+
+        cy.get('#single').should('have.value', 'Париж');
+        cy.get('#single').click();
+        cy.get('#single').clear().type('zzz');
+        cy.get('#single').should('have.value', 'zzz');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+
+        cy.pressKey('Escape');
+
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('#single').should('have.value', 'Париж');
     });
 
     it('keyboard interactions: multiple', () => {
@@ -2052,6 +2227,35 @@ describeFn('Combobox', () => {
         // Tab
         cy.pressKey('ArrowDown').pressKey('Tab');
         cy.get('[id$="tree_level_1"]').should('not.exist');
+    });
+
+    it('keyboard interactions: multiple filtered item', () => {
+        const handleChange = cy.stub().as('onChange');
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    id="multiple"
+                    multiple
+                    label="Label"
+                    placeholder="Placeholder"
+                    items={flatItems}
+                    onChange={handleChange}
+                />
+            </div>,
+        );
+
+        cy.get('#multiple').click();
+        cy.get('#multiple').type('Париж');
+        cy.get('[id$="tree_level_1"]').find('li').should('have.length', 1);
+        cy.get('[id$="paris"]').should('be.visible');
+
+        cy.pressKey('ArrowDown');
+        cy.pressKey('Enter');
+
+        cy.get('@onChange').its('lastCall.args.0').should('deep.equal', ['paris']);
+        cy.get('@onChange').its('lastCall.args.1').should('include', { value: 'paris', label: 'Париж' });
+        cy.get('.has-chips button').should('include.text', 'Париж');
     });
 
     it('snapshot: missing value in items', () => {
@@ -2301,7 +2505,6 @@ describeFn('Combobox', () => {
                             filter={() => true}
                             onChangeValue={handleChangeValue}
                             listMaxHeight="300px"
-                            listOverflow="auto"
                         />
                     </div>
                 </div>
@@ -2410,5 +2613,245 @@ describeFn('Combobox', () => {
         cy.get('[id$="A"]').should('have.attr', 'aria-selected', 'true');
         cy.get('[id$="B"]').should('have.attr', 'aria-selected', 'false');
         cy.get('[id$="C"]').should('have.attr', 'aria-selected', 'false');
+    });
+
+    it('native form: single name submits selected value', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault();
+
+                const formData = new FormData(event.currentTarget);
+
+                onSubmit(Object.fromEntries(formData.entries()));
+            };
+
+            return (
+                <form onSubmit={handleSubmit}>
+                    <button type="submit">submit</button>
+                    <div style={{ width: '300px' }}>
+                        <Combobox id="single" name="region" label="Label" placeholder="Placeholder" items={flatItems} />
+                    </div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#single').click();
+        cy.get('[id$="paris"]').click();
+        cy.contains('button', 'submit').click();
+
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: 'paris',
+        });
+    });
+
+    it('native form: multiple name submits selected values', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault();
+
+                const formData = new FormData(event.currentTarget);
+
+                onSubmit({
+                    region: formData.getAll('region'),
+                });
+            };
+
+            return (
+                <form onSubmit={handleSubmit}>
+                    <button type="submit">submit</button>
+                    <div style={{ width: '300px' }}>
+                        <Combobox
+                            id="multiple"
+                            multiple
+                            name="region"
+                            label="Label"
+                            placeholder="Placeholder"
+                            items={flatItems}
+                        />
+                    </div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#multiple').click();
+        cy.get('[id$="paris"]').click();
+        cy.get('[id$="lyon"]').click();
+        cy.contains('button', 'submit').click();
+
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: ['paris', 'lyon'],
+        });
+    });
+});
+
+describeFn('Combobox react-hook-form', () => {
+    const Combobox = componentExists ? getComponent<ComboboxProps>('Combobox') : () => null;
+
+    it('register: single', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const { register, handleSubmit, watch } = useForm<{ region: string }>({
+                defaultValues: {
+                    region: 'paris',
+                },
+            });
+            const currentValue = watch('region');
+
+            return (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <button type="submit">submit</button>
+
+                    <div style={{ width: '300px' }}>
+                        <Combobox id="combobox-wrapper" items={flatItems} {...register('region')} />
+                    </div>
+                    <div data-cy="watched">{currentValue}</div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('[data-cy="watched"]').should('have.text', 'paris');
+        cy.get('#combobox-wrapper').should('have.value', 'Париж');
+        cy.get('#combobox-wrapper').click();
+        cy.get('[id$="lyon"]').click();
+        cy.get('[data-cy="watched"]').should('have.text', 'lyon');
+        cy.get('#combobox-wrapper').should('have.value', 'Лион');
+        cy.contains('button', 'submit').click();
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: 'lyon',
+        });
+    });
+
+    it('register: multiple', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const { register, handleSubmit, watch } = useForm<{ region: string[] }>({
+                defaultValues: {
+                    region: ['paris'],
+                },
+            });
+            const currentValue = watch('region');
+
+            return (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <button type="submit">submit</button>
+
+                    <div style={{ width: '300px' }}>
+                        <Combobox multiple id="combobox-wrapper" items={flatItems} {...register('region')} />
+                    </div>
+                    <div data-cy="watched">{currentValue.join()}</div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('[data-cy="watched"]').should('have.text', 'paris');
+        cy.get('.chips-wrapper').contains('Париж').should('exist');
+        cy.get('#combobox-wrapper').click();
+        cy.get('[id$="lyon"]').click();
+        cy.get('[data-cy="watched"]').should('have.text', 'paris,lyon');
+        cy.get('.chips-wrapper').contains('Париж').should('exist');
+        cy.get('.chips-wrapper').contains('Лион').should('exist');
+        cy.contains('button', 'submit').click();
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: ['paris', 'lyon'],
+        });
+    });
+
+    it('Controller: single', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const { control, handleSubmit, watch } = useForm<{ region: string }>({
+                defaultValues: {
+                    region: 'paris',
+                },
+            });
+            const currentValue = watch('region');
+
+            return (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <button type="submit">submit</button>
+
+                    <div style={{ width: '300px' }}>
+                        <Controller
+                            name="region"
+                            control={control}
+                            render={({ field }) => <Combobox id="combobox-wrapper" items={flatItems} {...field} />}
+                        />
+                    </div>
+                    <div data-cy="watched">{currentValue}</div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('[data-cy="watched"]').should('have.text', 'paris');
+        cy.get('#combobox-wrapper').should('have.value', 'Париж');
+        cy.get('#combobox-wrapper').click();
+        cy.get('[id$="lyon"]').click();
+        cy.get('[data-cy="watched"]').should('have.text', 'lyon');
+        cy.get('#combobox-wrapper').should('have.value', 'Лион');
+        cy.contains('button', 'submit').click();
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: 'lyon',
+        });
+    });
+
+    it('Controller: multiple', () => {
+        const onSubmit = cy.stub().as('onSubmit');
+
+        const Component = () => {
+            const { control, handleSubmit, watch } = useForm<{ region: string[] }>({
+                defaultValues: {
+                    region: ['paris'],
+                },
+            });
+            const currentValue = watch('region');
+
+            return (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <button type="submit">submit</button>
+
+                    <div style={{ width: '300px' }}>
+                        <Controller
+                            name="region"
+                            control={control}
+                            render={({ field }) => (
+                                <Combobox multiple id="combobox-wrapper" items={flatItems} {...field} />
+                            )}
+                        />
+                    </div>
+                    <div data-cy="watched">{currentValue.join()}</div>
+                </form>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('[data-cy="watched"]').should('have.text', 'paris');
+        cy.get('.chips-wrapper').contains('Париж').should('exist');
+        cy.get('#combobox-wrapper').click();
+        cy.get('[id$="lyon"]').click();
+        cy.get('[data-cy="watched"]').should('have.text', 'paris,lyon');
+        cy.get('.chips-wrapper').contains('Париж').should('exist');
+        cy.get('.chips-wrapper').contains('Лион').should('exist');
+        cy.contains('button', 'submit').click();
+        cy.get('@onSubmit').should('have.been.calledWith', {
+            region: ['paris', 'lyon'],
+        });
     });
 });

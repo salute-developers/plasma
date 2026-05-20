@@ -13,11 +13,11 @@ const config = {
     libs: [
         {
             name: '@salutejs/plasma-b2c',
-            ignoreComponents: ['Combobox', 'TextField'],
+            excludeComponents: ['TextField'],
         },
         {
             name: '@salutejs/plasma-web',
-            ignoreComponents: ['Combobox', 'TextField'],
+            excludeComponents: ['TextField'],
         },
         {
             name: '@salutejs/plasma-giga',
@@ -27,11 +27,11 @@ const config = {
         },
         {
             name: '@salutejs/sdds-cs',
-            ignoreComponents: ['Select', 'InformationWrapper'],
+            excludeComponents: ['Select', 'InformationWrapper'],
         },
         {
             name: '@salutejs/sdds-dfa',
-            ignoreComponents: ['InformationWrapper'],
+            excludeComponents: ['InformationWrapper'],
         },
         {
             name: '@salutejs/sdds-finai',
@@ -52,7 +52,8 @@ const config = {
             name: '@salutejs/sdds-serv',
         },
     ],
-    ignoreComponents: [],
+    includeComponents: [],
+    excludeComponents: [],
     srcDir: 'src',
     outDir: 'tests',
 };
@@ -65,6 +66,29 @@ const config = {
         });
     }
 
+    function hasComponent(filePath, components) {
+        return components.some((component) => filePath.includes(`src/components/${component}`));
+    }
+
+    function shouldSkipComponent(filePath, { includeComponents, excludeComponents }) {
+        if (
+            Array.isArray(includeComponents) &&
+            includeComponents.length > 0 &&
+            !hasComponent(filePath, includeComponents)
+        ) {
+            return true;
+        }
+
+        return Array.isArray(excludeComponents) && hasComponent(filePath, excludeComponents);
+    }
+
+    function getComponentName(filePath) {
+        const pathParts = filePath.split(path.sep);
+        const componentsIndex = pathParts.indexOf('components');
+
+        return componentsIndex === -1 ? null : pathParts[componentsIndex + 1];
+    }
+
     try {
         const filename = fileURLToPath(import.meta.url);
         const dirname = path.dirname(filename);
@@ -73,23 +97,19 @@ const config = {
         const OUT_DIR = path.resolve(dirname, config.outDir);
 
         const files = getFiles(SRC_DIR);
+        const checkedComponents = new Set();
+        let generatedFilesCount = 0;
 
         files.forEach((filePath) => {
-            if (
-                Array.isArray(config.ignoreComponents) &&
-                config.ignoreComponents.some((component) => filePath.includes(`src/components/${component}`))
-            ) {
+            if (shouldSkipComponent(filePath, config)) {
                 return;
             }
 
             const relPath = path.relative(SRC_DIR, filePath);
             const originalContent = fs.readFileSync(filePath, 'utf8');
 
-            config.libs.forEach(({ name, ignoreComponents }) => {
-                if (
-                    Array.isArray(ignoreComponents) &&
-                    ignoreComponents.some((component) => filePath.includes(`src/components/${component}`))
-                ) {
+            config.libs.forEach(({ name, includeComponents, excludeComponents }) => {
+                if (shouldSkipComponent(filePath, { includeComponents, excludeComponents })) {
                     return;
                 }
 
@@ -100,10 +120,18 @@ const config = {
 
                 fs.mkdirSync(path.dirname(targetPath), { recursive: true });
                 fs.writeFileSync(targetPath, transformedContent);
+
+                const componentName = getComponentName(filePath);
+                if (componentName) {
+                    checkedComponents.add(componentName);
+                }
+                generatedFilesCount += 1;
             });
         });
 
-        console.log('Файлы для тестов сгенерированы успешно');
+        console.log(
+            `Файлы для тестов сгенерированы успешно. Компонентов для проверки: ${checkedComponents.size}. Сгенерировано файлов: ${generatedFilesCount}.`,
+        );
     } catch (err) {
         console.error('Ошибка генерации тестов: ', err);
         process.exit(1);

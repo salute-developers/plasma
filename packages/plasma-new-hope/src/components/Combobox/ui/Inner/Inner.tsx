@@ -4,8 +4,8 @@ import { safeUseId, isEmpty } from 'src/utils';
 
 import { FloatingPopover } from '../../FloatingPopover';
 import { Ul, ListWrapper } from '../../Combobox.styles';
+import type { ItemOptionTransformed } from '../../Combobox.types';
 
-import type { ItemOptionTransformed } from './ui/Item/Item.types';
 import { Item } from './ui';
 import { InnerProps } from './Inner.type';
 

@@ -62,7 +62,6 @@ const includeParams = [
     'disabled',
     'readOnly',
     'listWidth',
-    'listOverflow',
     'listMaxHeight',
     'optional',
     'required',
@@ -116,9 +115,6 @@ const meta: Meta<StorySelectProps> = {
             control: {
                 type: 'text',
             },
-        },
-        listOverflow: {
-            control: 'text',
         },
         listMaxHeight: {
             control: {
@@ -709,7 +705,6 @@ const SelectAllStory = (args: StorySelectProps) => {
                 items={flatItems}
                 value={value}
                 onChange={setValue}
-                listOverflow="auto"
                 listMaxHeight="300px"
                 selectAllOptions={{
                     sticky: args?.selectAllSticky || false,

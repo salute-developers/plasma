@@ -1,4 +1,4 @@
-import { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
+import { ItemOptionTransformed } from '../Combobox.types';
 
 // Проходимся по массиву items и добавляем в каждый item ключ parent, который ссылается на item родителя.
 // Дает возможность прохода к корневому элементу (снизу вверх).

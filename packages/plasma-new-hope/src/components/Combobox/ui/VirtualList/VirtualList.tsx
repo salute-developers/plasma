@@ -1,23 +1,23 @@
 import React, { useRef, CSSProperties } from 'react';
+import type { ReactNode, UIEvent } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { getHeightAsNumber } from 'src/utils';
 
-import type { ItemOptionTransformed } from '../Inner/ui/Item/Item.types';
-import { Item } from '../Inner/ui';
-
-interface Props {
-    items: ItemOptionTransformed[];
+interface Props<T> {
+    items: T[];
+    renderItem: (item: T, index: number) => ReactNode;
     listMaxHeight?: CSSProperties['height'];
-    onScroll?: (e: React.UIEvent<HTMLElement>) => void;
+    onScroll?: (e: UIEvent<HTMLElement>) => void;
+    estimateSize?: number;
 }
 
-export const VirtualList: React.FC<Props> = ({ items, listMaxHeight, onScroll }) => {
+export function VirtualList<T>({ items, listMaxHeight, onScroll, estimateSize = 48, renderItem }: Props<T>) {
     const parentRef = useRef<HTMLDivElement>(null);
 
     const virtualizer = useVirtualizer({
         count: items.length,
         getScrollElement: () => parentRef.current,
-        estimateSize: () => 48,
+        estimateSize: () => estimateSize,
     });
 
     const virtualItems = virtualizer.getVirtualItems();
@@ -54,17 +54,11 @@ export const VirtualList: React.FC<Props> = ({ items, listMaxHeight, onScroll })
                             data-index={virtualRow.index}
                             ref={virtualizer.measureElement}
                         >
-                            <Item
-                                item={items[virtualRow.index]}
-                                path={['root']}
-                                currentLevel={0}
-                                index={virtualRow.index}
-                                ariaLevel={1}
-                            />
+                            {renderItem(items[virtualRow.index], virtualRow.index)}
                         </div>
                     ))}
                 </div>
             </div>
         </div>
     );
-};
+}

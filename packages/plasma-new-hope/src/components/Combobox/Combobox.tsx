@@ -1,26 +1,22 @@
-import React, { forwardRef, useState, useReducer, useMemo, useLayoutEffect, useRef } from 'react';
+import React, { forwardRef, useMemo, useLayoutEffect, useRef } from 'react';
 import type { ChangeEvent, ForwardedRef, MouseEvent } from 'react';
 import { safeUseId, isEmpty } from 'src/utils';
 import { RootProps } from 'src/engines';
 import { useOutsideClick, useDidMountLayoutEffect, useForkRef } from 'src/hooks';
 
-import {
-    sizeToIconSize,
-    initialItemsTransform,
-    updateAncestors,
-    updateDescendants,
-    updateSingleAncestors,
-    filterItems,
-    getItemId,
-    getTextValue,
-    defaultFilter,
-} from './utils';
+import { sizeToIconSize, initialItemsTransform, getItemId, getTextValue, defaultFilter, hasOuterValue } from './utils';
 import { classes } from './Combobox.tokens';
 import { FloatingPopover } from './FloatingPopover';
-import { useKeyNavigation, getItemByFocused } from './hooks/useKeyboardNavigation';
+import {
+    useKeyNavigation,
+    getItemByFocused,
+    useCheckedState,
+    useListState,
+    useSelectionMaps,
+    useValue,
+    useComboboxItems,
+} from './hooks';
 import { Inner, StyledTextField, VirtualList, SelectAll, TreeList } from './ui';
-import { pathReducer, focusedPathReducer, treePathReducer } from './reducers';
-import { getPathMap, getTreeMaps } from './hooks/getPathMaps';
 import {
     Ul,
     base,
@@ -33,7 +29,6 @@ import {
 import type { ComboboxProps } from './Combobox.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import type { ItemOptionTransformed, ItemOption } from './ui/Inner/ui/Item/Item.types';
 import { SelectNative } from './ui/SelectNative/SelectNative';
 import { Context } from './Combobox.context';
 
@@ -43,170 +38,178 @@ import { Context } from './Combobox.context';
 export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProps, 'items' | 'chipClickArea'>>) =>
     forwardRef<HTMLInputElement, ComboboxProps>((props, ref) => {
         const {
-            name,
+            /* Config */
+            view,
+            size,
+            hintView,
+            hintSize,
+
+            /* Target */
+            chipClickArea = 'full',
+            contentLeft,
+            contentRight,
+            placeholder,
+            helperText,
+            label,
+            labelPlacement,
+            keepPlaceholder,
+
+            /* IsMultiple */
             multiple,
             value: outerValue,
-            onChange: outerOnChange,
             defaultValue,
+            onChange: outerOnChange,
             isTargetAmount,
             targetAmount,
+            renderValue,
+            name,
+
+            /* Basic */
             items,
             treeView = false,
             arrowPlacement = 'left',
             placement = 'bottom-start',
-            label,
-            placeholder,
-            helperText,
-            contentLeft,
-            contentRight,
-            textBefore,
-            textAfter,
             variant = 'normal',
-            listOverflow,
-            listHeight,
+            zIndex,
             listMaxHeight,
             listWidth,
             portal,
+            textBefore,
+            textAfter,
             renderItem,
             renderSelectionIcon,
-            view,
-            size,
-            labelPlacement,
-            keepPlaceholder,
-            readOnly = false,
-            disabled = false,
-            alwaysOpened = false,
             filter,
             closeAfterSelect: outerCloseAfterSelect,
-            renderValue,
-            zIndex,
-            beforeList,
-            afterList,
-            virtual = false,
-            hintView,
-            hintSize,
-            emptyStateDescription,
             onChangeValue,
             filterValue,
             onScroll,
             onToggle,
+            beforeList,
+            afterList,
+            virtual = false,
             mode = 'default',
-            chipClickArea = 'full',
-            shift,
+            emptyStateDescription,
             flip,
+            shift,
             singleLine,
-            // @ts-ignore
+            readOnly = false,
+            disabled = false,
+            alwaysOpened = false,
+
+            /* Private */
             _offset,
+
+            /* Rest */
             ...rest
         } = props;
 
+        // Deep copy массива items с добавлением parent-ноды родителя.
         const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
 
-        // Создаем структуры для быстрой работы с деревом
-        const [valueToCheckedMap, valueToItemMap, valueToPathMap] = useMemo(() => getTreeMaps(transformedItems), [
-            items,
-        ]);
+        // Создаем структуры для быстрой работы с полным деревом.
+        const [valueToCheckedMap, valueToItemMap, valueToPathMap] = useSelectionMaps(transformedItems);
 
-        // Состояние поля поиска в target
-        const [textValue, setTextValueState] = useState(
-            getTextValue(multiple, outerValue, valueToItemMap, renderValue),
-        );
-
-        // Внутреннее состояние выбранных элементов
-        const [internalValue, setInternalValue] = useState<string | string[]>(multiple ? [] : '');
-
-        const value = outerValue !== null && outerValue !== undefined ? outerValue : internalValue;
-
+        /**
+         * Refs
+         */
+        const floatingPopoverRef = useRef<HTMLDivElement>(null);
+        const treeId = safeUseId();
+        const listWrapperRef = useRef<HTMLDivElement>(null);
         const rootRef = useRef<HTMLInputElement>(null);
         const inputRef = useRef<HTMLInputElement>(null);
-        const floatingPopoverRef = useRef<HTMLDivElement>(null);
         const inputForkRef = useForkRef(inputRef, ref);
-        const listWrapperRef = useRef<HTMLDivElement>(null);
-        const treeId = safeUseId();
 
-        const filterCb = filter || defaultFilter;
+        /**
+         * Hooks
+         */
+        const nativeMode = Boolean(name && !hasOuterValue(outerValue));
 
-        const filteredItems = useMemo(
-            () =>
-                filterItems(
-                    transformedItems,
-                    textValue,
-                    getTextValue(multiple, value, valueToItemMap, renderValue),
-                    filter,
-                ),
-            [transformedItems, textValue, filter, value],
-        );
+        const { value, handleChange, textValue, setTextValue } = useValue({
+            outerValue,
+            outerOnChange,
+            defaultValue,
+            multiple,
+            nativeMode,
+            valueToItemMap,
+            renderValue,
+            onChangeValue,
+        });
 
-        const [pathMap, focusedToValueMap] = useMemo(() => getPathMap(filteredItems), [filteredItems, textValue]);
+        const currentLabel = getTextValue(multiple, value, valueToItemMap, renderValue);
 
-        const initialPath = alwaysOpened ? ['root'] : [];
+        const {
+            filteredItems,
+            filteredMaps: {
+                pathMap: filteredPathMap,
+                focusedToValueMap: filteredFocusedToValueMap,
+                valueToPathMap: filteredValueToPathMap,
+            },
+        } = useComboboxItems({
+            items: transformedItems,
+            textValue,
+            currentLabel,
+            filter,
+        });
 
-        // Состояния дерева элементов
-        const [path, dispatchPath] = useReducer(pathReducer, initialPath);
-        const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
-        const [checked, setChecked] = useState(valueToCheckedMap);
-        const [treePath, dispatchTreePath] = useReducer(treePathReducer, {});
+        const {
+            path,
+            treePath,
+            focusedPath,
+            dispatchPath,
+            dispatchTreePath,
+            dispatchFocusedPath,
+            handleListToggle,
+            resetListState,
+            isListOpened,
+        } = useListState({
+            disabled,
+            readOnly,
+            onToggle,
+            multiple,
+            alwaysOpened,
+            renderValue,
+            rootRef,
+            value,
+            valueToItemMap,
+            setTextValue,
+        });
 
-        const isCurrentListOpen = Boolean(path[0]);
-        const activeDescendantItemValue = getItemByFocused(focusedPath, focusedToValueMap)?.value || '';
-        const withArrowInverse = isCurrentListOpen ? classes.arrowInverse : undefined;
-        const closeAfterSelect = outerCloseAfterSelect ?? !multiple;
+        const { checked, handleCheckboxChange, handleItemClick, handlePressDown } = useCheckedState({
+            multiple,
+            mode,
+            value,
+            valueToCheckedMap,
+            valueToItemMap,
+            closeAfterSelect: outerCloseAfterSelect ?? !multiple,
+            resetListState,
+            handleChange,
+        });
 
-        const setTextValue = (newTextValue: string) => {
-            /* Если значение поля ввода не изменилось, то выходим из функции */
-            if (newTextValue === textValue) {
-                return;
-            }
+        const { onKeyDown } = useKeyNavigation({
+            focusedPath,
+            dispatchFocusedPath,
+            path,
+            dispatchPath,
+            pathMap: filteredPathMap,
+            focusedToValueMap: filteredFocusedToValueMap,
+            handleListToggle,
+            handlePressDown,
+            setTextValue,
+            multiple,
+            value,
+            textValue,
+            valueToItemMap,
+            treePath,
+            dispatchTreePath,
+            treeView,
+            valueToPathMap: filteredValueToPathMap,
+            items: filteredItems,
+        });
 
-            setTextValueState(newTextValue);
-
-            if (onChangeValue) {
-                onChangeValue(newTextValue);
-            }
-        };
-
-        /* Логика работы при клике за пределами выпадающего списка */
-        useOutsideClick(() => {
-            if (!isCurrentListOpen || alwaysOpened) {
-                return;
-            }
-
-            handleListToggle(false);
-        }, [floatingPopoverRef, listWrapperRef]);
-
-        // Эта функция срабатывает при изменении Combobox и
-        // при изменении нативного Select для формы (срабатывает только после изменения internalValue и рендера).
-        const onChange = (
-            newValue: string | Array<string> | ChangeEvent<HTMLSelectElement> | null,
-            item?: ItemOption | null,
-        ) => {
-            // Условие для отправки изменений наружу
-            if (props.onChange) {
-                // Условие для отправки, если комбобокс используется без формы.
-                if (!props.name && (typeof newValue === 'string' || Array.isArray(newValue))) {
-                    props.onChange(newValue as any, item || null);
-                }
-
-                // Условие для отправки, если комбобокс используется с формой.
-                if (props.name && typeof newValue === 'object' && !Array.isArray(newValue)) {
-                    props.onChange(newValue as any);
-                }
-            }
-
-            // Условие для изменения внутреннего значения (только если newValue строка или массив строк).
-            if (typeof newValue === 'string' || Array.isArray(newValue)) {
-                setInternalValue(newValue);
-            }
-        };
-
-        const handleClickArrow = (e: MouseEvent<HTMLElement>) => {
-            handleListToggle(!isCurrentListOpen);
-
-            // При клике на иконку закрытия фокус не должен становиться в инпут.
-            e.stopPropagation();
-        };
-
-        // Обработчик изменения значения в инпуте
+        /**
+         * Handlers
+         */
+        /* Обработчик изменения значения в инпуте */
         const handleTextValueChange = (e: ChangeEvent<HTMLInputElement>) => {
             if (!filterValue || filterValue(e.target.value)) {
                 setTextValue(e.target.value);
@@ -215,151 +218,21 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             dispatchFocusedPath({ type: 'reset' });
         };
 
-        // Обработчик чипов
-        const handleChipClick = (chip: { value: string; label: string; disabled: boolean }) => {
-            if (!Array.isArray(value)) return;
+        const handleClickArrow = (e: MouseEvent<HTMLElement>) => {
+            handleListToggle(!isListOpened);
 
-            if (isTargetAmount) {
-                // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы
-                onChange(
-                    value.filter((val) => valueToItemMap?.get(val)?.disabled),
-                    null,
-                );
-            } else {
-                onChange(
-                    value.filter((val) => val !== chip.value),
-                    valueToItemMap.get(chip.value) || { value: chip.value, label: chip.label },
-                );
-            }
+            // При клике на иконку закрытия фокус не должен становиться в инпут.
+            e.stopPropagation();
         };
 
-        // Обработчик открытия/закрытия выпадающего списка
-        const handleListToggle = (opened: boolean) => {
-            if (disabled || readOnly) {
-                return;
-            }
-
-            if (opened) {
-                dispatchPath({ type: 'opened_first_level' });
-            } else {
-                dispatchFocusedPath({ type: 'reset' });
-                dispatchPath({ type: 'reset' });
-                dispatchTreePath({ type: 'reset' });
-
-                // Возвращаем актуальное значение поля ввода после закрытия выпадающего списка.
-                setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
-
-                // Скроллим чипы к левому краю при закрытии компонента
-                const el = rootRef?.current?.querySelector('.input-scrollable-wrapper');
-                if (multiple && value.length > 0 && el) {
-                    el.scrollLeft = 0;
-                }
-            }
-
-            if (onToggle) {
-                onToggle(opened);
-            }
-        };
-
-        // Обработчик выбора чекбоксов (только при multiple)
-        const handleCheckboxChange = (item: ItemOptionTransformed) => {
-            if (!multiple) {
-                return;
-            }
-
-            const checkedCopy = new Map(checked);
-
-            switch (checkedCopy.get(item.value)) {
-                // Если чекбокс в состоянии indeterminate
-                case 'indeterminate': {
-                    updateDescendants(item, checkedCopy, true, valueToItemMap);
-                    break;
-                }
-                // Если чекбокс в состоянии checked
-                case true: {
-                    updateDescendants(item, checkedCopy, false, valueToItemMap);
-                    checkedCopy.set(item.value, false);
-                    break;
-                }
-                // Если чекбокс в состоянии unchecked
-                case false: {
-                    updateDescendants(item, checkedCopy, true, valueToItemMap);
-                    checkedCopy.set(item.value, true);
-                    break;
-                }
-                default: {
-                    break;
-                }
-            }
-
-            const newValues: Array<string> = [];
-
-            valueToItemMap.forEach((item, key) => {
-                if (checkedCopy.get(key)) {
-                    newValues.push(item.value);
-                }
-            });
-
-            // Оставляем values, которых нет в items.
-            if (Array.isArray(value)) {
-                value.forEach((val: string) => {
-                    if (!valueToItemMap.has(val)) {
-                        newValues.push(val);
-                    }
-                });
-            }
-
-            if (!alwaysOpened && closeAfterSelect) {
-                dispatchPath({ type: 'reset' });
-                dispatchFocusedPath({ type: 'reset' });
-                dispatchTreePath({ type: 'reset' });
-            }
-
-            if (onChange) {
-                onChange(newValues, item);
-            }
-        };
-
-        // Обработчик клика по айтему выпадающего списка
-        const handleItemClick = (item: ItemOptionTransformed, e?: MouseEvent<HTMLElement>) => {
-            if (!isEmpty(item?.items)) {
-                return;
-            }
-
-            if (multiple) {
-                handleCheckboxChange(item);
-                return;
-            }
-
-            if (e) {
-                e.stopPropagation();
-            }
-
-            const isCurrentChecked = checked.get(item.value);
-
-            if (!alwaysOpened && closeAfterSelect) {
-                dispatchPath({ type: 'reset' });
-                dispatchFocusedPath({ type: 'reset' });
-                dispatchTreePath({ type: 'reset' });
-            }
-
-            // Закрываем список, если элемент уже выбран.
-            if (mode === 'radio' && isCurrentChecked) {
-                return;
-            }
-
-            if (onChange) {
-                onChange(isCurrentChecked ? '' : item.value, item);
-            }
-        };
-
-        // Обработчик клика на таргет
+        /* Обработчик клика на таргет */
         const handleTargetClick = () => {
-            if (!isCurrentListOpen) {
+            if (!isListOpened) {
                 handleListToggle(true);
             }
         };
 
+        /* Метод получения чипов в определенном формате */
         const getChips = (): { value: string; label: string; disabled: boolean }[] => {
             if (multiple && Array.isArray(value)) {
                 if (value.length === 0) return [];
@@ -390,74 +263,35 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             return [];
         };
 
-        const handlePressDown = (item: ItemOptionTransformed, e?: MouseEvent<HTMLElement>) => {
-            if (isEmpty(item.items)) {
-                handleItemClick(item, e);
-            } else if (multiple) {
-                handleCheckboxChange(item);
+        /* Обработчик чипов */
+        const handleChipClick = (chip: { value: string; label: string; disabled: boolean }) => {
+            if (!Array.isArray(value)) return;
+
+            if (isTargetAmount) {
+                // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы
+                handleChange(
+                    value.filter((val) => valueToItemMap?.get(val)?.disabled),
+                    null,
+                );
+            } else {
+                handleChange(
+                    value.filter((val) => val !== chip.value),
+                    valueToItemMap.get(chip.value) || { value: chip.value, label: chip.label },
+                );
             }
         };
 
-        const helperTextStopPropagation = (event: MouseEvent<HTMLDivElement>) => {
-            event.stopPropagation();
-        };
-
-        const { onKeyDown } = useKeyNavigation({
-            focusedPath,
-            dispatchFocusedPath,
-            path,
-            dispatchPath,
-            pathMap,
-            focusedToValueMap,
-            handleListToggle,
-            handlePressDown,
-            setTextValue,
-            multiple,
-            value,
-            textValue,
-            valueToItemMap,
-            treePath,
-            dispatchTreePath,
-            treeView,
-            valueToPathMap,
-            items: filteredItems,
-        });
-
-        // В данном эффекте мы следим за изменениями value снаружи и вносим коррективы в дерево чекбоксов.
-        // Пример: когда юзер очистил value извне, тогда нужно пройтись по элементам и выключить все чекбоксы.
-        useLayoutEffect(() => {
-            const checkedCopy = new Map(valueToCheckedMap);
-
-            checkedCopy.forEach((_, key) => {
-                checkedCopy.set(key, false);
-            });
-
-            if (!isEmpty(value)) {
-                if (Array.isArray(value)) {
-                    value.forEach((val) => {
-                        // Только если value находится в items, т.к. value может и не существовать в items.
-                        if (valueToItemMap.has(val)) {
-                            checkedCopy.set(val, true);
-                            updateDescendants(valueToItemMap.get(val)!, checkedCopy, true);
-                            updateAncestors(valueToItemMap.get(val)!, checkedCopy);
-                        }
-                    });
-                } else {
-                    // Только если value находится в items, т.к. value может и не существовать в items.
-                    // eslint-disable-next-line no-lonely-if
-                    if (valueToItemMap.has(value)) {
-                        checkedCopy.set(value, 'done');
-                        updateSingleAncestors(valueToItemMap.get(value)!, checkedCopy, 'dot');
-                    }
-                }
+        /**
+         * Effects
+         */
+        /* Логика работы при клике за пределами выпадающего списка */
+        useOutsideClick(() => {
+            if (!isListOpened || alwaysOpened) {
+                return;
             }
 
-            setChecked(checkedCopy);
-
-            // В deps мы кладем именно outerValue и internalValue, а не просто value.
-            // Т.к. вначале нужно отфильтровать и провалидировать outerValue и результат положить в переменную.
-            // А переменную, содержащую сложные типы данных, нельзя помещать в deps.
-        }, [outerValue, internalValue, items]);
+            handleListToggle(false);
+        }, [floatingPopoverRef, listWrapperRef]);
 
         // Эффект для исключительных случаев, когда нужно обновить значение textValue при изменении items,
         // но только если значение textValue совпадает с value в item.
@@ -470,28 +304,31 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         // При изменении value нужно возвращать значение в инпуте к исходному.
         useDidMountLayoutEffect(() => {
             setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
-        }, [outerValue, internalValue]);
-
-        useLayoutEffect(() => {
-            if (defaultValue) {
-                setInternalValue(defaultValue);
-            }
-        }, [defaultValue]);
+        }, [value]);
 
         // Эффект для раскрытия дерева при поиске.
         useLayoutEffect(() => {
             if (treeView) {
                 // Если поле ввода стало пустым или если пользователь выбирает элемент,
                 // то скрываем все узлы дерева и выходим из эффекта.
-                if (textValue === '' || textValue === getTextValue(multiple, value, valueToItemMap, renderValue)) {
+                if (textValue === '' || textValue === currentLabel) {
                     dispatchTreePath({ type: 'reset' });
                     return;
                 }
 
                 // Иначе раскрываем все узлы, когда пользователь начинает вводить текст в поле ввода.
-                dispatchTreePath({ type: 'expand_by_key', value: { filteredItems, filterCb, textValue } });
+                dispatchTreePath({
+                    type: 'expand_by_key',
+                    value: { filteredItems, filterCb: filter || defaultFilter, textValue },
+                });
             }
         }, [textValue]);
+
+        /**
+         * Vars
+         */
+        const activeDescendantItemValue = getItemByFocused(focusedPath, filteredFocusedToValueMap)?.value || '';
+        const withArrowInverse = isListOpened ? classes.arrowInverse : undefined;
 
         return (
             <Root
@@ -505,15 +342,15 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 hintSize={hintSize}
                 ref={rootRef}
             >
-                {name && (
+                {nativeMode && (
                     <SelectNative
                         items={valueToItemMap}
                         name={name}
-                        value={internalValue}
+                        value={value}
                         multiple={multiple}
-                        onChange={onChange}
-                        onSetValue={setInternalValue}
-                        ref={ref as ForwardedRef<HTMLInputElement>}
+                        handleChange={handleChange}
+                        outerOnChange={outerOnChange as any}
+                        ref={ref as ForwardedRef<HTMLSelectElement>}
                     />
                 )}
                 <div>
@@ -542,7 +379,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                     >
                         <FloatingPopover
                             ref={floatingPopoverRef}
-                            opened={isCurrentListOpen}
+                            opened={isListOpened}
                             placement={placement}
                             portal={portal}
                             listWidth={listWidth}
@@ -584,7 +421,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         onKeyDown={onKeyDown}
                                         leftHelper={
                                             helperText && (
-                                                <StyledLeftHelper onClick={helperTextStopPropagation}>
+                                                <StyledLeftHelper onClick={(e) => e.stopPropagation()}>
                                                     {helperText}
                                                 </StyledLeftHelper>
                                             )
@@ -592,7 +429,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         role="combobox"
                                         aria-autocomplete="list"
                                         aria-controls={`${treeId}_tree_level_1`}
-                                        aria-expanded={isCurrentListOpen}
+                                        aria-expanded={isListOpened}
                                         aria-activedescendant={
                                             activeDescendantItemValue
                                                 ? getItemId(treeId, activeDescendantItemValue)
@@ -629,7 +466,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 {treeView ? (
                                     <TreeList
                                         items={filteredItems}
-                                        listMaxHeight={listMaxHeight || listHeight}
+                                        listMaxHeight={listMaxHeight}
                                         onScroll={virtual ? undefined : onScroll}
                                         virtual={virtual}
                                         beforeList={beforeList}
@@ -642,7 +479,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                             role="tree"
                                             id={`${treeId}_tree_level_1`}
                                             aria-multiselectable={Boolean(multiple)}
-                                            listMaxHeight={listMaxHeight || listHeight}
+                                            listMaxHeight={listMaxHeight}
                                             virtual={virtual}
                                             onScroll={virtual ? undefined : onScroll}
                                         >
@@ -666,8 +503,21 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                     {virtual ? (
                                                         <VirtualList
                                                             items={filteredItems}
-                                                            listMaxHeight={listMaxHeight || listHeight}
+                                                            listMaxHeight={listMaxHeight}
                                                             onScroll={onScroll}
+                                                            renderItem={(item, index) => (
+                                                                <Inner
+                                                                    item={item}
+                                                                    currentLevel={0}
+                                                                    path={['root']}
+                                                                    dispatchPath={dispatchPath}
+                                                                    index={index}
+                                                                    listWidth={listWidth}
+                                                                    portal={listWrapperRef}
+                                                                    shift={shift}
+                                                                    flip={flip}
+                                                                />
+                                                            )}
                                                         />
                                                     ) : (
                                                         filteredItems.map((item, index) => (

@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
-import { useVirtualizer } from '@tanstack/react-virtual';
-import { getHeightAsNumber, isEmpty } from 'src/utils';
+import React from 'react';
+import { isEmpty } from 'src/utils';
 
 import { StyledEmptyState } from '../../Combobox.styles';
 import { classes } from '../../Combobox.tokens';
+import { VirtualList } from '../VirtualList/VirtualList';
 
 import { Props } from './TreeList.types';
 import { Item } from './ui/Item/Item';
@@ -63,16 +63,6 @@ const VirtualTreeList: React.FC<Props> = ({
     afterList,
     emptyStateDescription,
 }) => {
-    const parentRef = useRef<HTMLDivElement>(null);
-
-    const virtualizer = useVirtualizer({
-        count: items.length,
-        getScrollElement: () => parentRef.current,
-        estimateSize: () => 48,
-    });
-
-    const virtualItems = virtualizer.getVirtualItems();
-
     return (
         <ListWrapper>
             {beforeList}
@@ -83,43 +73,12 @@ const VirtualTreeList: React.FC<Props> = ({
                     description={emptyStateDescription || 'Ничего не найдено'}
                 />
             ) : (
-                <div
-                    ref={parentRef}
-                    style={{
-                        height: 'auto',
-                        maxHeight: getHeightAsNumber(listMaxHeight),
-                        overflowY: 'auto',
-                    }}
+                <VirtualList
+                    items={items}
+                    listMaxHeight={listMaxHeight}
                     onScroll={onScroll}
-                >
-                    <div
-                        style={{
-                            height: virtualizer.getTotalSize(),
-                            width: '100%',
-                            position: 'relative',
-                        }}
-                    >
-                        <div
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '100%',
-                                transform: `translateY(${virtualItems[0]?.start ?? 0}px)`,
-                            }}
-                        >
-                            {virtualItems.map((virtualRow) => (
-                                <div
-                                    key={virtualRow.key as React.Key}
-                                    data-index={virtualRow.index}
-                                    ref={virtualizer.measureElement}
-                                >
-                                    <Item item={items[virtualRow.index]} pathToItem={[virtualRow.index]} />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                    renderItem={(item, index) => <Item item={item} pathToItem={[index]} />}
+                />
             )}
 
             {afterList}
