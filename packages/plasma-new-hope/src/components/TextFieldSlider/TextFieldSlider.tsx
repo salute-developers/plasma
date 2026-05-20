@@ -12,7 +12,18 @@ import { base as hintViewCSS } from './variations/_hint-view/base';
 import { base as hintSizeCSS } from './variations/_hint-size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { base, ScaleValue, ScaleWrapper, SliderContainer, SliderWithHelpersWrapper } from './TextFieldSlider.styles';
+import {
+    base,
+    ScaleTickDot,
+    ScaleTickLabel,
+    ScaleTick,
+    ScaleTicksWrapper,
+    ScaleValue,
+    ScaleWrapper,
+    SliderContainer,
+    SliderWithHelpersWrapper,
+} from './TextFieldSlider.styles';
+import { createFormatterArgs } from './utils';
 
 const HINT_DEFAULT_OFFSET: [number, number] = [0, 0];
 
@@ -27,6 +38,7 @@ export const textFieldSliderRoot = (Root: RootProps<HTMLDivElement, TextFiledSli
                 // layout
                 hasPointer = true,
                 hasScale,
+                scaleTicks,
                 titleCaption,
                 contentLeft,
                 contentRight,
@@ -87,29 +99,37 @@ export const textFieldSliderRoot = (Root: RootProps<HTMLDivElement, TextFiledSli
             );
             const value = outerValue !== undefined ? outerValue : innerValue;
 
-            const formattedMin = useMemo(
+            const formatterArgs = useMemo(
                 () =>
-                    numberFormatter(String(min) || '', {
+                    createFormatterArgs({
                         decimalScale,
                         thousandsGroupStyle,
                         thousandSeparator,
                         decimalSeparator,
                         fixedDecimalScale,
                     }),
-                [min, decimalScale, thousandsGroupStyle, thousandSeparator, decimalSeparator, fixedDecimalScale],
+                [decimalScale, thousandsGroupStyle, thousandSeparator, decimalSeparator, fixedDecimalScale],
             );
 
-            const formattedMax = useMemo(
-                () =>
-                    numberFormatter(String(max) || '', {
-                        decimalScale,
-                        thousandsGroupStyle,
-                        thousandSeparator,
-                        decimalSeparator,
-                        fixedDecimalScale,
-                    }),
-                [max, decimalScale, thousandsGroupStyle, thousandSeparator, decimalSeparator, fixedDecimalScale],
-            );
+            const formattedMin = useMemo(() => numberFormatter(String(min) || '', formatterArgs), [min, formatterArgs]);
+            const formattedMax = useMemo(() => numberFormatter(String(max) || '', formatterArgs), [max, formatterArgs]);
+
+            const handleTickClick = (tick: number) => {
+                if (disabled || readOnly) return;
+
+                const clamped = Math.max(min, Math.min(max, tick));
+                setInnerValue(clamped);
+
+                const formatted = numberFormatter(String(clamped), formatterArgs);
+
+                if (onChange) {
+                    onChange(undefined, { raw: clamped, formatted });
+                }
+
+                if (onChangeSlider) {
+                    onChangeSlider({ raw: clamped, formatted });
+                }
+            };
 
             return (
                 <Root
@@ -188,11 +208,31 @@ export const textFieldSliderRoot = (Root: RootProps<HTMLDivElement, TextFiledSli
                         </SliderContainer>
                     </SliderWithHelpersWrapper>
 
-                    {hasScale && (
+                    {hasScale && !scaleTicks && (
                         <ScaleWrapper>
                             <ScaleValue>{formattedMin}</ScaleValue>
                             <ScaleValue>{formattedMax}</ScaleValue>
                         </ScaleWrapper>
+                    )}
+
+                    {scaleTicks && (
+                        <ScaleTicksWrapper>
+                            {scaleTicks.map((tick) => {
+                                const percent = Math.max(0, Math.min(100, ((tick - min) / (max - min)) * 100));
+                                const numericValue = Number(value) || min;
+
+                                return (
+                                    <ScaleTick
+                                        key={tick}
+                                        style={{ left: `${percent}%` }}
+                                        onClick={() => handleTickClick(tick)}
+                                    >
+                                        <ScaleTickDot filled={tick <= numericValue} />
+                                        <ScaleTickLabel>{numberFormatter(String(tick), formatterArgs)}</ScaleTickLabel>
+                                    </ScaleTick>
+                                );
+                            })}
+                        </ScaleTicksWrapper>
                     )}
                 </Root>
             );
