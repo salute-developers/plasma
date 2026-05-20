@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { ComponentProps, ReactNode, CSSProperties, AriaRole, FC } from 'react';
-import { describe, it } from 'vitest';
+import { describe, it } from 'node:test';
 import { expectTypeOf } from 'expect-type';
 import { IconDownload } from '@salutejs/plasma-icons';
 import { Button } from '@salutejs/plasma-b2c';
@@ -150,10 +150,10 @@ describe('ComponentProps', () => {
         expectTypeOf<CustomButtonProps>({ additionalContent: '', contentRight: '' });
 
         // @ts-expect-error
-        expectTypeOf<ButtonPropsWithoutVariations>({ view: 'default' });
+        expectTypeOf<CustomButtonProps>({ view: 'default' });
 
         // @ts-expect-error
-        expectTypeOf<ButtonPropsWithoutVariations>({ isLoading: true });
+        expectTypeOf<CustomButtonProps>({ isLoading: true });
 
         const CustomButton: FC<CustomButtonProps> = () => <></>;
 

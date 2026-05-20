@@ -8,7 +8,7 @@ import type {
     ChangeEventHandler,
 } from 'react';
 import React, { useState, useRef } from 'react';
-import { describe, it } from 'vitest';
+import { describe, it } from 'node:test';
 import { expectTypeOf } from 'expect-type';
 import { Combobox } from '@salutejs/plasma-b2c';
 
