@@ -1,5 +1,5 @@
-import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType } from '../hooks/getPathMaps';
+import type { ItemOptionTransformed } from '../Combobox.types';
+import type { ValueToCheckedMapType } from '../hooks/usePathMaps';
 
 export const updateSingleAncestors = (
     node: ItemOptionTransformed,

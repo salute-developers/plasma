@@ -1,20 +1,11 @@
-import type { CSSProperties, InputHTMLAttributes, ChangeEventHandler, Dispatch } from 'react';
-import * as React from 'react';
+import type { CSSProperties, InputHTMLAttributes, ChangeEventHandler, Dispatch, ReactNode } from 'react';
 import { SafeExtract } from 'src/types';
 import type { RequiredProps, HintProps, LabelProps } from 'src/components/TextField/TextField.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
-import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType, CheckedType } from './hooks/getPathMaps';
+import type { ValueToCheckedMapType, CheckedType } from './hooks';
 
-export type SelectAllProps = {
-    checked?: boolean;
-    indeterminate?: boolean;
-    label?: string;
-    onClick?: () => void;
-    sticky?: boolean;
-};
-
+export type Value = string | string[];
 export type Placement =
     | 'top'
     | 'top-start'
@@ -29,123 +20,158 @@ export type Placement =
     | 'left-start'
     | 'left-end';
 
-type ChipClickArea = 'full' | 'close-icon';
+export type ItemOption = {
+    /**
+     * Значение у item.
+     */
+    value: string;
+    /**
+     * Метка-подпись к item.
+     */
+    label: string;
+    /**
+     * Сторона открытия вложенного выпадающего списка относительно текущего элемента.
+     * @default right
+     */
+    placement?: Placement;
+    /**
+     * Список дочерних items.
+     */
+    items?: ItemOption[];
+    /**
+     * Item не активен.
+     */
+    disabled?: boolean;
+    /**
+     * Слот для контента слева.
+     */
+    contentLeft?: ReactNode;
+    /**
+     * Слот для контента справа.
+     */
+    contentRight?: ReactNode;
+    /**
+     * Classname для item.
+     */
+    className?: string;
+    /**
+     * Максимальная высота дочернего выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
+};
 
-type IsMultiselect<T extends ItemOption = ItemOption> =
-    | ({ name?: never; defaultValue?: never } & (
-          | {
-                multiple?: false;
-                value?: string;
-                onChange?: (value: string, item: T | null) => void;
-                /**
-                 * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
-                 * @default false
-                 */
-                isTargetAmount?: never | false;
-                /**
-                 * Ручная настройка количества выбранных элементов. Только при isTargetAmount === true.
-                 * @default undefined
-                 */
-                targetAmount?: never;
-                /**
-                 * Callback для кастомной настройки значения в селекте.
-                 */
-                renderValue?: never;
-                selectAllOptions?: never;
-                /**
-                 * Область, по которой происходит нажатие.
-                 * @default full
-                 */
-                chipClickArea?: never;
-            }
-          | {
-                multiple: true;
-                value?: string[];
-                onChange?: (value: string[], item: T | null) => void;
-                isTargetAmount?: true;
-                targetAmount?: number;
-                renderValue?: (item: T) => string;
-                selectAllOptions?: SelectAllProps;
-                chipClickArea?: ChipClickArea;
-            }
-      ))
-    | ({ name: string; onChange?: ChangeEventHandler } & (
-          | {
-                multiple?: false;
-                defaultValue?: string;
-                value?: never;
-                isTargetAmount?: never | false;
-                targetAmount?: never;
-                renderValue?: never;
-                selectAllOptions?: never;
-                chipClickArea?: never;
-            }
-          | {
-                multiple: true;
-                defaultValue?: string[];
-                value?: never;
-                isTargetAmount?: true;
-                targetAmount?: number;
-                renderValue?: (item: T) => string;
-                selectAllOptions?: SelectAllProps;
-                chipClickArea?: ChipClickArea;
-            }
-      ));
+export type ItemOptionTransformed = Omit<ItemOption, 'items'> & {
+    items?: ItemOptionTransformed[];
+    parent?: ItemOptionTransformed | null;
+};
 
-type ViewStateProps =
-    | {
-          /**
-           * Компонент доступен только для чтения.
-           */
-          readOnly?: boolean;
-          /**
-           * Компонент неактивен.
-           */
-          disabled?: true;
-          /**
-           * Дропдаун открыт всегда.
-           */
-          alwaysOpened?: false;
-      }
-    | {
-          /**
-           * Компонент доступен только для чтения.
-           */
-          readOnly?: true;
-          /**
-           * Компонент неактивен.
-           */
-          disabled?: boolean;
-          /**
-           * Дропдаун открыт всегда.
-           */
-          alwaysOpened?: false;
-      }
-    | {
-          /**
-           * Компонент доступен только для чтения.
-           */
-          readOnly?: false;
-          /**
-           * Компонент неактивен.
-           */
-          disabled?: false;
-          /**
-           * Дропдаун открыт всегда.
-           */
-          alwaysOpened?: true;
-      };
+export type SelectAllProps = {
+    checked?: boolean;
+    indeterminate?: boolean;
+    label?: string;
+    onClick?: () => void;
+    sticky?: boolean;
+};
+
+type ComboboxSingleProps<T extends ItemOption> = {
+    multiple?: false;
+    value?: string;
+    defaultValue?: string;
+    onChange?: (value: string, item: T | null) => void;
+    isTargetAmount?: false;
+    targetAmount?: never;
+    renderValue?: never;
+    selectAllOptions?: never;
+    chipClickArea?: never;
+};
+
+type ComboboxMultipleProps<T extends ItemOption> = {
+    multiple: true;
+    value?: string[];
+    defaultValue?: string[];
+    onChange?: (value: string[], item: T | null) => void;
+    isTargetAmount?: true;
+    targetAmount?: number;
+    renderValue?: (item: T) => string;
+    selectAllOptions?: SelectAllProps;
+    chipClickArea?: 'full' | 'close-icon';
+};
+
+type ComboboxSingleNativeProps<T extends ItemOption> = Omit<ComboboxSingleProps<T>, 'onChange' | 'value'> & {
+    /**
+     * Имя поля. Используется для нативной формы и react-hook-form register.
+     */
+    name: string;
+    value?: never;
+    onChange?: ChangeEventHandler<HTMLSelectElement>;
+};
+
+type ComboboxMultipleNativeProps<T extends ItemOption> = Omit<ComboboxMultipleProps<T>, 'onChange' | 'value'> & {
+    name: string;
+    value?: never;
+    onChange?: ChangeEventHandler<HTMLSelectElement>;
+};
+
+/**
+ *  Описание режимов работы компонента:
+ *
+ *  1. Если value !== null && value !== undefined, компонент controlled.
+ *     name не включает native-режим, onChange вызывается как (value, item).
+ *  2. Если value нет и name есть, компонент uncontrolled внутри,
+ *     но изменения дополнительно прокидываются в hidden <select> и наружу как native-like change event.
+ *     Это сценарий react-hook-form register / обычной HTML-формы.
+ *  3. Если value нет и name нет, компонент uncontrolled.
+ *     Значение хранится во внутреннем internalValue, а onChange, если передан,
+ *     вызывается старым контрактом (value, item).
+ */
+type IsMultiple<T extends ItemOption> =
+    | ComboboxSingleProps<T>
+    | ComboboxMultipleProps<T>
+    | ComboboxSingleNativeProps<T>
+    | ComboboxMultipleNativeProps<T>;
 
 type BasicProps<T extends ItemOption = ItemOption> = {
     /**
      * Список элементов.
      */
-    items: Array<T>;
+    items: T[];
+    /**
+     * Режим отображения выпадающего списка в виде дерева.
+     * @default false
+     */
+    treeView?: boolean;
+    /**
+     * Сторона расположения стрелки скрытия/раскрытия.
+     * @default left
+     */
+    arrowPlacement?: 'left' | 'right';
     /**
      * Сторона открытия дропдауна относительно target элемента.
      * @default bottom-start
      */
     placement?: Placement;
+    /**
+     * Вариант: обычный или сжатый
+     * @default normal
+     */
+    variant?: 'normal' | 'tight';
+    /**
+     * CSS-свойство z-index для выпадающего списка.
+     */
+    zIndex?: CSSProperties['zIndex'];
+    /**
+     * Максимальная высота выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
+    /**
+     * Значение css width для выпадающего списка.
+     * @example width="200px"
+     */
+    listWidth?: CSSProperties['width'];
+    /**
+     * Портал для выпадающего списка. Принимает id контейнера или ref.
+     */
+    portal?: string | React.RefObject<HTMLElement | null>;
     /**
      * Placeholder.
      */
@@ -170,28 +196,6 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * Слот для вспомогательного текста слева.
      */
     textAfter?: string;
-    /**
-     * Вариант: обычный или сжатый
-     * @default normal
-     */
-    variant?: 'normal' | 'tight';
-    /**
-     * CSS-свойство z-index для выпадающего списка.
-     */
-    zIndex?: CSSProperties['zIndex'];
-    /**
-     * Максимальная высота выпадающего списка.
-     */
-    listMaxHeight?: CSSProperties['height'];
-    /**
-     * Значение css width для выпадающего списка.
-     * @example width="200px"
-     */
-    listWidth?: CSSProperties['width'];
-    /**
-     * Портал для выпадающего списка. Принимает id контейнера или ref.
-     */
-    portal?: string | React.RefObject<HTMLElement>;
     /**
      * Callback для кастомной настройки элемента в выпадающем списке.
      */
@@ -247,27 +251,9 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     mode?: 'default' | 'radio';
     /**
-     * Размер компонента.
-     */
-    size?: string;
-    /**
-     * Вид компонента.
-     */
-    view?: string;
-    /**
      * Текст для состояния когда нет результата.
      */
     emptyStateDescription?: React.ReactNode;
-    /**
-     * Режим отображения выпадающего списка в виде дерева.
-     * @default false
-     */
-    treeView?: boolean;
-    /**
-     * Сторона расположения стрелки скрытия/раскрытия.
-     * @default left
-     */
-    arrowPlacement?: 'left' | 'right';
     /**
      * Коррекция placement, если выпадающий список находится за пределами экрана.
      * @default false
@@ -283,39 +269,57 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      * @default true
      */
     singleLine?: boolean;
+    /**
+     * Компонент доступен только для чтения.
+     * @default false
+     */
+    readOnly?: boolean;
+    /**
+     * Компонент неактивен.
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * Дропдаун открыт всегда.
+     * @default false
+     */
+    alwaysOpened?: boolean;
 
     /**
-     * @deprecated Использовать listMaxHeight.
+     * Размер компонента.
      */
-    listHeight?: CSSProperties['height'];
+    size?: string;
     /**
-     * @deprecated Скролл применится автоматически при использовании listMaxHeight.
+     * Вид компонента.
      */
-    listOverflow?: CSSProperties['overflow'];
+    view?: string;
+    /**
+     * Размер тултипа
+     */
+    hintSize?: string;
+    /**
+     * Вид тултипа
+     */
+    hintView?: string;
+};
+
+type PrivateProps = {
+    /**
+     * @private
+     */
+    _offset?: [number, number];
 };
 
 export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
     LabelProps &
-    ViewStateProps &
-    IsMultiselect<T> &
+    IsMultiple<T> &
     RequiredProps &
     HintProps &
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'name' | 'defaultValue' | 'onScroll' | 'size'>;
-
-export type FloatingPopoverProps = {
-    target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
-    children: React.ReactNode;
-    opened: boolean;
-    placement: Placement;
-    isInner: boolean;
-    shift: ComboboxProps['shift'];
-    flip: ComboboxProps['flip'];
-    onToggle?: (opened: boolean) => void;
-    portal?: ComboboxProps['portal'];
-    listWidth?: ComboboxProps['listWidth'];
-    zIndex?: ComboboxProps['zIndex'];
-    offset?: [number, number];
-};
+    PrivateProps &
+    Omit<
+        InputHTMLAttributes<HTMLInputElement>,
+        'value' | 'onChange' | 'placeholder' | 'defaultValue' | 'onScroll' | 'size'
+    >;
 
 export type ItemContext = {
     focusedPath: FocusedPathState;
@@ -335,4 +339,17 @@ export type ItemContext = {
     singleLine: ComboboxProps['singleLine'];
 };
 
-export type { ItemOption, ItemOptionTransformed };
+export type FloatingPopoverProps = {
+    target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
+    children: React.ReactNode;
+    opened: boolean;
+    placement: Placement;
+    isInner: boolean;
+    shift: ComboboxProps['shift'];
+    flip: ComboboxProps['flip'];
+    onToggle?: (opened: boolean) => void;
+    portal?: ComboboxProps['portal'];
+    listWidth?: ComboboxProps['listWidth'];
+    zIndex?: ComboboxProps['zIndex'];
+    offset?: [number, number];
+};

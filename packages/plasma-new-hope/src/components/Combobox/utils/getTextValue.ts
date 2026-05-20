@@ -1,5 +1,5 @@
 import { ComboboxProps } from '../Combobox.types';
-import { ValueToItemMapType } from '../hooks/getPathMaps';
+import { ValueToItemMapType } from '../hooks/usePathMaps';
 
 // Type Guard для multiple.
 // @ts-ignore

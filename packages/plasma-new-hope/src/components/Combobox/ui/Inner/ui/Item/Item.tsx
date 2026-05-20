@@ -2,23 +2,13 @@ import React, { useRef, FC, useContext } from 'react';
 import { cx, isEmpty } from 'src/utils';
 import { useDidMountEffect } from 'src/hooks';
 
-import { sizeToIconSize, getItemId, mapCheckedVariants } from '../../../../utils';
+import { sizeToIconSize, getItemId } from '../../../../utils';
 import { classes } from '../../../../Combobox.tokens';
 import { Context } from '../../../../Combobox.context';
+import { ItemContent, ItemSelectionIcon } from '../../../ItemView/ItemView';
 
 import { ItemProps } from './Item.types';
-import {
-    StyledText,
-    Wrapper,
-    DisclosureIconWrapper,
-    StyledCheckbox,
-    IconWrapper,
-    StyledIndicator,
-    StyledCheckboxWrapper,
-    StyledCell,
-    StyledIconDone,
-    StyledArrow,
-} from './Item.styles';
+import { Wrapper, DisclosureIconWrapper, StyledArrow } from './Item.styles';
 
 export const Item: FC<ItemProps> = ({
     item,
@@ -30,7 +20,7 @@ export const Item: FC<ItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const { value, label, disabled, contentLeft, contentRight, className, ...rest } = item;
+    const { value, disabled, className, ...rest } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -102,40 +92,19 @@ export const Item: FC<ItemProps> = ({
             aria-label={ariaLabel}
             aria-selected={Boolean(checkedValue)}
         >
-            <IconWrapper variant={variant}>
-                {renderSelectionIcon ? (
-                    renderSelectionIcon(mapCheckedVariants(checkedValue, multiple))
-                ) : (
-                    <>
-                        {multiple && (
-                            <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
-                                <StyledCheckbox
-                                    disabled={disabled}
-                                    checked={Boolean(checkedValue)}
-                                    indeterminate={checkedValue === 'indeterminate'}
-                                    onChange={handleChange}
-                                    appearance={_checkboxAppearance ?? 'default'}
-                                />
-                            </StyledCheckboxWrapper>
-                        )}
-                        {!multiple && checkedValue === 'dot' && <StyledIndicator size="s" view="default" />}
-                        {!multiple && checkedValue === 'done' && (
-                            <StyledIconDone size={sizeToIconSize(size, variant)} color="inherit" />
-                        )}
-                    </>
-                )}
-            </IconWrapper>
+            <ItemSelectionIcon
+                checked={checkedValue}
+                disabled={disabled}
+                multiple={multiple}
+                size={size}
+                variant={variant}
+                renderSelectionIcon={renderSelectionIcon}
+                checkboxAppearance={_checkboxAppearance}
+                withMargin
+                onChange={handleChange}
+            />
 
-            {renderItem ? (
-                <StyledText>{renderItem(item)}</StyledText>
-            ) : (
-                <StyledCell
-                    contentLeft={contentLeft}
-                    contentRight={contentRight}
-                    title={label}
-                    className={singleLine ? classes.singleLineMode : ''}
-                />
-            )}
+            <ItemContent item={item} renderItem={renderItem} singleLine={singleLine} />
 
             {!isEmpty(item.items) && (
                 <DisclosureIconWrapper>

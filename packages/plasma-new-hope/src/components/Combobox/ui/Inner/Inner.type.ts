@@ -1,9 +1,7 @@
 import { Dispatch, RefObject } from 'react';
 
 import type { PathAction, PathState } from '../../reducers';
-import type { ComboboxProps } from '../../Combobox.types';
-
-import type { ItemOptionTransformed } from './ui/Item/Item.types';
+import type { ComboboxProps, ItemOptionTransformed } from '../../Combobox.types';
 
 export type InnerProps = {
     item: ItemOptionTransformed;

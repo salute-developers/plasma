@@ -1,4 +1,4 @@
-import { ItemOptionTransformed, ItemOption } from '../ui/Inner/ui/Item/Item.types';
+import { ItemOptionTransformed, ItemOption } from '../Combobox.types';
 
 // Утилита, возвращающая отфильтрованное дерево items.
 // Фильтрация происходит как по названиям категорий, так и по названиям конечных элементов.

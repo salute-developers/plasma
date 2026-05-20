@@ -38,7 +38,9 @@ export const useListState = ({ disabled, readOnly, onToggle, multiselect, rootRe
             }
         }
 
-        onToggle?.(opened);
+        if (onToggle) {
+            onToggle(opened);
+        }
     };
 
     return {

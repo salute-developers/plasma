@@ -6,19 +6,13 @@ import { sizeToIconSize } from '../../../../utils';
 import { classes } from '../../../../Combobox.tokens';
 import { keyExists } from '../../../../reducers/treePathReducer';
 import { Context } from '../../../../Combobox.context';
+import { ItemContent, ItemSelectionIcon } from '../../../ItemView/ItemView';
 
 import { Props } from './Item.types';
 import {
     ItemWrapper,
     ChildItems,
     Offset,
-    IconWrapper,
-    StyledCheckboxWrapper,
-    StyledCheckbox,
-    StyledIndicator,
-    StyledIconDone,
-    StyledText,
-    StyledCell,
     DisclosureIconWrapper,
     StyledArrowRight,
     Wrapper,
@@ -26,7 +20,7 @@ import {
 } from './Item.styles';
 
 export const Item: React.FC<Props> = ({ item, pathToItem }) => {
-    const { label, value, disabled, contentLeft, contentRight } = item;
+    const { value, disabled } = item;
 
     const isLeaf = !item?.items;
 
@@ -36,6 +30,7 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
         size,
         variant,
         renderItem,
+        renderSelectionIcon,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         _checkboxAppearance,
@@ -53,6 +48,7 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
 
     const itemDisabled = disabled;
     const disabledClassName = itemDisabled ? classes.dropdownItemIsDisabled : undefined;
+    const checkedValue = checked.get(item.value) || false;
 
     const currentItemDepth = (valueToPathMap.get(item.value.toString())?.length || 0) - 1;
 
@@ -92,6 +88,19 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
         }
     }, [focusedClass]);
 
+    const itemSelectionIcon = (
+        <ItemSelectionIcon
+            checked={checkedValue}
+            disabled={itemDisabled}
+            multiple={multiple}
+            size={size}
+            variant={variant}
+            renderSelectionIcon={renderSelectionIcon}
+            checkboxAppearance={_checkboxAppearance}
+            onChange={handleChange}
+        />
+    );
+
     return (
         <ItemWrapper>
             <Wrapper
@@ -113,50 +122,13 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
                     </DisclosureIconWrapper>
                 )}
 
-                {multiple && (
-                    <IconWrapper variant={variant}>
-                        <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
-                            <StyledCheckbox
-                                disabled={itemDisabled}
-                                checked={Boolean(checked.get(item.value))}
-                                indeterminate={checked.get(item.value) === 'indeterminate'}
-                                onChange={handleChange}
-                                appearance={_checkboxAppearance ?? 'default'}
-                            />
-                        </StyledCheckboxWrapper>
-                    </IconWrapper>
-                )}
+                {multiple && itemSelectionIcon}
 
-                {!multiple && arrowPlacement === 'right' && (
-                    <IconWrapper variant={variant}>
-                        {checked.get(item.value) === 'dot' && <StyledIndicator size="s" view="default" />}
+                {!multiple && arrowPlacement === 'right' && itemSelectionIcon}
 
-                        {checked.get(item.value) === 'done' && (
-                            <StyledIconDone size={sizeToIconSize(size, variant)} color="inherit" />
-                        )}
-                    </IconWrapper>
-                )}
+                <ItemContent item={item} renderItem={renderItem} singleLine={singleLine} />
 
-                {renderItem ? (
-                    <StyledText>{renderItem(item)}</StyledText>
-                ) : (
-                    <StyledCell
-                        contentLeft={contentLeft}
-                        contentRight={contentRight}
-                        title={label}
-                        className={singleLine ? classes.singleLineMode : ''}
-                    />
-                )}
-
-                {!multiple && arrowPlacement === 'left' && (
-                    <IconWrapper variant={variant}>
-                        {checked.get(item.value) === 'dot' && <StyledIndicator size="s" view="default" />}
-
-                        {checked.get(item.value) === 'done' && (
-                            <StyledIconDone size={sizeToIconSize(size, variant)} color="inherit" />
-                        )}
-                    </IconWrapper>
-                )}
+                {!multiple && arrowPlacement === 'left' && itemSelectionIcon}
 
                 {arrowPlacement === 'right' && (
                     <DisclosureIconWrapper visibility={isLeaf ? 'hidden' : 'visible'}>

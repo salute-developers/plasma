@@ -51,7 +51,7 @@ describe('Basics', () => {
         expectTypeOf<SelectProps>().toHaveProperty('listWidth').toEqualTypeOf<CSSProperties['width'] | undefined>();
         expectTypeOf<SelectProps>()
             .toHaveProperty('portal')
-            .toEqualTypeOf<string | RefObject<HTMLElement> | undefined>();
+            .toEqualTypeOf<string | RefObject<HTMLElement | null> | undefined>();
         expectTypeOf<SelectProps>()
             .toHaveProperty('renderValue')
             .toEqualTypeOf<((item: ItemOption) => string) | undefined>();

@@ -1,5 +1,5 @@
-import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
-import type { ValueToCheckedMapType, ValueToItemMapType } from '../hooks/getPathMaps';
+import type { ItemOptionTransformed } from '../Combobox.types';
+import type { ValueToCheckedMapType, ValueToItemMapType } from '../hooks/usePathMaps';
 
 export const updateDescendants = (
     node: ItemOptionTransformed,

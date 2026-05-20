@@ -1,6 +1,6 @@
 import { SafeExtract } from 'src/types';
 
-import { CheckedType } from '../hooks/getPathMaps';
+import { CheckedType } from '../hooks/usePathMaps';
 
 // TODO: временная утилита, удалим при рефакторинге компонента.
 export const mapCheckedVariants = (
