@@ -77,6 +77,7 @@ export const createMeta = ({
             hintWidth: '10rem',
             hintHasArrow: true,
             hasScale: true,
+            enableScaleTicks: false,
             hasPointer: true,
             ...defaultArgs,
         },
@@ -305,6 +306,10 @@ export const createMeta = ({
                 table: { category: 'slider' },
             },
             hasScale: {
+                control: { type: 'boolean' },
+                table: { category: 'slider' },
+            },
+            enableScaleTicks: {
                 control: { type: 'boolean' },
                 table: { category: 'slider' },
             },
