@@ -259,4 +259,86 @@ describeFn('plasma-new-hope: TextFieldSlider', () => {
         cy.get('input').first().should('have.attr', 'readonly');
         cy.get('input').last().should('have.attr', 'readonly');
     });
+
+    it('scaleTicks: renders tick marks', () => {
+        mount(<TextFieldSlider {...textFieldSliderProps} scaleTicks={stepValues} />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('scaleTicks: filled state matches current value', () => {
+        mount(
+            <>
+                {stepValues.map((value) => (
+                    <>
+                        <TextFieldSlider {...textFieldSliderProps} value={value} scaleTicks={stepValues} />
+                        <br />
+                    </>
+                ))}
+            </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('scaleTicks: with formatted labels', () => {
+        mount(
+            <TextFieldSlider
+                min={0}
+                max={10000}
+                step={1000}
+                value={5000}
+                thousandSeparator=" "
+                scaleTicks={[0, 2500, 5000, 7500, 10000]}
+            />,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('scaleTicks: click on tick updates value', () => {
+        mount(<TextFieldSlider {...textFieldSliderProps} defaultValue={0} scaleTicks={stepValues} />);
+
+        cy.contains('span', '75').click();
+        cy.get('input').first().should('have.value', '75');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('scaleTicks: click fires onChange and onChangeSlider with correct value', () => {
+        const onChange = cy.spy().as('onChange');
+        const onChangeSlider = cy.spy().as('onChangeSlider');
+
+        mount(
+            <TextFieldSlider
+                {...textFieldSliderProps}
+                defaultValue={0}
+                scaleTicks={stepValues}
+                onChange={onChange}
+                onChangeSlider={onChangeSlider}
+            />,
+        );
+
+        cy.contains('span', '50').click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', undefined, { raw: 50, formatted: '50' });
+
+        cy.get('@onChangeSlider').should('have.been.calledOnce');
+        cy.get('@onChangeSlider').should('have.been.calledWith', { raw: 50, formatted: '50' });
+    });
+
+    it('scaleTicks: disabled prevents tick click', () => {
+        mount(<TextFieldSlider {...textFieldSliderProps} defaultValue={0} scaleTicks={stepValues} disabled />);
+
+        cy.contains('span', '75').click({ force: true });
+        cy.get('input').first().should('have.value', '0');
+    });
+
+    it('scaleTicks: readOnly prevents tick click', () => {
+        mount(<TextFieldSlider {...textFieldSliderProps} defaultValue={0} scaleTicks={stepValues} readOnly />);
+
+        cy.contains('span', '75').click();
+        cy.get('input').first().should('have.value', '0');
+    });
 });
