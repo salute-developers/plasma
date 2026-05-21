@@ -28,6 +28,7 @@ export * from './Tour';
 export * from './Link';
 export * from './Slider';
 export * from './Select';
+export * from './Combobox';
 export * from './Dropdown';
 export * from './Popover';
 export * from './Dropzone';
