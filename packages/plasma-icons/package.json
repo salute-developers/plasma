@@ -5,6 +5,30 @@
   "main": "index.js",
   "module": "es/index.js",
   "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./16": {
+      "import": "./es/scalable/index.16.js",
+      "require": "./scalable/index.16.js",
+      "types": "./scalable/index.16.d.ts"
+    },
+    "./24": {
+      "import": "./es/scalable/index.24.js",
+      "require": "./scalable/index.24.js",
+      "types": "./scalable/index.24.d.ts"
+    },
+    "./36": {
+      "import": "./es/scalable/index.36.js",
+      "require": "./scalable/index.36.js",
+      "types": "./scalable/index.36.d.ts"
+    },
+    "./css/*": "./css/*",
+    "./package.json": "./package.json"
+  },
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git"
