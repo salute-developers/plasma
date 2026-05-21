@@ -1,0 +1,22 @@
+{
+    "$schema": "https://swc.rs/schema.json",
+    "minify": false,
+    "jsc": {
+        "target": "es2020",
+        "parser": {
+            "syntax": "typescript",
+            "tsx": true
+        },
+        "transform": {
+            "react": {
+                "runtime": "classic"
+            }
+        },
+        "experimental": {
+            "plugins": [
+                ["@swc/plugin-styled-components", { "displayName": true, "ssr": true }]
+            ]
+        }
+    },
+    "exclude": [".*\\.stories.tsx$", ".*\\.component-test.tsx$"]
+}
