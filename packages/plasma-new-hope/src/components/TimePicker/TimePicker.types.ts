@@ -164,6 +164,17 @@ type BasicProps = {
      */
     columnsQuantity?: 2 | 3;
     /**
+     * Стиль для UI конфигурации
+     * Влияет на выбор предустановленного набора токенов
+     * @default 'default'
+     */
+    appearance?: 'default' | 'clear';
+    /**
+     * Флаг наличия разделителя для clear appearance
+     * @default false
+     */
+    hasClearDivider?: boolean;
+    /**
      * Размер компонента
      */
     size?: string;
