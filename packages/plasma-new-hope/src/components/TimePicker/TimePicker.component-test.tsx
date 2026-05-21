@@ -22,6 +22,21 @@ const componentPopupProviderExists = hasComponent('PopupProvider');
 const describeFn = getDescribeFN('TimePicker');
 const itSkip = skipForPackages(['plasma-b2c', 'plasma-web']);
 const itSkipHint = skipForPackages(['plasma-b2c', 'plasma-web', 'sdds-cs']);
+const itSkipClear = skipForPackages([
+    'plasma-b2c',
+    'plasma-giga',
+    'plasma-homeds',
+    'plasma-web',
+    'sdds-bizcom',
+    'sdds-cs',
+    'sdds-dfa',
+    'sdds-insol',
+    'sdds-netology',
+    'sdds-platform-ai',
+    'sdds-sbcom',
+    'sdds-scan',
+    'sdds-serv',
+]);
 
 const openTimePicker = () => {
     cy.viewport(580, 800);
@@ -197,6 +212,60 @@ describeFn('TimePicker', () => {
         );
 
         cy.get('input').first().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    itSkipClear('appearance=clear, hasClearDivider', () => {
+        mount(
+            <>
+                <TimePicker appearance="clear" value="00:00:00" label="Лейбл" leftHelper="Подсказка к полю" />
+                <PadMe />
+                <TimePicker
+                    appearance="clear"
+                    hasClearDivider
+                    value="00:00:00"
+                    label="Лейбл"
+                    leftHelper="Подсказка к полю"
+                />
+            </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    itSkipClear('appearance=clear, contentLeft, contentRight', () => {
+        mount(
+            <>
+                <TimePicker appearance="clear" value="00:00:00" contentLeft={<IconPlasma size="s" />} />
+                <PadMe />
+                <TimePicker
+                    appearance="clear"
+                    hasClearDivider
+                    value="00:00:00"
+                    contentRight={<IconPlasma size="s" />}
+                />
+                <PadMe />
+                <TimePicker
+                    appearance="clear"
+                    value="00:00:00"
+                    contentLeft={<IconPlasma size="s" />}
+                    contentRight={<IconPlasma size="s" />}
+                />
+            </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    itSkipClear('appearance=clear, valueError, valueSuccess', () => {
+        mount(
+            <>
+                <TimePicker appearance="clear" hasClearDivider value="00:00:00" valueError leftHelper="Ошибка" />
+                <PadMe />
+                <TimePicker appearance="clear" hasClearDivider value="00:00:00" valueSuccess leftHelper="Успех" />
+            </>,
+        );
 
         cy.matchImageSnapshot();
     });
