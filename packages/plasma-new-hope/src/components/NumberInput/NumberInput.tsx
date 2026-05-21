@@ -66,6 +66,7 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
             const [isInputFocused, setIsInputFocused] = useState(false);
             const [isAnimationRun, setIsAnimationRun] = useState(false);
             const [innerValue, setInnerValue] = useState<number | string | undefined>('');
+            const [shouldFocusInput, setShouldFocusInput] = useState(false);
 
             const value = outerValue ?? innerValue;
 
@@ -110,6 +111,10 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     return;
                 }
 
+                if (onlyShowDecrement) {
+                    setShouldFocusInput(true);
+                }
+
                 const processedValue = isNumber(value) && value !== '' ? Number(value) : max ?? 0;
                 const preciseDiff = getPreciseValue(processedValue - step, precision);
                 const diffValue = Number(preciseDiff);
@@ -129,6 +134,10 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
             const handleIncrement = () => {
                 if (isLoading || disabled || isAnimationRun) {
                     return;
+                }
+
+                if (onlyShowIncrement) {
+                    setShouldFocusInput(true);
                 }
 
                 const processedValue = isNumber(value) && value !== '' ? Number(value) : min ?? 0;
@@ -157,6 +166,7 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     )}
                     icon={decrementIcon || <IconMinus color="inherit" size={actionIconSize} />}
                     onClick={handleDecrement}
+                    tabIndex={onlyShowDecrement ? 0 : -1}
                 />
             );
 
@@ -170,6 +180,7 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     )}
                     icon={incrementIcon || <IconPlus color="inherit" size={actionIconSize} />}
                     onClick={handleIncrement}
+                    tabIndex={onlyShowIncrement ? 0 : -1}
                 />
             );
 
@@ -223,6 +234,10 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                             setIsAnimationRun={setIsAnimationRun}
                             setInnerValue={setInnerValue}
                             onChange={onChange}
+                            onDecrementKey={handleDecrement}
+                            onIncrementKey={handleIncrement}
+                            shouldFocusInput={shouldFocusInput}
+                            onFocusHandled={() => setShouldFocusInput(false)}
                             {...rest}
                         />
                     )}

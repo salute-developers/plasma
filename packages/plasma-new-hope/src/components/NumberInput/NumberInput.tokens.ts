@@ -48,6 +48,7 @@ export const tokens = {
     iconButtonBackgroundColorActive: '--plasma-number-input_icon-button_background-color-active',
 
     actionButtonDisabledOpacity: '--plasma-number-input_action-button_disabled-opacity',
+    actionButtonDisabledCursor: '--plasma-number-input_action-button_disabled-cursor',
 
     // Action button size tokens
     iconButtonHeight: '--plasma-number-input_icon-button_height',

@@ -21,5 +21,10 @@ export type InputProps = {
     textAfter?: string;
     isManualInput?: boolean;
 
+    onDecrementKey?: () => void;
+    onIncrementKey?: () => void;
+    shouldFocusInput?: boolean;
+    onFocusHandled?: () => void;
+
     onChange?: (event: SyntheticEvent<HTMLInputElement> | null, value: number | string | undefined) => void;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>;
