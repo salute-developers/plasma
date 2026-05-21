@@ -7,6 +7,45 @@
   "module": "es/index.js",
   "main": "index.js",
   "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./tokens": {
+      "import": "./es/tokens/index.js",
+      "require": "./tokens/index.js",
+      "types": "./tokens/index.d.ts"
+    },
+    "./tokens/*": {
+      "import": "./es/tokens/*/index.js",
+      "require": "./tokens/*/index.js",
+      "types": "./tokens/*/index.d.ts"
+    },
+    "./themes": {
+      "import": "./es/themes/index.js",
+      "require": "./themes/index.js",
+      "types": "./themes/index.d.ts"
+    },
+    "./themes/*": {
+      "import": "./es/themes/*.js",
+      "require": "./themes/*.js",
+      "types": "./themes/*.d.ts"
+    },
+    "./es/themes": {
+      "import": "./es/themes/index.js",
+      "require": "./themes/index.js",
+      "types": "./themes/index.d.ts"
+    },
+    "./es/themes/*": {
+      "import": "./es/themes/*.js",
+      "require": "./themes/*.js",
+      "types": "./themes/*.d.ts"
+    },
+    "./css/*": "./css/*",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "prepare": "npm run build",
     "prebuild": "rm -rf ./es ./src ./tokens ./themes ./css ./index.*",
