@@ -177,10 +177,21 @@ files.forEach((file) => {
     );
 });
 
-// добавляем экспорты
+// Помечаем root-экспорты `@deprecated`: компонент из общего barrel-а тянет ассеты
+// для всех трёх размеров (16/24/36), что ломает tree-shaking — потребитель получает
+// ~3x больший вес даже при статическом `size`. Миграция тривиальна для статических
+// размеров: импортировать тот же `IconX` из `@salutejs/plasma-icons/16|24|36`.
+// Для динамического `size` миграции нет — этот warning стоит подавить локально.
 const indexExport = names
     .map((name) => {
-        return `export { Icon${name} } from '.${IconsDirectory.replace(rootPath, '')}/Icon${name}';`;
+        return `/**
+ * @deprecated Импорт \`Icon${name}\` из \`@salutejs/plasma-icons\` тянет ассеты для всех 3 размеров (16/24/36),
+ * что увеличивает бандл в ~3 раза и не поддаётся tree-shaking-у. Замените на
+ * \`import { Icon${name} } from '@salutejs/plasma-icons/16'\` (или \`/24\`, \`/36\`) —
+ * потребитель получит ровно один размер. Если \`size\` определяется в рантайме динамически,
+ * подавите предупреждение локально (\`// eslint-disable-next-line deprecation/deprecation\`).
+ */
+export { Icon${name} } from '.${IconsDirectory.replace(rootPath, '')}/Icon${name}';`;
     })
     .join('\n');
 
