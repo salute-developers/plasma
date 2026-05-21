@@ -3,54 +3,63 @@ id: combobox
 title: Combobox
 ---
 
-import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Combobox
 
 <Description name="Combobox" />
-<PropsTable name="Combobox" exclude="negativeResultContent, enumerationType, onBlur, onFocus, usePortal, opened, frame, filterFunction, valueType" />
+<PropsTable name="Combobox" />
 
 ## Использование
 Обязательным параметром является только `items`. Внутри items может быть такой же вложенный массив items. Формат следующий:
 
 ```tsx
 type Items = Array<{
-        /**
-         *  Значение у item
-         */
-        value: string;
-        /**
-         * Метка-подпись к item
-         */
-        label: string;
-        /**
-        * Сторона открытия вложенного dropdown относительно текущего элемента
-        * @default right
-        */
-        placement?: Placement;
-        /**
-         * Список дочерних items.
-         */
-        items?: Array<ItemOption>;
-        /**
-         * Item не активен
-         */
-        disabled?: boolean;
-        /**
-         * Слот для контента слева
-         */
-        contentLeft?: ReactNode;
-        /**
-         * Слот для контента справа
-         */
-        contentRight?: ReactNode;
-    }>;
+    /**
+     * Значение у item.
+     */
+    value: string;
+    /**
+     * Метка-подпись к item.
+     */
+    label: string;
+    /**
+     * Сторона открытия вложенного дропдауна относительно текущего элемента.
+     * @default bottom-start
+     */
+    placement?: Placement;
+    /**
+     * Список дочерних items.
+     */
+    items?: Array<ItemOption>;
+    /**
+     * Item не активен.
+     */
+    disabled?: boolean;
+    /**
+     * Слот для контента слева.
+     */
+    contentLeft?: ReactNode;
+    /**
+     * Слот для контента справа.
+     */
+    contentRight?: ReactNode;
+    /**
+     * Classname для item.
+     */
+    className?: string;
+    /**
+     * Максимальная высота дочернего выпадающего списка.
+     */
+    listMaxHeight?: CSSProperties['height'];
+}>;
 ```
 
-Тип выбора Combobox - одиночный или множественный зависит от типа `value` и `onChange`. В одиночном value - `string`, в множественном - `Array<string>`.
+Тип выбора задается свойством `multiple`. В одиночном режиме `value` и `defaultValue` имеют тип `string`, в множественном - `string[]`.
 
+В одиночном режиме можно использовать `mode="radio"`, если нужно запретить снятие выбора повторным кликом. В множественном режиме доступны `selectAllOptions`, `isTargetAmount`, `targetAmount`, `renderValue` и `chipClickArea`.
 
 ## Примеры
 
@@ -61,7 +70,7 @@ type Items = Array<{
         import { Combobox } from '@salutejs/plasma-homeds';
 
         export function App() {
-            const [value, setValue] = useState('');
+           const [value, setValue] = useState<string>('');
 
             const items = [
                 {
@@ -149,7 +158,7 @@ type Items = Array<{
         ```
     </TabItem>
     <TabItem value="predefined" label="Predefined">
-        Есть возможность задать значения по дефолту (главное, чтобы они находились в `items`). Также можно управлять состоянием снаружи селекта.
+        Есть возможность задать значения по дефолту. Также можно управлять состоянием снаружи компонента.
 
         ```tsx live
         import React, { useState } from 'react';
@@ -200,9 +209,9 @@ type Items = Array<{
         ```
     </TabItem>
     <TabItem value="portal" label="Portal">
-        Иногда возникает необходимость вынесения выпадающего списка на уровни выше в DOM. К примеру, когда у родительского блока имеется scroll, и список будет обрезаться, чего хотелось бы избежать.\
+        Иногда возникает необходимость вынесения выпадающего списка на уровни выше в DOM. К примеру, когда у родительского блока имеется скролл, и список будет обрезаться, чего хотелось бы избежать.\
         Для такой реализации имеется пропс `portal`, который принимает либо `ref` либо `id` html-тега.\
-        Также нужно прокинуть свойство `listWidth`, чтобы явно задать ширину списку. Если этого не сделать, то будет взята ширина 100% от блока, на который ведет ссылка портала.
+        Также нужно прокинуть проп `listWidth`, чтобы явно задать ширину списку. Если этого не сделать, то будет взята ширина 100% от блока, на который ведет ссылка портала.
 
         ```tsx live
         import React, { useRef, useState } from 'react';
@@ -257,7 +266,7 @@ type Items = Array<{
         `value` и `onChange` - опциональные параметры. Если вы хотите `uncontrolled` вариант компонента - их пробрасывать необязательно.
 
        ```tsx live
-        import React, { useState } from 'react';
+        import React from 'react';
         import { Combobox } from '@salutejs/plasma-homeds';
 
         export function App() {
@@ -346,11 +355,9 @@ type Items = Array<{
         ```
     </TabItem>
     <TabItem value="virtual" label="Virtual">
-        :::caution
-            Работает только в одно-уровневых списках.
-        :::
-
         Свойство `virtual` позволяет виртуализировать выпадающий список. Для настройки высоты списка можно использовать свойство `listMaxHeight`.
+        Работает только в одноуровневых списках.
+
        ```tsx live
         import React from 'react';
         import { Combobox } from '@salutejs/plasma-homeds';
@@ -373,7 +380,7 @@ type Items = Array<{
                 </div>
             );
         }
-    ```
+        ```
     </TabItem>
     <TabItem value="infinite" label="Infinite Loading">
         Пример с бесконечной загрузкой элементов в списке.
@@ -423,7 +430,6 @@ type Items = Array<{
                         <Combobox
                             items={items}
                             listMaxHeight="200px"
-                            listOverflow="scroll"
                             placeholder="Placeholder"
                             label="Label"
                             helperText="Helper text"
@@ -511,7 +517,7 @@ type Items = Array<{
             }, [value]);
 
             return (
-                <div style={{ display: "flex", gap: "30px", height: "300px" }}>
+                <div style={{ display: "block", width: "300px", height: "300px" }}>
                     <Combobox
                         value={value}
                         onChange={setValue}
@@ -524,7 +530,6 @@ type Items = Array<{
                             indeterminate,
                             onClick: handleClick,
                         }}
-                        listOverflow="auto"
                         listMaxHeight="200px"
                     />
                 </div>
@@ -536,7 +541,7 @@ type Items = Array<{
         Пример с добавлением нового элемента в список.
 
         ```tsx live
-        import React, { useState, useEffect } from 'react';
+        import React, { useState } from 'react';
         import { Combobox } from '@salutejs/plasma-homeds';
 
         export function App() {
@@ -590,6 +595,9 @@ type Items = Array<{
         `renderSelectionIcon` - свойство для кастомной настройки иконки выбора элемента. Принимает коллбэк с одним параметром: `selected`.
 
         ```tsx live
+        import React, { useState } from 'react';
+        import { Combobox } from '@salutejs/plasma-homeds';
+
         export function App() {
             const [value, setValue] = useState('brazil');
 
@@ -648,7 +656,7 @@ type Items = Array<{
 Изнутри компонента взаимодействие с disabled-элементами **невозможно**. Ниже представлены примеры с `selected` и `unselected` disabled-элементом.
 
 ```tsx live
-    import React, { useState, useEffect } from 'react';
+    import React, { useState } from 'react';
     import { Combobox } from '@salutejs/plasma-homeds';
 
     export function App() {
@@ -792,7 +800,7 @@ type Items = Array<{
             {
                 value: 'africa',
                 label: 'Африка',
-                isDisabled: true,
+                disabled: true,
             },
         ];
 
@@ -839,13 +847,13 @@ type Items = Array<{
                 </div>
             </div>
         );
-    };
+    }
 ```
 
 ## Использование с React Hook Form и нативной формой
 
 :::caution Использование атрибута `name`
-Используйте свойство `name` только когда это необходимо. Оно влияет на выходной тип в `onChange`.
+Используйте свойство `name` только когда это необходимо. Если `value` не передан, компонент работает в native-режиме и `onChange` получает native-like event. В controlled-режиме `name` не меняет контракт `onChange`: он вызывается как `(value, item)`.
 :::
 
 <Tabs>
@@ -964,26 +972,22 @@ type Items = Array<{
                         <Controller
                             control={control}
                             name="combobox"
-                            render={({ field: { onChange, value, ref } }) => (
-                            <Combobox
-                                items={items}
-                                ref={ref}
-                                value={value}
-                                onChange={onChange}
-                            />
+                            render={({ field }) => (
+                                <Combobox
+                                    items={items}
+                                    {...field}
+                                />
                             )}
                         />
                         <Controller
                             control={control}
                             name="comboboxMulti"
-                            render={({ field: { onChange, value, ref } }) => (
-                            <Combobox
-                                items={items}
-                                ref={ref}
-                                value={value}
-                                onChange={onChange}
-                                multiple
-                            />
+                            render={({ field }) => (
+                                <Combobox
+                                    items={items}
+                                    multiple
+                                    {...field}
+                                />
                             )}
                         />
                         <Button type="submit">Отправить</Button>
@@ -998,7 +1002,6 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { useForm, Controller, SubmitHandler } from 'react-hook-form';
         import { Combobox, Button } from '@salutejs/plasma-homeds';
 
         export function App() {
