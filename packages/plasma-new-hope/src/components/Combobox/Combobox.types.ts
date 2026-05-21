@@ -31,7 +31,7 @@ export type ItemOption = {
     label: string;
     /**
      * Сторона открытия вложенного выпадающего списка относительно текущего элемента.
-     * @default right
+     * @default bottom-start
      */
     placement?: Placement;
     /**
