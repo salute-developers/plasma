@@ -4,4 +4,5 @@ export type ActionButtonProps = {
     icon: ReactNode;
     className?: string;
     onClick: () => void;
+    tabIndex?: number;
 };
