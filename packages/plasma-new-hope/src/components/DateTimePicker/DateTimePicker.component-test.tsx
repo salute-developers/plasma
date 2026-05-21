@@ -17,6 +17,15 @@ const componentExists = hasComponent('DateTimePicker');
 const componentButtonExists = hasComponent('Button');
 const describeFn = getDescribeFN('DateTimePicker');
 const itSkip = skipForPackages(['plasma-b2c', 'plasma-web']);
+const itSkipClear = skipForPackages([
+    'sdds-cs',
+    'sdds-dfa',
+    'sdds-insol',
+    'sdds-netology',
+    'sdds-platform-ai',
+    'sdds-sbcom',
+    'sdds-scan',
+]);
 
 const openDateTimePicker = () => {
     cy.viewport(750, 700);
@@ -459,6 +468,79 @@ describeFn('DateTimePicker', () => {
         cy.get('input').first().should('have.value', '06/14/2024 ');
         cy.get('button.reset-btn').click();
         cy.get('input').first().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    itSkipClear('appearance=clear, hasClearDivider', () => {
+        mount(
+            <>
+                <Demo
+                    appearance="clear"
+                    defaultDate={new Date(2023, 5, 14, 0, 0, 0)}
+                    label="Лейбл"
+                    leftHelper="Подсказка к полю"
+                />
+                <PadMe />
+                <Demo
+                    appearance="clear"
+                    hasClearDivider
+                    defaultDate={new Date(2023, 5, 14, 0, 0, 0)}
+                    label="Лейбл"
+                    leftHelper="Подсказка к полю"
+                />
+            </>,
+        );
+
+        cy.get('input').last().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    itSkipClear('appearance=clear, contentLeft, contentRight', () => {
+        mount(
+            <>
+                <Demo appearance="clear" defaultDate={new Date(2023, 5, 14, 0, 0, 0)} enableContentLeft />
+                <PadMe />
+                <Demo
+                    appearance="clear"
+                    hasClearDivider
+                    defaultDate={new Date(2023, 5, 14, 0, 0, 0)}
+                    enableContentRight
+                />
+                <PadMe />
+                <Demo
+                    appearance="clear"
+                    defaultDate={new Date(2023, 5, 14, 0, 0, 0)}
+                    enableContentLeft
+                    enableContentRight
+                />
+            </>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    itSkipClear('appearance=clear, valueError, valueSuccess', () => {
+        mount(
+            <>
+                <Demo
+                    appearance="clear"
+                    hasClearDivider
+                    defaultDate={new Date(2023, 5, 14, 0, 0, 0)}
+                    valueError
+                    leftHelper="Ошибка"
+                />
+                <PadMe />
+                <Demo
+                    appearance="clear"
+                    hasClearDivider
+                    defaultDate={new Date(2023, 5, 14, 0, 0, 0)}
+                    valueSuccess
+                    leftHelper="Успех"
+                />
+            </>,
+        );
 
         cy.matchImageSnapshot();
     });
