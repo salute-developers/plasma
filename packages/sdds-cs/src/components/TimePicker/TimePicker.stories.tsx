@@ -14,6 +14,8 @@ const { meta: META, Default } = getTimePickerStories({
         size: 's',
     },
     disablePropsList: [
+        'appearance',
+        'hasClearDivider',
         'size',
         'view',
         'labelPlacement',

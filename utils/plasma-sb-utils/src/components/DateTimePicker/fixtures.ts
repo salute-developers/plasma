@@ -1,3 +1,4 @@
+export const appearances = ['default', 'clear'];
 export const labelPlacements = ['outer', 'inner'];
 export const requiredPlacements = ['left', 'right'];
 export const shortcutsPlacements = ['left', 'right'];
