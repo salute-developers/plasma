@@ -716,6 +716,7 @@ export const iconSectionsSet = {
         trafficLightFill: 'TrafficLightFill',
         openPanelOutline: 'OpenPanelOutline',
         productExportFill: 'ProductExportFill',
+        productImportFill: 'ProductImportFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
