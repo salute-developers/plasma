@@ -167,6 +167,7 @@ export const iconSectionsSet = {
         linkBrokenChain: 'LinkBrokenChain',
         tableFill: 'TableFill',
         tablePinFill: 'TablePinFill',
+        tableRowPinFill: 'TableRowPinFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
