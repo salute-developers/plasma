@@ -1,62 +1,56 @@
 import React from 'react';
-import type { FC, HTMLAttributes } from 'react';
-import styled from 'styled-components';
+import type { ComponentType, CSSProperties, RefAttributes } from 'react';
 import cls from 'classnames';
-import { applySkeletonPulseGradient, applySkeletonShimmerGradient, getSkeletonColor } from 'src/mixins';
+import { getSkeletonColor } from 'src/mixins';
 
-import { classes, tokens } from '../tokens';
+import { classes, privateTokens, tokens } from '../tokens';
 
-export interface WithSkeletonProps extends HTMLAttributes<HTMLElement> {
-    /**
-     * Применить скелетон
-     */
-    skeleton?: boolean;
-    /**
-     * Тип анимации
-     * @default 'shimmer'
-     */
-    animationType?: 'shimmer' | 'pulse';
-}
+import { WithSkeletonProps } from './withSkeleton.types';
+import { Wrapper } from './withSkeleton.styles';
 
 /**
  * Делает компонент скелетоном - у него заменяется фоновый цвет,
  * добавляется градиент и текст становится на 100% прозрачным.
  */
 
-export const withSkeleton = <P extends WithSkeletonProps>(Component: FC<P>) => ({
-    skeleton,
-    animationType = 'shimmer',
-    className,
-    ...props
-}: P & WithSkeletonProps) => {
-    const animationClass = classes[`${animationType}Animation` as keyof typeof classes];
-    const skeletonClass = skeleton ? 'apply-skeleton-gradient' : undefined;
-    const skeletonGradientColor = getSkeletonColor({ lighter: true });
+export const withSkeleton = <P extends WithSkeletonProps, E extends Element = Element>(
+    Component: ComponentType<P & RefAttributes<E>>,
+) =>
+    React.forwardRef<E, P & WithSkeletonProps>(
+        ({ skeleton, animationConfig, animationType, className, ...props }, ref) => {
+            const effectiveType = animationConfig?.type ?? animationType ?? 'shimmer';
 
-    const Wrapper = styled.div`
-        display: contents;
+            const effectiveLighter = animationConfig?.type === 'shimmer' ? animationConfig.lighter ?? true : true;
+            const effectiveGradientColor =
+                animationConfig?.type === 'shimmer' ? animationConfig.customGradientColor : undefined;
+            const effectiveFadeInColor =
+                animationConfig?.type === 'pulse' ? animationConfig.customFadeInColor : undefined;
+            const effectiveFadeOutColor =
+                animationConfig?.type === 'pulse' ? animationConfig.customFadeOutColor : undefined;
 
-        .apply-skeleton-gradient {
-            &.${classes.shimmerAnimation} {
-                ${applySkeletonShimmerGradient(skeletonGradientColor)};
-            }
+            const animationClass = classes[`${effectiveType}Animation` as keyof typeof classes];
+            const skeletonClass = skeleton ? 'apply-skeleton-gradient' : undefined;
+            const skeletonGradientColor = getSkeletonColor({
+                lighter: effectiveLighter,
+                customGradientColor: effectiveGradientColor,
+            });
 
-            &.${classes.pulseAnimation} {
-                ${applySkeletonPulseGradient(tokens.fadeInColor, tokens.fadeOutColor)};
-            }
-        }
-    `;
+            const wrapperStyle = {
+                [privateTokens.lineSkeletonGradient]: skeletonGradientColor,
+                [privateTokens.skeletonFadeInColor]: effectiveFadeInColor || `var(${tokens.fadeInColor})`,
+                [privateTokens.skeletonFadeOutColor]: effectiveFadeOutColor || `var(${tokens.fadeOutColor})`,
+            } as CSSProperties;
 
-    const componentProps = {
-        ...props,
-        className: cls(skeletonClass, animationClass, className),
-    } as P;
+            const componentProps = {
+                ...props,
+                ref,
+                className: cls(skeletonClass, animationClass, className),
+            } as P & RefAttributes<E>;
 
-    return (
-        <>
-            <Wrapper>
-                <Component {...componentProps} />
-            </Wrapper>
-        </>
+            return (
+                <Wrapper style={wrapperStyle}>
+                    <Component {...componentProps} />
+                </Wrapper>
+            );
+        },
     );
-};
