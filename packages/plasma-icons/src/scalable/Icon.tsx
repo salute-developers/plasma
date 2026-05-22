@@ -553,6 +553,7 @@ export const iconSectionsSet = {
         buildingsAddOutline: 'BuildingsAddOutline',
         couponDiscountFill: 'CouponDiscountFill',
         couponDiscountOutline: 'CouponDiscountOutline',
+        deliveryFill: 'DeliveryFill',
     },
     Other: {
         button2x1LFill: 'Button2x1LFill',
