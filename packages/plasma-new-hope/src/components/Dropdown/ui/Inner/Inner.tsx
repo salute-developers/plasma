@@ -35,7 +35,7 @@ const Inner: FC<DropdownInnerProps> = ({
     const listId = `${treeId}_tree_level_${currentLevel + 2}`;
     const nextLevel = currentLevel + 1;
 
-    if (item?.items) {
+    if (item?.items?.length) {
         return (
             <FloatingPopover
                 placement={getPlacement(item?.placement || 'right')}

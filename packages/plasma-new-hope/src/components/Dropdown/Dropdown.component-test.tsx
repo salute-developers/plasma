@@ -1,16 +1,8 @@
 import React from 'react';
-import {
-    mount,
-    getComponent,
-    getDescribeFN,
-    hasComponent,
-    getBaseVisualTests,
-    skipForBrowser,
-} from '@salutejs/plasma-cy-utils';
+import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests } from '@salutejs/plasma-cy-utils';
 // @ts-ignore
 import { IconPlasma } from 'override/_Icon';
-
-import type { ButtonProps } from '../Button/Button.types';
+import type { ButtonProps } from 'src/components/Button';
 
 import type { DropdownProps } from './Dropdown.types';
 
@@ -340,6 +332,33 @@ const itemsWithPlacement = [
     },
 ] as DropdownProps['items'];
 
+const itemsWithHidden = [
+    {
+        value: 'visible_root',
+        label: 'Видимый пункт',
+    },
+    {
+        value: 'hidden_root',
+        label: 'Скрытый пункт',
+        hidden: true,
+    },
+    {
+        value: 'visible_parent',
+        label: 'Видимый родитель',
+        items: [
+            {
+                value: 'hidden_child',
+                label: 'Скрытый дочерний пункт',
+                hidden: true,
+            },
+            {
+                value: 'visible_child',
+                label: 'Видимый дочерний пункт',
+            },
+        ],
+    },
+] as DropdownProps['items'];
+
 describeFn('Dropdown', () => {
     const Dropdown = componentExists ? getComponent<DropdownProps>('Dropdown') : () => null;
     const Button = getComponent<ButtonProps>('Button');
@@ -623,6 +642,30 @@ describeFn('Dropdown', () => {
         cy.get('button').click();
 
         cy.matchImageSnapshot();
+    });
+
+    it('prop: items.hidden', () => {
+        mount(
+            <Dropdown items={itemsWithHidden}>
+                <Button text="Список стран" />
+            </Dropdown>,
+        );
+
+        cy.get('button').click();
+        cy.get('[id$="visible_root"]').should('be.visible');
+        cy.get('[id$="hidden_root"]').should('not.exist');
+        cy.get('[id$="visible_parent"]').click();
+        cy.get('[id$="hidden_child"]').should('not.exist');
+        cy.get('[id$="visible_child"]').should('be.visible');
+
+        cy.get('button').focus();
+        cy.pressKey('Escape');
+        cy.pressKey('ArrowDown');
+        cy.get('[id$="visible_root"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('ArrowDown');
+        cy.get('[id$="visible_parent"]').should('have.class', 'dropdown-item-is-focused');
+        cy.pressKey('ArrowDown');
+        cy.get('[id$="visible_parent"]').should('have.class', 'dropdown-item-is-focused');
     });
 
     it('behavior: onToggle', () => {
