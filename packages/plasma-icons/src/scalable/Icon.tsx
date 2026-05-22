@@ -714,6 +714,7 @@ export const iconSectionsSet = {
         cookieFill: 'CookieFill',
         flaskFill: 'FlaskFill',
         trafficLightFill: 'TrafficLightFill',
+        openPanelOutline: 'OpenPanelOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
