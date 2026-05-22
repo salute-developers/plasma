@@ -560,6 +560,7 @@ export const iconSectionsSet = {
         couponDiscountOutline: 'CouponDiscountOutline',
         deliveryFill: 'DeliveryFill',
         internationalTradeRubleFill: 'InternationalTradeRubleFill',
+        internationalTradeRupiahFill: 'InternationalTradeRupiahFill',
     },
     Other: {
         button2x1LFill: 'Button2x1LFill',
