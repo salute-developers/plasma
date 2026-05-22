@@ -706,6 +706,7 @@ export const iconSectionsSet = {
         aiFill: 'AiFill',
         aiOutline: 'AiOutline',
         movementOutline: 'MovementOutline',
+        checkEngineFill: 'CheckEngineFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
