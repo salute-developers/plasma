@@ -712,6 +712,7 @@ export const iconSectionsSet = {
         warningTriangleFill: 'WarningTriangleFill',
         showerFill: 'ShowerFill',
         cookieFill: 'CookieFill',
+        flaskFill: 'FlaskFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
