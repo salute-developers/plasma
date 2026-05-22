@@ -1,11 +1,12 @@
-import React, { useRef, FC, PropsWithChildren } from 'react';
-import { Resizable as ReResizable } from 're-resizable';
+import React, { useRef, FC, PropsWithChildren, Suspense, lazy } from 'react';
 import type { Resizable as ResizableType } from 're-resizable';
 
 import { getHandleStyles, getRatioBasedOnPlacement, getResizeDirections } from './utils';
 import { classes } from './Resizable.tokens';
 import type { ResizableProps } from './Resizable.types';
 import { IconResizeDiagonalStyled } from './Resizable.styles';
+
+const ReResizable = lazy(() => import('re-resizable').then((m) => ({ default: m.Resizable })));
 
 export const Resizable: FC<PropsWithChildren<ResizableProps>> = ({
     children,
@@ -43,68 +44,70 @@ export const Resizable: FC<PropsWithChildren<ResizableProps>> = ({
     }
 
     return (
-        <ReResizable
-            ref={resizableContainer}
-            enable={resizable && !resizable.disabled ? getResizeDirections(resizable.directions) : false}
-            resizeRatio={getRatioBasedOnPlacement(placement)}
-            defaultSize={resizable?.defaultSize}
-            minWidth={resizable?.minWidth}
-            minHeight={resizable?.minHeight}
-            maxWidth={resizable?.maxWidth}
-            maxHeight={resizable?.maxHeight}
-            onResizeStart={handleResizeStart}
-            onResizeStop={handleResizeEnd}
-            handleComponent={{
-                topRight: resizable?.hiddenIcons?.includes('top-right') ? undefined : (
-                    <>
-                        {resizable?.icons?.topRight || (
-                            <IconResizeDiagonalStyled
-                                className={classes.resizableTopRightIcon}
-                                color="inherit"
-                                size={resizable?.iconSize}
-                            />
-                        )}
-                    </>
-                ),
-                bottomRight: resizable?.hiddenIcons?.includes('bottom-right') ? undefined : (
-                    <>
-                        {resizable?.icons?.bottomRight || (
-                            <IconResizeDiagonalStyled
-                                className={classes.resizableBottomRightIcon}
-                                color="inherit"
-                                size={resizable?.iconSize}
-                            />
-                        )}
-                    </>
-                ),
-                bottomLeft: resizable?.hiddenIcons?.includes('bottom-left') ? undefined : (
-                    <>
-                        {resizable?.icons?.bottomLeft || (
-                            <IconResizeDiagonalStyled
-                                className={classes.resizableBottomLeftIcon}
-                                color="inherit"
-                                size={resizable?.iconSize}
-                            />
-                        )}
-                    </>
-                ),
-                topLeft: resizable?.hiddenIcons?.includes('top-left') ? undefined : (
-                    <>
-                        {resizable?.icons?.topLeft || (
-                            <IconResizeDiagonalStyled
-                                className={classes.resizableTopLeftIcon}
-                                color="inherit"
-                                size={resizable?.iconSize}
-                            />
-                        )}
-                    </>
-                ),
-            }}
-            className={classes.resizableContainer}
-            handleStyles={getHandleStyles()}
-            handleWrapperClass={classes.resizableHandleWrapper}
-        >
-            {children}
-        </ReResizable>
+        <Suspense fallback={<>{children}</>}>
+            <ReResizable
+                ref={resizableContainer}
+                enable={resizable && !resizable.disabled ? getResizeDirections(resizable.directions) : false}
+                resizeRatio={getRatioBasedOnPlacement(placement)}
+                defaultSize={resizable?.defaultSize}
+                minWidth={resizable?.minWidth}
+                minHeight={resizable?.minHeight}
+                maxWidth={resizable?.maxWidth}
+                maxHeight={resizable?.maxHeight}
+                onResizeStart={handleResizeStart}
+                onResizeStop={handleResizeEnd}
+                handleComponent={{
+                    topRight: resizable?.hiddenIcons?.includes('top-right') ? undefined : (
+                        <>
+                            {resizable?.icons?.topRight || (
+                                <IconResizeDiagonalStyled
+                                    className={classes.resizableTopRightIcon}
+                                    color="inherit"
+                                    size={resizable?.iconSize}
+                                />
+                            )}
+                        </>
+                    ),
+                    bottomRight: resizable?.hiddenIcons?.includes('bottom-right') ? undefined : (
+                        <>
+                            {resizable?.icons?.bottomRight || (
+                                <IconResizeDiagonalStyled
+                                    className={classes.resizableBottomRightIcon}
+                                    color="inherit"
+                                    size={resizable?.iconSize}
+                                />
+                            )}
+                        </>
+                    ),
+                    bottomLeft: resizable?.hiddenIcons?.includes('bottom-left') ? undefined : (
+                        <>
+                            {resizable?.icons?.bottomLeft || (
+                                <IconResizeDiagonalStyled
+                                    className={classes.resizableBottomLeftIcon}
+                                    color="inherit"
+                                    size={resizable?.iconSize}
+                                />
+                            )}
+                        </>
+                    ),
+                    topLeft: resizable?.hiddenIcons?.includes('top-left') ? undefined : (
+                        <>
+                            {resizable?.icons?.topLeft || (
+                                <IconResizeDiagonalStyled
+                                    className={classes.resizableTopLeftIcon}
+                                    color="inherit"
+                                    size={resizable?.iconSize}
+                                />
+                            )}
+                        </>
+                    ),
+                }}
+                className={classes.resizableContainer}
+                handleStyles={getHandleStyles()}
+                handleWrapperClass={classes.resizableHandleWrapper}
+            >
+                {children}
+            </ReResizable>
+        </Suspense>
     );
 };
