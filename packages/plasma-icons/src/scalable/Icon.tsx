@@ -713,6 +713,7 @@ export const iconSectionsSet = {
         showerFill: 'ShowerFill',
         cookieFill: 'CookieFill',
         flaskFill: 'FlaskFill',
+        trafficLightFill: 'TrafficLightFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
