@@ -711,6 +711,7 @@ export const iconSectionsSet = {
         towTruckFill: 'TowTruckFill',
         warningTriangleFill: 'WarningTriangleFill',
         showerFill: 'ShowerFill',
+        cookieFill: 'CookieFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
