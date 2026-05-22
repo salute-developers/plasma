@@ -709,6 +709,7 @@ export const iconSectionsSet = {
         checkEngineFill: 'CheckEngineFill',
         towTruckFill: 'TowTruckFill',
         warningTriangleFill: 'WarningTriangleFill',
+        showerFill: 'ShowerFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
