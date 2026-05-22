@@ -1,4 +1,5 @@
 {
+    "$schema": "https://swc.rs/schema.json",
     "minify": false,
     "jsc": {
         "target": "es2020",
@@ -6,12 +7,15 @@
             "syntax": "typescript",
             "tsx": true
         },
-        "baseUrl": ".",
-        "paths": {
-            "styled-components": ["node_modules/styled-components"]
+        "transform": {
+            "react": {
+                "runtime": "classic"
+            }
         },
         "experimental": {
-            "plugins": [["@swc/plugin-emotion", { "sourceMap": false }]]
+            "plugins": [
+                ["@swc/plugin-styled-components", { "displayName": true, "ssr": true }]
+            ]
         }
     },
     "exclude": [".*\\.stories.tsx$", ".*\\.component-test.tsx$"]

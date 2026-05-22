@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { getIconAsset, getIconComponent } from './utils';
+import { getIconAsset, getIconComponent, getSingleSizeIconComponent } from './utils';
 
 const rootPath = './src-build/scalable';
 
@@ -13,11 +13,27 @@ const AssetDirectory24 = `${rootPath}/Icon.assets.24`;
 const AssetDirectory36 = `${rootPath}/Icon.assets.36`;
 
 const IconsDirectory = `${rootPath}/Icons`;
+// Single-size компоненты — каждый тянет только свой ассет, что даёт tree-shaking-у
+// убрать неиспользуемые размеры через subpath-импорт `@salutejs/plasma-icons/16|24|36`.
+const IconsDirectory16 = `${rootPath}/Icons.16`;
+const IconsDirectory24 = `${rootPath}/Icons.24`;
+const IconsDirectory36 = `${rootPath}/Icons.36`;
 
 const IndexPath = `${rootPath}/index.ts`;
+const IndexPath16 = `${rootPath}/index.16.ts`;
+const IndexPath24 = `${rootPath}/index.24.ts`;
+const IndexPath36 = `${rootPath}/index.36.ts`;
 const IconPath = `${rootPath}/Icon.tsx`;
 
-const destinations = [AssetDirectory16, AssetDirectory24, AssetDirectory36, IconsDirectory];
+const destinations = [
+    AssetDirectory16,
+    AssetDirectory24,
+    AssetDirectory36,
+    IconsDirectory,
+    IconsDirectory16,
+    IconsDirectory24,
+    IconsDirectory36,
+];
 
 const files = fs.readdirSync(sourceDirectory);
 
@@ -102,6 +118,23 @@ files.forEach((file) => {
             fs.writeFileSync(getPath(AssetDirectory36, replacedName), assetContent36, 'utf8');
 
             fs.writeFileSync(getPath(IconsDirectory, `Icon${replacedName}`), componentContent, 'utf8');
+
+            // single-size компоненты для tree-shaking-friendly subpath-импортов
+            fs.writeFileSync(
+                getPath(IconsDirectory16, `Icon${replacedName}`),
+                getSingleSizeIconComponent(replacedName, 16),
+                'utf8',
+            );
+            fs.writeFileSync(
+                getPath(IconsDirectory24, `Icon${replacedName}`),
+                getSingleSizeIconComponent(replacedName, 24),
+                'utf8',
+            );
+            fs.writeFileSync(
+                getPath(IconsDirectory36, `Icon${replacedName}`),
+                getSingleSizeIconComponent(replacedName, 36),
+                'utf8',
+            );
         }
     }
 
@@ -123,16 +156,70 @@ files.forEach((file) => {
 
     // генерируем компонент
     fs.writeFileSync(getPath(IconsDirectory, `Icon${componentName}`), componentContent, 'utf8');
+
+    // single-size компоненты — пробрасываем @deprecated для Sber-aliased имён,
+    // чтобы IDE подсказывал миграцию на `Icon${replacedName}` и через subpath-импорты.
+    const singleSizeOptions = { deprecated: hasKeyWord, replacement: `Icon${replacedName}` };
+    fs.writeFileSync(
+        getPath(IconsDirectory16, `Icon${componentName}`),
+        getSingleSizeIconComponent(componentName, 16, singleSizeOptions),
+        'utf8',
+    );
+    fs.writeFileSync(
+        getPath(IconsDirectory24, `Icon${componentName}`),
+        getSingleSizeIconComponent(componentName, 24, singleSizeOptions),
+        'utf8',
+    );
+    fs.writeFileSync(
+        getPath(IconsDirectory36, `Icon${componentName}`),
+        getSingleSizeIconComponent(componentName, 36, singleSizeOptions),
+        'utf8',
+    );
 });
 
-// добавляем экспорты
+// Помечаем root-экспорты `@deprecated`: компонент из общего barrel-а тянет ассеты
+// для всех трёх размеров (16/24/36), что ломает tree-shaking — потребитель получает
+// ~3x больший вес даже при статическом `size`. Миграция тривиальна для статических
+// размеров: импортировать тот же `IconX` из `@salutejs/plasma-icons/16|24|36`.
+// Для динамического `size` миграции нет — этот warning стоит подавить локально.
 const indexExport = names
     .map((name) => {
-        return `export { Icon${name} } from '.${IconsDirectory.replace(rootPath, '')}/Icon${name}';`;
+        return `/**
+ * @deprecated Импорт \`Icon${name}\` из \`@salutejs/plasma-icons\` тянет ассеты для всех 3 размеров (16/24/36),
+ * что увеличивает бандл в ~3 раза и не поддаётся tree-shaking-у. Замените на
+ * \`import { Icon${name} } from '@salutejs/plasma-icons/16'\` (или \`/24\`, \`/36\`) —
+ * потребитель получит ровно один размер. Если \`size\` определяется в рантайме динамически,
+ * подавите предупреждение локально (\`// eslint-disable-next-line deprecation/deprecation\`).
+ */
+export { Icon${name} } from '.${IconsDirectory.replace(rootPath, '')}/Icon${name}';`;
     })
     .join('\n');
 
 fs.appendFileSync(IndexPath, indexExport, 'utf8');
+
+// barrel-файлы для single-size subpath-импортов.
+// Legacy-иконки (`old/Icons/*`) тоже реэкспортируем — у них размер фиксирован
+// в самом SVG, потребитель ожидает что они доступны через тот же entry.
+const legacyIconsDir = './src-build/old/Icons';
+const legacyNames = fs.existsSync(legacyIconsDir)
+    ? fs
+          .readdirSync(legacyIconsDir)
+          .filter((f) => f.endsWith('.tsx') && /^Icon/.test(f))
+          .map((f) => f.replace(/\.tsx$/, ''))
+    : [];
+const legacyBarrel = legacyNames
+    .map((iconName) => `export { ${iconName} } from '../old/Icons/${iconName}';`)
+    .join('\n');
+
+for (const [iconsDir, indexPath] of [
+    [IconsDirectory16, IndexPath16],
+    [IconsDirectory24, IndexPath24],
+    [IconsDirectory36, IndexPath36],
+] as const) {
+    const dirRel = iconsDir.replace(rootPath, '.');
+    const sizedExports = names.map((name) => `export { Icon${name} } from '${dirRel}/Icon${name}';`).join('\n');
+    fs.writeFileSync(indexPath, sizedExports + '\n' + legacyBarrel + '\n', 'utf8');
+}
 
 // добавляем mapping по категориям
 let dataIconFile = fs.readFileSync(IconPath, 'utf8');

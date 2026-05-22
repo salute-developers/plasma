@@ -5,6 +5,30 @@
   "main": "index.js",
   "module": "es/index.js",
   "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./16": {
+      "import": "./es/scalable/index.16.js",
+      "require": "./scalable/index.16.js",
+      "types": "./scalable/index.16.d.ts"
+    },
+    "./24": {
+      "import": "./es/scalable/index.24.js",
+      "require": "./scalable/index.24.js",
+      "types": "./scalable/index.24.d.ts"
+    },
+    "./36": {
+      "import": "./es/scalable/index.36.js",
+      "require": "./scalable/index.36.js",
+      "types": "./scalable/index.36.d.ts"
+    },
+    "./css/*": "./css/*",
+    "./package.json": "./package.json"
+  },
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git"
@@ -63,8 +87,8 @@
     "generate:react-native": "npm run build:scripts && node ./scripts-build/generateReactNativeComponents.js && rm -rf ./src-rn-build/Icon.svg.* ./src-rn-build/Icon*.tsx",
     "generate:ios": "node ./scripts/generateIconsIos.mjs",
     "build:scripts": "BABEL_ENV=cjs babel ./scripts --out-dir ./scripts-build --extensions .ts,.tsx",
-    "build:cjs": "swc ./src-build -d . --strip-leading-paths -C module.type=commonjs --config-file ../../swc.config.json",
-    "build:esm": "swc ./src-build -d ./es --strip-leading-paths -C module.type=es6 --config-file ../../swc.config.json",
+    "build:cjs": "swc ./src-build -d . --strip-leading-paths -C module.type=commonjs --config-file ./.swcrc",
+    "build:esm": "swc ./src-build -d ./es --strip-leading-paths -C module.type=es6 --config-file ./.swcrc",
     "build:css": "rollup -c",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },

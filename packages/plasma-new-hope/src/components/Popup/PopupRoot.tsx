@@ -1,5 +1,4 @@
-import React, { useCallback, forwardRef, useRef, AnimationEvent, TransitionEvent } from 'react';
-import Draggable from 'react-draggable';
+import React, { useCallback, forwardRef, useRef, AnimationEvent, TransitionEvent, Suspense, lazy } from 'react';
 import { useForkRef } from 'src/hooks';
 import { safeUseId } from 'src/utils';
 import cls from 'classnames';
@@ -8,6 +7,8 @@ import { usePopupContext } from './PopupContext';
 import type { PopupRootProps } from './Popup.types';
 import { PopupRootContainer, PopupView } from './Popup.styles';
 import { classes } from './Popup.tokens';
+
+const Draggable = lazy(() => import('react-draggable').then((m) => ({ default: m.default })));
 
 const getDragPositionOffset = (transform?: string) => {
     switch (transform) {
@@ -73,16 +74,18 @@ export const PopupRoot = forwardRef<HTMLDivElement, PopupRootProps>(
         }
 
         return (
-            <Draggable
-                nodeRef={contentRef}
-                handle={`.${handleClass}`}
-                cancel={`.${classes.resizableHandleWrapper}`}
-                defaultClassName={classes.draggablePopupWrapper}
-                defaultClassNameDragging={classes.draggingPopupWrapper}
-                positionOffset={positionOffset}
-            >
-                {popupNode}
-            </Draggable>
+            <Suspense fallback={popupNode}>
+                <Draggable
+                    nodeRef={contentRef}
+                    handle={`.${handleClass}`}
+                    cancel={`.${classes.resizableHandleWrapper}`}
+                    defaultClassName={classes.draggablePopupWrapper}
+                    defaultClassNameDragging={classes.draggingPopupWrapper}
+                    positionOffset={positionOffset}
+                >
+                    {popupNode}
+                </Draggable>
+            </Suspense>
         );
     },
 );
