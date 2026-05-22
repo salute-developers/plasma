@@ -715,6 +715,7 @@ export const iconSectionsSet = {
         flaskFill: 'FlaskFill',
         trafficLightFill: 'TrafficLightFill',
         openPanelOutline: 'OpenPanelOutline',
+        productExportFill: 'ProductExportFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
