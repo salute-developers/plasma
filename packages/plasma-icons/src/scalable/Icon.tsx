@@ -165,6 +165,7 @@ export const iconSectionsSet = {
         exportDoneOutline: 'ExportDoneOutline',
         resizeCorneredFill: 'ResizeCorneredFill',
         linkBrokenChain: 'LinkBrokenChain',
+        tableFill: 'TableFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
