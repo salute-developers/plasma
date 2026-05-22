@@ -365,6 +365,7 @@ export const iconSectionsSet = {
         travelCarFill: 'TravelCarFill',
         travelCarOutline: 'TravelCarOutline',
         wheelOutline: 'WheelOutline',
+        wheelFill: 'WheelFill',
     },
     User: {
         accessibility: 'Accessibility',
