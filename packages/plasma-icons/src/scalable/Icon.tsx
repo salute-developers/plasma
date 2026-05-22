@@ -168,6 +168,7 @@ export const iconSectionsSet = {
         tableFill: 'TableFill',
         tablePinFill: 'TablePinFill',
         tableRowPinFill: 'TableRowPinFill',
+        tableCornerPinFill: 'TableCornerPinFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
