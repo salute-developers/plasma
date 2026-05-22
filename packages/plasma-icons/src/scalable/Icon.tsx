@@ -725,6 +725,7 @@ export const iconSectionsSet = {
         openPanelOutline: 'OpenPanelOutline',
         productExportFill: 'ProductExportFill',
         productImportFill: 'ProductImportFill',
+        globeDashOutline: 'GlobeDashOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
