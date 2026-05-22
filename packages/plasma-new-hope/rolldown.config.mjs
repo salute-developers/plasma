@@ -1,10 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import { defineConfig } from 'rolldown';
 import { createFilter } from '@rollup/pluginutils';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import linaria from '@linaria/rollup';
-import { babel } from '@rollup/plugin-babel';
-import styles from '@ironkinoko/rollup-plugin-styles';
 import { fileURLToPath } from 'url';
 
 const filename = fileURLToPath(import.meta.url);
@@ -12,34 +10,28 @@ const dirname = path.dirname(filename);
 const inputDir = 'src-css';
 const inputDirPath = path.resolve(dirname, inputDir);
 
-export default {
+export default defineConfig({
     input: path.join(inputDir, 'index.ts'),
     treeshake: {
         propertyReadSideEffects: false,
     },
-    output: [
-        {
-            preserveModules: true,
-            dir: 'dist/css/es',
-            format: 'es',
-            freeze: false,
-            esModule: true,
-            sourcemap: false,
-            exports: 'named',
-            assetFileNames: '[name][extname]',
-        },
-        {
-            preserveModules: true,
-            dir: 'dist/css/cjs',
-            format: 'cjs',
-            freeze: false,
-            esModule: true,
-            sourcemap: false,
-            exports: 'named',
-            assetFileNames: '[name][extname]',
-            interop: 'auto',
-        },
-    ],
+    checks: {
+        pluginTimings: false,
+    },
+    logLevel: 'warn',
+    transform: {
+        jsx: 'react',
+        target: 'es2015',
+    },
+    output: {
+        preserveModules: true,
+        dir: 'dist/css/es',
+        format: 'es',
+        esModule: true,
+        sourcemap: false,
+        exports: 'named',
+        assetFileNames: '[name][extname]',
+    },
     external: (id) => {
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
@@ -67,21 +59,9 @@ export default {
                 ],
             },
         }),
-        nodeResolve({
-            extensions: ['.tsx', '.ts'],
-        }),
         importCssPlugin(),
-        // TODO: #717 remove this plugin: it generates index.css but we don't need it
-        styles({
-            mode: 'extract',
-            modules: true,
-        }),
-        babel({
-            babelHelpers: 'bundled',
-            extensions: ['.ts', '.tsx'],
-        }),
     ],
-};
+});
 
 function sourceAliasPlugin() {
     return {
@@ -134,29 +114,56 @@ function isFile(filePath) {
     }
 }
 
+function isCssFile(id) {
+    return getCssFileId(id).endsWith('.css');
+}
+
+function getCssFileId(id) {
+    return id.split('?')[0];
+}
+
 function importCssPlugin() {
     const filter = createFilter(['**/*.css']);
     const styles = {};
 
     return {
         name: 'importCssPlugin',
-        transform(code, id) {
-            if (!filter(id)) {
-                return;
-            }
+        transform: {
+            filter: {
+                id: /\.css(?:\?.*)?$/,
+            },
+            handler(code, id) {
+                const cssFileId = getCssFileId(id);
 
-            if (styles[id] !== code && (styles[id] || code)) {
-                styles[path.relative(inputDir, id)] = code;
-            }
+                if (!isCssFile(id) || !filter(cssFileId)) {
+                    return;
+                }
 
-            return { code };
+                const cssFile = path.relative(inputDir, cssFileId);
+
+                if (styles[cssFile] !== code && (styles[cssFile] || code)) {
+                    styles[cssFile] = code;
+                }
+
+                return {
+                    code: 'export default {};',
+                    moduleType: 'js',
+                };
+            },
         },
         generateBundle(options, bundle) {
             const files = Object.keys(bundle);
 
             files.forEach((file) => {
                 const root = bundle[file].facadeModuleId;
+                if (!root) {
+                    return;
+                }
+
                 const modules = this.getModuleInfo(root);
+                if (!modules) {
+                    return;
+                }
 
                 // ADD IMPORT FOR CSS MODULES
                 if (file.endsWith('.css.js')) {
@@ -176,8 +183,8 @@ function importCssPlugin() {
                     // linaria
                     const cssFiles = modules.importedIds
                         .filter((a) => a.includes(inputDir))
-                        .filter((a) => !a.endsWith('.module.css') && a.endsWith('.css'))
-                        .map((a) => path.relative(inputDir, a));
+                        .filter((a) => !getCssFileId(a).endsWith('.module.css') && isCssFile(a))
+                        .map((a) => path.relative(inputDir, getCssFileId(a)));
 
                     if (!cssFiles.length) {
                         return;
