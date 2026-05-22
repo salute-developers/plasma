@@ -13,7 +13,6 @@
     "postscaffold:docs": "npm run scaffold:components && npm run scaffold:bootstrap",
     "git:diff": "git diff -- ':!packages/themes/sdds-themes' ':!packages/themes/plasma-themes'",
     "release": "npm run git:diff && auto shipit -v",
-    "prepare:packages": "for pkg in plasma-b2c plasma-giga plasma-web sdds-cs sdds-insol sdds-serv sdds-scan sdds-os sdds-platform-ai sdds-finai plasma-homeds; do (cd packages/$pkg && npm run prepare) & done; wait",
     "precy:run": "rm -rf {.nyc_output}",
     "cy:clean": "rm -rf cypress/{results,reports,screenshots,videos}",
     "cy:run": "node scripts/cy-run.js",
