@@ -934,6 +934,7 @@ export const iconSectionsSet = {
         lineHeight: 'LineHeight',
         letterSpacing: 'LetterSpacing',
         layerBlurOutline: 'LayerBlurOutline',
+        flashlightFill: 'FlashlightFill',
     },
     Time: {
         alarmAddFill: 'AlarmAddFill',
