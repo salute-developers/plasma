@@ -20,6 +20,8 @@ import {
     configH2 as headingConfigH2Custom,
     configH3 as headingConfigH3Custom,
     configH4 as headingConfigH4Custom,
+    configHXlMedium as headingConfigHXlMediumCustom,
+    configHXxlMedium as headingConfigHXxlMediumCustom,
 } from './Heading.config';
 
 const bodyMConfig = mergeConfig(bodyConfig, bodyConfigMCustom);
@@ -52,6 +54,12 @@ const Heading3Component = typographyComponent(component(heading3Config));
 const heading4Config = mergeConfig(headingConfig, headingConfigH4Custom);
 const Heading4Component = typographyComponent(component(heading4Config));
 
+const headingHXlMediumConfig = mergeConfig(headingConfig, headingConfigHXlMediumCustom);
+const HeadingXlMediumComponent = typographyComponent(component(headingHXlMediumConfig));
+
+const headingHXxlMediumConfig = mergeConfig(headingConfig, headingConfigHXxlMediumCustom);
+const HeadingXxlMediumComponent = typographyComponent(component(headingHXxlMediumConfig));
+
 export const BodyM = BodyMComponent;
 export const BodyL = BodyLComponent;
 export const BodyS = BodySComponent;
@@ -64,3 +72,5 @@ export const H1 = Heading1Component;
 export const H2 = Heading2Component;
 export const H3 = Heading3Component;
 export const H4 = Heading4Component;
+export const HXlMedium = HeadingXlMediumComponent;
+export const HXxlMedium = HeadingXxlMediumComponent;
