@@ -1318,6 +1318,7 @@ export const iconSectionsSet = {
         sbDotSoundOutline: 'SbDotSoundOutline',
         sbDotSoundFill: 'SbDotSoundFill',
         sbDotCastOutline: 'SbDotCastOutline',
+        sbDotCastFill: 'SbDotCastFill',
     },
     Senses: {
         handActionFill: 'HandActionFill',
