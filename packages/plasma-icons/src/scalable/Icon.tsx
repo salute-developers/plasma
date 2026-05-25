@@ -1331,6 +1331,7 @@ export const iconSectionsSet = {
         trackSound: 'TrackSound',
         auraSound: 'AuraSound',
         sbHomeSoundOutline: 'SbHomeSoundOutline',
+        sbHomeSoundFill: 'SbHomeSoundFill',
     },
     Senses: {
         handActionFill: 'HandActionFill',
