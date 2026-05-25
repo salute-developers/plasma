@@ -47,6 +47,11 @@
             "require": "./scalable/index.36.js",
             "types": "./scalable/index.36.d.ts"
         },
+        "./css": {
+            "import": "./css/es/index.js",
+            "require": "./css/cjs/index.js",
+            "types": "./index.d.ts"
+        },
         "./css/*": "./css/*",
         "./package.json": "./package.json"
     },
