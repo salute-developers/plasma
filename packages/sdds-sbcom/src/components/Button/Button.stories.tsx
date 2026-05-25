@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { IconMic } from '@salutejs/plasma-icons';
 import { action } from 'storybook/actions';
 import { getButtonStories, getConfigVariations } from '@salutejs/plasma-sb-utils';
+import { bodySMedium, h4Medium, textPrimary, textSecondary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import styled from 'styled-components';
 
 import { Counter } from '../Counter/Counter';
@@ -32,12 +33,22 @@ export { Default, WithValue };
 
 const onClick = action('onClick');
 
-/** Размер иконки в px для кнопки XL → S (соответствует макету 24 / 24 / 20 / 16). */
+/** Размер иконки в px для кнопки 48 → 24 (соответствует макету 24 / 24 / 20 / 16). */
 const buttonSizeToIconPx: Record<string, number> = {
-    xl: 24,
-    l: 24,
-    m: 20,
-    s: 16,
+    '48': 24,
+    '40': 24,
+    '32': 20,
+    '24': 16,
+};
+
+const sizeTypography: Record<
+    string,
+    { token: string; fontFamily: string; fontSize: string; lineHeight: string }
+> = {
+    '48': { token: 'h4Medium', ...h4Medium },
+    '40': { token: 'h4Medium', ...h4Medium },
+    '32': { token: 'h4Medium', ...h4Medium },
+    '24': { token: 'bodySMedium', ...bodySMedium },
 };
 
 /** IconMic `size="s"` рендерится как 24×24 px при базовом rem. */
@@ -114,6 +125,96 @@ const ViewBlock = styled.div`
     gap: 0.5rem;
 `;
 
+const SizeCaption = styled.div`
+    color: ${textPrimary};
+    font-family: ${h4Medium.fontFamily};
+    font-size: ${h4Medium.fontSize};
+    font-weight: ${h4Medium.fontWeight};
+    line-height: ${h4Medium.lineHeight};
+`;
+
+const TypographyMeta = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    color: ${textSecondary};
+    font-family: monospace;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    margin-bottom: 0.5rem;
+`;
+
+const ViewCaption = styled.div`
+    color: ${textSecondary};
+    font-family: monospace;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+`;
+
+/** Скрытый элемент для чтения вычисленных значений CSS-переменных темы. */
+const TypographyProbe = styled.span`
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+    white-space: nowrap;
+`;
+
+type TypographyValues = Pick<typeof h4Medium, 'fontFamily' | 'fontSize' | 'lineHeight'>;
+
+function useResolvedTypography(values: TypographyValues) {
+    const probeRef = React.useRef<HTMLSpanElement>(null);
+    const [resolved, setResolved] = React.useState<TypographyValues | null>(null);
+
+    React.useLayoutEffect(() => {
+        const el = probeRef.current;
+
+        if (!el) {
+            return;
+        }
+
+        const style = getComputedStyle(el);
+
+        setResolved({
+            fontFamily: style.fontFamily,
+            fontSize: style.fontSize,
+            lineHeight: style.lineHeight,
+        });
+    }, [values.fontFamily, values.fontSize, values.lineHeight]);
+
+    return { probeRef, resolved };
+}
+
+function TypographyMetaBlock({ size }: { size: string }) {
+    const typo = sizeTypography[size];
+
+    if (!typo) {
+        return null;
+    }
+
+    const { probeRef, resolved } = useResolvedTypography(typo);
+
+    return (
+        <TypographyMeta>
+            <TypographyProbe
+                ref={probeRef}
+                style={{
+                    fontFamily: typo.fontFamily,
+                    fontSize: typo.fontSize,
+                    lineHeight: typo.lineHeight,
+                }}
+            />
+            <div>{typo.token}</div>
+            {resolved ? (
+                <>
+                    <div>fontFamily: {resolved.fontFamily}</div>
+                    <div>fontSize: {resolved.fontSize}</div>
+                    <div>lineHeight: {resolved.lineHeight}</div>
+                </>
+            ) : null}
+        </TypographyMeta>
+    );
+}
+
 function MatrixButton({
     size,
     view,
@@ -154,8 +255,11 @@ export const Showcase: StoryObj<ButtonProps> = {
         <Row>
             {showcaseSizes.map((size) => (
                 <Column key={size}>
+                    <SizeCaption>{`Button_${size}`}</SizeCaption>
+                    <TypographyMetaBlock size={size} />
                     {showcaseViews.map((view) => (
                         <ViewBlock key={view}>
+                            <ViewCaption>{view}</ViewCaption>
                             <MatrixGrid>
                                 {stateMatrix.flatMap((state) =>
                                     iconColumns.map((iconColumn) => (
