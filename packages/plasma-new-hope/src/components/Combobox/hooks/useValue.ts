@@ -66,16 +66,8 @@ export const useValue = ({
         }
     };
 
-    // useLayoutEffect(() => {
-    //     if (defaultValue) {
-    //         setInternalValue(defaultValue);
-    //     }
-    // }, [defaultValue]);
-
     return {
         value,
-        // internalValue,
-        // setInternalValue,
         handleChange,
         textValue,
         setTextValue,

@@ -11,6 +11,7 @@ export const classes = {
     selectSpinner: 'combobox-spinner',
     emptyStateWrapper: 'combobox-empty-state-wrapper',
     singleLineMode: 'combobox-singleline-mode',
+    inputScrollableWrapper: 'input-scrollable-wrapper',
 };
 
 export const tokens = {

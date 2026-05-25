@@ -1,4 +1,4 @@
-import React from 'react';
+import type { AriaAttributes } from 'react';
 
 import { ItemOptionTransformed } from '../../../../Combobox.types';
 import type { PathState } from '../../../../reducers';
@@ -10,6 +10,6 @@ export type ItemProps = {
     path: PathState;
     ariaControls?: string;
     ariaExpanded?: boolean;
-    ariaLevel?: React.AriaAttributes['aria-level'];
-    ariaLabel?: React.AriaAttributes['aria-label'];
+    ariaLevel?: AriaAttributes['aria-level'];
+    ariaLabel?: AriaAttributes['aria-label'];
 };

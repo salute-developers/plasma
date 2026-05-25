@@ -29,6 +29,7 @@ import {
 import type { ComboboxProps } from './Combobox.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
+import { base as readOnlyCSS } from './variations/_readOnly/base';
 import { SelectNative } from './ui/SelectNative/SelectNative';
 import { Context } from './Combobox.context';
 
@@ -563,7 +564,7 @@ export const comboboxConfig = {
             css: sizeCSS,
         },
         readOnly: {
-            css: sizeCSS,
+            css: readOnlyCSS,
         },
     },
     defaults: {
