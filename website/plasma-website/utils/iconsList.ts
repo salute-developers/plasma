@@ -1,5 +1,4 @@
-import { iconSectionsSet } from '@salutejs/plasma-icons';
-import { iconSectionsSet as iconSectionsSetNew } from '@salutejs/plasma-icons/scalable';
+import { iconSectionsSet, iconSectionsSetScalable as iconSectionsSetNew } from '@salutejs/plasma-icons';
 
 import type { IconGroups, Item, IconGroup } from '../types';
 import { Group } from '../types';
