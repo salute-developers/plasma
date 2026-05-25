@@ -12,6 +12,7 @@ import type {
     TreePathState,
 } from '../reducers';
 import { getTextValue } from '../utils';
+import { classes } from '../Combobox.tokens';
 
 import type { ValueToItemMapType } from './usePathMaps';
 
@@ -68,7 +69,7 @@ export const useListState = ({
 
             setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
 
-            const chipsWrapperNode = rootRef?.current?.querySelector<HTMLElement>('.input-scrollable-wrapper');
+            const chipsWrapperNode = rootRef?.current?.querySelector<HTMLElement>(`.${classes.inputScrollableWrapper}`);
 
             if (multiple && chipsWrapperNode) {
                 chipsWrapperNode.scrollLeft = 0;
