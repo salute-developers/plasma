@@ -1326,6 +1326,7 @@ export const iconSectionsSet = {
         sbHomeCastOutline: 'SbHomeCastOutline',
         sbHomeCastFill: 'SbHomeCastFill',
         sbHomeErrorOutline: 'SbHomeErrorOutline',
+        sbHomeErrorFill: 'SbHomeErrorFill',
     },
     Senses: {
         handActionFill: 'HandActionFill',
