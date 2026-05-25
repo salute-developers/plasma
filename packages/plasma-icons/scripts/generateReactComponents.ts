@@ -13,16 +13,17 @@ const AssetDirectory24 = `${rootPath}/Icon.assets.24`;
 const AssetDirectory36 = `${rootPath}/Icon.assets.36`;
 
 const IconsDirectory = `${rootPath}/Icons`;
-// Single-size компоненты — каждый тянет только свой ассет, что даёт tree-shaking-у
-// убрать неиспользуемые размеры через subpath-импорт `@salutejs/plasma-icons/16|24|36`.
+
 const IconsDirectory16 = `${rootPath}/Icons.16`;
 const IconsDirectory24 = `${rootPath}/Icons.24`;
 const IconsDirectory36 = `${rootPath}/Icons.36`;
 
 const IndexPath = `${rootPath}/index.ts`;
+
 const IndexPath16 = `${rootPath}/index.16.ts`;
 const IndexPath24 = `${rootPath}/index.24.ts`;
 const IndexPath36 = `${rootPath}/index.36.ts`;
+
 const IconPath = `${rootPath}/Icon.tsx`;
 
 const destinations = [
@@ -125,11 +126,13 @@ files.forEach((file) => {
                 getSingleSizeIconComponent(replacedName, 16),
                 'utf8',
             );
+
             fs.writeFileSync(
                 getPath(IconsDirectory24, `Icon${replacedName}`),
                 getSingleSizeIconComponent(replacedName, 24),
                 'utf8',
             );
+
             fs.writeFileSync(
                 getPath(IconsDirectory36, `Icon${replacedName}`),
                 getSingleSizeIconComponent(replacedName, 36),
@@ -157,19 +160,21 @@ files.forEach((file) => {
     // генерируем компонент
     fs.writeFileSync(getPath(IconsDirectory, `Icon${componentName}`), componentContent, 'utf8');
 
-    // single-size компоненты — пробрасываем @deprecated для Sber-aliased имён,
-    // чтобы IDE подсказывал миграцию на `Icon${replacedName}` и через subpath-импорты.
+    // single-size компоненты — пробрасываем @deprecated для старых имён
     const singleSizeOptions = { deprecated: hasKeyWord, replacement: `Icon${replacedName}` };
+
     fs.writeFileSync(
         getPath(IconsDirectory16, `Icon${componentName}`),
         getSingleSizeIconComponent(componentName, 16, singleSizeOptions),
         'utf8',
     );
+
     fs.writeFileSync(
         getPath(IconsDirectory24, `Icon${componentName}`),
         getSingleSizeIconComponent(componentName, 24, singleSizeOptions),
         'utf8',
     );
+
     fs.writeFileSync(
         getPath(IconsDirectory36, `Icon${componentName}`),
         getSingleSizeIconComponent(componentName, 36, singleSizeOptions),
@@ -177,19 +182,14 @@ files.forEach((file) => {
     );
 });
 
-// Помечаем root-экспорты `@deprecated`: компонент из общего barrel-а тянет ассеты
-// для всех трёх размеров (16/24/36), что ломает tree-shaking — потребитель получает
-// ~3x больший вес даже при статическом `size`. Миграция тривиальна для статических
-// размеров: импортировать тот же `IconX` из `@salutejs/plasma-icons/16|24|36`.
-// Для динамического `size` миграции нет — этот warning стоит подавить локально.
 const indexExport = names
     .map((name) => {
         return `/**
  * @deprecated Импорт \`Icon${name}\` из \`@salutejs/plasma-icons\` тянет ассеты для всех 3 размеров (16/24/36),
  * что увеличивает бандл в ~3 раза и не поддаётся tree-shaking-у. Замените на
- * \`import { Icon${name} } from '@salutejs/plasma-icons/16'\` (или \`/24\`, \`/36\`) —
- * потребитель получит ровно один размер. Если \`size\` определяется в рантайме динамически,
- * подавите предупреждение локально (\`// eslint-disable-next-line deprecation/deprecation\`).
+ * \`import { Icon${name} } from '@salutejs/plasma-icons/16'\` (или \`/24\`, \`/36\`).
+ * Если \`size\` определяется в рантайме динамически, подавите предупреждение локально
+ * (\`// eslint-disable-next-line deprecation/deprecation\`).
  */
 export { Icon${name} } from '.${IconsDirectory.replace(rootPath, '')}/Icon${name}';`;
     })
@@ -197,9 +197,6 @@ export { Icon${name} } from '.${IconsDirectory.replace(rootPath, '')}/Icon${name
 
 fs.appendFileSync(IndexPath, indexExport, 'utf8');
 
-// barrel-файлы для single-size subpath-импортов.
-// Legacy-иконки (`old/Icons/*`) тоже реэкспортируем — у них размер фиксирован
-// в самом SVG, потребитель ожидает что они доступны через тот же entry.
 const legacyIconsDir = './src-build/old/Icons';
 const legacyNames = fs.existsSync(legacyIconsDir)
     ? fs
@@ -207,6 +204,7 @@ const legacyNames = fs.existsSync(legacyIconsDir)
           .filter((f) => f.endsWith('.tsx') && /^Icon/.test(f))
           .map((f) => f.replace(/\.tsx$/, ''))
     : [];
+
 const legacyBarrel = legacyNames
     .map((iconName) => `export { ${iconName} } from '../old/Icons/${iconName}';`)
     .join('\n');
