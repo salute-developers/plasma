@@ -1315,6 +1315,7 @@ export const iconSectionsSet = {
         trackError: 'TrackError',
         aura: 'Aura',
         auraError: 'AuraError',
+        sbDotSoundOutline: 'SbDotSoundOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',
