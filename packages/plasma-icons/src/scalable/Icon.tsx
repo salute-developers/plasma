@@ -1332,6 +1332,7 @@ export const iconSectionsSet = {
         auraSound: 'AuraSound',
         sbHomeSoundOutline: 'SbHomeSoundOutline',
         sbHomeSoundFill: 'SbHomeSoundFill',
+        sbBoomMiniSoundOutline: 'SbBoomMiniSoundOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',
