@@ -728,6 +728,7 @@ export const iconSectionsSet = {
         globeDashOutline: 'GlobeDashOutline',
         globeDashFill: 'GlobeDashFill',
         robotOutline: 'RobotOutline',
+        robotFill: 'RobotFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
