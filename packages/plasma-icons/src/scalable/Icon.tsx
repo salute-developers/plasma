@@ -1317,6 +1317,7 @@ export const iconSectionsSet = {
         auraError: 'AuraError',
         sbDotSoundOutline: 'SbDotSoundOutline',
         sbDotSoundFill: 'SbDotSoundFill',
+        sbDotCastOutline: 'SbDotCastOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',
