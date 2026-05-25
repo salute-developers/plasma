@@ -18,7 +18,7 @@ const { meta: META, Default, WithValue } = getButtonStories({
     defaultArgs: {
         view: 'accent',
         size: 'm',
-        adaptive: true,
+        responsive: true,
     },
     disablePropsList: ['disabled'],
 });
@@ -28,7 +28,7 @@ const meta: Meta<ButtonProps> = {
     title: 'Data Entry/Button',
     argTypes: {
         ...META.argTypes,
-        adaptive: {
+        responsive: {
             control: 'boolean',
         },
     },

@@ -1,8 +1,8 @@
-import { css, buttonTokens, getAdaptiveCSS } from '@salutejs/plasma-new-hope/emotion';
+import { css, buttonTokens, getResponsiveCSS } from '@salutejs/plasma-new-hope/emotion';
 
 // Декларации size-блоков вынесены в строковые константы,
 // чтобы те же декларации можно было одновременно использовать
-// как обычную вариацию `size.*` и как тело @media-блока для `adaptive`.
+// как обычную вариацию `size.*` и как тело @media-блока для `responsive`.
 const sizeS = `
     ${buttonTokens.buttonHeight}: 1.5rem;
     ${buttonTokens.buttonWidth}: 8.25rem;
@@ -43,10 +43,6 @@ const sizeM = `
     ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
     ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
 `;
-
-// На экранах ≤559px компактный `m` (без content-margins) сменяется на `s` —
-// чтобы интерактивная зона стала комфортнее на мобиле.
-const media = [{ from: 559, to: undefined, size: 's' }];
 
 export const config = {
     defaults: {
@@ -108,8 +104,9 @@ export const config = {
             fixed: css``,
         },
     },
-    media,
-    adaptive: css`
-        ${getAdaptiveCSS(media, { s: sizeS, m: sizeM })}
+    // На экранах ≤559px компактный `m` сменяется на `s` —
+    // чтобы интерактивная зона стала комфортнее на мобиле.
+    responsive: css`
+        ${getResponsiveCSS([{ from: undefined, to: 559, size: sizeS }])}
     `,
 };
