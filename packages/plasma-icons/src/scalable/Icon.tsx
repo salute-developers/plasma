@@ -1320,6 +1320,7 @@ export const iconSectionsSet = {
         sbDotCastOutline: 'SbDotCastOutline',
         sbDotCastFill: 'SbDotCastFill',
         sbDotErrorOutline: 'SbDotErrorOutline',
+        sbDotErrorFill: 'SbDotErrorFill',
     },
     Senses: {
         handActionFill: 'HandActionFill',
