@@ -1323,6 +1323,7 @@ export const iconSectionsSet = {
         sbDotErrorFill: 'SbDotErrorFill',
         sbHomeOutline: 'SbHomeOutline',
         sbHomeFill: 'SbHomeFill',
+        sbHomeCastOutline: 'SbHomeCastOutline',
     },
     Senses: {
         handActionFill: 'HandActionFill',
