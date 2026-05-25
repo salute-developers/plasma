@@ -12,6 +12,8 @@ import {
     h4,
     h4Bold,
     h4Medium,
+    hXlMedium,
+    hXxlMedium,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const configH1 = {
@@ -90,6 +92,46 @@ export const configH4 = {
                 ${typographyTokens.typoFontWeightExtraBold}: 700;
                 ${typographyTokens.typoFontLetterSpacing}: ${h4.letterSpacing};
                 ${typographyTokens.typoFontLineHeight}: ${h4.lineHeight};
+            `,
+        },
+    },
+};
+export const configHXlMedium = {
+    defaults: {
+        size: 'hXlMedium',
+    },
+    variations: {
+        size: {
+            hXlMedium: css`
+                ${typographyTokens.typoFontFamily}: ${hXlMedium.fontFamily};
+                ${typographyTokens.typoFontSize}: ${hXlMedium.fontSize};
+                ${typographyTokens.typoFontStyle}: ${hXlMedium.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${hXlMedium.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${hXlMedium.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${hXlMedium.fontWeight};
+                ${typographyTokens.typoFontWeightExtraBold}: 700;
+                ${typographyTokens.typoFontLetterSpacing}: ${hXlMedium.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${hXlMedium.lineHeight};
+            `,
+        },
+    },
+};
+export const configHXxlMedium = {
+    defaults: {
+        size: 'hXxlMedium',
+    },
+    variations: {
+        size: {
+            hXxlMedium: css`
+                ${typographyTokens.typoFontFamily}: ${hXxlMedium.fontFamily};
+                ${typographyTokens.typoFontSize}: ${hXxlMedium.fontSize};
+                ${typographyTokens.typoFontStyle}: ${hXxlMedium.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${hXxlMedium.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${hXxlMedium.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${hXxlMedium.fontWeight};
+                ${typographyTokens.typoFontWeightExtraBold}: 700;
+                ${typographyTokens.typoFontLetterSpacing}: ${hXxlMedium.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${hXxlMedium.lineHeight};
             `,
         },
     },
