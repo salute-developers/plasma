@@ -27,7 +27,7 @@
     "directory": "packages/sdds-sbcom"
   },
   "dependencies": {
-    "@salutejs-ds/sdds_sbcom": "0.1.18",
+    "@salutejs-ds/sdds_sbcom": "0.1.20",
     "@salutejs/plasma-new-hope": "0.362.1-next-sbcom.0"
   },
   "peerDependencies": {
