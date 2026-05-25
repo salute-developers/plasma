@@ -787,6 +787,7 @@ export const iconSectionsSet = {
         cardsListFill: 'CardsListFill',
         cardsListOutline: 'CardsListOutline',
         starFourOutline: 'StarFourOutline',
+        starFourFill: 'StarFourFill',
     },
     Design: {
         blurFill: 'BlurFill',
