@@ -1333,6 +1333,7 @@ export const iconSectionsSet = {
         sbHomeSoundOutline: 'SbHomeSoundOutline',
         sbHomeSoundFill: 'SbHomeSoundFill',
         sbBoomMiniSoundOutline: 'SbBoomMiniSoundOutline',
+        sbBoomMiniSoundFill: 'SbBoomMiniSoundFill',
     },
     Senses: {
         handActionFill: 'HandActionFill',
