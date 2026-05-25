@@ -1328,6 +1328,7 @@ export const iconSectionsSet = {
         sbHomeErrorOutline: 'SbHomeErrorOutline',
         sbHomeErrorFill: 'SbHomeErrorFill',
         sbBoomSound: 'SbBoomSound',
+        trackSound: 'TrackSound',
     },
     Senses: {
         handActionFill: 'HandActionFill',
