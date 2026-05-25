@@ -13,8 +13,26 @@ import { ListContext } from './List.context';
 
 export const listRoot = (Root: RootProps<HTMLUListElement, ListProps>) =>
     forwardRef<HTMLUListElement, ListProps>(
-        ({ size, view, disabled, variant, className, children, ...rest }, outerRootRef) => {
-            const contextValue = useMemo(() => ({ disabled }), [disabled]);
+        (
+            {
+                size,
+                view,
+                disabled,
+                variant,
+                hasBackground,
+                hasItemBackground,
+                hasDivider,
+                className,
+                children,
+                ...rest
+            },
+            outerRootRef,
+        ) => {
+            const contextValue = useMemo(() => ({ disabled, hasItemBackground, hasDivider }), [
+                disabled,
+                hasItemBackground,
+                hasDivider,
+            ]);
 
             return (
                 <Root
@@ -25,8 +43,9 @@ export const listRoot = (Root: RootProps<HTMLUListElement, ListProps>) =>
                     className={cls(
                         classes.listRoot,
                         className,
-                        variant === 'tight' ? classes.tightListItem : '',
-                        disabled ? classes.disabledList : '',
+                        variant === 'tight' && classes.tightListItem,
+                        disabled && classes.disabledList,
+                        hasBackground && classes.hasListBackground,
                     )}
                     {...rest}
                 >

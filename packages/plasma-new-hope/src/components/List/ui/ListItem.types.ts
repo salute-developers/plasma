@@ -7,6 +7,11 @@ type CustomListItemProps = {
     disabled?: boolean;
 
     /**
+     * Контент слева
+     */
+    contentLeft?: ReactNode;
+
+    /**
      * Контент справа
      */
     contentRight?: ReactNode;
