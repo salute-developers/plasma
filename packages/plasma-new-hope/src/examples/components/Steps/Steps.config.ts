@@ -98,11 +98,6 @@ export const config = {
                 ${tokens.contentVerticalPadding}: 1.0625rem;
                 ${tokens.verticalContentPaddingLeft}: 0.75rem;
 
-                ${tokens.smallIndicatorIndentHeight}: 1rem;
-                ${tokens.largeIndicatorIndentHeight}: 0.625rem;
-                ${tokens.smallBulletIndentHeight}: 1.5rem;
-                ${tokens.largeBulletIndentHeight}: 1.25rem;
-
                 ${tokens.indicatorFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.indicatorFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.indicatorFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -144,11 +139,6 @@ export const config = {
                 ${tokens.contentSidePadding}: 1.75rem;
                 ${tokens.contentVerticalPadding}: 0.875rem;
                 ${tokens.verticalContentPaddingLeft}: 0.75rem;
-
-                ${tokens.smallIndicatorIndentHeight}: 0.75rem;
-                ${tokens.largeIndicatorIndentHeight}: 0.4375rem;
-                ${tokens.smallBulletIndentHeight}: 1.25rem;
-                ${tokens.largeBulletIndentHeight}: 1.125rem;
 
                 ${tokens.indicatorFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.indicatorFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -192,11 +182,6 @@ export const config = {
                 ${tokens.contentVerticalPadding}: 0.6875rem;
                 ${tokens.verticalContentPaddingLeft}: 0.75rem;
 
-                ${tokens.smallIndicatorIndentHeight}: 0.5rem;
-                ${tokens.largeIndicatorIndentHeight}: 0.5rem;
-                ${tokens.smallBulletIndentHeight}: 1rem;
-                ${tokens.largeBulletIndentHeight}: 0.75rem;
-
                 ${tokens.indicatorFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.indicatorFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.indicatorFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -238,11 +223,6 @@ export const config = {
                 ${tokens.contentSidePadding}: 1.5rem;
                 ${tokens.contentVerticalPadding}: 0.5625rem;
                 ${tokens.verticalContentPaddingLeft}: 0.75rem;
-
-                ${tokens.smallIndicatorIndentHeight}: 0.25rem;
-                ${tokens.largeIndicatorIndentHeight}: 0.25rem;
-                ${tokens.smallBulletIndentHeight}: 0.75rem;
-                ${tokens.largeBulletIndentHeight}: 0.5rem;
 
                 ${tokens.indicatorFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.indicatorFontSize}: var(--plasma-typo-body-xs-font-size);

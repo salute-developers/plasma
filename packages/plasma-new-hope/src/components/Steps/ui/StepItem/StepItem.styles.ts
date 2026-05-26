@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { classes, tokens } from '../../Steps.tokens';
 import { component, mergeConfig } from '../../../../engines';
@@ -48,46 +48,29 @@ export const BulletIndicatorWrapper = styled.div`
     display: flex;
     align-items: center;
     box-sizing: content-box;
+    flex: 0;
+    width: 100%;
 
-    &:not(.${classes.simple}) {
-        flex: 0;
-
-        &.${classes.hasIndicator} {
-            width: 100%;
-            min-height: var(${tokens.activeIndicatorSize});
-        }
-
-        &:not(.${classes.hasIndicator}) {
-            width: 100%;
-            min-height: var(${tokens.activeBulletSize});
-        }
-
-        &.${classes.verticalOrientation} {
-            padding-right: var(${tokens.verticalContentPaddingLeft});
-        }
+    &.${classes.hasIndicator} {
+        min-height: var(${tokens.activeIndicatorSize});
     }
 
-    &.${classes.simple} {
-        flex: 0;
-        justify-content: center;
+    &:not(.${classes.hasIndicator}) {
+        min-height: var(${tokens.activeBulletSize});
+    }
 
-        &.${classes.hasIndicator} {
-            width: var(${tokens.activeIndicatorSize});
-        }
-
-        &:not(.${classes.hasIndicator}) {
-            width: var(${tokens.activeBulletSize});
-        }
+    &:not(.${classes.simple}).${classes.verticalOrientation} {
+        padding-right: var(${tokens.verticalContentPaddingLeft});
     }
 
     &.${classes.verticalOrientation} {
         flex-direction: column;
         align-items: center;
-        justify-content: center;
 
         &.${classes.hasIndicator} {
             min-width: var(${tokens.activeIndicatorSize});
         }
+
         &:not(.${classes.hasIndicator}) {
             min-width: var(${tokens.activeBulletSize});
         }
@@ -95,6 +78,16 @@ export const BulletIndicatorWrapper = styled.div`
 
     &.${classes.centered} {
         justify-content: center;
+    }
+`;
+
+export const BulletSlot = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    .${classes.hasIndicator} & {
     }
 `;
 
@@ -161,13 +154,6 @@ export const BulletIndicator = styled.button`
         color: var(${tokens.inactiveIndicatorColor});
         background: var(${tokens.inactiveIndicatorBackground});
         border: none;
-
-        &.${classes.simple} {
-            &:before,
-            &:after {
-                background: var(${tokens.dividerColor});
-            }
-        }
     }
 `;
 
@@ -193,17 +179,10 @@ export const Bullet = styled(BulletIndicator)`
         color: var(${tokens.inactiveIndicatorColor});
         background: var(${tokens.inactiveIndicatorBackground});
         border: none;
-
-        &.${classes.simple} {
-            &:before,
-            &:after {
-                background: var(${tokens.dividerColor});
-            }
-        }
     }
 `;
 
-export const StepItemDivider = styled.div<{ indentToken?: string }>`
+export const StepItemDivider = styled.div`
     flex: 1;
 
     width: 100%;
@@ -215,9 +194,20 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
         background: var(${tokens.dividerGradientColor}, var(${tokens.dividerColor}));
     }
 
+    .${classes.centered} &.${classes.nextActive} {
+        background: var(${tokens.dividerGradientColor}, var(${tokens.dividerColor}));
+        background-size: 200% 100%;
+        background-position: 0% 0%;
+    }
+
+    &.${classes.prevCompleted} {
+        background: var(${tokens.dividerGradientColor}, var(${tokens.dividerColor}));
+        background-size: 200% 100%;
+        background-position: 100% 0%;
+    }
+
     &.${classes.verticalOrientation} {
         width: var(${tokens.dividerThickness});
-        height: 100%;
 
         background: var(${tokens.dividerColor});
 
@@ -237,21 +227,46 @@ export const StepItemDivider = styled.div<{ indentToken?: string }>`
 
     &.${classes.transparentDivider} {
         background: transparent;
+        opacity: 0;
+    }
+`;
+
+export const StepItemCenteredDivider = styled.div`
+    flex: 1;
+
+    width: 100%;
+    height: var(${tokens.dividerThickness});
+
+    background: var(${tokens.dividerColor});
+
+    .${classes.centered} &.${classes.nextActive} {
+        background: var(${tokens.dividerGradientColor}, var(${tokens.dividerColor}));
+        background-size: 200% 100%;
+        background-position: 0% 0%;
     }
 
-    &.${classes.indentDivider} {
-        height: ${({ indentToken }) => indentToken || ''};
-        min-height: ${({ indentToken }) => indentToken || ''};
-        max-height: ${({ indentToken }) => indentToken || ''};
+    &.${classes.prevCompleted} {
+        background: var(${tokens.dividerGradientColor}, var(${tokens.dividerColor}));
+        background-size: 200% 100%;
+        background-position: 100% 0%;
+    }
 
-        &.${classes.simple} {
-            height: auto;
-            max-height: none;
-        }
+    &.${classes.verticalOrientation} {
+        width: var(${tokens.dividerThickness});
+    }
 
-        &.${classes.verticalOrientation}.${classes.active} {
-            background: var(${tokens.dividerVerticalIndentColor}, var(${tokens.dividerColor}));
-        }
+    &.${classes.inactive} {
+        background: var(${tokens.inactiveIndicatorBackground});
+    }
+
+    &.${classes.disabled} {
+        opacity: var(${tokens.disabledOpacity});
+        cursor: not-allowed;
+    }
+
+    &.${classes.transparentDivider} {
+        background: transparent;
+        opacity: 0;
     }
 `;
 
@@ -260,7 +275,6 @@ export const StepItemContentWrapper = styled.div`
         width: 100%;
 
         ${StepItemTitle} {
-            padding-top: var(${tokens.contentVerticalPadding});
             padding-right: 0;
         }
 
@@ -272,7 +286,7 @@ export const StepItemContentWrapper = styled.div`
     }
 `;
 
-export const StepItemStyled = styled.div`
+export const base = css`
     position: relative;
 
     display: flex;
@@ -286,9 +300,39 @@ export const StepItemStyled = styled.div`
         flex-direction: row;
         align-items: stretch;
 
-        ${StepItemDivider} {
-            width: var(${tokens.dividerThickness});
-            height: 100%;
+        &.${classes.hasIndicator} {
+            ${BulletIndicator}.${classes.active},
+            ${SpinnerStyled} {
+                margin-top: calc((var(${tokens.indicatorSize}) - var(${tokens.activeIndicatorSize})) / 2);
+            }
+
+            
+            & ${StepItemDivider}.${classes.nextActive} {
+                flex: unset;
+                height: calc(100% - (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2 - var(${tokens.indicatorSize}));
+            }
+
+            & ${StepItemTitle} {
+                padding-top: calc((var(${tokens.indicatorSize}) - var(${tokens.titleLineHeight})) / 2);
+            }
+        }
+
+        &:not(.${classes.hasIndicator}) {
+            ${Bullet}.${classes.active},
+            ${SpinnerStyled} {
+                margin-top: calc((var(${tokens.bulletSize}) - var(${tokens.activeBulletSize})) / 2);
+            }
+
+            
+            & ${StepItemDivider}.${classes.nextActive} {
+                flex: unset;
+                height: calc(100% - (var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2 - var(${tokens.bulletSize}));
+            }
+
+            & ${StepItemTitle} {
+                padding-top: 0;
+                margin-top: calc((var(${tokens.bulletSize}) - var(${tokens.titleLineHeight})) / 2);
+            }
         }
     }
 
@@ -311,111 +355,6 @@ export const StepItemStyled = styled.div`
 
         ${StepItemTitle} {
             color: var(${tokens.inactiveTitleColor});
-        }
-    }
-
-    &.${classes.simple} {
-        flex: 0;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        height: 100%;
-
-        &.${classes.hasIndicator} {
-            min-width: var(${tokens.activeIndicatorSize});
-            min-height: var(${tokens.activeIndicatorSize});
-        }
-
-        &:not(.${classes.hasIndicator}) {
-            width: var(${tokens.activeBulletSize});
-            min-height: var(${tokens.activeBulletSize});
-        }
-
-        &.${classes.inactive}, &:not(.${classes.active}) {
-            &:before,
-            &:after {
-                content: '';
-                display: block;
-                width: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
-                height: var(${tokens.dividerThickness});
-                background: var(${tokens.dividerColor});
-            }
-
-            &:not(.${classes.hasIndicator}) {
-                &:before,
-                &:after {
-                    width: calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2);
-                }
-            }
-
-            &.${classes.verticalOrientation} {
-                flex-direction: column;
-
-                &:before,
-                &:after {
-                    width: var(${tokens.dividerThickness});
-                    height: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
-                    margin: 0 auto;
-                    align-self: auto;
-                }
-
-                &:not(.${classes.hasIndicator}) {
-                    &:before,
-                    &:after {
-                        height: calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2);
-                    }
-                }
-
-                &:after {
-                    margin: 0 auto;
-                }
-            }
-
-            &.isFirst {
-                &:before {
-                    background: transparent;
-                }
-            }
-
-            &.isLast {
-                &:after {
-                    background: transparent;
-                }
-            }
-        }
-
-        &.${classes.inactive} {
-            &:after,
-            &:before {
-                background: var(${tokens.inactiveIndicatorBackground});
-            }
-        }
-
-        &.isPrevInactive {
-            &:before {
-                background: var(${tokens.inactiveIndicatorBackground});
-            }
-        }
-
-        &.isNextInactive {
-            &:after {
-                background: var(${tokens.inactiveIndicatorBackground});
-            }
-        }
-
-        &.${classes.disabled} {
-            &:before,
-            &:after {
-                background: var(${tokens.inactiveIndicatorBackground});
-                opacity: 1;
-            }
-        }
-
-        &.${classes.transparentDivider} {
-            &:before,
-            &:after {
-                background: transparent;
-            }
         }
     }
 
