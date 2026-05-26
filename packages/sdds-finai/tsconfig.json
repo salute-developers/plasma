@@ -5,11 +5,5 @@
         "rootDir": "./src"
     },
     "include": ["./src"],
-    "exclude": [
-        "./src/helpers",
-        "./src/**/*.stories.tsx",
-        "./src/**/*.component-test.tsx",
-        "./src/**/*.perftest.tsx",
-        "src/components/_beta"
-    ]
+    "exclude": ["./src/helpers", "./src/**/*.stories.tsx", "./src/**/*.component-test.tsx", "src/components/_beta"]
 }
