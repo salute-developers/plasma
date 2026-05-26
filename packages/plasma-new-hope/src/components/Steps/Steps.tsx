@@ -1,20 +1,22 @@
-import React, { forwardRef, useState, useEffect, HTMLAttributes, useMemo } from 'react';
+import React, { forwardRef, useState, useEffect, HTMLAttributes, useMemo, FC } from 'react';
 import cls from 'classnames';
 
 import type { RootPropsOmitOnChange } from '../../engines/types';
 
 import { classes } from './Steps.tokens';
 import { StepsProps as BaseStepsProps } from './Steps.types';
-import { StepItem } from './ui';
 import { base } from './Steps.styles';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as itemViewCSS } from './variations/_itemView/base';
 import { getItemStatus } from './utils/getItemStatus';
+import { StepItemExtendedProps } from './ui/StepItem/StepItem.types';
 
 type StepsProps = BaseStepsProps & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
-export const stepsRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps>) =>
+export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
+    Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps>,
+) =>
     forwardRef<HTMLDivElement, StepsProps>((props, outerRef) => {
         const {
             view = 'default',
@@ -110,6 +112,7 @@ export const stepsRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps
                             hasLoader={hasLoader && isActive}
                             onClick={onClick}
                             items={innerItems}
+                            rootView={view}
                         />
                     );
                 })}
@@ -117,10 +120,10 @@ export const stepsRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, StepsProps
         );
     });
 
-export const stepsConfig = {
+export const stepsConfig = (StepItem: FC<StepItemExtendedProps>) => ({
     name: 'Steps',
     tag: 'div',
-    layout: stepsRoot,
+    layout: stepsRoot(StepItem),
     base,
     variations: {
         size: sizeCSS,
@@ -132,4 +135,4 @@ export const stepsConfig = {
         size: 'm',
         itemView: 'default',
     },
-};
+});
