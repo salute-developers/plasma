@@ -45,7 +45,6 @@
         "./src/helpers",
         "./src/**/*.stories.tsx",
         "./src/**/*.component-test.tsx",
-        "./src/**/*.perftest.tsx",
         "./components",
         "./es",
         "./styled-components"
