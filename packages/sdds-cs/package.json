@@ -1,106 +1,106 @@
 {
-    "name": "@salutejs/sdds-cs",
-    "version": "0.353.0",
-    "description": "Salute Design System / React UI kit for SDDS CS web applications",
-    "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "publishConfig": {
-        "access": "public"
+  "name": "@salutejs/sdds-cs",
+  "version": "0.355.0-dev.0",
+  "description": "Salute Design System / React UI kit for SDDS CS web applications",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "design-system",
+    "react-components",
+    "ui-kit",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:salute-developers/plasma.git",
+    "directory": "packages/sdds-cs"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/emotion/es/index.js",
+      "require": "./dist/emotion/cjs/index.js",
+      "types": "./types/index.d.ts"
     },
-    "license": "MIT",
-    "files": [
-        "dist",
-        "types"
+    "./beta": {
+      "import": "./dist/beta/es/index.js",
+      "require": "./dist/beta/cjs/index.js",
+      "types": "./dist/beta/types/index.d.ts"
+    }
+  },
+  "peerDependencies": {
+    "@emotion/react": ">=11",
+    "@emotion/styled": ">=11",
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1",
+    "styled-components": "^5.3.1"
+  },
+  "dependencies": {
+    "@salutejs/plasma-new-hope": "0.363.0-dev.0",
+    "@salutejs/sdds-themes": "0.65.1-dev.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.24.1",
+    "@babel/core": "7.24.4",
+    "@babel/plugin-transform-class-properties": "7.24.1",
+    "@babel/plugin-transform-react-constant-elements": "7.24.1",
+    "@babel/preset-env": "7.24.4",
+    "@babel/preset-react": "7.24.1",
+    "@babel/preset-typescript": "7.24.1",
+    "@emotion/babel-plugin": "11.11.0",
+    "@emotion/react": ">=11",
+    "@emotion/styled": ">=11",
+    "@originjs/vite-plugin-commonjs": "1.0.3",
+    "@salutejs/plasma-colors": "0.16.0",
+    "@salutejs/plasma-core": "1.227.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.157.0-dev.0",
+    "@salutejs/plasma-icons": "1.238.0-dev.0",
+    "@salutejs/plasma-sb-utils": "0.227.0-dev.0",
+    "@types/node": "16.7.13",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/styled-components": "5.1.0",
+    "babel-loader": "8.2.2",
+    "babel-plugin-annotate-pure-calls": "0.4.0",
+    "babel-plugin-styled-components": "1.13.2",
+    "default-browser-id": "2.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "5.3.1",
+    "typescript-coverage-report": "0.7.0"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "npm run build:emotion && npm run build:beta",
+    "build:emotion": "rm -rf dist/emotion && npm run build:emotion:esm && npm run build:emotion:cjs",
+    "build:emotion:cjs": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:emotion:esm": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "build:beta": "rm -rf dist/beta && npm run build:beta:esm && npm run build:beta:cjs",
+    "build:beta:cjs": "swc ./src/components/_beta -d ./dist/beta/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs && mv dist/beta/cjs/components/_beta/* dist/beta/cjs && rimraf dist/beta/cjs/components",
+    "build:beta:esm": "swc ./src/components/_beta -d ./dist/beta/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6 && mv dist/beta/es/components/_beta/* dist/beta/es && rimraf dist/beta/es/components",
+    "postbuild": "npm run generate:typings",
+    "generate:typings": "rm -rf types && tsc && rm -rf dist/beta/types && tsc -p src/components/_beta/tsconfig.json",
+    "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
+    "storybook:build": "storybook build -c .storybook -o build-sb",
+    "typescript-coverage": "npx typescript-coverage-report > /dev/null",
+    "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
+  },
+  "typeCoverage": {
+    "ignoreFiles": [
+      "src/**/*.component-test.tsx",
+      "src/**/*.stories.tsx",
+      "src/**/*.perftest.tsx"
     ],
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "ssh://git@github.com:salute-developers/plasma.git",
-        "directory": "packages/sdds-cs"
-    },
-    "exports": {
-        ".": {
-            "import": "./dist/emotion/es/index.js",
-            "require": "./dist/emotion/cjs/index.js",
-            "types": "./types/index.d.ts"
-        },
-        "./beta": {
-            "import": "./dist/beta/es/index.js",
-            "require": "./dist/beta/cjs/index.js",
-            "types": "./dist/beta/types/index.d.ts"
-        }
-    },
-    "peerDependencies": {
-        "@emotion/react": ">=11",
-        "@emotion/styled": ">=11",
-        "react": ">=16.13.1",
-        "react-dom": ">=16.13.1",
-        "styled-components": "^5.3.1"
-    },
-    "dependencies": {
-        "@salutejs/plasma-new-hope": "0.361.0",
-        "@salutejs/sdds-themes": "0.64.0"
-    },
-    "devDependencies": {
-        "@babel/cli": "7.24.1",
-        "@babel/core": "7.24.4",
-        "@babel/plugin-transform-class-properties": "7.24.1",
-        "@babel/plugin-transform-react-constant-elements": "7.24.1",
-        "@babel/preset-env": "7.24.4",
-        "@babel/preset-react": "7.24.1",
-        "@babel/preset-typescript": "7.24.1",
-        "@emotion/babel-plugin": "11.11.0",
-        "@emotion/react": ">=11",
-        "@emotion/styled": ">=11",
-        "@originjs/vite-plugin-commonjs": "1.0.3",
-        "@salutejs/plasma-colors": "0.16.0",
-        "@salutejs/plasma-core": "1.225.0",
-        "@salutejs/plasma-cy-utils": "0.155.0",
-        "@salutejs/plasma-icons": "1.237.0",
-        "@salutejs/plasma-sb-utils": "0.225.0",
-        "@types/node": "16.7.13",
-        "@types/react": "18.0.28",
-        "@types/react-dom": "18.0.11",
-        "@types/styled-components": "5.1.0",
-        "babel-loader": "8.2.2",
-        "babel-plugin-annotate-pure-calls": "0.4.0",
-        "babel-plugin-styled-components": "1.13.2",
-        "default-browser-id": "2.0.0",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "styled-components": "5.3.1",
-        "typescript-coverage-report": "0.7.0"
-    },
-    "scripts": {
-        "prepare": "npm run build",
-        "build": "npm run build:emotion && npm run build:beta",
-        "build:emotion": "rm -rf dist/emotion && npm run build:emotion:esm && npm run build:emotion:cjs",
-        "build:emotion:cjs": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
-        "build:emotion:esm": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-        "build:beta": "rm -rf dist/beta && npm run build:beta:esm && npm run build:beta:cjs",
-        "build:beta:cjs": "swc ./src/components/_beta -d ./dist/beta/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs && mv dist/beta/cjs/components/_beta/* dist/beta/cjs && rimraf dist/beta/cjs/components",
-        "build:beta:esm": "swc ./src/components/_beta -d ./dist/beta/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6 && mv dist/beta/es/components/_beta/* dist/beta/es && rimraf dist/beta/es/components",
-        "postbuild": "npm run generate:typings",
-        "generate:typings": "rm -rf types && tsc && rm -rf dist/beta/types && tsc -p src/components/_beta/tsconfig.json",
-        "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
-        "storybook:build": "storybook build -c .storybook -o build-sb",
-        "typescript-coverage": "npx typescript-coverage-report > /dev/null",
-        "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
-    },
-    "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*.component-test.tsx",
-            "src/**/*.stories.tsx",
-            "src/**/*.perftest.tsx"
-        ],
-        "atLeast": 99.94
-    },
-    "contributors": [
-        "salute.developers@gmail.com"
-    ],
-    "sideEffects": false
+    "atLeast": 99.94
+  },
+  "contributors": [
+    "salute.developers@gmail.com"
+  ],
+  "sideEffects": false
 }
