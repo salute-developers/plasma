@@ -33,3 +33,4 @@ export * from './Dropdown';
 export * from './Popover';
 export * from './Dropzone';
 export * from './Progress';
+export * from './Steps';
