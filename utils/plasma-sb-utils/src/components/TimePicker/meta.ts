@@ -1,6 +1,7 @@
 import { disableProps, InSpacingDecorator } from '../../index';
 
 import {
+    appearances,
     labelPlacements,
     columnsQuantities,
     dropdownWidths,
@@ -34,6 +35,8 @@ export const createMeta = ({
         decorators: [InSpacingDecorator],
         component,
         args: {
+            appearance: 'default',
+            hasClearDivider: false,
             view: 'default',
             size: 'l',
             disabled: false,
@@ -69,6 +72,18 @@ export const createMeta = ({
             ...defaultArgs,
         },
         argTypes: {
+            appearance: {
+                options: appearances,
+                control: {
+                    type: 'select',
+                },
+                table: { category: 'variation' },
+            },
+            hasClearDivider: {
+                control: { type: 'boolean' },
+                if: { arg: 'appearance', eq: 'clear' },
+                table: { category: 'variation' },
+            },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },

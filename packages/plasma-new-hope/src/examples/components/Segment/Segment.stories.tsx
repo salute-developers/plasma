@@ -6,7 +6,8 @@ import { SegmentProvider, useSegment } from '../../../components/Segment/Segment
 import { Counter } from '../Counter/Counter';
 import { WithTheme } from '../../_helpers';
 
-import { config } from './SegmentGroup.config';
+import { config as groupConfig } from './SegmentGroup.config';
+import { config as itemConfig } from './SegmentItem.config';
 import { SegmentItem, SegmentGroup, SegmentIconItem } from './Segment';
 
 type SegmentGroupProps = ComponentProps<typeof SegmentGroup>;

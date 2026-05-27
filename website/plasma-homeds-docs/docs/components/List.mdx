@@ -4,6 +4,8 @@ title: List
 ---
 
 import { PropsTable } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # List
 Компонент списка
@@ -12,7 +14,7 @@ import { PropsTable } from '@site/src/components';
 
 Компонент представляет собой список состоящий из `ListItem`.
 
-ListItem представляет собой простой компонент с текстом и иконкой
+ListItem представляет собой простой компонент с текстом, левым и правым слотами.
 
 ### Типы ListItem
 <PropsTable name="ListItem" />
@@ -40,3 +42,87 @@ export function App() {
     );
 }
 ```
+
+### Управление внешним видом
+
+Внешний вид списка зависит от свойств `size`, `variant`, `hasBackground`, `hasItemBackground`.
+Разделители между элементами можно включить свойством `hasDivider`.
+
+<Tabs>
+    <TabItem value="size" label="Size" default>
+        Размер списка задается свойством `size` (s, m).
+
+        ```tsx live
+        import React from 'react';
+        import { List, ListItem } from '@salutejs/plasma-homeds';
+        import { IconChevronRight } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <List size="s" variant="normal">
+                        <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Size s</ListItem>
+                        <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Size s</ListItem>
+                    </List>
+
+                    <List size="m" variant="normal">
+                        <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Size m</ListItem>
+                        <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Size m</ListItem>
+                    </List>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="hasBackground" label="hasBackground">
+        Свойство `hasBackground` добавляет фон контейнеру списка и визуально объединяет элементы в одну группу.
+
+        Свойство `hasDivider` добавляет разделители между элементами.
+
+        ```tsx live
+        import React from 'react';
+        import { List, ListItem } from '@salutejs/plasma-homeds';
+        import { IconChevronRight } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <List hasBackground hasDivider>
+                    <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 1</ListItem>
+                    <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 2</ListItem>
+                    <ListItem disabled contentRight={<IconChevronRight color="inherit" size="xs" />}>
+                        Test Item 3
+                    </ListItem>
+                    <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 4</ListItem>
+                </List>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="hasItemBackground" label="hasItemBackground">
+        Свойство `hasItemBackground` добавляет фон каждому элементу списка.
+
+        ```tsx live
+        import React from 'react';
+        import { List, ListItem } from '@salutejs/plasma-homeds';
+        import { IconChevronRight, IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <List hasItemBackground>
+                    <ListItem
+                        contentLeft={<IconPlasma color="inherit" size="s" />}
+                        contentRight={<IconChevronRight color="inherit" size="xs" />}
+                    >
+                        Test Item 1
+                    </ListItem>
+                    <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 2</ListItem>
+                    <ListItem disabled contentRight={<IconChevronRight color="inherit" size="xs" />}>
+                        Test Item 3
+                    </ListItem>
+                    <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 4</ListItem>
+                </List>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>

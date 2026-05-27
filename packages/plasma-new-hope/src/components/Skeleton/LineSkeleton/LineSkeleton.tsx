@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { cx } from 'src/utils';
 
 import type { RootProps } from '../../../engines';
 import { getRoundness, getSkeletonColor } from '../../../mixins';
@@ -24,6 +25,7 @@ export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonPro
                 customFadeInColor,
                 customFadeOutColor,
                 view,
+                className,
                 ...rest
             },
             outerRootRef,
@@ -36,7 +38,7 @@ export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonPro
             return (
                 <Root ref={outerRootRef} size={size} view={view} {...rest}>
                     <StyledVisibleLine
-                        className={animationClass}
+                        className={cx(className, animationClass)}
                         roundness={roundnessValue}
                         gradientColor={skeletonGradientColor}
                         customFadeInColor={customFadeInColor}

@@ -57,7 +57,7 @@ jobs:
                 run: |
                     docker run -i \
                         -e TYPESENSE_API_KEY=${{ secrets.TYPESENSE_KEY }} \
-                        -e TYPESENSE_HOST=${{ secrets.TYPESENSE_SERVICE_HOSTNAME }} \
+                        -e TYPESENSE_HOST=${{ vars.TYPESENSE_SERVICE_HOSTNAME }} \
                         -e TYPESENSE_PORT=443 \
                         -e TYPESENSE_PROTOCOL=https \
                         -e CONFIG=/config.json \

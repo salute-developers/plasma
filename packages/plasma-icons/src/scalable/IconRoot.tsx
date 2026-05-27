@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from 'react';
 import type { CSSProperties } from 'react';
-import styled from 'styled-components';
 
 export const sizeMap = {
     xs: {
@@ -21,6 +20,9 @@ export type IconSize = keyof typeof sizeMap;
 
 export interface IconProps {
     size?: IconSize;
+    /**
+     * Цвет иконки. Можно передавать css-градиент
+     */
     color?: string;
     className?: string;
     style?: CSSProperties;
@@ -31,16 +33,17 @@ interface IconRootProps extends IconProps, HTMLAttributes<HTMLDivElement> {
     icon: React.FC<IconProps>;
 }
 
-const IconsRoot = styled.div`
-    width: var(--icon-size);
-    height: var(--icon-size);
-    flex: none;
+const isGradient = (color: string) => /gradient/.test(color);
 
-    /* Нужно чтобы svg была блочным элементов для отключения baseline */
-    svg {
-        display: block;
+const iconMaskIds = new WeakMap<React.FC<IconProps>, number>();
+let maskCounter = 0;
+
+const getMaskId = (icon: React.FC<IconProps>, size: IconSize): string => {
+    if (!iconMaskIds.has(icon)) {
+        iconMaskIds.set(icon, maskCounter++);
     }
-`;
+    return `plasma-icon-${iconMaskIds.get(icon) ?? maskCounter}-${size}`;
+};
 
 export const getIconComponent = (
     icon16: React.FC<IconProps> | null,
@@ -64,14 +67,46 @@ export const getIconComponent = (
 };
 
 export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className, style, ...rest }) => {
+    const iconSize = `${sizeMap[size].scale}rem`;
+    const resolvedColor = color || 'var(--plasma-colors-primary)';
+    const gradient = isGradient(resolvedColor);
+
     return (
-        <IconsRoot
+        <div
             aria-hidden
-            style={{ '--icon-size': `${sizeMap[size].scale}rem`, ...style } as CSSProperties}
+            style={
+                {
+                    width: iconSize,
+                    height: iconSize,
+                    flex: 'none',
+                    ...style,
+                } as CSSProperties
+            }
             className={`icon-root-container ${className || ''}`}
             {...rest}
         >
-            <Icon color={color || 'var(--plasma-colors-primary)'} size={size} />
-        </IconsRoot>
+            {gradient ? (
+                <svg
+                    width="100%"
+                    height="100%"
+                    viewBox={`0 0 ${sizeMap[size].size} ${sizeMap[size].size}`}
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ display: 'block' }}
+                >
+                    <defs>
+                        <mask id={getMaskId(Icon, size)}>
+                            <Icon color="white" size={size} />
+                        </mask>
+                    </defs>
+                    <g mask={`url(#${getMaskId(Icon, size)})`}>
+                        <foreignObject width="100%" height="100%">
+                            <div style={{ width: '100%', height: '100%', background: resolvedColor }} />
+                        </foreignObject>
+                    </g>
+                </svg>
+            ) : (
+                <Icon color={resolvedColor} size={size} style={{ display: 'block' }} />
+            )}
+        </div>
     );
 };

@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { cx } from 'src/utils';
 
 import { getRoundness, getSkeletonColor } from '../../../mixins';
 import { classes } from '../tokens';
@@ -20,6 +21,7 @@ export const RectSkeleton = forwardRef<HTMLDivElement, RectSkeletonProps>(
             animationType = 'shimmer',
             customFadeInColor,
             customFadeOutColor,
+            className,
             ...rest
         },
         outerRootRef,
@@ -32,7 +34,7 @@ export const RectSkeleton = forwardRef<HTMLDivElement, RectSkeletonProps>(
         return (
             <StyledRectSkeleton
                 ref={outerRootRef}
-                className={animationClass}
+                className={cx(className, animationClass)}
                 roundness={roundnessValue}
                 gradientColor={skeletonGradientColor}
                 customFadeInColor={customFadeInColor}

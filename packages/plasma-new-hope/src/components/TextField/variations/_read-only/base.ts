@@ -49,9 +49,11 @@ export const base = css`
         }
 
         &.${classes.hasDivider} ${InputWrapper} {
+            background-color: var(${tokens.backgroundColorReadOnly});
+
             &:before {
                 top: unset;
-                background-color: var(${tokens.dividerColor});
+                background-color: var(${tokens.dividerColorReadOnly}, var(${tokens.dividerColor}));
                 opacity: 1;
             }
         }

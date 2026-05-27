@@ -43,7 +43,7 @@ export const Item: FC<DropdownItemProps> = ({
         renderItem,
     } = useContext(Context);
 
-    const hasDescendants = Boolean(item.items);
+    const hasDescendants = Boolean(item.items?.length);
     const disclosureIconSize = size === 'xs' ? 'xs' : 's';
     const isDisabledClassName = disabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
@@ -117,7 +117,7 @@ export const Item: FC<DropdownItemProps> = ({
                     </CellWrapper>
                 )}
 
-                {item.items && (
+                {hasDescendants && (
                     <DisclosureIconWrapper>
                         <StyledIconDisclosureRight size={disclosureIconSize} color="inherit" />
                     </DisclosureIconWrapper>

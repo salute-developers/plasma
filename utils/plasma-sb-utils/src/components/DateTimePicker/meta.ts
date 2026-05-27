@@ -1,6 +1,7 @@
 import { disableProps, InSpacingDecorator } from '../../index';
 
 import {
+    appearances,
     labelPlacements,
     requiredPlacements,
     shortcutsPlacements,
@@ -46,6 +47,8 @@ export const createMeta = ({
         decorators: [InSpacingDecorator],
         component,
         args: {
+            appearance: 'default',
+            hasClearDivider: false,
             label: 'Лейбл',
             leftHelper: 'Подсказка к полю',
             placeholder: '30.05.2024 00:00:00',
@@ -91,6 +94,18 @@ export const createMeta = ({
             ...defaultArgs,
         },
         argTypes: {
+            appearance: {
+                options: appearances,
+                control: {
+                    type: 'select',
+                },
+                table: { category: 'variation' },
+            },
+            hasClearDivider: {
+                control: { type: 'boolean' },
+                if: { arg: 'appearance', eq: 'clear' },
+                table: { category: 'variation' },
+            },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },

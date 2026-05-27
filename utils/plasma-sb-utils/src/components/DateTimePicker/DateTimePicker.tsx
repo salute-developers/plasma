@@ -12,10 +12,11 @@ type CreateDateTimePickerStoriesProps = {
     disablePropsList?: string[];
     defaultArgs?: {};
     additionalArgTypes?: {};
+    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element;
 };
 
 export const getDateTimePickerStories = (config: CreateDateTimePickerStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, customIcon, ...rest } = config;
 
     const dateTimePickerConfig = getConfigVariations(componentConfig);
 
@@ -25,7 +26,7 @@ export const getDateTimePickerStories = (config: CreateDateTimePickerStoriesProp
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component);
+    const DefaultStoryComponent = createDefaultStory(component, customIcon);
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,

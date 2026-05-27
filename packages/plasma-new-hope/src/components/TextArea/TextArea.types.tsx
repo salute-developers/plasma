@@ -50,13 +50,17 @@ export type TextAreaPropsAutoResize = {
 
 export type TextAreaPropsHeightWidth = {
     /**
-     * Высота текстового поля, значения в rem. Отвечает за ВСЮ высоту компонента.
-     * @example height="10", height={10}
+     * Высота текстового поля. Числовые значения интерпретируются как rem,
+     * строковые — используются как есть (например, "100%", "200px").
+     * Отвечает за ВСЮ высоту компонента.
+     * @example height="10", height={10}, height="100%"
      */
     height?: number | string;
     /**
-     * Ширина текстового поля, значения в rem. Отвечает за ВСЮ ширину компонента.
-     * @example width="10", width={10}
+     * Ширина текстового поля. Числовые значения интерпретируются как rem,
+     * строковые — используются как есть (например, "100%", "200px").
+     * Отвечает за ВСЮ ширину компонента.
+     * @example width="10", width={10}, width="100%"
      */
     width?: number | string;
 };
@@ -72,12 +76,8 @@ export type TextAreaPropsRowsCols = {
     cols?: number;
 };
 
-export type TextAreaDimensionsProps = OneOf<
-    TextAreaPropsAutoResize,
-    TextAreaPropsHeightWidth,
-    TextAreaPropsRowsCols,
-    ClearProps
->;
+export type TextAreaDimensionsProps = TextAreaPropsHeightWidth &
+    OneOf<TextAreaPropsAutoResize, TextAreaPropsRowsCols, ClearProps, {}>;
 
 type RequiredProps = {
     /**

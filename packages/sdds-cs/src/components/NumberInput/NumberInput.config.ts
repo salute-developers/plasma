@@ -25,7 +25,8 @@ export const config = {
                 ${tokens.iconButtonColorSolidHover}: var(--text-accent-minor);
                 ${tokens.iconButtonColorSolidActive}: var(--text-accent-active);
 
-                ${tokens.actionButtonDisabledOpacity}: 0.4;
+                ${tokens.actionButtonDisabledOpacity}: 0;
+                ${tokens.actionButtonDisabledCursor}: default;
 
                 ${tokens.loaderSpinnerColor}: inherit;
                 ${tokens.loaderSpinnerColorSolid}: inherit;

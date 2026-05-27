@@ -169,6 +169,11 @@ export const tokens = {
     scaleValueLetterSpacing: '--plasma-textfield-slider__scale-value-letter-spacing',
     scaleValueLineHeight: '--plasma-textfield-slider__scale-value-line-height',
 
+    /* токены для scaleTicks */
+    scaleTickSize: '--plasma-textfield-slider__scale-tick-size',
+    scaleTickDotColor: '--plasma-textfield-slider__scale-tick-dot-color',
+    scaleTickDotFilledColor: '--plasma-textfield-slider__scale-tick-dot-filled-color',
+
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-textfield-slider-disabled-opacity',
 };

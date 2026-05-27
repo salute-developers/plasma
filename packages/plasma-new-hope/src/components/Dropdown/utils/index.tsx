@@ -21,3 +21,4 @@ export const childrenWithProps = (children: ReactNode, additionalProps: HTMLAttr
 export { getItemId } from './getItemId';
 export { getItemByFocused } from './getItemByFocused';
 export { getPlacement } from './getPlacement';
+export { getVisibleItems } from './getVisibleItems';

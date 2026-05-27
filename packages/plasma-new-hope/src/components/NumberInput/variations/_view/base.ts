@@ -17,7 +17,11 @@ export const base = css`
 
         &.${classes.actionButtonDecrementDisabled}, &.${classes.actionButtonIncrementDisabled} {
             opacity: var(${tokens.actionButtonDisabledOpacity});
-            cursor: not-allowed;
+            cursor: var(${tokens.actionButtonDisabledCursor}, not-allowed);
+            
+            &:before {
+                cursor: var(${tokens.actionButtonDisabledCursor}, not-allowed);
+            }
 
             :hover,
             :active {
@@ -30,7 +34,7 @@ export const base = css`
     }
 
     && ${InputWrapper}{
-        &.${classes.manualInput}:focus-within {
+        &:focus-within {
             background-color: var(${tokens.backgroundColorFocus});
             box-shadow: inset 0 0 0 var(${tokens.inputWrapperBorderWidth}) var(${tokens.borderColorFocus});
         }
@@ -92,7 +96,6 @@ export const base = css`
 
     ${Input} {
         color: var(${tokens.color});
-        caret-color: var(${tokens.caretColor});
     }
 
     ${AdditionalText} {

@@ -55,7 +55,14 @@ const base = css`
 
     position: relative;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 `;
+
+const getDimensionValue = (value: number | string | undefined): string | undefined => {
+    if (value === undefined || value === null || value === '') return undefined;
+    return Number.isNaN(Number(value)) ? String(value) : `${value}rem`;
+};
 
 // TODO: Удалить после отказа от старых библиотек plasma-web / plasma-b2c
 const fallbackStatusMap = {
@@ -167,7 +174,9 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         } = props;
 
         const [isHintVisible, setIsHintVisible] = useState(false);
-        const [helperWidth, setHelperWidth] = useState<string>(width ? `${width}rem` : '100%');
+        const computedHeight = getDimensionValue(height);
+        const [helperWidth, setHelperWidth] = useState<string>('100%');
+        const innerWidth = getDimensionValue(width) || helperWidth;
         const [focused, setFocused] = useState(false);
         // TODO: перенести в общую переменную для value снаружи и внутри
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
@@ -193,7 +202,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
 
         const overriddenView = status !== undefined ? fallbackStatusMap[status] : view;
         const textareaHelperId = id ? `${id}-helper` : undefined;
-        const applyCustomWidth = resize !== 'horizontal' && resize !== 'both' && !cols;
+        const hasExplicitHeight = Boolean(computedHeight);
         const placeholderLabel = hasInnerLabel ? label : placeholder;
         const applyAutoResize = autoResize || Boolean(clear || appearance === 'clear');
 
@@ -299,7 +308,16 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 size={size}
                 disabled={disabled}
                 readOnly={readOnly}
-                style={{ width: helperWidth, ...style }}
+                style={
+                    {
+                        width: innerWidth,
+                        height: computedHeight,
+                        ...(hasExplicitHeight && {
+                            '--plasma_private-textarea-input-actual-height': '100%',
+                        }),
+                        ...style,
+                    } as React.CSSProperties
+                }
                 className={cx(clearClass, hasDividerClass, hasHintClass, className)}
                 onClick={handleTextAreaFocus}
                 data-root
@@ -309,7 +327,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 })}
             >
                 {(hasOuterLabel || titleCaption) && (
-                    <OuterLabelWrapper width={helperWidth} isInnerLabel={labelPlacement === 'inner'}>
+                    <OuterLabelWrapper isInnerLabel={labelPlacement === 'inner'}>
                         {hasOuterLabel && (
                             <StyledIndicatorWrapper>
                                 <StyledLabel aria-hidden={labelAriaHidden}>{label}</StyledLabel>
@@ -350,7 +368,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 )}
                 <StyledContainer
                     className={cx(styledContainer, ...dynamicLabelClasses)}
-                    width={helperWidth}
+                    hasExplicitHeight={hasExplicitHeight}
                     onFocus={onFocusHandler}
                     onBlur={onBlurHandler}
                 >
@@ -386,6 +404,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                         className={cx(styledTextAreaWrapper, hasHeader && hasHeaderSlot)}
                         hasHelper={hasHelper}
                         hasHeader={hasHeader}
+                        hasExplicitHeight={hasExplicitHeight}
                     >
                         {headerSlot && !clear && <StyledHeaderSlot>{headerSlot}</StyledHeaderSlot>}
 
@@ -410,13 +429,10 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             className={cx(styledTextArea, hasRightContentClass)}
                             id={id}
                             hasContentRight={Boolean(contentRight)}
-                            hasHelper={hasHelper}
-                            applyCustomWidth={applyCustomWidth}
+                            hasExplicitHeight={hasExplicitHeight}
                             ref={mergeRefs(outerRef, innerRef)}
                             disabled={disabled}
                             required={required}
-                            height={applyAutoResize ? minAuto : height}
-                            width={width}
                             placeholder={placeholderLabel}
                             aria-describedby={textareaHelperId}
                             value={value}

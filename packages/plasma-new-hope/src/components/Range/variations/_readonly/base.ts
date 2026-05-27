@@ -32,18 +32,33 @@ export const base = css`
         }
 
         ${StyledContentLeft}, ${StyledContentRight} {
-            color: var(${tokens.textFieldColorReadOnly});
+            color: var(${tokens.textFieldContentSlotColor}, var(${tokens.textFieldColorReadOnly}));
 
-            &:hover,
+            &:hover {
+                color: var(${tokens.textFieldContentSlotColorHover}, var(${tokens.textFieldColorReadOnly}));
+                cursor: default;
+            }
+
             &:active {
-                color: var(${tokens.textFieldColorReadOnly});
+                color: var(${tokens.textFieldContentSlotColorActive}, var(${tokens.textFieldColorReadOnly}));
                 cursor: default;
             }
         }
 
         ${StyledContentRight} {
             opacity: var(${tokens.rightContentOpacityReadOnly});
+            color: var(${tokens.textFieldContentSlotRightColor});
             pointer-events: none;
+
+            &:hover {
+                color: var(${tokens.textFieldContentSlotRightColorHover}, var(${tokens.textFieldColorReadOnly}));
+                cursor: default;
+            }
+
+            &:active {
+                color: var(${tokens.textFieldContentSlotRightColorActive}, var(${tokens.textFieldColorReadOnly}));
+                cursor: default;
+            }
         }
     }
 `;

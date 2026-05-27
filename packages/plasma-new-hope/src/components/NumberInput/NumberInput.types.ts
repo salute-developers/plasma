@@ -102,8 +102,8 @@ export type NumberInputProps = {
     displayWithoutValue?: 'input' | 'increment' | 'decrement';
     /**
      * Поведение кнопок при достижении крайних значений (min/max).
-     * 'disabled' — кнопка становится неактивной (по умолчанию).
-     * 'hidden' — кнопка скрывается, поле ввода растягивается.
+     * 'disabled' — кнопка становится неактивной.
+     * 'hidden' — deprecated
      * @default 'disabled'
      */
     limitBehavior?: 'disabled' | 'hidden';

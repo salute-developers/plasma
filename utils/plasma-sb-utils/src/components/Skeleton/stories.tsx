@@ -84,13 +84,48 @@ export const createButtonStory = (withSkeleton: any, Button: any) => {
         args: {
             skeleton: true,
             animationType: 'shimmer',
+            customGradientColor: '',
+            customFadeInColor: '',
+            customFadeOutColor: '',
         },
         argTypes: {
             animationType: {
                 options: animationTypeOptions,
                 control: { type: 'select' },
             },
+            customGradientColor: {
+                if: { arg: 'animationType', eq: 'shimmer' },
+            },
+            customFadeInColor: {
+                if: { arg: 'animationType', eq: 'pulse' },
+            },
+            customFadeOutColor: {
+                if: { arg: 'animationType', eq: 'pulse' },
+            },
         },
-        render: (args: any) => <ButtonSkeleton view="default" text="test" {...args} />,
+        render: ({
+            animationType,
+            customGradientColor,
+            customFadeInColor,
+            customFadeOutColor,
+            ...args
+        }: {
+            animationType: 'shimmer' | 'pulse';
+            customGradientColor: string;
+            customFadeInColor: string;
+            customFadeOutColor: string;
+            [key: string]: unknown;
+        }) => {
+            const animationConfig =
+                animationType === 'pulse'
+                    ? {
+                          type: 'pulse' as const,
+                          customFadeInColor: customFadeInColor || undefined,
+                          customFadeOutColor: customFadeOutColor || undefined,
+                      }
+                    : { type: 'shimmer' as const, customGradientColor: customGradientColor || undefined };
+
+            return <ButtonSkeleton view="default" text="test" animationConfig={animationConfig} {...args} />;
+        },
     };
 };

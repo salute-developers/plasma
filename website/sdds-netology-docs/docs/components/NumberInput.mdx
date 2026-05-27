@@ -232,12 +232,24 @@ export function App() {
 }
 ```
 
+## Клавиатурная навигация
+
+Компонент поддерживает управление с клавиатуры:
+- **Tab** — фокус переходит непосредственно на поле ввода. Кнопки увеличения и уменьшения не участвуют в Tab-навигации.
+- **↑ ArrowUp** — увеличивает значение на `step`.
+- **↓ ArrowDown** — уменьшает значение на `step`.
+
+При `isManualInput={false}` (по умолчанию) изменение значения доступно только стрелками; прямой ввод с клавиатуры заблокирован.
+При `isManualInput={true}` стрелки также работают, дополнительно разрешая прямой ввод числа.
+
 ## Отображение без значения
 
 Свойство `displayWithoutValue` управляет тем, что показывается, когда значение не задано:
 - `'input'` — отображается весь компонент (по умолчанию);
 - `'increment'` — отображается только кнопка увеличения;
 - `'decrement'` — отображается только кнопка уменьшения.
+
+Когда отображается только одна кнопка, она доступна для Tab-навигации. После её нажатия фокус автоматически переходит на поле ввода.
 
 ```tsx live
 import React, { useState } from 'react';
@@ -277,57 +289,29 @@ export function App() {
 ## Поведение при достижении границ
 
 Свойство `limitBehavior` управляет поведением кнопок при достижении значений `min`/`max`:
-- `'disabled'` — кнопка становится неактивной (по умолчанию);
-- `'hidden'` — кнопка скрывается, поле ввода растягивается.
+- `'disabled'` — кнопка становится неактивной (по умолчанию).
 
-<Tabs>
-    <TabItem value="disabled" label="Disabled" default>
-        ```tsx live
-        import React, { useState } from 'react';
-        import { NumberInput } from '@salutejs/sdds-netology';
+```tsx live
+import React, { useState } from 'react';
+import { NumberInput } from '@salutejs/sdds-netology';
 
-        export function App() {
-            const [value, setValue] = useState(0);
+export function App() {
+    const [value, setValue] = useState(0);
 
-            return (
-                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-                    <NumberInput
-                        value={value}
-                        min={0}
-                        max={10}
-                        width={188}
-                        limitBehavior="disabled"
-                        onChange={(_, newValue) => setValue(newValue)}
-                    />
-                </div>
-            );
-        }
-        ```
-    </TabItem>
-    <TabItem value="hidden" label="Hidden">
-        ```tsx live
-        import React, { useState } from 'react';
-        import { NumberInput } from '@salutejs/sdds-netology';
-
-        export function App() {
-            const [value, setValue] = useState(0);
-
-            return (
-                <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-                    <NumberInput
-                        value={value}
-                        min={0}
-                        max={10}
-                        width={188}
-                        limitBehavior="hidden"
-                        onChange={(_, newValue) => setValue(newValue)}
-                    />
-                </div>
-            );
-        }
-        ```
-    </TabItem>
-</Tabs>
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <NumberInput
+                value={value}
+                min={0}
+                max={10}
+                width={188}
+                limitBehavior="disabled"
+                onChange={(_, newValue) => setValue(newValue)}
+            />
+        </div>
+    );
+}
+```
 
 ## Пользовательские кнопки
 

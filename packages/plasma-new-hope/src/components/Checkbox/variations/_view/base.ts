@@ -13,4 +13,12 @@ export const base = css`
         background: var(${tokens.fillColor});
         border-color: var(${tokens.triggerBorderCheckedColor});
     }
+
+    input[type='checkbox']:indeterminate:not(:disabled) + ${StyledContentWrapper}:hover ${StyledTrigger} {
+        background: var(${tokens.fillColorHover}, var(${tokens.fillColor}));
+    }
+
+    input:checked:not(:disabled) + ${StyledContentWrapper}:hover ${StyledTrigger} {
+        background: var(${tokens.fillColorHover}, var(${tokens.fillColor}));
+    }
 `;

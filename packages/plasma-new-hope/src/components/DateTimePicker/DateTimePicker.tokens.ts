@@ -41,6 +41,14 @@ export const tokens = {
     textFieldBorderColorSuccessHover: '--plasma-date-time-picker-textfield-border-color-success-hover',
     textFieldBorderColorSuccessFocus: '--plasma-date-time-picker-textfield-border-color-success-focus',
 
+    textFieldDividerColor: '--plasma-date-time-picker-textfield-divider-color',
+    textFieldDividerColorHover: '--plasma-date-time-picker-textfield-divider-color-hover',
+    textFieldDividerColorFocus: '--plasma-date-time-picker-textfield-divider-color-focus',
+    textFieldDividerColorReadOnly: '--plasma-date-time-picker-textfield-divider-color-readonly',
+    textFieldDividerColorError: '--plasma-date-time-picker-textfield-divider-color-error',
+    textFieldDividerColorSuccess: '--plasma-date-time-picker-textfield-divider-color-success',
+    textFieldDividerWidth: '--plasma-date-time-picker-textfield-divider-width',
+
     textFieldColorReadOnly: '--plasma-date-time-picker-textfield-color-readonly',
     textFieldBackgroundColorReadOnly: '--plasma-date-time-picker-textfield-background-color-readonly',
     textFieldBorderColorReadOnly: '--plasma-date-time-picker-textfield-border-color-readonly',

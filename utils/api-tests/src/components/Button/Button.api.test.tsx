@@ -1,6 +1,6 @@
 import * as React from 'react';
-import type { ComponentProps, ReactNode, CSSProperties, AriaRole } from 'react';
-import { describe, it } from 'vitest';
+import type { ComponentProps, ReactNode, CSSProperties, AriaRole, FC } from 'react';
+import { describe, it } from 'node:test';
 import { expectTypeOf } from 'expect-type';
 import { IconDownload } from '@salutejs/plasma-icons';
 import { Button } from '@salutejs/plasma-b2c';
@@ -139,5 +139,31 @@ describe('Polymorphic (as prop)', () => {
     it('as="div" does not add anchor props', () => {
         // @ts-expect-error
         expectTypeOf(<Button as="div" href="/link" target="_blank" />);
+    });
+});
+
+describe('ComponentProps', () => {
+    it('custom props', () => {
+        type CustomButtonProps = Omit<ButtonProps, 'view' | 'isLoading'>;
+
+        expectTypeOf<CustomButtonProps>({ text: 'text', onClick: () => {} });
+        expectTypeOf<CustomButtonProps>({ additionalContent: '', contentRight: '' });
+
+        // @ts-expect-error
+        expectTypeOf<CustomButtonProps>({ view: 'default' });
+
+        // @ts-expect-error
+        expectTypeOf<CustomButtonProps>({ isLoading: true });
+
+        const CustomButton: FC<CustomButtonProps> = () => <></>;
+
+        void (<CustomButton text="" />);
+        void (<CustomButton disabled />);
+        void (<CustomButton onClick={() => {}} />);
+
+        // @ts-expect-error
+        void (<CustomButton view="default" />);
+        // @ts-expect-error
+        void (<CustomButton isLoading />);
     });
 });

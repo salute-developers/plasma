@@ -13,10 +13,11 @@ type CreateDatePickerStoriesProps = {
     defaultArgs?: {};
     additionalArgTypes?: {};
     additionalComponents?: {};
+    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element;
 };
 
 export const getDatePickerStories = (config: CreateDatePickerStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, customIcon, ...rest } = config;
 
     const datePickerConfig = getConfigVariations(componentConfig);
 
@@ -26,7 +27,7 @@ export const getDatePickerStories = (config: CreateDatePickerStoriesProps) => {
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component);
+    const DefaultStoryComponent = createDefaultStory(component, customIcon);
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,
@@ -39,7 +40,7 @@ export const getDatePickerStories = (config: CreateDatePickerStoriesProps) => {
 };
 
 export const getDatePickerRangeStories = (config: CreateDatePickerStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, customIcon, ...rest } = config;
 
     const datePickerRangeConfig = getConfigVariations(componentConfig);
 
@@ -49,7 +50,7 @@ export const getDatePickerRangeStories = (config: CreateDatePickerStoriesProps) 
         ...rest,
     });
 
-    const RangeStoryComponent = createRangeStory(component);
+    const RangeStoryComponent = createRangeStory(component, customIcon);
 
     const Range = {
         render: (args: any) => <RangeStoryComponent {...args} />,

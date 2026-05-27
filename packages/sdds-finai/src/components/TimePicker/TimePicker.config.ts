@@ -20,7 +20,7 @@ export const config = {
                 ${tokens.borderColorError}: var(--outline-transparent-negative);
                 ${tokens.borderColorSuccess}: var(--outline-transparent-positive);
 
-                ${tokens.labelColor}: var(--text-primary);
+                ${tokens.labelColor}: var(--text-secondary);
 
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
@@ -244,6 +244,7 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 1;
+                ${tokens.textFieldColor}: var(--text-secondary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
@@ -317,9 +318,9 @@ export const config = {
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBorderColorReadOnly}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);

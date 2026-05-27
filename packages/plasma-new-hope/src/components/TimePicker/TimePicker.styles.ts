@@ -75,6 +75,13 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.borderColorFocus}: var(${tokens.borderColorFocus});
     ${textFieldTokens.boxShadow}: var(${tokens.textFieldBoxShadow});
 
+    ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColor});
+    ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorHover});
+    ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerColorReadOnly}: var(${tokens.textFieldDividerColorReadOnly});
+    ${textFieldTokens.dividerWidth}: var(${tokens.textFieldDividerWidth});
+
+    ${textFieldTokens.readOnlyOpacity}: var(${tokens.readOnlyOpacity});
     ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
     ${textFieldTokens.borderColorReadOnly}: var(${tokens.textFieldBorderColorReadOnly});
@@ -90,6 +97,7 @@ export const StyledInput = styled(TextField)`
 
     ${textFieldTokens.labelOffset}: var(${tokens.labelOffset});
 
+    ${textFieldTokens.labelColor}: var(${tokens.labelColor});
     ${textFieldTokens.labelFontFamily}: var(${tokens.labelFontFamily});
     ${textFieldTokens.labelFontStyle}: var(${tokens.labelFontStyle});
     ${textFieldTokens.labelFontSize}: var(${tokens.labelFontSize});
@@ -172,43 +180,46 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.contentSlotRightColorHover}: var(${tokens.textFieldContentRightSlotColorHover}, var(${textFieldTokens.contentSlotRightColor}));
     ${textFieldTokens.contentSlotRightOpacityReadOnly}: var(${tokens.textFieldContentSlotRightOpacityReadOnly}, var(${textFieldTokens.contentSlotRightColor}));
 
-    ${textFieldTokens.leftHelperColor}: var(${tokens.leftHelperColor});
-    ${textFieldTokens.leftHelperOffset}: var(${tokens.leftHelperOffset});
-
-    ${textFieldTokens.leftHelperFontFamily}: var(${tokens.leftHelperFontFamily});
-    ${textFieldTokens.leftHelperFontSize}: var(${tokens.leftHelperFontSize});
-    ${textFieldTokens.leftHelperFontStyle}: var(${tokens.leftHelperFontStyle});
-    ${textFieldTokens.leftHelperFontWeight}: var(${tokens.leftHelperFontWeight});
-    ${textFieldTokens.leftHelperLetterSpacing}: var(${tokens.leftHelperLetterSpacing});
-    ${textFieldTokens.leftHelperLineHeight}: var(${tokens.leftHelperLineHeight});
-
     &.${classes.timePickerError} {
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
-        
+
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorError});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
 
-        ${tokens.leftHelperColor}: var(${tokens.leftHelperColorError});
+        ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorError});
     }
 
     &.${classes.timePickerSuccess} {
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundSuccessColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundSuccessColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundSuccessColorFocus});
-        
+
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorSuccess});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorSuccessHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorSuccessFocus});
-        
-        ${tokens.leftHelperColor}: var(${tokens.leftHelperColorSuccess});
+
+        ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorSuccess});
+    }
+`;
+
+export const LeftHelper = styled.div`
+    color: var(${tokens.leftHelperColor});
+
+    &.${classes.timePickerError} {
+        color: var(${tokens.leftHelperColorError});
+    }
+
+    &.${classes.timePickerSuccess} {
+        color: var(${tokens.leftHelperColorSuccess});
     }
 `;
 
 export const base = css`
     display: flex;
+    flex-direction: column;
     width: var(${tokens.width});
     margin-top: var(${tokens.dropdownMarginTop});
 
@@ -221,6 +232,7 @@ export const base = css`
     }
 
     &.${classes.timePickerGridRoot} {
+        flex-direction: row;
         width: 100%;
         height: 100%;
     }

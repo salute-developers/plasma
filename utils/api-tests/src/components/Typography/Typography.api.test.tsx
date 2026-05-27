@@ -1,6 +1,6 @@
 import React, { createRef } from 'react';
 import type { ComponentProps } from 'react';
-import { describe, it } from 'vitest';
+import { describe, it } from 'node:test';
 import { expectTypeOf } from 'expect-type';
 import { TextL } from '@salutejs/plasma-b2c';
 
