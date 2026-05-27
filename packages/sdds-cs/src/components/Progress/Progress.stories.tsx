@@ -1,32 +1,23 @@
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getProgressStories } from '@salutejs/plasma-sb-utils';
+
+import { config } from './Progress.config';
 
 import { Progress } from '.';
-import type { ProgressProps } from '.';
 
-const views = ['default', 'accent', 'positive', 'negative'];
+type ProgressProps = ComponentProps<typeof Progress>;
 
-const meta: Meta<typeof Progress> = {
-    title: 'Overlay/Progress',
+const { meta: META, Default } = getProgressStories({
     component: Progress,
-    decorators: [InSpacingDecorator],
-    argTypes: {
-        view: {
-            options: views,
-            control: {
-                type: 'select',
-            },
-        },
-        ...disableProps(['status', 'size']),
-    },
+    componentConfig: config,
+});
+
+const meta: Meta<ProgressProps> = {
+    ...(META as Meta<ProgressProps>),
+    title: 'Overlay/Progress',
 };
 
 export default meta;
 
-export const Default: StoryObj<ProgressProps> = {
-    args: {
-        value: 25,
-        view: 'default',
-        displayValue: true,
-    },
-};
+export { Default };

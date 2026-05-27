@@ -13,10 +13,11 @@ type CreateStoriesProps = {
     defaultArgs?: {};
     additionalArgTypes?: {};
     additionalComponents?: {};
+    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element;
 };
 
 export const getRangeStories = (config: CreateStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, customIcon, ...rest } = config;
 
     const rangeConfig = getConfigVariations(componentConfig);
 
@@ -26,7 +27,7 @@ export const getRangeStories = (config: CreateStoriesProps) => {
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component);
+    const DefaultStoryComponent = createDefaultStory(component, customIcon);
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,

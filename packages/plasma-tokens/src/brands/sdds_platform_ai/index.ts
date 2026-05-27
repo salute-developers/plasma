@@ -1236,6 +1236,9 @@ export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-tran
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentAccentActive = 'var(--on-light-surface-transparent-accent-active, #1A9E3233)';
 
+/** Промо фон поверхности/контрола на светлом фоне */
+export const onLightSurfacePromo = 'var(--on-light-surface-promo, #FFFFFF)';
+
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositiveHover = 'var(--on-light-surface-positive-hover, #1EB83AFF)';
 

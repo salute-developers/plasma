@@ -255,7 +255,7 @@ const getIcon = (size: string, disabled?: boolean, readOnly?: boolean) => {
     }
 
     if (readOnly) {
-        return <IconLockOutline size={iconSize} />;
+        return <IconPlasma size={iconSize} />;
     }
 
     return <IconPlasma size={iconSize} color="inherit" />;

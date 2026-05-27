@@ -9,6 +9,7 @@ import {
     textSecondary,
     surfaceTransparentSecondary,
     surfaceAccent,
+    surfaceAccentHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 /*
@@ -50,6 +51,7 @@ export const config = {
         view: {
             accent: css`
                 ${checkboxTokens.fillColor}: ${surfaceAccent};
+                ${checkboxTokens.fillColorHover}: ${surfaceAccentHover};
                 ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
                 ${checkboxTokens.labelColor}: ${textPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};

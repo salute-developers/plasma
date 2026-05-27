@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ComponentProps, ReactNode, CSSProperties, AriaRole } from 'react';
 import { useState } from 'react';
-import { describe, it } from 'vitest';
+import { describe, it } from 'node:test';
 import { expectTypeOf } from 'expect-type';
 import { Checkbox } from '@salutejs/plasma-b2c';
 

@@ -34,6 +34,9 @@ export const Input = forwardRef<HTMLInputElement, InputUIProps>(
             errorClass,
             successClass,
 
+            appearance,
+            hasClearDivider,
+
             onChangeValue,
             onSearch,
             onFocus,
@@ -56,6 +59,8 @@ export const Input = forwardRef<HTMLInputElement, InputUIProps>(
                 value={value}
                 readOnly={readOnly}
                 disabled={disabled}
+                appearance={appearance}
+                hasDivider={hasClearDivider}
                 placeholder={placeholder}
                 contentLeft={contentLeft}
                 contentRight={contentRight}

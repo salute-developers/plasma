@@ -32,6 +32,20 @@ export const base = css`
         }
     }
 
+    &.${classes.decrementHidden} {
+        ${StyledIconButton}.${classes.actionButtonDecrement} {
+            pointer-events: none;
+            opacity: 0;
+        }
+    }
+
+    &.${classes.incrementHidden} {
+        ${StyledIconButton}.${classes.actionButtonIncrement} {
+            pointer-events: none;
+            opacity: 0;
+        }
+    }
+
     &.${classes.solidView} {            
         ${privateTokens.topBoxShadow}: inset 0 var(${tokens.rootBorderWidth}) var(${tokens.wrapperBorderColor});
         ${privateTokens.bottomBoxShadow}: inset 0 calc(-1 * var(${tokens.rootBorderWidth})) var(${tokens.wrapperBorderColor});
@@ -64,7 +78,7 @@ export const base = css`
             position: relative;
             color: var(${tokens.colorSolid});
             
-            &:not(${classes.errorAnimation}).${classes.manualInput}:focus-within {
+            &:not(${classes.errorAnimation}):focus-within {
                 background-color: var(${tokens.backgroundColorSolidFocus});
                 box-shadow: inset 0 0 0 var(${tokens.inputWrapperBorderWidth}) var(${tokens.borderColorSolidFocus});
             }
@@ -125,9 +139,11 @@ export const base = css`
             ${spinnerTokens.color}: var(${tokens.loaderSpinnerColorSolid});
         }
 
-        ${Input} {
+        &.${classes.manualInput} ${Input} {
             caret-color: var(${tokens.caretColorSolid}, var(${tokens.caretColor}));
+        }
 
+        ${Input} {
             &:not(.${classes.errorAnimation}){
                 color: var(${tokens.colorSolid});
             }
@@ -136,50 +152,24 @@ export const base = css`
         ${AdditionalText} {
             color: var(${tokens.additionalTextColorSolid});
         }
-    }
 
-    &.${classes.decrementHidden} {
-        ${StyledIconButton}.${classes.actionButtonDecrement} {
-            display: none;
-        }
-
-        ${InputWrapper} {
-            border-top-left-radius: var(${tokens.iconButtonRadius});
-            border-bottom-left-radius: var(${tokens.iconButtonRadius});
-        }
-
-        &.${classes.solidView} {
-            &:before {
-                left: 0;
-                transform: none;
-                width: calc(100% - var(${tokens.iconButtonWidth}));
-                box-shadow: var(${privateTokens.topBoxShadow}), var(${privateTokens.bottomBoxShadow}),
-                    var(${privateTokens.leftBoxShadow});
-                border-top-left-radius: var(${tokens.iconButtonRadius});
-                border-bottom-left-radius: var(${tokens.iconButtonRadius});
+        &.${classes.decrementHidden} {
+            ${StyledIconButton}.${classes.actionButtonDecrement} {
+                opacity: 1;
+                
+                & > :first-child {
+                    opacity: 0;
+                }
             }
         }
-    }
 
-    &.${classes.incrementHidden} {
-        ${StyledIconButton}.${classes.actionButtonIncrement} {
-            display: none;
-        }
-
-        ${InputWrapper} {
-            border-top-right-radius: var(${tokens.iconButtonRadius});
-            border-bottom-right-radius: var(${tokens.iconButtonRadius});
-        }
-
-        &.${classes.solidView} {
-            &:before {
-                left: var(${tokens.iconButtonWidth});
-                transform: none;
-                width: calc(100% - var(${tokens.iconButtonWidth}));
-                box-shadow: var(${privateTokens.topBoxShadow}), var(${privateTokens.bottomBoxShadow}),
-                    var(${privateTokens.rightBoxShadow});
-                border-top-right-radius: var(${tokens.iconButtonRadius});
-                border-bottom-right-radius: var(${tokens.iconButtonRadius});
+        &.${classes.incrementHidden} {
+            ${StyledIconButton}.${classes.actionButtonIncrement} {
+                opacity: 1;
+                
+                & > :first-child {
+                    opacity: 0;
+                }
             }
         }
     }

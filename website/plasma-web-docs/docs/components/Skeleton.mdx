@@ -135,6 +135,107 @@ export function App() {
 }
 ```
 
+### Тип анимации
+
+Тип анимации задаётся через проп `animationConfig` с обязательным полем `type`.
+
+<Tabs>
+    <TabItem value="shimmer" label="shimmer" default>
+        ```tsx live
+        import React from 'react';
+        import { Button, withSkeleton } from '@salutejs/plasma-web';
+
+        export function App() {
+            const ButtonSkeleton = withSkeleton(Button);
+
+            return (
+                <ButtonSkeleton
+                    text="Загрузка..."
+                    view="default"
+                    size="s"
+                    skeleton={true}
+                    animationConfig={{ type: 'shimmer' }}
+                />
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="pulse" label="pulse">
+        ```tsx live
+        import React from 'react';
+        import { Button, withSkeleton } from '@salutejs/plasma-web';
+
+        export function App() {
+            const ButtonSkeleton = withSkeleton(Button);
+
+            return (
+                <ButtonSkeleton
+                    text="Загрузка..."
+                    view="default"
+                    size="s"
+                    skeleton={true}
+                    animationConfig={{ type: 'pulse' }}
+                />
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Кастомные цвета
+
+Поля `customGradientColor` (для `shimmer`) и `customFadeInColor` / `customFadeOutColor` (для `pulse`) позволяют задать произвольные цвета анимации.
+
+<Tabs>
+    <TabItem value="shimmer-color" label="shimmer" default>
+        ```tsx live
+        import React from 'react';
+        import { Button, withSkeleton } from '@salutejs/plasma-web';
+
+        export function App() {
+            const ButtonSkeleton = withSkeleton(Button);
+
+            return (
+                <ButtonSkeleton
+                    text="Загрузка..."
+                    view="default"
+                    size="s"
+                    skeleton={true}
+                    animationConfig={{
+                        type: 'shimmer',
+                        customGradientColor: 'linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%)',
+                    }}
+                />
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="pulse-color" label="pulse">
+        ```tsx live
+        import React from 'react';
+        import { Button, withSkeleton } from '@salutejs/plasma-web';
+
+        export function App() {
+            const ButtonSkeleton = withSkeleton(Button);
+
+            return (
+                <ButtonSkeleton
+                    text="Загрузка..."
+                    view="default"
+                    size="s"
+                    skeleton={true}
+                    animationConfig={{
+                        type: 'pulse',
+                        customFadeInColor: '#e0e0e0',
+                        customFadeOutColor: '#f5f5f5',
+                    }}
+                />
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ### Доступность
 
 При использовании `withSkeleton` необходимо воспользоваться атрибутами WAI ARIA. Пример с кнопкой:

@@ -8,7 +8,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.labelColor}: var(--text-primary);
+                ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
@@ -17,7 +17,7 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             positive: css`
-                ${tokens.labelColor}: var(--text-primary);
+                ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-positive);
                 ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
@@ -26,7 +26,7 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             warning: css`
-                ${tokens.labelColor}: var(--text-primary);
+                ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-warning);
                 ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
@@ -35,7 +35,7 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
             `,
             negative: css`
-                ${tokens.labelColor}: var(--text-primary);
+                ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-negative);
                 ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);

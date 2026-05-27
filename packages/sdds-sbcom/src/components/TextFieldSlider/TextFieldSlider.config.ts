@@ -90,6 +90,7 @@ export const config = {
                 ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem ${surfaceSolidDefault};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
+                ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
             `,
             positive: css`
                 ${tokens.textFieldColor}: ${textPrimary};
@@ -137,6 +138,7 @@ export const config = {
                 ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem ${surfaceSolidDefault};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
+                ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
             `,
             warning: css`
                 ${tokens.textFieldColor}: ${textPrimary};
@@ -184,6 +186,7 @@ export const config = {
                 ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem ${surfaceSolidDefault};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
+                ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
             `,
             negative: css`
                 ${tokens.textFieldColor}: ${textPrimary};
@@ -239,17 +242,21 @@ export const config = {
                 ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem ${surfaceSolidDefault};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
+                ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
             `,
         },
         sliderView: {
             default: css`
                 ${tokens.sliderProgressBackground}: ${surfaceSolidDefault};
+                ${tokens.scaleTickDotFilledColor}: ${surfaceSolidDefault};
             `,
             accent: css`
                 ${tokens.sliderProgressBackground}: ${surfaceAccent};
+                ${tokens.scaleTickDotFilledColor}: ${surfaceAccent};
             `,
             gradient: css`
                 ${tokens.sliderProgressBackground}: ${surfaceAccentGradient};
+                ${tokens.scaleTickDotFilledColor}: ${surfaceAccentGradient};
             `,
         },
         size: {
@@ -340,6 +347,7 @@ export const config = {
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
             l: css`
                 ${tokens.textFieldHeight}: 3.5rem;
@@ -428,6 +436,7 @@ export const config = {
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
             m: css`
                 ${tokens.textFieldHeight}: 3rem;
@@ -516,6 +525,7 @@ export const config = {
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
             s: css`
                 ${tokens.textFieldHeight}: 2.5rem;
@@ -604,6 +614,7 @@ export const config = {
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
             xs: css`
                 ${tokens.textFieldHeight}: 2rem;
@@ -704,6 +715,7 @@ export const config = {
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
         },
         hintView: {

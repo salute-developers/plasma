@@ -1,4 +1,4 @@
-import { css, comboboxNewTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
+import { css, comboboxTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

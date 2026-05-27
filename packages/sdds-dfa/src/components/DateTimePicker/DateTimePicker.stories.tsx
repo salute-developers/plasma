@@ -10,7 +10,7 @@ type DateTimePickerProps = ComponentProps<typeof DateTimePicker>;
 const { meta: META, Default } = getDateTimePickerStories({
     component: DateTimePicker,
     componentConfig: config,
-    disablePropsList: ['view'],
+    disablePropsList: ['view', 'appearance', 'hasClearDivider'],
 });
 
 const meta: Meta<DateTimePickerProps> = {

@@ -25,6 +25,14 @@ export interface BaseboxProps {
     size?: string;
     view?: string;
     focused?: boolean;
+    /**
+     * Кастомная иконка галочки.
+     */
+    checkIcon?: React.ReactNode;
+    /**
+     * Кастомная иконка indeterminate-состояния.
+     */
+    indeterminateIcon?: React.ReactNode;
 }
 
 export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>, BaseboxProps {}

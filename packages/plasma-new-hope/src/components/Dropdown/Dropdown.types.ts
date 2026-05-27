@@ -60,6 +60,10 @@ export type ItemOption = {
      * Максимальная высота дочернего выпадающего списка.
      */
     listMaxHeight?: CSSProperties['height'];
+    /**
+     * Скрытие элемента, а также всех его дочерних элементов.
+     */
+    hidden?: boolean;
 };
 
 export type DropdownProps<T extends ItemOption = ItemOption> = {

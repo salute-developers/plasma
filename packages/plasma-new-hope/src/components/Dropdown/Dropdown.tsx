@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useMemo, useRef } from 'react';
 import { cx, safeUseId } from 'src/utils';
 import { RootProps } from 'src/engines';
 
@@ -6,7 +6,7 @@ import { Inner } from './ui';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base, ListWrapper, Ul } from './Dropdown.styles';
-import { childrenWithProps, getItemByFocused, getItemId, getPlacement } from './utils';
+import { childrenWithProps, getItemByFocused, getItemId, getPlacement, getVisibleItems } from './utils';
 import type { DropdownProps } from './Dropdown.types';
 import { classes } from './Dropdown.tokens';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
@@ -61,6 +61,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             /**
              * Hooks
              */
+            const visibleItems = useMemo(() => getVisibleItems(items), [items]);
+
             const { path, dispatchPath, dispatchFocusedPath, focusedPath, handleGlobalToggle } = useList({
                 alwaysOpened,
                 disabled,
@@ -70,7 +72,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 listWrapperRef,
             });
 
-            const [pathMap, focusedToValueMap] = usePathMaps(items);
+            const [pathMap, focusedToValueMap] = usePathMaps(visibleItems);
 
             const { onKeyDown } = useKeyNavigation({
                 focusedPath,
@@ -146,7 +148,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                 <Ul id={`${treeId}_tree_level_1`} role="tree" listMaxHeight={listMaxHeight}>
                                     {beforeList}
 
-                                    {items.map((item, index) => (
+                                    {visibleItems.map((item, index) => (
                                         <Inner
                                             key={`${index}/0`}
                                             item={item}

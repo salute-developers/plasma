@@ -16,6 +16,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.placeholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
     ${textFieldTokens.focusColor}: var(${tokens.textFieldFocusColor});
+    
 
     ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
     ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundColorHover});
@@ -27,6 +28,12 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColor});
     ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorHover});
     ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
+
+    ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColor});
+    ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorHover});
+    ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerColorReadOnly}: var(${tokens.textFieldDividerColorReadOnly});
+    ${textFieldTokens.dividerWidth}: var(${tokens.textFieldDividerWidth});
 
     ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
@@ -55,6 +62,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.labelInnerFontWeight}: var(${tokens.labelInnerFontWeight});
     ${textFieldTokens.labelInnerLetterSpacing}: var(${tokens.labelInnerLetterSpacing});
     ${textFieldTokens.labelInnerLineHeight}: var(${tokens.labelInnerLineHeight});
+    ${textFieldTokens.labelColor}: var(${tokens.labelColor});
     ${textFieldTokens.labelColorReadOnly}: var(${tokens.labelColorReadOnly});
 
     ${textFieldTokens.indicatorColor}: var(${tokens.indicatorColor});
@@ -127,19 +135,23 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
-        
+
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorError});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
+
+        ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorError});
     }
 
     &.${classes.success} {
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundSuccessColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundSuccessColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundSuccessColorFocus});
-        
+
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorSuccess});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorSuccessHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorSuccessFocus});
+
+        ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorSuccess});
     }
 `;

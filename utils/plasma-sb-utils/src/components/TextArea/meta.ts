@@ -69,215 +69,176 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
+                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 defaultValue: 's',
                 control: { type: 'select' },
+                table: { category: 'variation' },
             },
             appearance: {
                 options: appearances,
-                control: {
-                    type: 'select',
-                },
+                control: { type: 'select' },
+                table: { category: 'variation' },
             },
             hasDivider: {
-                control: {
-                    type: 'boolean',
-                },
-                if: {
-                    arg: 'appearance',
-                    eq: 'clear',
-                },
+                control: { type: 'boolean' },
+                if: { arg: 'appearance', eq: 'clear' },
+                table: { category: 'variation' },
+            },
+            disabled: {
+                control: { type: 'boolean' },
+                if: { arg: 'appearance', eq: 'clear' },
+                table: { category: 'variation' },
+            },
+            readOnly: {
+                control: { type: 'boolean' },
+                if: { arg: 'appearance', eq: 'clear' },
+                table: { category: 'variation' },
+            },
+
+            required: {
+                control: { type: 'boolean' },
+                if: { arg: 'optional', truthy: false },
+                table: { category: 'form-related' },
             },
             requiredPlacement: {
                 options: requiredPlacements,
-                control: {
-                    type: 'select',
-                },
-                if: {
-                    arg: 'optional',
-                    truthy: false,
-                },
-            },
-            required: {
-                control: {
-                    type: 'boolean',
-                },
-                if: {
-                    arg: 'optional',
-                    truthy: false,
-                },
+                control: { type: 'select' },
+                if: { arg: 'optional', truthy: false },
+                table: { category: 'form-related' },
             },
             hasRequiredIndicator: {
-                control: {
-                    type: 'boolean',
-                },
-                if: {
-                    arg: 'required',
-                    truthy: true,
-                },
+                control: { type: 'boolean' },
+                if: { arg: 'required', truthy: true },
+                table: { category: 'form-related' },
             },
             optional: {
-                control: {
-                    type: 'boolean',
-                },
-                if: {
-                    arg: 'required',
-                    truthy: false,
-                },
+                control: { type: 'boolean' },
+                if: { arg: 'required', truthy: false },
+                table: { category: 'form-related' },
             },
             optionalText: {
-                control: {
-                    type: 'text',
-                },
-                if: {
-                    arg: 'required',
-                    truthy: false,
-                },
+                control: { type: 'text' },
+                if: { arg: 'required', truthy: false },
+                table: { category: 'form-related' },
+            },
+
+            label: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
             },
             labelPlacement: {
                 options: labelPlacements,
-                control: {
-                    type: 'select',
-                },
+                control: { type: 'inline-radio' },
+                table: { category: 'layout' },
+            },
+            placeholder: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
             },
             titleCaption: {
                 control: { type: 'text' },
+                table: { category: 'layout' },
             },
             leftHelper: {
                 control: { type: 'text' },
+                table: { category: 'layout' },
             },
             rightHelper: {
                 control: { type: 'text' },
+                table: { category: 'layout' },
             },
-            autoResize: {
-                control: {
-                    type: 'boolean',
-                },
-                if: {
-                    arg: 'appearance',
-                    neq: 'clear',
-                },
+            enableContentRight: {
+                control: { type: 'boolean' },
+                table: { category: 'layout' },
             },
-            minAuto: {
-                control: {
-                    type: 'number',
-                },
-                if: {
-                    arg: 'appearance',
-                    neq: 'clear',
-                },
+            enableHeader: {
+                control: { type: 'boolean' },
+                if: { arg: 'appearance', neq: 'clear' },
+                table: { category: 'layout' },
             },
-            maxAuto: {
-                control: {
-                    type: 'number',
-                },
-                if: {
-                    arg: 'appearance',
-                    neq: 'clear',
-                },
-            },
+
             width: {
                 control: { type: 'text' },
+                table: { category: 'dimensions' },
             },
             height: {
                 control: { type: 'text' },
-            },
-            cols: {
-                control: {
-                    type: 'number',
-                },
-                if: {
-                    arg: 'appearance',
-                    neq: 'clear',
-                },
+                table: { category: 'dimensions' },
             },
             rows: {
-                control: {
-                    type: 'number',
-                },
-                if: {
-                    arg: 'appearance',
-                    neq: 'clear',
-                },
+                control: { type: 'number' },
+                if: { arg: 'appearance', neq: 'clear' },
+                table: { category: 'dimensions' },
             },
-            enableHeader: {
-                control: {
-                    type: 'boolean',
-                },
-                if: {
-                    arg: 'appearance',
-                    neq: 'clear',
-                },
+            cols: {
+                control: { type: 'number' },
+                if: { arg: 'appearance', neq: 'clear' },
+                table: { category: 'dimensions' },
             },
+            autoResize: {
+                control: { type: 'boolean' },
+                if: { arg: 'appearance', neq: 'clear' },
+                table: { category: 'dimensions' },
+            },
+            minAuto: {
+                control: { type: 'number' },
+                if: { arg: 'appearance', neq: 'clear' },
+                table: { category: 'dimensions' },
+            },
+            maxAuto: {
+                control: { type: 'number' },
+                if: { arg: 'appearance', neq: 'clear' },
+                table: { category: 'dimensions' },
+            },
+
             hasHint: {
-                control: {
-                    type: 'boolean',
-                },
+                control: { type: 'boolean' },
+                table: { category: 'hint' },
             },
             hintText: {
                 control: { type: 'text' },
-                if: {
-                    arg: 'hasHint',
-                    truthy: true,
-                },
-            },
-            hintView: {
-                options: hintViews,
-                control: {
-                    type: 'select',
-                },
-                if: {
-                    arg: 'hasHint',
-                    truthy: true,
-                },
-            },
-            hintSize: {
-                options: hintSizes,
-                control: {
-                    type: 'select',
-                },
-                if: {
-                    arg: 'hasHint',
-                    truthy: true,
-                },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
             },
             hintTrigger: {
                 options: hintTriggers,
-                control: {
-                    type: 'select',
-                },
-                if: {
-                    arg: 'hasHint',
-                    truthy: true,
-                },
+                control: { type: 'inline-radio' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintView: {
+                options: hintViews,
+                control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
+            },
+            hintSize: {
+                options: hintSizes,
+                control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
             },
             hintPlacement: {
                 options: placements,
-                control: {
-                    type: 'select',
-                },
-                if: {
-                    arg: 'hasHint',
-                    truthy: true,
-                },
+                control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
                 mappers: placements,
+                table: { category: 'hint' },
             },
             hintHasArrow: {
                 control: { type: 'boolean' },
-                if: {
-                    arg: 'hasHint',
-                    truthy: true,
-                },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
             },
             hintWidth: {
                 control: { type: 'text' },
-                if: {
-                    arg: 'hasHint',
-                    truthy: true,
-                },
+                if: { arg: 'hasHint', truthy: true },
+                table: { category: 'hint' },
             },
+
             ...additionalArgTypes,
             ...disableProps([
                 'helperBlock',

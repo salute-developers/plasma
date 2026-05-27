@@ -3,7 +3,6 @@ import {
     textAccent,
     textAccentActive,
     textAccentHover,
-    textM,
     textNegative,
     textNegativeActive,
     textNegativeHover,
@@ -25,6 +24,7 @@ import {
     textWarning,
     textWarningActive,
     textWarningHover,
+    h4,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
@@ -35,7 +35,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkFontFamily}: ${h4.fontFamily};
                 ${tokens.linkColor}: ${textPrimary};
                 ${tokens.linkColorHover}: ${textPrimaryHover};
                 ${tokens.linkColorActive}: ${textPrimaryActive};
@@ -46,7 +46,7 @@ export const config = {
                 ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             secondary: css`
-                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkFontFamily}: ${h4.fontFamily};
                 ${tokens.linkColor}: ${textSecondary};
                 ${tokens.linkColorHover}: ${textSecondaryHover};
                 ${tokens.linkColorActive}: ${textSecondaryActive};
@@ -57,7 +57,7 @@ export const config = {
                 ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             tertiary: css`
-                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkFontFamily}: ${h4.fontFamily};
                 ${tokens.linkColor}: ${textTertiary};
                 ${tokens.linkColorHover}: ${textTertiaryHover};
                 ${tokens.linkColorActive}: ${textTertiaryActive};
@@ -68,7 +68,7 @@ export const config = {
                 ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             paragraph: css`
-                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkFontFamily}: ${h4.fontFamily};
                 ${tokens.linkColor}: ${textParagraph};
                 ${tokens.linkColorHover}: ${textParagraphHover};
                 ${tokens.linkColorActive}: ${textParagraphActive};
@@ -79,7 +79,7 @@ export const config = {
                 ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             accent: css`
-                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkFontFamily}: ${h4.fontFamily};
                 ${tokens.linkColor}: ${textAccent};
                 ${tokens.linkColorHover}: ${textAccentHover};
                 ${tokens.linkColorActive}: ${textAccentActive};
@@ -90,7 +90,7 @@ export const config = {
                 ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             positive: css`
-                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkFontFamily}: ${h4.fontFamily};
                 ${tokens.linkColor}: ${textPositive};
                 ${tokens.linkColorHover}: ${textPositiveHover};
                 ${tokens.linkColorActive}: ${textPositiveActive};
@@ -101,7 +101,7 @@ export const config = {
                 ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             warning: css`
-                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkFontFamily}: ${h4.fontFamily};
                 ${tokens.linkColor}: ${textWarning};
                 ${tokens.linkColorHover}: ${textWarningHover};
                 ${tokens.linkColorActive}: ${textWarningActive};
@@ -112,7 +112,7 @@ export const config = {
                 ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             negative: css`
-                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkFontFamily}: ${h4.fontFamily};
                 ${tokens.linkColor}: ${textNegative};
                 ${tokens.linkColorHover}: ${textNegativeHover};
                 ${tokens.linkColorActive}: ${textNegativeActive};
@@ -123,7 +123,7 @@ export const config = {
                 ${tokens.linkUnderlineOffset}: 0.25rem;
             `,
             clear: css`
-                ${tokens.linkFontFamily}: ${textM.fontFamily};
+                ${tokens.linkFontFamily}: ${h4.fontFamily};
                 ${tokens.linkColor}:inherit;
                 ${tokens.linkColorHover}: inherit;
                 ${tokens.linkColorActive}: inherit;

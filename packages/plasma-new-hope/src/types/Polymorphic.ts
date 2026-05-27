@@ -34,7 +34,10 @@ export type PolymorphicForwardRefComponent<DefaultElement extends ElementType, O
     C extends ElementType = DefaultElement
 >(
     props: PolymorphicComponentPropsWithRef<C, OwnProps>,
-) => ReactElement | null) & { displayName?: string };
+) => ReactElement | null) &
+    ((props: PolymorphicComponentPropsWithRef<DefaultElement, OwnProps>) => ReactElement | null) & {
+        displayName?: string;
+    };
 
 /**
  * Преобразует существующий компонент в полиморфный, сохраняя все его пропсы (включая выведенные варианты).

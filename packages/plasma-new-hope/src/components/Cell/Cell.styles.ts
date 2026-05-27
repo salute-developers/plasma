@@ -34,6 +34,7 @@ export const CellContent = styled.div`
     display: flex;
     align-items: center;
     height: auto;
+    padding: var(${tokens.cellPaddingContent});
 `;
 
 export const CellLeft = styled.div<{ align: AlignProp }>`

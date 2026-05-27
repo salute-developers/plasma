@@ -38,6 +38,7 @@ export const config = {
                 ${textAreaTokens.dividerColor}: var(--surface-transparent-tertiary);
                 ${textAreaTokens.dividerColorHover}: var(--text-secondary);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.labelOuterColor}: var(--text-secondary);
                 ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
@@ -72,6 +73,7 @@ export const config = {
                 ${textAreaTokens.dividerColor}: var(--surface-positive);
                 ${textAreaTokens.dividerColorHover}: var(--surface-positive);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.labelOuterColor}: var(--text-secondary);
                 ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
@@ -106,6 +108,7 @@ export const config = {
                 ${textAreaTokens.dividerColor}: var(--surface-warning);
                 ${textAreaTokens.dividerColorHover}: var(--surface-warning);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.labelOuterColor}: var(--text-secondary);
                 ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
@@ -140,6 +143,7 @@ export const config = {
                 ${textAreaTokens.dividerColor}: var(--surface-negative);
                 ${textAreaTokens.dividerColorHover}: var(--surface-negative);
                 ${textAreaTokens.dividerColorFocus}: var(--surface-accent);
+                ${textAreaTokens.labelOuterColor}: var(--text-secondary);
                 ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
@@ -274,7 +278,7 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-card);
+                ${textAreaTokens.backgroundColorReadOnly}: var(--surface-transparent-secondary);
                 ${textAreaTokens.inputColorReadOnly}: var(--text-primary);
                 ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
                 ${textAreaTokens.contentSlotRightOpacityReadOnly}: 1;

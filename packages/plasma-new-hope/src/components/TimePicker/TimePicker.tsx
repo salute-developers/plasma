@@ -9,7 +9,7 @@ import type { TimePickerGridChangeEvent } from '../TimePickerGrid/TimePickerGrid
 
 import { processTimeInput, delimiter } from './utils';
 import { TimePickerProps } from './TimePicker.types';
-import { base, StyledInput, StyledTimePickerGrid } from './TimePicker.styles';
+import { base, LeftHelper, StyledInput, StyledTimePickerGrid } from './TimePicker.styles';
 import { classes } from './TimePicker.tokens';
 import { FloatingPopover } from './FloatingPopover';
 import { base as sizeCSS } from './variations/_size/base';
@@ -41,11 +41,14 @@ export const timePickerRoot = (
                 opened = false,
 
                 // variations
+
                 view,
                 size,
                 disabled = false,
                 readonly = false,
                 stretched,
+                appearance,
+                hasClearDivider,
 
                 valueError,
                 valueSuccess,
@@ -86,6 +89,7 @@ export const timePickerRoot = (
                 closeOnEsc = true,
                 disableFlip,
                 offset,
+                zIndex = 1000,
 
                 // dropdown
                 dropdownAlign = 'left',
@@ -332,9 +336,8 @@ export const timePickerRoot = (
                         offset={offset}
                         placement={placement}
                         disableFlip={disableFlip}
-                        portal={
-                            usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined
-                        }
+                        portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
+                        zIndex={zIndex}
                         target={(referenceRef) => (
                             <StyledInput
                                 ref={inputRef}
@@ -347,6 +350,8 @@ export const timePickerRoot = (
                                 size={size}
                                 disabled={disabled}
                                 readOnly={readonly}
+                                appearance={appearance}
+                                hasDivider={appearance === 'clear' && hasClearDivider}
                                 placeholder={placeholder}
                                 contentLeft={contentLeft}
                                 contentRight={contentRight}
@@ -361,7 +366,6 @@ export const timePickerRoot = (
                                 hasRequiredIndicator={hasRequiredIndicator}
                                 label={label}
                                 labelPlacement={labelPlacement}
-                                leftHelper={leftHelper}
                                 keepPlaceholder={keepPlaceholder}
                                 {...(hintText
                                     ? {
@@ -410,6 +414,16 @@ export const timePickerRoot = (
                             />
                         </Root>
                     </FloatingPopover>
+                    {leftHelper && (
+                        <LeftHelper
+                            className={cls({
+                                [classes.timePickerError]: valueError,
+                                [classes.timePickerSuccess]: valueSuccess,
+                            })}
+                        >
+                            {leftHelper}
+                        </LeftHelper>
+                    )}
                 </Root>
             );
         },

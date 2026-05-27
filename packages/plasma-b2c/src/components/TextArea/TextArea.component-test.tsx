@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, SpaceMe, PadMe } from '@salutejs/plasma-cy-utils';
 import { IconEye } from '@salutejs/plasma-icons';
 
 describe('plasma-b2c: TextArea', () => {
@@ -26,11 +26,29 @@ describe('plasma-b2c: TextArea', () => {
     it(':success, :warning, :error', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" status="success" />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    status="success"
+                    height="90px"
+                />
                 <SpaceMe />
-                <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" status="warning" />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    status="warning"
+                    height="90px"
+                />
                 <SpaceMe />
-                <TextArea value="Value" placeholder="Placeholder" helperText="Helper text" status="error" />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    status="error"
+                    height="90px"
+                />
             </CypressTestDecorator>,
         );
 
@@ -75,15 +93,15 @@ describe('plasma-b2c: TextArea', () => {
     it('_size :empty', () => {
         mount(
             <CypressTestDecorator>
-                <TextArea size="xl" {...propsDefault} />
+                <TextArea size="xl" height="90px" {...propsDefault} />
                 <SpaceMe />
-                <TextArea size="l" {...propsDefault} />
+                <TextArea size="l" height="90px" {...propsDefault} />
                 <SpaceMe />
-                <TextArea size="m" {...propsDefault} />
+                <TextArea size="m" height="90px" {...propsDefault} />
                 <SpaceMe />
-                <TextArea size="s" {...propsDefault} />
+                <TextArea size="s" height="90px" {...propsDefault} />
                 <SpaceMe />
-                <TextArea size="xs" {...propsDefault} />
+                <TextArea size="xs" height="90px" {...propsDefault} />
             </CypressTestDecorator>,
         );
 
@@ -99,15 +117,15 @@ describe('plasma-b2c: TextArea', () => {
 
         mount(
             <CypressTestDecorator>
-                <TextArea size="xl" {...props} />
+                <TextArea size="xl" height="90px" {...props} />
                 <SpaceMe />
-                <TextArea size="l" {...props} />
+                <TextArea size="l" height="90px" {...props} />
                 <SpaceMe />
-                <TextArea size="m" {...props} />
+                <TextArea size="m" height="90px" {...props} />
                 <SpaceMe />
-                <TextArea size="s" {...props} />
+                <TextArea size="s" height="90px" {...props} />
                 <SpaceMe />
-                <TextArea size="xs" {...props} />
+                <TextArea size="xs" height="90px" {...props} />
             </CypressTestDecorator>,
         );
 
@@ -124,15 +142,15 @@ describe('plasma-b2c: TextArea', () => {
 
         mount(
             <CypressTestDecorator>
-                <TextArea size="xl" {...props} />
+                <TextArea size="xl" height="90px" {...props} />
                 <SpaceMe />
-                <TextArea size="l" {...props} />
+                <TextArea size="l" height="90px" {...props} />
                 <SpaceMe />
-                <TextArea size="m" {...props} />
+                <TextArea size="m" height="90px" {...props} />
                 <SpaceMe />
-                <TextArea size="s" {...props} />
+                <TextArea size="s" height="90px" {...props} />
                 <SpaceMe />
-                <TextArea size="xs" {...props} />
+                <TextArea size="xs" height="90px" {...props} />
             </CypressTestDecorator>,
         );
 
@@ -156,12 +174,12 @@ describe('plasma-b2c: TextArea', () => {
                                     placeholder="Placeholder"
                                     label="Title"
                                     size={size}
-                                    height="2.5rem"
+                                    height="90px"
                                     hintText="Подсказка к полю"
                                     hintTrigger="click"
                                     {...props}
                                 />
-                                <SpaceMe />
+                                <PadMe />
                             </div>
                         ))}
                     </CypressTestDecorator>,

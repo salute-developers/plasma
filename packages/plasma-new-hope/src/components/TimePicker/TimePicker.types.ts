@@ -115,6 +115,11 @@ export type TimePickerPopoverProps = {
      */
     offset?: [number, number];
     /**
+     * CSS-свойство z-index для выпадающего списка времени
+     * @default 1000
+     */
+    zIndex?: CSSProperties['zIndex'];
+    /**
      * Контейнер для позиционирования
      */
     frame?: 'document' | string | RefObject<HTMLElement>;
@@ -158,6 +163,17 @@ type BasicProps = {
      * Количество колонок (2 - часы/минуты, 3 - часы/минуты/секунды)
      */
     columnsQuantity?: 2 | 3;
+    /**
+     * Стиль для UI конфигурации
+     * Влияет на выбор предустановленного набора токенов
+     * @default 'default'
+     */
+    appearance?: 'default' | 'clear';
+    /**
+     * Флаг наличия разделителя для clear appearance
+     * @default false
+     */
+    hasClearDivider?: boolean;
     /**
      * Размер компонента
      */

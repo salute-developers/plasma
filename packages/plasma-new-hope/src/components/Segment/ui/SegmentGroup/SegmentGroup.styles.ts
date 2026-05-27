@@ -13,9 +13,7 @@ export const base = css`
         max-height: 100%;
     }
 
-    &:before {
-        border-radius: var(${tokens.groupBorderRadius});
-    }
+    border-radius: var(${tokens.groupBorderRadius});
 `;
 
 export const StyledContent = styled.div`

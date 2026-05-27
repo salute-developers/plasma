@@ -6,11 +6,7 @@ export const base = css`
     position: relative;
 
     &.${classes.segmentGroupFilledBackground} {
-        &:before {
-            content: '';
-            position: absolute;
-            inset: -0.125rem;
-            background-color: var(${tokens.groupFilledBackgroundColor});
-        }
+        background-color: var(${tokens.groupFilledBackgroundColor});
+        padding: 0.125rem;
     }
 `;
