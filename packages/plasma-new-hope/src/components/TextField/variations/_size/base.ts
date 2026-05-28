@@ -7,7 +7,7 @@ import {
     InputContainer,
     InputWrapper,
     Label,
-    LeftHelper,
+    StyledHelpers,
     StyledContentRight,
     StyledContentRightWrapper,
     StyledHintWrapper,
@@ -88,15 +88,15 @@ export const base = css`
         line-height: var(${tokens.titleCaptionLineHeight});
     }
 
-    ${LeftHelper} {
-        margin-top: var(${tokens.leftHelperOffset});
+    ${StyledHelpers} {
+        padding: var(${tokens.helpersPadding});
 
-        font-family: var(${tokens.leftHelperFontFamily});
-        font-size: var(${tokens.leftHelperFontSize});
-        font-style: var(${tokens.leftHelperFontStyle});
-        font-weight: var(${tokens.leftHelperFontWeight});
-        letter-spacing: var(${tokens.leftHelperLetterSpacing});
-        line-height: var(${tokens.leftHelperLineHeight});
+        font-family: var(${tokens.helpersFontFamily});
+        font-size: var(${tokens.helpersFontSize});
+        font-style: var(${tokens.helpersFontStyle});
+        font-weight: var(${tokens.helpersFontWeight});
+        letter-spacing: var(${tokens.helpersLetterSpacing});
+        line-height: var(${tokens.helpersLineHeight});
     }
 
     ${StyledTextBefore}, ${StyledTextAfter} {

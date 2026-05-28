@@ -234,6 +234,10 @@ export type TextFieldPropsBase = {
      */
     leftHelper?: ReactNode;
     /**
+     * Вспомогательный текст снизу справа для поля ввода.
+     */
+    rightHelper?: ReactNode;
+    /**
      * Слот для контента слева.
      */
     contentLeft?: React.ReactElement;

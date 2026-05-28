@@ -98,14 +98,14 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.leftHelperColor}: var(${comboboxTokens.textFieldLeftHelperColor});
     ${textFieldTokens.leftHelperColorFocus}: var(${comboboxTokens.textFieldLeftHelperColorFocus});
     ${textFieldTokens.leftHelperColorReadOnly}: var(${comboboxTokens.textFieldLeftHelperColorReadOnly});
-    ${textFieldTokens.leftHelperOffset}: var(${comboboxTokens.textFieldLeftHelperOffset});
+    ${textFieldTokens.helpersPadding}: var(${comboboxTokens.textFieldHelpersPadding});
 
-    ${textFieldTokens.leftHelperFontFamily}: var(${comboboxTokens.textFieldLeftHelperFontFamily});
-    ${textFieldTokens.leftHelperFontStyle}: var(${comboboxTokens.textFieldLeftHelperFontStyle});
-    ${textFieldTokens.leftHelperFontSize}: var(${comboboxTokens.textFieldLeftHelperFontSize});
-    ${textFieldTokens.leftHelperFontWeight}: var(${comboboxTokens.textFieldLeftHelperFontWeight});
-    ${textFieldTokens.leftHelperLetterSpacing}: var(${comboboxTokens.textFieldLeftHelperLetterSpacing});
-    ${textFieldTokens.leftHelperLineHeight}: var(${comboboxTokens.textFieldLeftHelperLineHeight});
+    ${textFieldTokens.helpersFontFamily}: var(${comboboxTokens.textFieldHelpersFontFamily});
+    ${textFieldTokens.helpersFontStyle}: var(${comboboxTokens.textFieldHelpersFontStyle});
+    ${textFieldTokens.helpersFontSize}: var(${comboboxTokens.textFieldHelpersFontSize});
+    ${textFieldTokens.helpersFontWeight}: var(${comboboxTokens.textFieldHelpersFontWeight});
+    ${textFieldTokens.helpersLetterSpacing}: var(${comboboxTokens.textFieldHelpersLetterSpacing});
+    ${textFieldTokens.helpersLineHeight}: var(${comboboxTokens.textFieldHelpersLineHeight});
 
     ${textFieldTokens.textBeforeColor}: var(${comboboxTokens.textFieldTextBeforeColor});
     ${textFieldTokens.textAfterColor}: var(${comboboxTokens.textFieldTextAfterColor});

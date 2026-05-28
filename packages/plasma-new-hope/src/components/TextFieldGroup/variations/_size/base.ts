@@ -30,13 +30,13 @@ export const base = css`
         ${textFieldTokens.labelLetterSpacing}: var(${tokens.labelLetterSpacing});
         ${textFieldTokens.labelLineHeight}: var(${tokens.labelLineHeight});
 
-        ${textFieldTokens.leftHelperOffset}: var(${tokens.leftHelperOffset});
-        ${textFieldTokens.leftHelperFontFamily}: var(${tokens.leftHelperFontFamily});
-        ${textFieldTokens.leftHelperFontSize}: var(${tokens.leftHelperFontSize});
-        ${textFieldTokens.leftHelperFontStyle}: var(${tokens.leftHelperFontStyle});
-        ${textFieldTokens.leftHelperFontWeight}: var(${tokens.leftHelperFontWeight});
-        ${textFieldTokens.leftHelperLetterSpacing}: var(${tokens.leftHelperLetterSpacing});
-        ${textFieldTokens.leftHelperLineHeight}: var(${tokens.leftHelperLineHeight});
+        ${textFieldTokens.helpersPadding}: var(${tokens.helpersPadding});
+        ${textFieldTokens.helpersFontFamily}: var(${tokens.helpersFontFamily});
+        ${textFieldTokens.helpersFontSize}: var(${tokens.helpersFontSize});
+        ${textFieldTokens.helpersFontStyle}: var(${tokens.helpersFontStyle});
+        ${textFieldTokens.helpersFontWeight}: var(${tokens.helpersFontWeight});
+        ${textFieldTokens.helpersLetterSpacing}: var(${tokens.helpersLetterSpacing});
+        ${textFieldTokens.helpersLineHeight}: var(${tokens.helpersLineHeight});
 
         ${textFieldTokens.labelInnerPadding}: var(${tokens.labelInnerPadding});
         ${textFieldTokens.contentLabelInnerPadding}: var(${tokens.contentLabelInnerPadding});

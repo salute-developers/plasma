@@ -24,6 +24,7 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -53,6 +54,7 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
+                ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -86,6 +88,7 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
+                ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -119,6 +122,7 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -180,13 +184,13 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.helpersPadding}: 0.25rem 0 0 0;
+                ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.8125rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.813rem 0 0.813rem 0;
@@ -264,13 +268,13 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.helpersPadding}: 0.25rem 0 0 0;
+                ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
@@ -340,13 +344,13 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.helpersPadding}: 0.25rem 0 0 0;
+                ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
@@ -416,13 +420,13 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.helpersPadding}: 0.25rem 0 0 0;
+                ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -492,13 +496,13 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.helpersPadding}: 0.25rem 0 0 0;
+                ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -717,6 +721,7 @@ export const config = {
                 ${tokens.backgroundColorReadOnly}: transparent;
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.rightHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);

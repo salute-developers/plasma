@@ -134,17 +134,23 @@ export const tokens = {
     titleCaptionLetterSpacing: '--plasma-textfield__title-caption-letter-spacing',
     titleCaptionLineHeight: '--plasma-textfield__title-caption-line-height',
 
+    /** Токены для helpers */
+    helpersPadding: '--plasma-textfield__helpers-padding',
+
+    helpersFontFamily: '--plasma-textfield__helpers-font-family',
+    helpersFontStyle: '--plasma-textfield__helpers-font-style',
+    helpersFontSize: '--plasma-textfield__helpers-font-size',
+    helpersFontWeight: '--plasma-textfield__helpers-font-weight',
+    helpersLetterSpacing: '--plasma-textfield__helpers-letter-spacing',
+    helpersLineHeight: '--plasma-textfield__helpers-line-height',
+
     leftHelperColor: '--plasma-textfield__left-helper-color',
     leftHelperColorFocus: '--plasma-textfield__left-helper-color-focus',
     leftHelperColorReadOnly: '--plasma-textfield__left-helper-color-readonly',
-    leftHelperOffset: '--plasma-textfield__left-helper-offset',
 
-    leftHelperFontFamily: '--plasma-textfield__left-helper-font-family',
-    leftHelperFontStyle: '--plasma-textfield__left-helper-font-style',
-    leftHelperFontSize: '--plasma-textfield__left-helper-font-size',
-    leftHelperFontWeight: '--plasma-textfield__left-helper-font-weight',
-    leftHelperLetterSpacing: '--plasma-textfield__left-helper-letter-spacing',
-    leftHelperLineHeight: '--plasma-textfield__left-helper-line-height',
+    rightHelperColor: '--plasma-textfield__right-helper-color',
+    rightHelperColorFocus: '--plasma-textfield__right-helper-color-focus',
+    rightHelperColorReadOnly: '--plasma-textfield__right-helper-color-readonly',
 
     /** Токены вспомогательного текста */
     textBeforeColor: '--plasma-textfield__before-text-color',

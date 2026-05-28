@@ -68,14 +68,14 @@ export const tokens = {
     labelInnerPadding: '--plasma-text-field-group-item-placement_inner__label-padding',
     contentLabelInnerPadding: '--plasma-text-field-group-item-placement_inner__content-padding',
 
-    leftHelperOffset: '--plasma-text-field-group-item__left-helper-offset',
+    helpersPadding: '--plasma-text-field-group-item__helpers-padding',
 
-    leftHelperFontFamily: '--plasma-text-field-group-item__left-helper-font-family',
-    leftHelperFontStyle: '--plasma-text-field-group-item__left-helper-font-style',
-    leftHelperFontSize: '--plasma-text-field-group-item__left-helper-font-size',
-    leftHelperFontWeight: '--plasma-text-field-group-item__left-helper-font-weight',
-    leftHelperLetterSpacing: '--plasma-text-field-group-item__left-helper-letter-spacing',
-    leftHelperLineHeight: '--plasma-text-field-group-item__left-helper-line-height',
+    helpersFontFamily: '--plasma-text-field-group-item__helpers-font-family',
+    helpersFontStyle: '--plasma-text-field-group-item__helpers-font-style',
+    helpersFontSize: '--plasma-text-field-group-item__helpers-font-size',
+    helpersFontWeight: '--plasma-text-field-group-item__helpers-font-weight',
+    helpersLetterSpacing: '--plasma-text-field-group-item__helpers-letter-spacing',
+    helpersLineHeight: '--plasma-text-field-group-item__helpers-line-height',
 
     /** Токены вспомогательного текста */
     textBeforeMargin: '--plasma-text-field-group-item__before-text-margin',
