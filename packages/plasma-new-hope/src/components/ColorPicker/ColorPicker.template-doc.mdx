@@ -1,0 +1,209 @@
+---
+id: colorPicker
+title: ColorPicker
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# ColorPicker
+Компонент для выбора цвета. Поддерживает выбор сплошного цвета и градиента с несколькими точками остановки.
+
+<Description name="ColorPicker" />
+<PropsTable name="ColorPicker" />
+
+## Использование
+Компонент `ColorPicker` позволяет выбирать цвет с помощью визуальных элементов управления:
+- **Saturation** — поле насыщенности и яркости
+- **Hue** — ползунок оттенка
+- **Opacity** — ползунок прозрачности
+- **Inputs** — числовые поля для точного ввода (RGB, HSL, HSB, CMYK, HEX)
+
+```tsx live
+import React, { useState } from 'react';
+import { ColorPicker } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [color, setColor] = useState('rgba(175, 51, 242, 1)');
+
+    return (
+        <ColorPicker
+            value={color}
+            onChange={setColor}
+        />
+    );
+}
+```
+
+## Примеры
+
+### Сплошной цвет и градиент
+Компонент поддерживает два режима работы: сплошной цвет (`solid`) и линейный/радиальный градиент (`gradient`). Переключение между режимами происходит с помощью табов.
+
+```tsx live
+import React, { useState } from 'react';
+import { ColorPicker } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [solid, setSolid] = useState('#AF33F2');
+    const [gradient, setGradient] = useState(
+        'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'
+    );
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <ColorPicker value={solid} onChange={setSolid} />
+            <ColorPicker value={gradient} onChange={setGradient} />
+        </div>
+    );
+}
+```
+
+### Пресеты
+С помощью свойства `presets` можно задать набор предустановленных цветов и градиентов для быстрого выбора.
+
+```tsx live
+import React, { useState } from 'react';
+import { ColorPicker } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [color, setColor] = useState('#FF293E');
+
+    const presets = [
+        '#FF293E',
+        '#FA5F05',
+        '#FFD83D',
+        '#15B015',
+        '#118CDF',
+        '#B559F3',
+        'linear-gradient(90deg, #FF293E 0%, #118CDF 100%)',
+    ];
+
+    return (
+        <ColorPicker
+            value={color}
+            onChange={setColor}
+            presets={presets}
+        />
+    );
+}
+```
+
+### Локализация
+С помощью свойства `locales` можно переопределить текстовые метки компонента.
+
+```tsx live
+import React, { useState } from 'react';
+import { ColorPicker } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [color, setColor] = useState('#AF33F2');
+
+    return (
+        <ColorPicker
+            value={color}
+            onChange={setColor}
+            locales={{
+                CONTROLS: {
+                    SOLID: 'Solid',
+                    GRADIENT: 'Gradient',
+                },
+            }}
+        />
+    );
+}
+```
+
+### Скрытие элементов управления
+Компонент предоставляет множество свойств для скрытия отдельных элементов управления.
+
+```tsx live
+import React, { useState } from 'react';
+import { ColorPicker } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [color, setColor] = useState('#AF33F2');
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <ColorPicker
+                value={color}
+                onChange={setColor}
+                hideOpacity
+                hideEyeDrop
+                hidePresets
+            />
+            <ColorPicker
+                value={color}
+                onChange={setColor}
+                hideInputs
+                hideGradientControls
+                hideColorTypeControls
+            />
+        </div>
+    );
+}
+```
+
+### Размеры
+Ширина компонента регулируется с помощью свойства `width` (по умолчанию 256).
+
+```tsx live
+import React, { useState } from 'react';
+import { ColorPicker } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [color, setColor] = useState('#AF33F2');
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <ColorPicker value={color} onChange={setColor} width={200} />
+            <ColorPicker value={color} onChange={setColor} width={300} />
+        </div>
+    );
+}
+```
+
+### HEX с альфа-каналом
+Свойство `showHexAlpha` позволяет отображать альфа-канал в HEX поле ввода.
+
+```tsx live
+import React, { useState } from 'react';
+import { ColorPicker } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [color, setColor] = useState('rgba(175, 51, 242, 0.5)');
+
+    return (
+        <ColorPicker
+            value={color}
+            onChange={setColor}
+            showHexAlpha
+        />
+    );
+}
+```
+
+### Конфигурация
+С помощью свойства `config` можно переопределить значения по умолчанию.
+
+```tsx live
+import React, { useState } from 'react';
+import { ColorPicker } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [color, setColor] = useState('#AF33F2');
+
+    return (
+        <ColorPicker
+            value={color}
+            onChange={setColor}
+            config={{
+                defaultColor: '#FF0000',
+                defaultGradient: 'linear-gradient(90deg, #FF0000 0%, #00FF00 100%)',
+                barSize: 20,
+                crossSize: 20,
+            }}
+        />
+    );
+}
+```
