@@ -49,9 +49,9 @@ export const config = {
                 ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
             `,
             warning: css`
-                ${tokens.borderColor}: var(--outline-warning-minor);
-                ${tokens.borderColorFocus}: var(--outline-warning-minor-active);
-                ${tokens.borderColorHover}: var(--outline-warning-minor-hover);
+                ${tokens.borderColor}: var(--outline-warning);
+                ${tokens.borderColorFocus}: var(--outline-warning-active);
+                ${tokens.borderColorHover}: var(--outline-warning-hover);
 
                 ${tokens.backgroundColor}: var(--surface-solid-card);
                 ${tokens.backgroundColorHover}: var(--surface-solid-card);
@@ -59,14 +59,14 @@ export const config = {
                 ${tokens.backgroundColorFocus}: var(--surface-solid-card);
 
                 ${tokens.labelOuterColor}: var(--text-primary);
-                ${tokens.inputColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
-                ${tokens.inputColorFocus}: color-mix(in oklab, var(--text-warning) 70%, transparent);
+                ${tokens.inputColor}: var(--text-warning);
+                ${tokens.inputColorFocus}: var(--text-warning);
                 ${tokens.inputCaretColor}: var(--text-accent);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.leftHelperColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
+                ${tokens.leftHelperColor}: var(--text-warning);
                 ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.rightContentColor}: var(--text-secondary);
 
@@ -89,9 +89,9 @@ export const config = {
                 ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
             `,
             negative: css`
-                ${tokens.borderColor}: var(--outline-negative-minor);
-                ${tokens.borderColorFocus}: var(--outline-negative-minor-active);
-                ${tokens.borderColorHover}: var(--outline-negative-minor-hover);
+                ${tokens.borderColor}: var(--outline-negative);
+                ${tokens.borderColorFocus}: var(--outline-negative-active);
+                ${tokens.borderColorHover}: var(--outline-negative-hover);
 
                 ${tokens.backgroundColor}: var(--surface-solid-card);
                 ${tokens.backgroundColorHover}: var(--surface-solid-card);
@@ -99,14 +99,14 @@ export const config = {
                 ${tokens.backgroundColorFocus}: var(--surface-solid-card);
 
                 ${tokens.labelOuterColor}: var(--text-primary);
-                ${tokens.inputColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
-                ${tokens.inputColorFocus}: color-mix(in oklab, var(--text-negative) 70%, transparent);
+                ${tokens.inputColor}: var(--text-negative);
+                ${tokens.inputColorFocus}: var(--text-negative);
                 ${tokens.inputCaretColor}: var(--text-accent);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.leftHelperColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
+                ${tokens.leftHelperColor}: var(--text-negative);
                 ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.rightContentColor}: var(--text-secondary);
 
@@ -315,12 +315,12 @@ export const config = {
                 ${tokens.labelInnerTopHelper}: -0.313rem;
                 ${tokens.labelInnerMarginBottom}: 0.125rem;
 
-                ${tokens.inputFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.inputFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.inputFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.inputFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.inputLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.inputLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.inputFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.inputFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.inputFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.inputFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.inputLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.inputLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -389,12 +389,12 @@ export const config = {
                 ${tokens.labelInnerTopHelper}: -0.313rem;
                 ${tokens.labelInnerMarginBottom}: 0.125rem;
 
-                ${tokens.inputFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.inputFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.inputFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.inputFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.inputLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.inputLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.inputFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.inputFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.inputFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.inputFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.inputLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.inputLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
