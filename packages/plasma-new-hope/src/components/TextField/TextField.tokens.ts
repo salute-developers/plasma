@@ -146,6 +146,18 @@ export const tokens = {
     leftHelperLetterSpacing: '--plasma-textfield__left-helper-letter-spacing',
     leftHelperLineHeight: '--plasma-textfield__left-helper-line-height',
 
+    rightHelperColor: '--plasma-textfield__right-helper-color',
+    rightHelperColorFocus: '--plasma-textfield__right-helper-color-focus',
+    rightHelperColorReadOnly: '--plasma-textfield__right-helper-color-readonly',
+    rightHelperOffset: '--plasma-textfield__right-helper-offset',
+
+    rightHelperFontFamily: '--plasma-textfield__right-helper-font-family',
+    rightHelperFontStyle: '--plasma-textfield__right-helper-font-style',
+    rightHelperFontSize: '--plasma-textfield__right-helper-font-size',
+    rightHelperFontWeight: '--plasma-textfield__right-helper-font-weight',
+    rightHelperLetterSpacing: '--plasma-textfield__right-helper-letter-spacing',
+    rightHelperLineHeight: '--plasma-textfield__right-helper-line-height',
+
     /** Токены вспомогательного текста */
     textBeforeColor: '--plasma-textfield__before-text-color',
     textAfterColor: '--plasma-textfield__after-text-color',
