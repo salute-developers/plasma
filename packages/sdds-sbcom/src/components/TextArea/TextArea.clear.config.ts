@@ -51,6 +51,9 @@ export const config = {
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
+                ${tokens.leftHelperOverflow}: visible;
+                ${tokens.leftHelperWhiteSpace}: normal;
+                ${tokens.leftHelperTextOverflow}: initial;
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.rightHelperColor}: ${textSecondary};
 
@@ -88,6 +91,9 @@ export const config = {
                 ${tokens.placeholderColor}: ${textPositive};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
+                ${tokens.leftHelperOverflow}: visible;
+                ${tokens.leftHelperWhiteSpace}: normal;
+                ${tokens.leftHelperTextOverflow}: initial;
                 ${tokens.leftHelperColor}: ${textPositive};
                 ${tokens.rightHelperColor}: ${textSecondary};
 
@@ -125,6 +131,9 @@ export const config = {
                 ${tokens.placeholderColor}: ${textWarning};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
+                ${tokens.leftHelperOverflow}: visible;
+                ${tokens.leftHelperWhiteSpace}: normal;
+                ${tokens.leftHelperTextOverflow}: initial;
                 ${tokens.leftHelperColor}: ${textWarning};
                 ${tokens.rightHelperColor}: ${textSecondary};
 
@@ -162,6 +171,9 @@ export const config = {
                 ${tokens.placeholderColor}: ${textNegative};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
+                ${tokens.leftHelperOverflow}: visible;
+                ${tokens.leftHelperWhiteSpace}: normal;
+                ${tokens.leftHelperTextOverflow}: initial;
                 ${tokens.leftHelperColor}: ${textNegative};
                 ${tokens.rightHelperColor}: ${textSecondary};
 

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { applyEllipsis } from '../../mixins';
 import { tooltipConfig } from '../Tooltip';
 import { component, mergeConfig } from '../../engines';
 
@@ -308,7 +307,9 @@ export const StyledOutsideHelpersWrapper = styled.div`
 `;
 
 export const StyledLeftHelper = styled.span`
-    ${applyEllipsis()};
+    overflow: var(${tokens.leftHelperOverflow}, hidden);
+    text-overflow: var(${tokens.leftHelperTextOverflow}, ellipsis);
+    white-space: var(${tokens.leftHelperWhiteSpace}, nowrap);
 
     display: block;
 
