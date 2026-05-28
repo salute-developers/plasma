@@ -62,6 +62,7 @@ export const RangeDatePopover = ({
     setIsInnerOpen,
     onChangeValue,
     onChangeStartOfRange,
+    onChangeSingleValue,
 
     onToggle,
 }: RangeDatePopoverProps) => {
@@ -154,6 +155,7 @@ export const RangeDatePopover = ({
                             includeEdgeDates={includeEdgeDates}
                             onChangeValue={onChangeValue}
                             onChangeStartOfRange={onChangeStartOfRange}
+                            onChangeSingleValue={onChangeSingleValue}
                         />
                     </StyledCalendarContent>
                 </Root>
@@ -218,6 +220,7 @@ export const RangeDatePopover = ({
                         includeEdgeDates={includeEdgeDates}
                         onChangeValue={onChangeValue}
                         onChangeStartOfRange={onChangeStartOfRange}
+                        onChangeSingleValue={onChangeSingleValue}
                     />
                 </StyledCalendarContent>
             </Root>
