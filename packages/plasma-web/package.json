@@ -101,8 +101,7 @@
   "typeCoverage": {
     "ignoreFiles": [
       "src/**/*.component-test.tsx",
-      "src/**/*.stories.tsx",
-      "src/**/*.perftest.tsx"
+      "src/**/*.stories.tsx"
     ],
     "atLeast": 99.8
   },
