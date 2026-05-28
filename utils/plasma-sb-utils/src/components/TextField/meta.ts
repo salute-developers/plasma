@@ -45,7 +45,8 @@ export const createMeta = ({
             textBefore: '',
             textAfter: '',
             placeholder: 'Заполните поле',
-            leftHelper: 'Подсказка к полю',
+            leftHelper: 'Подсказка к полю слева',
+            rightHelper: '',
             disabled: false,
             readOnly: false,
             enableContentLeft: true,
@@ -160,6 +161,9 @@ export const createMeta = ({
                 control: { type: 'text' },
             },
             leftHelper: {
+                control: { type: 'text' },
+            },
+            rightHelper: {
                 control: { type: 'text' },
             },
             hintText: {

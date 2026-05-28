@@ -13,7 +13,7 @@ const { meta: META, Default } = getTextFieldStories({
     defaultArgs: {
         labelPlacement: 'inner',
     },
-    disablePropsList: ['appearance', 'clear', 'hasDivider', 'labelPlacement'],
+    disablePropsList: ['appearance', 'clear', 'hasDivider', 'labelPlacement', 'rightHelper'],
 });
 
 const meta: Meta<TextFieldProps> = {

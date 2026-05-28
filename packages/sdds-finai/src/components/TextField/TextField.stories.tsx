@@ -26,6 +26,7 @@ const { meta: META, Default, Chips } = getTextFieldStories({
         }
         return <IconBellFill size={iconSize} />;
     },
+    disablePropsList: ['rightHelper'],
 });
 
 const meta: Meta<TextFieldProps> = {
