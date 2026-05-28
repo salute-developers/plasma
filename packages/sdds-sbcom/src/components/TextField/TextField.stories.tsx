@@ -10,6 +10,13 @@ type TextFieldProps = ComponentProps<typeof TextField>;
 const { meta: META, Default, Chips } = getTextFieldStories({
     component: TextField,
     componentConfig: config,
+    defaultArgs: {
+        ...config.defaults,
+        titleCaption: '',
+        hasHint: false,
+        enableContentLeft: false,
+        enableContentRight: true,
+    },
 });
 
 const meta: Meta<TextFieldProps> = {
