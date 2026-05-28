@@ -757,6 +757,53 @@ describeFnRange('DatePickerRange', () => {
         cy.matchImageSnapshot();
     });
 
+    it('DatePickerRange: select second date first on empty calendar', () => {
+        mount(<Demo renderFromDate={new Date(2023, 5, 1)} />);
+
+        cy.get('.input-wrapper input').last().click();
+        cy.get('body').find('[data-day="17"][data-month-index="5"]').first().click();
+
+        cy.get('input').last().should('have.value', '17.06.2023');
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').first().should('be.focused');
+    });
+
+    it('DatePickerRange: complete range by selecting first date after second', () => {
+        mount(<Demo renderFromDate={new Date(2023, 5, 1)} />);
+
+        cy.get('.input-wrapper input').last().click();
+        cy.get('body').find('[data-day="17"][data-month-index="5"]').first().click();
+        cy.get('input').first().click();
+        cy.get('body').find('[data-day="5"][data-month-index="5"]').first().click();
+
+        cy.get('input').first().should('have.value', '05.06.2023');
+        cy.get('input').last().should('have.value', '17.06.2023');
+    });
+
+    it('DatePickerRange: smart swap when selected date is before the existing one', () => {
+        mount(<Demo defaultFirstDate={new Date(2023, 5, 17)} />);
+
+        cy.get('.input-wrapper input').last().click();
+        cy.get('body').find('[data-day="5"][data-month-index="5"]').first().click();
+
+        cy.get('input').first().should('have.value', '05.06.2023');
+        cy.get('input').last().should('have.value', '17.06.2023');
+    });
+
+    it('DatePickerRange: min with time component is accessible with includeEdgeDates', () => {
+        mount(<Demo renderFromDate={new Date(2023, 5, 1)} min={new Date(2023, 5, 10, 15, 30, 0)} includeEdgeDates />);
+
+        cy.get('input').first().click();
+        cy.get('body')
+            .find('[data-day="10"][data-month-index="5"]')
+            .first()
+            .should('not.have.attr', 'aria-disabled', 'true');
+        cy.get('body')
+            .find('[data-day="9"][data-month-index="5"]')
+            .first()
+            .should('have.attr', 'aria-disabled', 'true');
+    });
+
     it('input date, double calendar', () => {
         cy.viewport(900, 599);
 
