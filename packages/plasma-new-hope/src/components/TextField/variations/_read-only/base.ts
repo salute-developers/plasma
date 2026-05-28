@@ -6,7 +6,8 @@ import {
     InputPlaceholder,
     InputWrapper,
     Label,
-    LeftHelper,
+    StyledLeftHelper,
+    StyledRightHelper,
     StyledContentLeft,
     StyledContentRight,
     TitleCaption,
@@ -72,8 +73,12 @@ export const base = css`
             color: var(${tokens.titleCaptionColorReadOnly}, var(${tokens.titleCaptionColor}));
         }
 
-        ${LeftHelper} {
+        ${StyledLeftHelper} {
             color: var(${tokens.leftHelperColorReadOnly});
+        }
+
+        ${StyledRightHelper} {
+            color: var(${tokens.rightHelperColorReadOnly});
         }
 
         ${StyledContentLeft}:hover {

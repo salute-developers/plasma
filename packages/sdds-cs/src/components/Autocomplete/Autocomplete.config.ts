@@ -123,7 +123,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
