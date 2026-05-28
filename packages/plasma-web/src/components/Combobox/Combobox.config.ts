@@ -276,13 +276,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -398,13 +398,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -520,13 +520,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -642,13 +642,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;

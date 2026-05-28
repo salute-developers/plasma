@@ -93,14 +93,14 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.titleCaptionLetterSpacing}: var(${tokens.textFieldTitleCaptionLetterSpacing});
     ${textFieldTokens.titleCaptionLineHeight}: var(${tokens.textFieldTitleCaptionLineHeight});
 
-    ${textFieldTokens.leftHelperOffset}: var(${tokens.textFieldLeftHelperOffset});
+    ${textFieldTokens.helpersPadding}: var(${tokens.textFieldHelpersPadding});
 
-    ${textFieldTokens.leftHelperFontFamily}: var(${tokens.textFieldLeftHelperFontFamily});
-    ${textFieldTokens.leftHelperFontStyle}: var(${tokens.textFieldLeftHelperFontStyle});
-    ${textFieldTokens.leftHelperFontSize}: var(${tokens.textFieldLeftHelperFontSize});
-    ${textFieldTokens.leftHelperFontWeight}: var(${tokens.textFieldLeftHelperFontWeight});
-    ${textFieldTokens.leftHelperLetterSpacing}: var(${tokens.textFieldLeftHelperLetterSpacing});
-    ${textFieldTokens.leftHelperLineHeight}: var(${tokens.textFieldLeftHelperLineHeight});
+    ${textFieldTokens.helpersFontFamily}: var(${tokens.textFieldHelpersFontFamily});
+    ${textFieldTokens.helpersFontStyle}: var(${tokens.textFieldHelpersFontStyle});
+    ${textFieldTokens.helpersFontSize}: var(${tokens.textFieldHelpersFontSize});
+    ${textFieldTokens.helpersFontWeight}: var(${tokens.textFieldHelpersFontWeight});
+    ${textFieldTokens.helpersLetterSpacing}: var(${tokens.textFieldHelpersLetterSpacing});
+    ${textFieldTokens.helpersLineHeight}: var(${tokens.textFieldHelpersLineHeight});
 
     ${textFieldTokens.textBeforeColor}: var(${tokens.textFieldTextBeforeColor});
     ${textFieldTokens.textAfterColor}: var(${tokens.textFieldTextAfterColor});

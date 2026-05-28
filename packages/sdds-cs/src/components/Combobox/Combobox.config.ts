@@ -160,13 +160,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -280,7 +280,7 @@ export const config = {
                 ${tokens.disclosureIconColorHover}: transparent;
                 ${tokens.textFieldPadding}: 0;
                 ${tokens.textFieldLabelOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperOffset}: 0rem;
+                ${tokens.textFieldHelpersPadding}: 0rem;
                 ${tokens.textFieldBorderColor}: transparent;
                 ${tokens.textFieldBorderWidth}: 0;
             `,

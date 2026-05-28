@@ -170,12 +170,16 @@ export const StyledContentRight = styled.div`
     }
 `;
 
-export const LeftHelper = styled.div`
-    color: var(${tokens.leftHelperColor});
+export const StyledHelpers = styled.div`
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+`;
 
-    &.${classes.hasFocus} {
-        color: var(${tokens.leftHelperColorFocus}, var(${tokens.leftHelperColor}));
-    }
+export const StyledLeftHelper = styled.div``;
+
+export const StyledRightHelper = styled.div`
+    margin-left: auto;
 `;
 
 export const StyledTextBefore = styled.div<{ isHidden?: boolean }>`
