@@ -64,6 +64,10 @@ export const tokens = {
     leftHelperColorFocus: '--plasma-textarea-left-helper-color-focus',
     rightHelperColor: '--plasma-textarea-right-helper-color',
 
+    leftHelperOverflow: '--plasma-textarea-left-helper-overflow',
+    leftHelperWhiteSpace: '--plasma-textarea-left-helper-white-space',
+    leftHelperTextOverflow: '--plasma-textarea-left-helper-text-overflow',
+
     /** Цвета для read-only состояния */
     inputColorReadOnly: '--plasma-textarea-input-color-read-only',
     backgroundColorReadOnly: '--plasma-textarea-background-color-read-only',
