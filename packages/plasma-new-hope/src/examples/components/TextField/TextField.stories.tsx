@@ -11,6 +11,10 @@ type textFieldProps = ComponentProps<typeof TextField>;
 const { meta: META, Default, Chips } = getTextFieldStories({
     component: TextField,
     componentConfig: config,
+    defaultArgs: {
+        ...config.defaults,
+        rightHelper: 'Подсказка к полю справа',
+    },
 });
 
 const meta: Meta<textFieldProps> = {
