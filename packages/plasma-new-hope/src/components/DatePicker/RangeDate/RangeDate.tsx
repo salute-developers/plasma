@@ -453,9 +453,11 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
             };
 
             const handleChangeStartOfRange = (chosenDate: Date, dateInfo?: DateInfo) => {
-                if (!fullDateEntered) {
-                    handleFirstCalendarPick(chosenDate, dateInfo);
-                    handleSecondCalendarPick(undefined);
+                customDayjs.locale(lang);
+
+                if (!calendarFirstValue && secondTextFieldClicked) {
+                    handleSecondCalendarPick(chosenDate, dateInfo);
+                    rangeRef?.current?.firstTextField()?.current?.focus();
 
                     return;
                 }
@@ -463,12 +465,6 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 const prevValue = secondTextFieldClicked ? calendarFirstValue : calendarSecondValue;
 
                 const [first, second] = getSortedValues([prevValue, chosenDate]);
-
-                /**
-                 * NOTE: проверяем совпадает ли новая дата с предыдущей
-                 * Если нет, то вызываем handle{First,Second}CalendarPick
-                 */
-                customDayjs.locale(lang);
 
                 const firstFormatted = first ? customDayjs(first).format(format) : '';
                 const secondFormatted = second ? customDayjs(second).format(format) : '';
@@ -520,6 +516,16 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 handleSearchSecond(String(date));
                 if (!calendarFirstValue || firstValueError) {
                     rangeRef?.current?.firstTextField()?.current?.focus();
+                }
+            };
+
+            const handleCalendarSingleValueChange = (chosenDate: Date, dateInfo?: DateInfo) => {
+                if (secondTextFieldClicked) {
+                    handleSecondCalendarPick(chosenDate, dateInfo);
+                    rangeRef?.current?.firstTextField()?.current?.focus();
+                } else {
+                    handleFirstCalendarPick(chosenDate, dateInfo);
+                    rangeRef?.current?.secondTextField()?.current?.focus();
                 }
             };
 
@@ -677,6 +683,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         rootWrapper={RootWrapper}
                         onChangeStartOfRange={handleChangeStartOfRange}
                         onChangeValue={handleChangeCalendarValue}
+                        onChangeSingleValue={handleCalendarSingleValueChange}
                         setIsInnerOpen={setIsInnerOpen}
                         dateShortcuts={dateShortcuts}
                         dateShortcutsPlacement={dateShortcutsPlacement}
