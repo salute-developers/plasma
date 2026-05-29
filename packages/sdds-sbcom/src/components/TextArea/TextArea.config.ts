@@ -7,6 +7,8 @@ import {
     surfaceNegative,
     surfacePositive,
     surfaceSolidCardBrightness,
+    outlineNegative,
+    outlinePositive,
     surfaceTransparentNegative,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryActive,
@@ -15,7 +17,6 @@ import {
     surfaceTransparentTertiary,
     surfaceTransparentTertiaryActive,
     surfaceTransparentTertiaryHover,
-    surfaceWarning,
     textAccent,
     textNegative,
     textPositive,
@@ -24,7 +25,8 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
-    textWarning,
+    surfaceTransparentSecondaryActive,
+    surfaceTransparentSecondaryHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 /*
@@ -38,13 +40,19 @@ export const config = {
     defaults: {
         view: 'default',
         focused: 'true',
+        size: 'l',
+        labelPlacement: 'inner',
+        leftHelperPlacement: 'outer',
+        rightHelperPlacement: 'outer',
+        autoResize: 'true',
+        maxAuto: '5',
     },
     variations: {
         view: {
             default: css`
-                ${tokens.inputBackgroundColor}: ${surfaceTransparentPrimary};
-                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.inputBackgroundColor}: ${surfaceTransparentSecondary};
+                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
+                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
                 ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentSecondary};
 
                 ${tokens.helpersBackgroundColor}: ${surfaceTransparentPrimary};
@@ -62,6 +70,8 @@ export const config = {
                 ${tokens.leftHelperOverflow}: visible;
                 ${tokens.leftHelperWhiteSpace}: normal;
                 ${tokens.leftHelperTextOverflow}: initial;
+                ${tokens.labelOuterColor}: ${textSecondary};
+                ${tokens.labelInnerColor}: ${textSecondary};
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.rightHelperColor}: ${textSecondary};
 
@@ -72,25 +82,25 @@ export const config = {
                 ${tokens.indicatorColor}: ${surfaceNegative};
                 ${tokens.optionalColor}: ${textTertiary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColor}: ${textTertiary};
                 ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
                 ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
-                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColor}: transparent;
                 ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
                 ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
+                ${tokens.borderColorFocus}: ${outlinePositive};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
                 ${tokens.dividerColorHover}: ${textSecondary};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
-                ${tokens.titleCaptionColor}: ${textSecondary};
             `,
             positive: css`
-                ${tokens.inputBackgroundColor}: var(--surface-transparent-positive);
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-positive-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-positive-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-positive);
+                ${tokens.inputBackgroundColor}: ${surfaceTransparentSecondary};
+                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
+                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
+                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentSecondary};
 
                 ${tokens.helpersBackgroundColor}: var(--surface-transparent-positive);
                 ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-positive-hover);
@@ -107,8 +117,10 @@ export const config = {
                 ${tokens.leftHelperOverflow}: visible;
                 ${tokens.leftHelperWhiteSpace}: normal;
                 ${tokens.leftHelperTextOverflow}: initial;
+                ${tokens.labelOuterColor}: ${textPositive};
+                ${tokens.labelInnerColor}: ${textPositive};
                 ${tokens.leftHelperColor}: ${textPositive};
-                ${tokens.rightHelperColor}: ${textSecondary};
+                ${tokens.rightHelperColor}: ${textPositive};
 
                 ${tokens.rightContentColor}: ${textSecondary};
                 ${tokens.rightContentColorHover}: ${textSecondaryHover};
@@ -117,10 +129,10 @@ export const config = {
                 ${tokens.indicatorColor}: ${surfaceNegative};
                 ${tokens.optionalColor}: ${textTertiary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColor}: ${textTertiary};
                 ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
                 ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
-                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColor}: transparent;
                 ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
                 ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
@@ -129,60 +141,12 @@ export const config = {
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
-                ${tokens.titleCaptionColor}: ${textSecondary};
-            `,
-            warning: css`
-                ${tokens.inputBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-warning-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-warning);
-
-                ${tokens.helpersBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-warning-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-warning);
-
-                ${tokens.inputColor}: ${textPrimary};
-                ${tokens.inputColorFocus}: ${textPrimary};
-                ${tokens.inputCaretColor}: ${textWarning};
-
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
-
-                ${tokens.leftHelperOverflow}: visible;
-                ${tokens.leftHelperWhiteSpace}: normal;
-                ${tokens.leftHelperTextOverflow}: initial;
-                ${tokens.leftHelperColor}: ${textWarning};
-                ${tokens.rightHelperColor}: ${textSecondary};
-
-                ${tokens.rightContentColor}: ${textSecondary};
-                ${tokens.rightContentColorHover}: ${textSecondaryHover};
-                ${tokens.rightContentColorActive}: ${textSecondaryActive};
-
-                ${tokens.indicatorColor}: ${surfaceNegative};
-                ${tokens.optionalColor}: ${textTertiary};
-
-                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
-                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
-                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
-                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
-                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
-                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
-
-                ${tokens.dividerColor}: ${surfaceWarning};
-                ${tokens.dividerColorHover}: ${surfaceWarning};
-                ${tokens.dividerColorFocus}: ${surfaceAccent};
-                ${tokens.titleCaptionColor}: ${textSecondary};
-                ${tokens.hintIconColor}: ${textSecondary};
-                ${tokens.titleCaptionColor}: ${textSecondary};
             `,
             negative: css`
-                ${tokens.inputBackgroundColor}: ${surfaceTransparentNegative};
-                /* NOTE: no token surfaceTransparentNegativeHover in @salutejs/sdds-themes/tokens */
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-negative-hover);
-                /* NOTE: no token surfaceTransparentNegativeActive in @salutejs/sdds-themes/tokens */
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-negative-active);
-                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentNegative};
+                ${tokens.inputBackgroundColor}: ${surfaceTransparentSecondary};
+                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
+                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
+                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentSecondary};
 
                 ${tokens.helpersBackgroundColor}: ${surfaceTransparentNegative};
                 /* NOTE: no token surfaceTransparentNegativeHover in @salutejs/sdds-themes/tokens */
@@ -201,8 +165,10 @@ export const config = {
                 ${tokens.leftHelperOverflow}: visible;
                 ${tokens.leftHelperWhiteSpace}: normal;
                 ${tokens.leftHelperTextOverflow}: initial;
+                ${tokens.labelOuterColor}: ${textNegative};
+                ${tokens.labelInnerColor}: ${textNegative};
                 ${tokens.leftHelperColor}: ${textNegative};
-                ${tokens.rightHelperColor}: ${textSecondary};
+                ${tokens.rightHelperColor}: ${textNegative};
 
                 ${tokens.rightContentColor}: ${textSecondary};
                 ${tokens.rightContentColorHover}: ${textSecondaryHover};
@@ -211,19 +177,19 @@ export const config = {
                 ${tokens.indicatorColor}: ${surfaceNegative};
                 ${tokens.optionalColor}: ${textTertiary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColor}: ${textTertiary};
                 ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
                 ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
-                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColor}: transparent;
                 ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
                 ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
+                ${tokens.borderColorFocus}: ${outlineNegative};
                 ${tokens.dividerColor}: ${surfaceNegative};
                 ${tokens.dividerColorHover}: ${surfaceNegative};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
-                ${tokens.titleCaptionColor}: ${textSecondary};
             `,
         },
         size: {
@@ -241,9 +207,12 @@ export const config = {
                 ${tokens.inputPaddingLeft}: 1.25rem;
 
                 ${tokens.helpersPaddingTop}: 0.75rem;
-                ${tokens.helpersPaddingRight}: 1.25rem;
+                ${tokens.helpersPaddingRight}: 1rem;
                 ${tokens.helpersPaddingBottom}: 0.75rem;
-                ${tokens.helpersPaddingLeft}: 1.25rem;
+                ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingTop}: 0.75rem;
+                ${tokens.clearHelpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 1.25rem;
@@ -297,8 +266,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0.0625rem;
+                ${tokens.scrollbarBorderRadius}: 0.5rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -320,26 +290,32 @@ export const config = {
             `,
             l: css`
                 ${tokens.inputWidth}: 100%;
-                ${tokens.inputHeight}: 6.812rem;
-                ${tokens.inputMinHeight}: 1.625rem;
-                ${tokens.borderRadius}: 0.875rem;
-                ${tokens.borderRadiusWithHelpers}: 0.875rem 0.875rem 0 0;
+                ${tokens.inputHeight}: 2.375rem;
+                ${tokens.inputMinHeight}: 1.25rem;
+                ${tokens.borderRadius}: 1rem;
+                ${tokens.borderRadiusWithHelpers}: 1rem 1rem 0 0;
 
-                ${tokens.inputPaddingTop}: 1.063rem;
-                ${tokens.inputPaddingRight}: 1.125rem;
-                ${tokens.inputPaddingRightWithRightContent}: 3.625rem;
-                ${tokens.inputPaddingBottom}: 0.75rem;
-                ${tokens.inputPaddingLeft}: 1.125rem;
+                ${tokens.inputPaddingTop}: 1.125rem;
+                ${tokens.inputPaddingRight}: 1rem;
+                ${tokens.inputPaddingRightWithRightContent}: 2.625rem;
+                ${tokens.inputPaddingBottom}: 1.125rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 1.125rem;
+                ${tokens.inputPaddingBottomInnerLabel}: 0.625rem;
+                ${tokens.inputPaddingLeft}: 1rem;
 
                 ${tokens.helpersPaddingTop}: 0.75rem;
-                ${tokens.helpersPaddingRight}: 1.125rem;
+                ${tokens.helpersPaddingRight}: 1rem;
                 ${tokens.helpersPaddingBottom}: 0.75rem;
-                ${tokens.helpersPaddingLeft}: 1.125rem;
+                ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingTop}: 0.25rem;
+                ${tokens.clearHelpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
-                ${tokens.rightContentTop}: 1.063rem;
-                ${tokens.rightContentRight}: 1rem;
-                ${tokens.rightContentHeight}: 1.25rem;
+                ${tokens.rightContentTop}: 0.5rem;
+                ${tokens.rightContentRight}: 0.5rem;
+                ${tokens.rightContentHeight}: 2.5rem;
+                ${tokens.rightContentWidth}: 2.5rem;
 
                 ${tokens.labelMarginBottom}: 0.75rem;
 
@@ -356,7 +332,7 @@ export const config = {
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.labelInnerTop}: 0.5625rem;
+                ${tokens.labelInnerTop}: 0.75rem;
                 ${tokens.labelInnerTopHelper}: -0.313rem;
                 ${tokens.labelInnerMarginBottom}: 0.125rem;
 
@@ -388,8 +364,10 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0;
+                ${tokens.scrollbarBorderRadius}: 0.5rem;
+                ${tokens.scrollbarMarginRight}: 0.375rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -426,6 +404,9 @@ export const config = {
                 ${tokens.helpersPaddingRight}: 1rem;
                 ${tokens.helpersPaddingBottom}: 0.75rem;
                 ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingTop}: 0.75rem;
+                ${tokens.clearHelpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 0.875rem;
@@ -481,8 +462,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.1875rem -0.625rem auto auto;
                 ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0.0625rem;
+                ${tokens.scrollbarBorderRadius}: 0.5rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -516,9 +498,12 @@ export const config = {
                 ${tokens.inputPaddingLeft}: 0.875rem;
 
                 ${tokens.helpersPaddingTop}: 0.75rem;
-                ${tokens.helpersPaddingRight}: 0.875rem;
+                ${tokens.helpersPaddingRight}: 1rem;
                 ${tokens.helpersPaddingBottom}: 0.75rem;
-                ${tokens.helpersPaddingLeft}: 0.875rem;
+                ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingTop}: 0.75rem;
+                ${tokens.clearHelpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 0.688rem;
@@ -572,8 +557,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0.0625rem;
+                ${tokens.scrollbarBorderRadius}: 0.5rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -607,9 +593,12 @@ export const config = {
                 ${tokens.inputPaddingLeft}: 0.625rem;
 
                 ${tokens.helpersPaddingTop}: 0.5rem;
-                ${tokens.helpersPaddingRight}: 0.625rem;
+                ${tokens.helpersPaddingRight}: 1rem;
                 ${tokens.helpersPaddingBottom}: 0.563rem;
-                ${tokens.helpersPaddingLeft}: 0.625rem;
+                ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingTop}: 0.5rem;
+                ${tokens.clearHelpersPaddingLeft}: 1rem;
+                ${tokens.clearHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 0.563rem;
@@ -669,8 +658,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.675rem auto auto;
                 ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0.0625rem;
+                ${tokens.scrollbarBorderRadius}: 0.5rem;
 
                 ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -760,7 +750,7 @@ export const config = {
                 ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.backgroundColorReadOnly}: ${surfaceTransparentPrimary};
                 ${tokens.inputColorReadOnly}: ${textPrimary};
-                ${tokens.dividerColorReadOnly}: ${surfaceTransparentPrimary};
+                ${tokens.dividerColorReadOnly}: ${surfaceTransparentSecondary};
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
