@@ -243,7 +243,10 @@ export const config = {
                 ${tokens.helpersPaddingTop}: 0.75rem;
                 ${tokens.helpersPaddingRight}: 1.25rem;
                 ${tokens.helpersPaddingBottom}: 0.75rem;
-                ${tokens.helpersPaddingLeft}: 1.25rem;
+                ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingTop}: 0.75rem;
+                ${tokens.outsideHelpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 1.25rem;
@@ -334,7 +337,10 @@ export const config = {
                 ${tokens.helpersPaddingTop}: 0.75rem;
                 ${tokens.helpersPaddingRight}: 1.125rem;
                 ${tokens.helpersPaddingBottom}: 0.75rem;
-                ${tokens.helpersPaddingLeft}: 1.125rem;
+                ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingTop}: 0.25rem;
+                ${tokens.outsideHelpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 1.063rem;
@@ -426,6 +432,9 @@ export const config = {
                 ${tokens.helpersPaddingRight}: 1rem;
                 ${tokens.helpersPaddingBottom}: 0.75rem;
                 ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingTop}: 0.75rem;
+                ${tokens.outsideHelpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 0.875rem;
@@ -518,7 +527,10 @@ export const config = {
                 ${tokens.helpersPaddingTop}: 0.75rem;
                 ${tokens.helpersPaddingRight}: 0.875rem;
                 ${tokens.helpersPaddingBottom}: 0.75rem;
-                ${tokens.helpersPaddingLeft}: 0.875rem;
+                ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingTop}: 0.75rem;
+                ${tokens.outsideHelpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 0.688rem;
@@ -609,7 +621,10 @@ export const config = {
                 ${tokens.helpersPaddingTop}: 0.5rem;
                 ${tokens.helpersPaddingRight}: 0.625rem;
                 ${tokens.helpersPaddingBottom}: 0.563rem;
-                ${tokens.helpersPaddingLeft}: 0.625rem;
+                ${tokens.helpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingTop}: 0.5rem;
+                ${tokens.outsideHelpersPaddingLeft}: 1rem;
+                ${tokens.outsideHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 0.563rem;

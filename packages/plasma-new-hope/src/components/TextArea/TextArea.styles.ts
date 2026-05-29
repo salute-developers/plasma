@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { tooltipConfig } from '../Tooltip';
 import { component, mergeConfig } from '../../engines';
 
-import { classes, tokens } from './TextArea.tokens';
+import { classes, tokens, privateTokens } from './TextArea.tokens';
 
 const mergedConfig = mergeConfig(tooltipConfig);
 const Tooltip = component(mergedConfig);
@@ -94,6 +94,7 @@ export const StyledTextAreaWrapper = styled.div<{
     hasHelper: boolean;
     hasHeader: boolean;
     hasExplicitHeight: boolean;
+    isClear?: boolean;
 }>`
     display: flex;
     flex-direction: column;
@@ -102,12 +103,17 @@ export const StyledTextAreaWrapper = styled.div<{
     flex: ${({ hasExplicitHeight }) => (hasExplicitHeight ? '1' : 'unset')};
     min-height: 0;
 
-    padding-top: ${({ hasHeader }) => (hasHeader ? 'unset' : `var(${tokens.inputPaddingTop})`)};
-    padding-bottom: ${({ hasHelper }) =>
-        hasHelper ? `var(${tokens.inputPaddingBottomWithHelpers})` : `var(${tokens.inputPaddingBottom})`};
+    ${privateTokens.wrapperPaddingBottomInnerLabel}: ${({ hasHelper, isClear }) =>
+        hasHelper && !isClear
+            ? '0rem'
+            : `var(${tokens.inputPaddingBottomInnerLabel}, var(${tokens.inputPaddingBottom}))`};
 
-    border-radius: ${({ hasHelper }) =>
-        hasHelper ? `var(${tokens.borderRadiusWithHelpers})` : `var(${tokens.borderRadius})`};
+    padding-top: ${({ hasHeader }) => (hasHeader ? 'unset' : `var(${tokens.inputPaddingTop})`)};
+    padding-bottom: ${({ hasHelper, isClear }) =>
+        hasHelper && !isClear ? `var(${tokens.inputPaddingBottomWithHelpers})` : `var(${tokens.inputPaddingBottom})`};
+
+    border-radius: ${({ hasHelper, isClear }) =>
+        hasHelper && !isClear ? `var(${tokens.borderRadiusWithHelpers})` : `var(${tokens.borderRadius})`};
 
     &:after {
         content: '';
@@ -128,6 +134,7 @@ export const StyledContent = styled.div<{ hasHeader?: boolean }>`
     position: absolute;
     display: flex;
     align-items: center;
+    justify-content: center;
     z-index: 1;
 
     color: var(${tokens.rightContentColor});
@@ -136,6 +143,7 @@ export const StyledContent = styled.div<{ hasHeader?: boolean }>`
     right: var(${tokens.rightContentRight});
 
     height: var(${tokens.rightContentHeight});
+    width: var(${tokens.rightContentWidth}, auto);
 
     &:hover {
         color: var(${tokens.rightContentColorHover});
@@ -190,11 +198,11 @@ export const StyledTextArea = styled.textarea<{
 
     width: ${({ cols }) => (cols ? 'unset' : '100%')};
 
-    --plasma_private-textarea-input-actual-height: ${({ hasExplicitHeight }) =>
+    ${privateTokens.inputActualHeight}: ${({ hasExplicitHeight }) =>
         hasExplicitHeight ? '100%' : `calc(var(${tokens.inputHeight}) - var(${tokens.inputPaddingBottom}))`};
 
     height: ${({ hasExplicitHeight, rows }) =>
-        rows || hasExplicitHeight ? 'unset' : 'var(--plasma_private-textarea-input-actual-height)'};
+        rows || hasExplicitHeight ? 'unset' : `var(${privateTokens.inputActualHeight})`};
 
     min-height: var(${tokens.inputMinHeight});
 
@@ -233,14 +241,14 @@ export const StyledTextArea = styled.textarea<{
         background-color: var(${tokens.scrollbarThumbBackgroundColor});
         background-clip: content-box;
         border: var(${tokens.scrollbarBorderWidth}) solid transparent;
-        border-radius: 1rem;
+        border-radius: var(${tokens.scrollbarBorderRadius}, 1rem);
     }
 
     &::-webkit-scrollbar-track {
         background-color: var(${tokens.scrollbarTrackBackgroundColor});
         background-clip: content-box;
         border: var(${tokens.scrollbarBorderWidth}) solid transparent;
-        border-radius: 1rem;
+        border-radius: var(${tokens.scrollbarBorderRadius}, 1rem);
     }
 `;
 
@@ -303,7 +311,10 @@ export const StyledOutsideHelpersWrapper = styled.div`
     display: flex;
     justify-content: space-between;
 
-    padding-top: var(${tokens.clearHelpersPaddingTop});
+    padding-top: var(${tokens.outsideHelpersPaddingTop});
+    padding-right: var(${tokens.outsideHelpersPaddingRight});
+    padding-bottom: var(${tokens.outsideHelpersPaddingBottom});
+    padding-left: var(${tokens.outsideHelpersPaddingLeft});
 `;
 
 export const StyledLeftHelper = styled.span`
@@ -344,7 +355,7 @@ export const StyledPlaceholder = styled.label<{
     transition: all 0.1s ease-in-out;
     transform-origin: top left;
 
-    color: var(${tokens.placeholderColor});
+    color: var(${tokens.labelInnerColor}, var(${tokens.placeholderColor}));
 
     width: 100%;
     height: auto;
