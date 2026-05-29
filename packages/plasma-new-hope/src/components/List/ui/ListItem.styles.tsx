@@ -3,6 +3,7 @@ import { addFocus } from 'src/mixins';
 
 import { tokens, classes } from '../List.tokens';
 import { cellConfig, cellTokens } from '../../Cell';
+import { CellContentWrapper } from '../../Cell/Cell.styles';
 import { component, mergeConfig } from '../../../engines';
 
 const mergedCellConfig = mergeConfig(cellConfig);
@@ -13,7 +14,7 @@ export const CellItem = styled(Cell)`
 
     ${cellTokens.cellPadding}: 0rem;
     ${cellTokens.cellPaddingLeftContent}: 0rem;
-    ${cellTokens.cellPaddingContent}: 0rem;
+    ${cellTokens.cellPaddingContent}: var(${tokens.listItemContentPadding});
     ${cellTokens.cellPaddingRightContent}: 0rem;
 
     ${cellTokens.cellTextboxGap}: 0rem;
@@ -26,12 +27,14 @@ export const StyledListItem = styled.li`
     padding: var(${tokens.listItemPaddingTop}) var(${tokens.listItemPaddingRight}) var(${tokens.listItemPaddingBottom})
         var(${tokens.listItemPaddingLeft});
     border-radius: var(${tokens.listItemBorderRadius});
-    background: var(${tokens.listItemBackground});
+    background: transparent;
     border: var(${tokens.listItemBorderWidth}) solid var(${tokens.listItemBorderColor});
 
     outline: none;
+    position: relative;
 
     box-sizing: border-box;
+    min-width: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,6 +46,24 @@ export const StyledListItem = styled.li`
     font-style: var(${tokens.listItemFontStyle});
     line-height: var(${tokens.listItemLineHeight});
     letter-spacing: var(${tokens.listItemLetterSpacing});
+
+    &.${classes.hasItemBackground} {
+        background: var(${tokens.listItemBackground});
+    }
+
+    &.${classes.hasItemDivider} ${CellContentWrapper} {
+        position: relative;
+    }
+
+    &.${classes.hasItemDivider}:not(:last-child) ${CellContentWrapper}::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: calc(-1 * (var(${tokens.listItemPaddingBottom}) + var(${tokens.listItemDividerWidth})));
+        height: var(${tokens.listItemDividerWidth});
+        background: var(${tokens.listItemDividerColor});
+    }
 
     &:not(.${classes.disabledListItem}):hover {
         background: var(${tokens.listItemBackgroundHover});

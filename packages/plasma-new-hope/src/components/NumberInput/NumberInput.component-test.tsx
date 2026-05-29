@@ -301,4 +301,59 @@ describeFn('NumberInput', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('input is keyboard-focusable when isManualInput is false', () => {
+        mount(<InteractiveNumberInput value={5} min={0} max={10} />);
+        cy.get('input').should('have.attr', 'tabindex', '0');
+    });
+
+    it('buttons are not keyboard-focusable', () => {
+        mount(<InteractiveNumberInput value={5} min={0} max={10} />);
+        cy.get('button').first().should('have.attr', 'tabindex', '-1');
+        cy.get('button').last().should('have.attr', 'tabindex', '-1');
+    });
+
+    it('arrow up increments value', () => {
+        mount(<InteractiveNumberInput value={5} min={0} max={10} />);
+        cy.get('input').focus().trigger('keydown', { keyCode: 38, which: 38, key: 'ArrowUp', force: true });
+        cy.get('input').should('have.value', '6');
+    });
+
+    it('arrow down decrements value', () => {
+        mount(<InteractiveNumberInput value={5} min={0} max={10} />);
+        cy.get('input').focus().trigger('keydown', { keyCode: 40, which: 40, key: 'ArrowDown', force: true });
+        cy.get('input').should('have.value', '4');
+    });
+
+    it('arrow up/down respect min/max', () => {
+        mount(<InteractiveNumberInput value={0} min={0} max={10} />);
+        cy.get('input').focus().trigger('keydown', { keyCode: 40, which: 40, key: 'ArrowDown', force: true });
+        cy.get('input').should('have.value', '0');
+
+        mount(<InteractiveNumberInput value={10} min={0} max={10} />);
+        cy.get('input').focus().trigger('keydown', { keyCode: 38, which: 38, key: 'ArrowUp', force: true });
+        cy.get('input').should('have.value', '10');
+    });
+
+    it('displayWithoutValue=increment, click focuses input', () => {
+        mount(<InteractiveNumberInput min={0} max={10} displayWithoutValue="increment" />);
+        cy.get('button').click();
+        cy.focused().should('match', 'input');
+    });
+
+    it('displayWithoutValue=decrement, click focuses input', () => {
+        mount(<InteractiveNumberInput min={0} max={10} displayWithoutValue="decrement" />);
+        cy.get('button').click();
+        cy.focused().should('match', 'input');
+    });
+
+    it('displayWithoutValue=increment button is keyboard-focusable', () => {
+        mount(<InteractiveNumberInput min={0} max={10} displayWithoutValue="increment" />);
+        cy.get('button').last().should('have.attr', 'tabindex', '0');
+    });
+
+    it('displayWithoutValue=decrement button is keyboard-focusable', () => {
+        mount(<InteractiveNumberInput min={0} max={10} displayWithoutValue="decrement" />);
+        cy.get('button').first().should('have.attr', 'tabindex', '0');
+    });
 });

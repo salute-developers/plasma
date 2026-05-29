@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { component, mergeConfig } from '../../../../engines';
 import { spinnerConfig } from '../../../Spinner';
+import { tokens } from '../../NumberInput.tokens';
 
 const mergedConfig = mergeConfig(spinnerConfig);
 const Spinner = component(mergedConfig);
@@ -47,9 +48,12 @@ export const Input = styled.input<{ dynamicWidth: string; isManualInput: boolean
     padding: 0;
     background-color: transparent;
     outline: none;
+    font: inherit;
+    text-align: center;
     width: ${({ dynamicWidth }) => dynamicWidth};
     cursor: ${({ isManualInput }) => (isManualInput ? 'text' : 'default')};
     pointer-events: ${({ isManualInput }) => (isManualInput ? 'initial' : 'none')};
+    caret-color: ${({ isManualInput }) => (isManualInput ? `var(${tokens.caretColor})` : 'transparent')};
     transition: width 0.1s;
 `;
 

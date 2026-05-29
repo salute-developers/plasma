@@ -4,18 +4,25 @@ title: Progress
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Progress
 <Description name="Progress" />
 <PropsTable name="Progress" exclude={['css']} />
 
-##Примеры
+## Примеры
 
 ### Вид прогресса
+
 Вид прогресса задается с помощью свойства `view`. Возможные значения свойства `view`:
 + `"default"` – по умолчанию;
++ `"secondary"` – вторичная;
 + `"accent"` – акцентная;
++ `"accentGradient"` – градиентная;
++ `"info"` – информирующая;
 + `"positive"` – успешное завершение;
++ `"warning"` – предупреждение;
 + `"negative"` – ошибка;
 
 ```tsx live
@@ -24,7 +31,175 @@ import { Progress } from '@salutejs/sdds-cs';
 
 export function App() {
     return (
-        <Progress value={25} view="accent" displayValue />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <Progress value={25} label="Accent" view="accent" hasValue />
+            <Progress value={52} label="Positive" view="positive" hasValue />
+            <Progress value={40} label="Warning" view="warning" hasValue />
+            <Progress value={67} label="Negative" view="negative" hasValue />
+        </div>
+    );
+}
+```
+
+### Числовое значение
+
+:::caution Устаревшее свойство displayValue
+Свойство `displayValue` устарело. Используйте вместо него `hasValue`.
+
+Устаревшее свойство будет удалено в будущих версиях.
+:::
+
+Числовое значение отображается через свойство `hasValue`. Его положение управляется свойством `valuePlacement` — только когда метка не передана:
++ `"top"` – над треком;
++ `"right"` – справа от трека (по умолчанию);
++ `"none"` – значение не отображается.
+
+Когда метка присутствует, положение определяется автоматически из `labelPlacement`.
+
+Когда метка отсутствует и `valuePlacement="top"`, горизонтальное выравнивание значения управляется свойством `valueAlign`:
++ `"start"` – по левому краю (по умолчанию);
++ `"center"` – по центру;
++ `"end"` – по правому краю.
+
+<Tabs>
+    <TabItem value="valuePlacement" label="valuePlacement" default>
+        ```tsx live
+        import React from 'react';
+        import { Progress } from '@salutejs/sdds-cs';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <Progress value={60} valuePlacement="top" hasValue />
+                    <Progress value={60} valuePlacement="right" hasValue />
+                    <Progress value={60} valuePlacement="none" hasValue />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="valueAlign" label="valueAlign">
+        ```tsx live
+        import React from 'react';
+        import { Progress } from '@salutejs/sdds-cs';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <Progress value={60} valuePlacement="top" valueAlign="start" hasValue />
+                    <Progress value={60} valuePlacement="top" valueAlign="center" hasValue />
+                    <Progress value={60} valuePlacement="top" valueAlign="end" hasValue />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Метка прогресса
+
+Текстовая метка задаётся через свойство `label`. Её положение относительно трека управляется свойством `labelPlacement`:
++ `"top"` – над треком (по умолчанию). Числовое значение отображается над треком, справа от метки.
++ `"left"` – слева от трека в одну строку. Числовое значение отображается справа от трека.
++ `"none"` – метка не отображается.
+
+При наличии метки положение числового значения определяется автоматически из `labelPlacement` и не зависит от `valuePlacement`.
+
+Дополнительный элемент рядом с текстом метки передаётся через `labelIcon`. Положение текста относительно элемента управляется свойством `labelTextPlacement`:
++ `"right"` – текст справа от иконки (по умолчанию);
++ `"left"` – текст слева от иконки;
++ `"none"` – текст не отображается.
+
+Иконка без текстовой метки — передать `labelIcon` без `label`.
+
+<Tabs>
+    <TabItem value="labelPlacement" label="labelPlacement" default>
+        ```tsx live
+        import React from 'react';
+        import { Progress } from '@salutejs/sdds-cs';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <Progress value={40} label="Загрузка" labelPlacement="top" hasValue />
+                    <Progress value={40} label="Загрузка" labelPlacement="left" hasValue />
+                    <Progress value={40} label="Загрузка" labelPlacement="none" hasValue />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="labelIcon" label="labelIcon">
+        ```tsx live
+        import React from 'react';
+        import { Progress } from '@salutejs/sdds-cs';
+        import { IconDownload } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <Progress
+                        value={40}
+                        labelIcon={<IconDownload size="s" color="inherit" />}
+                        label="Загрузка"
+                        labelTextPlacement="right"
+                        labelPlacement="top"
+                        hasValue
+                    />
+                    <Progress
+                        value={40}
+                        labelIcon={<IconDownload size="s" color="inherit" />}
+                        label="Загрузка"
+                        labelTextPlacement="left"
+                        labelPlacement="top"
+                        hasValue
+                    />
+                    <Progress
+                        value={40}
+                        labelIcon={<IconDownload size="s" color="inherit" />}
+                        labelPlacement="top"
+                        hasValue
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Высота линии прогресса
+
+Высота линии задаётся через `progressSize` (2, 4, 6, 8 пикселей).
+
+```tsx live
+import React from 'react';
+import { Progress } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <Progress value={60} label="2px" progressSize="2" hasValue />
+            <Progress value={60} label="4px" progressSize="4" hasValue />
+            <Progress value={60} label="6px" progressSize="6" hasValue />
+            <Progress value={60} label="8px" progressSize="8" hasValue />
+        </div>
+    );
+}
+```
+
+### Подпись
+
+Дополнительная подпись под треком задаётся свойством `caption`.
+
+```tsx live
+import React from 'react';
+import { Progress } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <div style={{ display: 'block' }}>
+            <Progress value={75} label="Загрузка файла" caption="Осталось 2 минуты" hasValue />
+        </div>
     );
 }
 ```

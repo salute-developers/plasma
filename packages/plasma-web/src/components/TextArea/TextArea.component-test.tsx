@@ -168,12 +168,12 @@ describe('plasma-web: TextArea', () => {
                                     placeholder="Placeholder"
                                     label="Title"
                                     size={size}
-                                    height="2.5rem"
+                                    height="4.5rem"
                                     hintText="Подсказка к полю"
                                     hintTrigger="click"
                                     {...props}
                                 />
-                                <SpaceMe />
+                                <PadMe />
                             </div>
                         ))}
                     </CypressTestDecoratorWithTypo>,

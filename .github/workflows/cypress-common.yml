@@ -83,19 +83,23 @@ jobs:
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
+        env:
+          PACKAGE_NAME: ${{ inputs.prefix }}-${{ inputs.scope }}
+          BROWSER: ${{ inputs.browser }}
+          WEBPACK_CACHE_ENABLED: 'true'
+          COMPONENTS: ${{ inputs.components }}
         run: |
-          BROWSER_SUFFIX="${{ inputs.browser != '' && format(':{0}', inputs.browser) || '' }}"
           if [ "${{ inputs.test-all }}" = "true" ]; then
             echo "Force run: running all components"
-            npm run cy:${{ inputs.scope }}:run${BROWSER_SUFFIX} --webpack_cache_enabled=true
+            npm run cy:run
           elif [ -n "${{ inputs.components }}" ] && [ "${{ steps.check-test-files-exist.outputs.tests-exist }}" = "true" ]; then
             echo "Running Cypress for specific components: ${{ inputs.components }}"
-            npm run cy:${{ inputs.scope }}:run${BROWSER_SUFFIX} --components="${{ inputs.components }}" --webpack_cache_enabled=true
+            npm run cy:run
           elif [ -z "${{ inputs.components }}" ]; then
             echo "Running Cypress for all components"
-            npm run cy:${{ inputs.scope }}:run${BROWSER_SUFFIX} --webpack_cache_enabled=true
+            npm run cy:run
           else
-              echo "Skipping Cypress: No test files found for specified components"
+            echo "Skipping Cypress: No test files found for specified components"
           fi
 
       - name: Reorganize diff artifacts

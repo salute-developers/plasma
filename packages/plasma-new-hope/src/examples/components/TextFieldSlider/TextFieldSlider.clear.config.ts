@@ -60,6 +60,7 @@ export const config = {
                 ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem var(--surface-solid-default);
 
                 ${tokens.scaleValueColor}: var(--text-secondary);
+                ${tokens.scaleTickDotColor}: var(--surface-solid-tertiary);
             `,
             positive: css`
                 ${tokens.textFieldColor}: var(--text-primary);
@@ -111,6 +112,7 @@ export const config = {
                 ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem var(--surface-solid-default);
 
                 ${tokens.scaleValueColor}: var(--text-positive);
+                ${tokens.scaleTickDotColor}: var(--surface-solid-tertiary);
             `,
             warning: css`
                 ${tokens.textFieldColor}: var(--text-primary);
@@ -162,6 +164,7 @@ export const config = {
                 ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem var(--surface-solid-default);
 
                 ${tokens.scaleValueColor}: var(--text-secondary);
+                ${tokens.scaleTickDotColor}: var(--surface-solid-tertiary);
             `,
             negative: css`
                 ${tokens.textFieldColor}: var(--text-primary);
@@ -213,17 +216,21 @@ export const config = {
                 ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem var(--surface-solid-default);
 
                 ${tokens.scaleValueColor}: var(--text-negative);
+                ${tokens.scaleTickDotColor}: var(--surface-solid-tertiary);
             `,
         },
         sliderView: {
             default: css`
                 ${tokens.sliderProgressBackground}: var(--surface-solid-default);
+                ${tokens.scaleTickDotFilledColor}: var(--surface-solid-default);
             `,
             accent: css`
                 ${tokens.sliderProgressBackground}: var(--surface-accent);
+                ${tokens.scaleTickDotFilledColor}: var(--surface-accent);
             `,
             gradient: css`
                 ${tokens.sliderProgressBackground}: var(--surface-accent-gradient);
+                ${tokens.scaleTickDotFilledColor}: var(--surface-accent-gradient);
             `,
         },
         size: {
@@ -296,6 +303,7 @@ export const config = {
                 ${tokens.scaleValueFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
             l: css`
                 ${tokens.textFieldHeight}: 3.5rem;
@@ -366,6 +374,7 @@ export const config = {
                 ${tokens.scaleValueFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
             m: css`
                 ${tokens.textFieldHeight}: 3rem;
@@ -436,6 +445,7 @@ export const config = {
                 ${tokens.scaleValueFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
             s: css`
                 ${tokens.textFieldHeight}: 2.5rem;
@@ -506,6 +516,7 @@ export const config = {
                 ${tokens.scaleValueFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
             xs: css`
                 ${tokens.textFieldHeight}: 2rem;
@@ -576,6 +587,7 @@ export const config = {
                 ${tokens.scaleValueFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.scaleValueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.scaleValueLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.scaleTickSize}: 0.5rem;
             `,
         },
         hintView: {

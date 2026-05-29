@@ -40,6 +40,10 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
             onChange,
             onBlur,
             onKeyDown,
+            onDecrementKey,
+            onIncrementKey,
+            shouldFocusInput,
+            onFocusHandled,
             ...rest
         },
         ref,
@@ -80,7 +84,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
         };
 
         const validateValue = (newValue: number | string | undefined) => {
-            if (!newValue || !isNumber(newValue)) {
+            if (!newValue?.toString() || !isNumber(newValue)) {
                 setValues(null, '');
                 setIsAnimationRun(false);
                 return;
@@ -172,7 +176,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
             }
 
             if (!isInputFocused) {
-                inputRef.current.select();
+                inputRef.current.focus();
             }
 
             setIsInputFocused(true);
@@ -187,8 +191,27 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
             }
         };
 
+        const handleFocus = () => {
+            if (isManualInput && !isInputFocused) {
+                inputRef.current?.select();
+            }
+            setIsInputFocused(true);
+        };
+
         const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-            if (!isManualInput || disabled) {
+            if (disabled) {
+                return;
+            }
+
+            if (event.keyCode === keyCodes.Up && onIncrementKey) {
+                event.preventDefault();
+                onIncrementKey();
+                return;
+            }
+
+            if (event.keyCode === keyCodes.Down && onDecrementKey) {
+                event.preventDefault();
+                onDecrementKey();
                 return;
             }
 
@@ -219,6 +242,13 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
             setDynamicWidth(getInputWidth(false));
         }, [value]);
 
+        useEffect(() => {
+            if (shouldFocusInput && inputRef.current) {
+                inputRef.current.focus();
+                onFocusHandled?.();
+            }
+        }, [shouldFocusInput]);
+
         return (
             <InputWrapper
                 ref={wrapperRef}
@@ -239,8 +269,9 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
                                 dynamicWidth={dynamicWidth}
                                 value={value}
                                 isManualInput={Boolean(isManualInput)}
-                                tabIndex={disabled || !isManualInput ? -1 : 0}
+                                tabIndex={disabled ? -1 : 0}
                                 onChange={handleManualInputChange}
+                                onFocus={handleFocus}
                                 onBlur={handleBlur}
                                 onKeyDown={handleKeyDown}
                                 onAnimationEnd={() => handleEndErrorAnimation(Number(errorValue))}

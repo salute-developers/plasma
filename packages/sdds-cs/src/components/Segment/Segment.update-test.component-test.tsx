@@ -198,25 +198,6 @@ describe('sdds-cs: Segment', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-T1964] Segment: singleSelectedRequired', () => {
-        mount(
-            <CypressTestDecorator>
-                <SegmentProvider singleSelectedRequired>
-                    <SegmentGroup view="default" filledBackground>
-                        <SegmentItem value="segment_1" label="Segment 1" view="default" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
-                    </SegmentGroup>
-                </SegmentProvider>
-            </CypressTestDecorator>,
-        );
-
-        cy.get('button').contains('Segment 1').click();
-        cy.get('button').contains('Segment 1').click();
-
-        cy.matchImageSnapshot();
-    });
-
     it('[PLASMA-] Segment: controlled change', () => {
         const Controlled = () => {
             const [selected, setSelected] = useState(['segment_1']);

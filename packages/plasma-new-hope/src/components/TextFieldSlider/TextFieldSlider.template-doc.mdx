@@ -142,6 +142,62 @@ export function App() {
 }
 ```
 
+## Метки на шкале
+
+С помощью свойства `scaleTicks` можно задать массив числовых значений для отображения меток (точек и подписей) под слайдером. Точки закрашиваются в зависимости от текущего значения: отмечены те, которые меньше или равны ему. Клик по метке перемещает слайдер к соответствующему значению. При использовании `scaleTicks` минимум и максимум из `hasScale` не отображаются.
+
+<Tabs>
+    <TabItem value="basic" label="Основное" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { TextFieldSlider } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const [value, setValue] = useState(50);
+
+            return (
+                <div>
+                    <TextFieldSlider
+                        min={0}
+                        max={100}
+                        step={1}
+                        value={value}
+                        scaleTicks={[0, 25, 50, 75, 100]}
+                        onChange={(_, values) => setValue(values.raw)}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="formatted" label="С форматированием">
+        Метки отображаются с учётом настроек форматирования (`thousandSeparator`, `decimalScale` и др.):
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { TextFieldSlider } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const [value, setValue] = useState(5000);
+
+            return (
+                <div>
+                    <TextFieldSlider
+                        min={0}
+                        max={10000}
+                        step={1000}
+                        value={value}
+                        thousandSeparator=" "
+                        scaleTicks={[0, 2500, 5000, 7500, 10000]}
+                        onChange={(_, values) => setValue(values.raw)}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ## Шаг изменения
 
 С помощью свойства `step` можно задать шаг изменения значения:

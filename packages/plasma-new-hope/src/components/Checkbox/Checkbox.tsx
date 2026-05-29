@@ -33,6 +33,8 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
             description,
             indeterminate,
             appearance,
+            checkIcon,
+            indeterminateIcon,
             style,
             className,
             singleLine = false,
@@ -75,6 +77,10 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
 
         // Временное решение
         const getIcon = () => {
+            if (checkIcon) {
+                return checkIcon;
+            }
+
             if (appearance === 'outline') {
                 return <DoneThin />;
             }
@@ -83,6 +89,10 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
         };
 
         const getIndeterminate = () => {
+            if (indeterminateIcon) {
+                return indeterminateIcon;
+            }
+
             if (appearance === 'outline') {
                 return <IndeterminateThin />;
             }

@@ -1,6 +1,3 @@
-export {
-    comboboxTokens as comboboxNewTokens,
-    comboboxRoot as comboboxNewRoot,
-    comboboxConfig as comboboxNewConfig,
-} from './ComboboxNew';
-export type { ComboboxItemOption, ComboboxProps } from './ComboboxNew';
+export { comboboxRoot, comboboxConfig } from './Combobox';
+export { tokens as comboboxTokens } from './Combobox.tokens';
+export type { ComboboxProps, ItemOption as ComboboxItemOption } from './Combobox.types';

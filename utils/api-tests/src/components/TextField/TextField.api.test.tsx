@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ComponentProps, ReactNode, CSSProperties, AriaRole, ReactElement, KeyboardEvent } from 'react';
 import { useState } from 'react';
-import { describe, it } from 'vitest';
+import { describe, it } from 'node:test';
 import { expectTypeOf } from 'expect-type';
 import { TextField } from '@salutejs/plasma-b2c';
 

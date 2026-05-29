@@ -48,7 +48,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
     ${textFieldTokens.borderColorReadOnly}: var(${tokens.textFieldBorderColorReadOnly});
     ${textFieldTokens.placeholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
-
+    
     ${textFieldTokens.height}: var(${tokens.textFieldHeight});
     ${textFieldTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
     ${textFieldTokens.borderRadius}: var(${tokens.textFieldBorderRadius});

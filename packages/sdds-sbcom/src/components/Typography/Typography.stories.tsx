@@ -2,7 +2,7 @@ import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { DsplS, H1, H2, H3, H4, BodyL, BodyM, BodyS, BodyXS, BodyXXS } from '.';
+import { DsplS, H1, H2, H3, H4, HXlMedium, HXxlMedium, BodyL, BodyM, BodyS, BodyXS, BodyXXS } from '.';
 
 const meta: Meta = {
     title: 'Data Display/⚠️ Typography',
@@ -112,6 +112,36 @@ export const H: Story = {
             <H4 isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
                 1234567890
             </H4>
+            <HXlMedium isItalic={enableFontStyleItalic} bold={false} {...rest}>
+                Hxl
+            </HXlMedium>
+            <HXlMedium isItalic={enableFontStyleItalic} medium {...rest}>
+                Hxl Medium
+            </HXlMedium>
+            <HXlMedium isItalic={enableFontStyleItalic} {...rest}>
+                Hxl
+            </HXlMedium>
+            <HXlMedium isItalic={enableFontStyleItalic} extraBold {...rest}>
+                Hxl Extra Bold
+            </HXlMedium>
+            <HXlMedium isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
+                Hxl - 1234567890
+            </HXlMedium>
+            <HXxlMedium isItalic={enableFontStyleItalic} bold={false} {...rest}>
+                Hxxl
+            </HXxlMedium>
+            <HXxlMedium isItalic={enableFontStyleItalic} medium {...rest}>
+                Hxxl Medium
+            </HXxlMedium>
+            <HXxlMedium isItalic={enableFontStyleItalic} {...rest}>
+                Hxxl
+            </HXxlMedium>
+            <HXxlMedium isItalic={enableFontStyleItalic} extraBold {...rest}>
+                Hxxl Extra Bold
+            </HXxlMedium>
+            <HXxlMedium isItalic={enableFontStyleItalic} bold={false} isNumeric {...rest}>
+                Hxxl - 1234567890
+            </HXxlMedium>
         </>
     ),
 };

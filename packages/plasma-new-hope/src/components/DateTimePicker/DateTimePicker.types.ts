@@ -82,7 +82,8 @@ export type InputProps = {
     onSearch?: (event?: KeyboardEvent<HTMLInputElement>, value?: string) => void;
 } & Omit<DatePickerTextFieldProps, 'onChange' | 'onChangeValue' | 'onCommitDate'> &
     LabelProps &
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'defaultValue' | 'value' | 'size'>;
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'defaultValue' | 'value' | 'size'> &
+    Pick<VariationProps, 'appearance' | 'hasClearDivider'>;
 
 export type PopoverProps = Omit<DatePickerPopoverProps, 'isOpen' | 'closeAfterDateSelect'> &
     Pick<DatePickerCalendarProps, 'calendarContainerWidth' | 'calendarContainerHeight'>;
@@ -133,6 +134,17 @@ export type CalendarProps = {
 } & Omit<DatePickerCalendarProps, 'format' | 'maskWithFormat' | 'calendarContainerWidth' | 'calendarContainerHeight'>;
 
 type VariationProps = {
+    /**
+     * Стиль для UI конфигурации
+     * Влияет на выбор предустановленного набора токенов
+     * @default 'default'
+     */
+    appearance?: 'default' | 'clear';
+    /**
+     * Флаг наличия разделителя для clear appearance
+     * @default false
+     */
+    hasClearDivider?: boolean;
     /**
      * Размер компонента.
      */

@@ -4,6 +4,8 @@ title: TimePicker
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # TimePicker
 <Description name="TimePicker" />
@@ -32,25 +34,63 @@ export function App() {
 }
 ```
 
-### Управление внешним видом и размером компонента
+### Управление внешним видом
 
-С помощью свойств:
-- `view` - задается внешний вид
-- `size` - можно менять размер компонента (xs, s)
+Внешний вид компонента зависит от свойств `appearance`, `size`:
 
-```tsx live
-import React from 'react';
-import { TimePicker } from '@salutejs/sdds-finai';
+<Tabs>
+    <TabItem value="appearance" label="Appearance" default>
+        При `appearance="clear"` можно дополнительно включить разделитель с помощью свойства `hasClearDivider`.
 
-export function App() {
-    return (
-        <div style={{ display: "flex", flexDirection: "column", gap: "32px"}}>
-            <TimePicker view="default" size="s" placeholder="Маленький размер" />
-            <TimePicker view="default" size="xs" placeholder="Очень маленький размер" />
-        </div>
-    );
-}
-```
+        ```tsx live
+        import React from 'react';
+        import { TimePicker } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: "flex", flexDirection: "column", gap: "32px", height: '500px' }}>
+                    <TimePicker
+                        appearance="default"
+                        size="s"
+                        label="Default"
+                        placeholder="00:00:00"
+                    />
+                    <TimePicker
+                        appearance="clear"
+                        size="s"
+                        label="Clear"
+                        placeholder="00:00:00"
+                    />
+                    <TimePicker
+                        appearance="clear"
+                        hasClearDivider
+                        size="s"
+                        label="Clear с разделителем"
+                        placeholder="00:00:00"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        Размер `TimePicker` задаётся с помощью свойства `size`.
+
+        ```tsx live
+        import React from 'react';
+        import { TimePicker } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: "flex", flexDirection: "column", gap: "32px"}}>
+                    <TimePicker view="default" size="s" placeholder="Маленький размер" />
+                    <TimePicker view="default" size="xs" placeholder="Очень маленький размер" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
 
 ### Управление форматом времени (с секундами или без)
 

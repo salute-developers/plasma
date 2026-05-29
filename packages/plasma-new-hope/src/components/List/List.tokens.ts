@@ -6,11 +6,18 @@ export const classes = {
     tightListItem: 'list-item-tight',
     disabledList: 'list-item-disabled',
     disabledListItem: 'list-item-disabled-item',
+    hasListBackground: 'list-has-background',
+    hasItemBackground: 'list-item-has-background',
+    hasItemDivider: 'list-item-has-divider',
 };
 
 export const tokens = {
     listGap: '--plasma-list-gap',
     listWidth: '--plasma-list-width',
+
+    listBackground: '--plasma-list-background',
+    listBorderRadius: '--plasma-list-border-radius',
+    listPadding: '--plasma-list-padding',
 
     listItemBackground: '--plasma-list-item-background',
     listItemBackgroundHover: '--plasma-list-item-background-hover',
@@ -19,6 +26,7 @@ export const tokens = {
     listItemPaddingRight: '--plasma-list-item-padding-right',
     listItemPaddingTop: '--plasma-list-item-padding-top',
     listItemPaddingBottom: '--plasma-list-item-padding-bottom',
+    listItemContentPadding: '--plasma-list-item-content-padding',
     listItemBorderColor: '--plasma-list-item-border-color',
     listItemBorderColorHover: '--plasma-list-item-border-color-hover',
     listItemBorderWidth: '--plasma-list-item-border-width',
@@ -37,6 +45,9 @@ export const tokens = {
     listItemLineHeight: '--plasma-list-item-line-height',
 
     listItemFocusColor: '--plasma-list-item-focus-color',
+
+    listItemDividerColor: '--plasma-list-item-divider-color',
+    listItemDividerWidth: '--plasma-list-item-divider-width',
 
     listDisabledOpacity: '--plasma-list-disabled-opacity',
 };

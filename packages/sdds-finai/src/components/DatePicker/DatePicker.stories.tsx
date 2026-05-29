@@ -2,14 +2,14 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getDatePickerStories } from '@salutejs/plasma-sb-utils';
-import { IconCalendarOutline } from '@salutejs/plasma-icons';
+import { IconCalendarOutline, IconLockOutline } from '@salutejs/plasma-icons';
 
 import { DatePicker } from './DatePicker';
 import { config } from './DatePicker.config';
 
 type DatePickerProps = ComponentProps<typeof DatePicker>;
 
-const { meta: META, Default: DefaultStory } = getDatePickerStories({
+const { meta: META, Default } = getDatePickerStories({
     component: DatePicker,
     componentConfig: config,
     disablePropsList: [
@@ -25,6 +25,13 @@ const { meta: META, Default: DefaultStory } = getDatePickerStories({
         size: 's',
         enableContentLeft: false,
     },
+    customIcon: (size: string, _type?: 'left' | 'right', disabled?: boolean) => {
+        const iconSize = size === 'xs' ? 'xs' : 's';
+        if (disabled) {
+            return <IconLockOutline size={iconSize} color="inherit" />;
+        }
+        return <IconCalendarOutline size={iconSize} color="inherit" />;
+    },
 });
 
 const meta: Meta<DatePickerProps> = {
@@ -34,16 +41,4 @@ const meta: Meta<DatePickerProps> = {
 
 export default meta;
 
-export const Default = {
-    ...DefaultStory,
-    render: (args: DatePickerProps) => (
-        <DatePicker
-            {...args}
-            contentRight={
-                args.enableContentRight ? (
-                    <IconCalendarOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />
-                ) : undefined
-            }
-        />
-    ),
-};
+export { Default };

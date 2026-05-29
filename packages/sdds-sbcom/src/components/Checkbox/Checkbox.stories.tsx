@@ -14,8 +14,7 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const { sizes } = getConfigVariations(config);
-const views = ['accent', 'negative'];
+const { views, sizes } = getConfigVariations(config);
 
 const propsToDisable = [
     'name',

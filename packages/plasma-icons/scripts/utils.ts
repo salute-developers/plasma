@@ -52,6 +52,7 @@ export const prettify = (source: string) => prettier.format(source, prettierSett
  */
 export const getIconAsset = (source: string, iconName: string) => {
     const viewBox = getViewBox(source);
+
     const svgContent = compose(
         removeLineBreak,
         getSvgContent,
@@ -111,6 +112,36 @@ export const ${iconName}: React.FC<IconProps> = (props) => (
     </s.Svg>
 );
 `);
+};
+
+/**
+ * Функция генерации файла `/Icons.<size>/Icon<Name>.tsx` — single-size компонент,
+ * тянущий ровно один ассет вместо всех трёх. Это позволяет потребителю выбрать
+ * нужный размер через subpath-импорт (`@salutejs/plasma-icons/16|24|36`) и
+ * tree-shaking-ом убрать остальные размеры из бандла.
+ */
+export const getSingleSizeIconComponent = (
+    iconName: string,
+    size: 16 | 24 | 36,
+    options?: { deprecated?: boolean; replacement?: string },
+) => {
+    const sizeProp = size === 16 ? 'xs' : size === 24 ? 's' : 'm';
+    const deprecationBlock = options?.deprecated
+        ? `/**
+ * @deprecated Эта иконка устарела
+ * @see используете вместо этого ${options.replacement}
+ */
+`
+        : '';
+    return `import React from 'react';
+
+import { ${iconName} as Asset } from '../Icon.assets.${size}/${iconName}';
+import { IconProps, IconRoot } from '../IconRoot';
+
+${deprecationBlock}export const Icon${iconName}: React.FC<IconProps> = ({ size = '${sizeProp}', color, className, style, ...rest }) => (
+    <IconRoot className={className} size={size} color={color} style={style} icon={Asset} {...rest} />
+);
+`;
 };
 
 /**

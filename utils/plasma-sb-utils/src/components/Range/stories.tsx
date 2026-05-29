@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { ChangeEvent } from 'react';
 import { action } from 'storybook/actions';
 import { IconPlasma, IconArrowRight, IconDisclosureRight } from '@salutejs/plasma-icons';
+import type { IconProps } from '@salutejs/plasma-icons';
 
 const onChangeFirstValue = action('onChangeFirstValue');
 const onChangeSecondValue = action('onChangeSecondValue');
@@ -16,7 +17,14 @@ const getIconSize = (size?: string) => {
     return size === 'xs' ? 'xs' : 's';
 };
 
-export const createDefaultStory = (Range: any) => {
+const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
+    return <IconComponent size={getIconSize(size)} color="inherit" />;
+};
+
+export const createDefaultStory = (
+    Range: any,
+    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element,
+) => {
     return ({
         dividerVariant,
         enableContentLeft,
@@ -41,6 +49,14 @@ export const createDefaultStory = (Range: any) => {
         const showDividerIcon = dividerVariant === 'icon';
         const showDefaultTextBefore = dividerVariant === 'none';
 
+        const defaultIconsByType = { left: IconPlasma, right: IconDisclosureRight };
+
+        const innerGetIcon = (type: 'left' | 'right') => {
+            return customIcon
+                ? customIcon(size, type, rest.disabled, rest.readOnly)
+                : getIcon(defaultIconsByType[type], size);
+        };
+
         const dividerIconProps = {
             dividerIcon: showDividerIcon ? <IconArrowRight color="inherit" size={iconSize} /> : null,
             dividerVariant,
@@ -60,10 +76,8 @@ export const createDefaultStory = (Range: any) => {
                 hasRequiredIndicator={rest.required && hasRequiredIndicator}
                 firstValue={firstValue}
                 secondValue={secondValue}
-                contentLeft={enableContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined}
-                contentRight={
-                    enableContentRight ? <IconDisclosureRight color="inherit" size={getIconSize(size)} /> : undefined
-                }
+                contentLeft={enableContentLeft ? innerGetIcon('left') : undefined}
+                contentRight={enableContentRight ? innerGetIcon('right') : undefined}
                 firstTextfieldContentLeft={
                     enableFirstTextfieldContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined
                 }

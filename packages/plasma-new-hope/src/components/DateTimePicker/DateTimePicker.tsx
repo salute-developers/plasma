@@ -33,6 +33,8 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 view,
                 readOnly = false,
                 disabled = false,
+                appearance,
+                hasClearDivider,
 
                 // popover props
                 opened: outerOpened,
@@ -258,6 +260,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 autoComplete={autoComplete}
                                 readOnly={readOnly}
                                 disabled={disabled}
+                                hasClearDivider={appearance === 'clear' && hasClearDivider}
                                 onChange={handleChangeValue}
                                 onSearch={(e) => handleSearch(e?.currentTarget?.value)}
                                 onFocus={onFocus}

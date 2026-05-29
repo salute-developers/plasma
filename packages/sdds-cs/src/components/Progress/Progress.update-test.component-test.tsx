@@ -16,10 +16,10 @@ describe('sdds-cs: Progress', () => {
         cy.matchImageSnapshot();
     });
 
-    it('[PLASMA-1511] Progress: view=positive, value=50, without displayValue', () => {
+    it('[PLASMA-1511] Progress: view=positive, value=50, without hasValue', () => {
         mount(
             <CypressTestDecorator>
-                <Progress value={50} displayValue={false} view="positive" />
+                <Progress value={50} hasValue={false} view="positive" />
             </CypressTestDecorator>,
         );
 
