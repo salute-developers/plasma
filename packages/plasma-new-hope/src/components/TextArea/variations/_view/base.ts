@@ -23,8 +23,8 @@ export const base = css`
         transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
         box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.inputBorderColor});
 
-        /* INFO: Отступ справа, чтобы scrollbar не перекрывал рамку */
-        padding-right: var(${tokens.borderSize}, 1px);
+        /* INFO: Отступ справа, чтобы scrollbar не перекрывал рамку и был отступ от края */
+        padding-right: calc(var(${tokens.borderSize}, 1px) + var(${tokens.scrollbarMarginRight}, 0px));
     }
 
     &:focus-within:not([readonly]) .${styledTextAreaWrapper} {

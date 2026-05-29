@@ -128,6 +128,7 @@ export const StyledContent = styled.div<{ hasHeader?: boolean }>`
     position: absolute;
     display: flex;
     align-items: center;
+    justify-content: center;
     z-index: 1;
 
     color: var(${tokens.rightContentColor});
@@ -136,6 +137,7 @@ export const StyledContent = styled.div<{ hasHeader?: boolean }>`
     right: var(${tokens.rightContentRight});
 
     height: var(${tokens.rightContentHeight});
+    width: var(${tokens.rightContentWidth}, auto);
 
     &:hover {
         color: var(${tokens.rightContentColorHover});
@@ -233,14 +235,14 @@ export const StyledTextArea = styled.textarea<{
         background-color: var(${tokens.scrollbarThumbBackgroundColor});
         background-clip: content-box;
         border: var(${tokens.scrollbarBorderWidth}) solid transparent;
-        border-radius: 1rem;
+        border-radius: var(${tokens.scrollbarBorderRadius}, 1rem);
     }
 
     &::-webkit-scrollbar-track {
         background-color: var(${tokens.scrollbarTrackBackgroundColor});
         background-clip: content-box;
         border: var(${tokens.scrollbarBorderWidth}) solid transparent;
-        border-radius: 1rem;
+        border-radius: var(${tokens.scrollbarBorderRadius}, 1rem);
     }
 `;
 
@@ -304,6 +306,8 @@ export const StyledOutsideHelpersWrapper = styled.div`
     justify-content: space-between;
 
     padding-top: var(${tokens.clearHelpersPaddingTop});
+    padding-left: var(${tokens.clearHelpersPaddingLeft});
+    padding-right: var(${tokens.clearHelpersPaddingRight});
 `;
 
 export const StyledLeftHelper = styled.span`
@@ -344,7 +348,7 @@ export const StyledPlaceholder = styled.label<{
     transition: all 0.1s ease-in-out;
     transform-origin: top left;
 
-    color: var(${tokens.placeholderColor});
+    color: var(${tokens.labelInnerColor}, var(${tokens.placeholderColor}));
 
     width: 100%;
     height: auto;

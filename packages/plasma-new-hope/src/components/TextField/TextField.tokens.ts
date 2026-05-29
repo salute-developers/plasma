@@ -102,6 +102,7 @@ export const tokens = {
 
     labelColor: '--plasma-textfield__label-color',
     labelColorReadOnly: '--plasma-textfield__label-color-readonly',
+    labelInnerColor: '--plasma-textfield__label-inner-color',
     labelOffset: '--plasma-textfield__label-offset',
     clearLabelOffset: '--plasma-textfield__clear-label-offset',
 
