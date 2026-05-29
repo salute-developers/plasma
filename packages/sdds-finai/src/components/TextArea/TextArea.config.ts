@@ -162,7 +162,7 @@ export const config = {
                 ${textAreaTokens.inputPaddingBottom}: 0.75rem;
                 ${textAreaTokens.inputPaddingLeft}: 0.875rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.75rem;
-                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.outsideHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 0.875rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0.875rem;
