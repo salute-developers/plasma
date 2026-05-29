@@ -19,6 +19,7 @@ export const applyDynamicLabel = `
 
         .${styledTextAreaWrapper} {
             padding-top: calc(calc(var(${tokens.labelInnerTop}) + var(${tokens.labelInnerFontSize})) + var(${tokens.labelInnerMarginBottom}));
+            padding-bottom: var(${tokens.inputPaddingBottomInnerLabel}, var(${tokens.inputPaddingBottom}));
         }
             
         .${hasHeaderSlot} {

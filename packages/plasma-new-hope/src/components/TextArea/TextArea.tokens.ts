@@ -98,11 +98,14 @@ export const tokens = {
     inputPaddingRightWithRightContent: '--plasma-textarea-input-padding-right-with-right-content',
     inputPaddingBottom: '--plasma-textarea-input-padding-bottom',
     inputPaddingBottomWithHelpers: '--plasma-textarea-input-padding-bottom-with-helpers',
+    inputPaddingBottomInnerLabel: '--plasma-textarea-input-padding-bottom-inner-label',
     inputPaddingLeft: '--plasma-textarea-input-padding-left',
 
     /** Отступы для блока подписей */
     helpersPaddingTop: '--plasma-textarea-helpers-padding-top',
     clearHelpersPaddingTop: '--plasma-textarea-clear-helpers-padding-top',
+    clearHelpersPaddingLeft: '--plasma-textarea-clear-helpers-padding-left',
+    clearHelpersPaddingRight: '--plasma-textarea-clear-helpers-padding-right',
     helpersPaddingRight: '--plasma-textarea-helpers-padding-right',
     helpersPaddingBottom: '--plasma-textarea-helpers-padding-bottom',
     helpersPaddingLeft: '--plasma-textarea-helpers-padding-left',
@@ -112,6 +115,7 @@ export const tokens = {
     rightContentTop: '--plasma-textarea-right-content-top',
     rightContentRight: '--plasma-textarea-right-content-right',
     rightContentHeight: '--plasma-textarea-right-content-height',
+    rightContentWidth: '--plasma-textarea-right-content-width',
 
     /* Tokens for right content slot */
     rightContentColor: '--plasma-textarea-right-content-color',
@@ -121,6 +125,7 @@ export const tokens = {
 
     /** Токены лейбла */
     labelOuterColor: '--plasma-textarea-label-outer-color',
+    labelInnerColor: '--plasma-textarea-label-inner-color',
 
     labelOuterFontFamily: '--plasma-textarea-label-outer-font-family',
     labelOuterFontStyle: '--plasma-textarea-label-outer-font-style',
@@ -208,6 +213,8 @@ export const tokens = {
     /** Токены скроллбара */
     scrollbarWidth: '--plasma-textarea-scrollbar-width',
     scrollbarBorderWidth: '--plasma-textarea-scrollbar-border-width',
+    scrollbarMarginRight: '--plasma-textarea-scrollbar-margin-right',
+    scrollbarBorderRadius: '--plasma-textarea-scrollbar-thumb-border-radius',
     scrollbarThumbBackgroundColor: '--plasma-textarea-scrollbar-thumb-background-color',
     scrollbarThumbBackgroundColorHover: '--plasma-textarea-scrollbar-thumb-background-color-hover',
     scrollbarThumbBackgroundColorActive: '--plasma-textarea-scrollbar-thumb-background-color-active',
