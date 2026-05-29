@@ -34,14 +34,14 @@ export const config = {
             `,
             'accent-gradient': css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
 
                 ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
 
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent-gradient);
+                ${buttonTokens.buttonBackgroundColorHover}: linear-gradient(87deg, #53F5DA 0%, #31C2A7 67.31%);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-gradient);
 
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
             `,
@@ -124,6 +124,8 @@ export const config = {
             `,
             white: css`
                 ${buttonTokens.buttonColor}: var(--on-light-text-primary);
+                ${buttonTokens.buttonColorHover}: var(--on-light-text-primar);
+                ${buttonTokens.buttonColorActive}: var(--on-light-text-primary);
                 ${buttonTokens.buttonTextColor}: var(--on-light-text-primary);
                 ${buttonTokens.buttonIconColor}: var(--on-light-text-primary);
                 ${buttonTokens.buttonValueColor}: var(--on-light-text-secondary);
@@ -134,15 +136,17 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
             `,
             green: css`
-                ${buttonTokens.buttonColor}: var(--text-accent);
-                ${buttonTokens.buttonTextColor}: var(--text-accent);
-                ${buttonTokens.buttonIconColor}: var(--text-accent);
-                ${buttonTokens.buttonValueColor}: var(--text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-card);
+                ${buttonTokens.buttonColor}: var(--on-light-text-accent);
+                ${buttonTokens.buttonColorHover}: var(--text-promo-hover);
+                ${buttonTokens.buttonColorActive}: var--text-promo-active);
+                ${buttonTokens.buttonTextColor}: var(--on-light-text-accent);
+                ${buttonTokens.buttonIconColor}: var(--on-light-text-accent);
+                ${buttonTokens.buttonValueColor}: var(--on-light-text-secondary);
+                ${buttonTokens.buttonBackgroundColor}: var(--on-light-surface-solid-card);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
 
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-card-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-card-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--on-light-surface-solid-card-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-card-active);
             `,
         },
         size: {

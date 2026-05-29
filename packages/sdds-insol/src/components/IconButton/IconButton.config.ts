@@ -91,6 +91,8 @@ export const config = {
             `,
             white: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-light-text-primary);
+                ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary);
+                ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary);
 
 
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
@@ -98,13 +100,16 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
 
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
+            
             `,
             green: css`
-                ${iconButtonTokens.iconButtonColor}: var(--text-accent);
+                ${iconButtonTokens.iconButtonColor}: var(--on-light-text-accent);
+                ${iconButtonTokens.iconButtonColorHover}: var(--text-promo-hover);
+                ${iconButtonTokens.iconButtonColorActive}: var(--text-promo-active);
 
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-card);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-card-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-card-active);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-solid-card);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-light-surface-solid-card);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-light-surface-solid-card);
 
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
