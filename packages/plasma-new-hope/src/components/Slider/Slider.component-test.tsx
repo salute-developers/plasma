@@ -168,6 +168,63 @@ describeFn('Slider', () => {
         cy.matchImageSnapshot();
     });
 
+    it('valuePlacement, horizontal', () => {
+        mount(
+            <>
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    showCurrentValue
+                    valuePlacement="bottom"
+                    label="bottom (default)"
+                />
+                <PadMe />
+                <Slider value={50} min={0} max={100} showCurrentValue valuePlacement="top" label="top" />
+                <PadMe />
+                <Slider value={50} min={0} max={100} showCurrentValue valuePlacement="none" label="none" />
+            </>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('valuePlacement, vertical', () => {
+        mount(
+            <div style={{ display: 'flex', gap: '1rem', height: '20rem' }}>
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    orientation="vertical"
+                    showCurrentValue
+                    valuePlacement="right"
+                    label="right (default)"
+                />
+                <PadMe />
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    orientation="vertical"
+                    showCurrentValue
+                    valuePlacement="left"
+                    label="left"
+                />
+                <PadMe />
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    orientation="vertical"
+                    showCurrentValue
+                    valuePlacement="none"
+                    label="none"
+                />
+            </div>,
+        );
+        cy.matchImageSnapshot();
+    });
+
     it('pointerSize', () => {
         mount(
             <>
