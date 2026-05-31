@@ -53,9 +53,9 @@ export const config = {
                 ${tokens.backgroundColorFocus}: var(--surface-solid-card);
 
                 ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
-                ${tokens.borderColor}: var(--outline-positive-minor);
-                ${tokens.borderColorFocus}: var(--outline-positive-minor-active);
-                ${tokens.borderColorHover}: var(--outline-positive-minor-hover);
+                ${tokens.borderColor}: var(--outline-positive);
+                ${tokens.borderColorFocus}: var(--outline-positive-active);
+                ${tokens.borderColorHover}: var(--outline-positive-hover);
 
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -85,9 +85,9 @@ export const config = {
                 ${tokens.backgroundColorFocus}: var(--surface-solid-card);
 
                 ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
-                ${tokens.borderColor}: var(--outline-warning-minor);
-                ${tokens.borderColorFocus}: var(--outline-warning-minor-active);
-                ${tokens.borderColorHover}: var(--outline-warning-minor-hover);
+                ${tokens.borderColor}: var(--outline-warning);
+                ${tokens.borderColorFocus}: var(--outline-warning-active);
+                ${tokens.borderColorHover}: var(--outline-warning-hover);
 
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -117,9 +117,9 @@ export const config = {
                 ${tokens.backgroundColorFocus}: var(--surface-solid-card);
 
                 ${tokens.boxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
-                ${tokens.borderColor}: var(--outline-negative-minor);
-                ${tokens.borderColorFocus}: var(--outline-negative-minor-active);
-                ${tokens.borderColorHover}: var(--outline-negative-minor-hover);
+                ${tokens.borderColor}: var(--outline-negative);
+                ${tokens.borderColorFocus}: var(--outline-negative-active);
+                ${tokens.borderColorHover}: var(--outline-negative-hover);
 
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
@@ -141,7 +141,7 @@ export const config = {
         size: {
             xl: css`
                 ${tokens.height}: 4rem;
-                ${tokens.padding}: 1.375rem 1.25rem;
+                ${tokens.padding}: 1.25rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.borderWidth}: 0.0625rem;
@@ -187,7 +187,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.8125rem 0 0.125rem 0;
-                ${tokens.contentLabelInnerPadding}: 1.938rem 0 0.813rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.8125rem 0 0.8125rem 0;
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
@@ -313,7 +313,7 @@ export const config = {
             `,
             m: css`
                 ${tokens.height}: 3rem;
-                ${tokens.padding}: 0.875rem 1rem 0.875rem 1rem;
+                ${tokens.padding}: 0.75rem 0.875rem 0.75rem 0.875rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.borderWidth}: 0.0625rem;
@@ -321,21 +321,21 @@ export const config = {
                 ${tokens.leftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
                 ${tokens.rightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.labelOffset}: 0.625rem;
                 ${tokens.clearLabelOffset}: 0.25rem;
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -367,19 +367,19 @@ export const config = {
                 ${tokens.chipClearContentMarginLeft}: 0.5rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1rem;
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -400,7 +400,7 @@ export const config = {
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
-                ${tokens.padding}: 0.75rem;
+                ${tokens.padding}: 0.5rem 0.75rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 0.625rem;
                 ${tokens.borderWidth}: 0.0625rem;
@@ -408,21 +408,21 @@ export const config = {
                 ${tokens.leftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
                 ${tokens.rightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.labelOffset}: 0.5rem;
                 ${tokens.clearLabelOffset}: 0.25rem;
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -440,8 +440,8 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
-                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.labelInnerPadding}: 0.25rem 0 0 0;
+                ${tokens.contentLabelInnerPadding}: 1.125rem 0 0.25rem 0;
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
@@ -454,19 +454,19 @@ export const config = {
                 ${tokens.chipClearContentMarginLeft}: 0.375rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1rem;
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;

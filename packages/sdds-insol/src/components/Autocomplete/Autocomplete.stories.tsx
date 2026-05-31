@@ -235,7 +235,7 @@ export default meta;
 const DefaultStory = (args: StoryProps) => {
     const { enableContentLeft, enableContentRight } = args;
 
-    const iconSize = args.size === 'xs' || args.size === 's' ? 'xs' : 's';
+    const iconSize = args.size === 'xs' ? 'xs' : 's';
 
     return (
         <div style={{ width: '70%', margin: '0 auto' }}>
