@@ -239,6 +239,7 @@ export const tokens = {
     textFieldFocusColor: '--plasma-combobox-new-textfield-focus-color',
 
     textFieldBoxShadow: '--plasma-select-textfield-box-shadow',
+    textFieldBoxShadowSecondary: '--plasma-combobox-textfield-box-shadow-secondary',
 
     textFieldIndicatorColor: '--plasma-combobox-new-textfield-indicator-color',
     textFieldIndicatorSizeInner: '--plasma-combobox-new-textfield-indicator-size-inner',
