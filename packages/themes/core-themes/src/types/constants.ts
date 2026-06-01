@@ -59,6 +59,7 @@ export const getBreakpointsByThemeName = (themeName?: string) => {
 
     switch (themeName) {
         case 'sdds_insol':
+        case 'sdds_insol_next':
             return webBreakpoints_FOR_SDDS_INSOL;
         case 'sdds_finai':
             return webBreakpoints_FOR_SDDS_FINAI;
