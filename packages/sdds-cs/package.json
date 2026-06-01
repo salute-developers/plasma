@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-cs",
-  "version": "0.355.0",
+  "version": "0.355.1",
   "description": "Salute Design System / React UI kit for SDDS CS web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
@@ -42,7 +42,7 @@
     "styled-components": "^5.3.1"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.363.0",
+    "@salutejs/plasma-new-hope": "0.363.1",
     "@salutejs/sdds-themes": "0.66.0"
   },
   "devDependencies": {

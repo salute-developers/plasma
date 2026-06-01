@@ -1,4 +1,26 @@
 {
+  "0.346.1": {
+    "date": "2026-06-01",
+    "core": [
+      {
+        "component": "TextArea [Hotfix]",
+        "children": [
+          {
+            "text": "исправлен union типов для размеров"
+          }
+        ]
+      },
+      {
+        "component": "What/why changed",
+        "children": [
+          {
+            "text": "исправлен union типов для размеров"
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.346.0": {
     "date": "2026-05-27",
     "core": [
