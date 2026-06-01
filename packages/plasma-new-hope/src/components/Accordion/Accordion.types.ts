@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, HTMLAttributes } from 'react';
 
 type CustomAccordionProps = {
     /**
@@ -40,4 +40,4 @@ type CustomAccordionProps = {
     className?: string;
 };
 
-export type AccordionProps = CustomAccordionProps;
+export type AccordionProps = Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> & CustomAccordionProps;
