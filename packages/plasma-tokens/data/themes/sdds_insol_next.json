@@ -85,20 +85,15 @@
                     "comment": "Акцентный минорный цвет с градиентом",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет",
-                    "enabled": false
-                },
                 "textPromoHover": {
-                    "value": "#CCCCCCFF",
+                    "value": "#16D4B5FF",
                     "comment": "Промо цвет",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoActive": {
-                    "value": "#E6E6E6FF",
+                    "value": "#0F8A76FF",
                     "comment": "Промо цвет",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
@@ -358,6 +353,11 @@
                 "textInfoMinor": {
                     "value": "#10375e",
                     "comment": "Минорный цвет информации"
+                },
+                "textPromo": {
+                    "value": "#109C84",
+                    "comment": "Промо цвет",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -438,20 +438,15 @@
                     "comment": "Акцентный минорный цвет с градиентом на темном фоне",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет на темном фоне",
-                    "enabled": false
-                },
                 "textPromoHover": {
-                    "value": "#CCCCCCFF",
+                    "value": "#16D4B5FF",
                     "comment": "Промо цвет на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoActive": {
-                    "value": "#E6E6E6FF",
+                    "value": "#0F8A76FF",
                     "comment": "Промо цвет на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
@@ -664,6 +659,11 @@
                 "textInfoMinor": {
                     "value": "#10375e",
                     "comment": "Минорный цвет информации на темном фоне"
+                },
+                "textPromo": {
+                    "value": "#109C84",
+                    "comment": "Промо цвет на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -760,20 +760,15 @@
                     "comment": "Акцентный минорный цвет с градиентом на светлом фоне",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
-                },
                 "textPromoHover": {
-                    "value": "#CCCCCCFF",
+                    "value": "#118D79FF",
                     "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoActive": {
-                    "value": "#E6E6E6FF",
+                    "value": "#052923FF",
                     "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
@@ -970,6 +965,11 @@
                 "textInfoMinor": {
                     "value": "#78bbff",
                     "comment": "Минорный цвет информации на светлом фоне"
+                },
+                "textPromo": {
+                    "value": "#06322B",
+                    "comment": "Промо цвет на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -1066,20 +1066,15 @@
                     "comment": "Инвертированный акцентный минорный цвет с градиентом",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный промо цвет",
-                    "enabled": false
-                },
                 "textPromoHover": {
-                    "value": "#CCCCCCFF",
+                    "value": "#118D79FF",
                     "comment": "Инвертированный промо цвет",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoActive": {
-                    "value": "#E6E6E6FF",
+                    "value": "#052923FF",
                     "comment": "Инвертированный промо цвет",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
@@ -1276,6 +1271,11 @@
                 "textInfoMinor": {
                     "value": "#78bbff",
                     "comment": "Инвертированный минорный цвет информации"
+                },
+                "textPromo": {
+                    "value": "#06322B",
+                    "comment": "Инвертированный промо цвет",
+                    "enabled": true
                 }
             }
         },
@@ -5346,20 +5346,15 @@
                     "comment": "Акцентный минорный цвет с градиентом",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет",
-                    "enabled": false
-                },
                 "textPromoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#118D79FF",
                     "comment": "Промо цвет",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#052923FF",
                     "comment": "Промо цвет",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
@@ -5556,6 +5551,11 @@
                 "textInfoMinor": {
                     "value": "#78BBFF",
                     "comment": "Минорный цвет информации"
+                },
+                "textPromo": {
+                    "value": "#06322B",
+                    "comment": "Промо цвет",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -5636,20 +5636,15 @@
                     "comment": "Акцентный минорный цвет с градиентом на темном фоне",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет на темном фоне",
-                    "enabled": false
-                },
                 "textPromoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#16D4B5FF",
                     "comment": "Промо цвет на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#0F8A76FF",
                     "comment": "Промо цвет на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
@@ -5862,6 +5857,11 @@
                 "textInfoMinor": {
                     "value": "#10375E",
                     "comment": "Минорный цвет информации на темном фоне"
+                },
+                "textPromo": {
+                    "value": "#109C84",
+                    "comment": "Промо цвет на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -5958,20 +5958,15 @@
                     "comment": "Акцентный минорный цвет с градиентом на светлом фоне",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
-                },
                 "textPromoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#118D79FF",
                     "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#052923FF",
                     "comment": "Промо цвет на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "textPromoGradient": {
                     "value": "#FFFFFF",
@@ -6168,6 +6163,11 @@
                 "textInfoMinor": {
                     "value": "#78BBFF",
                     "comment": "Минорный цвет информации на светлом фоне"
+                },
+                "textPromo": {
+                    "value": "#06322B",
+                    "comment": "Промо цвет на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -6243,18 +6243,13 @@
                     "comment": "Инвертированный акцентный минорный цвет с градиентом",
                     "enabled": false
                 },
-                "textPromo": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный промо цвет",
-                    "enabled": false
-                },
                 "textPromoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#16D4B5FF",
                     "comment": "Инвертированный промо цвет",
                     "enabled": false
                 },
                 "textPromoActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#0F8A76FF",
                     "comment": "Инвертированный промо цвет",
                     "enabled": false
                 },
@@ -6516,6 +6511,11 @@
                 "textInfoMinor": {
                     "value": "#10375E",
                     "comment": "Инвертированный минорный цвет информации"
+                },
+                "textPromo": {
+                    "value": "#109C84",
+                    "comment": "Инвертированный промо цвет",
+                    "enabled": true
                 }
             }
         },
