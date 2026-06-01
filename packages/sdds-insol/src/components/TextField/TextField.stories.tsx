@@ -34,6 +34,7 @@ const { meta: META, Default, Chips } = getTextFieldStories({
     defaultArgs: {
         size: 'xl',
     },
+    disablePropsList: ['appearance'],
 });
 
 const meta: Meta<TextFieldProps> = {
