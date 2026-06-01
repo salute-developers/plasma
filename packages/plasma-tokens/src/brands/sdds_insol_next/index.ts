@@ -45,6 +45,12 @@ export const textAccentMinorHover = 'var(--text-accent-minor-hover, #16B197FF)';
 /** Акцентный минорный цвет */
 export const textAccentMinorActive = 'var(--text-accent-minor-active, #0D6859FF)';
 
+/** Промо цвет */
+export const textPromoHover = 'var(--text-promo-hover, #16D4B5FF)';
+
+/** Промо цвет */
+export const textPromoActive = 'var(--text-promo-active, #0F8A76FF)';
+
 /** Цвет успеха */
 export const textPositiveHover = 'var(--text-positive-hover, #77E4D2FF)';
 
@@ -138,6 +144,9 @@ export const textPositiveMinor = 'var(--text-positive-minor, #0f7a68)';
 /** Минорный цвет информации */
 export const textInfoMinor = 'var(--text-info-minor, #10375e)';
 
+/** Промо цвет */
+export const textPromo = 'var(--text-promo, #109C84)';
+
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimaryHover = 'var(--on-dark-text-primary-hover, #FFFFFF93)';
 
@@ -182,6 +191,12 @@ export const onDarkTextAccentMinorHover = 'var(--on-dark-text-accent-minor-hover
 
 /** Акцентный минорный цвет на темном фоне */
 export const onDarkTextAccentMinorActive = 'var(--on-dark-text-accent-minor-active, #0D6859FF)';
+
+/** Промо цвет на темном фоне */
+export const onDarkTextPromoHover = 'var(--on-dark-text-promo-hover, #16D4B5FF)';
+
+/** Промо цвет на темном фоне */
+export const onDarkTextPromoActive = 'var(--on-dark-text-promo-active, #0F8A76FF)';
 
 /** Цвет успеха на темном фоне */
 export const onDarkTextPositiveHover = 'var(--on-dark-text-positive-hover, #77E4D2FF)';
@@ -277,6 +292,9 @@ export const onDarkTextPositiveMinor = 'var(--on-dark-text-positive-minor, #0f7a
 /** Минорный цвет информации на темном фоне */
 export const onDarkTextInfoMinor = 'var(--on-dark-text-info-minor, #10375e)';
 
+/** Промо цвет на темном фоне */
+export const onDarkTextPromo = 'var(--on-dark-text-promo, #109C84)';
+
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimary = 'var(--on-light-text-primary, #13181BF5)';
 
@@ -333,6 +351,12 @@ export const onLightTextAccentMinorHover = 'var(--on-light-text-accent-minor-hov
 
 /** Акцентный минорный цвет на светлом фоне */
 export const onLightTextAccentMinorActive = 'var(--on-light-text-accent-minor-active, #20D5B7FF)';
+
+/** Промо цвет на светлом фоне */
+export const onLightTextPromoHover = 'var(--on-light-text-promo-hover, #118D79FF)';
+
+/** Промо цвет на светлом фоне */
+export const onLightTextPromoActive = 'var(--on-light-text-promo-active, #052923FF)';
 
 /** Цвет успеха на светлом фоне */
 export const onLightTextPositiveHover = 'var(--on-light-text-positive-hover, #15CBADFF)';
@@ -416,6 +440,9 @@ export const onLightTextPositiveMinor = 'var(--on-light-text-positive-minor, #31
 /** Минорный цвет информации на светлом фоне */
 export const onLightTextInfoMinor = 'var(--on-light-text-info-minor, #78bbff)';
 
+/** Промо цвет на светлом фоне */
+export const onLightTextPromo = 'var(--on-light-text-promo, #06322B)';
+
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimary = 'var(--inverse-text-primary, #13181BF5)';
 
@@ -472,6 +499,12 @@ export const inverseTextAccentMinorHover = 'var(--inverse-text-accent-minor-hove
 
 /** Инвертированный минорный акцентный цвет */
 export const inverseTextAccentMinorActive = 'var(--inverse-text-accent-minor-active, #20D5B7FF)';
+
+/** Инвертированный промо цвет */
+export const inverseTextPromoHover = 'var(--inverse-text-promo-hover, #118D79FF)';
+
+/** Инвертированный промо цвет */
+export const inverseTextPromoActive = 'var(--inverse-text-promo-active, #052923FF)';
 
 /** Инвертированный цвет успеха */
 export const inverseTextPositiveHover = 'var(--inverse-text-positive-hover, #15CBADFF)';
@@ -554,6 +587,9 @@ export const inverseTextPositiveMinor = 'var(--inverse-text-positive-minor, #31e
 
 /** Инвертированный минорный цвет информации */
 export const inverseTextInfoMinor = 'var(--inverse-text-info-minor, #78bbff)';
+
+/** Инвертированный промо цвет */
+export const inverseTextPromo = 'var(--inverse-text-promo, #06322B)';
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimaryHover = 'var(--surface-solid-primary-hover, #171D21FF)';
