@@ -76,8 +76,12 @@ export type TextAreaPropsRowsCols = {
     cols?: number;
 };
 
-export type TextAreaDimensionsProps = TextAreaPropsHeightWidth &
-    OneOf<TextAreaPropsAutoResize, TextAreaPropsRowsCols, ClearProps, {}>;
+export type TextAreaDimensionsProps = OneOf<
+    TextAreaPropsAutoResize,
+    TextAreaPropsRowsCols,
+    ClearProps,
+    TextAreaPropsHeightWidth
+>;
 
 type RequiredProps = {
     /**
