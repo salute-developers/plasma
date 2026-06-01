@@ -7,26 +7,17 @@ import {
 } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './DatePicker.config';
-import { config as configClear } from './DatePicker.clear.config';
 
 const mergedConfigDefault = mergeConfig(datePickerConfig, config);
 export const DatePickerDefault = component(mergedConfigDefault);
 
-const mergedConfigClear = mergeConfig(datePickerConfig, configClear);
-export const DatePickerClear = component(mergedConfigClear);
-
 export const DatePicker = createConditionalComponent({
     default: DatePickerDefault,
-    clear: DatePickerClear,
 });
 
 const mergedRangeConfigDefault = mergeConfig(datePickerRangeConfig, config);
 export const DatePickerRangeDefault = component(mergedRangeConfigDefault);
 
-const mergedRangeConfigClea = mergeConfig(datePickerRangeConfig, configClear);
-export const DatePickerRangeClear = component(mergedRangeConfigClea);
-
 export const DatePickerRange = createConditionalComponent({
     default: DatePickerRangeDefault,
-    clear: DatePickerRangeClear,
 });
