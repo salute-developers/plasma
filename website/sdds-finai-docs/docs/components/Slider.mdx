@@ -217,40 +217,86 @@ export function App() {
 
 ## Текущее значение
 
-Свойство `showCurrentValue` включает отображение текущего значения над ползунком. Видимость регулируется через `currentValueVisibility`:
+Свойство `showCurrentValue` включает отображение текущего значения рядом с ползунком.
 
-```tsx live
-import React, { useState } from 'react';
-import { Slider } from '@salutejs/sdds-finai';
+<Tabs>
+    <TabItem value="visibility" label="Видимость" default>
+        Видимость регулируется через `currentValueVisibility`:
 
-export function App() {
-    const [v1, setV1] = useState(50);
-    const [v2, setV2] = useState(50);
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/sdds-finai';
 
-    return (
-        <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column', width: '25rem' }}>
-            <Slider
-                min={0}
-                max={100}
-                value={v1}
-                showCurrentValue
-                currentValueVisibility="always"
-                label="Всегда"
-                onChange={setV1}
-            />
-            <Slider
-                min={0}
-                max={100}
-                value={v2}
-                showCurrentValue
-                currentValueVisibility="hover"
-                label="При наведении"
-                onChange={setV2}
-            />
-        </div>
-    );
-}
-```
+        export function App() {
+            const [v1, setV1] = useState(50);
+            const [v2, setV2] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column', width: '25rem' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={v1}
+                        showCurrentValue
+                        currentValueVisibility="always"
+                        label="Всегда"
+                        onChange={setV1}
+                    />
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={v2}
+                        showCurrentValue
+                        currentValueVisibility="hover"
+                        label="При наведении"
+                        onChange={setV2}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="valuePlacement" label="Расположение">
+        Свойство `valuePlacement` задаёт положение текущего значения относительно ползунка.
+
+        Для горизонтального слайдера: `bottom` (по умолчанию) — под ползунком, `top` — над, `none` — скрыть.
+
+        Для вертикального слайдера: `right` (по умолчанию) — справа, `left` — слева, `none` — скрыть.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/sdds-finai';
+
+        export function App() {
+            const [v1, setV1] = useState(50);
+            const [v2, setV2] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column', width: '25rem' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={v1}
+                        showCurrentValue
+                        valuePlacement="bottom"
+                        label="Bottom (по умолчанию)"
+                        onChange={setV1}
+                    />
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={v2}
+                        showCurrentValue
+                        valuePlacement="top"
+                        label="Top"
+                        onChange={setV2}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
 
 ## Шкала значений
 
