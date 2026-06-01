@@ -1,4 +1,3 @@
-import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getDatePickerStories } from '@salutejs/plasma-sb-utils';
@@ -14,7 +13,7 @@ const { meta: META, Default } = getDatePickerStories({
     defaultArgs: {
         offset: [0, 6],
     },
-    disablePropsList: ['offset'],
+    disablePropsList: ['offset', 'appearance'],
 });
 
 const meta: Meta<DatePickerProps> = {
