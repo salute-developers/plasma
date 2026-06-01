@@ -20,6 +20,8 @@ export const sdds_insol_next__light = ([
   --text-accent-active: #0D7866FF;
   --text-accent-minor-hover: #8CEEDDFF;
   --text-accent-minor-active: #20D5B7FF;
+  --text-promo-hover: #118D79FF;
+  --text-promo-active: #052923FF;
   --text-positive-hover: #15CBADFF;
   --text-positive-active: #0D7866FF;
   --text-warning: #E85702;
@@ -46,6 +48,7 @@ export const sdds_insol_next__light = ([
   --text-info: #166DC4FF;
   --text-positive-minor: #31E0C3FF;
   --text-info-minor: #78BBFFFF;
+  --text-promo: #06322BFF;
   --on-dark-text-primary-hover: #F6F6F993;
   --on-dark-text-primary-active: #F6F6F9C4;
   --on-dark-text-primary-brightness: #F6F6F9F5;
@@ -59,6 +62,8 @@ export const sdds_insol_next__light = ([
   --on-dark-text-accent-active: #23B39BFF;
   --on-dark-text-accent-minor-hover: #16B197FF;
   --on-dark-text-accent-minor-active: #0D6859FF;
+  --on-dark-text-promo-hover: #16D4B5FF;
+  --on-dark-text-promo-active: #0F8A76FF;
   --on-dark-text-positive-hover: #77E4D2FF;
   --on-dark-text-positive-active: #23B39BFF;
   --on-dark-text-warning: #FF7024;
@@ -89,6 +94,7 @@ export const sdds_insol_next__light = ([
   --on-dark-text-info: #166DC4FF;
   --on-dark-text-positive-minor: #0F7A68FF;
   --on-dark-text-info-minor: #10375EFF;
+  --on-dark-text-promo: #109C84FF;
   --on-light-text-primary: #13181BF5;
   --on-light-text-primary-hover: #13181B93;
   --on-light-text-primary-active: #13181BC4;
@@ -106,6 +112,8 @@ export const sdds_insol_next__light = ([
   --on-light-text-accent-active: #0D7866FF;
   --on-light-text-accent-minor-hover: #8CEEDDFF;
   --on-light-text-accent-minor-active: #20D5B7FF;
+  --on-light-text-promo-hover: #118D79FF;
+  --on-light-text-promo-active: #052923FF;
   --on-light-text-positive-hover: #15CBADFF;
   --on-light-text-positive-active: #0D7866FF;
   --on-light-text-warning: #E85702;
@@ -132,6 +140,7 @@ export const sdds_insol_next__light = ([
   --on-light-text-info: #166DC4FF;
   --on-light-text-positive-minor: #31E0C3FF;
   --on-light-text-info-minor: #78BBFFFF;
+  --on-light-text-promo: #06322BFF;
   --inverse-text-primary-hover: #F6F6F993;
   --inverse-text-primary-active: #F6F6F9C4;
   --inverse-text-primary-brightness: #F6F6F9F5;
@@ -175,6 +184,7 @@ export const sdds_insol_next__light = ([
   --inverse-text-info: #166DC4FF;
   --inverse-text-positive-minor: #0F7A68FF;
   --inverse-text-info-minor: #10375EFF;
+  --inverse-text-promo: #109C84FF;
   --surface-solid-primary: #F2F5F8;
   --surface-solid-primary-hover: #EEF2F6FF;
   --surface-solid-primary-active: #EBF0F4FF;
@@ -1145,23 +1155,23 @@ export const sdds_insol_next__light = ([
 @media (max-width: 767px) {
   :root {
     --plasma-typo-dspl-l-font-size: 3.75rem;
-    --plasma-typo-dspl-l-font-weight: 300;
+    --plasma-typo-dspl-l-font-weight: 400;
     --plasma-typo-dspl-l-line-height: 4.125rem;
     --plasma-typo-dspl-l-bold-font-size: 3.75rem;
     --plasma-typo-dspl-l-bold-font-weight: 600;
     --plasma-typo-dspl-l-bold-line-height: 4.125rem;
     --plasma-typo-dspl-m-font-size: 2.625rem;
-    --plasma-typo-dspl-m-font-weight: 300;
+    --plasma-typo-dspl-m-font-weight: 400;
     --plasma-typo-dspl-m-line-height: 2.625rem;
     --plasma-typo-dspl-m-bold-font-size: 2.625rem;
     --plasma-typo-dspl-m-bold-font-weight: 600;
     --plasma-typo-dspl-m-bold-line-height: 2.625rem;
     --plasma-typo-dspl-s-font-size: 2rem;
-    --plasma-typo-dspl-s-font-weight: 300;
-    --plasma-typo-dspl-s-line-height: 2.5rem;
+    --plasma-typo-dspl-s-font-weight: 400;
+    --plasma-typo-dspl-s-line-height: 2rem;
     --plasma-typo-dspl-s-bold-font-size: 2rem;
     --plasma-typo-dspl-s-bold-font-weight: 600;
-    --plasma-typo-dspl-s-bold-line-height: 2.5rem;
+    --plasma-typo-dspl-s-bold-line-height: 2rem;
     --plasma-typo-h1-font-size: 1.5rem;
     --plasma-typo-h1-font-weight: 400;
     --plasma-typo-h1-line-height: 1.5rem;
@@ -1198,16 +1208,16 @@ export const sdds_insol_next__light = ([
     --plasma-typo-h6-bold-font-size: 0.625rem;
     --plasma-typo-h6-bold-font-weight: 600;
     --plasma-typo-h6-bold-line-height: 0.875rem;
-    --plasma-typo-body-l-font-size: 1rem;
+    --plasma-typo-body-l-font-size: 1.125rem;
     --plasma-typo-body-l-font-weight: 400;
-    --plasma-typo-body-l-line-height: 1.25rem;
-    --plasma-typo-body-l-bold-font-size: 1rem;
+    --plasma-typo-body-l-line-height: 1.375rem;
+    --plasma-typo-body-l-bold-font-size: 1.125rem;
     --plasma-typo-body-l-bold-font-weight: 600;
-    --plasma-typo-body-l-bold-line-height: 1.25rem;
-    --plasma-typo-body-m-font-size: 0.875rem;
+    --plasma-typo-body-l-bold-line-height: 1.375rem;
+    --plasma-typo-body-m-font-size: 1rem;
     --plasma-typo-body-m-font-weight: 400;
     --plasma-typo-body-m-line-height: 1.25rem;
-    --plasma-typo-body-m-bold-font-size: 0.875rem;
+    --plasma-typo-body-m-bold-font-size: 1rem;
     --plasma-typo-body-m-bold-font-weight: 600;
     --plasma-typo-body-m-bold-line-height: 1.25rem;
     --plasma-typo-body-s-font-size: 0.875rem;
@@ -1321,23 +1331,23 @@ export const sdds_insol_next__light = ([
 @media (min-width: 768px) and (max-width: 1023px) {
   :root {
     --plasma-typo-dspl-l-font-size: 5.5rem;
-    --plasma-typo-dspl-l-font-weight: 300;
+    --plasma-typo-dspl-l-font-weight: 400;
     --plasma-typo-dspl-l-line-height: 5.75rem;
     --plasma-typo-dspl-l-bold-font-size: 5.5rem;
     --plasma-typo-dspl-l-bold-font-weight: 600;
     --plasma-typo-dspl-l-bold-line-height: 5.75rem;
     --plasma-typo-dspl-m-font-size: 3.5rem;
-    --plasma-typo-dspl-m-font-weight: 300;
+    --plasma-typo-dspl-m-font-weight: 400;
     --plasma-typo-dspl-m-line-height: 3rem;
     --plasma-typo-dspl-m-bold-font-size: 3.5rem;
     --plasma-typo-dspl-m-bold-font-weight: 600;
     --plasma-typo-dspl-m-bold-line-height: 3rem;
     --plasma-typo-dspl-s-font-size: 2.5rem;
-    --plasma-typo-dspl-s-font-weight: 300;
-    --plasma-typo-dspl-s-line-height: 2.75rem;
+    --plasma-typo-dspl-s-font-weight: 400;
+    --plasma-typo-dspl-s-line-height: 2.5rem;
     --plasma-typo-dspl-s-bold-font-size: 2.5rem;
     --plasma-typo-dspl-s-bold-font-weight: 600;
-    --plasma-typo-dspl-s-bold-line-height: 2.75rem;
+    --plasma-typo-dspl-s-bold-line-height: 2.5rem;
     --plasma-typo-h1-font-size: 2rem;
     --plasma-typo-h1-font-weight: 400;
     --plasma-typo-h1-line-height: 2rem;
@@ -1497,23 +1507,23 @@ export const sdds_insol_next__light = ([
 @media (min-width: 1024px) and (max-width: 1199px) {
   :root {
     --plasma-typo-dspl-l-font-size: 7rem;
-    --plasma-typo-dspl-l-font-weight: 300;
+    --plasma-typo-dspl-l-font-weight: 400;
     --plasma-typo-dspl-l-line-height: 7rem;
     --plasma-typo-dspl-l-bold-font-size: 7rem;
     --plasma-typo-dspl-l-bold-font-weight: 600;
     --plasma-typo-dspl-l-bold-line-height: 7rem;
     --plasma-typo-dspl-m-font-size: 4.5rem;
-    --plasma-typo-dspl-m-font-weight: 300;
+    --plasma-typo-dspl-m-font-weight: 400;
     --plasma-typo-dspl-m-line-height: 4rem;
     --plasma-typo-dspl-m-bold-font-size: 4.5rem;
     --plasma-typo-dspl-m-bold-font-weight: 600;
     --plasma-typo-dspl-m-bold-line-height: 4rem;
     --plasma-typo-dspl-s-font-size: 3rem;
-    --plasma-typo-dspl-s-font-weight: 300;
-    --plasma-typo-dspl-s-line-height: 3.25rem;
+    --plasma-typo-dspl-s-font-weight: 400;
+    --plasma-typo-dspl-s-line-height: 3rem;
     --plasma-typo-dspl-s-bold-font-size: 3rem;
     --plasma-typo-dspl-s-bold-font-weight: 600;
-    --plasma-typo-dspl-s-bold-line-height: 3.25rem;
+    --plasma-typo-dspl-s-bold-line-height: 3rem;
     --plasma-typo-h1-font-size: 2.5rem;
     --plasma-typo-h1-font-weight: 400;
     --plasma-typo-h1-line-height: 2.5rem;
@@ -1673,19 +1683,19 @@ export const sdds_insol_next__light = ([
 @media (min-width: 1200px) {
   :root {
     --plasma-typo-dspl-l-font-size: 8rem;
-    --plasma-typo-dspl-l-font-weight: 300;
+    --plasma-typo-dspl-l-font-weight: 400;
     --plasma-typo-dspl-l-line-height: 8rem;
     --plasma-typo-dspl-l-bold-font-size: 8rem;
     --plasma-typo-dspl-l-bold-font-weight: 600;
     --plasma-typo-dspl-l-bold-line-height: 8rem;
     --plasma-typo-dspl-m-font-size: 5rem;
-    --plasma-typo-dspl-m-font-weight: 300;
+    --plasma-typo-dspl-m-font-weight: 400;
     --plasma-typo-dspl-m-line-height: 4.5rem;
     --plasma-typo-dspl-m-bold-font-size: 5rem;
     --plasma-typo-dspl-m-bold-font-weight: 600;
     --plasma-typo-dspl-m-bold-line-height: 4.5rem;
     --plasma-typo-dspl-s-font-size: 4rem;
-    --plasma-typo-dspl-s-font-weight: 300;
+    --plasma-typo-dspl-s-font-weight: 400;
     --plasma-typo-dspl-s-line-height: 4rem;
     --plasma-typo-dspl-s-bold-font-size: 4rem;
     --plasma-typo-dspl-s-bold-font-weight: 600;

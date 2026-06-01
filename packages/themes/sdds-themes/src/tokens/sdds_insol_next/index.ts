@@ -39,6 +39,12 @@ export const textAccentMinorHover = 'var(--text-accent-minor-hover, #16B197FF)';
 /** Акцентный минорный цвет */
 export const textAccentMinorActive = 'var(--text-accent-minor-active, #0D6859FF)';
 
+/** Промо цвет */
+export const textPromoHover = 'var(--text-promo-hover, #16D4B5FF)';
+
+/** Промо цвет */
+export const textPromoActive = 'var(--text-promo-active, #0F8A76FF)';
+
 /** Цвет успеха */
 export const textPositiveHover = 'var(--text-positive-hover, #77E4D2FF)';
 
@@ -129,6 +135,9 @@ export const textPositiveMinor = 'var(--text-positive-minor, #0F7A68FF)';
 /** Минорный цвет информации */
 export const textInfoMinor = 'var(--text-info-minor, #10375EFF)';
 
+/** Промо цвет */
+export const textPromo = 'var(--text-promo, #109C84FF)';
+
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimaryHover = 'var(--on-dark-text-primary-hover, #FFFFFF93)';
 
@@ -167,6 +176,12 @@ export const onDarkTextAccentMinorHover = 'var(--on-dark-text-accent-minor-hover
 
 /** Акцентный минорный цвет на темном фоне */
 export const onDarkTextAccentMinorActive = 'var(--on-dark-text-accent-minor-active, #0D6859FF)';
+
+/** Промо цвет на темном фоне */
+export const onDarkTextPromoHover = 'var(--on-dark-text-promo-hover, #16D4B5FF)';
+
+/** Промо цвет на темном фоне */
+export const onDarkTextPromoActive = 'var(--on-dark-text-promo-active, #0F8A76FF)';
 
 /** Цвет успеха на темном фоне */
 export const onDarkTextPositiveHover = 'var(--on-dark-text-positive-hover, #77E4D2FF)';
@@ -258,6 +273,9 @@ export const onDarkTextPositiveMinor = 'var(--on-dark-text-positive-minor, #0F7A
 /** Минорный цвет информации на темном фоне */
 export const onDarkTextInfoMinor = 'var(--on-dark-text-info-minor, #10375EFF)';
 
+/** Промо цвет на темном фоне */
+export const onDarkTextPromo = 'var(--on-dark-text-promo, #109C84FF)';
+
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimary = 'var(--on-light-text-primary, #13181BF5)';
 
@@ -308,6 +326,12 @@ export const onLightTextAccentMinorHover = 'var(--on-light-text-accent-minor-hov
 
 /** Акцентный минорный цвет на светлом фоне */
 export const onLightTextAccentMinorActive = 'var(--on-light-text-accent-minor-active, #20D5B7FF)';
+
+/** Промо цвет на светлом фоне */
+export const onLightTextPromoHover = 'var(--on-light-text-promo-hover, #118D79FF)';
+
+/** Промо цвет на светлом фоне */
+export const onLightTextPromoActive = 'var(--on-light-text-promo-active, #052923FF)';
 
 /** Цвет успеха на светлом фоне */
 export const onLightTextPositiveHover = 'var(--on-light-text-positive-hover, #15CBADFF)';
@@ -387,6 +411,9 @@ export const onLightTextPositiveMinor = 'var(--on-light-text-positive-minor, #31
 /** Минорный цвет информации на светлом фоне */
 export const onLightTextInfoMinor = 'var(--on-light-text-info-minor, #78BBFFFF)';
 
+/** Промо цвет на светлом фоне */
+export const onLightTextPromo = 'var(--on-light-text-promo, #06322BFF)';
+
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimary = 'var(--inverse-text-primary, #13181BF5)';
 
@@ -437,6 +464,12 @@ export const inverseTextAccentMinorHover = 'var(--inverse-text-accent-minor-hove
 
 /** Инвертированный минорный акцентный цвет */
 export const inverseTextAccentMinorActive = 'var(--inverse-text-accent-minor-active, #20D5B7FF)';
+
+/** Инвертированный промо цвет */
+export const inverseTextPromoHover = 'var(--inverse-text-promo-hover, #118D79FF)';
+
+/** Инвертированный промо цвет */
+export const inverseTextPromoActive = 'var(--inverse-text-promo-active, #052923FF)';
 
 /** Инвертированный цвет успеха */
 export const inverseTextPositiveHover = 'var(--inverse-text-positive-hover, #15CBADFF)';
@@ -515,6 +548,9 @@ export const inverseTextPositiveMinor = 'var(--inverse-text-positive-minor, #31E
 
 /** Инвертированный минорный цвет информации */
 export const inverseTextInfoMinor = 'var(--inverse-text-info-minor, #78BBFFFF)';
+
+/** Инвертированный промо цвет */
+export const inverseTextPromo = 'var(--inverse-text-promo, #06322BFF)';
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimaryHover = 'var(--surface-solid-primary-hover, #171D21FF)';
@@ -3434,6 +3470,8 @@ export const viewContainer = {
         --text-accent-active: var(--on-dark-text-accent-active);
         --text-accent-minor-hover: var(--on-dark-text-accent-minor-hover);
         --text-accent-minor-active: var(--on-dark-text-accent-minor-active);
+        --text-promo-hover: var(--on-dark-text-promo-hover);
+        --text-promo-active: var(--on-dark-text-promo-active);
         --text-positive-hover: var(--on-dark-text-positive-hover);
         --text-positive-active: var(--on-dark-text-positive-active);
         --text-warning-hover: var(--on-dark-text-warning-hover);
@@ -3464,6 +3502,7 @@ export const viewContainer = {
         --text-info: var(--on-dark-text-info);
         --text-positive-minor: var(--on-dark-text-positive-minor);
         --text-info-minor: var(--on-dark-text-info-minor);
+        --text-promo: var(--on-dark-text-promo);
         --inverse-text-primary: var(--on-light-text-primary);
         --inverse-text-primary-hover: var(--on-light-text-primary-hover);
         --inverse-text-primary-active: var(--on-light-text-primary-active);
@@ -3481,6 +3520,8 @@ export const viewContainer = {
         --inverse-text-accent-active: var(--on-light-text-accent-active);
         --inverse-text-accent-minor-hover: var(--on-light-text-accent-minor-hover);
         --inverse-text-accent-minor-active: var(--on-light-text-accent-minor-active);
+        --inverse-text-promo-hover: var(--on-light-text-promo-hover);
+        --inverse-text-promo-active: var(--on-light-text-promo-active);
         --inverse-text-positive-hover: var(--on-light-text-positive-hover);
         --inverse-text-positive-active: var(--on-light-text-positive-active);
         --inverse-text-warning: var(--on-light-text-warning);
@@ -3507,6 +3548,7 @@ export const viewContainer = {
         --inverse-text-info: var(--on-light-text-info);
         --inverse-text-positive-minor: var(--on-light-text-positive-minor);
         --inverse-text-info-minor: var(--on-light-text-info-minor);
+        --inverse-text-promo: var(--on-light-text-promo);
         --surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --surface-solid-primary-brightness: var(--on-dark-surface-solid-primary-brightness);
@@ -3894,6 +3936,8 @@ export const viewContainer = {
         --text-accent-active: var(--on-light-text-accent-active);
         --text-accent-minor-hover: var(--on-light-text-accent-minor-hover);
         --text-accent-minor-active: var(--on-light-text-accent-minor-active);
+        --text-promo-hover: var(--on-light-text-promo-hover);
+        --text-promo-active: var(--on-light-text-promo-active);
         --text-positive-hover: var(--on-light-text-positive-hover);
         --text-positive-active: var(--on-light-text-positive-active);
         --text-warning: var(--on-light-text-warning);
@@ -3920,6 +3964,7 @@ export const viewContainer = {
         --text-info: var(--on-light-text-info);
         --text-positive-minor: var(--on-light-text-positive-minor);
         --text-info-minor: var(--on-light-text-info-minor);
+        --text-promo: var(--on-light-text-promo);
         --inverse-text-primary-hover: var(--on-dark-text-primary-hover);
         --inverse-text-primary-active: var(--on-dark-text-primary-active);
         --inverse-text-primary-brightness: var(--on-dark-text-primary-brightness);
@@ -3963,6 +4008,7 @@ export const viewContainer = {
         --inverse-text-info: var(--on-dark-text-info);
         --inverse-text-positive-minor: var(--on-dark-text-positive-minor);
         --inverse-text-info-minor: var(--on-dark-text-info-minor);
+        --inverse-text-promo: var(--on-dark-text-promo);
         --surface-solid-primary: var(--on-light-surface-solid-primary);
         --surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
