@@ -42,6 +42,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             /* Config */
             view,
             size,
+            chipView,
             hintView,
             hintSize,
 
@@ -336,6 +337,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                 size={size}
                 view={view}
                 labelPlacement={labelPlacement}
+                chipView={chipView}
                 disabled={disabled}
                 readOnly={readOnly}
                 name={name}
@@ -438,6 +440,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                         }
                                         labelPlacement={labelPlacement}
                                         keepPlaceholder={keepPlaceholder}
+                                        chipView={chipView}
                                         {...(multiple
                                             ? {
                                                   enumerationType: 'chip',
@@ -460,6 +463,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                 size={size}
                                 view={view}
                                 labelPlacement={labelPlacement}
+                                chipView={chipView}
                                 disabled={disabled}
                                 readOnly={readOnly}
                                 name={name}
@@ -571,5 +575,6 @@ export const comboboxConfig = {
         view: 'default',
         size: 'm',
         labelPlacement: 'outer',
+        chipView: 'secondary',
     },
 };
