@@ -61,6 +61,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     orientation = 'horizontal',
     sliderAlign = 'left',
     reversed,
+    valuePlacement,
     multipleStepSize = 10,
 
     // deprecated
@@ -174,6 +175,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                 [classes.labelAlignLeft]: sliderAlign === 'right',
                 [classes.labelAlignCenter]: (sliderAlign === 'center' || sliderAlign === 'none') && !scaleTicks,
                 [classes.scalePlacementTop]: scaleAlign === 'top',
+                [classes.pointerHidden]: pointerSize === 'none',
             })}
             hasTicks={Boolean(scaleTicks)}
             onPointerEnter={() => setIsHovered(true)}
@@ -210,7 +212,13 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                 )}
 
                 <SliderContainer
-                    className={cls(isVertical && classes.verticalOrientation, reversed && classes.reversed)}
+                    className={cls(isVertical && classes.verticalOrientation, reversed && classes.reversed, {
+                        [classes.valuePlacementNone]: valuePlacement === 'none',
+                        [classes.valuePlacementLeft]: valuePlacement === 'left',
+                        [classes.valuePlacementRight]: valuePlacement === 'right',
+                        [classes.valuePlacementTop]: valuePlacement === 'top',
+                        [classes.valuePlacementBottom]: valuePlacement === 'bottom',
+                    })}
                     pointerSize={pointerSize}
                     {...rest}
                 >
