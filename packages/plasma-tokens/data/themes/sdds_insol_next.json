@@ -5347,12 +5347,12 @@
                     "enabled": false
                 },
                 "textPromoHover": {
-                    "value": "#15CBADFF",
+                    "value": "#117867FF",
                     "comment": "Промо цвет",
                     "enabled": true
                 },
                 "textPromoActive": {
-                    "value": "#0D7866FF",
+                    "value": "#0A4339FF",
                     "comment": "Промо цвет",
                     "enabled": true
                 },
@@ -5553,7 +5553,7 @@
                     "comment": "Минорный цвет информации"
                 },
                 "textPromo": {
-                    "value": "#109C84",
+                    "value": "#020E0C",
                     "comment": "Промо цвет",
                     "enabled": true
                 }
@@ -5959,12 +5959,12 @@
                     "enabled": false
                 },
                 "textPromoHover": {
-                    "value": "#15CBADFF",
+                    "value": "#117867FF",
                     "comment": "Промо цвет на светлом фоне",
                     "enabled": true
                 },
                 "textPromoActive": {
-                    "value": "#0D7866FF",
+                    "value": "#0A4339FF",
                     "comment": "Промо цвет на светлом фоне",
                     "enabled": true
                 },
@@ -6165,7 +6165,7 @@
                     "comment": "Минорный цвет информации на светлом фоне"
                 },
                 "textPromo": {
-                    "value": "#109C84",
+                    "value": "#020E0C",
                     "comment": "Промо цвет на светлом фоне",
                     "enabled": true
                 }
