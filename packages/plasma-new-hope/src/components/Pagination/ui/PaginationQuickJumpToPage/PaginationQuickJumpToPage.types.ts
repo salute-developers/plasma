@@ -2,6 +2,10 @@ import type { HTMLAttributes } from 'react';
 
 export type PaginationQuickJumpToPageRoot = {
     /*
+     * Предыдущее значение страниц
+     */
+    prevPageValue?: number;
+    /*
      * Placeholder TextField'a для быстрого прыжка на страницу
      */
     placeholderQuickJump?: string;
