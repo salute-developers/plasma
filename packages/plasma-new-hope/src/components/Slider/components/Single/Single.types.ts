@@ -81,6 +81,11 @@ type SingleSliderOrientationPropsUnion =
            * Меняет местами иконку и подпись
            */
           labelReversed?: never;
+          /**
+           * Расположение текущего значения относительно ползунка.
+           * @default 'bottom'
+           */
+          valuePlacement?: 'top' | 'bottom' | 'none';
       }
     | {
           /**
@@ -105,6 +110,11 @@ type SingleSliderOrientationPropsUnion =
            * Меняет местами иконку и подпись
            */
           labelReversed?: boolean;
+          /**
+           * Расположение текущего значения относительно ползунка.
+           * @default 'right'
+           */
+          valuePlacement?: 'left' | 'right' | 'none';
       };
 
 export type SingleSliderProps = SliderBaseProps &
