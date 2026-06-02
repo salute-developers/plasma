@@ -20,8 +20,8 @@ export const sdds_insol_next__light = ([
   --text-accent-active: #0D7866FF;
   --text-accent-minor-hover: #8CEEDDFF;
   --text-accent-minor-active: #20D5B7FF;
-  --text-promo-hover: #118D79FF;
-  --text-promo-active: #052923FF;
+  --text-promo-hover: #117867FF;
+  --text-promo-active: #0A4339FF;
   --text-positive-hover: #15CBADFF;
   --text-positive-active: #0D7866FF;
   --text-warning: #E85702;
@@ -48,7 +48,7 @@ export const sdds_insol_next__light = ([
   --text-info: #166DC4FF;
   --text-positive-minor: #31E0C3FF;
   --text-info-minor: #78BBFFFF;
-  --text-promo: #06322BFF;
+  --text-promo: #020E0CFF;
   --on-dark-text-primary-hover: #F6F6F993;
   --on-dark-text-primary-active: #F6F6F9C4;
   --on-dark-text-primary-brightness: #F6F6F9F5;
@@ -62,8 +62,8 @@ export const sdds_insol_next__light = ([
   --on-dark-text-accent-active: #23B39BFF;
   --on-dark-text-accent-minor-hover: #16B197FF;
   --on-dark-text-accent-minor-active: #0D6859FF;
-  --on-dark-text-promo-hover: #16D4B5FF;
-  --on-dark-text-promo-active: #0F8A76FF;
+  --on-dark-text-promo-hover: #77E4D2FF;
+  --on-dark-text-promo-active: #23B39BFF;
   --on-dark-text-positive-hover: #77E4D2FF;
   --on-dark-text-positive-active: #23B39BFF;
   --on-dark-text-warning: #FF7024;
@@ -94,7 +94,7 @@ export const sdds_insol_next__light = ([
   --on-dark-text-info: #166DC4FF;
   --on-dark-text-positive-minor: #0F7A68FF;
   --on-dark-text-info-minor: #10375EFF;
-  --on-dark-text-promo: #109C84FF;
+  --on-dark-text-promo: #29CCB1FF;
   --on-light-text-primary: #13181BF5;
   --on-light-text-primary-hover: #13181B93;
   --on-light-text-primary-active: #13181BC4;
@@ -112,8 +112,8 @@ export const sdds_insol_next__light = ([
   --on-light-text-accent-active: #0D7866FF;
   --on-light-text-accent-minor-hover: #8CEEDDFF;
   --on-light-text-accent-minor-active: #20D5B7FF;
-  --on-light-text-promo-hover: #118D79FF;
-  --on-light-text-promo-active: #052923FF;
+  --on-light-text-promo-hover: #117867FF;
+  --on-light-text-promo-active: #0A4339FF;
   --on-light-text-positive-hover: #15CBADFF;
   --on-light-text-positive-active: #0D7866FF;
   --on-light-text-warning: #E85702;
@@ -140,7 +140,7 @@ export const sdds_insol_next__light = ([
   --on-light-text-info: #166DC4FF;
   --on-light-text-positive-minor: #31E0C3FF;
   --on-light-text-info-minor: #78BBFFFF;
-  --on-light-text-promo: #06322BFF;
+  --on-light-text-promo: #020E0CFF;
   --inverse-text-primary-hover: #F6F6F993;
   --inverse-text-primary-active: #F6F6F9C4;
   --inverse-text-primary-brightness: #F6F6F9F5;
@@ -154,6 +154,8 @@ export const sdds_insol_next__light = ([
   --inverse-text-accent-active: #23B39BFF;
   --inverse-text-accent-minor-hover: #16B197FF;
   --inverse-text-accent-minor-active: #0D6859FF;
+  --inverse-text-promo-hover: #77E4D2FF;
+  --inverse-text-promo-active: #23B39BFF;
   --inverse-text-positive-hover: #77E4D2FF;
   --inverse-text-positive-active: #23B39BFF;
   --inverse-text-warning: #FF7024;
@@ -184,7 +186,7 @@ export const sdds_insol_next__light = ([
   --inverse-text-info: #166DC4FF;
   --inverse-text-positive-minor: #0F7A68FF;
   --inverse-text-info-minor: #10375EFF;
-  --inverse-text-promo: #109C84FF;
+  --inverse-text-promo: #29CCB1FF;
   --surface-solid-primary: #F2F5F8;
   --surface-solid-primary-hover: #EEF2F6FF;
   --surface-solid-primary-active: #EBF0F4FF;
