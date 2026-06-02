@@ -90,7 +90,8 @@ export const config = {
 
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
-                ${sliderTokens.thumbBorder}: 0.0625rem solid;
+                ${sliderTokens.thumbBorderStyle}: solid;
+                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
 
                 ${sliderTokens.tickSize}: 0.5rem;
 
@@ -143,7 +144,8 @@ export const config = {
 
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
-                ${sliderTokens.thumbBorder}: 0.0625rem solid;
+                ${sliderTokens.thumbBorderStyle}: solid;
+                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
 
                 ${sliderTokens.tickSize}: 0.5rem;
 
@@ -196,7 +198,8 @@ export const config = {
 
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbSizeLarge}: 1.25rem;
-                ${sliderTokens.thumbBorder}: 0.0625rem solid;
+                ${sliderTokens.thumbBorderStyle}: solid;
+                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
 
                 ${sliderTokens.tickSize}: 0.5rem;
 
