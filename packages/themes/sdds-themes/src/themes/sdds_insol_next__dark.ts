@@ -16,8 +16,8 @@ export const sdds_insol_next__dark = ([
   --text-accent-active: #23B39BFF;
   --text-accent-minor-hover: #16B197FF;
   --text-accent-minor-active: #0D6859FF;
-  --text-promo-hover: #16D4B5FF;
-  --text-promo-active: #0F8A76FF;
+  --text-promo-hover: #77E4D2FF;
+  --text-promo-active: #23B39BFF;
   --text-positive-hover: #77E4D2FF;
   --text-positive-active: #23B39BFF;
   --text-warning-hover: #FFA575FF;
@@ -48,7 +48,7 @@ export const sdds_insol_next__dark = ([
   --text-info: #166DC4FF;
   --text-positive-minor: #0F7A68FF;
   --text-info-minor: #10375EFF;
-  --text-promo: #109C84FF;
+  --text-promo: #29CCB1FF;
   --on-dark-text-primary-hover: #FFFFFF93;
   --on-dark-text-primary-active: #FFFFFF62;
   --on-dark-text-primary-brightness: #FFFFFFF5;
@@ -62,8 +62,8 @@ export const sdds_insol_next__dark = ([
   --on-dark-text-accent-active: #23B39BFF;
   --on-dark-text-accent-minor-hover: #16B197FF;
   --on-dark-text-accent-minor-active: #0D6859FF;
-  --on-dark-text-promo-hover: #16D4B5FF;
-  --on-dark-text-promo-active: #0F8A76FF;
+  --on-dark-text-promo-hover: #77E4D2FF;
+  --on-dark-text-promo-active: #23B39BFF;
   --on-dark-text-positive-hover: #77E4D2FF;
   --on-dark-text-positive-active: #23B39BFF;
   --on-dark-text-warning-hover: #FFA575FF;
@@ -94,7 +94,7 @@ export const sdds_insol_next__dark = ([
   --on-dark-text-info: #166DC4FF;
   --on-dark-text-positive-minor: #0F7A68FF;
   --on-dark-text-info-minor: #10375EFF;
-  --on-dark-text-promo: #109C84FF;
+  --on-dark-text-promo: #29CCB1FF;
   --on-light-text-primary: #13181BF5;
   --on-light-text-primary-hover: #13181B93;
   --on-light-text-primary-active: #13181BC4;
@@ -112,8 +112,8 @@ export const sdds_insol_next__dark = ([
   --on-light-text-accent-active: #0D7866FF;
   --on-light-text-accent-minor-hover: #8CEEDDFF;
   --on-light-text-accent-minor-active: #20D5B7FF;
-  --on-light-text-promo-hover: #118D79FF;
-  --on-light-text-promo-active: #052923FF;
+  --on-light-text-promo-hover: #15CBADFF;
+  --on-light-text-promo-active: #0D7866FF;
   --on-light-text-positive-hover: #15CBADFF;
   --on-light-text-positive-active: #0D7866FF;
   --on-light-text-warning: #E85702;
@@ -140,7 +140,7 @@ export const sdds_insol_next__dark = ([
   --on-light-text-info: #166DC4FF;
   --on-light-text-positive-minor: #31E0C3FF;
   --on-light-text-info-minor: #78BBFFFF;
-  --on-light-text-promo: #06322BFF;
+  --on-light-text-promo: #109C84FF;
   --inverse-text-primary: #13181BF5;
   --inverse-text-primary-hover: #13181B93;
   --inverse-text-primary-active: #13181BC4;
@@ -158,8 +158,8 @@ export const sdds_insol_next__dark = ([
   --inverse-text-accent-active: #0D7866FF;
   --inverse-text-accent-minor-hover: #8CEEDDFF;
   --inverse-text-accent-minor-active: #20D5B7FF;
-  --inverse-text-promo-hover: #118D79FF;
-  --inverse-text-promo-active: #052923FF;
+  --inverse-text-promo-hover: #15CBADFF;
+  --inverse-text-promo-active: #0D7866FF;
   --inverse-text-positive-hover: #15CBADFF;
   --inverse-text-positive-active: #0D7866FF;
   --inverse-text-warning: #E85702;
@@ -186,7 +186,7 @@ export const sdds_insol_next__dark = ([
   --inverse-text-info: #166DC4FF;
   --inverse-text-positive-minor: #31E0C3FF;
   --inverse-text-info-minor: #78BBFFFF;
-  --inverse-text-promo: #06322BFF;
+  --inverse-text-promo: #109C84FF;
   --surface-solid-primary-hover: #171D21FF;
   --surface-solid-primary-active: #0F1315FF;
   --surface-solid-primary-brightness: #20282DFF;
