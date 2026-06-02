@@ -1,6 +1,18 @@
+import React, { useEffect } from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { disableProps, InSpacingDecorator } from '../../index';
 
-import { pointerSizes, sliderAligns, labelPlacements, scaleAligns, orientations, visibility } from './fixtures';
+import {
+    pointerSizes,
+    sliderAligns,
+    labelPlacements,
+    scaleAligns,
+    orientations,
+    visibility,
+    valuePlacementsHorizontal,
+    valuePlacementsVertical,
+} from './fixtures';
 
 type CreateMetaProps = {
     component: any;
@@ -45,7 +57,23 @@ export const createMeta = ({
     disablePropsList = [],
 }: CreateMetaProps) => ({
     title,
-    decorators: [InSpacingDecorator],
+    decorators: [
+        (Story: any, context: any) => {
+            const [, updateArgs] = useArgs();
+            const { showTicks, showCurrentValue, orientation } = context.args;
+            const isVertical = orientation === 'vertical';
+
+            useEffect(() => {
+                updateArgs({
+                    _valuePlacementHorizontalVisible: !showTicks && showCurrentValue && !isVertical,
+                    _valuePlacementVerticalVisible: !showTicks && showCurrentValue && isVertical,
+                });
+            }, [showTicks, showCurrentValue, isVertical]);
+
+            return React.createElement(Story);
+        },
+        InSpacingDecorator,
+    ],
     component,
     args: {
         view: 'default',
@@ -71,6 +99,8 @@ export const createMeta = ({
         hideMinValueDiff: 3,
         hideMaxValueDiff: 5,
         showTicks: false,
+        _valuePlacementHorizontalVisible: false,
+        _valuePlacementVerticalVisible: false,
         ...defaultArgs,
     },
     argTypes: {
@@ -175,6 +205,22 @@ export const createMeta = ({
             if: { arg: 'showTicks', truthy: false },
             table: { category: 'slider' },
         },
+        valuePlacementHorizontal: {
+            name: 'valuePlacement',
+            options: valuePlacementsHorizontal,
+            control: { type: 'select' },
+            if: { arg: '_valuePlacementHorizontalVisible' },
+            table: { category: 'slider' },
+        },
+        valuePlacementVertical: {
+            name: 'valuePlacement',
+            options: valuePlacementsVertical,
+            control: { type: 'select' },
+            if: { arg: '_valuePlacementVerticalVisible' },
+            table: { category: 'slider' },
+        },
+        _valuePlacementHorizontalVisible: { table: { disable: true } },
+        _valuePlacementVerticalVisible: { table: { disable: true } },
         ...additionalArgTypes,
         ...disableProps([...commonDisabledArgs, ...disablePropsList]),
     },

@@ -27,6 +27,7 @@ export * from './components/Calendar';
 export * from './components/Radiobox';
 export * from './components/Checkbox';
 export * from './components/Segment';
+export * from './components/Slider';
 export * from './components/Switch';
 
 // Data entry (dropdown)
