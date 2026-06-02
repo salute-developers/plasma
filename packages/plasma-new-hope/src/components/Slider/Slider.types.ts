@@ -6,6 +6,7 @@ export type SliderProps = SingleSliderProps | DoubleSliderProps;
 export type SliderRootProps = {
     view?: string;
     size?: string;
+    pointerSize?: string;
     disabled?: boolean;
     className?: string;
     style?: CSSProperties;

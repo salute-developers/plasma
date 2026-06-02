@@ -8,10 +8,23 @@ const onChangeCommitted = action('onChangeCommitted');
 const onChange = action('onChange');
 
 export const createDefaultStory = (Slider: any) => {
-    return ({ showIcon, showTicks, orientation, labelPlacement, size, min, max, step, ...rest }: any) => {
+    return ({
+        showIcon,
+        showTicks,
+        orientation,
+        labelPlacement,
+        size,
+        min,
+        max,
+        step,
+        valuePlacementHorizontal,
+        valuePlacementVertical,
+        ...rest
+    }: any) => {
         const [value, setValue] = useState(30);
         const isVertical = orientation === 'vertical';
         const scaleTicks = showTicks ? [0, 13, 37, 72, 89, 100, 150] : undefined;
+        const valuePlacement = isVertical ? valuePlacementVertical : valuePlacementHorizontal;
 
         return (
             <div style={{ width: isVertical ? 'auto' : '25rem', height: isVertical ? '25rem' : 'auto' }}>
@@ -25,6 +38,7 @@ export const createDefaultStory = (Slider: any) => {
                     labelPlacement={labelPlacement}
                     labelContent={showIcon ? <IconMic size={size === 's' ? 'xs' : 's'} /> : null}
                     scaleTicks={scaleTicks}
+                    valuePlacement={valuePlacement}
                     onChangeCommitted={(values: any) => {
                         setValue(values);
                         onChangeCommitted(values);
@@ -60,6 +74,9 @@ export const createMultipleValuesStoryArgTypes = () => ({
             'currentValueVisibility',
             'showIcon',
             'showTicks',
+            'valuePlacement',
+            'valuePlacementHorizontal',
+            'valuePlacementVertical',
         ]),
     },
     args: {
