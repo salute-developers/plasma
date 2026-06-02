@@ -109,7 +109,7 @@ export const RangeDatePopover = ({
                 disableFlip={disableFlip}
                 closeOnOverlayClick={closeOnOverlayClick}
                 closeOnEsc={closeOnEsc}
-                portal={usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined}
+                portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
                 target={target}
             >
                 <Root
@@ -174,7 +174,7 @@ export const RangeDatePopover = ({
             disableFlip={disableFlip}
             closeOnOverlayClick={closeOnOverlayClick}
             closeOnEsc={closeOnEsc}
-            portal={usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined}
+            portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
             target={target}
         >
             <Root
