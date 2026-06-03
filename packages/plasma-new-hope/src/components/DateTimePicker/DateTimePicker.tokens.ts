@@ -336,6 +336,7 @@ export const tokens = {
     hintTooltipArrowEdgeMargin: '--plasma-date-time-picker-hint-tooltip-arrow-edge-margin',
 
     /** Прозрачность для всего компонента в состоянии disabled */
+    timeGridDisabledOpacity: '--plasma-date-time-picker-grid-disabled-opacity',
     disabledOpacity: '--plasma-date-time-picker-disabled-opacity',
     outlineFocusColor: '--plasma-date-time-picker-outline-focus',
 };

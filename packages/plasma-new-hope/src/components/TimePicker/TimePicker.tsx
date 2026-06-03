@@ -96,6 +96,8 @@ export const timePickerRoot = (
                 dropdownWidth,
                 dropdownHeight,
                 columnsQuantity = 2,
+                min,
+                max,
 
                 onToggle,
                 onFocus,
@@ -411,6 +413,8 @@ export const timePickerRoot = (
                                 value={viewValue}
                                 onChange={handleOnChange}
                                 disabled={disabled}
+                                min={min}
+                                max={max}
                             />
                         </Root>
                     </FloatingPopover>

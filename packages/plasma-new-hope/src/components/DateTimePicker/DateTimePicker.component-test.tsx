@@ -400,6 +400,61 @@ describeFn('DateTimePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('min with time: disabled hours on min date', () => {
+        cy.viewport(750, 700);
+        mount(
+            <Demo
+                renderFromDate={new Date(2024, 1, 1)}
+                min={new Date(2024, 1, 1, 12, 0, 0)}
+                max={new Date(2024, 1, 28)}
+                includeEdgeDates
+            />,
+        );
+
+        cy.get('input').first().click();
+        cy.get('body').find('[data-day="1"][data-month-index="1"]').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('max with time: disabled hours on max date', () => {
+        cy.viewport(750, 700);
+        mount(
+            <Demo
+                renderFromDate={new Date(2024, 1, 1)}
+                min={new Date(2024, 1, 1)}
+                max={new Date(2024, 1, 28, 16, 0, 0)}
+                includeEdgeDates
+            />,
+        );
+
+        cy.get('input').first().click();
+        cy.get('body').find('[data-day="28"][data-month-index="1"]').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('min with time: disabled hour is not selectable on min date', () => {
+        cy.viewport(750, 700);
+        mount(<Demo renderFromDate={new Date(2024, 1, 1)} min={new Date(2024, 1, 1, 14, 0, 0)} includeEdgeDates />);
+
+        cy.get('input').first().click();
+        cy.get('body').find('[data-day="1"][data-month-index="1"]').first().click();
+
+        cy.get('body')
+            .find('[data-value="10"][data-column="hours"]')
+            .first()
+            .should('have.attr', 'aria-disabled', 'true');
+        cy.get('body').find('[data-value="10"][data-column="hours"]').first().click();
+        cy.get('input').first().should('not.contain.value', ' 10:');
+    });
+
     it('input masked date and time', () => {
         cy.viewport(750, 700);
         mount(<Demo dateFormat="MM.DD.YYYY" timeFormat="HH:mm:ss" maskWithFormat />);
