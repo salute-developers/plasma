@@ -22,7 +22,7 @@ const { meta: META, Default, Chips } = getTextFieldStories({
             return <IconLockOutline size={iconSize} />;
         }
         if (readOnly) {
-            return <IconLockOutline size={iconSize} />;
+            return <IconBellFill size={iconSize} />;
         }
         return <IconBellFill size={iconSize} />;
     },

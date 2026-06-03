@@ -21,19 +21,19 @@ export const config = {
                 ${tokens.borderColorSuccess}: var(--outline-transparent-positive);
 
                 ${tokens.dividerColor}: var(--text-primary);
-                ${tokens.labelColor}: var(--text-primary);
+                ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
 
-                ${tokens.contentSlotColor}: var(--text-primary);
-                ${tokens.contentSlotColorHover}: var(--text-primary-hover);
-                ${tokens.contentSlotColorActive}: var(--text-primary-active);
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
 
                 ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
-                ${tokens.contentSlotRightColor}: var(--text-primary);
-                ${tokens.contentSlotRightColorHover}: var(--text-primary-hover);
-                ${tokens.contentSlotRightColorActive}: var(--text-primary-active);
+                ${tokens.contentSlotRightColor}: var(--text-secondary);
+                ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotRightColorActive}: var(--text-secondary-active);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
@@ -564,28 +564,42 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+
+                ${tokens.background}: var(--surface-transparent-secondary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.contentSlotColor}: var(--text-secondary);
+
+                ${tokens.textFieldColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary);
+
+                ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColorActive}: var(--text-secondary);
+
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.textFieldBorderColor}: transparent;
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-card);
-                ${tokens.labelColorReadOnly}: var(--text-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.borderColor}: transparent;
 
                 ${tokens.dividerColorReadOnly}: var(--text-primary);
                 ${tokens.dividerOpacityReadOnly}: 0.4;
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-secondary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
-                ${tokens.textFieldBorderColorReadOnly}: var(--outline-solid-primary);
+                ${tokens.textFieldBorderColorReadOnly}: transparent;
                 ${tokens.textFieldBorderWidth}: 0.125rem;
-
-                ${tokens.rightContentOpacityReadOnly}: 0.4;
-                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
     },

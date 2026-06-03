@@ -91,6 +91,14 @@ export const tokens = {
     textFieldBorderColorSuccessFocus: '--sdds-core-time-picker-textfield-border-color-success-focus',
     textFieldBoxShadow: '--sdds-core-time-picker-textfield-box-shadow',
 
+    textFieldDividerColor: '--sdds-core-time-picker-textfield-divider-color',
+    textFieldDividerColorHover: '--sdds-core-time-picker-textfield-divider-color-hover',
+    textFieldDividerColorFocus: '--sdds-core-time-picker-textfield-divider-color-focus',
+    textFieldDividerColorReadOnly: '--sdds-core-time-picker-textfield-divider-color-readonly',
+    textFieldDividerColorError: '--sdds-core-time-picker-textfield-divider-color-error',
+    textFieldDividerColorSuccess: '--sdds-core-time-picker-textfield-divider-color-success',
+    textFieldDividerWidth: '--sdds-core-time-picker-textfield-divider-width',
+
     textFieldColorReadOnly: '--sdds-core-time-picker-textfield-color-readonly',
     textFieldBackgroundColorReadOnly: '--sdds-core-time-picker-textfield-background-color-readonly',
     textFieldBorderColorReadOnly: '--sdds-core-time-picker-textfield-border-color-readonly',

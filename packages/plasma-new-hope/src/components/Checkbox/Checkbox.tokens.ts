@@ -16,6 +16,7 @@ export const tokens = {
     triggerBackgroundColor: '--plasma-checkbox-trigger-background-color',
 
     fillColor: '--plasma-checkbox-fill-color',
+    fillColorHover: '--plasma-checkbox-fill-color-hover',
     iconColor: '--plasma-checkbox-icon-color',
     contentTopOffset: '--plasma-checkbox-content-top-offset',
     contentLeftOffset: '--plasma-checkbox-content-left-offset',

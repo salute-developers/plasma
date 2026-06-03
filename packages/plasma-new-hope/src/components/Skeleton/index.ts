@@ -8,6 +8,6 @@ export { RectSkeleton } from './RectSkeleton';
 export type { RectSkeletonProps } from './RectSkeleton';
 
 export { withSkeleton } from './hoc/withSkeleton';
-export type { WithSkeletonProps } from './hoc/withSkeleton';
+export type { WithSkeletonProps } from './hoc/withSkeleton.types';
 
 export { tokens as skeletonTokens } from './tokens';

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { action } from 'storybook/actions';
 import { IconPlasma, IconCalendar, IconSearch, IconArrowRight } from '@salutejs/plasma-icons';
+import type { IconProps } from '@salutejs/plasma-icons';
 
 import { getBaseEvents, getIconSize, EventTooltipBody } from './helpers';
 import { dateShortcuts, dateShortcutsRange } from './fixtures';
@@ -23,7 +24,24 @@ const toValidDate = (value: unknown): Date | undefined => {
     return Number.isNaN(date.getTime()) ? undefined : date;
 };
 
-export const createDefaultStory = (DatePicker: any) => {
+const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
+    return <IconComponent size={getIconSize(size)} color="inherit" />;
+};
+
+type CustomIcon = (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element;
+
+const innerGetIcon = (
+    size: string,
+    type: 'left' | 'right',
+    defaultIcon: React.FC<IconProps>,
+    disabled?: boolean,
+    readOnly?: boolean,
+    customIcon?: CustomIcon,
+) => {
+    return customIcon ? customIcon(size, type, disabled, readOnly) : getIcon(defaultIcon, size);
+};
+
+export const createDefaultStory = (DatePicker: any, customIcon?: CustomIcon) => {
     return ({
         appearance,
         enableContentLeft,
@@ -48,8 +66,6 @@ export const createDefaultStory = (DatePicker: any) => {
         const eventQuarterList = getBaseEvents('quarters', 2, enableEventTooltip);
         const eventYearList = getBaseEvents('years', 2, enableEventTooltip);
 
-        const iconSize = getIconSize(size);
-
         const inputViews = {
             valueSuccess: inputView === 'positive',
             valueError: inputView === 'negative',
@@ -60,8 +76,16 @@ export const createDefaultStory = (DatePicker: any) => {
                 opened={isOpen}
                 appearance={appearance}
                 size={size}
-                contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconSearch color="inherit" size={iconSize} /> : undefined}
+                contentLeft={
+                    enableContentLeft
+                        ? innerGetIcon(size, 'left', IconCalendar, rest.disabled, rest.readOnly, customIcon)
+                        : undefined
+                }
+                contentRight={
+                    enableContentRight
+                        ? innerGetIcon(size, 'right', IconSearch, rest.disabled, rest.readOnly, customIcon)
+                        : undefined
+                }
                 onBlur={onBlur}
                 onFocus={onFocus}
                 onToggle={(is: boolean) => {
@@ -93,7 +117,7 @@ export const createDefaultStory = (DatePicker: any) => {
     };
 };
 
-export const createRangeStory = (DatePickerRange: any) => {
+export const createRangeStory = (DatePickerRange: any, customIcon?: CustomIcon) => {
     return ({
         dividerVariant,
         enableContentLeft,
@@ -149,8 +173,16 @@ export const createRangeStory = (DatePickerRange: any) => {
                 opened={isOpen}
                 appearance={appearance}
                 size={size}
-                contentLeft={enableContentLeft ? <IconCalendar color="inherit" size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconSearch color="inherit" size={getIconSize(size)} /> : undefined}
+                contentLeft={
+                    enableContentLeft
+                        ? innerGetIcon(size, 'left', IconCalendar, rest.disabled, rest.readOnly, customIcon)
+                        : undefined
+                }
+                contentRight={
+                    enableContentRight
+                        ? innerGetIcon(size, 'right', IconSearch, rest.disabled, rest.readOnly, customIcon)
+                        : undefined
+                }
                 firstTextfieldContentLeft={
                     enableFirstTextfieldContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined
                 }

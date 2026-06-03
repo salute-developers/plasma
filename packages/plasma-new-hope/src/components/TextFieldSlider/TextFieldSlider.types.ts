@@ -56,6 +56,12 @@ export type SliderProps = {
      */
     hasPointer?: boolean;
     /**
+     * Массив числовых меток на шкале слайдера.
+     * При наличии — отображаются точки и подписи под слайдером для каждого значения.
+     * Имеют приоритет над `showScale`.
+     */
+    scaleTicks?: number[];
+    /**
      * Вызывается при перемещении ползунка
      */
     onChangeSlider?: (values?: Values) => void;

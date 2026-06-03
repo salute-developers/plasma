@@ -1,4 +1,4 @@
-import { css, comboboxNewTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css, comboboxTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

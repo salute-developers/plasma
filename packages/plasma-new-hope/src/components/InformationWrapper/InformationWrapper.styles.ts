@@ -149,4 +149,6 @@ export const Helpers = styled.div`
 `;
 
 export const LeftHelper = styled.div``;
-export const RightHelper = styled.div``;
+export const RightHelper = styled.div`
+    margin-left: auto;
+`;

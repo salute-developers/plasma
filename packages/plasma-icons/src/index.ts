@@ -154,3 +154,4 @@ export { Icon, iconSectionsSet } from './old/Icon';
 export type { IconName } from './old/Icon';
 
 export * from './scalable';
+export { iconSectionsSet as iconSectionsSetScalable } from './scalable';

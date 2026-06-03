@@ -3,15 +3,17 @@ import {
     surfaceTransparentNegative,
     surfaceTransparentSecondary,
     textInfo,
-    textL,
-    textLBold,
-    textM,
-    textMBold,
+    h2,
+    h2Bold,
+    h4,
+    h4Bold,
     textNegative,
     textPositive,
     textPrimary,
-    textS,
-    textSBold,
+    bodyS,
+    bodySBold,
+    bodyXS,
+    bodyXSBold,
     textSecondary,
     textSecondaryHover,
     textWarning,
@@ -75,20 +77,20 @@ export const config = {
                 ${tokens.fixedContentBeforeHeight}: 2rem;
                 ${tokens.fixedContentBeforePadding}: 0.25rem 0;
 
-                ${tokens.titleFontFamily}: ${textL.fontFamily};
-                ${tokens.titleFontSize}: ${textL.fontSize};
-                ${tokens.titleFontStyle}: ${textL.fontStyle};
-                ${tokens.titleFontWeight}: ${textLBold.fontWeight};
-                ${tokens.titleLetterSpacing}: ${textL.letterSpacing};
-                ${tokens.titleLineHeight}: ${textL.lineHeight};
+                ${tokens.titleFontFamily}: ${h2.fontFamily};
+                ${tokens.titleFontSize}: ${h2.fontSize};
+                ${tokens.titleFontStyle}: ${h2.fontStyle};
+                ${tokens.titleFontWeight}: ${h2Bold.fontWeight};
+                ${tokens.titleLetterSpacing}: ${h2.letterSpacing};
+                ${tokens.titleLineHeight}: ${h2.lineHeight};
                 ${tokens.titlePaddingRight}: 1.875rem;
 
-                ${tokens.textFontFamily}: ${textL.fontFamily};
-                ${tokens.textFontSize}: ${textL.fontSize};
-                ${tokens.textFontStyle}: ${textL.fontStyle};
-                ${tokens.textFontWeight}: ${textL.fontWeight};
-                ${tokens.textLetterSpacing}: ${textL.letterSpacing};
-                ${tokens.textLineHeight}: ${textL.lineHeight};
+                ${tokens.textFontFamily}: ${h2.fontFamily};
+                ${tokens.textFontSize}: ${h2.fontSize};
+                ${tokens.textFontStyle}: ${h2.fontStyle};
+                ${tokens.textFontWeight}: ${h2.fontWeight};
+                ${tokens.textLetterSpacing}: ${h2.letterSpacing};
+                ${tokens.textLineHeight}: ${h2.lineHeight};
             `,
             m: css`
                 ${tokens.padding}: 1.25rem 1.5rem;
@@ -109,20 +111,20 @@ export const config = {
                 ${tokens.fixedContentBeforeHeight}: 1.5rem;
                 ${tokens.fixedContentBeforePadding}: 0;
 
-                ${tokens.titleFontFamily}: ${textM.fontFamily};
-                ${tokens.titleFontSize}: ${textM.fontSize};
-                ${tokens.titleFontStyle}: ${textM.fontStyle};
-                ${tokens.titleFontWeight}: ${textMBold.fontWeight};
-                ${tokens.titleLetterSpacing}: ${textM.letterSpacing};
-                ${tokens.titleLineHeight}: ${textM.lineHeight};
+                ${tokens.titleFontFamily}: ${h4.fontFamily};
+                ${tokens.titleFontSize}: ${h4.fontSize};
+                ${tokens.titleFontStyle}: ${h4.fontStyle};
+                ${tokens.titleFontWeight}: ${h4Bold.fontWeight};
+                ${tokens.titleLetterSpacing}: ${h4.letterSpacing};
+                ${tokens.titleLineHeight}: ${h4.lineHeight};
                 ${tokens.titlePaddingRight}: 1.75rem;
 
-                ${tokens.textFontFamily}: ${textM.fontFamily};
-                ${tokens.textFontSize}: ${textM.fontSize};
-                ${tokens.textFontStyle}: ${textM.fontStyle};
-                ${tokens.textFontWeight}: ${textM.fontWeight};
-                ${tokens.textLetterSpacing}: ${textM.letterSpacing};
-                ${tokens.textLineHeight}: ${textM.lineHeight};
+                ${tokens.textFontFamily}: ${h4.fontFamily};
+                ${tokens.textFontSize}: ${h4.fontSize};
+                ${tokens.textFontStyle}: ${h4.fontStyle};
+                ${tokens.textFontWeight}: ${h4.fontWeight};
+                ${tokens.textLetterSpacing}: ${h4.letterSpacing};
+                ${tokens.textLineHeight}: ${h4.lineHeight};
             `,
             s: css`
                 ${tokens.padding}: 1rem 1.25rem;
@@ -143,20 +145,20 @@ export const config = {
                 ${tokens.fixedContentBeforeHeight}: 1.125rem;
                 ${tokens.fixedContentBeforePadding}: 0.063rem 0;
 
-                ${tokens.titleFontFamily}: ${textS.fontFamily};
-                ${tokens.titleFontSize}: ${textS.fontSize};
-                ${tokens.titleFontStyle}: ${textS.fontStyle};
-                ${tokens.titleFontWeight}: ${textSBold.fontWeight};
-                ${tokens.titleLetterSpacing}: ${textS.letterSpacing};
-                ${tokens.titleLineHeight}: ${textS.lineHeight};
+                ${tokens.titleFontFamily}: ${bodyS.fontFamily};
+                ${tokens.titleFontSize}: ${bodyS.fontSize};
+                ${tokens.titleFontStyle}: ${bodyS.fontStyle};
+                ${tokens.titleFontWeight}: ${bodySBold.fontWeight};
+                ${tokens.titleLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.titleLineHeight}: ${bodyS.lineHeight};
                 ${tokens.titlePaddingRight}: 1.625rem;
 
-                ${tokens.textFontFamily}: ${textS.fontFamily};
-                ${tokens.textFontSize}: ${textS.fontSize};
-                ${tokens.textFontStyle}: ${textS.fontStyle};
-                ${tokens.textFontWeight}: ${textS.fontWeight};
-                ${tokens.textLetterSpacing}: ${textS.letterSpacing};
-                ${tokens.textLineHeight}: ${textS.lineHeight};
+                ${tokens.textFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFontSize}: ${bodyS.fontSize};
+                ${tokens.textFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyS.lineHeight};
             `,
             xs: css`
                 ${tokens.padding}: 0.75rem 1rem;
@@ -177,32 +179,20 @@ export const config = {
                 ${tokens.fixedContentBeforeHeight}: 1rem;
                 ${tokens.fixedContentBeforePadding}: 0;
 
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.titleFontFamily}: var(--plasma-typo-text-xs-font-family);
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.titleFontSize}: var(--plasma-typo-text-xs-font-size);
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.titleFontStyle}: var(--plasma-typo-text-xs-font-style);
-                /* NOTE: no token textXsBold in @salutejs/sdds-themes/tokens */
-                ${tokens.titleFontWeight}: var(--plasma-typo-text-xs-bold-font-weight);
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.titleLetterSpacing}: var(--plasma-typo-text-xs-letter-spacing);
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.titleLineHeight}: var(--plasma-typo-text-xs-line-height);
+                ${tokens.titleFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.titleLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleLineHeight}: ${bodyXS.lineHeight};
                 ${tokens.titlePaddingRight}: 1.5rem;
 
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.textFontFamily}: var(--plasma-typo-text-xs-font-family);
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.textFontSize}: var(--plasma-typo-text-xs-font-size);
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.textFontStyle}: var(--plasma-typo-text-xs-font-style);
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.textFontWeight}: var(--plasma-typo-text-xs-font-weight);
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.textLetterSpacing}: var(--plasma-typo-text-xs-letter-spacing);
-                /* NOTE: no token textXs in @salutejs/sdds-themes/tokens */
-                ${tokens.textLineHeight}: var(--plasma-typo-text-xs-line-height);
+                ${tokens.textFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textLineHeight}: ${bodyXS.lineHeight};
             `,
         },
     },

@@ -1,37 +1,29 @@
 import React from 'react';
-import type { ComponentProps } from 'react';
-import type { Meta } from '@storybook/react-vite';
 import { getTimePickerStories } from '@salutejs/plasma-sb-utils';
-import { IconClockCircleOutline } from '@salutejs/plasma-icons';
+import { IconClockCircleOutline, IconLockOutline } from '@salutejs/plasma-icons';
 
 import { TimePicker } from './TimePicker';
 import { config } from './TimePicker.config';
 
-type TimePickerProps = ComponentProps<typeof TimePicker>;
-
-const { meta: META, Default: DefaultStory } = getTimePickerStories({
+const { meta: META, Default } = getTimePickerStories({
     component: TimePicker,
     componentConfig: config,
-    defaultArgs: config.defaults,
+    defaultArgs: { ...config.defaults, enableContentLeft: false },
+    disablePropsList: ['enableContentLeft'],
+    customIcon: (size: string, _type?: 'left' | 'right', disabled?: boolean) => {
+        const iconSize = size === 'xs' ? 'xs' : 's';
+        if (disabled) {
+            return <IconLockOutline size={iconSize} color="inherit" />;
+        }
+        return <IconClockCircleOutline size={iconSize} color="inherit" />;
+    },
 });
 
-const meta: Meta<TimePickerProps> = {
+const meta = {
     ...META,
     title: 'Data Entry/TimePicker',
 };
 
 export default meta;
 
-export const Default = {
-    ...DefaultStory,
-    render: (args: TimePickerProps) => (
-        <TimePicker
-            {...args}
-            contentRight={
-                args.enableContentRight ? (
-                    <IconClockCircleOutline size={args.size === 'xs' ? 'xs' : 's'} color="inherit" />
-                ) : undefined
-            }
-        />
-    ),
-};
+export { Default };

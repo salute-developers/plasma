@@ -40,7 +40,7 @@ import * as React from 'react';
 import type { ComponentProps, ReactNode, CSSProperties, AriaRole /*, другие нужные утилитарные типы */ } from 'react';
 // Добавить useState если секция Examples использует его:
 // import { useState } from 'react';
-import { describe, it } from 'vitest';
+import { describe, it } from 'node:test';
 import { expectTypeOf } from 'expect-type';
 // Импорт иконок если нужны в примерах:
 // import { IconDownload } from '@salutejs/plasma-icons';
@@ -249,7 +249,7 @@ describe('Examples', () => {
 cd utils/api-tests && npm test
 ```
 
-Это выполнит `rm -rf tests && node script.mjs && vitest run --config ./vitest.config.ts` — сгенерирует тесты для всех библиотек и запустит typecheck.
+Это выполнит `rm -rf tests && node script.mjs && NODE_OPTIONS=--max-old-space-size=8192 tsc --noEmit -p ./tsconfig.typecheck.json` — сгенерирует тесты для всех библиотек и запустит typecheck.
 
 Все тесты должны пройти без ошибок типов (`Type Errors: no errors`).
 Рантайм ошибки `Cannot find module 'styled-components'` — ожидаемые, игнорировать.

@@ -221,7 +221,7 @@ export const StepItem: React.FC<
                         />
                     )}
 
-                    {isVertical && (
+                    {isVertical && !isFirst && (
                         <StepItemDivider
                             className={cls(classes.indentDivider, {
                                 [classes.verticalOrientation]: isVertical,

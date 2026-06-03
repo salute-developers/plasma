@@ -12,6 +12,10 @@ export type FileProcessHandler = (files: FileArgs) => Promise<void> | void;
 
 export type DropzoneProps = InputHTMLAttributesWithoutDraggable<HTMLInputElement, 'title' | 'size'> & {
     /**
+     * Список файлов (контролируемый вариант компонента)
+     */
+    files?: File[];
+    /**
      * Позволяет выбирать несколько файлов для загрузки
      */
     multiple?: boolean;

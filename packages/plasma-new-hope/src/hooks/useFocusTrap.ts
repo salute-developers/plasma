@@ -64,6 +64,10 @@ export const useFocusTrap = (
 
     const setRef = useCallback(
         (node: HTMLElement | null) => {
+            if (!active) {
+                return;
+            }
+
             if (ref.current) {
                 focusManager.teardownScopedFocus();
                 focusManager.returnFocus();

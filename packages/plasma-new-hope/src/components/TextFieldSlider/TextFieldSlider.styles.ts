@@ -6,6 +6,56 @@ import { Input } from '../TextField/TextField.styles';
 import { StyledInput } from './ui/Input/Input.styles';
 import { classes, tokens } from './TextFieldSlider.tokens';
 
+export const ScaleTicksWrapper = styled.div`
+    position: relative;
+    overflow: visible;
+    height: var(${tokens.scaleValueLineHeight});
+    margin-top: calc(var(${tokens.scaleWrapperOffset}) + var(${tokens.scaleWrapperPaddingTop}));
+    margin-left: calc(var(${tokens.sliderContainerOffset}) + var(${tokens.sliderThumbSize}) / 2);
+    margin-right: calc(var(${tokens.sliderContainerOffset}) + var(${tokens.sliderThumbSize}) / 2);
+`;
+
+export const ScaleTick = styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    overflow: visible;
+    cursor: pointer;
+`;
+
+export const ScaleTickDot = styled.span<{ filled?: boolean }>`
+    position: absolute;
+    left: 0;
+    top: calc(
+        -1 * (var(${tokens.scaleWrapperOffset}) + var(${tokens.scaleWrapperPaddingTop})) - var(
+                ${tokens.sliderTrackHeight}
+            ) / 2 - var(${tokens.scaleTickSize}) / 2
+    );
+    transform: translateX(-50%);
+    display: block;
+    width: var(${tokens.scaleTickSize});
+    height: var(${tokens.scaleTickSize});
+    border-radius: 50%;
+    background-color: ${({ filled }) =>
+        filled ? `var(${tokens.scaleTickDotFilledColor})` : `var(${tokens.scaleTickDotColor})`};
+`;
+
+export const ScaleTickLabel = styled.span`
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    color: var(${tokens.scaleValueColor});
+    font-family: var(${tokens.scaleValueFontFamily});
+    font-size: var(${tokens.scaleValueFontSize});
+    font-style: var(${tokens.scaleValueFontStyle});
+    font-weight: var(${tokens.scaleValueFontWeight});
+    letter-spacing: var(${tokens.scaleValueLetterSpacing});
+    line-height: var(${tokens.scaleValueLineHeight});
+`;
+
 export const SliderContainer = styled.div`
     position: absolute;
     bottom: 0;
