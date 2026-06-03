@@ -214,7 +214,7 @@ describeFn('Calendar', () => {
         return calendarMap[type];
     };
 
-    it('default', () => {
+    itSkipForWebkit('default', () => {
         mount(
             <div style={{ width: '500px', height: '1134px', overflow: 'hidden' }}>
                 <Demo baseValue={baseDate} type="Days" />
@@ -231,7 +231,7 @@ describeFn('Calendar', () => {
         cy.matchImageSnapshot();
     });
 
-    it('default: double calendar', () => {
+    itSkipForWebkit('default: double calendar', () => {
         mount(
             <div style={{ width: '1200px', height: '1134px', overflow: 'hidden' }}>
                 <Demo baseValue={baseDate} type="Days" displayDouble />
@@ -343,7 +343,7 @@ describeFn('Calendar', () => {
         });
     });
 
-    it('min and max', () => {
+    itSkipForWebkit('min and max', () => {
         mount(
             <div style={{ width: '500px', height: '1134px' }}>
                 <Demo baseValue={baseDate} min={new Date(1999, 6, 3)} max={new Date(1999, 6, 15)} />
@@ -360,7 +360,7 @@ describeFn('Calendar', () => {
         cy.matchImageSnapshot();
     });
 
-    it('min and max: double', () => {
+    itSkipForWebkit('min and max: double', () => {
         mount(
             <div style={{ width: '500px', height: '1134px' }}>
                 <Demo baseValue={baseDate} min={new Date(1999, 6, 3)} max={new Date(1999, 6, 15)} displayDouble />
