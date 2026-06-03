@@ -100,25 +100,14 @@ export const useDateTimePicker = ({
     };
 
     const isDateEqualEdge = (dateEdge?: Date) => {
-        if (!dateEdge) {
+        if (!dateEdge || !correctDates.calendar) {
             return false;
         }
 
-        const normalizedEdgeDate = customDayjs(dateEdge);
-        normalizedEdgeDate.set('hours', 0);
-        normalizedEdgeDate.set('minutes', 0);
-        normalizedEdgeDate.set('seconds', 0);
+        const normalizedEdgeDate = customDayjs(dateEdge).startOf('day');
+        const normalizedCurrentDate = customDayjs(correctDates.calendar).startOf('day');
 
-        const normalizedCurrentDate = customDayjs(correctDates.calendar);
-        normalizedCurrentDate.set('hours', 0);
-        normalizedCurrentDate.set('minutes', 0);
-        normalizedCurrentDate.set('seconds', 0);
-
-        if (normalizedCurrentDate.isSame(normalizedEdgeDate)) {
-            return true;
-        }
-
-        return false;
+        return normalizedCurrentDate.isSame(normalizedEdgeDate);
     };
 
     const getFormattedCorrectInput = ({

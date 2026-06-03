@@ -17,7 +17,7 @@ export const createDefaultStory = (
     TimePicker: any,
     customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element,
 ) => {
-    return ({ enableContentLeft, enableContentRight, size, ...rest }: any) => {
+    return ({ enableContentLeft, enableContentRight, size, min, max, ...rest }: any) => {
         const [isOpen, setIsOpen] = useState(false);
 
         const defaultIconsByType = { left: IconPlasma, right: IconSearch };
@@ -38,6 +38,8 @@ export const createDefaultStory = (
                     setIsOpen(is);
                     onToggle(is);
                 }}
+                {...(min && { min })}
+                {...(max && { max })}
                 {...rest}
             />
         );

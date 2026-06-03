@@ -164,6 +164,14 @@ type BasicProps = {
      */
     columnsQuantity?: 2 | 3;
     /**
+     * Минимальное время (в формате HH:mm:ss или Date)
+     */
+    min?: string | Date;
+    /**
+     * Максимальное время (в формате HH:mm:ss или Date)
+     */
+    max?: string | Date;
+    /**
      * Стиль для UI конфигурации
      * Влияет на выбор предустановленного набора токенов
      * @default 'default'
