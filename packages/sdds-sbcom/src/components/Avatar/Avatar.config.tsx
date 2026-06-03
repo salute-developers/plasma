@@ -23,6 +23,14 @@ import {
     textPositive,
     textPrimary,
     textWarning,
+    textS,
+    personasBlueSurfaceAccentGradient,
+    personasGreenSurfaceAccentGradient,
+    personasOchreSurfaceAccentGradient,
+    personasPinkSurfaceAccentGradient,
+    personasVioletSurfaceAccentGradient,
+    personasIndigoSurfaceAccentGradient,
+    personasSeaBlueSurfaceAccentGradient,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 /*
@@ -39,12 +47,68 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-accent-gradient);
+                ${tokens.color}: ${onDarkTextPrimary};
                 ${tokens.backgroundColor}: linear-gradient(94deg, rgba(62, 121, 240, 0.2) 6.49%, rgba(39, 198, 229, 0.2) 93.51%);
                 ${tokens.statusOnlineColor}: ${surfacePositive};
                 ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
                 ${tokens.scaleHover}: 1.02;
                 ${tokens.fontFamily}: ${bodyS.fontFamily};
+            `,
+            blue: css`
+                ${tokens.color}: ${onDarkTextPrimary};
+                ${tokens.backgroundColor}: ${personasBlueSurfaceAccentGradient};
+                ${tokens.statusOnlineColor}: ${surfacePositive};
+                ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
+                ${tokens.scaleHover}: 1.02;
+                ${tokens.fontFamily}: ${textS.fontFamily};
+            `,
+            green: css`
+                ${tokens.color}: ${onDarkTextPrimary};
+                ${tokens.backgroundColor}: ${personasGreenSurfaceAccentGradient};
+                ${tokens.statusOnlineColor}: ${surfacePositive};
+                ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
+                ${tokens.scaleHover}: 1.02;
+                ${tokens.fontFamily}: ${textS.fontFamily};
+            `,
+            ochre: css`
+                ${tokens.color}: ${onDarkTextPrimary};
+                ${tokens.backgroundColor}: ${personasOchreSurfaceAccentGradient};
+                ${tokens.statusOnlineColor}: ${surfacePositive};
+                ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
+                ${tokens.scaleHover}: 1.02;
+                ${tokens.fontFamily}: ${textS.fontFamily};
+            `,
+            pink: css`
+                ${tokens.color}: ${onDarkTextPrimary};
+                ${tokens.backgroundColor}: ${personasPinkSurfaceAccentGradient};
+                ${tokens.statusOnlineColor}: ${surfacePositive};
+                ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
+                ${tokens.scaleHover}: 1.02;
+                ${tokens.fontFamily}: ${textS.fontFamily};
+            `,
+            violet: css`
+                ${tokens.color}: ${onDarkTextPrimary};
+                ${tokens.backgroundColor}: ${personasVioletSurfaceAccentGradient};
+                ${tokens.statusOnlineColor}: ${surfacePositive};
+                ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
+                ${tokens.scaleHover}: 1.02;
+                ${tokens.fontFamily}: ${textS.fontFamily};
+            `,
+            indigo: css`
+                ${tokens.color}: ${onDarkTextPrimary};
+                ${tokens.backgroundColor}: ${personasIndigoSurfaceAccentGradient};
+                ${tokens.statusOnlineColor}: ${surfacePositive};
+                ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
+                ${tokens.scaleHover}: 1.02;
+                ${tokens.fontFamily}: ${textS.fontFamily};
+            `,
+            seaBlue: css`
+                ${tokens.color}: ${onDarkTextPrimary};
+                ${tokens.backgroundColor}: ${personasSeaBlueSurfaceAccentGradient};
+                ${tokens.statusOnlineColor}: ${surfacePositive};
+                ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
+                ${tokens.scaleHover}: 1.02;
+                ${tokens.fontFamily}: ${textS.fontFamily};
             `,
         },
         size: {
