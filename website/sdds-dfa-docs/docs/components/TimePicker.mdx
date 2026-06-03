@@ -126,6 +126,32 @@ export function App() {
 - `Arrow Left/Right` - переход между колонками
 - `Tab` - переход к следующему значению
 
+### Ограничение допустимого времени
+
+С помощью свойств `min` и `max` можно задать допустимый диапазон времени.
+Значения вне этого диапазона отображаются как недоступные в выпадающем списке.
+
+Оба свойства принимают строку в формате `HH:mm:ss` или объект `Date`.
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div style={{height: '500px'}}>
+            <TimePicker
+                columnsQuantity={3}
+                value="15:00:00"
+                min="12:00:00"
+                max="20:00:00"
+                placeholder="00:00:00"
+            />
+        </div>
+    );
+}
+```
+
 ## Props
 
 <PropsTable name="TimePicker" />
