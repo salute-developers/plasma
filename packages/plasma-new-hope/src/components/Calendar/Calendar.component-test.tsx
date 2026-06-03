@@ -500,6 +500,7 @@ describeFn('Calendar keyboard navigation', () => {
     itSkipForWebkit('navigate with `Home` and `End`', () => {
         mount(<Demo baseValue={baseDate} />);
 
+        cy.get('[data-day="7"][data-month-index="6"]').first().focus();
         cy.get('body').type('{downarrow}').type('{end}');
         checkFocusedDay('18');
         checkFocusedMonth('6');
@@ -516,6 +517,7 @@ describeFn('Calendar keyboard navigation', () => {
     itSkipForWebkit('navigate with `PageUp` and `PageDown`', () => {
         mount(<Demo baseValue={baseDate} />);
 
+        cy.get('[data-day="7"][data-month-index="6"]').first().focus();
         cy.get('body').type('{pageup}');
         checkFocusedDay('9');
         checkFocusedMonth('5');
@@ -528,6 +530,7 @@ describeFn('Calendar keyboard navigation', () => {
     it('navigate with Shift + `PageUp` and `PageDown`', () => {
         mount(<Demo baseValue={minBaseDate} />);
 
+        cy.get('[data-day="1"][data-month-index="1"]').first().focus();
         cy.get('body').type('{shift}{pageup}');
         cy.get('body')
             .find('[data-day="2"][data-month-index="1"]')
@@ -560,6 +563,7 @@ describeFn('Calendar keyboard navigation', () => {
     itSkipForWebkit('navigate with arrow abroad bounds', () => {
         mount(<Demo baseValue={minBaseDate} />);
 
+        cy.get('[data-day="1"][data-month-index="1"]').first().focus();
         cy.get('body').type('{leftarrow}');
         checkFocusedDay('31');
         checkFocusedMonth('0');
@@ -608,6 +612,7 @@ describeFn('Calendar keyboard navigation', () => {
     itSkipForWebkit('double: navigate with arrow abroad bounds', () => {
         mount(<Demo baseValue={minBaseDate} displayDouble />);
 
+        cy.get('[data-day="1"][data-month-index="1"]').first().focus();
         cy.get('body').type('{leftarrow}');
         checkFocusedDay('31');
         checkFocusedMonth('0');
@@ -662,6 +667,7 @@ describeFn('Calendar keyboard navigation', () => {
     itSkipForWebkit('processing aria-disabled as disabled attr', () => {
         mount(<Demo baseValue={baseDate} />);
 
+        cy.get('[data-day="7"][data-month-index="6"]').first().focus();
         cy.get('body').type('{downArrow}'.repeat(2)).type('{end}');
 
         cy.get('body')
