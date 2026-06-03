@@ -52,7 +52,7 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceAccent};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${onLightSurfaceAccent} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceAccentHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${surfaceAccentActive};
             `,
@@ -63,7 +63,7 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${onLightTextAccent};
                 ${buttonTokens.buttonValueColor}: ${textSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceSolidPrimary};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${onLightSurfaceSolidPrimary} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${onLightSurfaceSolidPrimaryHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${onLightSurfaceSolidPrimaryActive};
             `,
@@ -74,7 +74,7 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${onLightTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceSolidPrimary};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${onLightSurfaceSolidPrimary} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${onLightSurfaceSolidPrimaryHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${onLightSurfaceSolidPrimaryActive};
             `,
@@ -85,7 +85,7 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${textAccent};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceTransparentSecondary};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceTransparentSecondary} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
             `,
@@ -97,7 +97,7 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${textAccent};
                 ${buttonTokens.buttonValueColor}: ${textSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceClear} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceClear};
                 ${buttonTokens.buttonBackgroundColorActive}: ${surfaceClear};
             `,
@@ -108,7 +108,7 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${textNegative};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceTransparentNegative};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceTransparentNegative} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentNegativeHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${surfaceTransparentNegativeActive};
             `,
@@ -119,7 +119,7 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${textNegative};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceClear} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceClear};
                 ${buttonTokens.buttonColorHover}: ${onDarkTextPrimaryHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${surfaceClear};
@@ -132,7 +132,7 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${textPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceTransparentSecondary};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceTransparentSecondary} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
                 ${buttonTokens.buttonColorHover}: ${onDarkTextPrimaryHover};
             `,
@@ -143,7 +143,7 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${textPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceClear} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceClear};
                 ${buttonTokens.buttonColorHover}: ${textPrimaryHover};
                 ${buttonTokens.buttonColorActive}: ${textPrimaryActive};
@@ -161,7 +161,6 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: ${h4Medium.fontWeight};
                 ${buttonTokens.buttonLetterSpacing}: ${h4Medium.letterSpacing};
                 ${buttonTokens.buttonLineHeight}: ${h4Medium.lineHeight};
-
                 ${buttonTokens.buttonSpinnerSize}: 1.5rem;
 
 
