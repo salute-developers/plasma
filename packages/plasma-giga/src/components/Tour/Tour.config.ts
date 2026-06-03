@@ -1,4 +1,5 @@
 import { tourTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
+import { inverseOverlaySoft, surfaceSolidCard } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
     defaults: {
@@ -8,8 +9,8 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.tailColor}: var(--surface-solid-card);
-                ${tokens.overlayColor}: var(--inverse-overlay-soft);
+                ${tokens.tailColor}: ${surfaceSolidCard};
+                ${tokens.overlayColor}: ${inverseOverlaySoft};
             `,
         },
         size: {
