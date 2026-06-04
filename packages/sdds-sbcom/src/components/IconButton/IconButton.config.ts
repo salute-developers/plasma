@@ -129,7 +129,7 @@ export const config = {
             `,
         },
         size: {
-            48: css`
+            '48': css`
                 ${iconButtonTokens.iconButtonHeight}: 3rem;
                 ${iconButtonTokens.iconButtonWidth}: 3rem;
                 ${iconButtonTokens.iconButtonFontFamily}: ${h4Medium.fontFamily};
@@ -142,7 +142,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1.5rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
-            40: css`
+            '40': css`
                 ${iconButtonTokens.iconButtonHeight}: 2.5rem;
                 ${iconButtonTokens.iconButtonWidth}: 2.5rem;
                 ${iconButtonTokens.iconButtonFontFamily}: ${h4Medium.fontFamily};
@@ -155,7 +155,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1.5rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
-            32: css`
+            '32': css`
                 ${iconButtonTokens.iconButtonHeight}: 2rem;
                 ${iconButtonTokens.iconButtonWidth}: 2rem;
                 ${iconButtonTokens.iconButtonFontFamily}: ${h4Medium.fontFamily};
