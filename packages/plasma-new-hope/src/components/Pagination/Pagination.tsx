@@ -64,6 +64,8 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                 onChangePageValue,
                 onChangePerPageValue,
                 onChange,
+                onFocusQuickJump,
+                onBlurQuickJump,
                 ...rest
             },
             ref,
@@ -235,6 +237,8 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                                         placeholderQuickJump={placeholderQuickJump}
                                         textQuickJump={textQuickJump}
                                         onChangeValue={handleSetPage}
+                                        onFocusQuickJump={onFocusQuickJump}
+                                        onBlurQuickJump={onBlurQuickJump}
                                     />
                                 )}
                                 {helperText && (

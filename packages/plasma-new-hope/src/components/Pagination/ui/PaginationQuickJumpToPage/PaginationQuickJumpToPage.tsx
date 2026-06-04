@@ -11,10 +11,11 @@ import {
 } from './PaginationQuickJumpToPage.styles';
 
 export const PaginationQuickJumpToPage: FC<PaginationQuickJumpToPageProps> = ({
-    prevPageValue,
     placeholderQuickJump = defaultValues.placeholderQuickJump,
     textQuickJump = defaultValues.textQuickJump,
     onChangeValue,
+    onFocusQuickJump,
+    onBlurQuickJump,
     ...rest
 }) => {
     const [pageValue, setPageValue] = useState<number | string | undefined>('');
@@ -38,14 +39,6 @@ export const PaginationQuickJumpToPage: FC<PaginationQuickJumpToPageProps> = ({
         }
     };
 
-    const handleBlur = () => {
-        if (pageValue !== prevPageValue && onChangeValue) {
-            onChangeValue(Number(pageValue));
-        }
-
-        setPageValue('');
-    };
-
     return (
         <QuickJumpToPageRoot {...rest}>
             <QuickJumpToPageTypography>{textQuickJump}</QuickJumpToPageTypography>
@@ -54,7 +47,8 @@ export const PaginationQuickJumpToPage: FC<PaginationQuickJumpToPageProps> = ({
                 placeholder={placeholderQuickJump}
                 onKeyUp={handleKeyPress}
                 onChange={handleChangeInput}
-                onBlur={handleBlur}
+                onFocus={onFocusQuickJump}
+                onBlur={onBlurQuickJump}
             />
         </QuickJumpToPageRoot>
     );
