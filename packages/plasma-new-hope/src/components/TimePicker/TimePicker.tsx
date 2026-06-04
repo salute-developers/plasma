@@ -431,13 +431,10 @@ export const timePickerRoot = (
                                 value={viewValue}
                                 onChange={handleOnChange}
                                 disabled={disabled}
-<<<<<<< HEAD
                                 min={min}
                                 max={max}
-=======
                                 multiplicityMinutes={multiplicityMinutes}
                                 multiplicitySeconds={multiplicitySeconds}
->>>>>>> efd9831fe5 (feat(new-hope): pass multiplicity props through TimePicker to TimePickerGrid)
                             />
                         </Root>
                     </FloatingPopover>
