@@ -1,7 +1,14 @@
 import React, { forwardRef, useRef, useState, useEffect, useCallback, useMemo, KeyboardEvent } from 'react';
 import type { RootProps } from 'src/engines';
 
-import { animateScrollTo, getColumnsFromFormat, parseTimeString, buildTimeString, isTimeDisabled } from './utils';
+import {
+    animateScrollTo,
+    getColumnsFromFormat,
+    parseTimeString,
+    buildTimeString,
+    isTimeDisabled,
+    roundToMultiplicity,
+} from './utils';
 import { TimePickerGridChangeEvent, TimePickerGridProps } from './TimePickerGrid.types';
 import { base, StyledTimePicker } from './TimePickerGrid.styles';
 import { base as sizeCSS } from './variations/_size/base';
@@ -43,13 +50,18 @@ export const timePickerGridRoot = (
                 max,
                 columnsQuantity,
                 disabledValues,
+                multiplicityMinutes,
+                multiplicitySeconds,
                 onChange,
                 ...rest
             },
             ref,
         ) => {
             const actualFormat = format || (columnsQuantity === 3 ? 'HH:mm:ss' : 'HH:mm');
-            const columnsConfig = useMemo(() => getColumnsFromFormat(actualFormat), [actualFormat]);
+            const columnsConfig = useMemo(
+                () => getColumnsFromFormat(actualFormat, multiplicityMinutes, multiplicitySeconds),
+                [actualFormat],
+            );
 
             const hoursColumnRef = useRef<HTMLDivElement>(null);
             const minutesColumnRef = useRef<HTMLDivElement>(null);
@@ -98,8 +110,10 @@ export const timePickerGridRoot = (
                     const timeValues = parseTimeString(viewValue, actualFormat);
                     return {
                         hours: timeValues.hh,
-                        minutes: timeValues.mm,
-                        seconds: timeValues.ss,
+                        minutes:
+                            timeValues.mm !== null ? roundToMultiplicity(timeValues.mm, multiplicityMinutes) : null,
+                        seconds:
+                            timeValues.ss !== null ? roundToMultiplicity(timeValues.ss, multiplicitySeconds) : null,
                     };
                 }
 
