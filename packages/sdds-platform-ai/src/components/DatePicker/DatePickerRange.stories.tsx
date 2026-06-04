@@ -11,6 +11,9 @@ type DatePickerRangeProps = ComponentProps<typeof DatePickerRange>;
 const { meta: META, Range } = getDatePickerRangeStories({
     component: DatePickerRange,
     componentConfig: config,
+    defaultArgs: {
+        ...config.defaults,
+    },
 });
 
 const meta: Meta<DatePickerRangeProps> = {

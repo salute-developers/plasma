@@ -19,14 +19,18 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card-active);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldBorderColor}: var(--outline-transparent-primary);
+                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-primary-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-solid-default);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
@@ -59,8 +63,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -113,8 +117,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -167,8 +171,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -222,8 +226,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -234,6 +238,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
@@ -252,7 +257,7 @@ export const config = {
                 ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.textFieldLabelOffset}: 0.625rem;
+                ${tokens.textFieldLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -290,8 +295,8 @@ export const config = {
                 ${tokens.textFieldChipBorderRadius}: 0.375rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 2.25rem;
-                ${tokens.textFieldChipPadding}: 0 0.625rem 0 0.875rem;
-                ${tokens.textFieldChipClearContentMarginLeft}: 0.5rem;
+                ${tokens.textFieldChipPadding}: 0.375rem 0.5rem 0.375rem 0.75rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0.375rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 1.25rem;
                 ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -429,9 +434,10 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
+                ${tokens.textFieldReadOnlyOpacity}: 1;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-transparent-primary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLabelColorReadOnly}: var(--text-primary);
