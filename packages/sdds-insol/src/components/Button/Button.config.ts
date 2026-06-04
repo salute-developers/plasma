@@ -138,7 +138,7 @@ export const config = {
             green: css`
                 ${buttonTokens.buttonColor}: var(--on-light-text-accent);
                 ${buttonTokens.buttonColorHover}: var(--text-promo-hover);
-                ${buttonTokens.buttonColorActive}: var--text-promo-active);
+                ${buttonTokens.buttonColorActive}: var(--text-promo-active);
                 ${buttonTokens.buttonTextColor}: var(--on-light-text-accent);
                 ${buttonTokens.buttonIconColor}: var(--on-light-text-accent);
                 ${buttonTokens.buttonValueColor}: var(--on-light-text-secondary);
