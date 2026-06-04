@@ -1,3 +1,4 @@
+import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getSegmentStories } from '@salutejs/plasma-sb-utils';
@@ -10,6 +11,16 @@ import { SegmentProvider, SegmentItem, SegmentGroup, useSegment } from './Segmen
 
 type SegmentGroupProps = ComponentProps<typeof SegmentGroup>;
 
+const getContentRight = (contentRightOption: string, size: string) => {
+    const contentSize = size === 'xs' ? 'xs' : 's';
+    switch (contentRightOption) {
+        case 'counter':
+            return <Counter size={contentSize} count={1} view="accent" />;
+        default:
+            return undefined;
+    }
+};
+
 const { meta: META, Default } = getSegmentStories({
     SegmentGroup,
     SegmentItem,
@@ -17,6 +28,7 @@ const { meta: META, Default } = getSegmentStories({
     componentConfig: { group: groupConfig, item: itemConfig },
     CounterComponent: Counter,
     useSegment,
+    customGetContentRight: getContentRight,
 });
 
 const meta: Meta<SegmentGroupProps> = {

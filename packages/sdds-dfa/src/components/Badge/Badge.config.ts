@@ -52,6 +52,25 @@ export const config = {
 
                 ${badgeTokens.colorClear}: var(--text-negative);
             `,
+            black: css`
+                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.background}: var(--on-light-surface-solid-default);
+
+                ${badgeTokens.colorTransparent}: var(--on-dark-text-primary);
+                ${badgeTokens.backgroundTransparent}: var(--on-light-surface-transparent-deep);
+
+                ${badgeTokens.colorClear}: var(--on-light-text-primary);
+            `,
+            white: css`
+                ${badgeTokens.color}: var(--on-light-text-primary);
+                ${badgeTokens.background}: var(--on-dark-surface-solid-default);
+
+                ${badgeTokens.colorTransparent}: var(--on-dark-text-primary);
+                ${badgeTokens.backgroundTransparent}: var(--on-dark-surface-transparent-card);
+
+                ${badgeTokens.colorClear}: var(--on-dark-text-primary);
+            `,
+            // deprecated
             dark: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
                 ${badgeTokens.background}: var(--on-light-surface-solid-default);
@@ -61,6 +80,7 @@ export const config = {
 
                 ${badgeTokens.colorClear}: var(--on-light-text-primary);
             `,
+            // deprecated
             light: css`
                 ${badgeTokens.color}: var(--on-light-text-primary);
                 ${badgeTokens.background}: var(--on-dark-surface-solid-default);

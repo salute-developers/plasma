@@ -59,6 +59,7 @@ export const config = {
                 ${tabsTokens.arrowInnerPadding}: 0rem;
                 ${tabsTokens.arrowOuterPadding}: 0.75rem;
             `,
+            // deprecated
             h6: css`
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
                 ${tabsTokens.tabsWidth}: fit-content;

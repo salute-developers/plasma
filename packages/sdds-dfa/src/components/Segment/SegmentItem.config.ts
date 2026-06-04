@@ -2,11 +2,28 @@ import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components'
 
 export const config = {
     defaults: {
-        view: 'clear',
+        view: 'none',
         size: 'xs',
     },
     variations: {
         view: {
+            none: css`
+                ${segmentTokens.itemColor}: var(--text-secondary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemAdditionalColor}: var(--text-tertiary);
+                ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemSelectedColor}: var(--text-primary-hover);
+                ${segmentTokens.itemSelectedBackgroundColor}: transparent;
+                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: transparent;
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-secondary);
+
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+            `,
+            // deprecated
             clear: css`
                 ${segmentTokens.itemColor}: var(--text-secondary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
@@ -39,6 +56,23 @@ export const config = {
 
                 ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
+            primary: css`
+                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemSelectedColor}: var(--inverse-text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
+                ${segmentTokens.itemSelectedColorHover}: var(--inverse-text-primary-hover);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--inverse-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--inverse-text-secondary);
+
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+            `,
+            // deprecated
             default: css`
                 ${segmentTokens.itemColor}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;

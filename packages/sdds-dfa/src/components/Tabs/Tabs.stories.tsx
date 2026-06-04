@@ -41,13 +41,13 @@ const getContentLeft = (contentLeftOption: string, size: Size) => {
 
 const getContentRight = (contentRightOption: string, size: Size) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
-    const counterSize = size === 'xs' ? 'xxs' : 'xs';
+    const counterSize = size === 'xs' ? 'xxs' : 's';
 
     switch (contentRightOption) {
         case 'icon':
             return <IconPlasma size={iconSize} color="inherit" />;
         case 'counter':
-            return <Counter size={counterSize} count={1} view="positive" />;
+            return <Counter size={counterSize} count={1} view="accent" />;
         default:
             return undefined;
     }
@@ -67,7 +67,7 @@ const getIconSizes = (size: string) => {
             case 'xs':
                 return '1rem';
             default:
-                return '1.5rem';
+                return '1rem';
         }
     };
 
@@ -93,12 +93,13 @@ const getAction = (hasAction: boolean, size: string, disabled?: boolean) => {
 
 const getIconContent = (size: string, CustomIcon?: ComponentType<IconProps>) => {
     const sizeProp = getIconSizes(size);
+    const iconSize = size === 'xs' ? 'xs' : 's';
 
     if (CustomIcon) {
-        return <CustomIcon style={sizeProp} color="inherit" />;
+        return <CustomIcon size={iconSize} style={sizeProp} color="inherit" />;
     }
 
-    return <IconPlasma style={sizeProp} color="inherit" />;
+    return <IconPlasma size={iconSize} style={sizeProp} color="inherit" />;
 };
 
 type StoryTabsProps = ComponentProps<typeof Tabs> & CustomStoryTabsProps;
