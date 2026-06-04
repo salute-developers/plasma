@@ -34,7 +34,18 @@ export function App() {
 ### Размер и вид группы кнопок
 Размер и вид группы кнопок задается с помощью свойств `size` и `view` соответственно.
 С помощью свойства `isCommonButtonStyles` можно отключить переопределение стилей для всех кнопок внутри группы. 
-Тогда каждая кнопка будет иметь настраиваемый размер и вид. 
+Тогда каждая кнопка будет иметь настраиваемый размер и вид.
+
+Возможные значения свойства `view`: `"default"`, `"accent"`, `"secondary"`, `"clear"`, `"positive"`, `"warning"`, `"negative"`, `"dark"`, `"black"`, `"white"`, `"success"`, `"critical"`.
+
+Возможные значения свойства `size`: `"l"`, `"m"`, `"s"`, `"xs"`, `"xxs"`, `"xl"`.
+
+:::caution
+Значения `"success"` и `"critical"` свойства `view` устарели и будут удалены в будущих версиях.
+Используйте `"positive"` вместо `"success"` и `"negative"` вместо `"critical"`.
+
+Значение `"xl"` свойства `size` устарело и будет удалено в будущих версиях. Используйте `"l"`.
+:::
 
 ```tsx live
 import React from 'react';
@@ -53,8 +64,8 @@ export function App() {
             
             <ButtonGroup isCommonButtonStyles={false}>
                 <Button size="m" text="Default" />
-                <Button size="s" text="Primary" view="primary" />
-                <Button size="xs" text="Success" view="success" />
+                <Button size="s" text="Positive" view="positive" />
+                <Button size="xs" text="Negative" view="negative" />
             </ButtonGroup>
         </div>
     );

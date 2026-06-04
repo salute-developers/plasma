@@ -3,7 +3,7 @@ import { css, cardTokens as tokens } from '@salutejs/plasma-new-hope/styled-comp
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 'l',
     },
     variations: {
         view: {
@@ -18,12 +18,14 @@ export const config = {
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.contentBorderRadius}: 0.5rem;
             `,
+            // deprecated
             m: css`
                 ${tokens.outlineWidth}: 0.625rem;
                 ${tokens.borderWidth}: 0.0625rem;
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.contentBorderRadius}: 0.375rem;
             `,
+            // deprecated
             s: css`
                 ${tokens.outlineWidth}: 0.5rem;
                 ${tokens.borderWidth}: 0.0625rem;

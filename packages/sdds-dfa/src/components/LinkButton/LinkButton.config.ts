@@ -40,6 +40,17 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-secondary-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-secondary-active);
             `,
+            info: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-info);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-info);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-info);
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonColorHover}: var(--text-info-hover);
+                ${linkButtonTokens.linkButtonColorActive}: var(--text-info-active);
+                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-info-hover);
+                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-info-active);
+            `,
             positive: css`
                 ${linkButtonTokens.linkButtonColor}: var(--text-positive);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-positive);
