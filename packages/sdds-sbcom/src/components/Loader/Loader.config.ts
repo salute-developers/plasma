@@ -63,7 +63,7 @@ export const config = {
             `,
         },
         size: {
-            40: css`
+            '40': css`
                 ${loaderTokens.width}: 100%;
                 ${loaderTokens.height}: 100%;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.188rem;
@@ -77,7 +77,8 @@ export const config = {
                 ${loaderTokens.spinnerSize}: 2.5rem;
                 ${loaderTokens.progressBarCircularStroke}: 2.5rem;
             `,
-            32: css`
+
+            '32': css`
                 ${loaderTokens.width}: 100%;
                 ${loaderTokens.height}: 100%;
 
@@ -95,7 +96,7 @@ export const config = {
 
                 ${loaderTokens.spinnerSize}: 2rem;
             `,
-            24: css`
+            '24': css`
                 ${loaderTokens.width}: 100%;
                 ${loaderTokens.height}: 100%;
 
@@ -112,7 +113,7 @@ export const config = {
                 ${loaderTokens.progressBarCircularContentLineHeight}: ${bodyL.lineHeight};
                 ${loaderTokens.spinnerSize}: 1.5rem;
             `,
-            16: css`
+            '16': css`
                 ${loaderTokens.width}: 100%;
                 ${loaderTokens.height}: 100%;
 
