@@ -25,6 +25,7 @@ var ThemeSCAN = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_sc
 var ThemeOS = (0, styled_components_1.createGlobalStyle)(sdds_os_1.sdds_os__light);
 var ThemePLATFORMAI = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_platform_ai__light);
 var ThemeFINAI = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_finai__light);
+var ThemeDFA = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_dfa__light);
 var ThemeHOMEDS = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_homeds__light);
 var ThemeWEB = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_web__light);
 var StandardTypoStyle = (0, styled_components_1.createGlobalStyle)(plasma_typo_1.standard);
@@ -41,6 +42,7 @@ var testPackagesThemes = {
     'sdds-os': react_1.default.createElement(ThemeOS, null),
     'sdds-platform-ai': react_1.default.createElement(ThemePLATFORMAI, null),
     'sdds-finai': react_1.default.createElement(ThemeFINAI, null),
+    'sdds-dfa': react_1.default.createElement(ThemeDFA, null),
     'plasma-homeds': react_1.default.createElement(ThemeHOMEDS, null),
 };
 var getPackage = function () {
@@ -72,6 +74,8 @@ var getPackage = function () {
             return require('../../../packages/sdds-platform-ai/dist/styled-components/cjs/index.js');
         case 'sdds-finai':
             return require('../../../packages/sdds-finai/dist/styled-components/cjs/index.js');
+        case 'sdds-dfa':
+            return require('../../../packages/sdds-dfa/dist/styled-components/cjs/index.js');
         case 'plasma-homeds':
             return require('../../../packages/plasma-homeds/dist/styled-components/cjs/index.js');
         default:
@@ -141,6 +145,7 @@ var CypressTestDecorator = function (_a) {
         'sdds-os',
         'sdds-platform-ai',
         'sdds-finai',
+        'sdds-dfa',
         'plasma-homeds',
     ].includes(pkgName)) {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
