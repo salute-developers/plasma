@@ -150,7 +150,7 @@ export const config = {
             `,
         },
         size: {
-            48: css`
+            '48': css`
                 ${buttonTokens.buttonHeight}: 3rem;
                 ${buttonTokens.buttonWidth}: 12.5rem;
                 ${buttonTokens.buttonRadius}: 2rem;
@@ -172,7 +172,7 @@ export const config = {
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.5rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.375rem;
             `,
-            40: css`
+            '40': css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
                 ${buttonTokens.buttonWidth}: 12.5rem;
                 ${buttonTokens.buttonRadius}: 2rem;
@@ -192,7 +192,7 @@ export const config = {
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.5rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.375rem;
             `,
-        32: css`
+            '32': css`
                 ${buttonTokens.buttonHeight}: 2rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonRadius}: 2rem;
@@ -212,7 +212,7 @@ export const config = {
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.375rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
             `,
-            24: css`
+            '24': css`
                 ${buttonTokens.buttonHeight}: 1.5rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonRadius}: 2rem;
