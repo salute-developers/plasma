@@ -1,5 +1,6 @@
 import type { CSSProperties, HTMLAttributes } from 'react';
 
+export type TimePickerMultiplicity = 1 | 5 | 10 | 15 | 20 | 30;
 export type TimePickerGridChangeEvent = {
     timeValues: {
         hour?: number;
@@ -63,4 +64,12 @@ export type TimePickerGridProps = {
      * Обработчик изменения значения
      */
     onChange?: (event: TimePickerGridChangeEvent) => void;
+    /**
+     * Кратность отображаемых минут (1, 5, 10, 15, 20, 30)
+     */
+    multiplicityMinutes?: TimePickerMultiplicity;
+    /**
+     * Кратность отображаемых секунд (1, 5, 10, 15, 20, 30)
+     */
+    multiplicitySeconds?: TimePickerMultiplicity;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
