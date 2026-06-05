@@ -96,3 +96,4 @@ export * from './components/_ai/Markdown';
 
 export * from './components/_beta/Popover';
 export * from './components/_beta/Tooltip';
+export * from './components/_beta/EmbeddedButton';
