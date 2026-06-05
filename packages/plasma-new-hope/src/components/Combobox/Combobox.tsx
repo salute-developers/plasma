@@ -392,6 +392,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     <StyledTextField
                                         ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
                                         inputWrapperRef={referenceRef}
+                                        opened={isListOpened}
                                         value={textValue}
                                         onChange={handleTextValueChange}
                                         size={size}
