@@ -20,7 +20,7 @@ const componentExists = hasComponent('TimePicker');
 const componentModalExists = hasComponent('Modal');
 const componentPopupProviderExists = hasComponent('PopupProvider');
 const describeFn = getDescribeFN('TimePicker');
-const itSkip = skipForPackages(['plasma-b2c', 'plasma-web']);
+const itSkip = skipForPackages(['plasma-b2c', 'plasma-web', 'sdds-dfa']);
 const itSkipHint = skipForPackages(['plasma-b2c', 'plasma-web', 'sdds-cs']);
 const itSkipClear = skipForPackages([
     'plasma-b2c',
