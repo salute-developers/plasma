@@ -177,7 +177,7 @@ export type CorrectDates = {
 export type UseDateTimePickerArgs = {
     // currentValue: string;
     inputRef: MutableRefObject<HTMLInputElement | null>;
-    outerValue?: Date | string;
+    outerValue?: Date | string | null;
     defaultDate?: Date;
     // correctDates: CorrectDates;
     // setInnerDate: Dispatch<SetStateAction<string | DateType>>;

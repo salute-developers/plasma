@@ -39,7 +39,7 @@ export type DatePickerTextFieldProps = {
     /**
      * Выбранное значение.
      */
-    value?: Date | string;
+    value?: Date | string | null;
     /**
      * Сохранять невалидное значение после блюра поля ввода
      */

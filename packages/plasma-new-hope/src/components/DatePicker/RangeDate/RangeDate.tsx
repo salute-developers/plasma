@@ -615,6 +615,20 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 }
             }, [defaultSecondDate, format, lang]);
 
+            useLayoutEffect(() => {
+                if (outerValue !== undefined && !outerValue?.[0]) {
+                    setStartInnerDate('');
+                    setCorrectStartDates({ calendar: undefined, input: '' });
+                }
+            }, [outerValue?.[0]]);
+
+            useLayoutEffect(() => {
+                if (outerValue !== undefined && !outerValue?.[1]) {
+                    setEndInnerDate('');
+                    setCorrectEndDates({ calendar: undefined, input: '' });
+                }
+            }, [outerValue?.[1]]);
+
             const RootWrapper = useCallback<RootWrapperProps>(
                 forwardRef(({ children, className: rootWrapperClassName, onClick }, rootWrapperRef) => (
                     <Root
