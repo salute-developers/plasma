@@ -3745,15 +3745,15 @@
                     "value": "#171717",
                     "comment": "Основной фон"
                 },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Вторичный фон",
-                    "enabled": true
-                },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Третичный фон",
                     "enabled": false
+                },
+                "backgroundSecondary": {
+                    "value": "#0D0D0D",
+                    "comment": "Вторичный фон",
+                    "enabled": true
                 }
             },
             "dark": {
@@ -3761,15 +3761,15 @@
                     "value": "[general.gray.1000]",
                     "comment": "Основной фон на темном фоне"
                 },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Вторичный фон на темном фоне",
-                    "enabled": false
-                },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Третичный фон на темном фоне",
                     "enabled": false
+                },
+                "backgroundSecondary": {
+                    "value": "#0D0D0D",
+                    "comment": "Вторичный фон на темном фоне",
+                    "enabled": true
                 }
             },
             "light": {
@@ -3777,15 +3777,15 @@
                     "value": "[general.gray.50]",
                     "comment": "Основной фон на светлом фоне"
                 },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Вторичный фон на светлом фоне",
-                    "enabled": false
-                },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Третичный фон на светлом фоне",
                     "enabled": false
+                },
+                "backgroundSecondary": {
+                    "value": "[general.gray.100]",
+                    "comment": "Вторичный фон на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -3797,15 +3797,15 @@
                     "value": "#F9F9F9",
                     "comment": "Инвертированный основной фон"
                 },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный вторичный фон",
-                    "enabled": false
-                },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
+                },
+                "backgroundSecondary": {
+                    "value": "[general.gray.100]",
+                    "comment": "Инвертированный вторичный фон",
+                    "enabled": true
                 }
             }
         },
@@ -4366,15 +4366,27 @@
                     "enabled": true
                 },
                 "outlineSolidDefaultHover": {
-                    "value": "#808080FF",
+                    "value": "#F5F5F593",
                     "comment": ""
                 },
                 "outlineSolidDefaultActive": {
-                    "value": "#616161FF",
+                    "value": "#F5F5F562",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteHover": {
+                    "value": "#ABABABFF",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteActive": {
+                    "value": "#363636FF",
+                    "comment": ""
+                },
+                "outlinePrimaryWhite": {
+                    "value": "[general.gray.800]",
                     "comment": ""
                 },
                 "outlineSolidDefault": {
-                    "value": "[general.gray.50]",
+                    "value": "#F5F5F5f5",
                     "comment": ""
                 }
             },
@@ -4871,16 +4883,28 @@
                     "comment": "Третичный непрозрачный цвет обводки на темном фоне",
                     "enabled": true
                 },
-                "outlineSolidDefault": {
-                    "value": "[general.gray.50]",
-                    "comment": ""
-                },
                 "outlineSolidDefaultHover": {
-                    "value": "#808080FF",
+                    "value": "#F5F5F593",
                     "comment": ""
                 },
                 "outlineSolidDefaultActive": {
-                    "value": "#616161FF",
+                    "value": "#F5F5F562",
+                    "comment": ""
+                },
+                "outlinePrimaryWhite": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteHover": {
+                    "value": "#ABABABFF",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteActive": {
+                    "value": "#363636FF",
+                    "comment": ""
+                },
+                "outlineSolidDefault": {
+                    "value": "#F5F5F5F5",
                     "comment": ""
                 }
             },
@@ -5388,6 +5412,18 @@
                 "outlineSolidDefaultActive": {
                     "value": "#080808FF",
                     "comment": ""
+                },
+                "outlinePrimaryWhite": {
+                    "value": "#ffffff",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -5893,6 +5929,18 @@
                 },
                 "outlineSolidDefault": {
                     "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "outlinePrimaryWhite": {
+                    "value": "#ffffff",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteActive": {
+                    "value": "#E6E6E6FF",
                     "comment": ""
                 }
             }
@@ -9789,7 +9837,7 @@
                     "comment": "Основной фон"
                 },
                 "backgroundSecondary": {
-                    "value": "#efeff5",
+                    "value": "[general.gray.100]",
                     "comment": "Вторичный фон",
                     "enabled": true
                 }
@@ -9799,15 +9847,15 @@
                     "value": "[general.gray.1000]",
                     "comment": "Основной фон на темном фоне"
                 },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Вторичный фон на темном фоне",
-                    "enabled": false
-                },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Третичный фон на темном фоне",
                     "enabled": false
+                },
+                "backgroundSecondary": {
+                    "value": "#0D0D0D",
+                    "comment": "Вторичный фон на темном фоне",
+                    "enabled": true
                 }
             },
             "light": {
@@ -9815,15 +9863,15 @@
                     "value": "[general.gray.50]",
                     "comment": "Основной фон на светлом фоне"
                 },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Вторичный фон на светлом фоне",
-                    "enabled": false
-                },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Третичный фон на светлом фоне",
                     "enabled": false
+                },
+                "backgroundSecondary": {
+                    "value": "[general.gray.100]",
+                    "comment": "Вторичный фон на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -9835,15 +9883,15 @@
                     "value": "#171717",
                     "comment": "Инвертированный основной фон"
                 },
-                "backgroundSecondary": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный вторичный фон",
-                    "enabled": false
-                },
                 "backgroundTertiary": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный третичный фон",
                     "enabled": false
+                },
+                "backgroundSecondary": {
+                    "value": "#0D0D0D",
+                    "comment": "Инвертированный вторичный фон",
+                    "enabled": true
                 }
             }
         },
@@ -10414,6 +10462,18 @@
                 "outlineSolidDefault": {
                     "value": "[general.gray.1000]",
                     "comment": ""
+                },
+                "outlinePrimaryWhite": {
+                    "value": "#ffffff",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -10920,6 +10980,18 @@
                     "value": "[general.red.600]",
                     "comment": "Цвет обводки ошибка на темном фоне",
                     "enabled": true
+                },
+                "outlinePrimaryWhite": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteHover": {
+                    "value": "#ABABABFF",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteActive": {
+                    "value": "#363636FF",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -11426,6 +11498,18 @@
                     "value": "[general.red.600]",
                     "comment": "Цвет обводки ошибка на светлом фоне",
                     "enabled": true
+                },
+                "outlinePrimaryWhite": {
+                    "value": "#ffffff",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -11932,6 +12016,18 @@
                     "value": "[general.red.600]",
                     "comment": "Инвертированный цвет обводки ошибка",
                     "enabled": true
+                },
+                "outlinePrimaryWhite": {
+                    "value": "[general.gray.800]",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteHover": {
+                    "value": "#ABABABFF",
+                    "comment": ""
+                },
+                "outlinePrimaryWhiteActive": {
+                    "value": "#363636FF",
+                    "comment": ""
                 }
             }
         },

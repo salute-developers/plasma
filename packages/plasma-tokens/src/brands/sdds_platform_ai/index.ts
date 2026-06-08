@@ -1653,19 +1653,28 @@ export const backgroundPrimary = 'var(--background-primary, #080808)';
 export const backgroundPrimaryBrightness = 'var(--background-primary-brightness, #171717)';
 
 /** Вторичный фон */
-export const backgroundSecondary = 'var(--background-secondary, #FFFFFF)';
+export const backgroundSecondary = 'var(--background-secondary, #0D0D0D)';
 
 /** Основной фон на темном фоне */
 export const darkBackgroundPrimary = 'var(--dark-background-primary, #080808)';
 
+/** Вторичный фон на темном фоне */
+export const darkBackgroundSecondary = 'var(--dark-background-secondary, #0D0D0D)';
+
 /** Основной фон на светлом фоне */
 export const lightBackgroundPrimary = 'var(--light-background-primary, #F9F9F9)';
+
+/** Вторичный фон на светлом фоне */
+export const lightBackgroundSecondary = 'var(--light-background-secondary, #F5F5F5)';
 
 /** Инвертированный основной фон */
 export const inverseBackgroundPrimary = 'var(--inverse-background-primary, #F9F9F9)';
 
 /** Инвертированный основной фон */
 export const inverseBackgroundPrimaryBrightness = 'var(--inverse-background-primary-brightness, #F9F9F9)';
+
+/** Инвертированный вторичный фон */
+export const inverseBackgroundSecondary = 'var(--inverse-background-secondary, #F5F5F5)';
 
 /** Цвет фона паранжи светлый */
 export const overlaySoft = 'var(--overlay-soft, #0808088F)';
@@ -1909,11 +1918,17 @@ export const outlineTransparentSecondary = 'var(--outline-transparent-secondary,
 /** Третичный прозрачный цвет обводки */
 export const outlineTransparentTertiary = 'var(--outline-transparent-tertiary, rgba(255,255,255,0.56))';
 
-export const outlineSolidDefaultHover = 'var(--outline-solid-default-hover, #808080FF)';
+export const outlineSolidDefaultHover = 'var(--outline-solid-default-hover, #F5F5F593)';
 
-export const outlineSolidDefaultActive = 'var(--outline-solid-default-active, #616161FF)';
+export const outlineSolidDefaultActive = 'var(--outline-solid-default-active, #F5F5F562)';
 
-export const outlineSolidDefault = 'var(--outline-solid-default, #F9F9F9)';
+export const outlinePrimaryWhiteHover = 'var(--outline-primary-white-hover, #ABABABFF)';
+
+export const outlinePrimaryWhiteActive = 'var(--outline-primary-white-active, #363636FF)';
+
+export const outlinePrimaryWhite = 'var(--outline-primary-white, #4E4E4E)';
+
+export const outlineSolidDefault = 'var(--outline-solid-default, #F5F5F5f5)';
 
 /** Основной непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidPrimaryHover = 'var(--on-dark-outline-solid-primary-hover, #545454FF)';
@@ -2123,11 +2138,17 @@ export const onDarkOutlineSolidSecondary = 'var(--on-dark-outline-solid-secondar
 /** Третичный непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidTertiary = 'var(--on-dark-outline-solid-tertiary, #858585)';
 
-export const onDarkOutlineSolidDefault = 'var(--on-dark-outline-solid-default, #F9F9F9)';
+export const onDarkOutlineSolidDefaultHover = 'var(--on-dark-outline-solid-default-hover, #F5F5F593)';
 
-export const onDarkOutlineSolidDefaultHover = 'var(--on-dark-outline-solid-default-hover, #808080FF)';
+export const onDarkOutlineSolidDefaultActive = 'var(--on-dark-outline-solid-default-active, #F5F5F562)';
 
-export const onDarkOutlineSolidDefaultActive = 'var(--on-dark-outline-solid-default-active, #616161FF)';
+export const onDarkOutlinePrimaryWhite = 'var(--on-dark-outline-primary-white, #4E4E4E)';
+
+export const onDarkOutlinePrimaryWhiteHover = 'var(--on-dark-outline-primary-white-hover, #ABABABFF)';
+
+export const onDarkOutlinePrimaryWhiteActive = 'var(--on-dark-outline-primary-white-active, #363636FF)';
+
+export const onDarkOutlineSolidDefault = 'var(--on-dark-outline-solid-default, #F5F5F5F5)';
 
 /** Основной непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidPrimaryHover = 'var(--on-light-outline-solid-primary-hover, #ABABABFF)';
@@ -2344,6 +2365,12 @@ export const onLightOutlineSolidDefaultHover = 'var(--on-light-outline-solid-def
 
 export const onLightOutlineSolidDefaultActive = 'var(--on-light-outline-solid-default-active, #080808FF)';
 
+export const onLightOutlinePrimaryWhite = 'var(--on-light-outline-primary-white, #ffffff)';
+
+export const onLightOutlinePrimaryWhiteHover = 'var(--on-light-outline-primary-white-hover, #CCCCCCFF)';
+
+export const onLightOutlinePrimaryWhiteActive = 'var(--on-light-outline-primary-white-active, #E6E6E6FF)';
+
 /** Инвертированный основной непрозрачный цвет обводки */
 export const inverseOutlineSolidPrimaryHover = 'var(--inverse-outline-solid-primary-hover, #ABABABFF)';
 
@@ -2558,6 +2585,12 @@ export const inverseOutlineSolidDefaultHover = 'var(--inverse-outline-solid-defa
 export const inverseOutlineSolidDefaultActive = 'var(--inverse-outline-solid-default-active, #080808FF)';
 
 export const inverseOutlineSolidDefault = 'var(--inverse-outline-solid-default, #080808)';
+
+export const inverseOutlinePrimaryWhite = 'var(--inverse-outline-primary-white, #ffffff)';
+
+export const inverseOutlinePrimaryWhiteHover = 'var(--inverse-outline-primary-white-hover, #CCCCCCFF)';
+
+export const inverseOutlinePrimaryWhiteActive = 'var(--inverse-outline-primary-white-active, #E6E6E6FF)';
 
 /** Желтый цвет для данных */
 export const dataDefaultDataYellow = 'var(--data-default-data-yellow, #F3A912)';
