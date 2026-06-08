@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 import type { ChangeEvent, FocusEvent } from 'react';
 import type { Dayjs } from 'dayjs';
 import { customDayjs } from 'src/utils/datejs';
@@ -423,6 +423,13 @@ export const useDateTimePicker = ({
             onBlur(event);
         }
     };
+
+    useLayoutEffect(() => {
+        if (outerValue !== undefined && !outerValue) {
+            setInnerDate('');
+            setCorrectDates({ input: '', calendar: undefined, time: undefined });
+        }
+    }, [outerValue]);
 
     return {
         format,
