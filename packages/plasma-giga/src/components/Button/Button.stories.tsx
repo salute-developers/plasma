@@ -12,6 +12,10 @@ type ButtonProps = ComponentProps<typeof Button>;
 const { meta: META, Default, WithValue } = getButtonStories({
     component: Button,
     componentConfig: config,
+    defaultArgs: {
+        size: 'xl',
+        responsive: true,
+    },
     additionalComponents: {
         Counter,
     },

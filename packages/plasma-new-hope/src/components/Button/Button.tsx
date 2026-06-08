@@ -50,6 +50,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
             style,
             stretching = 'auto',
             additionalContent,
+            responsive,
             ...rest
         } = props;
 
@@ -83,6 +84,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 value={value}
                 disabled={disabled}
                 focused={focused || outlined}
+                responsive={responsive}
                 className={cx(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className)}
                 style={
                     {
