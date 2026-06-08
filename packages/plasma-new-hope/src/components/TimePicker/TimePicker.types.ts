@@ -96,7 +96,7 @@ export type TextFieldProps = {
     autoComplete?: string;
     /**
      * Обработчик изменения значения
-     * @secription тип `TimePickerChangeEvent` для event - *deprecated*
+     * @description тип `TimePickerChangeEvent` для event - *deprecated*
      */
     onChange?: (
         event: TimePickerChangeEvent | ChangeEvent<HTMLInputElement> | null,
