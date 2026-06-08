@@ -1,4 +1,4 @@
-import type { CSSProperties, HTMLAttributes, RefObject, SyntheticEvent } from 'react';
+import type { ChangeEvent, CSSProperties, HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
 import type { HintProps, LabelProps } from '../TextField/TextField.types';
 
@@ -31,9 +31,9 @@ export type TimePickerFloatingPopoverProps = {
 export type TimePickerChangeEvent = {
     value?: string;
     timeValues: {
-        hour?: number;
-        minute?: number;
-        second?: number;
+        hour?: number | null;
+        minute?: number | null;
+        second?: number | null;
     };
 };
 
@@ -96,8 +96,12 @@ export type TextFieldProps = {
     autoComplete?: string;
     /**
      * Обработчик изменения значения
+     * @secription тип `TimePickerChangeEvent` для event - *deprecated*
      */
-    onChange?: (event: TimePickerChangeEvent) => void;
+    onChange?: (
+        event: TimePickerChangeEvent | ChangeEvent<HTMLInputElement> | null,
+        formattedValues: TimePickerChangeEvent,
+    ) => void;
 } & LabelProps;
 
 export type TimePickerPopoverProps = {

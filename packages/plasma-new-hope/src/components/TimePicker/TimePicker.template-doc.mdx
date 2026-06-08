@@ -17,8 +17,8 @@ import React from 'react';
 import { TimePicker } from '@salutejs/{{ package }}';
 
 export function App() {
-    const handleTimeChange = (event) => {
-        console.log('Выбрано время:', event.target.value);
+    const handleTimeChange = (event, formattedValues) => {
+        console.log('Выбрано время:', formattedValues.value);
     };
 
     return (
@@ -33,6 +33,23 @@ export function App() {
     );
 }
 ```
+
+:::note Изменение сигнатуры `onChange`
+Колбэк `onChange` теперь принимает **второй аргумент** `formattedValues: TimePickerChangeEvent` — нормализованный объект с текущим значением времени, который всегда имеет одинаковую структуру вне зависимости от способа ввода (ручной ввод или выбор из выпадающего списка).
+
+```ts
+type TimePickerChangeEvent = {
+    value?: string;
+    timeValues: {
+        hour?: number | null;
+        minute?: number | null;
+        second?: number | null;
+    };
+};
+```
+
+Рекомендуется использовать `formattedValues` вместо первого аргумента `event`, тип которого в качестве `TimePickerChangeEvent` является **устаревшим (deprecated)**.
+:::
 
 ### Управление внешним видом
 
