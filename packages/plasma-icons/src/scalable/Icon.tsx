@@ -736,6 +736,7 @@ export const iconSectionsSet = {
         robotOutline: 'RobotOutline',
         robotFill: 'RobotFill',
         microscopeOutline: 'MicroscopeOutline',
+        microscopeFill: 'MicroscopeFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
