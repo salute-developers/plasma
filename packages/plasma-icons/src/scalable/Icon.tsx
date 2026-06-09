@@ -1170,6 +1170,7 @@ export const iconSectionsSet = {
         cameraVideoAddFill: 'CameraVideoAddFill',
         cameraVideoAddOutline: 'CameraVideoAddOutline',
         cameraVideoRecOffOutline: 'CameraVideoRecOffOutline',
+        cameraVideoRecOffFill: 'CameraVideoRecOffFill',
     },
     Navigation: {
         arrowsMove: 'ArrowsMove',
