@@ -30,7 +30,13 @@ export const createDefaultStory = (NoteComponent: any, Components: any) => {
                     }
                     height={enableHeightControl ? args.height : undefined}
                     actionContent={
-                        hasActionContent ? <LinkButton text="Label" size={args.size} view={args.view} /> : undefined
+                        hasActionContent ? (
+                            <LinkButton
+                                text="Label"
+                                size={args.size}
+                                view={args.view === 'default' ? 'positive' : args.view}
+                            />
+                        ) : undefined
                     }
                     {...args}
                 />
