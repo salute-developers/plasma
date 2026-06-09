@@ -11,14 +11,24 @@ import { PropsTable, Description } from '@site/src/components';
 <Description name="Card" />
 <PropsTable name="Card" />
 
-### Использование
+### Анатомия и возможности
 
-Настройка размера осуществляется явным образом или в зависимости от содержимого, в том числе, за счет указания соотношения сторон.
+Компонент `Card` — базовый flex-контейнер. Внутри него можно комбинировать текст, media и действия в любом порядке.
 
-Настройка внутренних отступов между контентом карточки осуществляется с учетом конкретного контекста использования компонента.
+| Часть | Назначение |
+|-------|------------|
+| `Card` | Корневой контейнер. Управляет `orientation`, `size`, `selected`, `backgroundType` |
+| `CardContent` | Область media с `aspectRatio`, скруглениями и `overflow: hidden` |
+| `CardInnerContent` | Absolute overlay поверх изображения; не влияет на размер карточки |
 
-Компонент `Card` является базовым контейнером. `CardContent` используется для вложенного контента внутри `Card`, со своими скруглениями и имеет `overflow: hidden`.
-`CardInnerContent` используется для контента вписанного в размеры `CardContent`, имеет `position: absolute`, не влияет на размер всей карточки.
+**Ключевые props `Card`:**
+
+- `orientation` — `horizontal` или `vertical` для расположения дочерних блоков
+- `size` — `s`, `m`, `l` — радиусы скругления и отступ подложки
+- `selected` — accent-рамка для выбранного состояния
+- `backgroundType` — `solid` добавляет цветную подложку с padding
+
+Размер карточки задаётся явно через `style={{ width }}` или контентом. Отступы внутри — вручную или через соседние компоненты (`Button`, `Badge`, typography).
 
 ### Пример с вложенным контентом
 
@@ -40,12 +50,12 @@ export function App() {
     );
 
     return (
-        <Card orientation="horizontal" style={{ width: '250px' }}>
+        <Card orientation="horizontal" style={{ width: '15.625rem' }}>
             <CardContent orientation='vertical' aspectRatio='1/1'>
                 <CardInnerContent>
-                    <div style={{ padding: '30px' }}>
+                    <div style={{ padding: '1.875rem' }}>
                         <H3>Заголовок</H3>
-                        <TextS style={{ paddingTop: '8px' }}>Как оплатить заправку бонусами СберСпасибо?</TextS>
+                        <TextS style={{ paddingTop: '0.5rem' }}>Как оплатить заправку бонусами СберСпасибо?</TextS>
                     </div>
                 </CardInnerContent>
                 <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />
@@ -75,15 +85,284 @@ export function App() {
     );
 
     return (
-        <Card orientation="horizontal" style={{ width: '400px' }} backgroundType="solid" selected>
-            <div style={{ padding: '30px' }}>
+        <Card orientation="horizontal" style={{ width: '25rem' }} backgroundType="solid" selected>
+            <div style={{ padding: '1.875rem' }}>
                 <H3>Title</H3>
-                <TextS style={{ paddingTop: '8px' }}>Description</TextS>
+                <TextS style={{ paddingTop: '0.5rem' }}>Description</TextS>
             </div>
             <CardContent orientation="vertical" aspectRatio="4/3">
                 <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />
             </CardContent>
         </Card>
+    );
+}
+```
+
+### Простая карточка
+
+Карточка только с текстом — без изображения.
+
+```tsx live
+import React from 'react';
+import { Card, H3, TextM, Button } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <Card
+            orientation="vertical"
+            backgroundType="solid"
+            size="m"
+            style={{ width: '20rem', padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}
+        >
+            <div>
+                <H3>Умная колонка</H3>
+                <TextM style={{ marginTop: '0.5rem' }}>
+                    Голосовой помощник с ИИ для музыки, умного дома и повседневных задач.
+                </TextM>
+            </div>
+            <Button view="accent" size="s" text="Подробнее" />
+        </Card>
+    );
+}
+```
+
+### Карточка товара
+
+Карточка с изображением, ценой и действием — типичный паттерн для каталога.
+
+```tsx live
+import React from 'react';
+import { Card, CardContent, BodyM, BodyS, Badge, Button, Price } from '@salutejs/sdds-serv';
+import { textSecondary } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    const imageSrc = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
+
+    return (
+        <Card
+            orientation="vertical"
+            backgroundType="solid"
+            size="m"
+            style={{
+                width: '15rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.75rem',
+                padding: '0.75rem',
+            }}
+        >
+            <CardContent orientation="vertical" aspectRatio="1/1">
+                <img src={imageSrc} alt="Умная колонка" />
+            </CardContent>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <Badge view="accent" size="s" text="-14%" />
+                <BodyM bold>
+                    <Price currency="rub">5990</Price>
+                </BodyM>
+                <BodyS color={textSecondary}>
+                    <Price currency="rub" stroked>6990</Price>
+                </BodyS>
+                <BodyM>Умная колонка</BodyM>
+                <BodyS color={textSecondary}>Зелёный</BodyS>
+            </div>
+            <Button view="secondary" size="s" stretching>
+                В корзину
+            </Button>
+        </Card>
+    );
+}
+```
+
+### Горизонтальная media-карточка
+
+Изображение сбоку, текстовый блок справа.
+
+```tsx live
+import React from 'react';
+import { Card, CardContent, Flow, H3, BodyS, LinkButton, Image } from '@salutejs/sdds-serv';
+import { textSecondary } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    const imageSrc = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
+
+    return (
+        <Card backgroundType="solid" size="m" style={{ width: '28rem' }}>
+            <Flow orientation="horizontal" mainAxisGap="0.75rem" alignment="center">
+                <CardContent orientation="vertical">
+                    <Image src={imageSrc} alt="Компактная колонка" ratio="1/1" width="6.5rem" />
+                </CardContent>
+                <Flow orientation="vertical" mainAxisGap="0.25rem" alignment="start">
+                    <H3>Компактная колонка</H3>
+                    <BodyS color={textSecondary}>Голосовой помощник для музыки и умного дома.</BodyS>
+                    <LinkButton text="Смотреть" size="xs" view="accent" />
+                </Flow>
+            </Flow>
+        </Card>
+    );
+}
+```
+
+### Текст поверх изображения
+
+Текст накладывается на media через `CardInnerContent`.
+
+```tsx live
+import React from 'react';
+import { Card, CardContent, CardInnerContent, H3, TextM } from '@salutejs/sdds-serv';
+import { onDarkTextPrimary, onDarkTextSecondary, onDarkOverlayHard } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    const imageSrc = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
+
+    return (
+        <Card orientation="vertical" style={{ width: '20rem' }}>
+            <CardContent orientation="vertical" aspectRatio="4/3">
+                <CardInnerContent orientation="vertical">
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'flex-end',
+                            height: '100%',
+                            padding: '1.25rem',
+                            background: `linear-gradient(transparent 40%, ${onDarkOverlayHard})`,
+                        }}
+                    >
+                        <H3 color={onDarkTextPrimary}>Умная колонка</H3>
+                        <TextM color={onDarkTextSecondary} style={{ marginTop: '0.25rem' }}>
+                            Мощный звук и голосовой помощник
+                        </TextM>
+                    </div>
+                </CardInnerContent>
+                <img src={imageSrc} alt="Умная колонка" />
+            </CardContent>
+        </Card>
+    );
+}
+```
+
+### Info Card
+
+Карточка со статистикой — без media, только контент.
+
+```tsx live
+import React from 'react';
+import { Card, BodyS, BodyM, H2, Price } from '@salutejs/sdds-serv';
+import { IconArrowDiagRightUp } from '@salutejs/plasma-icons';
+import { textAccent, textSecondary } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    return (
+        <Card orientation="vertical" backgroundType="solid" style={{ width: '19.5rem' }} selected>
+            <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <BodyM>Умные колонки</BodyM>
+                    <IconArrowDiagRightUp size="s" color={textAccent} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2.25rem' }}>
+                    <H2>
+                        12 <BodyS color={textSecondary}>моделей</BodyS>
+                    </H2>
+                    <H2 color={textSecondary}>
+                        от <Price currency="rub">2990</Price>
+                    </H2>
+                </div>
+            </div>
+        </Card>
+    );
+}
+```
+
+### Task Card
+
+Карточка задачи со статусами и метаданными.
+
+```tsx live
+import React from 'react';
+import { Card, BodyS, BodyM, Badge } from '@salutejs/sdds-serv';
+import { IconArrowDiagRightUp, IconFireOutline, IconDotsHorizontalOutline, IconClockCircleOutline } from '@salutejs/plasma-icons';
+import { textWarning, textInfo, textAccent, textSecondary, surfaceWarningMinor, surfaceInfoMinor } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    return (
+        <Card orientation="vertical" backgroundType="solid" style={{ width: '19.5rem' }} selected>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', gap: '0.25rem' }}>
+                        <Badge
+                            size="s"
+                            contentLeft={<IconFireOutline color="inherit" size="xs" />}
+                            customBackgroundColor={surfaceWarningMinor}
+                            customColor={textWarning}
+                        />
+                        <Badge
+                            size="s"
+                            text="Срочно"
+                            customBackgroundColor={surfaceInfoMinor}
+                            customColor={textInfo}
+                        />
+                    </div>
+                    <div style={{ display: 'flex', gap: '0.25rem' }}>
+                        <IconDotsHorizontalOutline size="s" color={textAccent} />
+                        <IconArrowDiagRightUp size="s" color={textAccent} />
+                    </div>
+                </div>
+                <BodyM>Обновить карточки в каталоге</BodyM>
+                <BodyS color={textSecondary}>Добавить примеры карточек в документацию</BodyS>
+                <BodyS color={textSecondary} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                    <IconClockCircleOutline size="xs" color={textSecondary} />
+                    до 15.06.2026
+                </BodyS>
+            </div>
+        </Card>
+    );
+}
+```
+
+### Сетка карточек
+
+Несколько карточек в ряд с фиксированной шириной и переносом. Для адаптивных колонок используйте компонент [Grid](/sdds-serv/components/grid/).
+
+```tsx live
+import React from 'react';
+import { Card, CardContent, BodyM, BodyS, Price } from '@salutejs/sdds-serv';
+import { textSecondary } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    const imageSrc = 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg';
+
+    const products = [
+        { title: 'Колонка Home', price: 5990 },
+        { title: 'Колонка Mini', price: 3990 },
+        { title: 'Колонка Pro', price: 8990 },
+    ];
+
+    return (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+            {products.map((product) => (
+                <Card
+                    key={product.title}
+                    orientation="vertical"
+                    backgroundType="solid"
+                    size="s"
+                    style={{
+                        width: '12.5rem',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.5rem',
+                        padding: '0.5rem',
+                    }}
+                >
+                    <CardContent orientation="vertical" aspectRatio="1/1">
+                        <img src={imageSrc} alt={product.title} />
+                    </CardContent>
+                    <BodyM bold>
+                        <Price currency="rub">{product.price}</Price>
+                    </BodyM>
+                    <BodyS color={textSecondary}>{product.title}</BodyS>
+                </Card>
+            ))}
+        </div>
     );
 }
 ```
