@@ -739,6 +739,7 @@ export const iconSectionsSet = {
         microscopeOutline: 'MicroscopeOutline',
         microscopeFill: 'MicroscopeFill',
         transcript: 'Transcript',
+        transcriptDash: 'TranscriptDash',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
