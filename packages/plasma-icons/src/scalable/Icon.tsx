@@ -173,6 +173,7 @@ export const iconSectionsSet = {
         tableRowOutline: 'TableRowOutline',
         tableRowFill: 'TableRowFill',
         tableColumnOutline: 'TableColumnOutline',
+        tableColumnFill: 'TableColumnFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
