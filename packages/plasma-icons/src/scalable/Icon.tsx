@@ -324,6 +324,7 @@ export const iconSectionsSet = {
         arrowDiagLeftUp: 'ArrowDiagLeftUp',
         arrowDiagRightDown: 'ArrowDiagRightDown',
         arrowBack: 'ArrowBack',
+        arrowForward: 'ArrowForward',
     },
     Data: {
         chartDistributionFill: 'ChartDistributionFill',
