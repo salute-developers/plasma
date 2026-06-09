@@ -743,6 +743,7 @@ export const iconSectionsSet = {
         transcript: 'Transcript',
         transcriptDash: 'TranscriptDash',
         queueOutline: 'QueueOutline',
+        queueFill: 'QueueFill',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
