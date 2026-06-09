@@ -744,6 +744,7 @@ export const iconSectionsSet = {
         transcriptDash: 'TranscriptDash',
         queueOutline: 'QueueOutline',
         queueFill: 'QueueFill',
+        queueDashOutline: 'QueueDashOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
