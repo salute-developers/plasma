@@ -1370,6 +1370,7 @@ export const iconSectionsSet = {
         brainOutline: 'BrainOutline',
         brainFill: 'BrainFill',
         handActionDashOutline: 'HandActionDashOutline',
+        handActionDashFill: 'HandActionDashFill',
     },
     Logo: {
         catalogFill: 'CatalogFill',
