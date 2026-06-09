@@ -177,6 +177,7 @@ export const iconSectionsSet = {
         watermark: 'Watermark',
         watermarkDash: 'WatermarkDash',
         groupAltOutline: 'GroupAltOutline',
+        groupAltFill: 'GroupAltFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
