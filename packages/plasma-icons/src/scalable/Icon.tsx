@@ -566,6 +566,7 @@ export const iconSectionsSet = {
         internationalTradeRubleFill: 'InternationalTradeRubleFill',
         internationalTradeRupiahFill: 'InternationalTradeRupiahFill',
         internationalTradeFill: 'InternationalTradeFill',
+        piggyBankOutline: 'PiggyBankOutline',
     },
     Other: {
         button2x1LFill: 'Button2x1LFill',
