@@ -179,6 +179,7 @@ export const iconSectionsSet = {
         groupAltOutline: 'GroupAltOutline',
         groupAltFill: 'GroupAltFill',
         ungroupAltOutline: 'UngroupAltOutline',
+        ungroupAltFill: 'UngroupAltFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
