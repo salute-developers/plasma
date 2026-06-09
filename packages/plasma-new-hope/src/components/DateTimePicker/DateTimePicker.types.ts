@@ -175,16 +175,10 @@ export type CorrectDates = {
 };
 
 export type UseDateTimePickerArgs = {
-    // currentValue: string;
     inputRef: MutableRefObject<HTMLInputElement | null>;
     outerValue?: Date | string | null;
     defaultDate?: Date;
-    // correctDates: CorrectDates;
-    // setInnerDate: Dispatch<SetStateAction<string | DateType>>;
-    // setCorrectDates: Dispatch<SetStateAction<CorrectDates>>;
-
     preserveInvalidOnBlur?: boolean;
-    // delimiters?: string[];
     valueError?: boolean;
     valueSuccess?: boolean;
     type?: CalendarStateType;
@@ -192,7 +186,6 @@ export type UseDateTimePickerArgs = {
     disabled?: boolean;
     readOnly?: boolean;
     maskWithFormat?: boolean;
-    // format?: string;
     dateFormat?: string;
     timeFormat?: string;
     dateTimeSeparator?: string;
