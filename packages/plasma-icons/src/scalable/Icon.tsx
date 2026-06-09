@@ -172,6 +172,7 @@ export const iconSectionsSet = {
         tableColumnPinFill: 'TableColumnPinFill',
         tableRowOutline: 'TableRowOutline',
         tableRowFill: 'TableRowFill',
+        tableColumnOutline: 'TableColumnOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
