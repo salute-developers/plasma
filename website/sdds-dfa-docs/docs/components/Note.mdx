@@ -4,6 +4,8 @@ title: Note
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Note
 Компонент для отображения текста в виде информационных, предупреждающих, обычных подсказок.
@@ -13,8 +15,134 @@ import { PropsTable, Description } from '@site/src/components';
 
 ## Примеры
 
-### Вид компонента
-Вид компонента задается с помощью свойства `view`:
+<Tabs>
+    <TabItem value="view" label="View" default>
+        Вид компонента задается с помощью свойства `view`.
+
+        ```tsx live
+        import React from 'react';
+        import { Note } from '@salutejs/sdds-dfa';
+        import { IconSaluteOutline } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <Note
+                        title="Title"
+                        text="Text"
+                        view="default"
+                        size="s"
+                        contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+                    />
+                    <Note
+                        title="Title"
+                        text="Text"
+                        view="positive"
+                        size="s"
+                        contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+                    />
+                    <Note
+                        title="Title"
+                        text="Text"
+                        view="warning"
+                        size="s"
+                        contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+                    />
+                    <Note
+                        title="Title"
+                        text="Text"
+                        view="negative"
+                        size="s"
+                        contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+                    />
+                    <Note
+                        title="Title"
+                        text="Text"
+                        view="info"
+                        size="s"
+                        contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="size" label="Size">
+        Размер компонента задается с помощью свойства `size`.\
+        Также можно указать собственную ширину и высоту с помощью `width` и `height` соответственно.\
+        Или задать `stretch`, чтобы `Note` занял всю доступную ширину и высоту.
+
+        ```tsx live
+        import React from 'react';
+        import { Note } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                        <Note title="Title" text="Text" view="default" size="l" />
+                        <Note title="Title" text="Text" view="default" size="m" />
+                        <Note title="Title" text="Text" view="default" size="s" />
+                        <Note title="Title" text="Text" view="default" size="xs" />
+                    </div>
+                    <Note
+                        title="Title"
+                        text="Text"
+                        view="default"
+                        size="l"
+                        width="400"
+                        height="116"
+                    />
+                    <div style={{ width: '300px', height: '300px' }}>
+                        <Note title="Title" text="Text" view="default" size="l" stretch />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="orientation" label="Orientation">
+        Ориентация компонента задается с помощью свойства `orientation`.\
+        При значении `horizontal` контент выстраивается в строку: иконка, заголовок и текст слева, `actionContent` и кнопка закрытия справа.
+
+        ```tsx live
+        import React from 'react';
+        import { Note, LinkButton } from '@salutejs/sdds-dfa';
+        import { IconSaluteOutline } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <Note
+                        title="Title"
+                        text="Text"
+                        view="default"
+                        size="l"
+                        orientation="vertical"
+                        contentBefore={<IconSaluteOutline size="s" color="inherit" />}
+                    />
+                    <Note
+                        title="Title"
+                        text="Text"
+                        view="default"
+                        size="l"
+                        orientation="horizontal"
+                        contentBefore={<IconSaluteOutline size="s" color="inherit" />}
+                        actionContent={<LinkButton text="Label" />}
+                        hasClose
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Контент `contentBefore`
+
+Размерность и положение `contentBefore` задается с помощью свойства `contentBeforeSizing`.
 
 ```tsx live
 import React from 'react';
@@ -23,134 +151,21 @@ import { IconSaluteOutline } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div>
-            <Note 
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <Note
                 title="Title"
                 text="Text"
-                view="default" 
-                size="s" 
-                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
-            />
-            <Note 
-                title="Title"
-                text="Text"
-                view="positive" 
-                size="s" 
-                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
-            />
-            <Note 
-                title="Title"
-                text="Text"
-                view="warning" 
-                size="s" 
-                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
-            />
-            <Note 
-                title="Title"
-                text="Text"
-                view="negative" 
-                size="s" 
-                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
-            />
-            <Note 
-                title="Title"
-                text="Text"
-                view="info" 
-                size="s" 
-                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
-            />
-        </div>
-    );
-}
-```
-
-### Размер компонента
-Размер компонента задается с помощью свойства `size`. 
-Так же можно указать собственную ширину и высоту с помощью `width` и `height` соответственно. 
-Или же задать `stretch` чтобы `Note` занял всю доступную ширину и высоту.
-
-```tsx live
-import React from 'react';
-import { Note } from '@salutejs/sdds-dfa';
-
-export function App() {
-    return (
-        <div style={{ flexDirection: "column" }}>
-            <div style={{ display: "flex", gap: "1rem" }}>
-                <Note 
-                    title="Title"
-                    text="Text"
-                    view="default" 
-                    size="l"
-                />
-                <Note 
-                    title="Title"
-                    text="Text"
-                    view="default" 
-                    size="m" 
-                />
-                <Note 
-                    title="Title"
-                    text="Text"
-                    view="default" 
-                    size="s"
-                />
-                <Note 
-                    title="Title"
-                    text="Text"
-                    view="default" 
-                    size="xs"
-                />
-            </div>
-            
-            <Note 
-                title="Title"
-                text="Text"
-                view="default" 
-                size="l"
-                width="400"
-                height="116"
-            />
-            
-            <div style={{ width: "300px", height: "300px" }}>
-                <Note 
-                    title="Title"
-                    text="Text"
-                    view="default" 
-                    size="l"
-                    stretch
-                />
-            </div>
-        </div>
-    );
-}
-```
-
-### Размерность и положение `contentBefore`
-Размерность и положение `contentBefore` задается с помощью свойства `contentBeforeSizing`:
-
-```tsx live
-import React from 'react';
-import { Note } from '@salutejs/sdds-dfa';
-import { IconSaluteOutline } from '@salutejs/plasma-icons';
-
-export function App() {
-    return (
-        <div>
-            <Note 
-                title="Title"
-                text="Text"
-                view="default" 
-                size="s" 
-                contentBefore={<IconSaluteOutline size="xs" color="inherit" />} 
+                view="default"
+                size="s"
+                contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
                 contentBeforeSizing="fixed"
             />
-            <Note 
+            <Note
                 title="Title"
                 text="Text"
-                view="positive" 
-                size="s" 
-                contentBefore={<IconSaluteOutline size="m" color="inherit" />} 
+                view="positive"
+                size="s"
+                contentBefore={<IconSaluteOutline size="m" color="inherit" />}
                 contentBeforeSizing="scalable"
             />
         </div>
@@ -158,8 +173,43 @@ export function App() {
 }
 ```
 
-### hasClose и contolled вариант
-Свойство `hasClose` добавляет крестик в правом верхнем углу. При нажатии сработает функция `onCloseButtonClick`
+### Дополнительный контент `actionContent`
+
+Свойство `actionContent` позволяет разместить произвольный контент (например, кнопку) после основного текста.
+
+```tsx live
+import React from 'react';
+import { Note, LinkButton } from '@salutejs/sdds-dfa';
+import { IconSaluteOutline } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <Note
+                title="Title"
+                text="Text"
+                view="default"
+                size="l"
+                contentBefore={<IconSaluteOutline size="s" color="inherit" />}
+                actionContent={<LinkButton text="Label" />}
+            />
+            <Note
+                title="Title"
+                text="Text"
+                view="positive"
+                size="l"
+                orientation="horizontal"
+                contentBefore={<IconSaluteOutline size="s" color="inherit" />}
+                actionContent={<LinkButton text="Label" />}
+            />
+        </div>
+    );
+}
+```
+
+### Кнопка закрытия `hasClose`
+
+Свойство `hasClose` добавляет кнопку закрытия. При нажатии срабатывает функция `onCloseButtonClick`.
 
 ```tsx live
 import React from 'react';
@@ -170,10 +220,10 @@ export function App() {
   const [state, setState] = useState(true);
 
   return (
-    <div style={{height: '8rem', display: 'block'}}>
+    <div style={{ height: '8rem', display: 'block' }}>
       <Button
         size="s"
-        style={{ marginBottom: "0.5rem" }}
+        style={{ marginBottom: '0.5rem' }}
         onClick={() => setState(!state)}
       >
         Открыть
@@ -184,14 +234,12 @@ export function App() {
           text="Пример с возможностью закрыть по control"
           view="default"
           size="s"
+          contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
           hasClose
-          onCloseButtonClick={() => {
-            setState(false);
-          }}
+          onCloseButtonClick={() => setState(false)}
         />
       )}
     </div>
   );
 }
-
 ```
