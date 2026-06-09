@@ -73,7 +73,17 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-negative-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-negative-active);
             `,
-            // TODO: add info view
+            info: css`
+                ${linkButtonTokens.linkButtonColor}: var(--text-info);
+                ${linkButtonTokens.linkButtonIconColor}: var(--text-info);
+                ${linkButtonTokens.linkButtonTextColor}: var(--text-info);
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonColorHover}: var(--text-info-hover);
+                ${linkButtonTokens.linkButtonColorActive}: var(--text-info-active);
+                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
+                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-info-hover);
+                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-info-active);
+            `,
         },
         size: {
             xl: css`

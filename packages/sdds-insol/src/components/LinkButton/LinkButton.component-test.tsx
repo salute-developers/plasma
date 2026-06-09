@@ -5,7 +5,7 @@ import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salu
 import { LinkButton as LinkButtonINSOL } from '.';
 
 const sizes = ['xxs', 'xs', 's', 'm', 'l', 'xl'] as const;
-const views = ['default', 'accent', 'secondary', 'positive', 'warning', 'negative'] as const;
+const views = ['default', 'accent', 'secondary', 'positive', 'warning', 'negative', 'info'] as const;
 
 const Icon = () => <IconDownload color="inherit" />;
 
