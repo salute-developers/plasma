@@ -175,6 +175,7 @@ export const iconSectionsSet = {
         tableColumnOutline: 'TableColumnOutline',
         tableColumnFill: 'TableColumnFill',
         watermark: 'Watermark',
+        watermarkDash: 'WatermarkDash',
     },
     Animal: {
         animalFill: 'AnimalFill',
