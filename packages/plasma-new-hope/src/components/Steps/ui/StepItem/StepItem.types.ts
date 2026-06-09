@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import type { StepsContent, StepsContentAlign, StepsOrientation } from '../../Steps.types';
+
 export type StepStatus = 'active' | 'inactive' | 'completed';
 
 type StepIndicatorFunc = ({
@@ -13,6 +15,10 @@ type StepIndicatorFunc = ({
 }) => ReactNode;
 
 export interface StepItemProps {
+    /**
+     * Отображение выполненного шага
+     */
+    completedItemView?: string;
     /**
      * Заголовок
      */
@@ -39,3 +45,19 @@ export interface StepItemProps {
      */
     disabled?: boolean;
 }
+
+export type StepItemExtendedProps = StepItemProps & {
+    index: number;
+    items: StepItemProps[];
+    size: string;
+    hasLine?: boolean;
+    hasContent?: StepsContent;
+    hasLoader?: boolean;
+    onClick?: (item: StepItemProps, index: number) => void;
+    contentAlign?: StepsContentAlign;
+    orientation?: StepsOrientation;
+    /**
+     * Отображение шага по умолчанию (берётся из Steps.view)
+     */
+    rootView?: string;
+};

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 import type { ChangeEvent, FocusEvent } from 'react';
 import type { Dayjs } from 'dayjs';
 import { customDayjs } from 'src/utils/datejs';
@@ -100,25 +100,14 @@ export const useDateTimePicker = ({
     };
 
     const isDateEqualEdge = (dateEdge?: Date) => {
-        if (!dateEdge) {
+        if (!dateEdge || !correctDates.calendar) {
             return false;
         }
 
-        const normalizedEdgeDate = customDayjs(dateEdge);
-        normalizedEdgeDate.set('hours', 0);
-        normalizedEdgeDate.set('minutes', 0);
-        normalizedEdgeDate.set('seconds', 0);
+        const normalizedEdgeDate = customDayjs(dateEdge).startOf('day');
+        const normalizedCurrentDate = customDayjs(correctDates.calendar).startOf('day');
 
-        const normalizedCurrentDate = customDayjs(correctDates.calendar);
-        normalizedCurrentDate.set('hours', 0);
-        normalizedCurrentDate.set('minutes', 0);
-        normalizedCurrentDate.set('seconds', 0);
-
-        if (normalizedCurrentDate.isSame(normalizedEdgeDate)) {
-            return true;
-        }
-
-        return false;
+        return normalizedCurrentDate.isSame(normalizedEdgeDate);
     };
 
     const getFormattedCorrectInput = ({
@@ -434,6 +423,13 @@ export const useDateTimePicker = ({
             onBlur(event);
         }
     };
+
+    useLayoutEffect(() => {
+        if (outerValue !== undefined && !outerValue) {
+            setInnerDate('');
+            setCorrectDates({ input: '', calendar: undefined, time: undefined });
+        }
+    }, [outerValue]);
 
     return {
         format,

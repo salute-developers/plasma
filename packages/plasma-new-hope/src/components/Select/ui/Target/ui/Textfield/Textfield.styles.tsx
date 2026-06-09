@@ -30,7 +30,10 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.placeholderColorFocus}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
 
-    ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorHover});
+    ${textFieldTokens.backgroundColorHover}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColorHover})`};
+    ${textFieldTokens.borderColorHover}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColorHover})`};
     ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
 
     ${textFieldTokens.optionalColor}: var(${tokens.textFieldOptionalColor});

@@ -44,6 +44,7 @@ export const StyledRangeValue = styled.span`
 export const SliderContainer = styled(BaseSliderContainer)`
     grid-area: a;
     flex: 1;
+    z-index: 1;
 
     &.${classes.reversed} {
         transform: scaleX(-1);
@@ -82,6 +83,10 @@ export const StyledProgress = styled.div`
     border-radius: var(${tokens.railBorderRadius}) 0 0 var(${tokens.railBorderRadius});
     background: var(${tokens.fillColor});
     pointer-events: none;
+
+    .${classes.pointerHidden} & {
+        border-radius: var(${tokens.railBorderRadius});
+    }
 
     .${classes.verticalOrientation} & {
         bottom: 0;
@@ -127,6 +132,33 @@ export const StyledCurrentValue = styled.span`
 
     .${classes.verticalOrientation}.${classes.reversed} & {
         transform: translateY(-50%);
+    }
+
+    /* valuePlacement — horizontal */
+    .${classes.valuePlacementTop} & {
+        top: auto;
+        bottom: var(${tokens.currentValueTopOffset});
+    }
+
+    .${classes.valuePlacementBottom} & {
+        top: var(${tokens.currentValueTopOffset});
+        bottom: auto;
+    }
+
+    /* valuePlacement — vertical */
+    .${classes.verticalOrientation}.${classes.valuePlacementRight} & {
+        left: var(${tokens.currentValueTopOffset});
+        right: auto;
+    }
+
+    .${classes.verticalOrientation}.${classes.valuePlacementLeft} & {
+        left: auto;
+        right: var(${tokens.currentValueTopOffset});
+    }
+
+    /* valuePlacement — none (both orientations) */
+    .${classes.valuePlacementNone} & {
+        display: none;
     }
 `;
 
@@ -260,6 +292,10 @@ export const SliderBaseWrapper = styled.div`
 
     &:has(${StyledRange}:disabled) ${ScaleTicksWrapper} ${ScaleTick}:before {
         cursor: not-allowed;
+    }
+
+    &:has(.${classes.valuePlacementTop}) {
+        padding-top: var(${tokens.currentValueTopOffset});
     }
 
     &.${classes.rangeValuesPlacementOuter} {
@@ -423,7 +459,8 @@ export const SingleWrapper = styled.div<{ hasTicks?: boolean }>`
             }
             
             ${StyledRangeValue} {
-                justify-self: center;
+                justify-self: start;
+                transform: translateX(calc(var(${tokens.size}) / 2 - 50%));
                 margin-bottom: var(${tokens.rangeValueVerticalMargin});
 
                 &.${classes.maxRangeValue} {

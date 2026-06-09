@@ -2,11 +2,17 @@ import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components'
 
 export const config = {
     defaults: {
-        view: 'clear',
+        view: 'none',
         size: 'xs',
     },
     variations: {
         view: {
+            none: css`
+                ${segmentTokens.arrowColor}: var(--text-secondary);
+                ${segmentTokens.groupBackgroundColor}: transparent;
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+            `,
+            // deprecated
             clear: css`
                 ${segmentTokens.arrowColor}: var(--text-secondary);
                 ${segmentTokens.groupBackgroundColor}: transparent;

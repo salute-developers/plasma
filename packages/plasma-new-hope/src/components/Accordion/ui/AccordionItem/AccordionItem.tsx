@@ -39,6 +39,9 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
             view,
             onChange,
             onClick,
+            titleProps,
+            bodyProps,
+            ...rest
         },
         outerRef,
     ) => {
@@ -103,6 +106,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                 key={key}
                 ref={outerRef}
                 style={{ borderRadius: accordionBorderRadius, ...style }}
+                {...rest}
             >
                 <StyledAccordionHeader
                     role="tab"
@@ -123,7 +127,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                                 {leftContent}
                             </StyledAccordionContentLeft>
                         )}
-                        <StyledAccordionTitle>{title}</StyledAccordionTitle>
+                        <StyledAccordionTitle {...titleProps}>{title}</StyledAccordionTitle>
                     </StyledAccordionHeaderLeft>
 
                     {contentRight ||
@@ -139,6 +143,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                     id={`accordion-item-section${key}`}
                     className={cx(openedBodyClass)}
                     style={{ paddingLeft: `${leftPadding}` }}
+                    {...bodyProps}
                 >
                     <StyledAccordionBody className={classes.accordionItemBody}>{children}</StyledAccordionBody>
                 </StyledAccordionBodyAnimate>

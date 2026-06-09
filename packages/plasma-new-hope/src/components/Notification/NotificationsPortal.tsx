@@ -28,6 +28,7 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({
     frame,
     placement = 'bottom-right',
     UNSAFE_SSR_ENABLED,
+    className,
 }) => {
     const { notifications } = useStoreon<NotificationsState, NotificationsEvents>('notifications');
 
@@ -42,7 +43,7 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({
         <PopupProvider UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}>
             {notifications.length > 0 && (
                 <StyledPopup opened frame={frame} placement={placement} zIndex="9100">
-                    <StyledRoot placement={placement}>
+                    <StyledRoot placement={placement} className={className}>
                         {notifications.map(({ id, isHidden, ...rest }) => (
                             <StyledItemWrapper
                                 key={id}

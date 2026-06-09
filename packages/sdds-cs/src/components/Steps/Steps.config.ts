@@ -46,7 +46,6 @@ export const config = {
                 ${tokens.dividerColor}: var(--surface-positive);
                 ${tokens.dividerGradientColor}: linear-gradient(90deg, var(--surface-positive) 35%, var(--on-dark-surface-solid-primary) 100%);
                 ${tokens.dividerVerticalGradientColor}: linear-gradient(180deg, var(--surface-positive) 35%, var(--on-dark-surface-solid-primary) 100%);
-                ${tokens.dividerVerticalIndentColor}: var(--on-dark-surface-solid-primary);
 
                 ${tokens.disabledOpacity}: 0.4;
             `,
@@ -63,11 +62,6 @@ export const config = {
                 ${tokens.contentSidePadding}: 1.5rem;
                 ${tokens.contentVerticalPadding}: 0.5rem;
                 ${tokens.verticalContentPaddingLeft}: 1rem;
-
-                ${tokens.smallIndicatorIndentHeight}: 0.5rem;
-                ${tokens.largeIndicatorIndentHeight}: 0.5rem;
-                ${tokens.smallBulletIndentHeight}: 1rem;
-                ${tokens.largeBulletIndentHeight}: 0.75rem;
 
                 ${tokens.indicatorFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.indicatorFontSize}: var(--plasma-typo-body-s-font-size);

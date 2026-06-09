@@ -294,6 +294,10 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     view?: string;
     /**
+     * Внешний вид чипа в multiple-режиме.
+     */
+    chipView?: string;
+    /**
      * Размер тултипа
      */
     hintSize?: string;

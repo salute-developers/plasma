@@ -17,7 +17,8 @@ export const NotificationsProvider: FC<{
      * @description Только для применения в рамках SSR.
      */
     UNSAFE_SSR_ENABLED?: boolean;
-}> = ({ children, config, frame, placement, UNSAFE_SSR_ENABLED }) => {
+    className?: string;
+}> = ({ children, config, frame, placement, UNSAFE_SSR_ENABLED, className }) => {
     return (
         <StoreContext.Provider value={NotificationsStore}>
             {children}
@@ -26,6 +27,7 @@ export const NotificationsProvider: FC<{
                 placement={placement}
                 config={config}
                 UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}
+                className={className}
             />
         </StoreContext.Provider>
     );

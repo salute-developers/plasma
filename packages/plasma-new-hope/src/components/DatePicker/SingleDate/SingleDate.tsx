@@ -295,6 +295,13 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 }
             }, [defaultDate, format, lang]);
 
+            useLayoutEffect(() => {
+                if (outerValue !== undefined && !outerValue) {
+                    setInnerDate('');
+                    setCorrectDates({ calendar: undefined, input: '' });
+                }
+            }, [outerValue]);
+
             return (
                 <Root
                     view={view}

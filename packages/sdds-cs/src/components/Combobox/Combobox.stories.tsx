@@ -13,6 +13,14 @@ const { meta: META, Single, Multiple, SelectAll, AddItem } = getComboboxStories(
     disablePropsList: ['size', 'labelPlacement', 'hasHint', 'treeView'],
     defaultArgs: {
         size: 's',
+        chipView: 'default',
+    },
+    additionalArgTypes: {
+        chipView: {
+            options: ['default'],
+            type: 'select',
+            table: { category: 'chip' },
+        },
     },
 });
 

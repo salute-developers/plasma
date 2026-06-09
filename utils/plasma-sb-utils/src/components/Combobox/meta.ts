@@ -8,6 +8,7 @@ import {
     hintTriggers,
     hintViews,
     labelPlacement,
+    chipView,
     mode,
     placements,
     variant,
@@ -41,6 +42,7 @@ export const createMeta = ({
             helperText: 'Helper text',
             size: 'm',
             view: 'default',
+            chipView: 'secondary',
             enableContentLeft: false,
             isTargetAmount: false,
             targetAmount: undefined,
@@ -80,6 +82,11 @@ export const createMeta = ({
                 options: componentConfig.views,
                 control: { type: 'select' },
                 table: { category: 'variation' },
+            },
+            chipView: {
+                options: chipView,
+                control: { type: 'select' },
+                table: { category: 'chip' },
             },
             labelPlacement: {
                 options: labelPlacement,

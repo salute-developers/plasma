@@ -96,6 +96,8 @@ export const timePickerRoot = (
                 dropdownWidth,
                 dropdownHeight,
                 columnsQuantity = 2,
+                min,
+                max,
 
                 onToggle,
                 onFocus,
@@ -198,28 +200,32 @@ export const timePickerRoot = (
                 onToggle?.(false);
             }, [floatingPopoverRef, timeGridRootRef]);
 
-            const handleOnChange = (event: TimePickerGridChangeEvent) => {
-                if (!event) {
+            const handleOnChange = (formattedValues: TimePickerGridChangeEvent) => {
+                if (!formattedValues) {
                     return;
                 }
 
-                let timeString = event.value;
+                let timeString = formattedValues.value;
                 if (format === 'HH:mm' && viewValue.length > 5) {
                     timeString = viewValue.substring(0, 5);
                 }
                 setInnerTime(timeString ?? '');
 
                 setActiveTime({
-                    hours: !Number.isNaN(event.timeValues.hour) ? event.timeValues.hour : null,
-                    minutes: !Number.isNaN(event.timeValues.minute) ? event.timeValues.minute : null,
+                    hours: !Number.isNaN(formattedValues.timeValues.hour) ? formattedValues.timeValues.hour : null,
+                    minutes: !Number.isNaN(formattedValues.timeValues.minute)
+                        ? formattedValues.timeValues.minute
+                        : null,
                     seconds:
-                        format === 'HH:mm:ss' && !Number.isNaN(event.timeValues.second)
-                            ? event.timeValues.second
+                        format === 'HH:mm:ss' && !Number.isNaN(formattedValues.timeValues.second)
+                            ? formattedValues.timeValues.second
                             : null,
                     currentColumn: null,
                 });
 
-                onChange?.(event);
+                if (onChange) {
+                    onChange(formattedValues, formattedValues);
+                }
             };
 
             const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -228,23 +234,35 @@ export const timePickerRoot = (
 
                 const { innerString, values, newCursorPosition } = processTimeInput(input, format, cursorPos);
 
+                const { hh: hours, mm: minutes, ss: seconds } = values;
                 setInnerTime(innerString);
                 setActiveTime((prev) => ({
                     ...prev,
-                    hours: values.hh,
-                    minutes: values.mm,
-                    seconds: values.ss,
+                    hours,
+                    minutes,
+                    seconds,
                 }));
 
+                const formattedValues = {
+                    value: innerString,
+                    timeValues: {
+                        hour: hours,
+                        minute: minutes,
+                        second: seconds,
+                    },
+                };
+
                 if (onChange) {
-                    onChange(({
-                        ...event,
-                        target: {
-                            ...event.target,
-                            value: innerString,
-                            timeValues: values,
+                    onChange(
+                        {
+                            ...event,
+                            target: {
+                                ...event.target,
+                                ...formattedValues,
+                            },
                         },
-                    } as unknown) as ChangeEvent<HTMLInputElement>);
+                        formattedValues,
+                    );
                 }
 
                 requestAnimationFrame(() => {
@@ -411,6 +429,8 @@ export const timePickerRoot = (
                                 value={viewValue}
                                 onChange={handleOnChange}
                                 disabled={disabled}
+                                min={min}
+                                max={max}
                             />
                         </Root>
                     </FloatingPopover>

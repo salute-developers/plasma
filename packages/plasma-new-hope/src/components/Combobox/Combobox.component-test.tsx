@@ -249,6 +249,11 @@ const flatItems = [
 
 const componentExists = hasComponent('Combobox');
 const describeFn = getDescribeFN('Combobox');
+const openMultipleCombobox = () => {
+    cy.get('#combobox').click();
+    cy.contains('div', 'Северная Америка').click();
+    cy.matchImageSnapshot();
+};
 
 getBaseVisualTests({
     component: 'Combobox',
@@ -258,6 +263,20 @@ getBaseVisualTests({
         placeholder: 'Placeholder',
     },
     configPropsForMatrix: ['view', 'size'],
+});
+
+getBaseVisualTests({
+    component: 'Combobox',
+    componentProps: {
+        items,
+        id: 'combobox',
+        label: 'Label',
+        placeholder: 'Placeholder',
+        multiple: true,
+    },
+    configPropsForMatrix: ['chipView'],
+    propsForName: ['multiple'],
+    actionBeforeSnapshot: openMultipleCombobox,
 });
 
 describeFn('Combobox', () => {

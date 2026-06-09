@@ -86,10 +86,4 @@ export type DoubleSliderProps = SliderBaseProps &
          */
         ariaLabel?: string[];
         type?: 'double';
-
-        /**
-         * Размер ползунка
-         * @default small
-         */
-        pointerSize?: 'small' | 'large';
     };

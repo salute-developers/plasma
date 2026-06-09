@@ -115,7 +115,6 @@
     "ignoreFiles": [
       "src/**/*.component-test.tsx",
       "src/**/*.stories.tsx",
-      "src/**/*.perftest.tsx",
       "src/**/*.styles.ts"
     ],
     "atLeast": 99.9

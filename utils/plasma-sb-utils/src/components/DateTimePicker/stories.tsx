@@ -19,6 +19,15 @@ const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
     return <IconComponent size={getIconSize(size)} color="inherit" />;
 };
 
+const toValidDate = (value: unknown): Date | undefined => {
+    if (value === undefined || value === null) {
+        return undefined;
+    }
+
+    const date = value instanceof Date ? value : new Date(value as number);
+    return Number.isNaN(date.getTime()) ? undefined : date;
+};
+
 export const createDefaultStory = (
     DateTimePicker: any,
     customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element,
@@ -58,8 +67,8 @@ export const createDefaultStory = (
                 onChangeValue={onChangeValue}
                 onCommitDate={onCommitDate}
                 lang={lang}
-                min={min}
-                max={max}
+                min={toValidDate(min)}
+                max={toValidDate(max)}
                 {...(hasShortcuts && { dateShortcuts })}
                 {...rest}
             />
