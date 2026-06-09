@@ -50,4 +50,9 @@ export type NoteProps = {
      * Слот для интерактивных элементов.
      */
     actionContent?: ReactNode;
+    /**
+     * Ориентация компонента.
+     * @default 'vertical'
+     */
+    orientation?: 'vertical' | 'horizontal';
 } & HTMLAttributes<HTMLDivElement>;

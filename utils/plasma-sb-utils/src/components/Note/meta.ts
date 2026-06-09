@@ -1,6 +1,6 @@
 import { disableProps, InSpacingDecorator } from '../../index';
 
-import { contentBeforeSizes } from './fixtures';
+import { contentBeforeSizes, orientations } from './fixtures';
 
 type CreateMetaProps = {
     component: any;
@@ -38,6 +38,7 @@ export const createMeta = ({
             enableHeightControl: false,
             height: '400',
             hasActionContent: false,
+            orientation: 'vertical',
             ...defaultArgs,
         },
         argTypes: {
@@ -92,6 +93,11 @@ export const createMeta = ({
             },
             hasActionContent: {
                 control: { type: 'boolean' },
+                table: { category: 'layout' },
+            },
+            orientation: {
+                options: orientations,
+                control: { type: 'select' },
                 table: { category: 'layout' },
             },
             ...additionalArgTypes,
