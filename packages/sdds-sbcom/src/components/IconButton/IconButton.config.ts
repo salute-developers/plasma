@@ -12,7 +12,7 @@ import {
     onLightTextPrimary,
     onLightTextPrimaryActive,
     onLightTextPrimaryHover,
-    surfaceAccent,
+    outlinePositive,
     surfaceAccentActive,
     surfaceAccentHover,
     surfaceClear,
@@ -168,6 +168,19 @@ export const config = {
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
+            '24': css`
+                ${iconButtonTokens.iconButtonHeight}: 1.5rem;
+                ${iconButtonTokens.iconButtonWidth}: 1.5rem;
+                ${iconButtonTokens.iconButtonFontFamily}: ${h4Medium.fontFamily};
+                ${iconButtonTokens.iconButtonFontSize}: ${h4Medium.fontSize};
+                ${iconButtonTokens.iconButtonFontStyle}: ${h4Medium.fontStyle};
+                ${iconButtonTokens.iconButtonFontWeight}: ${h4Medium.fontWeight};
+                ${iconButtonTokens.iconButtonLetterSpacing}: ${h4Medium.letterSpacing};
+                ${iconButtonTokens.iconButtonLineHeight}: ${h4Medium.lineHeight};
+
+                ${iconButtonTokens.iconButtonSpinnerSize}: 1rem;
+                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
+            `,
         },
         disabled: {
             true: css`
@@ -176,7 +189,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${iconButtonTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${iconButtonTokens.iconButtonFocusColor}: ${outlinePositive};
             `,
         },
     },
