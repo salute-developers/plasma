@@ -11,9 +11,9 @@ import {
     onLightSurfaceSolidPrimaryHover,
     onLightTextAccent,
     onLightTextPrimary,
+    outlinePositive,
     spacing2x,
     spacing3x,
-    surfaceAccent,
     surfaceAccentActive,
     surfaceAccentHover,
     surfaceClear,
@@ -239,7 +239,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${buttonTokens.buttonFocusColor}: ${surfaceAccent};
+                ${buttonTokens.buttonFocusColor}: ${outlinePositive};
             `,
         },
         stretching: {
