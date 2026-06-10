@@ -1,4 +1,180 @@
 {
+  "0.348.0": {
+    "date": "2026-06-10",
+    "core": [
+      {
+        "component": "Cell",
+        "children": [
+          {
+            "text": "`CellProps` теперь принимает стандартные атрибуты `HTMLDivElement`",
+            "link": "https://github.com/salute-developers/plasma/pull/2810",
+            "id": 2810
+          }
+        ]
+      },
+      {
+        "component": "Dropdown",
+        "children": [
+          {
+            "text": "исправлен баг с `onToggle`, при котором коллбэк не всегда срабатывал при работе через клавиатурную навигацию;",
+            "link": "https://github.com/salute-developers/plasma/pull/2825",
+            "id": 2825
+          }
+        ]
+      },
+      {
+        "component": "Notification",
+        "children": [
+          {
+            "text": "добавлено свойство `className` для `NotificationProvider`, которое вешается на контейнер с нотификациями;",
+            "link": "https://github.com/salute-developers/plasma/pull/2823",
+            "id": 2823
+          }
+        ]
+      },
+      {
+        "component": "Accordion",
+        "children": [
+          {
+            "text": "добавлена возможность пробросить rest-оператор",
+            "link": "https://github.com/salute-developers/plasma/pull/2821",
+            "id": 2821
+          }
+        ]
+      },
+      {
+        "component": "TextField",
+        "children": [
+          {
+            "text": "исправлен баг, при котором при вводе текста, превышающего длину компонента, после клика происходил скролл к началу строки;",
+            "link": "https://github.com/salute-developers/plasma/pull/2826",
+            "id": 2826
+          }
+        ]
+      },
+      {
+        "component": "DatePickerRange",
+        "children": [
+          {
+            "text": "поля ввода независимы друг от друга: можно выбрать только конец периода или только начало\n\nисправлено условие включения минимальной даты для `includeEdgeDates`\n\nубрали лишнее условие для рендера в портале",
+            "link": "https://github.com/salute-developers/plasma/pull/2814",
+            "id": 2814
+          }
+        ]
+      },
+      {
+        "component": "Combobox",
+        "children": [
+          {
+            "text": "добавлено свойство `chipView`, отвечающее за внешний вид чипа в режиме `multiple`;",
+            "link": "https://github.com/salute-developers/plasma/pull/2830",
+            "id": 2830
+          }
+        ]
+      },
+      {
+        "component": "Steps",
+        "children": [
+          {
+            "text": "проведен рефакторинг StepItem\n\nдобавлена возможность указать view для шага со статусом completed",
+            "link": "https://github.com/salute-developers/plasma/pull/2809",
+            "id": 2809
+          }
+        ]
+      },
+      {
+        "component": "DateTimePicker, TimePicker",
+        "children": [
+          {
+            "text": "добавлена возможность указывать min/max для времени",
+            "link": "https://github.com/salute-developers/plasma/pull/2831",
+            "id": 2831
+          }
+        ]
+      },
+      {
+        "component": "Pagination",
+        "children": [
+          {
+            "text": "добавлена возможность передать onBlur/onFocus для поля ввода номера страницы",
+            "link": "https://github.com/salute-developers/plasma/pull/2829",
+            "id": 2829
+          }
+        ]
+      },
+      {
+        "component": "List",
+        "children": [
+          {
+            "text": "исправлен `hover` state при `disabled`",
+            "link": "https://github.com/salute-developers/plasma/pull/2828",
+            "id": 2828
+          }
+        ]
+      },
+      {
+        "component": "Slider",
+        "children": [
+          {
+            "text": "добавлено свойство `valuePlacement` для управления положением value относительно ползунка\n\nисправлена ошибка отображения шкалы прогресса при `pointerSize`= `none`",
+            "link": "https://github.com/salute-developers/plasma/pull/2835",
+            "id": 2835
+          }
+        ]
+      },
+      {
+        "component": "TextArea",
+        "children": [
+          {
+            "text": "исправлена ошибка отображения border контейнера",
+            "link": "https://github.com/salute-developers/plasma/pull/2843",
+            "id": 2843
+          }
+        ]
+      },
+      {
+        "component": "TextField like components",
+        "children": [
+          {
+            "text": "исправлен конфликт `hover` и `focus` стилей",
+            "link": "https://github.com/salute-developers/plasma/pull/2843",
+            "id": 2843
+          }
+        ]
+      },
+      {
+        "component": "Combobox, Select",
+        "children": [
+          {
+            "text": "`focus` с инпута не сбрасывается при взаимодействии с открытым списком",
+            "link": "https://github.com/salute-developers/plasma/pull/2843",
+            "id": 2843
+          }
+        ]
+      },
+      {
+        "component": "DatePicker, DateTimePicker",
+        "children": [
+          {
+            "text": "добавлена возможность очищать значение с помощью передачи `null` или пустой строки",
+            "link": "https://github.com/salute-developers/plasma/pull/2846",
+            "id": 2846
+          }
+        ]
+      },
+      {
+        "component": "TimePicker",
+        "children": [
+          {
+            "text": "исправлена типизация onChange: event - `ChangeEvent<HTMLInputElement> | null`, formattedValues - `TimePickerChangeEvent`\n\nисправлен скачек каретки при изменении значения",
+            "link": "https://github.com/salute-developers/plasma/pull/2847",
+            "id": 2847
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.346.1": {
     "date": "2026-06-01",
     "core": [
