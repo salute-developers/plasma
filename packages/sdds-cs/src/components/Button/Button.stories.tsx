@@ -18,7 +18,7 @@ const { meta: META, Default, WithValue } = getButtonStories({
     defaultArgs: {
         view: 'accent',
     },
-    disablePropsList: ['size', 'disabled'],
+    disablePropsList: ['enableCounter', 'disabled'],
 });
 
 const meta: Meta<ButtonProps> = {
