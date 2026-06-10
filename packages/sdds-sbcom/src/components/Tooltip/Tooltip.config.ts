@@ -13,10 +13,10 @@ export const config = {
     variations: {
         size: {
             s: css`
-                ${tooltipTokens.paddingTop}: 6px;
-                ${tooltipTokens.paddingRight}: 8px;
-                ${tooltipTokens.paddingBottom}: 6px;
-                ${tooltipTokens.paddingLeft}: 8px;
+                ${tooltipTokens.paddingTop}: 0,5rem;
+                ${tooltipTokens.paddingRight}: 0,6667rem;
+                ${tooltipTokens.paddingBottom}: 0,5rem;
+                ${tooltipTokens.paddingLeft}: 0,6667rem;
 
                 ${tooltipTokens.borderRadius}: 0.5rem;
 
@@ -37,10 +37,10 @@ export const config = {
                 ${tooltipTokens.arrowBackground}: ${surfaceSolidCardBrightness};
             `,
             m: css`
-                ${tooltipTokens.paddingTop}: 6px;
-                ${tooltipTokens.paddingRight}: 8px;
-                ${tooltipTokens.paddingBottom}: 6px;
-                ${tooltipTokens.paddingLeft}: 8px;
+                ${tooltipTokens.paddingTop}: 0,4615rem;
+                ${tooltipTokens.paddingRight}: 0,6154rem;
+                ${tooltipTokens.paddingBottom}: 0,4615rem;
+                ${tooltipTokens.paddingLeft}: 0,6154rem;
 
                 ${tooltipTokens.borderRadius}: 0.625rem;
 
