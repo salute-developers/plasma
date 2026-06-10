@@ -40,16 +40,7 @@ const meta: Meta<IconButtonProps> = {
         isLoading: {
             control: { type: 'boolean' },
         },
-        ...disableProps([
-            'focused',
-            'children',
-            'theme',
-            'loader',
-            'onClick',
-            'onFocus',
-            'onBlur',
-            'pin',
-        ]),
+        ...disableProps(['focused', 'children', 'theme', 'loader', 'onClick', 'onFocus', 'onBlur', 'pin']),
     },
 };
 
@@ -59,18 +50,17 @@ const onClick = action('onClick');
 
 /** Размер иконки в px для IconButton 48 → 24 (соответствует макету 24 / 24 / 20). */
 const iconButtonSizeToIconPx: Record<string, number> = {
-    '48': 24,
-    '40': 24,
-    '32': 20,
+    48: 24,
+    40: 24,
+    32: 20,
+    24: 16,
 };
 
-const sizeTypography: Record<
-    string,
-    { token: string; fontFamily: string; fontSize: string; lineHeight: string }
-> = {
-    '48': { token: 'h4Medium', ...h4Medium },
-    '40': { token: 'h4Medium', ...h4Medium },
-    '32': { token: 'h4Medium', ...h4Medium },
+const sizeTypography: Record<string, { token: string; fontFamily: string; fontSize: string; lineHeight: string }> = {
+    48: { token: 'h4Medium', ...h4Medium },
+    40: { token: 'h4Medium', ...h4Medium },
+    32: { token: 'h4Medium', ...h4Medium },
+    24: { token: 'h4Medium', ...h4Medium },
 };
 
 /** IconMic `size="s"` рендерится как 24×24 px при базовом rem. */
@@ -204,11 +194,11 @@ function useResolvedTypography(values: TypographyValues) {
 function TypographyMetaBlock({ size }: { size: string }) {
     const typo = sizeTypography[size];
 
+    const { probeRef, resolved } = useResolvedTypography(typo);
+
     if (!typo) {
         return null;
     }
-
-    const { probeRef, resolved } = useResolvedTypography(typo);
 
     return (
         <TypographyMeta>
