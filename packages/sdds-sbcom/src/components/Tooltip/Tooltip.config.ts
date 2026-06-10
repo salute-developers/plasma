@@ -13,12 +13,11 @@ export const config = {
     variations: {
         size: {
             s: css`
-                ${tooltipTokens.paddingTop}: 0.5rem;
-                ${tooltipTokens.paddingRight}: 0.75rem;
-                ${tooltipTokens.paddingBottom}: 0.5rem;
-                ${tooltipTokens.paddingLeft}: 0.75rem;
+                ${tooltipTokens.paddingTop}: 0,5rem;
+                ${tooltipTokens.paddingRight}: 0,6667rem;
+                ${tooltipTokens.paddingBottom}: 0,5rem;
+                ${tooltipTokens.paddingLeft}: 0,6667rem;
 
-                ${tooltipTokens.minHeight}: 2rem;
                 ${tooltipTokens.borderRadius}: 0.5rem;
 
                 ${tooltipTokens.textFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -38,12 +37,11 @@ export const config = {
                 ${tooltipTokens.arrowBackground}: ${surfaceSolidCardBrightness};
             `,
             m: css`
-                ${tooltipTokens.paddingTop}: 0.6875rem;
-                ${tooltipTokens.paddingRight}: 0.875rem;
-                ${tooltipTokens.paddingBottom}: 0.6875rem;
-                ${tooltipTokens.paddingLeft}: 0.875rem;
+                ${tooltipTokens.paddingTop}: 0,4615rem;
+                ${tooltipTokens.paddingRight}: 0,6154rem;
+                ${tooltipTokens.paddingBottom}: 0,4615rem;
+                ${tooltipTokens.paddingLeft}: 0,6154rem;
 
-                ${tooltipTokens.minHeight}: 2.5rem;
                 ${tooltipTokens.borderRadius}: 0.625rem;
 
                 ${tooltipTokens.textFontFamily}: ${bodyS.fontFamily};
