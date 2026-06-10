@@ -115,6 +115,7 @@ export const config = {
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
+            // deprecated
             h6: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
                 ${tabsTokens.itemPadding}: 0rem;

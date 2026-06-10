@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import type { FC } from 'react';
 import cls from 'classnames';
 
-import { classes, privateTokens } from '../../Slider.tokens';
+import { classes, tokens } from '../../Slider.tokens';
 import type { FormTypeString } from '../../../../types/FormType';
 import { useRangeHandlers } from '../../hooks/useRangeHandlers';
 import { useDoubleTextFieldHandlers } from '../../hooks/useDoubleTextFieldHandlers';
@@ -36,9 +36,6 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     // label
     label,
     labelContentLeft,
-
-    // pointer
-    pointerSize = 'small',
 
     // layout
     multipleStepSize = 10,
@@ -92,8 +89,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const firstPercent = (firstValue - min) / (max - min);
     const secondPercent = (secondValue - min) / (max - min);
     const doubleProgressStyle = {
-        left: `calc(var(${privateTokens.thumbSize}) / 2 + ${firstPercent} * (100% - var(${privateTokens.thumbSize})))`,
-        width: `calc(${secondPercent - firstPercent} * (100% - var(${privateTokens.thumbSize})))`,
+        left: `calc(var(${tokens.thumbSize}) / 2 + ${firstPercent} * (100% - var(${tokens.thumbSize})))`,
+        width: `calc(${secondPercent - firstPercent} * (100% - var(${tokens.thumbSize})))`,
     };
 
     const sortValues = useCallback(
@@ -183,7 +180,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
             )}
 
             <SliderWrapper>
-                <SliderContainer pointerSize={pointerSize} {...rest}>
+                <SliderContainer {...rest}>
                     <StyledTrack />
                     <StyledDoubleProgress style={doubleProgressStyle} />
 

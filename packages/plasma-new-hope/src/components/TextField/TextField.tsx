@@ -230,6 +230,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
 
             const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
                 setHasFocus(false);
+                event.currentTarget.scrollLeft = 0;
+
                 onBlur?.(event);
             };
 
@@ -317,12 +319,6 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 if (readOnly || disabled || !inputRef?.current || _interaction_disabled) {
                     return;
                 }
-
-                inputRef.current.scrollTo({
-                    top: 0,
-                    left: inputRef.current.offsetLeft,
-                    behavior: 'smooth',
-                });
 
                 inputRef.current.focus();
             };

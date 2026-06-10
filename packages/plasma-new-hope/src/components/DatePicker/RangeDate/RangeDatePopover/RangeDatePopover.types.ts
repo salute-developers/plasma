@@ -31,6 +31,7 @@ export type RangeDatePopoverProps = DatePickerCalendarProps &
         isDoubleCalendar?: boolean;
         target?: ReactNode;
         onChangeStartOfRange?: (value: Date, dateInfo?: DateInfo) => void;
+        onChangeSingleValue?: (value: Date, dateInfo?: DateInfo) => void;
         size?: string;
         calendarContainerWidth?: number | string;
         calendarContainerHeight?: number | string;

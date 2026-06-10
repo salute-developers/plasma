@@ -6,6 +6,7 @@ import { IconPlasma } from 'override/_Icon';
 import type { NoteProps } from './Note.types';
 
 const componentExists = hasComponent('Note');
+const componentLinkButtonExists = hasComponent('LinkButton');
 const describeFn = getDescribeFN('Note');
 
 const getIconSize = (size?: string, isScalable?: boolean) => {
@@ -36,11 +37,14 @@ const componentProps = {
 getBaseVisualTests({
     component: 'Note',
     componentProps,
-    configPropsForMatrix: ['view', 'size'],
+    configPropsForMatrix: ['view', 'size', 'orientation'],
 });
 
 describeFn('Note', () => {
     const Note = componentExists ? getComponent<NoteProps>('Note') : () => null;
+    const LinkButton = componentLinkButtonExists
+        ? getComponent('LinkButton')
+        : (props: any) => <button type="button" {...props} />;
 
     it('width,height', () => {
         mount(
@@ -121,6 +125,32 @@ describeFn('Note', () => {
                 width={400}
                 height={116}
             />,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('actionContent', () => {
+        mount(
+            <>
+                <Note {...componentProps} actionContent={<LinkButton text="Label" />} width={400} />
+                <PadMe />
+                <Note {...componentProps} actionContent={<LinkButton text="Label" />} width={400} hasClose />
+                <PadMe />
+                <Note
+                    {...componentProps}
+                    actionContent={<LinkButton text="Label" />}
+                    orientation="horizontal"
+                    width={400}
+                />
+                <PadMe />
+                <Note
+                    {...componentProps}
+                    actionContent={<LinkButton text="Label" />}
+                    orientation="horizontal"
+                    width={400}
+                    hasClose
+                />
+            </>,
         );
         cy.matchImageSnapshot();
     });

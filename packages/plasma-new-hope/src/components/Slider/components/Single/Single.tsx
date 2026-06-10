@@ -61,6 +61,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     orientation = 'horizontal',
     sliderAlign = 'left',
     reversed,
+    valuePlacement,
     multipleStepSize = 10,
 
     // deprecated
@@ -103,6 +104,8 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         showPointer,
         currentValueStyle,
         progressSizeStyle,
+        rangeMinValueOpacity,
+        rangeMaxValueOpacity,
     } = getSingleSliderLayout({
         value,
         min,
@@ -124,6 +127,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         scaleAlign,
         pointerSize,
         pointerVisibility,
+        valuePlacement,
     });
 
     const emitChange = (newValue: number) => {
@@ -174,6 +178,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                 [classes.labelAlignLeft]: sliderAlign === 'right',
                 [classes.labelAlignCenter]: (sliderAlign === 'center' || sliderAlign === 'none') && !scaleTicks,
                 [classes.scalePlacementTop]: scaleAlign === 'top',
+                [classes.pointerHidden]: !showPointer,
             })}
             hasTicks={Boolean(scaleTicks)}
             onPointerEnter={() => setIsHovered(true)}
@@ -204,14 +209,20 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                                     : hideMinValueDiff && value - min <= hideMinValueDiff),
                             [classes.activeRangeValue]: value === min,
                         })}
+                        style={{ opacity: rangeMinValueOpacity }}
                     >
                         {reversed ? max : min}
                     </StyledRangeValue>
                 )}
 
                 <SliderContainer
-                    className={cls(isVertical && classes.verticalOrientation, reversed && classes.reversed)}
-                    pointerSize={pointerSize}
+                    className={cls(isVertical && classes.verticalOrientation, reversed && classes.reversed, {
+                        [classes.valuePlacementNone]: valuePlacement === 'none',
+                        [classes.valuePlacementLeft]: valuePlacement === 'left',
+                        [classes.valuePlacementRight]: valuePlacement === 'right',
+                        [classes.valuePlacementTop]: valuePlacement === 'top',
+                        [classes.valuePlacementBottom]: valuePlacement === 'bottom',
+                    })}
                     {...rest}
                 >
                     <StyledTrack />
@@ -255,6 +266,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
                             [classes.activeRangeValue]: value === max,
                         })}
+                        style={{ opacity: rangeMaxValueOpacity }}
                     >
                         {reversed ? min : max}
                     </StyledRangeValue>

@@ -144,6 +144,29 @@ describeFn('TimePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('min and max', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker value="15:00:00" columnsQuantity={3} min="12:00:00" max="18:00:00" />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('min: disabled hour has aria-disabled and is not selectable', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker columnsQuantity={3} min="14:00:00" />);
+
+        cy.get('input').first().click();
+
+        cy.get('[data-value="10"][data-column="hours"]').first().should('have.attr', 'aria-disabled', 'true');
+        cy.get('[data-value="10"][data-column="hours"]').first().click();
+        cy.get('input').first().should('not.have.value', '10:00:00');
+    });
+
     itSkipHint('with hint', () => {
         const cases = [
             { labelPlacement: 'outer' },

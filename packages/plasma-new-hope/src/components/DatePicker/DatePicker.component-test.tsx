@@ -68,7 +68,7 @@ describeFn('DatePicker', () => {
     };
 
     const ControlledDemo = () => {
-        const [date, setDate] = useState<string | Date | undefined>();
+        const [date, setDate] = useState<string | Date | null | undefined>();
 
         return (
             <>
@@ -76,6 +76,9 @@ describeFn('DatePicker', () => {
                     <Button onClick={() => setDate(new Date(2024, 9, 15))}>Set date</Button>
                     <Button className="reset-btn" onClick={() => setDate('')}>
                         Reset date
+                    </Button>
+                    <Button className="reset-null-btn" onClick={() => setDate(null)}>
+                        Reset date null
                     </Button>
                 </div>
                 <DatePicker
@@ -454,6 +457,49 @@ describeFn('DatePicker', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('controlled datepicker: reset date with null', () => {
+        cy.viewport(500, 544);
+
+        mount(<ControlledDemo />);
+
+        cy.get('input').first().click().type('06142024');
+        assertDatePickerPopoverOpen();
+        cy.get('input').first().should('have.value', '06/14/2024');
+        cy.get('button.reset-null-btn').click();
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').first().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('controlled datepicker: value stays cleared after blur (empty string)', () => {
+        cy.viewport(500, 544);
+
+        mount(<ControlledDemo />);
+
+        cy.get('input').first().click().type('06142024');
+        cy.get('input').first().should('have.value', '06/14/2024');
+        cy.get('button.reset-btn').click();
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').first().click();
+        cy.get('body').click(0, 0);
+        cy.get('input').first().should('have.value', '');
+    });
+
+    it('controlled datepicker: value stays cleared after blur (null)', () => {
+        cy.viewport(500, 544);
+
+        mount(<ControlledDemo />);
+
+        cy.get('input').first().click().type('06142024');
+        cy.get('input').first().should('have.value', '06/14/2024');
+        cy.get('button.reset-null-btn').click();
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').first().click();
+        cy.get('body').click(0, 0);
+        cy.get('input').first().should('have.value', '');
+    });
 });
 
 describeFnRange('DatePickerRange', () => {
@@ -525,7 +571,7 @@ describeFnRange('DatePickerRange', () => {
     };
 
     const ControlledDemo = () => {
-        const [date, setDate] = useState<[Date | string, Date | string] | undefined>();
+        const [date, setDate] = useState<[Date | string | null, Date | string | null] | undefined>();
 
         return (
             <>
@@ -533,6 +579,9 @@ describeFnRange('DatePickerRange', () => {
                     <Button onClick={() => setDate([new Date(2024, 9, 15), new Date(2024, 9, 25)])}>Set date</Button>
                     <Button className="reset-btn" onClick={() => setDate(['', ''])}>
                         Reset date
+                    </Button>
+                    <Button className="reset-null-btn" onClick={() => setDate([null, null])}>
+                        Reset date null
                     </Button>
                 </div>
                 <DatePickerRange
@@ -757,6 +806,53 @@ describeFnRange('DatePickerRange', () => {
         cy.matchImageSnapshot();
     });
 
+    it('DatePickerRange: select second date first on empty calendar', () => {
+        mount(<Demo renderFromDate={new Date(2023, 5, 1)} />);
+
+        cy.get('.input-wrapper input').last().click();
+        cy.get('body').find('[data-day="17"][data-month-index="5"]').first().click();
+
+        cy.get('input').last().should('have.value', '17.06.2023');
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').first().should('be.focused');
+    });
+
+    it('DatePickerRange: complete range by selecting first date after second', () => {
+        mount(<Demo renderFromDate={new Date(2023, 5, 1)} />);
+
+        cy.get('.input-wrapper input').last().click();
+        cy.get('body').find('[data-day="17"][data-month-index="5"]').first().click();
+        cy.get('input').first().click();
+        cy.get('body').find('[data-day="5"][data-month-index="5"]').first().click();
+
+        cy.get('input').first().should('have.value', '05.06.2023');
+        cy.get('input').last().should('have.value', '17.06.2023');
+    });
+
+    it('DatePickerRange: smart swap when selected date is before the existing one', () => {
+        mount(<Demo defaultFirstDate={new Date(2023, 5, 17)} />);
+
+        cy.get('.input-wrapper input').last().click();
+        cy.get('body').find('[data-day="5"][data-month-index="5"]').first().click();
+
+        cy.get('input').first().should('have.value', '05.06.2023');
+        cy.get('input').last().should('have.value', '17.06.2023');
+    });
+
+    it('DatePickerRange: min with time component is accessible with includeEdgeDates', () => {
+        mount(<Demo renderFromDate={new Date(2023, 5, 1)} min={new Date(2023, 5, 10, 15, 30, 0)} includeEdgeDates />);
+
+        cy.get('input').first().click();
+        cy.get('body')
+            .find('[data-day="10"][data-month-index="5"]')
+            .first()
+            .should('not.have.attr', 'aria-disabled', 'true');
+        cy.get('body')
+            .find('[data-day="9"][data-month-index="5"]')
+            .first()
+            .should('have.attr', 'aria-disabled', 'true');
+    });
+
     it('input date, double calendar', () => {
         cy.viewport(900, 599);
 
@@ -938,5 +1034,57 @@ describeFnRange('DatePickerRange', () => {
         cy.get('input').first().click();
 
         cy.matchImageSnapshot();
+    });
+
+    it('controlled datepicker: reset date with null', () => {
+        cy.viewport(500, 544);
+
+        mount(<ControlledDemo />);
+
+        cy.get('input').first().click().type('06142024');
+        assertDatePickerPopoverOpen();
+        cy.get('input').first().should('have.value', '06/14/2024');
+        cy.get('button.reset-null-btn').click();
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').last().should('have.value', '');
+        cy.get('input').first().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('controlled datepicker: value stays cleared after blur (empty string)', () => {
+        cy.viewport(500, 544);
+
+        mount(<ControlledDemo />);
+
+        cy.get('input').first().click().type('06142024{enter}');
+        cy.focused().type('10252024');
+        cy.get('input').first().should('have.value', '06/14/2024');
+        cy.get('input').last().should('have.value', '10/25/2024');
+        cy.get('button.reset-btn').click();
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').last().should('have.value', '');
+        cy.get('input').first().click();
+        cy.get('body').click(0, 0);
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').last().should('have.value', '');
+    });
+
+    it('controlled datepicker: value stays cleared after blur (null)', () => {
+        cy.viewport(500, 544);
+
+        mount(<ControlledDemo />);
+
+        cy.get('input').first().click().type('06142024{enter}');
+        cy.focused().type('10252024');
+        cy.get('input').first().should('have.value', '06/14/2024');
+        cy.get('input').last().should('have.value', '10/25/2024');
+        cy.get('button.reset-null-btn').click();
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').last().should('have.value', '');
+        cy.get('input').first().click();
+        cy.get('body').click(0, 0);
+        cy.get('input').first().should('have.value', '');
+        cy.get('input').last().should('have.value', '');
     });
 });

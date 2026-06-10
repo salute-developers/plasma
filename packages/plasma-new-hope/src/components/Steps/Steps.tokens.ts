@@ -1,8 +1,10 @@
 export const classes = {
     simple: 'simple',
+    stepItem: 'step-item',
     centered: 'item-centered',
     active: 'item-active',
     nextActive: 'next-item-active',
+    prevCompleted: 'prev-item-completed',
     inactive: 'item-inactive',
     clickable: 'item-clickable',
     hovered: 'item-hovered',
@@ -10,7 +12,6 @@ export const classes = {
     verticalOrientation: 'vertical-orientation',
     hasIndicator: 'item-has-indicator',
     activeItem: 'item-active',
-    indentDivider: 'indent-divider',
     transparentDivider: 'transparent-divider',
 };
 
@@ -26,11 +27,6 @@ export const tokens = {
     contentSidePadding: '--plasma-step-item-content-side-padding',
     contentVerticalPadding: '--plasma-step-item-content-vertical-padding',
     verticalContentPaddingLeft: '--plasma-step-item-vertical-content-padding-left',
-
-    smallIndicatorIndentHeight: '--plasma-step-item-s-indicator-intent-height',
-    largeIndicatorIndentHeight: '--plasma-step-item-l-indicator-intent-height',
-    smallBulletIndentHeight: '--plasma-step-item-s-bullet-intent-height',
-    largeBulletIndentHeight: '--plasma-step-item-l-bullet-intent-height',
 
     titleFontFamily: '--plasma-step-item-title-font-family',
     titleFontSize: '--plasma-step-item-title-font-size',
@@ -111,6 +107,5 @@ export const tokens = {
     dividerThickness: '--plasma-step-item-divider-thickness',
     dividerColor: '--plasma-step-item-divider-color',
     dividerGradientColor: '--plasma-step-item-divider-gradient-color',
-    dividerVerticalIndentColor: '--plasma-step-item-divider-vertical-indent-color',
     dividerVerticalGradientColor: '--plasma-step-item-divider-vertical-gradient-color',
 };

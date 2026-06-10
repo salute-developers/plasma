@@ -298,6 +298,7 @@ export const config = {
                 ${tokens.singleIconSizeMedium}: 1.25rem;
                 ${tokens.singleIconSizeSmall}: 1rem;
             `,
+            // deprecated
             h6: css`
                 ${tokens.gap}: 0.25rem;
 

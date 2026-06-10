@@ -10,6 +10,9 @@ import {
     textAccent,
     textAccentActive,
     textAccentHover,
+    textInfo,
+    textInfoActive,
+    textInfoHover,
     textNegative,
     textNegativeActive,
     textNegativeHover,
@@ -104,6 +107,17 @@ export const config = {
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textNegativeHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textNegativeActive};
+            `,
+            info: css`
+                ${linkButtonTokens.linkButtonColor}: ${textInfo};
+                ${linkButtonTokens.linkButtonIconColor}: ${textInfo};
+                ${linkButtonTokens.linkButtonTextColor}: ${textInfo};
+                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonColorHover}: ${textInfoHover};
+                ${linkButtonTokens.linkButtonColorActive}: ${textInfoActive};
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${textInfoHover};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${textInfoActive};
             `,
         },
         size: {

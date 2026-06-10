@@ -48,6 +48,17 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
+            positive: css`
+                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-positive);
+                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-positive-active);
+            `,
+            // deprecated
             success: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
@@ -68,6 +79,17 @@ export const config = {
                 ${buttonTokens.buttonBackgroundColorHover}: var(--surface-warning-hover);
                 ${buttonTokens.buttonBackgroundColorActive}: var(--surface-warning-active);
             `,
+            negative: css`
+                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-negative);
+                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-negative-active);
+            `,
+            // deprecated
             critical: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);

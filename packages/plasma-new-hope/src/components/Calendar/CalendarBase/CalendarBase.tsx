@@ -83,10 +83,10 @@ export const calendarBaseRoot = (
             const max = maxDate && new Date(maxDate);
 
             if (min) {
-                min.setHours(0, 0, 0);
+                min.setHours(0, 0, 0, 0);
             }
             if (max) {
-                max.setHours(23, 59, 59);
+                max.setHours(23, 59, 59, 999);
             }
 
             const renderFrom = renderFromDate && new Date(renderFromDate);
