@@ -11,6 +11,7 @@
         "sdds-os",
         "sdds-platform-ai",
         "sdds-finai",
+        "sdds-dfa",
         "plasma-homeds"
     ],
     "PACKAGES_DS": [
