@@ -21,7 +21,6 @@ export const config = {
         size: {
             xs: css`
                 ${segmentTokens.groupBorderRadius}: 0.625rem;
-                ${segmentTokens.groupPilledBorderRadius}: 1.125rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.25rem 0.75rem;
@@ -29,7 +28,6 @@ export const config = {
             `,
             s: css`
                 ${segmentTokens.groupBorderRadius}: 0.75rem;
-                ${segmentTokens.groupPilledBorderRadius}: 1.375rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.5rem 0.875rem;
@@ -37,7 +35,6 @@ export const config = {
             `,
             m: css`
                 ${segmentTokens.groupBorderRadius}: 0.875rem;
-                ${segmentTokens.groupPilledBorderRadius}: 1.625rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.75rem 1.25rem;
@@ -45,7 +42,6 @@ export const config = {
             `,
             l: css`
                 ${segmentTokens.groupBorderRadius}: 1rem;
-                ${segmentTokens.groupPilledBorderRadius}: 1.875rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 1rem 1.375rem;
@@ -53,7 +49,6 @@ export const config = {
             `,
             xl: css`
                 ${segmentTokens.groupBorderRadius}: 1.125rem;
-                ${segmentTokens.groupPilledBorderRadius}: 1.875rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 1rem 1.375rem;
@@ -66,7 +61,10 @@ export const config = {
             `,
         },
         pilled: {
-            true: css``,
+            true: css`
+                // NOTE: change groupPilledBorderRadius on token when added
+                ${segmentTokens.groupPilledBorderRadius}: 1000px;
+            `,
         },
         stretch: {
             true: css``,
