@@ -55,6 +55,12 @@ export function App() {
 Вид `badge` задается с помощью свойства `view`.
 Так же на вид badge влияет свойства `transparent` и `clear`.
 
+Возможные значения: `"default"`, `"accent"`, `"positive"`, `"warning"`, `"negative"`, `"black"`, `"white"`, `"dark"`, `"light"`.
+
+:::caution Устаревшие значения
+Значения `"dark"` и `"light"` устарели. Используйте `"black"` и `"white"` вместо них соответственно.
+:::
+
 ```tsx live 
 import React from 'react';
 import { Badge } from '@salutejs/sdds-dfa';
@@ -63,13 +69,13 @@ export function App() {
     const Badges = ({transparent, clear}) => {
         return (
             <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <Badge text="Бейдж" size="l" view="primary" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="default" transparent={transparent} clear={clear} />
                 <Badge text="Бейдж" size="l" view="accent" transparent={transparent} clear={clear} />
                 <Badge text="Бейдж" size="l" view="positive" transparent={transparent} clear={clear} />
                 <Badge text="Бейдж" size="l" view="warning" transparent={transparent} clear={clear} />
                 <Badge text="Бейдж" size="l" view="negative" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="l" view="dark" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="l" view="light" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="black" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="white" transparent={transparent} clear={clear} />
             </div>
         )
     }

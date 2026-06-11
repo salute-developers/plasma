@@ -99,7 +99,7 @@ export const createMeta = ({
         hideMinValueDiff: 3,
         hideMaxValueDiff: 5,
         showTicks: false,
-        _valuePlacementHorizontalVisible: true,
+        _valuePlacementHorizontalVisible: false,
         _valuePlacementVerticalVisible: false,
         ...defaultArgs,
     },

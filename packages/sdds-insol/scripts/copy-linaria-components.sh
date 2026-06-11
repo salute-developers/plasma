@@ -15,7 +15,6 @@ done;
 
 # remove unused tests
 rm -rf src-css/components/**/*.component-test.tsx
-rm -rf src-css/components/**/*.perftest.tsx
 rm -rf src-css/components/**/*.stories.tsx
 
 # plasma-new-hope/styled-components

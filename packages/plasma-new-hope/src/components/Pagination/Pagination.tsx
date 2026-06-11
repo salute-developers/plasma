@@ -64,6 +64,8 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                 onChangePageValue,
                 onChangePerPageValue,
                 onChange,
+                onFocusQuickJump,
+                onBlurQuickJump,
                 ...rest
             },
             ref,
@@ -97,6 +99,10 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
 
             const pageSetter = (pageValueCandidate?: number) => {
                 let newPageValue = pageValueCandidate ?? defaultValues.value;
+                if (newPageValue === pageValue) {
+                    return;
+                }
+
                 if (newPageValue > pages) {
                     newPageValue = pages;
                 }
@@ -227,9 +233,12 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                             <PaginationActionsLeft className={typeClass}>
                                 {hasQuickJump && (
                                     <PaginationQuickJumpToPage
+                                        prevPageValue={pageValue}
                                         placeholderQuickJump={placeholderQuickJump}
                                         textQuickJump={textQuickJump}
                                         onChangeValue={handleSetPage}
+                                        onFocusQuickJump={onFocusQuickJump}
+                                        onBlurQuickJump={onBlurQuickJump}
                                     />
                                 )}
                                 {helperText && (

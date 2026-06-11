@@ -19,6 +19,7 @@ export const withRange = <T extends Calendar>(Component: FC<Calendar>) => ({
     disabledYearList,
     onChangeValue,
     onChangeStartOfRange,
+    onChangeSingleValue,
     ...rest
 }: CalendarRange<T>): ReactElement<T> => {
     const [startExternalValue, endExternalValue] = useMemo(() => value, [value]);
@@ -45,11 +46,13 @@ export const withRange = <T extends Calendar>(Component: FC<Calendar>) => ({
 
             const [first, second] = getSortedValues([startValue, newDay]);
 
-            if (first) {
+            if (startValue) {
                 onChangeValue([first, second], dateInfo);
+            } else {
+                onChangeSingleValue?.(newDay, dateInfo);
             }
         },
-        [onChangeValue, onChangeStartOfRange, startValue, endValue],
+        [onChangeValue, onChangeStartOfRange, onChangeSingleValue, startValue, endValue],
     );
 
     useEffect(() => {

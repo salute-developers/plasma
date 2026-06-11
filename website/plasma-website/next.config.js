@@ -18,6 +18,9 @@ module.exports = {
         PACKAGES_INFO: JSON.stringify(packagesInfo),
     },
     output: 'export',
+    experimental: {
+        esmExternals: 'loose',
+    },
     compiler: {
         styledComponents: true,
     },

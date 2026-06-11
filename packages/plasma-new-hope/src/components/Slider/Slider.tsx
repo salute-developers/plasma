@@ -20,8 +20,7 @@ const isDoubleValueProps = (props: SliderProps, type: string): props is DoubleSl
 export const sliderRoot = (Root: RootPropsOmitOnChangeAndDefaultValue<HTMLDivElement, SliderRootProps>) =>
     forwardRef<HTMLDivElement, SliderProps>(
         ({ type = 'single', view, size, pointerSize, disabled, className, style, ...props }, ref) => {
-            const doublePointerSize =
-                pointerSize === 'none' ? undefined : (pointerSize as 'small' | 'large' | undefined);
+            const doublePointerSize = pointerSize === 'none' ? 'small' : pointerSize;
 
             if (isSingleValueProps(props, type)) {
                 return (
@@ -44,14 +43,12 @@ export const sliderRoot = (Root: RootPropsOmitOnChangeAndDefaultValue<HTMLDivEle
                     ref={ref}
                     view={view}
                     size={size}
-                    pointerSize={pointerSize}
+                    pointerSize={doublePointerSize}
                     disabled={disabled}
                     className={className}
                     style={style}
                 >
-                    {isDoubleValueProps(props, type) && (
-                        <DoubleSlider disabled={disabled} pointerSize={doublePointerSize} {...props} />
-                    )}
+                    {isDoubleValueProps(props, type) && <DoubleSlider disabled={disabled} {...props} />}
                 </Root>
             );
         },

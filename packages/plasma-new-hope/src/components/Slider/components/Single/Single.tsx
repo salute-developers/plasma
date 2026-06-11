@@ -104,6 +104,8 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         showPointer,
         currentValueStyle,
         progressSizeStyle,
+        rangeMinValueOpacity,
+        rangeMaxValueOpacity,
     } = getSingleSliderLayout({
         value,
         min,
@@ -125,6 +127,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         scaleAlign,
         pointerSize,
         pointerVisibility,
+        valuePlacement,
     });
 
     const emitChange = (newValue: number) => {
@@ -175,7 +178,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                 [classes.labelAlignLeft]: sliderAlign === 'right',
                 [classes.labelAlignCenter]: (sliderAlign === 'center' || sliderAlign === 'none') && !scaleTicks,
                 [classes.scalePlacementTop]: scaleAlign === 'top',
-                [classes.pointerHidden]: pointerSize === 'none',
+                [classes.pointerHidden]: !showPointer,
             })}
             hasTicks={Boolean(scaleTicks)}
             onPointerEnter={() => setIsHovered(true)}
@@ -206,6 +209,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                                     : hideMinValueDiff && value - min <= hideMinValueDiff),
                             [classes.activeRangeValue]: value === min,
                         })}
+                        style={{ opacity: rangeMinValueOpacity }}
                     >
                         {reversed ? max : min}
                     </StyledRangeValue>
@@ -219,7 +223,6 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                         [classes.valuePlacementTop]: valuePlacement === 'top',
                         [classes.valuePlacementBottom]: valuePlacement === 'bottom',
                     })}
-                    pointerSize={pointerSize}
                     {...rest}
                 >
                     <StyledTrack />
@@ -263,6 +266,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
                             [classes.activeRangeValue]: value === max,
                         })}
+                        style={{ opacity: rangeMaxValueOpacity }}
                     >
                         {reversed ? min : max}
                     </StyledRangeValue>

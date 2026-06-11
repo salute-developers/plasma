@@ -12,10 +12,13 @@ type CreateNoteStoriesProps = {
     disablePropsList?: string[];
     defaultArgs?: {};
     additionalArgTypes?: {};
+    additionalComponents: {
+        LinkButton: any;
+    };
 };
 
 export const getNoteStories = (config: CreateNoteStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, additionalComponents, ...rest } = config;
 
     const noteConfig = getConfigVariations(componentConfig);
 
@@ -25,7 +28,7 @@ export const getNoteStories = (config: CreateNoteStoriesProps) => {
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component);
+    const DefaultStoryComponent = createDefaultStory(component, additionalComponents);
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,

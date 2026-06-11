@@ -5,6 +5,7 @@ export const config = {
         view: 'default',
         size: 's',
         labelPlacement: 'outer',
+        chipView: 'default',
     },
     variations: {
         view: {
@@ -256,6 +257,17 @@ export const config = {
                 ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             outer: css``,
+        },
+        chipView: {
+            default: css`
+                ${tokens.textFieldChipColor}: var(--inverse-text-primary);
+                ${tokens.textFieldChipColorHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-solid-default);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
         },
         disabled: {
             true: css`

@@ -81,6 +81,16 @@ type Props = {
      * @deprecated Внутреннее свойство (будет удалено в ближайшее время)
      */
     view?: string;
+
+    /**
+     * HTML-атрибуты для элемента заголовка (например, для микроразметки)
+     */
+    titleProps?: HTMLAttributes<HTMLElement>;
+
+    /**
+     * HTML-атрибуты для элемента тела (например, для микроразметки)
+     */
+    bodyProps?: HTMLAttributes<HTMLDivElement>;
 };
 
 export type AccordionItemProps = Omit<HTMLAttributes<HTMLElement>, 'onChange' | 'title'> & Props;

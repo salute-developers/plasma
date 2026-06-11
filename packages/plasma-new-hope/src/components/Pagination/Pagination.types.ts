@@ -1,4 +1,4 @@
-import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactNode, FocusEvent } from 'react';
 
 import type { AsProps, NumericRange, CreateArrayWithLengthX } from '../../types';
 /*
@@ -138,6 +138,14 @@ export type CustomPaginationProps = {
      * Функция которая исполняeтся при изменении `page`, `perPage`
      */
     onChange?: (page?: number, perPage?: number) => void;
+    /**
+     * Функция которая исполняeтся при фокусе на поле ввода перехода по страницам
+     */
+    onFocusQuickJump?: (e: FocusEvent<HTMLInputElement>) => void;
+    /**
+     * Функция которая исполняeтся при потере фокусе на поле ввода перехода по страницам
+     */
+    onBlurQuickJump?: (e: FocusEvent<HTMLInputElement>) => void;
     /**
      * @deprecated - использовать onChange
      */

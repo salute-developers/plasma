@@ -25,7 +25,7 @@ export const base = css`
         transition: background-color 0.1s ease-in, color 0.1s ease-in, box-shadow 0.1s ease-in;
     }
 
-    &:not([readonly]) ${InputWrapper}:hover:not(:has(${StyledHintWrapper}:hover)) {
+    &:not([readonly]) ${InputWrapper}:hover:not(:has(${StyledHintWrapper}:hover)):not(:focus-within) {
         ${privateTokens.borderColor}: var(${tokens.borderColorHover}, var(${tokens.borderColor}));
         ${privateTokens.backgroundColor}: var(${tokens.backgroundColorHover}, var(${tokens.backgroundColor}));
     }
@@ -87,7 +87,7 @@ export const base = css`
             }
         }
 
-        &:not([readonly]) ${InputWrapper}:hover:not(:has(${StyledHintWrapper}:hover)) {
+        &:not([readonly]) ${InputWrapper}:hover:not(:has(${StyledHintWrapper}:hover)):not(:focus-within) {
             --plasma_private-textfield-divider-color: var(
                 ${tokens.dividerColorHover},
                 var(${tokens.dividerColor})

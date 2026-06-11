@@ -1,0 +1,215 @@
+---
+id: embedded-button
+title: EmbeddedButton
+---
+
+import { PropsTable, Badge } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# EmbeddedButton
+<Badge title="beta" description="Данный компонент входит в группу beta-компонентов" />
+
+:::caution Импорт beta-компонентов
+Импорт осуществляется из директории `@salutejs/sdds-finai/beta`<br />
+К примеру: <br />
+`import * as Beta from '@salutejs/sdds-finai/beta';` <br />
+`import { EmbeddedButton } from '@salutejs/sdds-finai/beta';`
+:::
+
+## Описание
+
+Кнопка-иконка, предназначенная для встраивания в другие компоненты (поля ввода, карточки, контейнеры). В отличие от обычной кнопки, `EmbeddedButton` занимает всё доступное пространство родителя и содержит только иконку без текста.
+
+Компонент поддерживает несколько вариантов оформления (`view`), размеры (`size`), состояние загрузки (`isLoading`), позиционирование иконки внутри кнопки (`position`), а также состояние `disabled`.
+
+## Быстрый старт
+```tsx live
+import * as Beta from '@salutejs/sdds-finai/beta';
+import { IconPlasma } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ width: '3rem', height: '3rem' }}>
+            <Beta.EmbeddedButton>
+                <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+            </Beta.EmbeddedButton>
+        </div>
+    );
+}
+```
+
+## Примеры
+<Tabs>
+    <TabItem value="view" label="View" default>
+        Свойство `view` задаёт цветовой вариант кнопки. Доступные значения: `default`, `secondary`, `accent`, `positive`, `warning`, `negative`, `info`.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const views = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative', 'info'];
+
+            return (
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    {views.map((view) => (
+                        <div key={view} style={{ width: '3rem', height: '3rem' }}>
+                            <Beta.EmbeddedButton view={view}>
+                                <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+                            </Beta.EmbeddedButton>
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        Свойство `size` управляет радиусом скругления кнопки. Доступные значения: `l`, `m`, `s`, `xs`. Размер самой кнопки определяется родительским контейнером.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const iconSizeMap = { l: '2.25rem', m: '1.5rem', s: '1rem', xs: '0.75rem' };
+
+            const sizes = [
+                { size: 'l', dim: '3.5rem' },
+                { size: 'm', dim: '3rem' },
+                { size: 's', dim: '2.5rem' },
+                { size: 'xs', dim: '2rem' },
+            ];
+
+            return (
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-end' }}>
+                    {sizes.map(({ size, dim }) => (
+                        <div key={size} style={{ width: dim, height: dim }}>
+                            <Beta.EmbeddedButton size={size}>
+                                <IconPlasma color="inherit" style={{ width: iconSizeMap[size], height: iconSizeMap[size] }} />
+                            </Beta.EmbeddedButton>
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="position" label="Position">
+        Свойство `position` задаёт расположение иконки внутри кнопки. Доступные значения: `center`, `center-left`, `center-right`, `top`, `top-left`, `top-right`, `bottom`, `bottom-left`, `bottom-right`. По умолчанию — `center`.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <div style={{ width: '4rem', height: '4rem' }}>
+                        <Beta.EmbeddedButton position="top-left">
+                            <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+                        </Beta.EmbeddedButton>
+                    </div>
+                    <div style={{ width: '4rem', height: '4rem' }}>
+                        <Beta.EmbeddedButton position="center">
+                            <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+                        </Beta.EmbeddedButton>
+                    </div>
+                    <div style={{ width: '4rem', height: '4rem' }}>
+                        <Beta.EmbeddedButton position="bottom-right">
+                            <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+                        </Beta.EmbeddedButton>
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="loading" label="Loading">
+        При `isLoading={true}` иконка становится полупрозрачной, а поверх неё отображается спиннер. Для замены стандартного спиннера на кастомный контент используйте слот `loader`.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <div style={{ width: '3rem', height: '3rem' }}>
+                        <Beta.EmbeddedButton isLoading>
+                            <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+                        </Beta.EmbeddedButton>
+                    </div>
+                    <div style={{ width: '3rem', height: '3rem' }}>
+                        <Beta.EmbeddedButton isLoading loader={<span>...</span>}>
+                            <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+                        </Beta.EmbeddedButton>
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="disabled" label="Disabled">
+        Свойство `disabled` отключает кнопку и снижает её прозрачность.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { IconPlasma } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <div style={{ width: '3rem', height: '3rem' }}>
+                        <Beta.EmbeddedButton>
+                            <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+                        </Beta.EmbeddedButton>
+                    </div>
+                    <div style={{ width: '3rem', height: '3rem' }}>
+                        <Beta.EmbeddedButton disabled>
+                            <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+                        </Beta.EmbeddedButton>
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Встраивание в контейнер
+
+Компонент занимает `100%` ширины и высоты родителя, поэтому размер кнопки всегда задаётся снаружи:
+
+```tsx live
+import * as Beta from '@salutejs/sdds-finai/beta';
+import { IconPlasma } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div
+            style={{
+                position: 'relative',
+                width: '16rem',
+                height: '3rem',
+                background: 'var(--surface-solid-card)',
+                borderRadius: '0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                padding: '0 0.75rem',
+            }}
+        >
+            <span style={{ flex: 1 }}>Поле ввода</span>
+            <div style={{ width: '2rem', height: '2rem' }}>
+                <Beta.EmbeddedButton view="secondary" size="s">
+                    <IconPlasma color="inherit" style={{ width: '1rem', height: '1rem' }} />
+                </Beta.EmbeddedButton>
+            </div>
+        </div>
+    );
+}
+```
+
+## API
+<PropsTable name="EmbeddedButtonBeta" />

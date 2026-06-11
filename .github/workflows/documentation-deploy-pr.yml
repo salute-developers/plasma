@@ -50,7 +50,9 @@ jobs:
                     show-progress: false
 
             -   name: Prepare environment
-                uses: ./.github/actions/prepare-environment
+                # Remote ref (а не локальный ./...) — обязательно для pull_request_target.
+                # Иначе action.yml берётся из PR-checkout и его trust-логика обходится.
+                uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
             -   name: Lerna bootstrap
                 run: npx lerna bootstrap --scope="@salutejs/core-themes" --scope="@salutejs/plasma-{b2c,web,website,tokens-b2c,typo,icons,new-hope,themes}"
@@ -105,7 +107,9 @@ jobs:
                     ref: refs/pull/${{github.event.pull_request.number}}/merge
 
             -   name: Prepare environment
-                uses: ./.github/actions/prepare-environment
+                # Remote ref (а не локальный ./...) — обязательно для pull_request_target.
+                # Иначе action.yml берётся из PR-checkout и его trust-логика обходится.
+                uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
             -   name: Set job environment variables
                 run: |

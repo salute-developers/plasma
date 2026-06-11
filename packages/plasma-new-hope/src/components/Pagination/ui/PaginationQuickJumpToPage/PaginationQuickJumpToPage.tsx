@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { FC, FormEvent, KeyboardEvent } from 'react';
 
 import { defaultValues } from '../../utils';
 
@@ -9,25 +10,33 @@ import {
     QuickJumpToPageInput,
 } from './PaginationQuickJumpToPage.styles';
 
-export const PaginationQuickJumpToPage: React.FC<PaginationQuickJumpToPageProps> = ({
+export const PaginationQuickJumpToPage: FC<PaginationQuickJumpToPageProps> = ({
     placeholderQuickJump = defaultValues.placeholderQuickJump,
     textQuickJump = defaultValues.textQuickJump,
     onChangeValue,
+    onFocusQuickJump,
+    onBlurQuickJump,
     ...rest
 }) => {
-    const [pageValue, setPageValue] = useState<number | string | undefined>();
+    const [pageValue, setPageValue] = useState<number | string | undefined>('');
 
-    const handleKeyPress = (event: React.KeyboardEvent<HTMLElement>) => {
-        if (event.key === 'Enter') {
-            onChangeValue?.(Number(pageValue));
-            setPageValue('');
+    const handleChangeInput = (event: FormEvent<HTMLInputElement>) => {
+        const result = event.currentTarget.value.replace(/\D/g, '');
+        if (result === '') {
+            return setPageValue('');
         }
+
+        setPageValue(Number(result));
     };
 
-    const handleChangeInput = (event: React.FormEvent<HTMLInputElement>) => {
-        const result = event.currentTarget.value.replace(/\D/g, '');
-        if (result === '') return setPageValue('');
-        setPageValue(Number(result));
+    const handleKeyPress = (event: KeyboardEvent<HTMLElement>) => {
+        if (event.key === 'Enter') {
+            if (onChangeValue) {
+                onChangeValue(Number(pageValue));
+            }
+
+            setPageValue('');
+        }
     };
 
     return (
@@ -38,6 +47,8 @@ export const PaginationQuickJumpToPage: React.FC<PaginationQuickJumpToPageProps>
                 placeholder={placeholderQuickJump}
                 onKeyUp={handleKeyPress}
                 onChange={handleChangeInput}
+                onFocus={onFocusQuickJump}
+                onBlur={onBlurQuickJump}
             />
         </QuickJumpToPageRoot>
     );
