@@ -53,23 +53,29 @@ export function App() {
 
 ### Вид badge
 Вид `badge` задается с помощью свойства `view`.
-Так же на вид badge влияет свойства `transparent` и `clear`.
+Вариант отображения задаётся с помощью свойства `appearance`.
+
+Возможные значения свойства `appearance`: `"default"`, `"clear"`, `"transparent"`.
+
+:::caution Устаревшие свойства
+Свойства `transparent` и `clear` устарели. Используйте `appearance="transparent"` и `appearance="clear"` соответственно.
+:::
 
 ```tsx live 
 import React from 'react';
 import { Badge } from '@salutejs/plasma-web';
 
 export function App() {
-    const Badges = ({transparent, clear}) => {
+    const Badges = ({ appearance }) => {
         return (
             <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <Badge text="Бейдж" size="l" view="primary" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="l" view="accent" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="l" view="positive" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="l" view="warning" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="l" view="negative" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="l" view="dark" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="l" view="light" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="primary" appearance={appearance} />
+                <Badge text="Бейдж" size="l" view="accent" appearance={appearance} />
+                <Badge text="Бейдж" size="l" view="positive" appearance={appearance} />
+                <Badge text="Бейдж" size="l" view="warning" appearance={appearance} />
+                <Badge text="Бейдж" size="l" view="negative" appearance={appearance} />
+                <Badge text="Бейдж" size="l" view="dark" appearance={appearance} />
+                <Badge text="Бейдж" size="l" view="light" appearance={appearance} />
             </div>
         )
     }
@@ -77,8 +83,8 @@ export function App() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <Badges />
-            <Badges transparent />
-            <Badges clear />
+            <Badges appearance="transparent" />
+            <Badges appearance="clear" />
         </div>
     );
 }

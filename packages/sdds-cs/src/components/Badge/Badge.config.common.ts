@@ -21,6 +21,5 @@ export const sizeS = `
 `;
 
 export const pilled = `
-    // NOTE: заменить на токен, когда появится
     ${badgeTokens.pilledBorderRadius}: 1000px;
 `;
