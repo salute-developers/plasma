@@ -30,7 +30,7 @@ export const tokens = {
     fontStyle: '--plasma-badge-font-style',
     fontWeight: '--plasma-badge-font-weight',
     letterSpacing: '--plasma-badge-letter-spacing',
-    lineHeight: '--plasma-badge-lineheight',
+    lineHeight: '--plasma-badge-line-height',
 
     leftContentMarginLeft: '--plasma-badge-left-content-margin-left',
     leftContentMarginRight: '--plasma-badge-left-content-margin-right',
