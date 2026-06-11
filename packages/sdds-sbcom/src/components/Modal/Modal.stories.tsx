@@ -433,7 +433,7 @@ const StoryModalAnimationDemo = ({ placement, offsetX, offsetY, ...rest }: Story
     return (
         <SSRProvider>
             <PopupProvider>
-                <Button view="default" text="Открыть новое модальное окно" onClick={() => setIsOpen(!isOpen)} />
+                <Button view="accentFiled" text="Открыть новое модальное окно" onClick={() => setIsOpen(!isOpen)} />
                 <StyledModalAnimation
                     id="modal"
                     frame="theme-root"

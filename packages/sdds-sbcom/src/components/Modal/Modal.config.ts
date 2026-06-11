@@ -19,8 +19,21 @@ export const config = {
                 ${modalTokens.modalOverlayColor}: ${overlaySoft};
                 ${modalTokens.modalBodyBackground}: ${surfaceSolidCard};
                 ${modalTokens.modalBodyBorderRadius}: 1.25rem;
-                ${modalTokens.modalBodyPadding}: 1rem;
-                ${modalTokens.modalContentPadding}: 0.625rem;
+                ${modalTokens.modalBodyPadding}: 0;
+                ${modalTokens.modalContentPadding}: 0;
+                ${modalTokens.modalCloseButtonRadius}: 0.375rem;
+                ${modalTokens.modalCloseButtonColor}: ${textSecondary};
+                ${modalTokens.modalCloseButtonHoverColor}: ${textSecondaryHover};
+                ${modalTokens.modalCloseButtonActiveColor}: ${textSecondaryActive};
+                ${modalTokens.modalOutlineFocusColor}: ${surfaceAccent};
+            `,
+            dialog: css`
+                ${modalTokens.modalOverlayWithBlurColor}: rgba(35, 35, 35, 0.2);
+                ${modalTokens.modalOverlayColor}: ${overlaySoft};
+                ${modalTokens.modalBodyBackground}: ${surfaceSolidCard};
+                ${modalTokens.modalBodyBorderRadius}: 1.5rem;
+                ${modalTokens.modalBodyPadding}: 0;
+                ${modalTokens.modalContentPadding}: 0;
                 ${modalTokens.modalCloseButtonRadius}: 0.375rem;
                 ${modalTokens.modalCloseButtonColor}: ${textSecondary};
                 ${modalTokens.modalCloseButtonHoverColor}: ${textSecondaryHover};
