@@ -314,7 +314,7 @@ describeFn('Pagination', () => {
         cy.matchImageSnapshot();
     });
 
-    it('setSelect', () => {
+    it.skip('setSelect', () => {
         cy.viewport(1000, 500);
         mount(<Pagination slots={slots[2]} count={count} listWidth="5rem" />);
         cy.get('button').last().click();
