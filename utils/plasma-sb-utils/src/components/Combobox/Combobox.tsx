@@ -10,6 +10,7 @@ type CreateStoriesProps = {
     componentConfig: any;
     disablePropsList?: string[];
     defaultArgs?: {};
+    additionalArgTypes?: {};
 };
 
 export const getComboboxStories = (config: CreateStoriesProps) => {

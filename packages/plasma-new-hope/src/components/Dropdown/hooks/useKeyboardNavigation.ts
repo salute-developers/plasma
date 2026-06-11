@@ -149,6 +149,7 @@ export const useKeyNavigation = ({
                 if (!path[0]) {
                     dispatchPath({ type: 'opened_first_level' });
                     dispatchFocusedPath({ type: 'set_initial_focus' });
+                    handleGlobalToggle(true, event);
                     break;
                 }
 

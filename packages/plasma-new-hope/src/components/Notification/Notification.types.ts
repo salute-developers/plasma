@@ -136,4 +136,8 @@ export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElem
      * @description Только для применения в рамках SSR.
      */
     UNSAFE_SSR_ENABLED?: boolean;
+    /**
+     * className для контейнера с нотификациями.
+     */
+    className?: string;
 }

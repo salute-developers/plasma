@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 
-import { classes, privateTokens } from '../Slider.tokens';
+import { classes, tokens } from '../Slider.tokens';
 
 interface GetSingleSliderLayoutParams {
     value: number;
@@ -23,6 +23,7 @@ interface GetSingleSliderLayoutParams {
     scaleAlign?: string;
     pointerSize?: string;
     pointerVisibility?: 'always' | 'hover';
+    valuePlacement?: 'top' | 'bottom' | 'left' | 'right' | 'none';
 }
 
 export interface SingleSliderLayout {
@@ -36,6 +37,8 @@ export interface SingleSliderLayout {
     showPointer: boolean;
     currentValueStyle: CSSProperties;
     progressSizeStyle: CSSProperties;
+    rangeMinValueOpacity: number;
+    rangeMaxValueOpacity: number;
 }
 
 export const getSingleSliderLayout = ({
@@ -59,6 +62,7 @@ export const getSingleSliderLayout = ({
     scaleAlign,
     pointerSize,
     pointerVisibility,
+    valuePlacement,
 }: GetSingleSliderLayoutParams): SingleSliderLayout => {
     const innerShowScale = Boolean((showRangeValues || showScale) && !scaleTicks);
     const innerShowCurrentValue =
@@ -83,17 +87,60 @@ export const getSingleSliderLayout = ({
 
     const showPointer = pointerSize !== 'none' && (pointerVisibility === 'always' || isHovered);
 
+    const FADE_RANGE = 0.3;
+    const fadeOpacity = (proximity: number) => Math.min(1, Math.max(0, proximity / FADE_RANGE));
+
     const thumbPercent = (value - min) / (max - min);
-    const thumbSize = `var(${privateTokens.thumbSize})`;
-    const thumbPosition = `calc(${thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2)`;
+    const thumbSize = `var(${tokens.thumbSize})`;
+
+    const progressSize = showPointer ? `calc(${thumbPercent} * (100% - ${thumbSize}))` : `calc(${thumbPercent} * 100%)`;
+    const progressSizeStyle: CSSProperties = isVertical ? { height: progressSize } : { width: progressSize };
+
+    const shouldFadeRangeValues = innerShowCurrentValue && valuePlacement !== 'none';
+    const rangeMaxValueOpacity = shouldFadeRangeValues ? fadeOpacity(reversed ? thumbPercent : 1 - thumbPercent) : 1;
+    const rangeMinValueOpacity = shouldFadeRangeValues ? fadeOpacity(reversed ? 1 - thumbPercent : thumbPercent) : 1;
+
+    const nearHighFactor = Math.min(1, Math.max(0, (thumbPercent - (1 - FADE_RANGE)) / FADE_RANGE));
+    const nearLowFactor = Math.min(1, Math.max(0, (FADE_RANGE - thumbPercent) / FADE_RANGE));
+    const verticalScaleCompensation = reversed ? '' : ' scaleY(-1)';
+
+    const getHorizontalCurrentValueStyle = (): CSSProperties => {
+        if (nearHighFactor > 0) {
+            return {
+                left: `calc(${thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2 * ${1 + nearHighFactor})`,
+                transform: `translateX(-${50 + nearHighFactor * 50}%)`,
+            };
+        }
+        if (nearLowFactor > 0) {
+            return {
+                left: `calc(${thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2 * ${1 - nearLowFactor})`,
+                transform: `translateX(-${50 - nearLowFactor * 50}%)`,
+            };
+        }
+
+        return { left: `calc(${thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2)` };
+    };
+
+    const getVerticalCurrentValueStyle = (): CSSProperties => {
+        if (nearHighFactor > 0) {
+            return {
+                top: `calc(${1 - thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2 * ${1 - nearHighFactor})`,
+                transform: `translateY(-${50 - nearHighFactor * 50}%)${verticalScaleCompensation}`,
+            };
+        }
+        if (nearLowFactor > 0) {
+            return {
+                top: `calc(${1 - thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2 * ${1 + nearLowFactor})`,
+                transform: `translateY(-${50 + nearLowFactor * 50}%)${verticalScaleCompensation}`,
+            };
+        }
+
+        return { top: `calc(${1 - thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2)` };
+    };
 
     const currentValueStyle: CSSProperties = isVertical
-        ? { top: `calc(${1 - thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2)` }
-        : { left: thumbPosition };
-
-    const progressSizeStyle: CSSProperties = isVertical
-        ? { height: `calc(${thumbPercent} * (100% - ${thumbSize}))` }
-        : { width: `calc(${thumbPercent} * (100% - ${thumbSize}))` };
+        ? getVerticalCurrentValueStyle()
+        : getHorizontalCurrentValueStyle();
 
     return {
         innerShowScale,
@@ -106,5 +153,7 @@ export const getSingleSliderLayout = ({
         showPointer,
         currentValueStyle,
         progressSizeStyle,
+        rangeMinValueOpacity,
+        rangeMaxValueOpacity,
     };
 };

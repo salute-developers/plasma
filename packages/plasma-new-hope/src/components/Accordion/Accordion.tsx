@@ -23,6 +23,7 @@ export const accordionRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Accord
                 className,
                 singleActive,
                 onChange,
+                ...rest
             },
             outerRootRef,
         ) => {
@@ -55,6 +56,7 @@ export const accordionRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Accord
                     size={size}
                     view={view}
                     className={cx(stretchingClass, classes.accordionRoot, className)}
+                    {...rest}
                 >
                     {getChildren(childrenArray, activeIndex, view, disabled, updateValue)}
                 </Root>

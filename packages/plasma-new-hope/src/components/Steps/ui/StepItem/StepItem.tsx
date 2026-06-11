@@ -1,45 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import cls from 'classnames';
 
-import { classes, tokens } from '../../Steps.tokens';
-import { StepsContent, StepsContentAlign, StepsOrientation } from '../../Steps.types';
+import type { RootProps } from '../../../../engines/types';
+import { classes } from '../../Steps.tokens';
 
-import type { StepItemProps } from './StepItem.types';
+import type { StepItemExtendedProps } from './StepItem.types';
 import {
     Bullet,
     BulletIndicator,
     BulletIndicatorWrapper,
+    BulletSlot,
     StepItemContent,
     StepItemContentWrapper,
     StepItemDivider,
-    StepItemStyled,
     StepItemTitle,
     SpinnerStyled,
+    base,
+    StepItemCenteredDivider,
 } from './StepItem.styles';
+import { base as viewCSS } from './variations/_view/base';
 
-// todo попробовать заменить через baseline выравнивание
-const indicatorSizesIndentsMap = {
-    8: `var(${tokens.smallBulletIndentHeight})`,
-    16: `var(${tokens.largeBulletIndentHeight})`,
-    24: `var(${tokens.smallIndicatorIndentHeight})`,
-    36: `var(${tokens.largeIndicatorIndentHeight})`,
-} as const;
+type RootStepItemProps = {
+    view?: string;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export const StepItem: React.FC<
-    StepItemProps & {
-        index: number;
-        items: StepItemProps[];
-        size: string;
-        hasLine?: boolean;
-        hasContent?: StepsContent;
-        hasLoader?: boolean;
-        isFirst?: boolean;
-        isLast?: boolean;
-        onClick?: (item: StepItemProps, index: number) => void;
-        contentAlign?: StepsContentAlign;
-        orientation?: StepsOrientation;
-    }
-> = ({
+export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>) => ({
     index,
     title,
     content,
@@ -52,61 +37,59 @@ export const StepItem: React.FC<
     hasLoader,
     onClick,
     items,
-}) => {
+    rootView,
+}: StepItemExtendedProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const isFirst = index === 0;
     const isLast = index === items.length - 1;
 
-    const prevItem = items[index - 1];
-    const nextItem = items[index + 1];
+    const item = items[index];
+    const prevItem = items?.[index - 1];
+    const nextItem = items?.[index + 1];
 
     const isActive = status === 'active';
     const isNextActive = nextItem?.status === 'active';
     const isInactive = status === 'inactive';
     const isPrevInactive = (prevItem && !prevItem?.status) || prevItem?.status === 'inactive';
+    const isPrevCompleted = prevItem?.status === 'completed';
     const isNextInactive = !nextItem?.status || nextItem?.status === 'inactive';
 
     const hasIndicator = indicator != null;
 
     const BulletNode = hasIndicator ? BulletIndicator : Bullet;
 
-    const item = items[index];
+    const completedItemView = item?.completedItemView ?? rootView;
+    const prevCompletedView = prevItem?.completedItemView ?? rootView;
     const isSimple = !title && !content;
     const clickable = Boolean(onClick);
     const isVertical = orientation === 'vertical';
     const isCentered = contentAlign === 'center';
-    const isDisabled = item.disabled;
+    const isDisabled = item?.disabled;
 
     const onClickHandler = onClick && !isDisabled ? () => onClick(item, index) : undefined;
 
-    let resultIndicatorSize: keyof typeof indicatorSizesIndentsMap;
-    if (hasIndicator) {
-        resultIndicatorSize = isActive ? 36 : 24;
-    } else {
-        resultIndicatorSize = isActive ? 16 : 8;
-    }
+    const onMouseOver = clickable && !isDisabled ? () => setIsHovered(true) : undefined;
+    const onMouseOut = clickable && !isDisabled ? () => setIsHovered(false) : undefined;
 
-    const indentToken = indicatorSizesIndentsMap[resultIndicatorSize];
+    const interactiveHandlers = {
+        onClick: onClickHandler,
+        onFocus: onMouseOver,
+        onBlur: onMouseOut,
+        onMouseOver,
+        onMouseOut,
+    };
 
-    // todo заменить на callback с условиями внутри
-    const onMouseOver =
-        clickable && !isDisabled
-            ? () => {
-                  if (isDisabled) {
-                      setIsHovered(false);
-                  }
-
-                  setIsHovered(true);
-              }
-            : undefined;
-
-    const onMouseOut =
-        clickable && !isDisabled
-            ? () => {
-                  setIsHovered(false);
-              }
-            : undefined;
+    const bulletContent = hasLoader ? (
+        <SpinnerStyled hasIndicator={hasIndicator} />
+    ) : (
+        <BulletNode
+            className={cls({ [classes.active]: isActive, [classes.inactive]: isInactive })}
+            disabled={isDisabled}
+        >
+            {typeof indicator === 'function' ? indicator({ status, item, size }) : indicator}
+        </BulletNode>
+    );
 
     useEffect(() => {
         if (isDisabled) {
@@ -114,153 +97,60 @@ export const StepItem: React.FC<
         }
     }, [isDisabled]);
 
-    if (isSimple) {
-        return (
-            <>
-                <StepItemStyled
-                    className={cls({
-                        [classes.simple]: isSimple,
-                        [classes.active]: isActive,
-                        [classes.hovered]: isHovered && !isActive,
-                        [classes.inactive]: isInactive,
-                        [classes.centered]: isCentered,
-                        [classes.disabled]: isDisabled,
-                        [classes.clickable]: clickable && !isActive,
-                        [classes.hasIndicator]: hasIndicator,
-                        [classes.transparentDivider]: !hasLine,
-                        [classes.verticalOrientation]: isVertical,
-                        isFirst,
-                        isLast,
-                        isPrevInactive,
-                        isNextInactive,
-                    })}
-                >
-                    <BulletIndicatorWrapper
-                        className={cls({
-                            [classes.verticalOrientation]: isVertical,
-                            [classes.centered]: isCentered,
-                            [classes.simple]: isSimple,
-                            [classes.hasIndicator]: hasIndicator,
-                        })}
-                        onClick={onClickHandler}
-                        onFocus={onMouseOver}
-                        onBlur={onMouseOut}
-                        onMouseOver={onMouseOver}
-                        onMouseOut={onMouseOut}
-                    >
-                        {hasLoader && <SpinnerStyled hasIndicator={hasIndicator} />}
-
-                        {!hasLoader && (
-                            <BulletNode
-                                className={cls({
-                                    [classes.active]: isActive,
-                                    [classes.inactive]: isInactive,
-                                })}
-                                disabled={isDisabled}
-                            >
-                                {typeof indicator === 'function' && indicator({ status, item, size })}
-                                {typeof indicator !== 'function' && indicator}
-                            </BulletNode>
-                        )}
-                    </BulletIndicatorWrapper>
-                </StepItemStyled>
-                {!isLast && (
-                    <StepItemDivider
-                        className={cls(classes.simple, {
-                            [classes.verticalOrientation]: isVertical,
-                            [classes.transparentDivider]: !hasLine,
-                            [classes.active]: isActive,
-                            [classes.inactive]: isInactive || isNextInactive,
-                            [classes.nextActive]: isNextActive,
-                            [classes.disabled]: isDisabled,
-                        })}
-                    />
-                )}
-            </>
-        );
-    }
-
     return (
-        <>
-            <StepItemStyled
+        <Root
+            view={completedItemView}
+            className={cls(classes.stepItem, {
+                [classes.simple]: isSimple,
+                [classes.active]: isActive,
+                [classes.hovered]: isHovered && !isActive,
+                [classes.inactive]: isInactive,
+                [classes.centered]: isCentered,
+                [classes.disabled]: isDisabled,
+                [classes.clickable]: clickable && !isActive,
+                [classes.hasIndicator]: hasIndicator,
+                [classes.verticalOrientation]: isVertical,
+                isNextActive,
+            })}
+        >
+            <BulletIndicatorWrapper
                 className={cls({
                     [classes.simple]: isSimple,
-                    [classes.active]: isActive,
-                    [classes.hovered]: isHovered && !isActive,
-                    [classes.inactive]: isInactive,
-                    [classes.centered]: isCentered,
-                    [classes.disabled]: isDisabled,
-                    [classes.clickable]: clickable && !isActive,
-                    [classes.hasIndicator]: hasIndicator,
                     [classes.verticalOrientation]: isVertical,
-                    isNextActive,
+                    [classes.centered]: isCentered,
+                    [classes.hasIndicator]: hasIndicator,
                 })}
+                {...interactiveHandlers}
             >
-                <BulletIndicatorWrapper
+                {
+                    contentAlign === 'center' && (
+                        <Root view={prevCompletedView} style={{ display: 'inline-block' }}>
+                            <StepItemCenteredDivider
+                                className={cls({
+                                    [classes.verticalOrientation]: isVertical,
+                                    [classes.transparentDivider]: !hasLine || isFirst,
+                                    [classes.inactive]: isInactive || isPrevInactive,
+                                    [classes.prevCompleted]: isPrevCompleted && isActive,
+                                })}
+                            />
+                        </Root>
+                    )
+                    // ))
+                }
+
+                <BulletSlot>{bulletContent}</BulletSlot>
+
+                <StepItemDivider
                     className={cls({
                         [classes.verticalOrientation]: isVertical,
-                        [classes.centered]: isCentered,
-                        [classes.simple]: isSimple,
-                        [classes.hasIndicator]: hasIndicator,
+                        [classes.transparentDivider]: !hasLine || isLast,
+                        [classes.inactive]: isInactive || isNextInactive,
+                        [classes.nextActive]: isNextActive && !isInactive,
                     })}
-                    onClick={onClickHandler}
-                    onFocus={onMouseOver}
-                    onBlur={onMouseOut}
-                    onMouseOver={onMouseOver}
-                    onMouseOut={onMouseOut}
-                >
-                    {contentAlign === 'center' && !isSimple && (
-                        <StepItemDivider
-                            className={cls({
-                                [classes.simple]: isSimple,
-                                [classes.verticalOrientation]: isVertical,
-                                [classes.transparentDivider]: !hasLine || isFirst,
-                                [classes.inactive]: isInactive || isPrevInactive,
-                                [classes.nextActive]: isNextActive,
-                            })}
-                        />
-                    )}
+                />
+            </BulletIndicatorWrapper>
 
-                    {isVertical && !isFirst && (
-                        <StepItemDivider
-                            className={cls(classes.indentDivider, {
-                                [classes.verticalOrientation]: isVertical,
-                                [classes.simple]: isSimple,
-                                [classes.transparentDivider]: !hasLine || isFirst,
-                                [classes.inactive]: isInactive || isPrevInactive,
-                                [classes.active]: isActive,
-                                [classes.nextActive]: isNextActive,
-                            })}
-                            indentToken={indentToken}
-                        />
-                    )}
-
-                    {hasLoader && <SpinnerStyled hasIndicator={hasIndicator} />}
-
-                    {!hasLoader && (
-                        <BulletNode
-                            className={cls({
-                                [classes.active]: isActive,
-                                [classes.inactive]: isInactive,
-                            })}
-                            disabled={isDisabled}
-                        >
-                            {typeof indicator === 'function' && indicator({ status, item, size })}
-                            {typeof indicator !== 'function' && indicator}
-                        </BulletNode>
-                    )}
-
-                    <StepItemDivider
-                        className={cls({
-                            [classes.simple]: isSimple,
-                            [classes.verticalOrientation]: isVertical,
-                            [classes.transparentDivider]: !hasLine || isLast,
-                            [classes.inactive]: isInactive || isNextInactive,
-                            [classes.nextActive]: isNextActive,
-                        })}
-                    />
-                </BulletIndicatorWrapper>
-
+            {!isSimple && (
                 <StepItemContentWrapper
                     className={cls({
                         [classes.verticalOrientation]: isVertical,
@@ -269,15 +159,7 @@ export const StepItem: React.FC<
                         [classes.hasIndicator]: hasIndicator,
                     })}
                 >
-                    <StepItemTitle
-                        onClick={onClickHandler}
-                        onFocus={onMouseOver}
-                        onBlur={onMouseOut}
-                        onMouseOver={onMouseOver}
-                        onMouseOut={onMouseOut}
-                    >
-                        {title}
-                    </StepItemTitle>
+                    <StepItemTitle {...interactiveHandlers}>{title}</StepItemTitle>
 
                     {content && (
                         <StepItemContent>
@@ -285,7 +167,20 @@ export const StepItem: React.FC<
                         </StepItemContent>
                     )}
                 </StepItemContentWrapper>
-            </StepItemStyled>
-        </>
+            )}
+        </Root>
     );
+};
+
+export const stepItemConfig = {
+    name: 'StepItem',
+    tag: 'div',
+    layout: stepItemRoot,
+    base,
+    variations: {
+        view: viewCSS,
+    },
+    defaults: {
+        view: 'default',
+    },
 };

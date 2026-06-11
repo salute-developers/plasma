@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { privateTokens, tokens } from '../../Slider.tokens';
+import { tokens } from '../../Slider.tokens';
 
 /**
  * Подпись слайдера
@@ -27,10 +27,7 @@ export const LabelWrapper = styled.div`
 /**
  * Базовый контейнер слайдера
  */
-export const BaseSliderContainer = styled.div<{ pointerSize?: string }>`
-    ${privateTokens.thumbSize}: ${({ pointerSize }) =>
-        pointerSize === 'large' ? `var(${tokens.thumbSizeLarge})` : `var(${tokens.thumbSize})`};
-
+export const BaseSliderContainer = styled.div`
     position: relative;
     display: grid;
     align-items: center;
@@ -76,33 +73,30 @@ export const BaseStyledRange = styled.input<{ showPointer?: boolean }>`
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         outline: none;
-        width: var(${privateTokens.thumbSize});
-        height: var(${privateTokens.thumbSize});
-        border-radius: 50%;
+        width: var(${tokens.thumbSize});
+        height: var(${tokens.thumbHeight}, var(${tokens.thumbSize}));
+        border-radius: var(${tokens.thumbBorderRadius}, 50%);
         cursor: grab;
-        border: var(${tokens.thumbBorder}) transparent;
-        background: linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor}))
-                padding-box,
+        border-style: var(${tokens.thumbBorderStyle}, solid);
+        border-color: transparent;
+        border-width: var(${tokens.thumbBorderWidth}, 0.0625rem);
+        background: none no-repeat center,
+            linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor})) padding-box,
             var(${tokens.thumbBorderColor}) border-box;
-        transition: background 0.1s ease-in-out;
+        transition: background-color 0.1s ease-in-out, background-image 0.1s ease-in-out;
         opacity: ${({ showPointer }) => (showPointer === false ? '0' : '1')};
     }
 
     &:not(:disabled)::-webkit-slider-thumb:hover,
-    &:not(:disabled)::-webkit-slider-thumb:active {
-        background: linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor}))
-                padding-box,
+    &:not(:disabled)::-webkit-slider-thumb:active,
+    &:focus-visible::-webkit-slider-thumb {
+        background: var(${tokens.thumbInnerContent}, none) no-repeat center,
+            linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor})) padding-box,
             var(${tokens.thumbFocusBorderColor}) border-box;
     }
 
     &::-webkit-slider-thumb:active {
         cursor: grabbing;
-    }
-
-    &:focus-visible::-webkit-slider-thumb {
-        background: linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor}))
-                padding-box,
-            var(${tokens.thumbFocusBorderColor}) border-box;
     }
 
     &::-moz-range-track {
@@ -115,22 +109,24 @@ export const BaseStyledRange = styled.input<{ showPointer?: boolean }>`
     }
 
     &::-moz-range-thumb {
-        width: var(${privateTokens.thumbSize});
-        height: var(${privateTokens.thumbSize});
-        border-radius: 50%;
+        width: var(${tokens.thumbSize});
+        height: var(${tokens.thumbHeight}, var(${tokens.thumbSize}));
+        border-radius: var(${tokens.thumbBorderRadius}, 50%);
         cursor: grab;
-        border: var(${tokens.thumbBorder}) transparent;
-        background: linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor}))
-                padding-box,
+        border-style: var(${tokens.thumbBorderStyle}, solid);
+        border-color: transparent;
+        border-width: var(${tokens.thumbBorderWidth}, 0.0625rem);
+        background: none no-repeat center,
+            linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor})) padding-box,
             var(${tokens.thumbBorderColor}) border-box;
-        transition: background 0.1s ease-in-out;
+        transition: background-color 0.1s ease-in-out, background-image 0.1s ease-in-out;
         opacity: ${({ showPointer }) => (showPointer === false ? '0' : '1')};
     }
 
     &:not(:disabled)::-moz-range-thumb:hover,
     &:not(:disabled)::-moz-range-thumb:active {
-        background: linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor}))
-                padding-box,
+        background: var(${tokens.thumbInnerContent}, none) no-repeat center,
+            linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor})) padding-box,
             var(${tokens.thumbFocusBorderColor}) border-box;
     }
 

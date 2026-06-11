@@ -20,10 +20,47 @@ export const config = {
         size: {
             // TODO: #1044 токены типографики в Avatar
             xxl: css`
-                ${tokens.avatarSize}: 6.25rem;
+                ${tokens.avatarSize}: 7.5rem;
                 ${tokens.fontSize}: 2rem;
                 ${tokens.fontWeight}: 600;
-                ${tokens.lineHeight}: 2rem;
+                ${tokens.lineHeight}: 2.25rem;
+                ${tokens.statusIconSize}: 0.75rem;
+                ${tokens.borderRadius}: 1.125rem;
+
+                ${tokens.badgeBorderRadius}: 0.5rem;
+                ${tokens.badgeHeight}: 1.75rem;
+                ${tokens.badgePadding}: 0 0.688rem;
+                ${tokens.badgePaddingIconOnly}: 0 0.375rem;
+
+                ${tokens.badgeFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.badgeFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.badgeFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.badgeFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.badgeLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.badgeLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.badgeLeftContentMarginLeft}: -0.063rem;
+                ${tokens.badgeLeftContentMarginRight}: 0.25rem;
+
+                ${tokens.badgeRightContentMarginLeft}: 0.25rem;
+                ${tokens.badgeRightContentMarginRight}: -0.063rem;
+                ${tokens.badgePilledBorderRadius}: 1.25rem;
+
+                ${tokens.counterBorderRadius}: 1rem;
+                ${tokens.counterHeight}: 1.75rem;
+                ${tokens.counterPadding}: 0 0.625rem;
+                ${tokens.counterFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.counterFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.counterFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.counterFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.counterLineHeight}: var(--plasma-typo-body-s-line-height);
+            `,
+            xl: css`
+                ${tokens.avatarSize}: 5.5rem;
+                ${tokens.fontSize}: 2rem;
+                ${tokens.fontWeight}: 600;
+                ${tokens.lineHeight}: 2.25rem;
                 ${tokens.statusIconSize}: 0.75rem;
                 ${tokens.borderRadius}: 1.125rem;
 
@@ -60,7 +97,7 @@ export const config = {
                 ${tokens.avatarSize}: 3rem;
                 ${tokens.fontSize}: 1.25rem;
                 ${tokens.fontWeight}: 600;
-                ${tokens.lineHeight}: 1.25rem;
+                ${tokens.lineHeight}: 1.625rem;
                 ${tokens.statusIconSize}: 0.5rem;
                 ${tokens.borderRadius}: 0.75rem;
 
@@ -99,7 +136,7 @@ export const config = {
                 ${tokens.avatarSize}: 2.25rem;
                 ${tokens.fontSize}: 0.875rem;
                 ${tokens.fontWeight}: 600;
-                ${tokens.lineHeight}: 0.875rem;
+                ${tokens.lineHeight}: 1.125rem;
                 ${tokens.statusIconSize}: 0.5rem;
                 ${tokens.borderRadius}: 0.625rem;
 
@@ -138,7 +175,7 @@ export const config = {
                 ${tokens.avatarSize}: 1.5rem;
                 ${tokens.fontSize}: 0.5rem;
                 ${tokens.fontWeight}: 600;
-                ${tokens.lineHeight}: 0.5rem;
+                ${tokens.lineHeight}: 0.625rem;
                 ${tokens.statusIconSize}: 0.375rem;
                 ${tokens.borderRadius}: 0.5rem;
 
@@ -154,7 +191,15 @@ export const config = {
                 ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
                 ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
             `,
+            // deprecated
             fit: css`
+                ${tokens.avatarSize}: 100%;
+                ${tokens.fontSize}: 0;
+                ${tokens.fontWeight}: 0;
+                ${tokens.lineHeight}: 0;
+                ${tokens.statusIconSize}: 0;
+            `,
+            scalable: css`
                 ${tokens.avatarSize}: 100%;
                 ${tokens.fontSize}: 0;
                 ${tokens.fontWeight}: 0;

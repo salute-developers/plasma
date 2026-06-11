@@ -55,5 +55,5 @@ export const StyledTimeGrid = styled(TimePickerGrid)<{
     ${timePickerGridTokens.scrollbarTrackColor}: var(${tokens.timePickerScrollbarTrackColor});
     ${timePickerGridTokens.scrollbarMargin}: var(${tokens.timePickerScrollbarMargin});
 
-    ${timePickerGridTokens.disabledOpacity}: var(${tokens.disabledOpacity});
+    ${timePickerGridTokens.disabledOpacity}: var(${tokens.timeGridDisabledOpacity});
 `;

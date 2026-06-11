@@ -1,4 +1,20 @@
 import { tourCardTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyS,
+    h4Bold,
+    inverseTextPrimary,
+    inverseTextPrimaryActive,
+    inverseTextPrimaryHover,
+    surfaceAccent,
+    surfaceSolidCard,
+    surfaceSolidDefault,
+    surfaceSolidDefaultActive,
+    surfaceSolidDefaultHover,
+    surfaceTransparentTertiary,
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
+    textPrimary,
+} from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
     defaults: {
@@ -8,20 +24,20 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-solid-card);
-                ${tokens.titleColor}: var(--text-primary);
-                ${tokens.descriptionColor}: var(--text-primary);
-                ${tokens.dotBackground}: var(--surface-transparent-tertiary);
-                ${tokens.dotBackgroundHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.dotBackgroundActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.dotActiveBackground}: var(--surface-solid-default);
-                ${tokens.dotActiveBackgroundHover}: var(--surface-solid-default-hover);
-                ${tokens.dotActiveBackgroundActive}: var(--surface-solid-default-active);
-                ${tokens.closeButtonColor}: var(--inverse-text-primary);
-                ${tokens.closeButtonBackgroundColor}: var(--surface-solid-default);
-                ${tokens.closeButtonColorHover}: var(--inverse-text-primary-hover);
-                ${tokens.closeButtonColorActive}: var(--inverse-text-primary-active);
-                ${tokens.closeButtonFocusColor}: var(--surface-accent);
+                ${tokens.background}: ${surfaceSolidCard};
+                ${tokens.titleColor}: ${textPrimary};
+                ${tokens.descriptionColor}: ${textPrimary};
+                ${tokens.dotBackground}: ${surfaceTransparentTertiary};
+                ${tokens.dotBackgroundHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.dotBackgroundActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.dotActiveBackground}: ${surfaceSolidDefault};
+                ${tokens.dotActiveBackgroundHover}: ${surfaceSolidDefaultHover};
+                ${tokens.dotActiveBackgroundActive}: ${surfaceSolidDefaultActive};
+                ${tokens.closeButtonColor}: ${inverseTextPrimary};
+                ${tokens.closeButtonBackgroundColor}: ${surfaceSolidDefault};
+                ${tokens.closeButtonColorHover}: ${inverseTextPrimaryHover};
+                ${tokens.closeButtonColorActive}: ${inverseTextPrimaryActive};
+                ${tokens.closeButtonFocusColor}: ${surfaceAccent};
             `,
         },
         size: {
@@ -34,17 +50,17 @@ export const config = {
                 ${tokens.textPadding}: 0.625rem 0.5rem 0.5rem 0.5rem;
                 ${tokens.textPaddingExtra}: 0.625rem 0.5rem 1.5rem 0.5rem;
 
-                ${tokens.titleFontFamily}: var(--plasma-typo-h4-bold-font-family);
-                ${tokens.titleFontSize}: var(--plasma-typo-h4-bold-font-size);
-                ${tokens.titleFontStyle}: var(--plasma-typo-h4-bold-font-style);
-                ${tokens.titleFontWeight}: var(--plasma-typo-h4-bold-font-weight);
-                ${tokens.titleFontLineHeight}: var(--plasma-typo-h4-bold-line-height);
+                ${tokens.titleFontFamily}: ${h4Bold.fontFamily};
+                ${tokens.titleFontSize}: ${h4Bold.fontSize};
+                ${tokens.titleFontStyle}: ${h4Bold.fontStyle};
+                ${tokens.titleFontWeight}: ${h4Bold.fontWeight};
+                ${tokens.titleFontLineHeight}: ${h4Bold.lineHeight};
 
-                ${tokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.descriptionFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.descriptionFontFamily}: ${bodyS.fontFamily};
+                ${tokens.descriptionFontSize}: ${bodyS.fontSize};
+                ${tokens.descriptionFontStyle}: ${bodyS.fontStyle};
+                ${tokens.descriptionFontWeight}: ${bodyS.fontWeight};
+                ${tokens.descriptionFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.dotsGap}: 0.5rem;
                 ${tokens.dotSize}: 0.5rem;

@@ -175,11 +175,11 @@ export const createMeta = ({
             },
             min: {
                 control: { type: 'date' },
-                table: { category: 'date-related' },
+                table: { category: 'date-time-constraints' },
             },
             max: {
                 control: { type: 'date' },
-                table: { category: 'date-related' },
+                table: { category: 'date-time-constraints' },
             },
             includeEdgeDates: {
                 control: { type: 'boolean' },

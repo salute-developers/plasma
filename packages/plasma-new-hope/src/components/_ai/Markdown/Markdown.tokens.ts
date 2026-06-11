@@ -1,0 +1,22 @@
+export const tokens = {
+    textColor: '--plasma-markdown-text-color',
+    fontFamily: '--plasma-markdown-font-family',
+    fontSize: '--plasma-markdown-font-size',
+    fontStyle: '--plasma-markdown-font-style',
+    fontWeight: '--plasma-markdown-font-weight',
+    letterSpacing: '--plasma-markdown-letter-spacing',
+    lineHeight: '--plasma-markdown-line-height',
+    checkboxSize: '--plasma-markdown-checkbox-size',
+    checkboxBorderRadius: '--plasma-markdown-checkbox-border-radius',
+    codeInlineBlockBorderRadius: '--plasma-markdown-code-inline-block-border-radius',
+    codeInlineBlockPadding: '--plasma-markdown-code-inline-block-padding',
+    blockGap: '--plasma-markdown-block-gap',
+    linkColor: '--plasma-markdown-link-color',
+
+    codeBlockBackgroundColor: '--plasma-markdown-code-block-background-color',
+    codeBlockHeaderBackgroundColor: '--plasma-markdown-code-block-header-background-color',
+    codeBlockLanguageColor: '--plasma-markdown-code-block-language-color',
+    codeBlockBorderRadius: '--plasma-markdown-code-block-border-radius',
+    codeBlockHeaderPadding: '--plasma-markdown-code-block-header-padding',
+    codeBlockPadding: '--plasma-markdown-code-block-padding',
+} as const;

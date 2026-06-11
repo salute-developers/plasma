@@ -34,7 +34,9 @@ export const createMeta = ({
             pilled: false,
             square: true,
             listWidth: '5rem',
-            helperText: 'HelperText',
+            helperText: 'Подсказка',
+            textQuickJump: 'Перейти к странице',
+            placeholderQuickJump: '№',
             singleLine: false,
             enableLeftSlot: true,
             enableRightSlot: true,
@@ -76,6 +78,16 @@ export const createMeta = ({
             hasQuickJump: {
                 control: { type: 'boolean' },
                 table: { category: 'layout' },
+            },
+            textQuickJump: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
+                if: { arg: 'hasQuickJump', truhty: true },
+            },
+            placeholderQuickJump: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
+                if: { arg: 'hasQuickJump', truhty: true },
             },
             hasPerPage: {
                 control: { type: 'boolean' },

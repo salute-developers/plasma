@@ -45,6 +45,7 @@ export const config = {
                 ${tokens.hintIconColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
+            // deprecated
             positive: css`
                 ${tokens.inputBackgroundColor}: transparent;
                 ${tokens.inputBackgroundColorHover}: transparent;

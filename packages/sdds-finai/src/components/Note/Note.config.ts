@@ -4,6 +4,7 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'l',
+        orientation: 'vertical',
     },
     variations: {
         view: {
@@ -42,6 +43,8 @@ export const config = {
                 ${tokens.gapScalable}: 1rem;
                 ${tokens.contentGap}: 0.25rem;
 
+                ${tokens.paddingBottomWithActionContent}: 0.4375rem;
+
                 ${tokens.closeIconTop}: 1rem;
                 ${tokens.closeIconRight}: 1rem;
                 ${tokens.closeIconColor}: var(--text-secondary);
@@ -51,7 +54,7 @@ export const config = {
 
                 ${tokens.fixedContentBeforeWidth}: 1.5rem;
                 ${tokens.fixedContentBeforeHeight}: 2rem;
-                ${tokens.fixedContentBeforePadding}: 0.25rem 0;
+                ${tokens.fixedContentBeforePadding}: 0.25rem 0rem;
 
                 ${tokens.titleFontFamily}: var(--plasma-typo-text-l-font-family);
                 ${tokens.titleFontSize}: var(--plasma-typo-text-l-font-size);
@@ -76,6 +79,8 @@ export const config = {
                 ${tokens.gapScalable}: 0.75rem;
                 ${tokens.contentGap}: 0.125rem;
 
+                ${tokens.paddingBottomWithActionContent}: 0.5rem;
+
                 ${tokens.closeIconTop}: 0.75rem;
                 ${tokens.closeIconRight}: 0.75rem;
                 ${tokens.closeIconColor}: var(--text-secondary);
@@ -84,8 +89,8 @@ export const config = {
                 ${tokens.closeIconButtonSize}: 1.5rem;
 
                 ${tokens.fixedContentBeforeWidth}: 1.5rem;
-                ${tokens.fixedContentBeforeHeight}: 1.5rem;
-                ${tokens.fixedContentBeforePadding}: 0;
+                ${tokens.fixedContentBeforeHeight}: 1.625rem;
+                ${tokens.fixedContentBeforePadding}: 0rem;
 
                 ${tokens.titleFontFamily}: var(--plasma-typo-text-m-font-family);
                 ${tokens.titleFontSize}: var(--plasma-typo-text-m-font-size);
@@ -110,6 +115,8 @@ export const config = {
                 ${tokens.gapScalable}: 0.75rem;
                 ${tokens.contentGap}: 0.125rem;
 
+                ${tokens.paddingBottomWithActionContent}: 0.3125rem;
+
                 ${tokens.closeIconTop}: 0.625rem;
                 ${tokens.closeIconRight}: 0.625rem;
                 ${tokens.closeIconColor}: var(--text-secondary);
@@ -119,7 +126,7 @@ export const config = {
 
                 ${tokens.fixedContentBeforeWidth}: 1rem;
                 ${tokens.fixedContentBeforeHeight}: 1.125rem;
-                ${tokens.fixedContentBeforePadding}: 0.063rem 0;
+                ${tokens.fixedContentBeforePadding}: 0.063rem 0rem;
 
                 ${tokens.titleFontFamily}: var(--plasma-typo-text-s-font-family);
                 ${tokens.titleFontSize}: var(--plasma-typo-text-s-font-size);
@@ -144,6 +151,8 @@ export const config = {
                 ${tokens.gapScalable}: 0.5rem;
                 ${tokens.contentGap}: 0.125rem;
 
+                ${tokens.paddingBottomWithActionContent}: 0.1875rem;
+
                 ${tokens.closeIconTop}: 0.625rem;
                 ${tokens.closeIconRight}: 0.625rem;
                 ${tokens.closeIconColor}: var(--text-secondary);
@@ -153,7 +162,7 @@ export const config = {
 
                 ${tokens.fixedContentBeforeWidth}: 1rem;
                 ${tokens.fixedContentBeforeHeight}: 1rem;
-                ${tokens.fixedContentBeforePadding}: 0;
+                ${tokens.fixedContentBeforePadding}: 0rem;
 
                 ${tokens.titleFontFamily}: var(--plasma-typo-text-xs-font-family);
                 ${tokens.titleFontSize}: var(--plasma-typo-text-xs-font-size);
@@ -171,5 +180,43 @@ export const config = {
                 ${tokens.textLineHeight}: var(--plasma-typo-text-xs-line-height);
             `,
         },
+        orientation: {
+            vertical: css``,
+            horizontal: css``,
+        },
     },
+    intersections: [
+        {
+            size: 'l',
+            orientation: 'horizontal',
+            style: css`
+                ${tokens.actionContentMargin}: -0.5rem 0rem 0rem 1rem;
+                ${tokens.closeIconMargin}: 0.4375rem 0rem 0rem 1.25rem;
+            `,
+        },
+        {
+            size: 'm',
+            orientation: 'horizontal',
+            style: css`
+                ${tokens.actionContentMargin}: -0.6875rem 0rem 0rem 1rem;
+                ${tokens.closeIconMargin}: 0.0625rem 0rem 0rem 1.25rem;
+            `,
+        },
+        {
+            size: 's',
+            orientation: 'horizontal',
+            style: css`
+                ${tokens.actionContentMargin}: -0.625rem 0rem 0rem 0.75rem;
+                ${tokens.closeIconMargin}: -0.125rem 0rem 0rem 0.875rem;
+            `,
+        },
+        {
+            size: 'xs',
+            orientation: 'horizontal',
+            style: css`
+                ${tokens.actionContentMargin}: -0.5rem 0rem 0rem 0.75rem;
+                ${tokens.closeIconMargin}: -0.0625rem 0rem 0rem 0.875rem;
+            `,
+        },
+    ],
 };

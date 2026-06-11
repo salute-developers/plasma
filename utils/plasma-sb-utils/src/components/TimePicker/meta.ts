@@ -69,6 +69,8 @@ export const createMeta = ({
             dropdownWidth: 'fixed',
             dropdownHeight: '30rem',
             disableFlip: true,
+            min: '',
+            max: '',
             ...defaultArgs,
         },
         argTypes: {
@@ -233,6 +235,14 @@ export const createMeta = ({
             disableFlip: {
                 control: { type: 'boolean' },
                 table: { category: 'dropdown' },
+            },
+            min: {
+                control: { type: 'text' },
+                table: { category: 'time-constraints' },
+            },
+            max: {
+                control: { type: 'text' },
+                table: { category: 'time-constraints' },
             },
             ...additionalArgTypes,
             ...disableProps(['view', 'contentLeft', 'contentRight', 'onToggle', 'dropdownAlign', ...disablePropsList]),

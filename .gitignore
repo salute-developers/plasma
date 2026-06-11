@@ -11,8 +11,6 @@ cypress/results
 .nyc_output
 coverage
 coverage-ts
-perftest
-.perftool
 s3_build
 temp
 **/.DS_Store

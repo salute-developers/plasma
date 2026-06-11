@@ -77,7 +77,7 @@ export const config = {
         },
         view: {
             accent: css`
-                ${checkboxTokens.fillColor}: var(--text-accent);
+                ${checkboxTokens.fillColor}: var(--surface-accent);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.labelColor}: var(--text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
@@ -140,7 +140,7 @@ export const config = {
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             negative: css`
-                ${checkboxTokens.fillColor}: var(--text-negative);
+                ${checkboxTokens.fillColor}: var(--surface-negative);
                 ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
                 ${checkboxTokens.descriptionColor}: var(--text-secondary);
                 ${checkboxTokens.triggerBackgroundColor}: transparent;

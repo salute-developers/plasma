@@ -57,4 +57,9 @@ export interface SliderBaseProps {
      * Размер контрола
      */
     size?: string;
+    /**
+     * Размер ползунка
+     * @default 'small'
+     */
+    pointerSize?: 'small' | 'large' | 'none';
 }
