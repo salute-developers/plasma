@@ -24,6 +24,7 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'm',
+        pointerSize: 'small',
     },
     variations: {
         view: {
@@ -133,11 +134,6 @@ export const config = {
                 ${sliderTokens.valueLetterSpacing}: ${bodyM.letterSpacing};
                 ${sliderTokens.valueLineHeight}: ${bodyM.lineHeight};
 
-                ${sliderTokens.thumbSize}: 1rem;
-                ${sliderTokens.thumbSizeLarge}: 1.25rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
-                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
-
                 ${sliderTokens.tickSize}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.625rem;
@@ -186,11 +182,6 @@ export const config = {
                 ${sliderTokens.valueFontWeight}: ${bodyS.fontWeight};
                 ${sliderTokens.valueLetterSpacing}: ${bodyS.letterSpacing};
                 ${sliderTokens.valueLineHeight}: ${bodyS.lineHeight};
-
-                ${sliderTokens.thumbSize}: 1rem;
-                ${sliderTokens.thumbSizeLarge}: 1.25rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
-                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
 
                 ${sliderTokens.tickSize}: 0.5rem;
 
@@ -247,11 +238,6 @@ export const config = {
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${sliderTokens.thumbSize}: 1rem;
-                ${sliderTokens.thumbSizeLarge}: 1.25rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
-                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
-
                 ${sliderTokens.tickSize}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.25rem;
@@ -271,6 +257,21 @@ export const config = {
                 ${sliderTokens.textFieldFontWeight}: ${bodyS.fontWeight};
                 ${sliderTokens.textFieldLetterSpacing}: ${bodyS.letterSpacing};
                 ${sliderTokens.textFieldLineHeight}: ${bodyS.lineHeight};
+            `,
+        },
+        pointerSize: {
+            small: css`
+                ${sliderTokens.thumbSize}: 1rem;
+                ${sliderTokens.thumbBorderStyle}: solid;
+                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
+            `,
+            large: css`
+                ${sliderTokens.thumbSize}: 1.25rem;
+                ${sliderTokens.thumbBorderStyle}: solid;
+                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
+            `,
+            none: css`
+                ${sliderTokens.thumbSize}: 0rem;
             `,
         },
         disabled: {

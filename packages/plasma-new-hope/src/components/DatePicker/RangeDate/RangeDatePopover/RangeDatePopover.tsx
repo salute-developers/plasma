@@ -62,6 +62,7 @@ export const RangeDatePopover = ({
     setIsInnerOpen,
     onChangeValue,
     onChangeStartOfRange,
+    onChangeSingleValue,
 
     onToggle,
 }: RangeDatePopoverProps) => {
@@ -108,7 +109,7 @@ export const RangeDatePopover = ({
                 disableFlip={disableFlip}
                 closeOnOverlayClick={closeOnOverlayClick}
                 closeOnEsc={closeOnEsc}
-                portal={usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined}
+                portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
                 target={target}
             >
                 <Root
@@ -154,6 +155,7 @@ export const RangeDatePopover = ({
                             includeEdgeDates={includeEdgeDates}
                             onChangeValue={onChangeValue}
                             onChangeStartOfRange={onChangeStartOfRange}
+                            onChangeSingleValue={onChangeSingleValue}
                         />
                     </StyledCalendarContent>
                 </Root>
@@ -172,7 +174,7 @@ export const RangeDatePopover = ({
             disableFlip={disableFlip}
             closeOnOverlayClick={closeOnOverlayClick}
             closeOnEsc={closeOnEsc}
-            portal={usePortal && frame !== 'document' ? (frame as string | RefObject<HTMLElement>) : undefined}
+            portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
             target={target}
         >
             <Root
@@ -218,6 +220,7 @@ export const RangeDatePopover = ({
                         includeEdgeDates={includeEdgeDates}
                         onChangeValue={onChangeValue}
                         onChangeStartOfRange={onChangeStartOfRange}
+                        onChangeSingleValue={onChangeSingleValue}
                     />
                 </StyledCalendarContent>
             </Root>

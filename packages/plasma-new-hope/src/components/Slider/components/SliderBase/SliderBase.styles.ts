@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { privateTokens, tokens } from '../../Slider.tokens';
+import { tokens } from '../../Slider.tokens';
 
 /**
  * Подпись слайдера
@@ -27,10 +27,7 @@ export const LabelWrapper = styled.div`
 /**
  * Базовый контейнер слайдера
  */
-export const BaseSliderContainer = styled.div<{ pointerSize?: string }>`
-    ${privateTokens.thumbSize}: ${({ pointerSize }) =>
-        pointerSize === 'large' ? `var(${tokens.thumbSizeLarge})` : `var(${tokens.thumbSize})`};
-
+export const BaseSliderContainer = styled.div`
     position: relative;
     display: grid;
     align-items: center;
@@ -76,8 +73,8 @@ export const BaseStyledRange = styled.input<{ showPointer?: boolean }>`
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         outline: none;
-        width: var(${privateTokens.thumbSize});
-        height: var(${tokens.thumbHeight}, var(${privateTokens.thumbSize}));
+        width: var(${tokens.thumbSize});
+        height: var(${tokens.thumbHeight}, var(${tokens.thumbSize}));
         border-radius: var(${tokens.thumbBorderRadius}, 50%);
         cursor: grab;
         border-style: var(${tokens.thumbBorderStyle}, solid);
@@ -112,8 +109,8 @@ export const BaseStyledRange = styled.input<{ showPointer?: boolean }>`
     }
 
     &::-moz-range-thumb {
-        width: var(${privateTokens.thumbSize});
-        height: var(${tokens.thumbHeight}, var(${privateTokens.thumbSize}));
+        width: var(${tokens.thumbSize});
+        height: var(${tokens.thumbHeight}, var(${tokens.thumbSize}));
         border-radius: var(${tokens.thumbBorderRadius}, 50%);
         cursor: grab;
         border-style: var(${tokens.thumbBorderStyle}, solid);

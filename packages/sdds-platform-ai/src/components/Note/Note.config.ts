@@ -4,6 +4,7 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'm',
+        orientation: 'vertical',
     },
     variations: {
         view: {
@@ -42,6 +43,8 @@ export const config = {
                 ${tokens.gapScalable}: 0.75rem;
                 ${tokens.contentGap}: 0.125rem;
 
+                ${tokens.paddingBottomWithActionContent}: 0.5rem;
+
                 ${tokens.closeIconTop}: 0.75rem;
                 ${tokens.closeIconRight}: 0.75rem;
                 ${tokens.closeIconColor}: var(--text-secondary);
@@ -50,8 +53,8 @@ export const config = {
                 ${tokens.closeIconButtonSize}: 1.5rem;
 
                 ${tokens.fixedContentBeforeWidth}: 1.5rem;
-                ${tokens.fixedContentBeforeHeight}: 1.5rem;
-                ${tokens.fixedContentBeforePadding}: 0;
+                ${tokens.fixedContentBeforeHeight}: 1.625rem;
+                ${tokens.fixedContentBeforePadding}: 0rem;
 
                 ${tokens.titleFontFamily}: var(--plasma-typo-text-m-font-family);
                 ${tokens.titleFontSize}: var(--plasma-typo-text-m-font-size);
@@ -69,5 +72,19 @@ export const config = {
                 ${tokens.textLineHeight}: var(--plasma-typo-text-m-line-height);
             `,
         },
+        orientation: {
+            vertical: css``,
+            horizontal: css``,
+        },
     },
+    intersections: [
+        {
+            size: 'm',
+            orientation: 'horizontal',
+            style: css`
+                ${tokens.actionContentMargin}: -0.6875rem 0rem 0rem 1rem;
+                ${tokens.closeIconMargin}: 0.0625rem 0rem 0rem 1.25rem;
+            `,
+        },
+    ],
 };

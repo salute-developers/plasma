@@ -334,18 +334,26 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext, calen
         setSelectIndexes([newRowIndex, newColumnIndex]);
     }, [onPrev, onNext, selectIndexes, rowSize, columnSize, withShiftState, currentIndexes, isDouble]);
 
+    const isKeyboardNavigation = useRef(false);
+
     useLayoutEffect(() => {
+        if (!isKeyboardNavigation.current) {
+            return;
+        }
+
         const [rowIndex, columnIndex] = selectIndexes;
 
         const item = outerRefs?.current?.[rowIndex]?.[columnIndex];
 
         if (item) {
+            isKeyboardNavigation.current = false;
             item.focus();
         }
     }, [selectIndexes, outerRefs]);
 
     const onKeyDown = useCallback(
         (event: KeyboardEvent<HTMLDivElement>) => {
+            isKeyboardNavigation.current = true;
             setIsOutOfMinMaxRange(false);
 
             const { keyCode, shiftKey: withShift } = event;

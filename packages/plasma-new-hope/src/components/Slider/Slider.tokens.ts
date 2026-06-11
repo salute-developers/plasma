@@ -28,10 +28,6 @@ export const classes = {
     pointerHidden: 'slider-pointer-hidden',
 };
 
-export const privateTokens = {
-    thumbSize: '--sdds-core_private-thumb-size',
-};
-
 export const tokens = {
     size: '--plasma-slider-size',
 
@@ -66,7 +62,6 @@ export const tokens = {
     doubleBoxShadow: '--plasma-slider-double-box-shadow',
 
     thumbSize: '--plasma-slider-thumb-size',
-    thumbSizeLarge: '--plasma-slider-thumb-size-large',
     thumbHeight: '--plasma-slider-thumb-height',
     thumbBorderStyle: '--plasma-slider-thumb-border-style',
     thumbBorderWidth: '--plasma-slider-thumb-border-width',

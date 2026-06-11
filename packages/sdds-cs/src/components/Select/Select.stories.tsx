@@ -15,6 +15,16 @@ const { meta: META, Single, Multiselect, Predefined, SelectAll } = getSelectStor
         size: 's',
         chipView: 'default',
     },
+    additionalArgTypes: {
+        chipView: {
+            options: ['default'],
+            control: { type: 'select' },
+            if: {
+                arg: 'target',
+                eq: 'textfield-like',
+            },
+        },
+    },
 });
 
 const meta: Meta<SelectProps> = {

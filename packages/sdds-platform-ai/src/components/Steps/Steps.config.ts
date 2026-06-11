@@ -95,11 +95,6 @@ export const config = {
                 ${tokens.contentVerticalPadding}: 0.875rem;
                 ${tokens.verticalContentPaddingLeft}: 0.75rem;
 
-                ${tokens.smallIndicatorIndentHeight}: 0.75rem;
-                ${tokens.largeIndicatorIndentHeight}: 0.4375rem;
-                ${tokens.smallBulletIndentHeight}: 1.25rem;
-                ${tokens.largeBulletIndentHeight}: 1.125rem;
-
                 ${tokens.indicatorFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.indicatorFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.indicatorFontStyle}: var(--plasma-typo-body-xs-font-style);

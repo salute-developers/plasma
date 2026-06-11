@@ -2,12 +2,15 @@ export const classes = {
     stretch: 'note-stretch',
     closeIcon: 'note-close-icon',
     contentAlignCenter: 'note-content-align-center',
+    orientationHorizontal: 'note-orientation-horizontal',
+    hasActionContent: 'note-has-action-content',
+    hasClose: 'note-has-close',
 };
 
 export const privateTokens = {
     width: '--plasma_private-note-width',
     height: '--plasma_private-note-height',
-    contentWidthWithOffset: '--plasma_private-note-content-width-with-offset',
+    contentBeforeOffset: '--plasma_private-note-content-before-offset',
 };
 
 export const tokens = {
@@ -16,6 +19,7 @@ export const tokens = {
     contentBeforeColor: '--plasma-note-content-before-color',
 
     padding: '--plasma-note-padding',
+    paddingBottomWithActionContent: '--plasma-note-padding-with-action-content',
     paddingScalable: '--plasma-note-padding-scalable',
     borderRadius: '--plasma-note-border-radius',
     gap: '--plasma-note-gap',
@@ -41,6 +45,9 @@ export const tokens = {
     textLetterSpacing: '--plasma-note-text-letter-spacing',
     textLineHeight: '--plasma-note-text-line-height',
 
+    actionContentMargin: '--plasma-note-action-content-margin',
+
+    closeIconMargin: '--plasma-note-close-icon-margin',
     closeIconTop: '--plasma-note-close-icon-top',
     closeIconRight: '--plasma-note-close-icon-right',
     closeIconColor: '--plasma-note-close-icon-color',

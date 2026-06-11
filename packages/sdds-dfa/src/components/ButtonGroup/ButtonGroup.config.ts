@@ -55,6 +55,19 @@ export const config = {
                 ${buttonGroupTokens.buttonColorActive}: var(--text-primary-active);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-clear);
             `,
+            positive: css`
+                ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
+                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-positive);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
+                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
+                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-positive-active);
+            `,
+            // deprecated
             success: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
@@ -79,6 +92,19 @@ export const config = {
                 ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-warning-active);
             `,
+            negative: css`
+                ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
+                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-negative);
+                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
+                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
+                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-negative-active);
+            `,
+            // deprecated
             critical: css`
                 ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
@@ -129,6 +155,7 @@ export const config = {
             `,
         },
         size: {
+            // deprecated
             xl: css`
                 ${buttonGroupTokens.buttonDefaultRadius}: 1rem;
                 ${buttonGroupTokens.buttonSegmentedRadius}: 0.5rem;

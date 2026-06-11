@@ -54,7 +54,9 @@ jobs:
                     show-progress: false
 
             -   name: Prepare environment
-                uses: ./.github/actions/prepare-environment
+                # Remote ref (а не локальный ./...) — единый стиль с pull_request_target
+                # цепочками: action.yml всегда берётся из dev, не из workspace.
+                uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
             -   name: Lerna bootstrap
                 run: npx lerna bootstrap --scope="@salutejs/{plasma-b2c,plasma-web,plasma-website,plasma-tokens-b2c,plasma-typo,plasma-icons,plasma-new-hope,plasma-themes,core-themes}"
@@ -104,7 +106,9 @@ jobs:
                     show-progress: false
 
             -   name: Prepare environment
-                uses: ./.github/actions/prepare-environment
+                # Remote ref (а не локальный ./...) — единый стиль с pull_request_target
+                # цепочками: action.yml всегда берётся из dev, не из workspace.
+                uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
             -   name: Set job environment variables
                 run: |

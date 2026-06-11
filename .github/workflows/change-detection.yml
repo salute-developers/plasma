@@ -29,7 +29,10 @@ jobs:
           ref: ${{ inputs.ref }}
 
       - name: Prepare environment
-        uses: ./.github/actions/prepare-environment
+        # Remote ref (а не локальный ./...) — обязательно, т.к. workflow вызывается
+        # из pull_request_target цепочек (documentation-deploy-pr, publish-canary).
+        # Иначе action.yml возьмется из PR-checkout и весь защитный механизм обходится.
+        uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
       - name: Set exclude-dependents env
         if: ${{ inputs.exclude-dependents }}

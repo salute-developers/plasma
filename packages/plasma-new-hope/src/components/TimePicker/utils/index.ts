@@ -113,8 +113,10 @@ export const processTimeInput = (
         innerString += `:${segments[2]}`;
     }
 
-    if (innerString.length - 2 <= newCursorPosition) {
-        newCursorPosition += innerString.length - newCursorPosition;
+    if (input.length > innerString.length) {
+        newCursorPosition = Math.min(newCursorPosition, innerString.length);
+    } else if (innerString.length - 2 <= newCursorPosition) {
+        newCursorPosition = innerString.length;
     }
 
     return { innerString, values, newCursorPosition };

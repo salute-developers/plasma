@@ -96,6 +96,8 @@ export const config = {
 
                 ${tokens.shortcutColor}: var(--text-primary);
                 ${tokens.shortcutBackgroundHover}: var(--surface-transparent-secondary);
+
+                ${tokens.timeGridDisabledOpacity}: 0.4;
             `,
         },
         size: {

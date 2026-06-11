@@ -459,7 +459,8 @@ export const SingleWrapper = styled.div<{ hasTicks?: boolean }>`
             }
             
             ${StyledRangeValue} {
-                justify-self: center;
+                justify-self: start;
+                transform: translateX(calc(var(${tokens.size}) / 2 - 50%));
                 margin-bottom: var(${tokens.rangeValueVerticalMargin});
 
                 &.${classes.maxRangeValue} {

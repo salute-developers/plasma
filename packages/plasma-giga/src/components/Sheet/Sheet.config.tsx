@@ -1,4 +1,10 @@
 import { css, sheetTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    overlayBlur,
+    overlaySoft,
+    surfaceSolidCard,
+    surfaceSolidTertiary,
+} from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
     defaults: {
@@ -7,10 +13,10 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${sheetTokens.sheetOverlayColor}: var(--overlay-soft);
-                ${sheetTokens.sheetOverlayWithBlurColor}: var(--overlay-blur);
-                ${sheetTokens.contentBackgroundColor}: var(--surface-solid-card);
-                ${sheetTokens.handleBackgroundColor}: var(--surface-solid-tertiary);
+                ${sheetTokens.sheetOverlayColor}: ${overlaySoft};
+                ${sheetTokens.sheetOverlayWithBlurColor}: ${overlayBlur};
+                ${sheetTokens.contentBackgroundColor}: ${surfaceSolidCard};
+                ${sheetTokens.handleBackgroundColor}: ${surfaceSolidTertiary};
             `,
         },
         handlePlacement: {

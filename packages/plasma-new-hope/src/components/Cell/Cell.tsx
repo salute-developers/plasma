@@ -28,6 +28,7 @@ export const cellRoot = (Root: RootProps<HTMLDivElement, CellProps>) =>
                 content,
                 stretching = 'filled',
                 className,
+                ...rest
             },
             outerRootRef,
         ) => {
@@ -43,6 +44,7 @@ export const cellRoot = (Root: RootProps<HTMLDivElement, CellProps>) =>
                     size={size}
                     view={view}
                     className={cx(stretchingClass, classes.cellRoot, className)}
+                    {...rest}
                 >
                     {contentLeftDeprecated && <CellLeft align={alignContentLeft}>{contentLeftDeprecated}</CellLeft>}
                     <CellContentWrapper>

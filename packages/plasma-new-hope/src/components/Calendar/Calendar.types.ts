@@ -250,6 +250,11 @@ export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
      * Обработчик для выбора стартового значения в диапазоне.
      */
     onChangeStartOfRange?: (value: Date, dateInfo?: DateInfo) => void;
+    /**
+     * Обработчик для первого клика, когда оба значения диапазона не заданы.
+     * Позволяет обрабатывать выбор одиночной даты независимо от диапазонной логики.
+     */
+    onChangeSingleValue?: (value: Date, dateInfo?: DateInfo) => void;
 };
 
 export interface DaysMetaDescription {

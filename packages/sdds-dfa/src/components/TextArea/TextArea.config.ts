@@ -49,6 +49,7 @@ export const config = {
                 ${tokens.hintIconColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
+            // deprecated
             positive: css`
                 ${tokens.inputBackgroundColor}: var(--surface-transparent-positive);
                 ${tokens.inputBackgroundColorHover}: var(--surface-transparent-positive-hover);

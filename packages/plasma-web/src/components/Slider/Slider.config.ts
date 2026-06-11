@@ -4,6 +4,7 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'm',
+        pointerSize: 'small',
     },
     variations: {
         view: {
@@ -113,11 +114,6 @@ export const config = {
                 ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${sliderTokens.thumbSize}: 1rem;
-                ${sliderTokens.thumbSizeLarge}: 1.25rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
-                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
-
                 ${sliderTokens.tickSize}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.625rem;
@@ -172,11 +168,6 @@ export const config = {
                 ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${sliderTokens.thumbSize}: 1rem;
-                ${sliderTokens.thumbSizeLarge}: 1.25rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
-                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
-
                 ${sliderTokens.tickSize}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.75rem;
@@ -230,11 +221,6 @@ export const config = {
                 ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${sliderTokens.thumbSize}: 1rem;
-                ${sliderTokens.thumbSizeLarge}: 1.25rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
-                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
-
                 ${sliderTokens.tickSize}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.25rem;
@@ -258,6 +244,21 @@ export const config = {
                 ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
+            `,
+        },
+        pointerSize: {
+            small: css`
+                ${sliderTokens.thumbSize}: 1rem;
+                ${sliderTokens.thumbBorderStyle}: solid;
+                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
+            `,
+            large: css`
+                ${sliderTokens.thumbSize}: 1.25rem;
+                ${sliderTokens.thumbBorderStyle}: solid;
+                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
+            `,
+            none: css`
+                ${sliderTokens.thumbSize}: 0rem;
             `,
         },
         disabled: {

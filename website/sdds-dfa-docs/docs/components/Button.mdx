@@ -114,15 +114,21 @@ export function App() {
 Вид кнопки задается с помощью свойства `view`. Возможные значения свойства `view`:
 + `"default"` – по умолчанию;
 + `"accent"` – акцентная;
-+ `"primary"` – основная;
 + `"secondary"` – вторичная;
-+ `"clear"` – без цветового сопровождения.
-+ `"success"` – успешное завершение;
++ `"clear"` – без цветового сопровождения;
++ `"positive"` – успешное завершение;
 + `"warning"` – предупреждение;
-+ `"critical"` – ошибка;
++ `"negative"` – ошибка;
 + `"dark"` – темная;
 + `"black"` – черная;
-+ `"white"` – белая.
++ `"white"` – белая;
++ `"success"` – устарело, используйте `"positive"`;
++ `"critical"` – устарело, используйте `"negative"`.
+
+:::caution
+Значения `"success"` и `"critical"` свойства `view` устарели и будут удалены в будущих версиях.
+Используйте `"positive"` вместо `"success"` и `"negative"` вместо `"critical"`.
+:::
 
 ```tsx live
 import React from 'react';
@@ -132,13 +138,12 @@ export function App() {
     return (
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <Button text="Кнопка" size="s" view="default" />
-            <Button text="Кнопка" size="s" view="primary" />
             <Button text="Кнопка" size="s" view="accent" />
             <Button text="Кнопка" size="s" view="secondary" />
             <Button text="Кнопка" size="s" view="clear" />
-            <Button text="Кнопка" size="s" view="success" />
+            <Button text="Кнопка" size="s" view="positive" />
             <Button text="Кнопка" size="s" view="warning" />
-            <Button text="Кнопка" size="s" view="critical" />
+            <Button text="Кнопка" size="s" view="negative" />
             <Button text="Кнопка" size="s" view="dark" />
             <Button text="Кнопка" size="s" view="black" />
             <Button text="Кнопка" size="s" view="white" />

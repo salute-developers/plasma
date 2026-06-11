@@ -17,6 +17,7 @@ type CreateStoriesProps = {
     disablePropsList?: string[];
     defaultArgs?: {};
     customGetContentRight?: (size: string, disabled?: boolean, readOnly?: boolean) => JSX.Element | undefined;
+    additionalArgTypes?: {};
 };
 
 export const getSelectStories = (config: CreateStoriesProps) => {

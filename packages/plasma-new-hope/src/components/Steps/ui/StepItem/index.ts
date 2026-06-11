@@ -1,2 +1,2 @@
-export { StepItem } from './StepItem';
-export type { StepItemProps, StepStatus } from './StepItem.types';
+export { stepItemRoot, stepItemConfig } from './StepItem';
+export type { StepItemExtendedProps, StepItemProps, StepStatus } from './StepItem.types';

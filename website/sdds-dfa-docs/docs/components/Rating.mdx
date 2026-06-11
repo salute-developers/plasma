@@ -108,6 +108,11 @@ export function App() {
     </TabItem>
 
     <TabItem value="heading" label="Heading">
+
+    :::caution Устаревшее значение
+    Значение `"h6"` устарело и будет удалено в будущих версиях.
+    :::
+
         ```tsx live
             import React from 'react';
             import { Rating } from '@salutejs/sdds-dfa';
@@ -144,6 +149,12 @@ export function App() {
                             size="h5"
                             value={3.8}
                             helperText="Helper text"
+                        />
+                        <Rating
+                            view="default"
+                            size="h6"
+                            value={3.8}
+                            helperText="Helper text (deprecated)"
                         />
                     </div>
                 );
