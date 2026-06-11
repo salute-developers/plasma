@@ -98,6 +98,8 @@ export const timePickerRoot = (
                 columnsQuantity = 2,
                 min,
                 max,
+                multiplicityMinutes,
+                multiplicitySeconds,
 
                 onToggle,
                 onFocus,
@@ -431,6 +433,8 @@ export const timePickerRoot = (
                                 disabled={disabled}
                                 min={min}
                                 max={max}
+                                multiplicityMinutes={multiplicityMinutes}
+                                multiplicitySeconds={multiplicitySeconds}
                             />
                         </Root>
                     </FloatingPopover>
