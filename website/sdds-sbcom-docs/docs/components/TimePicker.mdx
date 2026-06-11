@@ -1,0 +1,174 @@
+---
+id: time-picker
+title: TimePicker
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# TimePicker
+<Description name="TimePicker" />
+
+### Быстрый старт
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const handleTimeChange = (event, formattedValues) => {
+        console.log('Выбрано время:', formattedValues.value);
+    };
+
+    return (
+        <div style={{height: '500px'}}>
+            <TimePicker
+                view="default"
+                size="m"
+                placeholder="00:00:00"
+                onChange={handleTimeChange}
+            />
+        </div>
+    );
+}
+```
+
+:::note Изменение сигнатуры `onChange`
+Колбэк `onChange` теперь принимает **второй аргумент** `formattedValues: TimePickerChangeEvent` — нормализованный объект с текущим значением времени, который всегда имеет одинаковую структуру вне зависимости от способа ввода (ручной ввод или выбор из выпадающего списка).
+
+```ts
+type TimePickerChangeEvent = {
+    value?: string;
+    timeValues: {
+        hour?: number | null;
+        minute?: number | null;
+        second?: number | null;
+    };
+};
+```
+
+Рекомендуется использовать `formattedValues` вместо первого аргумента `event`, тип которого в качестве `TimePickerChangeEvent` является **устаревшим (deprecated)**.
+:::
+
+### Управление внешним видом
+
+Размер `TimePicker` задаётся с помощью свойства `size`:
+
+<Tabs>
+    <TabItem value="size" label="Size" default>
+        ```tsx live
+        import React from 'react';
+        import { TimePicker } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            return (
+                <div style={{ display: "flex", flexDirection: "column", gap: "32px"}}>
+                    <TimePicker view="default" size="l" placeholder="Большой размер" />
+                    <TimePicker view="default" size="m" placeholder="Средний размер" />
+                    <TimePicker view="default" size="s" placeholder="Маленький размер" />
+                    <TimePicker view="default" size="xs" placeholder="Очень маленький размер" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Управление форматом времени (с секундами или без)
+
+С помощью свойства `columnsQuantity` можно выбрать количество колонок: 2 (часы и минуты) или 3 (часы, минуты, секунды).
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px", height: '500px'}}>
+            <TimePicker size="s" columnsQuantity={2} placeholder="ЧЧ:мм" />
+            <TimePicker size="s" columnsQuantity={3} placeholder="ЧЧ:мм:сс" />
+        </div>
+    );
+}
+```
+
+### Расположение выпадающего списка
+
+Свойство `dropdownAlign` позволяет выравнивать выпадающий список относительно поля ввода.
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px", width: "300px", height: '500px'}}>
+            <TimePicker size="s" dropdownAlign="left" placeholder="Выравнивание слева" />
+            <TimePicker size="s" dropdownAlign="right" placeholder="Выравнивание справа" />
+        </div>
+    );
+}
+```
+
+### Подсказки
+
+Для вывода подсказки снизу от поля используйте свойство `leftHelper`,
+для подсказки в виде Tooltip - `hintText`:
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{height: '500px'}}>
+            <TimePicker
+                placeholder="00:00:00"
+                leftHelper="Подсказка снизу"
+                hintText="Подсказка в виде Tooltip"
+                hintView="default"
+                hintSize="m"
+            />
+        </div>
+    );
+}
+```
+
+### Управление клавиатурной навигацией
+
+Компонент поддерживает полную клавиатурную навигацию:
+- `Enter` - открыть/закрыть выбор времени
+- `Arrow Up/Down` - навигация по значениям
+- `Arrow Left/Right` - переход между колонками
+- `Tab` - переход к следующему значению
+
+### Ограничение допустимого времени
+
+С помощью свойств `min` и `max` можно задать допустимый диапазон времени.
+Значения вне этого диапазона отображаются как недоступные в выпадающем списке.
+
+Оба свойства принимают строку в формате `HH:mm:ss` или объект `Date`.
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{height: '500px'}}>
+            <TimePicker
+                columnsQuantity={3}
+                value="15:00:00"
+                min="12:00:00"
+                max="20:00:00"
+                placeholder="00:00:00"
+            />
+        </div>
+    );
+}
+```
+
+## Props
+
+<PropsTable name="TimePicker" />
