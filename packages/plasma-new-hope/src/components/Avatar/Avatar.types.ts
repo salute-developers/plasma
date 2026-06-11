@@ -23,7 +23,7 @@ type ExtraBadgeProps = {
      * Компонент c округлым border-radius
      */
     pilled?: boolean;
-} & Omit<CustomBadgeProps, 'size' | 'view' | 'maxWidth'>;
+} & Omit<CustomBadgeProps, 'size' | 'view' | 'maxWidth' | 'appearance' | 'clear' | 'transparent'>;
 
 type ExtraCounterProps = {
     /**
