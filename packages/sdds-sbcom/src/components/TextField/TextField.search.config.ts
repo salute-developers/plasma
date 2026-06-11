@@ -56,7 +56,7 @@ export const config = {
     `,
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 'l',
         labelPlacement: 'outer',
     },
     variations: {
@@ -97,7 +97,7 @@ export const config = {
             `,
         },
         size: {
-            m: css`
+            l: css`
                 ${tokens.height}: 2.5rem;
                 ${tokens.padding}: 0.5rem 0.625rem;
                 ${tokens.borderRadius}: 2rem;
