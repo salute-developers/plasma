@@ -13,6 +13,7 @@
         {
             "files": ["package.json", "**/package.json"],
             "options": {
+                "parser": "json",
                 "tabWidth": 2
             }
         }
