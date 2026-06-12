@@ -1,9 +1,7 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
-import { Image } from '@salutejs/plasma-core';
+import { Image, Footnote2 } from '@salutejs/plasma-core';
 import { IconDone, IconDrag } from '@salutejs/plasma-icons';
-
-import { Footnote2 } from '../Typography';
 
 import { AddionalItemProps, StatusType, TooltipItem } from './types';
 
