@@ -1,9 +1,9 @@
 /node_modules/
 /build
 
-# Exclude package(-lock).json for all packages
-package.json
+# Exclude package-lock.json — npm/lerna-owned, never Prettier-formatted
 package-lock.json
+**/package-lock.json
 
 # Exclude *.api.md
 packages/plasma-b2c/api/
