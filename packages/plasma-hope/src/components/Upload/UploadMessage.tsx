@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import { Caption } from '../Typography';
+import { Caption } from '@salutejs/plasma-core';
 
 import { StatusType } from './types';
 
