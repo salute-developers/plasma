@@ -8,7 +8,6 @@ export * from './components/Popup';
 export * from './components/PreviewGallery';
 export * from './components/TextArea';
 export * from './components/TextField';
-export * from './components/Typography';
 export * from './components/Upload';
 export * from './components/UploadAudio';
 export * from './components/UploadVisual';
