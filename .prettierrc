@@ -8,5 +8,14 @@
     "semi": true,
     "singleQuote": true,
     "tabWidth": 4,
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "overrides": [
+        {
+            "files": ["package.json", "**/package.json"],
+            "options": {
+                "parser": "json",
+                "tabWidth": 2
+            }
+        }
+    ]
 }
