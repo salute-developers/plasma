@@ -58,7 +58,7 @@ export const config = {
                 ${accordionTokens.accordionItemTextColor}: var(--text-primary);
                 ${accordionTokens.accordionItemIconColor}: var(--text-primary);
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
-                ${accordionTokens.accordionItemBorderRadius}: 0rem !important;
+                ${accordionTokens.accordionItemBorderRadius}: 0rem;
                 ${accordionTokens.accordionBackground}: var(--surface-clear);
                 ${accordionTokens.accordionItemBorder}: none;
                 ${accordionTokens.accordionItemBorderBottom}: 0.063rem solid var(--surface-solid-tertiary);
