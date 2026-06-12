@@ -1,5 +1,4 @@
 export * from './components/AudioPlayer';
-export * from './components/Button';
 export * from './components/Card';
 export * from './components/ElasticGrid';
 export * from './components/Modal';
