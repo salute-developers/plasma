@@ -156,10 +156,13 @@ export const ButtonAccent = styled(Button)`
 `;
 
 export const LinkButton = styled(LinkButtonBase)`
-    ${linkButtonTokens.linkButtonColor}: var(--text-primary);
+    ${linkButtonTokens.linkButtonIconColor}: var(--text-primary);
+    ${linkButtonTokens.linkButtonTextColor}: var(--text-primary);
     ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-    ${linkButtonTokens.linkButtonColorHover}: var(--text-primary-hover);
-    ${linkButtonTokens.linkButtonColorActive}: var(--text-primary-active);
+    ${linkButtonTokens.linkButtonIconColorHover}: var(--text-primary-hover);
+    ${linkButtonTokens.linkButtonIconColorActive}: var(--text-primary-active);
+    ${linkButtonTokens.linkButtonTextColorHover}: var(--text-primary-hover);
+    ${linkButtonTokens.linkButtonTextColorActive}: var(--text-primary-active);
     ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
 
     ${linkButtonTokens.linkButtonFontFamily}: var(${tokens.linkButtonFontFamily});
