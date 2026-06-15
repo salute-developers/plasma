@@ -119,8 +119,8 @@ module.exports = {
         themes: 'sdds-themes',
     },
     'sdds-sbcom': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes', 'sdds-themes'],
+        scope: [...commonScope, 'plasma-new-hope'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core'],
         themes: 'sdds-themes',
     },
 };

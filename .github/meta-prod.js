@@ -91,6 +91,6 @@ module.exports = {
         scope: [...commonScope, 'sdds-themes', 'plasma-core'],
     },
     'sdds-sbcom': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'sdds-sbcom-docs', 'plasma-docs-ui'],
+        scope: [...commonScope, 'plasma-core', 'sdds-sbcom-docs', 'plasma-docs-ui'],
     },
 };
