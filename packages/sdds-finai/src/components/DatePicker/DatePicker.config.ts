@@ -13,18 +13,21 @@ export const config = {
                 ${tokens.background}: var(--surface-transparent-card);
                 ${tokens.backgroundError}: var(--surface-transparent-negative);
                 ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+                ${tokens.backgroundEdited}: var(--data-blue-light);
 
                 ${tokens.borderColor}: var(--outline-solid-primary);
                 ${tokens.borderColorHover}: var(--outline-solid-primary-hover);
                 ${tokens.borderColorFocus}: var(--outline-accent);
                 ${tokens.borderColorError}: var(--outline-transparent-negative);
                 ${tokens.borderColorSuccess}: var(--outline-transparent-positive);
+                ${tokens.borderColorEdited}: var(--outline-transparent-info);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
+                ${tokens.leftHelperColorEdited}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-secondary);
                 ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
@@ -79,6 +82,14 @@ export const config = {
                 ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-card);
                 ${tokens.textFieldBorderColorSuccess}: var(--outline-transparent-positive);
                 ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-accent);
+
+                ${tokens.textFieldColorEdited}: var(--text-primary);
+                ${tokens.textFieldBackgroundEditedColor}: var(--data-blue-light);
+                ${tokens.textFieldBackgroundEditedColorHover}: var(--data-blue-light-hover);
+                ${tokens.textFieldBackgroundEditedColorFocus}: var(--data-blue-light-active);
+                ${tokens.textFieldBorderColorEdited}: var(--outline-transparent-info);
+                ${tokens.textFieldBorderColorEditedHover}: var(--outline-transparent-info-hover);
+                ${tokens.textFieldBorderColorEditedFocus}: var(--outline-transparent-info-active);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);

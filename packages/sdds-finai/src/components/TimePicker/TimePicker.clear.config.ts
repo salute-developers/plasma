@@ -43,12 +43,19 @@ export const config = {
                 ${tokens.textFieldBackgroundSuccessColor}: transparent;
                 ${tokens.textFieldBackgroundSuccessColorFocus}: transparent;
                 ${tokens.textFieldBorderColorSuccess}: transparent;
+                ${tokens.textFieldBackgroundEditedColor}: transparent;
+                ${tokens.textFieldBackgroundEditedColorHover}: transparent;
+                ${tokens.textFieldBackgroundEditedColorFocus}: transparent;
+                ${tokens.textFieldBorderColorEdited}: transparent;
+                ${tokens.textFieldBorderColorEditedHover}: transparent;
+                ${tokens.textFieldBorderColorEditedFocus}: transparent;
 
                 ${tokens.textFieldDividerColor}: var(--surface-transparent-tertiary);
                 ${tokens.textFieldDividerColorHover}: var(--text-secondary);
                 ${tokens.textFieldDividerColorFocus}: var(--surface-accent);
                 ${tokens.textFieldDividerColorError}: var(--text-negative);
                 ${tokens.textFieldDividerColorSuccess}: var(--text-positive);
+                ${tokens.textFieldDividerColorEdited}: var(--text-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
@@ -70,6 +77,7 @@ export const config = {
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
+                ${tokens.leftHelperColorEdited}: var(--text-secondary);
 
                 ${tokens.hintIconColor}: var(--text-secondary);
             `,

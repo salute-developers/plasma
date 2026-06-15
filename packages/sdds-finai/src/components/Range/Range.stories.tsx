@@ -12,6 +12,10 @@ const { meta: META, Default } = getRangeStories({
     component: Range,
     componentConfig: config,
     disablePropsList: ['appearance'],
+    additionalArgTypes: {
+        firstInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+        secondInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+    },
     defaultArgs: config.defaults,
     customIcon: (size: string, type?: 'left' | 'right', disabled?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';
