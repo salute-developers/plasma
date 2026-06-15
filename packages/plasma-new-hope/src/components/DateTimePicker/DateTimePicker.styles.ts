@@ -36,4 +36,8 @@ export const LeftHelper = styled.div`
     &.${classes.success} {
         color: var(${tokens.leftHelperColorSuccess});
     }
+
+    &.${classes.edited} {
+        color: var(${tokens.leftHelperColorEdited});
+    }
 `;

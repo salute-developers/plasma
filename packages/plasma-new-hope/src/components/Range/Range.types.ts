@@ -176,6 +176,14 @@ export type RangeInnerProps = {
      */
     secondValueSuccess?: boolean;
     /**
+     * Отредактированное значение первого поля ввода
+     */
+    firstValueEdited?: boolean;
+    /**
+     * Отредактированное значение второго поля ввода
+     */
+    secondValueEdited?: boolean;
+    /**
      * Значение первого поля ввода
      */
     firstPlaceholder?: string;
