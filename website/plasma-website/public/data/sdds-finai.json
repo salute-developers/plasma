@@ -1,4 +1,26 @@
 {
+  "0.344.1": {
+    "date": "2026-06-15",
+    "core": [],
+    "lib": [
+      {
+        "component": "Skeleton",
+        "children": [
+          {
+            "text": "добавлен import компонента"
+          }
+        ]
+      },
+      {
+        "component": "EmbeddedButton",
+        "children": [
+          {
+            "text": "добавлен import компонента"
+          }
+        ]
+      }
+    ]
+  },
   "0.344.0": {
     "date": "2026-06-10",
     "core": [
