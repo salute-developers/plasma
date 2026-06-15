@@ -8,7 +8,10 @@ import { config } from './TimePicker.config';
 const { meta: META, Default } = getTimePickerStories({
     component: TimePicker,
     componentConfig: config,
-    defaultArgs: { ...config.defaults, enableContentLeft: false },
+    defaultArgs: { ...config.defaults, enableContentLeft: false, valueEdited: false },
+    additionalArgTypes: {
+        valueEdited: { control: { type: 'boolean' }, table: { category: 'variation' } },
+    },
     disablePropsList: ['enableContentLeft'],
     customIcon: (size: string, _type?: 'left' | 'right', disabled?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';
