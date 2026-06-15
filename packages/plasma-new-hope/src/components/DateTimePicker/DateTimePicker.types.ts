@@ -181,6 +181,7 @@ export type UseDateTimePickerArgs = {
     preserveInvalidOnBlur?: boolean;
     valueError?: boolean;
     valueSuccess?: boolean;
+    valueEdited?: boolean;
     type?: CalendarStateType;
     lang?: Langs;
     disabled?: boolean;

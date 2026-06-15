@@ -52,6 +52,7 @@ export const timePickerRoot = (
 
                 valueError,
                 valueSuccess,
+                valueEdited,
 
                 // layout
                 label,
@@ -365,6 +366,7 @@ export const timePickerRoot = (
                                 className={cls({
                                     [classes.timePickerError]: valueError,
                                     [classes.timePickerSuccess]: valueSuccess,
+                                    [classes.timePickerEdited]: valueEdited,
                                 })}
                                 value={viewValue}
                                 size={size}
@@ -443,6 +445,7 @@ export const timePickerRoot = (
                             className={cls({
                                 [classes.timePickerError]: valueError,
                                 [classes.timePickerSuccess]: valueSuccess,
+                                [classes.timePickerEdited]: valueEdited,
                             })}
                         >
                             {leftHelper}

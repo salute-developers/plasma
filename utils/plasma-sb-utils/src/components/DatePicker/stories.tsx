@@ -69,6 +69,7 @@ export const createDefaultStory = (DatePicker: any, customIcon?: CustomIcon) => 
         const inputViews = {
             valueSuccess: inputView === 'positive',
             valueError: inputView === 'negative',
+            valueEdited: inputView === 'edited',
         };
 
         return (
@@ -165,6 +166,8 @@ export const createRangeStory = (DatePickerRange: any, customIcon?: CustomIcon) 
             secondValueSuccess: secondInputView === 'positive',
             firstValueError: firstInputView === 'negative',
             secondValueError: secondInputView === 'negative',
+            firstValueEdited: firstInputView === 'edited',
+            secondValueEdited: secondInputView === 'edited',
         };
 
         return (

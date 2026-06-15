@@ -198,6 +198,7 @@ export type UseDatePickerProps = {
     maskWithFormat?: boolean;
     valueError?: boolean;
     valueSuccess?: boolean;
+    valueEdited?: boolean;
     name?: string;
     min?: Date;
     max?: Date;

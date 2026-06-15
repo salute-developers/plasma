@@ -72,6 +72,10 @@ export type TextFieldProps = {
      */
     valueSuccess?: boolean;
     /**
+     * Флаг отредактированного значения
+     */
+    valueEdited?: boolean;
+    /**
      * Вспомогательный текст снизу слева
      */
     leftHelper?: string;

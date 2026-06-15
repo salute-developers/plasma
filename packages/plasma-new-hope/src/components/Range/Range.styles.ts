@@ -96,6 +96,17 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
     }
+
+    &.${classes.rangeValueEdited} {
+        ${textFieldTokens.color}: var(${tokens.textFieldColorEdited}, var(${tokens.textFieldColor}));
+        ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundEditedColor});
+        ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundEditedColorHover});
+        ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundEditedColorFocus});
+
+        ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorEdited});
+        ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorEditedHover});
+        ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorEditedFocus});
+    }
 `;
 
 export const base = css`
