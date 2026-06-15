@@ -572,7 +572,7 @@ export const config = {
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
-                ${tokens.textFieldChipCloseIconColorReadonly}: var(---text-secondary);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(--text-secondary);
                 ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
 
                 ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-default);

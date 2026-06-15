@@ -17,11 +17,11 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card);
-                ${tokens.textFieldBorderColor}: var(--outline-solid-primary);
-                ${tokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
-                ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
+                ${tokens.textFieldBackgroundColor}: transparent;
+                ${tokens.textFieldBackgroundColorFocus}: transparent;
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderColorHover}: transparent;
+                ${tokens.textFieldBorderColorFocus}: transparent;
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-secondary);
@@ -41,9 +41,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--inverse-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--inverse-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--inverse-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}: var(--surface-solid-default);
-                ${tokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
-                ${tokens.buttonBackgroundColorActive}: var(--surface-solid-default-hover);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -67,11 +67,11 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card);
-                ${tokens.textFieldBorderColor}: var(--outline-transparent-positive);
-                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-positive-hover);
-                ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
+                ${tokens.textFieldBackgroundColor}: transparent;
+                ${tokens.textFieldBackgroundColorFocus}: transparent;
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderColorHover}: transparent;
+                ${tokens.textFieldBorderColorFocus}: transparent;
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-secondary);
@@ -92,9 +92,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}:var(--surface-positive);
-                ${tokens.buttonBackgroundColorHover}:var(--surface-positive-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--surface-positive-active);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -118,11 +118,11 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card);
-                ${tokens.textFieldBorderColor}: var(--outline-transparent-warning);
-                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-warning-hover);
-                ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
+                ${tokens.textFieldBackgroundColor}: transparent;
+                ${tokens.textFieldBackgroundColorFocus}: transparent;
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderColorHover}: transparent;
+                ${tokens.textFieldBorderColorFocus}: transparent;
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-secondary);
@@ -143,9 +143,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}:var(--surface-warning);
-                ${tokens.buttonBackgroundColorHover}:var(--surface-warning-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--surface-warning-active);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -169,11 +169,11 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card);
-                ${tokens.textFieldBorderColor}: var(--outline-transparent-negative);
-                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-negative-hover);
-                ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
+                ${tokens.textFieldBackgroundColor}: transparent;
+                ${tokens.textFieldBackgroundColorFocus}: transparent;
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderColorHover}: transparent;
+                ${tokens.textFieldBorderColorFocus}: transparent;
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-secondary);
@@ -194,60 +194,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}:var(--surface-negative);
-                ${tokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--surface-negative-active);
-
-                ${tokens.disclosureIconColor}: var(--text-secondary);
-                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
-                ${tokens.itemDisabledOpacity}: 0.4;
-                ${tokens.itemDisabledColor}: var(--text-primary);
-                ${tokens.textFieldHintIconColor}: var(--text-secondary);
-
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
-
-                ${tokens.itemIconColor}: var(--text-accent);
-
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
-                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
-                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
-            `,
-            edited: css`
-                ${tokens.textFieldColor}: var(--text-primary);
-
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
-
-                ${tokens.textFieldBackgroundColor}: var(--data-blue-light);
-                ${tokens.textFieldBackgroundColorFocus}: var(--data-blue-light-active);
-                ${tokens.textFieldBorderColor}: var(--outline-transparent-info);
-                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-info-hover);
-                ${tokens.textFieldBorderColorFocus}: var(--outline-transparent-info-active);
-                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
-                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
-                ${tokens.textFieldLabelColor}: var(--text-secondary);
-                ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
-                ${tokens.textFieldLeftHelperColorFocus}: var(--text-secondary);
-                ${tokens.textFieldFocusColor}: var(--text-accent);
-
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
-                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
-
-                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
-                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
-
-                ${tokens.buttonColor}: var(--inverse-text-primary);
-                ${tokens.buttonColorHover}: var(--inverse-text-primary-hover);
-                ${tokens.buttonColorActive}: var(--inverse-text-primary-active);
-                ${tokens.buttonArrowColor}: var(--inverse-text-secondary);
-                ${tokens.buttonArrowColorHover}: var(--inverse-text-secondary-hover);
-                ${tokens.buttonArrowColorActive}: var(--inverse-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}: var(--surface-solid-default);
-                ${tokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
-                ${tokens.buttonBackgroundColorActive}: var(--surface-solid-default-hover);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -272,9 +221,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}: var(--surface-accent);
-                ${tokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${tokens.buttonBackgroundColorActive}: var(--surface-accent-active);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -298,9 +247,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--text-secondary-hover);
-                ${tokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
-                ${tokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -324,9 +273,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--text-secondary-active);
-                ${tokens.buttonBackgroundColor}: var(--surface-clear);
-                ${tokens.buttonBackgroundColorHover}: var(--surface-clear);
-                ${tokens.buttonBackgroundColorActive}: var(--surface-clear);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -350,9 +299,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-active);
-                ${tokens.buttonBackgroundColor}:var(--on-light-surface-transparent-deep);
-                ${tokens.buttonBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -376,9 +325,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-active);
-                ${tokens.buttonBackgroundColor}:var(--on-light-surface-solid-default);
-                ${tokens.buttonBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
-                ${tokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -402,9 +351,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: var(--on-light-text-secondary);
                 ${tokens.buttonArrowColorHover}: var(--on-light-text-secondary-hover);
                 ${tokens.buttonArrowColorActive}: var(--on-light-text-secondary-active);
-                ${tokens.buttonBackgroundColor}:var(--on-dark-surface-solid-default);
-                ${tokens.buttonBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
+                ${tokens.buttonBackgroundColor}: transparent;
+                ${tokens.buttonBackgroundColorHover}: transparent;
+                ${tokens.buttonBackgroundColorActive}: transparent;
 
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.disclosureIconColor}: var(--text-secondary);
@@ -424,17 +373,22 @@ export const config = {
         },
         size: {
             s: css`
-                ${tokens.textFieldHeight}: 2.5rem;
-                ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
-                ${tokens.textFieldPaddingWithChips}: 0.375rem;
+                ${tokens.textFieldHeight}: auto;
+                ${tokens.textFieldScrollableWrapperOverflow}: visible;
+                ${tokens.textFieldScrollableWrapperHeight}: auto;
+                ${tokens.textFieldChipsFlexWrap}: wrap;
+                ${tokens.textFieldInputContainerDisplay}: none;
+                ${tokens.disclosureIconSize}: 0rem;
+                ${tokens.textFieldPadding}: 0.25rem 0;
+                ${tokens.textFieldPaddingWithChips}: 0.25rem 0;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.25rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.375rem -0.1875rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem 0;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem 0 -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem 0 -0.1875rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem 0 -0.438rem 0;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -447,7 +401,7 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.textFieldBorderWidth}: 0.125rem;
-                ${tokens.textFieldLabelOffset}: 0.5rem;
+                ${tokens.textFieldLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -460,7 +414,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.125rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -486,9 +440,9 @@ export const config = {
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 1.75rem;
                 ${tokens.textFieldChipPadding}: 0 0.5rem 0 0.75rem;
-                ${tokens.textFieldChipClearContentMarginLeft}: 0.375rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
-                ${tokens.textFieldChipCloseIconSize}: 1rem;
+                ${tokens.textFieldChipCloseIconSize}: 0rem;
                 ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -496,9 +450,9 @@ export const config = {
                 ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
-                ${tokens.targetHeight}: 2.5rem;
-                ${tokens.buttonPadding}: 1rem 0 1rem;
+                ${tokens.buttonArrowMargin}: 0 0 0 0.25rem;
+                ${tokens.targetHeight}: 1.75rem;
+                ${tokens.buttonPadding}: 0.25rem 0;
 
                 ${tokens.emptyStatePadding}: 0.625rem 0.875rem 0.625rem 0.875rem;
                 ${tokens.padding}: 0.125rem;
@@ -549,20 +503,25 @@ export const config = {
                 ${tokens.dividerMarginTopTight}: 0.25rem;
                 ${tokens.dividerMarginBottomTight}: 0.25rem;
 
-                ${tokens.disclosureIconMargin}: 0 -0.375rem 0 0;
+                ${tokens.disclosureIconMargin}: 0 0 0 0;
             `,
             xs: css`
-                ${tokens.textFieldHeight}: 2rem;
-                ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
-                ${tokens.textFieldPaddingWithChips}: 0.375rem;
+                ${tokens.textFieldHeight}: auto;
+                ${tokens.textFieldScrollableWrapperOverflow}: visible;
+                ${tokens.textFieldScrollableWrapperHeight}: auto;
+                ${tokens.textFieldChipsFlexWrap}: wrap;
+                ${tokens.textFieldInputContainerDisplay}: none;
+                ${tokens.disclosureIconSize}: 0rem;
+                ${tokens.textFieldPadding}: 0.125rem 0;
+                ${tokens.textFieldPaddingWithChips}: 0.125rem 0;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.1875rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.25rem -0.0625rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem 0;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0 -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem 0 -0.0625rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
-                ${tokens.textFieldContentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.688rem 0 -0.688rem 0;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -574,7 +533,7 @@ export const config = {
                 ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLabelOffset}: 0.375rem;
+                ${tokens.textFieldLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -588,7 +547,7 @@ export const config = {
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.textFieldBorderWidth}: 0.125rem;
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.125rem;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -614,9 +573,9 @@ export const config = {
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 1.25rem;
                 ${tokens.textFieldChipPadding}: 0 0.375rem 0 0.625rem;
-                ${tokens.textFieldChipClearContentMarginLeft}: 0.25rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
-                ${tokens.textFieldChipCloseIconSize}: 0.75rem;
+                ${tokens.textFieldChipCloseIconSize}: 0rem;
                 ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldChipFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldChipFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -624,9 +583,9 @@ export const config = {
                 ${tokens.textFieldChipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldChipLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
-                ${tokens.targetHeight}: 2rem;
-                ${tokens.buttonPadding}: 0.75rem 0 0.75rem;
+                ${tokens.buttonArrowMargin}: 0 0 0 0.25rem;
+                ${tokens.targetHeight}: 1.25rem;
+                ${tokens.buttonPadding}: 0.125rem 0;
 
                 ${tokens.emptyStatePadding}: 0.5rem 0.625rem 0.5rem 0.625rem;
                 ${tokens.padding}: 0.125rem;
@@ -677,7 +636,7 @@ export const config = {
                 ${tokens.dividerMarginTopTight}: 0.125rem;
                 ${tokens.dividerMarginBottomTight}: 0.125rem;
 
-                ${tokens.disclosureIconMargin}: 0 -0.25rem 0 0;
+                ${tokens.disclosureIconMargin}: 0 0 0 0;
             `,
         },
         labelPlacement: {
@@ -697,7 +656,7 @@ export const config = {
                 ${tokens.textFieldChipColor}: var(--text-primary);
                 ${tokens.textFieldChipColorHover}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
                 ${tokens.textFieldChipCloseIconColorReadonly}: var(--text-secondary);
                 ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
@@ -800,7 +759,7 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.textFieldDisabledOpacity}: 1;
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldBorderColor}: transparent;
                 ${tokens.textFieldContentSlotRightColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary);
@@ -811,8 +770,8 @@ export const config = {
             true: css`
                 ${tokens.disclosureIconOpacityReadOnly}: 1;
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
+                ${tokens.textFieldBackgroundColorReadOnly}: transparent;
+                ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);

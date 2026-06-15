@@ -55,6 +55,7 @@ export const config = {
                 ${tokens.leftHelperColor}: var(--text-positive);
                 ${tokens.rightHelperColor}: var(--text-positive);
                 ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -92,6 +93,7 @@ export const config = {
                 ${tokens.leftHelperColor}: var(--text-warning);
                 ${tokens.rightHelperColor}: var(--text-warning);
                 ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -126,8 +128,10 @@ export const config = {
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-secondary);
-                ${tokens.leftHelperColor}: var(--text-secondary);
-                ${tokens.rightHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.rightHelperColor}: var(--text-negative);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 

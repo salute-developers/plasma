@@ -18,6 +18,12 @@ const { meta: META, Default } = getDateTimePickerStories({
         valueEdited: { control: { type: 'boolean' }, table: { category: 'layout' } },
     },
     disablePropsList: ['view', 'enableContentLeft'],
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'clear', 'viewMode'],
+            control: { type: 'select' },
+        },
+    },
     customIcon: (size: string, _type?: 'left' | 'right', disabled?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';
         if (disabled) {
