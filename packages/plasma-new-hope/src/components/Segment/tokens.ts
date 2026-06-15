@@ -26,6 +26,7 @@ export const tokens = {
 
     groupBorderRadius: '--plasma-segment-group-border-radius',
     groupPilledBorderRadius: '--plasma-segment-group-pilled-border-radius',
+    verticalGroupPilledBorderRadius: '--plasma-segment-vertical-group-pilled-border-radius',
     groupWidth: '--plasma-segment-group-width',
     groupHeight: '--plasma-segment-group-height',
     groupArrowPadding: '--plasma-segment-group-arrow-padding',
