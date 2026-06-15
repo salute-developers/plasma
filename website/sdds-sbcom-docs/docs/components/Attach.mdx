@@ -147,7 +147,7 @@ export function App() {
 
 ```tsx live
 import React, { useState } from 'react';
-import { Attach, Button, InformationWrapper, outlineSolidPrimary } from '@salutejs/sdds-sbcom';
+import { Attach, Button, InformationWrapper } from '@salutejs/sdds-sbcom';
 
 function App() {
     const [isLoading, setIsLoading] = useState(false);
@@ -183,7 +183,7 @@ function App() {
     return (
         <>
             {!isLoading && (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px', padding: '16px 18px', border: `1px dashed ${outlineSolidPrimary}` }}>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px', padding: '16px 18px', border: `1px dashed gray` }}>
                     <InformationWrapper labelHtmlFor={`example-id-attach-1`} label="Label" hasRequiredIndicator leftHelper="Caption" titleCaption="Title Caption">
                         <Attach
                             id={`example-id-attach-1`}

@@ -31,7 +31,6 @@ import RefObjectExample from '../_examples/_popover/_refObject.mdx'
 ```tsx live
 import React, { useState } from 'react';
 import styled from "styled-components";
-import { surfaceSolidTertiary } from "@salutejs/sdds-themes/tokens";
 import { Popover, Button, H4, ButtonGroup } from '@salutejs/sdds-sbcom';
 
 export function App() {
@@ -45,7 +44,7 @@ export function App() {
         padding: 1rem;
 
         border-radius: 20px;
-        background: ${surfaceSolidTertiary};
+        background: gray;
     `;
 
     return (
@@ -62,7 +61,7 @@ export function App() {
                 <StyledSlotContent>
                     <H4>Заголовок H4</H4>
                     <ButtonGroup style={{ "justify-content": 'flex-end', paddingTop: '24px' }} isCommonButtonStyles={false} gap="wide">
-                        <Button view="accent" onClick={() => setIsOpen(false)}>Принять</Button>
+                        <Button view="accentFiled" onClick={() => setIsOpen(false)}>Принять</Button>
                         <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
                     </ButtonGroup>
                 </StyledSlotContent>
@@ -165,14 +164,13 @@ type resizable = {
 ```tsx live
 import React, { useState } from 'react';
 import styled from "styled-components";
-import { surfaceSolidTertiary } from "@salutejs/sdds-themes/tokens";
 import { Popover, Button, ButtonGroup, H4 } from '@salutejs/sdds-sbcom';
 
 export function App() {
     const [isOpen, setIsOpen] = useState(false);
 
     const StyledContent = styled.div`
-        background: ${surfaceSolidTertiary};
+        background: gray;
         padding: 1rem;
 
         display: flex;
@@ -194,7 +192,7 @@ export function App() {
                <StyledContent>
                     <H4>Заголовок H4</H4>
                     <ButtonGroup style={{ "justify-content": 'flex-end', paddingTop: '24px' }} isCommonButtonStyles={false} gap="wide">
-                        <Button view="accent" onClick={() => setIsOpen(false)}>Принять</Button>
+                        <Button view="accentFiled" onClick={() => setIsOpen(false)}>Принять</Button>
                         <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
                     </ButtonGroup>
                 </StyledContent>

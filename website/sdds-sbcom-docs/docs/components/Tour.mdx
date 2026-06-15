@@ -37,10 +37,10 @@ export function App() {
             {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
-                    {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                    {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
                     {last
-                        ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button>
-                        : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>
+                        ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button>
+                        : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>
                     }
                 </div>
                 <small>{cur + 1} / {length}</small>
@@ -51,10 +51,10 @@ export function App() {
     return (
         <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '6rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Button ref={ref1} view="secondary">Элемент 1</Button>
-                <Button ref={ref2} view="secondary">Элемент 2</Button>
+                <Button ref={ref1} view="accentFiled">Элемент 1</Button>
+                <Button ref={ref2} view="accentFiled">Элемент 2</Button>
             </div>
-            <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+            <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
             <Tour
                 open={open}
                 current={current}
@@ -121,8 +121,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -130,10 +130,10 @@ export function App() {
             return (
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Button id="tour-doc-btn-1" view="secondary">Кнопка 1</Button>
-                        <Button id="tour-doc-btn-2" view="secondary">Кнопка 2</Button>
+                        <Button id="tour-doc-btn-1" view="accentFiled">Кнопка 1</Button>
+                        <Button id="tour-doc-btn-2" view="accentFiled">Кнопка 2</Button>
                     </div>
-                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
                     <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
                 </div>
             );
@@ -164,8 +164,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -173,10 +173,10 @@ export function App() {
             return (
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Button ref={ref1} view="secondary">Кнопка 1</Button>
-                        <Button ref={ref2} view="secondary">Кнопка 2</Button>
+                        <Button ref={ref1} view="accentFiled">Кнопка 1</Button>
+                        <Button ref={ref2} view="accentFiled">Кнопка 2</Button>
                     </div>
-                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
                     <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
                 </div>
             );
@@ -212,8 +212,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -221,10 +221,10 @@ export function App() {
             return (
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Button ref={ref1} view="secondary">Кнопка 1</Button>
-                        <Button ref={ref2} view="secondary">Кнопка 2</Button>
+                        <Button ref={ref1} view="accentFiled">Кнопка 1</Button>
+                        <Button ref={ref2} view="accentFiled">Кнопка 2</Button>
                     </div>
-                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
                     <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" withOverlay={current === 0} />
                 </div>
             );
@@ -249,14 +249,14 @@ export function App() {
                 <div style={{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
-                    <Button size="s" view="default" onClick={onClose} style={{ marginTop: '0.25rem' }}>Закрыть</Button>
+                    <Button size="s" view="accentFiled" onClick={onClose} style={{ marginTop: '0.25rem' }}>Закрыть</Button>
                 </div>
             );
 
             return (
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
-                    <Button ref={ref1} view="secondary" style={{ alignSelf: 'flex-start' }}>Целевой элемент</Button>
-                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button ref={ref1} view="accentFiled" style={{ alignSelf: 'flex-start' }}>Целевой элемент</Button>
+                    <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
                     <Tour
                         open={open}
                         current={0}
@@ -301,8 +301,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -310,10 +310,10 @@ export function App() {
             return (
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Button ref={ref1} view="secondary">Отступ 4px</Button>
-                        <Button ref={ref2} view="secondary">Отступ 16px</Button>
+                        <Button ref={ref1} view="accentFiled">Отступ 4px</Button>
+                        <Button ref={ref2} view="accentFiled">Отступ 16px</Button>
                     </div>
-                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
                     <Tour
                         open={open}
                         current={current}
@@ -353,8 +353,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -363,9 +363,9 @@ export function App() {
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <div ref={ref1} style={{ background: 'var(--surface-solid-secondary)', width: '3rem', height: '3rem', borderRadius: '50%' }} />
-                        <Button ref={ref2} view="secondary">Кнопка</Button>
+                        <Button ref={ref2} view="accentFiled">Кнопка</Button>
                     </div>
-                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
                     <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
                 </div>
             );
@@ -399,8 +399,8 @@ export function App() {
             {step.title && <strong>{step.title}</strong>}
             {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
             <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
             </div>
         </div>
     );
@@ -408,10 +408,10 @@ export function App() {
     return (
         <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Button ref={ref1} view="secondary">Кнопка 1</Button>
-                <Button ref={ref2} view="secondary">Кнопка 2</Button>
+                <Button ref={ref1} view="accentFiled">Кнопка 1</Button>
+                <Button ref={ref2} view="accentFiled">Кнопка 2</Button>
             </div>
-            <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+            <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
             <Tour
                 open={open}
                 current={current}
@@ -448,14 +448,14 @@ export function App() {
                 <div style={{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
-                    <Button size="s" view="default" onClick={onClose} style={{ marginTop: '0.25rem' }}>Закрыть</Button>
+                    <Button size="s" view="accentFiled" onClick={onClose} style={{ marginTop: '0.25rem' }}>Закрыть</Button>
                 </div>
             );
 
             return (
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
-                    <Button ref={ref1} view="secondary" style={{ alignSelf: 'flex-start' }}>Целевой элемент</Button>
-                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button ref={ref1} view="accentFiled" style={{ alignSelf: 'flex-start' }}>Целевой элемент</Button>
+                    <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
                     <Tour open={open} current={0} onClose={onClose} steps={steps} highlightBorderRadius="1rem" renderStep={renderStep} offset={[32, 12]} />
                 </div>
             );
@@ -490,8 +490,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -499,14 +499,14 @@ export function App() {
             return (
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Button ref={ref1} view="secondary">bottom</Button>
-                        <Button ref={ref2} view="secondary">right</Button>
+                        <Button ref={ref1} view="accentFiled">bottom</Button>
+                        <Button ref={ref2} view="accentFiled">right</Button>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Button ref={ref3} view="secondary">top</Button>
-                        <Button ref={ref4} view="secondary">left</Button>
+                        <Button ref={ref3} view="accentFiled">top</Button>
+                        <Button ref={ref4} view="accentFiled">left</Button>
                     </div>
-                    <Button view="default" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
                     <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
                 </div>
             );
@@ -544,8 +544,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -553,12 +553,12 @@ export function App() {
             return (
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Button ref={ref1} view="secondary">Элемент 1</Button>
-                        <Button ref={ref2} view="secondary">Элемент 2</Button>
+                        <Button ref={ref1} view="accentFiled">Элемент 1</Button>
+                        <Button ref={ref2} view="accentFiled">Элемент 2</Button>
                     </div>
                     <div style={{ display: 'flex', gap: '0.5rem' }}>
-                        <Button view="default" onClick={() => setOpen(true)}>Открыть</Button>
-                        <Button view="secondary" onClick={() => setCurrent(1)}>Перейти к шагу 2</Button>
+                        <Button view="accentFiled" onClick={() => setOpen(true)}>Открыть</Button>
+                        <Button view="accentFiled" onClick={() => setCurrent(1)}>Перейти к шагу 2</Button>
                     </div>
                     <Tour open={open} current={current} onChange={setCurrent} onClose={onClose} steps={steps} renderStep={renderStep} highlightBorderRadius="1rem" />
                 </div>
@@ -587,8 +587,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="default">Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="s" view="accentFiled">Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -596,8 +596,8 @@ export function App() {
             return (
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Button ref={ref1} view="secondary">Элемент 1</Button>
-                        <Button ref={ref2} view="secondary">Элемент 2</Button>
+                        <Button ref={ref1} view="accentFiled">Элемент 1</Button>
+                        <Button ref={ref2} view="accentFiled">Элемент 2</Button>
                     </div>
                     <Tour defaultOpen defaultCurrent={0} steps={steps} renderStep={renderStep} />
                 </div>
@@ -665,8 +665,8 @@ export function App() {
             {step.title && <strong>{step.title}</strong>}
             {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
             <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                {cur > 0 && <Button size="s" view="secondary" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                {last ? <Button size="s" view="default" onClick={onClose}>Закрыть</Button> : <Button size="s" view="default" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
             </div>
         </div>
     );
@@ -685,8 +685,8 @@ export function App() {
                 </div>
                 <Switch id="custom-highlight-switch" label="Push-уведомления" checked={checked} onChange={(e) => setChecked(e.target.checked)} />
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Button view="secondary" onClick={() => setOpen(true)}>Запустить тур</Button>
-                    <Button ref={buttonRef} view="default">Сохранить</Button>
+                    <Button view="accentFiled" onClick={() => setOpen(true)}>Запустить тур</Button>
+                    <Button ref={buttonRef} view="accentFiled">Сохранить</Button>
                 </div>
                 <Tour
                     open={open}
