@@ -57,14 +57,6 @@ import { DsplL, DsplM, DsplS } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div style={{ display: 'block' }}>
-            <DsplL bold={false}>DsplL</DsplL>
-            <DsplL>DsplL Bold</DsplL>
-            <DsplL medium>DsplL Medium</DsplL>
-
-            <DsplM bold={false}>DsplM</DsplM>
-            <DsplM>DsplM Bold</DsplM>
-            <DsplM medium>DsplM Medium</DsplM>
-
             <DsplS bold={false}>DsplS</DsplS>
             <DsplS>DsplS Bold</DsplS>
             <DsplS medium>DsplS Medium</DsplS>
@@ -77,7 +69,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { H1, H2, H3, H4, H5, H6 } from '@salutejs/sdds-sbcom';
+import { H1, H2, H3, H4 } from '@salutejs/sdds-sbcom';
 
 export function App() {
     return (
@@ -97,14 +89,6 @@ export function App() {
             <H4 bold={false}>H4</H4>
             <H4>H4 Bold</H4>
             <H4 medium>H4 Medium</H4>
-
-            <H5 bold={false}>H5</H5>
-            <H5>H5 Bold</H5>
-            <H5 medium>H5 Medium</H5>
-
-            <H6 bold={false}>H6</H6>
-            <H6>H6 Bold</H6>
-            <H6 medium>H6 Medium</H6>
         </div>
     );
 }
@@ -139,36 +123,6 @@ export function App() {
             <BodyXXS>BodyXXS</BodyXXS>
             <BodyXXS bold>BodyXXS Bold</BodyXXS>
             <BodyXXS medium>BodyXXS Medium</BodyXXS>
-        </div>
-    );
-}
-```
-
-### Текст
-Типографические элементы для описаний к статьям, дополнительной информации и т.д.
-
-```tsx live
-import React from 'react';
-import { TextL, TextM, TextS, TextXS } from '@salutejs/sdds-sbcom';
-
-export function App() {
-    return (
-        <div style={{ display: 'block' }}>
-            <TextL>TextL</TextL>
-            <TextL bold>TextL Bold</TextL>
-            <TextL medium>TextL Medium</TextL>
-
-            <TextM>TextM</TextM>
-            <TextM bold>TextM Bold</TextM>
-            <TextM medium>TextM Medium</TextM>
-
-            <TextS>TextS</TextS>
-            <TextS bold>TextS Bold</TextS>
-            <TextS medium>TextS Medium</TextS>
-
-            <TextXS>TextXS</TextXS>
-            <TextXS bold>TextXS Bold</TextXS>
-            <TextXS medium>TextXS Medium</TextXS>
         </div>
     );
 }

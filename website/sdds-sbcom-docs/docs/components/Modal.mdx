@@ -16,7 +16,6 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React, { useState } from 'react';
-import { surfaceSolidSecondary } from '@salutejs/sdds-themes/tokens';
 import { Button, Modal, PopupProvider } from '@salutejs/sdds-sbcom';
 
 export function App() {
@@ -36,7 +35,7 @@ export function App() {
                     placement="center"
                     offset={[0, 0]}
                 >
-                    <div style={{ background: `${surfaceSolidSecondary}`, padding: "1rem" }}>
+                    <div style={{ background: 'gray', padding: "1rem" }}>
                         <Button onClick={() => setIsOpenA(false)}>Close</Button>
                         <Button text="Открыть B" onClick={() => setIsOpenB(true)} />
                         Content
@@ -48,7 +47,7 @@ export function App() {
                         placement="right"
                         offset={[0, 0]}
                     >
-                        <div style={{ background: `${surfaceSolidSecondary}`, padding: "1rem" }}>
+                        <div style={{ background: 'gray', padding: "1rem" }}>
                             <Button onClick={() => setIsOpenB(false)}>Close</Button>
                             Content
                         </div>
@@ -171,7 +170,7 @@ const StyledModal = styled(Modal)`
 
 ```tsx live
 import React from 'react';
-import { Button, Modal, PopupProvider } from  '@salutejs/sdds-serv';
+import { Button, Modal, PopupProvider } from  '@salutejs/sdds-sbcom';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -272,7 +271,7 @@ resizable?: {
 
 ```tsx live
 import React from 'react';
-import { Button, Modal, PopupProvider } from  '@salutejs/sdds-serv';
+import { Button, Modal, PopupProvider } from  '@salutejs/sdds-sbcom';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);

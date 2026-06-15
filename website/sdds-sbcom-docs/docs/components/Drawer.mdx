@@ -43,9 +43,8 @@ Drawer можно использовать как и на всем окне, т�
 немодальный - нет подложки, scroll и фокус не заблокированы.
 
 ```tsx live
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { IconDone } from '@salutejs/plasma-icons';
-import { surfaceSolidSecondary } from '@salutejs/sdds-themes/tokens';
 import {
     H3,
     Button,
@@ -54,12 +53,12 @@ import {
     DrawerContent,
     DrawerFooter,
     PopupProvider
-} from  '@salutejs/sdds-serv';
+} from  '@salutejs/sdds-sbcom';
 
 export function App() {
 
-    const [isOpenA, setIsOpenA] = React.useState(false);
-    const [isOpenB, setIsOpenB] = React.useState(false);
+    const [isOpenA, setIsOpenA] = useState(false);
+    const [isOpenB, setIsOpenB] = useState(false);
 
     const ref = useRef();
 
@@ -100,7 +99,7 @@ export function App() {
                             hasClose={true}
                             closePlacement="right"
                             actions={(
-                                <Button size="s" view="clear" style={{
+                                <Button size="s" view="accentFiled" style={{
                                     position: "relative",
                                     width: "1.5rem",
                                     height: "1.5rem"
@@ -125,7 +124,7 @@ export function App() {
                         marginTop: "1rem",
                         width: "400px",
                         height: "500px",
-                        background: surfaceSolidSecondary,
+                        background: "gray",
                         position: "absolute",
 
                         display: "flex",
@@ -154,7 +153,7 @@ export function App() {
                             hasClose={true}
                             closePlacement="right"
                             actions={(
-                                <Button size="s" view="clear" style={{
+                                <Button size="s" view="accentFiled" style={{
                                     position: "relative",
                                     width: "1.5rem",
                                     height: "1.5rem"
@@ -196,7 +195,7 @@ export function App() {
         import { IconDone } from '@salutejs/plasma-icons';
         import { createGlobalStyle } from 'styled-components';
 
-        import { H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-serv';
+        import { H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-sbcom';
 
         export function App() {
             const [isOpenA, setIsOpenA] = React.useState(false);
@@ -251,7 +250,6 @@ export function App() {
                             </div>
                             <Drawer
                                 animationInfo={animationInfo}
-
                                 id="drawerA"
                                 opened={isOpenA}
                                 onClose={() => setIsOpenA(false)}
@@ -267,7 +265,7 @@ export function App() {
                                     hasClose={true}
                                     closePlacement="right"
                                     actions={(
-                                        <Button size="s" view="clear" style={{
+                                        <Button size="s" view="accentFiled" style={{
                                             position: "relative",
                                             width: "1.5rem",
                                             height: "1.5rem"
@@ -302,7 +300,7 @@ export function App() {
         import React from 'react';
         import { IconDone } from '@salutejs/plasma-icons';
 
-        import { H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-serv';
+        import { H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/sdds-sbcom';
 
         const drawerAnimation = `
             @keyframes enterAnimation {
@@ -373,7 +371,7 @@ export function App() {
                                     hasClose={true}
                                     closePlacement="right"
                                     actions={(
-                                        <Button size="s" view="clear" style={{
+                                        <Button size="s" view="accentFiled" style={{
                                             position: "relative",
                                             width: "1.5rem",
                                             height: "1.5rem"

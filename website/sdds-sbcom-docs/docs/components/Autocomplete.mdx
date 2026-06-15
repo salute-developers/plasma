@@ -269,7 +269,7 @@ type SuggestionItem = {
                         listMaxHeight="250px"
                         onScroll={onScroll}
                         threshold={0}
-                        renderListEnd={isInfiniteLoading ? () => <Cell contentLeft={<Spinner view="primary" />} title="Загрузка" stretching="auto" /> : undefined}
+                        renderListEnd={isInfiniteLoading ? () => <Cell contentLeft={<Spinner view="accent" />} title="Загрузка" stretching="auto" /> : undefined}
                         label="Label"
                         placeholder="Placeholder"
                         leftHelper="Введите имя Алексей"
@@ -468,7 +468,7 @@ type SuggestionItem = {
                         suggestions={suggestions}
                         listMaxHeight="250px"
                         renderList={isError ? () => <EmptyState icon={<IconRefresh />} description="Произошла ошибка. Попробуйте обновить." buttonText="Обновить" buttonAction={handleGetData} /> : undefined}
-                        contentRight={isLoading ? <Spinner view="primary" /> : undefined}
+                        contentRight={isLoading ? <Spinner view="accent" /> : undefined}
                         label="Label"
                         placeholder="Placeholder"
                         leftHelper="Введите имя Алексей"

@@ -24,7 +24,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { Card, CardContent, CardInnerContent, H3, TextS } from '@salutejs/sdds-sbcom';
+import { Card, CardContent, CardInnerContent, H3, BodyS } from '@salutejs/sdds-sbcom';
 
 export function App() {
     const SvgBackground = (props) => (
@@ -45,7 +45,7 @@ export function App() {
                 <CardInnerContent>
                     <div style={{ padding: '30px' }}>
                         <H3>Заголовок</H3>
-                        <TextS style={{ paddingTop: '8px' }}>Как оплатить заправку бонусами СберСпасибо?</TextS>
+                        <BodyS style={{ paddingTop: '8px' }}>Как оплатить заправку бонусами СберСпасибо?</BodyS>
                     </div>
                 </CardInnerContent>
                 <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />
@@ -59,7 +59,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Card, CardContent, H3, TextS } from '@salutejs/sdds-sbcom';
+import { Card, CardContent, H3, BodyS } from '@salutejs/sdds-sbcom';
 
 export function App() {
     const SvgBackground = (props) => (
@@ -78,7 +78,7 @@ export function App() {
         <Card orientation="horizontal" style={{ width: '400px' }} backgroundType="solid" selected>
             <div style={{ padding: '30px' }}>
                 <H3>Title</H3>
-                <TextS style={{ paddingTop: '8px' }}>Description</TextS>
+                <BodyS style={{ paddingTop: '8px' }}>Description</BodyS>
             </div>
             <CardContent orientation="vertical" aspectRatio="4/3">
                 <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />

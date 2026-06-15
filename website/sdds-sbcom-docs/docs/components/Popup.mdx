@@ -39,9 +39,8 @@ Popup можно использовать как и на всем окне, та
 ```tsx live
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { surfaceSolidTertiary, surfaceSolidSecondary } from '@salutejs/sdds-themes/tokens';
 
-import { Button, Popup, PopupProvider } from  '@salutejs/sdds-serv';
+import { Button, Popup, PopupProvider } from  '@salutejs/sdds-sbcom';
 
 export function App() {
     const StyledButton = styled(Button)`
@@ -57,7 +56,7 @@ export function App() {
         margin-top: 1rem;
         width: 400px;
         height: 500px;
-        background: ${surfaceSolidTertiary};
+        background: gray;
         position: absolute;
 
         display: flex;
@@ -70,7 +69,7 @@ export function App() {
     `;
 
     const Content = styled.div`
-        background: ${surfaceSolidSecondary};
+        background: gray;
         padding: 1rem;
     `;
 
@@ -210,7 +209,7 @@ const StyledPopupAnimation = styled(Popup)`
 
 ```tsx live
 import React from 'react';
-import { Button, Popup, PopupProvider } from  '@salutejs/sdds-serv';
+import { Button, Popup, PopupProvider } from  '@salutejs/sdds-sbcom';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -310,7 +309,7 @@ resizable?: {
 
 ```tsx live
 import React from 'react';
-import { Button, Popup, PopupProvider } from  '@salutejs/sdds-serv';
+import { Button, Popup, PopupProvider } from  '@salutejs/sdds-sbcom';
 
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);

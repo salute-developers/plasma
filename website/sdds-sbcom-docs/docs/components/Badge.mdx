@@ -63,7 +63,7 @@ export function App() {
     const Badges = ({transparent, clear}) => {
         return (
             <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <Badge text="Бейдж" size="l" view="primary" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="l" view="default" transparent={transparent} clear={clear} />
                 <Badge text="Бейдж" size="l" view="accent" transparent={transparent} clear={clear} />
                 <Badge text="Бейдж" size="l" view="positive" transparent={transparent} clear={clear} />
                 <Badge text="Бейдж" size="l" view="warning" transparent={transparent} clear={clear} />
@@ -99,7 +99,7 @@ export function App() {
             <Badge
                 text="Бейдж"
                 size="l"
-                view="primary"
+                view="default"
                 contentLeft={
                     <IconEye color="inherit" size="xs" />
                 }
@@ -107,7 +107,7 @@ export function App() {
             <Badge
                 text="Бейдж"
                 size="l"
-                view="primary"
+                view="default"
                 contentRight={
                     <IconEye color="inherit" size="xs" />
                 }
