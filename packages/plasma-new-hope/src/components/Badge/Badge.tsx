@@ -1,7 +1,7 @@
 import React, { CSSProperties, forwardRef } from 'react';
+import cls from 'classnames';
 
 import type { RootProps } from '../../engines';
-import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -45,14 +45,22 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
                 return (
                     <>
                         <StyledContentLeft>{contentLeft}</StyledContentLeft>
-                        {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
+                        {txt ? (
+                            <StyledContentMain className={cls(classes.badgeTextGradient)}>{txt}</StyledContentMain>
+                        ) : (
+                            children
+                        )}
                     </>
                 );
             }
 
             return (
                 <>
-                    {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
+                    {txt ? (
+                        <StyledContentMain className={cls(classes.badgeTextGradient)}>{txt}</StyledContentMain>
+                    ) : (
+                        children
+                    )}
                     {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                 </>
             );
@@ -61,7 +69,7 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
         return (
             <Root
                 ref={ref}
-                className={cx(pilledClass, transparentClass, clearClass, truncateClass, iconOnlyClass, className)}
+                className={cls(pilledClass, transparentClass, clearClass, truncateClass, iconOnlyClass, className)}
                 view={view}
                 size={size}
                 pilled={pilled}

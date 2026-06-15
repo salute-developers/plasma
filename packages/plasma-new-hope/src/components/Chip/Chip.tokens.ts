@@ -1,6 +1,7 @@
 export const classes = {
     pilled: 'chip-pilled',
     chipItem: 'chip-item',
+    chipTextGradient: 'sdds-core-gradient-text',
 };
 
 export const tokens = {

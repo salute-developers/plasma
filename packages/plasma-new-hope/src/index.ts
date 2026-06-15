@@ -1,5 +1,6 @@
 // TODO: #723 Добавить collectPackageInfo
 
+export * from './hocs';
 export * from './mixins';
 export * from './engines';
 export * from './hooks';

@@ -8,6 +8,7 @@ export const classes = {
     buttonItem: 'button-item',
     buttonLoading: 'button-loading',
     buttonHasValue: 'button-has-value',
+    buttonTextGradient: 'sdds-core-gradient-text',
 };
 
 export const tokens = {

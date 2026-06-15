@@ -4,6 +4,7 @@ export const classes = {
     badgeClear: 'badge-clear',
     badgeTruncate: 'badge-truncate',
     iconOnly: 'badge-icon-only',
+    badgeTextGradient: 'sdds-core-gradient-text',
 };
 
 export const privateTokens = {
