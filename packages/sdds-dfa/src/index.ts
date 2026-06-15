@@ -34,6 +34,7 @@ export * from './components/Range';
 export * from './components/Radiobox';
 export * from './components/Segment';
 export * from './components/Sheet';
+export * from './components/Skeleton';
 export * from './components/Spinner';
 export * from './components/Slider';
 export * from './components/SSRProvider';
@@ -76,7 +77,6 @@ export * from './components/TextFieldSlider';
 // export * from './components/Link';
 // export * from './components/Overlay';
 // export * from './components/Popup';
-// export * from './components/Skeleton';
 // export * from './components/Table';
 
 export * from './mixins';
