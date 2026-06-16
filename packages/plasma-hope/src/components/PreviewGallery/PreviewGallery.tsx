@@ -93,6 +93,8 @@ export const PreviewGallery: FC<
 
     const onSortStart = useCallback(() => setGrabbing(true), []);
 
+    const onSortCancel = useCallback(() => setGrabbing(false), []);
+
     const onSortEnd = useCallback(
         (event: DragEndEvent) => {
             setGrabbing(false);
@@ -121,6 +123,7 @@ export const PreviewGallery: FC<
             onItemAction={onItemAction}
             onItemClick={onItemClick}
             onSortStart={onSortStart}
+            onSortCancel={onSortCancel}
             onSortEnd={onSortEnd}
             interactionType={interactionType}
             isGrabbing={isGrabbing}

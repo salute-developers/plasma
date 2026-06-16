@@ -87,9 +87,10 @@ export const createAxisModifier = (axis: PreviewGallerySortableAxis): Modifier =
 };
 
 export const getSortableSensorOptions = (distance = 1, pressDelay?: number) => {
-    const mouseActivation = pressDelay ? { delay: pressDelay, tolerance: 5 } : { distance };
+    const mouseActivation = pressDelay !== undefined ? { delay: pressDelay, tolerance: 5 } : { distance };
 
-    const touchActivation = pressDelay ? { delay: pressDelay, tolerance: 5 } : { delay: 250, tolerance: 5 };
+    const touchActivation =
+        pressDelay !== undefined ? { delay: pressDelay, tolerance: 5 } : { delay: 250, tolerance: 5 };
 
     return {
         mouse: {

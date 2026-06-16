@@ -2,6 +2,7 @@ import React, { memo, useMemo } from 'react';
 import {
     DndContext,
     closestCenter,
+    KeyboardSensor,
     MouseSensor,
     TouchSensor,
     useSensor,
@@ -9,7 +10,7 @@ import {
     DragEndEvent,
 } from '@dnd-kit/core';
 import type { Modifiers } from '@dnd-kit/core';
-import { SortableContext, rectSortingStrategy, useSortable } from '@dnd-kit/sortable';
+import { SortableContext, rectSortingStrategy, sortableKeyboardCoordinates, useSortable } from '@dnd-kit/sortable';
 import styled, { css } from 'styled-components';
 
 import { AddionalItemProps } from './types';
@@ -57,6 +58,10 @@ export interface PreviewGalleryListItemsProps {
      * Callback when sorting starts.
      */
     onSortStart?: () => void;
+    /**
+     * Callback when sorting is cancelled.
+     */
+    onSortCancel?: () => void;
     modifiers?: Modifiers;
     sensorOptions?: ReturnType<typeof getSortableSensorOptions>;
     useDragHandle?: boolean;
@@ -117,6 +122,7 @@ export const PreviewGalleryListItems = ({
     onItemAction,
     onItemClick,
     onSortStart,
+    onSortCancel,
     onSortEnd,
     modifiers,
     sensorOptions,
@@ -128,6 +134,9 @@ export const PreviewGalleryListItems = ({
     const sensors = useSensors(
         useSensor(MouseSensor, sensorOptions?.mouse),
         useSensor(TouchSensor, sensorOptions?.touch),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        }),
     );
 
     // deleteIcon не указан в зависимости, т.к. предполагается,
@@ -165,6 +174,7 @@ export const PreviewGalleryListItems = ({
             modifiers={modifiers}
             collisionDetection={closestCenter}
             onDragStart={onSortStart}
+            onDragCancel={onSortCancel}
             onDragEnd={onSortEnd}
         >
             <StyledRoot isGrabbing={isGrabbing} maxHeight={maxHeight} {...rest}>

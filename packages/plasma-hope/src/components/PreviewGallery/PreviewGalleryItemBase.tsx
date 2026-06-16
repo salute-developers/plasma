@@ -187,6 +187,15 @@ export const PreviewGalleryItemBase = memo(
                 onClick={customClickHandle ? () => customClickHandle(id) : () => onItemClick?.(id)}
             >
                 {component}
+
+                {interactionType !== 'selectable' && (
+                    <StyledIconDrag
+                        size="xs"
+                        color="inherit"
+                        {...(useDragHandle ? dragHandleListeners : undefined)}
+                        {...(useDragHandle ? dragHandleAttributes : undefined)}
+                    />
+                )}
             </StyledItem>
         );
     },
