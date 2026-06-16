@@ -28,7 +28,7 @@ export const config = {
                 ${modalTokens.modalOutlineFocusColor}: ${surfaceAccent};
             `,
             dialog: css`
-                ${modalTokens.modalOverlayWithBlurColor}: rgba(35, 35, 35, 0.2);
+                ${modalTokens.modalOverlayWithBlurColor}: ${overlaySoft};
                 ${modalTokens.modalOverlayColor}: ${overlaySoft};
                 ${modalTokens.modalBodyBackground}: ${surfaceSolidCard};
                 ${modalTokens.modalBodyBorderRadius}: 1.5rem;
