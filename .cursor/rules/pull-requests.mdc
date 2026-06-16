@@ -7,10 +7,12 @@ alwaysApply: true
 
 Always create pull requests in **Draft** mode until they are ready for review.
 
-When using `gh pr create`, include the `--draft` flag:
+**Base branch:** target `dev`, not `master`. See `CONTRIBUTING.md#pull-request`.
+
+When using `gh pr create`, include `--draft` and `--base dev`:
 
 ```bash
-gh pr create --draft --title "..." --body "$(cat <<'EOF'
+gh pr create --draft --base dev --title "..." --body "$(cat <<'EOF'
 ## Core
 
 ### ComponentName
@@ -31,6 +33,8 @@ Follow the structure in `.github/PULL_REQUEST_TEMPLATE.md`:
 - `###` heading — component, function, theme, etc.
 - Bullet list of changes
 - `### What/why changed` — **required**
+
+Exception: [HotFix](CONTRIBUTING.md#hotfix) PRs need a separate PR into `master` as well.
 
 Before marking ready for review (`gh pr ready`), verify the checklist from the template:
 
