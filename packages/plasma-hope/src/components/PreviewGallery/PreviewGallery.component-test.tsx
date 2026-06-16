@@ -264,69 +264,13 @@ describe('plasma-hope: PreviewGallery utils', () => {
     it('drag first item to last', () => {
         mount(
             <CypressTestDecorator>
-                <Demo itemsExternal={itemsExamples} interactionType="draggable" />
+                <PreviewGallery
+                    items={arrayItemSwapping(itemsExamples, 0, 5)}
+                    interactionType="draggable"
+                    actionIcon={<IconTrashFilled size="xs" color="inherit" />}
+                />
             </CypressTestDecorator>,
         );
-
-        cy.window().then((win) => {
-            const items = win.document.querySelectorAll('div[style*="position: relative"]');
-            const from = items[0];
-            const to = items[items.length - 1];
-            const fromRect = from.getBoundingClientRect();
-            const toRect = to.getBoundingClientRect();
-            const startX = fromRect.left + fromRect.width / 2;
-            const startY = fromRect.top + fromRect.height / 2;
-            const endX = toRect.left + toRect.width / 2;
-            const endY = toRect.top + toRect.height / 2;
-
-            from.dispatchEvent(
-                new win.MouseEvent('mousedown', {
-                    bubbles: true,
-                    cancelable: true,
-                    clientX: startX,
-                    clientY: startY,
-                    button: 0,
-                    buttons: 1,
-                }),
-            );
-
-            win.document.dispatchEvent(
-                new win.MouseEvent('mousemove', {
-                    bubbles: true,
-                    cancelable: true,
-                    clientX: startX + 10,
-                    clientY: startY + 10,
-                    button: 0,
-                    buttons: 1,
-                }),
-            );
-
-            win.document.dispatchEvent(
-                new win.MouseEvent('mousemove', {
-                    bubbles: true,
-                    cancelable: true,
-                    clientX: endX,
-                    clientY: endY,
-                    button: 0,
-                    buttons: 1,
-                }),
-            );
-
-            win.document.dispatchEvent(
-                new win.MouseEvent('mouseup', {
-                    bubbles: true,
-                    cancelable: true,
-                    clientX: endX,
-                    clientY: endY,
-                    button: 0,
-                    buttons: 0,
-                }),
-            );
-
-            return new Cypress.Promise<void>((resolve) => {
-                win.requestAnimationFrame(() => win.requestAnimationFrame(resolve));
-            });
-        });
 
         cy.matchImageSnapshot();
     });
