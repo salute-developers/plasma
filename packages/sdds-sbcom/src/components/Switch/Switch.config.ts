@@ -4,12 +4,10 @@ import {
     bodyM,
     bodyS,
     surfaceAccent,
-    surfaceAccentHover,
-    surfaceTransparentTertiary,
-    surfaceTransparentTertiaryHover,
     textPrimary,
     textSecondary,
     onDarkTextPrimary,
+    onLightSurfaceSolidDeep,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 /*
@@ -110,17 +108,15 @@ export const config = {
                 ${switchTokens.descriptionMaxLines}: initial;
 
                 ${switchTokens.trackBackgroundColorOn}: ${surfaceAccent};
-                ${switchTokens.trackBackgroundColorOnHover}: ${surfaceAccentHover};
-                ${switchTokens.trackBackgroundColorOff}: ${surfaceTransparentTertiary};
-                ${switchTokens.trackBackgroundColorOffHover}: ${surfaceTransparentTertiaryHover};
+                ${switchTokens.trackBackgroundColorOff}: ${onLightSurfaceSolidDeep};
 
                 ${switchTokens.trackBorderWidthOn}: 0;
                 ${switchTokens.trackBorderWidthOff}: 0;
 
                 ${switchTokens.thumbBackgroundColorOn}: ${onDarkTextPrimary};
                 ${switchTokens.thumbBackgroundColorOff}: ${onDarkTextPrimary};
-
-                ${switchTokens.thumbBorderColorOff}: ${surfaceTransparentTertiary};
+                ${switchTokens.thumbBorderColorOn}: ${surfaceAccent};
+                ${switchTokens.thumbBorderColorOff}: ${onLightSurfaceSolidDeep};
             `,
         },
         disabled: {
