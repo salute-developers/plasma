@@ -1,0 +1,44 @@
+---
+description: Create pull requests as drafts until ready for review
+alwaysApply: true
+---
+
+# Pull Requests
+
+Always create pull requests in **Draft** mode until they are ready for review.
+
+When using `gh pr create`, include the `--draft` flag:
+
+```bash
+gh pr create --draft --title "..." --body "$(cat <<'EOF'
+## Core
+
+### ComponentName
+
+- change description
+
+### What/why changed
+
+Problem description and rationale.
+
+EOF
+)"
+```
+
+Follow the structure in `.github/PULL_REQUEST_TEMPLATE.md`:
+
+- `##` heading — scope: `Core`, or a specific library (`SDDS-CS`, `PLASMA-WEB`, `PLASMA-ICONS`)
+- `###` heading — component, function, theme, etc.
+- Bullet list of changes
+- `### What/why changed` — **required**
+
+Before marking ready for review (`gh pr ready`), verify the checklist from the template:
+
+- Issue number added (if applicable)
+- Cypress tests added/updated for visual changes
+
+Mark a PR as ready for review only when the user explicitly asks (e.g. "mark PR ready for review", "take out of draft"):
+
+```bash
+gh pr ready
+```
