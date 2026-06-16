@@ -1,5 +1,7 @@
 ## [Heading 2]
 
+> **Base branch:** `dev` (не `master`). Подробнее — [CONTRIBUTING.md#pull-request](../CONTRIBUTING.md#pull-request).
+
 Может быть:
 
 -   `Core` - используем если изменения в библиотеки new-hope и затрагивают все библиотеки
