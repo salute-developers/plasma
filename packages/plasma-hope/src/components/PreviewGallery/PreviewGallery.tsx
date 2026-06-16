@@ -1,10 +1,18 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import type { FC, HTMLAttributes } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
 
 import { noop } from './utils';
 import { PreviewGalleryListItems } from './PreviewGalleryItems';
 import { PreviewGalleryItemProps } from './PreviewGalleryItemBase';
+import {
+    PreviewGallerySortableContainerProps,
+    PreviewGallerySortableItemProps,
+    createAxisModifier,
+    getSortableSensorOptions,
+    previewGallerySortableContainerPropKeys,
+    resolveSortableAxis,
+} from './sortableCompat';
 import { InteractionType } from './types';
 
 export interface SortableIndexProps {
@@ -16,7 +24,7 @@ export interface PreviewGalleryProps {
     /**
      * Массив элементов.
      */
-    items?: Array<PreviewGalleryItemProps>;
+    items?: Array<PreviewGalleryItemProps & PreviewGallerySortableItemProps>;
     /**
      * Тип взаимодействия с галереей - выбор или перетаскивание элементов.
      */
@@ -47,19 +55,41 @@ export interface PreviewGalleryProps {
     onItemClick?: (id: string | number) => void;
 }
 
+const omitSortableContainerProps = <T extends Record<string, unknown>>(props: T) => {
+    const rest = { ...props };
+
+    previewGallerySortableContainerPropKeys.forEach((key) => {
+        delete rest[key];
+    });
+
+    return rest;
+};
+
 /**
  * Компонент для создания галереи превью изображений.
  */
-export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement>> = ({
+export const PreviewGallery: FC<
+    PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & PreviewGallerySortableContainerProps
+> = ({
     interactionType = 'selectable',
     items = [],
     maxHeight = 0,
     onItemClick = noop,
     onItemAction = noop,
     onItemsSortEnd = noop,
+    axis = 'xy',
+    distance = 1,
+    pressDelay,
+    lockAxis,
+    useDragHandle = false,
     ...rest
 }) => {
     const [isGrabbing, setGrabbing] = useState<boolean>(false);
+
+    const resolvedAxis = useMemo(() => resolveSortableAxis(axis, lockAxis), [axis, lockAxis]);
+    const modifiers = useMemo(() => [createAxisModifier(resolvedAxis)], [resolvedAxis]);
+    const sensorOptions = useMemo(() => getSortableSensorOptions(distance, pressDelay), [distance, pressDelay]);
+    const htmlProps = useMemo(() => omitSortableContainerProps(rest), [rest]);
 
     const onSortStart = useCallback(() => setGrabbing(true), []);
 
@@ -95,7 +125,10 @@ export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElem
             interactionType={interactionType}
             isGrabbing={isGrabbing}
             maxHeight={maxHeight}
-            {...rest}
+            modifiers={modifiers}
+            sensorOptions={sensorOptions}
+            useDragHandle={useDragHandle}
+            {...htmlProps}
         />
     );
 };

@@ -140,6 +140,9 @@ export const PreviewGalleryItemBase = memo(
         onItemAction,
         onItemClick,
         actionDisabled,
+        useDragHandle,
+        dragHandleListeners,
+        dragHandleAttributes,
     }: PreviewGalleryItemProps & AddionalItemProps) => {
         const itemActionHandle = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             event.stopPropagation();
@@ -167,7 +170,12 @@ export const PreviewGalleryItemBase = memo(
                         </StyledSelectButton>
                     )
                 ) : (
-                    <StyledIconDrag size="xs" color="inherit" />
+                    <StyledIconDrag
+                        size="xs"
+                        color="inherit"
+                        {...(useDragHandle ? dragHandleListeners : undefined)}
+                        {...(useDragHandle ? dragHandleAttributes : undefined)}
+                    />
                 )}
 
                 {caption && <StyledCaption>{caption}</StyledCaption>}
