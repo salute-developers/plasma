@@ -17,7 +17,6 @@ export const config = {
                 ${listTokens.listItemFocusColor}: var(--surface-accent);
                 ${listTokens.listBackground}: var(--surface-transparent-primary);
                 ${listTokens.listItemDividerColor}: var(--surface-transparent-primary);
-                ${listTokens.listItemDividerWidth}: 0.0625rem;
                 ${listTokens.listDisabledOpacity}: 0.4;
             `,
         },
@@ -36,6 +35,8 @@ export const config = {
                 ${listTokens.listItemBorderWidth}: 0rem;
                 ${listTokens.listItemGap}: 0.75rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
+
+                ${listTokens.listItemDividerHeight}: 0.0625rem;
 
                 ${listTokens.listItemFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${listTokens.listItemFontSize}: var(--plasma-typo-body-s-font-size);
@@ -58,6 +59,8 @@ export const config = {
                 ${listTokens.listItemBorderWidth}: 0rem;
                 ${listTokens.listItemGap}: 0.75rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
+
+                ${listTokens.listItemDividerHeight}: 0.0625rem;
 
                 ${listTokens.listItemFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${listTokens.listItemFontSize}: var(--plasma-typo-body-m-font-size);
