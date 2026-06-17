@@ -53,6 +53,7 @@ export * from './components/Select';
 export * from './components/Divider';
 export * from './components/Toolbar';
 export * from './components/Sheet';
+export * from './components/BottomSheet';
 export * from './components/Slider';
 export * from './components/Steps';
 export * from './components/Range';

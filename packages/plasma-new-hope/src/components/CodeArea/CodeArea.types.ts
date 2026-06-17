@@ -1,6 +1,6 @@
 import type { ReactNode, HTMLAttributes } from 'react';
 
-export type CodeAreaProps = {
+export interface CodeAreaProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
     /**
      * Код
      */
@@ -41,4 +41,4 @@ export type CodeAreaProps = {
      * Вид компонента
      */
     view?: string;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'children'>;
+}

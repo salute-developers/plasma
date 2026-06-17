@@ -32,6 +32,7 @@ export * from './Slider';
 export * from './Select';
 export * from './Combobox';
 export * from './Dropdown';
+export * from './BottomSheet';
 export * from './Popover';
 export * from './Dropzone';
 export * from './Progress';
