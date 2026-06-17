@@ -38,3 +38,39 @@ export const Default = () => (
     </>
 );
 ```
+
+## `withTextGradient`
+
+Добавляет поддержку градиентного текста для компонента. Работает с компонентами **Button**, **Badge**, **Chip**.
+
+Хок принимает три пропа:
+- `textGradient` — CSS-градиент для текста в нормальном состоянии
+- `textGradientHover` — CSS-градиент при наведении (необязательный, по умолчанию используется `textGradient`)
+- `textGradientActive` — CSS-градиент в активном состоянии (необязательный, по умолчанию используется `textGradient`)
+
+```tsx
+import React from 'react';
+import { withTextGradient, Button, Badge, Chip } from '@salutejs/plasma-b2c';
+
+const GradientButton = withTextGradient(Button);
+const GradientBadge = withTextGradient(Badge);
+const GradientChip = withTextGradient(Chip);
+
+export const Default = () => (
+    <>
+        <GradientButton
+            text="Button"
+            textGradient="linear-gradient(90deg, #E63946, #457B9D)"
+            textGradientHover="linear-gradient(90deg, #457B9D, #E63946)"
+        />
+        <GradientBadge
+            text="Badge"
+            textGradient="linear-gradient(90deg, #E63946, #457B9D)"
+        />
+        <GradientChip
+            text="Chip"
+            textGradient="linear-gradient(90deg, #E63946, #457B9D)"
+        />
+    </>
+);
+```

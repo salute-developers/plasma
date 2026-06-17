@@ -5,42 +5,6 @@ title: Хоки
 
 # Хоки
 
-## `withAutoFocus`
-
-Добавляет фокус при инициализации компонента.
-
-```tsx
-import React from 'react';
-import { Button, ButtonProps } from '@salutejs/plasma-core';
-import { withAutoFocus } from '@salutejs/plasma-web';
-
-const AutoFocusButton = withAutoFocus<ButtonProps>(Button);
-
-export const Default = () => {
-    return <AutoFocusButton autoFocus preventScroll={false} />;
-};
-```
-
-## `withSkeleton`
-
-Делает компонент скелетоном - у него заменяется фоновый цвет, добавляется градиент и текст становится на 100% прозрачным.
-Скелетон управляется параметром `skeleton`.
-
-```tsx
-import React from 'react';
-import { Button, ButtonProps } from '@salutejs/plasma-core';
-import { withSkeleton, WithSkeletonProps } from '@salutejs/plasma-web';
-
-const ButtonSkeleton = withSkeleton(Button);
-
-return const Default = () => (
-    <>
-        <ButtonSkeleton skeleton /> // Скелетон
-        <ButtonSkeleton /> // Кнопка
-    </>
-);
-```
-
 ## `withTextGradient`
 
 Добавляет поддержку градиентного текста для компонента. Работает с компонентами **Button**, **Badge**, **Chip**.
@@ -52,7 +16,7 @@ return const Default = () => (
 
 ```tsx
 import React from 'react';
-import { withTextGradient, Button, Badge, Chip } from '@salutejs/plasma-web';
+import { withTextGradient, Button, Badge, Chip } from '@salutejs/sdds-cs';
 
 const GradientButton = withTextGradient(Button);
 const GradientBadge = withTextGradient(Badge);
