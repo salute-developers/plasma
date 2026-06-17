@@ -1,0 +1,108 @@
+---
+id: bottomsheet
+title: BottomSheet
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# BottomSheet
+<Description name="BottomSheet" />
+<PropsTable name="BottomSheet" />
+
+## Использование
+
+`BottomSheet` — шторка с заголовком, изображением и кнопками, выезжающая снизу экрана.
+Открывается на высоту контента. Если контент не умещается на экране, шторка открывается
+частично и её можно растянуть перетаскиванием — при этом сверху автоматически появляется ручка.
+Закрыть шторку можно кнопкой закрытия, нажатием на оверлей или потянув вниз.
+
+```tsx live
+import React, { useState } from 'react';
+import { BottomSheet, Button } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+            <BottomSheet
+                title="Сохранить изменения?"
+                opened={opened}
+                onClose={() => setOpened(false)}
+                buttons={
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                        <Button stretching="filled" view="default">Сохранить</Button>
+                        <Button stretching="filled" view="secondary">Отменить</Button>
+                    </div>
+                }
+            >
+                <p>Изменения настроек ассистента будут применены сразу после сохранения.</p>
+            </BottomSheet>
+        </>
+    );
+}
+```
+
+## Прокручиваемый контент
+
+Если контент не умещается на экране, он становится прокручиваемым: заголовок и кнопки
+остаются закреплёнными, а при прокрутке у них появляются разделители. Ручкой шторку можно
+развернуть на всю высоту.
+
+```tsx live
+import React, { useState } from 'react';
+import { BottomSheet, Button, List, ListItem } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+            <BottomSheet
+                title="Источники"
+                opened={opened}
+                onClose={() => setOpened(false)}
+            >
+                <List style={{ maxHeight: '70dvh' }}>
+                    {[...Array(20)].map((_, i) => (
+                        <ListItem key={i}>
+                            Item {i + 1}
+                        </ListItem>
+                    ))}
+                </List>
+            </BottomSheet>
+        </>
+    );
+}
+```
+
+## С изображением
+
+Свойство `image` принимает ReactNode и показывает его баннером на всю ширину
+шторки. При наличии изображения кнопка закрытия размещается поверх него.
+
+```tsx live
+import React, { useState } from 'react';
+import { BottomSheet, Button } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+            <BottomSheet
+                title="Обновлённый ИИ-помощник"
+                opened={opened}
+                onClose={() => setOpened(false)}
+                image={<div style={{ background: 'linear-gradient(135deg, #d3f8e2, #b4a7f5)' }} />}
+                buttons={<Button stretching="filled" view="secondary">Хорошо</Button>}
+            >
+                <p>Быстрее, точнее, помнит важное для вас.</p>
+            </BottomSheet>
+        </>
+    );
+}
+```
