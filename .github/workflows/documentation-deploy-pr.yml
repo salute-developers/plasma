@@ -212,7 +212,7 @@ jobs:
     attache-comment:
         name: Attached comment
         needs: [ state, deploy-website, deploy-artifacts ]
-        if: ${{ always() && (contains(needs.deploy-website.result, 'success') || contains(needs.deploy-artifacts.result, 'success')) }}
+        if: ${{ always() && (needs.deploy-website.result == 'success' || needs.deploy-artifacts.result == 'success' || needs.deploy-artifacts.result == 'failure') }}
         runs-on: ubuntu-22.04
         steps:
             -   uses: actions/checkout@v4
@@ -224,12 +224,17 @@ jobs:
                 id: comment-link
                 uses: actions/github-script@v7
                 env:
-                    PACKAGES_DS: ${{ toJSON(fromJSON(needs.state.outputs.STATE).PACKAGES_DOCUMENTATIONS_RUN) }}
                     BASE_URL: ${{ vars.STAGE_STABLE_URL }}/pr/pr-${{ github.event.number }}
+                    INCLUDE_WEBSITE: ${{ needs.deploy-website.result == 'success' }}
                 with:
                     result-encoding: string
                     script: |
+                        const getDeployedPackages = require('./.github/get-deployed-packages.js');
                         const createLinks = require('./.github/create-links.js');
+
+                        const deployedPackages = await getDeployedPackages(github, context);
+
+                        process.env.DEPLOYED_PACKAGES = JSON.stringify(deployedPackages);
 
                         return createLinks();
 
