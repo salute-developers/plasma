@@ -25,10 +25,7 @@
     },
     "./types/*": "./types/*"
   },
-  "files": [
-    "dist",
-    "types"
-  ],
+  "files": ["dist", "types"],
   "publishConfig": {
     "access": "public"
   },
@@ -59,11 +56,7 @@
     "url": "git+https://github.com/salute-developers/plasma.git",
     "directory": "packages/plasma-new-hope"
   },
-  "keywords": [
-    "design-system",
-    "ui-kit",
-    "react"
-  ],
+  "keywords": ["design-system", "ui-kit", "react"],
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -139,10 +132,8 @@
     "react-hot-toast": "2.5.2",
     "react-number-format": "5.4.3",
     "react-popper": "2.3.0",
-    "react-syntax-highlighter": "16.1.1",
+    "react-syntax-highlighter": "15.6.6",
     "storeon": "3.1.5"
   },
-  "sideEffects": [
-    "*.css"
-  ]
+  "sideEffects": ["*.css"]
 }
