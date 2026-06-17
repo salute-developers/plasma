@@ -1,26 +1,26 @@
 ---
-id: codefield
-title: CodeField
+id: CodeInput
+title: CodeInput
 ---
 
 import { PropsTable, Description } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# CodeField
-Компонент `CodeField` используется для ввода OTP-кодов.
+# CodeInput
+Компонент `CodeInput` используется для ввода OTP-кодов в виде крупных символов с круговыми индикаторами.
 
-<Description name="CodeField" />
+<Description name="CodeInput" />
 
 ## Быстрый старт
 
 ```tsx live
 import React from 'react';
-import { CodeField } from '@salutejs/plasma-web';
+import { CodeInput } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
-        <CodeField
+        <CodeInput
             caption="Введите код из СМС"
             captionAlign="center"
         />
@@ -36,20 +36,25 @@ export function App() {
     <TabItem value="size" label="Size" default>
         ```tsx live
         import React from 'react';
-        import { CodeField } from '@salutejs/plasma-web';
+        import { CodeInput } from '@salutejs/{{ package }}';
 
         export function App() {
             return (
-                <div style={{ flexDirection: 'column', gap: '2rem' }}>
-                    <CodeField
+                <div style=\{{ flexDirection: 'column', gap: '2rem' }}>
+                    <CodeInput
                         size="l"
                         caption="Осталось попыток: 4"
                         captionAlign="center"
                     />
-                    <CodeField
+                    <CodeInput
                         size="m"
                         caption="Чтобы выслать вам код повторно подождите: 20 секунд"
                         captionAlign="left"
+                    />
+                    <CodeInput
+                        size="s"
+                        caption="Не передавайте никому код из СМС. Иначе ваш аккаунт могут взломать"
+                        captionAlign="center"
                     />
                 </div>
             );
@@ -59,13 +64,13 @@ export function App() {
     <TabItem value="width" label="Width">
         ```tsx live
         import React from 'react';
-        import { CodeField } from '@salutejs/plasma-web';
+        import { CodeInput } from '@salutejs/{{ package }}';
 
         export function App() {
             return (
                 <div>
-                    <CodeField
-                        width="25"
+                    <CodeInput
+                        width="30"
                         caption="Не передавайте никому код из СМС. Иначе ваш аккаунт могут взломать"
                         captionAlign="center"
                     />
@@ -76,29 +81,39 @@ export function App() {
     </TabItem>
 </Tabs>
 
-## Форма компонента и длина кода
+## Длина кода
 
-Форма компонента задается с помощью свойства `shape`, а длина кода с помощью `codeLength`:
+Длина кода задается с помощью свойства `codeLength`:
 
 ```tsx live
 import React from 'react';
-import { CodeField } from '@salutejs/plasma-web';
+import { CodeInput } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
-        <div style={{ flexDirection: 'column', gap: '2rem' }}>
-            <div style={{ display: 'flex', gap: '2rem' }}>
-                <CodeField shape="default" codeLength={4} />
-                <CodeField shape="segmented" codeLength={4} />
-            </div>
-            <div style={{ display: 'flex', gap: '2rem' }}>
-                <CodeField shape="default" codeLength={5} />
-                <CodeField shape="segmented" codeLength={5} />
-            </div>
-            <div style={{ display: 'flex', gap: '2rem' }}>
-                <CodeField shape="default" codeLength={6} />
-                <CodeField shape="segmented" codeLength={6} />
-            </div>
+        <div style=\{{ flexDirection: 'column', gap: '2rem' }}>
+            <CodeInput codeLength={4} />
+            <CodeInput codeLength={5} />
+            <CodeInput codeLength={6} />
+        </div>
+    );
+}
+```
+
+## Скрытый ввод
+
+Свойство `hidden` переводит компонент в режим скрытого ввода: вместо символов отображаются круговые индикаторы.
+Это удобно для ввода PIN-кодов и других секретных данных:
+
+```tsx live
+import React from 'react';
+import { CodeInput } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ flexDirection: 'column', gap: '2rem' }}>
+            <CodeInput caption="Обычный режим" captionAlign="center" />
+            <CodeInput hidden caption="Скрытый режим" captionAlign="center" />
         </div>
     );
 }
@@ -108,7 +123,7 @@ export function App() {
 
 За допустимые символы для ввода отвечает свойство `allowedSymbols`. Задается строкой или регулярным выражением.
 Библиотека экспортирует наиболее используемые вариации допустимых символов:
-`import { ONLY_DIGITS_PATTERN, ONLY_CHARS_PATTERN, ONLY_DIGITS_AND_CHARS_PATTERN } from '@salutejs/plasma-web';`
+`import { ONLY_DIGITS_PATTERN, ONLY_CHARS_PATTERN, ONLY_DIGITS_AND_CHARS_PATTERN } from '@salutejs/{{ package }}';`
 
 ## Поведение при вводе
 
@@ -119,14 +134,13 @@ export function App() {
     <TabItem value="itemErrorBehavior" label="itemErrorBehavior" default>
         ```tsx live
         import React from 'react';
-        import { CodeField } from '@salutejs/plasma-web';
+        import { CodeInput } from '@salutejs/{{ package }}';
 
         export function App() {
             return (
-                <div style={{ flexDirection: 'column', gap: '2rem' }}>
-                    <CodeField value="123" itemErrorBehavior="remove-symbol" />
-                    <CodeField value="123" itemErrorBehavior="keep" />
-                    <CodeField value="123" itemErrorBehavior="forbid-enter" />
+                <div style=\{{ flexDirection: 'column', gap: '2rem' }}>
+                    <CodeInput itemErrorBehavior="remove-symbol" />
+                    <CodeInput itemErrorBehavior="forbid-enter" />
                 </div>
             );
         }
@@ -135,7 +149,7 @@ export function App() {
     <TabItem value="codeErrorBehavior" label="codeErrorBehavior">
         ```tsx live
         import React, { useState, Dispatch, SetStateAction } from 'react';
-        import { CodeField } from '@salutejs/plasma-web';
+        import { CodeInput } from '@salutejs/{{ package }}';
 
         export function App() {
             const [disabledFirst, setDisabledFirst] = useState(false);
@@ -162,8 +176,8 @@ export function App() {
             }
 
             return (
-                <div style={{ flexDirection: 'column', gap: '2rem' }}>
-                    <CodeField
+                <div style=\{{ flexDirection: 'column', gap: '2rem' }}>
+                    <CodeInput
                         itemErrorBehavior="remove-symbol"
                         codeErrorBehavior="remove-code"
                         disabled={disabledFirst}
@@ -171,7 +185,7 @@ export function App() {
                         setIsError={setIsErrorFirst}
                         onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorFirst, setDisabledFirst)}
                     />
-                    <CodeField
+                    <CodeInput
                         itemErrorBehavior="remove-symbol"
                         codeErrorBehavior="keep"
                         disabled={disabledSecond}
@@ -193,17 +207,17 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { CodeField } from '@salutejs/plasma-web';
+import { CodeInput } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
-        <div style={{ flexDirection: 'column', gap: '2rem' }}>
-            <CodeField
+        <div style=\{{ flexDirection: 'column', gap: '2rem' }}>
+            <CodeInput
                 inputMode="numeric"
                 caption="Числовая клавиатура (по умолчанию)"
                 captionAlign="center"
             />
-            <CodeField
+            <CodeInput
                 inputMode="text"
                 caption="Текстовая клавиатура"
                 captionAlign="center"
@@ -229,4 +243,4 @@ export function App() {
 - затем следует OTP, перед которым стоит знак `#`
 
 ## Таблица свойств
-<PropsTable name="CodeField" />
+<PropsTable name="CodeInput" />
