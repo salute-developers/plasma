@@ -48,7 +48,7 @@ export function App() {
 ## Примеры
 
 ### Размер кнопки
-Размер кнопки задается с помощью свойства `size`. Возможные значения свойства: `"s"`:
+Размер кнопки задается с помощью свойства `size`:
 
 ```tsx live
 import React from 'react';
@@ -56,8 +56,9 @@ import { Button } from '@salutejs/sdds-cs';
 
 export function App() {
     return (
-        <div>
+        <div style={{ display: "flex", gap: "1rem" }}>
             <Button text="Button" size="s" />
+            <Button text="Button" size="m" />
         </div>
     );
 }
