@@ -399,7 +399,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);

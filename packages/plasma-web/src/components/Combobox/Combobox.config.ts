@@ -277,7 +277,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -399,7 +399,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -521,7 +521,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -643,7 +643,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
