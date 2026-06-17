@@ -78,3 +78,5 @@ export * from './components/InformationWrapper';
 export * from './mixins';
 export * from './tokens';
 export * from './types';
+
+export * from './hocs';

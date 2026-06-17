@@ -69,3 +69,5 @@ export * from './components/Typography';
 // Others
 export * from './mixins';
 export * from './types';
+
+export * from './hocs';

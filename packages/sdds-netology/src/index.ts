@@ -82,3 +82,5 @@ export * from './components/TextFieldSlider';
 export * from './mixins';
 export * from './tokens';
 export * from './types';
+
+export * from './hocs';
